@@ -6,7 +6,7 @@
 Изображения продуктов доступны под <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.
 Они могут содержать графические элементы, на которые распространяются авторские или иные права, которые в некоторых случаях могут быть растиражированы (права на цитирование или добросовестное использование).</p>
 
-<p>Пожалуйста, прочитайте <a href="https://world.openfoodfacts.org/terms-of-use">Условия использования и повторного использования</a> перед повторным использованием данных.</p> 
+<p>Пожалуйста, прочитайте <a href="https://world.openfoodfacts.org/terms-of-use">Условия использования и повторного использования</a> перед повторным использованием данных.</p>
 
 
 <p>Мы очень заинтересованы в изучении целей использования данных Open Food Facts. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
@@ -14,7 +14,9 @@ with the Open Food Facts community.</p>
 
 <h2>Экспорт данных Open Food Facts</h2>
 
-<p>Дампы базы данных и экспорт генерируются каждую ночь.</p>
+<p>Дампы базы данных и экспорт генерируются каждую ночь. The database is very big, so you can find 
+  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
+  depending on the export flavor.</p>
 
 <p>Информация о различных полях для дампа MongoDB и экспорта CSV доступна по адресу <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
 
@@ -41,12 +43,25 @@ with the Open Food Facts community.</p>
  (после извлечения) с помощью <code>mongoimport</code> в алфавитном порядке.</p>
 <p>Обратите внимание, что из-за природы <code>mongoexport</code>, дельта-файлы не смогут рассказать вам об удаленных продуктах. Чтобы убрать
  удаленные товары из вашей базы данных, вам необходимо импортировать полный дамп MongoDB.</p>
- 
+
+
 <h3>Экспорт данных CSV</h3>
+
+<p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
+  It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
+
+<dl>
+ <dt>Ссылка</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">URL для чтения данных о продукте: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</a>
+ </dd>
+</dl>
+
+
+<h3>Экспорт данных RDF</h3>
 
 <p>Данные для всех продуктов или некоторых продуктов можно загрузить в формате CSV (для чтения с помощью OpenOffice, Excel и многих других программ)
  через <a href="https://world.openfoodfacts.org/cgi/search.pl">форму расширенного поиска</a>.</p>
- 
+
 <dl>
  <dt>Ссылка</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
@@ -56,12 +71,12 @@ with the Open Food Facts community.</p>
 
 
 
-<h3>Экспорт данных RDF</h3>
+<h3>RDF Data Export</h3>
 
 <p>База данных также доступна в формате RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">объявление на французском</a>.</p>
 
 <dl>
- <dt>Ссылка</dt>
+ <dt>Link</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
@@ -71,11 +86,11 @@ with the Open Food Facts community.</p>
 
 <p>We change the API over-time but we are careful to keep backwards compatibility. Пожалуйста, сообщите нам, если вы используете его, чтобы мы могли рассказать вам о возможных изменениях.</p>
 
-<p>URL для чтения данных о продукте: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
-
 <p>Например: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
-Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
+<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE).
 A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
 <p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
