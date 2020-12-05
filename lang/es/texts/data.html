@@ -14,7 +14,9 @@ con la comunidad de Open Food Facts.</p>
 
 <h2>Exportación de datos de Open Food Facts</h2>
 
-<p>Los volcados de bases de datos y las exportaciones se generan todas las noches.</p>
+<p>Los volcados de bases de datos y las exportaciones se generan todas las noches. The database is very big, so you can find 
+  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
+  depending on the export flavor.</p>
 
 <p>La información sobre los diferentes campos para el volcado de MongoDB y las exportaciones de CSV está disponible en <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
 
@@ -40,7 +42,20 @@ con la comunidad de Open Food Facts.</p>
 <p>Tenga en cuenta que debido a la naturaleza de <code>mongoexport</code> , los archivos delta no pueden informarle sobre productos eliminados. Para borrar
  productos eliminados de su base de datos, deberá importar el volcado completo de MongoDB.</p>
 
+
 <h3>Exportar datos en formato CSV</h3>
+
+<p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
+  It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
+
+<dl>
+ <dt>Enlace</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">URL para leer los datos de un producto: https://world.openfoodfacts.org/api/v0/product<i>[barcode]</i>.json</a>
+ </dd>
+</dl>
+
+
+<h3>Exportar datos en formato RDF</h3>
 
 <p>Los datos para todos los productos, o algunos de los productos, pueden ser descargados en formato CSV (legibles con OpenOffice, Excel y muchos otros programas)
  a través del <a href="https://world.openfoodfacts.org/cgi/search.pl">formulario de búsqueda avanzada</a>.</p>
@@ -54,12 +69,12 @@ con la comunidad de Open Food Facts.</p>
 
 
 
-<h3>Exportar datos en formato RDF</h3>
+<h3>RDF Data Export</h3>
 
 <p>La base de datos también está disponible en formato RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">Anuncio en francés</a>.</p>
 
 <dl>
- <dt>Enlace</dt>
+ <dt>Link</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
@@ -69,30 +84,30 @@ con la comunidad de Open Food Facts.</p>
 
 <p>Cambiamos la API con el tiempo, pero tenemos cuidado de mantener la compatibilidad con versiones anteriores. Díganos si la usa, para que podamos informarle sobre posibles cambios.</p>
 
-<p>URL para leer los datos de un producto: https://world.openfoodfacts.org/api/v0/product<i>[barcode]</i>.json</p>
-
 <p>Ejemplo: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<p>Example: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
 
 Documentación adicional esta <a href="https://wiki.openfoodfacts.org/API">disponible en el Wiki</a>. (Nota importante: la página está dividida en subpáginas para LEER y ESCRIBIR).
 Se está desarrollando una mejor documentación, con casos de uso para mostrar un producto, y permitir a sus usuarios agregar los datos necesarios para obtener el Nutri-Score, los grupos NOVA y los aditivos.
 <a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro"> Puedes acceder aquí </a>.
 <p>Te invitamos a utilizar la API para casos de producción, siempre que 1 llamada de API = 1 exploración real por parte de un usuario.
 Cualquier intento de eliminar la base de datos usando la API será muy probablemente bloqueado, ya que todas las exportaciones diarias están disponibles en esta misma página.</p>
-<p>Además, enviar un encabezado HTTP con tu llamada API es una buena manera de ponernos en contacto, si surge cualquier problema.</p>
 <p>Si no estás seguro de nada, o tienes alguna pregunta (no hay ninguna pregunta tonta), siéntete libre de hacerla en Slack :-)</p>
+<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
 
 <h2>Aplicación móvil para Android e iPhone</h2>
 
 <p>El código para la aplicación móvil Open Food Facts está disponible en GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp"> Android </a> e <a href="https://github.com/openfoodfacts/openfoodfacts-ios"> iOS </a> ).
 La aplicación permite a los usuarios escanear el código de barras de los productos, ver la información del producto y tomar y enviar imágenes y datos de productos faltantes.</p>
 
-<p>La aplicación para iOS está desarrollada en Swift.</p>
 <p>La aplicación para Android está desarrollada en Java.</p>
+<p>The app for Android is developed in Java.</p>
 <p>Te invitamos a reutilizar el código (es código abierto) y ayudarnos a mejorarlo, para todos, en todo el planeta.
 
 <h2>Wrappers y SDKs</h2>
 <p>Probablemente tengamos un contenedor para su lenguaje de programación favorito. Si lo hacemos, puedes utilizarlo y mejorarlo. Si no, puedes ayudar a crearlo.</p>
-<p>Le permitirán consumir datos, así como a sus usuarios contribuir con nuevos datos</p>
+<p>También puedes <a href="https://slack.openfoodfacts.org">unirte al Slack de Open Food Facts, que es la forma preferida de hacer preguntas y discutir la API</a>.</p>
 <ul>
 <li>Cordoba: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (antigua aplicación oficial de Open Food Facts)</a></li>
 <li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
@@ -107,7 +122,7 @@ La aplicación permite a los usuarios escanear el código de barras de los produ
 </ul>
 
 <h2>Discusión de datos, API y exportaciones</h2>
-<p>También puedes <a href="https://slack.openfoodfacts.org">unirte al Slack de Open Food Facts, que es la forma preferida de hacer preguntas y discutir la API</a>.</p>
+<p>Para cualquier pregunta relacionada con los datos puede contactar con nosotros en <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a></p>
 
 <p>También puede unirse a la lista de correo para discutir la API y las exportaciones, informarnos sobre sus reutilizaciones y recibir notificaciones cuando se realicen mejoras o cambios en la API. Envía un correo electrónico vacío a
 <a href="mailto:api-subscribe@openfoodfacts.org"> api-subscribe@openfoodfacts.org </a> para suscribirte.</p>
@@ -115,4 +130,4 @@ La aplicación permite a los usuarios escanear el código de barras de los produ
 
 <h2>Contacto</h2>
 
-<p>Para cualquier pregunta relacionada con los datos puede contactar con nosotros en <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
+<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>
