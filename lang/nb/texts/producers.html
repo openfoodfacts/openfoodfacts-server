@@ -9,14 +9,14 @@
 <p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
 
 <ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#introduction">Introduksjon</a></li>
 <li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add your product data to Open Food Facts</a></li>
 <ul>
 <li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</a></li>
 </ul>
 <li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add data for your products in Open Food Facts</a></li>
 <ul>
-<li><a href="#licence">Licence</a></li>
+<li><a href="#licence">Lisens</a></li>
 <li><a href="#quelles_donnees">What data ?</a></li>
 <ul>
 <li><a href="#une_base_dans_toutes_les_langues">A database in all languages</a></li>
@@ -25,20 +25,20 @@
 <li><a href="#ajout_manuel">Manual addition</a></li>
 <li><a href="#ajout_automatise">Automated addition</a></li>
 <ul>
-<li><a href="#format_des_images">Picture format</a></li>
+<li><a href="#format_des_images">Bildeformat</a></li>
 <ul>
 <li><a href="#format_des_fichiers_images">Format of image files</a></li>
 <li><a href="#nom_des_fichiers_images">Name of the image files</a></li>
 </ul>
-<li><a href="#format_des_donnees">Data format</a></li>
+<li><a href="#format_des_donnees">Dataformat</a></li>
 <ul>
-<li><a href="#champs_obligatoires">Required fields</a></li>
-<li><a href="#champs_optionnels">Optional fields</a></li>
+<li><a href="#champs_obligatoires">Påkrevde felt</a></li>
+<li><a href="#champs_optionnels">Valgfrie felt</a></li>
 </ul>
 <li><a href="#envoi_des_photos_et_des_donnees">Sending photos and data</a></li>
 </ul>
 </ul>
-<li><a href="#questions_frequentes">Frequently Asked Questions</a></li>
+<li><a href="#questions_frequentes">Ofte stilte spørsmål</a></li>
 <ul>
 <li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
 <li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
@@ -47,7 +47,7 @@
 </ul>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Introduksjon</h2>
 
 <p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
 <ul>
@@ -73,7 +73,7 @@
 
 <h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add the data of your products in Open Food Facts</h2>
 
-<h3 id="licence">Licence</h3>
+<h3 id="licence">Lisens</h3>
   
 <p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
   
@@ -102,7 +102,7 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 <h3 id="ajout_automatise">Automated addition</h3>
 
 To make importing data easier and faster, we have defined a standard format for images and data:
-<h4 id="format_des_images">Picture format</h4>
+<h4 id="format_des_images">Bildeformat</h4>
 
 <p>At least 3 images are required:</p>
 <ul>
@@ -123,7 +123,7 @@ To make importing data easier and faster, we have defined a standard format for 
   
 <h5 id="format_des_fichiers_images">Format of image files</h5>
 <ul>
-  <li>JPEG or PNG format</li>
+  <li>JPEG- eller PNG-format</li>
   <li>Size at least 2000 pixels wide or tall</li>
 </ul>
 
@@ -148,13 +148,13 @@ To make importing data easier and faster, we have defined a standard format for 
 </ul>
   
 
-<h4 id="format_des_donnees">Data format</h4>
+<h4 id="format_des_donnees">Dataformat</h4>
 
 <p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
 <p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
 <p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
-  <h5 id="champs_obligatoires">Required fields</h5>
+  <h5 id="champs_obligatoires">Påkrevde felt</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
@@ -195,7 +195,7 @@ To make importing data easier and faster, we have defined a standard format for 
     <!-- Do not translate nutrient field names -->
   </ul>
   
-  <h5 id="champs_optionnels">Optional fields</h5>
+  <h5 id="champs_optionnels">Valgfrie felt</h5>
 
   <ul>
     <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
