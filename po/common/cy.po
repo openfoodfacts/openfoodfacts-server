@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cy\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 11:07\n"
+"PO-Revision-Date: 2020-12-06 00:42\n"
 "Language-Team: Welsh\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -48,7 +48,7 @@ msgstr "Cofrestru"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "Cofrestru"
+msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -72,10 +72,6 @@ msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
 msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
@@ -191,11 +187,11 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Sylweddau neu gynhyrchion sy'n achosi alergeddau neu anoddefiadau"
+msgstr ""
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "alergenau"
+msgstr ""
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -260,7 +256,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Côd bar"
+msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -280,7 +276,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Brandiau"
+msgstr ""
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -320,7 +316,7 @@ msgstr "gan"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Categorïau"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -340,7 +336,7 @@ msgstr "Cynhyrchion o'r gategori %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "categori"
+msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -995,11 +991,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Cynhwysion"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Cynhwysion"
+msgstr ""
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -1275,7 +1271,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Ychwanegu cynnyrch"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -2117,7 +2113,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Cynhwysion"
+msgstr ""
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -3318,7 +3314,7 @@ msgstr ""
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr "Cynhwysion"
+msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
@@ -3894,7 +3890,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Dietary fiber"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4099,26 +4095,6 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
 msgstr ""
 
 msgctxt "scanned_code"
@@ -4404,6 +4380,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4426,6 +4406,10 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
 msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
@@ -4514,14 +4498,6 @@ msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr ""
 
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr ""
-
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
 msgstr ""
@@ -4592,7 +4568,7 @@ msgstr ""
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
-msgstr "Ychwanegion"
+msgstr ""
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
@@ -4834,7 +4810,7 @@ msgstr ""
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
-msgstr "Cynhwysion"
+msgstr ""
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
@@ -4900,5 +4876,122 @@ msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr ""
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr ""
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr ""
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr ""
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr ""
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr ""
+
+msgctxt "type"
+msgid "Type"
+msgstr ""
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr ""
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr ""
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr ""
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr ""
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr ""
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr ""
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr ""
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr ""
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr ""
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
 msgstr ""
 
