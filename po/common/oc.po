@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: oc\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 11:55\n"
+"PO-Revision-Date: 2020-12-06 01:02\n"
 "Language-Team: Occitan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -48,7 +48,7 @@ msgstr "S'inscriure"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "S'inscriure"
+msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -72,10 +72,6 @@ msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
 msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
@@ -259,7 +255,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Còdi de barras"
+msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -319,7 +315,7 @@ msgstr "per"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Categorias"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -339,7 +335,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "categoria"
+msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -351,7 +347,7 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "Donadas"
+msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -427,7 +423,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "País"
+msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -467,7 +463,7 @@ msgstr "desbugatge"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "desbugatge"
+msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -829,7 +825,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Condicions d'utilizacion"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -873,7 +869,7 @@ msgstr "Produit"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Nom comun"
+msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1119,7 +1115,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "etiqueta"
+msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1283,7 +1279,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Contribuir"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1341,7 +1337,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "names"
 msgid "Names"
@@ -1438,11 +1434,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1514,7 +1510,7 @@ msgstr "Escart-tipe"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1635,7 +1631,7 @@ msgstr "Paginas :"
 
 msgctxt "password"
 msgid "Password"
-msgstr "Senhal"
+msgstr ""
 
 msgctxt "password_new"
 msgid "New password"
@@ -1919,7 +1915,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "Quantitat"
+msgstr ""
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -1995,7 +1991,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr "Enregistrar"
+msgstr ""
 
 msgctxt "saved"
 msgid "Saved."
@@ -2007,15 +2003,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr "Recercar"
+msgstr ""
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr "Recercar un produch"
+msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "Recercar"
+msgstr ""
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2252,11 +2248,11 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "País"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr "Lenga"
+msgstr ""
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2292,7 +2288,7 @@ msgstr ""
 
 msgctxt "share"
 msgid "Share"
-msgstr "Partejar"
+msgstr ""
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2316,11 +2312,11 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr "Triar per"
+msgstr ""
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2408,7 +2404,7 @@ msgstr "Recercar :"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "Traças"
+msgstr ""
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2420,7 +2416,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "traças"
+msgstr ""
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2675,7 +2671,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3001,7 +2997,7 @@ msgstr ""
 
 msgctxt "warning"
 msgid "Warning"
-msgstr "Avertiment"
+msgstr ""
 
 msgctxt "preparation"
 msgid "Preparation"
@@ -3201,11 +3197,11 @@ msgstr ""
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr "Òc"
+msgstr ""
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr "Non"
+msgstr ""
 
 msgctxt "button_caption_skip"
 msgid "Skip"
@@ -3321,7 +3317,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3873,7 +3869,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
-msgstr "Sucres"
+msgstr ""
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
@@ -3885,7 +3881,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr "Sòdi"
+msgstr ""
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -3893,15 +3889,15 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Fibra alimentària"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Proteïna"
+msgstr ""
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr "valor"
+msgstr ""
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -4098,26 +4094,6 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
 msgstr ""
 
 msgctxt "scanned_code"
@@ -4403,6 +4379,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4425,6 +4405,10 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
 msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
@@ -4511,14 +4495,6 @@ msgstr ""
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
 msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
@@ -4741,7 +4717,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4769,7 +4745,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "contact_address"
 msgid "Address"
@@ -4899,5 +4875,122 @@ msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr ""
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr ""
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr ""
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr ""
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr ""
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr ""
+
+msgctxt "type"
+msgid "Type"
+msgstr ""
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr ""
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr ""
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr ""
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr ""
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr ""
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr ""
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr ""
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr ""
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr ""
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
 msgstr ""
 
