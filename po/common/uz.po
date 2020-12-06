@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 11:50\n"
+"PO-Revision-Date: 2020-12-06 00:45\n"
 "Language-Team: Uzbek\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -48,7 +48,7 @@ msgstr "Roʻyxatdan oʻtish"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "Roʻyxatdan oʻtish"
+msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -72,10 +72,6 @@ msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
 msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
@@ -205,11 +201,11 @@ msgstr "Barcha topshiriqlar"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Allergiya va noqulay holatlarni vujudga keltiruvchi moddalar yoki mahsulotlar"
+msgstr ""
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "allergenlar"
+msgstr ""
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -230,7 +226,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -239,12 +235,12 @@ msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr "Google Playda mavjud"
+msgstr ""
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -274,7 +270,7 @@ msgstr "Vertikal oʻq"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Shtrix kod"
+msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -294,7 +290,7 @@ msgstr "Bizning ishimizni qoʻllab-quvvatlash uchun xayriya qilish"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Brendlar"
+msgstr ""
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -310,7 +306,7 @@ msgstr "%s brend mahsulotlari"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "brend"
+msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -334,7 +330,7 @@ msgstr "tomonidan"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Toifalar"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -354,7 +350,7 @@ msgstr "%s toifadagi mahsulotlar"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "toifa"
+msgstr ""
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -366,7 +362,7 @@ msgstr "Mahsulotlar %s toifadan emas"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr "Maʻlumot"
+msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -442,7 +438,7 @@ msgstr "tuzatuvchi"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Savdo qiluvchi shaharlar"
+msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -482,7 +478,7 @@ msgstr "tuzatish"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "tuzatish"
+msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -542,7 +538,7 @@ msgstr "Umumiy oʻzgarishlar haqida maʼlumot"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "Mahsulotni tahrirlash"
+msgstr ""
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -570,11 +566,11 @@ msgstr "Profil parametrlari"
 
 msgctxt "edit_user_display"
 msgid "Account parameters"
-msgstr "Profil parametrlari"
+msgstr ""
 
 msgctxt "edit_user_process"
 msgid "Account parameters"
-msgstr "Profil parametrlari"
+msgstr ""
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
@@ -764,7 +760,7 @@ msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "Odob-ahloq qoidalari"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -912,7 +908,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Assalaom"
+msgstr ""
 
 msgctxt "high"
 msgid "high"
@@ -1216,7 +1212,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Kirish"
+msgstr ""
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1289,7 +1285,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Mahsulot qoʻshish"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1918,7 +1914,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Mahsulotlar %s da sotiladi"
+msgstr ""
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1930,7 +1926,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Mahsulot %s mamlakatda sotilmaydi"
+msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2022,7 +2018,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr "Qidirish"
+msgstr ""
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2030,7 +2026,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "Qidirish"
+msgstr ""
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2167,7 +2163,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Ozuqaviy birikmalari"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
@@ -2303,7 +2299,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Kirish"
+msgstr ""
 
 msgctxt "share"
 msgid "Share"
@@ -2323,7 +2319,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Chiqish"
+msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -3828,7 +3824,7 @@ msgstr ""
 
 msgctxt "close"
 msgid "Close"
-msgstr "Yopish"
+msgstr ""
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -3908,7 +3904,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr "Dietary fiber"
+msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4113,26 +4109,6 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr ""
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr ""
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr ""
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
-
-msgctxt "add_tag_field"
-msgid "Add a field"
 msgstr ""
 
 msgctxt "scanned_code"
@@ -4418,6 +4394,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr ""
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4440,6 +4420,10 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
+msgstr ""
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
 msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
@@ -4526,14 +4510,6 @@ msgstr ""
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
 msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
@@ -4796,7 +4772,7 @@ msgstr ""
 
 msgctxt "contact_email"
 msgid "e-mail address"
-msgstr "elektron pochta manzili"
+msgstr ""
 
 msgctxt "contact_link"
 msgid "Contact form link"
@@ -4914,5 +4890,122 @@ msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr ""
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr ""
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr ""
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr ""
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr ""
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr ""
+
+msgctxt "type"
+msgid "Type"
+msgstr ""
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr ""
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr ""
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr ""
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr ""
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr ""
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr ""
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr ""
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr ""
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr ""
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
 msgstr ""
 
