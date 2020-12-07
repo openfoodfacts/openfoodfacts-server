@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 13:02\n"
+"PO-Revision-Date: 2020-12-07 09:26\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -73,10 +73,6 @@ msgstr "crwdns140670:0%scrwdne140670:0"
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "crwdns140672:0crwdne140672:0"
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "crwdns140674:0crwdne140674:0"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -2621,33 +2617,13 @@ msgctxt "delete_user"
 msgid "Delete the user"
 msgstr "crwdns141910:0crwdne141910:0"
 
-msgctxt "sources_openfood_ch"
-msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "crwdns141912:0crwdne141912:0"
-
-msgctxt "sources_openfood_ch_product_page"
-msgid "Product page on openfood.ch"
-msgstr "crwdns141914:0crwdne141914:0"
-
-msgctxt "sources_usda_ndb"
-msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr "crwdns141916:0crwdne141916:0"
-
-msgctxt "sources_usda_ndb_product_page"
-msgid "Product page on USDA NDB"
-msgstr "crwdns141918:0crwdne141918:0"
-
-msgctxt "sources_fleurymichon"
-msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "crwdns141920:0crwdne141920:0"
-
 msgctxt "sources_manufacturer"
-msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "crwdns141922:0%scrwdne141922:0"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s."
+msgstr "crwdns154140:0%scrwdne154140:0"
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr "crwdns141924:0%scrwdne141924:0"
+msgctxt "list_of_sources"
+msgid "Some of the data and/or photos for this product come from those sources:"
+msgstr "crwdns154142:0crwdne154142:0"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -4120,26 +4096,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "crwdns142642:0crwdne142642:0"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "crwdns142644:0crwdne142644:0"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "crwdns142646:0crwdne142646:0"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "crwdns142648:0crwdne142648:0"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "crwdns142650:0crwdne142650:0"
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "crwdns142652:0crwdne142652:0"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "crwdns142654:0crwdne142654:0"
@@ -4403,6 +4359,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "crwdns152714:0crwdne152714:0"
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "crwdns153806:0crwdne153806:0"
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr "crwdns152962:0crwdne152962:0"
@@ -4426,6 +4386,10 @@ msgstr "crwdns152722:0crwdne152722:0"
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "crwdns152724:0crwdne152724:0"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "crwdns153808:0crwdne153808:0"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4512,14 +4476,6 @@ msgstr "crwdns152788:0crwdne152788:0"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "crwdns152752:0%scrwdne152752:0"
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr "crwdns152984:0crwdne152984:0"
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr "crwdns152986:0crwdne152986:0"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4900,4 +4856,158 @@ msgstr "crwdns153018:0crwdne153018:0"
 msgctxt "ecoscore_s"
 msgid "ecoscore"
 msgstr "crwdns153020:0crwdne153020:0"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr "crwdns153810:0crwdne153810:0"
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr "crwdns153812:0crwdne153812:0"
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr "crwdns153814:0crwdne153814:0"
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr "crwdns153816:0crwdne153816:0"
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr "crwdns153818:0crwdne153818:0"
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr "crwdns153820:0crwdne153820:0"
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr "crwdns153940:0crwdne153940:0"
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr "crwdns153824:0crwdne153824:0"
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr "crwdns153826:0crwdne153826:0"
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr "crwdns153828:0crwdne153828:0"
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr "crwdns153942:0crwdne153942:0"
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr "crwdns153944:0crwdne153944:0"
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr "crwdns153946:0crwdne153946:0"
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr "crwdns153948:0crwdne153948:0"
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr "crwdns153950:0crwdne153950:0"
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr "crwdns154068:0crwdne154068:0"
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr "crwdns154070:0crwdne154070:0"
+
+msgctxt "type"
+msgid "Type"
+msgstr "crwdns154072:0crwdne154072:0"
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr "crwdns154074:0crwdne154074:0"
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr "crwdns154076:0crwdne154076:0"
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr "crwdns154078:0crwdne154078:0"
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr "crwdns154080:0crwdne154080:0"
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr "crwdns154082:0crwdne154082:0"
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr "crwdns154084:0crwdne154084:0"
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr "crwdns154086:0crwdne154086:0"
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr "crwdns154088:0crwdne154088:0"
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr "crwdns154090:0crwdne154090:0"
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr "crwdns154092:0crwdne154092:0"
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
+msgstr "crwdns154094:0crwdne154094:0"
+
+msgctxt "you_are_on_the_public_database"
+msgid "You are on the public database."
+msgstr "crwdns154144:0crwdne154144:0"
+
+msgctxt "manage_your_products_on_the_producers_platform"
+msgid "Manage your products on the platform for producers"
+msgstr "crwdns154146:0crwdne154146:0"
+
+msgctxt "number_of_products_with_changes_since_last_export"
+msgid "Number of products with changes since last export"
+msgstr "crwdns154148:0crwdne154148:0"
+
+msgctxt "only_export_products_with_changes"
+msgid "Only export products with changes"
+msgstr "crwdns154150:0crwdne154150:0"
+
+msgctxt "product_edits_by_producers"
+msgid "Is this your product? If it is, please use our free platform for producers to update it."
+msgstr "crwdns154152:0crwdne154152:0"
+
+msgctxt "product_edits_by_producers_platform"
+msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+msgstr "crwdns154154:0crwdne154154:0"
+
+msgctxt "product_edits_by_producers_import"
+msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+msgstr "crwdns154156:0crwdne154156:0"
+
+msgctxt "product_edits_by_producers_analysis"
+msgid "The platform also provides in-depth analysis of the products."
+msgstr "crwdns154158:0crwdne154158:0"
+
+# It = the platform
+msgctxt "product_edits_by_producers_indicators"
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "crwdns154160:0crwdne154160:0"
 
