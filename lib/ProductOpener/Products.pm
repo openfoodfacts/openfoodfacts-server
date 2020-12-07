@@ -806,7 +806,7 @@ sub change_product_server_or_code($$$) {
 
 	$new_code = normalize_code($new_code);
 	if ($new_code !~ /^\d{4,24}$/) {
-		display_error($Lang{invalid_barcode}{$lang}, 403);
+		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
 	# check that the new code is available
@@ -1290,15 +1290,30 @@ sub compute_completeness_and_missing_tags($$$) {
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 3.0);
-		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
-		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
-		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
-
-		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
+		my $image_step = $half_step * (1.0 / 4.0);
+		
+		my $images_completeness = 0;
+		
+		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		
+			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
+				$images_completeness += $image_step;
+				push @states_tags, "en:" . $imagetype . "-photo-selected";
+			}
+			else {
+				if (($imagetype eq "nutrition")
+					and (defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+					$images_completeness += $image_step;
+				}
+				else {
+					push @states_tags, "en:" . $imagetype . "-photo-to-be-selected";
+				}
+			}
+		}
+		
+		$completeness += $images_completeness;
+		
+		if ($images_completeness == $half_step) {
 			push @states_tags, "en:photos-validated";
 
 		}
@@ -1392,6 +1407,16 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	else {
 		delete $product_ref->{empty};
+	}
+	
+	# On the producers platform, keep track of which products have changes to be exported
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if ((defined $product_ref->{last_exported_t}) and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t})) {
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+		}
 	}
 
 	$product_ref->{complete} = $complete;
@@ -2322,7 +2347,7 @@ sub compute_languages($) {
 
 	foreach my $field (keys %{$product_ref}) {
 
-		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
 			if (defined $language_codes{$language_code}) {

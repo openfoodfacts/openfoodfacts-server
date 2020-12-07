@@ -68,6 +68,7 @@ BEGIN
 
 		&import_csv_file_task
 		&export_csv_file_task
+		&update_export_status_for_csv_file_task
 		&import_products_categories_from_public_database_task
 
 		);    # symbols to export on request
@@ -503,6 +504,7 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 	nova_group_producer => ["nova"],
+	obsolete => ["The product is no longer sold", "Product is no longer sold."],
 },
 
 es => {
@@ -537,6 +539,7 @@ fr => {
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
+	obsolete => ["Le produit n'est plus en vente."],
 },
 
 );
@@ -620,7 +623,9 @@ sub init_fields_columns_names_for_lang($) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
 
-	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	if (! -e "$data_root/debug") {
+		mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	}
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
@@ -803,7 +808,7 @@ sub init_other_fields_columns_names_for_lang($) {
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
 					if ($field =~ /image_(front|ingredients|nutrition)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
@@ -812,7 +817,7 @@ sub init_other_fields_columns_names_for_lang($) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 					}
 					elsif ($field =~ /image_(other)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field };
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field};
 					}
@@ -926,6 +931,9 @@ sub init_other_fields_columns_names_for_lang($) {
 			}
 		}
 	}
+	
+	# lc field uses translations for "lang"
+	$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{lang}{$l})} = {field => "lc" };
 
 	return;
 }
@@ -1340,6 +1348,7 @@ sub export_and_import_to_public_database($) {
 	$args_ref->{export_id}            = $export_id;
 	$args_ref->{comment}              = "Import from producers platform";
 	$args_ref->{include_images_paths} = 1;                                  # Export file paths to images
+	$args_ref->{exported_t}	= $started_t;
 
 
 	if (defined $Org_id) {
@@ -1372,17 +1381,27 @@ sub export_and_import_to_public_database($) {
 	else {
 		$args_ref->{no_source} = 1;
 	}
+	
+	# Local export
 
 	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_local_queue}});
 
 	$args_ref->{export_job_id} = $local_export_job_id;
 
+	# Remote import
+	
 	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+		
+	# Local export status update
+	
+	my $local_export_status_job_id = $minion->enqueue(update_export_status_for_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+	$exports_ref->{$export_id}{local_export_status_job_id} = $local_export_status_job_id;
 
 	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
 	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
@@ -1394,6 +1413,7 @@ sub export_and_import_to_public_database($) {
 			exported_file => $exported_file,
 			local_export_job_id => $local_export_job_id,
 			remote_import_job_id => $remote_import_job_id,
+			local_export_status_job_id => $local_export_status_job_id,
 	};
 }
 
@@ -1508,6 +1528,35 @@ sub import_products_categories_from_public_database_task() {
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
 	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
+	close($log);
+
+	$job->finish("done");
+
+	return;
+}
+
+
+sub update_export_status_for_csv_file_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	ProductOpener::Import::update_export_status_for_csv_file($args_ref);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "update_export_status_file_task - job: $job_id done\n";
 	close($log);
 
 	$job->finish("done");

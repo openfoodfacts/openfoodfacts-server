@@ -1,9 +1,11 @@
 # Please note: English needs to be first.
 
+# For labels that indicate the absence of something, in English, always make "No something" the first entry, and make "Something-free", "Without something" synonyms
+
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua
-stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issus, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
+stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:sv:certifierad, ingrediens, godkänd, råvara, enlighet, med, kriterierna, produkt
@@ -501,6 +503,8 @@ label_categories:en: en:Social responsibility
 fr:Entreprise du Patrimoine Vivant, EPV
 wikidata:en:Q3214304
 
+############################# FAIR TRADE ######################
+
 en:Fair trade
 ca:Comerç Just
 de:Fairer Handel
@@ -520,6 +524,7 @@ description:de:Als Fairer Handel (englisch fair trade) wird ein kontrollierter H
 description:es:El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
 description:fr:Le commerce équitable est un système d'échange dont l'objectif est de proposer une plus grande équité dans le commerce conventionnel, voire une alternative à celui-ci, basée notamment sur la réappropriation des échanges marchands par ceux qui les pratiquent.
 description:nl:Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
+#auth_url:en:http://www.fairtrade.net
 
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
@@ -536,9 +541,12 @@ fr:Fairtrade International, Fairtrade, FLO international, FLO
 it:Commercio Equo Internazionale
 nl:Fairtrade International, Eerlijke handel
 ru:Честная торговля, FLO
+wikipedia:en:https://en.wikipedia.org/wiki/Fairtrade_certification
 
-<en:Fairtrade
+<en:Fair trade
 en:Fairtrade USA
+# web:en:https://www.fairtradecertified.org
+wikipedia:en:https://en.wikipedia.org/wiki/Fair_Trade_USA
 
 <en:Fair trade
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
@@ -564,13 +572,26 @@ nl:Max Havelaar Frankrijk
 <en:Fair trade
 en:TransFer, TransFer Canada
 
+<en:Fair trade
+en:Small Producers' Symbol, SPP, Small Producers
+es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
+fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
+auth_name:en: SPP
+auth_url:en: https://spp.coop/
 
-en:Fed without GMOs
+en:Fed without GMOs, Fed without GMO
 ca:Alimentat sense Organismes Modificats Genèticament
 fi:eläintä on ruokittu gmo-vapaalla rehulla, ruokittu ilman GMO:ita
-fr:Nourri sans OGM, Alimentation sans OGM, Animaux nourris sans OGM
+fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
 it:Alimentati senza OGM
 pt:Alimentado sem OGM
+
+<en:Fed without GMOs
+en:Eggs from animals fed without GMOs
+fr:Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
+
+en:Fed without soy
+fr:Nourri sans soja
 
 en:Freedom Food, Freedom food rspca monitored
 he:מזון חופש
@@ -612,11 +633,11 @@ de:ohne Nanopartikel
 fi:nanopartikkeliton, ei nanopartikkeleita, ilman nanopartikkeleita
 fr:sans nano-particules
 
-en:Wheat-free
+en:No wheat, without wheat, Wheat-free
 de:Ohne Weizen
 nl:Zonder graan
 
-en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
+en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
 de:Glutenfrei
@@ -663,7 +684,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
-opposite:en: en:gluten-free
+opposite:en: en:no-gluten
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -776,15 +797,11 @@ en:Junta Islamica
 <en:Halal
 fr:Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
 
-en:Label Rouge
-ca:Etiqueta Vermella
-de:Label Rouge
-es:Label Rouge
-fi:Label Rouge
 fr:Label Rouge
-nl:Label Rouge
+xx:Label Rouge
 wikidata:en:Q3214309
 label_categories:en: en:Quality, en:Environment
+auth_url:fr:https://www.labelrouge.fr/
 
 
 pl:Gwarancja jakości
@@ -2216,7 +2233,7 @@ en:Without modified starches, without modified starch
 fi:ilman muunneltuja tärkkelyksiä, ilman muunneltua tärkkelystä
 fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 
-en:Without gelatin, Gelatinfree, Gelatin-free
+en:No gelatin, Without gelatin, Gelatinfree, Gelatin-free
 ca:Sense gelatina
 de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
 es:Sin gelatina
@@ -2267,7 +2284,7 @@ th:ไม่มีแอลกอฮอล์
 opposite:en: en:contains alcohol
 
 en:Contains alcohol
-opposite:en: en:no alcohol
+opposite:en: en:no-alcohol
 
 en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
@@ -2587,7 +2604,7 @@ it:Prodotto Senza Ingegneria Genetica
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 origins:en: en:France
 
-en:No lactose, lactose-free, Lactose free
+en:No lactose, lactose-free, Lactose free, without lactose
 ca:Sense lactosa, lliure de lactosa
 cz:Bez laktozy
 de:Laktosefrei, Lactosefrei
@@ -2627,12 +2644,12 @@ it:Senza lecitina di soia
 pt:Sem lecitina de soja
 ru:Без соевого лецитина
 
-en:No milk, milk-free, dairy-free, no dairy
+en:No milk, milk-free, dairy-free, no dairy, without milk
 ca:Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 de:Ohne Milch, Milchfrei
 es:Sin leche
 fi:maidoton, maitotuotteeton, ei maitoa, ilman maitoa
-fr:sans lait
+fr:sans lait, sans produits laitiers
 he:ללא חלב
 hu:Tej nélkül, tejmentes
 it:Senza latte
@@ -2647,7 +2664,7 @@ fr:Contrat Biolait
 en:Without addition of dairy products
 de:Ohne Zusatz von Milchprodukten
 fi:ei lisättyjä maitotuotteita
-fr:Sans ajout de produit laitiers, sans produits laitiers
+fr:Sans ajout de produit laitiers
 it:Senza aggiunta di latticini
 nl:Zonder toevoeging van zuivel
 ru:Без добавления молочных продуктов
@@ -2691,7 +2708,7 @@ ca:Sense colorants ni conservants
 de:Ohne Farb- oder Konservierungsstoffe
 es:Sin colorantes o conservadores, Sin colorantes o conservantes
 fi:väriaineeton ja säilöntäaineeton, väri- ja säilöntäaineeton, ilman väriaineita tai säilöntäaineita, ei väri- tai säilöntäaineita
-fr:Sans colorants ou conservateurs
+fr:Sans colorants ou conservateurs, Sans ajout de colorants ni conservateurs
 he:ללא צבעי מאכל או חומרים משמרים
 hu:Festék- és Tartósítószermentes
 it:Senza coloranti o conservanti
@@ -2700,7 +2717,7 @@ pt:Sem corantes ou conservantes
 ru:Без красителей и консервантов
 th:ไม่เติมสีและวัตถุกันเสีย
 
-en:No soy, soy free
+en:No soy, soy free, without soy
 ca:Lliure de soja, Sense soja
 de:Sojafrei
 es:Sin soja, Sin soya, Libre de soja, Libre de soya
@@ -2713,6 +2730,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+opposite:en: en:contains-soy
 
 en:Contains soy
 de:Enthält Soja
@@ -2722,7 +2740,7 @@ fr:Contient du soja
 hu:Szójatartalmú, szóját tartalmaz
 it:Contiene soia
 pt:Contem soja
-
+opposite:en: en:no-soy
 
 en:Certified by Ecocert, Ecocert
 ar:Ecocert
@@ -2881,13 +2899,14 @@ en:Organic, organically grown, organically produced, ingredient produced organic
 ca:Orgànic,de cultiu ecologic
 cs:Bio
 da:Økologisk
-de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen
+de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
 es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
 hu:Bio, Öko, Organikus
-it:Biologico
+it:Biologico, biologici, da agricoltura biologica
+ko:유기농
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
 pt:Orgânico
 sv:Ekologisk, ekologiskt
@@ -2916,7 +2935,7 @@ en:Farm Verified Organic
 # the first entry needs to be "Fair-Trade Organic", "Commerce équitable Bio"
 # without "and"
 <en:Organic
-<en:Fair-trade
+<en:Fair trade
 en:Fair-Trade Organic, Fair-Trade and Organic
 fi:Reilu kauppa ja luomu
 fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équitable et de l'agriculture biologique, Issus de l'agriculture biologique et du commerce équitable
@@ -2936,21 +2955,13 @@ wikidata:en:Q847611
 
 
 <en:Biodynamic agriculture
-fr:Nature et Progrès
+fr:Nature et Progrès, Nature & Progrès
 wikidata:en:Q3337101
 
 <en:Biodynamic agriculture
 en:Demeter
-ca:Demeter
-de:Demeter
-es:Demeter
-fi:demeter
+xx:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
-hu:Demeter
-it:Demetra
-nl:Demeter
-pl:Demeter
-pt:Demeter
 wikidata:en:Q939877
 
 <en:Biodynamic agriculture
@@ -3057,12 +3068,8 @@ country:en:Germany
 image:en:eg-oko-verordnung.110x90.svg
 
 <en:EU organic
-en:AB Agriculture Biologique
-de:AB Agriculture Biologique
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
-hu:AB Agriculture Biologique
-it:Agricoltura biologica
-nl:AB Biologische Landbouw
+xx:AB Agriculture Biologique
 country:en:France
 wikidata:en:Q396709
 
@@ -15928,7 +15935,7 @@ fr:Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organi
 nl:Canada Biologisch, Canada Organic
 
 <en:Organic
-fr:Bio-Cohérence
+fr:Bio-Cohérence, BioCohérence
 wikidata:en:Q30751117
 
 <en:Organic
@@ -16039,7 +16046,7 @@ it:Classe II
 
 ru:высший сорт, сорт высший
 
-en:Palm oil free, Without palm oil, No palm oil
+en:No palm oil, Palm oil free, Without palm oil
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
 de:Ohne Palmöl
@@ -16060,7 +16067,7 @@ opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
 fr:Contient de l'huile de palme
-opposite:en: en:palm-oil-free
+opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
@@ -16196,6 +16203,7 @@ fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% ca
 it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
 wikidata:en:Q2034373
+auth_url:en:https://www.rainforest-alliance.org
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -16754,6 +16762,7 @@ fr:Pêche durable MSC, MSC, Marine Stewardship Council
 it:Frutti di Mare Sostenibili MSC
 nl:Duurzaam Zeevruchten MSC
 wikidata:en:Q1891246
+auth_url:en:https://www.msc.org
 
 en:Responsible aquaculture
 ca:Aqüicultura responsable
@@ -16774,6 +16783,7 @@ fr:Aquaculture responsable ASC, ASC, Aquaculture Stewardship Council
 it:Acquacoltura responsabile ASC, ASC, Aquaculture Stewardship Council
 nl:Verantwoorde aquacultuur MSC
 wikidata:en:Q2028860
+auth_url:en:https://www.asc-aqua.org
 
 <en:Responsible aquaculture ASC
 en:ASC C00386
@@ -16840,6 +16850,7 @@ fi:UTZ-sertifioitu, UTZ
 it:Certificato UTZ, UTZ
 nl:UTZ Gecertificeerd
 wikidata:en:Q2305872
+auth_url:en:https://utz.org
 
 <en:UTZ Certified
 en:UTZ Certified Cacao, UTZ Certified Cocoa
@@ -17112,7 +17123,7 @@ fi:sisältää makeutusaineita, sisältää makeutusainetta
 fr:Avec édulcorants
 he:עם ממתיקים
 hu:Édesítővel, Édesítőszerrel
-it:Con dolcificanti
+it:Con dolcificanti, Con edulcoranti
 nl:Met kunstmatige zoetstoffen
 pt:Com adoçantes
 sv:Innehåller sötningsmedel
@@ -17183,8 +17194,20 @@ origins:en: en:France
 fr:Soja Français, Soja de Français, Filière Soja Français
 origins:en: en:France
 
+fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition
+auth_url:fr:https://www.bleu-blanc-coeur.org
 
-fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition, Bleu Blanc Cœur Poulet, Bleu Blanc Cœur Bœuf, Bleu Blanc Cœur Porc, Bleu Blanc Cœur Œuf
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Poulet
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Bœuf
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Porc
+
+<fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Œuf
 
 fr:Nouvelle Agriculture
 
@@ -17246,7 +17269,7 @@ pt:Salgado com sal seco
 
 fr:Salage naturel
 
-en:Peanut Free
+en:No peanuts, without peanuts, Peanut Free
 ca:Lliure de cacauet
 de:Ohne Erdnüsse
 es:Sin cacahuetes
@@ -18478,7 +18501,7 @@ en:Free from E number
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
 
-en:Without antibiotics, antibiotic-free, antibiotics-free, no antibiotics, no antibiotic, raised without antibiotics, no Antibiotics Administered
+en:No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free,no antibiotic, raised without antibiotics, no Antibiotics Administered
 ca:Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
 de:Ohne Antibiotika, Frei von Antibiotika, Enthält kein Antibiotika, antibiotika-frei, antibiotikafrei
 es:Sin antibióticos
@@ -18672,12 +18695,6 @@ es:Producto pasteurizado
 fr:produit pasteurisé
 it:Prodotto pastorizzato
 
-<en:Fair trade
-en:Small Producers' Symbol, SPP, Small Producers
-es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
-fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
-auth_name:en: SPP
-auth_url:en: https://spp.coop/
 
 en:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088
@@ -18713,3 +18730,11 @@ en:Health Star Rating 5
 fr:Haute Valeur Environnementale
 wikidata:en:Q3128557
 label_categories:en: en:Environment
+auth_url:fr:https://hve-asso.com
+
+# French quality label: https://fr.wikipedia.org/wiki/Certification_de_conformit%C3%A9_produit
+fr:Produit certifié
+en:Certified product
+
+en:Certified quality
+fr:Qualité certifiée

@@ -115,10 +115,10 @@ ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'shou
 is( $product_ref->{pnns_groups_2}, "unknown") || diag explain $product_ref;
 
 $product_ref = {
-        lc => "en",
-        categories_tags => ["en:beverages"],
+	lc => "en",
+	categories_tags => ["en:beverages"],
 	categories => "beverages",
-        ingredients_tags => ["en:water", "en:fruit-juice"],
+	ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
 };
 
@@ -132,10 +132,10 @@ is( $product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag explain $pro
 
 
 $product_ref = {
-        lc => "en",
-        categories_tags => ["en:beverages"],
+	lc => "en",
+	categories_tags => ["en:beverages"],
 	categories => "beverages",
-        ingredients_tags => ["en:sugar"],
+	ingredients_tags => ["en:sugar"],
 };
 
 special_process_product($product_ref);
@@ -146,10 +146,10 @@ special_process_product($product_ref);
 is( $product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $product_ref;
 
 $product_ref = {
-        lc => "en",
-        categories_tags => ["en:beverages"],
+	lc => "en",
+	categories_tags => ["en:beverages"],
 	categories => "beverages",
-        ingredients_tags => ["en:sugar"],
+	ingredients_tags => ["en:sugar"],
 	additives_tags => ["en:e950"],
 	with_sweeteners => 1,
 };
@@ -163,12 +163,12 @@ is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag e
 
 
 $product_ref = {
-        lc => "en",
-        categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
+	lc => "en",
+	categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 	categories => "beverages",
-        ingredients_tags => ["en:sugar"],
-        additives_tags => ["en:e950"],
-        with_sweeteners => 1,
+	ingredients_tags => ["en:sugar"],
+	additives_tags => ["en:e950"],
+	with_sweeteners => 1,
 };
 
 special_process_product($product_ref);
@@ -180,9 +180,9 @@ special_process_product($product_ref);
 is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
+	categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 };
 
 special_process_product($product_ref);
@@ -192,9 +192,9 @@ is( $product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag explain
 
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages", "en:iced-teas"],
+	categories_tags => ["en:beverages", "en:iced-teas"],
 };
 
 special_process_product($product_ref);
@@ -204,12 +204,12 @@ is( $product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag e
 
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages", "en:ice-teas"],
-        ingredients_tags => ["en:sugar"],
-        additives_tags => ["en:e950"],
-        with_sweeteners => 1,
+	categories_tags => ["en:beverages", "en:ice-teas"],
+	ingredients_tags => ["en:sugar"],
+	additives_tags => ["en:e950"],
+	with_sweeteners => 1,
 };
 
 special_process_product($product_ref);
@@ -222,11 +222,11 @@ is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag e
 
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages"],
-        ingredients_tags => ["en:water", "en:fruit-juice"],
-        ingredients_text => "water, fruit juice",
+	categories_tags => ["en:beverages"],
+	ingredients_tags => ["en:water", "en:fruit-juice"],
+	ingredients_text => "water, fruit juice",
 	with_sweeteners => 1,
 };
 
@@ -241,11 +241,11 @@ ok( not (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverage
 is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages", "en:unsweetened-beverages"],
-        ingredients_tags => ["en:water", "en:sugar"],
-        ingredients_text => "water, fruit juice",
+	categories_tags => ["en:beverages", "en:unsweetened-beverages"],
+	ingredients_tags => ["en:water", "en:sugar"],
+	ingredients_text => "water, fruit juice",
 };
 
 # with an ingredient list: should add en:unsweetened-beverages
@@ -260,11 +260,11 @@ is( $product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $produ
 is($product_ref->{nutrition_score_beverage}, 1);
 
 $product_ref = {
-        lc => "en",
+	lc => "en",
 	categories => "beverages",
-        categories_tags => ["en:beverages", "en:plant-milks"],
-        ingredients_tags => ["en:water", "en:sugar"],
-        ingredients_text => "water, fruit juice",
+	categories_tags => ["en:beverages", "en:plant-milks"],
+	ingredients_tags => ["en:water", "en:sugar"],
+	ingredients_text => "water, fruit juice",
 };
 
 special_process_product($product_ref);
@@ -317,20 +317,22 @@ is (normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")), "EE 110 EC
 is (localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
 
 $product_ref = {
-    nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
+	nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
 };
 
 fix_salt_equivalent($product_ref);
 
-my $expected_product_ref = {
-    nutriments => {
-        salt => 3,
-        salt_value => 3000,
-        salt_unit => "mg",
-        sodium => 1.2,
-        sodium_value => 1200,
-         sodium_unit => "mg"
-    }
+my $expected_product_ref;
+
+$expected_product_ref = {
+	nutriments => {
+		salt => 3,
+		salt_value => 3000,
+		salt_unit => "mg",
+		sodium => 1.2,
+		sodium_value => 1200,
+		sodium_unit => "mg"
+	}
 };
 
 
@@ -345,22 +347,20 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
- {
-    'nutriments' => {
-      'nova-group' => 4,
-      'nova-group_100g' => 4,
-      'nova-group_serving' => 4
-    },
-    'nutrition_data_per' => 'serving',
-    'nutrition_data_prepared_per' => '100g',
-    'product_quantity' => 100,
-    'quantity' => '100 g',
-    'serving_quantity' => 25,
-    'serving_size' => '25 g'
-  }
-
- ;
+$expected_product_ref =
+{
+	'nutriments' => {
+		'nova-group' => 4,
+		'nova-group_100g' => 4,
+		'nova-group_serving' => 4
+	},
+	'nutrition_data_per' => 'serving',
+	'nutrition_data_prepared_per' => '100g',
+	'product_quantity' => 100,
+	'quantity' => '100 g',
+	'serving_quantity' => 25,
+	'serving_size' => '25 g'
+};
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
@@ -374,24 +374,21 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
-
- {
-   'nutriments' => {
-     'sugars' => 4,
-     'sugars_100g' => 16,
-     'sugars_serving' => 4
-   },
-   'nutrition_data' => 'on',
-   'nutrition_data_per' => 'serving',
-   'nutrition_data_prepared_per' => '100g',
-   'product_quantity' => 100,
-   'quantity' => '100 g',
-   'serving_quantity' => 25,
-   'serving_size' => '25 g'
-  }
-
- ;
+$expected_product_ref =
+{
+	'nutriments' => {
+		'sugars' => 4,
+		'sugars_100g' => 16,
+		'sugars_serving' => 4
+	},
+	'nutrition_data' => 'on',
+	'nutrition_data_per' => 'serving',
+	'nutrition_data_prepared_per' => '100g',
+	'product_quantity' => 100,
+	'quantity' => '100 g',
+	'serving_quantity' => 25,
+	'serving_size' => '25 g'
+};
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
@@ -405,34 +402,32 @@ $product_ref = {
 
 compute_serving_size_data($product_ref);
 
-my $expected_product_ref =
- {
-   'nutriments' => {
-     'energy-kcal_prepared' => 58,
-     'energy-kcal_prepared_100g' => 232,
-     'energy-kcal_prepared_serving' => 58,
-     'energy-kcal_prepared_unit' => 'kcal',
-     'energy-kcal_prepared_value' => 58,
-     'energy_prepared' => 243,
-     'energy_prepared_100g' => 972,
-     'energy_prepared_serving' => 243,
-     'energy_prepared_unit' => 'kcal',
-     'energy_prepared_value' => 58,
-     'salt_prepared' => 10,
-     'salt_prepared_100g' => 40,
-     'salt_prepared_serving' => 10,
-     'salt_prepared_value' => 10
-   },
-   'nutrition_data_per' => '100g',
-   'nutrition_data_prepared' => 'on',
-   'nutrition_data_prepared_per' => 'serving',
-   'product_quantity' => 100,
-   'quantity' => '100 g',
-   'serving_quantity' => 25,
-   'serving_size' => '25 g'
- }
-
-;
+$expected_product_ref =
+{
+	'nutriments' => {
+		'energy-kcal_prepared' => 58,
+		'energy-kcal_prepared_100g' => 232,
+		'energy-kcal_prepared_serving' => 58,
+		'energy-kcal_prepared_unit' => 'kcal',
+		'energy-kcal_prepared_value' => 58,
+		'energy_prepared' => 243,
+		'energy_prepared_100g' => 972,
+		'energy_prepared_serving' => 243,
+		'energy_prepared_unit' => 'kcal',
+		'energy_prepared_value' => 58,
+		'salt_prepared' => 10,
+		'salt_prepared_100g' => 40,
+		'salt_prepared_serving' => 10,
+		'salt_prepared_value' => 10
+	},
+	'nutrition_data_per' => '100g',
+	'nutrition_data_prepared' => 'on',
+	'nutrition_data_prepared_per' => 'serving',
+	'product_quantity' => 100,
+	'quantity' => '100 g',
+	'serving_quantity' => 25,
+	'serving_size' => '25 g'
+};
 
 is(default_unit_for_nid("sugars"), "g");
 is(default_unit_for_nid("energy-kj"), "kJ");

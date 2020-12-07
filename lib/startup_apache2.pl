@@ -72,6 +72,10 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -101,9 +105,21 @@ if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
   return Apache2::Const::OK;
 }
 
+# set up error logging
+open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
+print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
+
+# load large data files into mod_perl memory
 init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
+init_packaging_taxonomies_regexps();
+
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
 
 # This startup script is run as root, it will create the $data_root/tmp directory
 # if it does not exist, as well as sub-directories for the Template module
@@ -112,9 +128,5 @@ init_geocode_addresses();
 chmod_recursive( S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp" );
 
 $log->info('product opener started', { version => $version });
-
-open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
-
-print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
 
 1;

@@ -59,6 +59,9 @@ pt:fresco
 
 #################### THE PROCESS ITSELF ##########
 
+# the ends/small amounts cut off, e.g. beans.
+# possible false positive "trimmed with"="garnished with", but no instances in the data currently.
+en:trimmed
 
 en:cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -140,6 +143,11 @@ nl:blokjes, in blokjes, blokje
 es:troceado, troceada,troceados, troceadas
 sv:tärnad
 
+en:minced
+
+# en:description:nuts cut into small pointed pieces
+en:nibbed
+
 #de:in Sticks geschnitten
 
 en:crushed
@@ -205,14 +213,17 @@ de:grob gemahlen
 # <en:ground
 de:frischgemahlen, frishgemahlene
 
+en:mashed
 
-en:pureed
+en:pureed, purée
 da:puré, pure
 de:püree, puree, püree aus
 es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
+it:purea di
 nb:puré
+sk:pyré
 sv:puré
 # da:parsing:$pure
 # de:parsing:$püree, püree$
@@ -267,6 +278,7 @@ nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó
+ro:praf, praf de, pudră, pudră de
 sk:v prahu
 sv:pulver
 # da:parse:$pulver
@@ -315,6 +327,7 @@ en:pitted
 de:entsteint, entsteinte, entkernt
 #es:sin hueso
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+it:denocciolate
 nl:ontpit, ontpitte
 #pt:sem caroço, sem caroco
 sv:urkärnad
@@ -435,20 +448,23 @@ en:juice crystals
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
 ca:concentrat
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
+da:koncentreret
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
 es:concentrado,concentrada,concentrados,concentradas, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
-nl:concentraten
+hu:sűrítmény
+nl:concentraten, concentraat
 sv:koncentrerad
 # en:wiktionary:concentrated
 
 <en:concentrated
 en:double concentrated
 es:doble concentrado,doble concentrada
+it:doppio concentrato, doppio concentrato di
 
 # <en:concentrated
 de:zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert
@@ -465,22 +481,32 @@ de:eingekochter
 
 #en:description:Water has been added to concentrate
 en:from-concentrate
-es:a base de concentrado,a base de concentrada, a partir de concentrado, a partir de concentrada
+da:fra koncentrat, fra koncentrater
+de:aus Konzentrat, aus Konzentraten
+es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+hu:sűrítményből
+it:da concentrato
+nl:uit concentraat
 pt:a partir de concentrado
 sv:från koncentrat
 
 en:dried
+cs:sušené
 da:tørret
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
 es:seco, seca, secos, secas, secados, secadas
+et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
+lt:džiovinti
+lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
 pl:suszony
+sk:sušené
 sv:torkad
 
 # <en:dried
@@ -526,6 +552,7 @@ en:rehydrated
 es:rehidritado,rehidritada,rehidritados,rehidritadas
 de:rehydriert, rehydrierte, rehydriertes
 fr:réhydraté, réhydratée, réhydratés, réhydratées
+it:reidratato
 sv:rehydrerat, rehydrerad
 
 en:reconstituted
@@ -600,6 +627,7 @@ fr:première pression à froid, 1ère pression à froid, de première pression �
 
 en:mechanically separated
 es:separada mecánicamente
+fr:séparée mécaniquement
 sv:maskinurbenat
 
 #######################################################################
@@ -631,11 +659,11 @@ fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 nb:pasteurisert
 nl:gepasteuriseerd, gepasteuriseerde
-pt:pasteurizado
+pt:pasteurizado, pasteurizados
 ro:pasteurizat, pasteurizata
 sv:pastöriserad
 
-en:unpasteurized
+en:unpasteurized, unpasteurised
 
 en:pre-cooked,precooked
 ca:precuit
@@ -678,8 +706,8 @@ nl:gegaard, gegaarde
 
 
 en:uncooked
-nl:ongekookt, ongekookte
 es:sin cocer
+nl:ongekookt, ongekookte
 
 #<en:uncooked
 fr:non-blanchie
@@ -687,8 +715,9 @@ fr:non-blanchie
 # <de:gegart
 de:dampfgegart, dampfgegarte, dampfgegarter
 
-en:caramelized
+en:caramelized, caramelised
 ca:caramel-litzat
+nl:gekarameliseerde, gekaramelliseerde
 
 en:puffed
 da:puffede
@@ -715,12 +744,14 @@ sv:friterad, stekt
 
 en:roasted
 ca:rostit,rostits,rostida,rostides
+cs:pražené
 de:gebraten, gebratene
 es:asado, asada, asados, asadas
 et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden
+sk:pražené
 sv:rostat, rostade
 
 #<en:roasted
@@ -839,6 +870,7 @@ pt:adoçado, adoçada
 sv:sötad
 
 en:unsweetened
+fr:non sucré, non sucrée
 nl:ongezoet
 
 #<en:sweetened
@@ -938,7 +970,7 @@ en:rbst-free
 #en:deionized
 
 en:nixtamalized
-es:nixtamalizado
+es:nixtamalizado, nixtamalizada
 wikipedia:en:https://en.wikipedia.org/wiki/Nixtamalization
 
 #######################################################################
@@ -968,6 +1000,7 @@ de:eingelegt, eingelegte, eingelegter
 es:en escabeche, en vinagre
 
 # en:description:Marinated in salt (note different from en:salted)
+en:brined
 de:gepökelt, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
@@ -1040,7 +1073,7 @@ nl:gerookt op beukenhout
 sv:bokspånsrökt
 
 #<en:beech smoked
-en:natural beech smoked, 
+en:natural beech smoked
 
 #<en:wood smoked
 en:cherrywood smoked

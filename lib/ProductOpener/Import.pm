@@ -94,6 +94,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -501,6 +502,9 @@ EMAIL
 			$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
 			next;
 		}
+		
+		# Set the $lang field to $lc
+		$imported_product_ref->{lang} = $imported_product_ref->{lc};
 
 		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
 
@@ -566,12 +570,13 @@ EMAIL
 		}
 		
 		# If we are importing on the public platform, check if the product exists on other servers
-		# (e.g. Open Beauty Facts, Open Products Facts)
+		# (e.g. Open Beauty Facts, Open Products Facts), unless it already exists on the target server
 		
 		my $product_ref;
 		
 		if ((defined $options{other_servers})
-			and not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
+			and not ((defined $server_options{private_products}) and ($server_options{private_products}))
+			and not (product_exists($product_id))) {
 			foreach my $server (sort keys %{$options{other_servers}}) {
 				next if ($server eq $options{current_server});
 								
@@ -648,10 +653,10 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'product_name', 'generic_name',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
-			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang', 'data_sources', 'imports') {
+			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {
 
 			if (defined $language_fields{$field}) {
 				foreach my $display_lc (@param_sorted_langs) {
@@ -1440,6 +1445,14 @@ EMAIL
 							$log->warn("cannot read image file", { error => $x, file => $file }) if $log->is_warn();
 							unlink($file);
 						}
+						# If the product has an images field, assume that the image has already been uploaded
+						# otherwise, upload it
+						# This can happen when testing: we download the images once, then delete the products and reimport them again
+						elsif (not defined $product_ref->{images}) {
+							# Assign the download image to the field
+                                                        (defined $images_ref->{$code}) or $images_ref->{$code} = {};
+                                                        $images_ref->{$code}{$imagefield} = $file;
+						}
 					}
 
 					# Download the image
@@ -1632,6 +1645,142 @@ EMAIL
 	print STDERR ((scalar @edited) . " products updated\n");
 
 	return \%stats;
+}
+
+
+=head2 update_export_status_for_csv_file( ARGUMENTS )
+
+Once products from a CSV file have been exported from the producers platform
+and imported on the public platform, update_export_status_for_csv_file()
+marks them as exported on the producers platform.
+
+=head3 Arguments
+
+Arguments are passed through a single hash reference with the following keys:
+
+=head4 user_id - required
+
+User id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 org_id - optional
+
+Organisation id to which the changes (new products, added or changed values, new images)
+will be attributed.
+
+=head4 owner_id - optional
+
+For databases with private products, owner (user or org) that the products belong to.
+Values are of the form user-[user id] or org-[organization id].
+
+If not set, for databases with private products, it will be constructed from the user_id
+and org_id parameters.
+
+The owner can be overriden if the CSV file contains a org_name field.
+In that case, the owner is set to the value of the org_name field, and
+a new org is created if it does not exist yet.
+
+=head4 csv_file - required
+
+Path and file name of the CSV file to import.
+
+The CSV file needs to be in the Open Food Facts CSV format, encoded in UTF-8
+with tabs as separators.
+
+=head4 exported_t - required
+
+Time of the export.
+
+=cut
+
+sub update_export_status_for_csv_file($) {
+
+	my $args_ref = shift;
+
+	$User_id = $args_ref->{user_id};
+	$Org_id = $args_ref->{org_id};
+	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
+
+	$log->debug("starting update_export_status_for_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
+
+	my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+					 or die "Cannot use CSV: ".Text::CSV->error_diag ();
+
+	my $i = 0;
+
+	$log->debug("updating export status for products", { }) if $log->is_debug();
+
+	open (my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
+
+	my $columns_ref = $csv->getline ($io);
+
+	# We may have duplicate columns (e.g. image_other_url),
+	# turn them to image_other_url.2 etc.
+
+	my %seen_columns = ();
+	my @column_names = ();
+
+	foreach my $column (@{$columns_ref}) {
+		if (defined $seen_columns{$column}) {
+			$seen_columns{$column}++;
+			push @column_names, $column . "." . $seen_columns{$column};
+		}
+		else {
+			$seen_columns{$column} = 1;
+			push @column_names, $column;
+		}
+	}
+
+	$csv->column_names (@column_names);
+	
+	my $products_collection = get_products_collection();
+
+	while (my $imported_product_ref = $csv->getline_hr ($io)) {
+
+		$i++;
+
+		my $code = $imported_product_ref->{code};
+		$code = normalize_code($code);
+		my $product_id = product_id_for_owner($Owner_id, $code);
+
+		$log->debug("update export status for product", { i => $i, code => $code, product_id => $product_id }) if $log->is_debug();
+
+		if ($code eq '') {
+			$log->error("Error - empty code", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
+			next;
+		}
+
+		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
+			$log->error("Error - code not a number with 8 or more digits", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
+			next;
+		}
+		
+		my $product_ref = retrieve_product($product_id);
+
+		if (defined $product_ref) {
+			$product_ref->{last_exported_t} = $args_ref->{exported_t};
+			if ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}) {
+				add_tag($product_ref, "states", "en:exported");
+				remove_tag($product_ref, "states", "en:to-be-exported");
+			}
+			else {
+				add_tag($product_ref, "states", "en:to-be-exported");
+				remove_tag($product_ref, "states", "en:exported");
+			}
+			$product_ref->{states} = join(',', @{$product_ref->{states_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "states");
+			
+			my $path = product_path($product_ref);
+			store("$data_root/products/$path/product.sto", $product_ref);
+			$product_ref->{code} = $product_ref->{code} . '';
+			$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });			
+		}
+	}
+
+	$log->debug("update export status done", { products => $i }) if $log->is_debug();
+
+	print STDERR "\n\nupdate export status done\n\n";
+
 }
 
 

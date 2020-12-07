@@ -1,0 +1,39 @@
+{
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:unknown",
+                  100
+               ]
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5
+         },
+         "packaging" : {
+            "packagings" : [],
+            "score" : 100,
+            "value" : 0
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {},
+      "missing" : {
+         "categories" : 1
+      },
+      "status" : "unknown"
+   },
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "lc" : "en",
+   "packagings" : []
+}

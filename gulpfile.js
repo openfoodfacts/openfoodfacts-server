@@ -1,12 +1,20 @@
 /*global exports */
 
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
+
+const jsSrc = [
+  './html/js/display*.js',
+  './html/js/product-multilingual.js',
+  './html/js/search.js'
+];
+
+const sassSrc = "./scss/**/*.scss";
 
 const sassOptions = {
   errLogToConsole: true,
@@ -19,8 +27,8 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: false },
-        { removeTitle: false },
+        { removeMetadata: true },
+        { removeTitle: true },
         { removeDimensions: true },
           { addClassesToSVGElement: { className: "icon" } },
           {
@@ -35,7 +43,7 @@ function icons() {
 }
 
 function css() {
-  return src("./scss/**/*.scss").
+  return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(minifyCSS()).
@@ -58,7 +66,8 @@ function copyJs() {
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
-      "./node_modules/cropper/dist/cropper.js",
+      "./node_modules/cropperjs/dist/cropper.js",
+      "./node_modules/jquery-cropper/dist/jquery-cropper.js",
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
       "./node_modules/jvectormap-next/jquery-jvectormap.js",
@@ -71,11 +80,7 @@ function copyJs() {
 }
 
 function buildJs() {
-  return src([
-    './html/js/display*.js',
-    './html/js/product-multilingual.js',
-    './html/js/search.js'
-  ]).
+  return src(jsSrc).
   pipe(sourcemaps.init()).
   pipe(terser()).
   pipe(sourcemaps.write(".")).
@@ -121,7 +126,7 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css",
+      "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/jvectormap-next/jquery-jvectormap.css"
     ]).
     pipe(sourcemaps.init()).
@@ -140,3 +145,7 @@ exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
 exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.watch = function () {
+  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(sassSrc, { delay: 500 }, css);
+};

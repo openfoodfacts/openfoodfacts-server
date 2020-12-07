@@ -30,10 +30,6 @@ de:frischgemahlen, frishgemahlene
 de:gegart, gegarte, gegarter, gegartes
 nl:gegaard, gegaarde
 
-de:gepökelt, gepökeltes
-fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
-nl:gepekeld
-
 de:geschwefelt, geschwefelte
 
 de:geschält, geschälte, geschälter
@@ -92,6 +88,11 @@ en:bleached
 en:boned
 es:deshuesado
 
+en:brined
+de:gepökelt, gepökeltes
+fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
+nl:gepekeld
+
 en:bromated
 es:bromado
 
@@ -105,8 +106,9 @@ it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
 sv:kanderad, kanderade
 
-en:caramelized
+en:caramelized, caramelised
 ca:caramel-litzat
+nl:gekarameliseerde, gekaramelliseerde
 
 en:chardonnay smoked
 
@@ -141,16 +143,19 @@ en:cold smoked with cabernet wine
 
 en:concentrated, concentrate, concentrates
 ca:concentrat
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt
+da:koncentreret
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-nl:concentraten
+hu:sűrítmény
+nl:concentraten, concentraat
 sv:koncentrerad
 
 < en:Concentrated
 en:double concentrated
 es:doble concentrado, doble concentrada
+it:doppio concentrato, doppio concentrato di
 
 en:cooked
 de:gekocht
@@ -228,15 +233,20 @@ en:double smoked
 es:doble ahumado, doble ahumada, doble ahumados, doble ahumadas
 
 en:dried
+cs:sušené
 da:tørret
 de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
 es:seco, seca, secos, secas, secados, secadas
+et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées
 it:secco, secca, secchi, secche
+lt:džiovinti
+lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
 pl:suszony
+sk:sušené
 sv:torkad
 
 en:dry roasted
@@ -298,9 +308,14 @@ it:fritto, fritta, fritti, fritte
 sv:friterad, stekt
 
 en:from-concentrate
+da:fra koncentrat, fra koncentrater
+de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
+hu:sűrítményből
+it:da concentrato
+nl:uit concentraat
 pt:a partir de concentrado
 sv:från koncentrat
 
@@ -422,17 +437,22 @@ it:marinato, marinata
 nl:gemarineerd, gemarineerde
 sv:marinerad
 
+en:mashed
+
 en:mechanically pressed
 es:prensado mecánicamente, prensada mecánicamente
 
 en:mechanically separated
 es:separada mecánicamente
+fr:séparée mécaniquement
 sv:maskinurbenat
 
 en:melted
 es:fundido
 
 en:mesquite smoked
+
+en:minced
 
 en:natural beech smoked
 
@@ -446,8 +466,10 @@ en:naturally pressed
 en:naturally smoked, natural smoked, all natural smoked
 fr:fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
 
+en:nibbed
+
 en:nixtamalized
-es:nixtamalizado
+es:nixtamalizado, nixtamalizada
 wikipedia:en: https://en.wikipedia.org/wiki/Nixtamalization
 
 en:not smoked, unsmoked
@@ -476,7 +498,7 @@ fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 nb:pasteurisert
 nl:gepasteuriseerd, gepasteuriseerde
-pt:pasteurizado
+pt:pasteurizado, pasteurizados
 ro:pasteurizat, pasteurizata
 sv:pastöriserad
 
@@ -515,6 +537,7 @@ sv:bitar, i bitar
 en:pitted
 de:entsteint, entsteinte, entkernt
 fr:dénoyauté, dénoyautée, dénoyautés, dénoyautées
+it:denocciolate
 nl:ontpit, ontpitte
 sv:urkärnad
 
@@ -531,6 +554,7 @@ nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó
+ro:praf, praf de, pudră, pudră de
 sk:v prahu
 sv:pulver
 
@@ -573,13 +597,15 @@ fr:pulpe, pulpe de, pulpe d', en pulpe
 it:polpa, polpa di
 pt:polpa de, polpas de
 
-en:pureed
+en:pureed, purée
 da:puré, pure
 de:püree, puree, püree aus
 es:puré, puré de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
+it:purea di
 nb:puré
+sk:pyré
 sv:puré
 
 en:raw
@@ -597,16 +623,19 @@ en:rehydrated
 de:rehydriert, rehydrierte, rehydriertes
 es:rehidritado, rehidritada, rehidritados, rehidritadas
 fr:réhydraté, réhydratée, réhydratés, réhydratées
+it:reidratato
 sv:rehydrerat, rehydrerad
 
 en:roasted
 ca:rostit, rostits, rostida, rostides
+cs:pražené
 de:gebraten, gebratene
 es:asado, asada, asados, asadas
 et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 it:arrostito, arrostite, arrostiti
 nl:gebraden
+sk:pražené
 sv:rostat, rostade
 
 en:rolled
@@ -708,6 +737,8 @@ en:treated
 es:tratada, tratado, tratadas, tratados
 nl:bewerkt
 
+en:trimmed
+
 en:unbleached, un-bleached
 de:ungebleichtes
 
@@ -726,7 +757,7 @@ es:descongelado, descongelada, descongelados, descongeladas
 fr:décongelé, décongelée, décongelés, décongelées
 nl:ontdooid
 
-en:unpasteurized
+en:unpasteurized, unpasteurised
 
 en:unsalted, un-salted
 de:ungesalzen, ungesalzene
@@ -735,6 +766,7 @@ fr:non salée
 nl:ongezouten
 
 en:unsweetened
+fr:non sucré, non sucrée
 nl:ongezoet
 
 en:untoasted

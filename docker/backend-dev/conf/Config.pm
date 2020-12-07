@@ -48,6 +48,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -118,6 +119,10 @@ use ProductOpener::Config2;
 		lowercase => 1,
 	},
 	# Same for Spanish, Italian and Portuguese
+	ca => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
@@ -215,6 +220,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths

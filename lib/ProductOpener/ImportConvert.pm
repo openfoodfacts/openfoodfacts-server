@@ -695,12 +695,12 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		}
 
 		# 1/2 , 3/4
-		if ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
+		elsif ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
 			delete $product_ref->{quantity};
 		}
 
 		# No numbers (e.g. "sachet", "bouteille")
-		if ($product_ref->{quantity} !~ /[1-9]/) {
+		elsif ($product_ref->{quantity} !~ /[1-9]/) {
 			delete $product_ref->{quantity};
 		}
 	}

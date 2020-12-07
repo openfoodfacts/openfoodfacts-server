@@ -1,6 +1,8 @@
 # Should also be available as Debian packages
-requires 'CGI', '>= 4.46, < 5.0';
-requires 'Tie::IxHash';
+# If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
+
+requires 'CGI', '>= 4.46, < 5.0'; # libcgi-pm-perl
+requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
 requires 'LWP::Simple'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
@@ -23,60 +25,60 @@ requires 'experimental'; # libexperimental-perl
 requires 'Apache2::Request'; # libapache2-request-perl
 requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
-requires 'Template','3.008'; # libtemplate-perl
+requires 'Template', '>= 3.008'; # libtemplate-perl
+requires 'URI::Escape::XS'; # liburi-escape-xs-perl
+requires 'Math::Random::Secure'; # libmath-random-secure-perl. deps: libtest-sharedfork-perl, libtest-warn-perl, libmath-random-isaac-perl, libcrypt-random-source-perl
+requires 'Email::Stuffer', '>= 0.018'; # libemail-stuffer-perl
+requires 'File::Copy::Recursive', '>= 0.45'; # libfile-copy-recursive-perl
+requires 'List::MoreUtils', '>= 0.428'; # liblist-moreutils-perl
+requires 'Excel::Writer::XLSX', '>= 1.07'; # libexcel-writer-xlsx-perl
+requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
+requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
+requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 
-# Probably not available as Debian packages
-requires 'MongoDB', '>= 2.2.1, < 2.3'; # libmongodb-perl has an older version
-requires 'URI::Escape::XS';
-requires 'Encode::Punycode';
-requires 'GraphViz2';
-requires 'Algorithm::CheckDigits';
-requires 'GeoIP2', '>= 2.006002, < 3.0';
-requires 'Image::OCR::Tesseract';
-requires 'DateTime', '>= 1.52, < 2.0';
-requires 'DateTime::Locale', '>= 1.25, < 2.0';
-requires 'Math::Random::Secure';
+# Probably not available as Debian/Ubuntu packages
+requires 'MongoDB', '>= 2.2.1, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
+requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
+requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
+requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
+requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
+requires 'DateTime', '>= 1.52, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
+requires 'DateTime::Locale', '>= 1.25, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
 requires 'Crypt::ScryptKDF';
-requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05';
-requires 'Email::Valid', '>= 1.202, < 2.0';
+requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
-requires 'CLDR::Number';
-requires 'Modern::Perl', '>= 1.20200211';
-requires 'Data::Dumper::AutoEncode';
+requires 'CLDR::Number'; # deps: libmath-round-perl, libtest-differences-perl, libsoftware-license-perl
+requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1.20180901
+requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
-requires 'Email::Stuffer';
-requires 'Text::CSV', '>= 2.0, < 3.0';
+requires 'Text::CSV', '>= 2.0, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.
 requires 'Text::Fuzzy';
-requires 'File::Copy::Recursive';
-requires 'Spreadsheet::CSV';
-requires 'List::MoreUtils';
-requires 'Excel::Writer::XLSX';
-requires 'Pod::Simple::HTMLBatch';
-requires 'File::chmod::Recursive';
+requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
+requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
-requires 'Minion';
-requires 'Mojo::Pg';
+requires 'Minion'; # libminion-perl has 9.09 vs 10.13.
+requires 'Mojo::Pg'; # libmojo-pg-perl has 4.13 vs 4.19. deps: libsql-abstract-perl
 
 # Logging
-requires 'Log::Any', '>= 1.708, < 2.0';
-requires 'Log::Log4perl', '>= 1.49, < 2.0';
-requires 'Log::Any::Adapter::Log4perl', '>= 0.09';
+requires 'Log::Any', '>= 1.708, < 2.0'; # liblog-any-perl has 1.707
+requires 'Log::Log4perl', '>= 1.49, < 2.0'; # liblog-log4perl-perl
+requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
 
 # Retry
 requires 'Action::CircuitBreaker';
-requires 'Action::Retry';
+requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302171, < 2.0';
-  requires 'Test::Number::Delta';
-  requires 'Log::Any::Adapter::TAP';
+  requires 'Test::Number::Delta'; # libtest-number-delta-perl
+  requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
 };
 
 on 'develop' => sub {
-  requires 'Perl::Critic', '>= 1.138, < 2.0';
-  requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl
-  recommends 'Term::ReadLine::Gnu', '>= 1.36, < 2.0'; # readline support for the Perl debugger
+  requires 'Perl::Critic', '>= 1.138, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
+  requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  recommends 'Term::ReadLine::Gnu', '>= 1.36, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
 }

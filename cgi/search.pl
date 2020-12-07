@@ -50,6 +50,15 @@ my $template_data_ref = {
 
 my $html;
 
+# Automated requests by Google Spreadsheet can overload the server
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/4357
+# User-Agent: Mozilla/5.0 (compatible; GoogleDocs; apps-spreadsheets; +http://docs.google.com)
+
+if (user_agent() =~ /apps-spreadsheets/) {
+
+	display_error("Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.", 200);
+}
+
 if (0) {
 	if (param('jqm')) {
 		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
@@ -283,12 +292,14 @@ if ($action eq 'display') {
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
+	push @axis_values, "forest_footprint";
 	$axis_labels{additives_n} = lang("number_of_additives");
 	$axis_labels{ingredients_n} = lang("ingredients_n_s");
 	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
 	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
 	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
+	$axis_labels{forest_footprint} = lang("forest_footprint");
 
 	my @sorted_axis_values = ("", sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values));
 
@@ -304,26 +315,26 @@ if ($action eq 'display') {
 	$template_data_ref->{fields_options} = \@fields_options;
 
 	$template_data_ref->{compare_options} = [
-	  	{
-	  		'value' => "lt",
-	  		'label' => '<',
-	  	},
-	  	{
-	  		'value' => "lte",
-	  		'label' => "\N{U+2264}",
-	  	},
 		{
-	  		'value' => "gt",
-	  		'label' => '>',
-	  	},
+			'value' => "lt",
+			'label' => '<',
+		},
 		{
-	  		'value' => "gte",
-	  		'label' => "\N{U+2265}",
-	  	},
+			'value' => "lte",
+			'label' => "\N{U+2264}",
+		},
 		{
-	  		'value' => "eq",
-	  		'label' => '=',
-	  	},
+			'value' => "gt",
+			'label' => '>',
+		},
+		{
+			'value' => "gte",
+			'label' => "\N{U+2265}",
+		},
+		{
+			'value' => "eq",
+			'label' => '=',
+		},
 	];
 	
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
@@ -338,27 +349,27 @@ if ($action eq 'display') {
 
 	# Different types to display results
 
-	push @{$template_data_ref->{sort_options}}, [
-	  	{
-	  		'value' => "unique_scans_n",
-	  		'label' => lang("sort_popularity"),
-	  	},
-	  	{
-	  		'value' => "product_name",
-	  		'label' => lang("sort_product_name"),
-	  	},
+	$template_data_ref->{sort_options} = [
 		{
-	  		'value' => "created_t",
-	  		'label' => lang("sort_created_t"),
-	  	},
+			'value' => "unique_scans_n",
+			'label' => lang("sort_popularity"),
+		},
 		{
-	  		'value' => "last_modified_t",
-	  		'label' => lang("sort_modified_t"),
-	  	},
+			'value' => "product_name",
+			'label' => lang("sort_product_name"),
+		},
 		{
-	  		'value' => "completeness",
-	  		'label' => lang("sort_completeness"),
-	  	},
+			'value' => "created_t",
+			'label' => lang("sort_created_t"),
+		},
+		{
+			'value' => "last_modified_t",
+			'label' => lang("sort_modified_t"),
+		},
+		{
+			'value' => "completeness",
+			'label' => lang("sort_completeness"),
+		},
 	];
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
@@ -370,7 +381,7 @@ if ($action eq 'display') {
 	foreach my $axis ('x','y') {
 		push @{$template_data_ref->{axes}}, {
 			id => $axis,
-			selected_field_value => $graph_ref->{"axis_" . $axis},		
+			selected_field_value => $graph_ref->{"axis_" . $axis},
 		}; 
 	}
 
@@ -378,7 +389,7 @@ if ($action eq 'display') {
 
 		next if $series eq 'default';
 		my $checked = '';
-		if ($graph_ref->{"series_$series"} eq 'on') {
+		if (($graph_ref->{"series_$series"} // '') eq 'on') {
 			$checked = 'checked="checked"';
 		}
 
@@ -558,7 +569,7 @@ elsif ($action eq 'process') {
 			my $field;
 			
 			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
-				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n")) {
+				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n") or ($nutriment eq "forest_footprint")) {
 				$field = $nutriment;
 			}
 			else {
@@ -566,7 +577,7 @@ elsif ($action eq 'process') {
 			}
 
 			if ($compare eq 'eq') {
-				$query_ref->{"nutriments.${nutriment}_100g"} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
+				$query_ref->{$field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 			}
 			elsif ($compare =~ /^(lt|lte|gt|gte)$/) {
 				if (defined $query_ref->{$field}) {
@@ -682,7 +693,7 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x','y') {
-			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
+			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} ne "forest_footprint") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
 				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}) or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
 				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} { '$exists'} = 1  ;
 			}

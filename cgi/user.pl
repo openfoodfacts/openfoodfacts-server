@@ -59,7 +59,11 @@ if (($type eq "add") and (defined param('prdct_mult'))) {
 
 ProductOpener::Display::init();
 
-my $userid = get_fileid(param('userid'), 1);
+my $userid = $User_id;
+
+if (defined param('userid')) {
+	$userid = get_fileid(param('userid'), 1);
+}
 
 $log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
 
@@ -196,8 +200,8 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 
 	my $r = shift;
 	$r->headers_out->set(Location =>"/");
-	$r->status(301);
-	return 301;
+	$r->status(302);
+	return 302;
 }
 else {
 	

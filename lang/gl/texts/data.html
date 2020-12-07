@@ -1,5 +1,5 @@
 
-<h1>Datos</h1>
+<h1>Data</h1>
 
 <p>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
 The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br/>
@@ -14,7 +14,9 @@ with the Open Food Facts community.</p>
 
 <h2>Open Food Facts data exports</h2>
 
-<p>Database dumps and exports are generated nightly.</p>
+<p>Database dumps and exports are generated nightly. The database is very big, so you can find 
+  <a href="https://wiki.openfoodfacts.org/Reusing_Open_Food_Facts_Data">different ways to use the data</a>, 
+  depending on the export flavor.</p>
 
 <p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
 
@@ -41,6 +43,19 @@ with the Open Food Facts community.</p>
  be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
 <p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
  deleted products from your database, you will need to import the full MongoDB dump.</p>
+
+
+<h3>JSONL data export</h3>
+
+<p>The whole database is also available in <a href="https://jsonlines.org/">JSONL format</a> (sometimes called LDJSON or NDJSON) where each line is a JSON object. 
+  It represents the same data as the MongoDB export. The file is compressed with gzip.</p>
+
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz">https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz</a>
+ </dd>
+</dl>
+
 
 <h3>CSV Data Export</h3>
 
@@ -97,12 +112,12 @@ The app allows users to scan the barcode of products, to view the product inform
 <p>They will let you consume data, as well as let your users contribute new data</p>
 <ul>
 <li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>
-<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a> - <a href="https://pub.dev/packages/openfoodfacts">Package on pub.dev</a></li>
 <li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a></li>
 <li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a></li>
 <li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a></li>
 <li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a></li>
-<li>PHP (Lararel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
+<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a></li>
 <li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a></li>
 <li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a></li>
 <li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a></li>
@@ -115,6 +130,6 @@ The app allows users to scan the barcode of products, to view the product inform
 <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> to subscribe.</p>
 
 
-<h2>Contacto</h2>
+<h2>Contact</h2>
 
 <p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

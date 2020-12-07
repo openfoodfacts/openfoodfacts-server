@@ -63,7 +63,6 @@ BEGIN
 		%canon_tags
 		%tags_images
 		%tags_texts
-		%tags_levels
 		%level
 		%special_tags
 
@@ -88,6 +87,7 @@ BEGIN
 		&spellcheck_taxonomy_tag
 
 		&get_tag_css_class
+		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
@@ -100,7 +100,7 @@ BEGIN
 		&compute_field_tags
 		&add_tags_to_field
 
-		&init_tags_texts_levels
+		&init_tags_texts
 
 		&get_city_code
 		%emb_codes_cities
@@ -128,6 +128,7 @@ BEGIN
 
 		%stopwords
 		%synonyms_for
+		%synonyms_for_extended
 		%just_synonyms
 		%translations_from
 		%translations_to
@@ -172,7 +173,7 @@ binmode STDERR, ":encoding(UTF-8)";
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
  environment_impact_level=>1, data_sources => 1, teams => 1, categories_properties => 1,
- editors => 1, photographers => 1, informers => 1, checkers => 1, correctors => 1);
+ editors => 1, photographers => 1, informers => 1, checkers => 1, correctors => 1, owners => 1, ecoscore => 1);
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
@@ -189,6 +190,7 @@ generic_name => 1,
 ingredients_text => 1,
 conservation_conditions => 1,
 other_information => 1,
+packaging_text => 1,
 recycling_instructions_to_recycle => 1,
 recycling_instructions_to_discard => 1,
 producer => 1,
@@ -216,7 +218,7 @@ my %tags_all_parents = ();
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms  = ();
 %synonyms_for = ();
-my %synonyms_for_extended = ();
+%synonyms_for_extended = ();
 %translations_from = ();
 %translations_to   = ();
 %level             = ();
@@ -229,7 +231,6 @@ my %all_parents     = ();
 
 
 %tags_images = ();
-%tags_levels = ();
 %tags_texts = ();
 
 my $logo_height = 90;
@@ -1150,30 +1151,32 @@ sub build_tags_taxonomy($$$) {
 
 
 		# add more synonyms: remove stopwords and deal with simple plurals
+		# -> should not be done on some taxonomies that contain only proper names
+		if (($tagtype ne "countries") and ($tagtype ne "origins")) {
 
-		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
+			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
+				foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
-				my $tagid2 = $tagid;
+					my $tagid2 = $tagid;
 
-				# remove stopwords
-				# unless we have only 2 words in the tag name
-				# check that we have at least 2 word separators (dashes)
-				if ($tagid2 =~ /-.+-/) {
+					# remove stopwords
+					# unless we have only 2 words in the tag name
+					# check that we have at least 2 word separators (dashes)
+					if ($tagid2 =~ /-.+-/) {
 
-					$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
-				}
+						$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+					}
 
-				$tagid2 = remove_plurals($lc,$tagid2);
+					$tagid2 = remove_plurals($lc,$tagid2);
 
-				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
-					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
+						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					}
 				}
 			}
 		}
-
 
 		# 3rd phase: compute the hierarchy
 
@@ -2159,7 +2162,7 @@ sub display_taxonomy_tag_link($$$) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
@@ -2469,6 +2472,66 @@ HTML
 }
 
 
+
+=head2 get_tag_image ( $target_lc, $tagtype, $canon_tagid )
+
+If an image is associated to a tag, return its relative url, otherwise return undef.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the image. If an image is not available in the target language,
+it can be returned in the tag language, or in English.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $canon_tagid
+
+=cut
+
+sub get_tag_image($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $canon_tagid = shift;
+	
+	my $img;
+	
+	my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
+
+	my $img_lc = $target_lc;
+
+	my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
+	my $en_imgid = get_taxonomyid("en",$canon_tagid);
+	my $tag_lc = undef;
+	if ($en_imgid =~ /^(\w\w):/) {
+		$en_imgid = $';
+		$tag_lc = $1;
+	}
+
+	if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
+		$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+	}
+	elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+		$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+		$img_lc = $tag_lc;
+	}
+	elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
+		$img = $tags_images{'en'}{$tagtype}{$en_imgid};
+		$img_lc = 'en';
+	}	
+	
+	if ($img) {
+		$img = "/images/lang/${img_lc}/$tagtype/" . $img;
+	}
+	
+	return $img;
+}
+
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2482,36 +2545,8 @@ sub display_tags_hierarchy_taxonomy($$$) {
 		foreach my $tag (@{$tags_ref}) {
 			$html .= display_taxonomy_tag_link($target_lc, $tagtype, $tag) . ", ";
 
-			my $img;
 			my $canon_tagid = canonicalize_taxonomy_tag($target_lc,$tagtype, $tag);
-			my $target_title = display_taxonomy_tag($target_lc,$tagtype,$canon_tagid);
-
-			my $img_lc = $target_lc;
-
-			my $lc_imgid = get_string_id_for_lang($target_lc, $target_title);
-			my $en_imgid = get_taxonomyid("en",$canon_tagid);
-			my $tag_lc = undef;
-			if ($en_imgid =~ /^(\w\w):/) {
-				$en_imgid = $';
-				$tag_lc = $1;
-			}
-
-			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
-				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
-			}
-			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
-				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
-				$img_lc = $tag_lc;
-			}
-			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
-				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
-				$img_lc = 'en';
-			}
-
-			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
-				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
-			}
-
+			my $img = get_tag_image($target_lc, $tagtype, $canon_tagid);
 
 			if ($img) {
 				my $size = '';
@@ -2519,7 +2554,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				$images .= <<HTML
-<img src="/images/lang/${img_lc}/$tagtype/$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline">
 HTML
 ;
 			}
@@ -2724,8 +2759,8 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 		else {
 
-			# try matching in other languages (by default, in English)
-			my @test_languages = ("en");
+			# try matching in other languages (by default, in the "language-less" language xx, and in English)
+			my @test_languages = ("xx", "en");
 			
 			if (defined $options{product_type}) {
 				
@@ -3025,18 +3060,49 @@ sub display_taxonomy_tag($$$)
 		$tag_lc = $target_lc;
 	}
 
-	my $tagid = $tag_lc . ':' . get_string_id_for_lang($tag_lc, $tag);
+	my $tagid_no_lc = get_string_id_for_lang($tag_lc, $tag);
+	my $tagid = $tag_lc . ':' . $tagid_no_lc;
 
 	my $display = '';
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
 		# we have a translation for the target language
-		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$tagtype}{$tagid}{$target_lc} : $translations_to{$tagtype}{$tagid}{$target_lc}\n";
 		$display = $translations_to{$tagtype}{$tagid}{$target_lc};
 	}
+	elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+		# we have a translation for the default xx language
+		$display = $translations_to{$tagtype}{$tagid}{xx};
+	}	
 	else {
+		# We may have changed a canonical en: entry into an language-less xx: entry,
+		# or removed a canonical en: entry to replace it to a language-specific entry
+		# (e.g. we used to have en:label-rouge, we now have fr:label-rouge + xx:label-rouge)
+		
+		my $xx_tagid = 'xx:' . $tagid_no_lc;
+		
+		# if we didn't find a language specific entry but there is a corresponding xx: synonym for it,
+		# assume the language specific entry was changed to a language-less xx: entry
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{xx}) and (defined $synonyms{$tagtype}{xx}{$tagid_no_lc})) {
+			$tagid = "xx:" . $synonyms{$tagtype}{xx}{$tagid_no_lc};
+			$tagid = $translations_from{$tagtype}{$tagid};
+		}		
+
+		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
+			# we have a translation for the target language
+			$display = $translations_to{$tagtype}{$tagid}{$target_lc};
+		}
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$tagid}{xx};
+		}	
+
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$xx_tagid}) and (defined $translations_to{$tagtype}{$xx_tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$xx_tagid}{xx};
+		}	
+
 		# use tag language
-		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";
 
@@ -3349,8 +3415,8 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
-sub init_tags_texts_levels {
-	return if ((%tags_texts) and (%tags_levels));
+sub init_tags_texts {
+	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
 	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
@@ -3364,13 +3430,11 @@ sub init_tags_texts_levels {
 		my $lc = $langid;
 
 		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
-		defined $tags_levels{$lc} or $tags_levels{$lc} = {};
 
 		if (-e "$data_root/lang/$langid") {
 			foreach my $tagtype (sort keys %tag_type_singular) {
 
 				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
-				defined $tags_levels{$lc}{$tagtype} or $tags_levels{$lc}{$tagtype} = {};
 
 				# this runs number-of-languages * number-of-tag-types times.
 				if (-e "$data_root/lang/$langid/$tagtype") {
@@ -3382,12 +3446,8 @@ sub init_tags_texts_levels {
 
 						my $text = join("",(<$IN>));
 						close $IN;
-						if ($text =~ /class="level_(\d+)"/) {
-							$tags_levels{$lc}{$tagtype}{$tagid} = $1;
-						}
-						$text =~  s/class="(\w+)_level_(\d)"/class="$1_level_$2 level_$2"/g;
-						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 
+						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
 					}
 					closedir(DH);
 				}

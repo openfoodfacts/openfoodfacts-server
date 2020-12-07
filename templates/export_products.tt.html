@@ -15,6 +15,7 @@
 	[% END %]
 
 	<p>[% n_products_will_be_exported %]</p>
+	<p>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]: [% count_to_be_exported %]</p>
 
 	[% IF count > 0 %]
 		[% IF allow_submit %]
@@ -27,6 +28,11 @@
 			<label for="replace_selected_photos">
 				<input type="checkbox" name="replace_selected_photos" [% replace_selected_photos_value %]>	
 				[% lang('replace_selected_photos') %]
+			</label>
+
+			<label for="only_export_products_with_changes">
+				<input type="checkbox" name="only_export_products_with_changes" [% only_export_products_with_changes_value %]>	
+				[% lang('only_export_products_with_changes') %]
 			</label>
 
 			<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">

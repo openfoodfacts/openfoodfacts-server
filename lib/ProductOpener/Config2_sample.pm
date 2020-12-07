@@ -35,6 +35,7 @@ BEGIN
 		$geolite2_path
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 		$memd_servers
 		$facebook_app_id
 		$facebook_app_secret
@@ -64,6 +65,7 @@ $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
 $mongodb = "off";
 $mongodb_host = "mongodb://localhost";
+$mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "127.0.0.1:11211" ];
 

@@ -41,6 +41,11 @@ then
   ln -sf /opt/product-opener/packager-codes /mnt/podata/packager-codes
 fi
 
+if [ ! -e /mnt/podata/ecoscore ]
+then
+  ln -sf /opt/product-opener/ecoscore /mnt/podata/ecoscore
+fi
+
 if [ ! -e /mnt/podata/templates ]
 then
   ln -sf /opt/product-opener/templates /mnt/podata/templates

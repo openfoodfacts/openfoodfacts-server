@@ -54,20 +54,28 @@ use Log::Any qw($log);
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
 sub unac_string_perl($) {
-        my $s = shift;
+	my $s = shift;
 
-        $s =~ s/à|á|â|ã|ä|å/a/ig;
-        $s =~ s/ç/c/ig;
-        $s =~ s/è|é|ê|ë/e/ig;
-        $s =~ s/ì|í|î|ï/i/ig;
-        $s =~ s/ñ/n/ig;
-        $s =~ s/ò|ó|ô|õ|ö/o/ig;
-        $s =~ s/ù|ú|û|ü/u/ig;
-        $s =~ s/ý|ÿ/y/ig;
-        $s =~ s/œ|Œ/oe/g;
-        $s =~ s/æ|Æ/ae/g;
+	$s =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
 
-        return $s;
+	# alternative methods, slower than above, but more readable and still faster than s///.
+
+	#$s =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+	#$s =~ tr/ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyy/;
+
+	#$s =~ tr/àáâãäåÀÁÂÃÄÅ/a/;
+	#$s =~ tr/çÇ/c/;
+	#$s =~ tr/èéêëÈÉÊË/e/;
+	#$s =~ tr/ìíîïÌÍÎÏ/i/;
+	#$s =~ tr/ñÑ/n/;
+	#$s =~ tr/òóôõöÒÓÔÕÖ/o/;
+	#$s =~ tr/ùúûüÙÚÛÜ/u/;
+	#$s =~ tr/ýÿÝŸ/y/;
+
+	$s =~ s/œ|Œ/oe/g;
+	$s =~ s/æ|Æ/ae/g;
+
+	return $s;
 }
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:

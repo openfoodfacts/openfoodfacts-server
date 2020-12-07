@@ -39,7 +39,9 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -106,13 +108,11 @@ else {
 		$response{status} = 0;
 		$response{status_verbose} = 'Edit against edit rules';
 
-
 		my $data =  encode_json(\%response);
 
 		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
-
 	}
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
@@ -195,6 +195,17 @@ else {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
+		
+		if ($#errors >= 0) {
+			$response{status} = 0;
+			$response{status_verbose} = 'new code is invalid';
+
+			my $data =  encode_json(\%response);
+
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
+
+			exit(0);			
+		}
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
@@ -264,7 +275,7 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 
 
@@ -297,14 +308,30 @@ else {
 
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-
-				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-					my $field_lc = $field . "_" . $product_ref->{lc};
-					$product_ref->{$field_lc} = $product_ref->{$field};
+				if ($field eq "lang") {
+					my $value = remove_tags_and_quote(decode utf8=>param($field));
+					
+					# strip variants fr-BE fr_BE
+					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+					$value = lc($value);
+					
+					# skip unrecognized languages (keep the existing lang & lc value)
+					if (defined $lang_lc{$value}) {
+						$product_ref->{lang} = $value;
+						$product_ref->{lc} = $value;
+					}				
+					
 				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
-				compute_field_tags($product_ref, $lc, $field);
+					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
+						my $field_lc = $field . "_" . $product_ref->{lc};
+						$product_ref->{$field_lc} = $product_ref->{$field};
+					}
+
+					compute_field_tags($product_ref, $lc, $field);
+				}
 			}
 		}
 
@@ -341,20 +368,6 @@ else {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		# strip variants fr-BE fr_BE
-		$product_ref->{lang} =~ s/^([a-z][a-z])(-|_).*/$1/ig;
-		$product_ref->{lang} = lc($product_ref->{lang});
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -539,6 +552,18 @@ else {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];	
+	
+	analyze_and_combine_packaging_data($product_ref);
+	
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 
