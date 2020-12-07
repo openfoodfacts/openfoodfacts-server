@@ -8117,7 +8117,9 @@ HTML
 	}
 	
 	# Forest footprint
-	if ($User{moderator}) {
+	# 2020-12-07 - We currently display the forest footprint in France 
+	# and for moderators so that we can extend it to other countries
+	if (($cc eq "fr") or ($User{moderator})) {
 		# Forest footprint data structure
 		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
 	}
