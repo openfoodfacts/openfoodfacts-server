@@ -275,6 +275,9 @@ sub initialize_attribute($$) {
 	elsif ($attribute_id eq "ecoscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/ecoscore-a.svg";
 	}
+	elsif ($attribute_id eq "forest_footprint") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest-footprint-a.svg";
+	}	
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/misc/nova-group-1.svg";
 	}
@@ -626,6 +629,92 @@ sub compute_attribute_ecoscore($$) {
 	return $attribute_ref;
 }
 
+
+=head2 compute_attribute_forest_footprint ( $product_ref, $target_lc )
+
+Computes an environmental impact attribute based on the Forest Footprint.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+The match is based on the forest footprint
+that is used to define the forest footprint grade from A to E.
+
+- Forest footprint A: < 0.5 m² / kg of food
+- Forest footprint B: < 1 m² / kg of food
+- Forest footprint C: < 1.5 m² / kg of food
+- Forest footprint D: < 2 m² / kg of food
+- Forest footprint E: >= 2 m² / kg of food
+
+If the forest footprint is not computed, we mark it as non-computed and make the match 100%.
+
+=cut
+
+sub compute_attribute_forest_footprint($$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+
+
+	$log->debug("compute forest footprint attribute", { code => $product_ref->{code}, forest_footprint_data => $product_ref->{forest_footprint_data} }) if $log->is_debug();
+
+	my $attribute_id = "forest_footprint";
+	
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	
+	if (defined $product_ref->{forest_footprint_data}) {
+		
+		$attribute_ref->{status} = "known";
+		
+		my $grade = $product_ref->{forest_footprint_data}{grade};
+				
+		# Compute match based on forest footprint
+		
+		my $match = 100 - ($product_ref->{forest_footprint_data}{footprint_per_kg} / 2.5) * 100;
+		
+		if ($match < 0) {
+			$match = 0;
+		}
+		
+		$attribute_ref->{match} = $match;
+		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
+		}
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest_footprint-$grade.svg";
+	}
+	else {
+		# If we don't have a forest footprint, we assume it is zero and mark it as known
+		# We do keep a greyed out icon until the forest footprint encompasses most sources of deforestation
+		# (e.g. not only chicken and eggs, but also other raised animals products and palm oil)
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest_footprint-not-computed.svg";
+		$attribute_ref->{match} = 0;		
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description_short");		
+		}
+	}
+	
+	return $attribute_ref;
+}
 
 =head2 compute_attribute_nova ( $product_ref, $target_lc )
 
@@ -1418,7 +1507,10 @@ sub compute_attributes($$) {
 	# Environment
 	
 	$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);	
+	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	
+	$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);
+	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
 		
 	# Labels groups
 	

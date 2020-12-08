@@ -1,6 +1,7 @@
 {
    "forest_footprint_data" : {
       "footprint_per_kg" : 1.26911401606236,
+      "grade" : "c",
       "ingredients" : [
          {
             "conditions_tags" : [
@@ -142,7 +143,8 @@
    "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [
-      "en:forest-footprint-computed"
+      "en:forest-footprint-computed",
+      "en:forest-footprint-c"
    ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
