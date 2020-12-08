@@ -46,6 +46,11 @@ then
   ln -sf /opt/product-opener/ecoscore /mnt/podata/ecoscore
 fi
 
+if [ ! -e /mnt/podata/forest-footprint ]
+then
+  ln -sf /opt/product-opener/forest-footprint /mnt/podata/forest-footprint
+fi
+
 if [ ! -e /mnt/podata/templates ]
 then
   ln -sf /opt/product-opener/templates /mnt/podata/templates
