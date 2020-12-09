@@ -33490,17 +33490,6 @@ fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
 
-# Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
-
-<en:fruit
-en:fruit extract
-de:Fruchtextrakt, Frucht-Extrakt
-fi:hedelmäuute
-fr:extrait de fruit
-nl:vruchtenextract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
-# 54 products in 4 languages @2018-10-04
-
 <en:fruit
 fr:pulpe de fruits, pulpes de fruits
 fi:hedelmäliha
@@ -35183,17 +35172,6 @@ nl:geconcentreerde appelpuree
 # 56 products in 4 languages @2018-10-04
 
 <en:apple
-en:apple extract
-de:Apfelextrakt
-es:extracto de manzana
-fi:omenauute, omenatiiviste, makeuttava omenauute
-fr:extrait de pomme, concentré de pomme
-nl:appelextract
-sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
-# 65 products in 4 languages @2018-10-04
-
-<en:apple
 fr:pommes en poudre
 de:Apfelpulver
 fi:omenajauhe
@@ -36598,18 +36576,6 @@ nl:gekonfijte sinaasappelschillen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
 # 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
 # 3 products in 1 language @2018-09-28
-
-# What is the difference between arome and extrait
-<en:orange
-en:orange extract
-de:Orangenextrakt
-es:Extracto de naranja
-fi:appelsiiniuute
-fr:extrait d'orange
-it:estratto di arancia
-nl:sinaasappelextracten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
-# 44 products @2018-09-28
 
 <en:orange extract
 en:concentrated orange extract
@@ -74464,5 +74430,38 @@ fr:tamarillo
 wikidata:en:Q379747
 wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
+# Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
+
+# don't put fruit extract in fruit
+en:fruit extract
+de:Fruchtextrakt, Frucht-Extrakt
+fi:hedelmäuute
+fr:extrait de fruit
+nl:vruchtenextract
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
+# 54 products in 4 languages @2018-10-04
+
+<en:fruit extract
+en:apple extract
+de:Apfelextrakt
+es:extracto de manzana
+fi:omenauute, omenatiiviste, makeuttava omenauute
+fr:extrait de pomme, concentré de pomme
+nl:appelextract
+sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
+# 65 products in 4 languages @2018-10-04
+
+<en:fruit extract
+<en:natural orange flavouring
+en:orange extract
+de:Orangenextrakt
+es:Extracto de naranja
+fi:appelsiiniuute
+fr:extrait d'orange
+it:estratto di arancia
+nl:sinaasappelextracten
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
+# 44 products @2018-09-28
 
 
