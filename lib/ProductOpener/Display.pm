@@ -10799,21 +10799,15 @@ sub display_ecoscore_calculation_details($) {
 
 	my $template_data_ref = dclone($ecoscore_data_ref);
 	
-	$template_data_ref->{lang} = \&lang;
-	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
-		return display_taxonomy_tag($lc, $_[0], $_[1]);
-	};
-	
 	my $decf = get_decimal_formatter($lc);
 	$template_data_ref->{round} = sub($) {
 		return sprintf ("%.0f", $_[0]);
 	};
-	$template_data_ref->{sep} = separator_before_colon($lc);
 
 	# Eco-score Calculation Template
 
 	my $html;
-	$tt->process('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
