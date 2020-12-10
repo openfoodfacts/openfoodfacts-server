@@ -3,10 +3,10 @@
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
-               [
-                  "en:unknown",
-                  100
-               ]
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
             ],
             "epi_score" : 0,
             "epi_value" : -5,

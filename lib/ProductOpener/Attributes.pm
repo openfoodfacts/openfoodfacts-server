@@ -676,7 +676,7 @@ sub compute_attribute_forest_footprint($$) {
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
-	if (defined $product_ref->{forest_footprint_data}) {
+	if ((defined $product_ref->{forest_footprint_data}) and (defined $product_ref->{forest_footprint_data}{grade})) {
 		
 		$attribute_ref->{status} = "known";
 		
@@ -697,14 +697,14 @@ sub compute_attribute_forest_footprint($$) {
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description");
 			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest_footprint-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest-footprint-$grade.svg";
 	}
 	else {
 		# If we don't have a forest footprint, we assume it is zero and mark it as known
 		# We do keep a greyed out icon until the forest footprint encompasses most sources of deforestation
 		# (e.g. not only chicken and eggs, but also other raised animals products and palm oil)
 		$attribute_ref->{status} = "known";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest_footprint-not-computed.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/icons/forest-footprint-not-computed.svg";
 		$attribute_ref->{match} = 0;		
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_title");		
