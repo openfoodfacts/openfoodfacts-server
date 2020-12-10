@@ -905,7 +905,7 @@ sub compute_sort_keys($) {
 		$sortkey -= 200000000000;
 		$popularity_key -= 200000000000;
 	}
-
+	# Theory: the definition of completeness has not been updated
 	# Put products with complete data before uncomplete products
 	if ($product_ref->{complete}) {
 		$sortkey += 100000000000;
