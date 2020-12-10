@@ -185,6 +185,7 @@ binmode STDERR, ":encoding(UTF-8)";
 front_image => 1,
 ingredients_image => 1,
 nutrition_image => 1,
+packaging_image => 1,
 product_name => 1,
 generic_name => 1,
 ingredients_text => 1,
