@@ -482,9 +482,9 @@ sub normalize_column_name($) {
 	$name =~ s/ in / /i;
 	
 	# 100g / 100ml
-	$name =~ s/100(\s*)g(r?)(\b|$)/100g/i;
-	$name =~ s/100(\s*)ml(\b|$)/100ml/i;
-	$name =~ s/100g\s*( or | ou |\/|-)\s*100ml/100g/i;
+	$name =~ s/100(\s|_|-)*g(r?)(\b|$)/100g/i;
+	$name =~ s/100(\s|_|-)*ml(\b|$)/100ml/i;
+	$name =~ s/100g(\s|_|-)*(or|ou|\/|-)?(\s|_|-)*100ml/100g/i;
 
 	# estampille(s) sanitaire(s)
 
