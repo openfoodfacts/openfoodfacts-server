@@ -231,30 +231,62 @@ sub load_csv_or_excel_file($) {
 
 			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 
-			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
-			# the header function crashes with some csv files... use getline instead
-			my $row_ref = $csv->getline ($io);
+			# Remove completely empty rows and columns
 
-			# empty line or only title in first column?
-			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
-				and ($row_ref = $csv->getline ($io))) {
-			}
+			my @original_rows = ();
+			my @non_empty_columns = ();
 
-			if (not defined $row_ref) {
-				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-				$results_ref->{error} = "Could not read headers row $file.csv: $!";
-			}
-			else {
-				@{$headers_ref} = @{$row_ref};
-
-				# May need to deal with possible empty lines before header
-
-				while ($row_ref = $csv->getline ($io)) {
+			while (my $row_ref = $csv->getline ($io)) {
+				my $non_empty_values= 0;
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+						$non_empty_values++;
+					}
+				}
+				# Remove rows with a value for only one column, and do not use that value for non empty columns
+				if ($non_empty_values >= 2) {
+					push @original_rows, $row_ref;
 					
+					for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+						if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+							$non_empty_columns[$i] = 1;
+						}
+					}
+				}
+			}
+			
+			$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
+			
+			# Copy non empty columns and rows
+			
+			my $seen_header = 0;
+			
+			foreach my $row_ref (@original_rows) {
+				my @new_row = ();
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ($non_empty_columns[$i]) {
+						push @new_row, $row_ref->[$i];
+					}
+				}
+				
+				$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
+				
+				# Is it a header? (column 1 or 2 should not be empty)
+				if (not $seen_header) {
+					
+					if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
+						$seen_header = 1;
+						@{$headers_ref} = @new_row;
+						
+						$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
+					}
+					
+					# Otherwise skip the line until we see a header
+				}
+				else {
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @{$row_ref}) !~ /[0-9]{8}/);
-					
-					push @{$rows_ref}, $row_ref;
+					next if (join(" ", @new_row) !~ /[0-9]{8}/);
+					push @{$rows_ref}, \@new_row;
 				}
 			}
 		}
@@ -448,6 +480,11 @@ sub normalize_column_name($) {
 
 	# nutrient in unit
 	$name =~ s/ in / /i;
+	
+	# 100g / 100ml
+	$name =~ s/100(\s|_|-)*g(r?)(\b|$)/100g/i;
+	$name =~ s/100(\s|_|-)*ml(\b|$)/100ml/i;
+	$name =~ s/100g(\s|_|-)*(or|ou|\/|-)?(\s|_|-)*100ml/100g/i;
 
 	# estampille(s) sanitaire(s)
 
@@ -495,7 +532,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods","ean-barcode","ean-barcode-number","ean-code"],
 	producer_product_id => ["internal code"],
 	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -563,8 +600,8 @@ my %per_synonyms = (
 	# may need to be changed for the US, CA etc.
 	"100g" => {
 	# code with i18n opportunity
-		en => ["", "for 100g", "per 100g", "100g", "100gr", "100 gr", "for 100 g", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
-		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		en => ["", "for 100g", "per 100g", "100g"],
+		fr => ["", "pour 100g", "100g"],
 	},
 	"serving" => {
 		en => ["per serving", "serving"],
@@ -807,7 +844,7 @@ sub init_other_fields_columns_names_for_lang($) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition)/) {
+					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
@@ -1089,6 +1126,9 @@ sub init_columns_fields_match($$) {
 	foreach my $column (@{$headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
+		
+		# Skip empty columns
+		next if $column_id eq "";
 
 		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
@@ -1285,7 +1325,7 @@ JSON
 
 				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
+				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/))) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
