@@ -81,6 +81,8 @@ my @tests = (
 ["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
 ["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
 ["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
+["en", "energy per 100g or 100ml", { 'field' => 'energy_100g_value_unit'}],
+["fr", "énergie (100g / 100ml)", { 'field' => 'energy_100g_value_unit'}],
 
 );
 
