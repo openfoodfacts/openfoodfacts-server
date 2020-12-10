@@ -653,7 +653,7 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name', 'packaging_text',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {

@@ -807,7 +807,7 @@ sub init_other_fields_columns_names_for_lang($) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition)/) {
+					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
@@ -1285,7 +1285,7 @@ JSON
 
 				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
+				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/))) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
