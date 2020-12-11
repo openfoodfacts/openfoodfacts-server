@@ -17,7 +17,7 @@ synonyms:es:jarabe, sirope
 
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
@@ -65,155 +65,22 @@ stopwords:zh::配料
 # comment:en:These are words that end ingredient lists.
 
 #de:
-#	'davon ges(â|a|ä)ttigte'
-#	'Durchschnittliche N(â|a|ä)hrwerte'
-#	'Ern(â|a|ä)hrungswerte'
-#Glutenfrei
-#Kann andere Schalenfrüchte enthalten.
-#Kann spuren von Sellerie und Senf enthalen
-#Milchschokolade: Kakao: 37% mindestens
-#	'Mindestens altbar bis'
-#	'Mindestens haltbar bis'
-#	'Nâhrwerte'
-#	'Vorbereitung Tipps'
-
 
 #en:
-#allergy advice
-#	'after opening'
-#Gluten free
-#Keep in a cool and dry place.
-#May contain other nuts.
-#May contain traces of celery and mustard
-#	'nutritional values'
-#	'nutrition values'
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
-
 
 # es:
-#	'conservar en lug(a|e)r fresco y seco'
-#	'conser(y|v)ar entre'
-#	'conservaci(o|ó)n:'
-#	'consumi preferentemente antes del'
-#	'consumir preferentemente antes del'
-#	'de los cuates az(u|ü)cares'
-#	'de las cuales saturadas'
-#E producto puede contener trazas de sésamo y leche.
-#	#Envasado por:
-#	#'pa(i|í)s de transformaci(o|ó)n'
-#	'protegido de la luz'
-#	'una vez abierto'
 
 # fr:
-#Chocolat au lait: cacao: 37% minimum
-#	'(a|à) consommer de préférence'
-#	'(a|à) cons.de préférence avant'
-#	'(a|à) consommer (cuit|rapidement|dans|jusqu)'
-#Conserver au frais et au sec.
-#	'(a|à) conserver (dans|de|a|à)'
-#	'(a|à)conserver (dans|de|a|à)', #variation
-#	'(a|à)conserver entre
-#	'apport de r(e|é)ference pour un adulte type'
-#	'apr(e|è)s achat'
-#	'apr(e|è)s ouverture'
-#	'(a|à) protéger de ', # humidité, chaleur, lumière etc.
-#`Conditionné par`
-#	'conditions de conservation'
-#	'conditionn(e|é) sous atmosph(e|è)re protectrice'
-#	'conseils de pr(e|é)paration'
-#	'conseil de pr(e|é)paration'
-#Consommer cuit a coeur
-#	'dans le compartiment (a|à) gla(c|ç)ons'
-#	'dont sucres'
-#	'dontSUcres'
-#	'dont acides gras satur(e|é)s
-# 	'dont acides ras satur(e|é)s
-#	`etten/Matières grasses`, # (Vetten mais j'avais Netten/Matières grasses)
-#Fabriqué dans un atelier utilisant
-# Fabriqué dans un atelier utilisant : moutarde et _fruits à coque_.
-#Ingrédients issus de l'agriculture biologique
-#	'information nutritionnelle'
-#Ingrédient décongelé, ne pas recongeler
-# INFORMATIONS SUR LES ALLERGIES
-#La présence de vide au fond du pot est due au procédé de fabrication.
-#Le produit peut contenir traces de sésame et du _lait_
-#Les pourcentages sont exprimés sur les cuisses de
-#	'moyennes pour 100g'
-#	ne pas laisser les enfants' # Ne pas laisser les enfants de moins de 36 mols sans surveillance avec le bouchon
-#	'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
-#	'nutritionnelles mo(y|v)ennes', 	# in case of ocr issue on the first word "valeurs" v in case the y is cut halfway
-#	'nutritionnelles pour 100g', #Arôme Valeum nutritionnelles pour 100g: Energie
-#	'la pr(e|é)sence de vide'
-#peut contenir des traces de fruits à coque
-#Peut contenir des traces de céleri et de moutarde
-# Peut contenir des traces de céleri, moutarde et fruits à coque.
-#peut contenir du, pourcentage exprimé sur
-#Peut contenir des traces d'_œufs_, _gluten_, _poissons_, _mollusques_, _crustacés_, _céleri_, _moutarde_ et _fruits à coque_.
-#Peut contenir des traces de céleri, moutarde et fruits à coque.
-#Pourcentages exprimés sur letotal de la recette
-#Pourcentages exprimés sur le total de la recette
-#	'pr(e|é)paration au four'
-#Présence éventuelle de poissons, cr!Ftù.es, _mollusques_, _moutarde_ et _fruits à coque_.
-#Présence éventuelle de poisson, crustacés, céleri, mollusques, moutarde et fruits à coque.
-#Présence éventuelle de _crustacés_, _soja_, graines de _sésame_, _œufs_, _moutarde_ et _fruits à coque_
-#Présence possible de lait, _gluten_, _œuf_, _moutarde_ et _fruits à coque_.
-#Produit issu de l'agriculture biologique
-#Sans colorant ni conservateur. Conserver au sec, à l'abri de la lumière et de l'humidité. Servir frais.
-#Sans gluten
-#Sans pectine ajoutée
-#	'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)'
-#	'valeur(s?) (e|é)nerg(e|é)tique'
-#	'valeurs mo(y|v)ennes'
-#	'valeurs moyennes pour 100 g'
-#	'valeur nutritionnelle moyenne par 100 g'
-#	'valeurs nutritionelles moyennes'
-#	'valeur nutritionnelle mo(y|v)enne'
-#	'valeur(s?) nutritives'
-#	`verzadigde vetzuren/ acides gras saturés`
-#	'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal'
-#Traces éventuelles de lait
-#Traces possible de fruits à coque
-#'waarvan suikers/dont sucres'
 
+# it:
 
-#######     it:
-#Cioccolato al latte: cacao: 37% min
-#	'consigli per la preparazione'
-#	'di cui zuccheri'
-#Può contenere tracce di sesamo e latte.
-#Può contenere tracce di sedano e senape
-#	'Valori nutritivi'
-#	'valori nutrizionali'
+#ja:
 
+#nl:
 
-#######     ja:
-#	'栄養価'
+#pt:
 
-#######     nl:
-#Gemaakt in een bedrijf waar gluten, soja, noten en sesam verwerkt worden
-#	'gemiddelde voedingswaarden'
-#	'gemiddelde voedingswaarde per 100 g'
-#	'voedingswaarden'
-#	'voorbereidingstips'
-
-
-#######     pt:
-#	'a consumir de prefer(e|ê)ncia antes do'
-#	'consumir de prefer(e|ê)ncia antes do'
-#	'conservar em local fresco'
-#	'conservar em lugar fresco'
-#	'dos quais a(ç|c)(u|ü)ares'
-#	'dos quais a(ç|c)(u|ü)cares'
-#	'informa(ç|c)(a|ã)o nutricional'
-#	'modo de prepara(ç|c)(a|ã)o'
-#Derivado da agricultura biológica
-
-#######     ro:
-#	'a se agita inainte de deschidere'
-#	'a si pastra la frigider dup(a|ă) deschidere'
-#	'declaratie nutritional(a|ă)'
-#Poate contine urme de fructe cu coajă lemnoasă
-
+#ro:
 
 fr:additifs alimentaires
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
@@ -10679,7 +10546,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani, parmigiano-reggiano
-fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -10904,7 +10771,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 # ingredient/fr:reblochon has 64 products @2018-12-27
 
 <en:reblochon
-fr:Reblochon AOP
+fr:Reblochon AOP, Reblochon de Savoie AOP
 
 
 # Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
@@ -11599,7 +11466,7 @@ ca:provitamina A
 de:Provitamin A
 es:provitamina A
 fi:provitamiini A, A-vitamiinin provitamiini
-fr:pro-vitamine A
+fr:pro-vitamine A, provitamine A
 hu:A-provitamin
 it:provitamina A
 wikidata:en:Q306135
@@ -12888,7 +12755,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
 en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
-ar:ملح الطعام
+ar:ملح, ملح الطعام
 av:ЦӀам
 ay:Jayu
 az:Duz, Xörək duzu
@@ -14183,7 +14050,7 @@ cy:Cig oen
 de:Schaffleisch
 es:carne de oveja
 fi:lampaanliha
-fr:viande de mouton, viande d'ovin
+fr:viande de mouton, viande d'ovin, viande ovine
 hu:birkahús, juhhús
 id:Daging domba
 it:carne ovina
@@ -14251,7 +14118,7 @@ de:Hirschfleisch
 es:Carne de venado
 fa:گوشت گوزن
 fi:hirvieläinten liha
-fr:viande de cerf
+fr:viande de cerf, viande de chevreuil
 ga:fiafheoil
 gv:feill feeaih
 hu:szarvashús
@@ -15413,7 +15280,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lard
 en:veal meat
 ca:carn de vedella
 da:kalvekød
-de:Kalbsfleisch
+de:Kalbsfleisch, Kalbfleisch
 es:carne de ternera
 fi:vasikanliha
 fr:viande de veau
@@ -15669,7 +15536,7 @@ bs:Škrob
 ca:Midó
 cs:Škrob
 da:stivelse
-de:Stärke, Stärken
+de:Stärke, Stärken, Speisestärke
 el:άμυλο
 es:almidón,fecula
 et:Tärklis
@@ -17021,7 +16888,7 @@ wikidata:en:Q7128109
 <en:palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof
+da:palmfedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma,manteca de palma
 et:palmirasv
@@ -18942,7 +18809,7 @@ da:balsamicoeddike
 de:Aceto balsamico, Balsamessig
 el:βαλσαμικό ξύδι
 eo:Balzamvinagro
-es:Aceto balsámico,vinagre balsamico,vinagre balsamico de modena
+es:Aceto balsámico, vinagre balsamico
 eu:Ozpin baltsamiko
 fa:سرکه بالزامیک
 fi:balsamietikka, balsamiviinietikka, balsamico
@@ -18966,6 +18833,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
 <en:balsamic vinegar
 en:balsamic vinegar of modena, modena balsamic vinegar
 de:Balsamessig aus Modena
+es:vinagre balsamico de modena
 fr:vinaigre balsamique de modène
 it:aceto balsamico di modena
 wikidata:en:Q3604285
@@ -25403,7 +25271,7 @@ da:fuldkornsrugmel, fullkornsrugmel
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno,harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
-fr:farine de seigle complète, farine complète de seigle
+fr:farine de seigle complète, farine complète de seigle, farine de seigle complet
 it:farina di segale integrale
 hu:teljes kiőrlésű rozsliszt
 nb:fullkornsrugmel
@@ -28263,7 +28131,7 @@ bs:Glukoza
 ca:Glucosa, glicosa
 cs:Glukóza
 da:glukose
-de:Glukose
+de:Glukose, Glucose
 el:Γλυκόζη
 eo:Glukozo
 es:glucosa
@@ -29305,6 +29173,7 @@ es:proteína de guisante hidrolizada,proteínas de guisante hidrolizadas
 
 <en:pea protein
 en:pea protein isolate
+de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fr:isolat de proteines de pois
 fi:herneproteiini-isolaatti
@@ -29436,7 +29305,7 @@ fr:protéines de soja i.p
 
 <en:vegetable protein
 en:wheat protein
-de:Weizenprotein, Weizeneiweiß
+de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
 fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
@@ -33621,17 +33490,6 @@ fr:jus et purées de fruits à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-et-purées-de-fruits-à-base-de-concentrés
 # 49 products in 1 language @2018-10-04
 
-# Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
-
-<en:fruit
-en:fruit extract
-de:Fruchtextrakt, Frucht-Extrakt
-fi:hedelmäuute
-fr:extrait de fruit
-nl:vruchtenextract
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
-# 54 products in 4 languages @2018-10-04
-
 <en:fruit
 fr:pulpe de fruits, pulpes de fruits
 fi:hedelmäliha
@@ -33711,7 +33569,7 @@ da:abrikos
 de:Aprikose, Aprikosen
 el:Βερίκοκο
 eo:Abrikoto
-es:albaricoque, albaricoques
+es:albaricoque, albaricoques, damasco, damascos
 et:aprikoos
 eu:abrikot
 fa:زردآلو
@@ -35314,17 +35172,6 @@ nl:geconcentreerde appelpuree
 # 56 products in 4 languages @2018-10-04
 
 <en:apple
-en:apple extract
-de:Apfelextrakt
-es:extracto de manzana
-fi:omenauute, omenatiiviste, makeuttava omenauute
-fr:extrait de pomme, concentré de pomme
-nl:appelextract
-sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
-# 65 products in 4 languages @2018-10-04
-
-<en:apple
 fr:pommes en poudre
 de:Apfelpulver
 fi:omenajauhe
@@ -36729,18 +36576,6 @@ nl:gekonfijte sinaasappelschillen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
 # 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
 # 3 products in 1 language @2018-09-28
-
-# What is the difference between arome and extrait
-<en:orange
-en:orange extract
-de:Orangenextrakt
-es:Extracto de naranja
-fi:appelsiiniuute
-fr:extrait d'orange
-it:estratto di arancia
-nl:sinaasappelextracten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
-# 44 products @2018-09-28
 
 <en:orange extract
 en:concentrated orange extract
@@ -39602,7 +39437,7 @@ da:jordbær, Havejordbær
 de:Erdbeere, Erdbeeren
 el:Φράουλα
 eo:frago
-es:fresa
+es:fresa, frutilla
 et:Aedmaasikas
 eu:Baratze-marrubi
 fa:توت‌فرنگی
@@ -44635,6 +44470,7 @@ de:Lauchpulver
 # <en:class:en:Onions and their products
 <en:root vegetable
 en:onion, onions
+ar:بصل
 bg:лук
 bn:পিঁয়াজ
 ca:ceba
@@ -46350,6 +46186,7 @@ sv:Grön paprika
 
 <en:pepper
 en:red bell pepper, red pepper
+ar:فلفل أحمر
 ca:pebrot vermell,pebrot roig
 da:rød peberfrugt, rød peber
 de:rote Paprika, roter Paprika
@@ -50526,6 +50363,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 
 <en:seed
 en:cumin seeds, cumin
+ar:كمون
 ca:llavors de comí
 da:Spidskommen
 de:Kümmelkörnen, Kreuzkümmel, cumin
@@ -50537,6 +50375,8 @@ it:grani di cumino, cumino
 nl:komijnzaad, komijnzaden, komijn
 pl:Nasiona kminku
 sv:spiskummin, spiskumminfrön
+wikidata:en:https://www.wikidata.org/wiki/Q132624
+wikipedia:en:https://en.wikipedia.org/wiki/Cumin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-cumin
 # 87 products in 4 languages @2018-10-07
 
@@ -56100,7 +55940,7 @@ fr:suc de réglisse
 <en:liquorice
 en:liquorice root, licorice root
 da:lakridsrod
-de:Sussholzwurzel
+de:Sussholzwurzel, Sußholzwurzel, Süßholzwurzel, Süssholzwurzel
 fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
@@ -59673,7 +59513,7 @@ es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
 it:shiitake, funghi shiitake
-la:Lentinula edodes
+la:Lentinula edodes, lentinus edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
@@ -62631,6 +62471,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yellowfin_tuna
 # ingredient/fr:thon-albacore has 172 products in 2 languages 2019-01-02
 # ingredient/fr:Thunnus-albacares has 58 products @2019-01-02
 # THON albacore (Thunnus albacares)
+
+<en:tuna
+en:bigeye tuna
+la:Thunnus obesus
+wikidata:en:Q1122241
+wikipedia:en:https://en.wikipedia.org/wiki/Bigeye_tuna
 
 # thon-au-naturel is a compound ingredient
 
@@ -67875,21 +67721,20 @@ carbon_footprint_fr_foodges_value:fr:4.9
 <en:chicken
 en:free range chicken
 es:pollo de corral
+fr:poulet élevé en plein air
 
-<en:chicken
-fr:poulet fermier
+# "poulet fermier" is defined in https://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:01991R1538-20071217&from=GA
+# in English, it is "traditional free-range"
+<en:free range chicken
+en:traditional free-range chicken, farm reared chicken, farm raised chicken
+fr:poulet fermier, poulet fermier élevé en plein air
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
-
-<en:chicken
-fr:poulet déshydraté
-
-<en:chicken
-fr:machons et ailerons de poulet
 
 <en:animal protein
 <en:chicken
 en:chicken blood
 es:sangre de pollo
+fr:sang de poulet
 
 # description:en:CHICKEN BONES are hazardous to health as they tend to break into sharp splinters when eaten, but they can be simmered with vegetables and herbs for hours or even days to make chicken stock.
 
@@ -67979,12 +67824,6 @@ fr:viande de cuisse de poulet
 
 <fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
-
-
-<en:chicken meat
-fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr:4.9
 
 <en:chicken meat
 fr:poulet rôti
@@ -68128,7 +67967,7 @@ fi:uunipaahdettu broilerinfilee
 <en:chicken meat
 en:chicken breast, chicken breast meat
 ca:pit de pollastre
-de:Hähnchenbrust
+de:Hähnchenbrust, Hähnchenbrustfleisch
 es:pechuga de pollo,carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
 ro:piept de pui
@@ -68151,6 +67990,9 @@ sv:kycklingbröstfilé
 <en:chicken meat
 en:chicken thigh,chicken drumstick
 es:muslo de pollo
+fr:cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr:4.9
 
 # description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
@@ -68281,7 +68123,7 @@ cs:krocan
 cv:Кăркка
 cy:Twrci
 da:kalkun
-de:Truthahn, Truthühner
+de:Truthahn, Truthühner, Pute
 el:Γαλοπούλα
 eo:Meleagro
 es:pavo
@@ -68469,6 +68311,10 @@ fr:jambon de dinde cuit standard goût fumé
 <en:turkey
 en:roasted turkey including natural turkey juices
 
+<en:turkey
+en:turkey liver
+fr:foie de dinde
+
 <en:poultry
 en:quail
 fr:caille, cailles
@@ -68476,6 +68322,22 @@ nl:kwartel, kwartels
 wikidata:en:Q6072584
 wikipedia:en:https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
+
+
+<en:poultry
+en:goose
+fr:oie
+
+<en:goose
+en:goose meat
+fr:viande d'oie
+
+<en:goose
+en:goose liver
+fr:foie d'oie
+
+<en:goose liver
+fr:foie gras d'oie
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -68642,7 +68504,7 @@ en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
 fi:ulkomunat
-fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air, œufs d'élevage en plein air
+fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
 nl:vrije uitloop ei
 
 <en:eggs
@@ -72682,14 +72544,14 @@ allergens:en: en:soybeans
 description:en:SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 <en:soy preparation
 # mainIngredient:en:water
-en:soy milk
+en:soy milk, soy drink
 an:Leit de soya
 ar:حليب الصويا
 bg:Соево мляко
 bn:সয়াদুধ
 ca:llet de soia
 cs:Sojové mléko
-de:Sojamilch
+de:Sojamilch, Sojadrink
 el:γάλα σόγιας
 eo:sojlakto
 es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
@@ -73767,7 +73629,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse
+de:Sojasauce, Sojasoße, Sojasosse, soja-sauce
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja,shoyu
@@ -74335,7 +74197,7 @@ et:pesto
 eu:pesto
 fa:پستو
 fi:pesto
-fr:pesto
+fr:pesto, sauce pesto
 fy:pesto
 gl:pesto
 he:פסטו
@@ -74457,7 +74319,7 @@ carbon_footprint_fr_foodges_value:fr:2.7
 
 <en:Margarine
 en:vegetable margarine, vegetal margarine
-de:Pflanzliche Margarine
+de:Pflanzliche Margarine, Pflanzenmargarine
 es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
@@ -74568,5 +74430,38 @@ fr:tamarillo
 wikidata:en:Q379747
 wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
+# Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
+
+# don't put fruit extract in fruit
+en:fruit extract
+de:Fruchtextrakt, Frucht-Extrakt
+fi:hedelmäuute
+fr:extrait de fruit
+nl:vruchtenextract
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
+# 54 products in 4 languages @2018-10-04
+
+<en:fruit extract
+en:apple extract
+de:Apfelextrakt
+es:extracto de manzana
+fi:omenauute, omenatiiviste, makeuttava omenauute
+fr:extrait de pomme, concentré de pomme
+nl:appelextract
+sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
+# 65 products in 4 languages @2018-10-04
+
+<en:fruit extract
+<en:natural orange flavouring
+en:orange extract
+de:Orangenextrakt
+es:Extracto de naranja
+fi:appelsiiniuute
+fr:extrait d'orange
+it:estratto di arancia
+nl:sinaasappelextracten
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
+# 44 products @2018-09-28
 
 
