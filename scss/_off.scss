@@ -344,14 +344,35 @@ details.recent {
   cursor: pointer;
 }
 
+.top-bar .button, .top-bar button {
+  padding-top:0.4rem;
+  padding-bottom:0.4rem;
+}
+
+.button.small, button.small, button.tiny, .button.tiny {
+  padding:0.5rem;
+  padding-left:0.75rem;
+  padding-right:0.75rem;
+}
+
+.postfix.button.small, button.postfix.small {
+  padding:0;
+}
+
 .icon {
   display: inline-block;
   fill: currentColor;
-  width: 1em;
-  height: 1em;
   margin-left: 0.25em;
   margin-right: 0.25em;
   overflow: hidden;
+  vertical-align:middle;
+  font-size:18px;
+  width:1em;
+  height:1em;
+}
+
+h4 > .icon {
+  font-size:24px;
 }
 
 .ingredients_analysis {
@@ -557,6 +578,7 @@ html[dir="rtl"] {
   text-decoration:none;
 }
 
-.tab-title.active {
-  font-weight:bold;
+.tab_products-title.active {
+  border-bottom:1px solid grey;
 }
+

@@ -41,6 +41,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -107,13 +108,11 @@ else {
 		$response{status} = 0;
 		$response{status_verbose} = 'Edit against edit rules';
 
-
 		my $data =  encode_json(\%response);
 
 		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
-
 	}
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
@@ -196,6 +195,17 @@ else {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
+		
+		if ($#errors >= 0) {
+			$response{status} = 0;
+			$response{status_verbose} = 'new code is invalid';
+
+			my $data =  encode_json(\%response);
+
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
+
+			exit(0);			
+		}
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
@@ -550,7 +560,10 @@ else {
 	
 	analyze_and_combine_packaging_data($product_ref);
 	
-	compute_ecoscore($product_ref);
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 

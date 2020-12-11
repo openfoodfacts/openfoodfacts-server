@@ -806,7 +806,7 @@ sub change_product_server_or_code($$$) {
 
 	$new_code = normalize_code($new_code);
 	if ($new_code !~ /^\d{4,24}$/) {
-		display_error($Lang{invalid_barcode}{$lang}, 403);
+		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
 	# check that the new code is available
@@ -1407,6 +1407,16 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	else {
 		delete $product_ref->{empty};
+	}
+	
+	# On the producers platform, keep track of which products have changes to be exported
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if ((defined $product_ref->{last_exported_t}) and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t})) {
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+		}
 	}
 
 	$product_ref->{complete} = $complete;

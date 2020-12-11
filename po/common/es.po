@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:09\n"
+"PO-Revision-Date: 2020-12-07 09:34\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -73,10 +73,6 @@ msgstr "%s es un proyecto colaborativo al que puedes aportar mucho más que nuev
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "Utilizamos un sistema de discusión llamado Slack en el que todos los participantes del proyecto pueden intercambiar y colaborar. ¡Por favor, únete! ¡Estaremos encantados de conocerte!"
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "Únete a nosotros en Slack"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -1105,7 +1101,7 @@ msgstr "Descargar en la App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2346,7 +2342,7 @@ msgstr "Ingredientes, información nutricional e información sobre los alimento
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2652,33 +2648,13 @@ msgctxt "delete_user"
 msgid "Delete the user"
 msgstr "Eliminar el usuario"
 
-msgctxt "sources_openfood_ch"
-msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Algunos de los datos y/o imágenes provienen de la base de datos OpenFood.ch (la lista exacta está disponible en el historial de edición del producto). Esos elementos están protegidos bajo licencia <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-
-msgctxt "sources_openfood_ch_product_page"
-msgid "Product page on openfood.ch"
-msgstr "Página del producto en openfood.ch"
-
-msgctxt "sources_usda_ndb"
-msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr "Algunos de los datos provienen de la Base de Datos Nacional de Nutrientes del Departamento de Agricultura de Estados Unidos (USDA National Nutrients Database for Branded Foods). La lista exacta está disponible en el historial de edición del producto."
-
-msgctxt "sources_usda_ndb_product_page"
-msgid "Product page on USDA NDB"
-msgstr "Página del producto en USDA NDB"
-
-msgctxt "sources_fleurymichon"
-msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "Algunos de los datos y las imágenes han sido proporcionados directamente por el fabricante Fleury Michon."
-
 msgctxt "sources_manufacturer"
-msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "Algunos de los datos de este producto han sido proporcionados directamente por el fabricante %s"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s."
+msgstr ""
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr "Algunos de los datos de este producto se han recopilado en colaboración con %s"
+msgctxt "list_of_sources"
+msgid "Some of the data and/or photos for this product come from those sources:"
+msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2824,7 +2800,7 @@ msgstr "Ancianos"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr "65+"
+msgstr ""
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -3236,7 +3212,7 @@ msgstr "Sí"
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr "No"
+msgstr ""
 
 msgctxt "button_caption_skip"
 msgid "Skip"
@@ -3955,7 +3931,7 @@ msgstr "Puntaje de Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4130,26 +4106,6 @@ msgstr "Grado de Nutri-Score del productor"
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
 msgstr "Puntuación de Nutri-Score calculada"
-
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Código escaneado"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Código del nombre del archivo"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Usando código anterior"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Puedes especificar valores de campo que se agregarán a todos los productos para los que enviarás imágenes."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Añadir un campo"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4434,6 +4390,10 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "No es un producto ecológico"
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "Falta información: ¿producto ecológico?"
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
 msgstr ""
@@ -4458,6 +4418,10 @@ msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "No es un producto de comercio justo"
 
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "Falta información: ¿producto de comercio justo?"
+
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
 msgstr "Ayuda a los productores de los países en desarrollo."
@@ -4476,7 +4440,7 @@ msgstr "Calidad nutricional"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4543,14 +4507,6 @@ msgstr "Alimento poco o nada procesado (Grupo NOVA)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4878,12 +4834,12 @@ msgstr "Impacto medioambiental"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Puntuación Eco-score"
+msgstr "Puntuación eco-score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr "Calificación Eco-score"
+msgstr "Calificación eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
@@ -4922,5 +4878,167 @@ msgstr ""
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "ecoscore"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr "Piezas del embalaje"
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr "Número"
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr "Forma"
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr "Cantidad contenida"
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr "Material"
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr "Reciclaje"
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr "Los productos de esta página están ordenados según tus preferencias:"
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr "Elige la información que prefieres ver primero."
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr "Ver tus preferencias"
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr "Borrar todas las preferencias"
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr "Los productos se están cargando, espere."
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr "Todos los productos"
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr "Productos que coinciden con tus preferencias"
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr "Productos que no coinciden con tus preferencias"
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr "Productos para los que actualmente nos faltan datos para determinar si coinciden con tus preferencias"
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr "Huella forestal"
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr "Ingredientes que requieren soja"
+
+msgctxt "type"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr "Factor de procesamiento"
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr "Factor de alimentación de soja"
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr "Rendimiento de soja"
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr "Riesgo de deforestación"
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr "Huella forestal total"
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr "m² por kg de alimento"
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr "% de alimentos después del procesamiento"
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr "kg de soja por kg de alimento"
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr "kg de soja por m²"
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr "% en producto"
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
+msgstr "Detalles del cálculo de la huella forestal"
+
+msgctxt "you_are_on_the_public_database"
+msgid "You are on the public database."
+msgstr ""
+
+msgctxt "manage_your_products_on_the_producers_platform"
+msgid "Manage your products on the platform for producers"
+msgstr ""
+
+msgctxt "number_of_products_with_changes_since_last_export"
+msgid "Number of products with changes since last export"
+msgstr ""
+
+msgctxt "only_export_products_with_changes"
+msgid "Only export products with changes"
+msgstr ""
+
+msgctxt "product_edits_by_producers"
+msgid "Is this your product? If it is, please use our free platform for producers to update it."
+msgstr ""
+
+msgctxt "product_edits_by_producers_platform"
+msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+msgstr ""
+
+msgctxt "product_edits_by_producers_import"
+msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+msgstr ""
+
+msgctxt "product_edits_by_producers_analysis"
+msgid "The platform also provides in-depth analysis of the products."
+msgstr ""
+
+# It = the platform
+msgctxt "product_edits_by_producers_indicators"
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr ""
 

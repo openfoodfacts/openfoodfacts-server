@@ -292,12 +292,14 @@ if ($action eq 'display') {
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
+	push @axis_values, "forest_footprint";
 	$axis_labels{additives_n} = lang("number_of_additives");
 	$axis_labels{ingredients_n} = lang("ingredients_n_s");
 	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
 	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
 	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
+	$axis_labels{forest_footprint} = lang("forest_footprint");
 
 	my @sorted_axis_values = ("", sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values));
 
@@ -567,7 +569,7 @@ elsif ($action eq 'process') {
 			my $field;
 			
 			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
-				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n")) {
+				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n") or ($nutriment eq "forest_footprint")) {
 				$field = $nutriment;
 			}
 			else {
@@ -575,7 +577,7 @@ elsif ($action eq 'process') {
 			}
 
 			if ($compare eq 'eq') {
-				$query_ref->{"nutriments.${nutriment}_100g"} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
+				$query_ref->{$field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 			}
 			elsif ($compare =~ /^(lt|lte|gt|gte)$/) {
 				if (defined $query_ref->{$field}) {
@@ -691,7 +693,7 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x','y') {
-			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
+			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} ne "forest_footprint") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
 				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}) or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
 				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} { '$exists'} = 1  ;
 			}

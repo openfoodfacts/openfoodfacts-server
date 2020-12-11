@@ -72,6 +72,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Packaging qw(:all);
+use ProductOpener::ForestFootprint qw(:all);
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -124,6 +125,7 @@ my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
 my $compute_ecoscore = '';
+my $compute_forest_footprint = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -147,6 +149,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
 			"compute-ecoscore" => \$compute_ecoscore,
+			"compute-forest-footprint" => \$compute_forest_footprint,
 			"check-quality" => \$check_quality,
 			"compute-sort-key" => \$compute_sort_key,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -214,7 +217,7 @@ if (
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
-	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $process_packagings)
+	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $compute_forest_footprint) and (not $process_packagings)
 	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
@@ -225,6 +228,11 @@ if ($compute_ecoscore) {
 	init_packaging_taxonomies_regexps();
 	load_agribalyse_data();
 	load_ecoscore_data();
+}
+
+if ($compute_forest_footprint) {
+
+	load_forest_footprint_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -889,6 +897,10 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_ecoscore) {
 			compute_ecoscore($product_ref);
 		}		
+
+		if ($compute_forest_footprint) {
+			compute_forest_footprint($product_ref);
+		}	
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");

@@ -355,7 +355,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
+$page_size = 24;
 
 
 $google_analytics = <<HTML

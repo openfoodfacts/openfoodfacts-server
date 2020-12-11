@@ -1,9 +1,5 @@
 /*global lang */
 
-// Will hold product data retrieved from the search API
-var products = [];
-
-
 // match_product_to_preference checks if a product matches
 // a given set of preferences and scores the product according to
 // the preferences
@@ -22,12 +18,6 @@ function match_product_to_preferences (product, product_preferences) {
 	var score = 0;
 	var status = "yes";
 	var debug = "";
-	
-	product.match_icons = {
-		"mandatory" : [],
-		"very_important" : [],
-		"important" : []
-	};
 
 	product.match_attributes = {
 		"mandatory" : [],
@@ -79,10 +69,6 @@ function match_product_to_preferences (product, product_preferences) {
 								status = "no";
 							}
 						}
-					}
-					
-					if (attribute.icon_url) {
-						product.match_icons[product_preferences[attribute.id]].push(attribute.icon_url);
 					}
 					
 					product.match_attributes[product_preferences[attribute.id]].push(attribute);
@@ -162,14 +148,34 @@ function display_products(target, product_groups ) {
 			if (product.image_front_thumb_url) {
 				product_html += '<img src="' + product.image_front_thumb_url + '" class="list_product_img">';
 			}
+			else {
+				product_html += '<img src="/images/icons/product-silhouette-transparent.svg" class="list_product_img">';
+			}
 			
 			product_html += "</div>";
 			
-			product_html += '<div class="list_product_name">' + product.product_name + "</div>";
+			if (product.product_display_name) {
+				product_html += '<div class="list_product_name">' + product.product_display_name + "</div>";
+			}
+			else {
+				product_html += '<div class="list_product_name">' + product.code + "</div>";
+			}
 									
-			$.each(product.match_icons.mandatory.concat(product.match_icons.very_important, product.match_icons.important), function (key, icon_url) {
+			$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
 				
-				product_html += '<img class="list_product_icons" src="' + icon_url + '">';
+				if (attribute.icon_url) {
+					var title = attribute.title;
+				
+					if (attribute.description_short) {
+						title += ' - ' + attribute.description_short;
+					}
+
+					if (attribute.missing) {
+						title += " - " + attribute.missing;
+					}		
+					
+					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '">';
+				}
 			});
 			
 			product_html += "</a></li>";
@@ -178,18 +184,31 @@ function display_products(target, product_groups ) {
 		});
 		
 		var active = "";
+		var text_or_icon = "";
 		if (product_group_id == "all") {
 			active = " active";
+			if (product_group.length == 1) {
+				text_or_icon = lang()["1_product"];
+			}
+			else {
+				text_or_icon = product_group.length + ' ' + lang().products;
+			}
+		}
+		else {
+			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
+			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
 		$("#products_tabs_titles").append(
-			'<li class="tabs tab-title' + active + '" style="border:none"><a href="#products_' + product_group_id + '">'
-			+ lang()["match_" + product_group_id] + ' <span style="color:grey">(' + product_group.length + ")</span>" + "</a></li>"
+			'<li class="tabs tab-title tab_products-title' + active + '">'
+			+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+			+ text_or_icon
+			+ "</a></li>"
 		);
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + ' style="list-style:none">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
 			+ products_html.join( "" )
 			+ '</ul>'
 		);
@@ -260,7 +279,7 @@ function display_product_summary(target, product) {
 }
 
 
-function rank_and_display_products (target) {
+function rank_and_display_products (target, products) {
 	
 	// Retrieve user preferences from local storage
 
@@ -276,7 +295,7 @@ function rank_and_display_products (target) {
 
 /* exported search_products */
 
-function search_products (target, search_api_url) {
+function search_products (target, products, search_api_url) {
 
 	// Retrieve generic search results from the search API
 	
@@ -284,9 +303,8 @@ function search_products (target, search_api_url) {
 		
 		if (data.products) {
 			
-			products = data.products;
-			
-			rank_and_display_products(target);
+			Array.prototype.push.apply(products, data.products);
+			rank_and_display_products(target, products);
 		}		
 	});
 }

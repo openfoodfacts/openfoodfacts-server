@@ -82,7 +82,24 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% html_manufacturer_source %]
+[% IF owner %]
+	<p>
+		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
+		
+		[% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
+				 - [% lang("customer_service") %][% sep %]:
+				[% IF owner_org.customer_service.email %]
+					[% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
+				[% ELSIF owner_org.customer_service.link %]
+					[% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
+				[% END %]
+				
+				[% IF owner_org.customer_service.phone %]
+					[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
+				[% END %]
+		[% END %]
+	</p>
+[% END %]
 
 <!-- product summary -->
 
@@ -201,9 +218,11 @@
 [% END %]
 
 <!-- ecoscore -->
-[% IF ecoscore_grade %]
+[% IF ecoscore_grade || forest_footprint_data %]
 	<h2>[% lang('environmental_impact') %]</h2>
-	
+[% END %]
+
+[% IF ecoscore_grade %]
 	<h4>Eco-score
 		<a href="/eco-score" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
 	</h4>
@@ -217,6 +236,79 @@
 	[% END %]
 
 	[% ecoscore_calculation_details %]
+[% END %]
+
+<!-- forest footprint -->
+[% IF forest_footprint_data %]
+
+<h4>[% lang('forest_footprint') %]</h4>
+
+<a href="/empreinte-foret-des-produits-alimentaires" title="[% lang('forest_footprint_information') %]" style="float:left">
+	<img src="/images/icons/forest-footprint-[% forest_footprint_data.grade %].svg" alt="[% lang('forest_footprint') %]" style="height:130px" >
+</a>
+<div>
+	<p><strong>[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_title") %]</strong><br>
+	[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_description_short") %]</p>
+	
+	<p>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</p>
+</div>
+
+<p style="clear:left">
+  <a data-dropdown="forest_footprint_drop" aria-controls="forest_footprint_drop" aria-expanded="false">[% lang('forest_footprint_calculation_details') %] &raquo;</a>
+</p>
+<div id="forest_footprint_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+
+	<h3>[% lang("ingredients_requiring_soy") %]</h3>
+	
+	<p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>
+	
+	[% IF forest_footprint_data.ingredients && forest_footprint_data.ingredients %]
+
+		<table id="forest_footprint_table">
+			<caption style="text-align:left">[% lang("ingredients_requiring_soy") %][% sep %]:</caption>
+			<tr>
+				<th scope="col">[% lang("ingredients_s") FILTER ucfirst %]</th>
+				<th scope="col">[% lang("type") %]</th>
+				<th scope="col">[% lang("percent_in_product") %]</th>
+				<th scope="col">[% lang("processing_factor") %]<br><span style="font-weight:normal">([% lang("percent_of_food_after_processing") %])</span></th>
+				<th scope="col">[% lang("soy_feed_factor") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_kg_of_food") %])</span></th>
+				<th scope="col">[% lang("soy_yield") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_square_meter") %])</span></th>
+				<th scope="col">[% lang("deforestation_risk") %]<br><span style="font-weight:normal">(%)</span></th>
+				<th scope="col">[% lang("forest_footprint") %]<br><span style="font-weight:normal">([% lang("square_meters_per_kg_of_food") %])</span></th>
+			</tr>
+		[% FOREACH ingredient IN forest_footprint_data.ingredients %]
+			<tr>
+				<td>
+					<span style="border-bottom:1px dotted #ccc" title="[% display_taxonomy_tag(ingredient.tag_type, ingredient.matching_tag_id) %]">
+					[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]
+					</span>
+				</td>
+				<td>
+					<span style="border-bottom:1px dotted #ccc" title="
+					[% FOREACH tag IN ingredient.conditions_tags %]
+						[% lang("${tag.0}_s") FILTER ucfirst %] [% display_taxonomy_tag(tag.0, tag.1) %]
+					[% END %]
+					">
+						[% ingredient.type.name %]
+					</span>
+				</td>
+				<td>[% ingredient.percent FILTER format("%.2f"); %]</td>
+				<td>[% ingredient.processing_factor * 100 FILTER format("%d"); %]</td>
+				<td>[% ingredient.type.soy_feed_factor %]</td>
+				<td>[% ingredient.type.soy_yield %]</td>
+				<td>[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %]</td>
+				<td>[% ingredient.footprint_per_kg FILTER format("%.2f"); %]</td>
+			</tr>
+		[% END %]
+		</table>
+	[% END %]
+	
+	<h3>[% lang("total_forest_footprint") %]</h3>
+
+	<p><strong>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</strong></p>
+
+</div>
+
 [% END %]
 
 <!-- packaging -->
@@ -273,11 +365,25 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% FOREACH source IN sources %]
-    <p>[% lang("sources_${source.lang_id}") %]</p>
-    [% IF source.url %]
-        <p><a href="\[% source.url %]\">[% lang("sources_${source.lang_id}_product_page") %]</a></p>
-    [% END %]
+[%IF sources %]
+	[% lang("list_of_sources") %]
+	<ul>
+	[% FOREACH source IN unique_sources %]
+		<li>
+			[% IF source.url %]
+				<a href="\[% source.url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.name %]
+			[% END %]
+			
+			[% IF source.source_licence_url %]
+				<a href="\[% source.source_licence_url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.source_licence %]
+			[% END %]
+		</li>
+	[% END %]
+	</ul>
 [% END %]
 
 <p class="details">

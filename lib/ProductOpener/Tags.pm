@@ -128,6 +128,7 @@ BEGIN
 
 		%stopwords
 		%synonyms_for
+		%synonyms_for_extended
 		%just_synonyms
 		%translations_from
 		%translations_to
@@ -217,7 +218,7 @@ my %tags_all_parents = ();
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms  = ();
 %synonyms_for = ();
-my %synonyms_for_extended = ();
+%synonyms_for_extended = ();
 %translations_from = ();
 %translations_to   = ();
 %level             = ();

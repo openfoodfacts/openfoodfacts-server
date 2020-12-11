@@ -69,10 +69,6 @@ msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "Join us on Slack"
-
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
 msgstr "You can now easily import your product data and photos."
@@ -2768,43 +2764,13 @@ msgctxt "delete_user"
 msgid "Delete the user"
 msgstr ""
 
-msgctxt "sources_openfood_ch"
-msgid ""
-"Some of the data and/or images comes from the OpenFood.ch database (the "
-"exact list is available in the product edit history). Those elements are "
-"licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/"
-"\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
-
-msgctxt "sources_openfood_ch_product_page"
-msgid "Product page on openfood.ch"
-msgstr ""
-
-msgctxt "sources_usda_ndb"
-msgid ""
-"Some of the data comes from the USDA National Nutrients Database for Branded "
-"Foods (the exact list is available in the product edit history)."
-msgstr ""
-
-msgctxt "sources_usda_ndb_product_page"
-msgid "Product page on USDA NDB"
-msgstr ""
-
-msgctxt "sources_fleurymichon"
-msgid ""
-"Some of the data and images have been provided directly by the manufacturer "
-"Fleury Michon."
-msgstr ""
-
 msgctxt "sources_manufacturer"
-msgid ""
-"Some of the data for this product has been provided directly by the "
-"manufacturer %s"
-msgstr ""
+msgid "Some of the data for this product has been provided directly by the manufacturer %s."
+msgstr "Some of the data for this product has been provided directly by the manufacturer %s."
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr ""
+msgctxt "list_of_sources"
+msgid "Some of the data and/or photos for this product come from those sources:"
+msgstr "Some of the data and/or photos for this product come from those sources:"
 
 msgctxt "warning_not_complete"
 msgid ""
@@ -4672,14 +4638,6 @@ msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
 
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr "NOVA not computed"
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr "Food processing level unknown"
-
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
 msgstr "Unprocessed or minimally processed foods"
@@ -5089,9 +5047,9 @@ msgctxt "packaging_recycling"
 msgid "Recycling"
 msgstr "Recycling"
 
-msgctxt "products_are_sorted_according_to_your_preferences"
-msgid "Products are sorted according to your preferences:"
-msgstr "Products are sorted according to your preferences:"
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr "Products on this page are sorted according to your preferences:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
@@ -5105,26 +5063,171 @@ msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
 msgstr "Delete all preferences"
 
-# "All" as in "All products"
-msgctxt "match_all"
-msgid "All"
-msgstr "All" 
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr "Products are being loaded, please wait."
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_yes"
-msgid "OK"
-msgstr "OK"
+msgctxt "products_match_all"
+msgid "All products"
+msgstr "All products"
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_no"
-msgid "Not OK"
-msgstr "Not OK"
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr "Products that match your preferences"
 
-# Used to indicate if a product is ok for a specific diet. It needs to be very short, keep "OK" if it's commonly used in the language
-msgctxt "match_unknown"
-msgid "Maybe OK"
-msgstr "Maybe OK"
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr "Products that do not match your preferences"
 
-msgctxt "products_are_being_loaded"
-msgid "Products are being loaded."
-msgstr "Products are being loaded."
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr "Products for which we currently miss data to determine if they match your preferences"
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr "Forest footprint"
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr "Ingredients requiring soy"
+
+msgctxt "type"
+msgid "Type"
+msgstr "Type"
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr "Processing factor"
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr "Soy feed factor"
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr "Soy yield"
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr "Deforestation risk"
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr "Total forest footprint"
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr "m² per kg of food"
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr "% of food after processing"
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr "kg of soy per kg of food"
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr "kg of soy per m²"
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr "% in product"
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
+msgstr "Details of the calculation of the forest footprint"
+
+msgctxt "you_are_on_the_public_database"
+msgid "You are on the public database."
+msgstr "You are on the public database."
+
+msgctxt "manage_your_products_on_the_producers_platform"
+msgid "Manage your products on the platform for producers"
+msgstr "Manage your products on the platform for producers"
+
+msgctxt "number_of_products_with_changes_since_last_export"
+msgid "Number of products with changes since last export"
+msgstr "Number of products with changes since last export"
+
+msgctxt "only_export_products_with_changes"
+msgid "Only export products with changes"
+msgstr "Only export products with changes"
+
+msgctxt "product_edits_by_producers"
+msgid "Is this your product? If it is, please use our free platform for producers to update it."
+msgstr "Is this your product? If it is, please use our free platform for producers to update it."
+
+msgctxt "product_edits_by_producers_platform"
+msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+msgstr "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+
+msgctxt "product_edits_by_producers_import"
+msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+msgstr "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+
+msgctxt "product_edits_by_producers_analysis"
+msgid "The platform also provides in-depth analysis of the products."
+msgstr "The platform also provides in-depth analysis of the products."
+
+# It = the platform
+msgctxt "product_edits_by_producers_indicators"
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr ""

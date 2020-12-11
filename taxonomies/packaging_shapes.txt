@@ -2,11 +2,12 @@
 
 # Special entries for packaging parts for which the shape was not recognized
 en:Unrecognized
+de:Unerkannt, Nicht erkannt
 fr:Non-reconnue, non-reconnu
 
 # Use singular as the main name, and add plural as synonym
 en:Tray, trays
-de:Körbchen
+de:Tablettverpackung, Tablett
 fr:Barquette, barquettes
 hu:Tálca
 
@@ -38,6 +39,7 @@ pt:Garaffa
 wikidata:en:Q80228
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
+de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr:Brique, briques
 
 # Can (drink or food)
@@ -70,14 +72,15 @@ it:Lattina di cibo
 pt:Lata de comida
 
 en:pot, cup, pots, cups
-fr:Pot, pots
 de:Kanne
+fr:Pot, pots
 
 <en:pot
 en:individual pot, individual cup, individual pots, individual cups
 fr:pot individuel, pots individuels
 
 en:Tube, tubes
+de:Tube, Tuben
 fr:Tube, tubes
 hu:Cső
 
@@ -92,6 +95,7 @@ pt:Saco
 
 <en:Bag
 en:Individual bag, individual bags
+de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
 
 en:Flask, flasks
@@ -100,7 +104,10 @@ hu:Kulacs
 it:Borraccia
 
 en:Sleeve, sleeves
-fr:Etui, étuis
+fr:Étui, étuis
+
+en:Mold
+fr:Moule
 
 en:Lid, cover, lids, covers
 de:Deckel
@@ -115,23 +122,28 @@ fr:Bouchon de bouteille, bouchon, capsule, bouchon de bouteille de vin, bouchons
 
 # keep the plural as the main name
 en:Eating utensils, utensils, eating utensil, utensil
+de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
 
 # keep the plural
 <en:Eating utensils
 en:Chopsticks
+de:Essstäbchen
 fr:Baguettes
 
 <en:Eating utensils
 en:Knife, knives
+de:Messer
 fr:Couteau, couteaux
 
 <en:Eating utensils
 en:Fork, forks
+de:Gabel, Gabeln
 fr:Fourchette, fourchettes
 
 <en:Eating utensils
 en:Spoon, spoons
+de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
 
 en:sheet, sheets
@@ -143,7 +155,7 @@ fr:Filet, filets
 hu:Háló
 
 en:Film, wrap, films, wraps, film wrap, film wraps
-de:Folie
+de:Folie, Film
 el:Μεμβράνη
 fr:Film, pellicule, films, pellicules
 hu:Film
@@ -154,6 +166,7 @@ en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
 
 en:Grouping package, grouping packages
+de:Gruppierungspaket
 fr:Emballage de regroupement, emballages de regroupement
 
 en:Seal, operculum, seals
@@ -161,6 +174,7 @@ de:Deckel
 fr:Opercule, opercules
 
 en:bulk, without packaging
+de:ohne Verpackung
 fr:vrac, sans emballage
 
 en:Bowl, bows
@@ -177,4 +191,5 @@ en:Stick, sticks
 fr:Batonnet, bâtonnets
 
 en:label, labels
+de:Etikett, Etiketten
 fr:étiquette, étiquettes

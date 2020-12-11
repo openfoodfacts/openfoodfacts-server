@@ -248,6 +248,10 @@ sub load_ecoscore_data_packaging() {
 			$material =~ s/Aluminium \(lourd > 60mm\)/Aluminium lourd/ig;
 			$material =~ s/Bouteille PET coloré ou opaque/Bouteille PET coloré/ig;
 			
+			# The Eco-score specifies some materials that are in fact a combination of shape + material
+			# e.g. "Bouteille PET" (PET bottle) is a separate entry from PET, with different scores.
+			# We create special material.shape (e.g. en:plastic.bottle) entries that we will
+			# use when computing the packaging scores.
 			my $shape;
 			if ($material =~ /^bouteille /i) {
 				$shape = "en:bottle";
@@ -283,8 +287,19 @@ sub load_ecoscore_data_packaging() {
 		
 		# Extra assignments
 		
+		# "Bouteille PET transparente",62.5
+		# "Bouteille PET coloré ou opaque",50
+		# "Bouteille PET Biosourcé",75
+		# "Bouteille rPET transparente (100%)",100
+		
 		$ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
-		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"}{score};
+		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
+		$ecoscore_data{packaging_materials}{"en:pet-polyethylene-terephthalate.en:bottle"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
+		$properties{"packaging_materials"}{"en:pet-polyethylene-terephthalate.en:bottle"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
+		
+		# Assign transparent rPET bottle score to rPET
+		$ecoscore_data{packaging_materials}{"en:rpet-recycled-polyethylene-terephthalate"} = $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"};
+		$properties{"packaging_materials"}{"en:rpet-recycled-polyethylene-terephthalate"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"}{score};				
 		
 		$ecoscore_data{packaging_materials}{"en:plastic"} = $ecoscore_data{packaging_materials}{"en:other-plastics"};		
 		$properties{"packaging_materials"}{"en:plastic"}{"ecoscore_score:en"} = $ecoscore_data{packaging_materials}{"en:plastic"}{score};
@@ -820,7 +835,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		
 		my $percent = $aggregated_origins{$origin_id};
 				
-		push @aggregated_origins, [ $origin_id, $percent ];
+		push @aggregated_origins, { origin => $origin_id, percent => $percent };
 		
 		if (not defined $ecoscore_data{origins}{$origin_id}{epi_score}) {
 			$log->error("compute_ecoscore_origins_of_ingredients_adjustment - missing epi_score", {  origin_id => $origin_id, origin_data => $ecoscore_data{origins}{$origin_id} } ) if $log->is_error();
@@ -898,6 +913,15 @@ sub compute_ecoscore_packaging_adjustment($) {
 			}
 			else {
 				$packaging_ref->{ecoscore_material_warning} = "unscored_material";
+			}
+			
+			# Check if there is a shape-specific material score (e.g. PEHD bottle)
+			if (defined $packaging_ref->{shape}) {
+				my $shape_specific_score = get_inherited_property("packaging_materials", $packaging_ref->{material} . '.' . $packaging_ref->{shape} , "ecoscore_score:en");
+				if (defined $shape_specific_score) {
+					$packaging_ref->{ecoscore_material_score} = $shape_specific_score;
+					$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
+				}
 			}
 
 		}

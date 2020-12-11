@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-02 11:13\n"
+"PO-Revision-Date: 2020-12-07 09:34\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -73,10 +73,6 @@ msgstr "%s on yhteistyöhanke, johon voit tuoda paljon enemmän kuin uusia tuott
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "Käytämme Slack-nimistä keskustelujärjestelmää, jossa kaikki hankkeen osallistujat voivat jakaa ja tehdä yhteistyötä. Liity! Tutustuisimme mielellämme sinuun!"
-
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "Liity joukkoomme Slackissä"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -230,7 +226,7 @@ msgstr "Android APK"
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -828,7 +824,7 @@ msgstr "Lakiasiat"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2651,33 +2647,13 @@ msgctxt "delete_user"
 msgid "Delete the user"
 msgstr "Poista käyttäjä"
 
-msgctxt "sources_openfood_ch"
-msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Osa tiedoista ja/tai kuvista tulee OpenFood.ch-tietokannasta (tarkka luettelo on saatavilla tuotteen muokkaushistoriassa). Nämä elementit on lisensoitu <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International -lisenssin alaisuuteen</a>."
-
-msgctxt "sources_openfood_ch_product_page"
-msgid "Product page on openfood.ch"
-msgstr "Tuotesivu sivustolla openfood.ch"
-
-msgctxt "sources_usda_ndb"
-msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr "Osa tiedoista tulee USDA:n kansallisesta merkkituotteiden ravintotietokannasta (tarkka luettelo on saatavilla tuotteen muokkaushistoriassa)."
-
-msgctxt "sources_usda_ndb_product_page"
-msgid "Product page on USDA NDB"
-msgstr "Tuotesivu USDA:n NDB:ssä"
-
-msgctxt "sources_fleurymichon"
-msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "Jotkut tiedoista ja kuvista on toimittanut suoraan valmistaja Fleury Michon."
-
 msgctxt "sources_manufacturer"
-msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "Jotkut tämän tuotteen tiedoista on toimittanut suoraan valmistaja %s"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s."
+msgstr ""
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr "Osa tämän tuotteen tiedoista on kerätty yhteistyössä tahon %s kanssa"
+msgctxt "list_of_sources"
+msgid "Some of the data and/or photos for this product come from those sources:"
+msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -4150,26 +4126,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Lisää kenttä"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Luettu koodi"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Koodi tiedostonimestä"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Käytetään edellistä koodia"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Voit määritellä kenttien arvot, jotka lisätään kaikkiin tuotteisiin joihin lähetät kuvia."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Lisää kenttä"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Poista kaikki tuotteet"
@@ -4433,9 +4389,13 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "Ei-luomutuote"
 
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "Puuttuvat tiedot: luomutuote?"
+
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Edistää ekologista kestävyyttä ja biologista monimuotoisuutta."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
@@ -4456,6 +4416,10 @@ msgstr "Reilun kaupan tuote"
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
 msgstr "Ei reilun kaupan tuote"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "Puuttuvat tiedot: reilun kaupan tuote?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
@@ -4492,11 +4456,11 @@ msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score not computed"
-msgstr ""
+msgstr "Nutri-Scorea ei laskettu"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Unknown nutritional quality"
-msgstr ""
+msgstr "Tuntematon ravinnollinen laatu"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4528,11 +4492,11 @@ msgstr "NOVA-ryhmä"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA ei laskettu"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Ruoan jalostusaste tuntematon"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4542,14 +4506,6 @@ msgstr "Ei tai vähäistä ruoan jalostusta (NOVA-ryhmä)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4630,7 +4586,7 @@ msgstr "Ei tai vähän lisäaineita"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Lisäaineita ei laskettu"
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4650,52 +4606,52 @@ msgstr "Pakollinen"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Kierrätysohjeet ja/tai pakkaustiedot"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "Kuva kierrätysohjeista ja/tai pakkaustiedoista"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
-msgstr ""
+msgstr "Linkki kuvaan kierrätysohjeista ja/tai pakkaustiedoista"
 
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
 msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
-msgstr ""
+msgstr "3001234567890.packaging_fi.jpg: kierrätysohjeet suomeksi."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Kierrätysohjeet ja/tai pakkaustiedot"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "1 hävitettävä muovikalvo, 1 kierrätettävä FSC-pahvilaatikko, 6 kierrätettävää 1,5L läpinäkyvää PET-muovipulloa, 6 värillistä läpinäkymätöntä muovikorkkia, 12 33cl alumiinitölkkiä"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Luettele kaikki pakkausosat pilkuilla tai rivinvaihdoilla eroteltuna, määrät (esim. 1 tai 6), tyypit (esim. pullo, laatikko, tölkki), materiaalit (esim. muovi, metalli, alumiini) ja jos saatavilla, niiden koot (esim. 33cl) ja kierrätysohjeet."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Yritä olla mahdollisimman tarkka. Ilmoita muovista onko se läpinäkymätöntä vai läpinäkyvää, värillistä, PET tai PEHD."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "Poimi kuvasta kierrätysohjeet ja/tai pakkaustiedot"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Kierrätysohjeiden ja/tai pakkaustietojen tekstiä ei voitu poimia. Kokeile terävämmällä kuvalla, korkeammalla tarkkuudella tai paremman tekstin rajauksella."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Kierrätysohjeiden ja/tai pakkaustietojen teksti on poimittu. Tekstintunnistus ei ole täydellinen, joten tarkista alla oleva teksti ja korjaa virheet tarvittaessa."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Poimitaan kierrätysohjeita ja/tai pakkaustietoja"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4707,7 +4663,7 @@ msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Vähäinen ympäristövaikutus (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4737,38 +4693,38 @@ msgstr "Erittäin suuri ympäristövaikutus"
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "Sisältää: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
 msgid "May contain: %s"
-msgstr ""
+msgstr "Saattaa sisältää: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "does_not_contain_s"
 msgid "Does not contain: %s"
-msgstr ""
+msgstr "Ei sisällä: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Ilman: %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "omistajat"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "omistaja"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Voit antaa yritystäsi koskevia tietoja, jotka näkyvät organisaatioprofiilissasi."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Osa tiedoista, kuten asiakaspalvelun yhteystiedot, voivat näkyä myös suoraan tuotteidenne sivuilla."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4776,7 +4732,7 @@ msgstr "Nimi"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Linkki viralliselle verkkosivustolle"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4784,19 +4740,19 @@ msgstr "Asiakaspalvelu"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Asiakaspalvelutiedot ovat julkisia ja ne voidaan näyttää Open Food Facts -verkkosivustolla ja -sovelluksissa."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Kaikki kentät ovat valinnaisia."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Kaupallinen palvelu"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Kaupalliset palvelutiedot näkyvät vain organisaation profiilissa."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4804,11 +4760,11 @@ msgstr "Nimi"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Osoite"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Puhelinnumero"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4816,7 +4772,7 @@ msgstr "sähköpostiosoite"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Linkki yhteydenottolomakkeeseen"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4824,43 +4780,43 @@ msgstr "Muut tiedot"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "esim. aukioloajat"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organisaatiota ei löytynyt."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Organisaation nimi puuttuu."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Organisaation profiili"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Organisaation profiili on päivitetty."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Poista organisaatio"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Virallinen sivusto"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Yhteydenottolomake"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Muokkaa organisaatioprofiiliasi"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Muokkaa käyttäjäprofiiliasi"
 
 msgctxt "attribute_group_ingredients_analysis"
 msgid "Ingredients"
@@ -4869,58 +4825,220 @@ msgstr "Ainesosat"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "Läsnäolo tuntematon: %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "Ympäristövaikutus"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "Eco-score-pisteet"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "Eco-score-arvosana"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "Yksityiskohdat Eco-score-laskelmasta"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Tietoja Eco-scoresta"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Muokkaa ruokamäärityksiäsi"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Ruokamäärityksesi"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Tällä hetkellä valitut määritykset"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Ruokamääritykset säilytetään selaimessasi, eikä niitä koskaan lähetetä Open Food Factsille tai kenellekään muulle."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "tuntematon määrä"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Puuttuva ainesosaluettelo"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
+msgstr "Puuttuva ravintosisältö"
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr "ecoscore"
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
+msgstr "ecoscore"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr "Pakkauksen osat"
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr "Määrä"
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr "Muoto"
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr "Sisällytetty määrä"
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr "Materiaali"
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr "Kierrätys"
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr "Tuotteet tällä sivulla lajitellaan mieltymystesi mukaan:"
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr "Valitse mitkä tiedot haluat nähdä ensin."
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr "Katso mieltymyksesi"
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr "Poista kaikki mieltymykset"
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr "Tuotteita ladataan, odota."
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr "Kaikki tuotteet"
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr "Mieltymyksiäsi vastaavat tuotteet"
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr "Tuotteet, jotka eivät vastaa mieltymyksiäsi"
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr "Tuotteet, joilta puuttuu tällä hetkellä tietoja sen määrittämiseksi, vastaavatko ne mieltymyksiäsi"
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr "Metsäjalanjälki"
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr "Soijaa vaativat ainesosat"
+
+msgctxt "type"
+msgid "Type"
+msgstr "Tyyppi"
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr "Jalostustekijä"
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr "Soijarehutekijä"
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr "Soijatuotto"
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr "Metsäkatoriski"
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr "Kokonaismetsäjalanjälki"
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr "m² per kg ruokaa"
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr "% ruokaa jalostuksen jälkeen"
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr "kg soijaa per kg ruokaa"
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr "kg soijaa per m²"
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr "% tuotteessa"
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
+msgstr "Yksityiskohdat metsäjalanjälkilaskelmasta"
+
+msgctxt "you_are_on_the_public_database"
+msgid "You are on the public database."
+msgstr ""
+
+msgctxt "manage_your_products_on_the_producers_platform"
+msgid "Manage your products on the platform for producers"
+msgstr ""
+
+msgctxt "number_of_products_with_changes_since_last_export"
+msgid "Number of products with changes since last export"
+msgstr ""
+
+msgctxt "only_export_products_with_changes"
+msgid "Only export products with changes"
+msgstr ""
+
+msgctxt "product_edits_by_producers"
+msgid "Is this your product? If it is, please use our free platform for producers to update it."
+msgstr ""
+
+msgctxt "product_edits_by_producers_platform"
+msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+msgstr ""
+
+msgctxt "product_edits_by_producers_import"
+msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+msgstr ""
+
+msgctxt "product_edits_by_producers_analysis"
+msgid "The platform also provides in-depth analysis of the products."
+msgstr ""
+
+# It = the platform
+msgctxt "product_edits_by_producers_indicators"
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr ""
 

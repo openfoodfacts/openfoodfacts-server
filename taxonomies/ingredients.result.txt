@@ -1,6 +1,6 @@
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
 stopwords:en:a,an,for,added,to,as
 stopwords:en:of
@@ -2754,6 +2754,7 @@ nl:biologisch wijnsteenbakpoeder
 < en:Balsamic vinegar
 en:balsamic vinegar of modena, modena balsamic vinegar
 de:Balsamessig aus Modena
+es:vinagre balsamico de modena
 fr:vinaigre balsamique de modène
 it:aceto balsamico di modena
 wikidata:en: Q3604285
@@ -3093,6 +3094,7 @@ fi:valkoinen papu, valkoiset pavut
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos
 it:Fagioli bianchi
 nb:hvite bønner
+nl:witte bonen
 sv:vit böna, vita bönor
 
 < en:Beans
@@ -3180,6 +3182,7 @@ nl:Rundvlees
 pl:Mięso wołowe
 ru:Говядина
 sv:nötkött
+tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
@@ -7653,7 +7656,7 @@ da:revet emmentalerost
 de:geriebener Emmentaler, geriebener Emmentaler-Käse
 es:queso emmental rallado, queso emmenthal rallado
 fi:emmentalraaste
-fr:emmental râpé
+fr:emmental râpé, fromage emmental râpé
 hu:reszelt ementáli
 nl:geraspte emmentaler
 
@@ -7991,7 +7994,7 @@ et:parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
 fi:parmesaani, parmigiano-reggiano
-fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano aop
+fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
 hr:Parmezan
@@ -8173,7 +8176,7 @@ da:reblochon
 de:Reblochon
 es:reblochon
 fi:reblochon
-fr:reblochon
+fr:reblochon, fromage reblochon
 hu:reblochon, reblochon sajt
 id:reblochon
 it:reblochon
@@ -8642,6 +8645,7 @@ nutriscore_fruits_vegetables_nuts:en: no
 < en:Chicken
 en:chicken blood
 es:sangre de pollo
+fr:sang de poulet
 
 < en:Animal protein
 < en:Chicken
@@ -8672,18 +8676,10 @@ sv:kycklingfond
 < en:Chicken
 en:free range chicken
 es:pollo de corral
+fr:poulet élevé en plein air
 
 < en:Chicken
 fr:extrait de poulet
-
-< en:Chicken
-fr:machons et ailerons de poulet
-
-< en:Chicken
-fr:poulet déshydraté
-
-< en:Chicken
-fr:poulet fermier
 
 < en:Chicken breast
 en:british chicken breast
@@ -8771,7 +8767,7 @@ en:british chicken
 < en:Chicken meat
 en:chicken breast, chicken breast meat
 ca:pit de pollastre
-de:Hähnchenbrust
+de:Hähnchenbrust, Hähnchenbrustfleisch
 es:pechuga de pollo, carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
 ro:piept de pui
@@ -8803,6 +8799,9 @@ en:chicken meat including chicken juices
 < en:Chicken meat
 en:chicken thigh, chicken drumstick
 es:muslo de pollo
+fr:cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Chicken meat
 en:precooked chicken meat
@@ -8819,11 +8818,6 @@ fr:aiguillettes de poulet
 
 < en:Chicken meat
 fr:blanc de poulet cuit de qualite superieure traite en salaison et filet interne de poulet
-
-< en:Chicken meat
-fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr: 4.9
 
 < en:Chicken meat
 fr:filets de poulet
@@ -10501,7 +10495,7 @@ da:fedtfattig kakao
 de:fettarmer Kakao, magerer Kakao
 es:cacao magro, cacao desgrasado
 fi:vähärasvainen kaakao
-fr:cacao maigre, cacao dégraissé
+fr:cacao maigre, cacao dégraissé, cacao réduit en matières grasses
 it:cacao magro
 nb:fedtfattig kakao
 nl:vetarme cacao, magere cacao
@@ -14086,7 +14080,7 @@ de:Hirschfleisch
 es:Carne de venado
 fa:گوشت گوزن
 fi:hirvieläinten liha
-fr:viande de cerf
+fr:viande de cerf, viande de chevreuil
 ga:fiafheoil
 gv:feill feeaih
 hu:szarvashús
@@ -18101,7 +18095,7 @@ ca:provitamina A
 de:
 es:provitamina A
 fi:provitamiini A, A-vitamiinin provitamiini
-fr:pro-vitamine A
+fr:pro-vitamine A, provitamine A
 hu:A-provitamin
 it:provitamina A
 wikidata:en: Q306135
@@ -29936,7 +29930,7 @@ th:โพแทสเซียมคาร์บอเนต
 uk:Карбонат калію
 ur:اُشنان
 vi:Kali cacbonat
-zh:碳酸钾
+zh:E501i, 碳酸鉀, 碳酸钾
 additives_classes:en: en:stabilizer
 e_number:en: 501
 organic_eu:en: authorized
@@ -30307,6 +30301,12 @@ sk:E507, Kyselina chlorovodíková, Chlorovodík, Kyselina soľná
 sl:E507, Klorovodikova kislina, vodikov klorid, Želodčna kislina, Solna kislina
 sv:E507, Saltsyra, Väteklorid, Kloran, E 507, Vätekloridgas, Klorvätesyra, Klorväte
 e_number:en: 507
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2409
@@ -30366,8 +30366,14 @@ tr:Potasyum klorür
 uk:Хлорид калію
 vi:Kali clorua
 zh:氯化钾
-additives_classes:en: en:stabilizer, en:thickener
+additives_classes:en: en:stabilizer, en:thickener, en:preservative
 e_number:en: 508
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:flavour-enhancer, en:stabilizer, en:thickener
 vegan:en: yes
 vegetarian:en: yes
@@ -30423,6 +30429,12 @@ vi:canxi clorua
 zh:氯化钙
 additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 509
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:firming-agent, en:stabilizer, en:thickener
 organic_eu:en: authorized
 vegan:en: yes
@@ -30538,6 +30550,12 @@ vi:Magie clorua
 zh:氯化镁
 additives_classes:en: en:stabilizer
 e_number:en: 511
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 vegan:en: yes
 vegetarian:en: yes
@@ -36748,6 +36766,7 @@ pt:ovo em pó
 ro:ou praf
 ru:Яичный порошок
 sv:äggpulver
+zh:蛋粉
 
 < en:Egg
 en:egg white, egg albumen, egg albumin
@@ -36859,7 +36878,7 @@ en:free range eggs, free range whole egg
 de:Freilandeier
 es:Huevos de corral, huevos de gallinas criadas en el suelo
 fi:ulkomunat
-fr:Oeufs élevés en plein air, oeufs d'élevage en plein air, oeufs plein air
+fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air
 nl:vrije uitloop ei
 
 < en:Egg
@@ -38875,7 +38894,7 @@ ja:香料
 lt:kvapioji medžiaga
 lv:aromatizētājs
 nb:aroma, aromaer, smakstilsetninger
-nl:aroma, aroma's
+nl:aroma, aroma's, smaakstof, smaakstoffen
 pl:aromat, aromaty
 pt:aromatizante, aroma, aromas
 ro:aromă, aroma, arome
@@ -39855,6 +39874,10 @@ fr:miel de foret de france
 
 < en:Fortified wheat flour
 en:fortified british wheat flour
+
+< en:Free range chicken
+en:traditional free-range chicken, farm reared chicken, farm raised chicken
+fr:poulet fermier, poulet fermier élevé en plein air
 
 < en:Category A eggs
 < en:Free range chicken eggs
@@ -42753,7 +42776,7 @@ bs:Glukoza
 ca:Glucosa, glicosa
 cs:Glukóza
 da:glukose
-de:Glukose
+de:Glukose, Glucose
 el:Γλυκόζη
 eo:Glukozo
 es:glucosa
@@ -43141,6 +43164,17 @@ en:cantharellus cibarius
 de:Echter Pfifferling (cantharellus cibarius)
 fr:Cantharellus cibarius, Girolle, Girole, Chanterelle, chanterelles
 la:cantharellus cibarius
+
+< en:Goose
+en:goose liver
+fr:foie d'oie
+
+< en:Goose
+en:goose meat
+fr:viande d'oie
+
+< en:Goose liver
+fr:foie gras d'oie
 
 < en:Fruit juice
 < en:Gooseberry
@@ -47764,7 +47798,7 @@ mr:वाटाणा
 ms:kacang putih
 nb:ert
 ne:केराउ
-nl:erwt
+nl:erwt, erwten
 nn:ert, erter
 oc:Pese
 or:ମଟର
@@ -48435,7 +48469,7 @@ sv:lakritspulver
 < en:Liquorice
 en:liquorice root, licorice root
 da:lakridsrod
-de:Sussholzwurzel
+de:Sussholzwurzel, Sußholzwurzel, Süßholzwurzel, Süssholzwurzel
 fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
@@ -49403,7 +49437,7 @@ es:oleomargarina bovina
 
 < en:Margarine
 en:vegetable margarine, vegetal margarine
-de:Pflanzliche Margarine
+de:Pflanzliche Margarine, Pflanzenmargarine
 es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
@@ -53475,7 +53509,7 @@ es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
 it:shiitake, funghi shiitake
-la:Lentinula edodes
+la:Lentinula edodes, lentinus edodes
 nl:shiitake, zwarte paddestoel, Chinese champignons
 sv:svart champinjon
 
@@ -54881,7 +54915,7 @@ or:ବାଦାମ
 pa:ਗਿਰੀ
 pl:orzech, orzechy, inne orzechy
 pt:nozes, frutos de casca rija
-ro:nuci, fructe cu coajă lemnoasă
+ro:nuci, fructe cu coajă lemnoasă, alte fructe cu coajă lemnoasă
 ru:орех, орехи
 se:Niehtit
 sh:orašasti plod
@@ -54983,6 +55017,10 @@ fr:extrait de muscade
 
 < en:Nutritional yeast
 de:Nährhefepulver
+
+< en:Oat
+en:gluten free oats
+fr:avoine sans gluten
 
 < en:Oat
 en:oat bran, oatbran
@@ -55115,6 +55153,10 @@ fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
 it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
+
+< en:Oat flour
+en:gluten free oat flour
+fr:farine d'avoine sans gluten
 
 < en:Oat flour
 < en:Wholemeal flour
@@ -56527,7 +56569,7 @@ en:concentrated orange juice
 de:Orangensaftkonzentrat
 es:Zumo de naranja concentrado
 fi:appelsiinimehutiiviste, appelsiinitäysmehutiiviste
-fr:jus d'orange concentré, concentré de jus d'orange
+fr:jus d'orange concentré, concentré de jus d'orange, jus concentré d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
 ru:концентрированный апельсиновый сок
@@ -56957,7 +56999,7 @@ hu:pálma- és repcemag
 < en:Palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof
+da:palmfedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma, manteca de palma
 et:palmirasv
@@ -57620,6 +57662,7 @@ es:proteína de guisante hidrolizada, proteínas de guisante hidrolizadas
 
 < en:Pea protein
 en:pea protein isolate
+de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
 fr:isolat de proteines de pois
@@ -57926,6 +57969,7 @@ pt:pimenta rosa
 
 < en:Pepper
 en:red bell pepper, red pepper
+ar:فلفل أحمر
 ca:pebrot vermell, pebrot roig
 da:rød peberfrugt, rød peber
 de:rote Paprika, roter Paprika
@@ -59164,7 +59208,7 @@ fi:auringonkukka
 fr:tournesol
 he:חמנית
 hr:suncokret
-hu:naprafogó
+hu:napraforgó
 hy:արևածաղիկ
 is:Sólblóm
 it:girasole
@@ -59183,6 +59227,7 @@ nb:Solsikke
 nl:zonnebloem
 pl:słonecznik
 pt:Girassol
+ro:floarea soarelui
 ru:подсолнечник
 si:සූරියකාන්ත
 sl:slnečnica
@@ -60510,6 +60555,10 @@ sv:Anka
 zh:鸭
 
 < en:Poultry
+en:goose
+fr:oie
+
+< en:Poultry
 en:poultry extract
 de:Geflügelfleischextrakt
 fr:extrait de volaille
@@ -60565,7 +60614,7 @@ cs:krocan
 cv:Кăркка
 cy:Twrci
 da:kalkun
-de:Truthahn, Truthühner
+de:Truthahn, Truthühner, Pute
 el:Γαλοπούλα
 eo:Meleagro
 es:pavo
@@ -60702,6 +60751,7 @@ ro:carne de pui
 ru:куриное мясо
 sk:prsia kuracie
 sv:kycklingkött
+tr:tavuk eti
 zh:鸡肉
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
@@ -61702,7 +61752,7 @@ ca:llet crua sencera
 es:leche cruda entera
 
 < en:Reblochon
-fr:Reblochon AOP
+fr:Reblochon AOP, Reblochon de Savoie AOP
 
 < en:Red beans
 en:dried kidney beans
@@ -62246,6 +62296,7 @@ ro:orez italian
 en:rice protein, rice proteins
 de:Reisprotein
 es:proteinas de arroz
+fr:protéine de riz
 
 < en:Rice
 en:rice semolina
@@ -63227,6 +63278,7 @@ fr:racine de lotus
 
 < en:Root vegetable
 en:onion, onions
+ar:بصل
 bg:лук
 bn:পিঁয়াজ
 ca:ceba
@@ -64649,7 +64701,7 @@ de:Lachs gekocht
 en:salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
-ar:ملح الطعام
+ar:ملح, ملح الطعام
 av:ЦӀам
 ay:Jayu
 az:Duz, Xörək duzu
@@ -64710,7 +64762,7 @@ pa:ਲੂਣ
 pl:sól, sól kuchenna
 ps:مالگه
 pt:sal, sal de cozinha, sal de cosina, sal de taula
-ro:sare, Sare de bucătărie
+ro:sare, Sare de bucătărie, sare de masă
 ru:соль, Поваренная соль
 rw:Umunyu
 sa:लवणम्
@@ -64739,7 +64791,7 @@ wa:Sé d' coujhene
 xh:Ityiwa
 yi:זאלץ
 yo:Iyọ̀
-zh:盐, 食盐, 鹽
+zh:盐, 食盐, 鹽, 食鹽
 carbon_footprint_fr_foodges_ingredient:fr: Sel
 carbon_footprint_fr_foodges_value:fr: 0.5
 vegan:en: yes
@@ -65535,7 +65587,7 @@ et:pesto
 eu:pesto
 fa:پستو
 fi:pesto
-fr:pesto
+fr:pesto, sauce pesto
 fy:pesto
 gl:pesto
 he:פסטו
@@ -65606,7 +65658,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse
+de:Sojasauce, Sojasoße, Sojasosse, soja-sauce
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja, shoyu
@@ -66404,6 +66456,7 @@ es:semillas de algodón
 
 < en:Seed
 en:cumin seeds, cumin
+ar:كمون
 ca:llavors de comí
 da:Spidskommen
 de:Kümmelkörnen, Kreuzkümmel, cumin
@@ -66415,6 +66468,8 @@ it:grani di cumino, cumino
 nl:komijnzaad, komijnzaden, komijn
 pl:Nasiona kminku
 sv:spiskummin, spiskumminfrön
+wikidata:en: https://www.wikidata.org/wiki/Q132624
+wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 
 < en:Seed
 en:fennel seed
@@ -67069,7 +67124,7 @@ cy:Cig oen
 de:Schaffleisch
 es:carne de oveja
 fi:lampaanliha
-fr:viande de mouton, viande d'ovin
+fr:viande de mouton, viande d'ovin, viande ovine
 hu:birkahús, juhhús
 id:Daging domba
 it:carne ovina
@@ -68037,14 +68092,14 @@ sv:sojabönsberedning
 allergens:en: en:soybeans
 
 < en:Soy preparation
-en:soy milk
+en:soy milk, soy drink
 an:Leit de soya
 ar:حليب الصويا
 bg:Соево мляко
 bn:সয়াদুধ
 ca:llet de soia
 cs:Sojové mléko
-de:Sojamilch
+de:Sojamilch, Sojadrink
 el:γάλα σόγιας
 eo:sojlakto
 es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
@@ -69102,6 +69157,7 @@ fi:mausteseos
 fr:mélange d'épices
 nb:krydderimix
 nl:gemengde specerijen
+ro:amestec de condimente
 sv:kryddblandning, kryddmix
 
 < en:Spice
@@ -69766,7 +69822,7 @@ bs:Škrob
 ca:Midó
 cs:Škrob
 da:stivelse
-de:Stärke, Stärken
+de:Stärke, Stärken, Speisestärke
 el:άμυλο
 es:almidón, fecula
 et:Tärklis
@@ -70171,7 +70227,7 @@ ht:Sik
 hu:cukor
 id:gula
 is:sykur, matarsykur
-it:zucchero
+it:zucchero, zuccheri
 iu:ᓱᑲᒃ
 ja:砂糖
 jv:Gula
@@ -72692,6 +72748,12 @@ zh:长鳍金枪鱼
 wikipedia:en: https://en.wikipedia.org/wiki/Albacore
 
 < en:Tuna
+en:bigeye tuna
+la:Thunnus obesus
+wikidata:en: Q1122241
+wikipedia:en: https://en.wikipedia.org/wiki/Bigeye_tuna
+
+< en:Tuna
 en:precooked tuna
 de:gegarter Thunfisch, Thunfisch gegart
 fr:thon précuit, thon précuit haché
@@ -72787,6 +72849,10 @@ it:ventresca di tonno
 < en:Turkey
 en:roasted turkey including natural turkey juices
 
+< en:Turkey
+en:turkey liver
+fr:foie de dinde
+
 < en:Poultry meat
 < en:Turkey
 en:turkey meat
@@ -72806,6 +72872,7 @@ nn:kalkunkjøt
 ro:carne de curcan
 ru:индюшатина
 sv:Kalkonkött
+tr:hindi eti
 uk:Індичатина
 vi:Thịt gà tây
 zh:火雞肉
@@ -73768,7 +73835,7 @@ fr:os de veau
 en:veal meat
 ca:carn de vedella
 da:kalvekød
-de:Kalbsfleisch
+de:Kalbsfleisch, Kalbfleisch
 es:carne de ternera
 fi:vasikanliha
 fr:viande de veau
@@ -75463,6 +75530,7 @@ en:citrus fibre, citrus fibres
 de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
 fi:sitruskuitu
 fr:fibre d'agrume, fibre végétale d'agrumes
+nl:citrusvezel
 sv:citrusfiber
 
 < en:Vegetable fiber
@@ -76473,7 +76541,7 @@ sv:rapsprotein
 
 < en:Vegetable protein
 en:wheat protein
-de:Weizenprotein, Weizeneiweiß
+de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
 fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
@@ -76670,7 +76738,7 @@ da:balsamicoeddike
 de:Aceto balsamico, Balsamessig
 el:βαλσαμικό ξύδι
 eo:Balzamvinagro
-es:Aceto balsámico, vinagre balsamico, vinagre balsamico de modena
+es:Aceto balsámico, vinagre balsamico
 eu:Ozpin baltsamiko
 fa:سرکه بالزامیک
 fi:balsamietikka, balsamiviinietikka, balsamico
@@ -77553,7 +77621,7 @@ eu:Bitamina
 fa:ویتامین
 fi:Vitamiinit, Vitamiineja, vitamiini
 fo:Vitamin
-fr:Vitamines, vitamine
+fr:Vitamines, vitamine, mélange de vitamines
 ga:Vitimín
 gl:Vitamina
 he:ויטמין
@@ -78643,7 +78711,7 @@ hu:Ásványvíz
 hy:Հանքային ջուր
 id:Air mineral
 it:Acqua minerale
-ja:ミネラルウォーター
+ja:ミネラルウォーター, 鉱泉水
 ka:მინერალური წყალი
 kk:Минерал су
 ky:Минералдуу суулар
@@ -80324,7 +80392,7 @@ da:fuldkornsrugmel, fullkornsrugmel
 de:Roggenvollkornmehl
 es:flor de harina integral de centeno, harina integral de centeno
 fi:täysjyväruisjauho, täysjyväruisjauhoa
-fr:farine de seigle complète, farine complète de seigle
+fr:farine de seigle complète, farine complète de seigle, farine de seigle complet
 hu:teljes kiőrlésű rozsliszt
 it:farina di segale integrale
 nb:fullkornsrugmel
@@ -80840,7 +80908,7 @@ nl:gistextract
 nn:gjærekstrakt
 pl:ekstrakt drożdżowy, ekstrakt z drożdży
 pt:extrato de levedura
-ro:extract de drojdie
+ro:extract de drojdie, extract din drojdie
 ru:Дрожжевой экстракт
 sk:extrakt z droždia
 sl:izvlecek kvasa, kvasni ekstrakt
