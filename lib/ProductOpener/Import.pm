@@ -1093,7 +1093,7 @@ EMAIL
 					# calcium_100g_value_in_mcg
 
 					if (not defined $values{$type}) {
-						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu') {
+						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
 							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
 							if ((defined $value_in_u) and ($value_in_u ne "")) {
 								$values{$type} = $value_in_u;
@@ -1122,6 +1122,9 @@ EMAIL
 					}
 					elsif ($unit eq "iu") {
 						$unit = "IU";
+					}
+					elsif ($unit eq "percent") {
+						$unit = '%';
 					}
 				}
 
