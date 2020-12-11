@@ -2098,6 +2098,21 @@ protected_name_file_number:en: PGI-AT-01919
 protected_name_type:en: gi
 origins:en: en:Austria
 
+<en:Alcoholic beverages
+en:German Weinbrand
+
+<en:German Weinbrand
+de:Pfälzer Weinbrand
+protected_name_file_number:en: PGI-DE-01930
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German Weinbrand
+de:Deutscher Weinbrand
+protected_name_file_number:en: PGI-DE-02059
+protected_name_type:en: gi
+origins:en: en:Germany
+
 <fr:Eaux-de-vie
 en:Brandys, Brandies
 de:Brandys, Brandies
@@ -3500,6 +3515,12 @@ en:Herefordshire cider
 protected_name_file_number:en: PGI-GB-0292
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Ciders
+fr:Cidre Cotentin, Cotentin
+protected_name_file_number:en: PDO-FR-02206
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Alcoholic beverages
 <en:Mixed drinks
@@ -23006,6 +23027,13 @@ wikidata:en:Q1626894
 
 <fr:Muscats
 <en:Wines from France
+fr:Muscat du Ventoux
+protected_name_file_number:en: PDO-FR-0049
+protected_name_type:en: pdo
+origins:en: en:France
+
+<fr:Muscats
+<en:Wines from France
 fr:Rivesaltes Rancio, Muscat de Rivesaltes Rancio
 country:en:France
 
@@ -30211,6 +30239,12 @@ ciqual_food_name:fr:Haricot blanc, appertisé, égoutté
 
 <en:White beans
 fr:Lingots blancs
+
+<en:White beans
+fr:Lingot du Nord
+protected_name_file_number:en: PGI-FR-0301
+protected_name_type:en: pgi
+origins:en: en:France
 
 en:Chips and fries
 ca:Patates fregides i similars
@@ -44731,6 +44765,12 @@ protected_name_file_number:en: PGI-FR-0476
 protected_name_type:en: pgi
 origins:en: en:France
 
+#<en:Einkorn wheat flours
+#fr:Petit Épeautre de Haute Provence
+#protected_name_file_number:en: PGI-FR-0475
+#protected_name_type:en: pgi
+#origins:en: en:France
+
 <en:Wheat flours
 en:Emmer wheat flours
 es:Harinas de escandas, Harinas de povia
@@ -48432,6 +48472,18 @@ en:Fresh pears
 es:Peras frescas
 fr:Poires fraîches
 season_in_country_fr:en: 1,2,3,8,9,10,11,12
+
+<en:Apples
+fr:Pommes de Savoie
+protected_name_file_number:en: PGI-FR-0196
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pears
+fr:Poires de Savoie
+protected_name_file_number:en: PGI-FR-0196
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Pears
 en:Pear pulp and peel
@@ -60805,7 +60857,9 @@ origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Loué
-country:en:France
+protected_name_file_number:en: PGI-FR-9149
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Normandie
@@ -61215,6 +61269,12 @@ agribalyse_food_code:en:36300
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
+<en:Turkeys
+fr:Dinde de Bresse
+protected_name_file_number:en: PDO-FR-0144
+protected_name_type:en: pdo
+origins:en: en:France
+
 # TODO check this one
 <en:Turkeys
 fr:viande de dinde sans peau
@@ -61372,6 +61432,12 @@ nl:Parelhoenders
 agribalyse_food_code:en:36700
 ciqual_food_code:en:36700
 ciqual_food_name:en:Guinea fowl, raw
+
+<en:Poultries
+fr:Pintadeau de la Drôme
+protected_name_file_number:en: PGI-FR-0546
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Pintades
 fr:Pintade de l'Ardèche
@@ -63587,6 +63653,12 @@ nl:Landelijke pasteien
 agribalyse_food_code:en:8211
 ciqual_food_code:en:8211
 ciqual_food_name:en:Country-style pâté or terrine
+
+<en:Country-style Pâtés
+fr:Pâté de Campagne Breton
+protected_name_file_number:en: PGI-FR-0879
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Pâté
 en:Breton pâté
@@ -65979,6 +66051,21 @@ it:Vincisgrassi
 
 <en:Pasta
 it:Ziti
+
+<en:Pasta
+en:German pasta
+
+<en:German pasta
+de:Schwäbische Spätzle, Schwäbische Knöpfle
+protected_name_file_number:en: PGI-DE-0738
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German pasta
+de:Schwäbische Maultaschen, Schwäbische Suppenmaultaschen
+protected_name_file_number:en: PGI-DE-0521
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Pasta
 en:Italian pasta
@@ -68870,6 +68957,64 @@ cs:Pohořelický kapr
 protected_name_file_number:en: PDO-CZ-0360
 protected_name_type:en: pdo
 origins:en: en:Czech Republic
+
+<en:Seafood
+en:German sea products
+fr:Produits de la mer allemands
+
+<en:German sea products
+de:Aischgründer Karpfen
+protected_name_file_number:en: PGI-DE-0689-AM01
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Peitzer Karpfen, Carpy z picnjo (Sorbisch)
+protected_name_file_number:en: PGI-DE-02587
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Oberlausitzer Biokarpfen
+protected_name_file_number:en: PGI-DE-01070
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Glückstädter Matjes
+protected_name_file_number:en: PGI-DE-1112
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Aischgründer Karpfen
+protected_name_file_number:en: PGI-DE-0689
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Fränkischer Karpfen, Frankenkarpfen, Karpfen aus Franken
+protected_name_file_number:en: PGI-DE-0688
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Holsteiner Karpfen
+protected_name_file_number:en: PGI-DE-0343
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Oberpfälzer Karpfen
+protected_name_file_number:en: PGI-DE-0191
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Schwarzwaldforelle
+protected_name_file_number:en: PGI-DE-1232
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Seafood
 en:Hungarian sea products
@@ -74824,6 +74969,12 @@ ciqual_food_name:en:Red kidney bean, cooked
 ciqual_food_name:fr:Haricot rouge, cuit
 
 <en:Vegetables
+fr:Haricot tarbais
+protected_name_file_number:en: PGI-FR-0080
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Vegetables
 en:Vegetable rods
 ca:Verdures allargades
 de:Stangengemüse
@@ -77738,6 +77889,12 @@ ciqual_food_name:fr:Mâche, crue
 <en:corn salad
 fr:Mâche fraîche
 season_in_country_fr:en: 1,2,10,11,12
+
+<en:corn salad
+fr:Mâche nantaise
+protected_name_file_number:en: PGI-FR-0072
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Leaf vegetables
 en:Salad rocket, rucola, rucoli, rugula, colewort, roquette, arugula
