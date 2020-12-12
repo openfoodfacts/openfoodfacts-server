@@ -1025,7 +1025,7 @@ sub build_tags_taxonomy($$$) {
 		my $max_pass = 2;
 		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
 		if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) or ($tagtype =~ /^ingredients/)) {
-			$max_pass = 1;
+			$max_pass = 2;
 		}
 
 		for (my $pass = 1; $pass <= $max_pass; $pass++) {
