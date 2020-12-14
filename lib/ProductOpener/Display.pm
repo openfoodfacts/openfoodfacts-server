@@ -2034,7 +2034,7 @@ sub display_list_of_tags($$) {
 
 		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
 		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined param("stats")) and not (defined param("filter"))) {
-			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
+			$html .= "\n<hr>" . display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
 		}
 
 		if ((defined param("stats")) and (param("stats"))) {
@@ -3988,10 +3988,11 @@ sub display_search_results($) {
 			$search_api_url =~ s/\&/\?/;
 		}
 		
-		my $preferences_text = lang("products_on_this_page_are_sorted_according_to_your_preferences");
+		my $preferences_text = lang("classify_products_according_to_your_preferences");
 		
 		$scripts .= <<JS
 <script type="text/javascript">
+var page_type = "products";
 var preferences_text = "$preferences_text";
 var products = [];
 </script>
@@ -4496,8 +4497,6 @@ sub search_and_display_products($$$$$) {
 	$request_ref->{page_type} = "list_of_products";
 
 	my $template_data_ref = {
-		lang => \&lang,
-		display_pagination => \&display_pagination,
 	};
 	
 	add_params_to_query($request_ref, $query_ref);
@@ -4526,47 +4525,61 @@ sub search_and_display_products($$$$$) {
 	else {
 		$page = 1;
 	}
+	
+	# If user preferences are turned on, return 100 products per page
+	if ($user_preferences) {
+		$limit = 100;
+	}
 
 	# support for returning structured results in json / xml etc.
 
 	my $sort_ref = Tie::IxHash->new();
 
-	if (defined $sort_by) {
-		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
-	}
-	elsif (defined $request_ref->{sort_by}) {
+	# Use the sort order provided by the query if it is defined (overrides default sort order)
+
+	if (defined $request_ref->{sort_by}) {
 		$sort_by = $request_ref->{sort_by};
 		$log->debug("sort_by was passed through request_ref", { sort_by => $sort_by }) if $log->is_debug();
+	}
+	elsif (defined $sort_by) {
+		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
 	}
 
 	if ((not defined $sort_by)
 		or (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key'))) {
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')
+			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
 			$sort_by = 'popularity_key';
 	}
 	
 	if (defined $sort_by) {
 		my $order = 1;
 		if ($sort_by =~ /^((.*)_t)_complete_first/) {
-			$sort_ref->Push(sortkey => -1);
 			$order = -1;
 		}
 		elsif ($sort_by =~ /_t/) {
-			$order = -1;
 			$sort_ref->Push($sort_by => $order);
 		}
 		elsif ($sort_by =~ /scans_n/) {
 			$order = -1;
-			$sort_ref->Push($sort_by => $order);
 		}
 		elsif ($sort_by eq "popularity_key") {
 			$order = -1;
-			$sort_ref->Push($sort_by => $order);
 		}
-		else {
-			$sort_ref->Push($sort_by => $order);
+		elsif ($sort_by eq "ecoscore_score") {
+			$order = -1;
 		}
+		elsif ($sort_by eq "nutriscore_score") {
+			$sort_by = "nutriscore_score_opposite";
+			$order = -1;
+		}
+		elsif ($sort_by eq "nova_score") {
+			$sort_by = "nova_score_opposite";
+			$order = -1;
+		}		
+
+		$sort_ref->Push($sort_by => $order);
 	}
 
 	my $count;
@@ -4862,7 +4875,7 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{page_count} = $count;
 		$template_data_ref->{page_limit} = $limit;
 		$template_data_ref->{page} = $page;
-
+		$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -4874,8 +4887,8 @@ sub search_and_display_products($$$$$) {
 	
 	if ($user_preferences) {
 		
-		my $preferences_text = lang("products_on_this_page_are_sorted_according_to_your_preferences");
-		
+		my $preferences_text = lang("classify_products_according_to_your_preferences");
+	
 		my $products_json = '[]';
 		
 		if (defined $request_ref->{structured_response}{products}) {
@@ -4884,11 +4897,12 @@ sub search_and_display_products($$$$$) {
 		
 		$scripts .= <<JS
 <script type="text/javascript">
+var page_type = "products";
 var preferences_text = "$preferences_text";
 var products = $products_json;
 </script>
 JS
-;		
+;
 		
 		$scripts .= <<JS
 <script src="/js/product-preferences.js"></script>
@@ -4904,7 +4918,7 @@ JS
 
 	}
 
-	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
@@ -4975,6 +4989,9 @@ sub display_pagination($$$$) {
 						if ($link eq '') {
 							$link  = "/";
 						}
+						if (defined $request_ref->{sort_by}) {
+							$link .= "?sort_by=" . $request_ref->{sort_by};
+						}
 					}
 					elsif (defined $current_link_query) {
 
@@ -4990,6 +5007,9 @@ sub display_pagination($$$$) {
 						if ( defined $limit && $link !~ /page_size/ ) {
 							$log->info("Using limit " .$limit) if $log->is_info();
 							$link .= "&page_size=" . $limit;
+						}
+						if (defined $request_ref->{sort_by}) {
+							$link .= "&sort_by=" . $request_ref->{sort_by};
 						}
 					}
 
@@ -5008,13 +5028,12 @@ sub display_pagination($$$$) {
 
 		$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
 
-		$html_pages = "\n<hr>" . '<ul id="pages" class="pagination">'
+		$html_pages = '<ul id="pages" class="pagination">'
 		. "<li class=\"unavailable\">" . lang("pages") . "</li>"
 		. $prev . $html_pages . $next . "</ul>\n";
 	}
 
 	# Close the list
-
 
 	if (defined param("jqm")) {
 		if (defined $next_page_url) {
@@ -8254,6 +8273,7 @@ HTML
 
 		$scripts .= <<JS
 <script type="text/javascript">
+var page_type = "product";
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
@@ -10223,8 +10243,8 @@ sub display_structured_response($)
 
 	my $request_ref = shift;
 
-
-	$log->debug("Displaying structured response", { json => param("json"), jsonp => param("jsonp"), xml => param("xml"), jqm => param("jqm"), rss => $request_ref->{rss} }) if $log->is_debug();
+	$log->debug("Displaying structured response", { json => scalar param("json"), jsonp => scalar param("jsonp"),
+		xml => scalar param("xml"), jqm => scalar param("jqm"), rss => scalar $request_ref->{rss} }) if $log->is_debug();
 	if (param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -10232,7 +10252,6 @@ sub display_structured_response($)
 
 		# without NumericEscape => 2, the output should be UTF-8, but is in fact completely garbled
 		# e.g. <categories>Frais,Produits laitiers,Desserts,Yaourts,Yaourts aux fruits,Yaourts sucrurl>http://static.openfoodfacts.net/images/products/317/657/216/8015/front.15.400.jpg</image_url>
-
 
 		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
 		# remove the languages field which has keys like "en:english"
@@ -10246,7 +10265,6 @@ sub display_structured_response($)
 				delete $product_ref->{languages};
 			}
 		}
-
 
 		my $xml
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
@@ -10473,7 +10491,7 @@ sub display_recent_changes {
 	# Display...
 
 	$html .= "</ul>";
-	$html .= display_pagination($request_ref, $count, $limit, $page);
+	$html .= "\n<hr>" . display_pagination($request_ref, $count, $limit, $page);
 
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");

@@ -1,4 +1,5 @@
 /*global lang */
+/*global page_type*/ // depends on which type of page the preferences are shown on
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
@@ -68,21 +69,34 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		}
 	});
 	
-	$( target_selected ).html(
-		'<div style="float:left;margin-right:1em;">'
-		+ '<p><span id="preferences_title">' + preferences_text + "</span><br>"
-		+ '&raquo; ' + '<a id="preferences_link" data-dropdown="selected_preferences">'
-		+ lang().see_your_preferences + '</a></p>'
-		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
-		+ selected_preferences_html
-		+ '</div>'
-		+ '</div>'
-		+ '<div>'
-		+ '<a id="show_selection_form" class="button small">'
+	var html = '';
+	
+	var html_edit_preferences = '<a id="show_selection_form" class="button small" style="margin-left:3em;">'
 		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
-		+ " " + lang().preferences_edit_your_food_preferences + '</a></div>'
-		+ '<hr style="clear:left;height:0;border:0;margin:0;padding:0;">'
-	);
+		+ " " + lang().preferences_edit_your_food_preferences + '</a>';
+	
+	// Display a switch for classifying according to the user preferences if
+	// we are on a page with multiple products
+	
+	if (page_type == 'products') {
+	
+		html += '<div class="switch round" style="float:left;margin-right: .5rem;"><input id="preferences_switch" type="checkbox">'
+		+ '<label for="preferences_switch"></label></div>'
+		+ '<label for="preferences_switch">' + preferences_text + html_edit_preferences + '</label>';
+	}
+	else {
+		
+		html += preferences_text + html_edit_preferences;
+	}
+	
+	// dropdown link to see a preferences summary
+	// html += '<a id="preferences_link" data-dropdown="selected_preferences">'
+	//	+ lang().see_your_preferences + '</a></p>'
+	//	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
+	//	+ selected_preferences_html
+	//	+ '</div>';	
+			
+	$( target_selected ).html(html);
 		
 	$( "#show_selection_form").click(function() {
 		$( target_selected ).hide();

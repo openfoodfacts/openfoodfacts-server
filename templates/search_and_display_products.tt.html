@@ -21,25 +21,54 @@
         [% END %]
     [% END %]
 
-    [% IF explore_products == 'true' %]
-        <ul class="button-group">
-            <li>
-                <div style="font-weight:bold;margin-right:2em;">[% html_count %]</div>
-            </li>
-            <li>
-                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
-                <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-                    [% FOREACH newtagtype IN current_drilldown_fields %]
-                        <li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
-                    [% END %]
-                </ul>
-            </li>
-        </ul>
-    [% ELSE %]
-        <p>
-            [% html_count %][% separator_before_colon %]:
-        </p>
-    [% END %]
+    
+	<div class="row">
+		<div class="small-12 large-6 columns">
+			
+			<div class="row">
+				<div class="small-4 columns">
+					<strong>[% html_count %]</strong>
+				</div>
+			
+				
+				[% IF explore_products == 'true' %]
+				<div class="small-8 columns">
+
+					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
+					<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+						[% FOREACH newtagtype IN current_drilldown_fields %]
+							<li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
+						[% END %]
+					</ul>
+
+				</div>
+				[% END %]
+            </div>
+        </div>
+        
+        <div class="small-12 large-6 columns">
+
+		<div class="row">
+		
+		<div class="small-4 columns">
+		<label class="right inline">Order</label>
+		</div>
+		<div class="small-8 columns">
+        <select>
+          <option value="husker">Most scanned products</option>			
+          <option value="husker">Products with the best Nutri-Score</option>
+          <option value="starbuck">Products with the best Eco-Score</option>
+          <option value="hotdog">Recently added products</option>
+          <option value="apollo">Recently modified products</option>
+        </select>
+        
+        </div>
+        
+        </div>
+     
+		</div>
+	</div>
+  
 
 	<div id="preferences_selected"></div>
 
@@ -48,7 +77,7 @@
     [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
         <ul data-role="listview" data-theme="c" id="search_results_list">
     [% ELSE %]
-    <div id="search_results">
+    <div id="search_results" style="clear:left;">
         <ul class="products">
     [% END %]
     
@@ -81,7 +110,6 @@
 		</ul></div>
     [% END %]    
     
-    <!-- Pagination -->
-    [% display_pagination(request, page_count, page_limit, page) %]
+    [% pagination %]
 
 [% END %]
