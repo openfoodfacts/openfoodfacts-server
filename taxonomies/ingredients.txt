@@ -68,11 +68,11 @@ stopwords:zh::配料
 
 #en:
 
-# es:
+#es:
 
-# fr:
+#fr:
 
-# it:
+#it:
 
 #ja:
 
@@ -22385,6 +22385,7 @@ sv:spannmålsflingor
 <en:wholemeal cereal
 <de:Getreideflocken
 en:wholemeal cereal flakes
+de:Getreidevollkornflocken, Vollkornflocken
 fi:täysjyvähiutaleet, täysjyvähiutale
 fr:flocons de céréales complètes
 sv:fullkornsflingor
@@ -34152,7 +34153,7 @@ br:Mangez
 ca:mango
 cs:Mango
 da:Mango
-de:Mango
+de:Mango, Mangos
 dv:އަނބު
 dz:ཨམ་ཅུ་ཀུ་ལི
 ee:Maŋgo
@@ -35105,7 +35106,7 @@ sv:torkade äppelskivor
 
 <en:apple
 en:apple pieces
-de:Apfelstücke
+de:Apfelstücke, Apfelstücken
 es:Trozos de manzana
 fi:omenapalat
 fr:morceaux de pomme, morceaux de pommes
@@ -37819,6 +37820,7 @@ fr:Chips de coco
 
 <en:coconut
 en:coconut paste
+de:Kokospaste, Kokosmus, Kokosnusspaste, Kokosnussmus
 fr:pâte de noix de coco
 
 <en:coconut
@@ -56733,7 +56735,7 @@ bg:চুকাই
 ca:rosa de Jamaica
 cs:ibišek súdánský
 da:hibiskusblomst
-de:Karkadeblüten, Roselle, Hibiskus
+de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüten
 eo:Sabdarifo
 es:Flor Roselle
 fa:روزل
@@ -58684,7 +58686,7 @@ ca:bolet , bolet comestible
 co:Funzu
 cs:jedlá houbacy:Madarchen
 da:Spiselige svampe, Svampe
-de:Pilz, Pilze, Speisepilz
+de:Pilz, Pilze, Speisepilz, Speisepilze
 el:Μανιτάρι
 eo:manĝebla fungo
 es:seta, champinon, champiñon, champiñones
@@ -69872,6 +69874,10 @@ allergens:en: en:milk
 # ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
 # fourrage au _lait_ 16% (sucre, huile, ….)
 vegan:en:no
+
+<en:filling
+en:cocoa filling
+de:Kakaofüllung
 
 <en:filling
 en:raspberry filling
