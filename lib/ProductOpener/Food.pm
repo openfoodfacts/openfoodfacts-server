@@ -4646,6 +4646,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
+	delete $product_ref->{nutriscore_score_opposite};
 	delete $product_ref->{nutriscore_grade};
 	delete $product_ref->{nutriscore_data};
 	delete $product_ref->{nutriscore_points};
@@ -4860,6 +4861,12 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+	
+	# In order to be able to sort by nutrition score in MongoDB,
+	# we create an opposite of the nutrition score
+	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+	# instead we can sort on descending order on nutriscore_score_opposite
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;		
 
 	return;
 }
