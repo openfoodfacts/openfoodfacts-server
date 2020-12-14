@@ -1,6 +1,6 @@
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
 stopwords:el:περιέχει
 stopwords:en:a,an,for,added,to,as
 stopwords:en:of
@@ -8767,7 +8767,7 @@ en:british chicken
 < en:Chicken meat
 en:chicken breast, chicken breast meat
 ca:pit de pollastre
-de:Hähnchenbrust, Hähnchenbrustfleisch
+de:Hähnchenbrust
 es:pechuga de pollo, carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
 ro:piept de pui
@@ -30301,12 +30301,6 @@ sk:E507, Kyselina chlorovodíková, Chlorovodík, Kyselina soľná
 sl:E507, Klorovodikova kislina, vodikov klorid, Želodčna kislina, Solna kislina
 sv:E507, Saltsyra, Väteklorid, Kloran, E 507, Vätekloridgas, Klorvätesyra, Klorväte
 e_number:en: 507
-efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
-efsa_evaluation_date:en: 2019/07/06
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
-efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2409
@@ -30366,14 +30360,8 @@ tr:Potasyum klorür
 uk:Хлорид калію
 vi:Kali clorua
 zh:氯化钾
-additives_classes:en: en:stabilizer, en:thickener, en:preservative
+additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 508
-efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
-efsa_evaluation_date:en: 2019/07/06
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
-efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:flavour-enhancer, en:stabilizer, en:thickener
 vegan:en: yes
 vegetarian:en: yes
@@ -30429,12 +30417,6 @@ vi:canxi clorua
 zh:氯化钙
 additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 509
-efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
-efsa_evaluation_date:en: 2019/07/06
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
-efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:firming-agent, en:stabilizer, en:thickener
 organic_eu:en: authorized
 vegan:en: yes
@@ -30550,12 +30532,6 @@ vi:Magie clorua
 zh:氯化镁
 additives_classes:en: en:stabilizer
 e_number:en: 511
-efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
-efsa_evaluation_date:en: 2019/07/06
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
-efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 vegan:en: yes
 vegetarian:en: yes
@@ -42776,7 +42752,7 @@ bs:Glukoza
 ca:Glucosa, glicosa
 cs:Glukóza
 da:glukose
-de:Glukose, Glucose
+de:Glukose
 el:Γλυκόζη
 eo:Glukozo
 es:glucosa
@@ -48469,7 +48445,7 @@ sv:lakritspulver
 < en:Liquorice
 en:liquorice root, licorice root
 da:lakridsrod
-de:Sussholzwurzel, Sußholzwurzel, Süßholzwurzel, Süssholzwurzel
+de:Sussholzwurzel
 fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
@@ -49437,7 +49413,7 @@ es:oleomargarina bovina
 
 < en:Margarine
 en:vegetable margarine, vegetal margarine
-de:Pflanzliche Margarine, Pflanzenmargarine
+de:Pflanzliche Margarine
 es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
@@ -56999,7 +56975,7 @@ hu:pálma- és repcemag
 < en:Palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof, palmefedt
+da:palmfedtstof
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma, manteca de palma
 et:palmirasv
@@ -57662,7 +57638,6 @@ es:proteína de guisante hidrolizada, proteínas de guisante hidrolizadas
 
 < en:Pea protein
 en:pea protein isolate
-de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
 fr:isolat de proteines de pois
@@ -60614,7 +60589,7 @@ cs:krocan
 cv:Кăркка
 cy:Twrci
 da:kalkun
-de:Truthahn, Truthühner, Pute
+de:Truthahn, Truthühner
 el:Γαλοπούλα
 eo:Meleagro
 es:pavo
@@ -65658,7 +65633,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse, soja-sauce
+de:Sojasauce, Sojasoße, Sojasosse
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja, shoyu
@@ -68092,14 +68067,14 @@ sv:sojabönsberedning
 allergens:en: en:soybeans
 
 < en:Soy preparation
-en:soy milk, soy drink
+en:soy milk
 an:Leit de soya
 ar:حليب الصويا
 bg:Соево мляко
 bn:সয়াদুধ
 ca:llet de soia
 cs:Sojové mléko
-de:Sojamilch, Sojadrink
+de:Sojamilch
 el:γάλα σόγιας
 eo:sojlakto
 es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
@@ -69822,7 +69797,7 @@ bs:Škrob
 ca:Midó
 cs:Škrob
 da:stivelse
-de:Stärke, Stärken, Speisestärke
+de:Stärke, Stärken
 el:άμυλο
 es:almidón, fecula
 et:Tärklis
@@ -73835,7 +73810,7 @@ fr:os de veau
 en:veal meat
 ca:carn de vedella
 da:kalvekød
-de:Kalbsfleisch, Kalbfleisch
+de:Kalbsfleisch
 es:carne de ternera
 fi:vasikanliha
 fr:viande de veau
@@ -76541,7 +76516,7 @@ sv:rapsprotein
 
 < en:Vegetable protein
 en:wheat protein
-de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
+de:Weizenprotein, Weizeneiweiß
 es:Proteina de trigo
 fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
