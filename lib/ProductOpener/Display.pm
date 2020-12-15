@@ -6923,7 +6923,7 @@ else {
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner_2020', '1', { expires: 180, path: '/' });
+			$.cookie('hide_image_banner_2020', '1', { expires: 90, path: '/' });
 			$('#donate_banner').remove();
 		}
 	});
