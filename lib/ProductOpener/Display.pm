@@ -4548,7 +4548,7 @@ sub search_and_display_products($$$$$) {
 	if ((not defined $sort_by)
 		or (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
 			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
 			$sort_by = 'popularity_key';
 	}
@@ -4564,9 +4564,13 @@ sub search_and_display_products($$$$$) {
 		elsif ($sort_by =~ /scans_n/) {
 			$order = -1;
 		}
-		elsif ($sort_by eq "popularity_key") {
+		elsif ($sort_by eq "popularity") {
+			$sort_by = "popularity_key";
 			$order = -1;
 		}
+		elsif ($sort_by eq "popularity_key") {
+			$order = -1;
+		}		
 		elsif ($sort_by eq "ecoscore_score") {
 			$order = -1;
 		}
@@ -4875,6 +4879,7 @@ sub search_and_display_products($$$$$) {
 		$template_data_ref->{page_count} = $count;
 		$template_data_ref->{page_limit} = $limit;
 		$template_data_ref->{page} = $page;
+		$template_data_ref->{current_link} = $request_ref->{current_link};
 		$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
 	}
 
@@ -7011,6 +7016,13 @@ JS
 HTML
 ;
 	}
+	
+	# Extract initjs code from content
+	
+	if ($$content_ref =~ /<initjs>(.*)<\/initjs>/s) {
+		$$content_ref = $` . $';
+		$initjs .= $1;
+	}	
 
 	$template_data_ref->{top_banner} = $top_banner;
 	$template_data_ref->{search_terms} = ${search_terms};

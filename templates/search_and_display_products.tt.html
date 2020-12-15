@@ -46,27 +46,28 @@
             </div>
         </div>
         
+        [% IF current_link.defined %]
         <div class="small-12 large-6 columns">
 
 		<div class="row">
-		
+				
 		<div class="small-4 columns">
 		<label class="right inline">Order</label>
 		</div>
 		<div class="small-8 columns">
-        <select>
-          <option value="husker">Most scanned products</option>			
-          <option value="husker">Products with the best Nutri-Score</option>
-          <option value="starbuck">Products with the best Eco-Score</option>
-          <option value="hotdog">Recently added products</option>
-          <option value="apollo">Recently modified products</option>
+        <select id="product_sort_order" onchange="javascript:location.href = this.value;">>
+          <option value="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</option>			
+          <option value="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</option>
+          <option value="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</option>
+          <option value="[% current_link %]?sort_by=last_created_t">[% lang("sort_by_last_created_t") %]</option>
+          <option value="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</option>
         </select>
-        
         </div>
         
         </div>
      
 		</div>
+		[% END %]
 	</div>
   
 

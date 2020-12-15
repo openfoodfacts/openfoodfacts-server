@@ -91,7 +91,7 @@ function match_product_to_preferences (product, product_preferences) {
 // keep the initial order of each result
 var initial_order = 0;
 
-function rank_products(products, product_preferences) {
+function rank_products(products, product_preferences, use_user_product_preferences_for_ranking) {
 	
 	// Score all products
 	
@@ -102,15 +102,24 @@ function rank_products(products, product_preferences) {
 			initial_order += 1;
 		}
 		
-		match_product_to_preferences(product, product_preferences);
+		match_product_to_preferences(product, product_preferences);	
+	});
+	
+	// If we don't use the user preferences for ranking, we show products in the initial order
+	
+	if (use_user_product_preferences_for_ranking) {
+	
+		// Rank all products, and return them in 3 arrays: "yes", "no", "unknown"
 		
-	});
-	
-	// Rank all products, and return them in 3 arrays: "yes", "no", "unknown"
-	
-	products.sort(function(a, b) {
-		return (b.match_score - a.match_score) || (a.initial_order - b.initial_order);
-	});
+		products.sort(function(a, b) {
+			return (b.match_score - a.match_score) || (a.initial_order - b.initial_order);
+		});	
+	}
+	else {
+		products.sort(function(a, b) {
+			return (a.initial_order - b.initial_order);
+		});	
+	}
 	
 	var product_groups = {
 		"all" : [],
@@ -121,7 +130,9 @@ function rank_products(products, product_preferences) {
 	
 	$.each( products, function(key, product) {
 
-		product_groups[product.match_status].push(product);
+		if (use_user_product_preferences_for_ranking) {
+			product_groups[product.match_status].push(product);
+		}
 		product_groups.all.push(product);
 	});
 	
@@ -129,10 +140,15 @@ function rank_products(products, product_preferences) {
 }
 
 
-function display_products(target, product_groups ) {
+function display_products(target, product_groups, use_user_product_preferences_for_ranking ) {
 		
-	$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
+	if (use_user_product_preferences_for_ranking) {
+		$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
 		+ '<div id="products_tabs_content" class="tabs-content"></div>');
+	}
+	else {
+		$( target ).html('<div id="products_tabs_content" class="tabs-content"></div>');
+	}
 	
 	$.each(product_groups, function(product_group_id, product_group) {
 	
@@ -199,12 +215,14 @@ function display_products(target, product_groups ) {
 			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
-		$("#products_tabs_titles").append(
-			'<li class="tabs tab-title tab_products-title' + active + '">'
-			+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
-			+ text_or_icon
-			+ "</a></li>"
-		);
+		if (use_user_product_preferences_for_ranking) {
+			$("#products_tabs_titles").append(
+				'<li class="tabs tab-title tab_products-title' + active + '">'
+				+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
+				+ text_or_icon
+				+ "</a></li>"
+			);
+		}
 		
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
@@ -285,9 +303,13 @@ function rank_and_display_products (target, products) {
 
 	var user_product_preferences = get_user_product_preferences();
 	
-	var ranked_products = rank_products(products, user_product_preferences);
+	// Retrieve whether we should use the preferences for ranking, or only for displaying the products
+	
+	var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+	
+	var ranked_products = rank_products(products, user_product_preferences, use_user_product_preferences_for_ranking);
 			
-	display_products(target, ranked_products);
+	display_products(target, ranked_products, use_user_product_preferences_for_ranking);
 			
 	$(document).foundation('equalizer', 'reflow');
 }

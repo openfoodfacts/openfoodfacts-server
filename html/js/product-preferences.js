@@ -4,6 +4,7 @@
 
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
+var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 
 function get_user_product_preferences () {
 	// Retrieve user preferences from local storage
@@ -22,11 +23,10 @@ function get_user_product_preferences () {
 	return user_product_preferences;
 }
 
-
 // display a summary of the selected preferences
 // in the order mandatory, very important, important
 
-function display_selected_preferences (target_selected, target_selection_form, product_preferences) {
+function display_selected_preferences (target_selected, target_selection_form, product_preferences, change) {
 	
 	var selected_preference_groups = {
 		"mandatory" : [],
@@ -79,10 +79,15 @@ function display_selected_preferences (target_selected, target_selection_form, p
 	// we are on a page with multiple products
 	
 	if (page_type == 'products') {
+		
+		var checked = '';
+		if (use_user_product_preferences_for_ranking) {
+			checked = " checked";
+		}
 	
-		html += '<div class="switch round" style="float:left;margin-right: .5rem;"><input id="preferences_switch" type="checkbox">'
+		html += '<div class="switch round" style="float:left;margin-right:.5rem;padding-top:0.1rem;"><input id="preferences_switch" type="checkbox"' + checked + '>'
 		+ '<label for="preferences_switch"></label></div>'
-		+ '<label for="preferences_switch">' + preferences_text + html_edit_preferences + '</label>';
+		+ '<label for="preferences_switch" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
 	}
 	else {
 		
@@ -97,6 +102,19 @@ function display_selected_preferences (target_selected, target_selection_form, p
 	//	+ '</div>';	
 			
 	$( target_selected ).html(html);
+	
+	if (page_type == 'products') {
+		$("#preferences_switch").change(function() {
+			
+			localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
+			use_user_product_preferences_for_ranking = this.checked;
+				
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}	
+		});
+	}
 		
 	$( "#show_selection_form").click(function() {
 		$( target_selected ).hide();
@@ -223,7 +241,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
 				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 				
-				display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+				display_selected_preferences(target_selected, target_selection_form, user_product_preferences, change);
 				
 				// Call the change callback if we have one (e.g. to update search results)
 				if (change) {
@@ -233,7 +251,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 		});
 			
 		if (target_selected) {	
-			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+			display_selected_preferences(target_selected, target_selection_form, user_product_preferences, change);
 		}
 
 		$( "#delete_all_preferences_button").click(function() {
