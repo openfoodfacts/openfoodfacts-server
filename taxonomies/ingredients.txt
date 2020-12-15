@@ -5584,7 +5584,7 @@ vegetarian:en:yes
 <en:vegetarian rennet
 en:microbial rennet
 da:mikrobiel osteløbe, mikrobiel løbe
-de:mikrobielles Lab
+de:mikrobielles Lab, mikrobiologisches Lab
 es:cuajo microbial, Cuajo microbiano
 fi:mikrobiperäinen juoksute, mikrobiologinen juoksute, mikrobinen juoksute
 fr:présure microbienne
@@ -16734,7 +16734,8 @@ uk:Пальмова олія і жири
 from_palm_oil:en:yes
 
 <en:palm oil and fat
-en:non hydrogenated palm fat
+en:non hydrogenated palm fat, unhydrogenated palm fat
+de:ungehärtetes Palmfett, Palmfett ungehärtet
 es:grasa de palma no hidrogenada
 
 <en:vegetable oil and fat
@@ -16935,7 +16936,7 @@ sv:fullhärdat palmfett
 
 <en:palm oil
 en:non-hydrogenated palm oil
-de:ungehärtetes Palmöl, nicht-hydriertes Palm
+de:ungehärtetes Palmöl, Palmöl ungehärtet, nicht-hydriertes Palmöl
 es:aceite de palma no hidrogenado
 fi:kovettamaton palmuöljy, hydrogenoimaton palmuöljy
 fr:huile de palme non hydrogénée
@@ -17323,7 +17324,7 @@ fr:huile d'olive extra
 en:extra virgin olive oil
 ca:Oli d'oliva verge extra, oli OVE
 da:ekstra jomfruolivenolie, ekstra jomfru olivenolie
-de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl
+de:natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine
 el:εξαιρετικό Παρθένο ελαιόλαδο
 es:aceite de oliva virgen extra,aceite extra virgen de oliva
 fi:ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
@@ -18755,6 +18756,10 @@ fr:poudre de vinaigre d'alcool
 es:vinagre de alcohol de caña
 
 <en:vinegar
+en:fruit vinegar
+de:Obstessig
+
+<en:vinegar
 en:apple vinegar
 de:Apfelessig
 es:vinagre de manzana
@@ -18806,7 +18811,7 @@ bs:Balzamovo sirće
 ca:Vinagre balsàmic
 cs:Balzámový ocet
 da:balsamicoeddike
-de:Aceto balsamico, Balsamessig
+de:Aceto balsamico, Balsamessig, Balsamico
 el:βαλσαμικό ξύδι
 eo:Balzamvinagro
 es:Aceto balsámico, vinagre balsamico
@@ -22234,7 +22239,7 @@ vegetarian:en:yes
 
 <en:smoke
 en:beech wood smoke
-de:Buchenholzrauch
+de:Buchenholzrauch, Buchenrauch
 es:Madera de haya ahumada
 fi:pyökkipuusavu, pyökistä valmistettu savuaromi
 fr:fumée de bois de hêtre, fumée naturelle au bois de hêtre
@@ -22942,7 +22947,7 @@ fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur bi
 <en:durum wheat semolina
 en:whole durum wheat semolina, durum wholewheat semolina
 bs:integralna krupica durum pšenice
-de:Vollkorn-Hartweizengriß
+de:Vollkorn-Hartweizengriß, Vollkorn-Hartweizengrieß
 el:σιμιγδάλι αλέσεως σκληρού σιταριού
 fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
 hr:integralna krupica durum pšenice
@@ -23598,6 +23603,9 @@ zh:含大麥芽片
 allergens:en: en:gluten
 
 <en:malted barley
+de:Gerstenbraumalz
+
+<en:malted barley
 fr:blé malté concassé
 
 <en:malted barley
@@ -24186,7 +24194,7 @@ es:semillas de quinoa
 
 <en:quinoa
 en:red quinoa
-de:rotes Quinoa
+de:rotes Quinoa, roter Quinoa, Quinoa rot
 es:Quinoa roja
 fi:punainen kvinoa
 fr:quinoa rouge
@@ -24194,6 +24202,7 @@ hu:vörös kinoa
 
 <en:quinoa
 en:black quinoa
+de:schwarzes Quinoa, schwarzer Quinoa, Quinoa schwarz
 es:quinoa negra
 
 
@@ -24206,7 +24215,7 @@ de:Quinoa gegart
 
 <en:quinoa
 en:white quinoa
-de:weiße Quinoa
+de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
 fr:quinoa blanc
@@ -24984,6 +24993,10 @@ en:wheat flour type 00, flour type 00
 it:farina di grano tenero tipo 00, farina di grano tipo 00
 
 <en:wheat flour
+en:wheat flour type 550, flour type 550
+de:Weizenmehl Type 550
+
+<en:wheat flour
 es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
 
 <en:wheat flour
@@ -25154,6 +25167,9 @@ fr:farine d'épeautre, farine de blé d'épeautre
 hu:tönkölyliszt
 it:farina di spelta, farina di farro
 nl:speltmeel, speltbloem
+
+<en:spelt flour
+de:Dinkelmehl Type 630
 
 <en:spelt flour
 fr:Farine de blé d'épeautre T110
@@ -25349,7 +25365,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 <en:flour
 <en:lupin
 en:lupin flour
-de:Lupinenmehl, Süßlupinenmehl
+de:Lupinenmehl, Süßlupinenmehl, Süsslupinenmehl
 es:harina de altramuz
 fi:lupiinijauho
 fr:farine de lupin
@@ -25838,6 +25854,11 @@ nl:maïspoeder
 en:corn molasses
 fr:mélasse de mais
 nl:maïsmelasse
+
+<en:corn
+<en:malt
+en:corn malt
+de:Maismalz
 
 <en:malt
 en:extract of corn malt
@@ -27597,7 +27618,7 @@ sv:råsocker
 en:unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
-de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker
+de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker, Rohrrohzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar, azucar de caña no refinada,azucar de caña en bruto
 fi:raakaruokosokeri
@@ -28261,6 +28282,10 @@ sv:glukossirap, stärkelsesirap, glukos-sirap
 # 32467 products in 29 languages @2018-09-24
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 wikidata:en:Q14770547
+
+<en:glucose syrup
+en:fructose-free glucose syrup
+de:fructosefreier Glucosesirup, fructosefreier Glukosesirup
 
 <en:glucose syrup
 en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
@@ -31809,6 +31834,10 @@ es:Levadura natural
 fi:Luontainen hiiva
 fr:levure naturelle
 it:naturale-fermento, lievito naturale
+
+<en:yeast
+en:organic yeast
+de:Biologische Hefe
 
 # Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
 
@@ -35963,6 +35992,8 @@ sv:citronjuice från koncentrat, citronsaft från koncentrat
 
 
 <en:lemon
+en:Lemon juice concentrate
+de:Zironensaftkonzentrat
 fr:jus concentré pulpé de citron
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-pulpé-de-citron
 # 12 products in 1 language @2018-10-02
@@ -36450,6 +36481,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Blood_orange
 #openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:orange-sanguine
 # 23 products (FR), 8 products (EN), 4 products (ES) @2020-04-23
 
+<en:orange
+en:calamansi
+de:Calamansi, Calamondinorange
 
 <en:orange juice
 <en:citrus fruit
@@ -36813,7 +36847,7 @@ ru:Сок ацеролы
 
 <en:acerola
 en:acerola powder
-de:Acerolapulver
+de:Acerolapulver, Acerola Kirschpulver
 fi:akerola-jauhe, acerola-jauhe
 fr:poudre d'acérola
 it:acerola in polvere
@@ -36915,7 +36949,7 @@ fr:baies de cassis
 <en:fruit juice
 en:blackcurrant juice
 da:solbærjuice
-de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft
+de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft, Johannisbeersaft
 es:zumo de grosella negra
 fi:mustaherukkamehu
 fr:jus de cassis
@@ -39370,6 +39404,10 @@ pt:groselha
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
 # 312 products in 6 languages @2018-10-01
 
+<en:redcurrant
+en:red currant juice
+de:roter Johannisbeersaft, Johannisbeersaft rot, roter Johannisbeerensaft, Johannisbeerensaft rot
+
 ###################################################################################################
 #
 #                                Rosehip
@@ -39610,14 +39648,17 @@ nl:geconcentreerd aardbeiensap
 # 58 products @2018-10-01
 
 <en:strawberry
-fr:fraises lyophilisées
+en:freeze-dried strawberries
 de:Erdbeeren gefriergetrocknet
+fr:fraises lyophilisées
 fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
 it:fragole liofilizzate
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
 # 38 products in 3 languages @2108-10-01
 
-<fr:fraises lyophilisées
+<en:freeze-dried strawberries
+en:freeze-dried strawberry pieces
+de:gefriergetrocknete Erdbeerstücke, gefriergetrocknete Erdbeerscheiben
 fi:pakastekuivattu mansikka paloina
 
 <en:strawberry
@@ -44771,6 +44812,10 @@ it:cipolla fresca
 # ingredient/fresh-onions has 485 products in 3 languages @2018-12-06
 
 <en:onion
+en:Onion pieces
+de:Zwiebelstücke
+
+<en:onion
 fr:jus d'oignon concentré, jus concentré d'oignon, jus concentré d'oignons
 de:Zwiebelsaftkonzentrat
 fi:sipulimehutiiviste
@@ -46445,7 +46490,7 @@ it:peperoncino verde
 
 <en:chili pepper
 en:hot chili peppers, hot pepper
-de:scharfe chilischoten, scharfe Pfefferoni
+de:scharfe chilischoten, scharfe Pfefferoni, Paprika scharf
 es:guindilla fuerte
 fi:tuliset chilit, tulinen chili
 fr:piment fort, piments forts
@@ -46724,6 +46769,7 @@ fr:Pâte de paprika
 
 <en:paprika
 en:sweet paprika
+de:Paprika edelsüß
 es:pimienta roja dulce
 
 <en:vegetable
@@ -46851,7 +46897,7 @@ nl:gegrilde tomaat
 <en:tomato
 en:cherry tomato, cherry tomatoes
 da:körsbärstomater, cocktailtomater
-de:Kirschtomaten, Cocktailtomaten
+de:Kirschtomaten, Cocktailtomaten, Cherrytomaten
 el:τομάτες τσέρυ
 es:tomates cerezas, tomate cherry, tomates cherry
 fi:kirsikkatomaatti, kirsikkatomaatit
@@ -49244,6 +49290,7 @@ es:pasta de almendra
 
 <en:almond
 en:almond flour
+de:Mandelmehl
 es:harina de almendra
 fr:farine d'amandes
 
@@ -53839,6 +53886,10 @@ fi:timjamijauhe, timjami jauheena
 fr:thym en poudre
 
 <en:thyme
+en:thyme oil
+de:Thymianöl
+
+<en:thyme
 en:thyme extract
 de:Thymianextrakt, Thymian-Extrakt
 fi:timjamiuute
@@ -55349,6 +55400,10 @@ sk:chmelovy extract
 # ingredient/fr:extrait-de-houblon has 155 products in 15 languages @2018-12-01
 
 <en:hops
+en:natural hop, natural hops
+de:Natur Hopfen, Natur-Hopfen
+
+<en:hops
 en:organic hops
 de:biologische Hopfen, bio Hopfen
 es:lúpulo bio
@@ -55383,7 +55438,7 @@ ca:ginebre comú
 cs:jalovec obecný
 cy:Merywen
 da:almindelig ene
-de:Wacholder
+de:Wacholder, Wachholder
 el:άρκευθος
 eo:Ordinara junipero
 es:enebro
@@ -65841,6 +65896,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Honey
 vegan:en:no
 vegetarian:en:yes
 # ingredient/honey has 9679 products in 17 languages @2018-12-17
+
+<en:honey
+en:bee  honey
+de:Bienenhonig
 
 <en:honey
 en:raw honey
