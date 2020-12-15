@@ -41099,6 +41099,16 @@ agribalyse_proxy_food_name:en:Olive oil, extra virgin
 agribalyse_proxy_food_name:fr:Huile d'olive vierge extra
 
 <en:Olive oils
+en:Virgin olive oils
+de:Native Olivenöle, Natives Olivenöl
+es:Aceites de oliva virgen, Aceites de oliva vírgenes
+fi:neitsytoliiviöljyt
+fr:Huiles d'olive vierges
+hu:Szűz olívaolajok, Szűz olívaolaj
+it:Olio vergine di oliva
+nl:Virgin olijfoliën
+
+<en:Virgin olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
 ca:Oli d'oliva verge extra
 de:Native Olivenöle Extra, Natives Olivenöl Extra
@@ -41133,16 +41143,6 @@ it:Olio d'oliva raffinato
 nl:Graffineerde olijfoliën
 
 <en:Olive oils
-en:Virgin olive oils
-de:Native Olivenöle, Natives Olivenöl
-es:Aceites de oliva virgen, Aceites de oliva vírgenes
-fi:neitsytoliiviöljyt
-fr:Huiles d'olive vierges
-hu:Szűz olívaolajok, Szűz olívaolaj
-it:Olio vergine di oliva
-nl:Virgin olijfoliën
-
-<en:Olive oils
 en:Olive oils from France
 de:Olivenöle aus Frankreich, Französische Olivenöle
 es:Aceites de oliva de Francia
@@ -41150,11 +41150,11 @@ fi:ranskalaiset oliiviöljyt
 fr:Huiles d'olive de France
 hu:Olívaolajok Franciaországból
 it:Olio d'oliva francese
-nl:Franse olijfoliën
+nl:Olijfoliën uit Frankrijk, Olijfolies uit Frankrijk, Franse olijfoliën, Franse olijfolies
 country:en:France
 
 <en:Olive oils from France
-en:Olive oil from Aix-en-Provence
+en:Olive oils from Aix-en-Provence
 fr:Huile d'olive d'Aix-en-Provence
 nl:Olijfoliën uit Aix-en-Provence
 protected_name_file_number:en: PDO-FR-9111
@@ -41162,7 +41162,7 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Corsica
+en:Olive oils from Corsica
 de:Korsisches Olivenöl
 fr:Huile d'olive de Corse, Oliu di Corsica
 nl:Corsicaanse olijfoliën
@@ -41171,25 +41171,25 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Haute-Provence
-fr:Huile d'olive de Haute-Provence
+en:Olive oils from Haute-Provence
+fr:Huiles d'olive de Haute-Provence
 nl:Olijfoliën uit de Haute-Provence
 protected_name_file_number:en: PDO-FR-0110
 protected_name_type:en: pdo
 origins:en: en:France, fr:Haute-Provence
 
 <en:Olive oils from France
-en:Olive oil from Vallée des Baux-de-Provence
-fr:Huile d'olive de la Vallée des Baux-de-Provence
+en:Olive oils from Vallée des Baux-de-Provence
+fr:Huiles d'olive de la Vallée des Baux-de-Provence
 nl:Olijfoliën uit de vallei van Baux-de-Provence
 protected_name_file_number:en: PDO-FR-0050
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Nice
-fr:Huile d'olive de Nice
-nl:Olijfoliën uit Nice
+en:Olive oils from Nice
+fr:Huiles d'olive de Nice
+nl:Olijfolies uit Nice
 protected_name_file_number:en: PDO-FR-0322
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nice
@@ -41197,7 +41197,7 @@ origins:en: en:France, fr:Nice
 <en:Olive oils from France
 en:Olive oil from Nîmes
 fr:Huile d'olive de Nîmes
-nl:Olijfoliën uit Nîmes
+nl:Olijfolies uit Nîmes
 protected_name_file_number:en: PDO-FR-0441
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nîmes
@@ -41205,13 +41205,14 @@ origins:en: en:France, fr:Nîmes
 <en:Olive oils from France
 en:Olive oil from Nyons
 fr:Huile d'olive de Nyons
-nl:Olijfoliën uit Nyons
+nl:Olijfoliën uit Nyons, Olijfolies uit Nyons
 protected_name_file_number:en: PDO-FR-0142
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
 fr:Huile d'olive de Provence
+nl:Olijfoliën uit de Provence, Olijfolies uit de Provence, Provençaalse olijfolies, Provençaalse olijfoliën
 protected_name_file_number:en: PDO-FR-02421
 protected_name_type:en: pdo
 origins:en: en:France
@@ -41223,8 +41224,26 @@ fi:Italialaiset oliiviöljyt
 fr:Huiles d'olive d'Italie
 hu:Olívaolajok Olaszországból
 it:Oli d'oliva dall'Italia
-nl:Olijfolie uit Italië
-country:en:Italy
+nl:Olijfoliën uit Italië, Olijfolies uit Italië, Italiaanse olijfolies, Italiaanse olijfoliën
+origins:en: en:Italy
+
+<en:Olive oils
+en:Olive oils from Spain, Spanish olive oils
+fr:Huiles d'olive d'Espagne
+nl:Olijfoliën uit Spanje, Olijfolies uit Spanje, Spaanse olijfolies, Spaanse olijfoliën
+origins:en: en:Spain
+
+<en:Olive oils
+en:Olive oils from Maroc, Maroccan olive oils
+fr:Huiles d'olive de Maroc
+nl:Olijfoliën uit Marokko, Olijfolies uit Marokko, Marokkaanse olijfolies, Marokkaanse olijfoliën
+origins:en: en:Maroc
+
+<en:Olive oils
+en:Olive oils from Tunisia, Tunisian olive oils
+fr:Huiles d'olive de Tunisie
+nl:Olijfoliën uit Tunesië, Olijfolies uit Tunesië, Tunesische olijfolies, Tunesische olijfoliën
+origins:en: en:Tunisia
 
 <en:Vegetable oils
 en:Combined oil, Mix of olive oil and seeds oil
