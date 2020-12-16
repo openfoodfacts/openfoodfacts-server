@@ -9164,6 +9164,7 @@ carbon_footprint_fr_foodges_value:fr:3.6
 <en:goat cheese
 fr:fromage de chèvre frais
 ca:formatge fresc de llet de cabra
+de:Ziegenfrischkäse
 es:queso fresco de cabra
 
 <en:goat cheese
@@ -17140,7 +17141,7 @@ nl:Biologische kokosolie
 
 <en:coconut oil
 en:virgin coconut oil, raw coconut oil
-de:Natives Kokosöl
+de:Natives Kokosöl, Kokosöl nativ, unraffiniertes Kokosnussöl, Kokosnussöl unraffiniert, Natives Kokosnussöl, Kokosnussöl nativ, unraffiniertes Kokosöl, Kokosöl unraffiniert
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
 
@@ -22415,6 +22416,9 @@ hu:cirok
 sk:cirok
 wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
 
+<en:Sorghum
+de:Goldhirse, geschälte Hirse
+
 <en:cereal flour
 <en:Sorghum
 en:sorghum flour
@@ -25172,6 +25176,9 @@ nl:speltmeel, speltbloem
 de:Dinkelmehl Type 630
 
 <en:spelt flour
+de:Dinkelmehl Type 812
+
+<en:spelt flour
 fr:Farine de blé d'épeautre T110
 
 # Question
@@ -25481,7 +25488,7 @@ sv:gult majsmjöl
 <en:corn flour
 en:white corn flour
 da:hvidt majsmel
-de:weisses Maismehl
+de:weisses Maismehl, weißes Maismehl
 es:Harina de maíz blanco
 fi:valkoinen maissijauho
 fr:Farine de maïs blanc
@@ -25494,6 +25501,7 @@ sv:vitt majsmjöl
 <en:corn flour
 <en:wholemeal flour
 en:whole grain corn flour, wholegrain corn flour, wholegrain maize flour, whole grain maize flour
+de:Vollkornmaismehl
 es:harina de maíz integral
 fi:täysjyvämaissijauho
 fr:farine de mais compléte
@@ -25862,6 +25870,7 @@ de:Maismalz
 
 <en:malt
 en:extract of corn malt
+de:Maismalzextrakt
 es:extracto de malta de maiz
 
 # CORN MEAL is a meal (coarse flour) ground from dried maize (corn).
@@ -25953,6 +25962,10 @@ fr:maïs cireux
 it:maïs ceroso
 nl:kleefmaïs
 # ingredient/fr:maïs-cireux24 products in 3 languages @2018-09-24
+
+<en:waxy corn
+en:waxy corn starch
+de:Wachsmaisstärke
 
 <en:corn
 en:corn kernel, corn kernels
@@ -33972,7 +33985,7 @@ es:chips de platano,copos de plátano
 <en:banana
 <en:purée
 en:banana puree
-de:Bananenpüree
+de:Bananenpüree, Bananenmark
 es:Puré de plátano
 fi:banaanipyree
 fr:purée de banane, purée de bananes
@@ -37387,7 +37400,7 @@ nl:zwarte kers
 
 <en:cherry
 en:sour cherry, sour cherries
-de:Sauerkirsch, Sauerkirschen
+de:Sauerkirsch, Sauerkirsche, Sauerkirschen
 es:Cereza agria
 fi:hapankirsikka, hapankirsikat
 fr:griotte, griottes, cerises griottes
@@ -37404,7 +37417,7 @@ es:cereza deshuesada, cereza sin hueso, cerezas deshuesadas, cerezas sin hueso
 
 <en:sour cherry
 en:sour cherry juice
-de:Sauerkirschsaft
+de:Sauerkirschsaft, Sauerkirschensaft
 fi:hapankirsikkamehu
 fr:jus de cerise aigre
 
@@ -37845,7 +37858,7 @@ fi:kookosvesi
 
 <en:coconut
 en:coconut chips
-de:Kokosnusschips, Kokosnuss-Chips
+de:Kokosnusschips, Kokosnuss-Chips, Kokoschips
 es:chips de coco
 fi:kookoslastu, kookoslastut
 fr:Chips de coco
@@ -37948,6 +37961,12 @@ wikidata:en:Q2916133
 wikipedia:en:https://en.wikipedia.org/wiki/Date_honey
 
 <en:date
+en:date juice
+de:Dattelsaft
+
+<en:date
+en:date juice concentrate
+de:Dattelsaftkonzentrat
 fr:jus de dattes concentré
 
 # The context on an ingredient list determines whether this referes to the berries (probable) or the flowers.
@@ -39394,7 +39413,7 @@ sv:hallonpulver
 <en:fruit
 en:redcurrant, red currant
 da:røde bær
-de:rote Johannisbeeren
+de:rote Johannisbeeren, rote Johannisbeere
 es:grosella roja, grosellas rojas
 fi:Punaherukka
 fr:groseille, groseilles, groseilles rouges
@@ -44358,6 +44377,9 @@ wikidata:en:Q26545
 wikipedia:en:https://en.wikipedia.org/wiki/Horseradish
 # ingredient/fr:raifort has 103 products in 4 languages @2019-01-26
 
+<en:horseradish
+en:horseradish paste
+de:Meerrettichpaste
 
 # description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
@@ -45188,6 +45210,10 @@ carbon_footprint_fr_foodges_value:fr:8.4
 # <en:radish
 # fr:Radis de saison
 # ingredient/fr:Radis-de-saison has no products @2019-05-16
+
+<en:radish
+en:radish sprouts
+de:Radieschensprossen
 
 <en:radish
 en:daikon, white radish, winter radish, Oriental radish, long white radish
@@ -48978,6 +49004,8 @@ fr:lentilles rouges décortiquées
 fr:lentilles noires
 
 <fr:lentilles noires
+en:Beluga lentils
+de:Beluga Linsen
 fr:lentilles noires Beluga, lentilles Béluga
 # 8@2019-06-06
 
@@ -50330,6 +50358,10 @@ vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
+
+<en:seed
+en:oilseed, oilseeds
+de:Ölsamen
 
 <en:seed
 fr:graines grillées
@@ -67878,7 +67910,7 @@ sv:kycklingskinn
 en:chicken meat
 ca:carn de pollastre
 da:Kylling
-de:Pouletfleisch, Hühnerfleisch
+de:Pouletfleisch, Hühnerfleisch, Hühnchenfleisch
 es:Carne de pollo
 fi:kananliha
 fr:viande de poulet, viande de poule
@@ -71220,6 +71252,9 @@ it:wafer
 nl:ongedesemd brood, ouwel
 # ingredient/fr:pain-azyme has 293 products in 6 languages @2019-03-07
 # pan ácimo (fécula de patata, agua, aceite de girasol)
+
+<en:wafer
+de:Backoblate, Backoblaten
 
 # description:Cornet biscuit is for ice creqm
 
