@@ -6909,12 +6909,12 @@ sub display_new($) {
 	$template_data_ref->{lc} = $lc;
 
 	if (not($server_options{producers_platform})
-	and ((not (defined cookie('hide_image_banner')))
-	or (not (cookie('hide_image_banner') eq '1')))) {
+	and ((not (defined cookie('hide_image_banner_2020')))
+	or (not (cookie('hide_image_banner_2020') eq '1')))) {
 		$template_data_ref->{banner} = $banner;
 
 		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner') == '1') {
+if ($.cookie('hide_image_banner_2020') == '1') {
 	$('#hide_image_banner').prop('checked', true);
 	$('#donate_banner').remove();
 }
@@ -6923,7 +6923,7 @@ else {
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+			$.cookie('hide_image_banner_2020', '1', { expires: 90, path: '/' });
 			$('#donate_banner').remove();
 		}
 	});
