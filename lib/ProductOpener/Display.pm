@@ -4513,6 +4513,11 @@ sub search_and_display_products($$$$$) {
 	else {
 		$limit = $page_size;
 	}
+	
+	# If user preferences are turned on, return 100 products per page
+	if ($user_preferences) {
+		$limit = 100;
+	}	
 
 	my $skip = 0;
 	if (defined $page) {
@@ -4524,11 +4529,6 @@ sub search_and_display_products($$$$$) {
 	}
 	else {
 		$page = 1;
-	}
-	
-	# If user preferences are turned on, return 100 products per page
-	if ($user_preferences) {
-		$limit = 100;
 	}
 
 	# support for returning structured results in json / xml etc.
@@ -4587,6 +4587,7 @@ sub search_and_display_products($$$$$) {
 	}
 
 	my $count;
+	my $page_count;
 
 	my $fields_ref;
 
@@ -4699,13 +4700,16 @@ sub search_and_display_products($$$$$) {
 
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
+				$page_count++;
 			}
 			$request_ref->{structured_response}{count} = $count;
+			$request_ref->{structured_response}{page_count} = $page_count;
 			set_cache_results($key,$request_ref->{structured_response})
 		}
   }
 
 	$count = $request_ref->{structured_response}{count};
+	$page_count = $request_ref->{structured_response}{page_count};
 
 	if (defined $request_ref->{description}) {
 		$request_ref->{description} =~ s/<nb_products>/$count/g;
@@ -4876,7 +4880,7 @@ sub search_and_display_products($$$$$) {
 		}
 
 		$template_data_ref->{request} = $request_ref;
-		$template_data_ref->{page_count} = $count;
+		$template_data_ref->{page_count} = $page_count;
 		$template_data_ref->{page_limit} = $limit;
 		$template_data_ref->{page} = $page;
 		$template_data_ref->{current_link} = $request_ref->{current_link};
@@ -4892,7 +4896,7 @@ sub search_and_display_products($$$$$) {
 	
 	if ($user_preferences) {
 		
-		my $preferences_text = lang("classify_products_according_to_your_preferences");
+		my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 	
 		my $products_json = '[]';
 		
@@ -5035,7 +5039,9 @@ sub display_pagination($$$$) {
 
 		$html_pages = '<ul id="pages" class="pagination">'
 		. "<li class=\"unavailable\">" . lang("pages") . "</li>"
-		. $prev . $html_pages . $next . "</ul>\n";
+		. $prev . $html_pages . $next
+		. "<li class=\"unavailable\">(" . sprintf(lang("d_products_per_page"), $limit) . ")</li>"
+		. "</ul>\n";
 	}
 
 	# Close the list

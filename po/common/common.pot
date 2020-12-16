@@ -752,7 +752,7 @@ msgid ""
 msgstr ""
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
+msgid "Explore products by..."
 msgstr ""
 
 msgctxt "facebook_locale"
@@ -5236,6 +5236,11 @@ msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
 msgstr ""
 
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr ""
+
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
 msgstr ""
@@ -5254,4 +5259,9 @@ msgstr ""
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
+msgstr ""
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
 msgstr ""

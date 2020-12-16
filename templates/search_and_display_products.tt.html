@@ -23,17 +23,27 @@
 
     
 	<div class="row">
-		<div class="small-12 large-6 columns">
+		<div class="small-12 columns">
 			
-			<div class="row">
-				<div class="small-4 columns">
-					<strong>[% html_count %]</strong>
-				</div>
-			
-				
-				[% IF explore_products == 'true' %]
-				<div class="small-8 columns">
+					<div style="float:left;margin-right:1em;padding-top:0.5rem;"><strong>[% html_count %]</strong>
+						<label for="product_sort_order" style="display:inline;margin-left:2rem;">Order:</label></div>
+					<div>
+					        <select id="product_sort_order" onchange="javascript:location.href = this.value;" style="width:auto;">
+          <option value="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</option>			
+          <option value="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</option>
+          <option value="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</option>
+          <option value="[% current_link %]?sort_by=last_created_t">[% lang("sort_by_last_created_t") %]</option>
+          <option value="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</option>
+        </select>
+					</div>
 
+        </div>
+        
+        [% IF current_link.defined %]
+
+				[% IF explore_products == 'true' %]
+				<div class="small-12 columns">
+					Explore the products by categories, brands, labels and much more: 
 					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
 					<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
 						[% FOREACH newtagtype IN current_drilldown_fields %]
@@ -43,34 +53,12 @@
 
 				</div>
 				[% END %]
-            </div>
-        </div>
-        
-        [% IF current_link.defined %]
-        <div class="small-12 large-6 columns">
 
-		<div class="row">
-				
-		<div class="small-4 columns">
-		<label class="right inline">Order</label>
-		</div>
-		<div class="small-8 columns">
-        <select id="product_sort_order" onchange="javascript:location.href = this.value;">>
-          <option value="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</option>			
-          <option value="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</option>
-          <option value="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</option>
-          <option value="[% current_link %]?sort_by=last_created_t">[% lang("sort_by_last_created_t") %]</option>
-          <option value="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</option>
-        </select>
-        </div>
-        
-        </div>
-     
-		</div>
 		[% END %]
 	</div>
   
-
+	[% pagination %]
+	 
 	<div id="preferences_selected"></div>
 
 	<div id="preferences_selection_form" style="display:none"></div>
@@ -111,6 +99,6 @@
 		</ul></div>
     [% END %]    
     
-    [% pagination %]
+	[% pagination %]
 
 [% END %]

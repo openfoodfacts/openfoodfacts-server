@@ -157,8 +157,14 @@ function display_products(target, product_groups, use_user_product_preferences_f
 		$.each( product_group, function(key, product) {
 		
 			var product_html = "";
-						
-			product_html += '<li><a href="' + product.url + '" class="list_product_a list_product_a_match_' + product.match_status + '">';
+			
+			// Show the green / grey / colors for matching products only if we are using the user preferences
+			if (use_user_product_preferences_for_ranking) {
+				product_html += '<li><a href="' + product.url + '" class="list_product_a list_product_a_match_' + product.match_status + '">';
+			}
+			else {
+				product_html += '<li><a href="' + product.url + '" class="list_product_a">';
+			}
 			product_html += '<div class="list_product_img_div">';
 			
 			if (product.image_front_thumb_url) {
