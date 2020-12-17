@@ -1595,7 +1595,7 @@ EMAIL
 												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
 												)))
 									) {
-									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2
+									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
 										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
 									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
