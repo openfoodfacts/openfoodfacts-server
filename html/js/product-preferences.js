@@ -26,7 +26,7 @@ function get_user_product_preferences () {
 // display a summary of the selected preferences
 // in the order mandatory, very important, important
 
-function display_selected_preferences (target_selected, target_selection_form, product_preferences, change) {
+function display_selected_preferences (target_selected_summary, product_preferences) {
 	
 	var selected_preference_groups = {
 		"mandatory" : [],
@@ -69,6 +69,23 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		}
 	});
 	
+	// dropdown link to see a preferences summary
+	// html = '<a id="preferences_link" data-dropdown="selected_preferences">'
+	lang().see_your_preferences + '</a></p>'
+	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
+	+ selected_preferences_html
+	+ '</div>';		
+			
+	$( target_selected_summary ).html(html);
+	
+	$(document).foundation('reflow');
+}
+
+
+// display a switch to use preferences (on list of products pages) and a button to edit preferences
+
+function display_use_preferences_switch_and_edit_preferences_button (target_selected, target_selection_form, change) {
+	
 	var html = '';
 	
 	var html_edit_preferences = '<a id="show_selection_form" class="button small" style="margin-left:3em;">'
@@ -93,13 +110,6 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		
 		html += preferences_text + html_edit_preferences;
 	}
-	
-	// dropdown link to see a preferences summary
-	// html += '<a id="preferences_link" data-dropdown="selected_preferences">'
-	//	+ lang().see_your_preferences + '</a></p>'
-	//	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
-	//	+ selected_preferences_html
-	//	+ '</div>';	
 			
 	$( target_selected ).html(html);
 	
@@ -241,7 +251,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
 				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 				
-				display_selected_preferences(target_selected, target_selection_form, user_product_preferences, change);
+				display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 				
 				// Call the change callback if we have one (e.g. to update search results)
 				if (change) {
@@ -251,7 +261,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 		});
 			
 		if (target_selected) {	
-			display_selected_preferences(target_selected, target_selection_form, user_product_preferences, change);
+			display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 		}
 
 		$( "#delete_all_preferences_button").click(function() {
