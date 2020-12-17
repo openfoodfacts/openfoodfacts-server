@@ -1566,7 +1566,7 @@ EMAIL
 						$log->debug("select and crop image?", { code => $code, imgid => $imgid, current_max_imgid => $current_max_imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 
 						# select the photo
-						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
+						if (($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/) and
 							( (not ((defined $args_ref->{only_select_not_existing_images}) and ($args_ref->{only_select_not_existing_images})))
 								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) ) ) {
 
@@ -1586,14 +1586,14 @@ EMAIL
 								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
-									and (exists $product_ref->{images}{$imagefield_with_lc})
-									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-										or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-										or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-										or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
-										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										)
+									and ((not exists $product_ref->{images}{$imagefield_with_lc})
+										or ((($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+												or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+												or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+												or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+												or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+												)))
 									) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
