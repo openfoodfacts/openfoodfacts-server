@@ -88,7 +88,7 @@ function display_use_preferences_switch_and_edit_preferences_button (target_sele
 	
 	var html = '';
 	
-	var html_edit_preferences = '<a id="show_selection_form" class="button small" style="margin-left:3em;">'
+	var html_edit_preferences = '<a id="show_selection_form" class="button small success round" style="margin-left:3em;">'
 		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
 		+ " " + lang().preferences_edit_your_food_preferences + '</a>';
 	
@@ -102,9 +102,10 @@ function display_use_preferences_switch_and_edit_preferences_button (target_sele
 			checked = " checked";
 		}
 	
-		html += '<div class="switch round" style="float:left;margin-right:.5rem;padding-top:0.1rem;"><input id="preferences_switch" type="checkbox"' + checked + '>'
-		+ '<label for="preferences_switch"></label></div>'
-		+ '<label for="preferences_switch" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
+		html += '<div class="switch round success" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">'
+		+ '<input id="preferences_checkbox" type="checkbox"' + checked + '>'
+		+ '<label for="preferences_checkbox"></label></div>'
+		+ '<label for="preferences_checkbox" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
 	}
 	else {
 		
@@ -114,7 +115,7 @@ function display_use_preferences_switch_and_edit_preferences_button (target_sele
 	$( target_selected ).html(html);
 	
 	if (page_type == 'products') {
-		$("#preferences_switch").change(function() {
+		$("#preferences_checkbox").change(function() {
 			
 			localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
 			use_user_product_preferences_for_ranking = this.checked;
@@ -228,18 +229,18 @@ function display_user_product_preferences (target_selected, target_selection_for
 		$(target_selection_form).html(
 			'<div class="panel callout">'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small">'
+			+ '<a class="show_selected button small success round">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
 			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
-			+ '<a id="delete_all_preferences_button" class="button small">' + lang().delete_all_preferences + '</a>'
+			+ '<a id="delete_all_preferences_button" class="button small round success">' + lang().delete_all_preferences + '</a>'
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
 			+ '<br><br>'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small">'
+			+ '<a class="show_selected button small round success">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'

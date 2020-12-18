@@ -25,26 +25,32 @@
 	<div class="row">
 		<div class="small-12 columns">
 			
-					<div style="float:left;margin-right:1em;padding-top:0.5rem;"><strong>[% html_count %]</strong>
-						<label for="product_sort_order" style="display:inline;margin-left:2rem;">Order:</label></div>
-					<div>
-					        <select id="product_sort_order" onchange="javascript:location.href = this.value;" style="width:auto;">
-          <option value="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</option>			
-          <option value="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</option>
-          <option value="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</option>
-          <option value="[% current_link %]?sort_by=last_created_t">[% lang("sort_by_last_created_t") %]</option>
-          <option value="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</option>
-        </select>
-					</div>
+				<div style="float:left;margin-right:1em;padding-top:0.3rem;">
+					<span style="font-weight:bold;">[% display_icon('subdirectory_arrow_right') %] [% html_count %]</span>
+				</div>
+					
+				<div style="float:left;margin-right:1em;">
+					
+					<button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button dropdown small secondary">
+						[% display_icon('sort_arrows') %]
+						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_popularity") %]</span>
+					</button>
+					<ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
+						<li><a href="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=sort_by_last_created_t">[% lang("sort_by_last_created_t") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=sort_by_last_modified_t">[% lang("sort_by_last_modified_t") %]</a></li>
+					</ul>
+					
+				</div>
 
-        </div>
         
         [% IF current_link.defined %]
 
 				[% IF explore_products == 'true' %]
-				<div class="small-12 columns">
-					Explore the products by categories, brands, labels and much more: 
-					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% lang('explore_products_by') %]</button>
+				<div>
+					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
 					<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
 						[% FOREACH newtagtype IN current_drilldown_fields %]
 							<li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
@@ -55,6 +61,7 @@
 				[% END %]
 
 		[% END %]
+		</div>
 	</div>
   
 	[% pagination %]
