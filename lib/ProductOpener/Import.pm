@@ -1389,7 +1389,7 @@ EMAIL
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?(_\d+)?)_file/;
+			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_\w\w)?(_\d+)?)_file/;
 
 			my $imagefield = $1;
 
@@ -1407,7 +1407,7 @@ EMAIL
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_[a-z]{2})?)_url/;
+			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
 
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
 
@@ -1566,7 +1566,7 @@ EMAIL
 						$log->debug("select and crop image?", { code => $code, imgid => $imgid, current_max_imgid => $current_max_imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 
 						# select the photo
-						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
+						if (($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/) and
 							( (not ((defined $args_ref->{only_select_not_existing_images}) and ($args_ref->{only_select_not_existing_images})))
 								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) ) ) {
 
@@ -1586,16 +1586,17 @@ EMAIL
 								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
-									and (exists $product_ref->{images}{$imagefield_with_lc})
-									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-										or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-										or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-										or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
-										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										)
+									and ((not exists $product_ref->{images}{$imagefield_with_lc})
+										or ((($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+												or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+												or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+												or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+												or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+												)))
 									) {
-									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
+									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
+										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
 									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
@@ -1606,7 +1607,8 @@ EMAIL
 						# If the image type is "other" and we don't have a front image, assign it
 						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 						elsif (($imgid > 0) and ($imagefield_with_lc =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}}) and (not defined $selected_images{"front_" . $product_ref->{lc}})) {
-							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
+							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
+									coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;

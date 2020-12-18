@@ -264,7 +264,7 @@ sub export_csv($) {
 							my %selected_images = ();
 							foreach my $imageid (sort keys %{$product_ref->{images}}) {
 
-								if ($imageid =~ /^(front|ingredients|nutrition|other)_(\w\w)$/) {
+								if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
 
 									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
@@ -426,7 +426,7 @@ sub export_csv($) {
 							$value = $product_ref->{images}{$imagefield}{$coord};
 						}
 					}
-					elsif ($field =~ /^image_(ingredients|nutrition)_json$/) {
+					elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
 						if (defined $product_ref->{"image_$1_url"}) {
 							$value = $product_ref->{"image_$1_url"};
 							$value =~ s/\.(\d+)\.jpg/.json/;
