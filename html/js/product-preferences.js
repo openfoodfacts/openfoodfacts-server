@@ -73,7 +73,7 @@ function display_selected_preferences (target_selected_summary, product_preferen
 	
 	// dropdown link to see a preferences summary
 	var html = '<a id="preferences_link" data-dropdown="selected_preferences">'
-	lang().see_your_preferences + '</a></p>'
+	+ lang().see_your_preferences + '</a></p>'
 	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
 	+ selected_preferences_html
 	+ '</div>';		
