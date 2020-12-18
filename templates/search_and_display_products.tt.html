@@ -33,14 +33,14 @@
 					
 					<button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button dropdown small secondary">
 						[% display_icon('sort_arrows') %]
-						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_popularity") %]</span>
+						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_${sort_by}") %]</span>
 					</button>
 					<ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
 						<li><a href="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</a></li>
 						<li><a href="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</a></li>
 						<li><a href="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=sort_by_last_created_t">[% lang("sort_by_last_created_t") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=sort_by_last_modified_t">[% lang("sort_by_last_modified_t") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=created_t">[% lang("sort_by_created_t") %]</a></li>
+						<li><a href="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</a></li>
 					</ul>
 					
 				</div>

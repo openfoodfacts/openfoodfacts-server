@@ -4555,17 +4555,19 @@ sub search_and_display_products($$$$$) {
 	
 	if (defined $sort_by) {
 		my $order = 1;
+		my $sort_by_key = $sort_by;
+		
 		if ($sort_by =~ /^((.*)_t)_complete_first/) {
 			$order = -1;
 		}
 		elsif ($sort_by =~ /_t/) {
-			$sort_ref->Push($sort_by => $order);
+			$order = -1;
 		}
 		elsif ($sort_by =~ /scans_n/) {
 			$order = -1;
 		}
 		elsif ($sort_by eq "popularity") {
-			$sort_by = "popularity_key";
+			$sort_by_key = "popularity_key";
 			$order = -1;
 		}
 		elsif ($sort_by eq "popularity_key") {
@@ -4575,15 +4577,15 @@ sub search_and_display_products($$$$$) {
 			$order = -1;
 		}
 		elsif ($sort_by eq "nutriscore_score") {
-			$sort_by = "nutriscore_score_opposite";
+			$sort_by_key = "nutriscore_score_opposite";
 			$order = -1;
 		}
 		elsif ($sort_by eq "nova_score") {
-			$sort_by = "nova_score_opposite";
+			$sort_by_key = "nova_score_opposite";
 			$order = -1;
 		}		
 
-		$sort_ref->Push($sort_by => $order);
+		$sort_ref->Push($sort_by_key => $order);
 	}
 
 	my $count;
@@ -4742,6 +4744,7 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
+	$template_data_ref->{sort_by} = $sort_by;
 	
 	# Query from search form: display a link back to the search form
 	if ($request_ref->{current_link_query} =~ /action=process/) {
