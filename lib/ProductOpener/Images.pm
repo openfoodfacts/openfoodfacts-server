@@ -909,8 +909,14 @@ sub process_image_crop($$$$$$$$$$$) {
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
-	if (not defined $coordinates_image_size) {
+	# There was an issue saving coordinates_image_size for some products
+	# if any coordinate is above the $crop_size, then assume it was on the full size
+
+	if ((not defined $coordinates_image_size) and ($x2 <= $crop_size) and ($y2 <= $crop_size)) {
 		$coordinates_image_size = $crop_size;
+	}
+	else {
+		$coordinates_image_size = "full";
 	}
 
 	my $path = product_path_from_id($product_id);
@@ -1210,6 +1216,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		y1 => $y1,
 		x2 => $x2,
 		y2 => $y2,
+		coordinates_image_size => $coordinates_image_size,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,
