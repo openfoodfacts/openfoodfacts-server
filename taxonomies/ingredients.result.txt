@@ -1,6 +1,6 @@
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder
-stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens
+stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
 stopwords:el:περιέχει
 stopwords:en:a,an,for,added,to,as
 stopwords:en:of
@@ -2310,7 +2310,7 @@ wikidata:en: Q904035
 en:Antioxidant, antibrowning agent, antioxidant synergist
 bg:Антиоксидант
 ca:Antioxidant, antioxidants, agent antienfosquiment
-cs:Antioxidant
+cs:Antioxidant, antioxidanty
 de:Antioxidant, Antioxidations-mittel, Antioxidationsmittel, Antioxidantien, Antioxidanzien
 el:Αντιοξειδωτικό
 es:Antioxidante, antipardeamiento, sinérgicos de antioxidantes, antioxidantes
@@ -2355,15 +2355,6 @@ wikidata:en: Q133948
 
 < en:Antioxidant
 en:natural antioxidant
-
-< en:Apple
-en:apple extract
-de:Apfelextrakt
-es:extracto de manzana
-fi:omenauute, omenatiiviste, makeuttava omenauute
-fr:extrait de pomme, concentré de pomme
-nl:appelextract
-sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
 
 < en:Apple
 en:apple pieces
@@ -2675,6 +2666,12 @@ de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
 
 < en:Aubergine
+cs:smažený lilek
+fr:aubergines frites
+vegan:en: maybe
+vegetarian:en: maybe
+
+< en:Aubergine
 en:dried aubergine
 de:getrocknete Aubergine
 fi:kuivattu munakoiso
@@ -2690,11 +2687,6 @@ it:melanzane alta griglia, melanzane grigliate
 < en:Aubergine
 fr:aubergine préfrite, aubergines préfrites
 nl:voorgebakken aubergines
-vegan:en: maybe
-vegetarian:en: maybe
-
-< en:Aubergine
-fr:aubergines frites
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -3456,7 +3448,7 @@ da:jordbær, Havejordbær
 de:Erdbeere, Erdbeeren
 el:Φράουλα
 eo:frago
-es:fresa
+es:fresa, frutilla
 et:Aedmaasikas
 eu:Baratze-marrubi
 fa:توت‌فرنگی
@@ -6020,6 +6012,15 @@ fr:céleri rave râpé
 fr:jus de céleri-rave concentré, jus concentré de céleri rave
 
 < en:Celery
+< en:Natural flavouring
+fr:arôme naturel de céleri
+de:natürliches Selleriearoma
+fi:luontainen selleriaromi
+hu:természetes zeller aroma
+nl:natuurlijk selderijaroma
+allergens:en: en:celery
+
+< en:Celery
 < en:Seed
 en:celery seed
 de:Selleriesamen, Selleriesaat
@@ -7358,7 +7359,7 @@ ar:إمنتال
 bg:Ементал
 bs:Ementaler
 ca:emmental, formatge emmental
-cs:Ementál
+cs:Ementál, sýr ementál
 da:emmental, Emmentaler, emmentaler-ost
 de:Emmentaler, Emmentaler Käse
 el:Έμενταλ
@@ -8767,7 +8768,7 @@ en:british chicken
 < en:Chicken meat
 en:chicken breast, chicken breast meat
 ca:pit de pollastre
-de:Hähnchenbrust
+de:Hähnchenbrust, Hähnchenbrustfleisch
 es:pechuga de pollo, carne de pechuga de pollo
 fr:blanc de poulet, poitrine de poulet
 ro:piept de pui
@@ -9577,7 +9578,7 @@ de:stückige Tomaten, Tomaten stückig
 el:πουρές τομάτας
 es:Puré de tomate
 fi:tomaattimurska, tomaattimurskaa
-fr:Purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
+fr:Purée de tomate, purée de tomates
 sv:krossade tomater, passerade tomater
 
 < en:Chopped tomatoes
@@ -10725,6 +10726,7 @@ sv:kokosmjöl
 
 < en:Coconut
 en:grated coconut
+cs:kokos strouhaný
 de:Kokosraspel, Kokosraspeln
 es:coco rallado
 fi:kookosraaste
@@ -11921,6 +11923,7 @@ nl:maïsmelasse
 
 < en:Corn
 en:cornmeal, corn grits, corn semolina, corn meal
+cs:kukuřičná krupice
 da:groftmalet majs
 de:Maisgrieß, Maisgriess
 el:σιμιγδάλι αραβοσίτου
@@ -12007,6 +12010,7 @@ nl:maïspoeder
 en:corn flour, maize flour, cornflour
 bg:царевично брашно
 ca:farina de blat de moro, farina de blat
+cs:kukuřičná mouka
 da:majsmel
 de:Maismehl
 el:αλεύρι καλαμποκιού
@@ -17198,6 +17202,15 @@ wikidata:en: Q183440
 wikipedia:en: https://en.wikipedia.org/wiki/Caramel
 
 < en:E150
+en:aromatic caramel
+de:aromatisches Karamell
+es:caramelo aromático
+fr:caramel aromatique
+it:caramello aromatico
+nl:aromatische karamel, aromatiserende karamel
+pt:caramelo aromático
+
+< en:E150
 fr:caramel en poudre
 de:Karamell-Pulver, Caramelpulver, Karamellpulver
 fi:karamellijauhe
@@ -17297,29 +17310,29 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q418057
 
-en:E150a, Plain caramel, caramel color, caramel coloring, aromatic caramel, E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia
+en:E150a, Plain caramel, caramel color, caramel coloring, E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia
 ar:E150a, لون الكراميل
 bg:E150a, Обикновен карамел, E150c, Амониев карамел
 bs:E150a, Karamel boja
 ca:E150a, colorant de caramel
 cs:E150a, E150c, Amoniakový karamel
 da:E150a, Madkulør, Sukkerkulør, E150c, Ammonieret karamel
-de:E150a, Zuckerkulör, Zuckercouleur, aromatisches Karamell, E150c, Ammoniak-Zuckerkulör, Ammoniak-Zuckercouleur
+de:E150a, Zuckerkulör, Zuckercouleur, E150c, Ammoniak-Zuckerkulör, Ammoniak-Zuckercouleur
 el:E150a, Απλο καραμελοχρωμα, E150c, Εναμμωνιο καραμελοχρωμα
-es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», caramelo para licores, caramelo aromático, E150c, Caramelo amónico, El caramelo amónico, caramelo de panadería, caramelo de confitería, caramelo de cerveza
+es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», caramelo para licores, E150c, Caramelo amónico, El caramelo amónico, caramelo de panadería, caramelo de confitería, caramelo de cerveza
 et:E150a, E150c, Ammooniumkaramell
 fi:E150a, Sokerikulööri, Sokerikulööriä, E150c, Ammoniummenetelmän sokerikulööri, Ammoniummenetelmän sokerikulööriä
-fr:E150a, Caramel E150a, caramel ordinaire, Plain caramel, caustic caramel, spirit caramel, Caramelo simple, caramel colorant, caramel aromatique, sirop de glucose caramélisé, E150c, Caramel ammoniacal, Caramel E150c, E150c caramel
+fr:E150a, Caramel E150a, caramel ordinaire, Caramelo simple, caramel colorant, E150c, Caramel ammoniacal, Caramel E150c, E150c caramel
 hu:E150a, Tömény karamell, karamell színezék, E150c, Ammóniás karamell
-it:E150a, Caramello semplice, colorante caramello, caramello aromatico, zucchero caramellato aromatico, E150c, Caramello ammoniacale
+it:E150a, Caramello semplice, colorante caramello, E150c, Caramello ammoniacale
 ja:E150a, カラメル色素
 lt:E150a, Paprastoji karamelė, E150c, Amoniakinė karamelė
 lv:E150a, E150c, Amonija karamele
 mt:E150a, Karamella naturali, E150c, Karamella tal-ammonja
 nb:E150a, Sukkerkulør
-nl:E150a, karamelkleurstof, aromatische karamel, aromatiserende karamel, E150c, Ammoniakkaramel
+nl:E150a, karamelkleurstof, E150c, Ammoniakkaramel
 pl:E150a, aromat karmelowy, E150c, Karmel amoniakalny, Karmel amonowy, Karmel klasy III
-pt:E150a, Caramelo simples, caramelo e 150, caramelo aromático, E150c, Caramelo de amónia
+pt:E150a, Caramelo simples, caramelo e 150, E150c, Caramelo de amónia
 ro:E150a, Caramel simplu, E150c, Caramel amoniacal
 ru:E150a, карамельный краситель
 sk:E150a, Obyčajný karamel, E150c, Amoniakový karamel
@@ -25327,7 +25340,7 @@ wikidata:en: Q409679
 en:E392, Extracts of rosemary, rosemary extract
 bg:E392, Екстракти от розмарин
 ca:E392, Extracte de romaní
-cs:E392, Výtažky z rozmarýnu, Rozmarýnové extrakty
+cs:E392, Výtažky z rozmarýnu, Rozmarýnové extrakty, rozmarýnový extrakt
 da:E392, Ekstrakter af rosmarin, rosmarinekstrakt
 de:E392, Extrakt aus Rosmarin, Rosmarinextrakt
 el:E392, Εκχυλισματα δενδρολιβανου
@@ -30301,6 +30314,12 @@ sk:E507, Kyselina chlorovodíková, Chlorovodík, Kyselina soľná
 sl:E507, Klorovodikova kislina, vodikov klorid, Želodčna kislina, Solna kislina
 sv:E507, Saltsyra, Väteklorid, Kloran, E 507, Vätekloridgas, Klorvätesyra, Klorväte
 e_number:en: 507
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2409
@@ -30360,8 +30379,14 @@ tr:Potasyum klorür
 uk:Хлорид калію
 vi:Kali clorua
 zh:氯化钾
-additives_classes:en: en:stabilizer, en:thickener
+additives_classes:en: en:stabilizer, en:thickener, en:preservative
 e_number:en: 508
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:flavour-enhancer, en:stabilizer, en:thickener
 vegan:en: yes
 vegetarian:en: yes
@@ -30417,6 +30442,12 @@ vi:canxi clorua
 zh:氯化钙
 additives_classes:en: en:stabilizer, en:thickener
 e_number:en: 509
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:firming-agent, en:stabilizer, en:thickener
 organic_eu:en: authorized
 vegan:en: yes
@@ -30532,6 +30563,12 @@ vi:Magie clorua
 zh:氯化镁
 additives_classes:en: en:stabilizer
 e_number:en: 511
+efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
+efsa_evaluation_date:en: 2019/07/06
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
+efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 vegan:en: yes
 vegetarian:en: yes
@@ -30540,6 +30577,7 @@ wikidata:en: Q265414
 < en:E511
 en:nigari, bittern
 ca:Nigari
+cs:nigari
 de:Nigari
 es:Nigari
 fi:nigari
@@ -38853,7 +38891,7 @@ wikidata:en: Q898745
 en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 bg:аромат, аромати, ароматизант
 ca:Aromes, aroma
-cs:Aroma
+cs:Aroma, aromata
 da:smagsstof, smagstoffer, aromaer
 de:Aroma, Aromen
 el:αρωματικό
@@ -39181,6 +39219,7 @@ sv:champinjonarom
 < en:Flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 ca:Aroma natural, aromes naturals
+cs:přírodní aroma
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
 de:natürliches Aroma, natürliche Aromen, natürliche Aromastoffe
 es:aroma natural, aromas naturales, saborizante natural
@@ -39300,6 +39339,7 @@ sv:räkarom
 < en:Flavouring
 en:smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
 ca:aroma de fum
+cs:kouřové aroma
 da:røgaroma
 de:Raucharoma
 es:aroma de humo, humo de madera
@@ -40053,7 +40093,7 @@ sv:Glukos-Fruktos
 en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
-cs:glukózový-fruktózový sirup
+cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
 da:glukos-fruktossirap
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
@@ -40340,7 +40380,7 @@ da:abrikos
 de:Aprikose, Aprikosen
 el:Βερίκοκο
 eo:Abrikoto
-es:albaricoque, albaricoques
+es:albaricoque, albaricoques, damasco
 et:aprikoos
 eu:abrikot
 fa:زردآلو
@@ -41128,13 +41168,6 @@ de:Früchtekonzentrate
 fi:hedelmätiivisteet
 fr:concentrés de fruits
 it:concentrati di frutta
-
-< en:Fruit
-en:fruit extract
-de:Fruchtextrakt, Frucht-Extrakt
-fi:hedelmäuute
-fr:extrait de fruit
-nl:vruchtenextract
 
 < en:Fruit
 en:fruit juice
@@ -42203,6 +42236,21 @@ fi:hedelmäliha
 < en:Fruit
 fr:specialité de fruits pomme poire
 
+en:fruit extract
+de:Fruchtextrakt, Frucht-Extrakt
+fi:hedelmäuute
+fr:extrait de fruit
+nl:vruchtenextract
+
+< en:Fruit extract
+en:apple extract
+de:Apfelextrakt
+es:extracto de manzana
+fi:omenauute, omenatiiviste, makeuttava omenauute
+fr:extrait de pomme, concentré de pomme
+nl:appelextract
+sv:äppelkoncentrat, äppelextrakt, sötande äppelextrakt
+
 < en:Apple
 < en:Fruit juice
 en:apple juice
@@ -42383,6 +42431,13 @@ en:black garlic
 es:ajo negro
 
 < en:Garlic
+en:garlic extract
+cs:česnekový extrakt
+de:Knoblauchextrakt
+fi:valkosipuliuute
+fr:extrait d'ail
+
+< en:Garlic
 en:garlic oil
 de:Knoblauchöl
 es:aceite de ajo
@@ -42532,11 +42587,6 @@ fr:ail semoule
 
 < en:Garlic
 fr:Ail semoule déshydraté
-
-< en:Garlic
-fr:extrait d'ail
-de:Knoblauchextrakt
-fi:valkosipuliuute
 
 en:Garlic salt
 ca:sal d'all
@@ -42752,7 +42802,7 @@ bs:Glukoza
 ca:Glucosa, glicosa
 cs:Glukóza
 da:glukose
-de:Glukose
+de:Glukose, Glucose
 el:Γλυκόζη
 eo:Glukozo
 es:glucosa
@@ -42904,7 +42954,7 @@ bg:Високо-фруктозен сироп от царевица
 ca:Xarop de blat de moro alt en fructosa
 da:glukosesirup, glucosesirup
 de:Maissirup mit hohem Fruktosegehalt
-es:Jarabe de maíz de alta fructosa
+es:Jarabe de maíz de alta fructosa, JMAF
 fi:maissisiirappi, isoglukoosi, maissitärkkelyssiirappi
 fr:sirop de maïs à haute teneur en fructose, sirop de glucose-fructose de maïs
 hu:Izocukor
@@ -43940,7 +43990,7 @@ es:aciete de semillas de Cáñamo Sativa L
 
 en:herb
 ca:Herbes, herbes aromàtiques
-cs:Bylina
+cs:Bylina, byliny
 da:urt
 de:Gewürz, Kräuter
 es:hierba, hierbas, plantas aromáticas, planta aromática, hierbas aromaticas, finas hierbas, mezcla de finas hierbas
@@ -44819,6 +44869,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mentha
 < en:Herb
 en:oregano
 ca:orenga, herba musca, roca morera
+cs:oregáno
 da:oregano
 de:Oregano
 el:ρίξανη
@@ -45118,6 +45169,7 @@ ar:الزعتر
 az:Meqri kəklikotu
 bg:chubrica
 ca:farigola
+cs:tymián
 cy:Teim
 da:timian
 de:Thymian
@@ -45866,7 +45918,7 @@ sv:hydrolyserat majsprotein
 < en:Hydrolysed vegetable protein
 en:soy protein
 ca:proteïna de soja
-cs:sójová bílkovina
+cs:sójová bílkovina, sójová bilkovina
 da:sojaprotein
 de:Sojaprotein, Sojaproteine, Sojaeiweiß, Sojaeiweiss
 es:Proteina de soya, proteina de soja, proteina vegetal hidrolizada de soya
@@ -47838,6 +47890,11 @@ pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny
 ru:Концентрированный лимонный сок
 sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
 
+< en:Flavouring
+< en:Lemon
+en:lemon scent
+es:aroma de limon
+
 < en:Lemon
 en:lemon marmalade
 ca:melmelada de llimona
@@ -47899,11 +47956,6 @@ de:Zitronenblatt
 es:hoja limón
 fr:feuille de citron
 nl:citroenblad
-
-< en:Flavouring
-< en:Lemon
-en:lemon scent
-es:aroma de limon
 
 < en:Lemon
 < en:Purée
@@ -48445,7 +48497,7 @@ sv:lakritspulver
 < en:Liquorice
 en:liquorice root, licorice root
 da:lakridsrod
-de:Sussholzwurzel
+de:Sussholzwurzel, Sußholzwurzel, Süßholzwurzel, Süssholzwurzel
 fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
@@ -49413,7 +49465,7 @@ es:oleomargarina bovina
 
 < en:Margarine
 en:vegetable margarine, vegetal margarine
-de:Pflanzliche Margarine
+de:Pflanzliche Margarine, Pflanzenmargarine
 es:Margarina vegetal
 fi:kasvimargariini
 fr:margarine végétale
@@ -50160,6 +50212,7 @@ it:Latte biologico
 < en:Milk
 en:pasteurised milk
 ca:llet pasteuritzada
+cs:pasterizované mléko
 da:pasteuriseret mælk
 de:Pasteurisierte Milch
 es:leche pasteurizada
@@ -53854,15 +53907,6 @@ de:Natürliches Extrakt
 fi:luontainen uute
 fr:extraits naturels
 
-< en:Celery
-< en:Natural flavouring
-fr:arôme naturel de céleri
-de:natürliches Selleriearoma
-fi:luontainen selleriaromi
-hu:természetes zeller aroma
-nl:natuurlijk selderijaroma
-allergens:en: en:celery
-
 < en:Natural flavouring
 de:natürliches Kaffee-Aroma
 fi:luontainen kahviaromi
@@ -54495,6 +54539,16 @@ it:acqua minerale naturale delle Alpi vallesane
 en:Volvic natural mineral water
 de:Natürliches Mineralwasser Volvic
 fr:eau minérale naturelle volvic
+
+< en:Fruit extract
+< en:Natural orange flavouring
+en:orange extract
+de:Orangenextrakt
+es:Extracto de naranja
+fi:appelsiiniuute
+fr:extrait d'orange
+it:estratto di arancia
+nl:sinaasappelextracten
 
 < en:Flavouring
 < en:Natural pear flavouring
@@ -56405,15 +56459,6 @@ en:eating orange
 nl:eetsinaasappel
 
 < en:Orange
-en:orange extract
-de:Orangenextrakt
-es:Extracto de naranja
-fi:appelsiiniuute
-fr:extrait d'orange
-it:estratto di arancia
-nl:sinaasappelextracten
-
-< en:Orange
 en:orange marmalade
 es:mermelada de naranja
 
@@ -56975,7 +57020,7 @@ hu:pálma- és repcemag
 < en:Palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof
+da:palmfedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma, manteca de palma
 et:palmirasv
@@ -57638,6 +57683,7 @@ es:proteína de guisante hidrolizada, proteínas de guisante hidrolizadas
 
 < en:Pea protein
 en:pea protein isolate
+de:Erbsenproteinisolat
 es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
 fr:isolat de proteines de pois
@@ -57870,6 +57916,7 @@ wikidata:en: Q3942999
 < en:Pepper
 en:black pepper
 ca:Pebre negre
+cs:černý pepř
 da:sort peber
 de:schwarzer Pfeffer, Pfeffer schwarz
 el:μαύρο πιπέρι
@@ -57896,6 +57943,7 @@ zh:黑胡椒
 < en:Pepper
 en:green bell pepper
 ca:pebrot verd
+cs:zelená paprika
 da:Grøn peber
 de:grüne Peperoni
 es:pimiento verde
@@ -60589,7 +60637,7 @@ cs:krocan
 cv:Кăркка
 cy:Twrci
 da:kalkun
-de:Truthahn, Truthühner
+de:Truthahn, Truthühner, Pute
 el:Γαλοπούλα
 eo:Meleagro
 es:pavo
@@ -62647,7 +62695,7 @@ br:Karotez
 bs:mrkva
 ca:pastanaga
 co:rundonu
-cs:mrkev
+cs:mrkev, karotka
 cy:moronen
 da:gulerødder, Have-Gulerod
 de:Karotten, Karotte, Möhre, Möhren
@@ -62944,7 +62992,7 @@ br:Kignen
 bs:Bijeli luk
 ca:all
 co:Aglia
-cs:česnek kuchyňský
+cs:česnek, česnek kuchyňský
 cv:Ыхра
 cy:Garlleg
 da:hvidløg
@@ -65633,7 +65681,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse
+de:Sojasauce, Sojasoße, Sojasosse, soja-sauce
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja, shoyu
@@ -66872,6 +66920,7 @@ es:harina de sémola
 en:wheat semolina
 ar:سميد
 ca:semola de blat
+cs:pšeničná krupice
 de:Weizengrieß, Weizengriess
 el:σιμιγδάλι σίτου
 es:sémola de trigo, semolina de trigo
@@ -68067,14 +68116,14 @@ sv:sojabönsberedning
 allergens:en: en:soybeans
 
 < en:Soy preparation
-en:soy milk
+en:soy milk, soy drink
 an:Leit de soya
 ar:حليب الصويا
 bg:Соево мляко
 bn:সয়াদুধ
 ca:llet de soia
 cs:Sojové mléko
-de:Sojamilch
+de:Sojamilch, Sojadrink
 el:γάλα σόγιας
 eo:sojlakto
 es:bebida de soja, bebida de soya, leche de soya, Licuado de soja, leche de soja
@@ -68696,6 +68745,7 @@ en:cayenne pepper, cayenne
 af:Brandrissie
 ar:فليفلة حريفة
 ca:pebre de Caiena
+cs:kajenský pepř
 da:Cayennepeber
 de:Cayennepfeffer
 el:Καγιέν
@@ -69797,7 +69847,7 @@ bs:Škrob
 ca:Midó
 cs:Škrob
 da:stivelse
-de:Stärke, Stärken
+de:Stärke, Stärken, Speisestärke
 el:άμυλο
 es:almidón, fecula
 et:Tärklis
@@ -70017,7 +70067,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 < en:Starch
 en:wheat starch
 ca:Midó de blat, fècula de blat
-cs:Pšeičný škrob
+cs:pšeničný škrob
 da:Hvedestivelse
 de:Weizenstärke
 el:άμυλο σιταριού
@@ -72059,6 +72109,24 @@ carbon_footprint_fr_foodges_ingredient:fr: Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr: 1.4
 
 < en:Tomato
+en:tomato concentrate, tomato paste
+cs:rajčatový koncentrát
+da:tomatkoncentrat
+de:Tomatenkonzentrat, Tomatenmark einfach konzentriert
+es:concentrado de tomate, pasta de tomate, tomate-concentrado
+et:tomatipasta
+fi:tomaattitahna
+fr:concentré de tomate, concentré de tomates, pâte de tomate
+it:concentrato di pomodoro
+lt:pomidorų pasta
+pl:koncentrat pomidorowy
+pt:concentrado de tomate
+ru:Томатная паста, томатный концентрат
+sv:tomatkoncentrat
+wikidata:en: Q1499073
+wikipedia:en: https://en.wikipedia.org/wiki/Tomato_paste
+
+< en:Tomato
 en:tomato cubes
 de:Tomatenwürfel
 el:κομμάτια ντομάτας σε κυβάκια
@@ -72099,34 +72167,29 @@ nl:tomatenpoeder
 sv:tomatpulver, tomatpurépulver
 
 < en:Tomato
-en:tomato purée, tomato paste, tomato concentrate
-da:tomatpuré, tomatpure, tomatkoncentrat
-de:Tomatenmark, Tomatenkonzentrat, Tomatenpüree, Tomatenmark einfach konzentriert
-es:concentrado de tomate, pasta de tomate, tomate-concentrado
-et:tomatipüree, tomatipasta
-fi:tomaattipyree, tomaattipyre, tomaattitahna, tomaattitiiviste, tomaattisose
-fr:Purée de tomate, concentré de tomate, concentré de tomates, pâte de tomate, purée de tomates
+en:tomato purée
+da:tomatpuré, tomatpure
+de:Tomatenmark, Tomatenpüree
+et:tomatipüree
+fi:tomaattipyree, tomaattipyre, tomaattitiiviste, tomaattisose
+fr:Purée de tomate, purée de tomates
 he:מחית עגבניות
 hu:paradicsompüré
-it:passata di pomodoro, concentrato di pomodoro
-lt:pomidorų pasta
+it:passata di pomodoro
 nb:tomatpuré
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
-pl:koncentrat pomidorowy
-pt:concentrado de tomate
-ru:Томатная паста, томатный концентрат
-sv:tomatpuré, tomatpyré, tomatpure, tomatkoncentrat, mosade tomater
+sv:tomatpuré, tomatpyré, tomatpure, mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
 wikidata:en: Q1114674
-wikipedia:en: https://en.wikipedia.org/wiki/Tomato_paste
+wikipedia:en: https://en.wikipedia.org/wiki/Tomato_pur%C3%A9e
 
 < en:Tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
 es:tomates tamizados
 fi:Tomaattikastike
-it:passata di pomodoro, concentrato di pomodoro
+it:passata di pomodoro
 nl:gezeefde tomaten
 nn:mosede tomater
 pt:tomates passados
@@ -72138,6 +72201,24 @@ carbon_footprint_fr_foodges_value:fr: 2.9
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
 de:Tomaten halbgetrocknete, halbgetrocknete Tomaten
 it:pomodori semiseccchi
+
+< en:Tomato concentrate
+en:concentrated tomato purée
+de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
+fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
+fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
+hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
+sv:koncentrerad tomatpuré
+
+< en:Tomato concentrate
+en:double concentrated tomato
+da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
+de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
+es:tomate doble concentrado, concentrado doble de tomate
+fi:tuplatiivistetty tomaattipyree
+fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
+it:doppio concentrato di pomodoro
+nl:Dubbel geconcentreerde tomatenpuree
 
 < en:Tomato cubes
 en:organic tomato cubes in organic tomato juice
@@ -72163,24 +72244,6 @@ fr:purée et pulpe de tomates
 < en:Chopped tomatoes
 < en:Tomato purée
 fr:pulpe de tomates avec morceaux et purée de tomates
-
-< en:Tomato purée
-en:concentrated tomato purée
-de:konzentriertes Tomatenmark, Tomatenpüreekonzentrat, Tomatenmarkkonzentrat, konzentriertes Tomatenpüree
-fi:tiivistetty tomaattipyree, tiivistettyä tomaattipyreetä
-fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomates concentrées
-hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
-sv:koncentrerad tomatpuré
-
-< en:Tomato purée
-en:double concentrated tomato
-da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
-de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
-es:tomate doble concentrado, concentrado doble de tomate
-fi:tuplatiivistetty tomaattipyree
-fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
-it:doppio concentrato di pomodoro
-nl:Dubbel geconcentreerde tomatenpuree
 
 < en:Tomato purée
 en:organic tomato purée
@@ -73810,7 +73873,7 @@ fr:os de veau
 en:veal meat
 ca:carn de vedella
 da:kalvekød
-de:Kalbsfleisch
+de:Kalbsfleisch, Kalbfleisch
 es:carne de ternera
 fi:vasikanliha
 fr:viande de veau
@@ -75251,6 +75314,7 @@ ab:Атомат
 am:ቲማቲም
 bo:ལྡུམ་སྒོང་།
 ca:tomàquet
+cs:rajče, rajčata
 da:tomat, tomater
 de:Tomate, Tomaten
 dv:ވިލާތު ބަށި
@@ -76357,7 +76421,7 @@ from_palm_oil:en: yes
 
 < en:Vegetable oil and fat
 en:rapeseed oil, rapeseed fat, rapeseed oil and fat
-cs:řepkový olej
+cs:řepkový olej, olej řepkový
 da:rapsolie
 de:Rapsöl, Rapsol
 es:aceite de nabina, aceite vegetal de nabina
@@ -76516,7 +76580,7 @@ sv:rapsprotein
 
 < en:Vegetable protein
 en:wheat protein
-de:Weizenprotein, Weizeneiweiß
+de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
 fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
@@ -76868,6 +76932,7 @@ fr:vinaigre blanc
 en:wine vinegar
 bg:винен оцет
 ca:Vinagre de vi
+cs:vinný ocet
 da:Vineddike
 de:Weinessig
 es:vinagre de vino
@@ -78352,7 +78417,7 @@ ce:Хи
 ch:Hånom
 co:Acqua
 cr:ᓃᐲᔾ
-cs:Voda
+cs:Voda, pitná voda
 cv:Шыв
 cy:Dŵr
 da:Vand
@@ -80865,7 +80930,7 @@ en:yeast extract
 bg:дрождев екстракт
 bs:ekstrakt kvasca
 ca:Extracte de llevat
-cs:Výtažek z kvasnic
+cs:Výtažek z kvasnic, kvasnicový extrakt
 da:gærekstrakt
 de:Hefeextrakt
 el:εκχύλισμα μαιάς
