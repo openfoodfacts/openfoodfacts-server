@@ -265,15 +265,42 @@ sub compute_forest_footprint($) {
 		compute_footprint_of_category($product_ref, $product_ref->{forest_footprint_data}{ingredients});
 	}
 	
+	# Remove forest-footprint-[grade] tags
+	foreach my $grade (qw(a b c d e)) {
+		remove_tag($product_ref,"misc","en:forest-footprint-" . $grade);
+	}
+	
 	# Compute total footprint
 	if (scalar(@{$product_ref->{forest_footprint_data}{ingredients}}) > 0) {
 		$product_ref->{forest_footprint_data}{footprint_per_kg} = 0;
 		foreach my $ingredient_ref (@{$product_ref->{forest_footprint_data}{ingredients}}) {
 			$product_ref->{forest_footprint_data}{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
 		}
+		
+		# Assign a A to E grade (used for icons and descriptions)
+		
+		my $grade = "e";
+		
+		if ($product_ref->{forest_footprint_data}{footprint_per_kg} < 0.5) {
+			$grade = "a";
+		}
+		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 1) {
+			$grade = "b";
+		}
+		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 1.5) {
+			$grade = "c";
+		}
+		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 2) {
+			$grade = "d";
+		}
+		$product_ref->{forest_footprint_data}{grade} = $grade;
+		
+		add_tag($product_ref,"misc","en:forest-footprint-computed");
+		add_tag($product_ref,"misc","en:forest-footprint-" . $grade);
 	}
 	else {
 		delete $product_ref->{forest_footprint_data};
+		remove_tag($product_ref,"misc","en:forest-footprint-computed");
 	}
 }
 

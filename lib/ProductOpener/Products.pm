@@ -1408,6 +1408,16 @@ sub compute_completeness_and_missing_tags($$$) {
 	else {
 		delete $product_ref->{empty};
 	}
+	
+	# On the producers platform, keep track of which products have changes to be exported
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if ((defined $product_ref->{last_exported_t}) and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t})) {
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+		}
+	}
 
 	$product_ref->{complete} = $complete;
 	$current_ref->{complete} = $complete;

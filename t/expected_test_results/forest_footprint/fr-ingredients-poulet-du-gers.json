@@ -1,6 +1,7 @@
 {
    "forest_footprint_data" : {
-      "footprint_per_kg" : 0.78,
+      "footprint_per_kg" : 0.281280419318607,
+      "grade" : "a",
       "ingredients" : [
          {
             "conditions_tags" : [
@@ -9,7 +10,7 @@
                   "en:gers"
                ]
             ],
-            "footprint_per_kg" : 0.78,
+            "footprint_per_kg" : 0.281280419318607,
             "matching_tag_id" : "en:chicken",
             "percent" : 100,
             "percent_estimate" : 100,
@@ -17,10 +18,10 @@
             "tag_id" : "en:chicken",
             "tag_type" : "ingredients",
             "type" : {
-               "deforestation_risk" : 0.3,
+               "deforestation_risk" : 0.11,
                "name" : "Poulet du Gers",
-               "soy_feed_factor" : 0.65,
-               "soy_yield" : 0.25
+               "soy_feed_factor" : 0.683,
+               "soy_yield" : 0.2671
             }
          }
       ]
@@ -63,6 +64,10 @@
    "ingredients_text" : "Poulet du Gers",
    "known_ingredients_n" : 2,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-a"
+   ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },

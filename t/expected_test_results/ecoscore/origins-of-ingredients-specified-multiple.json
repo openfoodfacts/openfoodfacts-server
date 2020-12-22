@@ -6,30 +6,30 @@
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
-               [
-                  "en:france",
-                  30
-               ],
-               [
-                  "en:spain",
-                  30
-               ],
-               [
-                  "en:dominican-republic",
-                  10
-               ],
-               [
-                  "en:guadeloupe",
-                  10
-               ],
-               [
-                  "en:martinique",
-                  10
-               ],
-               [
-                  "en:unknown",
-                  10
-               ]
+               {
+                  "origin" : "en:france",
+                  "percent" : 30
+               },
+               {
+                  "origin" : "en:spain",
+                  "percent" : 30
+               },
+               {
+                  "origin" : "en:dominican-republic",
+                  "percent" : 10
+               },
+               {
+                  "origin" : "en:guadeloupe",
+                  "percent" : 10
+               },
+               {
+                  "origin" : "en:martinique",
+                  "percent" : 10
+               },
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 10
+               }
             ],
             "epi_score" : 51.0972095961541,
             "epi_value" : 0.109720959615414,

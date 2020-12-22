@@ -1889,7 +1889,7 @@ sub set_percent_max_values($$$) {
 					$max += $ingredients_ref->[$i - $k]{percent_min};
 				}
 				$max = $max / $j;
-				if ($ingredient_ref->{percent_max} > $max) {
+				if ($ingredient_ref->{percent_max} > $max + 0.1) {
 					$ingredient_ref->{percent_max} = $max;
 					$changed++;
 				}
@@ -1903,7 +1903,7 @@ sub set_percent_max_values($$$) {
 
 		my $min_percent_min = ($total_min - $sum_of_maxs_before) / (1 + $n - $i);
 
-		if ($ingredient_ref->{percent_min} < $min_percent_min) {
+		if ($ingredient_ref->{percent_min} < $min_percent_min - 0.1) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -1959,7 +1959,7 @@ sub set_percent_min_values($$$) {
 
 		my $max_percent_max = ($total_max - $sum_of_mins_after) / (1 + $n - $i);
 
-		if ($ingredient_ref->{percent_max} > $max_percent_max) {
+		if ($ingredient_ref->{percent_max} > $max_percent_max + 0.1) {
 
 			# Bail out if the values are not possible
 			if (($max_percent_max > $total_max) or ($max_percent_max < $ingredient_ref->{percent_min})) {
@@ -1977,7 +1977,7 @@ sub set_percent_min_values($$$) {
 
 		my $min_percent_min = $total_min - $sum_of_maxs_after;
 
-		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min)) {
+		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -2012,6 +2012,7 @@ sub set_percent_sub_ingredients($) {
 		$i++;
 
 		if (defined $ingredient_ref->{ingredients}) {
+			
 
 			# Set values for sub-ingredients from ingredient values
 
@@ -2029,11 +2030,11 @@ sub set_percent_sub_ingredients($) {
 				$total_max += $sub_ingredient_ref->{percent_max};
 			}
 
-			if ($ingredient_ref->{percent_min} < $total_min) {
+			if ($ingredient_ref->{percent_min} < $total_min - 0.1) {
 				$ingredient_ref->{percent_min} = $total_min;
 				$changed++;
 			}
-			if ($ingredient_ref->{percent_max} > $total_max) {
+			if ($ingredient_ref->{percent_max} > $total_max + 0.1) {
 				$ingredient_ref->{percent_max} = $total_max;
 				$changed++;
 			}
@@ -2514,7 +2515,7 @@ sub normalize_allergens_enumeration($$$$$) {
 	# e.g. contains (milk) -> contains milk
 	# but: (contains milk) -> (contains milk)
 	
-	if (($after eq ')') and ($before !~ /\(/)) {
+	if ((defined $after) and ($after eq ')') and ($before !~ /\(/)) {
 		$split_allergens_list .= $after;
 	}
 

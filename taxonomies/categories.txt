@@ -1342,6 +1342,15 @@ ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 origins:en: en:Italy
 
 <en:Beers
+en:Lithuanian beers
+
+<en:Lithuanian beers
+lt:Kaimiškas Jovarų alus
+protected_name_file_number:en: PGI-LT-02237
+protected_name_type:en: pgi
+origins:en: en:Lithuania
+
+<en:Beers
 en:Double beer
 de:Doppelte Biere
 fr:Bière double
@@ -1835,6 +1844,27 @@ protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Spirit drinks
+en:Lithuanian spirit drinks
+
+<en:Lithuanian spirit drinks
+lt:Trauktinė Palanga
+protected_name_file_number:en: PGI-LT-02023
+protected_name_type:en: gi
+origins:en: en:Lithuania
+
+<en:Lithuanian spirit drinks
+lt:Trauktinė Dainava
+protected_name_file_number:en: PGI-LT-02021
+protected_name_type:en: gi
+origins:en: en:Lithuania
+
+<en:Lithuanian spirit drinks
+lt:Trauktinė
+protected_name_file_number:en: PGI-LT-02111
+protected_name_type:en: gi
+origins:en: en:Lithuania
+
+<en:Spirit drinks
 en:Slovenian spirit drinks
 fr:Boissons spiritueuses slovènes
 
@@ -1941,6 +1971,12 @@ nl:Tequilas, Tequila
 nl_be:Tequilas
 ro:Tequilla
 
+<en:Tequilas
+es:Mexican tequila
+protected_name_file_number:en: PGI-MX-01851
+protected_name_type:en: gi
+origins:en: en:Mexico
+
 <en:Hard liquors
 en:Eaux de vie, Eau de vie, Clear fruit brandies
 de:Eau de vie, Branntwein
@@ -1997,6 +2033,26 @@ protected_name_type:en: gi
 origins:en: en:Austria
 
 <en:Fruit brandy
+en:Bulgarian fruit spirit
+
+<en:Bulgarian fruit spirit
+en:Slivova rakya
+
+<en:Slivova rakya
+en:Slivova rakya from Troyan
+bg:Троянска сливова ракия, Сливова ракия от Троян, Troyanska slivova rakya
+protected_name_file_number:en: PGI-BG-01862
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Slivova rakya
+en:Slivova rakya from Lovech
+bg:Ловешка сливова ракия, Сливова ракия от Ловеч, Loveshka slivova rakya
+protected_name_file_number:en: PGI-BG-01863
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Fruit brandy
 en:French fruit spirit
 
 <en:French fruit spirit
@@ -2034,6 +2090,93 @@ fr:Framboise d'Alsace
 protected_name_file_number:en: PGI-FR-01984
 protected_name_type:en: gi
 origins:en: en:France
+
+<en:Fruit brandy
+en:Hungarian fruit spirit
+
+<en:Hungarian fruit spirit
+hu:Madarasi Birspálinka
+protected_name_file_number:en: PGI-HU-02489
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Sárréti kökénypálinka
+protected_name_file_number:en: PGI-HU-02490
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykörűi cseresznyepálinka
+protected_name_file_number:en: PGI-HU-02477
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Homokháti őszibarack pálinka
+protected_name_file_number:en: PGI-HU-02471
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Vasi Vadkörte pálinka
+protected_name_file_number:en: PGI-HU-02408
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Újfehértói meggypálinka
+protected_name_file_number:en: PGI-HU-01829-AM01
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykunsági Birspálinka
+protected_name_file_number:en: PGI-HU-02233
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Nagykunsági Szilvapálinka
+protected_name_file_number:en: PGI-HU-02232
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Újfehértói meggypálinka
+protected_name_file_number:en: PGI-HU-01829
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Gönci Barackpálinka
+protected_name_file_number:en: PGI-HU-02052
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Szatmári Szilvapálinka
+protected_name_file_number:en: PGI-HU-02047
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Békési Szilvapálinka
+protected_name_file_number:en: PGI-HU-02053
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Kecskeméti Barackpálinka
+protected_name_file_number:en: PGI-HU-02042
+protected_name_type:en: gi
+origins:en: en:Hungary
+
+<en:Hungarian fruit spirit
+hu:Szabolcsi Almapálinka
+protected_name_file_number:en: PGI-HU-02039
+protected_name_type:en: gi
+origins:en: en:Hungary
 
 <en:Fruit brandy
 en:Italian fruit spirit
@@ -2487,7 +2630,6 @@ agribalyse_food_code:en:1023
 ciqual_food_code:en:1023
 ciqual_food_name:en:Spirit made from wine, armagnac or cognac type
 ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
-
 
 <fr:Eaux-de-vie
 en:Swiss Eaux-de-vie
@@ -2996,6 +3138,17 @@ en:Flavored vodka, flavoured vodka
 it:Vodka aromatizzato, Vodka con aroma
 
 <en:Vodka
+en:Lithuanian vodka
+
+<en:Lithuanian vodka
+<en:flavoured vodka
+en:Original Lithuanian vodka
+lt:Originali lietuviška degtinė
+protected_name_file_number:en: PGI-LT-01871
+protected_name_type:en: gi
+origins:en: en:Lithuania
+
+<en:Vodka
 en:Polish vodkas
 de:Polnische Wodkas
 fi:Puolalaiset votkat
@@ -3132,6 +3285,69 @@ fr:Apéritif anisé sans alcool
 ciqual_food_code:en:1011
 ciqual_food_name:fr:Apéritif anisé sans alcool
 ciqual_food_name:en:Pastis (anise-flavoured spirit)
+
+<en:Alcoholic beverages
+en:Bulgarian wines spirit
+
+<en:Bulgarian wines spirit
+bg:Ямболска гроздова ракия, Гроздова ракия от Ямбол, Yambolska grozdova rakya, Grozdova rakya ot Yambol
+protected_name_file_number:en: PGI-BG-01867
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Карнобатска гроздова ракия, Гроздова ракия от Карнобат, Karnobatska grozdova rakya, Grozdova rakya ot Karnobat
+protected_name_file_number:en: PGI-BG-01865
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Гроздова ракия от Търговище, Grozdova rakya ot Targovishte
+protected_name_file_number:en: PGI-BG-01864
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Сухиндолска гроздова ракия, Гроздова ракия от Сухиндол, Suhindolska grozdova rakya, Grozdova rakya from Suhindol
+protected_name_file_number:en: PGI-BG-01860
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Сунгурларска гроздова ракия, Гроздова ракия от Сунгурларе, Sungurlarska grozdova rakya, Grozdova rakya from Sungurlare
+protected_name_file_number:en: PGI-BG-01855
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Стралджанска Мускатова ракия, Мускатова ракия от Стралджа, Straldjanska Muscatova rakya, Muscatova rakya from Straldja
+protected_name_file_number:en: PGI-BG-01857
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Сливенска перла (Сливенска гроздова ракия, Гроздова ракия от Сливен), Slivenska perla (Slivenska grozdova rakya, Grozdova rakya from Sliven)
+protected_name_file_number:en: PGI-BG-01856
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Поморийска гроздова ракия, Гроздова ракия от Поморие, Pomoriyska grozdova rakya, Grozdova rakya from Pomorie
+protected_name_file_number:en: PGI-BG-01858
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Карловска гроздова ракия, Гроздова Ракия от Карлово, Karlovska grozdova rakya, Grozdova Rakya from Karlovo
+protected_name_file_number:en: PGI-BG-01861
+protected_name_type:en: gi
+origins:en: en:Bulgaria
+
+<en:Bulgarian wines spirit
+bg:Бургаска Мускатова ракия, Мускатова ракия от Бургас, Bourgaska Muscatova rakya, Muscatova rakya from Bourgas
+protected_name_file_number:en: PGI-BG-01859
+protected_name_type:en: gi
+origins:en: en:Bulgaria
 
 <en:Alcoholic beverages
 en:Ciders
@@ -3346,6 +3562,15 @@ wikidata:en:Q178780
 agribalyse_food_code:en:1003
 ciqual_food_code:en:1003
 ciqual_food_name:en:Liqueur
+
+<en:Liqueurs
+en:Italian liqueurs
+
+<en:Italian liqueurs
+it:Nocino di Modena
+protected_name_file_number:en: PGI-IT-01879
+protected_name_type:en: gi
+origins:en: en:Italy
 
 <en:Liqueurs
 en:Portuguese liqueur
@@ -8351,8 +8576,9 @@ region:fr:Jura
 
 <en:Wines from France
 fr:Ardèche
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number:en: PGI-FR-A1198-AM03
+protected_name_type:en: pgi
+origins:en: en:France
 wikidata:en:Q16303829
 
 <en:Wines from France
@@ -8887,8 +9113,10 @@ instanceof:fr:AOP
 wikidata:en:Q2910687
 
 <en:Wines from France
-fr:Bouches du Rhône
-country:en:France
+fr:Bouches-du-Rhône
+protected_name_file_number:en: PGI-FR-A1223-AM01
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Bordeaux wines
 fr:côtes-de-bourg, côtes de bourg, bourg, bourgeais
@@ -9024,9 +9252,9 @@ wikidata:en:Q2922360
 
 <en:Burgundy wines
 fr:bourgogne-vézelay, bourgogne vézelay, vézelay
-country:en:France
-region:fr:Bourgogne
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-02406
+protected_name_type:en: pdo
+origins:en: en:France, fr:Bourgogne
 wikidata:en:Q2922340
 
 <en:Burgundy wines
@@ -9119,7 +9347,9 @@ region:fr:Beaujolais
 
 <en:Wines from France
 fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bugey, Bugey Mousseux, Bugey Pétillant
-country:en:France
+protected_name_file_number:en: PDO-FR-A0588
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Buzet
@@ -10212,6 +10442,12 @@ wikidata:en:Q650077
 country:en:France
 
 <en:Wines from France
+fr:Corbières-Boutenac
+protected_name_file_number:en: PDO-FR-A0670
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Cornas
 wikidata:en:Q2973323
 country:en:France
@@ -10410,6 +10646,12 @@ fr:Coteaux de Pierrevert
 country:en:France
 
 <en:Wines from France
+fr:Pierrevert
+protected_name_file_number:en: PDO-FR-A0918
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Coteaux de Saumur Val de Loire
 country:en:France
 
@@ -10567,8 +10809,9 @@ country:en:France
 <en:Red wines
 fr:canon-fronsac, canon fronsac
 wikidata:en:Q775950
-country:en:France
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0924
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes Catalanes
@@ -10669,6 +10912,12 @@ wikidata:en:Q2926548
 country:en:France
 
 <en:Wines from France
+fr:Brulhois
+protected_name_file_number:en: PDO-FR-A0984
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Wines from France
 fr:Côtes du Forez
 wikidata:en:Q1150991
 country:en:France
@@ -10694,6 +10943,9 @@ country:en:France
 
 <fr:Côtes du Rhône
 fr:Côtes du Rhône Villages
+protected_name_file_number:en: PDO-FR-A0664
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes du Roussillon
@@ -10715,7 +10967,9 @@ instanceof:fr:IGP
 
 <en:Wines from France
 fr:Ventoux, AOP Ventoux
-country:en:France
+protected_name_file_number:en: PDO-FR-A0399
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes du Vivarais
@@ -10784,7 +11038,7 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Duché d’Uzès
 wikidata:en:Q19952392
-protected_name_file_number:en: PGI-FR-A1165-AM01
+protected_name_file_number:en: PGI-FR-A1165-AM01, PGI-FR-A1165
 protected_name_type:en: pgi
 origins:en: en:France
 
@@ -11316,8 +11570,9 @@ grapevariety:fr:sémillon, sauvignon, muscadelle
 <en:White wines
 fr:Graves supérieures
 wikidata:en:Q3115753
-country:en:France
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A1014
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Burgundy wines
 <en:Red wines
@@ -11561,7 +11816,9 @@ wikidata:en:Q3242328
 fr:Listrac-Médoc
 country:en:France
 wikidata:en:Q1516318
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0276
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Lot
@@ -13663,7 +13920,9 @@ fr:Puligny-Montrachet
 wikidata:en:Q3410751
 country:en:France
 region:fr:Bourgogne
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0308
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Puligny-Montrachet
 fr:Puligny-Montrachet Côte de Beaune
@@ -14320,8 +14579,9 @@ grapevariety:fr:merlot, cabernet sauvignon, cabernet franc
 
 <en:Wines from France
 fr:Saint-Guilhem-le-Désert
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number:en: PGI-FR-A1143
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Wines from France
 fr:Saint-Joseph
@@ -14484,6 +14744,12 @@ fr:Saône et Loire
 country:en:France
 wikidata:en:Q21427967
 instanceof:fr:IGP
+
+<en:Wines from France
+fr:Saumur
+protected_name_file_number:en: PDO-FR-A0260-AM01
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Saumur Val de Loire mousseux or pétillant, Saumur Val de Loire mousseux, Saumur Val de Loire pétillant
@@ -17627,22 +17893,30 @@ wikidata:en:Q1423822
 
 <en:Wines from Italy
 it:Albugnano
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A1066
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q2831965
 
 <en:Wines from Italy
 it:Alcamo
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A0774
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q1285128
 
 <en:Wines from Italy
 it:Aleatico di Gradoli
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A0689
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q289219
 
 <en:Wines from Italy
 it:Aleatico di Puglia
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A0540
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q2640595
 
 <en:Wines from Italy
@@ -17652,18 +17926,21 @@ wikidata:en:Q3610892
 
 <en:Wines from Italy
 it:Alghero
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0904
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Allerona
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0852
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Alta Langa
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1252
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Alta Valle della Greve
@@ -17717,8 +17994,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Ansonica Costa dell'Argentario
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1312
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Aprilia
@@ -17727,12 +18005,16 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Arborea
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0906
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Arcole
 country:en:Italy
+protected_name_file_number:en: PDO-IT-A0438
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -17752,13 +18034,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Atina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0692
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Aversa
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0238
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Bagnoli di Sopra, Bagnoli
@@ -17777,8 +18061,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Barbera d'Alba
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1068
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano
@@ -17809,6 +18094,9 @@ wikidata:en:Q2884172
 it:Barco Reale di Carmignano
 country:en:Italy
 wikidata:en:Q3634897
+protected_name_file_number:en: PDO-IT-A1325
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Bardolino
@@ -17844,8 +18132,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Bergamasca
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1369
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Bettona
@@ -17903,8 +18192,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Biferno
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0674
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Bivongi
@@ -17917,14 +18207,22 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
+it:Bolgheri
+protected_name_file_number:en: PDO-IT-A1348
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
 it:Bolgheri Sassicaia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1671
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Bosco Eliceo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0287
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Botticino
@@ -17938,8 +18236,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Bramaterra
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1075
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Breganze
@@ -17971,18 +18270,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Camarro
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0805
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Campania
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0253
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Campi Flegrei
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0239
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Campi Flegrei
 it:Campi Flegrei Piedirosso riserva
@@ -18035,24 +18337,30 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Cannonau di Sardegna whether or not followed by Capo Ferrato
+it:Cannonau di Sardegna
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Cannonau di Sardegna whether or not followed by Jerzu
+it:Cannonau di Sardegna Capo Ferrato
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Cannonau di Sardegna whether or not followed by Oliena, Nepente di Oliena
+it:Cannonau di Sardegna Jerzu
+country:en:Italy
+#wikidata:en:
+
+<en:Wines from Italy
+it:Cannonau di Sardegna Oliena, Cannonau di Sardegna Nepente di Oliena
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Capalbio
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1379
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Capri
@@ -18073,8 +18381,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Carignano del Sulcis
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1172
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Carmignano
@@ -18093,8 +18402,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Castel San Lorenzo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0242
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Casteller
@@ -18103,17 +18413,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Castelli Romani
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0695
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cellatica
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1108
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cerasuolo di Vittoria
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A0773
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q1054633
 
 <en:Wines from Italy
@@ -18138,8 +18452,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Chianti Classico
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1235
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 en:Chianti
@@ -18185,8 +18500,9 @@ wikidata:en:Q3667446
 
 <en:Wines from Italy
 it:Cilento
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0243
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cinque Terre Costa da Posa, Cinque Terre Sciacchetrà Costa da Posa
@@ -18205,28 +18521,33 @@ wikidata:en:Q3677284
 
 <en:Wines from Italy
 it:Circeo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0700
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cirò
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0610
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cisterna d'Asti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1092
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Civitella d'Agliano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0766
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Albani
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0701
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Altotiberini
@@ -18277,6 +18598,12 @@ origins:en: en:Italy
 it:Colli Bolognesi Classico - Pignoletto
 country:en:Italy
 #wikidata:en:
+
+<en:Wines from Italy
+it:Pignoletto
+protected_name_file_number:en: PDO-IT-N1877
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Bolognesi
@@ -18390,21 +18717,27 @@ wikidata:en:Q2983318
 
 <en:Wines from Italy
 it:Colli della Sabina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0702
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli della Toscana centrale
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1436
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli dell'Etruria Centrale
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1384
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Conegliano
+protected_name_file_number:en: PDO-IT-A0453
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Colli di Conegliano
 it:Colli di Conegliano Fregona
@@ -18418,53 +18751,64 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colli di Faenza
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0291
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Luni
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0353
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Parma
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0292
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Rimini
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0297
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Salerno
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0255
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli di Scandiano e di Canossa
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0305
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli d'Imola
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0290
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Etruschi Viterbesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0703
+protected_name_type:en: pdo
+origins:en: en:Italy
+#disabled tuscia synonym since it's also an olive oil it seems
 
 <en:Wines from Italy
 it:Colli Euganei
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0454
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Lanuvini
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0704
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Maceratesi
@@ -18475,8 +18819,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Martani
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0842
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Orientali del Friuli
@@ -18510,8 +18855,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Pesaresi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0458
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Colli Pesaresi
 it:Colli Pesaresi Focara
@@ -18525,6 +18871,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colli Piacentini
+protected_name_file_number:en: PDO-IT-A0312
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Colli Piacentini
 it:Colli Piacentini Gutturnio
@@ -18553,13 +18902,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colli Romagna centrale
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0318
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colli Tortonesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1097
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Colli Tortonesi
 it:Colli Tortonesi Barbera
@@ -18598,8 +18949,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Collina Torinese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1098
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline di Genovesato
@@ -18608,8 +18960,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colline di Levanto
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0354
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Frentane
@@ -18623,28 +18976,33 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Colline Lucchesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1387
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Novaresi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1100
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Pescaresi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0887
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Saluzzesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1106
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Savonesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0362
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Colline Teatine
@@ -18707,16 +19065,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Corti Benedettine del Padovano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0456
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Cortona
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1518
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Costa d'Amalfi
+protected_name_file_number:en: PDO-IT-A0278
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <it:Costa d'Amalfi
 it:Costa d'Amalfi Furore
@@ -18735,23 +19098,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Costa Viola
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0640
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Coste della Sesia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1138
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Curtefranca
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1042
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Daunia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0599
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Del Vastese, Histonium
@@ -18760,18 +19127,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Delia Nivolelli
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0777
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
-it:Delle Venezie
-country:en:Italy
-#wikidata:en:
+it:delle Venezie
+protected_name_file_number:en: PGI-IT-A0862
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Dolcetto d'Acqui
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1139
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Dolcetto d'Alba
@@ -18782,8 +19152,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Dolcetto d'Asti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1174
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Dolcetto di Diano d'Alba, Diano d'Alba
@@ -18802,13 +19173,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Dugenta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0256
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Elba
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1519
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Eloro, Eloro Pachino
@@ -18822,8 +19195,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Epomeo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0258
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Erbaluce di Caluso, Caluso
@@ -18832,13 +19206,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Erice
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0779
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Esino
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0434
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Est!Est!!Est!!! di Montefiascone
@@ -18847,8 +19223,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Etna
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0780
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Falerio dei Colli Ascolani, Falerio
@@ -18857,48 +19234,59 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Falerno del Massico
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0249
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Fara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1178
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Faro
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0781
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Fiano di Avellino
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A0232
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q457894
 
 <en:Wines from Italy
 it:Fontanarossa di Cerda
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0806
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Forlì
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0512-AM03
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Fortana del Taro
-country:en:Italy
+protected_name_file_number:en: PGI-IT-A0513
+protected_name_type:en: pgi
+origins:en: en:Italy
 wikidata:en:Q23807332
 
 <en:Wines from Italy
 it:Franciacorta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1034
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Frascati
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0750
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Frascati Superiore
@@ -18908,28 +19296,34 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Freisa d'Asti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1180
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Freisa di Chieri
-country:en:Italy
+protected_name_file_number:en: PDO-IT-A1181
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q1454639
 
 <en:Wines from Italy
 it:Friuli Annia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0905
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Friuli Aquileia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0950
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Friuli Grave
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0954
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Friuli Isonzo, Isonzo del Friuli
@@ -18938,8 +19332,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Friuli Latisana
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0976
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Frusinate, del Frusinate
@@ -18948,38 +19343,45 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Gabiano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1183
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Galatina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0548
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Galluccio
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0250
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Gambellara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0469
+protected_name_type:en: pdo
+origins:en: en:Italy
 
-<en:Wines from Italy
+<en:Italian oils and fats
 it:Garda
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-1516
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Garda Colli Mantovani
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1070
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Gattinara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1311
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Gavi, Cortese di Gavi
@@ -18988,23 +19390,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Genazzano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0751
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ghemme
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1263
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Gioia del Colle
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0549
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Girò di Cagliari
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1122
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Golfo del Tigullio
@@ -19014,8 +19420,9 @@ wikidata:en:Q25387170
 
 <en:Wines from Italy
 it:Gravina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0550
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Greco di Bianco
@@ -19026,23 +19433,27 @@ wikidata:en:Q3776283
 
 <en:Wines from Italy
 it:Greco di Tufo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0236
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Grignolino d'Asti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1186
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Grignolino del Monferrato Casalese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1187
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Grottino di Roccanova
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0528
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:I Terreni di San Severino
@@ -19050,9 +19461,10 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Irpinia whether or not followed by Campi Taurasini
-country:en:Italy
-#wikidata:en:
+it:Irpinia, Irpina Campi Taurasini
+protected_name_file_number:en: PDO-IT-A0279
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ischia
@@ -19061,8 +19473,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Isola dei Nuraghi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1140
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lacrima di Morro, Lacrima di Morro d'Alba
@@ -19076,38 +19489,49 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Lago di Corbara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0844
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lambrusco di Sorbara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0332
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lambrusco Grasparossa di Castelvetro
+protected_name_file_number:en: PDO-IT-A0337
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Lambrusco Mantovano
+protected_name_file_number:en: PDO-IT-A1073
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Lambrusco Mantovano Oltre Po Mantovano
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Lambrusco Mantovano whether or not followed by Oltre Po Mantovano
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
-it:Lambrusco Mantovano whether or not followed by Viadanese-Sabbionetano
+it:Lambrusco Mantovano Viadanese-Sabbionetano
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Lambrusco Salamino di Santa Croce
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0342
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lamezia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0618
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Langhe
@@ -19140,43 +19564,51 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Lison-Pramaggiore
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0459
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lizzano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0551
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Loazzolo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1192
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Locorotondo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0552
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Locride
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0644
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Lugana
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1322
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Malvasia delle Lipari
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0782
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Malvasia di Bosa
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0907
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Malvasia di Casorzo d'Asti, Cosorzo, Malvasia di Cosorzo
@@ -19195,13 +19627,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Mandrolisai
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1171
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Marca Trevigiana
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0520
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Marche
@@ -19209,9 +19643,10 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Maremma Toscana
-country:en:Italy
-#wikidata:en:
+it:Maremma toscana
+protected_name_file_number:en: PDO-IT-A1413
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Marino
@@ -19220,15 +19655,17 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Marmilla
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0789
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Marsala
 en:Marsala wine
 fr:Marsala
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0785
+protected_name_type:en: pdo
+origins:en: en:Italy
 agribalyse_food_code:en:1015
 ciqual_food_code:en:1015
 ciqual_food_name:en:Marsala wine
@@ -19257,16 +19694,23 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Melissa
+protected_name_file_number:en: PDO-IT-A0619
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Menfi
+protected_name_file_number:en: PDO-IT-A0786
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<it:Menfi
+it:Menfi Bonera
 country:en:Italy
 #wikidata:en:
 
-<en:Wines from Italy
-it:Menfi whether or not followed by Bonera
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
-it:Menfi whether or not followed by Feudo dei Fiori
+<it:Menfi
+it:Menfi Feudo dei Fiori
 country:en:Italy
 #wikidata:en:
 
@@ -19276,7 +19720,14 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Mitterberg tra Cauria e Tel, Mitterberg, Mitterberg zwischen Gfrill und Toll
+it:Mitterberg
+protected_name_file_number:en: PGI-IT-A0295
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Mitterberg tra Cauria e Tel, 
+de:Mitterberg zwischen Gfrill und Toll
 country:en:Italy
 #wikidata:en:
 
@@ -19296,14 +19747,20 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
+it:Monferrato Casalese
+country:en:Italy
+#wikidata:en:
+
+<en:Wines from Italy
 it:Monica di Sardegna
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Monreale
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0787
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Montecarlo
@@ -19312,8 +19769,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Montecastelli
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1438
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Montecompatri-Colonna, Montecompatri, Colonna
@@ -19322,8 +19780,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Montecucco
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1433
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Montefalco
@@ -19372,8 +19831,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Monteregio di Massa Marittima
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1435
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Montescudaio
@@ -19384,8 +19844,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Monti Lessini, Lessini
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0462
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Morellino di Scansano
@@ -19506,8 +19967,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Orcia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1442
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Orta Nova
@@ -19536,8 +19998,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Palizzi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0645
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Parrina
@@ -19551,8 +20014,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Pellaro
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0648
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Penisola Sorrentina
@@ -19584,13 +20048,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Piemonte
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1224
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Pinerolese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1232
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Planargia
@@ -19614,8 +20080,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Primitivo di Manduria
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0565
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Prosecco
@@ -19624,23 +20091,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Provincia di Mantova
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1078
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Provincia di Nuoro
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0808
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Provincia di Pavia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1015
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
-it:Provincia di Verona, Veronese
-country:en:Italy
-#wikidata:en:
+it:Verona, Veronese, Provincia di Verona
+protected_name_file_number:en: PGI-IT-A0524
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Puglia
@@ -19649,13 +20120,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Quistello
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1081
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ramandolo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0939
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ravenna
@@ -19664,13 +20137,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Recioto di Gambellara
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0470
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Recioto di Soave
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0465
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Reggiano
@@ -19684,13 +20159,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Riesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0793
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Riviera del Brenta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0471
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Riviera del Garda Bresciano, Garda Bresciano
@@ -19717,18 +20194,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Roccamonfina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0263
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Roero
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1261
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Romangia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0812
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ronchi di Brescia
@@ -19739,8 +20219,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ronchi Varesini
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1037
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Rossese di Dolceacqua, Dolceacqua
@@ -19759,8 +20240,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Rosso di Cerignola
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0566
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Rosso di Montalcino
@@ -19794,48 +20276,57 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Rubino di Cantavenna
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1234
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Ruchè di Castagnole Monferrato
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1258
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sabbioneta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1082
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Salaparuta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0795
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Salemi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0807
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Salento
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0602
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Salice Salentino
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0567
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Salina
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0809
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sambuca di Sicilia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0797
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:San Colombano al Lambro, San Colombano
@@ -19844,8 +20335,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:San Gimignano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1464
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:San Ginesio
@@ -19864,13 +20356,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sannio
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0281
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Santa Margherita di Belice
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0798
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sant'Anna di Isola Capo Rizzuto
@@ -19879,13 +20373,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sant'Antimo
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1486
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sardegna Semidano, Sardegna Semidano Mogoro
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1046
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Savuto
@@ -19921,8 +20417,9 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Serrapetrona
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0451
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sforzato di Valtellina, Sfursat di Valtellina
@@ -19931,23 +20428,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sibiola
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0813
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sicilia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0801
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Sizzano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1236
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Soave Superiore
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0473
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Soave, Soave Colli Scaligeri
@@ -19956,18 +20457,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Sovana
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1490
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Spello
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0856
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Squinzano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0569
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Strevi
@@ -19991,8 +20495,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Teroldego Rotaliano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0749
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terracina, Moscato di Terracina
@@ -20001,8 +20506,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Terratico di Bibbona
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1491
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terrazze Retiche di Sondrio
@@ -20018,8 +20524,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Terre del Volturno
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0264
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terre dell'Alta Val d'Agri
@@ -20028,23 +20535,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Terre di Casole
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1493
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terre di Chieti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0901
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terre di Veleja
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0529
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terre Lariane
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1069
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Terre Tollesi, Tullum
@@ -20053,18 +20564,21 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Tharros
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0814
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Torgiano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0851
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
-it:Torgiano rosso riserva
-country:en:Italy
-#wikidata:en:
+it:Torgiano Rosso Riserva
+protected_name_file_number:en: PDO-IT-A0834
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Toscano, Toscana
@@ -20073,33 +20587,41 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Trebbiano d'Abruzzo
+protected_name_file_number:en: PDO-IT-A0728
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Trentino
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Trentino whether or not followed by Isera, d'Isera
+it:Trentino Isera, Trentino d'Isera
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Trentino whether or not followed by Sorni
+it:Trentino Sorni
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Trentino whether or not followed by Ziresi, dei Ziresi
+it:Trentino Ziresi, Trentino dei Ziresi
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Trento
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0752
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Trexenta
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0815
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:égbria
@@ -20108,23 +20630,32 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Val d'Arbia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1496
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
-it:Val di Cornia whether or not followed by Suvereto
+it:Val di Cornia
+protected_name_file_number:en: PDO-IT-A1498
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Wines from Italy
+it:Val di Cornia Suvereto
 country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Val di Magra
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A1431
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Val di Neto
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0655
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Val Polcèvera, Val Polcèvera Coronata
@@ -20133,13 +20664,15 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Val Tidone
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0532
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Valcalepio
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1366
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Valcamonica
@@ -20158,8 +20691,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Valdamato
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0658
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Valdichiana
@@ -20173,8 +20707,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Valle Belice
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0811
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Valle d'Aosta Arnad-Montjovet, Vallée d'Aoste Arnad-Montjovet
@@ -20233,8 +20768,9 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Valsusa
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1243
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Valtellina Superiore
@@ -20279,18 +20815,22 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Veneto Orientale
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0522
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Venezia Giulia
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-A0977
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Verdicchio dei Castelli di Jesi
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A0482
+protected_name_type:en: pdo
+origins:en: en:Italy
+
 
 <en:Wines from Italy
 it:Verdicchio di Matelica
@@ -20349,21 +20889,27 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Vin Santo del Chianti
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1513
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Vin Santo del Chianti Classico
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1514
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Vin Santo di Carmignano
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-A1669
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Vin Santo di Montepulciano
+protected_name_file_number:en: PDO-IT-A1515
+protected_name_type:en: pdo
+origins:en: en:Italy
 country:en:Italy
 wikidata:en:Q4013004
 
@@ -20477,7 +21023,9 @@ wikidata:en:Q1754670
 
 <en:Wines from Portugal
 pt:Alenquer
-country:en:Portugal
+protected_name_file_number:en: PDO-PT-A1468
+protected_name_type:en: pdo
+origins:en: en:Portugal
 wikidata:en:Q2832671
 
 <en:Wines from Portugal
@@ -20627,7 +21175,9 @@ country:en:Portugal
 
 <en:Wines from Portugal
 pt:Graciosa
-country:en:Portugal
+protected_name_file_number:en: PDO-PT-A1446, PDO-PT-A1446-AM01
+protected_name_type:en: pdo
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Lafões
@@ -20646,11 +21196,15 @@ country:en:Portugal
 wikidata:en:Q3216201
 
 <en:Wines from Portugal
-pt:Lisboa whether or not followed by Alta Estremadura
+pt:Lisboa
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Lisboa whether or not followed by Estremadura
+pt:Lisboa Alta Estremadura
+country:en:Portugal
+
+<en:Wines from Portugal
+pt:Lisboa Estremadura
 country:en:Portugal
 
 <en:Wines from Portugal
@@ -20697,27 +21251,31 @@ pt:Porto
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Almeirim
+pt:Ribatejo
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Cartaxo
+pt:Ribatejo Almeirim
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Chamusca
+pt:Ribatejo Cartaxo
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Coruche
+pt:Ribatejo Chamusca
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Santarém
+pt:Ribatejo Coruche
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Ribatejo whether or not followed by Tomar
+pt:Ribatejo Santarém
+country:en:Portugal
+
+<en:Wines from Portugal
+pt:Ribatejo Tomar
 country:en:Portugal
 
 <en:Wines from Portugal
@@ -20747,14 +21305,20 @@ protected_name_type:en: pdo
 origins:en: en:Portugal
 
 <en:Wines from Portugal
+pt:Trás-os-Montes
+protected_name_file_number:en: PDO-PT-A1466
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Chaves
 country:en:Portugal
 
-<en:Wines from Portugal
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Planalto Mirandês
 country:en:Portugal
 
-<en:Wines from Portugal
+<pt:Trás-os-Montes
 pt:Trás-os-Montes Valpaços
 country:en:Portugal
 
@@ -20763,8 +21327,10 @@ pt:Vinho Licoroso Algarve
 country:en:Portugal
 
 <en:Wines from Portugal
-pt:Vinho Regional Açores
-country:en:Portugal
+pt:Açores, Vinho Regional Açores
+protected_name_file_number:en: PGI-PT-A1447-AM01
+protected_name_type:en: pgi
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Vinho Regional Alentejano
@@ -20773,6 +21339,12 @@ country:en:Portugal
 <en:Wines from Portugal
 pt:Vinho Regional Algarve
 country:en:Portugal
+
+<en:Portuguese wines
+pt:Algarve
+protected_name_file_number:en: PGI-PT-A1448-AM01
+protected_name_type:en: pgi
+origins:en: en:Portugal
 
 <en:Wines from Portugal
 pt:Vinho Regional Duriense
@@ -20792,7 +21364,7 @@ country:en:Portugal
 
 <en:Portuguese wines
 pt:Vinho Verde
-protected_name_file_number:en: PDO-PT-A1545
+protected_name_file_number:en: PDO-PT-A1545, PDO-PT-A1545-AM01
 protected_name_type:en: pdo
 origins:en: en:Portugal
 
@@ -22280,11 +22852,17 @@ wikidata:en:Q1954039
 <fr:Muscats
 fr:Muscat de Rivesaltes, Muscats de Rivesaltes
 wikidata:en:Q474278
+protected_name_file_number:en: PDO-FR-A1102
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Muscats
 <en:Wines from France
 fr:Muscat de Saint-Jean-de-Minervois, Muscats de Saint-Jean-de-Minervois
 wikidata:en:Q18414851
+protected_name_file_number:en: PDO-FR-A0666
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Muscats
 <en:Wines from France
@@ -22763,7 +23341,7 @@ ciqual_food_name:en:Biscuit sponge cake, with chocolate, pre-packed
 fr:Barquettes à la fraise
 
 <en:Biscuits
-en:Wafer cookie
+en:Crêpes dentelle
 fr:Crêpes dentelle
 nl:Flinterdunne flensjes
 pt:Crepes dentelle
@@ -22869,11 +23447,15 @@ en:Stick biscuits covered with chocolate
 fr:Biscuits bâtonnets au chocolat
 
 <en:Chocolate biscuits
+en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
 es:Galletas con tableta de chocolate
-fr:Biscuits tablette de chocolat, Petits beurres au chocolat
+fr:Biscuits tablette de chocolat, Petits beurres au chocolat, Biscuits avec tablette de chocolat, Biscuit sec avec tablette de chocolat
 it:Biscotti con tavoletta di cioccolato
 oqali_family:en: fr:Biscuits et gateaux industriels - Biscuits chocolates avec tablette
 agribalyse_food_code:en:24016
+ciqual_food_code:en:24016
+ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
+# Petit Ecolier
 
 <fr:Biscuits tablette de chocolat
 fr:Biscuits tablette fourrée
@@ -23353,7 +23935,7 @@ ciqual_food_name:fr:Pain (aliment moyen)
 fr:Pains aux noix
 
 <en:Breads
-fr:Pains aux céréales
+fr:Pains multicéréales, Pains aux céréales
 
 <en:Breads
 fr:Pains au maïs
@@ -23377,6 +23959,64 @@ nl:Geraardsbergse mattentaart
 protected_name_file_number:en: PGI-BE-0288
 protected_name_type:en: pgi
 origins:en: en:Belgium
+
+<en:Bakery products
+en:Czech bakery products
+fr:Produits de boulangerie tchèques
+
+<en:Czech bakery products
+cs:Valašský frgál
+protected_name_file_number:en: PGI-CZ-0805
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Karlovarské oplatky
+protected_name_file_number:en: PGI-CZ-0381
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Karlovarské trojhránky
+protected_name_file_number:en: PGI-CZ-0397
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Mariánskolázeňské oplatky
+protected_name_file_number:en: PGI-CZ-0407
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Pardubický perník
+protected_name_file_number:en: PGI-CZ-0408
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Lomnické suchary
+protected_name_file_number:en: PGI-CZ-0362
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Hořické trubičky
+protected_name_file_number:en: PGI-CZ-0365
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Karlovarský suchar
+protected_name_file_number:en: PGI-CZ-0404
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech bakery products
+cs:Štramberské uši
+protected_name_file_number:en: PGI-CZ-0378
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
 
 <en:Bakery products
 en:German bakery products
@@ -23444,6 +24084,86 @@ de:Nürnberger Lebkuchen
 protected_name_file_number:en: PGI-DE-0670
 protected_name_type:en: pgi
 origins:en: en:Germany
+
+<en:Bakery products
+en:Polish bakery products
+fr:Produits de boulangerie polonais
+
+<en:Polish bakery products
+pl:Cebularz lubelski
+protected_name_file_number:en: PGI-PL-1092
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Kołocz śląski, kołacz śląski
+protected_name_file_number:en: PGI-PL-0728
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Chleb prądnicki
+protected_name_file_number:en: PGI-PL-0694
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Obwarzanek krakowski
+protected_name_file_number:en: PGI-PL-0674
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Pierekaczewnik
+protected_name_file_number:en: TSG-PL-0054
+protected_name_type:en: tsg
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Andruty kaliskie
+protected_name_file_number:en: PGI-PL-0526
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Polish bakery products
+pl:Rogal świętomarciński
+protected_name_file_number:en: PGI-PL-0584
+protected_name_type:en: pgi
+origins:en: en:Poland
+
+<en:Bakery products
+en:Portuguese bakery products
+fr:Produits de boulangerie portugais
+
+<en:Portuguese bakery products
+pt:Amêndoa Coberta de Moncorvo
+protected_name_file_number:en: PGI-PT-02235
+protected_name_type:en: pgi
+origins:en: en:Portugal
+
+<en:Portuguese bakery products
+pt:Folar de Valpaços
+protected_name_file_number:en: PGI-PT-01392
+protected_name_type:en: pgi
+origins:en: en:Portugal
+
+<en:Portuguese bakery products
+pt:Pão de Ló de Ovar
+protected_name_file_number:en: PGI-PT-01341
+protected_name_type:en: pgi
+origins:en: en:Portugal
+
+<en:Portuguese bakery products
+pt:Fogaça da Feira
+protected_name_file_number:en: PGI-PT-01342
+protected_name_type:en: pgi
+origins:en: en:Portugal
+
+<en:Portuguese bakery products
+pt:Ovos Moles de Aveiro
+protected_name_file_number:en: PGI-PT-0518
+protected_name_type:en: pgi
+origins:en: en:Portugal
 
 <en:Bakery products
 en:Spanish bakery products
@@ -24215,6 +24935,7 @@ de:Ungesäuertes Brot, Azyma
 es:Panes ácimos, Pan ácimo
 fi:happamattomat leivät
 fr:Pains azymes, pain azyme
+it:Pani azzimi, pane azzimo
 nl:Matzekrekkers, Matzes
 wikidata:en:Q13365777
 
@@ -25575,7 +26296,7 @@ en:Sweet snacks, Sugary snacks
 ca:Aperitius dolços
 cs:Sladké svačiny
 da:Søde snacks
-de:Süßwaren, Süßigkeiten
+de:Süßer Snack
 es:Snacks dulces
 fi:Makeat naposteltavat
 fr:Snacks sucrés, sucreries
@@ -25596,18 +26317,44 @@ nova:en:3
 en:Confectioneries, confectionary, confectionery
 ca:Llaminadures
 da:Konfekture
-de:Konfekt, Konditorwaren
+de:Süßwaren, Süßigkeiten, Konfekt, Konditorwaren
 es:Dulces
 fi:Sokerileipomotuotteet
 fr:Confiseries, confiserie
 hu:Sütemények, Cukrász áruk
 it:Dolci, dolce
-nl:Confiserie, Suikerwerk
+nl:Zoetwaren, Confiserie, Suikerwerk
 pt:Confeitaria
 ru:Кондитерские изделия
 sv:Konfekt
 th:ขนมหวาน
 pnns_group_2:en:Sweets
+
+<en:Confectioneries
+en:Fruit confectioneries
+fr:Confiseries aux fruits
+
+<en:Confectioneries
+<en:Fruits based foods
+en:Candied fruits
+de:Kandierte Früchte
+es:Frutas confitadas
+fi:sokeroidut hedelmät
+fr:Fruits confits
+nl:Gekonfijt fruit
+wikidata:en:Q1163138
+ciqual_food_code:en:31027
+ciqual_food_name:en:Candied fruits
+ciqual_food_name:fr:Fruit confit
+
+<en:Candied fruit
+en:Candied lemon
+fr:Citron confit
+de:Kandierte Zitrone
+
+<en:Fruit confectioneries
+en:Filled dates
+fr:Dattes fourrées
 
 <en:Confectioneries
 en:Candied orange zest
@@ -25686,6 +26433,8 @@ fi:Kasvimaitosuklaat
 fr:Chocolats au lait végétal
 nl:Plantaardige melkchocolade, Plantaardige melkchocolades
 
+
+
 <en:Chocolates
 en:Milk chocolates, milk chocolate
 ca:Xocolata amb llet
@@ -25708,6 +26457,10 @@ zh:牛奶巧克力
 wikidata:en:Q2164820
 agribalyse_proxy_food_code:en:31004
 #all agribalyse milk chocolate categories have the same CO2 score
+
+<en:Chocolate molds
+<en:Milk chocolates
+en:Milk chocolate molds
 
 <en:Milk chocolates
 en:Milk chocolate bar
@@ -26199,8 +26952,9 @@ de:Dunkle Schokoladen mit Pistazien
 fr:Chocolats noirs aux pistaches
 it:Cioccolato fondente al pistacchio
 
+#do not put in this category products with an aroma only: orange extract, orange oil
 <en:Dark chocolates
-en:Dark chocolates with orange
+en:Dark chocolates with orange, Dark chocolate bar with orange
 de:Dunkle Schokoladen mit Orange
 es:Chocolates negro con naranja
 fi:Tummaa suklaata appelsiinilla
@@ -26210,45 +26964,33 @@ nl:Pure chocola met sinaasappelschil
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 
 <en:Dark chocolates
-en:Dark chocolates with raspberries
+en:Dark chocolates with raspberries, Dark chocolate bar with raspberries
 fr:Chocolats noirs à la framboise
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 
 <en:Dark chocolates
-en:Dark chocolates with pear
+en:Dark chocolates with pear, Dark chocolate bar with pear
 fr:Chocolats noirs à la poire
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
+agribalyse_food_code:en:31069
+ciqual_food_code:en:31069
+ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 
 <en:Dark chocolates
 en:Dark chocolate bar with fruits
 fr:Chocolats noirs aux fruits
-agribalyse_food_code:en:31069
-ciqual_food_code:en:31069
-ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
-
-<en:Dark chocolate bar with fruits
-en:Dark chocolate bar with orange
-fr:Chocolats noirs à l'orange
-agribalyse_food_code:en:31069
-ciqual_food_code:en:31069
-ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
-
-<en:Dark chocolate bar with fruits
-en:Dark chocolate bar with raspberries
-fr:Chocolats noirs à la framboise
-agribalyse_food_code:en:31069
-ciqual_food_code:en:31069
-ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
-
-<en:Dark chocolate bar with fruits
-en:Dark chocolate bar with pear
-fr:Chocolats noirs à la poire
 agribalyse_food_code:en:31069
 ciqual_food_code:en:31069
 ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
@@ -26626,6 +27368,7 @@ ciqual_food_name:en:Chocolate confectionery, filled with wafer
 ciqual_food_name:fr:Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 <en:Bonbons
+<en:Fruit confectioneries
 en:Chocolate covered fruits
 de:Früchte mit Schokoladenüberzug
 es:Frutas recubiertas de chocolate
@@ -26638,7 +27381,7 @@ wikidata:en:Q15985102
 <en:Chocolate covered fruits
 fr:Orangettes
 
-<en:Chocolate covered fruits
+<en:Bonbons
 fr:Gingembrettes
 
 <en:Chocolate covered fruits
@@ -27149,24 +27892,6 @@ en:Sunflower halva
 de:Halva mit Sonnenblumenkernen
 fr:Halvas au tournesol, Halvas de tournesol, Halva de tournesol, Halva au tournesol
 ru:Подсолнечная халва, Халва подсолнечная
-
-<en:Confectioneries
-<en:Fruits based foods
-en:Candied fruits
-de:Kandierte Früchte
-es:Frutas confitadas
-fi:sokeroidut hedelmät
-fr:Fruits confits
-nl:Gekonfijt fruit
-wikidata:en:Q1163138
-ciqual_food_code:en:31027
-ciqual_food_name:en:Candied fruits
-ciqual_food_name:fr:Fruit confit
-
-<en:Candied fruit
-en:Candied lemon
-fr:Citron confit
-de:Kandierte Zitrone
 
 <en:Confectioneries
 en:Turkish delight, lokums, lokum, loukoumi
@@ -29862,9 +30587,6 @@ nl:Gerookte kazen, Rookkaas
 wikidata:en:Q2632885
 
 <en:Cheeses
-en:Havarti cheeses
-
-<en:Cheeses
 en:Lactose-free cheeses
 es:Quesos sin lactosa
 fi:Laktoosittomat juustot
@@ -30202,8 +30924,9 @@ de:Soumaintrain
 fr:Soumaintrain
 nl:Soumaintrain
 wikidata:en:Q2304082
-country:en:France
-instanceof:fr:IGP
+protected_name_file_number:en: PGI-FR-01298
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Cow cheeses
 <en:French cheeses
@@ -30936,7 +31659,7 @@ en:Danish cheeses
 es:Quesos daneses
 
 <en:Danish cheeses
-en:Havarti
+en:Havarti, Havarti cheeses
 da:Havarti
 de:Havarti
 es:Havarti
@@ -31091,6 +31814,9 @@ ciqual_food_code:en:12722
 ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
 ciqual_food_name:fr:Cantal entre-deux
 country:en:France
+protected_name_file_number:en: PDO-FR-0113-AM02
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -31113,6 +31839,9 @@ ciqual_food_code:en:12723
 ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
 ciqual_food_name:fr:Cantal, Salers ou Laguiole
 country:en:France
+protected_name_file_number:en: PDO-FR-0120-AM05
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Goat cheeses
@@ -31123,6 +31852,9 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 agribalyse_food_code:en:12830
 ciqual_food_code:en:12830
 ciqual_food_name:en:Chabichou cheese, from goat's milk
+protected_name_file_number:en: PDO-FR-0115-AM01
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
@@ -31244,6 +31976,9 @@ country:en:France
 agribalyse_food_code:en:12039
 ciqual_food_code:en:12039
 ciqual_food_name:en:Munster cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0125-AM03
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 en:Neufchâtel cheese from cow's milk
@@ -31300,7 +32035,7 @@ wikidata:en:Q640839
 agribalyse_food_code:en:12839
 ciqual_food_code:en:12839
 ciqual_food_name:en:Pouligny Saint-Pierre cheese, from goat's milk
-protected_name_file_number:en: PDO-FR-0128
+protected_name_file_number:en: PDO-FR-0128, PDO-FR-0128-AM03
 protected_name_type:en: pdo
 origins:en: en:France
 
@@ -31329,13 +32064,15 @@ ciqual_food_name:en:Rocamadour cheese, from goat's milk
 <en:French cheeses
 en:Sainte-Maure de Touraine, Sainte Maure cheese
 fr:Sainte-Maure de Touraine
-protected_name_file_number:en: PDO-FR-0133
+protected_name_file_number:en: PDO-FR-0133, PDO-FR-0133-AM03
 protected_name_type:en: pdo
 origins:en: en:France
 wikidata:en:Q652628
 agribalyse_food_code:en:12842
 ciqual_food_code:en:12842
 ciqual_food_name:en:Sainte Maure cheese, from goat's milk
+
+
 
 # Another proxy for Sainte-Maure de Touraine
 #agribalyse_food_code:en:12807
@@ -31518,6 +32255,8 @@ ciqual_food_name:en:Carré de l'Est cheese, from cow's milk
 <en:French cheeses
 fr:Brillat-Savarin
 wikidata:en:Q724855
+protected_name_file_number:en: PGI-FR-02102
+protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Cheeses
@@ -32554,13 +33293,15 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Canestrato di Moliterno
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PGI-IT-0487
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Canestrato Pugliese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0004
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Casatella Trevigiana
@@ -32607,7 +33348,9 @@ wikidata:en:Q21272237
 
 <en:Italian cheeses
 it:Formai de Mut Dell'alta Valle Brembana
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0009
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q848380
 
 <en:Italian cheeses
@@ -32624,6 +33367,9 @@ oqali_family:en: fr:Fromages - Parmesan et assimiles
 agribalyse_food_code:en:12123
 ciqual_food_code:en:12123
 ciqual_food_name:en:Grana Padano cheese, from cow's milk
+protected_name_file_number:en: PDO-IT-0011
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Montasio
@@ -32714,13 +33460,17 @@ it:Burrata di bufala
 
 <en:Italian cheeses
 it:Murazzano
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0015
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q1238105
 
 <en:Cow cheeses
 <en:Italian cheeses
 it:Nostrano Valtrompia
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0823
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q3878649
 
 <en:Italian cheeses
@@ -32732,7 +33482,9 @@ fr:Parmigiano Reggiano, parmesan
 it:Parmigiano Reggiano
 nl:Parmigiano-Reggiano, Parmezaan, Parmezaanse kaas
 wikidata:en:Q155922
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0016
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q155922
 oqali_family:en: fr:Fromages - Parmesan et assimiles
 agribalyse_food_code:en:12120
@@ -32771,8 +33523,9 @@ country:en:Italy
 
 <en:Pecorino
 it:Pecorino di Picinisco
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0859
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Pecorino
 en:Pecorino Romano
@@ -32793,7 +33546,7 @@ wikidata:en:Q592173
 
 <en:Pecorino
 it:Pecorino Siciliano
-protected_name_file_number:en: PDO-IT-0019
+protected_name_file_number:en: PDO-IT-0019, DO-IT-0019-AM01
 protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
@@ -32810,9 +33563,16 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian cheeses
+it:Ossolano
+protected_name_file_number:en: PDO-IT-02093
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian cheeses
 it:Piacentinu Ennese
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0646
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 en:Piave
@@ -32904,7 +33664,9 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Squacquerone di Romagna
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0794
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q20009815
 
 <en:Italian cheeses
@@ -32961,12 +33723,22 @@ nl:Litouwse kazen
 origins:en: en:Lithuania
 
 <en:Lithuanian cheeses
-lt:Lietuviškas varškės sūris
-country:en:Lithuania
+lt:Džiugas
+protected_name_file_number:en: PGI-LT-02372
+protected_name_type:en: pgi
+origins:en: en:Lithuania
 
 <en:Lithuanian cheeses
 lt:Liliputas
-country:en:Lithuania
+protected_name_file_number:en: PGI-LT-0868
+protected_name_type:en: pgi
+origins:en: en:Lithuania
+
+<en:Lithuanian cheeses
+lt:Lietuviškas varškės sūris
+protected_name_file_number:en: PGI-LT-0853
+protected_name_type:en: pgi
+origins:en: en:Lithuania
 
 <en:Cheeses
 en:Polish cheeses, cheeses from Poland
@@ -35839,8 +36611,24 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 
 <en:Yogurts
-en:Plain fermented milk yogurt with sugar, Plain dairy specialty with sugar
-fr:Yaourt sucré au lait fermenté, Spécialité laitière nature sucrée
+en:Plain dairy specialty with sugar
+fr:Spécialité laitière nature sucrée
+agribalyse_food_code:en:19599
+ciqual_food_code:en:19599
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
+
+<en:Yogurts
+en:Plain fermented milk with sugar
+fr:lait fermenté nature sucré
+agribalyse_food_code:en:19599
+ciqual_food_code:en:19599
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
+
+<en:Yogurts
+en:Plain yogurt with sugar
+fr:Yaourt nature sucré, Yaourt sucré nature
 agribalyse_food_code:en:19599
 ciqual_food_code:en:19599
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
@@ -36702,7 +37490,7 @@ nl:Vijgenchutney
 
 <en:Fruit chutneys
 en:Mango chutneys
-fr:Chutneys de mangue
+fr:Chutneys de mangue, Confits de mangue
 
 <en:Fruits based foods
 <en:Dessert sauces
@@ -37946,6 +38734,13 @@ ciqual_food_code:en:15004
 ciqual_food_name:en:Hazelnut
 
 <en:Hazelnuts
+fr:Noisette de Cervione
+it:Nuciola di Cervioni
+protected_name_file_number:en: PGI-FR-1083
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Hazelnuts
 en:Hazelnuts powder
 fr:Noisettes en poudre
 
@@ -38215,6 +39010,12 @@ fr:Pistache grillée salée
 agribalyse_food_code:en:15009
 ciqual_food_code:en:15009
 ciqual_food_name:en:Pistachio nut, grilled, salted
+
+<en:Pistachios
+it:Pistacchio di Raffadali
+protected_name_file_number:en: PDO-IT-02449
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Nuts
 en:Brazil nuts, Para nuts
@@ -38666,6 +39467,11 @@ fr:Miel wallon
 protected_name_file_number:en: PGI-BE-02409
 protected_name_type:en: pgi
 origins:en: en:Belgium
+
+<en:Honeys
+en:Italian honeys
+fr:Miels italiens
+origins:en: en:Italy
 
 <en:Honeys
 en:Spanish honeys
@@ -40415,13 +41221,323 @@ ciqual_food_code:en:17701
 ciqual_food_name:en:Combined oil (mix of olive oil and seeds oil)
 ciqual_food_name:fr:Huile combinée, mélange d'huile d'olive et de graines
 
+<en:Fats
+en:Italian oils and fats
+fr:Huiles et graisses italiennes
+
+<en:Italian oils and fats
+it:Aprutino Pescarese
+protected_name_file_number:en: PDO-IT-1526-AM05
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Olio di Puglia
+protected_name_file_number:en: PGI-IT-02381
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Monte Etna
+protected_name_file_number:en: PDO-IT-0060-AM01
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Olio lucano
+protected_name_file_number:en: PGI-IT-02458
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Olio di Roma
+protected_name_file_number:en: PGI-IT-02453
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Chianti Classico
+protected_name_file_number:en: PDO-IT-0108-AM03
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Monti Iblei
+protected_name_file_number:en: PDO-IT-1521-AM03
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Marche
+protected_name_file_number:en: PGI-IT-01338
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Olio di Calabria
+protected_name_file_number:en: PGI-IT-01314
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Sicilia
+protected_name_file_number:en: PGI-IT-01305
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Vulture
+protected_name_file_number:en: PDO-IT-0452
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Terre Aurunche
+protected_name_file_number:en: PDO-IT-0571
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Seggiano
+protected_name_file_number:en: PDO-IT-0561
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Colline Pontine
+protected_name_file_number:en: PDO-IT-0499
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Irpinia - Colline dell'Ufita
+protected_name_file_number:en: PDO-IT-0500
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Sardegna
+protected_name_file_number:en: PDO-IT-0284
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Tuscia
+protected_name_file_number:en: PDO-IT-0210
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Valdemone
+protected_name_file_number:en: PDO-IT-0218
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Cartoceto
+protected_name_file_number:en: PDO-IT-0292
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Terre Tarentine
+protected_name_file_number:en: PDO-IT-0259
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Lucca
+protected_name_file_number:en: PDO-IT-0199
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Tergeste
+protected_name_file_number:en: PDO-IT-0256
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Valle del Belice
+protected_name_file_number:en: PDO-IT-0258
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Monte Etna
+protected_name_file_number:en: PDO-IT-0060
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Pretuziano delle Colline Teramane
+protected_name_file_number:en: PDO-IT-0174
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Colline di Romagna
+protected_name_file_number:en: PDO-IT-0211
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Molise
+protected_name_file_number:en: PDO-IT-0166
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Alto Crotonese
+protected_name_file_number:en: PDO-IT-0200
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Veneto Valpolicella, Veneto Euganei e Berici, Veneto del Grappa
+protected_name_file_number:en: PDO-IT-9067
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Val di Mazara
+protected_name_file_number:en: PDO-IT-0061
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Chianti Classico
+protected_name_file_number:en: PDO-IT-0108
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Terre di Siena
+protected_name_file_number:en: PDO-IT-0109
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Lametia
+protected_name_file_number:en: PDO-IT-0068
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Toscano
+protected_name_file_number:en: PGI-IT-1512
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Terra d'Otranto
+protected_name_file_number:en: PDO-IT-1519
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Colline Teatine
+protected_name_file_number:en: PDO-IT-1541
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Terra di Bari
+protected_name_file_number:en: PDO-IT-1542
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Laghi Lombardi
+protected_name_file_number:en: PDO-IT-1543
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Valli Trapanesi
+protected_name_file_number:en: PDO-IT-1510
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Dauno
+protected_name_file_number:en: PDO-IT-1517
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Umbria
+protected_name_file_number:en: PDO-IT-1520
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Monti Iblei
+protected_name_file_number:en: PDO-IT-1521
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Colline Salernitane
+protected_name_file_number:en: PDO-IT-1545
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Penisola Sorrentina
+protected_name_file_number:en: PDO-IT-1546
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Cilento
+protected_name_file_number:en: PDO-IT-1547
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Bruzio
+protected_name_file_number:en: PDO-IT-1518
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Canino
+protected_name_file_number:en: PDO-IT-1506
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Collina di Brindisi
+protected_name_file_number:en: PDO-IT-1508
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Sabina
+protected_name_file_number:en: PDO-IT-1511
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Brisighella
+protected_name_file_number:en: PDO-IT-1513
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian oils and fats
+it:Aprutino Pescarese
+protected_name_file_number:en: PDO-IT-1526
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Extra-virgin olive oils
 <en:Olive oils from Italy
 fr:Huile d'olive Riviera Ligure
-it:Olio di oliva Riviera Ligure
-country:en:Italy
-instanceof:fr:AOP
+it:Olio di oliva Riviera Ligure, Riviera Ligure
+protected_name_file_number:en: PDO-IT-1540-AM02, PDO-IT-1540
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Olive oils
 en:Olive oils from Greece
@@ -42407,6 +43523,9 @@ nl:Volkoren eenkornmelen
 
 <en:Einkorn wheat flours
 fr:Farines de petit épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
+protected_name_file_number:en: PGI-FR-0476
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Wheat flours
 en:Emmer wheat flours
@@ -45038,6 +46157,30 @@ fr:Pommes Reinettes du Canada, Pommes Canada Grises, Pommes du Canada, Reinettes
 wikidata:en:Q1723442
 
 <en:Apples
+fr:Pomme du Limousin
+protected_name_file_number:en: PDO-FR-0442
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Apples
+fr:Pommes des Alpes de Haute Durance
+protected_name_file_number:en: PGI-FR-0498
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Apples
+it:Mele del Trentino
+protected_name_file_number:en: PGI-IT-2320
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Apples
+it:Mela di Valtellina
+protected_name_file_number:en: PGI-IT-0574-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Apples
 <en:Russet apples
 <en:Acidic apples
 en:Canada apple pulp
@@ -45426,6 +46569,12 @@ ro:Grepfrut, Grepfruturi
 en:Fresh grapefruits
 fr:Pomélos frais, Pomelos frais
 
+<en:Grapefruits
+fr:Pomelo de Corse
+protected_name_file_number:en: PGI-FR-1085
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:Citrus
 en:Lemons
 de:Zitronen
@@ -45469,6 +46618,48 @@ agribalyse_food_code:en:13125
 ciqual_food_code:en:13125
 ciqual_food_name:en:Lemon zest, raw
 ciqual_food_name:fr:Citron, zeste, cru
+
+<en:Lemons
+it:Limone dell'Etna
+protected_name_file_number:en: PGI-IT-02444
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Rocca Imperiale
+protected_name_file_number:en: PGI-IT-0818
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Costa d'Amalfi
+protected_name_file_number:en: PGI-IT-0116
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Sorrento
+protected_name_file_number:en: PGI-IT-0098
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Femminello del Gargano
+protected_name_file_number:en: PGI-IT-0297
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone Interdonato Messina
+protected_name_file_number:en: PGI-IT-0558
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Lemons
+it:Limone di Siracusa
+protected_name_file_number:en: PGI-IT-0502
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Citrus
 en:Limes
@@ -45920,6 +47111,13 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Muskmelons
+<en:French fruits
+fr:Melon du Haut-Poitou
+protected_name_file_number:en: PGI-FR-0029
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Muskmelons
 en:Branco melons, White melons
 es:Melones Branco, Melones blancos
 fr:Melons Branco, Melons blancs
@@ -46161,6 +47359,9 @@ it:Avocado
 nl:Avocados
 pl:Awokado
 wikidata:en:Q961769
+agribalyse_proxy_food_code:en:13004
+agribalyse_proxy_food_name:en:Avocado, pulp, raw
+agribalyse_proxy_food_name:fr:Avocat, pulpe, cru
 
 <en:Avocados
 en:Avocado pulp
@@ -46247,6 +47448,9 @@ pt:Coco
 sv:Kokosnötter, kokosnöt
 zh:椰子
 wikidata:en:Q3342808
+agribalyse_proxy_food_code:en:15006
+agribalyse_proxy_food_name:en:Coconut, ripe kernel, fresh
+agribalyse_proxy_food_name:fr:Noix de coco, amande mûre, fraîche
 
 <en:Coconuts
 en:Fresh ripe coconut kernel
@@ -46287,6 +47491,9 @@ es:Guayabas
 fr:Goyaves
 nl:Guavas
 wikidata:en:Q3181909
+agribalyse_proxy_food_code:en:13083
+agribalyse_proxy_food_name:en:Guava, pulp, raw
+agribalyse_proxy_food_name:fr:Goyave, pulpe, crue
 
 <en:Tropical fruits
 en:Guava pulp
@@ -46647,15 +47854,17 @@ wikidata:en:Q1652093
 wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
 # ingredient/dates has 827 products in 11 languages @2018-09-29
 # category/dates has 311 products @2019-05-24
+agribalyse_proxy_food_code:en:13011
+agribalyse_proxy_food_name:en:Date, pulp and peel, dried
+agribalyse_proxy_food_name:fr:Datte, pulpe et peau, sèche
 
 <en:Fruit pastes
+<en:Dates
 fr:Pâtes de dattes
-
-<en:Dates
-fr:Dattes fourrées
-
-<en:Dates
-fr:Dattes de Tunisie
+agribalyse_food_code:en:13011
+ciqual_food_code:en:13011
+ciqual_food_name:en:Date, pulp and peel, dried
+ciqual_food_name:fr:Datte, pulpe et peau, sèche
 
 <en:Dates
 en:Pitted dates
@@ -46728,6 +47937,9 @@ fr:Abricots secs, abricot sec, abricot séché, abricots séchés
 it:Albicocche secche
 nl:Gedroogde abrikozen
 ru:Абрикосы сушёные, курага, сушёные абрикосы
+agribalyse_proxy_food_code:en:13001
+agribalyse_proxy_food_name:en:Apricot, pitted, dried
+agribalyse_proxy_food_name:fr:Abricot, dénoyauté, sec
 
 <en:Dried fruits
 en:Pitted dried apricots
@@ -48497,6 +49709,22 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Salts
+en:Irish salts
+fr:Sels irlandais
+
+<en:Irish salts
+en:Oriel Sea Salt
+protected_name_file_number:en: PDO-IE-01318
+protected_name_type:en: pdo
+origins:en: en:Ireland
+
+<en:Irish salts
+en:Oriel Sea Minerals
+protected_name_file_number:en: PDO-IE-01319
+protected_name_type:en: pdo
+origins:en: en:Ireland
+
+<en:Salts
 en:Portuguese salts
 fr:Sels portugais
 
@@ -49361,6 +50589,9 @@ fr:Piment vietnamien
 
 <en:Chili peppers
 fr:Piments d'Espelette, Piment d'Espelette, Ezpeletako biperra, Capsicum annuum L. Gorria
+protected_name_file_number:en: PDO-FR-9131
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Chili peppers
 fr:Piments jaunes, Piment jaune
@@ -49787,6 +51018,9 @@ nl:Muntsauzen
 
 <en:Sauces
 fr:Sauces andalouses, sauce andalouse
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Brown sauces
@@ -49840,11 +51074,17 @@ en:Samourai sauces
 es:Salsa Samourai
 fr:Sauces samouraï
 nl:Samouraisauzen
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Pita sauces
 fr:Sauces Pita
 nl:Pitasausen
+agribalyse_proxy_food_code:en:11196
+agribalyse_proxy_food_name:en:Burger sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 
 <en:Sauces
 en:Indian sauces
@@ -49996,6 +51236,12 @@ nl:Kaassauzen
 agribalyse_food_code:en:11189
 ciqual_food_code:en:11189
 ciqual_food_name:en:Cheese sauce for risotto or pasta, prepacked
+
+<en:Cheese sauces
+fr:Sauces 3 fromages
+
+<en:Cheese sauces
+fr:Sauces 4 fromages
 
 <en:Cheese sauces
 en:Roquefort sauces, Blue cheese sauce
@@ -55805,17 +57051,20 @@ fr:Salades préparées en conserve
 
 <en:Canned prepared salads
 en:Prepared and canned salad with meat
-fr:Salades composées en conserve à la viande
+fr:Salades composées en conserve à la viande, Salades de viande en conserve
 ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
 
 <en:Canned prepared salads
 en:Prepared and canned salad with fish
-fr:Salades composées en conserve au poisson
+fr:Salades composées en conserve au poisson, Salades de poisson en conserve
 agribalyse_food_code:en:25602
 ciqual_food_code:en:25602
 ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
+
+<en:Prepared and canned salad with fish
+fr:Salades de thon en conserve
 
 <en:Prepared salads
 fr:Salades nicoises
@@ -55994,16 +57243,16 @@ ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
 <en:Pasta salad with fish
-en:Surimi and pasta salads
-fr:Salades au surimi et aux pâtes
+en:Pasta salads with surimi, Surimi and pasta salads
+fr:Salades de pâtes au surimi, Salades au surimi et aux pâtes
 
 <en:Pasta salad with fish
-en:Salmon and pasta salads
-fr:Salades au saumon et aux pâtes
+en:Pasta salads with salmon, Salmon and pasta salads
+fr:Salades de pâtes au saumon, Salades au saumon et aux pâtes
 
 <en:Pasta salad with fish
-en:Tuna and pasta salads
-fr:Salades au thon et aux pâtes
+en:Pasta salad with tuna, Tuna and pasta salads
+fr:Salades de pâtes au thon, Salades au thon et aux pâtes
 
 <en:Pasta salads
 en:Pasta salad with meat, Prepared vegetable and pasta salad with meat
@@ -56014,8 +57263,8 @@ ciqual_food_name:en:Prepared pasta salad, with vegetable, meat or fish
 ciqual_food_name:fr:Salade de pâtes aux légumes, avec poisson ou viande
 
 <en:Pasta salad with meat
-en:Chicken and pasta salads
-fr:Salades au poulet et aux pâtes
+en:Pasta salad with chicken, Chicken and pasta salads
+fr:Salades de pâtes au poulet, Salades au poulet et aux pâtes
 
 <en:Pies
 en:Two-crust Pies, 2 crust pies
@@ -58082,9 +59331,12 @@ agribalyse_food_code:en:28477
 ciqual_food_code:en:28477
 ciqual_food_name:en:Pork, shoulder upper half, without rind, fat and bone, raw
 
+<en:Pork shoulder upper half without rind fat and bone
+fr:Palette de porc fumée
+
 <en:Pork
 en:Devilled pork shoulder in mustard sauce
-fr:Palette à la diable
+fr:Palette à la diable, Palette de porc à la diable
 ciqual_food_code:en:25200
 ciqual_food_name:en:Devilled pork shoulder in mustard sauce
 ciqual_food_name:fr:Palette à la diable
@@ -58533,7 +59785,12 @@ fi:Kalkkunanugetit
 fr:Nuggets de dinde
 nl:Kalkoennuggets
 
+<en:Poultries
+en:Quail
+fr:Caille
+
 <en:Cooked poultries
+<en:Quail
 en:Cooked quail with meat and skin
 fr:Caille cuite avec viande et peau
 agribalyse_food_code:en:36102
@@ -58541,7 +59798,7 @@ ciqual_food_code:en:36102
 ciqual_food_name:en:Quail, meat and skin, cooked
 ciqual_food_name:fr:Caille, viande et peau, cuite
 
-<en:Poultries
+<en:Quail
 en:quail meat and skin
 fr:Viande et peau de caille
 ciqual_food_code:en:36100
@@ -58668,7 +59925,7 @@ fr:Cuisses de canard confites
 
 <en:Ducks
 en:Duck leg meat with skin
-fr:Cuisse de canard avec peau desossée
+fr:Cuisse de canard desossée avec peau, Cuisse de canard avec peau desossée
 agribalyse_food_code:en:36203
 ciqual_food_code:en:36203
 ciqual_food_name:en:Duck, leg, meat and skin, raw
@@ -59110,7 +60367,12 @@ ciqual_food_name:en:Chicken, meat and skin, raw
 fr:Poulets fermiers
 
 <en:Chickens
+en:Whole chickens
 fr:Poulets entiers
+
+<en:Whole chickens
+<fr:Poulets fermiers
+fr:Poulets fermiers entiers
 
 <fr:Poulets fermiers
 fr:Poulets fermiers jaunes
@@ -59867,6 +61129,18 @@ agribalyse_food_code:en:28811
 ciqual_food_code:en:28811
 ciqual_food_name:en:Bayonne Cured ham, raw, smoked
 ciqual_food_name:fr:Jambon de Bayonne
+
+<en:Dried hams
+fr:Jambon sec de Corse, Prisuttu
+protected_name_file_number:en: PDO-FR-0993
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:Dried hams
+fr:Jambon sec des Ardennes, Noix de Jambon sec des Ardennes
+protected_name_file_number:en: PGI-FR-0101
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:French hams
 fr:Jambon d'Auvergne
@@ -60870,6 +62144,21 @@ en:Stornoway Black Pudding
 protected_name_file_number:en: PGI-GB-0876
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Black pudding
+en:Sneem Black Pudding
+protected_name_file_number:en: PGI-IE-02353
+protected_name_type:en: pgi
+origins:en: en:Ireland
+
+<fr:Boudins
+en:Brown puddings
+
+<en:Brown puddings
+en:Timoleague Brown Pudding
+protected_name_file_number:en: PGI-IE-0093
+protected_name_type:en: pgi
+origins:en: en:Ireland
 
 <en:Prepared meats
 fr:Charcuteries à cuire, charcuterie à cuire
@@ -62526,6 +63815,9 @@ fr:Tomme du Massif central, Tommes du Massif central
 <en:French cheeses
 fr:Tomme des Pyrénées, Tommes des Pyrénées
 country:en:France
+protected_name_file_number:en: PGI-FR-0176-AM01
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Vegetables based foods
 en:Mushrooms and their products, Fungi and their products
@@ -63466,6 +64758,45 @@ it:Vincisgrassi
 <en:Pasta
 it:Ziti
 
+<en:Pasta
+en:Italian pasta
+
+<en:Italian pasta
+it:Amatriciana tradizionale
+protected_name_file_number:en: TSG-IT-2390
+protected_name_type:en: tsg
+origins:en: en:Italy
+
+<en:Italian pasta
+it:Culurgionis d'Ogliastra
+protected_name_file_number:en: PGI-IT-01307
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian pasta
+it:Pizzoccheri della Valtellina
+protected_name_file_number:en: PGI-IT-01349
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian pasta
+it:Cappellacci di zucca ferraresi
+protected_name_file_number:en: PGI-IT-01324
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian pasta
+it:Maccheroncini di Campofilone
+protected_name_file_number:en: PGI-IT-0886
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian pasta
+it:Pasta di Gragnano
+protected_name_file_number:en: PGI-IT-0870
+protected_name_type:en: pgi
+origins:en: en:Italy
+
 <en:Pastas
 en:Udon
 de:Udon
@@ -63652,10 +64983,10 @@ es:Pastas de espelta integrales o semi-integrales
 nl:Volkorenpastas
 
 <en:Pastas
-en:Kamut pasta
-es:Pastas de kamut
-fr:Pâtes de kamut
-nl:Kamutpastas
+en:Khorasan pasta, Kamut pasta
+es:Pastas de trigo de Jorasán, Pastas de kamut
+fr:Pâtes de blé khorasan, Pâtes de kamut
+nl:Khorasantarwepastas, Kamutpastas
 
 <en:Pastas
 en:Corn pasta
@@ -64381,12 +65712,18 @@ fr:Tagliatelles aux champignons de Paris
 
 <en:Pasta dishes
 en:Pasta with meat
+fr:Pâtes à la viande
 
 <en:Pasta with meat
 en:Pasta with beef
+fr:Pâtes au boeuf
 
 <en:Pasta with meat
 en:Pasta with pork
+fr:Pâtes au porc
+
+<en:Pasta dishes
+fr:Coquillettes jambon-fromage, Coquillettes aux jambons et fromages
 
 <en:Pasta dishes
 en:Carbonara-style pasta
@@ -64421,9 +65758,11 @@ fr:tagliatelle à la bolognaise
 
 <en:Pasta dishes
 en:Pasta with fish
+fr:Pâtes au poisson
 
 <en:Pasta with fish
 en:Pasta with salmon
+fr:Pâtes au saumon
 
 <en:Pasta dishes
 en:Macaroni and cheese
@@ -64777,14 +66116,6 @@ agribalyse_food_code:en:24240
 ciqual_food_code:en:24240
 ciqual_food_name:en:Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr:Goûter sec fourré (sandwiché) parfum fruits
-
-<en:Biscuits and cakes
-en:Biscuit with a chocolate bar covering, Cookie with a chocolate bar covering
-fr:Biscuits avec tablette de chocolat, Biscuit sec avec tablette de chocolat
-agribalyse_food_code:en:24016
-ciqual_food_code:en:24016
-ciqual_food_name:en:Biscuit (cookie), covering with a chocolate bar
-# Petit Ecolier
 
 <en:Biscuits and cakes
 en:Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
@@ -65321,16 +66652,7 @@ ciqual_food_name:en:Fruit pie with confectioner's custard
 ciqual_food_name:fr:Tarte aux fruits et crème pâtissière
 
 <en:Sweet pies
-<en:Tartlets
-en:Fruit tarts
-fr:Tartelettes aux fruits
-agribalyse_food_code:en:23499
-ciqual_food_code:en:23499
-ciqual_food_name:en:Fruit tart
-ciqual_food_name:fr:Tarte ou tartelette aux fruits
-
-<en:Sweet pies
-en:Fruit pies
+en:Fruit tarts, Fruit pies
 fr:Tartes aux fruits
 agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
@@ -65519,6 +66841,11 @@ ciqual_food_name:en:Chocolate tart from bakery
 
 <en:Tartlets
 en:Fruit tartlets
+fr:Tartelettes aux fruits
+agribalyse_food_code:en:23499
+ciqual_food_code:en:23499
+ciqual_food_name:en:Fruit tart
+ciqual_food_name:fr:Tarte ou tartelette aux fruits
 
 <en:Fruit tartlets
 en:Blueberry tartlets
@@ -66307,6 +67634,22 @@ en:British sea products
 fr:Produits de la mer britanniques
 
 <en:Seafood
+en:Czech sea products
+fr:Produits de la mer tchèques
+
+<en:Czech sea products
+cs:Třeboňský kapr
+protected_name_file_number:en: PGI-CZ-0377
+protected_name_type:en: pgi
+origins:en: en:Czech Republic
+
+<en:Czech sea products
+cs:Pohořelický kapr
+protected_name_file_number:en: PDO-CZ-0360
+protected_name_type:en: pdo
+origins:en: en:Czech Republic
+
+<en:Seafood
 en:Hungarian sea products
 fr:Produits de la mer hongrois
 
@@ -66333,6 +67676,46 @@ hu:Akasztói szikiponty
 protected_name_file_number:en: PDO-HU-02410
 protected_name_type:en: pdo
 origins:en: en:Hungary
+
+<en:Seafood
+en:Italian sea products
+fr:Produits de la mer italiens
+
+<en:Italian sea products
+it:Colatura di alici di Cetara
+protected_name_file_number:en: PDO-IT-02440
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian sea products
+it:Cozza di Scardovari
+protected_name_file_number:en: PDO-IT-0981
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian sea products
+it:Trote del Trentino
+protected_name_file_number:en: PGI-IT-0965
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian sea products
+it:Salmerino del Trentino
+protected_name_file_number:en: PGI-IT-0964
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian sea products
+it:Acciughe sotto sale del mar Ligure
+protected_name_file_number:en: PGI-IT-0358
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Italian sea products
+it:Tinca Gobba Dorata del Pianalto di Poirino
+protected_name_file_number:en: PDO-IT-0357
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Fishes
 en:Tilapia
@@ -66606,6 +67989,17 @@ en:Fal Oyster
 protected_name_file_number:en: PDO-GB-0885
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+
+<en:Seafood
+en:Irish sea products
+fr:Produits de la mer irlandais
+
+<en:Irish sea products
+<en:Salmons
+ie:Clare Island Salmon
+protected_name_file_number:en: PGI-IE-0058
+protected_name_type:en: pgi
+origins:en: en:Ireland
 
 <en:Scallop
 en:Scallops with coral
@@ -67177,7 +68571,7 @@ ciqual_food_name:fr:Brochet, rôti/cuit au four
 
 <en:Fishes
 <en:skewers
-en:Fish on skewer
+en:Fish on skewer, Fish skewers
 fr:Brochettes de poisson
 agribalyse_food_code:en:25539
 ciqual_food_code:en:25539
@@ -67557,7 +68951,7 @@ ciqual_food_name:fr:Lieu ou colin d'Alaska, fumé
 
 <en:Pollocks
 en:Pollack
-fr:Lieu jaune cru, Colin
+fr:Lieu jaune, Colin, Lieu jaune cru
 agribalyse_food_code:en:26129
 ciqual_food_code:en:26129
 ciqual_food_name:en:Pollack, raw
@@ -67688,7 +69082,6 @@ fr:Filets de cabillaud
 it:Filetti di merluzzo
 nl:Kabeljauwfilets
 
-<en:Cod fillets
 <en:Breaded fish
 fr:Filets de cabillaud panés
 
@@ -67839,7 +69232,6 @@ it:Salmoni
 nl:Zalm
 pt:Salmões, salmão
 zh:三文鱼
-agribalyse_proxy_food_code:en:26036
 agribalyse_proxy_food_code:en:26036
 agribalyse_proxy_food_name:en:Salmon, raw, farmed
 
@@ -70695,6 +72087,9 @@ hu:Olajmagpürék
 it:Puree di oli di semi
 nl:Puree van oliehoudende zaden
 nl_be:Puree van oliehoudende zaden
+#agribalyse_proxy_food_code:en:15202
+#agribalyse_proxy_food_name:en:Peanut butter or peanut paste
+#agribalyse_proxy_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
 
 <en:Oilseed purees
 <en:Pumpkin seeds and their products
@@ -72266,6 +73661,30 @@ it:Carciofi
 la:Cynara scolymus
 nl:Artisjokken
 
+<en:Artichokes
+it:Carciofo Spinoso di Sardegna
+protected_name_file_number:en: PDO-IT-0687
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo Brindisino
+protected_name_file_number:en: PGI-IT-0798
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo Romanesco del Lazio
+protected_name_file_number:en: PGI-IT-0183
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Artichokes
+it:Carciofo di Paestum
+protected_name_file_number:en: PGI-IT-0226
+protected_name_type:en: pgi
+origins:en: en:Italy
+
 <en:French vegetables
 <en:Artichokes
 fr:Artichaut du Rousillon
@@ -72373,15 +73792,6 @@ fr:Asperges miniatures
 nl:Mini asperges
 
 <en:Asparagus
-en:Green asparagus
-de:Grüner Spargel
-es:Espárragos verdes
-fi:vihreä parsa
-fr:Asperges vertes
-it:Asparagi verdi
-nl:Groene asperges
-
-<en:Asparagus
 en:White asparagus
 de:Weißer Spargel, Weisser Spargel
 es:Espárragos blancos
@@ -72420,11 +73830,52 @@ nl:Violette asperges
 
 <en:Asparagus
 en:Green asparagus
+de:Grüner Spargel
+es:Espárragos verdes
+fi:vihreä parsa
 fr:Asperges vertes
+it:Asparagi verdi
+nl:Groene asperges
 agribalyse_food_code:en:20279
 ciqual_food_code:en:20279
 ciqual_food_name:en:Asparagus, green, raw
 ciqual_food_name:fr:Asperge, verte, crue
+
+<en:Green asparagus
+it:Asparago verde di Altedo
+protected_name_file_number:en: PGI-IT-0127-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago di Cantello
+protected_name_file_number:en: PGI-IT-01267
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago di Badoere
+protected_name_file_number:en: PGI-IT-0495-AM01, PGI-IT-0495
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago bianco di Cimadolmo
+protected_name_file_number:en: PGI-IT-0135
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago verde di Altedo
+protected_name_file_number:en: PGI-IT-0127
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Asparagus
+it:Asparago Bianco di Bassano
+protected_name_file_number:en: PDO-IT-0338
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Asparagus
 en:Wild asparagus
@@ -73995,6 +75446,49 @@ wikidata:en:Q373973
 fr:Pommes de terre Béa
 wikidata:en:Q2929373
 
+<en:Potatoes
+fi:Lapin Puikula
+fr:Pommes de terre de Laponie
+protected_name_file_number:en: PDO-FI-1390
+protected_name_type:en: pdo
+origins:en: en:Finland
+
+<en:Potatoes
+it:Patata del Fucino
+protected_name_file_number:en: PGI-IT-01217-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata novella di Galatina
+protected_name_file_number:en: PDO-IT-1148
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata Rossa di Colfiorito
+protected_name_file_number:en: PGI-IT-1236
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata del Fucino
+protected_name_file_number:en: PGI-IT-01217
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata di Bologna
+protected_name_file_number:en: PDO-IT-0349
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Potatoes
+it:Patata della Sila
+protected_name_file_number:en: PGI-IT-0643
+protected_name_type:en: pgi
+origins:en: en:Italy
+
 <fr:Pommes de terre Béa
 fr:Béa du Roussillon, pomme de terre primeur du Roussillon
 protected_name_file_number:en: PDO-FR-0548
@@ -74757,6 +76251,7 @@ nl:Tomaten
 pl:Pomidory
 pt:Tomates
 ru:Помидоры
+agribalyse_food_code:en:20047_3
 ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
@@ -75686,7 +77181,10 @@ fr:Haricots cocos blancs, Haricots cocos
 nl:Cocobonen
 
 <en:Coco white beans
-fr:Cocos de paimpol
+fr:Cocos de paimpol, Coco de Paimpol
+protected_name_file_number:en: PDO-FR-0062
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Common beans
 en:Canela beans
@@ -76669,6 +78167,9 @@ it:Aceto balsamico di Modena
 nl:Balsamico azijnen uit Modena
 country:en:Italy
 wikidata:en:Q3604285
+protected_name_file_number:en: PGI-IT-0430, PGI-IT-0430-AM01
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Balsamic vinegars
 en:Traditional Balsamic Vinegars, Aceto balsamico tradizionale
@@ -77204,6 +78705,12 @@ agribalyse_proxy_food_name:en:Olive, green, stuffed (anchovy, sweet peppers, etc
 agribalyse_proxy_food_name:fr:Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 # No Green or black olives in AGB. Only Stuffed olives.
 
+<en:Cracked olives
+fr:Olives cassées de la Vallée des Baux-de-Provence
+protected_name_file_number:en: PDO-FR-0051
+protected_name_type:en: pdo
+origins:en: en:France
+
 <en:Chopped olives
 <en:Green olives
 en:Green chopped olives, chopped green olives
@@ -77352,6 +78859,12 @@ fr:Olives noires dénoyautées
 it:Olive nere snocciolate
 nl:Zwarte ontpitte olijven
 ru:Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
+
+<en:Black olives
+fr:Olives noires de la Vallée des Baux-de-Provence
+protected_name_file_number:en: PDO-FR-0052
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olives
 en:Semi-ripe olives

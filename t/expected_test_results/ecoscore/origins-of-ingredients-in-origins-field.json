@@ -6,14 +6,14 @@
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
-               [
-                  "en:france",
-                  70
-               ],
-               [
-                  "en:martinique",
-                  30
-               ]
+               {
+                  "origin" : "en:france",
+                  "percent" : 70
+               },
+               {
+                  "origin" : "en:martinique",
+                  "percent" : 30
+               }
             ],
             "epi_score" : 65.146453829679,
             "epi_value" : 1.5146453829679,

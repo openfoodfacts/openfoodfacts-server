@@ -835,7 +835,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		
 		my $percent = $aggregated_origins{$origin_id};
 				
-		push @aggregated_origins, [ $origin_id, $percent ];
+		push @aggregated_origins, { origin => $origin_id, percent => $percent };
 		
 		if (not defined $ecoscore_data{origins}{$origin_id}{epi_score}) {
 			$log->error("compute_ecoscore_origins_of_ingredients_adjustment - missing epi_score", {  origin_id => $origin_id, origin_data => $ecoscore_data{origins}{$origin_id} } ) if $log->is_error();

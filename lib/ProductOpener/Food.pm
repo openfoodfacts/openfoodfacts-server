@@ -1219,6 +1219,8 @@ sub mmoll_to_unit {
 		de          => "Energie (kcal)",
 		el          => "Ενέργεια (kcal)",
 		en          => "Energy (kcal)",
+		en_synonyms =>
+			[ "kcal", "kilocalories" ],		
 		es          => "Energía (kcal)",
 		es_synonyms => ["Valor Energético (kcal)"],
 		et          => "Energia (kcal)",
@@ -1226,7 +1228,7 @@ sub mmoll_to_unit {
 		fi          => "Energia (kcal)",
 		fr          => "Énergie (kcal)",
 		fr_synonyms =>
-			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)" ],
+			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)", "kcal", "kilocalories" ],
 		ga    => "Fuinneamh (kcal)",
 		he    => "אנרגיה - קלוריות (kcal)",
 		hu    => "Energia (kcal)",
@@ -1751,6 +1753,8 @@ sub mmoll_to_unit {
 	},
 	'saturated-fat' => {
 		en => "Saturated fat",
+		en_synonyms =>
+			[ "Saturated fatty acids" ],
 		bg => "Наситени мастни киселини",
 		cs => "Nasycené mastné kyseliny",
 		da => "Mættede fedtsyrer",
@@ -2460,7 +2464,7 @@ sub mmoll_to_unit {
 	fiber => {
 		en => "Fibers",
 		en_synonyms =>
-			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers" ],
+			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers", "fibers aoac", "fibre", "fibres", "fibres aoac" ],
 		bg          => "Влакнини",
 		cs          => "Vláknina",
 		da          => "Kostfibre",
@@ -3706,7 +3710,8 @@ sub mmoll_to_unit {
 		en_synonyms => [
 			"Fruits and vegetables",
 			"Fruits, vegetables and nuts",
-			"Fruits, vegetables, nuts"
+			"Fruits, vegetables, nuts",
+			"Fruits, vegetables, pulses, nuts, and rapeseed, walnut and olive oils",
 		],
 		fi =>
 			"Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",

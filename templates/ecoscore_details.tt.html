@@ -3,58 +3,89 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h3>Score de référence : Analyse de cycle de vie (ACV)</h3>
+	<h3>Score de référence de la catégorie du produit</h3>
 
+	<div class="row">
+	<div class="small-12 columns">
+		<div class="panel" style="background-color:#dfd">
+	<h4>[% display_icon('lca') %] Analyse de cycle de vie (ACV)</h4>
 	<p>
-		<strong>Catégorie Agribalyse : [% agribalyse.agribalyse_food_name_fr %]</strong><br>
+		Catégorie <a href="https://fr.wikipedia.org/wiki/Agribalyse">Agribalyse</a> : <span style="border-bottom:1px dotted #ccc" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
-			(correspondance approchée avec la catégorie du produit)
+			Correspondance approchée avec la catégorie du produit
 		[% ELSE %]
-			(correspondance exacte avec la catégorie du produit)
+			Correspondance exacte avec la catégorie du produit
 		[% END %]
+		">
+		[% agribalyse.agribalyse_food_name_fr %]</span>
 	</p>
 	<p>
 		<strong>Score ACV sur 100 : [% round(agribalyse.score) %]</strong>
 	</p>
+	</div>
+	</div>
+	</div>
 
-	<h3>Bonus / Malus complémentaires</h3>
+	<h3>Bonus et malus complémentaires</h3>
 	
-	<h4>Mode de production</h4>
+	<div class="row" data-equalizer="ecoscore1">
+	
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore1" style="background-color:#dfd">
+	<h4>[% display_icon('agriculture') %] Mode de production</h4>
 	
 	[% IF adjustments.production_system.value %]
-		<p><strong>Bonus : [% adjustments.production_system.value %]</strong></p>
+		<p><strong>Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
 		<p>Pas de labels pris en compte pour le système de production.</p>
-	[% END %]	
+	[% END %]
+	</div>
+	</div>
 	
-	<h4>Origine des ingrédients</h4>
+	<div class="small-12 large-6 columns">	
+		 <div class="panel" data-equalizer-watch="ecoscore1" style="background-color:#dfd">
+	<h4>[% display_icon('public') %] Origine des ingrédients</h4>
 	
 	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
-		<p><strong>Origines :</strong></p>
 		<ul>
 			[% FOREACH origin IN adjustments.origins_of_ingredients.aggregated_origins %]
-				<li>[% display_taxonomy_tag("origins",origin.0) %]: [% round(origin.1) %]%</li>
+				<li>[% display_taxonomy_tag("origins",origin.origin) %]: [% round(origin.percent) %]%</li>
 			[% END %]
 		</ul>
 	[% END %]
 
 	<p>
-		<strong>Bonus / malus - Politique environnementale : [% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
-		<strong>Bonus / malus - Transport : [% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+		<strong>Politique environnementale : [% IF adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>Transport : [% IF adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
 	</p>
+	</div>
+	</div>
+	</div>
 	
-	<h4>Espèces menacées</h4>
+	<div class="row" data-equalizer="ecoscore2">
+	
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore2" style="background-color:#dfd">
+	<h4>[% display_icon('monkey_unhappy') %] Espèces menacées</h4>
 	
 	[% IF adjustments.threatened_species.value %]
-		<p><strong>Malus : [% adjustments.threatened_species.value %]</strong></p>
+		<p>Ingrédients dont la culture menace des espèces :</p>
+		<ul>
+			<li>[% display_taxonomy_tag("ingredients",adjustments.threatened_species.ingredient) %]</li>
+		</ul>
+		<p><strong>Espèces menacées : [% adjustments.threatened_species.value %]</strong></p>
 	[% ELSE %]
 		<p>Pas d'espèces menacées prises en compte.</p>
-	[% END %]	
+	[% END %]
+	</div>
+	</div>
 	
-	<h4>Emballage</h4>
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore2" style="background-color:#dfd">
+	
+	<h4>[% display_icon('packaging') %] Emballage</h4>
 	
 	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
-		<p><strong>Composants :</strong></p>
 		<ul>
 			[% FOREACH packaging IN adjustments.packaging.packagings %]
 				<li>
@@ -68,14 +99,18 @@
 		</ul>
 		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
 		
-		<p><strong>Malus : [% adjustments.packaging.value %]</strong></p>
+		<p><strong>Emballage : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	[% ELSE %]
 		<p>Les informations sur l'emballage sont manquantes, son impact n'a pas pu être pris en compte.</p>
 	[% END %]
 	
+	</div>
+	</div>
+	</div>
+	
 	<h3>Score final</h3>
 
-	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong></p>
-	<p><strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
+	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
+	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
 
 </div>

@@ -285,6 +285,33 @@ my $user_preferences;	# enables using user preferences to show a product summary
 
 =head1 FUNCTIONS
 
+=head2 process_template ( $template_filename , $template_data_ref , $result_content_ref )
+
+Add some functions and variables needed by many templates and process the template with template toolkit.
+
+=cut
+
+sub process_template($$$) {
+	
+	my $template_filename = shift;
+	my $template_data_ref = shift;
+	my $result_content_ref = shift;
+	
+	# Add functions and values that are passed to all templates
+
+	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{sep} = separator_before_colon($lc);
+	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{display_icon} = \&display_icon;
+	$template_data_ref->{display_date_tag} = \&display_date_tag;
+	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
+		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	};
+	
+	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
+}
+
+
 =head2 init ()
 
 C<init()> is called at the start of each new request (web page or API).
@@ -3656,64 +3683,54 @@ HTML
 			if ($user_or_org_ref->{name} ne '') {
 				$title = $user_or_org_ref->{name} || $tagid;
 				$products_title = $user_or_org_ref->{name};
+				$display_tag = $user_or_org_ref->{name};
 			}
 
-			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
-			}
+			# Display the user or organization profile
+			
+			my $template_data_ref = dclone($user_or_org_ref);
+						
+			my $profile_html = "";
 
-			else {
-
-				# Display the user or organization profile
+			if ($tagid =~ /^org-/) {
 				
-				my $template_data_ref = dclone($user_or_org_ref);
-				$template_data_ref->{admin} = $admin;
-				$template_data_ref->{sep} = separator_before_colon($lc);
-				$template_data_ref->{lang} = \&lang;
-				$template_data_ref->{display_icon} = \&display_icon;
-							
-				my $profile_html = "";
-
-				if ($tagid =~ /^org-/) {
-					
-					# Display the organization profile
-					
-					if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
-						$template_data_ref->{edit_profile} = 1;
-						$template_data_ref->{orgid} = $orgid;
-					}					
-					
-					$tt->process('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
-				}
-				else {
-					
-					# Display the user profile
-					
-					if (($tagid eq $User_id) or $admin) {
-						$template_data_ref->{edit_profile} = 1;
-						$template_data_ref->{userid} = $tagid;
-					}						
-					
-					$template_data_ref->{links} = [
-						{
-							text => sprintf(lang('editors_products'), $products_title),
-							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)),
-						},
-						{
-							text => sprintf(lang('photographers_products'), $products_title),
-							url => canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)),
-						},
-					];
-					
-					if (defined $user_or_org_ref->{registered_t}) {
-						$template_data_ref->{registered_t_display} = display_date_tag($user_or_org_ref->{registered_t});
-					}					
-					
-					$tt->process('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
-				}
-					
-				$description .= $profile_html;
+				# Display the organization profile
+				
+				if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
+					$template_data_ref->{edit_profile} = 1;
+					$template_data_ref->{orgid} = $orgid;
+				}					
+				
+				process_template('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
+			else {
+				
+				# Display the user profile
+				
+				if (($tagid eq $User_id) or $admin) {
+					$template_data_ref->{edit_profile} = 1;
+					$template_data_ref->{userid} = $tagid;
+				}						
+				
+				$template_data_ref->{links} = [
+					{
+						text => sprintf(lang('editors_products'), $products_title),
+						url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)),
+					},
+					{
+						text => sprintf(lang('photographers_products'), $products_title),
+						url => canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)),
+					},
+				];
+				
+				if (defined $user_or_org_ref->{registered_t}) {
+					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
+				}					
+				
+				process_template('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
+			}
+				
+			$description .= $profile_html;
 		}
 	}
 
@@ -6451,7 +6468,15 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
+		$content = "<p><strong>" . lang("username") . separator_before_colon($lc) . ":</strong> "
+		. "<a href=\"/editor/$User_id\" id=\"logged_in_user_id\">". $User_id . "</a><br>"
+		. '&rarr; <a href="/cgi/user.pl?type=edit&userid=' . $User_id . '">' . lang("edit_settings") . "</a></p>";
+		
+		if (defined $Org_id) {
+			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
+			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{org} . "</a><br>"
+			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
+		}		
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6482,15 +6507,22 @@ sub display_my_block($)
 HTML
 ;
 			}
-
-			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
-			}
-			else {
+			if (not defined $Org_id) {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
 			}
 		}
 		else {
+			
+			if (defined $Org_id) {
+				# Display a link to the producers platform
+				
+				my $producers_platform_url = $formatted_subdomain . '/';
+				$producers_platform_url =~ s/\.open/\.pro\.open/;
+				
+				$content .= "<p>" . lang("you_are_on_the_public_database") . "<br>"
+				. '<a href="' . $producers_platform_url . '">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>";
+			}
+			
 			$links = '<ul class="side-nav" style="padding-top:0">';
 			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
 			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
@@ -6498,17 +6530,11 @@ HTML
 		}
 
 		$content .= <<HTML
-<ul class="button-group">
-<li>
-	<form method="post" action="/cgi/session.pl">
-	<input type="hidden" name="length" value="logout">
-	<input type="submit" name=".submit" value="$signout" class="button small">
-	</form>
-</li>
-<li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem">@{[ display_icon('settings') ]}</a>
-</li>
-</ul>
+<form method="post" action="/cgi/session.pl">
+<input type="hidden" name="length" value="logout">
+<input type="submit" name=".submit" value="$signout" class="button small">
+</form>
+
 $links
 HTML
 ;
@@ -6883,12 +6909,12 @@ sub display_new($) {
 	$template_data_ref->{lc} = $lc;
 
 	if (not($server_options{producers_platform})
-	and ((not (defined cookie('hide_image_banner')))
-	or (not (cookie('hide_image_banner') eq '1')))) {
+	and ((not (defined cookie('hide_image_banner_2020')))
+	or (not (cookie('hide_image_banner_2020') eq '1')))) {
 		$template_data_ref->{banner} = $banner;
 
 		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner') == '1') {
+if ($.cookie('hide_image_banner_2020') == '1') {
 	$('#hide_image_banner').prop('checked', true);
 	$('#donate_banner').remove();
 }
@@ -6897,7 +6923,7 @@ else {
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+			$.cookie('hide_image_banner_2020', '1', { expires: 90, path: '/' });
 			$('#donate_banner').remove();
 		}
 	});
@@ -7461,20 +7487,19 @@ sub display_product($)
 	my $description = "";
 
 	my $template_data_ref = {
-		lang => \&lang,
 		request_ref => $request_ref,
-		display_icon => \&display_icon,
-		display_taxonomy_tag => sub ($$) {
-			return display_taxonomy_tag($lc, $_[0], $_[1]);
-		},
 	};
 
-		$scripts .= <<SCRIPTS
+	$scripts .= <<SCRIPTS
 <script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
+	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
+\$('.f-dropdown').on('opened.fndtn.dropdown', function() {
+   \$(document).foundation('equalizer', 'reflow');
+});
 JS
 ;
 
@@ -7659,11 +7684,9 @@ CSS
 
 	# photos and data sources
 
-	my $html_manufacturer_source = ""; # Displayed at the top of the product page
-
 	if (defined $product_ref->{sources}) {
 
-		$template_data_ref->{product_sources} = $product_ref->{sources};
+		$template_data_ref->{unique_sources} = [];
 
 		my %unique_sources = ();
 
@@ -7672,33 +7695,26 @@ CSS
 		}
 		foreach my $source_id (sort keys %unique_sources) {
 			my $source_ref = $unique_sources{$source_id};
-			my $lang_source = $source_ref->{id};
-			$lang_source =~ s/-/_/g;
-			push @{$template_data_ref->{sources}}, {
-				lang_id => $lang_source,
-				url => $source_ref->{url},
-			};
-
-			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
-				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			
+			if (not defined $source_ref->{name}) {
+				$source_ref->{name} = $source_id;
 			}
-			elsif ((defined $source_ref->{collaboration}) and ($source_ref->{collaboration} == 1)) {
-				$html_manufacturer_source = "<p>" . sprintf(lang("sources_collaboration"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
-			}
+			
+			push @{$template_data_ref->{unique_sources}}, $source_ref;
 		}
 	}
 
 	# If the product has an owner, identify it as the source
-	if (defined $product_ref->{owner}) {
-
-		# TODO: use org profile if it exists
-		my $owner_name = $product_ref->{owner};
-		$owner_name =~ s/^org-//;
-
-		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
+	if ((not $server_options{producers_platform}) and (defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-/)) {
+			
+		# Organization
+		my $orgid = $';
+		my $org_ref = retrieve_org($orgid);
+		if (defined $org_ref) {
+			$template_data_ref->{owner} = $product_ref->{owner};
+			$template_data_ref->{owner_org} = $org_ref;
+		}
 	}
-
-	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
 
 	my $minheight = 0;
 	my $front_image = display_image_box($product_ref, 'front', \$minheight);
@@ -8105,7 +8121,9 @@ HTML
 	}
 	
 	# Forest footprint
-	if ($User{moderator}) {
+	# 2020-12-07 - We currently display the forest footprint in France 
+	# and for moderators so that we can extend it to other countries
+	if (($cc eq "fr") or ($User{moderator})) {
 		# Forest footprint data structure
 		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
 	}
@@ -8253,7 +8271,7 @@ JS
 	}
 
 	my $html_display_product;
-	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
+	process_template('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
 
 	$request_ref->{content_ref} = \$html;
@@ -10781,21 +10799,15 @@ sub display_ecoscore_calculation_details($) {
 
 	my $template_data_ref = dclone($ecoscore_data_ref);
 	
-	$template_data_ref->{lang} = \&lang;
-	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
-		return display_taxonomy_tag($lc, $_[0], $_[1]);
-	};
-	
 	my $decf = get_decimal_formatter($lc);
 	$template_data_ref->{round} = sub($) {
 		return sprintf ("%.0f", $_[0]);
 	};
-	$template_data_ref->{sep} = separator_before_colon($lc);
 
 	# Eco-score Calculation Template
 
 	my $html;
-	$tt->process('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

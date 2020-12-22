@@ -893,6 +893,23 @@ HTML
 ;
 
 
+	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
+	 and (defined $Org_id)) {
+
+		# Display a link to the producers platform
+		
+		my $producers_platform_url = $formatted_subdomain . '/';
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
+		
+		$html .= '<div class="panel callout">'
+		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
+		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_import") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_analysis") . " " . lang("product_edits_by_producers_indicators"). "</p>"
+		. '<p><a href="' . $producers_platform_url . '" class="button">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>"
+		. "</div>";
+	}
+
 	if ($#errors >= 0) {
 		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
