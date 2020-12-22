@@ -30,21 +30,17 @@
 				</div>
 					
 				<div style="float:left;margin-right:1em;">
-					
 					<button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button dropdown small secondary">
 						[% display_icon('sort_arrows') %]
 						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_${sort_by}") %]</span>
 					</button>
 					<ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
-						<li><a href="[% current_link %]?sort_by=popularity">[% lang("sort_by_popularity") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=nutriscore_score">[% lang("sort_by_nutriscore_score") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=ecoscore_score">[% lang("sort_by_ecoscore_score") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=created_t">[% lang("sort_by_created_t") %]</a></li>
-						<li><a href="[% current_link %]?sort_by=last_modified_t">[% lang("sort_by_last_modified_t") %]</a></li>
+						[% FOREACH sort_option IN sort_options %]
+							<li><a href="[% sort_option.link %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value %]', { expires: 180, path: '/' });">[% sort_option.name %]</a></li>
+						[% END %]
 					</ul>
 					
 				</div>
-
         
         [% IF current_link.defined %]
 

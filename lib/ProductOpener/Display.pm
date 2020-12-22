@@ -4536,10 +4536,15 @@ sub search_and_display_products($$$$$) {
 	my $sort_ref = Tie::IxHash->new();
 
 	# Use the sort order provided by the query if it is defined (overrides default sort order)
-
+	# e.g. ?sort_by=popularity
 	if (defined $request_ref->{sort_by}) {
 		$sort_by = $request_ref->{sort_by};
 		$log->debug("sort_by was passed through request_ref", { sort_by => $sort_by }) if $log->is_debug();
+	}
+	# otherwise use the sort order from the last_sort_by cookie
+	elsif (defined cookie('last_sort_by')) {
+		$sort_by = cookie('last_sort_by');
+		$log->debug("sort_by was passed through last_sort_by cookie", { sort_by => $sort_by }) if $log->is_debug();
 	}
 	elsif (defined $sort_by) {
 		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
@@ -4557,13 +4562,10 @@ sub search_and_display_products($$$$$) {
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 		
-		if ($sort_by =~ /^((.*)_t)_complete_first/) {
-			$order = -1;
-		}
-		elsif ($sort_by =~ /_t/) {
-			$order = -1;
-		}
-		elsif ($sort_by =~ /scans_n/) {
+		if ($sort_by eq 'last_modified_t_complete_first') {
+			# replace last_modified_t_complete_first (used on front page of a country) by popularity
+			$sort_by = 'popularity';
+			$sort_by_key = "popularity_key";
 			$order = -1;
 		}
 		elsif ($sort_by eq "popularity") {
@@ -4583,11 +4585,35 @@ sub search_and_display_products($$$$$) {
 		elsif ($sort_by eq "nova_score") {
 			$sort_by_key = "nova_score_opposite";
 			$order = -1;
-		}		
+		}
+		elsif ($sort_by =~ /^((.*)_t)_complete_first/) {
+			$order = -1;
+		}
+		elsif ($sort_by =~ /_t/) {
+			$order = -1;
+		}
+		elsif ($sort_by =~ /scans_n/) {
+			$order = -1;
+		}
 
 		$sort_ref->Push($sort_by_key => $order);
 	}
-
+	
+	# Sort options
+	
+	$template_data_ref->{sort_options} = [];
+	
+	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
+	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
+	
+	# Show Eco-score sort only for moderators
+	if ($User{moderator}) {
+		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+	}
+	
+	push @{$template_data_ref->{sort_options}}, { value => "created_t", link => $request_ref->{current_link} . "?sort_by=created_t", name => lang("sort_by_created_t") };
+	push @{$template_data_ref->{sort_options}}, { value => "last_modified_t", link => $request_ref->{current_link} . "?sort_by=last_modified_t", name => lang("sort_by_last_modified_t") };
+	
 	my $count;
 	my $page_count;
 
