@@ -162,7 +162,7 @@ foreach my $tagtype (@search_ingredient_classes) {
 	$search_ingredient_classes_checked{$tagtype} = { $search_ingredient_classes{$tagtype} => 'checked="checked"' };
 }
 
-for (my $i = 0; $i < $nutriments_n ; $i++) {
+for (my $i = 0; defined param("nutriment_$i") ; $i++) {
 
 	my $nutriment = remove_tags_and_quote(decode utf8=>param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8=>param("nutriment_compare_$i"));
@@ -337,7 +337,7 @@ if ($action eq 'display') {
 		},
 	];
 	
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
+	for (my $i = 0; ($i < $nutriments_n) or (defined param("nutriment_$i")) ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
@@ -560,7 +560,7 @@ elsif ($action eq 'process') {
 
 	# Nutriments
 
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
+	for (my $i = 0; (defined $search_nutriments[$i]) ; $i++) {
 
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 

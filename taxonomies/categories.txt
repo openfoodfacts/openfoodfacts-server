@@ -19365,7 +19365,7 @@ protected_name_file_number:en: PDO-IT-A0469
 protected_name_type:en: pdo
 origins:en: en:Italy
 
-<en:Italian oils and fats
+<en:Wines from Italy
 it:Garda
 protected_name_file_number:en: PDO-IT-1516
 protected_name_type:en: pdo
@@ -41062,6 +41062,19 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Vegetable oils
+en:Vegetable oil sprays
+
+<en:Vegetable oil sprays
+<en:Olive tree products
+en:Olive oil sprays
+
+<en:Vegetable oils
+<en:Olive tree products
+en:Flavoured olive oils
+fr:Huiles d'olive aromatisées
+nl:Gearomatiseerde olijfolies
+
+<en:Vegetable oils
 <en:Olive tree products
 en:Olive oils
 ca:Olis d'oliva
@@ -41086,6 +41099,16 @@ agribalyse_proxy_food_name:en:Olive oil, extra virgin
 agribalyse_proxy_food_name:fr:Huile d'olive vierge extra
 
 <en:Olive oils
+en:Virgin olive oils
+de:Native Olivenöle, Natives Olivenöl
+es:Aceites de oliva virgen, Aceites de oliva vírgenes
+fi:neitsytoliiviöljyt
+fr:Huiles d'olive vierges
+hu:Szűz olívaolajok, Szűz olívaolaj
+it:Olio vergine di oliva
+nl:Virgin olijfoliën
+
+<en:Virgin olive oils
 en:Extra-virgin olive oils, Extra virgin olive oil
 ca:Oli d'oliva verge extra
 de:Native Olivenöle Extra, Natives Olivenöl Extra
@@ -41120,63 +41143,53 @@ it:Olio d'oliva raffinato
 nl:Graffineerde olijfoliën
 
 <en:Olive oils
-en:Virgin olive oils
-de:Native Olivenöle, Natives Olivenöl
-es:Aceites de oliva virgen, Aceites de oliva vírgenes
-fi:neitsytoliiviöljyt
-fr:Huiles d'olive vierges
-hu:Szűz olívaolajok, Szűz olívaolaj
-it:Olio vergine di oliva
-nl:Virgin olijfoliën
-
-<en:Olive oils
-en:Olive oils from France
+en:Olive oils from France, French olive oils, Olive oil from France, French olive oil
 de:Olivenöle aus Frankreich, Französische Olivenöle
 es:Aceites de oliva de Francia
-fi:ranskalaiset oliiviöljyt
+fi:Ranskalaiset oliiviöljyt
 fr:Huiles d'olive de France
 hu:Olívaolajok Franciaországból
 it:Olio d'oliva francese
-nl:Franse olijfoliën
+nl:Olijfoliën uit Frankrijk, Olijfolies uit Frankrijk, Franse olijfoliën, Franse olijfolies
 country:en:France
 
 <en:Olive oils from France
-en:Olive oil from Aix-en-Provence
+en:Olive oils from Aix-en-Provence, Olive oil from Aix-en-Provence
 fr:Huile d'olive d'Aix-en-Provence
-nl:Olijfoliën uit Aix-en-Provence
+nl:Olijfoliën uit Aix-en-Provence, Olijfolies uit Aix-en-Provence
 protected_name_file_number:en: PDO-FR-9111
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Corsica
+en:Olive oils from Corsica, Olive oil from Corsica
 de:Korsisches Olivenöl
 fr:Huile d'olive de Corse, Oliu di Corsica
-nl:Corsicaanse olijfoliën
+nl:Olijfoliën uit Corsica, Corsicaanse olijfoliën, Olijfolies uit Corsica
 protected_name_file_number:en: PDO-FR-0428
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Haute-Provence
-fr:Huile d'olive de Haute-Provence
-nl:Olijfoliën uit de Haute-Provence
+en:Olive oils from Haute-Provence, Olive oil from Haute-Provence
+fr:Huiles d'olive de Haute-Provence
+nl:Olijfoliën uit de Haute-Provence, Olijfolies uit de Haute-Provence
 protected_name_file_number:en: PDO-FR-0110
 protected_name_type:en: pdo
 origins:en: en:France, fr:Haute-Provence
 
 <en:Olive oils from France
-en:Olive oil from Vallée des Baux-de-Provence
-fr:Huile d'olive de la Vallée des Baux-de-Provence
-nl:Olijfoliën uit de vallei van Baux-de-Provence
+en:Olive oils from Vallée des Baux-de-Provence, Olive oil from Vallée des Baux-de-Provence
+fr:Huiles d'olive de la Vallée des Baux-de-Provence
+nl:Olijfoliën uit de vallei van Baux-de-Provence, Olijfolies uit de vallei van Baux-de-Provence
 protected_name_file_number:en: PDO-FR-0050
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
-en:Olive oil from Nice
-fr:Huile d'olive de Nice
-nl:Olijfoliën uit Nice
+en:Olive oils from Nice, Olive oil from Nice
+fr:Huiles d'olive de Nice
+nl:Olijfoliën uit Nice, Olijfolies uit Nice
 protected_name_file_number:en: PDO-FR-0322
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nice
@@ -41184,7 +41197,7 @@ origins:en: en:France, fr:Nice
 <en:Olive oils from France
 en:Olive oil from Nîmes
 fr:Huile d'olive de Nîmes
-nl:Olijfoliën uit Nîmes
+nl:Olijfoliën uit Nîmes, Olijfolies uit Nîmes
 protected_name_file_number:en: PDO-FR-0441
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nîmes
@@ -41192,26 +41205,923 @@ origins:en: en:France, fr:Nîmes
 <en:Olive oils from France
 en:Olive oil from Nyons
 fr:Huile d'olive de Nyons
-nl:Olijfoliën uit Nyons
+nl:Olijfoliën uit Nyons, Olijfolies uit Nyons
 protected_name_file_number:en: PDO-FR-0142
 protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Olive oils from France
 fr:Huile d'olive de Provence
+nl:Olijfoliën uit de Provence, Olijfolies uit de Provence, Provençaalse olijfolies, Provençaalse olijfoliën
 protected_name_file_number:en: PDO-FR-02421
 protected_name_type:en: pdo
 origins:en: en:France
 
+############ ITALIAN OLIVE OILS
+
 <en:Olive oils
-en:Olive oils from Italy
+en:Olive oils from Italy, Italian olive oils, Olive oil from Italy, Italian olive oil
 de:Olivenöle von Italien
 fi:Italialaiset oliiviöljyt
 fr:Huiles d'olive d'Italie
 hu:Olívaolajok Olaszországból
 it:Oli d'oliva dall'Italia
-nl:Olijfolie uit Italië
-country:en:Italy
+nl:Olijfoliën uit Italië, Olijfolies uit Italië, Italiaanse olijfolies, Italiaanse olijfoliën
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Alto Crotonese
+fr:Huiles d'olive de Alto Crotonese
+it:Olio di oliva Alto Crotonese, Alto Crotonese
+nl:Olijfoliën uit Alto Crotonese, Olijfolies uit Alto Crotonese
+protected_name_file_number:en: PDO-IT-0200
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Aprutino Pescarese
+fr:Huiles d'olive de Aprutino Pescarese
+it:Olio di oliva Aprutino Pescarese, Aprutino Pescarese
+nl:Olijfoliën uit Aprutino Pescarese, Olijfolies uit Aprutino Pescarese
+protected_name_file_number:en: PDO-IT-1526-AM05
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Brisighella
+fr:Huiles d'olive de Brisighella
+it:Olio di oliva Brisighella, Brisighella
+nl:Olijfoliën uit Brisighella, Olijfolies uit Brisighella
+protected_name_file_number:en: PDO-IT-1513
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Bruzio
+fr:Huiles d'olive de Bruzio
+it:Olio di oliva Bruzio, Bruzio
+nl:Olijfoliën uit Bruzio, Olijfolies uit Bruzio
+protected_name_file_number:en: PDO-IT-1518
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Canino
+fr:Huiles d'olive de Canino
+it:Olio di oliva Canino, Canino
+nl:Olijfoliën uit Canino, Olijfolies uit Canino
+protected_name_file_number:en: PDO-IT-1506
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Cartoceto
+fr:Huiles d'olive de Cartoceto
+it:Olio di oliva Cartoceto, Cartoceto
+nl:Olijfoliën uit Cartoceto, Olijfolies uit Cartoceto
+protected_name_file_number:en: PDO-IT-1513
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Chianti Classico
+fr:Huiles d'olive de Chianti Classico
+it:Olio di oliva Chianti Classico
+nl:Olijfoliën uit Chianti Classico, Olijfolies uit Chianti Classico
+protected_name_file_number:en: PDO-IT-0108-AM03
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Cilento
+fr:Huiles d'olive de Cilento
+it:Olio di oliva Cilento
+nl:Olijfoliën uit Cilento, Olijfolies uit Cilento
+protected_name_file_number:en: PDO-IT-1547
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Collina di Brindisi
+fr:Huiles d'olive de Collina di Brindisi
+it:Olio di oliva Collina di Brindisi, Collina di Brindisi
+nl:Olijfoliën uit Collina di Brindisi, Olijfolies uit Collina di Brindisi
+protected_name_file_number:en: PDO-IT-1508
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Colline Pontine
+fr:Huiles d'olive de Colline Pontine
+it:Olio di oliva Colline Pontine, Colline Pontine
+nl:Olijfoliën uit Colline Pontine, Olijfolies uit Colline Pontine
+protected_name_file_number:en: PDO-IT-0499
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Colline di Romagna
+fr:Huiles d'olive de Colline di Romagna
+it:Olio di oliva Colline di Romagna, Colline di Romagna
+nl:Olijfoliën uit Colline di Romagna, Olijfolies uit Colline di Romagna
+protected_name_file_number:en: PDO-IT-0211
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Colline Salernitane
+fr:Huiles d'olive de Colline Salernitane
+it:Olio di oliva Colline Salernitane, Colline Salernitane
+nl:Olijfoliën uit Colline Salernitane, Olijfolies uit Colline Salernitane
+protected_name_file_number:en: PDO-IT-1545
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Colline Teatine
+fr:Huiles d'olive de Colline Teatine
+it:Olio di oliva Colline Teatine
+nl:Olijfoliën uit Colline Teatine, Olijfolies uit Colline Teatine
+protected_name_file_number:en: PDO-IT-1541
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Dauno
+fr:Huiles d'olive de Dauno
+it:Olio di oliva Dauno, Dauno
+nl:Olijfoliën uit Dauno, Olijfolies uit Dauno
+protected_name_file_number:en: PDO-IT-1517
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+en:Olive oils from Irpinia - Colline dell'Ufita
+fr:Huiles d'olive de Irpinia - Colline dell'Ufita
+it:Olio di oliva Irpinia - Colline dell'Ufita, Irpinia - Colline dell'Ufita, Colline dell'Ufita
+nl:Olijfoliën uit Irpinia - Colline dell'Ufita, Olijfolies uit Irpinia - Colline dell'Ufita
+protected_name_file_number:en: PDO-IT-0500
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Laghi Lombardi
+fr:Huiles d'olive de Laghi Lombardi
+it:Olio di oliva Laghi Lombardi, Laghi Lombardi
+nl:Olijfoliën uit Laghi Lombardi, Olijfolies uit Laghi Lombardi
+protected_name_file_number:en: PDO-IT-1543
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Lametia
+fr:Huiles d'olive de Lametia
+it:Olio di oliva Lametia, Lametia
+nl:Olijfoliën uit Lametia, Olijfolies uit Lametia
+protected_name_file_number:en: PDO-IT-0068
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Lucca
+fr:Huiles d'olive de Lucca
+it:Olio di oliva Lucca, Lucca
+nl:Olijfoliën uit Lucca, Olijfolies uit Lucca
+protected_name_file_number:en: PDO-IT-0199
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Marche
+fr:Huiles d'olive de Marche
+it:Olio di oliva Marche
+nl:Olijfoliën uit Marche, Olijfolies uit Marche
+protected_name_file_number:en: PGI-IT-01338
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Molise
+fr:Huiles d'olive de Molise
+it:Olio di oliva Molise
+nl:Olijfoliën uit Molise, Olijfolies uit Molise
+protected_name_file_number:en: PDO-IT-0166
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Monte Etna
+fr:Huiles d'olive de Monte Etna
+it:Olio di oliva Monte Etna, Monte Etna
+nl:Olijfoliën uit Monte Etna, Olijfolies uit Monte Etna
+protected_name_file_number:en: PDO-IT-0060-AM01
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Monti Iblei
+fr:Huiles d'olive de Monti Iblei
+it:Olio di oliva Monti Iblei, Monti Iblei
+nl:Olijfoliën uit Monti Iblei, Olijfolies uit Monti Iblei
+protected_name_file_number:en: PDO-IT-1521-AM03
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Olio lucano, Olio lucano
+fr:Huiles d'olive de Olio lucano, Olio lucano
+it:Olio di oliva Olio lucano, Olio lucano
+nl:Olijfoliën uit Olio lucano, Olijfolies uit Olio lucano, Olio lucano
+protected_name_file_number:en: PGI-IT-02458
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Olio di Calabria, Olio di Calabria
+fr:Huiles d'olive de Olio di Calabria, Olio di Calabria
+it:Olio di oliva Olio di Calabria, Olio di Calabria
+nl:Olijfoliën uit Olio di Calabria, Olijfolies uit Olio di Calabria, Olio di Calabria
+protected_name_file_number:en: PGI-IT-01314
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Olio di Puglia
+fr:Huiles d'olive de Olio di Puglia
+it:Olio di oliva Olio di Puglia, Olio di Puglia
+nl:Olijfoliën uit Olio di Puglia, Olijfolies uit Olio di Puglia
+protected_name_file_number:en: PGI-IT-02381
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Olio di Roma
+fr:Huiles d'olive de Olio di Roma
+it:Olio di oliva Olio di Roma, Olio di Roma
+nl:Olijfoliën uit Olio di Roma, Olijfolies uit Olio di Roma
+protected_name_file_number:en: PGI-IT-02453
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Penisola Sorrentina
+fr:Huiles d'olive de Penisola Sorrentina
+it:Olio di oliva Penisola Sorrentina
+nl:Olijfoliën uit Penisola Sorrentina, Olijfolies uit Penisola Sorrentina
+protected_name_file_number:en: PDO-IT-1546
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Pretuziano delle Colline Teramane
+fr:Huiles d'olive de Pretuziano delle Colline Teramane
+it:Olio di oliva Pretuziano delle Colline Teramane, Pretuziano delle Colline Teramane
+nl:Olijfoliën uit Pretuziano delle Colline Teramane, Olijfolies uit Pretuziano delle Colline Teramane
+protected_name_file_number:en: PDO-IT-0174
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Riviera Ligure
+fr:Huile d'olive de Riviera Ligure
+it:Olio di oliva Riviera Ligure, Riviera Ligure
+nl:Olijfoliën uit Riviera Ligure, Olijfolies uit Riviera Ligure
+protected_name_file_number:en: PDO-IT-1540-AM02, PDO-IT-1540
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Sabina
+fr:Huiles d'olive de Sabina
+it:Olio di oliva Sabina, Sabina
+nl:Olijfoliën uit Sabina, Olijfolies uit Sabina
+protected_name_file_number:en: PDO-IT-1511
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Sardegna
+fr:Huiles d'olive de Sardegna
+it:Olio di oliva Sardegna, Sardegna
+nl:Olijfoliën uit Sardegna, Olijfolies uit Sardegna
+protected_name_file_number:en: PDO-IT-0284
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Seggiano
+fr:Huile d'olive de Seggiano
+it:Olio di oliva Seggiano, Seggiano
+nl:Olijfoliën uit Seggiano, Olijfolies uit Seggiano
+protected_name_file_number:en: PDO-IT-0561
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Sicilia
+fr:Huile d'olive de Sicilia
+it:Olio di oliva Sicilia
+nl:Olijfoliën uit Sicilia, Olijfolies uit Sicilia
+protected_name_file_number:en: PGI-IT-01305
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Tergeste
+fr:Huile d'olive de Tergeste
+it:Olio di oliva Tergeste, Tergeste
+nl:Olijfoliën uit Tergeste, Olijfolies uit Tergeste
+protected_name_file_number:en: PDO-IT-0256
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Terre Aurunche
+fr:Huile d'olive de Terre Aurunche
+it:Olio di oliva Terre Aurunche, Terre Aurunche
+nl:Olijfoliën uit Terre Aurunche, Olijfolies uit Terre Aurunche
+protected_name_file_number:en: PDO-IT-0571
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Terra di Bari
+fr:Huile d'olive Terra di Bari
+it:Olio di oliva di Terra di Bari
+nl:Olijfoliën uit Terra di Bari
+protected_name_file_number:en: PDO-IT-1542
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Terre di Siena
+fr:Huile d'olive Terre di Siena
+it:Olio di oliva di Terre di Siena
+nl:Olijfoliën uit Terre di Siena, Olijfolies uit Terre di Siena
+protected_name_file_number:en: PDO-IT-0109
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Terra d'Otranto
+fr:Huile d'olive Terra d'Otranto
+it:Olio di oliva di Terra d'Otranto
+nl:Olijfoliën uit Terra d'Otranto, Olijfolies ui Terra d'Otranto
+protected_name_file_number:en: PDO-IT-1519
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Terre Tarentine
+fr:Huile d'olive de Terre Tarentine
+it:Olio di oliva Terre Tarentine, Terre Tarentine
+nl:Olijfoliën uit Terre Tarentine, Olijfolies uit Terre Tarentine
+protected_name_file_number:en: PDO-IT-0259
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Toscano
+fr:Huile d'olive de Toscano
+it:Olio di oliva Toscano
+nl:Olijfoliën uit Toscano, Olijfolies uit Toscano
+protected_name_file_number:en: PGI-IT-1512
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Tuscia
+fr:Huile d'olive de Tuscia
+it:Olio di oliva Tuscia, Tuscia
+nl:Olijfoliën uit Tuscia, Olijfolies uit Tuscia
+protected_name_file_number:en: PDO-IT-0210
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Umbria
+fr:Huile d'olive de Umbria
+it:Olio di oliva Umbria, Umbria
+nl:Olijfoliën uit Umbria, Olijfolies uit Umbria
+protected_name_file_number:en: PDO-IT-1520
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Valdemone
+fr:Huile d'olive de Valdemone
+it:Olio di oliva Valdemone, Valdemone
+nl:Olijfoliën uit Valdemone, Olijfolies uit Valdemone
+protected_name_file_number:en: PDO-IT-0218
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Val di Mazara
+fr:Huile d'olive de Val di Mazara
+it:Olio di oliva Val di Mazara, Val di Mazara
+nl:Olijfoliën uit Val di Mazara, Olijfolies uit Val di Mazara
+protected_name_file_number:en: PDO-IT-0061
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Valle del Belice
+fr:Huile d'olive de Valle del Belice
+it:Olio di oliva Valle del Belice, Valle del Belice
+nl:Olijfoliën uit Valle del Belice, Olijfolies uit Valle del Belice
+protected_name_file_number:en: PDO-IT-0258
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Valli Trapanesi
+fr:Huile d'olive de Valli Trapanesi
+it:Olio di oliva Valli Trapanesi, Valli Trapanesi
+nl:Olijfoliën uit Valli Trapanesi, Olijfolies uit Valli Trapanesi
+protected_name_file_number:en: PDO-IT-1510
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Veneto
+fr:Huile d'olive de Veneto
+it:Olio di oliva Veneto
+nl:Olijfoliën uit Veneto
+protected_name_file_number:en: PDO-IT-9067
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Veneto
+en:Olive oils from Veneto Valpolicella
+fr:Huile d'olive de Veneto Valpolicella
+it:Olio di oliva Veneto Valpolicella, Veneto Valpolicella
+nl:Olijfoliën uit Veneto Valpolicella, Olijfolies uit Veneto Valpolicella
+protected_name_file_number:en: PDO-IT-9067
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Veneto
+en:Olive oils from Veneto Euganei e Berici
+fr:Huile d'olive de Veneto Euganei e Berici
+it:Olio di oliva Veneto Euganei e Berici, Veneto Euganei e Berici
+nl:Olijfoliën uit Veneto Euganei e Berici, Olijfolies uit Veneto Euganei e Berici
+protected_name_file_number:en: PDO-IT-9067
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Veneto
+en:Olive oils from Veneto del Grappa
+fr:Huile d'olive de Veneto del Grappa
+it:Olio di oliva Veneto del Grappa, Veneto del Grappa
+nl:Olijfoliën uit Veneto del Grappa, Olijfolies uit Veneto del Grappa
+protected_name_file_number:en: PDO-IT-9067
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils from Italy
+en:Olive oils from Vulture
+fr:Huile d'olive de Vulture
+it:Olio di oliva Vulture, Vulture
+nl:Olijfoliën uit Vulture, Olijfolies uit Vulture
+protected_name_file_number:en: PDO-IT-0452
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Olive oils
+en:Olive oils from Spain, Spanish olive oils
+fr:Huiles d'olive d'Espagne
+nl:Olijfoliën uit Spanje, Olijfolies uit Spanje, Spaanse olijfolies, Spaanse olijfoliën
+origins:en: en:Spain
+
+<en:Fats
+en:Spanish oils and fats
+fr:Huiles et graisses espagnoles
+
+# also a pdo hoeny from this region
+<en:Olive oils from Spain
+en:Olive oils from La Alcarria
+es:Aceite de La Alcarria
+fr:Huile d'olive de La Alcarria
+it:Olio di oliva de La Alcarria
+nl:Olijfoliën uit La Alcarria, Olijfolies uit La Alcarria
+protected_name_file_number:en: PDO-ES-0562
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013752
+
+# Is also a wine region
+<en:Olive oils from Spain
+en:Olive oils from Bajo Aragón
+es:Aceite del Bajo Aragón
+fr:Huile d'olive de Bajo Aragón
+it:Olio di oliva de Bajo Aragón
+nl:Olijfoliën uit Bajo Aragón, Olijfolies uit Bajo Aragón
+protected_name_file_number:en: PDO-ES-0118, PDO-ES-0118-AM01
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView:https://www.tmdn.org/giview/gi/EUGI00000013570
+
+<en:Olive oils from Spain
+en:Olive oils from Campo de Calatrava
+es:Aceite Campo de Calatrava
+fr:Huile d'olive de Campo de Calatrava
+it:Olio di oliva de Campo de Calatrava
+nl:Olijfoliën uit Campo de Calatrava, Olijfolies uit Campo de Calatrava
+protected_name_file_number:en: PDO-ES-0642
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013865
+
+<en:Olive oils from Spain
+en:Olive oils from Campo de Montiel
+es:Aceite Campo de Montiel
+fr:Huile d'olive de Campo de Montiel
+it:Olio di oliva de Campo de Montiel
+nl:Olijfoliën uit Campo de Montiel, Olijfolies uit Campo de Montiel
+protected_name_file_number:en: PDO-ES-0590
+protected_name_type:en: pdo
+origins:en: en:Spain
+# https://www.nacimientoliva.com/en/brand-evoo/olive-oil-campo-de-montiel
+# GIView; https://www.tmdn.org/giview/gi/EUGI00000013901
+
+<en:Olive oils from Spain
+en:Olive oils from Comunitat Valenciana
+es:Aceite de la Comunitat Valenciana
+fr:Huile d'olive de Comunitat Valenciana
+it:Olio di oliva de Comunitat Valenciana
+nl:Olijfoliën uit Comunitat Valenciana, Olijfolies uit Comunitat Valenciana
+protected_name_file_number:en: PDO-ES-0720, PDO-ES-0720-AM01
+protected_name_type:en: pdo
+origins:en: en:Spain
+#GIView: https://www.tmdn.org/giview/gi/EUGI00000014309
+
+#Also a pdo wine from this region
+<en:Olive oils from Spain
+en:Olive oils from Empordà
+ca:Oli de l'Empordà
+es:Aceite de L'Empordà
+fr:Huile d'olive de Empordà
+it:Olio di oliva de Empordà
+nl:Olijfoliën uit Empordà, Olijfolies uit Empordà
+protected_name_file_number:en: PDO-ES-1161
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000014375
+
+# Region has also other pdo products
+<en:Olive oils from Spain
+en:Olive oils from Estepa
+es:Aceite de Estepa
+fr:Huile d'olive de Estepa
+it:Olio di oliva de Estepa
+nl:Olijfoliën uit Estepa, Olijfolies uit Estepa
+protected_name_file_number:en: PDO-ES-0341
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013926
+
+# is also a wine
+<en:Olive oils from Spain
+en:Olive oils from Ibiza
+ca:Oli d´Eivissa
+es:Aceite de Ibiza
+fr:Huile d'olive de Ibiza
+it:Olio di oliva de Ibiza
+nl:Olijfoliën uit Ibiza, Olijfolies uit Ibiza
+protected_name_file_number:en: PGI-ES-02459
+protected_name_type:en: pgi
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000016633
+
+<en:Olive oils from Spain
+en:Olive oils from Jaén
+es:Aceite de Jaén
+fr:Huile d'olive de Jaén
+it:Olio di oliva de Jaén
+nl:Olijfoliën uit Jaén, Olijfolies uit Jaén
+protected_name_file_number:en: PGI-ES-2322
+protected_name_type:en: pgi
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000016962
+
+<en:Olive oils from Spain
+en:Olive oils from Lucena
+es:Aceite de Lucena
+fr:Huile d'olive de Lucena
+it:Olio di oliva de Lucena
+nl:Olijfoliën uit Lucena, Olijfolies uit Lucena
+protected_name_file_number:en: PDO-ES-0760
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+en:Olive oils from Monterrubio
+es:Aceite Monterrubio
+fr:Huile d'olive de Monterrubio
+it:Olio di oliva de Monterrubio
+nl:Olijfoliën uit Monterrubio, Olijfolies uit Monterrubio
+protected_name_file_number:en: PDO-ES-0198, PDO-ES-0198-AM01
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013509
+wikipedia:es: https://es.wikipedia.org/wiki/Monterrubio_(aceite)
+
+<en:Olive oils from Spain
+en:Olive oils from Montoro-Adamuz
+es:Aceite de Montoro-Adamuz
+fr:Huile d'olive de Montoro-Adamuz
+it:Olio di oliva de Montoro-Adamuz
+nl:Olijfoliën uit Montoro-Adamuz, Olijfolies uit Montoro-Adamuz
+protected_name_file_number:en: PDO-ES-0658
+protected_name_type:en: pdo
+origins:en: en:Spain
+# https://montoro-adamuz.org/en/pdo-montoro-adamuz/
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013830
+
+<en:Olive oils from Spain
+en:Olive oils from Navarra
+es:Aceite de Navarra
+fr:Huile d'olive de Navarra
+it:Olio di oliva de Navarra
+nl:Olijfoliën uit Navarra, Olijfolies uit Navarra
+protected_name_file_number:en: PDO-ES-0695
+protected_name_type:en: pdo
+origins:en: en:Spain
+#GIView: https://www.tmdn.org/giview/gi/EUGI00000014031
+
+<en:Olive oils from Spain
+en:Olive oils from Sierra del Moncayo
+es:Aceite Sierra del Moncayo
+fr:Huile d'olive de Sierra del Moncayo
+it:Olio di oliva de Sierra del Moncayo
+nl:Olijfoliën uit Sierra del Moncayo, Olijfolies uit Sierra del Moncayo
+protected_name_file_number:en: PDO-ES-0797
+protected_name_type:en: pdo
+origins:en: en:Spain
+# GIView:https://www.tmdn.org/giview/gi/EUGI00000014308
+
+
+
+
+
+
+
+
+<en:Olive oils from Spain
+es:Aceite del Baix Ebre-Montsià, Oli del Baix Ebre-Montsià
+protected_name_file_number:en: PDO-ES-0274
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Gata-Hurdes
+protected_name_file_number:en: PDO-ES-0121
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Poniente de Granada
+protected_name_file_number:en: PDO-ES-0273
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish oils and fats
+es:Mantequilla de Soria
+protected_name_file_number:en: PDO-ES-0326
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Aceite de la Rioja
+protected_name_file_number:en: PDO-ES-0312
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Montes de Granada
+protected_name_file_number:en: PDO-ES-0169
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Antequera
+protected_name_file_number:en: PDO-ES-0327
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Sierra de Cádiz
+protected_name_file_number:en: PDO-ES-0219
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Aceite de Terra Alta, Oli de Terra Alta
+protected_name_file_number:en: PDO-ES-0245
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Aceite de Mallorca, Aceite mallorquín, Oli de Mallorca, Oli mallorquí
+protected_name_file_number:en: PDO-ES-0263
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Spanish oils and fats
+es:Mantequilla de l'Alt Urgell y la Cerdanya, Mantega de l'Alt Urgell i la Cerdanya
+protected_name_file_number:en: PDO-ES-0187
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Sierra de Cazorla
+protected_name_file_number:en: PDO-ES-0137
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Montes de Toledo
+protected_name_file_number:en: PDO-ES-0083
+protected_name_type:en: pdo
+origins:en: en:Spain
+<en:Olive oils from Spain
+<en:Spanish oils and fats
+es:Priego de Córdoba
+protected_name_file_number:en: PDO-ES-0053
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Sierra Mágina
+protected_name_file_number:en: PDO-ES-0054
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Baena
+protected_name_file_number:en: PDO-ES-0069
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Les Garrigues
+protected_name_file_number:en: PDO-ES-0070
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Sierra de Segura
+protected_name_file_number:en: PDO-ES-0071
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils from Spain
+es:Siurana
+protected_name_file_number:en: PDO-ES-0072
+protected_name_type:en: pdo
+origins:en: en:Spain
+
+<en:Olive oils
+en:Olive oils from Maroc, Maroccan olive oils
+fr:Huiles d'olive de Maroc
+nl:Olijfoliën uit Marokko, Olijfolies uit Marokko, Marokkaanse olijfolies, Marokkaanse olijfoliën
+origins:en: en:Maroc
+
+<en:Olive oils
+en:Olive oils from Tunisia, Tunisian olive oils
+fr:Huiles d'olive de Tunisie
+nl:Olijfoliën uit Tunesië, Olijfolies uit Tunesië, Tunesische olijfolies, Tunesische olijfoliën
+origins:en: en:Tunisia
+
+<en:Olive oils
+en:Olive oils from Algeria, Algerian olive oils
+fr:Huiles d'olive d'Algerie
+nl:Olijfoliën uit Algerije, Olijfolies uit Algerije, Algeriaanse olijfolies, Algeriaanse olijfoliën
+origins:en: en:Algeria
+
+<en:Olive oils
+en:Olive oils from South Africa, South African olive oils
+fr:Huiles d'olive d'Afrique du Sud
+nl:Olijfoliën uit Zuid-Afrika, Olijfolies uit Zuid-Afrika, Zuid-Afrikaanse olijfolies, Zuid-Afrikaanse olijfoliën
+origins:en: en:South Africa
+
+<en:Olive oils
+en:Olive oils from Argentina, Argentinian olive oils
+fr:Huiles d'olive d'Argentine
+nl:Olijfoliën uit ZuidArgentina, Olijfolies uit ArgentinaAfrika, Argentijnse olijfolies, Argentijnse olijfoliën
+origins:en: en:Argentina
+
+
+<en:Olive oils
+en:Olive oils from Greece, Greek olive oils, Olive oils from Greece, Greek olive oil
+de:Olivenöle aus Griechenland
+fr:Huiles d'olive de Grèce
+hu:Olívaolajok Görögországból
+it:Olio d'oliva greco
+nl:Olijfoliën uit Griekenland, Griekse olijfoliën, Olijfolies uit Griekenland, Griekse olijfolies 
+country:en:Greece
+
+<en:Olive oils from Greece
+en:Olive oils from Sitia Lasithiou Kritis
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Olive oils
+en:Olive oils from Portugal, Portugese oilive oils
+de:Olivenöle aus Portugal
+fr:Huiles d'olive de Portugal
+nl:Olijfoliën uit Portugal, Portugese olijfoliën, Olijfolies uit Portugal, Portugese olijfolies
+country:en:Greece
+
+<en:Olive oils from Portugal
+en:Olive oils from Alentejo Interior
+fr:Huile d'olive de Alentejo Interior
+it:Olio di oliva Alentejo Interior
+nl:Olijfoliën uit Alentejo Interior, Olijfolies uit Alentejo Interior
+pt:Azeites do Alentejo Interior
+protected_name_file_number:en: PDO-PT-0216
+protected_name_type:en: pdo
+origins:en: en:Portugal
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeite_do_Alentejo_Interior
+
+<en:Olive oils from Portugal
+en:Olive oils from Beira Interior
+fr:Huile d'olive de Beira Interior
+it:Olio di oliva Beira Interior
+nl:Olijfoliën uit Beira Interior, Olijfolies uit Beira Interior
+pt:Azeites da Beira Interior
+protected_name_file_number:en: PDO-PT-0264
+protected_name_type:en: pdo
+origins:en: en:Portugal
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeites_da_Beira_Interior
+
+<en:Olive oils from Beira Interior
+en:Olive oils from Beira Alta
+fr:Huile d'olive de Beira Alta
+it:Olio di oliva Beira Alta
+nl:Olijfoliën uit Beira Alta, Olijfolies uit Beira Alta
+pt:Azeites da Beira Alta
+protected_name_file_number:en: PDO-PT-0264
+protected_name_type:en: pdo
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeites_da_Beira_Interior
+
+<en:Olive oils from Beira Interior
+en:Olive oils from Beira Baixa
+fr:Huile d'olive de Beira Baixa
+it:Olio di oliva Beira Baixa
+nl:Olijfoliën uit Beira Baixa, Olijfolies uit Beira Baixa
+pt:Azeites da Beira Baixa
+protected_name_file_number:en: PDO-PT-0264
+protected_name_type:en: pdo
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeites_da_Beira_Interior
+
+<en:Olive oils from Portugal
+en:Olive oils from Moura
+fr:Huile d'olive de Moura
+it:Olio di oliva Moura
+nl:Olijfoliën uit Moura, Olijfolies uit Moura
+pt:Azeites de Moura
+protected_name_file_number:en: PDO-PT-0211
+protected_name_type:en: pdo
+origins:en: en:Portugal
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeite_de_Moura
+
+<en:Olive oils from Portugal
+en:Olive oils from Norte Alentejano
+fr:Huile d'olive de Norte Alentejano
+it:Olio di oliva Norte Alentejano
+nl:Olijfoliën uit Norte Alentejano, Olijfolies uit Norte Alentejano
+pt:Azeites do Norte Alentejano
+protected_name_file_number:en: PDO-PT-0266
+protected_name_type:en: pdo
+origins:en: en:Portugal
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013101
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeites_do_Norte_Alentejano
+
+<en:Olive oils from Portugal
+en:Olive oils from Ribatejo
+fr:Huile d'olive de Ribatejo
+it:Olio di oliva Ribatejo
+nl:Olijfoliën uit Ribatejo, Olijfolies uit Ribatejo
+pt:Azeites do Ribatejo
+protected_name_file_number:en: PDO-PT-0219
+protected_name_type:en: pdo
+origins:en: en:Portugal
+# GIView: https://www.tmdn.org/giview/gi/EUGI00000013229
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeites_do_Ribatejo
+
+# This is also a wine region
+<en:Olive oils from Portugal
+en:Olive oils from Trás-os-Montes
+fr:Huile d'olive de Trás-os-Montes
+it:Olio di oliva Trás-os-Montes
+nl:Olijfoliën uit Trás-os-Montes, Olijfolies uit Trás-os-Montes
+pt:Azeite de Trás-os-Montes
+protected_name_file_number:en: PDO-PT-0216
+protected_name_type:en: pdo
+origins:en: en:Portugal
+wikipedia:pt: https://pt.wikipedia.org/wiki/Azeite_de_Trás-os-Montes
+
 
 <en:Vegetable oils
 en:Combined oil, Mix of olive oil and seeds oil
@@ -41220,333 +42130,6 @@ agribalyse_food_code:en:17701
 ciqual_food_code:en:17701
 ciqual_food_name:en:Combined oil (mix of olive oil and seeds oil)
 ciqual_food_name:fr:Huile combinée, mélange d'huile d'olive et de graines
-
-<en:Fats
-en:Italian oils and fats
-fr:Huiles et graisses italiennes
-
-<en:Italian oils and fats
-it:Aprutino Pescarese
-protected_name_file_number:en: PDO-IT-1526-AM05
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Olio di Puglia
-protected_name_file_number:en: PGI-IT-02381
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Monte Etna
-protected_name_file_number:en: PDO-IT-0060-AM01
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Olio lucano
-protected_name_file_number:en: PGI-IT-02458
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Olio di Roma
-protected_name_file_number:en: PGI-IT-02453
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Chianti Classico
-protected_name_file_number:en: PDO-IT-0108-AM03
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Monti Iblei
-protected_name_file_number:en: PDO-IT-1521-AM03
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Marche
-protected_name_file_number:en: PGI-IT-01338
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Olio di Calabria
-protected_name_file_number:en: PGI-IT-01314
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Sicilia
-protected_name_file_number:en: PGI-IT-01305
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Vulture
-protected_name_file_number:en: PDO-IT-0452
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Terre Aurunche
-protected_name_file_number:en: PDO-IT-0571
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Seggiano
-protected_name_file_number:en: PDO-IT-0561
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Colline Pontine
-protected_name_file_number:en: PDO-IT-0499
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Irpinia - Colline dell'Ufita
-protected_name_file_number:en: PDO-IT-0500
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Sardegna
-protected_name_file_number:en: PDO-IT-0284
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Tuscia
-protected_name_file_number:en: PDO-IT-0210
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Valdemone
-protected_name_file_number:en: PDO-IT-0218
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Cartoceto
-protected_name_file_number:en: PDO-IT-0292
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Terre Tarentine
-protected_name_file_number:en: PDO-IT-0259
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Lucca
-protected_name_file_number:en: PDO-IT-0199
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Tergeste
-protected_name_file_number:en: PDO-IT-0256
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Valle del Belice
-protected_name_file_number:en: PDO-IT-0258
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Monte Etna
-protected_name_file_number:en: PDO-IT-0060
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Pretuziano delle Colline Teramane
-protected_name_file_number:en: PDO-IT-0174
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Colline di Romagna
-protected_name_file_number:en: PDO-IT-0211
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Molise
-protected_name_file_number:en: PDO-IT-0166
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Alto Crotonese
-protected_name_file_number:en: PDO-IT-0200
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Veneto Valpolicella, Veneto Euganei e Berici, Veneto del Grappa
-protected_name_file_number:en: PDO-IT-9067
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Val di Mazara
-protected_name_file_number:en: PDO-IT-0061
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Chianti Classico
-protected_name_file_number:en: PDO-IT-0108
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Terre di Siena
-protected_name_file_number:en: PDO-IT-0109
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Lametia
-protected_name_file_number:en: PDO-IT-0068
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Toscano
-protected_name_file_number:en: PGI-IT-1512
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Terra d'Otranto
-protected_name_file_number:en: PDO-IT-1519
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Colline Teatine
-protected_name_file_number:en: PDO-IT-1541
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Terra di Bari
-protected_name_file_number:en: PDO-IT-1542
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Laghi Lombardi
-protected_name_file_number:en: PDO-IT-1543
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Valli Trapanesi
-protected_name_file_number:en: PDO-IT-1510
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Dauno
-protected_name_file_number:en: PDO-IT-1517
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Umbria
-protected_name_file_number:en: PDO-IT-1520
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Monti Iblei
-protected_name_file_number:en: PDO-IT-1521
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Colline Salernitane
-protected_name_file_number:en: PDO-IT-1545
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Penisola Sorrentina
-protected_name_file_number:en: PDO-IT-1546
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Cilento
-protected_name_file_number:en: PDO-IT-1547
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Bruzio
-protected_name_file_number:en: PDO-IT-1518
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Canino
-protected_name_file_number:en: PDO-IT-1506
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Collina di Brindisi
-protected_name_file_number:en: PDO-IT-1508
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Sabina
-protected_name_file_number:en: PDO-IT-1511
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Brisighella
-protected_name_file_number:en: PDO-IT-1513
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian oils and fats
-it:Aprutino Pescarese
-protected_name_file_number:en: PDO-IT-1526
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Extra-virgin olive oils
-<en:Olive oils from Italy
-fr:Huile d'olive Riviera Ligure
-it:Olio di oliva Riviera Ligure, Riviera Ligure
-protected_name_file_number:en: PDO-IT-1540-AM02, PDO-IT-1540
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Olive oils
-en:Olive oils from Greece
-de:Olivenöle aus Griechenland
-fr:Huiles d'olive de Grèce
-hu:Olívaolajok Görögországból
-it:Olio d'oliva greco
-nl:Olijfolie uit Griekenland
-country:en:Greece
 
 <en:Vegetable oils
 en:Palm oils
@@ -41649,207 +42232,6 @@ protected_name_file_number:en: PGI-AT-1460, PGI-AT-1460-AM02
 protected_name_type:en: pgi
 origins:en: en:Austria
 
-<en:Fats
-en:Spanish oils and fats
-fr:Huiles et graisses espagnoles
-
-<en:Spanish oils and fats
-es:Aceite del Bajo Aragón
-protected_name_file_number:en: PDO-ES-0118, PDO-ES-0118-AM01
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Jaén
-protected_name_file_number:en: PGI-ES-2322
-protected_name_type:en: pgi
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite Monterrubio
-protected_name_file_number:en: PDO-ES-0198, PDO-ES-0198-AM01
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Ibiza, Oli d´Eivissa
-protected_name_file_number:en: PGI-ES-02459
-protected_name_type:en: pgi
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de la Comunitat Valenciana
-protected_name_file_number:en: PDO-ES-0720, PDO-ES-0720-AM01
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Oli de l'Empordà, Aceite de L'Empordà
-protected_name_file_number:en: PDO-ES-1161
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite Sierra del Moncayo
-protected_name_file_number:en: PDO-ES-0797
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Navarra
-protected_name_file_number:en: PDO-ES-0695
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Lucena
-protected_name_file_number:en: PDO-ES-0760
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite Campo de Calatrava
-protected_name_file_number:en: PDO-ES-0642
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Montoro-Adamuz
-protected_name_file_number:en: PDO-ES-0658
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Estepa
-protected_name_file_number:en: PDO-ES-0341
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite Campo de Montiel
-protected_name_file_number:en: PDO-ES-0590
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de La Alcarria
-protected_name_file_number:en: PDO-ES-0562
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite del Baix Ebre-Montsià, Oli del Baix Ebre-Montsià
-protected_name_file_number:en: PDO-ES-0274
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Gata-Hurdes
-protected_name_file_number:en: PDO-ES-0121
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Poniente de Granada
-protected_name_file_number:en: PDO-ES-0273
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Mantequilla de Soria
-protected_name_file_number:en: PDO-ES-0326
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de la Rioja
-protected_name_file_number:en: PDO-ES-0312
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Montes de Granada
-protected_name_file_number:en: PDO-ES-0169
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Antequera
-protected_name_file_number:en: PDO-ES-0327
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Sierra de Cádiz
-protected_name_file_number:en: PDO-ES-0219
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Terra Alta, Oli de Terra Alta
-protected_name_file_number:en: PDO-ES-0245
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Aceite de Mallorca, Aceite mallorquín, Oli de Mallorca, Oli mallorquí
-protected_name_file_number:en: PDO-ES-0263
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Mantequilla de l'Alt Urgell y la Cerdanya, Mantega de l'Alt Urgell i la Cerdanya
-protected_name_file_number:en: PDO-ES-0187
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Sierra de Cazorla
-protected_name_file_number:en: PDO-ES-0137
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Montes de Toledo
-protected_name_file_number:en: PDO-ES-0083
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Priego de Córdoba
-protected_name_file_number:en: PDO-ES-0053
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Sierra Mágina
-protected_name_file_number:en: PDO-ES-0054
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Baena
-protected_name_file_number:en: PDO-ES-0069
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Les Garrigues
-protected_name_file_number:en: PDO-ES-0070
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Sierra de Segura
-protected_name_file_number:en: PDO-ES-0071
-protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish oils and fats
-es:Siurana
-protected_name_file_number:en: PDO-ES-0072
-protected_name_type:en: pdo
-origins:en: en:Spain
 
 <en:Rapeseed oils
 en:Canola oils
@@ -47854,9 +48236,17 @@ wikidata:en:Q1652093
 wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
 # ingredient/dates has 827 products in 11 languages @2018-09-29
 # category/dates has 311 products @2019-05-24
+agribalyse_proxy_food_code:en:13011
+agribalyse_proxy_food_name:en:Date, pulp and peel, dried
+agribalyse_proxy_food_name:fr:Datte, pulpe et peau, sèche
 
 <en:Fruit pastes
+<en:Dates
 fr:Pâtes de dattes
+agribalyse_food_code:en:13011
+ciqual_food_code:en:13011
+ciqual_food_name:en:Date, pulp and peel, dried
+ciqual_food_name:fr:Datte, pulpe et peau, sèche
 
 <en:Dates
 en:Pitted dates
