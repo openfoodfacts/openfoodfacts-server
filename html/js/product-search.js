@@ -10,7 +10,7 @@
 //
 // - match_status: yes, no, unknown
 // - match_score: number (maximum depends on the preferences)
-// - match_icons: array of arrays of urls of icons corresponding to the product and 
+// - match_attributes: array of arrays of attributes corresponding to the product and 
 // each set of preferences: mandatory, very_important, important
 
 function match_product_to_preferences (product, product_preferences) {
