@@ -127,5 +127,11 @@ db.products_tags.createIndex({data_quality_info_tags:1}, { background: true });
 db.products_tags.createIndex({data_quality_warnings_tags:1}, { background: true });
 db.products_tags.createIndex({data_quality_errors_tags:1}, { background: true });
 db.products_tags.createIndex({teams_tags:1}, { background: true });
+db.products_tags.createIndex({categories_properties_tags:1}, { background: true });
+db.products_tags.createIndex({owners_tags:1}, { background: true });
+db.products_tags.createIndex({ecoscore_tags:1}, { background: true });
+db.products_tags.createIndex({nutriscore_score_opposite: -1}, { background: true });
+db.products_tags.createIndex({ecoscore_score: -1}, { background: true });
+db.products_tags.createIndex({popularity_key: -1}, { background: true });
 
 print(Date() + ' : Refresh done.');
