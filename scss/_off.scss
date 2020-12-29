@@ -601,3 +601,38 @@ html[dir="rtl"] {
 #preferences_switch input:checked+label {
   background-color:#4fa125;
 }
+
+.ecoscore_panel {
+  border:none;
+  border-radius:1rem;	
+}
+
+.ecoscore_panel h5, .ecoscore_panel h4, .ecoscore_panel p, .ecoscore_panel li, .ecoscore_panel table td, .ecoscore_panel table caption {
+  color:white;
+}
+
+.ecoscore_panel li:hover {
+  background-color:transparent;
+  cursor:default;
+}
+
+.ecoscore_panel table, .ecoscore_panel tr, .ecoscore_panel tr.even, .ecoscore_panel tr:nth-of-type(even), .ecoscore_panel td {
+  border:none;
+  background-color:transparent;
+}
+
+.ecoscore_panel ul {
+  list-style-type:none;
+}
+
+.ecoscore_panel a {
+}
+
+#ecoscore_panel_lca { background-color:#f35a31; }
+#ecoscore_panel_production_system { background-color:#39a009; }
+#ecoscore_panel_origins { background-color:#3137f3; }
+#ecoscore_panel_threatened_species { background-color:#c83737; }
+#ecoscore_panel_packaging { background-color:#b67549; }
+
+#ecoscore_panel_lca a { color:#ffffcc; }
+
