@@ -112,19 +112,19 @@
 
 <!-- product_characteristics -->
 <h2>[% lang('product_characteristics') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+    <div class="cell hide-for-large-up medium-12">[% front_image %]</div>
+    <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
         [% product_fields %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
+    <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">$[% front_image %]</div>
 </div>
 
 <!-- ingredients -->
 <h2>[% lang('ingredients') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+<div class="grid-x">
+    <div class="cell hide-for-large-up medium-12">[% ingredients_image %]</div>
+    <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
         <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
             [% IF lc != ingredients_text_lang %]
@@ -153,9 +153,8 @@
         [% display_field_traces %]
         [% display_ingredients_analysis %]
         [% display_ingredients_analysis_details %]
-
         [% IF ingredients_classes_n > 0 %]
-            <div class="row">
+            <div class="grid-x">
                 [% html_ingredients_classes %]
             </div>
         [% END %]
@@ -183,17 +182,17 @@
             [% display %]
         [% END %]
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
+    <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">[% ingredients_image %]</div>
 </div>
 
 <!-- nutrition table -->
 [% IF nutrition_table == 'defined' %]
     <h2>[% lang("nutrition_data") %]</h2>
-    <div class="row">
-        <div class="hide-for-large-up medium-12 columns">
+    <div class="grid-x">
+        <div class="cell hide-for-large-up medium-12">
             [% nutrition_image %]
         </div>
-        <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        <div class="cell medium-12 large-8 xlarge-8 xxlarge-8">
             [% display_nutrient_levels %]
             [% display_field %]
 
@@ -205,8 +204,8 @@
             [% display_nutrition_table %]
         </div>
 
-        <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
-            [% nutrition_image %]
+        <div class="cell show-for-large-up large-4 xlarge-4 xxlarge-4" style="padding-left:0">
+          [% nutrition_image %]
         </div>
     </div>
 
@@ -345,8 +344,8 @@
 <!-- other fields -->
 [% IF other_fields != "" %]
     <h2>[% lang('product_other_information') %]</h2>
-    <div class="row">
-        <div class="small-12 columns">
+    <div class="grid-x">
+        <div class="cell small-12">
             [% other_fields %]
         </div>
     </div>
@@ -370,7 +369,7 @@
 	<ul>
 	[% FOREACH source IN unique_sources %]
 		<li>
-			[% IF source.url %]
+    [% IF source.url %]
 				<a href="\[% source.url %]\">[% source.name %]</a></li>
 			[% ELSE %]
 				[% source.name %]
@@ -382,7 +381,7 @@
 				[% source.source_licence %]
 			[% END %]
 		</li>
-	[% END %]
+    [% END %]
 	</ul>
 [% END %]
 

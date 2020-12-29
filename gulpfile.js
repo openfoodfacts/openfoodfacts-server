@@ -7,6 +7,8 @@ const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
+const modernizr = require("gulp-modernizr");
+const autoprefixer = require("gulp-autoprefixer");
 
 const jsSrc = [
   './html/js/display*.js',
@@ -46,6 +48,7 @@ function css() {
   return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
+    pipe(autoprefixer()).
     pipe(minifyCSS()).
     pipe(sourcemaps.write(".")).
     pipe(dest("./html/css/dist"));
@@ -54,9 +57,11 @@ function css() {
 function copyJs() {
   return src(
     [
+      "./node_modules/jquery/dist/jquery.js",
+      "./node_modules/what-input/dist/what-input.js",
+      "./node_modules/jquery.cookie/jquery.cookie.js",
+      "./node_modules/foundation-sites/dist/js/foundation.js",
       "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
-      "./node_modules/foundation-sites/js/vendor/*.js",
-      "./node_modules/foundation-sites/js/foundation.js",
       "./node_modules/papaparse/papaparse.js",
       "./node_modules/osmtogeojson/osmtogeojson.js",
       "./node_modules/leaflet/dist/leaflet.js",
@@ -105,6 +110,15 @@ function buildjQueryUi() {
   pipe(dest('./html/js/dist'));
 }
 
+function modernizeJs() {
+  return src('./html/js/dist/*.js').
+  pipe(modernizr()).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest('./html/js/dist'));
+}
+
 function jQueryUiThemes() {
   return src([
       './node_modules/jquery-ui/themes/base/core.css',
@@ -113,6 +127,7 @@ function jQueryUiThemes() {
       './node_modules/jquery-ui/themes/base/theme.css',
     ]).
     pipe(sourcemaps.init()).
+    pipe(autoprefixer()).
     pipe(minifyCSS()).
     pipe(concat('jquery-ui.css')).
     pipe(sourcemaps.write(".")).
@@ -130,6 +145,7 @@ function copyCss() {
       "./node_modules/jvectormap-next/jquery-jvectormap.css"
     ]).
     pipe(sourcemaps.init()).
+    pipe(autoprefixer()).
     pipe(minifyCSS()).
     pipe(sourcemaps.write(".")).
     pipe(dest("./html/css/dist"));
@@ -144,8 +160,8 @@ exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.default = parallel(series(parallel(copyJs, buildJs, buildjQueryUi), modernizeJs), copyCss, copyImages, jQueryUiThemes, series(icons, css));
 exports.watch = function () {
-  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(jsSrc, { delay: 500 }, series(buildJs, modernizeJs));
   watch(sassSrc, { delay: 500 }, css);
 };

@@ -5,7 +5,7 @@
     <title>[% title %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="fb:app_id" content="[% fb_config %]">
+    <meta property="fb:app_id" content="[% fb_config %]">
     <meta property="og:type" content="[% og_type %]">
     <meta property="og:title" content="[% canon_title %]">
     <meta property="og:url" content="[% canon_url %]">
@@ -26,57 +26,59 @@
     [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
-<nav class="top-bar" data-topbar id="top-bar">
-	<ul class="title-area">
-		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">[% site_name %]</a></h2>
-		</li>
-		<li class="toggle-topbar menu-icon">
-			<a href="#"><span>Menu</span></a>
-		</li>
-	</ul>
-	<section class="top-bar-section">
-    <label for="select_country" style="display:none">[% lang('select_country') %]</label>
-    <ul class="country_language_selection">
-			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
-					<option></option>
-				</select>
-			</li>
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <div class="title-bar-left"><a href="/">[% site_name %]</a></div>
+  <div class="title-bar-right">
+    <div class="title-bar-title">Menu</div>
+	<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  </div>
+</div>
+<nav class="top-bar" id="responsive-menu">
+  <section class="top-bar-left">
+	  <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text name"><h2><a href="/" style="font-size:1rem;">[% site_name %]</a></h2></li>
+      <li class="has-form has-dropdown" id="select_country_li">
+        <label for="select_country" style="display:none">[% lang('select_country') %]</label>
+        <select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
+          <option></option>
+        </select>
+      </li>
       [% IF langs.match('<a') %]
-        <li class="has-dropdown">
-            [% selected_lang %]
-            <ul class="dropdown">
-                [% langs %]
-            </ul>
-        </li>
+          <li class="has-dropdown">
+              [% selected_lang %]
+              <ul class="dropdown">
+                  [% langs %]
+              </ul>
+          </li>
       [% END %]
     </ul>
-    <ul class="search_and_links">
-      <li class="show-for-large-up">
-        <form action="/cgi/search.pl">
-          <div class="row collapse">
-            <div class="small-8 columns">
-              <input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
-              <input name="search_simple" value="1" type="hidden">
-              <input name="action" value="process" type="hidden">
-            </div>
-            <div class="small-4 columns">
-              <button type="submit" title="[% lang('search') %]">[% display_icon('search') %]</button>
-            </div>
-          </div>
-        </form>
-      </li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
-      [% IF !(server_options_producers_platform) %]
-        <li class="show-for-large-up divider"></li>
-        <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-        <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-        <li class="show-for-large"><a href="[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
-        <li class="show-for-xlarge-up"><a href="[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
+  </section>
+  <section class="top-bar-right search_and_links">
+		<ul class="dropdown menu" data-dropdown-menu>
+			<li class="show-for-large">
+				<form action="/cgi/search.pl">
+					<div class="grid-x collapse">
+						<div class="cell small-8">
+							<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
+							<input name="search_simple" value="1" type="hidden">
+							<input name="action" value="process" type="hidden">
+						</div>
+						<div class="cell small-4">
+							<button type="submit" title="[% lang('search') %]" class="button expanded">[% display_icon('search') %]</button>
+						</div>
+					</div>
+				</form>
+			</li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
+			<li class="show-for-xlarge"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
+			<li class="show-for-xlarge"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
+			[% IF !(server_options_producers_platform) %]
+          <li class="show-for-large divider"></li>
+          <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+          <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+          <li class="show-for-large-only"><a href="[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
+          <li class="show-for-xlarge"><a href="[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
       [% END %]
     </ul>
 	</section>
@@ -87,23 +89,23 @@
 [% offcanvasposition = 'right' %]
 [% END %]
 <nav class="tab-bar show-for-small-only">
-	<div class="[% offcanvasposition %]-small">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="[% offcanvasposition %]-off-canvas-toggle button postfix [% torso_class %]">
-		[% display_icon('account_box') %]
-		</a>
+	<div class="[% offcanvasposition %]-small" style="padding-top:4px;">
+    <button type="button" class="button [% torso_class %]" data-toggle="offCanvas">
+      [% display_icon('account_box') %]
+		</button>
 	</div>
 	<div class="middle tab-bar-section">
 		<form action="/cgi/search.pl">
-			<div class="row collapse">
-				<div class="small-8 columns">
+			<div class="grid-x collapse">
+				<div class="cell small-8">
 					<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
 					<input name="search_simple" value="1" type="hidden">
 					<input name="action" value="process" type="hidden">
 				</div>
-				<div class="small-2 columns">
+				<div class="cell small-2">
 					<button type="submit" class="button postfix">[% display_icon('search') %]</button>
 				</div>
-				<div class="small-2 columns">
+				<div class="cell small-2">
 					<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('search') %] [% display_icon('add') %]</a>
 				</div>
 			</div>
@@ -111,55 +113,60 @@
 	</div>
 </nav>
 
-<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
-		<aside class="[% offcanvasposition %]-off-canvas-menu">
-			<div id="aside_column">
-				[% aside_blocks %]
-			</div>
-		</aside>
-		<a class="exit-off-canvas"></a>
-		[% top_banner %]
-		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-				<div class="sidebar">
-					<div style="text-align:center">
-						<a href="/"><img id="logo" src="/images/misc/[% lang('logo') %]" srcset="/images/misc/[% lang('logo2x') %] 2x" width="178" height="150" alt="[% lang('site_name') %]" style="margin-bottom:0.5rem"></a>
-					</div>
-					[% tagline %]
-					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="row collapse">
-							<div class="small-9 columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
-								<input name="search_simple" value="1" type="hidden">
-								<input name="action" value="process" type="hidden">
-							</div>
-							<div class="small-2 columns">
-								<button type="submit" class="button postfix">[% display_icon('search') %]</button>
-							</div>
-							<div class="small-1 columns">
-								<label class="right inline">
-									<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a>
-								</label>
-							</div>
-						</div>
-					</form>
-					[% blocks %]
-				</div>
-			</div>
-			<div id="main_column" class="xxlarge-10 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
-        <!-- main column content - comment used to remove left column and center content on some pages -->
-        [% INCLUDE 'donate_banner.tt.html' %]
-				[% h1_title %]
-				[% content_ref %]
-			</div>
+<div class="off-canvas-wrapper">
+  <aside class="off-canvas-absolute position-[% offcanvasposition %]" id="offCanvas" data-off-canvas>
+    <div id="aside_column">
+      [% aside_blocks %]
+    </div>
+  </aside>
+  [% top_banner %]
+  <!-- main row - comment used to remove left column and center content on some pages -->
+  <div class="off-canvas-content">
+    <div class="grid-x grid-padding-x full-width" data-equalizer data-off-canvas-content>
+      <div class="cell xxlarge-2 xlarge-2 large-3 medium-4 hide-for-small-only"
+        style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+        <div class="sidebar">
+          <div style="text-align:center">
+            <a href="/"><img id="logo" src="/images/misc/[% lang('logo') %]"
+                srcset="/images/misc/[% lang('logo2x') %] 2x" width="178" height="150" alt="[% lang('site_name') %]"
+                style="margin-bottom:0.5rem"></a>
+          </div>
+          [% tagline %]
+          <form action="/cgi/search.pl" class="hide-for-large">
+            <div class="grid-container">
+              <div class="grid-x grid-padding-x">
+                <div class="input-group">
+                  <input class="input-group-field" type="text" placeholder="[% lang('search_a_product_placeholder') %]"
+                    name="search_terms">
+                  <input name="search_simple" value="1" type="hidden">
+                  <input name="action" value="process" type="hidden">
+                </div>
+                <div class="input-group">
+                  <button type="submit" class="button">[% display_icon('search') %]</button>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-label">
+                    <a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+          [% blocks %]
         </div>
-	</div>
+      </div>
+      <div id="main_column" class="cell xxlarge-10 xlarge-10 large-9 medium-8" style="padding-top:1rem" data-equalizer-watch>
+      <!-- main column content - comment used to remove left column and center content on some pages -->
+      [% INCLUDE 'donate_banner.tt.html' %]
+      [% h1_title %]
+      [% content_ref %]
+      </div>
+    </div>
+  </div>
 </div>
 
-<footer>
-	<div class="small-12 medium-6 large-3 columns off">
+<footer class="grid-x">
+	<div class="cell small-12 medium-6 large-3 off">
 		<div class="title">[% lang('site_name') %]</div>
 		<p>[% lang('footer_tagline') %]</p>
 		<ul>
@@ -170,14 +177,14 @@
 			<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns app">
+	<div class="cell small-12 medium-6 large-3 app">
 		<div class="title">[% lang('footer_install_the_app') %]</div>
 		<a href="[% lang('ios_app_link') %]"><img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]" width="120" height="40" loading="lazy"></a>
 		<a href="[% lang('android_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]" width="102" height="40" loading="lazy"></a>
 		<a href="[% lang('windows_phone_app_link') %]"><img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]" width="109" height="40" loading="lazy"></a>
 		<a href="[% lang('android_apk_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_apk_app_icon_url') %]" alt="[% lang('android_apk_app_icon_alt_text') %]" loading="lazy"></a>
 	</div>
-	<div class="small-12 medium-6 large-3 columns project">
+	<div class="cell small-12 medium-6 large-3 project">
 		<div class="title">[% lang('footer_discover_the_project') %]</div>
 		<ul>
 			<li><a href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
@@ -190,7 +197,7 @@
 			<li><a href="[% lang('footer_obf_link') %]">[% lang('footer_obf') %]</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns community">
+	<div class="cell small-12 medium-6 large-3 community">
 		<div class="title">[% lang('footer_join_the_community') %]</div>
 		<p>
 			<a href="[% lang('footer_code_of_conduct_link') %]">[% lang('footer_code_of_conduct') %]</a>
@@ -219,16 +226,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 [% scripts %]
 <script>
-\$(document).foundation({
-	equalizer : {
-		equalize_on_stack: true
-	},
-	accordion: {
-		callback : function (accordion) {
-			\$(document).foundation('equalizer', 'reflow');
-		}
-	}
-});
+\$(document).foundation();
 </script>
 <script type="application/ld+json">
 {

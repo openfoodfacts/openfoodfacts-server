@@ -1,56 +1,48 @@
-hr.floatclear {
-  background: none;
-  border: 0;
-  clear: both;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  visibility: hidden;
-  width: 0;
-}
+hr {
+  &.floatclear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+  }
 
-hr.floatleft {
-  background: none;
-  border: 0;
-  clear: left;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  visibility: hidden;
-  width: 0;
-}
+  &.floatleft {
+    background: none;
+    border: 0;
+    clear: left;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+  }
 
-hr.floatright {
-  background: none;
-  border: 0;
-  clear: right;
-  display: block;
-  float: none;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-}
-
-.data_table label,
-.data_table input {
-  display: inline;
-}
-
-.data_table input,
-.data_table select {
-  font-size: 1em;
+  &.floatright {
+    background: none;
+    border: 0;
+    clear: right;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
 }
 
 .nutriment_label {
@@ -80,8 +72,7 @@ select.nutriment_unit {
   width: 5rem;
 }
 
-thead,
-tbody {
+thead, tbody {
   margin: 0;
   padding: 0;
 }
@@ -91,29 +82,45 @@ tbody {
   margin-top: 20px;
   padding: 0;
   vertical-align: middle;
-}
 
-.data_table td,
-.data_table th {
-  margin: 0;
-  padding: 0.2rem;
-  padding-left: 0.5rem;
-}
+  td, th {
+    margin: 0;
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+  }
 
-.data_table .nutriment_head {
-  background-color: #88f;
-  color: #fff;
-}
+  label {
+    display: inline;
+  }
 
-.data_table .nutriment_main {
-  background-color: #ddf;
-  border-top: 3px solid #fff;
-}
+  input {
+    display: inline;
+    font-size: 1em;
+  }
 
-.data_table .nutriment_sub,
-.data_table .nutriment_sub td {
-  background-color: #eef;
-  border-top: 1px solid #ddf;
+  select {
+    font-size: 1em;
+  }
+
+  .nutriment_head {
+    background-color: #88f;
+    color: #fff;
+  }
+
+  .nutriment_main {
+    background-color: #ddf;
+    border-top: 3px solid #fff;
+  }
+
+  .nutriment_sub {
+    background-color: #eef;
+    border-top: 1px solid #ddf;
+
+    td {
+      background-color: #eef;
+      border-top: 1px solid #ddf;
+    }
+  }
 }
 
 .ui-autocomplete li {
@@ -130,39 +137,43 @@ ul.products {
   padding: 0;
 }
 
-.products li {
-  display: block;
-  float: left;
-  text-align: center;
-}
+.products {
+  line-height: 1.2;
 
-.products a {
-  display: block;
-  height: 167px;
-  margin: 10px;
-  overflow: hidden;
-  padding: 10px;
-  width: 120px;
-  word-wrap: break-word;
-}
+  li {
+    display: block;
+    float: left;
+    text-align: center;
+  }
 
-.products div {
-  display: table-cell;
-  height: 100px;
-  line-height: 100px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
-  width: 120px;
-}
+  a {
+    display: block;
+    height: 167px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 120px;
+    word-wrap: break-word;
+  }
 
-.products a:hover {
-  background: #f4f4f4;
-}
+  div {
+    display: table-cell;
+    height: 100px;
+    line-height: 100px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+  }
 
-.products img {
-  vertical-align: middle;
+  a:hover {
+    background: #f4f4f4;
+  }
+
+  img {
+    vertical-align: middle;
+  }
 }
 
 #pages {
@@ -171,44 +182,47 @@ ul.products {
 
 a {
   text-decoration: none;
-}
-
-a,
-a:visited,
-a:hover {
   color: blue;
+
+  &:visited {
+    color: blue;
+  }
+
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  &.button {
+    color: #fff;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.level_3, &:visited.level_3, &:hover.level_3 {
+    color: red;
+  }
+
+  &.level_2, &:visited.level_2, &:hover.level_2 {
+    color: #ff8c00;
+  }
+
+  &.level_1, &:visited.level_1, &:hover.level_1 {
+    color: green;
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-a.button {
-  color: #fff;
-}
-
-a.button:hover {
-  text-decoration: none;
-}
-
-.level_3,
-a.level_3,
-a:visited.level_3,
-a:hover.level_3 {
+.level_3 {
   color: red;
 }
 
-.level_2,
-a.level_2,
-a:visited.level_2,
-a:hover.level_2 {
+.level_2 {
   color: #ff8c00;
 }
 
-.level_1,
-a.level_1,
-a:visited.level_1,
-a:hover.level_1 {
+.level_1 {
   color: green;
 }
 
@@ -245,11 +259,10 @@ nav.tab-bar > div {
   color: blue;
   margin: 0 -1rem;
   padding: 0.4375rem 1rem;
-}
 
-.side-nav li a:not(.button):hover,
-.side-nav li a:not(.button):focus {
-  color: blue;
+  &:hover, &:focus {
+    color: blue;
+  }
 }
 
 @media only screen and (max-width: 64em) {
@@ -261,38 +274,71 @@ nav.tab-bar > div {
   }
 }
 
-.products {
-  line-height: 1.2;
-}
-
 .dark {
   color: #f0f0f0;
+
+  h4 {
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+
+    &:hover, &:visited {
+      color: #fff;
+    }
+  }
 }
 
-.dark h4 {
-  color: #fff;
-}
+.top-bar {
+  font-size: 0.8125rem;
 
-.dark a,
-.dark a:hover,
-.dark a:visited {
-  color: #fff;
-}
+  section {
+    .has-dropdown > a:after {
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
+    }
 
-.top-bar-section .has-dropdown > a:after {
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
-}
-.top-bar-section ul li > a:hover {
-  text-decoration: none;
+    ul li > a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .menu .menu-text {
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:visited {
+      color: #000;
+    }
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &.button {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 40.063em) {
-  .top-bar-section .has-dropdown > a:after {
-    border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
-  }
+  .top-bar section {
+    .has-dropdown > a:after {
+      border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
+    }
 
-  .top-bar-section ul li {
-    background: inherit;
+    ul li {
+      background: inherit;
+    }
   }
 
   #select_country_li {
@@ -313,8 +359,7 @@ nav.tab-bar > div {
   font-size: 0.8em;
 }
 
-.example,
-.note {
+.example, .note {
   margin: 4px 0 0 4px;
 }
 
@@ -326,7 +371,8 @@ nav.tab-bar > div {
   height: 400px;
   overflow: auto;
 }
-.top-bar-section ul li > a {
+
+.top-bar section ul li > a {
   text-decoration: none;
 }
 
@@ -337,7 +383,12 @@ p.details {
 
 .select2-dropdown.select2-dropdown--below {margin-top: 10px;}
 
-@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+@media only screen and (max-width: 40em) {
+  h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
 
 details.recent {
   margin-left: 1.5em;
@@ -423,6 +474,44 @@ a[aria-controls="idOfLeftMenu"] {
   #main_column {height: auto !important;}
 }
 
+.title-bar {
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:visited {
+      color: #000;
+    }
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &.button {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.no-js {
+  @include breakpoint(small only) {
+    .top-bar {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    .title-bar {
+      display: none;
+    }
+  }
+}
+
 .share_button,
 .edit_button {
   float: right;
@@ -456,7 +545,7 @@ a[aria-controls="idOfLeftMenu"] {
 html[dir="rtl"] {
   .tab-bar-section.middle {
     left: 0;
-    right: $tabbar-icon-width;
+    right:  rem-calc(45);
   }
 
   .share_button,

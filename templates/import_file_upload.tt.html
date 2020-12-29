@@ -6,7 +6,7 @@
 <p>&rarr; <a href="/cgi/generate_sample_import_file.pl">[% lang("download_sample_import_file") %]</a></p>
 
 <form method="post" action="/cgi/import_file_upload.pl" enctype="multipart/form-data" id="upload_file_form">
-	<a href="#" class="button small expand" id="file_input_button_$id">
+	<a href="#" class="button small expanded" id="file_input_button_$id">
 		<div id="file_input_div_$id">
 			[% display_icon('arrow_upward') %] [% lang("upload_product_data_file") %]
 			<input type="file" accept=".csv,.tsv,.xlsx,.xls,.ods" class="file_input" name="file_input_$id" id="file_input_$id" style="position: absolute;

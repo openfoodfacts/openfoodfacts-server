@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -133,10 +133,10 @@ else {
 		id => "data",
 		url => "/cgi/import_file_upload.pl",
 	};
-	
+
 	$tt->process('import_file_upload.tt.html', $template_data_ref, \$html);
 	$tt->process('import_file_upload.tt.js', $template_data_ref, \$js);
-	
+
 	$initjs .= $js;
 
 

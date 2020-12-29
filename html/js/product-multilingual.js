@@ -343,28 +343,28 @@ function change_image(imagefield, imgid) {
     $('.cropbuttonmsg_' + imagefield).show();
     $.post(
       '/cgi/product_image_crop.pl',
-      {
-        code: code, id: imagefield, imgid: imagefield_imgid[imagefield],
+  {
+    code: code, id: imagefield, imgid: imagefield_imgid[imagefield],
         x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
         coordinates_image_size : coordinates_image_size,
         angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
-        white_magic: $("#white_magic_" + imagefield).prop('checked')
+    white_magic: $("#white_magic_" + imagefield).prop('checked')
       },
       null,
       'json'
     )
       .done(function(data) {
-        imagefield_url[imagefield] = data.image.display_url;
-        update_display(imagefield, false);
-        $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
+      imagefield_url[imagefield] = data.image.display_url;
+      update_display(imagefield, false);
+      $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
       })
       .fail(function() {
         $('.cropbuttonmsg_' + imagefield).html(lang().not_saved);
       })
       .always(function() {
         $('.cropbutton_' + imagefield).show();
-        $(document).foundation('equalizer', 'reflow');
-      });
+      $(document).foundation('equalizer', 'reflow');
+  });
   });
 
   $('img#crop_' + imagefield).on('ready', function () {
@@ -417,39 +417,39 @@ function update_display(imagefield, first_display) {
 	var display_url = imagefield_url[imagefield];
 
 	if (display_url) {
-		
+
 		var imagetype = imagefield.replace(/_\w\w$/, '');
 
-		var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
-		html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+	var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
+	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
 
-		if (stringStartsWith(imagefield, 'nutrition')) {
-			// width big enough to display a copy next to nutrition table?
-			if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+	if (stringStartsWith(imagefield, 'nutrition')) {
+		// width big enough to display a copy next to nutrition table?
+		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 
-				if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {
-					$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
-				}
+			if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {
+				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
 			}
 		}
+	}
 
 		if ((imagetype == 'ingredients') || (imagetype == 'packaging')) {
 
 			html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '">'
 			+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
 
-			var full_url = display_url.replace(/\.400\./, ".full.");
+    var full_url = display_url.replace(/\.400\./, ".full.");
 			$('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
 			
 
-			$('div[id="display_' + imagefield +'"]').html(html);
+	$('div[id="display_' + imagefield +'"]').html(html);
 
 			$("#ocrbuttongooglecloudvision_" + imagefield).click({imagefield:imagefield},function(event) {
-				event.stopPropagation();
-				event.preventDefault();
-				// alert(event.data.imagefield);
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
 				$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
-				$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
+		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
 				$.post(
 					'/cgi/' + imagetype + '.pl',
 					{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" },
@@ -457,37 +457,37 @@ function update_display(imagefield, first_display) {
 					'json'
 				)
 					.done(function(data) {
-						$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
-						if (data.status === 0) {
+			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
+			if (data.status === 0) {
 							$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
 							var text_id = imagefield.replace(imagetype, imagetype + "_text");
 							$("#" + text_id).val(data[imagetype + "_text_from_image"]);
-						}
-						else {
+			}
+			else {
 							$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
-						}
+			}
 					})
 					.fail(function() {
 						$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
 						$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().job_status_failed);
 					})
 					.always(function() {
-						$(document).foundation('equalizer', 'reflow');
-					});
+			$(document).foundation('equalizer', 'reflow');
+	});
 
 			});
 
 		} else {
-			
+
 			$('div[id="display_' + imagefield +'"]').html(html);
-			
+
 		}
 
-		$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
-			event.stopPropagation();
-			event.preventDefault();
-			// alert(event.data.imagefield);
-			$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
+	$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
 			$.post(
 				'/cgi/product_image_unselect.pl',
 				{code: code, id: imagefield },
@@ -495,24 +495,24 @@ function update_display(imagefield, first_display) {
 				'json'
 			)
 				.done(function(data) {
-					if (data.status_code === 0) {
-						$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_ok);
-						delete imagefield_url[imagefield];
-					}
-					else {
-						$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
-					}
-					update_display(imagefield, false);
-					$('div[id="display_' + imagefield +'"]').html('');
+			if (data.status_code === 0) {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_ok);
+				delete imagefield_url[imagefield];
+			}
+			else {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
+			}
+			update_display(imagefield, false);
+			$('div[id="display_' + imagefield +'"]').html('');
 				})
 				.fail(function() {
 					$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
 				})
 				.always(function() {
-					$(document).foundation('equalizer', 'reflow');
+			$(document).foundation('equalizer', 'reflow');
 				});
 
-		});
+	});
 
 	}
 
@@ -617,7 +617,7 @@ function get_recents(tagfield) {
 	}
 
 	if (
-		obj !== null &&
+	obj !== null &&
 		typeof obj[tagfield] !== "undefined" &&
 		obj[tagfield] !== null
 	) {
@@ -712,12 +712,12 @@ function get_recents(tagfield) {
 			if (! stringStartsWith(id, 'manage')) {
 
       html += '<div style="clear:both" class="command upload_image_div">';
-			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"> '
+			html += '<a href="#" class="button small expanded" id="imgsearchbutton_' + id + '"> '
 + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'
 + lang().product_js_upload_image
 + '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
-+ 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
++ 'style="width: 0.1px;height:0.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1;"/>'
 + '</a>'
 + '</div>'
 + '<p class="note">' + lang().product_js_upload_image_note + '</p>'

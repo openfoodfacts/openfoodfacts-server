@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -60,19 +60,19 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 if (0) {
-	if (param('jqm')) {
-		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
-		return "";
-	}
-	elsif (param('json')) {
-		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
+if (param('jqm')) {
+                        print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
+return "";
+}
+elsif (param('json')) {
+print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
 <<JSON
 { "page_size": "20", "products": [ { "image_small_url": "https://static.openfoodfacts.org/images/misc/yeswescan-313x222.png", "product_name": "Le serveur est surcharge !", "brands": "Merci de votre comprehension", "quantity": "1", "code": "3554748001005", "nutrition_grade_fr": "A" } ], "page": 1, "skip": 0, "count": 1 }
 JSON
 ;
 
-		return "";
-	}
+	return "";
+}
 }
 
 ProductOpener::Display::init();
@@ -93,7 +93,7 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states );
 
 $admin and push @search_fields, "lang";
 
@@ -207,19 +207,19 @@ if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
 
-	my $active_list = 'active';
+	my $active_list = 'is-active';
 	my $active_map = '';
 	my $active_graph = '';
 
 	if (param("generate_map")) {
 		$active_list = '';
-		$active_map = 'active';
+		$active_map = 'is-active';
 	}
 	elsif (param("graph")) {
 		$active_list = '';
-		$active_graph = 'active';
+		$active_graph = 'is-active';
 	}
-	
+
 	$template_data_ref->{active_list} = $active_list;
 	$template_data_ref->{active_graph} = $active_graph;
 	$template_data_ref->{active_map} = $active_map;
@@ -227,17 +227,17 @@ if ($action eq 'display') {
 	my %search_fields_labels = ();
 	my @tags_fields_options;
 	my @contains;
-	
-	push (@tags_fields_options, { 
+
+	push (@tags_fields_options, {
 		value => "search",
 		label => lang("search_tag"),
 	});
-		
+
 	foreach my $field (@search_fields) {
 		my $label;
-		
+
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
-			$label = lc(lang($field));			
+			$label = lc(lang($field));
 		}
 		else {
 			if ($field eq 'creator') {
@@ -247,21 +247,21 @@ if ($action eq 'display') {
 				$label = lang($field . "_p");
 			}
 		}
-		push (@tags_fields_options, { 
+		push (@tags_fields_options, {
 			value => $field,
 			label => $label,
 		});
 	}
 
 	$template_data_ref->{tags_fields_options} = \@tags_fields_options;
-	 
+
 	$template_data_ref->{contain_options} = [
 		{ value => "contains", label => lang("search_contains") },
 		{ value => "does_not_contain", label => lang("search_does_not_contain") },
 	];
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
-		
+
 		push @{$template_data_ref->{criteria}}, {
 			id => $i,
 			selected_tags_field_value => $search_tags[$i][0],
@@ -282,7 +282,7 @@ if ($action eq 'display') {
 		};
 	}
 
-	
+
 	# Compute possible fields values
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
@@ -304,39 +304,39 @@ if ($action eq 'display') {
 	my @sorted_axis_values = ("", sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values));
 
 	my @fields_options = ();
-	
+
 	foreach my $field (@sorted_axis_values) {
 		push @fields_options, {
 			value => $field,
 			label => $axis_labels{$field},
 		};
 	}
-	
+
 	$template_data_ref->{fields_options} = \@fields_options;
 
 	$template_data_ref->{compare_options} = [
+	  	{
+	  		'value' => "lt",
+	  		'label' => '<',
+	  	},
+	  	{
+	  		'value' => "lte",
+	  		'label' => "\N{U+2264}",
+	  	},
 		{
-			'value' => "lt",
-			'label' => '<',
-		},
+	  		'value' => "gt",
+	  		'label' => '>',
+	  	},
 		{
-			'value' => "lte",
-			'label' => "\N{U+2264}",
-		},
+	  		'value' => "gte",
+	  		'label' => "\N{U+2265}",
+	  	},
 		{
-			'value' => "gt",
-			'label' => '>',
-		},
-		{
-			'value' => "gte",
-			'label' => "\N{U+2265}",
-		},
-		{
-			'value' => "eq",
-			'label' => '=',
-		},
+	  		'value' => "eq",
+	  		'label' => '=',
+	  	},
 	];
-	
+
 	for (my $i = 0; ($i < $nutriments_n) or (defined param("nutriment_$i")) ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
@@ -350,39 +350,39 @@ if ($action eq 'display') {
 	# Different types to display results
 
 	$template_data_ref->{sort_options} = [
+	  	{
+	  		'value' => "unique_scans_n",
+	  		'label' => lang("sort_popularity"),
+	  	},
+	  	{
+	  		'value' => "product_name",
+	  		'label' => lang("sort_product_name"),
+	  	},
 		{
-			'value' => "unique_scans_n",
-			'label' => lang("sort_popularity"),
-		},
+	  		'value' => "created_t",
+	  		'label' => lang("sort_created_t"),
+	  	},
 		{
-			'value' => "product_name",
-			'label' => lang("sort_product_name"),
-		},
+	  		'value' => "last_modified_t",
+	  		'label' => lang("sort_modified_t"),
+	  	},
 		{
-			'value' => "created_t",
-			'label' => lang("sort_created_t"),
-		},
-		{
-			'value' => "last_modified_t",
-			'label' => lang("sort_modified_t"),
-		},
-		{
-			'value' => "completeness",
-			'label' => lang("sort_completeness"),
-		},
+	  		'value' => "completeness",
+	  		'label' => lang("sort_completeness"),
+	  	},
 	];
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
 	my @size_array =(20, 50, 100, 250, 500, 1000);
 	push @{$template_data_ref->{size_options}}, @size_array;
-	
+
 	$template_data_ref->{axes} = [];
 	foreach my $axis ('x','y') {
 		push @{$template_data_ref->{axes}}, {
 			id => $axis,
 			selected_field_value => $graph_ref->{"axis_" . $axis},
-		}; 
+		};
 	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
@@ -434,7 +434,7 @@ $tt->process('search_form.tt.html', $template_data_ref, \$html);
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
-	
+
 	display_new($request_ref);
 
 }
@@ -505,9 +505,9 @@ elsif ($action eq 'process') {
 			}
 
 			if ($tagid ne '') {
-				
+
 				my $suffix = "";
-				
+
 				if (defined $tags_fields{$tagtype}) {
 					$suffix = "_tags";
 				}
@@ -565,9 +565,9 @@ elsif ($action eq 'process') {
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 
 		if (($nutriment ne 'search_nutriment') and ($value ne '')) {
-			
+
 			my $field;
-			
+
 			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
 				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n") or ($nutriment eq "forest_footprint")) {
 				$field = $nutriment;
@@ -678,7 +678,7 @@ elsif ($action eq 'process') {
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
 	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
+	<span class="show-for-large"> $share</span>
 </a></div>
 HTML
 ;
@@ -711,7 +711,7 @@ HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
 	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
+	<span class="show-for-large"> $share</span>
 </a></div>
 HTML
 ;
@@ -743,7 +743,7 @@ HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small" title="$request_ref->{title}">
 	@{[ display_icon('share') ]}
-	<span class="show-for-large-up"> $share</span>
+	<span class="show-for-large"> $share</span>
 </a></div>
 HTML
 ;

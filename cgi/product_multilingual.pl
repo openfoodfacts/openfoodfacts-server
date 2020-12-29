@@ -440,7 +440,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
@@ -741,7 +741,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
-	
+
 	# Until we provide an interface to directly change the packaging data structure
 	# erase it before reconstructing it
 	# (otherwise there is no way to remove incorrect entries)
@@ -789,7 +789,7 @@ sub display_field($$) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
-		}
+					}
 	}
 
 	my $value = $product_ref->{$field};
@@ -827,11 +827,11 @@ HTML
 
 	foreach my $note ("_note", "_note_2") {
 		if (defined $Lang{$fieldtype . $note }{$lang}) {
-			$html .= <<HTML
+		$html .= <<HTML
 <p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
 HTML
 ;
-		}
+	}
 	}
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
@@ -971,14 +971,18 @@ HTML
 
 
 	$html .= <<HTML
-<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
+<div class="callout secondary store-state" id="warning_3rd_party_content" style="display:none;" data-closable>
 	<span>$Lang{warning_3rd_party_content}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
+	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    	<span aria-hidden="true">&times;</span>
+  	</button>
 </div>
 
-<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
+<div class="callout secondary secondary store-state" id="licence_accept" style="display:none;" data-closable>
 	<span>$Lang{licence_accept}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
+ 	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    	<span aria-hidden="true">&times;</span>
+  	</button>
 </div>
 HTML
 ;
@@ -987,7 +991,7 @@ HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
-  var alerts = \$('.alert-box.store-state');
+  var alerts = \$('.callout.store-state');
   \$.each(alerts, function( index, value ) {
     var display = \$.cookie('state_' + value.id);
     if (display !== undefined) {
@@ -996,8 +1000,8 @@ HTML
       value.style.display = 'block';
     }
   });
-  alerts.on('close.fndtn.alert', function(event) {
-    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  \$('.callout.store-state .close-button').on('click', function(event) {
+    \$.cookie('state_' + \$(this).closest('.callout.store-state')[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
   });
 });
 </script>
@@ -1297,15 +1301,14 @@ sub display_tabs($$$$$$) {
 	my $html_content = "";
 
 	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="tabs" data-tab>
+<ul id="tabs_$tabsid" class="tabs" data-tabs>
 HTML
 ;
 
 	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="tabs-content">
+<div id="tabs_content_$tabsid" class="tabs-content" data-tabs-content="tabs_$tabsid">
 HTML
 ;
-
 
 	my $active = " active";
 	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
@@ -1318,15 +1321,13 @@ HTML
 			$new_lc = ' new';
 		}
 
-		my $language = "";
-
+		my $language = '';
 		if ($tabid eq 'new') {
 
-		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_new">$select_add_language</li>
+			$html_header .= <<HTML
+	<li class="tabs-title$active$new_lc tabs_new">$select_add_language</li>
 HTML
 ;
-
 		}
 		else {
 
@@ -1335,7 +1336,7 @@ HTML
 			}
 
 			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
+	<li class="tabs-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a data-tabs-target="tabs_${tabsid}_${tabid}" href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 
@@ -1425,7 +1426,7 @@ HTML
 HTML
 ;
 
-		$active = "";
+		$active = '';
 
 	}
 
@@ -2073,8 +2074,8 @@ HTML
 ;
 
 	$html .= "</div><!-- fieldset -->";
-	
-	
+
+
 	# Packaging photo and data
 
 	my @packaging_fields = ("packaging_image", "packaging_text");
@@ -2164,16 +2165,16 @@ JS
 
 	if ($type eq 'edit') {
 		$html .= <<"HTML"
-<div class="row">
-	<div class="small-12 medium-12 large-8 xlarge-8 columns">
+<div class="grid-x">
+	<div class="cell small-12 medium-12 large-8 xlarge-8">
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+	<div class="cell small-6 medium-6 large-2 xlarge-2">
 		<button type="submit" name=".submit" class="button postfix small">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
+	<div class="cell small-6 medium-6 large-2 xlarge-2">
 		<button type="button" id="back-btn" class="button postfix small secondary">
 			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
 		</button>
