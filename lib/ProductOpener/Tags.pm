@@ -128,6 +128,7 @@ BEGIN
 
 		%stopwords
 		%synonyms_for
+		%synonyms_for_extended
 		%just_synonyms
 		%translations_from
 		%translations_to
@@ -172,7 +173,7 @@ binmode STDERR, ":encoding(UTF-8)";
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
  environment_impact_level=>1, data_sources => 1, teams => 1, categories_properties => 1,
- editors => 1, photographers => 1, informers => 1, checkers => 1, correctors => 1);
+ editors => 1, photographers => 1, informers => 1, checkers => 1, correctors => 1, owners => 1, ecoscore => 1);
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
@@ -189,6 +190,7 @@ generic_name => 1,
 ingredients_text => 1,
 conservation_conditions => 1,
 other_information => 1,
+packaging_text => 1,
 recycling_instructions_to_recycle => 1,
 recycling_instructions_to_discard => 1,
 producer => 1,
@@ -216,7 +218,7 @@ my %tags_all_parents = ();
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms  = ();
 %synonyms_for = ();
-my %synonyms_for_extended = ();
+%synonyms_for_extended = ();
 %translations_from = ();
 %translations_to   = ();
 %level             = ();
@@ -1023,7 +1025,7 @@ sub build_tags_taxonomy($$$) {
 		my $max_pass = 2;
 		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
 		if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) or ($tagtype =~ /^ingredients/)) {
-			$max_pass = 1;
+			$max_pass = 2;
 		}
 
 		for (my $pass = 1; $pass <= $max_pass; $pass++) {
@@ -1149,30 +1151,32 @@ sub build_tags_taxonomy($$$) {
 
 
 		# add more synonyms: remove stopwords and deal with simple plurals
+		# -> should not be done on some taxonomies that contain only proper names
+		if (($tagtype ne "countries") and ($tagtype ne "origins")) {
 
-		foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
+			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-			foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
+				foreach my $tagid (sort keys %{$synonyms{$tagtype}{$lc}}) {
 
-				my $tagid2 = $tagid;
+					my $tagid2 = $tagid;
 
-				# remove stopwords
-				# unless we have only 2 words in the tag name
-				# check that we have at least 2 word separators (dashes)
-				if ($tagid2 =~ /-.+-/) {
+					# remove stopwords
+					# unless we have only 2 words in the tag name
+					# check that we have at least 2 word separators (dashes)
+					if ($tagid2 =~ /-.+-/) {
 
-					$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
-				}
+						$tagid2 = remove_stopwords($tagtype,$lc,$tagid);
+					}
 
-				$tagid2 = remove_plurals($lc,$tagid2);
+					$tagid2 = remove_plurals($lc,$tagid2);
 
-				if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
-					$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
-					#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
+						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
+					}
 				}
 			}
 		}
-
 
 		# 3rd phase: compute the hierarchy
 
@@ -2755,8 +2759,8 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 		else {
 
-			# try matching in other languages (by default, in English)
-			my @test_languages = ("en");
+			# try matching in other languages (by default, in the "language-less" language xx, and in English)
+			my @test_languages = ("xx", "en");
 			
 			if (defined $options{product_type}) {
 				
@@ -3056,18 +3060,49 @@ sub display_taxonomy_tag($$$)
 		$tag_lc = $target_lc;
 	}
 
-	my $tagid = $tag_lc . ':' . get_string_id_for_lang($tag_lc, $tag);
+	my $tagid_no_lc = get_string_id_for_lang($tag_lc, $tag);
+	my $tagid = $tag_lc . ':' . $tagid_no_lc;
 
 	my $display = '';
 
 	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
 		# we have a translation for the target language
-		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$tagtype}{$tagid}{$target_lc} : $translations_to{$tagtype}{$tagid}{$target_lc}\n";
 		$display = $translations_to{$tagtype}{$tagid}{$target_lc};
 	}
+	elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+		# we have a translation for the default xx language
+		$display = $translations_to{$tagtype}{$tagid}{xx};
+	}	
 	else {
+		# We may have changed a canonical en: entry into an language-less xx: entry,
+		# or removed a canonical en: entry to replace it to a language-specific entry
+		# (e.g. we used to have en:label-rouge, we now have fr:label-rouge + xx:label-rouge)
+		
+		my $xx_tagid = 'xx:' . $tagid_no_lc;
+		
+		# if we didn't find a language specific entry but there is a corresponding xx: synonym for it,
+		# assume the language specific entry was changed to a language-less xx: entry
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{xx}) and (defined $synonyms{$tagtype}{xx}{$tagid_no_lc})) {
+			$tagid = "xx:" . $synonyms{$tagtype}{xx}{$tagid_no_lc};
+			$tagid = $translations_from{$tagtype}{$tagid};
+		}		
+
+		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
+			# we have a translation for the target language
+			$display = $translations_to{$tagtype}{$tagid}{$target_lc};
+		}
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$tagid}{xx};
+		}	
+
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$xx_tagid}) and (defined $translations_to{$tagtype}{$xx_tagid}{xx})) {
+			# we have a translation for the default xx language
+			$display = $translations_to{$tagtype}{$xx_tagid}{xx};
+		}	
+
 		# use tag language
-		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
+		elsif ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
 			# we have a translation for the tag language
 			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";
 

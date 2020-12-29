@@ -1,6 +1,10 @@
+/*global lang */
+/*global page_type*/ // depends on which type of page the preferences are shown on
+/*global preferences_text*/ // depends on which type of page the preferences are shown on
+
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
-
+var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 
 function get_user_product_preferences () {
 	// Retrieve user preferences from local storage
@@ -11,15 +15,20 @@ function get_user_product_preferences () {
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
 	}
+	else {
+		// Default preferences
+		user_product_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
+	}
 	
 	return user_product_preferences;
 }
 
-
 // display a summary of the selected preferences
 // in the order mandatory, very important, important
 
-function display_selected_preferences (target_selected, target_selection_form, product_preferences) {
+/* exported display_selected_preferences */ 
+
+function display_selected_preferences (target_selected_summary, product_preferences) {
 	
 	var selected_preference_groups = {
 		"mandatory" : [],
@@ -35,7 +44,7 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		$.each(attribute_group.attributes, function(key, attribute) {
 			
 			if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-				var attribute_html = '<span>' + attribute.setting_name + '</span>';
+				var attribute_html = '<li>' + attribute.setting_name + '</li>';
 				selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
 			}
 		});
@@ -43,26 +52,90 @@ function display_selected_preferences (target_selected, target_selection_form, p
 
 	var selected_preferences_html = '';
 
-	$.each(selected_preference_groups, function(preference, selected_preference_group) {
+	$.each(selected_preference_groups, function(selected_preference, selected_preference_group) {
+		
+		var selected_preference_name;
+		
+		$.each(preferences, function (key, preference) {
+					
+			if (selected_preference == preference.id) {
+				selected_preference_name = preference.name;
+			}
+		});
 		
 		if (selected_preference_group.length > 0) {
 			selected_preferences_html += "<div>"
-			+ "<strong>" + preference + ": </strong>"
-			+ selected_preference_group.join(", ")
+			+ "<strong>" + selected_preference_name + "</strong>"
+			+ "<ul>" + selected_preference_group.join("") + "</ul>"
 			+ "</div>";
 		}
 	});
 	
-	$( target_selected ).html(selected_preferences_html);
+	// dropdown link to see a preferences summary
+	var html = '<a id="preferences_link" data-dropdown="selected_preferences">'
+	+ lang().see_your_preferences + '</a></p>'
+	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
+	+ selected_preferences_html
+	+ '</div>';		
+			
+	$( target_selected_summary ).html(html);
 	
-	// Show a button to edit the preferences
-	if (target_selection_form) {
-		$( target_selected ).append('<a id="show_selection_form">' + "Edit preferences" + '</a>');
-		$( "#show_selection_form").click(function() {
-			$( target_selected ).hide();
-			$( target_selection_form ).show();
+	$(document).foundation('reflow');
+}
+
+
+// display a switch to use preferences (on list of products pages) and a button to edit preferences
+
+function display_use_preferences_switch_and_edit_preferences_button (target_selected, target_selection_form, change) {
+	
+	var html = '';
+	
+	var html_edit_preferences = '<a id="show_selection_form" class="button small success round" style="margin-left:3em;">'
+		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
+		+ " " + lang().preferences_edit_your_food_preferences + '</a>';
+	
+	// Display a switch for classifying according to the user preferences if
+	// we are on a page with multiple products
+	
+	if (page_type == 'products') {
+		
+		var checked = '';
+		if (use_user_product_preferences_for_ranking) {
+			checked = " checked";
+		}
+	
+		html += '<div class="switch round success" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">'
+		+ '<input id="preferences_checkbox" type="checkbox"' + checked + '>'
+		+ '<label for="preferences_checkbox"></label></div>'
+		+ '<label for="preferences_checkbox" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
+	}
+	else {
+		
+		html += preferences_text + html_edit_preferences;
+	}
+			
+	$( target_selected ).html(html);
+	
+	if (page_type == 'products') {
+		$("#preferences_checkbox").change(function() {
+			
+			localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
+			use_user_product_preferences_for_ranking = this.checked;
+				
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}	
 		});
 	}
+		
+	$( "#show_selection_form").click(function() {
+		$( target_selected ).hide();
+		$( target_selection_form ).show();
+		$(document).foundation('equalizer', 'reflow');
+	});
+	
+	$(document).foundation('reflow');
 }
 
 
@@ -107,30 +180,31 @@ function display_user_product_preferences (target_selected, target_selection_for
 		// Iterate over attribute groups
 		$.each( attribute_groups, function(key, attribute_group) {
 			
-			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group'>" 
-			+ "<span class='attribute_group_name'>" + attribute_group.name + "</span>";
+			var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" 
+			+ "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>"
+			+ "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>"
+			// I can't get the dynamically created accordion to work, making all content active until we find a way to make it work
+			+ "<div id='attribute_group_" + attribute_group.id + "_a' class='content active'>";
 			
 			if (attribute_group.warning) {
-				attribute_group_html += "<p class='attribute_group_warning'>" + attribute_group.warning + "</p>";
+				attribute_group_html += "<div class='alert-box warning attribute_group_warning'>" + attribute_group.warning + "</div>";
 			}
 			
-			attribute_group_html += "<ul>";
+			attribute_group_html += "<ul style='list-style-type: none'>";
 			
 			// Iterate over attributes
 			
 			$.each(attribute_group.attributes, function(key, attribute) {
 				
-				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'><span class='attribute_name'>" + attribute.setting_name + "</span><br>";
-				
-				if (attribute.description_short) {
-					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
-				}				
-								
+				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>"
+				+ "<div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons'></div>"
+				+ "<span class='attribute_name'>" + attribute.setting_name + "</span><br>";
+							
 				$.each(preferences, function (key, preference) {
 					
 					var checked = '';
 					
-					if (user_product_preferences[attribute.id] == preference.id) {
+					if ((! user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
 						checked = ' checked';
 					}
 					
@@ -140,17 +214,39 @@ function display_user_product_preferences (target_selected, target_selection_for
 					+ "</input>";
 				});
 				
+				if (attribute.description_short) {
+					attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
+				}
+				
+				attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
+				
 				attribute_group_html += "</li>";
 			});
 						
-			attribute_group_html += "</ul></li>";
+			attribute_group_html += "</ul></div></li>";
 			
 			attribute_groups_html.push(attribute_group_html);
 		});
 
-		$(target_selection_form).html( '<ul class="user_product_preferences">'
+		$(target_selection_form).html(
+			'<div class="panel callout">'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small success round">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ " " + lang().close + '</a></div>'
+			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
+			+ "<p>" + lang().preferences_locally_saved + "</p>"
+			+ '<a id="delete_all_preferences_button" class="button small round success">' + lang().delete_all_preferences + '</a>'
+			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
-			+ '</ul>');
+			+ '</ul>'
+			+ '<br><br>'
+			+ '<div class="edit_button">'
+			+ '<a class="show_selected button small round success">'
+			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
+			+ " " + lang().close + '</a></div><br><br>'
+			+ '</div>'
+		);
 		
 		$( ".attribute_radio").change( function () {
 			if (this.checked) {
@@ -158,7 +254,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
 				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 				
-				display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+				display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 				
 				// Call the change callback if we have one (e.g. to update search results)
 				if (change) {
@@ -166,17 +262,31 @@ function display_user_product_preferences (target_selected, target_selection_for
 				}
 			}
 		});
-		
-		// Show a button to close the preferences selection form and show the selected preferences
-		if (target_selected) {
 			
-			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+		if (target_selected) {	
+			display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
+		}
+
+		$( "#delete_all_preferences_button").click(function() {
+			user_product_preferences = {};
+			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 			
-			$( target_selection_form ).prepend('<a id="show_selected">' + "Close preferences" + '</a>');
-			$( "#show_selected").click(function() {
-				$( target_selection_form ).hide();
-				$( target_selected ).show();
-			});
-		}		
+			// Redisplay user preferences
+			displayed_user_product_preferences = false;
+			display_user_product_preferences(target_selected, target_selection_form, change);
+			
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}
+		});
+
+		$( ".show_selected").click(function() {
+			$( target_selection_form ).hide();
+			$( target_selected ).show();
+		});
+
+		$("#user_product_preferences").foundation();
+		$(document).foundation('equalizer', 'reflow');
 	}
 }

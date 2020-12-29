@@ -248,7 +248,7 @@ my @lists =(
 	["es", "Vitamina E y C", "vitaminas, vitamina E, vitamina C"],
 	["es", "color E 124", "color : e124"],
 	["es", "colores E (124, 125)", "colores e124, e125"],
-	["it", "vitamine A, B, E e K", "vitamins, vitamin A, vitamin B, vitamin E, vitamin K"],
+	["it", "vitamine A, B, E e K", "vitamine, vitamina A, vitamina B, vitamina E, vitamina K"],
 
 	# Additives normalization
 	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],
@@ -281,6 +281,18 @@ my @lists =(
 	# w/ with and w/o without abbreviations
 	["en", "Organic garbanzo beans (cooked w/o salt), water", "Organic garbanzo beans (cooked without salt), water"],
 	["en", "sugar, cocoa (processed w/alkali), egg yolk", "sugar, cocoa (processed with alkali), egg yolk"],
+
+	# * ingrédient issu..
+        ["fr", "LAIT entier pasteurisé*. *ingrédient issu de l'agriculture biologique.","LAIT entier pasteurisé Bio."],
+
+	# vitamines
+	["fr", "vitamines B1, B6, B9, PP et E", "vitamines, vitamine B1, vitamine B6, vitamine B9, vitamine PP, vitamine E"],
+	["fr", "vitamines (B1, acide folique (B9))", "vitamines, vitamine B1, acide folique, vitamine B9"],
+
+	# (origins, contains milk)
+	["en","Chocolate (Italy, contains milk)","Chocolate (Italy, Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate (contains milk)","Chocolate ( Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."]
 
 );
 

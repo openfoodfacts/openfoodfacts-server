@@ -687,4 +687,18 @@ is_deeply($product_ref,
 }
 ) or diag explain $product_ref;
 
+# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/4365
+
+$product_ref = {
+        lc => "en", lang => "en",
+        ingredients_text_en => "Whole Grain Oat Flakes (65.0%)"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+is($product_ref->{ingredients_text_with_allergens_en}, "Whole Grain Oat Flakes (65.0%)");
+
+
+
 done_testing();

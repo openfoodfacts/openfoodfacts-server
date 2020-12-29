@@ -30,7 +30,9 @@ use Minion;
 
 $minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 $minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
-$minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+$minion->add_task(import_products_categories_from_public_database => \&ProductOpener::Producers::import_products_categories_from_public_database_task);
+$minion->add_task(update_export_status_for_csv_file => \&ProductOpener::Producers::update_export_status_for_csv_file_task);
+
 
 print STDERR "Perform 1 job in current process\n";
 

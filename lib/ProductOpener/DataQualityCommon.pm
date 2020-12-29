@@ -183,6 +183,43 @@ sub check_code_gs1_prefixes($) {
 	return;
 }
 
+
+=head2 check_packagings( PRODUCT_REF )
+
+Checks related to the packagings information.
+
+=cut
+
+sub check_packagings($) {
+
+	my $product_ref = shift;
+
+	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
+		push @{$product_ref->{data_quality_info_tags}}, "en:no-packaging-data";
+	}
+	else {
+		# Loop through every packaging component to check that we have a number of unit, a shape and a material
+		my $complete = 1;
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+			if (not (((defined $packaging_ref->{number}) and (defined $packaging_ref->{shape}) and (defined $packaging_ref->{material}))
+				or ((defined $packaging_ref->{shape}) and ($packaging_ref->{shape} eq "en:bulk")))) {
+				$complete = 0;
+				last;
+			}
+		}
+		
+		if ($complete) {
+			push @{$product_ref->{data_quality_info_tags}}, "en:packaging-data-complete";
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, "en:packaging-data-incomplete";
+		}
+	}
+
+	return;
+}
+
+
 =head2 check_quality_common( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -195,6 +232,7 @@ sub check_quality_common($) {
 
 	check_bugs($product_ref);
 	check_codes($product_ref);
+	check_packagings($product_ref);
 
 	return;
 }

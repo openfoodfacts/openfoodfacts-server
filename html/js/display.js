@@ -110,7 +110,9 @@ $(function () {
         results.sort(function (a, b) {
           return a.text.localeCompare(b.text, locale);
         });
-        results.unshift(worldresult);
+        if (typeof worldresult === 'object') {
+          results.unshift(worldresult);
+        }
 
         return {
           results: results

@@ -70,13 +70,17 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-
+use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Packaging qw(:all);
+use ProductOpener::ForestFootprint qw(:all);
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+
+use Log::Any::Adapter 'TAP';
 
 use Getopt::Long;
 
@@ -88,6 +92,7 @@ my $count = '';
 my $just_print_codes = '',
 my $pretend = '';
 my $process_ingredients = '';
+my $process_packagings = '';
 my $clean_ingredients = '';
 my $compute_nutrition_score = '';
 my $compute_serving_size = '';
@@ -119,6 +124,8 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
+my $compute_ecoscore = '';
+my $compute_forest_footprint = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -131,6 +138,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
+			"process-packagings" => \$process_packagings,
 			"assign-categories-properties" => \$assign_categories_properties,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-history" => \$compute_history,
@@ -140,6 +148,8 @@ GetOptions ("key=s"   => \$key,      # string
 			"compute-nova" => \$compute_nova,
 			"compute-codes" => \$compute_codes,
 			"compute-carbon" => \$compute_carbon,
+			"compute-ecoscore" => \$compute_ecoscore,
+			"compute-forest-footprint" => \$compute_forest_footprint,
 			"check-quality" => \$check_quality,
 			"compute-sort-key" => \$compute_sort_key,
 			"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -207,9 +217,22 @@ if (
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
-	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
+	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $compute_forest_footprint) and (not $process_packagings)
+	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
+}
+
+if ($compute_ecoscore) {
+
+	init_packaging_taxonomies_regexps();
+	load_agribalyse_data();
+	load_ecoscore_data();
+}
+
+if ($compute_forest_footprint) {
+
+	load_forest_footprint_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -269,7 +292,8 @@ print STDERR "Update key: $key\n\n";
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
-my $products_collection = get_products_collection();
+my $socket_timeout_ms = 2 * 60000; # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+my $products_collection = get_products_collection($socket_timeout_ms);
 
 my $products_count = $products_collection->count_documents($query_ref);
 
@@ -488,7 +512,7 @@ while (my $product_ref = $cursor->next) {
 
 				# Remove selected "zu" images
 				if (defined $product_ref->{images}) {
-					foreach my $imgid ("front", "ingredients", "nutrition") {
+					foreach my $imgid ("front", "ingredients", "nutrition", "packaging") {
 						if (defined $product_ref->{images}{$imgid . "_zu"}) {
 							# Already selected image in correct language? remove the zu selected image
 							if (defined $product_ref->{images}{$imgid . "_" . $product_ref->{lc}}) {
@@ -516,7 +540,6 @@ while (my $product_ref = $cursor->next) {
 						}
 					}
 				}
-
 			}
 		}
 
@@ -655,12 +678,19 @@ while (my $product_ref = $cursor->next) {
 		foreach my $field (@fields_to_update) {
 
 			if (defined $product_ref->{$field}) {
+				
+				# Keep a copy of the existing value, in case something bad happens
+				$product_ref->{$field . "_old"} = $product_ref->{$field};
 
 				if ($field eq 'emb_codes') {
 					$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 				}
 
-				if (defined $taxonomy_fields{$field}) {
+				if ((defined $taxonomy_fields{$field})
+					# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+					# assume the $field value is in the main language of the product
+					and (defined $product_ref->{$field . "_hierarchy"})
+					) {
 					# we do not know the language of the current value of $product_ref->{$field}
 					# so regenerate it in the main language of the product
 					my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
@@ -859,6 +889,18 @@ while (my $product_ref = $cursor->next) {
 				compute_nutrient_levels($product_ref);
 			}
 		}
+		
+		if ($process_packagings) {
+			analyze_and_combine_packaging_data($product_ref);
+		}	
+		
+		if ($compute_ecoscore) {
+			compute_ecoscore($product_ref);
+		}		
+
+		if ($compute_forest_footprint) {
+			compute_forest_footprint($product_ref);
+		}	
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");

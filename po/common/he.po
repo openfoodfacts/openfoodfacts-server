@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 09:32\n"
+"PO-Revision-Date: 2020-11-02 11:11\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -213,7 +213,7 @@ msgstr "אלרגנים"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "khomer-alergeni"
+msgstr "אלרגן"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -310,7 +310,7 @@ msgstr "מוצרים מבית המותג %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "mutag"
+msgstr "מותג"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -354,7 +354,7 @@ msgstr "מוצרים מהקטגוריה %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "categoria"
+msgstr "קטגוריה"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -370,7 +370,7 @@ msgstr "נתונים"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "מרכיבים תזונתיים"
+msgstr "חומרי הזנה"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -386,7 +386,7 @@ msgstr "בודקים"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "bodek"
+msgstr "בודק"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -438,7 +438,7 @@ msgstr "מתקנים"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "metaken"
+msgstr "מתקן"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -1421,7 +1421,7 @@ msgstr "מספר המוצרים"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s ב־%s"
+msgstr "%s ב%s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -2384,7 +2384,7 @@ msgstr "מצבים"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "matzav"
+msgstr "מצב"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2404,7 +2404,7 @@ msgstr "מוצרים שנמכרים אצל"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "khanut"
+msgstr "חנות"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -3765,15 +3765,15 @@ msgstr "רשימת מוצרים שנוספו או השתנו"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "סבבי ייבוא"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "ייבוא"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "סבבי ייבוא"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
@@ -4436,9 +4436,13 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr "לא מוצר אורגני"
 
-msgctxt "attribute_labels_organic_description_short"
+msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr "מקדם קיימות אקולוגית ומגוון ביולוגי."
+msgstr "קידום קיימות אקולוגית ומגוון ביולוגי."
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Organic products promote ecological sustainability and biodiversity."
+msgstr "מוצרים אורגניים מקדמים קיימות אקולוגית ומגוון ביולוגי."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
@@ -4489,6 +4493,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr "Nutri-Score לא מחושב"
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr "האיכות התזונתית אינה ידועה"
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr "איכות תזונתית טובה מאוד"
@@ -4517,6 +4529,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "קבוצת NOVA"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr "NOVA לא מחושבת"
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr "רמת עיבוד המזון אינה ידועה"
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "עיבוד מזון מועט או נטול (קבוצת NOVA)"
@@ -4525,6 +4545,14 @@ msgstr "עיבוד מזון מועט או נטול (קבוצת NOVA)"
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
 msgstr "NOVA %s"
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr "NOVA לא מחושבת"
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr "רמת עיבוד המזון אינה ידועה"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4602,6 +4630,10 @@ msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "מעט תוספים או ללא"
 
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
+msgstr "התוספים אינם מחושבים"
+
 msgctxt "preference_not_important"
 msgid "Not important"
 msgstr "לא חשוב"
@@ -4618,6 +4650,55 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "חובה"
 
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr "תמונת הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr "קישור לתמונת הנחיות מיחזור ו/או פרטי אריזה"
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr "3001234567890.packaging_he.jpg: הנחיות מיחזור בעברית."
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה"
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr "סרט פלסטיק אחד להשלכה, קופסת קרטון אחת באישור FSC למיחזור, 6 בקבוקי פלסטיק PET שקופים של 1.5 ליטר למיחזור, 6 פקקי פלסטיק צבעוניים אטומים, 12 פחיות אלומיניום של 330 מיליליטר"
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr "הצגת כל חלקי האריזה מופרדים בפסיקים או ירידת שורה, בצירוף הכמות (למשל: 1 או 6), סוג (למשל: בקבוק, קופסה, פחית), חומר (למשל: פלסטיק, מתכת, אלומיניום) והגודל אם יש (למשל: 330 מ״ל) והנחיות מיחזור."
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr "מוטב להתמקד עד כמה שניתן. לפלסטיק רצוי לציין אם הוא אטום או שקוף, צבוע, פוליאתילן טרפתלט (PET) או פוליאתילן בצפיפות גבוהה (PEHD)."
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr "חילוץ הנחיות מיחזור ו/או פרטי אריזה מהתמונה"
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "חילוץ הטקסט מהנחיות המיחזור ו/או פרטי האריזה לא הצליח. כדאי לנסות עם תמונה ברורה יותר, ברזולוציה גבוהה יותר או מסגור טוב יותר של הטקסט."
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "חילוץ הטקסט מהנחיות המיחזור ו/או פרטי האריזה הצליח. זיהוי טקסט אינו מושלם, לכן כדאי לבדוק את הטקסט שלהלן ולתקן שגיאות במקרה הצורך."
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr "הנחיות מיחזור ו/או פרטי אריזה מחולצים"
+
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "סביבה"
@@ -4627,8 +4708,8 @@ msgid "Eco-Score"
 msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
-msgstr "השפעה נמוכה על איכות הסביבה"
+msgid "Low environmental impact (Eco-Score)"
+msgstr "השפעה סביבתית נמוכה (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4654,4 +4735,194 @@ msgstr "השפעה רבה על איכות הסביבה"
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
 msgstr "השפעה רבה מאוד על איכות הסביבה"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr "מכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr "עשוי להכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr "אינו מכיל: %s"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr "ללא %s"
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr "בעלים"
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr "בעלים"
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr "ניתן לספק מידע על החברה שלך שיופיע בפרופיל הארגון שלך."
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr "חלק מהמידע כגון פרטי יצירת קשר עם שירות הלקוחות עשוי להופיע ישירות על עמודי המוצרים שלכם."
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr "קישור לאתר הרשמי"
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "שירות לקוחות"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr "פרטי שירות הלקוחות גלויים לציבור וניתן להציג אותם באתר של Open Food Facts וביישומונים."
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr "כל השדות הם בגדר רשות."
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr "שירות מסחרי"
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr "פרטי השירות המסחרי מופיעים בפרופיל הארגון בלבד."
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "שם"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr "כתובת"
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr "מספר טלפון"
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "כתובת דוא״ל"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr "קישור לטופס יצירת קשר"
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "פרטים נוספים"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr "למשל שעות פתיחה"
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr "הארגון לא נמצא."
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr "שם הארגון חסר."
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr "פרופיל הארגון"
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr "פרופיל הארגון עודכן."
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr "למחוק את הארגון"
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr "האתר הרשמי"
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr "טופס יצירת קשר"
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr "עריכת פרופיל הארגון שלך"
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr "עריכת פרופיל המשתמש שלך"
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "רכיבים"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
+msgstr "נוכחות לא ידועה: %s"
+
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr "השפעה על איכות הסביבה"
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr "ציון Eco-Score"
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr "דירוג Eco-Score"
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
+msgstr "פירוט אופן חישוב Eco-Score"
+
+# do not translate Eco-score
+msgctxt "ecoscore_information"
+msgid "Information about the Eco-score"
+msgstr "מידע על Eco-Score"
+
+msgctxt "preferences_edit_your_food_preferences"
+msgid "Edit your food preferences"
+msgstr "עריכת העדפות המזון שלך"
+
+msgctxt "preferences_your_preferences"
+msgid "Your food preferences"
+msgstr "העדפות המזון שלך"
+
+msgctxt "preferences_currently_selected_preferences"
+msgid "Currently selected preferences"
+msgstr "ההעדפות שנבחרו נכון לעכשיו"
+
+msgctxt "preferences_locally_saved"
+msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "העדפות המזון שלך נשמרות בדפדפן שלך ולעולם אינן נשלחות ל־Open Food Facts או לכל גורם אחר."
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
+msgstr "כמות לא ידועה"
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr "רשימת הרכיבים חסרה"
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
+msgstr "עובדות תזונתיות חסרות"
 

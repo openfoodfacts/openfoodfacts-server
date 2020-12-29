@@ -53,6 +53,7 @@ BEGIN
 		&retrieve_or_create_org
 		&add_user_to_org
 		&remove_user_from_org
+		&is_user_in_org_group
 
 		&org_name
 		&org_url
@@ -332,6 +333,33 @@ sub remove_user_from_org($$$) {
 	store_org($org_ref);
 
 	return;
+}
+
+
+sub is_user_in_org_group ($$$) {
+	
+	my $org_id_or_ref = shift;
+	my $user_id = shift;
+	my $group_id = shift;
+
+	my $org_id;
+	my $org_ref;
+	
+	if (ref($org_id_or_ref) eq "") {
+		$org_id = $org_id_or_ref;
+		$org_ref = retrieve_org($org_id);
+	}
+	else {
+		$org_ref = $org_id_or_ref;
+		$org_id = $org_ref->{org_id};
+	}
+	
+	if ((defined $user_id) and (defined $org_ref) and (defined $org_ref->{$group_id}) and (defined $org_ref->{$group_id}{$user_id})) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
 }
 
 

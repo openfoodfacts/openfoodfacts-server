@@ -1,3 +1,5 @@
+# Including "to be" in the state makes it a TODO state
+
 en:Empty
 ca:Buit
 cs:Prázdný
@@ -462,7 +464,6 @@ pt:Imagens validadas
 ro:Fotografii validate
 ru:Фотографии выбраны
 sv:Bilder godkända
-vi:Photos validated
 zh:已验证照片
 zh-CN:已验证照片
 zh-TW:已驗證照片
@@ -678,3 +679,35 @@ nl:Verpakkerscode gereed
 sv:Identifieringsmärke fullständigt
 vi:Mã đóng gói đã hoàn thành
 zh:包装代码已完成
+
+en:Front photo selected
+fi:Etukuva valittu
+fr:Photo de face sélectionnée
+
+en:Front photo to be selected
+fi:Etukuva valitsematta
+fr:Photo de face non sélectionnée
+
+en:Ingredients photo selected
+fi:Ainesosakuva valittu
+fr:Photo des ingrédients sélectionnée
+
+en:Ingredients photo to be selected
+fi:Ainesosakuva valitsematta
+fr:Photo des ingrédients non sélectionnée
+
+en:Nutrition photo selected
+fi:Ravintokuva valittu
+fr:Photo de la nutrition non sélectionnée
+
+en:Nutrition photo to be selected
+fi:Ravintokuva valitsematta
+fr:Photo de la nutrition non sélectionnée
+
+en:Packaging photo selected
+fi:Pakkauskuva valittu
+fr:Photo de l'emballage sélectionnée
+
+en:Packaging photo to be selected
+fi:Pakkauskuva valitsematta
+fr:Photo de l'emballage non sélectionnée

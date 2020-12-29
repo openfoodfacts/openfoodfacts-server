@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-03 08:56\n"
+"PO-Revision-Date: 2020-11-05 11:09\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4426,8 +4426,12 @@ msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
 msgstr ""
 
-msgctxt "attribute_labels_organic_description_short"
+msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
+msgstr ""
+
+msgctxt "attribute_labels_organic_description_short"
+msgid "Organic products promote ecological sustainability and biodiversity."
 msgstr ""
 
 msgctxt "attribute_labels_organic_description"
@@ -4479,6 +4483,14 @@ msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
 msgstr ""
 
+msgctxt "attribute_nutriscore_unknown_title"
+msgid "Nutri-Score not computed"
+msgstr ""
+
+msgctxt "attribute_nutriscore_unknown_description_short"
+msgid "Unknown nutritional quality"
+msgstr ""
+
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
 msgstr ""
@@ -4507,6 +4519,14 @@ msgctxt "attribute_nova_name"
 msgid "NOVA group"
 msgstr "NOVA分類"
 
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
+msgstr ""
+
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr ""
@@ -4514,6 +4534,14 @@ msgstr ""
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_title"
+msgid "NOVA not computed"
+msgstr ""
+
+msgctxt "attribute_nova_unknown_description_short"
+msgid "Food processing level unknown"
 msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
@@ -4592,6 +4620,10 @@ msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr ""
 
+msgctxt "attribute_additives_unknown_title"
+msgid "Additives not computed"
+msgstr ""
+
 msgctxt "preference_not_important"
 msgid "Not important"
 msgstr ""
@@ -4608,6 +4640,55 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr ""
 
+msgctxt "packaging_alt"
+msgid "Recycling instructions and/or packaging information"
+msgstr ""
+
+msgctxt "image_packaging"
+msgid "Recycling instructions and/or packaging information picture"
+msgstr ""
+
+msgctxt "image_packaging_url"
+msgid "Link to recycling instructions and/or packaging information photo"
+msgstr ""
+
+# Do not translate the file name
+msgctxt "import_photos_format_packaging"
+msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
+msgstr ""
+
+msgctxt "packaging_text"
+msgid "Recycling instructions and/or packaging information"
+msgstr ""
+
+msgctxt "packaging_text_example"
+msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
+msgstr ""
+
+msgctxt "packaging_text_note"
+msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
+msgstr ""
+
+msgctxt "packaging_text_note_2"
+msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
+msgstr ""
+
+msgctxt "product_js_extract_packaging"
+msgid "Extract the recycling instructions and/or packaging information from the picture"
+msgstr ""
+
+msgctxt "product_js_extracted_packaging_nok"
+msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr ""
+
+msgctxt "product_js_extracted_packaging_ok"
+msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr ""
+
+msgctxt "product_js_extracting_packaging"
+msgid "Extracting recycling instructions and/or packaging information"
+msgstr ""
+
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "環境"
@@ -4617,7 +4698,7 @@ msgid "Eco-Score"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact"
+msgid "Low environmental impact (Eco-Score)"
 msgstr ""
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
@@ -4643,5 +4724,203 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "contains_s"
+msgid "Contains: %s"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "may_contain_s"
+msgid "May contain: %s"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "does_not_contain_s"
+msgid "Does not contain: %s"
+msgstr ""
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "without_s"
+msgid "Without %s"
+msgstr ""
+
+msgctxt "owners_p"
+msgid "owners"
+msgstr ""
+
+msgctxt "owners_s"
+msgid "owner"
+msgstr ""
+
+msgctxt "org_profile_description"
+msgid "You can provide information about your company that will be displayed in your organization profile."
+msgstr ""
+
+msgctxt "org_profile_description_2"
+msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
+msgstr ""
+
+msgctxt "org_name"
+msgid "Name"
+msgstr "名稱"
+
+msgctxt "org_link"
+msgid "Link to the official web site"
+msgstr ""
+
+msgctxt "org_customer_service"
+msgid "Customer service"
+msgstr "客户服務"
+
+msgctxt "org_customer_service_description"
+msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
+msgstr ""
+
+msgctxt "org_customer_service_note"
+msgid "All fields are optional."
+msgstr ""
+
+msgctxt "org_commercial_service"
+msgid "Commercial service"
+msgstr ""
+
+msgctxt "org_commercial_service_description"
+msgid "Commercial service information is only shown in the organization profile."
+msgstr ""
+
+msgctxt "contact_name"
+msgid "Name"
+msgstr "名稱"
+
+msgctxt "contact_address"
+msgid "Address"
+msgstr ""
+
+msgctxt "contact_phone"
+msgid "Phone number"
+msgstr ""
+
+msgctxt "contact_email"
+msgid "e-mail address"
+msgstr "電郵地址"
+
+msgctxt "contact_link"
+msgid "Contact form link"
+msgstr ""
+
+msgctxt "contact_info"
+msgid "Other information"
+msgstr "其他資料"
+
+msgctxt "contact_info_note"
+msgid "e.g. opening times"
+msgstr ""
+
+msgctxt "error_org_does_not_exist"
+msgid "The organization was not found."
+msgstr ""
+
+msgctxt "error_missing_org_name"
+msgid "The organization name is missing."
+msgstr ""
+
+msgctxt "edit_org_title"
+msgid "Organization profile"
+msgstr ""
+
+msgctxt "edit_org_result"
+msgid "The organization profile has been updated."
+msgstr ""
+
+msgctxt "delete_org"
+msgid "Delete the organization"
+msgstr ""
+
+msgctxt "official_site"
+msgid "Official site"
+msgstr ""
+
+msgctxt "contact_form"
+msgid "Contact form"
+msgstr ""
+
+msgctxt "edit_org_profile"
+msgid "Edit your organization profile"
+msgstr ""
+
+msgctxt "edit_user_profile"
+msgid "Edit your user profile"
+msgstr ""
+
+msgctxt "attribute_group_ingredients_analysis"
+msgid "Ingredients"
+msgstr "成分"
+
+# keep the %s, it will be replaced by an allergen
+msgctxt "presence_unknown_s"
+msgid "Presence unknown: %s"
+msgstr ""
+
+msgctxt "environmental_impact"
+msgid "Environmental impact"
+msgstr ""
+
+# Numerical score for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_score"
+msgid "Eco-score score"
+msgstr ""
+
+# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+msgctxt "ecoscore_grade"
+msgid "Eco-score grade"
+msgstr ""
+
+# do not translate Eco-score
+msgctxt "ecoscore_calculation_details"
+msgid "Details of the calculation of the Eco-score"
+msgstr ""
+
+# do not translate Eco-score
+msgctxt "ecoscore_information"
+msgid "Information about the Eco-score"
+msgstr ""
+
+msgctxt "preferences_edit_your_food_preferences"
+msgid "Edit your food preferences"
+msgstr ""
+
+msgctxt "preferences_your_preferences"
+msgid "Your food preferences"
+msgstr ""
+
+msgctxt "preferences_currently_selected_preferences"
+msgid "Currently selected preferences"
+msgstr ""
+
+msgctxt "preferences_locally_saved"
+msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+# used in phrases like "salt in unknown quantity"
+msgctxt "unknown_quantity"
+msgid "unknown quantity"
+msgstr ""
+
+msgctxt "missing_ingredients_list"
+msgid "Missing ingredients list"
+msgstr ""
+
+msgctxt "missing_nutrition_facts"
+msgid "Missing nutrition facts"
+msgstr ""
+
+msgctxt "ecoscore_p"
+msgid "ecoscore"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "ecoscore"
 msgstr ""
 

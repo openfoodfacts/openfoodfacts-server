@@ -53,6 +53,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -319,6 +320,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -353,7 +355,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
+$page_size = 24;
 
 
 $google_analytics = <<HTML
@@ -492,7 +494,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements
+improvements origins packaging_shapes packaging_materials packaging_recycling
 );
 
 
@@ -612,6 +614,7 @@ improvements
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -652,6 +655,7 @@ $options{import_export_fields_groups} = [
 			"quantity_value_unit",       "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit",   "packaging",
+			"packaging_text",
 			"brands",                    "brand_owner",
 			"categories",                "categories_specific",
 			"labels",                    "labels_specific",
@@ -683,8 +687,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url",     "image_ingredients_url",
-			"image_nutrition_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
 		]
 	],
 ];
@@ -703,14 +706,48 @@ $options{attribute_groups} = [
 		["nova","additives"]
 	],
 	[
+		"allergens",
+		[
+			"allergens_no_gluten",
+			"allergens_no_milk",
+			"allergens_no_eggs",
+			"allergens_no_nuts",
+			"allergens_no_peanuts",
+			"allergens_no_sesame_seeds",
+			"allergens_no_soybeans",
+			"allergens_no_celery",
+			"allergens_no_mustard",
+			"allergens_no_lupin",
+			"allergens_no_fish",
+			"allergens_no_crustaceans",
+			"allergens_no_molluscs",
+			"allergens_no_sulphur_dioxide_and_sulphites",
+		],
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm_oil_free",
+		]		
+	],
+	[
 		"labels",
 		["labels_organic", "labels_fair_trade"]
 	],
 	[
-		"allergens",
-		["allergens_gluten", "allergens_milk", "allergens_eggs"],
-	]
+		"environment",
+		[
+			"ecoscore",
+		]
+	],
 ];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"nutriscore" => "very_important",
+	"nova" => "important",
+	"ecoscore" => "important",
+};
 
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.
@@ -730,6 +767,7 @@ $options{import_export_fields_importance} = {
 	quantity => "mandatory",
 	serving_size => "recommended",
 	packaging => "recommended",
+	packaging_text => "mandatory",
 	brands => "mandatory",
 	categories => "mandatory",
 	labels => "mandatory",

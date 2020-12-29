@@ -418,12 +418,12 @@ store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_point
 
 
 
-foreach my $country ('en:world', keys %{$properties{countries}}) {
+foreach my $country (keys %{$properties{countries}}) {
+	
+	# Do not generate stats for countries without 2 letter country codes
+	next if not defined $properties{countries}{$country}{"country_code_2:en"};
 
-	my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
-	if ($country eq 'en:world') {
-		$cc = 'world';
-	}
+	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
 
 	# Category stats for nutriments
 
@@ -496,78 +496,6 @@ foreach my $country ('en:world', keys %{$properties{countries}}) {
 		}
 	}
 }
-
-
-print "Starting countries.html...\n";
-my $html = "<p>$total products:</p>";
-foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
-
-	if ($countries{$country} > 0) {
-		$l = "en";
-		$lc = $l;
-		$lang = $l;
-		my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
-		if ($country eq 'en:world') {
-			$cc = 'world';
-		}
-		# this is generating nested links, e.g.
-		# <a href="https://pl.productopener.localhost/"><a href="/country/poland" class="tag well_known">Poland</a></a> : 280 products
-		$html .= "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "\n<br />";
-	}
-
-}
-
-open (my $OUT, ">:encoding(UTF-8)", "$www_root/countries.html");
-print $OUT $html;
-close $OUT;
-
-
-print "Starting products_countries.html...\n";
-my $html = "";
-my $c = 0;
-foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
-
-	if ($countries{$country} > 0) {
-		my $cc = lc($properties{countries}{$country}{"country_code_2:en"} // 'world');
-		if ($country eq 'en:world') {
-			$cc = 'world';
-		}
-		$cc ne '' or next;
-		$c++;
-
-		my $n = $countries{$country};
-		$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-		my $link = "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
-		my $i = 0;
-		foreach my $lc (@{$country_languages{$cc}}) {
-			if ($lc ne 'en') {
-				my $subdomain = $cc;
-				if ($i != 0) {
-					$subdomain = "$cc-$lc";
-				}
-				$link .= " / " . "<a href=\"https://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
-			}
-
-			$i++;
-		}
-
-		if ($link =~ / \/ /) {
-			$link =~ s/ \/ / \(/;
-			$link .= ")";
-		}
-
-		$html .= "<li>$link - " . $countries{$country} . " " . lang("products") . "</li>\n";
-	}
-
-}
-$html =~ s/ - $//;
-$html =~ s/ 1 products/ 1 product/g;
-
-$html = "<p>$total products sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
-
-open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.html");
-print $OUT $html;
-close $OUT;
 
 
 # Open Food Facts - What's in my yogurt?

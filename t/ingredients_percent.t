@@ -23,6 +23,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 100,
 				'percent_max' => 100,
 				'percent_min' => 100,
 				'text' => 'sugar'
@@ -35,12 +36,14 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 75,
 				'percent_max' => 100,
 				'percent_min' => 50,
 				'text' => 'sugar'
 			},
 			{
 				'id' => 'en:milk',
+				'percent_estimate' => 25,
 				'percent_max' => 50,
 				'percent_min' => 0,
 				'text' => 'milk'
@@ -53,18 +56,21 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => '66.6666666666667',
 				'percent_max' => 100,
 				'percent_min' => '33.3333333333333',
 				'text' => 'sugar'
 			},
 			{
 				'id' => 'en:milk',
+				'percent_estimate' => '16.6666666666667',
 				'percent_max' => 50,
 				'percent_min' => 0,
 				'text' => 'milk'
 			},
 			{
 				'id' => 'en:water',
+				'percent_estimate' => '16.6666666666667',
 				'percent_max' => '33.3333333333333',
 				'percent_min' => 0,
 				'text' => 'water'
@@ -77,6 +83,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 90,
 				'percent' => '90',
 				'percent_max' => 90,
 				'percent_min' => 90,
@@ -84,6 +91,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:milk',
+				'percent_estimate' => 10,
 				'percent_max' => 10,
 				'percent_min' => 10,
 				'text' => 'milk'
@@ -96,6 +104,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 90,
 				'percent_max' => 90,
 				'percent_min' => 90,
 				'text' => 'sugar'
@@ -103,6 +112,7 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'percent' => '10',
+				'percent_estimate' => 10,
 				'percent_max' => 10,
 				'percent_min' => 10,
 				'text' => 'milk'
@@ -115,6 +125,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 85,
 				'percent_max' => 90,
 				'percent_min' => 80,
 				'text' => 'sugar'
@@ -122,12 +133,14 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'percent' => '10',
+				'percent_estimate' => 10,
 				'percent_max' => 10,
 				'percent_min' => 10,
 				'text' => 'milk'
 			},
 			{
 				'id' => 'en:water',
+				'percent_estimate' => 5,
 				'percent_max' => 10,
 				'percent_min' => 0,
 				'text' => 'water'
@@ -140,12 +153,14 @@ my @tests = (
 		[
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => '62.5',
 				'percent_max' => 80,
 				'percent_min' => 45,
 				'text' => 'sugar'
 			},
 			{
 				'id' => 'en:water',
+				'percent_estimate' => '23.75',
 				'percent_max' => 45,
 				'percent_min' => 10,
 				'text' => 'water'
@@ -153,6 +168,7 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'percent' => '10',
+				'percent_estimate' => '13.75',
 				'percent_max' => 10,
 				'percent_min' => 10,
 				'text' => 'milk'
@@ -169,11 +185,13 @@ my @tests = (
 				'ingredients' => [
 					{
 						'id' => 'en:cocoa',
+						'percent_estimate' => 100,
 						'percent_max' => 100,
 						'percent_min' => 100,
 						'text' => 'cocoa'
 					}
 				],
+				'percent_estimate' => 100,
 				'percent_max' => 100,
 				'percent_min' => 100,
 				'text' => 'chocolate'
@@ -189,23 +207,27 @@ my @tests = (
 				'ingredients' => [
 					{
 						'id' => 'en:cocoa',
+						'percent_estimate' => 50,
 						'percent_max' => 100,
 						'percent_min' => 25,
 						'text' => 'cocoa'
 					},
 					{
 						'id' => 'en:sugar',
+						'percent_estimate' => 25,
 						'percent_max' => 50,
 						'percent_min' => 0,
 						'text' => 'sugar'
 					}
 				],
+				'percent_estimate' => 75,
 				'percent_max' => 100,
 				'percent_min' => 50,
 				'text' => 'chocolate'
 			},
 			{
 				'id' => 'en:milk',
+				'percent_estimate' => 25,
 				'percent_max' => 50,
 				'percent_min' => 0,
 				'text' => 'milk'
@@ -225,28 +247,33 @@ my @tests = (
 							{
 								'id' => 'en:cocoa-paste',
 								'percent' => '70',
+								'percent_estimate' => 70,
 								'percent_max' => 70,
 								'percent_min' => 70,
 								'text' => 'cocoa paste'
 							},
 							{
 								'id' => 'en:cocoa-butter',
+								'percent_estimate' => 15,
 								'percent_max' => 30,
 								'percent_min' => 0,
 								'text' => 'cocoa butter'
 							}
 						],
+						'percent_estimate' => 85,
 						'percent_max' => 100,
 						'percent_min' => 70,
 						'text' => 'cocoa'
 					},
 					{
 						'id' => 'en:sugar',
+						'percent_estimate' => 15,
 						'percent_max' => 30,
 						'percent_min' => 0,
 						'text' => 'sugar'
 					}
 				],
+				'percent_estimate' => 100,
 				'percent_max' => 100,
 				'percent_min' => 100,
 				'text' => 'chocolate'
@@ -264,20 +291,24 @@ my @tests = (
 			{
 				'id' => 'en:cocoa-butter',
 				'percent' => '15',
+				'percent_estimate' => 15,
 				'text' => 'beurre de cacao'
 			},
 			{
 				'id' => 'en:sugar',
 				'percent' => '10',
+				'percent_estimate' => 10,
 				'text' => 'sucre'
 			},
 			{
 				'id' => 'en:milk-proteins',
+				'percent_estimate' => '37.5',
 				'text' => "prot\x{e9}ines de lait"
 			},
 			{
 				'id' => 'en:egg',
 				'percent' => '1',
+				'percent_estimate' => '37.5',
 				'text' => 'oeuf'
 			}
 		]
@@ -289,6 +320,7 @@ my @tests = (
 			{
 				'id' => 'en:flour',
 				'percent' => '12',
+				'percent_estimate' => 12,
 				'text' => 'farine'
 			},
 			{
@@ -297,23 +329,28 @@ my @tests = (
 					{
 						'id' => 'en:cocoa-butter',
 						'percent' => '15',
+						'percent_estimate' => 15,
 						'text' => 'beurre de cacao'
 					},
 					{
 						'id' => 'en:sugar',
 						'percent' => '10',
+						'percent_estimate' => 10,
 						'text' => 'sucre'
 					},
 					{
 						'id' => 'en:milk-proteins',
+						'percent_estimate' => '31.5',
 						'text' => "prot\x{e9}ines de lait"
 					},
 					{
 						'id' => 'en:egg',
 						'percent' => '1',
+						'percent_estimate' => '31.5',
 						'text' => 'oeuf'
 					}
 				],
+				'percent_estimate' => 88,
 				'text' => 'chocolat'
 			}
 		]
@@ -324,6 +361,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:flour',
+				'percent_estimate' => '66.6666666666667',
 				'percent_max' => 100,
 				'percent_min' => '33.3333333333333',
 				'text' => 'Flour'
@@ -333,29 +371,34 @@ my @tests = (
 				'ingredients' => [
 					{
 						'id' => 'en:cocoa',
+						'percent_estimate' => '8.33333333333333',
 						'percent_max' => 50,
 						'percent_min' => 0,
 						'text' => 'cocoa'
 					},
 					{
 						'id' => 'en:sugar',
+						'percent_estimate' => '4.16666666666667',
 						'percent_max' => 25,
 						'percent_min' => 0,
 						'text' => 'sugar'
 					},
 					{
 						'id' => 'en:soya-lecithin',
+						'percent_estimate' => '4.16666666666667',
 						'percent_max' => '16.6666666666667',
 						'percent_min' => 0,
 						'text' => 'soy lecithin'
 					}
 				],
+				'percent_estimate' => '16.6666666666667',
 				'percent_max' => 50,
 				'percent_min' => 0,
 				'text' => 'chocolate'
 			},
 			{
 				'id' => 'en:egg',
+				'percent_estimate' => '16.6666666666667',
 				'percent_max' => '33.3333333333333',
 				'percent_min' => 0,
 				'text' => 'egg'
@@ -375,6 +418,7 @@ my @tests = (
 			{
 				'id' => 'en:beans',
 				'percent' => '52',
+				'percent_estimate' => 52,
 				'percent_max' => 52,
 				'percent_min' => 52,
 				'text' => 'Beans'
@@ -382,36 +426,42 @@ my @tests = (
 			{
 				'id' => 'en:tomato',
 				'percent' => '33',
+				'percent_estimate' => 33,
 				'percent_max' => 33,
 				'percent_min' => 33,
 				'text' => 'Tomatoes'
 			},
 			{
 				'id' => 'en:water',
+				'percent_estimate' => 9,
 				'percent_max' => 15,
 				'percent_min' => 3,
 				'text' => 'Water'
 			},
 			{
 				'id' => 'en:sugar',
+				'percent_estimate' => 3,
 				'percent_max' => '7.5',
 				'percent_min' => 0,
 				'text' => 'Sugar'
 			},
 			{
 				'id' => 'en:corn-flour',
+				'percent_estimate' => '1.5',
 				'percent_max' => 5,
 				'percent_min' => 0,
 				'text' => 'Cornflour'
 			},
 			{
 				'id' => 'en:salt',
+				'percent_estimate' => '0.75',
 				'percent_max' => '3.75',
 				'percent_min' => 0,
 				'text' => 'Salt'
 			},
 			{
 				'id' => 'en:spirit-vinegar',
+				'percent_estimate' => '0.75',
 				'percent_max' => 3,
 				'percent_min' => 0,
 				'text' => 'Spirit Vinegar'
@@ -424,6 +474,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:milk',
+				'percent_estimate' => 73,
 				'percent_max' => 73,
 				'percent_min' => 73,
 				'text' => 'Leche'
@@ -431,6 +482,7 @@ my @tests = (
 			{
 				'id' => 'en:cocoa',
 				'percent' => '27',
+				'percent_estimate' => 27,
 				'percent_max' => 27,
 				'percent_min' => 27,
 				'text' => 'Cacao'
@@ -444,16 +496,19 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'percent' => '12.2',
+				'percent_estimate' => '12.2',
 				'text' => 'Leche'
 			},
 			{
 				'id' => 'en:cocoa',
 				'percent' => '7',
+				'percent_estimate' => '7',
 				'text' => 'Cacao'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'percent' => '3',
+				'percent_estimate' => '80.8',
 				'text' => 'Avellanas'
 			}
 		]
@@ -465,26 +520,31 @@ my @tests = (
 			{
 				'id' => 'en:salt',
 				'percent' => '20',
+				'percent_estimate' => 20,
 				'text' => 'sel'
 			},
 			{
 				'id' => 'en:pepper',
 				'percent' => '10',
+				'percent_estimate' => 10,
 				'text' => 'poivre'
 			},
 			{
 				'id' => 'en:chili-pepper',
 				'percent' => '5',
+				'percent_estimate' => 5,
 				'text' => 'piment'
 			},
 			{
 				'id' => 'en:cumin-seeds',
 				'percent' => '0.4',
+				'percent_estimate' => '0.4',
 				'text' => 'cumin'
 			},
 			{
 				'id' => 'en:garlic',
 				'percent' => '0.1',
+				'percent_estimate' => '64.6',
 				'text' => 'ail'
 			}
 		]
@@ -505,6 +565,8 @@ foreach my $test_ref (@tests) {
 		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
 		delete_ingredients_percent_values($product_ref->{ingredients});
 	}
+
+	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
 	is_deeply ($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have

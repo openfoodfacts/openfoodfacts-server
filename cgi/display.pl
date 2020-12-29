@@ -98,7 +98,13 @@ if (defined $request{api}) {
 	}
 }
 elsif (defined $request{search}) {
-	display_search_results(\%request);
+	if (param("download") and param("format")) {
+		$request{format} = param('format');
+		search_and_export_products(\%request,{}, undef);
+	}
+	else {
+		display_search_results(\%request);
+	}
 }
 elsif (defined $request{text}) {
 	display_text(\%request);

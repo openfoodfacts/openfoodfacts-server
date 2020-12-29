@@ -161,7 +161,7 @@ use XML::Simple;
 use CLDR::Number;
 use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
-use Storable qw(freeze);
+use Storable qw(dclone freeze);
 use Digest::MD5 qw(md5_hex);
 use boolean;
 use Excel::Writer::XLSX;
@@ -281,8 +281,36 @@ use vars qw();
 $static_subdomain = format_subdomain('static');
 $world_subdomain = format_subdomain('world');
 
+my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
 =head1 FUNCTIONS
+
+=head2 process_template ( $template_filename , $template_data_ref , $result_content_ref )
+
+Add some functions and variables needed by many templates and process the template with template toolkit.
+
+=cut
+
+sub process_template($$$) {
+
+	my $template_filename = shift;
+	my $template_data_ref = shift;
+	my $result_content_ref = shift;
+
+	# Add functions and values that are passed to all templates
+
+	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{sep} = separator_before_colon($lc);
+	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{display_icon} = \&display_icon;
+	$template_data_ref->{display_date_tag} = \&display_date_tag;
+	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
+		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	};
+
+	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
+}
+
 
 =head2 init ()
 
@@ -531,6 +559,17 @@ CSS
 }
 CSS
 ;
+	}
+
+	# Enable or disable user preferences
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (not $server_options{producers_platform})
+		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+
+		$user_preferences = 1;
+	}
+	else {
+		$user_preferences = 0;
 	}
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
@@ -1078,7 +1117,8 @@ sub display_error($$)
 	display_new( {
 		title => lang('error'),
 		content_ref => \$html,
-		status => $status
+		status => $status,
+		page_type => "error",
 	});
 	exit();
 }
@@ -1113,6 +1153,8 @@ sub display_text($)
 {
 	my $request_ref = shift;
 	my $textid = $request_ref->{text};
+
+	$request_ref->{page_type} = "text";
 
 	my $text_lang = $lang;
 
@@ -1992,7 +2034,7 @@ sub display_list_of_tags($$) {
 
 		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
 		if ($request_ref->{structured_response}{count} >= $tags_page_size and not (defined param("stats")) and not (defined param("filter"))) {
-			$html .= display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
+			$html .= "\n<hr>" . display_pagination($request_ref, $request_ref->{structured_response}{count} , $tags_page_size , $request_ref->{page} );
 		}
 
 		if ((defined param("stats")) and (param("stats"))) {
@@ -2144,7 +2186,7 @@ JS
 			$initjs .= $js;
 
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 ;
 
@@ -2426,7 +2468,7 @@ sub display_list_of_tags_translate($$) {
 			my $lc_tagid = get_string_id_for_lang($display_lc, $display_without_lc); # "yule-log"
 
 			if (
-				(defined $synonyms_for{$tagtype}{$display_lc}) 
+				(defined $synonyms_for{$tagtype}{$display_lc})
 				and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})
 			) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -3611,14 +3653,15 @@ HTML
 		# Users starting with org- are organizations, not actual users
 
 		my $user_or_org_ref;
+		my $orgid;
 
 		if ($tagid =~ /^org-/) {
 
 			# Organization
-			
-			my $org_id = $';
-			my $user_or_org_ref = retrieve_org($org_id);
-			
+
+			$orgid = $';
+			$user_or_org_ref = retrieve_org($orgid);
+
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
 	}
@@ -3627,7 +3670,7 @@ HTML
 
 			# User
 
-			my $user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+			$user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
 
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_user"), 404);
@@ -3637,54 +3680,56 @@ HTML
 		if (defined $user_or_org_ref) {
 
 			if ($user_or_org_ref->{name} ne '') {
-				$title = $user_or_org_ref->{name} . " ($tagid)";
+				$title = $user_or_org_ref->{name} || $tagid;
 				$products_title = $user_or_org_ref->{name};
+				$display_tag = $user_or_org_ref->{name};
 			}
 
-			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
-			}
+			# Display the user or organization profile
 
+			my $template_data_ref = dclone($user_or_org_ref);
+
+			my $profile_html = "";
+
+			if ($tagid =~ /^org-/) {
+
+				# Display the organization profile
+
+				if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
+					$template_data_ref->{edit_profile} = 1;
+					$template_data_ref->{orgid} = $orgid;
+				}
+
+				process_template('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
+			}
 			else {
 
-				if (($admin) and (defined $user_or_org_ref->{email})) {
-					$description .= "<p>" . $user_or_org_ref->{email} . "</p>";
-				}
+				# Display the user profile
+
+				if (($tagid eq $User_id) or $admin) {
+					$template_data_ref->{edit_profile} = 1;
+					$template_data_ref->{userid} = $tagid;
+					}
+
+				$template_data_ref->{links} = [
+					{
+						text => sprintf(lang('editors_products'), $products_title),
+						url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)),
+					},
+					{
+						text => sprintf(lang('photographers_products'), $products_title),
+						url => canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)),
+					},
+				];
 
 				if (defined $user_or_org_ref->{registered_t}) {
-					$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_or_org_ref->{registered_t}) . "</p>";
+					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
 				}
 
-				# Display links to products edited, photographed etc.
-
-				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language",$tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
-				. "</ul>\n";
-
-
-				# 2018/12/19 - disable displaying missions (broken since 2013)
-				if (0 and (defined $user_or_org_ref->{missions}) and ($request_ref->{page} <= 1 )) {
-					my $missions = '';
-					my $i = 0;
-
-					foreach my $missionid (sort { $user_or_org_ref->{missions}{$b} <=> $user_or_org_ref->{missions}{$a}} keys %{$user_or_org_ref->{missions}}) {
-						$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
-						. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
-						. $Missions{$missionid}{name} . "</a></div></li>\n";
-						$i++;
-					}
-
-					if ($i > 0) {
-						$missions = "<h2>" . lang("missions") . "</h2>\n<p>"
-						. $products_title . ' ' . sprintf(lang("completed_n_missions"), $i) . "</p>\n"
-						. '<ul id="missions" style="list-style-type:none">' . "\n" . $missions . "</ul>";
-						$missions =~ s/ 1 missions/ 1 mission/;
-					}
-
-					$description .= $missions;
-				}
+				process_template('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
+
+			$description .= $profile_html;
 		}
 	}
 
@@ -3859,6 +3904,7 @@ HTML
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
 		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc,"countries",$country);
+		$request_ref->{page_type} = "list_of_tags";
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
@@ -3910,10 +3956,10 @@ sub display_search_results($) {
 
 	my $html = '';
 
-	my $title = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
-	
+	$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc,"countries",$country);
+
 	my $current_link = '';
-	
+
 	foreach my $field (param()) {
 		if (
 			($field eq "page")
@@ -3922,62 +3968,72 @@ sub display_search_results($) {
 			) {
 			next;
 		}
-		
+
 		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param($field));
 	}
-	
+
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
-	
+
 	if ((defined param("user_preferences")) and (param("user_preferences")) and not ($request_ref->{api}) ) {
-	
+
 		# The results will be filtered and ranked on the client side
-		
+
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
-		$search_api_url .= "&fields=product_name,url,images,attribute_groups";
+		$search_api_url .= "&fields=code,product_display_name,url,image_front_thumb_url,attribute_groups";
+		$search_api_url .= "&page_size=100";
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
-		
+
+		my $preferences_text = lang("classify_products_according_to_your_preferences");
+
+		$scripts .= <<JS
+<script type="text/javascript">
+var page_type = "products";
+var preferences_text = "$preferences_text";
+var products = [];
+</script>
+JS
+;
+
 		$scripts .= <<JS
 <script src="/js/product-preferences.js"></script>
 <script src="/js/product-search.js"></script>
 JS
 ;
 
-		$initjs .= <<JS
 
-display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results"); });
-search_products("#search_results", "$search_api_url");
+
+		$initjs .= <<JS
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
+search_products("#search_results", products, "$search_api_url");
 JS
 ;
 
-		my $template_data_ref = {};
+		my $template_data_ref = {
+			lang => \&lang,
+			display_pagination => \&display_pagination,
+		};
 
 		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
-		}		
+		}
 	}
 	else {
-		
+
 		# The server generates the search results
-	
-		my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
-		if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
-			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
-			$sort_by = 'popularity_key';
-		}	
-		
+
 		my $query_ref = {};
-		
+
 		$request_ref->{current_link_query} = $current_link;
-		
-		$html .= search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 
 	$request_ref->{content_ref} = \$html;
+	$request_ref->{page_type} = "list_of_products";
 
 	display_new($request_ref);
 
@@ -4079,47 +4135,51 @@ Reference to the MongoDB query object.
 =cut
 
 sub add_params_to_query($$) {
-	
+
 	my $request_ref = shift;
 	my $query_ref = shift;
-	
+
 	$log->debug("add_params_to_query", { params => {CGI::Vars()} }) if $log->is_debug();
 
 	my $and = $query_ref->{"\$and"};
-	
+
 	foreach my $field (param()) {
-		
-		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
-		
+
+		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();
+
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
-		
+
+		elsif ($field eq "sort_by") {
+			$request_ref->{$field} = param($field);
+		}
+
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
 		# or with values in a given language (e.g. labels_tags_fr=bio)
-		
+
 		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
 			if (defined $3) {
 				$tag_lc = $3;
 			}
-			
+
 			# Possible values:
 			# xyz_tags=a
 			# xyz_tags=a,b	products with tag a and b
 			# xyz_tags=a|b	products with either tag a or tag b
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
-			
+
 			my $values = remove_tags_and_quote(decode utf8=>param($field));
-			
+
 			$log->debug("add_params_to_query - tags param", { field => $field, lc => $lc, tag_lc => $tag_lc, values => $values }) if $log->is_debug();
-			
+
 			foreach my $tag (split(/,/, $values)) {
-				
+
 				my $suffix = "_tags";
-				
+
 				# If there is more than one criteria on the same field, we need to use a $and query
 				my $remove = 0;
 				if (defined $query_ref->{$tagtype . $suffix}) {
@@ -4128,15 +4188,15 @@ sub add_params_to_query($$) {
 						$and = [];
 					}
 					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
-				}				
-				
+				}
+
 				my $not;
 				if ($tag =~ /^-/) {
 					$not = 1;
 					$tag = $';
 				}
-				
-				# Multiple values separated by | 
+
+				# Multiple values separated by |
 				if ($tag =~ /\|/) {
 					my @tagids = ();
 					foreach my $tag2 (split(/\|/, $tag)) {
@@ -4150,17 +4210,17 @@ sub add_params_to_query($$) {
 						else {
 							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
 						}
-						push @tagids, $tagid2;				
+						push @tagids, $tagid2;
 					}
-					
+
 					$log->debug("add_params_to_query - tags param - multiple values (OR) separated by | ", { field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids }) if $log->is_debug();
-					
+
 					if ($not) {
 						$query_ref->{$tagtype . $suffix} =  { '$nin' => \@tagids };
 					}
 					else {
 						$query_ref->{$tagtype . $suffix} = { '$in' => \@tagids };
-					}					
+					}
 				}
 				# Single value
 				else {
@@ -4169,7 +4229,7 @@ sub add_params_to_query($$) {
 						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc,$tagtype, $tag));
 						if ($tagtype eq 'additives') {
 							$tagid =~ s/-.*//;
-						}				
+						}
 					}
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
@@ -4191,28 +4251,28 @@ sub add_params_to_query($$) {
 				}
 			}
 		}
-		
+
 		# Conditions on nutrients
-		
+
 		# e.g. saturated-fat_prepared_serving=<3=0
 		# the parameter name is exactly the same as the key in the nutriments hash of the product
-		
+
 		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
-			
+
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
-			
+
 			my $conditions = param($field);
-			
-			$log->debug("add_params_to_query - nutrient conditions", { field => $field, conditions => $conditions}) if $log->is_debug();			
-			
+
+			$log->debug("add_params_to_query - nutrient conditions", { field => $field, conditions => $conditions}) if $log->is_debug();
+
 			foreach my $condition (split(/,/, $conditions)) {
-			
+
 				# the field value is a number, possibly preceded by <, >, <= or >=
-				
+
 				my $operator;
 				my $value;
-				
+
 				if ($condition =~ /^(<|>|<=|>=)(\d.*)$/) {
 					$operator = $1;
 					$value = $2;
@@ -4221,16 +4281,16 @@ sub add_params_to_query($$) {
 					$operator = '=';
 					$value = param($field);
 				}
-				
+
 				$log->debug("add_params_to_query - nutrient condition", { field => $field, condition => $condition, operator => $operator, value => $value}) if $log->is_debug();
-				
+
 				my %mongo_operators = (
 					'<' => 'lt',
 					'<=' => 'lte',
 					'>' => 'gt',
 					'>=' => 'gte',
 				);
-				
+
 				if ($operator eq '=') {
 					$query_ref->{"nutriments." . $field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 				}
@@ -4239,7 +4299,7 @@ sub add_params_to_query($$) {
 						$query_ref->{"nutriments." . $field} = {};
 					}
 					$query_ref->{"nutriments." . $field}{ '$' . $mongo_operators{$operator}} = $value + 0.0;
-				}			
+				}
 			}
 		}
 	}
@@ -4268,14 +4328,20 @@ Reference to the customized product object.
 =cut
 
 sub customize_response_for_product($) {
-	
+
 	my $product_ref = shift;
-	
+
 	my $customized_product_ref = {};
-	
+
 	my $carbon_footprint_computed = 0;
-	
-	foreach my $field (split(/,/, param('fields'))) {
+
+	my $fields = param('fields');
+
+	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
+		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
+	}
+
+	foreach my $field (split(/,/, $fields)) {
 
 		# On demand carbon footprint tags
 		if ((not $carbon_footprint_computed)
@@ -4283,12 +4349,16 @@ sub customize_response_for_product($) {
 			compute_carbon_footprint_infocard($product_ref);
 			$carbon_footprint_computed = 1;
 		}
-		
+
+		if ($field eq "product_display_name") {
+			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+		}
+
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		if ($field eq "nutrition_table_html") {
+		elsif ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
-		
+
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
 		# possibly multiple languages if sent ?lc=fr,nl for instance,
@@ -4301,7 +4371,7 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
-		
+
 		# [language_field]_languages : return a value with all existing values for a specific language field
 		elsif ($field =~ /^(.*)_languages$/) {
 
@@ -4327,7 +4397,7 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
-		
+
 		# Apps can request the full nutriments hash
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
@@ -4347,11 +4417,24 @@ sub customize_response_for_product($) {
 				}
 			}
 		}
-		
 		# Eco-Score
-		elsif (($field =~ /^ecoscore/) and (not defined $product_ref->{ecoscore_data})) {
+		elsif ($field =~ /^ecoscore/) {
+			# 2020-11-12: the Eco-score is currently not publicly deployed, and only available to moderators on the web site
+			# and alpha testers of the Open Food Facts app
+			# Until the public launch of the Eco-score, we will disable ecoscore fields in the API,
+			# except if the app is also asking for the ecoscore_alpha field (which can be turned on by the app with a specific parameter)
+			# That way we can deploy an "Eco-score ready" app that asks for ecoscore fields,
+			# and once we turn it on on the server, the app will start to display the Eco-score instantly,
+			# without having to deploy an updated app.
+
+			if (($server_options{ecoscore}) or (param('fields') =~ /ecoscore_alpha/)) {
+				if (not defined $product_ref->{ecoscore_data}) {
 			compute_ecoscore($product_ref);
+				}
+				if (defined $product_ref->{$field}) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
+		}
+			}
 		}
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
@@ -4363,13 +4446,41 @@ sub customize_response_for_product($) {
 		elsif ($field eq "attribute_groups") {
 			compute_attributes($product_ref, $lc);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
-		}		
+		}
+
+		# Images to update in a specific language
+		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
+			my $target_lc = $1;
+			$customized_product_ref->{$field} = {};
+
+			foreach my $imagetype ("front", "ingredients", "nutrition", "packaging") {
+
+				my $imagetype_lc = $imagetype . "_" . $target_lc;
+
+				# Ask for images in a specific language if we already have an old image for that language
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagetype_lc})) {
+
+					my $imgid = $product_ref->{images}{$imagetype . "_" . $target_lc}{imgid};
+					my $age = time() - $product_ref->{images}{$imgid}{uploaded_t};
+
+					if ($age > 365 * 86400) {	# 1 year
+						$customized_product_ref->{$field}{$imagetype_lc} = $age;
+					}
+				}
+				# or if the language is the main language of the product
+				# or if we have a text value for ingredients / packagings
+				elsif (($product_ref->{lc} eq $target_lc)
+					or ((defined $product_ref->{$imagetype . "_text_" . $target_lc}) and ($product_ref->{$imagetype . "_text_" . $target_lc} ne ""))) {
+					$customized_product_ref->{$field}{$imagetype_lc} = 0;
+				}
+			}
+		}
 
 		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
 	}
-	
+
 	return $customized_product_ref;
 }
 
@@ -4382,14 +4493,14 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 
+	$request_ref->{page_type} = "list_of_products";
+
 	my $template_data_ref = {
-		lang => \&lang,
-		display_pagination => \&display_pagination,
 	};
 
 	add_params_to_query($request_ref, $query_ref);
 
-	$log->debug("request_ref: ". Dumper($request_ref)."query_ref: ". Dumper($query_ref)) if $log->is_debug();
+	$log->debug("search_and_display_products", { request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by }) if $log->is_debug();
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
@@ -4400,6 +4511,11 @@ sub search_and_display_products($$$$$) {
 	}
 	else {
 		$limit = $page_size;
+	}
+
+	# If user preferences are turned on, return 100 products per page
+	if ($user_preferences) {
+		$limit = 100;
 	}
 
 	my $skip = 0;
@@ -4418,45 +4534,100 @@ sub search_and_display_products($$$$$) {
 
 	my $sort_ref = Tie::IxHash->new();
 
-	if (defined $sort_by) {
-	}
-	elsif (defined $request_ref->{sort_by}) {
+	# Use the sort order provided by the query if it is defined (overrides default sort order)
+	# e.g. ?sort_by=popularity
+	if (defined $request_ref->{sort_by}) {
 		$sort_by = $request_ref->{sort_by};
+		$log->debug("sort_by was passed through request_ref", { sort_by => $sort_by }) if $log->is_debug();
+	}
+	# otherwise use the sort order from the last_sort_by cookie
+	elsif (defined cookie('last_sort_by')) {
+		$sort_by = cookie('last_sort_by');
+		$log->debug("sort_by was passed through last_sort_by cookie", { sort_by => $sort_by }) if $log->is_debug();
+	}
+	elsif (defined $sort_by) {
+		$log->debug("sort_by was passed as a function parameter", { sort_by => $sort_by }) if $log->is_debug();
+	}
+
+	if ((not defined $sort_by)
+		or (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
+			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
+			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
+			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
+			$sort_by = 'popularity_key';
 	}
 
 	if (defined $sort_by) {
 		my $order = 1;
-		if ($sort_by =~ /^((.*)_t)_complete_first/) {
-			#$sort_by = $1;
-			#$sort_ref->Push(complete => -1);
-			$sort_ref->Push(sortkey => -1);
+		my $sort_by_key = $sort_by;
+
+		if ($sort_by eq 'last_modified_t_complete_first') {
+			# replace last_modified_t_complete_first (used on front page of a country) by popularity
+			$sort_by = 'popularity';
+			$sort_by_key = "popularity_key";
+			$order = -1;
+		}
+		elsif ($sort_by eq "popularity") {
+			$sort_by_key = "popularity_key";
+			$order = -1;
+		}
+		elsif ($sort_by eq "popularity_key") {
+			$order = -1;
+		}
+		elsif ($sort_by eq "ecoscore_score") {
+			$order = -1;
+		}
+		elsif ($sort_by eq "nutriscore_score") {
+			$sort_by_key = "nutriscore_score_opposite";
+			$order = -1;
+		}
+		elsif ($sort_by eq "nova_score") {
+			$sort_by_key = "nova_score_opposite";
+			$order = -1;
+		}
+		elsif ($sort_by =~ /^((.*)_t)_complete_first/) {
 			$order = -1;
 		}
 		elsif ($sort_by =~ /_t/) {
 			$order = -1;
-			$sort_ref->Push($sort_by => $order);
-		}
+	}
 		elsif ($sort_by =~ /scans_n/) {
 			$order = -1;
-			$sort_ref->Push($sort_by => $order);
 		}
-		elsif ($sort_by eq "popularity_key") {
-			$order = -1;
-			$sort_ref->Push($sort_by => $order);
-		}
-		else {
-			$sort_ref->Push($sort_by => $order);
-		}
+
+		$sort_ref->Push($sort_by_key => $order);
 	}
 
+	# Sort options
+
+	$template_data_ref->{sort_options} = [];
+
+	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
+	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
+
+	# Show Eco-score sort only for moderators
+	if ($User{moderator}) {
+		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+	}
+
+	push @{$template_data_ref->{sort_options}}, { value => "created_t", link => $request_ref->{current_link} . "?sort_by=created_t", name => lang("sort_by_created_t") };
+	push @{$template_data_ref->{sort_options}}, { value => "last_modified_t", link => $request_ref->{current_link} . "?sort_by=last_modified_t", name => lang("sort_by_last_modified_t") };
+
 	my $count;
+	my $page_count;
 
 	my $fields_ref;
 
-	#for API (json, xml, rss,...), display all fields
+	# - for API (json, xml, rss,...), display all fields
 	if (param("json") or param("jsonp") or param("xml") or param("jqm") or $request_ref->{rss}) {
 		$fields_ref = {};
-	} else {
+	}
+	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
+	elsif ($user_preferences) {
+		# when product attributes become more stable, we could try to restrict the fields
+		$fields_ref = {};
+	}
+	else {
 	#for HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
 		"lc" => 1,
@@ -4556,13 +4727,16 @@ sub search_and_display_products($$$$$) {
 
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
+				$page_count++;
 			}
 			$request_ref->{structured_response}{count} = $count;
+			$request_ref->{structured_response}{page_count} = $page_count;
 			set_cache_results($key,$request_ref->{structured_response})
 		}
   }
 
 	$count = $request_ref->{structured_response}{count};
+	$page_count = $request_ref->{structured_response}{page_count};
 
 	if (defined $request_ref->{description}) {
 		$request_ref->{description} =~ s/<nb_products>/$count/g;
@@ -4595,22 +4769,28 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{country} = $country;
 	$template_data_ref->{world_subdomain} = $world_subdomain;
 	$template_data_ref->{current_link_query} = $request_ref->{current_link_query};
-	
+	$template_data_ref->{sort_by} = $sort_by;
+
 	# Query from search form: display a link back to the search form
 	if ($request_ref->{current_link_query} =~ /action=process/) {
 	$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
 	$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	}
-	
+
 	$template_data_ref->{count} = $count;
 
 	if ($count > 0) {
+
+		# Show a download link only for search queries (and not for the home page of facets)
+
+		if ($request_ref->{search}) {
 		$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 		if ($request_ref->{current_link_query} =~ /\?/) {
 		$request_ref->{current_link_query_download} .= "&download=on";
 		}
 		else {
 			$request_ref->{current_link_query_download} .= "?download=on";
+		}
 		}
 
 		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
@@ -4688,7 +4868,7 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
-		if ((defined $request_ref->{api}) and (defined param('fields'))) {
+		if (($user_preferences) or ((defined $request_ref->{api}) and (defined param('fields')))) {
 
 			my $customized_products = [];
 
@@ -4728,10 +4908,11 @@ sub search_and_display_products($$$$$) {
 		}
 
 		$template_data_ref->{request} = $request_ref;
-		$template_data_ref->{page_count} = $count;
+		$template_data_ref->{page_count} = $page_count;
 		$template_data_ref->{page_limit} = $limit;
 		$template_data_ref->{page} = $page;
-
+		$template_data_ref->{current_link} = $request_ref->{current_link};
+		$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -4741,7 +4922,40 @@ sub search_and_display_products($$$$$) {
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	$tt->process('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	if ($user_preferences) {
+
+		my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
+
+		my $products_json = '[]';
+
+		if (defined $request_ref->{structured_response}{products}) {
+			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
+		}
+
+		$scripts .= <<JS
+<script type="text/javascript">
+var page_type = "products";
+var preferences_text = "$preferences_text";
+var products = $products_json;
+</script>
+JS
+;
+
+		$scripts .= <<JS
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
+rank_and_display_products("#search_results", products);
+JS
+;
+
+	}
+
+	process_template('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
@@ -4812,6 +5026,9 @@ sub display_pagination($$$$) {
 						if ($link eq '') {
 							$link  = "/";
 						}
+						if (defined $request_ref->{sort_by}) {
+							$link .= "?sort_by=" . $request_ref->{sort_by};
+						}
 					}
 					elsif (defined $current_link_query) {
 
@@ -4827,6 +5044,9 @@ sub display_pagination($$$$) {
 						if ( defined $limit && $link !~ /page_size/ ) {
 							$log->info("Using limit " .$limit) if $log->is_info();
 							$link .= "&page_size=" . $limit;
+						}
+						if (defined $request_ref->{sort_by}) {
+							$link .= "&sort_by=" . $request_ref->{sort_by};
 						}
 					}
 
@@ -4845,13 +5065,14 @@ sub display_pagination($$$$) {
 
 		$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
 
-		$html_pages = "\n<hr>" . '<ul id="pages" class="pagination">'
+		$html_pages = '<ul id="pages" class="pagination">'
 		. "<li class=\"unavailable\">" . lang("pages") . "</li>"
-		. $prev . $html_pages . $next . "</ul>\n";
+		. $prev . $html_pages . $next
+		. "<li class=\"unavailable\">(" . sprintf(lang("d_products_per_page"), $limit) . ")</li>"
+		. "</ul>\n";
 	}
 
 	# Close the list
-
 
 	if (defined param("jqm")) {
 		if (defined $next_page_url) {
@@ -5205,6 +5426,10 @@ sub display_scatter_plot($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq "forest_footprint") {
+			$x_allowDecimals = "allowDecimals:true,\n";
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
+		}
 		elsif ($graph_ref->{axis_x} =~ /ingredients_n/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
@@ -5218,6 +5443,10 @@ sub display_scatter_plot($$) {
 		if ($graph_ref->{axis_y} eq 'additives_n') {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
+		}
+		elsif ($graph_ref->{axis_y} eq "forest_footprint") {
+			$y_allowDecimals = "allowDecimals:true,\n";
+			$y_title = escape_single_quote(lang($graph_ref->{axis_y}));
 		}
 		elsif ($graph_ref->{axis_y} =~ /ingredients_n/) {
 			$y_allowDecimals = "allowDecimals:false,\n";
@@ -5244,8 +5473,13 @@ sub display_scatter_plot($$) {
 
 			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
 					or
+					(($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}})) or
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_y}}))
+					or
+					(($graph_ref->{axis_y} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+					or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 
 				my $url = $formatted_subdomain . product_url($product_ref->{code});
@@ -5306,6 +5540,9 @@ sub display_scatter_plot($$) {
 					# number of ingredients, additives etc. (ingredients_n)
 					if ($nid =~ /_n$/) {
 						$data{$axis} = $product_ref->{$nid};
+					}
+					elsif ($nid eq "forest_footprint") {
+						$data{$axis} = $product_ref->{forest_footprint_data}{footprint_per_kg};
 					}
 					# energy-kcal is already in kcal
 					elsif ($nid eq 'energy-kcal') {
@@ -5461,6 +5698,7 @@ JS
             tooltip: {
 				useHTML: true,
 				followPointer : false,
+				stickOnContact: true,
 				formatter: function() {
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br>'
 						+ this.point.img + '</a><br>'
@@ -5482,7 +5720,7 @@ JS
                             }
                         }
                     },
-					tooltip : { followPointer : false },
+					tooltip : { followPointer : false, stickOnContact: true },
                     states: {
                         hover: {
                             marker: {
@@ -5553,6 +5791,10 @@ sub display_histogram($$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq "forest_footprint") {
+			$x_allowDecimals = "allowDecimals:true,\n";
+			$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
+		}
 		elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
@@ -5582,7 +5824,10 @@ sub display_histogram($$) {
 
 			# Keep only products that have known values for x
 
-			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}})) or
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/)) and (defined $product_ref->{$graph_ref->{axis_x}}))
+				or
+					(($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
+				or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 
@@ -5624,6 +5869,9 @@ sub display_histogram($$) {
 				# number of ingredients, additives etc. (ingredients_n)
 				if ($nid =~ /_n$/) {
 					$value = $product_ref->{$nid};
+				}
+				elsif ($nid eq "forest_footprint") {
+					$value = $product_ref->{forest_footprint_data}{footprint_per_kg};
 				}
 				# energy-kcal is already in kcal
 				elsif ($nid eq 'energy-kcal') {
@@ -5871,7 +6119,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 
 		$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/highcharts.4.0.4.js"></script>
+<script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 ;
 
@@ -5927,11 +6175,14 @@ sub search_and_graph_products($$$) {
 
 	foreach my $axis ('x','y') {
 		if ($graph_ref->{"axis_$axis"} ne "products_n") {
-			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
-				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
+			if ($graph_ref->{"axis_$axis"} eq "forest_footprint") {
+				$fields_ref->{"forest_footprint_data.footprint_per_kg"} = 1;
+			}
+			elsif ($graph_ref->{"axis_$axis"} =~ /_n$/) {
+				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
 			}
 			else {
-				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
+				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
 			}
 		}
 	}
@@ -6275,7 +6526,15 @@ sub display_my_block($)
 
 
 		my $signout = lang("signout");
-		$content = sprintf(lang("you_are_connected_as_x"), "<span id=\"user_id\">".$User_id."</span>");
+		$content = "<p><strong>" . lang("username") . separator_before_colon($lc) . ":</strong> "
+		. "<a href=\"/editor/$User_id\" id=\"logged_in_user_id\">". $User_id . "</a><br>"
+		. '&rarr; <a href="/cgi/user.pl?type=edit&userid=' . $User_id . '">' . lang("edit_settings") . "</a></p>";
+
+		if (defined $Org_id) {
+			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
+			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{org} . "</a><br>"
+			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
+		}
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6306,15 +6565,21 @@ sub display_my_block($)
 HTML
 ;
 			}
-
-			if (defined $Org_id) {
-				$content .= "<br>" . lang("organization") . separator_before_colon($lc) . ": " . $Org{org};
-			}
-			else {
+			if (not defined $Org_id) {
 				$content .= "<p>" . lang("account_without_org") . "</p>";
 			}
 		}
 		else {
+			if (defined $Org_id) {
+				# Display a link to the producers platform
+
+				my $producers_platform_url = $formatted_subdomain . '/';
+				$producers_platform_url =~ s/\.open/\.pro\.open/;
+
+				$content .= "<p>" . lang("you_are_on_the_public_database") . "<br>"
+				. '<a href="' . $producers_platform_url . '">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>";
+			}
+
 			$links = '<ul class="vertical menu" style="padding-top:0">';
 			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
 			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
@@ -6619,6 +6884,13 @@ sub display_new($) {
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
 
+	if (defined $request_ref->{page_type}) {
+		$template_data_ref->{page_type} = $request_ref->{page_type};
+	}
+	else {
+		$template_data_ref->{page_type} = "other";
+	}
+
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
@@ -6696,21 +6968,21 @@ sub display_new($) {
 	$template_data_ref->{lc} = $lc;
 
 	if (not($server_options{producers_platform})
-	and ((not (defined cookie('hide_image_banner')))
-	or (not (cookie('hide_image_banner') eq '1')))) {
+	and ((not (defined cookie('hide_image_banner_2020')))
+	or (not (cookie('hide_image_banner_2020') eq '1')))) {
 		$template_data_ref->{banner} = $banner;
 
 		$initjs .= <<'JS';
-if ($.cookie('hide_image_banner') == '1') {
+if ($.cookie('hide_image_banner_2020') == '1') {
 	$('#hide_image_banner').prop('checked', true);
 	$('#donate_banner').remove();
 	}
 	else {
-	$('#hide_image_banner').prop('checked', false);	
+	$('#hide_image_banner').prop('checked', false);
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
-			$.cookie('hide_image_banner', '1', { expires: 180, path: '/' });
+			$.cookie('hide_image_banner_2020', '1', { expires: 90, path: '/' });
 			$('#donate_banner').remove();
 	}
 	});
@@ -6778,6 +7050,13 @@ JS
 
 HTML
 ;
+	}
+
+	# Extract initjs code from content
+
+	if ($$content_ref =~ /<initjs>(.*)<\/initjs>/s) {
+		$$content_ref = $` . $';
+		$initjs .= $1;
 	}
 
 	$template_data_ref->{top_banner} = $top_banner;
@@ -7068,7 +7347,7 @@ sub display_field($$) {
 		my @done_status;
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@{$state_items}){
-			if ((index($val, "to-") != -1) or (index($val, "empty") != -1)) {
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
 				push(@to_do_status, $val);
 			}
 			else {
@@ -7275,9 +7554,7 @@ sub display_product($)
 	my $description = "";
 
 	my $template_data_ref = {
-		lang => \&lang,
 		request_ref => $request_ref,
-		display_icon => \&display_icon,
 	};
 
 		$scripts .= <<SCRIPTS
@@ -7285,7 +7562,11 @@ sub display_product($)
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 ;
+	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
+\$('.f-dropdown').on('opened.fndtn.dropdown', function() {
+   \$(document).foundation('equalizer', 'reflow');
+});
 JS
 ;
 
@@ -7470,11 +7751,9 @@ CSS
 
 	# photos and data sources
 
-	my $html_manufacturer_source = ""; # Displayed at the top of the product page
-
 	if (defined $product_ref->{sources}) {
 
-		$template_data_ref->{product_sources} = $product_ref->{sources};
+		$template_data_ref->{unique_sources} = [];
 
 		my %unique_sources = ();
 
@@ -7483,33 +7762,26 @@ CSS
 		}
 		foreach my $source_id (sort keys %unique_sources) {
 			my $source_ref = $unique_sources{$source_id};
-			my $lang_source = $source_ref->{id};
-			$lang_source =~ s/-/_/g;
-			push @{$template_data_ref->{sources}}, {
-				lang_id => $lang_source,
-				url => $source_ref->{url},
-			};
 
-			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
-				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			if (not defined $source_ref->{name}) {
+				$source_ref->{name} = $source_id;
 			}
-			elsif ((defined $source_ref->{collaboration}) and ($source_ref->{collaboration} == 1)) {
-				$html_manufacturer_source = "<p>" . sprintf(lang("sources_collaboration"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
-			}
+
+			push @{$template_data_ref->{unique_sources}}, $source_ref;
 		}
 	}
 
 	# If the product has an owner, identify it as the source
-	if (defined $product_ref->{owner}) {
+	if ((not $server_options{producers_platform}) and (defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-/)) {
 
-		# TODO: use org profile if it exists
-		my $owner_name = $product_ref->{owner};
-		$owner_name =~ s/^org-//;
-
-		$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"/editor/" . $product_ref->{owner} . "\">" . $owner_name . "</a>") . "</p>";
+		# Organization
+		my $orgid = $';
+		my $org_ref = retrieve_org($orgid);
+		if (defined $org_ref) {
+			$template_data_ref->{owner} = $product_ref->{owner};
+			$template_data_ref->{owner_org} = $org_ref;
+		}
 	}
-
-	$template_data_ref->{html_manufacturer_source} = $html_manufacturer_source;
 
 	my $minheight = 0;
 	my $front_image = display_image_box($product_ref, 'front', \$minheight);
@@ -7554,6 +7826,8 @@ CSS
 		$ingredients_text = "";
 	}
 
+	$ingredients_text =~ s/\n/<br>/g;
+
 	# Indicate if we are displaying ingredients in another language than the language of the interface
 
 	my $ingredients_text_lang_html = "";
@@ -7584,15 +7858,13 @@ CSS
 	var allergens = /(<span class="allergen">|<\\/span>)/g;
 	divHtml = divHtml.replace(allergens, '_');
 
-    var editableText = \$('<textarea id="ingredients_list" style="height:8rem"/>');
+		var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
     editableText.val(divHtml);
     \$("#ingredients_list").replaceWith(editableText);
     editableText.focus();
 
-
 		\$("#editingredientsbuttondiv").hide();
 		\$("#saveingredientsbuttondiv").show();
-
 
 		\$(document).foundation('equalizer', 'reflow');
 
@@ -7608,14 +7880,16 @@ CSS
 		\$('div[id="saveingredientsbuttondiv_status"]').show();
 
 		\$.post('/cgi/product_jqm_multilingual.pl',
-				{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" }, function(data) {
+			{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" },
+			function(data) {
 
 				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
 						\$('div[id="saveingredientsbuttondiv"]').show();
 
-
 			\$(document).foundation('equalizer', 'reflow');
-		}, 'json');
+			},
+			'json'
+		);
 
 		\$(document).foundation('equalizer', 'reflow');
 
@@ -7629,14 +7903,16 @@ CSS
 		// alert(event.data.imagefield);
 		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_$ilc');
 		\$.post('/cgi/product_jqm_multilingual.pl',
-				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
-
+			{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" },
+			function(data) {
 
 				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
 				\$('div[id="ingredients_list"]').html("");
 
 			\$(document).foundation('equalizer', 'reflow');
-		}, 'json');
+			},
+			'json'
+		);
 
 		\$(document).foundation('equalizer', 'reflow');
 
@@ -7867,6 +8143,58 @@ HTML
 	}
 
 
+	# Packaging
+
+	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight);
+
+	# try to display packaging in the local language if available
+
+	my $packaging_text = $product_ref->{packaging_text};
+
+	my $packaging_text_lang = $product_ref->{lc};
+
+	if ((defined $product_ref->{"packaging_text" . "_" . $lc}) and ($product_ref->{"packaging_text" . "_" . $lc} ne '')) {
+		$packaging_text = $product_ref->{"packaging_text" . "_" . $lc};
+		$packaging_text_lang = $lc;
+	}
+
+	if (not defined $packaging_text) {
+		$packaging_text = "";
+	}
+
+	$packaging_text =~ s/\n/<br>/g;
+
+	$template_data_ref->{packaging_text} = $packaging_text;
+	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
+
+	# packagings data structure
+	$template_data_ref->{packagings} = $product_ref->{packagings};
+
+	# Environmental impact and Eco-Score
+	# Limit to France as the Eco-Score is currently valid only for products sold in France
+
+	if (
+		# for alpha test to moderators, display eco-score for all countries
+		# ($cc eq "fr") and
+		($User{moderator})) {
+
+		if (not defined $product_ref->{ecoscore_data}) {
+			compute_ecoscore($product_ref);
+		}
+		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
+		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
+		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
+		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
+	}
+
+	# Forest footprint
+	# 2020-12-07 - We currently display the forest footprint in France
+	# and for moderators so that we can extend it to other countries
+	if (($cc eq "fr") or ($User{moderator})) {
+		# Forest footprint data structure
+		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
+	}
+
 	# other fields
 
 	my $other_fields = "";
@@ -7978,14 +8306,47 @@ $meta_product_image_url
 
 HTML
 ;
+
+	# Compute attributes and embed them as JSON
+	# enable feature for moderators
+
+	if ($user_preferences) {
+
+		# A result summary will be computed according to user preferences on the client side
+
+		compute_attributes($product_ref, $lc);
+
+		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
+
+		$scripts .= <<JS
+<script type="text/javascript">
+var page_type = "product";
+var preferences_text = "$preferences_text";
+var product = $product_attribute_groups_json;
+</script>
+
+<script src="/js/product-preferences.js"></script>
+<script src="/js/product-search.js"></script>
+JS
+;
+
+		$initjs .= <<JS
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
+display_product_summary("#product_summary", product);
+JS
+;
+	}
+
 	my $html_display_product;
-	$tt->process('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
+	process_template('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
+	$request_ref->{page_type} = "product";
 
 	$log->trace("displayed product") if $log->is_trace();
 
@@ -9508,15 +9869,15 @@ sub display_preferences_api($$)
 {
 	my $request_ref = shift;
 	my $target_lc = shift;
-	
+
 	if (not defined $target_lc) {
 		$target_lc = $lc;
 	}
-		
+
 	$request_ref->{structured_response} = [];
-	
+
 	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
-		
+
 		push @{$request_ref->{structured_response}}, {
 			id => $preference,
 			name => lang("preference_" . $preference),
@@ -9524,7 +9885,7 @@ sub display_preferences_api($$)
 	}
 
 	display_structured_response($request_ref);
-	
+
 	return;
 }
 
@@ -9555,17 +9916,28 @@ sub display_attribute_groups_api($$)
 {
 	my $request_ref = shift;
 	my $target_lc = shift;
-	
+
 	if (not defined $target_lc) {
 		$target_lc = $lc;
 }
 
 	my $attribute_groups_ref = list_attributes($target_lc);
-	
+
+	# Add default preferences
+	if (defined $options{attribute_default_preferences}) {
+		foreach my $attribute_group_ref (@$attribute_groups_ref) {
+			foreach my $attribute_ref (@{$attribute_group_ref->{attributes}}) {
+				if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+					$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+				}
+			}
+		}
+	}
+
 	$request_ref->{structured_response} = $attribute_groups_ref;
 
 	display_structured_response($request_ref);
-	
+
 	return;
 }
 
@@ -9584,7 +9956,7 @@ sub display_product_api($)
 	my %response = ();
 
 	$response{code} = $code;
-	
+
 	my $product_ref;
 
 	my $rev = param("rev");
@@ -9595,7 +9967,7 @@ sub display_product_api($)
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
-	}	
+	}
 
 	if ($code !~ /^\d{4,24}$/) {
 		$log->info("invalid code", { code => $code, original_code => $request_ref->{code} }) if $log->is_info();
@@ -9856,7 +10228,7 @@ sub add_images_urls_to_product($) {
 
 	my $path = product_path($product_ref);
 
-	foreach my $imagetype ('front','ingredients','nutrition') {
+	foreach my $imagetype ('front','ingredients','nutrition','packaging') {
 
 		my $size = $display_size;
 
@@ -9917,8 +10289,8 @@ sub display_structured_response($)
 
 	my $request_ref = shift;
 
-
-	$log->debug("Displaying structured response", { json => param("json"), jsonp => param("jsonp"), xml => param("xml"), jqm => param("jqm"), rss => $request_ref->{rss} }) if $log->is_debug();
+	$log->debug("Displaying structured response", { json => scalar param("json"), jsonp => scalar param("jsonp"),
+		xml => scalar param("xml"), jqm => scalar param("jqm"), rss => scalar $request_ref->{rss} }) if $log->is_debug();
 	if (param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -9926,7 +10298,6 @@ sub display_structured_response($)
 
 		# without NumericEscape => 2, the output should be UTF-8, but is in fact completely garbled
 		# e.g. <categories>Frais,Produits laitiers,Desserts,Yaourts,Yaourts aux fruits,Yaourts sucrurl>http://static.openfoodfacts.net/images/products/317/657/216/8015/front.15.400.jpg</image_url>
-
 
 		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
 		# remove the languages field which has keys like "en:english"
@@ -9940,7 +10311,6 @@ sub display_structured_response($)
 				delete $product_ref->{languages};
 			}
 		}
-
 
 		my $xml
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
@@ -10167,10 +10537,11 @@ sub display_recent_changes {
 	# Display...
 
 	$html .= "</ul>";
-	$html .= display_pagination($request_ref, $count, $limit, $page);
+	$html .= "\n<hr>" . display_pagination($request_ref, $count, $limit, $page);
 
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
+	$request_ref->{page_type} = "recent_changes";
 	display_new($request_ref);
 
 	return;
@@ -10475,6 +10846,34 @@ sub _format_comment {
 	$comment =~ s/\new image \d+( -)?//;
 
 	return $comment;
+}
+
+
+=head2 display_ecoscore_calculation_details( $ecoscore_data_ref )
+
+Generates HTML code with information on how the Eco-score was computed for a particular product.
+
+=cut
+
+sub display_ecoscore_calculation_details($) {
+
+	my $ecoscore_data_ref = shift;
+
+	# Generate a data structure that we will pass to the template engine
+
+	my $template_data_ref = dclone($ecoscore_data_ref);
+
+	my $decf = get_decimal_formatter($lc);
+	$template_data_ref->{round} = sub($) {
+		return sprintf ("%.0f", $_[0]);
+	};
+
+	# Eco-score Calculation Template
+
+	my $html;
+	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
 }
 
 1;

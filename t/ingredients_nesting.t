@@ -148,7 +148,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:tomato',
-				'origin' => 'en:spain',
+				'origins' => 'en:spain',
 				'text' => 'tomate'
 			},
 			{
@@ -168,7 +168,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:tomato',
-				'origin' => 'en:spain',
+				'origins' => 'en:spain',
 				'percent' => '60',
 				'text' => 'tomate'
 			},
@@ -178,7 +178,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:salt',
-				'origin' => 'en:france,en:italy',
+				'origins' => 'en:france,en:italy',
 				'text' => 'Sel'
 			}
 		]

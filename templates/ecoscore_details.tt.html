@@ -1,0 +1,116 @@
+<p>
+  <a data-dropdown="ecoscore_drop" aria-controls="ecoscore_drop" aria-expanded="false">[% lang('ecoscore_calculation_details') %] &raquo;</a>
+</p>
+<div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+
+	<h3>Score de référence de la catégorie du produit</h3>
+
+	<div class="row">
+	<div class="small-12 columns">
+		<div class="panel" style="background-color:#dfd">
+	<h4>[% display_icon('lca') %] Analyse de cycle de vie (ACV)</h4>
+	<p>
+		Catégorie <a href="https://fr.wikipedia.org/wiki/Agribalyse">Agribalyse</a> : <span style="border-bottom:1px dotted #ccc" title="
+		[% IF agribalyse.agribalyse_proxy_food_code %]
+			Correspondance approchée avec la catégorie du produit
+		[% ELSE %]
+			Correspondance exacte avec la catégorie du produit
+		[% END %]
+		">
+		[% agribalyse.agribalyse_food_name_fr %]</span>
+	</p>
+	<p>
+		<strong>Score ACV sur 100 : [% round(agribalyse.score) %]</strong>
+	</p>
+	</div>
+	</div>
+	</div>
+
+	<h3>Bonus et malus complémentaires</h3>
+	
+	<div class="row" data-equalizer="ecoscore1">
+	
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore1" style="background-color:#dfd">
+	<h4>[% display_icon('agriculture') %] Mode de production</h4>
+	
+	[% IF adjustments.production_system.value %]
+		<p><strong>Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
+	[% ELSE %]
+		<p>Pas de labels pris en compte pour le système de production.</p>
+	[% END %]
+	</div>
+	</div>
+	
+	<div class="small-12 large-6 columns">	
+		 <div class="panel" data-equalizer-watch="ecoscore1" style="background-color:#dfd">
+	<h4>[% display_icon('public') %] Origine des ingrédients</h4>
+	
+	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
+		<ul>
+			[% FOREACH origin IN adjustments.origins_of_ingredients.aggregated_origins %]
+				<li>[% display_taxonomy_tag("origins",origin.origin) %]: [% round(origin.percent) %]%</li>
+			[% END %]
+		</ul>
+	[% END %]
+
+	<p>
+		<strong>Politique environnementale : [% IF adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>Transport : [% IF adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+	</p>
+	</div>
+	</div>
+	</div>
+	
+	<div class="row" data-equalizer="ecoscore2">
+	
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore2" style="background-color:#dfd">
+	<h4>[% display_icon('monkey_unhappy') %] Espèces menacées</h4>
+	
+	[% IF adjustments.threatened_species.value %]
+		<p>Ingrédients dont la culture menace des espèces :</p>
+		<ul>
+			<li>[% display_taxonomy_tag("ingredients",adjustments.threatened_species.ingredient) %]</li>
+		</ul>
+		<p><strong>Espèces menacées : [% adjustments.threatened_species.value %]</strong></p>
+	[% ELSE %]
+		<p>Pas d'espèces menacées prises en compte.</p>
+	[% END %]
+	</div>
+	</div>
+	
+	<div class="small-12 large-6 columns">
+		 <div class="panel" data-equalizer-watch="ecoscore2" style="background-color:#dfd">
+	
+	<h4>[% display_icon('packaging') %] Emballage</h4>
+	
+	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
+		<ul>
+			[% FOREACH packaging IN adjustments.packaging.packagings %]
+				<li>
+					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+					(ratio : [% packaging.ecoscore_shape_ratio %])
+					-
+					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
+					(score : [% packaging.ecoscore_material_score %])
+				</li>
+			[% END %]
+		</ul>
+		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
+		
+		<p><strong>Emballage : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+	[% ELSE %]
+		<p>Les informations sur l'emballage sont manquantes, son impact n'a pas pu être pris en compte.</p>
+	[% END %]
+	
+	</div>
+	</div>
+	</div>
+	
+	<h3>Score final</h3>
+
+	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
+	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
+
+</div>

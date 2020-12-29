@@ -104,7 +104,7 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
+	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -452,7 +452,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
-	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
 	}
@@ -908,8 +908,14 @@ sub process_image_crop($$$$$$$$$$$) {
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
-	if (not defined $coordinates_image_size) {
+	# There was an issue saving coordinates_image_size for some products
+	# if any coordinate is above the $crop_size, then assume it was on the full size
+
+	if ((not defined $coordinates_image_size) and ($x2 <= $crop_size) and ($y2 <= $crop_size)) {
 		$coordinates_image_size = $crop_size;
+	}
+	else {
+		$coordinates_image_size = "full";
 	}
 
 	my $path = product_path_from_id($product_id);
@@ -1209,6 +1215,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		y1 => $y1,
 		x2 => $x2,
 		y2 => $y2,
+		coordinates_image_size => $coordinates_image_size,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,
@@ -1298,7 +1305,7 @@ sub _set_magickal_options($$) {
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1365,7 +1372,7 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 	my $size = shift;  # currently = $small_size , 200px
 
 	my $html = '';

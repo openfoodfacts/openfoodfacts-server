@@ -47,14 +47,15 @@ compute_and_test_completeness($product_ref, $step * 0.5, 'product with at least 
 $product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
 $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
-compute_and_test_completeness($product_ref, $step * 0.5 + $step * 0.5 * 0.33333333333, 'product with at least one uploaded_images and front');
+compute_and_test_completeness($product_ref, $step * 0.5 + $step * 0.5 * 0.25, 'product with at least one uploaded_images and front');
 
 $product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
 $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
 $product_ref->{selected_images}->{ingredients_de} = 'bar';
 $product_ref->{selected_images}->{nutrition_de} = 'bar';
-compute_and_test_completeness($product_ref, $step, 'product with at least one uploaded_images and front/ingredients/nutrition selected');
+$product_ref->{selected_images}->{packaging_de} = 'bar';
+compute_and_test_completeness($product_ref, $step, 'product with at least one uploaded_images and front/ingredients/nutrition/packaging selected');
 
 my @string_fields = qw(product_name quantity packaging brands categories emb_codes expiration_date ingredients_text);
 foreach my $field (@string_fields) {
@@ -82,6 +83,7 @@ $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
 $product_ref->{selected_images}->{ingredients_de} = 'bar';
 $product_ref->{selected_images}->{nutrition_de} = 'bar';
+$product_ref->{selected_images}->{packaging_de} = 'bar';
 $product_ref->{last_modified_t} = time();
 foreach my $field (@string_fields) {
 	$product_ref->{$field} = 'foo';

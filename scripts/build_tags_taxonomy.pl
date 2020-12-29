@@ -47,15 +47,32 @@ if ($tagtype eq "nutrient_levels") {
 	create_nutrients_level_taxonomy();
 }
 
+my @files = ();
+
+# For the origins taxonomy, include the countries taxonomy
+
+if ($tagtype eq "origins") {
+
+	@files = ("countries", "origins");
+}
+
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-if (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
+elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
 
-	$file = "ingredients.all.txt";
+	@files = ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients");
+}
+	
+
+# Concatenate taxonomy files if needed
+
+if ((scalar @files) > 0) {
+
+	$file = "$tagtype.all.txt";
 
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
 
-	foreach my $taxonomy ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients") {
+	foreach my $taxonomy (@files) {
 
 		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
 

@@ -89,6 +89,7 @@ BEGIN
 		&set_percent_min_values
 		&set_percent_max_values
 		&delete_ingredients_percent_values
+		&compute_ingredients_percent_estimates
 
 		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
@@ -126,8 +127,8 @@ my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
 
-# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA
-my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64})/i;
+# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA, ARABIC COMMA
+my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64}|\N{U+060C})/i;
 
 # '.' and synonyms - FULL STOP, SMALL FULL STOP, FULLWIDTH FULL STOP, IDEOGRAPHIC FULL STOP, HALFWIDTH IDEOGRAPHIC FULL STOP
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
@@ -146,25 +147,28 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 # put the longest strings first, so that we can match "possible traces" before "traces"
 my %may_contain_regexps = (
 
-	en => "possible traces|traces|may also contain|also may contain|may contain",
+	en => "it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	cs => "může obsahovat",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann Spuren|Spuren",
-	es => "puede contener huellas de|puede contener|trazas|traza",
+	de => "Kann enthalten|Kann Spuren|Spuren",
+	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
-	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
+	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr => "može sadržavati|može sadržati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it => "Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
-	nl => "Dit product kan sporen van|Kan sporen bevatten van|Kan sporen van",
-	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
+	nb => "kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
-	ro => "poate con[țţ]ine urme de|poate con[țţ]ine|poate con[țţ]in",
-	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
+	pt => "pode conter vestígios de|pode conter",
+	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
+	ru => "Могут содержаться следы",
+	sk => "Môže obsahovať",
+	sv => "kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -175,8 +179,9 @@ my %contains_regexps = (
 	es => "contiene",
 	et => "sisaldab",
 	fr => "contient",
+	it => "contengono",
 	nl => "bevat",
-	ro => "con[țţ]ine|con[țţ]in",
+	ro => "con[țţt]ine|con[țţt]in",
 	sv => "innehåller",
 );
 
@@ -287,6 +292,7 @@ en => [
 	["w/o", "without"],
 	["w/", "with "], # note trailing space
 	["vit.", "vitamin"],
+	["i.a.", "inter alia"],
 
 ],
 
@@ -298,6 +304,7 @@ fi => [
 	[ "mikro.", "mikrobiologinen" ],
 	[ "mm.",    "muun muassa" ],
 	[ "sis.",   "sisältää" ],
+	[ "n.",     "noin" ],
 ],
 
 fr => [
@@ -329,6 +336,7 @@ sv => [
 	[ "stabil.",         "stabiliseringsämne" ],
 	[ "surhetsreg.",     "surhetsreglerande" ],
 	[ "veg.",            "vegetabilisk" ],
+	[ "ca.",             "cirka" ],
 ],
 );
 
@@ -344,6 +352,11 @@ my %of = (
 	nl => " van ",
 	nb => " av ",
 	sv => " av ",
+);
+
+my %from = (
+	en => " from ",
+	fr => " de la | de | du | des | d'",
 );
 
 my %and = (
@@ -411,7 +424,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -787,7 +800,6 @@ sub extract_ingredients_from_image($$$$) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image} = cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
-
 	}
 
 	return;
@@ -804,9 +816,11 @@ my %min_regexp = (
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
-	en => "of (the )?total weight",
+	en => "of (the )?(?:total weight|grain is wholegrain rye)",
 	es => "(en el chocolate( con leche)?)",
+	fi => "jauhojen määrästä",
 	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	sv => "fetthalt",
 );
 
 
@@ -948,6 +962,10 @@ sub parse_ingredients_text($) {
 					# We have found sub-ingredients
 					$between = $1;
 					$after = $';
+					
+					# Remove dot at the end
+					# e.g. (Contains milk.) -> Contains milk.
+					$between =~ s/(\s|\.)+$//;
 
 					$debug_ingredients and $log->debug("found sub-ingredients", { between => $between, after => $after }) if $log->is_debug();
 
@@ -963,16 +981,16 @@ sub parse_ingredients_text($) {
 					}
 
 					# sel marin (France, Italie)
-					# -> if we have countries, put "origin:" before
+					# -> if we have origins, put "origins:" before
 					if (($between =~ $separators)
-						and (exists_taxonomy_tag("countries", canonicalize_taxonomy_tag($product_lc, "countries", $`)))) {
-						$between =~ s/^(.*?$separators)/origin:$1/;
+						and (exists_taxonomy_tag("origins", canonicalize_taxonomy_tag($product_lc, "origins", $`)))) {
+						$between =~ s/^(.*?$separators)/origins:$1/;
 					}
 
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -991,7 +1009,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1000,20 +1018,21 @@ sub parse_ingredients_text($) {
 									$vegetarian = "en:yes";
 								}
 								else {
-									$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
+									$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin_string ));
 								}
 							}
 							else {
 
-								# origin:   Fraise (France)
-								my $countryid = canonicalize_taxonomy_tag($product_lc, "countries", $between);
-								if (exists_taxonomy_tag("countries", $countryid)) {
-									$origin = $countryid;
+								# origins:   Fraise (France)
+								my $originid = canonicalize_taxonomy_tag($product_lc, "origins", $between);
+								if (exists_taxonomy_tag("origins", $originid)) {
+									$origin = $originid;
 									$debug_ingredients and $log->debug("between is an origin", { between => $between, origin => $origin }) if $log->is_debug();
 									$between = '';
 								}
-								# put origin first because the country can be associated with the label "Made in ..."
-								else {
+								# put origins first because the country can be associated with the label "Made in ..."
+								# Skip too short entries (1 or 2 letters) to avoid false positives
+								elsif (length($between) >= 3) {
 
 									my $labelid = canonicalize_taxonomy_tag($product_lc, "labels", $between);
 									if (exists_taxonomy_tag("labels", $labelid)) {
@@ -1203,7 +1222,7 @@ sub parse_ingredients_text($) {
 						$vegetarian = "en:yes";
 					}
 					else {
-						$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "countries", $_)} split(/,/, $origin_string ));
+						$origin = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin_string ));
 					}
 				}
 
@@ -1235,9 +1254,59 @@ sub parse_ingredients_text($) {
 
 				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
 					$ingredient_recognized = 1;
+					$debug_ingredients and $log->trace("ingredient recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
 				}
 				else {
-
+					
+					$debug_ingredients and $log->trace("ingredient not recognized", { ingredient_id => $ingredient_id }) if $log->is_trace();
+					
+					# Try to see if we have an origin somewhere
+					# Build an array of origins / ingredients possibilities
+					
+					my @maybe_origins_ingredients = ();
+					my $maybe_ingredient;
+					
+					# California almonds
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					# South Carolina black olives
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+ \S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					if (($product_lc eq "en") and ($ingredient =~ /^(\S+ \S+ \S+) (.+)$/)) {
+						push @maybe_origins_ingredients, [$1, $2];
+					}
+					
+					# Currently does not work: pitted California prunes
+					
+					# Oranges from Florida
+					if (defined $from{$product_lc}) {
+						my $from = $from{$product_lc};
+						if ($ingredient =~ /^(.+)($from)(.+)$/i) {
+							push @maybe_origins_ingredients, [$3, $1];
+						}
+					}
+					
+					foreach my $maybe_origin_ingredient_ref (@maybe_origins_ingredients) {
+						
+						my ($maybe_origin, $maybe_ingredient) = @{$maybe_origin_ingredient_ref};
+						
+						# skip origins that are too small (avoid false positives with country initials etc.)
+						next if (length($maybe_origin) < 4);
+						
+						my $origin_id = canonicalize_taxonomy_tag($product_lc, "origins", $maybe_origin);
+						if (exists_taxonomy_tag("origins", $origin_id)) {
+							
+							$debug_ingredients and $log->debug("ingredient includes known origin", { ingredient => $ingredient, new_ingredient => $maybe_ingredient, origin_id => $origin_id }) if $log->is_debug();
+							
+							$origin = $origin_id;
+							$ingredient = $maybe_ingredient;
+							$ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+							last;
+						}						
+					}
+	
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$product_lc}) {
 						my $matches        = 0;
@@ -1324,14 +1393,26 @@ sub parse_ingredients_text($) {
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
 							$skip_ingredient = 1;
 							$ingredient_recognized = 1;
+							
+							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
 						}
 					}
 
 					if (not $ingredient_recognized) {
 						# Check if it is a phrase we want to ignore
+						# NB: If these match, the whole ingredient is ignored, so they're not suitable for ignoring *part* of an ingredient.
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'da' => [
+								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+							   ],
+
+							'de' => [
+								'^in ver[äa]nderlichen Gewichtsanteilen$',
+								'^Unter Schutzatmosph.re verpackt$',
+							],
 
 							'en' => [
 								# breaking this regexp into the comma separated combinations (because each comma makes a new ingredient):
@@ -1343,6 +1424,9 @@ sub parse_ingredients_text($) {
 								'^see ingredients in bold$',
 								'^in var(iable|ying) proportions$',
 								'^dietary advice[:]?$',
+								'^in milk chocolate cocoa solids',
+								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
+								'^meat content',
 							],
 
 							'fr' => [
@@ -1363,36 +1447,76 @@ sub parse_ingredients_text($) {
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
+								'^Conditionné[es]* sous atmosphère', # ... protectrice/contrôlée/modifiée/etc
 							],
 
 							'fi' => [
-								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^(?:Täysjyvää|Kauraa) \d{1,3}\s*% leivän viljasta ja \d{1,3}\s*% leivän painosta$',
+								'^jyviä ja siemeniä \d{1,3}\s*% leivontaan käytettyjen jauhojen määrästä$',
+								'^(?:Täysjyvä(?:ruista|ä)|Kauraa) \d{1,3}\s*% viljaraaka-aineesta',
+								'^Lihaa? ja lihaan verrattav(?:at|ia) valmistusaine(?:et|ita)',
+								'^Maitosuklaa sisältää maidon kiinteitä aineita vähintään',
+								'^Leivontaan käytetyistä viljasta \d{1,3}\s*% on ruista$',
+								'^(?:Maito|Tummassa )?suklaassa(?: kaakaota)? vähintään',
 								'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
-								'^Lihaa ja lihaan verrattavia valmistusaineita',
-								'^(?:Maito)?rasvaa',
-								'^Täysmehu(?:osuus|pitoisuus)',
-								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
+								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
+								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
+								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
+								'^Maitosuklaa sisältää kaakaota vähintään',
+								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
+								'^Kuorta ei ole tarkoitettu syötäväksi$',
+								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^Valmistettu (?:myllyssä|tehtaassa)',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Kuiva-aineiden täysjyväpitoisuus',
-								'^Valmistettu myllyssä',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Tuote on valmistettu linjalla',       # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
-								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^vastaa 100 g porkkanaa$',
+								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
+								'^lakritsin osuudesta$',
+								'^Kaakaota vähintään',
+								'^(?:Maito)?rasvaa',
+								'^täysjyväsisältö',
 							],
+
+							'it' => [
+								'^in proporzion[ei] variabil[ei]$',
+							],
+
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+							   ],
 
 							'nl' => [
+								'^allergie.informatie$',
 								'in wisselende verhoudingen',
 								'harde fractie',
-								'o.a.',
+								'o\.a\.',
 							],
 
-							'sv' => [ 'varierande proportion', ],
+							'sv' => [
+								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Mjölkchokladen innehåller minst',
+								'^Fruktmängd \d+\s*g per$',
+								'^Kakaohalt i chokladen$',
+								'varierande proportion',
+								'^total mängd socker',
+								'kan innehålla ben$',
+								'^per 100 g sylt$',
+								'^Kakao minst',
+								'^fetthalt',
+							   ],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$product_lc}}) {
 								if ($ingredient =~ /$regexp/i) {
-									#print STDERR "ignoring ingredient $ingredient - regexp $regexp\n";
+									
+									$debug_ingredients and $log->debug("unknown ingredient matches a phrase to ignore", { ingredient => $ingredient, regexp => $regexp }) if $log->is_debug();
+
 									$skip_ingredient = 1;
 									$ingredient_recognized = 1;
 									last;
@@ -1414,7 +1538,7 @@ sub parse_ingredients_text($) {
 					$ingredient{percent} = $percent;
 				}
 				if (defined $origin) {
-					$ingredient{origin} = $origin;
+					$ingredient{origins} = $origin;
 				}
 				if (defined $labels) {
 					$ingredient{labels} = $labels;
@@ -1597,6 +1721,8 @@ sub extract_ingredients_from_text($) {
 	else {
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
+	
+	compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
 
 	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
@@ -1808,7 +1934,7 @@ sub set_percent_max_values($$$) {
 					$max += $ingredients_ref->[$i - $k]{percent_min};
 				}
 				$max = $max / $j;
-				if ($ingredient_ref->{percent_max} > $max) {
+				if ($ingredient_ref->{percent_max} > $max + 0.1) {
 					$ingredient_ref->{percent_max} = $max;
 					$changed++;
 				}
@@ -1822,7 +1948,7 @@ sub set_percent_max_values($$$) {
 
 		my $min_percent_min = ($total_min - $sum_of_maxs_before) / (1 + $n - $i);
 
-		if ($ingredient_ref->{percent_min} < $min_percent_min) {
+		if ($ingredient_ref->{percent_min} < $min_percent_min - 0.1) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -1878,7 +2004,7 @@ sub set_percent_min_values($$$) {
 
 		my $max_percent_max = ($total_max - $sum_of_mins_after) / (1 + $n - $i);
 
-		if ($ingredient_ref->{percent_max} > $max_percent_max) {
+		if ($ingredient_ref->{percent_max} > $max_percent_max + 0.1) {
 
 			# Bail out if the values are not possible
 			if (($max_percent_max > $total_max) or ($max_percent_max < $ingredient_ref->{percent_min})) {
@@ -1896,7 +2022,7 @@ sub set_percent_min_values($$$) {
 
 		my $min_percent_min = $total_min - $sum_of_maxs_after;
 
-		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min)) {
+		if (($i == $n) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
@@ -1931,6 +2057,7 @@ sub set_percent_sub_ingredients($) {
 		$i++;
 
 		if (defined $ingredient_ref->{ingredients}) {
+			
 
 			# Set values for sub-ingredients from ingredient values
 
@@ -1948,11 +2075,11 @@ sub set_percent_sub_ingredients($) {
 				$total_max += $sub_ingredient_ref->{percent_max};
 			}
 
-			if ($ingredient_ref->{percent_min} < $total_min) {
+			if ($ingredient_ref->{percent_min} < $total_min - 0.1) {
 				$ingredient_ref->{percent_min} = $total_min;
 				$changed++;
 			}
-			if ($ingredient_ref->{percent_max} > $total_max) {
+			if ($ingredient_ref->{percent_max} > $total_max + 0.1) {
 				$ingredient_ref->{percent_max} = $total_max;
 				$changed++;
 			}
@@ -1963,6 +2090,76 @@ sub set_percent_sub_ingredients($) {
 	}
 
 	return $changed;
+}
+
+
+=head2 compute_ingredients_percent_estimates ( total, ingredients_ref )
+
+This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
+
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
+
+=head3 Arguments
+
+=head4 total - the total of all the ingredients in ingredients_ref
+
+100 when the function is called on all ingredients of a product, but can be different than 100 if called on sub-ingredients of an ingredient.
+
+=head4 ingredient_ref : nested array of ingredients and sub-ingredients
+
+=head3 Return values
+
+=cut
+
+sub compute_ingredients_percent_estimates($$) {
+
+	my $total = shift;
+	my $ingredients_ref = shift;
+	
+	my $current_total = 0;
+	my $i = 0;
+	my $n = scalar (@{$ingredients_ref});
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		
+		$i++;
+
+		# Last ingredient?
+		if ($i == $n) {
+			$ingredient_ref->{percent_estimate} = $total - $current_total;
+		}
+		# Specified percent
+		elsif (defined $ingredient_ref->{percent}) {
+			if ($ingredient_ref->{percent} <= $total - $current_total) {
+				$ingredient_ref->{percent_estimate} = $ingredient_ref->{percent};
+			}
+			else {
+				$ingredient_ref->{percent_estimate} = $total - $current_total;
+			}
+		}
+		else {
+			
+			# Take the middle of the possible range
+			
+			my $max = $total - $current_total;
+			my $min = 0;
+			if ((defined $ingredient_ref->{percent_max}) and ($ingredient_ref->{percent_max} < $max)) {
+				$max = $ingredient_ref->{percent_max};
+			}
+			if (defined $ingredient_ref->{percent_min}) {
+				$min = $ingredient_ref->{percent_min};
+			}
+			$ingredient_ref->{percent_estimate} = ($max + $min) / 2;
+		}
+		
+		$current_total += $ingredient_ref->{percent_estimate};
+		
+		if (defined $ingredient_ref->{ingredients}) {
+			compute_ingredients_percent_estimates($ingredient_ref->{percent_estimate}, $ingredient_ref->{ingredients});
+		}		
+	}
+
+	$log->debug("compute_ingredients_percent_estimates - done", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
 }
 
 
@@ -2260,6 +2457,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
+		($lc eq 'it') and return "vitamina $a";
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		return "vitamin $a";
@@ -2276,14 +2474,16 @@ sub normalize_vitamins_enumeration($$) {
 
 	my $and = $Lang{_and_}{$lc};
 
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,|$and/i, $vitamins_list);
+	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
+	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
 
-	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();
+	$log->debug("splitting vitamins", { vitamins_list => $vitamins_list, vitamins => \@vitamins }) if $log->is_debug();
 
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') { $split_vitamins_list = "vitaminer" }
+	elsif ($lc eq 'de' || $lc eq 'it') { $split_vitamins_list = "vitamine" }
 	elsif ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
 	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
@@ -2328,12 +2528,16 @@ sub normalize_allergen($$$) {
 	return $Lang{$type}{$lc} . " : " . $allergen;
 }
 
-sub normalize_allergens_enumeration($$$) {
+sub normalize_allergens_enumeration($$$$$) {
 
 	my $type = shift; # allergens or traces
 	my $lc = shift;
+	my $before = shift;	# may contain an opening parenthesis
 	my $allergens_list = shift;
+	my $after = shift;
 
+	$log->debug("splitting allergens", { input => $allergens_list, before => $before, after => $after }) if $log->is_debug();
+	
 	my $and = $Lang{_and_}{$lc};
 
 	$log->debug("splitting allergens", { input => $allergens_list }) if $log->is_debug();
@@ -2351,6 +2555,14 @@ sub normalize_allergens_enumeration($$$) {
 
 	my $split_allergens_list =  " " . join(", ", map { normalize_allergen($type,$lc,$_)} @allergens) . ".";
 	# added ending . to facilite matching and removing when parsing ingredients
+	
+	# if there was a closing parenthesis after, remove it only if there is an opening parenthesis before
+	# e.g. contains (milk) -> contains milk
+	# but: (contains milk) -> (contains milk)
+	
+	if ((defined $after) and ($after eq ')') and ($before !~ /\(/)) {
+		$split_allergens_list .= $after;
+	}
 
 	$log->debug("allergens split", { input => $allergens_list, output => $split_allergens_list }) if $log->is_debug();
 
@@ -2361,6 +2573,10 @@ sub normalize_allergens_enumeration($$$) {
 # Ingredients: list of ingredients -> phrases followed by a colon, dash, or line feed
 
 my %phrases_before_ingredients_list = (
+
+ar => [
+'المكونات',
+],
 
 az => [
 'Tarkibi',
@@ -2414,6 +2630,7 @@ et => [
 
 fi => [
 'aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?',
+'ainesosia',
 'valmistusaineet',
 'koostumus',
 ],
@@ -2445,6 +2662,10 @@ is => [
 it => [
 'ingredienti',
 'composizione',
+],
+
+ja => [
+'原材料名',
 ],
 
 kk => [
@@ -2526,12 +2747,17 @@ th => [
 'ส่วนประกอบ',
 ],
 
+tr => [
+'İçindekiler',
+],
+
 uz => [
 'Tarkib',
 ],
 
 zh => [
 '配料',
+'成份',
 ],
 
 );
@@ -2625,6 +2851,10 @@ my %phrases_after_ingredients_list = (
 # TODO: Introduce a common list for kcal
 
 
+bg => [
+'да се съхранява (в закрити|на сухо)', # store in ...
+],
+
 cs => [
 'doporučeny způsob přípravy',
 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
@@ -2657,13 +2887,14 @@ de => [
 'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)', #Nährwertangaben pro 100g
 'N(â|a|ä)hrwerte je',
 'Nâhrwerte',
-'mindestens',
-'k(u|ü)hl und trocken lagern',
+'(Ungeöffnet )?mindestens',
+'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 'Rinde nicht zum Verzehr geeignet.',
 'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 'Unge(ö|o)ffnet bei max.',
 'Unter Schutzatmosphäre verpackt',
 'verbrauchen bis',
+'Vor Wärme geschützt (und trocken )?lagern',
 'Vorbereitung Tipps',
 'zu verbrauchen bis',
 '100 (ml|g) enthalten durchschnittlich',
@@ -2698,7 +2929,7 @@ es => [
 'valor energ(e|é)tico',
 'condiciones de conservaci(o|ó)n',
 #'pa(i|í)s de transformaci(o|ó)n',
-'conservar en lug(a|e)r fresco y seco',
+'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 'de los cuates az(u|ü)cares',
 'de las cuales saturadas',
 'protegido de la luz',
@@ -2708,6 +2939,10 @@ es => [
 'consumi preferentemente antes del',
 'consumir preferentemente antes del',
 #Envasado por:
+],
+
+et => [
+'parim enne', # best before
 ],
 
 fi => [
@@ -2720,7 +2955,7 @@ fi => [
 '(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
 'Sisältää aluspaperin',
 'Suositellaan säilytettäväksi',
-'Säily(?:y|tys|tetään)',
+'Säily(?:tettävä|tetään|tys|y)',
 'Tämä tuote on tehty ihmisille',
 'Valmist(?:aja:|us)',
 ],
@@ -2734,13 +2969,11 @@ fr => [
 'valeur nutritionnelle mo(y|v)enne',
 'valeur nutritionnelle',
 '(va(l|t)eurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)(s|le|les)?',
-'(a|à) consommer de préférence',
+'(a|à) consommer de pr[ée]f[ée]rence',
 '(a|à) consommer de',
 '(a|à) cons.de préférence avant',
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
-'(a|à) conserver (dans|de|a|à)',
-'(a|à)conserver (dans|de|a|à)', #variation
-'(a|à)conserver entre',
+'(a|à)[ ]?conserver (entre|dans|de|au|a|à)',
 'Allergènes: voir les ingrédients en gras',
 'Attention: les enfants en bas âge risquent de',
 'apr(e|è)s (ouverture|achat)',
@@ -2750,7 +2983,7 @@ fr => [
 '(conseil|conseils) de pr(e|é)paration',
 '(conditions|conseils) de conservation',
 'conseil d\'utilisation',
-'conservation:',
+'conservation[ ]?:',
 'Croûte en matière plastique non comestible',
 'dans le compartiment (a|à) gla(c|ç)ons',
 'de préférence avant le',
@@ -2799,7 +3032,12 @@ fr => [
 ],
 
 hr => [
+'Čuvati na (hladnom|suhom|temperaturi)', # store in...
+],
+
+hu => [
 'Atlagos tápérték 100g termékben',
+'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó', # store in cool/dry/etc
 ],
 
 is => [
@@ -2818,10 +3056,17 @@ it => [
 'MODALITA D\'USO',
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
+'Una volta aperto', # once opened...
 ],
 
 ja => [
-'栄養価',
+'栄養価', # nutritional value
+'内容量', # weight
+'賞味期限', # best before
+],
+
+lt => [
+'geriausias iki', # best before
 ],
 
 nb => [
@@ -2865,7 +3110,7 @@ pl => [
 ],
 
 pt => [
-'conservar em local fresco',
+'conservar em local (seco e )?fresco',
 'conservar em lugar fresco',
 'dos quais a(ç|c)(u|ü)ares',
 'dos quais a(ç|c)(u|ü)cares',
@@ -2881,12 +3126,14 @@ ro => [
 'a si pastra la frigider dup(a|ă) deschidere',
 'a se agita inainte de deschidere',
 'Valori nutritionale medii',
+'a se p[ăa]stra la', # store in...
 ],
 
 sv => [
 'närings(?:deklaration|innehåll|värde)',
 '(?:bör )?förvar(?:ing|as?)',
 'till(?:agning|redning)',
+'produkten innehåller',
 'serveringsförslag',
 'produkterna bör',
 'bruksanvisning',
@@ -3326,6 +3573,19 @@ sub preparse_ingredients_text($$) {
 	not defined $text and return;
 
 	$log->debug("preparse_ingredients_text", { text => $text }) if $log->is_debug();
+
+	# if we're called twice with the same input in succession, such as in update_all_products.pl,
+	# cache the result, so we can instantly return the 2nd time.
+	state $prev_lc = '';
+	state $prev_text = '';
+	state $prev_return = '';
+
+	if (($product_lc eq $prev_lc) && ($text eq $prev_text)) {
+		return $prev_return;
+	}
+
+	$prev_lc = $product_lc;
+	$prev_text = $text;
 
 	# Symbols to indicate labels like organic, fairtrade etc.
 	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
@@ -3895,9 +4155,11 @@ INFO
 	$vitaminssuffixregexp =~ s/^\|//;
 
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
-	#$log->debug("vitamins text", { text => $text }) if $log->is_debug();
+	#$log->debug("vitamins text", { vitaminssuffixregexp => $vitaminssuffixregexp }) if $log->is_debug();
 	
-	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and))+($vitaminssuffixregexp))\b(\s?(\)|\]))?/normalize_vitamins_enumeration($product_lc,$3)/ieg;
+	# vitamines (B1, acide folique (B9)) <-- we need to match (B9) which is not followed by a \b boundary, hence the ((\s?((\)|\]))|\b)) in the regexp below
+	
+	$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and)+)+($vitaminssuffixregexp))((\s?((\)|\]))|\b))/normalize_vitamins_enumeration($product_lc,$3)/ieg;
 
 
 	# Allergens and traces
@@ -3931,7 +4193,10 @@ INFO
 			#$log->debug("allergens regexp", { regex => "s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$and|$of)+((($allergens_regexp)( |\/| \/ | - |,|, |$and|$of|$and_of)+)+($allergens_regexp))\b(s?(\)|\]))?" }) if $log->is_debug();
 			#$log->debug("allergens", { lc => $product_lc, may_contain_regexps => \%may_contain_regexps, contains_or_may_contain_regexp => $contains_or_may_contain_regexp, text => $text }) if $log->is_debug();
 
-			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b(:|\(|\[| |$of)+((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$4)/ieg;
+			# warning: we should remove a parenthesis at the end only if we remove one at the beginning
+			# e.g. contains (milk, eggs) -> contains milk, eggs 
+			# chocolate (contains milk) -> chocolate (contains milk)
+			$text =~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b((:|\(|\[| |$of)+)((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$product_lc,$3,$5,$17)/ieg;
 			# we may have added an extra dot in order to make sure we have at least one
 			$text =~ s/\.\./\./g;
 		}
@@ -3977,6 +4242,7 @@ INFO
 
 	$log->debug("preparse_ingredients_text result", { text => $text }) if $log->is_debug();
 
+	$prev_return = $text;
 	return $text;
 }
 
@@ -4675,7 +4941,7 @@ sub replace_allergen_between_separators($$$$$$) {
 
 	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 
-	if (exists_taxonomy_tag("allergens", $tagid)) {
+	if (($tagid ne "en:none") and (exists_taxonomy_tag("allergens", $tagid))) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
@@ -4706,6 +4972,15 @@ sub detect_allergens_from_text($) {
 		# new fields for allergens detected from ingredient list
 
 		$product_ref->{$field . "_from_ingredients"} = "";
+	}
+
+	# Remove ingredients_text_with_allergens_* fields
+	# they will be recomputed for existing ingredients languages
+
+	foreach my $field (keys %$product_ref) {
+		if ($field =~ /^ingredients_text_with_allergens/) {
+			delete $product_ref->{$field};
+		}
 	}
 
 	if (defined $product_ref->{languages_codes}) {
