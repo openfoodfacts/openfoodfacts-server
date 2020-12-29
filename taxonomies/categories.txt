@@ -6179,6 +6179,11 @@ nl:Sarsaparilla
 wikidata:en:Q161119
 
 <en:Plant-based foods
+en:Psyllium
+fr:Psyllium
+wikidata:en:Q311228
+
+<en:Plant-based foods
 en:Stevia and their products, Stevia
 de:Stevia
 es:Estevia y sus derivados, Estevia, Stevia
@@ -6845,6 +6850,15 @@ en:Coffees from Madagascar
 fr:Café de Madagascar
 origins:en: en:Madagascar
 
+en:Capsules
+fr:Dosettes
+
+<en:Capsules
+<en:Teas
+en:Tea capsules
+fr:Thés en dosettes
+
+<en:Capsules
 <en:Coffees
 <en:Hot beverages
 en:Coffee capsules, Coffee pads
@@ -27287,28 +27301,17 @@ pt:Bombons
 ru:Конфеты
 wikidata:en:Q3272827
 
-<en:Candies
-en:French candies
-fr:Bonbons français
+<en:Bonbons
+en:Liqueur bonbons
+fr:Bonbons de chocolat à la liqueur
 
-<en:French candies
-fr:Bêtises de Cambrai
-
-<en:Candies
-fr:Sucres d'orge
-
-<en:Candies
-en:Candy canes
-
-<en:Candies
-en:Root beer barrels candies
-fr:Bonbons tonneaux de Root Beer
-
-<en:French candies
-fr:Bergamote de Nancy, Bergamotes de Nancy
-protected_name_file_number:en: PGI-FR-0195
-protected_name_type:en: pgi
-origins:en: en:France
+<en:Liqueur bonbons
+en:Liquor filled chocolate covered cherries
+de:Likörkirschen mit Schokoladenüberzug
+es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
+fr:Bonbons de chocolat fourrés cerise et liqueur
+it:Ciliegie ricoperte di cioccolato ripiene di liquore
+nl:Kersen met een chocolaag en gevuld met likeur
 
 <en:Bonbons
 en:Milk chocolate candies
@@ -27410,15 +27413,7 @@ es:Cerezas recubiertas de chocolate
 fr:Cerises enrobées au chocolat
 it:Ciliegie ricoperte di cioccolato
 nl:Kersen met een chocolaag
-wikidata:en:Q16242001
-
-<en:Bonbons
-en:Liquor filled chocolate covered cherries
-de:Likörkirschen mit Schokoladenüberzug
-es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
-fr:Bonbons de chocolat fourrés cerise et liqueur
-it:Ciliegie ricoperte di cioccolato ripiene di liquore
-nl:Kersen met een chocolaag en gevuld met likeur
+wikidata:en:Q1624200
 
 <en:Bonbons
 en:Chocolate covered nuts, Chocolate confectionery filled with nuts
@@ -27478,6 +27473,29 @@ agribalyse_food_code:en:31003
 ciqual_food_code:en:31003
 ciqual_food_name:en:Candies, all types
 ciqual_food_name:fr:Bonbons, tout type
+
+<en:Candies
+en:French candies
+fr:Bonbons français
+
+<en:French candies
+fr:Bêtises de Cambrai
+
+<en:Candies
+fr:Sucres d'orge
+
+<en:Candies
+en:Candy canes
+
+<en:Candies
+en:Root beer barrels candies
+fr:Bonbons tonneaux de Root Beer
+
+<en:French candies
+fr:Bergamote de Nancy, Bergamotes de Nancy
+protected_name_file_number:en: PGI-FR-0195
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Candies
 <en:Bee products
@@ -27957,6 +27975,15 @@ fr:Bûches de Noël, Bûches de Noël pâtissières
 agribalyse_food_code:en:23030
 ciqual_food_code:en:23030
 ciqual_food_name:en:Christmas log cake
+
+<en:Frozen desserts
+<en:Yule log
+en:Ice cream log
+fr:Bûches glacées, Bûche glacée
+agribalyse_food_code:en:39533
+ciqual_food_code:en:39533
+ciqual_food_name:en:Ice cream log
+ciqual_food_name:fr:Bûche glacée
 
 <en:Christmas foods and drinks
 en:Advent calendars
@@ -39859,7 +39886,7 @@ fr:Miels de jujubier
 nl:Jujubehoningen
 
 <en:Honeys
-en:Lavender honey
+en:Lavender honeys, Lavender honey
 de:Lavendelhonige
 es:Miel de lavanda
 fi:laventelihunaja
@@ -39868,7 +39895,11 @@ it:Miele di lavanda
 nl:Lavendelhoningen
 
 <en:Honeys
-en:Thyme honey
+en:Alfalfa honeys
+fr:Miels de luzerne
+
+<en:Honeys
+en:Thyme honeys, Thyme honey
 de:Thymianhonig
 es:Mieles de tomillo
 fi:Timjamihunaja
@@ -39877,7 +39908,7 @@ it:Miele di timo
 nl:Tijmhoning
 
 <en:Honeys
-en:Lychee honey
+en:Lychee honeys, Lychee honey
 de:Litschibaumhonig
 fr:Miels de litchi
 nl:Litchibloesemhoningen
@@ -44857,10 +44888,6 @@ ciqual_food_name:en:Belle Helene pear dessert (cooked pear topped with hot choco
 ciqual_food_name:fr:Poire belle Hélène
 
 <en:Frozen desserts
-<en:Yule log
-fr:Bûches glacées
-
-<en:Frozen desserts
 <en:Vacherins
 en:Vacherin ice cream
 fr:Vacherin glacé
@@ -45358,14 +45385,6 @@ agribalyse_food_code:en:39512
 ciqual_food_code:en:39512
 ciqual_food_name:en:Frozen dessert, Sundae ice cream type
 ciqual_food_name:fr:Dessert glacé, type sundae
-
-<en:Ice creams
-en:Ice cream log
-fr:Bûche glacée
-agribalyse_food_code:en:39533
-ciqual_food_code:en:39533
-ciqual_food_name:en:Ice cream log
-ciqual_food_name:fr:Bûche glacée
 
 <en:Ice creams and sorbets
 en:Sorbets
@@ -58004,6 +58023,12 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Meat preparations
+en:Meatloafs
+fr:Pains de viande
+nl:Vleesbrood
+wikidata:en:Q3807565
+
+<en:Meat preparations
 en:Meat balls
 fr:Boulettes de viande
 pt:Almôndegas
@@ -58936,6 +58961,17 @@ fi:jauhelihavalmisteet
 fr:Préparations de viande hachée, préparations hachées de viande
 it:Preparati di carne
 nl:Gemalen vleesproducten
+
+<en:Ground meat preparations
+en:Meat tartares
+fr:Tartares de viande
+
+<en:Meat tartares
+en:Beef tartares
+fr:Tartares de boeuf
+
+<en:Ground meat preparations
+fr:Américains préparés, hâchés américains
 
 <en:Beef
 en:Beef steaks
@@ -67186,7 +67222,7 @@ ciqual_food_name:en:Peer tart with almonds
 ciqual_food_name:fr:Tarte aux poires amandine
 
 <en:Sweet pies
-en:Pies from Normandy, Apple pie with custard and flour and eggs and cream and sugar and apple and alcohol
+en:Norman-style pies, Pies from Normandy, Apple pie with custard and flour and eggs and cream and sugar and apple and alcohol
 fi:normandialaisia piiraita
 fr:Tartes normandes, Tarte normande, Tarte normande aux pommes avec garniture farine œufs crème sucre calvados
 nl:Normandische taarten
@@ -77589,6 +77625,9 @@ fr:Cornilles
 la:Vigna unguiculata subsp. unguiculata
 wikidata:en:Q3246973
 
+<en:Black-eyed peas
+fr:Haricots Mavromatika
+
 <en:Pulses
 en:Hyacinth beans
 es:Judías de Egipto, Porotos de Egipto
@@ -79327,8 +79366,8 @@ fr:Algues en conserve
 nl:Algen in blik
 
 <en:Canned seaweeds
-en:Seaweed spread, seaweed tartar, algae tartar
-fr:Tartare d'algues
+en:Seaweed spreads, Seaweed spread, seaweed tartar, algae tartar
+fr:Tartares d'algues, Tartare d'algues
 nl:Zee-algenpasta
 
 <en:Seaweeds and their products
