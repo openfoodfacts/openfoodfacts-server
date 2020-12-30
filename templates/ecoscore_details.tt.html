@@ -27,45 +27,61 @@
 		<table id="agribalyse_impacts">
 			<caption style="text-align:left">Détail des impacts par étapes du cycle de vie</caption>
 			<tr>
+				<th scope="col">Etape</th>
+				<th scope="colgroup" colspan="2">Impact</th>
+			</tr>
+			<tr>
 				<td>[% display_icon('agriculture') %] Agriculture</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_agriculture / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
-				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_agriculture / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+				<td style="width:220px;" class="show-for-large-up">
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar" style="width:[% round(200 * agribalyse.ef_agriculture / agribalyse.ef_total)%]px;"></div>
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>[% display_icon('processing') %] Transformation</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_processing / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_processing / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar"  style="width:[% round(200 * agribalyse.ef_processing / agribalyse.ef_total)%]px;"></div>
+					</div>
 				</td>				
 			</tr>
 			<tr>
 				<td>[% display_icon('packaging') %] Emballage</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_packaging / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_packaging / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar"  style="width:[% round(200 * agribalyse.ef_packaging / agribalyse.ef_total)%]px;"></div>
+					</div>
 				</td>				
 			</tr>
 			<tr>
 				<td>[% display_icon('truck') %] Transport</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_transportation / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_transportation / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar"  style="width:[% round(200 * agribalyse.ef_transportation / agribalyse.ef_total)%]px;"></div>
+					</div>
 				</td>				
 			</tr>
 			<tr>
 				<td>[% display_icon('cart') %] Distribution</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_distribution / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_distribution / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar"  style="width:[% round(200 * agribalyse.ef_distribution / agribalyse.ef_total)%]px;"></div>
+					</div>
 				</td>				
 			</tr>
 			<tr>
 				<td>[% display_icon('cooking-pan') %]Consommation</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_consumption / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
-					<div style="width:[% round(200 * agribalyse.ef_consumption / agribalyse.ef_total)%]px;background-color:#ffffcc;height:1rem;border-radius:0.5rem;"></div>
+					<div class="agribalyse_impact_bar_full">
+						<div class="agribalyse_impact_bar"  style="width:[% round(200 * agribalyse.ef_consumption / agribalyse.ef_total)%]px;background-color:#ffbb88;height:1.2rem;"></div>
+					</div>
 				</td>				
 			</tr>
 		</table>	

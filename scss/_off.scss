@@ -603,12 +603,7 @@ html[dir="rtl"] {
 }
 
 .ecoscore_panel {
-  border:none;
   border-radius:1rem;	
-}
-
-.ecoscore_panel h5, .ecoscore_panel h4, .ecoscore_panel p, .ecoscore_panel li, .ecoscore_panel table td, .ecoscore_panel table caption {
-  color:white;
 }
 
 .ecoscore_panel li:hover {
@@ -616,20 +611,21 @@ html[dir="rtl"] {
   cursor:default;
 }
 
-.ecoscore_panel table, .ecoscore_panel tr, .ecoscore_panel tr.even, .ecoscore_panel tr:nth-of-type(even), .ecoscore_panel td {
-  border:none;
-  background-color:transparent;
-}
-
 .ecoscore_panel ul {
   list-style-type:none;
 }
 
-#ecoscore_panel_lca { background-color:#f35a31; }
-#ecoscore_panel_production_system { background-color:#39a009; }
-#ecoscore_panel_origins { background-color:#3137f3; }
-#ecoscore_panel_threatened_species { background-color:#c83737; }
-#ecoscore_panel_packaging { background-color:#b67549; }
+#ecoscore_panel_lca { background-color:#fafafa; }
+#ecoscore_panel_production_system { background-color:#e1fdd4; }
+#ecoscore_panel_origins { background-color:#d6f5ff; }
+#ecoscore_panel_threatened_species { background-color:#ffe4d1; }
+#ecoscore_panel_packaging { background-color:#fff6d5; }
 
-#ecoscore_panel_lca a { color:#ffffcc; }
+.agribalyse_impact_bar {
+  background-color:#ffbb88;height:1.2rem;float:left;
+}
 
+.agribalyse_impact_bar_full {
+  width:200px;
+  background-color:#eeeeee;height:1.2rem;
+}
