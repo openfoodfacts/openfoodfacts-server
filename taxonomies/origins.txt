@@ -13,6 +13,7 @@
 
 stopwords:en:agriculture
 stopwords:fr:agriculture
+stopwords:es:agricultura
 
 en:Unknown, not specified
 fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
@@ -42,6 +43,7 @@ fr:Europe
 
 en:European Union, EU
 fr:Union Européenne, UE
+es:Unión Europea, UE
 
 en:Non European Union, Non EU
 fr:Non Union Européenne, Non UE
@@ -51,7 +53,6 @@ fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
 
 
 # Country regions
-
 
 # France regions
 
@@ -122,6 +123,24 @@ en:Sicily
 fr:Sicile
 it:Sicilia
 
+# Spanish regions
+
+<en:spain
+es:Andalucía
+fr:Andalousie
+
+<en:spain
+es:Castilla-La Mancha
+
+<en:spain
+es:Galicia
+
+<en:spain
+es:Castilla y León
+
+<en:spain
+es:Navarra
+fr:Navarre
 
 # US states
 
