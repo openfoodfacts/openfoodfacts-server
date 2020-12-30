@@ -105,6 +105,7 @@ sub load_agribalyse_data() {
 
 		while ($row_ref = $csv->getline ($io)) {
 			$agribalyse{$row_ref->[0]} = {
+				code => $row_ref->[0], # Agribalyse code = Ciqual code
 				name_fr => $row_ref->[4], # Nom du Produit en Français
 				name_en => $row_ref->[5], # LCI Name
 				dqr => $row_ref->[6], # DQR (data quality rating)
@@ -116,6 +117,13 @@ sub load_agribalyse_data() {
 				ef_distribution => $row_ref->[12], # Supermarché et distribution
 				ef_consumption => $row_ref->[13], # Consommation
 				ef_total => $row_ref->[14], # Total
+				co2_agriculture => $row_ref->[15], # Agriculture
+				co2_processing => $row_ref->[16], # Transformation
+				co2_packaging => $row_ref->[17], # Emballage
+				co2_transportation => $row_ref->[18], # Transport
+				co2_distribution => $row_ref->[19], # Supermarché et distribution
+				co2_consumption => $row_ref->[20], # Consommation
+				co2_total => $row_ref->[21], # Total				
 			};
 		}
 	}
@@ -534,10 +542,12 @@ sub compute_ecoscore_agribalyse($) {
 		}
 		
 		if ($agb_match) {
+			$product_ref->{ecoscore_data}{agribalyse} = $agribalyse{$agb_match};
 			$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_code} = $agb_match;
 			$agb = $agb_match;
 		}
 		elsif ($agb_proxy_match) {
+			$product_ref->{ecoscore_data}{agribalyse} = $agribalyse{$agb_proxy_match};
 			$product_ref->{ecoscore_data}{agribalyse}{agribalyse_proxy_food_code} = $agb_proxy_match;
 			$agb = $agb_proxy_match;
 		}
@@ -554,9 +564,6 @@ sub compute_ecoscore_agribalyse($) {
 	# Compute the Eco-Score on a 0 to 100 scale
 		
 	if ($agb) {
-		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_fr} = $agribalyse{$agb}{name_fr};
-		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_food_name_en} = $agribalyse{$agb}{name_en};
-		$product_ref->{ecoscore_data}{agribalyse}{agribalyse_ef_total} = $agribalyse{$agb}{ef_total};
 		
 		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g

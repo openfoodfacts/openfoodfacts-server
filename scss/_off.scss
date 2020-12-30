@@ -601,3 +601,31 @@ html[dir="rtl"] {
 #preferences_switch input:checked+label {
   background-color:#4fa125;
 }
+
+.ecoscore_panel {
+  border-radius:1rem;	
+}
+
+.ecoscore_panel li:hover {
+  background-color:transparent;
+  cursor:default;
+}
+
+.ecoscore_panel ul {
+  list-style-type:none;
+}
+
+#ecoscore_panel_lca { background-color:#fafafa; }
+#ecoscore_panel_production_system { background-color:#e1fdd4; }
+#ecoscore_panel_origins { background-color:#d6f5ff; }
+#ecoscore_panel_threatened_species { background-color:#ffe4d1; }
+#ecoscore_panel_packaging { background-color:#fff6d5; }
+
+.agribalyse_impact_bar {
+  background-color:#ffbb88;height:1.2rem;float:left;
+}
+
+.agribalyse_impact_bar_full {
+  width:200px;
+  background-color:#eeeeee;height:1.2rem;
+}
