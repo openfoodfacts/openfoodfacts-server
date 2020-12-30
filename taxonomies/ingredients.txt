@@ -55145,21 +55145,6 @@ la:Laurus Nobilis
 
 ###################################################################################################
 #
-#                                Yerba Mate
-#
-###################################################################################################
-# YERBA MATE (Ilex paraguariensis) is a species of the holly genus Ilex, used for infusions
-<en:herb
-en: yerba mate, yerba
-es: yerba mate, yerba
-pt: erva-mate, chá mate
-fr: yerba mate
-wikidata:en:Q117068
-wikipedia:en:https://en.wikipedia.org/wiki/Yerba_mate
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/yerba-mate
-
-###################################################################################################
-#
 #                                Chives
 #
 ###################################################################################################
@@ -56488,7 +56473,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Marshmallow
 # description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 
 <en:plant
-en:mate
+en:mate, yerba mate leaves, yerba mate
 af:Mate
 ar:متة
 be:Матэ
@@ -56500,7 +56485,7 @@ cy:Mate
 da:Mate
 de:Mate
 eo:Mateo
-es:Mate
+es:Mate, yerba mate
 et:Mate
 eu:Mate
 fi:Mate
@@ -56525,7 +56510,7 @@ oc:Mate
 os:Мате
 pa:ਮੇਟ
 pl:Yerba mate
-pt:chimarrão
+pt:chimarrão, erva-mate
 qu:Mati upyana
 ro:Mate
 ru:Мате
@@ -56549,6 +56534,17 @@ zh:瑪黛茶
 wikidata:en:Q203540
 wikipedia:en:https://en.wikipedia.org/wiki/Mate_(drink)
 # ingredient/fr:mate has 39 products @2019-05-27
+
+<en:mate
+en:organic yerba mate leaves, organic yerba mate
+es:yerba mate orgánica
+
+<en:mate
+es:yerba mate elaborada con palo
+
+<en:mate
+en:yerba mate extract
+es:extracto de yerba mate
 
 ###################################################################################################
 #
