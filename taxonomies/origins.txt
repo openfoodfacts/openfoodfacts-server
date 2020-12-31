@@ -14,8 +14,12 @@
 stopwords:en:agriculture
 stopwords:fr:agriculture
 
-en:Unknown, not specified
-fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
+# Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
+en:Unknown
+fr:Inconnu, inconnue, inconnus, inconnues
+
+en:Unspecified, not specified, non specified, nonspecified, not available, n/a
+fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 
 # World regions
 
