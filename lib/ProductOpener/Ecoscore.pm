@@ -905,8 +905,17 @@ sub compute_ecoscore_packaging_adjustment($) {
 	# Sum the scores of all packagings components
 	# Create a copy of the packagings structure, so that we can add Eco-score elements to it
 	
-	if (not defined $product_ref->{packagings}) {
-		$product_ref->{packagings} = [];
+	my $warning;
+	
+	# If we do not have packagings info, create an unknown shape + unknown material entry
+	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
+		$product_ref->{packagings} = [
+			{
+				shape => "en:unknown",
+				material => "en:unknown",
+			}
+		];
+		$warning = "packaging_data_missing";
 	}
 	
 	my $packagings_ref = dclone($product_ref->{packagings});
@@ -925,7 +934,9 @@ sub compute_ecoscore_packaging_adjustment($) {
 				$packaging_ref->{ecoscore_material_score} = $score;
 			}
 			else {
-				$packaging_ref->{ecoscore_material_warning} = "unscored_material";
+				if (not defined $warning) {
+					$warning = "unscored_material";
+				}
 			}
 			
 			# Check if there is a shape-specific material score (e.g. PEHD bottle)
@@ -939,7 +950,10 @@ sub compute_ecoscore_packaging_adjustment($) {
 
 		}
 		else {
-			$packaging_ref->{ecoscore_material_warning} = "unspecified_material";
+			$packaging_ref->{material} = "en:unknown";
+			if (not defined $warning) {
+				 $warning = "unspecified_material";
+			}
 		}
 		
 		if (not defined $packaging_ref->{ecoscore_material_score}) {
@@ -954,20 +968,24 @@ sub compute_ecoscore_packaging_adjustment($) {
 				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
 			}
 			else {
-				$packaging_ref->{ecoscore_shape_warning} = "unscored_shape";
+				if (not defined $warning) {
+					$warning = "unscored_shape";
+				}
 			}
 		}
 		else {
-			$packaging_ref->{ecoscore_material_warning} = "unspecified_shape";
+			$packaging_ref->{shape} = "en:unknown";
+			if (not defined $warning) {
+				$warning = "unspecified_shape";
+			}
 		}
 		
-		if ((defined $packaging_ref->{ecoscore_material_score}) and (defined $packaging_ref->{ecoscore_shape_ratio})) {
-			 $packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
-			 $packaging_ref->{ecoscore_counted} = 1;
-		}
-		else {
-			$packaging_ref->{ecoscore_counted} = 0;
-		}
+		if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
+			# No shape specified, or no Eco-score score for it, use a ratio of 1
+			$packaging_ref->{ecoscore_shape_ratio} = 1;
+		}		
+		
+		$packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
 	}
 	
 	$packaging_score = 100 - $packaging_score;
@@ -981,7 +999,11 @@ sub compute_ecoscore_packaging_adjustment($) {
 		packagings => $packagings_ref,
 		score => $packaging_score,
 		value => $value,
-	};	
+	};
+	
+	if (defined $warning) {
+		$product_ref->{ecoscore_data}{adjustments}{packaging}{warning} = $warning;
+	}
 	
 }
 

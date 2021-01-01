@@ -306,9 +306,9 @@ sub analyze_and_combine_packaging_data($) {
 		
 		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
 		
-		# For phrases corresponding to the packaging text field, mark the shape as en:unrecognized if it was not identified
+		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
 		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
-			$packaging_ref->{shape} = "en:unrecognized";
+			$packaging_ref->{shape} = "en:unknown";
 		}
 		
 		# Non empty packaging?
@@ -329,7 +329,7 @@ sub analyze_and_combine_packaging_data($) {
 					
 					# If there is an existing value for the property,
 					# check if it is either a child or a parent of the value extracted from the packaging text
-					if ((defined $existing_packaging_ref->{$property})
+					if ((defined $existing_packaging_ref->{$property}) and ($existing_packaging_ref->{$property} ne "en:unknown")
 						and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
 						and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
 						and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})) ) {
@@ -360,7 +360,7 @@ sub analyze_and_combine_packaging_data($) {
 					# If we already have a value for the property,
 					# apply the new value only if it is a child of the existing value
 					# e.g. if we already have "plastic", we can override it with "PET"
-					if ((not defined $matching_packaging_ref->{$property})
+					if ((not defined $matching_packaging_ref->{$property}) or ($matching_packaging_ref->{$property} eq "en:unknown")
 						or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property}))) {
 						
 						$matching_packaging_ref->{$property} = $packaging_ref->{$property};

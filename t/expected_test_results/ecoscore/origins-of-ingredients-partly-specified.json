@@ -25,9 +25,17 @@
             "value" : 9.57107901658939
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -54,14 +62,14 @@
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 58.6020808480656
       },
-      "grade" : "b",
-      "score" : 68.173159864655,
+      "grade" : "c",
+      "score" : 58.173159864655,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 68.173159864655,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 58.173159864655,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
@@ -136,6 +144,11 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
-   "packagings" : [],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
    "unknown_ingredients_n" : 0
 }

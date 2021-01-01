@@ -22,9 +22,17 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
          "production_system" : {
             "label" : "fr:ab-agriculture-biologique",
@@ -54,18 +62,23 @@
          "name_fr" : "Beurre à 82% MG, doux",
          "score" : 37.3668003567537
       },
-      "grade" : "c",
-      "score" : 47.3668003567537,
+      "grade" : "d",
+      "score" : 37.3668003567537,
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 47.3668003567537,
+   "ecoscore_grade" : "d",
+   "ecoscore_score" : 37.3668003567537,
    "ecoscore_tags" : [
-      "c"
+      "d"
    ],
    "labels_tags" : [
       "fr:ab-agriculture-biologique"
    ],
    "lc" : "en",
-   "packagings" : []
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ]
 }
