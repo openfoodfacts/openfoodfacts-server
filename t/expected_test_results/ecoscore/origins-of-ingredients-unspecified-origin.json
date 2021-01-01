@@ -7,19 +7,18 @@
          "origins_of_ingredients" : {
             "aggregated_origins" : [
                {
-                  "origin" : "en:unknown",
+                  "origin" : "en:unspecified",
                   "percent" : 100
                }
             ],
             "epi_score" : 0,
             "epi_value" : -5,
             "origins_from_origins_field" : [
-               "en:unknown"
+               "en:unspecified"
             ],
             "transportation_score" : 0,
             "transportation_value" : 0,
-            "value" : -5,
-            "warning" : "origins_are_100_percent_unknown"
+            "value" : -5
          },
          "packaging" : {
             "packagings" : [],
@@ -63,7 +62,6 @@
    "ingredients" : [
       {
          "id" : "en:milk",
-         "origins" : "en:Milky way",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -95,12 +93,15 @@
       "en:milk",
       "en:dairy"
    ],
-   "ingredients_text" : "Milk (origin: Milky way)",
+   "ingredients_text" : "Milk",
    "known_ingredients_n" : 2,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
+   "origins_tags" : [
+      "en:unspecified"
+   ],
    "packagings" : [],
    "unknown_ingredients_n" : 0
 }

@@ -201,6 +201,8 @@ sub load_ecoscore_data_origins_of_ingredients() {
 		if ($errors) {
 			die("$errors unrecognized origins in CSV $csv_file");
 		}
+		
+		$ecoscore_data{origins}{"en:unspecified"} = $ecoscore_data{origins}{"en:unknown"};
 	}
 	else {
 		die("Could not open ecoscore origins CSV $csv_file: $!");
@@ -865,8 +867,12 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		transportation_value => $transportation_value,
 		epi_value => $epi_value,
 		value => $transportation_value + $epi_value,
-	};	
+	};
 	
+	# Add a warning if the only origin is en:unknown
+	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{warning} = "origins_are_100_percent_unknown";
+	}
 }
 
 
