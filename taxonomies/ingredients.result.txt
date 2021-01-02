@@ -15688,7 +15688,7 @@ da:E120, karminer, Carminer, carminsyre, cochenille, E124, Ponceau 4r (cochenill
 de:E120, echtes Karmin, Karminsäure, Carminsäure, E124, Cochenillerot a (ponceau 4r), Food Red 7, Cochenillerot A
 el:E120, Κοχενιλη, καρμινικο οξυ, καρμινες, E124, Πονσω 4r, ερυθρο της κοχενιλης α, Κόκκινο CI food 7
 eo:E120, karmino
-es:E120, Cochinilla, ácido carmínico, carmines, carmín cochinilla, E124, Ponceau 4r, rojo cochinilla a
+es:E120, Cochinilla, ácido carmínico, carmines, carmín cochinilla, carmín, E124, Ponceau 4r, rojo cochinilla a
 et:E120, Košenill, karmiinhape, karmiinid, E124, Erkpunane 4r, košenillpunane a, CI punane toiduvärv 7, erkpunane
 eu:E120, Gorrimin
 fi:E120, Karmiinit, Kokkiniili, karmiinihappo, Karmiini, Karmiinia, Karmiineja, Kokkiniiliä, karmiinihappoa, CI 75470, E124, Uuskokkiini, Uuskokkiinia, kokkeniilipunainen a, Ponceau 4r, CI Food Red 7
@@ -25622,7 +25622,7 @@ et:E401, Naatriumalginaat
 fi:E401, natriumalginaatti, natriumalginaattia
 fr:E401, alginate de sodium
 hu:E401, Nátrium-alginát
-it:E401, alginato di sodio
+it:E401, alginato di sodio, sodio alginato
 ja:E401, アルギン酸ナトリウム
 lt:E401, Natrio alginatas
 lv:E401, Nātrija algināts
@@ -40168,7 +40168,7 @@ fr:œufs frais de poules élevées en plein air
 < en:Fresh milk
 fr:lait frais pasteurisé
 ca:llet fresca pasteuritzada
-es:leche fresca pasteurizada
+es:leche fresca pasteurizada, leche fluída pasteurizada
 hu:pasztőrözött friss tej
 pt:leite fresco pasteurizado
 
@@ -40190,7 +40190,7 @@ fr:lait frais demi-écrémé
 en:fresh whole milk
 ca:llet sencera fresca, llet fresca sencera
 de:Frische Vollmilch
-es:leche entera fresca, leche fresca entera
+es:leche entera fresca, leche fresca entera, leche entera fluída, leche fluida entera
 fi:tuore täysmaito
 fr:lait entier frais, lait frais entier
 hu:friss teljes tej
@@ -49863,6 +49863,17 @@ zh:杏仁膏
 wikidata:en: Q106252
 wikipedia:en: https://en.wikipedia.org/wiki/Marzipan
 
+< en:Mate
+en:organic yerba mate leaves, organic yerba mate
+es:yerba mate orgánica
+
+< en:Mate
+en:yerba mate extract
+es:extracto de yerba mate
+
+< en:Mate
+es:yerba mate elaborada con palo
+
 < en:Mayonnaise
 en:chili mayonnaise
 da:chilimayonnaise
@@ -50554,7 +50565,7 @@ hu:módosított tej összetevők
 en:organic milk
 ca:llet ecològica, llet d'agricultura ecològica
 de:Bio-milch
-es:leche ecològica, leche de agricultura ecològica
+es:leche ecológica, leche de agricultura ecológica, leche orgánica
 fi:luomumaito
 fr:lait bio, lait issu de l'agriculture biologique
 hu:bio tej
@@ -50598,7 +50609,7 @@ en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed m
 ca:llet parcialment desnatada, llet semidesnatada
 da:letmælk
 de:fettarme Milch, teilentrahmte milch
-es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada
+es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
 hu:zsírszegény tej, félzsíros tej
@@ -57141,7 +57152,7 @@ es:leche de vaca ecológica termizada
 en:organic whole milk
 ca:llet sencera ecològica, llet sencera d'agricultura ecològica
 de:Bio-Vollmilch
-es:leche entera ecológica, leche entera de agricultura ecológica
+es:leche entera ecológica, leche entera de agricultura ecológica, leche entera orgánica
 fi:luomu täysmaito
 fr:lait entier bio, lait entier issu de l'agriculture biologique
 hu:bio teljes tej
@@ -57316,7 +57327,7 @@ ca:Oli de palmist
 cs:Palmojádrový olej
 da:palmekerne olie, palmekerne
 de:Palmkernöl, Palmkern
-es:palmiste, aceite de nuez de palma
+es:palmiste, aceite de nuez de palma, aceite vegetal de palmiste, aceite de palmiste
 et:palmituuma
 eu:Palmiste olio
 fa:روغن هسته پالم
@@ -59179,7 +59190,7 @@ wikidata:en: Q158496
 wikipedia:en: https://en.wikipedia.org/wiki/Althaea_officinalis
 
 < en:Plant
-en:mate
+en:mate, yerba mate leaves, yerba mate
 af:Mate
 ar:متة
 be:Матэ
@@ -59191,7 +59202,7 @@ cy:Mate
 da:Mate
 de:Mate
 eo:Mateo
-es:Mate
+es:Mate, yerba mate
 et:Mate
 eu:Mate
 fi:Mate
@@ -59216,7 +59227,7 @@ oc:Mate
 os:Мате
 pa:ਮੇਟ
 pl:Yerba mate
-pt:chimarrão
+pt:chimarrão, erva-mate
 qu:Mati upyana
 ro:Mate
 ru:Мате
@@ -67424,7 +67435,7 @@ fr:lait de vache partiellement écrémé et pasteurisé
 en:organic semi-skimmed milk, semi-skimmed milk from organic farming
 ca:llet parcialment desnatada ecològica, llet semidesnatada ecològica
 de:Fettarme Milch aus biologischer Landwirtschaft
-es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica
+es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica, leche parcialmente descremada orgánica
 fr:Lait demi-écrémé issu de l'agriculture biologique
 hu:bio zsírszegény tej, zsírszegény bio tej
 it:latte parzialmente scremato da agricoltura biologica
@@ -67434,7 +67445,7 @@ nl:biologische halfvolle melk
 en:pasteurized semi-skimmed milk
 ca:llet parcialment desnatada pasteuritzada, llet pasteuritzada parcialment desnatada, llet semidesnatada pasteuritzada, llet pasteuritzada semidesnatada
 de:pasteurisierte teilentrahmte Milch
-es:leche parcialmente desnatada pasteurizada, leche semidesnatada pasteurizada, leche pasteurizada parcialmente desnatada, leche pasteurizada semidesnatada
+es:leche parcialmente desnatada pasteurizada, leche semidesnatada pasteurizada, leche pasteurizada parcialmente desnatada, leche pasteurizada semidesnatada, leche parcialmente descremada pasteurizada
 fi:pastöroitu kevytmaito
 fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, lait pasteurise demi écrémé
 hu:pasztőrözött zsírszegény tej
@@ -67450,7 +67461,7 @@ fr:lait de montagne partiellement écrémé
 fr:lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 ca:llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
 de:fettarme Haltbarmilch, fettarme H-milch
-es:leche parcialmente desnatada esterilizada UHT, leche semidesnatada esterilizada UHT
+es:leche parcialmente desnatada esterilizada UHT, leche semidesnatada esterilizada UHT, leche UHT parcialmente descremada
 nl:halfvolle melk uht verhit
 pt:leite UHT meio gordo, leite meio gordo UHT
 
@@ -68239,7 +68250,7 @@ sv:pastöriserad skummjölk
 en:UHT sterilised skimmed milk, UHT skimmed milk, ultra heat treated skimmed milk
 ca:llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
 de:entrahmte H-Milch
-es:leche descremada esterilizada UHT, leche desnatada esterilizada UHT
+es:leche descremada esterilizada UHT, leche desnatada esterilizada UHT, leche UHT descremada
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait stérilisé uht écrémé
 hu:sovány UHT tej
 nl:UHT-gesteriliseerde magere melk
@@ -73581,7 +73592,7 @@ it:curcuma in polvere
 < en:UHT pasteurised whole milk
 en:organic UHT pasteurised whole milk
 ca:llet sencera esterilitzada UHT ecològica, llet sencera esterilitzada d'agricultura ecològica
-es:leche entera esterilidasa UHT ecológica, leche entera esterilizada de agricultura ecológica
+es:leche entera esterilizada UHT ecológica, leche entera esterilizada de agricultura ecológica
 fi:iskukuumennettu luomu täysmaito
 fr:lait entier stérilisé uht issu de l'agriculture biologique
 
@@ -77012,6 +77023,7 @@ fr:graisse et huile végétale non hydrogénée, huiles et graisses végétales 
 < en:Vegetable oil and fat
 en:palm kernel oil and fat
 de:Palmkernöl und Fett
+es:aceite y grasa de palmiste
 fi:palmuydinöljy ja -rasva
 fr:Huile et matière grasse de palmiste
 hu:pálmamagolaj és -zsír
