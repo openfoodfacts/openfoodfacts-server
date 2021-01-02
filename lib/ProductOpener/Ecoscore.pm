@@ -825,7 +825,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	
 	my %aggregated_origins = ();
 	
-	if (defined $product_ref->{ingredients}) {
+	if ((defined $product_ref->{ingredients}) and (scalar @{$product_ref->{ingredients}} > 0)) {
 		aggregate_origins_of_ingredients(\@origins_from_origins_field, \%aggregated_origins , $product_ref->{ingredients});
 	}
 	else {
