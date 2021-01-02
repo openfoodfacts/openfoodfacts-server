@@ -1,6 +1,6 @@
 {
    "categories_tags" : [
-      "en:margarines"
+      "en:sodas"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -38,41 +38,35 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_proxy_food_code" : "16737",
-         "co2_agriculture" : "0.85619568",
+         "agribalyse_proxy_food_code" : "18340",
+         "co2_agriculture" : "0.0052740241",
          "co2_consumption" : "0.0047993021",
-         "co2_distribution" : "0.030254944",
-         "co2_packaging" : "0.20585948",
-         "co2_processing" : "0.12042224",
-         "co2_total" : "1.4400484",
-         "co2_transportation" : "0.22241292",
-         "code" : "16737",
-         "dqr" : "3.31",
-         "ef_agriculture" : "0.2785495",
+         "co2_distribution" : "0.028932423",
+         "co2_packaging" : "0.18274931",
+         "co2_processing" : "0",
+         "co2_total" : "0.40246995",
+         "co2_transportation" : "0.18071489",
+         "code" : "18340",
+         "dqr" : "2.97",
+         "ef_agriculture" : "0.00091374504",
          "ef_consumption" : "0.0024293397",
-         "ef_distribution" : "0.009194265200000001",
-         "ef_packaging" : "0.015478282000000001",
-         "ef_processing" : "0.01151692",
-         "ef_total" : 0.33526651,
-         "ef_transportation" : "0.018090858",
-         "name_en" : "Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3",
-         "name_fr" : "Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3",
-         "score" : 71.9485117508868
+         "ef_distribution" : "0.0088128735",
+         "ef_packaging" : "0.018005260999999998",
+         "ef_processing" : "0",
+         "ef_total" : 0.043941445,
+         "ef_transportation" : "0.013780225",
+         "name_en" : "Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)",
+         "name_fr" : "Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants",
+         "score" : 97.8336969127427
       },
-      "grade" : "c",
-      "score" : 56.9485117508868,
+      "grade" : "a",
+      "score" : 82.8336969127427,
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 56.9485117508868,
+   "ecoscore_grade" : "a",
+   "ecoscore_score" : 82.8336969127427,
    "ecoscore_tags" : [
-      "c"
-   ],
-   "ingredients_analysis_tags" : [
-      "en:palm-oil"
-   ],
-   "labels_tags" : [
-      "en:roundtable-on-sustainable-palm-oil"
+      "a"
    ],
    "lc" : "en",
    "packagings" : [

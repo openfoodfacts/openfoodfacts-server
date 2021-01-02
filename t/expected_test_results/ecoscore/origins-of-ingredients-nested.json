@@ -22,9 +22,17 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -52,11 +60,11 @@
          "score" : 61.604062231297
       },
       "grade" : "c",
-      "score" : 56.604062231297,
+      "score" : 46.604062231297,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 56.604062231297,
+   "ecoscore_score" : 46.604062231297,
    "ecoscore_tags" : [
       "c"
    ],
@@ -146,6 +154,11 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "packagings" : [],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
    "unknown_ingredients_n" : 0
 }
