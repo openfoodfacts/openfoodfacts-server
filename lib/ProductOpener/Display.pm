@@ -2117,7 +2117,7 @@ HTML
 
 			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
 				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$colors = "'#038141','#85bb2f','#fecb02','#ee8100','#e63e11','#a0a0a0'";
 				$series_data = '';
 				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
@@ -2125,7 +2125,7 @@ HTML
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
 				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0'";
 				$series_data = '';
 				foreach my $ecoscore_grade ('a','b','c','d','e','unknown') {
 					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
