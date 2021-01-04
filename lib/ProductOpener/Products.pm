@@ -1313,7 +1313,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$notempty++;
 	}
 
-	my @needed_fields = qw(product_name quantity packaging brands categories );
+	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
