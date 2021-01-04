@@ -575,6 +575,9 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
@@ -591,8 +594,6 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users

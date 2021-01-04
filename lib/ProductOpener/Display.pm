@@ -1761,6 +1761,11 @@ sub display_list_of_tags($$) {
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
 
+		if (not defined $tag_type_singular{$tagtype}{$lc}) {
+			$log->error("no path defined for tagtype", { tagtype => $tagtype, lc => $lc}) if $log->is_error();
+			die();
+		}
+
 		my %stats = (
 			all_tags => 0,
 			all_tags_products => 0,
@@ -1939,12 +1944,22 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^[abcde]$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\">" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"max-height:80px;\">" ;
 				}
 				else {
 					$display = lang("unknown");
 				}
 			}
+			elsif ($tagtype eq 'ecoscore') {
+				my $grade;
+				if ($tagid =~ /^[abcde]$/) {
+					$grade = uc($tagid);
+				}
+				else {
+					$grade = lang("unknown");
+				}
+				$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
+			}			
 			elsif ($tagtype eq 'nova_groups') {
 				if ($tagid =~ /^en:(1|2|3|4)/) {
 					my $group = $1;
@@ -2087,9 +2102,10 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# Nutri-Score nutrition grades colors histogram / NOVA groups histogram
+		# Nutri-Score nutrition grades colors histogram / Eco-Score / NOVA groups histogram
 
 		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
 
 			my $categories;
@@ -2105,6 +2121,14 @@ HTML
 				$series_data = '';
 				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
+				}
+			}
+			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
+				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$series_data = '';
+				foreach my $ecoscore_grade ('a','b','c','d','e','unknown') {
+					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
@@ -4820,6 +4844,12 @@ sub search_and_display_products($$$$$) {
 			}
 
 			foreach my $newtagtype (@current_drilldown_fields) {
+				
+				# Eco-score: currently only for moderators
+				
+				if ($newtagtype eq 'ecoscore') {
+					next if not $User{moderator};
+				}
 
 				push @{$template_data_ref->{current_drilldown_fields}}, {
 					current_link => $request_ref->{current_link},
