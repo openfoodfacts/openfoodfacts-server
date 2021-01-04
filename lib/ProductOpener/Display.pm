@@ -4727,20 +4727,54 @@ sub search_and_display_products($$$$$) {
 					$key_count = md5_hex($key_count);
 					my $results_count = get_cache_results($key_count,$request_ref);
 					if (not defined $results_count) {
-						$count = execute_query(sub {
-							return get_products_collection()->count_documents($query_ref);
-						});
-						set_cache_results($key_count,$count);
+						
+						$log->debug("count not in cache for query", { key => $key_count }) if $log->is_debug();
+								
+						# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+						my $only_tags_filters = 1;
+						foreach my $field (keys %$query_ref) {
+							if ($field !~ /_tags$/) {
+								$log->debug("non tags field in query filters, cannot use smaller products_tags collection", { field => $field, value => $query_ref->{field} }) if $log->is_debug();
+								$only_tags_filters = 0;
+								last;
+							}
+						}
+						
+						if (($only_tags_filters) and ((not defined param("nocache")) or (param("nocache") == 0))) {
+							
+							$count = execute_query(sub {
+								$log->debug("count_documents on smaller products_tags collection", { key => $key_count }) if $log->is_debug();
+								return get_products_tags_collection()->count_documents($query_ref);
+							});
+
+						}
+						else {
+						
+							$count = execute_query(sub {
+								$log->debug("count_documents on complete products collection", { key => $key_count }) if $log->is_debug();
+								return get_products_collection()->count_documents($query_ref);
+							});
+						}
+						if ($@) {
+							$log->warn("MongoDB error during count", { error => $@ }) if $log->is_warn();
+						}
+						else {
+							$log->debug("count query complete, setting cache", { key => $key_count, count => $count }) if $log->is_debug();
+							set_cache_results($key_count,$count);
+						}
 					} else {
-						$count = $results_count
+						# Cached result
+						$count = $results_count;
+						$log->debug("count in cache for query", { key => $key_count, count => $count }) if $log->is_debug();
 					}
 				} else {
 				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
 					$count = execute_query(sub {
+						$log->debug("empty query_ref, use estimated_document_count fot better performance", { }) if $log->is_debug();
 						return get_products_collection()->estimated_document_count();
 					});
 				}
-				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+				$log->info("MongoDB count query done", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
