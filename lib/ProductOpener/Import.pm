@@ -653,7 +653,7 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name', 'packaging_text',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'abbreviated_product_name', 'generic_name', 'packaging_text',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {
@@ -1366,6 +1366,18 @@ EMAIL
 				compute_nutrient_levels($product_ref);
 
 				compute_unknown_nutrients($product_ref);
+				
+				# Until we provide an interface to directly change the packaging data structure
+				# erase it before reconstructing it
+				# (otherwise there is no way to remove incorrect entries)
+				$product_ref->{packagings} = [];	
+				
+				analyze_and_combine_packaging_data($product_ref);
+				
+				if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+					compute_ecoscore($product_ref);
+					compute_forest_footprint($product_ref);
+				}				
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 

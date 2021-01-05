@@ -2160,6 +2160,12 @@ sub product_name_brand($) {
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
 	}
+	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
+		$full_name = $ref->{"abbreviated_product_name_$lc"};
+	}
+	elsif ((defined $ref->{abbreviated_product_name}) and ($ref->{abbreviated_product_name} ne '')) {
+		$full_name = $ref->{abbreviated_product_name};
+	}
 
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};

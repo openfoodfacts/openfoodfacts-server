@@ -472,6 +472,10 @@ sub convert_file($$$$) {
 sub normalize_column_name($) {
 
 	my $name = shift;
+	
+	# remove HTML tags
+	
+	$name =~ s/<(([^>]|\n)*)>//g;
 
 	# non-alpha chars will be turned to -, change the ones we want to keep
 
@@ -497,7 +501,7 @@ sub normalize_column_name($) {
 
 	# fr
 	$name =~ s/^(teneur|taux) (en |de |d')?//i;
-	$name =~ s/^dont //i;
+	$name =~ s/^(dont|soit) //i;
 	$name =~ s/ en / /i;
 
 	$name =~ s/pourcentage/percent/i;
@@ -556,9 +560,11 @@ fr => {
 	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
+	brands => ["Marque(s)", "libellé marque"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
+	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
-	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
+	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
@@ -574,6 +580,7 @@ fr => {
 	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
+	nutriscore_score_producer => ["score nutri-score", "score nutritionnel"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
 	obsolete => ["Le produit n'est plus en vente."],
@@ -1177,6 +1184,10 @@ sub init_columns_fields_match($$) {
 				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{both})) {
 				$columns_fields_ref->{$column}{field} = "nutriscore_score_producer";
 			}
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_score_producer")
+				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_grade_producer";
+			}			
 		}
 
 		delete $columns_fields_ref->{$column}{existing_examples};
