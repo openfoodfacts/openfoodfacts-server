@@ -440,7 +440,13 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				# infocards set by admins can contain HTML
+				if (($admin) and ($field =~ /infocard/)) {
+					$product_ref->{$field} = decode utf8=>param($field);
+				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
 			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
@@ -2087,6 +2093,8 @@ HTML
 ;	
 	
 	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	
+
 
 	$html .= "</div><!-- fieldset -->";	
 
@@ -2128,7 +2136,13 @@ HTML
 
 	}
 
+	if ($admin) {
 
+		# Let admins edit any other fields
+		if (defined param("fields")) {
+			$html .= hidden(-name=>'fields', -value=>param("fields"), -override=>1);
+		}
+	}
 
 	$html .= ''
 	. hidden(-name=>'type', -value=>$type, -override=>1)
