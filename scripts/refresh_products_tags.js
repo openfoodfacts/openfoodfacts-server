@@ -63,7 +63,10 @@ db.products.aggregate( [
 	data_quality_info_tags:1,
 	data_quality_warnings_tags:1,
 	data_quality_errors_tags:1,
-	teams_tags:1
+	teams_tags:1,
+	categories_properties_tags:1,
+	ecoscore_tags:1,
+	owners_tags:1
 	}},
 {"$out": "products_tags"}
 ]);

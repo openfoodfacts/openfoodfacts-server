@@ -1540,7 +1540,7 @@ sub query_list_of_tags($$) {
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
 		# do not used the smaller cached products_tags collection if ?nocache=1
-		# or if the user is logged in and nocache is different from 0
+		# or if on the producers platform
 		if ( ((defined param("nocache")) and (param("nocache")))
 			or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
 			) {
@@ -1612,11 +1612,10 @@ sub query_list_of_tags($$) {
 
 			my $count_results;
 
-			# do not used the smaller cached products_tags collection if ?nocache=1
-			# or if the user is logged in and nocache is different from 0
+			# do not use the smaller cached products_tags collection if ?nocache=1
+			# or if we are on the producers platform
 			if ( ((defined param("nocache")) and (param("nocache")))
-				or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
-				) {
+				or ($server_options{producers_platform})) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
 					$count_results = execute_query(sub {
@@ -4732,14 +4731,21 @@ sub search_and_display_products($$$$$) {
 								
 						# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
 						my $only_tags_filters = 1;
-						foreach my $field (keys %$query_ref) {
-							if ($field !~ /_tags$/) {
-								$log->debug("non tags field in query filters, cannot use smaller products_tags collection", { field => $field, value => $query_ref->{field} }) if $log->is_debug();
-								$only_tags_filters = 0;
-								last;
+						
+						if ($server_options{producers_platform}) {
+							$only_tags_filters = 0;
+						}
+						else {
+						
+							foreach my $field (keys %$query_ref) {
+								if ($field !~ /_tags$/) {
+									$log->debug("non tags field in query filters, cannot use smaller products_tags collection", { field => $field, value => $query_ref->{field} }) if $log->is_debug();
+									$only_tags_filters = 0;
+									last;
+								}
 							}
 						}
-						
+					
 						if (($only_tags_filters) and ((not defined param("nocache")) or (param("nocache") == 0))) {
 							
 							$count = execute_query(sub {
