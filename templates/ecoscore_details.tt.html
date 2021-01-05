@@ -9,6 +9,9 @@
 	<div class="small-12 columns">
 		<div class="panel ecoscore_panel" id="ecoscore_panel_lca">
 	<h4>[% display_icon('lca') %] Analyse de cycle de vie (ACV)</h4>
+	
+	[% IF agribalyse.code %]
+	
 	<p>
 		Catégorie Agribalyse</a> : <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
@@ -89,6 +92,15 @@
 	<p>
 		<strong>Score ACV sur 100 : [% round(agribalyse.score) %]</strong>
 	</p>
+	
+	[% ELSE %]
+	<div class="panel warning">
+		<strong>Pas de correspondance entre les catégories du produit et les catégories Agribalyse.</strong><br><br>
+		Vous pouvez modifier la fiche produit pour ajouter une catégorie plus fine.<br><br>
+		Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+	</div>
+	[% END %]
+	
 	</div>
 	</div>
 	</div>
@@ -105,6 +117,14 @@
 		<p><strong>Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
 		<p>Pas de labels pris en compte pour le système de production.</p>
+		
+	[% IF adjustments.origins_of_ingredients.warning %]
+		<div class="panel warning">
+			Si ce produit a un label caractérisant le système de production (bio, commerce équitable, Label Rouge, Bleu Blanc Coeur etc.), vous pouvez modifier la fiche produit pour l'ajouter.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]		
+		
 	[% END %]
 	</div>
 	</div>
@@ -119,6 +139,14 @@
 				<li>[% display_taxonomy_tag("origins",origin.origin) %]: [% round(origin.percent) %]%</li>
 			[% END %]
 		</ul>
+	[% END %]
+	
+	[% IF adjustments.origins_of_ingredients.warning %]
+		<div class="panel warning">
+			<strong>Les origines des ingrédients de ce produit ne sont pas renseignées.</strong><br><br>
+			Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
 	[% END %]
 
 	<p>
@@ -142,7 +170,7 @@
 		</ul>
 		<p><strong>Espèces menacées : [% adjustments.threatened_species.value %]</strong></p>
 	[% ELSE %]
-		<p>Pas d'espèces menacées prises en compte.</p>
+		<p>Aucun ingrédient dont la culture menace des espèces n'a été détecté.</p>
 	[% END %]
 	</div>
 	</div>
@@ -167,10 +195,16 @@
 		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
 		
 		<p><strong>Emballage : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
-	[% ELSE %]
-		<p>Les informations sur l'emballage sont manquantes, son impact n'a pas pu être pris en compte.</p>
 	[% END %]
 	
+	[% IF adjustments.origins_of_ingredients.warning %]
+		<div class="panel warning">
+			<strong>Les informations sur l'emballage de ce produit ne sont pas renseignées.</strong><br><br>
+			Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]		
+
 	</div>
 	</div>
 	</div>
