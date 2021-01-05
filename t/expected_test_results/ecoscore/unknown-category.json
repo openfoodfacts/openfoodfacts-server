@@ -37,12 +37,18 @@
          "production_system" : {},
          "threatened_species" : {}
       },
-      "agribalyse" : {},
-      "missing" : {
-         "agb_category" : 1
+      "agribalyse" : {
+         "warning" : "missing_agribalyse_match"
       },
+      "missing" : {
+         "agb_category" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
    },
+   "ecoscore_grade" : "unknown",
    "ecoscore_tags" : [
       "unknown"
    ],

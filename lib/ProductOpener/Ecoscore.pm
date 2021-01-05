@@ -425,6 +425,9 @@ sub compute_ecoscore($) {
 
 	my $product_ref = shift;
 	
+	delete $product_ref->{ecoscore_grade};
+	delete $product_ref->{ecoscore_score};
+	
 	$product_ref->{ecoscore_data} = {
 		adjustments => {},
 	};
@@ -452,11 +455,16 @@ sub compute_ecoscore($) {
 		
 		# Add adjustments (maluses or bonuses)
 		
+		my $missing_data_warning;
+		
 		foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
 			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
 				$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
 				$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
 					value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+			}
+			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+				$missing_data_warning = 1;
 			}
 		}
 		
@@ -482,11 +490,17 @@ sub compute_ecoscore($) {
 		$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
 		
 		$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
+		
+		if ($missing_data_warning) {
+			$product_ref->{ecoscore_data}{missing_data_warning} = 1;
+		}
 	}
 	else {
 		# No AgriBalyse category match
+		$product_ref->{ecoscore_data}{missing_agribalyse_match_warning} = 1;
 		$product_ref->{ecoscore_data}{status} = "unknown";
 		$product_ref->{ecoscore_tags} = ["unknown"];
+		$product_ref->{ecoscore_grade} = "unknown";
 	}
 }
 
@@ -567,13 +581,17 @@ sub compute_ecoscore_agribalyse($) {
 		
 	if ($agb) {
 		
-		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
-		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
-		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;
-		
 		if (not defined $agribalyse{$agb}{ef_total}) {
 			$log->error("compute_ecoscore - ef_total missing for category", { agb => $agb, agribalyse => $agribalyse{$agb} }) if $log->is_error();
 		}
+		else {
+			# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
+			# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
+			$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
+		}
+	}
+	else {
+		$product_ref->{ecoscore_data}{agribalyse}{warning} = "missing_agribalyse_match";
 	}
 }
 
@@ -872,6 +890,8 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	# Add a warning if the only origin is en:unknown
 	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{warning} = "origins_are_100_percent_unknown";
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{origins} = 1;
 	}
 }
 
@@ -1003,6 +1023,8 @@ sub compute_ecoscore_packaging_adjustment($) {
 	
 	if (defined $warning) {
 		$product_ref->{ecoscore_data}{adjustments}{packaging}{warning} = $warning;
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
 	}
 	
 }
