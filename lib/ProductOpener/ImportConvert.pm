@@ -873,15 +873,19 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
 		}
 
-
-		# Lowercase fields in ALL CAPS
-		if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
+		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
+			
+			# Lowercase fields in ALL CAPS
+			
 			if (($product_ref->{$field} =~ /[A-Z]{4}/)
 				and ($product_ref->{$field} !~ /[a-z]/)
 				) {
 				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
 				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 			}
+			
+			# Remove fields with "0" or "-"
+			$product_ref->{$field} =~ s/^( |0|-|\.|\/)+$//;
 		}
 
 
