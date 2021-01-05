@@ -231,9 +231,19 @@
 	</a>
 	<br>
 
-	[% IF ecoscore_warning %]
-		<p>[% ecoscore_warning %]</p>
-	[% END %]
+	[% IF ecoscore_data.missing_agribalyse_match_warning %]
+		<div class="panel warning">
+			<strong>L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise.</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% ELSIF ecoscore_data.missing_data_warning %]
+		<div class="panel warning">
+			<strong>Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous).</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter les informations manquantes.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]	
 
 	[% ecoscore_calculation_details %]
 [% END %]
