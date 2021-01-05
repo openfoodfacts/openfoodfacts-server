@@ -1539,11 +1539,10 @@ sub query_list_of_tags($$) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
-		# do not used the smaller cached products_tags collection if ?nocache=1
-		# or if on the producers platform
+		# do not use the smaller cached products_tags collection if ?nocache=1
+		# or if we are on the producers platform
 		if ( ((defined param("nocache")) and (param("nocache")))
-			or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
-			) {
+			or ($server_options{producers_platform})) {
 
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
