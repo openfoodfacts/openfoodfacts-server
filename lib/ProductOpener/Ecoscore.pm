@@ -493,7 +493,16 @@ sub compute_ecoscore($) {
 		
 		if ($missing_data_warning) {
 			$product_ref->{ecoscore_data}{missing_data_warning} = 1;
+			add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+			remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 		}
+		else {
+			remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+			add_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+		}
+		
+		add_tag($product_ref,"misc","en:ecoscore-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-not-computed");		
 	}
 	else {
 		# No AgriBalyse category match
@@ -501,6 +510,11 @@ sub compute_ecoscore($) {
 		$product_ref->{ecoscore_data}{status} = "unknown";
 		$product_ref->{ecoscore_tags} = ["unknown"];
 		$product_ref->{ecoscore_grade} = "unknown";
+		
+		add_tag($product_ref,"misc","en:ecoscore-not-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+		remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 	}
 }
 
