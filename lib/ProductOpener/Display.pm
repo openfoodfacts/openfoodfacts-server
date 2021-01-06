@@ -563,8 +563,7 @@ CSS
 	
 	# Enable or disable user preferences
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform})
-		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+		and (not $server_options{producers_platform})) {
 			
 		$user_preferences = 1;
 	}
@@ -4448,21 +4447,12 @@ sub customize_response_for_product($) {
 		}
 		# Eco-Score
 		elsif ($field =~ /^ecoscore/) {
-			# 2020-11-12: the Eco-score is currently not publicly deployed, and only available to moderators on the web site
-			# and alpha testers of the Open Food Facts app
-			# Until the public launch of the Eco-score, we will disable ecoscore fields in the API,
-			# except if the app is also asking for the ecoscore_alpha field (which can be turned on by the app with a specific parameter)
-			# That way we can deploy an "Eco-score ready" app that asks for ecoscore fields,
-			# and once we turn it on on the server, the app will start to display the Eco-score instantly,
-			# without having to deploy an updated app.
-			
-			if (($server_options{ecoscore}) or (param('fields') =~ /ecoscore_alpha/)) {
-				if (not defined $product_ref->{ecoscore_data}) {
-					compute_ecoscore($product_ref);
-				}
-				if (defined $product_ref->{$field}) {
-					$customized_product_ref->{$field} = $product_ref->{$field};
-				}
+
+			if (not defined $product_ref->{ecoscore_data}) {
+				compute_ecoscore($product_ref);
+			}
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
 		}
 		# Product attributes requested in a specific language (or data only)
@@ -4634,8 +4624,9 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
 	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-	# Show Eco-score sort only for moderators
-	if ($User{moderator}) {
+	# Show Eco-score sort only for France or moderators
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
 	}
 	
@@ -4893,7 +4884,8 @@ sub search_and_display_products($$$$$) {
 				# Eco-score: currently only for moderators
 				
 				if ($newtagtype eq 'ecoscore') {
-					next if not $User{moderator};
+					next if not (((defined $options{product_type}) and ($options{product_type} eq "food"))
+						and (($cc eq "fr") or ($User{moderator})));
 				}
 
 				push @{$template_data_ref->{current_drilldown_fields}}, {
@@ -8246,11 +8238,10 @@ HTML
 	
 	# Environmental impact and Eco-Score
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
+	# for alpha test to moderators, display eco-score for all countries
 	
-	if (
-		# for alpha test to moderators, display eco-score for all countries
-		# ($cc eq "fr") and
-		($User{moderator})) {
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		
 		if (not defined $product_ref->{ecoscore_data}) {
 			compute_ecoscore($product_ref);
