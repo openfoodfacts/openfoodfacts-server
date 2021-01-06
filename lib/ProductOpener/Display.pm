@@ -654,6 +654,12 @@ sub analyze_request($)
 	$request_ref->{query_string} =~ s/(\&|\?).*//;
 
 	$log->debug("analyzing query_string, step 4 - removed all query parameters", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	
+	# if the query request json or xml, either through the json=1 parameter or a .json extension
+	# set the $request_ref->{api} field
+	if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+		$request_ref->{api} = 'v0';
+	}
 
 	# Split query string by "/" to know where it points
 	my @components = split(/\//, $request_ref->{query_string});
@@ -4334,7 +4340,7 @@ sub add_params_to_query($$) {
 }
 
 
-=head2 customize_response_for_product ( $product_ref )
+=head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -4344,6 +4350,10 @@ and computes requested fields that are not stored in the database but
 created on demand.
 
 =head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
 
 =head4 $product_ref (input)
 
@@ -4355,8 +4365,9 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product($) {
+sub customize_response_for_product($$) {
 	
+	my $request_ref = shift;
 	my $product_ref = shift;
 	
 	my $customized_product_ref = {};
@@ -4365,7 +4376,8 @@ sub customize_response_for_product($) {
 	
 	my $fields = param('fields');
 	
-	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
+	# For non API queries, we need to compute attributes for personal search
+	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
 		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
@@ -4936,13 +4948,15 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
-		if (($user_preferences) or ((defined $request_ref->{api}) and (defined param('fields')))) {
+		# For non API queries with user preferences, we need to add attributes
+		if (((not defined $request_ref->{api}) and ($user_preferences))
+			or ((defined $request_ref->{api}) and (defined param('fields')))) {
 
 			my $customized_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
-				my $customized_product_ref = customize_response_for_product($product_ref);
+				my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 				push @{$customized_products}, $customized_product_ref;
 			}
@@ -10112,7 +10126,7 @@ HTML
 			
 			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
 			
-			my $customized_product_ref = customize_response_for_product($product_ref);
+			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 			# the "" values have been removed
