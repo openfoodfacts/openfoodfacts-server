@@ -4544,14 +4544,13 @@ sub search_and_display_products($$$$$) {
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
+	# If user preferences are turned on, return 100 products per page
+	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
+		$limit = 100;
+	}		
 	else {
 		$limit = $page_size;
 	}
-	
-	# If user preferences are turned on, return 100 products per page
-	if ($user_preferences) {
-		$limit = 100;
-	}	
 
 	my $skip = 0;
 	if (defined $page) {
