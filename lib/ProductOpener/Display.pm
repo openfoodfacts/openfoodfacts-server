@@ -302,6 +302,8 @@ sub process_template($$$) {
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{cc} = $cc;
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
@@ -6780,10 +6782,7 @@ sub display_new($) {
 	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 	$log->trace("Start of display_new") if $log->is_trace();
 
-	my $template_data_ref = {
-		lang => \&lang,
-		display_icon => \&display_icon,
-	};
+	my $template_data_ref = {};
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
@@ -7157,7 +7156,7 @@ HTML
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
 
-	$tt->process('display_new.tt.html', $template_data_ref, \$html) || ($html .="template error: " . $tt->error());
+	process_template('display_new.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
