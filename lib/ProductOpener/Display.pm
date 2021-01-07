@@ -687,8 +687,10 @@ sub analyze_request($)
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
 			param("api_version", $1);
+			$request_ref->{api_version} = $1;
 		}
 		param("api_method", $components[2]);
+		$request_ref->{api_method} = $components[2];
 		if (defined $components[3]) {
 			param("code", $components[3]);
 			$request_ref->{code} = $components[3];
