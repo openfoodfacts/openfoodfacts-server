@@ -176,6 +176,8 @@ sub parse_packaging_from_text_phrase($$) {
 	my $text = shift;
 	my $text_language = shift;
 	
+	$log->debug("parse_packaging_from_text_phrase - start", { text => $text, text_language => $text_language }) if $log->is_debug();
+	
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);	
 	
@@ -267,6 +269,8 @@ And combines them in an updated packagings data structure.
 sub analyze_and_combine_packaging_data($) {
 	
 	my $product_ref = shift;
+	
+	$log->debug("analyze_and_combine_packaging_data - start", { existing_packagings => $product_ref->{packagings} }) if $log->is_debug();
 	
 	# Create the packagings data structure if it does not exist yet
 	# otherwise, we will use and augment the existing data
@@ -369,6 +373,8 @@ sub analyze_and_combine_packaging_data($) {
 			}
 		}
 	}
+	
+	$log->debug("analyze_and_combine_packaging_data - done", { packagings => $product_ref->{packagings} }) if $log->is_debug();
 }
 
 1;
