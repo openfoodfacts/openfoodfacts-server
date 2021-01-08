@@ -23,6 +23,8 @@ my @tests = (
 # date
 ["en", "20200201131743_2.jpg", undef, "other"],
 
+["en", "4 LR GROS LOUE_3 251 320 080 419_3D avant.png", "3251320080419", "other"],
+
 );
 
 foreach my $test_ref (@tests) {
