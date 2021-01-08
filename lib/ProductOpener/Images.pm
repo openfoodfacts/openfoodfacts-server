@@ -435,6 +435,10 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	my $code;
 	my $imagefield;
+	
+	# codes with spaces
+	# 4 LR GROS LOUE_3 251 320 080 419_3D avant.png
+	$filename =~ s/(\d) (\d)/$1$2/g;
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
