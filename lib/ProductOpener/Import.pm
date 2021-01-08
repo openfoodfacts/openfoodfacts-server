@@ -445,6 +445,12 @@ sub import_csv_file($) {
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
 			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
+				
+				# Re-assign some organizations
+				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
+				
+				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
 				
