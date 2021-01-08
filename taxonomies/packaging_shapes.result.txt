@@ -11,6 +11,7 @@ pt:Saco
 
 < en:Bag
 en:Individual bag, individual bags
+de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
 
 en:Bottle, bottles
@@ -43,9 +44,11 @@ nl:Boos
 pt:Caixa
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
+de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr:Brique, briques
 
 en:bulk, without packaging
+de:ohne Verpackung
 fr:vrac, sans emballage
 
 en:Can, cans
@@ -75,26 +78,31 @@ nl:Conservenblik
 pt:Lata de comida
 
 en:Eating utensils, utensils, eating utensil, utensil
+de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
 
 < en:Eating utensils
 en:Chopsticks
+de:Essstäbchen
 fr:Baguettes
 
 < en:Eating utensils
 en:Fork, forks
+de:Gabel, Gabeln
 fr:Fourchette, fourchettes
 
 < en:Eating utensils
 en:Knife, knives
+de:Messer
 fr:Couteau, couteaux
 
 < en:Eating utensils
 en:Spoon, spoons
+de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
 
 en:Film, wrap, films, wraps, film wrap, film wraps
-de:Folie
+de:Folie, Film
 el:Μεμβράνη
 fr:Film, pellicule, films, pellicules
 hu:Film
@@ -107,6 +115,7 @@ hu:Kulacs
 it:Borraccia
 
 en:Grouping package, grouping packages
+de:Gruppierungspaket
 fr:Emballage de regroupement, emballages de regroupement
 
 en:Jar, jars
@@ -118,6 +127,7 @@ it:Vasetto, Barattolo
 nl:Pot
 
 en:label, labels
+de:Etikett, Etiketten
 fr:étiquette, étiquettes
 
 en:Lid, cover, lids, covers
@@ -127,6 +137,9 @@ fr:Couvercle, couvercles
 hu:Fedél
 nl:Deksel
 pt:Tampa
+
+en:Mold
+fr:Moule
 
 en:Net, nets
 de:Netz
@@ -161,14 +174,15 @@ en:Stick, sticks
 fr:Batonnet, bâtonnets
 
 en:Tray, trays
-de:Körbchen
+de:Tablettverpackung, Tablett
 fr:Barquette, barquettes
 hu:Tálca
 
 en:Tube, tubes
+de:Tube, Tuben
 fr:Tube, tubes
 hu:Cső
 
-en:Unrecognized
-fr:Non-reconnue, non-reconnu
+en:Unknown
+fr:Inconnu, inconnue, inconnus, inconnues
 

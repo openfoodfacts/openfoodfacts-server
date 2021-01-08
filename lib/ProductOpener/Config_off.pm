@@ -575,6 +575,9 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
@@ -591,8 +594,6 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users
@@ -611,6 +612,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	created_t
 	last_modified_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
@@ -651,7 +653,8 @@ $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
 			"producer_version_id",       "lc",
-			"product_name",              "generic_name",
+			"product_name",              "abbreviated_product_name",
+			"generic_name",
 			"quantity_value_unit",       "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit",   "packaging",
@@ -763,6 +766,7 @@ $options{import_export_fields_importance} = {
 	code => "mandatory",
 	lc => "mandatory",
 	product_name => "mandatory",
+	abbreviated_product_name => "optional",
 	generic_name => "recommended",
 	quantity => "mandatory",
 	serving_size => "recommended",

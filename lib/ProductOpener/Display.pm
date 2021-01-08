@@ -302,6 +302,8 @@ sub process_template($$$) {
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{cc} = $cc;
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
@@ -563,8 +565,7 @@ CSS
 	
 	# Enable or disable user preferences
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform})
-		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+		and (not $server_options{producers_platform})) {
 			
 		$user_preferences = 1;
 	}
@@ -655,6 +656,12 @@ sub analyze_request($)
 	$request_ref->{query_string} =~ s/(\&|\?).*//;
 
 	$log->debug("analyzing query_string, step 4 - removed all query parameters", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	
+	# if the query request json or xml, either through the json=1 parameter or a .json extension
+	# set the $request_ref->{api} field
+	if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+		$request_ref->{api} = 'v0';
+	}
 
 	# Split query string by "/" to know where it points
 	my @components = split(/\//, $request_ref->{query_string});
@@ -680,8 +687,10 @@ sub analyze_request($)
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
 			param("api_version", $1);
+			$request_ref->{api_version} = $1;
 		}
 		param("api_method", $components[2]);
+		$request_ref->{api_method} = $components[2];
 		if (defined $components[3]) {
 			param("code", $components[3]);
 			$request_ref->{code} = $components[3];
@@ -1539,11 +1548,10 @@ sub query_list_of_tags($$) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
-		# do not used the smaller cached products_tags collection if ?nocache=1
-		# or if the user is logged in and nocache is different from 0
+		# do not use the smaller cached products_tags collection if ?nocache=1
+		# or if we are on the producers platform
 		if ( ((defined param("nocache")) and (param("nocache")))
-			or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
-			) {
+			or ($server_options{producers_platform})) {
 
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
@@ -1612,11 +1620,10 @@ sub query_list_of_tags($$) {
 
 			my $count_results;
 
-			# do not used the smaller cached products_tags collection if ?nocache=1
-			# or if the user is logged in and nocache is different from 0
+			# do not use the smaller cached products_tags collection if ?nocache=1
+			# or if we are on the producers platform
 			if ( ((defined param("nocache")) and (param("nocache")))
-				or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
-				) {
+				or ($server_options{producers_platform})) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
 					$count_results = execute_query(sub {
@@ -1760,6 +1767,11 @@ sub display_list_of_tags($$) {
 		my $j = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
+
+		if (not defined $tag_type_singular{$tagtype}{$lc}) {
+			$log->error("no path defined for tagtype", { tagtype => $tagtype, lc => $lc}) if $log->is_error();
+			die();
+		}
 
 		my %stats = (
 			all_tags => 0,
@@ -1937,14 +1949,30 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid =~ /^[abcde]$/) {
-					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\">" ;
+				if ($tagid ne "not-applicable") {
+					my $grade;
+					if ($tagid =~ /^[abcde]$/) {
+						$grade = uc($tagid);
+					}
+					else {
+						$grade = lang("unknown");
+					}
+					$display = "<img src=\"/images/misc/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" style=\"max-height:80px;\">" ;
 				}
 				else {
-					$display = lang("unknown");
+					$display = lang("not_applicable");
 				}
 			}
+			elsif ($tagtype eq 'ecoscore') {
+				my $grade;
+				if ($tagid =~ /^[abcde]$/) {
+					$grade = uc($tagid);
+				}
+				else {
+					$grade = lang("unknown");
+				}
+				$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
+			}			
 			elsif ($tagtype eq 'nova_groups') {
 				if ($tagid =~ /^en:(1|2|3|4)/) {
 					my $group = $1;
@@ -2087,9 +2115,10 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# Nutri-Score nutrition grades colors histogram / NOVA groups histogram
+		# Nutri-Score nutrition grades colors histogram / Eco-Score / NOVA groups histogram
 
 		if (($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups')) {
 
 			my $categories;
@@ -2101,10 +2130,18 @@ HTML
 
 			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
 				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#00ff00','#ffff00','#ff6600','#ff0180','#ff0000','#808080'";
+				$colors = "'#038141','#85bb2f','#fecb02','#ee8100','#e63e11','#a0a0a0'";
 				$series_data = '';
 				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
+				}
+			}
+			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
+				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0'";
+				$series_data = '';
+				foreach my $ecoscore_grade ('a','b','c','d','e','unknown') {
+					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
@@ -4307,7 +4344,7 @@ sub add_params_to_query($$) {
 }
 
 
-=head2 customize_response_for_product ( $product_ref )
+=head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -4317,6 +4354,10 @@ and computes requested fields that are not stored in the database but
 created on demand.
 
 =head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
 
 =head4 $product_ref (input)
 
@@ -4328,8 +4369,9 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product($) {
+sub customize_response_for_product($$) {
 	
+	my $request_ref = shift;
 	my $product_ref = shift;
 	
 	my $customized_product_ref = {};
@@ -4338,7 +4380,8 @@ sub customize_response_for_product($) {
 	
 	my $fields = param('fields');
 	
-	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
+	# For non API queries, we need to compute attributes for personal search
+	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
 		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
@@ -4420,21 +4463,12 @@ sub customize_response_for_product($) {
 		}
 		# Eco-Score
 		elsif ($field =~ /^ecoscore/) {
-			# 2020-11-12: the Eco-score is currently not publicly deployed, and only available to moderators on the web site
-			# and alpha testers of the Open Food Facts app
-			# Until the public launch of the Eco-score, we will disable ecoscore fields in the API,
-			# except if the app is also asking for the ecoscore_alpha field (which can be turned on by the app with a specific parameter)
-			# That way we can deploy an "Eco-score ready" app that asks for ecoscore fields,
-			# and once we turn it on on the server, the app will start to display the Eco-score instantly,
-			# without having to deploy an updated app.
-			
-			if (($server_options{ecoscore}) or (param('fields') =~ /ecoscore_alpha/)) {
-				if (not defined $product_ref->{ecoscore_data}) {
-					compute_ecoscore($product_ref);
-				}
-				if (defined $product_ref->{$field}) {
-					$customized_product_ref->{$field} = $product_ref->{$field};
-				}
+
+			if (not defined $product_ref->{ecoscore_data}) {
+				compute_ecoscore($product_ref);
+			}
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
 		}
 		# Product attributes requested in a specific language (or data only)
@@ -4510,14 +4544,13 @@ sub search_and_display_products($$$$$) {
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
+	# If user preferences are turned on, return 100 products per page
+	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
+		$limit = 100;
+	}		
 	else {
 		$limit = $page_size;
 	}
-	
-	# If user preferences are turned on, return 100 products per page
-	if ($user_preferences) {
-		$limit = 100;
-	}	
 
 	my $skip = 0;
 	if (defined $page) {
@@ -4606,8 +4639,9 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
 	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-	# Show Eco-score sort only for moderators
-	if ($User{moderator}) {
+	# Show Eco-score sort only for France or moderators
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
 	}
 	
@@ -4697,20 +4731,61 @@ sub search_and_display_products($$$$$) {
 					$key_count = md5_hex($key_count);
 					my $results_count = get_cache_results($key_count,$request_ref);
 					if (not defined $results_count) {
-						$count = execute_query(sub {
-							return get_products_collection()->count_documents($query_ref);
-						});
-						set_cache_results($key_count,$count);
+						
+						$log->debug("count not in cache for query", { key => $key_count }) if $log->is_debug();
+								
+						# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+						my $only_tags_filters = 1;
+						
+						if ($server_options{producers_platform}) {
+							$only_tags_filters = 0;
+						}
+						else {
+						
+							foreach my $field (keys %$query_ref) {
+								if ($field !~ /_tags$/) {
+									$log->debug("non tags field in query filters, cannot use smaller products_tags collection", { field => $field, value => $query_ref->{field} }) if $log->is_debug();
+									$only_tags_filters = 0;
+									last;
+								}
+							}
+						}
+					
+						if (($only_tags_filters) and ((not defined param("nocache")) or (param("nocache") == 0))) {
+							
+							$count = execute_query(sub {
+								$log->debug("count_documents on smaller products_tags collection", { key => $key_count }) if $log->is_debug();
+								return get_products_tags_collection()->count_documents($query_ref);
+							});
+
+						}
+						else {
+						
+							$count = execute_query(sub {
+								$log->debug("count_documents on complete products collection", { key => $key_count }) if $log->is_debug();
+								return get_products_collection()->count_documents($query_ref);
+							});
+						}
+						if ($@) {
+							$log->warn("MongoDB error during count", { error => $@ }) if $log->is_warn();
+						}
+						else {
+							$log->debug("count query complete, setting cache", { key => $key_count, count => $count }) if $log->is_debug();
+							set_cache_results($key_count,$count);
+						}
 					} else {
-						$count = $results_count
+						# Cached result
+						$count = $results_count;
+						$log->debug("count in cache for query", { key => $key_count, count => $count }) if $log->is_debug();
 					}
 				} else {
 				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
 					$count = execute_query(sub {
+						$log->debug("empty query_ref, use estimated_document_count fot better performance", { }) if $log->is_debug();
 						return get_products_collection()->estimated_document_count();
 					});
 				}
-				$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+				$log->info("MongoDB count query done", { error => $@, count => $count }) if $log->is_info();
 
 				$log->debug("Executing MongoDB query", { query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = execute_query(sub {
@@ -4820,6 +4895,13 @@ sub search_and_display_products($$$$$) {
 			}
 
 			foreach my $newtagtype (@current_drilldown_fields) {
+				
+				# Eco-score: currently only for moderators
+				
+				if ($newtagtype eq 'ecoscore') {
+					next if not (((defined $options{product_type}) and ($options{product_type} eq "food"))
+						and (($cc eq "fr") or ($User{moderator})));
+				}
 
 				push @{$template_data_ref->{current_drilldown_fields}}, {
 					current_link => $request_ref->{current_link},
@@ -4869,13 +4951,15 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
-		if (($user_preferences) or ((defined $request_ref->{api}) and (defined param('fields')))) {
+		# For non API queries with user preferences, we need to add attributes
+		if (((not defined $request_ref->{api}) and ($user_preferences))
+			or ((defined $request_ref->{api}) and (defined param('fields')))) {
 
 			my $customized_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
-				my $customized_product_ref = customize_response_for_product($product_ref);
+				my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 				push @{$customized_products}, $customized_product_ref;
 			}
@@ -6699,10 +6783,7 @@ sub display_new($) {
 	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 	$log->trace("Start of display_new") if $log->is_trace();
 
-	my $template_data_ref = {
-		lang => \&lang,
-		display_icon => \&display_icon,
-	};
+	my $template_data_ref = {};
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
@@ -7076,7 +7157,7 @@ HTML
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
 
-	$tt->process('display_new.tt.html', $template_data_ref, \$html) || ($html .="template error: " . $tt->error());
+	process_template('display_new.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -8171,11 +8252,10 @@ HTML
 	
 	# Environmental impact and Eco-Score
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
+	# for alpha test to moderators, display eco-score for all countries
 	
-	if (
-		# for alpha test to moderators, display eco-score for all countries
-		# ($cc eq "fr") and
-		($User{moderator})) {
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		
 		if (not defined $product_ref->{ecoscore_data}) {
 			compute_ecoscore($product_ref);
@@ -8183,6 +8263,7 @@ HTML
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
+		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
 	}
 	
@@ -10045,7 +10126,7 @@ HTML
 			
 			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
 			
-			my $customized_product_ref = customize_response_for_product($product_ref);
+			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 			# the "" values have been removed

@@ -95,6 +95,9 @@ use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_f
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -442,6 +445,12 @@ sub import_csv_file($) {
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
 			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
+				
+				# Re-assign some organizations
+				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
+				
+				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
 				
@@ -653,7 +662,7 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name', 'packaging_text',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'abbreviated_product_name', 'generic_name', 'packaging_text',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {
@@ -1355,17 +1364,40 @@ EMAIL
 
 			if (not $args_ref->{test}) {
 
+				$log->debug("fix_salt_equivalent", { code => $code, product_id => $product_id }) if $log->is_debug();
 				fix_salt_equivalent($product_ref);
 
+				$log->debug("compute_serving_size_data", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_serving_size_data($product_ref);
 
+				$log->debug("compute_nutrition_score", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nutrition_score($product_ref);
 
+				$log->debug("compute_nova_group", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nova_group($product_ref);
 
+				$log->debug("compute_nutrient_levels", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nutrient_levels($product_ref);
 
+				$log->debug("compute_unknown_nutrients", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_unknown_nutrients($product_ref);
+				
+				$log->debug("analyze_and_combine_packaging_data", { code => $code, product_id => $product_id }) if $log->is_debug();
+				
+				# Until we provide an interface to directly change the packaging data structure
+				# erase it before reconstructing it
+				# (otherwise there is no way to remove incorrect entries)
+				$product_ref->{packagings} = [];	
+				
+				analyze_and_combine_packaging_data($product_ref);
+				
+				if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+					
+					$log->debug("compute_ecoscore", { code => $code, product_id => $product_id }) if $log->is_debug();
+					
+					compute_ecoscore($product_ref);
+					compute_forest_footprint($product_ref);
+				}				
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 

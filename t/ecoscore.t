@@ -221,6 +221,16 @@ my @tests = (
 		}
 	],
 	
+	[
+		'origins-of-ingredients-unspecified-origin',
+		{
+			lc => "en",
+			categories_tags=>["en:cheeses"],
+			origins_tags=>["en:unspecified"],
+			ingredients_text=>"Milk",
+		}
+	],	
+	
 	# Packaging adjustment
 	
 	[

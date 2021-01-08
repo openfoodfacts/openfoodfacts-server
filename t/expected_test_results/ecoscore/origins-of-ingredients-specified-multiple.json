@@ -41,9 +41,17 @@
             "value" : 9.18734476198028
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -70,14 +78,18 @@
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 58.6020808480656
       },
-      "grade" : "b",
-      "score" : 67.7894256100459,
+      "grade" : "c",
+      "missing" : {
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 57.7894256100459,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 67.7894256100459,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 57.7894256100459,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
@@ -150,9 +162,18 @@
    "ingredients_text" : "60% apricots (France, Spain), 30% cane sugar (Martinique, Guadeloupe, Dominican Republic), lemon juice",
    "known_ingredients_n" : 6,
    "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
-   "packagings" : [],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
    "unknown_ingredients_n" : 0
 }

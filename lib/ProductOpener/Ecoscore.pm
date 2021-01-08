@@ -201,6 +201,8 @@ sub load_ecoscore_data_origins_of_ingredients() {
 		if ($errors) {
 			die("$errors unrecognized origins in CSV $csv_file");
 		}
+		
+		$ecoscore_data{origins}{"en:unspecified"} = $ecoscore_data{origins}{"en:unknown"};
 	}
 	else {
 		die("Could not open ecoscore origins CSV $csv_file: $!");
@@ -423,6 +425,9 @@ sub compute_ecoscore($) {
 
 	my $product_ref = shift;
 	
+	delete $product_ref->{ecoscore_grade};
+	delete $product_ref->{ecoscore_score};
+	
 	$product_ref->{ecoscore_data} = {
 		adjustments => {},
 	};
@@ -450,11 +455,16 @@ sub compute_ecoscore($) {
 		
 		# Add adjustments (maluses or bonuses)
 		
+		my $missing_data_warning;
+		
 		foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
 			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
 				$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
 				$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
 					value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+			}
+			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+				$missing_data_warning = 1;
 			}
 		}
 		
@@ -480,11 +490,31 @@ sub compute_ecoscore($) {
 		$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
 		
 		$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
+		
+		if ($missing_data_warning) {
+			$product_ref->{ecoscore_data}{missing_data_warning} = 1;
+			add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+			remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+		}
+		else {
+			remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+			add_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+		}
+		
+		add_tag($product_ref,"misc","en:ecoscore-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-not-computed");		
 	}
 	else {
 		# No AgriBalyse category match
+		$product_ref->{ecoscore_data}{missing_agribalyse_match_warning} = 1;
 		$product_ref->{ecoscore_data}{status} = "unknown";
 		$product_ref->{ecoscore_tags} = ["unknown"];
+		$product_ref->{ecoscore_grade} = "unknown";
+		
+		add_tag($product_ref,"misc","en:ecoscore-not-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-computed");
+		remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+		remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 	}
 }
 
@@ -565,13 +595,17 @@ sub compute_ecoscore_agribalyse($) {
 		
 	if ($agb) {
 		
-		# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
-		# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
-		$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;
-		
 		if (not defined $agribalyse{$agb}{ef_total}) {
 			$log->error("compute_ecoscore - ef_total missing for category", { agb => $agb, agribalyse => $agribalyse{$agb} }) if $log->is_error();
 		}
+		else {
+			# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
+			# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
+			$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
+		}
+	}
+	else {
+		$product_ref->{ecoscore_data}{agribalyse}{warning} = "missing_agribalyse_match";
 	}
 }
 
@@ -823,7 +857,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	
 	my %aggregated_origins = ();
 	
-	if (defined $product_ref->{ingredients}) {
+	if ((defined $product_ref->{ingredients}) and (scalar @{$product_ref->{ingredients}} > 0)) {
 		aggregate_origins_of_ingredients(\@origins_from_origins_field, \%aggregated_origins , $product_ref->{ingredients});
 	}
 	else {
@@ -865,8 +899,14 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		transportation_value => $transportation_value,
 		epi_value => $epi_value,
 		value => $transportation_value + $epi_value,
-	};	
+	};
 	
+	# Add a warning if the only origin is en:unknown
+	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{warning} = "origins_are_100_percent_unknown";
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{origins} = 1;
+	}
 }
 
 
@@ -899,8 +939,17 @@ sub compute_ecoscore_packaging_adjustment($) {
 	# Sum the scores of all packagings components
 	# Create a copy of the packagings structure, so that we can add Eco-score elements to it
 	
-	if (not defined $product_ref->{packagings}) {
-		$product_ref->{packagings} = [];
+	my $warning;
+	
+	# If we do not have packagings info, create an unknown shape + unknown material entry
+	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
+		$product_ref->{packagings} = [
+			{
+				shape => "en:unknown",
+				material => "en:unknown",
+			}
+		];
+		$warning = "packaging_data_missing";
 	}
 	
 	my $packagings_ref = dclone($product_ref->{packagings});
@@ -919,7 +968,9 @@ sub compute_ecoscore_packaging_adjustment($) {
 				$packaging_ref->{ecoscore_material_score} = $score;
 			}
 			else {
-				$packaging_ref->{ecoscore_material_warning} = "unscored_material";
+				if (not defined $warning) {
+					$warning = "unscored_material";
+				}
 			}
 			
 			# Check if there is a shape-specific material score (e.g. PEHD bottle)
@@ -933,7 +984,10 @@ sub compute_ecoscore_packaging_adjustment($) {
 
 		}
 		else {
-			$packaging_ref->{ecoscore_material_warning} = "unspecified_material";
+			$packaging_ref->{material} = "en:unknown";
+			if (not defined $warning) {
+				 $warning = "unspecified_material";
+			}
 		}
 		
 		if (not defined $packaging_ref->{ecoscore_material_score}) {
@@ -948,20 +1002,24 @@ sub compute_ecoscore_packaging_adjustment($) {
 				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
 			}
 			else {
-				$packaging_ref->{ecoscore_shape_warning} = "unscored_shape";
+				if (not defined $warning) {
+					$warning = "unscored_shape";
+				}
 			}
 		}
 		else {
-			$packaging_ref->{ecoscore_material_warning} = "unspecified_shape";
+			$packaging_ref->{shape} = "en:unknown";
+			if (not defined $warning) {
+				$warning = "unspecified_shape";
+			}
 		}
 		
-		if ((defined $packaging_ref->{ecoscore_material_score}) and (defined $packaging_ref->{ecoscore_shape_ratio})) {
-			 $packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
-			 $packaging_ref->{ecoscore_counted} = 1;
-		}
-		else {
-			$packaging_ref->{ecoscore_counted} = 0;
-		}
+		if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
+			# No shape specified, or no Eco-score score for it, use a ratio of 1
+			$packaging_ref->{ecoscore_shape_ratio} = 1;
+		}		
+		
+		$packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
 	}
 	
 	$packaging_score = 100 - $packaging_score;
@@ -975,7 +1033,13 @@ sub compute_ecoscore_packaging_adjustment($) {
 		packagings => $packagings_ref,
 		score => $packaging_score,
 		value => $value,
-	};	
+	};
+	
+	if (defined $warning) {
+		$product_ref->{ecoscore_data}{adjustments}{packaging}{warning} = $warning;
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
+	}
 	
 }
 

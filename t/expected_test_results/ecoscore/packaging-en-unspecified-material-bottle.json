@@ -18,20 +18,21 @@
             ],
             "transportation_score" : 0,
             "transportation_value" : 0,
-            "value" : -5
+            "value" : -5,
+            "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "packagings" : [
                {
-                  "ecoscore_counted" : 1,
                   "ecoscore_material_score" : 0,
-                  "ecoscore_material_warning" : "unspecified_material",
                   "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
                   "shape" : "en:bottle"
                }
             ],
             "score" : 0,
-            "value" : -10
+            "value" : -10,
+            "warning" : "unspecified_material"
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -59,6 +60,11 @@
          "score" : 97.8336969127427
       },
       "grade" : "a",
+      "missing" : {
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
       "score" : 82.8336969127427,
       "status" : "known"
    },
@@ -68,6 +74,10 @@
       "a"
    ],
    "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
    "packaging_text" : "bottle",
    "packagings" : [
       {
