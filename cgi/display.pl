@@ -75,7 +75,7 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 	display_error(lang("no_owner_defined"), 200);
 }
 
-if (defined $request{api}) {
+if ((defined $request{api}) and (defined $request{api_method})) {
 	if (param("api_method") eq "search") {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set

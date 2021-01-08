@@ -302,6 +302,8 @@ sub process_template($$$) {
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{cc} = $cc;
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
@@ -563,8 +565,7 @@ CSS
 	
 	# Enable or disable user preferences
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (not $server_options{producers_platform})
-		and (($User{moderator}) or ((defined param("user_preferences")) and (param("user_preferences"))))) {
+		and (not $server_options{producers_platform})) {
 			
 		$user_preferences = 1;
 	}
@@ -655,6 +656,12 @@ sub analyze_request($)
 	$request_ref->{query_string} =~ s/(\&|\?).*//;
 
 	$log->debug("analyzing query_string, step 4 - removed all query parameters", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	
+	# if the query request json or xml, either through the json=1 parameter or a .json extension
+	# set the $request_ref->{api} field
+	if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+		$request_ref->{api} = 'v0';
+	}
 
 	# Split query string by "/" to know where it points
 	my @components = split(/\//, $request_ref->{query_string});
@@ -680,8 +687,10 @@ sub analyze_request($)
 		$request_ref->{api} = $components[1];
 		if ($request_ref->{api} =~ /v(.*)/) {
 			param("api_version", $1);
+			$request_ref->{api_version} = $1;
 		}
 		param("api_method", $components[2]);
+		$request_ref->{api_method} = $components[2];
 		if (defined $components[3]) {
 			param("code", $components[3]);
 			$request_ref->{code} = $components[3];
@@ -4335,7 +4344,7 @@ sub add_params_to_query($$) {
 }
 
 
-=head2 customize_response_for_product ( $product_ref )
+=head2 customize_response_for_product ( $request_ref, $product_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -4345,6 +4354,10 @@ and computes requested fields that are not stored in the database but
 created on demand.
 
 =head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
 
 =head4 $product_ref (input)
 
@@ -4356,8 +4369,9 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product($) {
+sub customize_response_for_product($$) {
 	
+	my $request_ref = shift;
 	my $product_ref = shift;
 	
 	my $customized_product_ref = {};
@@ -4366,7 +4380,8 @@ sub customize_response_for_product($) {
 	
 	my $fields = param('fields');
 	
-	if (((not defined $fields) or ($fields eq "")) and ($user_preferences)) {
+	# For non API queries, we need to compute attributes for personal search
+	if (((not defined $fields) or ($fields eq "")) and ($user_preferences) and (not $request_ref->{api})) {
 		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
@@ -4448,21 +4463,12 @@ sub customize_response_for_product($) {
 		}
 		# Eco-Score
 		elsif ($field =~ /^ecoscore/) {
-			# 2020-11-12: the Eco-score is currently not publicly deployed, and only available to moderators on the web site
-			# and alpha testers of the Open Food Facts app
-			# Until the public launch of the Eco-score, we will disable ecoscore fields in the API,
-			# except if the app is also asking for the ecoscore_alpha field (which can be turned on by the app with a specific parameter)
-			# That way we can deploy an "Eco-score ready" app that asks for ecoscore fields,
-			# and once we turn it on on the server, the app will start to display the Eco-score instantly,
-			# without having to deploy an updated app.
-			
-			if (($server_options{ecoscore}) or (param('fields') =~ /ecoscore_alpha/)) {
-				if (not defined $product_ref->{ecoscore_data}) {
-					compute_ecoscore($product_ref);
-				}
-				if (defined $product_ref->{$field}) {
-					$customized_product_ref->{$field} = $product_ref->{$field};
-				}
+
+			if (not defined $product_ref->{ecoscore_data}) {
+				compute_ecoscore($product_ref);
+			}
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
 		}
 		# Product attributes requested in a specific language (or data only)
@@ -4538,14 +4544,13 @@ sub search_and_display_products($$$$$) {
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
+	# If user preferences are turned on, return 100 products per page
+	elsif ((not defined $request_ref->{api}) and ($user_preferences)) {
+		$limit = 100;
+	}		
 	else {
 		$limit = $page_size;
 	}
-	
-	# If user preferences are turned on, return 100 products per page
-	if ($user_preferences) {
-		$limit = 100;
-	}	
 
 	my $skip = 0;
 	if (defined $page) {
@@ -4634,8 +4639,9 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
 	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-	# Show Eco-score sort only for moderators
-	if ($User{moderator}) {
+	# Show Eco-score sort only for France or moderators
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
 	}
 	
@@ -4893,7 +4899,8 @@ sub search_and_display_products($$$$$) {
 				# Eco-score: currently only for moderators
 				
 				if ($newtagtype eq 'ecoscore') {
-					next if not $User{moderator};
+					next if not (((defined $options{product_type}) and ($options{product_type} eq "food"))
+						and (($cc eq "fr") or ($User{moderator})));
 				}
 
 				push @{$template_data_ref->{current_drilldown_fields}}, {
@@ -4944,13 +4951,15 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
-		if (($user_preferences) or ((defined $request_ref->{api}) and (defined param('fields')))) {
+		# For non API queries with user preferences, we need to add attributes
+		if (((not defined $request_ref->{api}) and ($user_preferences))
+			or ((defined $request_ref->{api}) and (defined param('fields')))) {
 
 			my $customized_products = [];
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
-				my $customized_product_ref = customize_response_for_product($product_ref);
+				my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 				push @{$customized_products}, $customized_product_ref;
 			}
@@ -6774,10 +6783,7 @@ sub display_new($) {
 	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
 	$log->trace("Start of display_new") if $log->is_trace();
 
-	my $template_data_ref = {
-		lang => \&lang,
-		display_icon => \&display_icon,
-	};
+	my $template_data_ref = {};
 
 	# If the client is requesting json, jsonp, xml or jqm,
 	# and if we have a response in structure format,
@@ -7151,7 +7157,7 @@ HTML
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
 
-	$tt->process('display_new.tt.html', $template_data_ref, \$html) || ($html .="template error: " . $tt->error());
+	process_template('display_new.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -8246,11 +8252,10 @@ HTML
 	
 	# Environmental impact and Eco-Score
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
+	# for alpha test to moderators, display eco-score for all countries
 	
-	if (
-		# for alpha test to moderators, display eco-score for all countries
-		# ($cc eq "fr") and
-		($User{moderator})) {
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
 		
 		if (not defined $product_ref->{ecoscore_data}) {
 			compute_ecoscore($product_ref);
@@ -10121,7 +10126,7 @@ HTML
 			
 			$log->debug("display_product_api - fields parameter is set", { fields => param('fields') }) if $log->is_debug();
 			
-			my $customized_product_ref = customize_response_for_product($product_ref);
+			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref);
 
 			# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
 			# the "" values have been removed

@@ -93,6 +93,12 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
+# if the query request json or xml, either through the json=1 parameter or a .json extension
+# set the $request_ref->{api} field
+if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+	$request_ref->{api} = 'v0';
+}
+
 my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
 
 $admin and push @search_fields, "lang";
