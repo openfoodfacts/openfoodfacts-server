@@ -963,6 +963,27 @@ sub compute_ecoscore_packaging_adjustment($) {
 		
 		if (defined $packaging_ref->{material}) {
 			
+			# For aluminium, we need to differentiate heavy and light aluminium based on the shape
+			if ($packaging_ref->{material} eq "en:aluminium") {
+				
+				my $weight = "thin";
+				
+				if (defined $packaging_ref->{shape}) {
+					$weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
+					$log->debug("aluminium", {  weight => $weight, shape => $packaging_ref->{shape} } ) if $log->is_debug();
+					if (not defined $weight) {
+						$weight = "heavy";
+					}
+				}
+				
+				if ($weight eq "heavy") {
+					$packaging_ref->{material} = "en:heavy-aluminium";
+				}
+				else {
+					$packaging_ref->{material} = "en:light-aluminium";
+				}
+			}			
+			
 			my $score = get_inherited_property("packaging_materials", $packaging_ref->{material}, "ecoscore_score:en");
 			if (defined $score) {
 				$packaging_ref->{ecoscore_material_score} = $score;
