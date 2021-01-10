@@ -1,0 +1,86 @@
+{
+   "categories_tags" : [
+      "en:sodas"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5,
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 72,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:heavy-aluminium",
+                  "shape" : "en:can"
+               }
+            ],
+            "score" : 72,
+            "value" : -2.8
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "18340",
+         "co2_agriculture" : "0.0052740241",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.028932423",
+         "co2_packaging" : "0.18274931",
+         "co2_processing" : "0",
+         "co2_total" : "0.40246995",
+         "co2_transportation" : "0.18071489",
+         "code" : "18340",
+         "dqr" : "2.97",
+         "ef_agriculture" : "0.00091374504",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0088128735",
+         "ef_packaging" : "0.018005260999999998",
+         "ef_processing" : "0",
+         "ef_total" : 0.043941445,
+         "ef_transportation" : "0.013780225",
+         "name_en" : "Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)",
+         "name_fr" : "Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants",
+         "score" : 97.8336969127427
+      },
+      "grade" : "a",
+      "missing" : {
+         "origins" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 90.0336969127427,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "a",
+   "ecoscore_score" : 90.0336969127427,
+   "ecoscore_tags" : [
+      "a"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "packaging_text" : "aluminium can",
+   "packagings" : [
+      {
+         "material" : "en:aluminium",
+         "shape" : "en:can"
+      }
+   ]
+}
