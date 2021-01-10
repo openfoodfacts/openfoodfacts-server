@@ -4805,11 +4805,18 @@ sub search_and_display_products($$$$$) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 				$page_count++;
 			}
+			
+			# The page count may be higher than the count from the products_tags collection which is updated every night
+			# in that case, set $count to $page_count
+			if ($page_count > $count) {
+				$count = $page_count;
+			}
+			
 			$request_ref->{structured_response}{count} = $count;
 			$request_ref->{structured_response}{page_count} = $page_count;
 			set_cache_results($key,$request_ref->{structured_response})
 		}
-  }
+	}
 
 	$count = $request_ref->{structured_response}{count};
 	$page_count = $request_ref->{structured_response}{page_count};
