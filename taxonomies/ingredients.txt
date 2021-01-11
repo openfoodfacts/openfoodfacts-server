@@ -12914,7 +12914,15 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_value:fr:0.5
 
-<en:Salt
+<en:salt
+de:Siedesalz
+
+<en:salt
+en:melting salt
+de:Schmelzsalz, Schmelzsalze
+fr:Sel de fonte
+
+<en:salt
 en:finegrained salt
 ca:sal fina
 de:feinkörniges Salz
@@ -14684,6 +14692,7 @@ es:cerdo de bellota ibéric
 <en:animal protein
 <en:pork
 en:pigs blood
+de:Schweineblut
 es:sangre de cerdo
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -14704,7 +14713,7 @@ co:coghja
 cs:škvarky
 cy:Couenne
 da:flæskesvær
-de:Schwarte, Schwarten
+de:Schwarte, Schwarten, Schweineschwarte, Schweineschwarten
 eo:fritita porkhaŭtaĵo
 es:chicharrón
 et:seakamar
@@ -14867,12 +14876,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bacon
 
 <en:pork
 en:pork heart
+de:Schweineherz
 fr:coeur de porc
 vegan:en:no
 vegetarian:en:no
 
 <en:pork
 en:pork kidney
+de:Schweineniere
 fr:rogons de porc
 vegan:en:no
 vegetarian:en:no
@@ -19378,6 +19389,9 @@ it:liquore al cioccolato
 nl:chocoladelikeur
 # ingredient/chocolate-liqueur has 46 products @2019-02-15
 
+<en:liqueur
+en:advocaat
+de:Eierlikör
 
 # Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 
@@ -20719,7 +20733,7 @@ hu:whiskey
 
 <en:alcohol
 en:cognac
-de:Cognac
+de:Cognac,  Kognak
 es:coñac
 fi:konjakki
 fr:cognac
@@ -27250,7 +27264,7 @@ en:carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
-de:Carobin, Carobpulver
+de:Carobin, Carobpulver, Johannisbrot, Johannisbrote
 es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
 et:Jaanileivapuujahu
 fi:carob
@@ -27266,6 +27280,7 @@ vegetarian:en:yes
 
 #description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 #comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
+<en:carob
 <en:flour
 <en:E410
 en:carob seed flour, carob kernel flour, carob flour
@@ -28587,7 +28602,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose, Fruktose
+de:Fructose, Fruktose, Fruchtzucker
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -30272,7 +30287,7 @@ en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
 ar:كاكاو
 ca:gra de cacau
-de:Kakaobohne
+de:Kakaobohne, Kakaobohnen
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
@@ -37131,7 +37146,7 @@ br:Mouar
 bs:Kupina
 ca:Mora
 da:brombær
-de:Brombeeren
+de:Brombeeren, Brombeere, Brombeer
 es:Mora, moras
 eu:Masusta
 fi:karhunvatukka, karhunvadelma
@@ -43873,7 +43888,7 @@ co:rundonu
 cs:mrkev, karotka
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -46293,6 +46308,10 @@ carbon_footprint_fr_foodges_value:fr:0.6
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:potato
+en:table potatoes
+de:Speisekartoffeln
+
+<en:potato
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
 
@@ -48390,7 +48409,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 <en:mung bean
 en:Mung bean sprout, bean sprouts, beansprouts
 da:bønnespirer
+de:Mungobohnensprosse, Mungobohnensprossen
 es:brotes de judia mungo
+
+<en:mung bean
+en:mung bean seedlings
+de:Mungobohnenkeimlinge
 
 <fr:haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
@@ -48522,7 +48546,7 @@ bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen
+de:Lupinen, Lupine
 el:λούπινο
 eo:Lupenoj
 es:altramuces, altramuz
@@ -49783,7 +49807,7 @@ bg:кашу
 ca:anacards
 cs:kešu ořechy
 da:cashewnødder
-de:Cashewkerne, Kaschunüsse, Cashewnüsse
+de:Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew
 el:καρύδια κάσιους
 es:anacardos,nueces de anacardos
 et:kašupähklid, India pähkel, kašupähkleid
@@ -56287,7 +56311,7 @@ ca:regalèssia
 cs:lékořice lysá
 cy:Gwylys
 da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
+de:Lakritz, Sussholz, Süßholz, Echtes Süßholz, Süßholzwurzel, Süßholzwurzeln
 dv:ވޭމުއި
 el:Γλυκόριζα
 eo:Vera glicirizo
@@ -68309,6 +68333,7 @@ fr:poulet fermier, poulet fermier élevé en plein air
 <en:animal protein
 <en:chicken
 en:chicken blood
+de:Hühnerblut
 es:sangre de pollo
 fr:sang de poulet
 
@@ -68328,7 +68353,7 @@ nl:kippenbeenderen
 # <en:liver
 <en:chicken
 en:chicken liver
-de:Pouletleber
+de:Pouletleber, Hühnerleber
 es:Higado de pollo
 fi:kananmaksa
 fr:foie de poulet
