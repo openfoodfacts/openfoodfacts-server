@@ -9959,10 +9959,23 @@ sub display_preferences_api($$)
 	
 	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
 		
-		push @{$request_ref->{structured_response}}, {
+		my $preference_ref = {
 			id => $preference,
 			name => lang("preference_" . $preference),
 		};
+		
+		if ($preference eq "important") {
+			$preference_ref->{factor} = 1;
+		}
+		elsif ($preference eq "very_important") {
+			$preference_ref->{factor} = 2;
+		}
+		elsif ($preference eq "mandatory") {
+			$preference_ref->{factor} = 4;
+			$preference_ref->{minimum_match} = 20;
+		}	
+		
+		push @{$request_ref->{structured_response}}, $preference_ref;
 	}
 
 	display_structured_response($request_ref);
