@@ -263,6 +263,7 @@ sub import_csv_file($) {
 	'products_with_info' => {},
 	'products_with_ingredients' => {},
 	'products_with_nutrition' => {},
+	'products_with_nutrition_prepared' => {},
 	'products_without_images' => {},
 	'products_without_data' => {},
 	'products_without_info' => {},
@@ -1010,9 +1011,6 @@ EMAIL
 
 		my $seen_salt = 0;
 
-		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
-		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
-
 		foreach my $nutriment (@sorted_nutriments) {
 
 			next if $nutriment =~ /^\#/;
@@ -1148,7 +1146,7 @@ EMAIL
 					}
 
 					$log->debug("nutrient with defined and non empty value", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
-					$stats{products_with_nutrition}{$code} = 1;
+					$stats{"products_with_nutrition" . $type}{$code} = 1;
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
@@ -1197,39 +1195,60 @@ EMAIL
 				}
 			}
 		}
+		
+		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
+		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
+		
 
-		# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
-		if (defined $stats{products_with_nutrition}{$code}) {
-			if (not defined $imported_product_ref->{nutrition_data_per}) {
-				if (defined $nutrition_data_per) {
-					$imported_product_ref->{nutrition_data_per} = $nutrition_data_per;
+		# Set nutrition_data_per and nutrition_data_prepared_per fields
+		
+		foreach my $type ("", "_prepared") {
+			
+			if (defined $stats{"products_with_nutrition" . $type}{$code}) {
+			
+				my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
+				my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
+				
+				$log->debug("nutrition_data_per_field imported value", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
+				
+				# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
+				if ((not defined $imported_nutrition_data_per_value) or ($imported_nutrition_data_per_value eq "")) {
+					
+					$log->debug("nutrition_data_per_field value not supplied, setting to 100g", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();
+					$imported_nutrition_data_per_value = "100g";
 				}
+				
+				# Apps and the web product edit form on OFF always send "100g" or "serving" in the nutrition_data_per fields
+				# but imports from GS1 / Equadis can have values like "100.0 g" or "240.0 grm"
+				
+				# 100.00g -> 100g
+				$imported_nutrition_data_per_value =~ s/(\d)(\.|,)0?0?([^0-9])/$1$3/;
+				$imported_nutrition_data_per_value =~ s/(grammes|grams|gr)\b/g/ig;
+				
+				# 100 g or 100 ml -> assign to the per 100g value
+				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
+					$imported_nutrition_data_per_value = "100g";
+				}
+				# otherwise -> assign the per serving value, and assign serving size
 				else {
-					$imported_product_ref->{nutrition_data_per} = "100g";
+					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
+					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
+						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
+						$modified++;
+						$stats{products_data_updated}{$code} = 1;
+					}
+					$imported_nutrition_data_per_value = "serving";
+				}
+
+				if ((not defined $product_ref->{$nutrition_data_per_field}) or ($product_ref->{$nutrition_data_per_field} ne $imported_nutrition_data_per_value)) {
+					$product_ref->{$nutrition_data_per_field} = $imported_nutrition_data_per_value;
+					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+					$modified++;
+					$stats{products_data_updated}{$code} = 1;
 				}
 			}
+		}		
 
-			if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne $imported_product_ref->{nutrition_data_per})) {
-				$product_ref->{nutrition_data_per} = $imported_product_ref->{nutrition_data_per};
-				$stats{products_nutrition_data_per_updated}{$code} = 1;
-				$modified++;
-			}
-
-			if (not defined $imported_product_ref->{nutrition_data_prepared_per}) {
-				if (defined $nutrition_data_prepared_per) {
-					$imported_product_ref->{nutrition_data_prepared_per} = $nutrition_data_prepared_per;
-				}
-				else {
-					$imported_product_ref->{nutrition_data_prepared_per} = "100g";
-				}
-			}
-
-			if ((not defined $product_ref->{nutrition_data_prepared_per}) or ($product_ref->{nutrition_data_prepared_per} ne $imported_product_ref->{nutrition_data_prepared_per})) {
-				$product_ref->{nutrition_data_prepared_per} = $imported_product_ref->{nutrition_data_prepared_per};
-				$stats{products_nutrition_data_per_updated}{$code} = 1;
-				$modified++;
-			}
-		}
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1262,7 +1281,8 @@ EMAIL
 			$stats{products_without_nutrition}{$code} = 1;
 		}
 
-		if ((defined $stats{products_with_info}{$code}) or (defined $stats{products_with_nutrition}{$code})) {
+		if ((defined $stats{products_with_info}{$code})
+			or (defined $stats{products_with_nutrition}{$code}) or (defined $stats{products_with_nutrition_prepared}{$code})) {
 			$stats{products_with_data}{$code} = 1;
 		}
 		else {
