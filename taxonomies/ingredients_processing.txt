@@ -875,12 +875,13 @@ pt:adoçado, adoçada
 sv:sötad
 
 en:unsweetened
+de:ungesüßt, ungesüßte, ungesüßter, ungesüßtes
 fr:non sucré, non sucrée
 nl:ongezoet
 
 #<en:sweetened
 en:sugared
-de:gezuckert, gezuckerte
+de:gezuckert, gezuckerte, gezuckerter, gezuckertes
 es:azucarado,azucarada,azucarados,azucaradas
 fi:sokeroitu, sokeroidut, sokeroitua, sokeroituja
 fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees 
@@ -889,7 +890,7 @@ nl:gesuikerd, gesuikerde
 sv:sockrad
 
 #<en:sugared
-de:leicht gezuckert
+de:leicht gezuckert, leicht gezuckerte, leicht gezuckerter, leicht gezuckertes
 
 # In French, "confit" means candied, or cooked in fat (canard confit), or preserved in salted water (citron confit)
 #<en:sugared
@@ -909,10 +910,10 @@ en:semi candied, semi-candied
 #en:crystallized
 
 # <en:unsweetened
-de:ungezuckert
+de:ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
 
 en:oiled
-de:geölt, geölte
+de:geölt, geölte, geölter, geöltes
 
 #<de:geölt
  de:mit sonnenblumenöl geölt
@@ -931,22 +932,25 @@ de:ungeschwefelt, ungeschwefelte
 # Processes used during production, but do not add something
 
 en:treated
+de:behandelt, behandelte, behandelter, behandeltes
 es:tratada,tratado,tratadas,tratados
 nl:bewerkt
 
 en:untreated
+de:unbehandelt, unbehandelte, unbehandelter, unbehandeltes
 es:sin tratar
 fr:non traitée
 
 en:bleached
+de:gebleicht, gebleichte, gebleichter, gebleichtes
 
 en:unbleached, un-bleached
-de:ungebleichtes
+de:ungebleicht, ungebleichte, ungebleichter, ungebleichtes
 
 #en:comment:be careful for maltitol
 en:malted
 #en:falsePositive:malt
-de:gemälzt, gemälzte, gemälztes
+de:gemälzt, gemälzte, gemälzter, gemälztes
 es:malteado, malteada,malteados, malteadas
 fi:mallastettu
 fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
@@ -1002,12 +1006,12 @@ sv:marinerad
 
 en:pickled
 da:syltede
-de:eingelegt, eingelegte, eingelegter
+de:eingelegt, eingelegte, eingelegter, eingelegtes
 es:en escabeche, en vinagre
 
 # en:description:Marinated in salt (note different from en:salted)
 en:brined
-de:gepökelt, gepökeltes
+de:gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
 fr:traité en salaison, traitée en salaison, traités en salaison, traitées en salaison, saumuré, saumurée, saumurés, saumurées
 nl:gepekeld
@@ -1015,7 +1019,7 @@ nl:gepekeld
 de:ungepökelt
 
 en:flavoured, flavored
-de:aromatisiert, aromatisierte, aromatisiertes
+de:aromatisiert, aromatisierte, aromatisierter, aromatisiertes
 es:sabour,saboreado,saboreada
 fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
