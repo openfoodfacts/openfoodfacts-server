@@ -741,6 +741,7 @@ $options{attribute_groups} = [
 		"environment",
 		[
 			"ecoscore",
+			"forest_footprint",
 		]
 	],
 ];
