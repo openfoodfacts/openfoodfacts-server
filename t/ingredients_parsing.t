@@ -180,7 +180,8 @@ my @lists =(
 
 	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
 	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
-	["de","Zucker, Erdnüsse (23%), Kakaobutter, Vollmilchpulver, Milchzucker, Kakaomasse, Glukosesirup, Emulgator: Sonnenblumenlecithine, Reisstärke, Süßmolkenpulver (enthält Milch), Verdickungsmittel: Gummi arabicum, Farbstoffe Kurkumin, Echtes Karmin, Pflanzenkohle, Anthocyane), färbende Lebensmittel (Rote Beete Saftkonzentrat, Spirulinakonzentrat), Überzugsmittel [Carnaubawachs, Bienenwachs (weiß und gelb)], Speisesalz, Maltodextrin."],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs, weiß und gelb"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs (weiß und gelb)"],
 
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
