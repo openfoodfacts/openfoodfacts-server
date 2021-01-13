@@ -3757,7 +3757,11 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
-	if ($product_lc eq 'es') {
+	if ($product_lc eq 'de') {
+		# deletes comma in "Bienenwachs, weiß und gelb" since it is just one ingredient
+		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb /ig;
+	}
+	elsif ($product_lc eq 'es') {
 
 		# Special handling for sal as it can mean salt or shorea robusta
 		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)
