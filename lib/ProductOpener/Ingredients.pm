@@ -3761,7 +3761,7 @@ sub preparse_ingredients_text($$) {
 		# deletes comma in "Bienenwachs, weiß und gelb" since it is just one ingredient
 		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb/ig;
 		# deletes brackets in "Bienenwachs, weiß und gelb" since it is just one ingredient
-		$text =~ s/Bienenwachs (weiß und gelb)/Bienenwachs weiß und gelb/ig;
+		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
 	}
 	elsif ($product_lc eq 'es') {
 
