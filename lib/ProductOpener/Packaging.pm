@@ -294,7 +294,13 @@ sub analyze_and_combine_packaging_data($) {
 	
 	# Packaging tags field
 	if (defined $product_ref->{packaging}) {
-		push (@phrases, split(/,|\n/, $product_ref->{packaging}));
+		
+		# We sort the tags by length to have a greater chance of seeing more specific fields first
+		# e.g. "plastic bottle", "plastic", "metal", "lid",
+		# otherwise if we have "plastic", "lid", "metal", "plastic bottle"
+		# it would result in "plastic" being combined with "lid", then "metal", then "plastic bottle".
+		
+		push (@phrases, sort ({ length($b) <=> length($a) } split(/,|\n/, $product_ref->{packaging})));
 	}	
 	
 	# Add or merge packaging data from phrases to the existing packagings data structure
