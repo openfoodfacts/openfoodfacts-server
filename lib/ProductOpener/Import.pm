@@ -1206,6 +1206,7 @@ EMAIL
 			
 			if (defined $stats{"products_with_nutrition" . $type}{$code}) {
 			
+				my $nutrition_data_field = "nutrition_data" . $type;
 				my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
 				my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
 				
@@ -1240,8 +1241,17 @@ EMAIL
 					$imported_nutrition_data_per_value = "serving";
 				}
 
+				# Set the nutrition_data[_prepared]_per field
 				if ((not defined $product_ref->{$nutrition_data_per_field}) or ($product_ref->{$nutrition_data_per_field} ne $imported_nutrition_data_per_value)) {
 					$product_ref->{$nutrition_data_per_field} = $imported_nutrition_data_per_value;
+					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+					$modified++;
+					$stats{products_data_updated}{$code} = 1;
+				}
+				
+				# Set the nutrition_data[_prepared] checkbox
+				if ((not defined $product_ref->{$nutrition_data_field}) or ($product_ref->{$nutrition_data_field} ne "on")) {
+					$product_ref->{$nutrition_data_field} = "on";
 					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
 					$modified++;
 					$stats{products_data_updated}{$code} = 1;
