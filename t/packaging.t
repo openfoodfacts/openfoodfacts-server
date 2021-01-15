@@ -250,14 +250,37 @@ my @tests = (
 		}
 	],
 [
-	'packaging_text_fr_1_etui',
+		'packaging_text_fr_1_etui',
 		{
 			lc => "fr",
 			packaging_text => "1 étui en carton FSC à recycler, 2 etuis en plastique, 1 etui en métal",
 		}
 	],
-
 	
+	
+	[
+		'packaging_text_fr_1_etuit_spelling',
+		{
+			lc => "fr",
+			packaging_text => "étuit en carton à recycler, bouteille en verre à recycler, capsule en métal à recycler",
+		}
+	],
+	
+	[
+		'packaging_text_fr_opercule_en_aluminium',
+		{
+			lc => "fr",
+			packaging_text => "opercule en aluminium",
+		}
+	],		
+	
+	[
+		'packaging_fr_redundant_entries',
+		{
+			lc => "fr",
+			packaging => "Verre, Couvercle, Plastique, Pot, Petit Format, couvercle en plastique, opercule aluminium, pot en verre",
+		}
+	],
 );
 
 init_packaging_taxonomies_regexps();
