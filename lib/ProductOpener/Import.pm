@@ -451,6 +451,8 @@ sub import_csv_file($) {
 				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
 				
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				$org_id =~ s/^cereal-partners-france$/nestle-france/;
+				$org_id =~ s/^nestle-spac$/nestle-france/;
 				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
