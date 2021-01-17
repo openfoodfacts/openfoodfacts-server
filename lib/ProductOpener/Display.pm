@@ -167,6 +167,7 @@ use Excel::Writer::XLSX;
 use Template;
 use Data::Dumper;
 use Devel::Size qw(size total_size);
+use Log::Log4perl;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
