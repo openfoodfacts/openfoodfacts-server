@@ -354,8 +354,17 @@ while (my $product_ref = $cursor->next) {
 		my $product_values_changed = 0;
 
 		if ($delete_old_fields) {
-			# renamed to categories_properties
-			delete $product_ref->{category_properties};
+			
+			foreach my $field (qw(
+				additives_old_n
+				categories_properties
+				ingredients_debug
+				ingredients_ids_debug
+				sortkey
+			)) {
+				
+				defined $product_ref->{$field} and delete $product_ref->{$field};
+			}
 		}
 
 		if ((defined $remove_team) and ($remove_team ne "")) {
@@ -1026,7 +1035,7 @@ while (my $product_ref = $cursor->next) {
 		# Delete old debug tags (many were created by error)
 		if ($delete_debug_tags) {
 			foreach my $field (sort keys %{$product_ref}) {
-				if ($field =~ /_debug_tags/) {
+				if ($field =~ /_(debug|prev|next)_tags/) {
 					delete $product_ref->{$field};
 				}
 			}
