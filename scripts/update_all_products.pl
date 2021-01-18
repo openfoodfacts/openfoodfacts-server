@@ -243,11 +243,19 @@ if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc
 }
 
 # Get a list of all products not yet updated
-# Use query filtes entered using --query categories_tags=en:plant-milks
+# Use query filters entered using --query categories_tags=en:plant-milks
 
 use boolean;
 
 foreach my $field (sort keys %{$query_ref}) {
+	
+	my $not = 0;
+	
+	if ( $query_ref->{$field} =~ /^-/ ) {
+		$query_ref->{$field} = $';
+		$not = 1;
+	}
+	
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -255,11 +263,22 @@ foreach my $field (sort keys %{$query_ref}) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
-	elsif ( $query_ref->{$field} =~ /^-/ ) {
-		$query_ref->{$field} = { '$ne' => $' };
-	}
 	elsif ( $field =~ /_t$/ ) {    # created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
+	}
+	# Multiple values separated by commas 
+	elsif ($query_ref->{$field} =~ /,/) {
+		my @tagids = split(/,/, $query_ref->{$field});
+
+		if ($not) {
+			$query_ref->{$field} =  { '$nin' => \@tagids };
+		}
+		else {
+			$query_ref->{$field} = { '$in' => \@tagids };
+		}					
+	}
+	elsif ($not) {
+		$query_ref->{$field} = { '$ne' => $query_ref->{$field} };
 	}
 }
 
@@ -297,9 +316,14 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 my $socket_timeout_ms = 2 * 60000; # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $products_collection = get_products_collection($socket_timeout_ms);
 
-my $products_count = $products_collection->count_documents($query_ref);
+my $products_count = "";
+
+eval {
+$products_count = $products_collection->count_documents($query_ref);
 
 print STDERR "$products_count documents to update.\n";
+};
+
 if ($count) { exit(0); }
 
 my $cursor;
