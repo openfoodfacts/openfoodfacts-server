@@ -4307,9 +4307,6 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 
-	#$product_ref->{ingredients_debug} = clone(\@ingredients);
-	#$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
-
 	my $with_sweeteners;
 
 	my %all_seen = (); # used to not tag "huile végétale" if we have seen "huile de palme" already
