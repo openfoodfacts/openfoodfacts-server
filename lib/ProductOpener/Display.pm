@@ -89,6 +89,8 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		
+		&process_template
 
 		@search_series
 
@@ -6615,7 +6617,9 @@ sub display_login_register($)
 	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
 </form>
 <p>$Lang{login_not_registered_yet}{$lc}
-<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
+<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a><br>
+<a href="/cgi/reset_password.pl">$Lang{forgotten_password}{$lc}</a>
+</p>
 
 HTML
 ;
