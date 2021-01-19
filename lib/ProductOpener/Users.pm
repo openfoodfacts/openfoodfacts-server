@@ -735,6 +735,9 @@ sub init_user()
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
+				$log->info("bad user e-mail") if $log->is_info();
+				# Trigger an error
+				return ($Lang{error_bad_login_password}{$lang}) ;
 			}
 			else {
 				my @userids = @{$emails_ref->{$user_id}};
