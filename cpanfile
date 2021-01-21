@@ -56,6 +56,7 @@ requires 'Text::CSV', '>= 2.0, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.
 requires 'Text::Fuzzy';
 requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
+requires 'Devel::Size'; # deps: libdevel-size-perl
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

@@ -1168,6 +1168,12 @@ sub init_columns_fields_match($$) {
 						and ($columns_fields_ref->{$column}{max} <= 100)) {
 						$columns_fields_ref->{$column}{value_unit} = "value_in_g";
 					}
+					
+					# Sodium usually in mg
+					elsif (($columns_fields_ref->{$column}{field} =~ /^(sodium)_100g_value_unit$/)
+						and ($columns_fields_ref->{$column}{max} > 50)) {
+						$columns_fields_ref->{$column}{value_unit} = "value_in_mg";
+					}
 
 				}
 				elsif ($columns_fields_ref->{$column}{letters}) {

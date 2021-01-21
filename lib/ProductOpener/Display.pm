@@ -89,6 +89,8 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		
+		&process_template
 
 		@search_series
 
@@ -129,7 +131,6 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::TagsEntries qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(:all);
-use ProductOpener::Cache qw(:all);
 use ProductOpener::Lang qw(:all);
 use ProductOpener::Images qw(:all);
 use ProductOpener::Food qw(:all);
@@ -167,8 +168,14 @@ use boolean;
 use Excel::Writer::XLSX;
 use Template;
 use Data::Dumper;
+use Devel::Size qw(size total_size);
+use Log::Log4perl;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+
+# special logger to make it easy to measure memcached hit and miss rates
+our $mongodb_log = Log::Log4perl->get_logger('mongodb');
+$mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -259,8 +266,10 @@ $tt = Template->new(
 
 # Initialize exported variables
 $memd = Cache::Memcached::Fast->new(
-	{   'servers' => $memd_servers,
+	{   
+		'servers' => $memd_servers,
 		'utf8'    => 1,
+		compress_threshold => 10000,
 	}
 );
 
@@ -1426,6 +1435,7 @@ sub get_cache_results($$){
 		) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
+		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
 	else {
@@ -1434,9 +1444,11 @@ sub get_cache_results($$){
 		$results = $memd->get($key);
 		if (not defined $results) {
 			$log->debug("Did not find a value for MongoDB query key", { key => $key }) if $log->is_debug();
+			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
 		}
 		else {
 			$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
+			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
 		}
 	}
 	return $results;
@@ -1446,7 +1458,18 @@ sub set_cache_results($$){
 	my $key = shift;
 	my $results = shift;
 	$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
-	$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+	
+	if ($mongodb_log->is_debug()) {
+		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: " . total_size($results));
+	}
+	
+	if ($memd->set($key, $results, 3600)) {
+		$mongodb_log->info("set_cache_results - updated - key: $key") if $mongodb_log->is_info();
+	}
+	else {
+		$log->debug("Could not set value for MongoDB query key", { key => $key });
+		$mongodb_log->info("set_cache_results - error - key: $key") if $mongodb_log->is_info();
+	}
 
 	return;
 }
@@ -4688,9 +4711,9 @@ sub search_and_display_products($$$$$) {
 
 	my $key = $server_domain . "/" . $json;
 
-	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
+	$log->debug("MongoDB query key - search-products", { key => $key }) if $log->is_debug();
 
-	$key = md5_hex($key);
+	$key = "search-products-" . md5_hex($key);
 
 	$request_ref->{structured_response} = get_cache_results($key,$request_ref);
 
@@ -4727,8 +4750,8 @@ sub search_and_display_products($$$$$) {
 				if (keys %{$query_ref} > 0) {
 					#check if count results is in cache
 					my $key_count = $server_domain . "/" . freeze($query_ref);
-					$log->debug("MongoDB query key", { key => $key_count }) if $log->is_debug();
-					$key_count = md5_hex($key_count);
+					$log->debug("MongoDB query key - search-count", { key => $key_count }) if $log->is_debug();
+					$key_count = "search-count-" . md5_hex($key_count);
 					my $results_count = get_cache_results($key_count,$request_ref);
 					if (not defined $results_count) {
 						
@@ -4806,14 +4829,17 @@ sub search_and_display_products($$$$$) {
 				$page_count++;
 			}
 			
+			$request_ref->{structured_response}{page_count} = $page_count;
+			
 			# The page count may be higher than the count from the products_tags collection which is updated every night
 			# in that case, set $count to $page_count
+			# It's also possible that the count query had a timeout and that $count is 0 even though we have results
 			if ($page_count > $count) {
 				$count = $page_count;
 			}
 			
 			$request_ref->{structured_response}{count} = $count;
-			$request_ref->{structured_response}{page_count} = $page_count;
+			
 			set_cache_results($key,$request_ref->{structured_response})
 		}
 	}
@@ -6591,7 +6617,9 @@ sub display_login_register($)
 	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
 </form>
 <p>$Lang{login_not_registered_yet}{$lc}
-<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
+<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a><br>
+<a href="/cgi/reset_password.pl">$Lang{forgotten_password}{$lc}</a>
+</p>
 
 HTML
 ;

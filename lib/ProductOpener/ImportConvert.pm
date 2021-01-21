@@ -904,6 +904,9 @@ sub clean_fields($) {
 		# Ingredients
 
 		if ($field =~ /^ingredients_text/) {
+			
+			# _x000D_
+			$product_ref->{$field} =~ s/_x000D_/\n/g;
 
 			# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
 

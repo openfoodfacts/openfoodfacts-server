@@ -451,6 +451,23 @@ sub import_csv_file($) {
 				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
 				
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				$org_id =~ s/^cereal-partners-france$/nestle-france/;
+				$org_id =~ s/^nestle-spac$/nestle-france/;
+
+				# organizations by GLN
+
+				my %gln = (
+					"3010337111109" => "nestle-france",
+					"3012789200103" => "nestle-france",	# SPAC (Buitoni)
+					"3011542300012" => "nestle-france",	# Herta
+					"3013873929306" => "nestle-france",	# Cereal Partners
+					"3011797320001" => "nestle-france",	# Nestlé Waters
+				);
+
+				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
+					and (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
+					$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				}
 				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
