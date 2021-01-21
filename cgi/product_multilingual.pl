@@ -216,18 +216,20 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 <form method="post" action="/cgi/session.pl">
 <div class="row">
 <div class="small-12 columns">
-	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username" />
+	<label for="login_user_id">
+		$Lang{login_username_email}{$lc}
 	</label>
+	<input id="login_user_id" type="text" name="user_id" autocomplete="username" />
 </div>
 <div class="small-12 columns">
-	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password" />
+	<label for="login_user_password">
+		$Lang{password}{$lc}
 	</label>
+	<input id="login_user_password" type="password" name="password" autocomplete="current-password" />
 </div>
 <div class="small-12 columns">
-	<label>
-		<input type="checkbox" name="remember_me" value="on" />
+	<input id="login_remember_me" type="checkbox" name="remember_me" value="on" />
+	<label for="login_remember_me">
 		$Lang{remember_me}{$lc}
 	</label>
 </div>
@@ -427,17 +429,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			if ($field eq "lang") {
 				my $value = remove_tags_and_quote(decode utf8=>param($field));
-				
+
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
 				$value = lc($value);
-				
+
 				# skip unrecognized languages (keep the existing lang & lc value)
 				if (defined $lang_lc{$value}) {
 					$product_ref->{lang} = $value;
 					$product_ref->{lc} = $value;
-				}				
-				
+				}
+
 			}
 			else {
 				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -741,14 +743,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
-	
+
 	# Until we provide an interface to directly change the packaging data structure
 	# erase it before reconstructing it
 	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];	
-	
+	$product_ref->{packagings} = [];
+
 	analyze_and_combine_packaging_data($product_ref);
-	
+
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		compute_ecoscore($product_ref);
 		compute_forest_footprint($product_ref);
@@ -897,10 +899,10 @@ HTML
 	 and (defined $Org_id)) {
 
 		# Display a link to the producers platform
-		
+
 		my $producers_platform_url = $formatted_subdomain . '/';
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
-		
+
 		$html .= '<div class="panel callout">'
 		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
 		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
@@ -2073,22 +2075,22 @@ HTML
 ;
 
 	$html .= "</div><!-- fieldset -->";
-	
-	
+
+
 	# Packaging photo and data
 
 	my @packaging_fields = ("packaging_image", "packaging_text");
-	
+
 	$html .= <<HTML
 
 <div id="packaging" class="fieldset">
 <legend>$Lang{packaging}{$lang}</legend>
 HTML
-;	
-	
+;
+
 	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 
-	$html .= "</div><!-- fieldset -->";	
+	$html .= "</div><!-- fieldset -->";
 
 
 	# Product check
