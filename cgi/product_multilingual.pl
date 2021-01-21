@@ -1607,6 +1607,11 @@ HTML
 		}
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
+		
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
+		}
 
 		$initjs .= <<JS
 \$('#$nutrition_data').change(function() {
@@ -1616,6 +1621,7 @@ HTML
 	} else {
 		\$('#$nutrition_data_instructions').hide();
 		\$('.$nutriment_col_class').hide();
+		\$('.nutriment_value_$product_type_as_sold_or_prepared').val('');
 	}
 	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
@@ -1829,10 +1835,10 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_as_sold" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_prepared" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
@@ -2044,12 +2050,15 @@ function swapSalt(from, to, multiplier) {
 JAVASCRIPT
 ;
 
+	if ($User{moderator}) {
+		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
+	}
+
 
 	$html .= <<HTML
 <p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 HTML
 ;
-
 
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
