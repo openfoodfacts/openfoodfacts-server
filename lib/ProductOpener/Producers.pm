@@ -549,14 +549,15 @@ en => {
 },
 
 es => {
+	code => ["Código de barras", "Códigos de barras"],
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
 	net_weight_value_unit => ["peso unitrario", "peso unitario"],   # Yuka
 	"energy-kcal_100g_value_unit" => ["calorias"],
+	"link" => ["Enlace a la página del producto en el sitio oficial del fabricante"],
 },
 
 fr => {
-
 	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
@@ -591,13 +592,12 @@ fr => {
 my %prepared_synonyms = (
 	# "" is the default unprepared, it needs to have "" as the first synonym
 	"" => {
-	# code with i18n opportunity
 		en => ["", "unprepared"],
 		fr => ["", "non préparé"],
 	},
 	"_prepared" => {
-	# code with i18n opportunity
 		en => ["prepared"],
+		es => ["preparado"],
 		fr => ["préparé", "préparation"],
 	}
 );
@@ -606,7 +606,6 @@ my %per_synonyms = (
 	# per 100g includes an empty "" synonym
 	# may need to be changed for the US, CA etc.
 	"100g" => {
-	# code with i18n opportunity
 		en => ["", "for 100g", "per 100g", "100g"],
 		fr => ["", "pour 100g", "100g"],
 	},
@@ -735,7 +734,16 @@ sub init_nutrients_columns_names_for_lang($) {
 							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
-						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, lang("nutrition_data_per_" . $per)) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, $Lang{"nutrition_data_per_" . $per}{$l}, "nutrition_data_per_" . $per) {
+							
+							if ($per_synonym =~ /^nutrition_data_per/) {
+								# per 100 g / 100 ml -> per 100g
+								$per_synonym = $Lang{"nutrition_data_per_" . $per}{$l};
+								# remove the 100ml from "per 100g / 100ml";
+								$per_synonym =~ s/100 g/100g/i;
+								$per_synonym =~ s/100 ml/100ml/i;
+								$per_synonym =~ s/100ml//i; 
+							}
 
 							# field name without "unit" or "quantity"
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
