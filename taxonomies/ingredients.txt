@@ -10178,6 +10178,7 @@ bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
 cv:Грана Падано
+da:Grana Padano, Grana Padano ost
 de:Grana Padano
 eo:Грана Падано
 es:Grana Padano,queso Grana Padano,queso DOP Grana Padano
@@ -10679,6 +10680,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 
 <en:pecorino
 en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
+da:Pecorino Romano, Pecorino Romano ost
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -17035,7 +17037,7 @@ wikidata:en:Q7128109
 <en:palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof, palmefedt
+da:palmfedtstof, palmefedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma,manteca de palma
 et:palmirasv
@@ -17071,7 +17073,7 @@ sv:hydrerad palmfett
 
 <en:palm fat
 en:totally hydrogenated palm fat
-da:helt hærdet palmefedt
+da:helt hærdet palmefedt, helt hærdet palmefedtstof
 de:vollständig gehärtetes Palmfett
 es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
@@ -21601,7 +21603,7 @@ sv:vaniljarom
 <en:vanilla flavouring
 en:natural vanilla flavouring
 ca:Aroma natural de vainilla, aromes naturals de vainilla
-da:naturlig vanillearoma
+da:naturlig vanillearoma, naturlig vaniljearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 et:looduslik vanillimaitseaine
@@ -25250,7 +25252,7 @@ sv:fullkornsmjöl
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
-da:hvedefuldkornsmel
+da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
@@ -27554,6 +27556,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
 <en:sugar
+en:candy sugar
+da:kandissukker
+de:Kandiszucker
+
+<en:sugar
 en:muscovado, muscovado sugar
 ca:Sucre mascavat
 da:Muscovadosukker
@@ -28580,6 +28587,11 @@ en:rye sirup
 et:odrasiirup
 hu:rozsszirup
 
+<en:glucose
+en:glucose powder
+da:glukosepulver
+de:Glukosepulver
+
 # FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
 en:fructose
@@ -28731,7 +28743,7 @@ en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
-da:glukos-fruktossirap
+da:glukos-fruktossirap, glukose-fruktosesirup
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
@@ -69075,6 +69087,11 @@ allergens:en: en:eggs
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
+
+<en:egg
+en:pasteurized egg, pasteurized eggs
+da:pasteuriseret æg
+de:pasteurisiertes Ei, pasteurisierte Eier
 
 <en:flavour
 en:egg flavour
