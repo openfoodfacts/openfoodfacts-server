@@ -2192,7 +2192,7 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small">
+		<button type="submit" name=".submit" class="button postfix small success">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
@@ -2211,7 +2211,7 @@ HTML
 <div class="small-12 medium-12 large-8 xlarge-10 columns">
 </div>
 <div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
 </div>
 </div>
 HTML
