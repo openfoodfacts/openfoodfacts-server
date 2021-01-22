@@ -573,9 +573,6 @@ sub compute_attribute_ecoscore($$) {
 	my $product_ref = shift;
 	my $target_lc = shift;
 
-	# Compute the environmental score first, as it is currently not stored in the database
-	compute_ecoscore($product_ref);
-
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
 	my $attribute_id = "ecoscore";

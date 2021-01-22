@@ -430,91 +430,119 @@ sub compute_ecoscore($) {
 	
 	$product_ref->{ecoscore_data} = {
 		adjustments => {},
-	};
+	};		
 	
-	# Compute the LCA Eco-Score based on AgriBalyse
+	# Special case for waters and sodas: disable the Eco-Score
 	
-	compute_ecoscore_agribalyse($product_ref);
+	my @categories_without_ecoscore = ("en:waters", "en:sodas");
+	my $category_without_ecoscore;
 	
-	# Compute the bonuses and maluses
-	
-	compute_ecoscore_production_system_adjustment($product_ref);
-	compute_ecoscore_threatened_species_adjustment($product_ref);
-	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
-	compute_ecoscore_packaging_adjustment($product_ref);
-	
-	# Compute the final Eco-Score and assign the A to E grade
-	
-	# We need an AgriBalyse category match to compute the Eco-Score
-	if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
-		
-		$product_ref->{ecoscore_data}{status} = "known";
-		$product_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{agribalyse}{score};
-		
-		$log->debug("compute_ecoscore - agribalyse score", { agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
-		
-		# Add adjustments (maluses or bonuses)
-		
-		my $missing_data_warning;
-		
-		foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
-			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-				$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
-				$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
-					value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
-			}
-			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
-				$missing_data_warning = 1;
-			}
+	foreach my $category (@categories_without_ecoscore) {
+		if (has_tag($product_ref, 'categories', $category)) {
+			$category_without_ecoscore = $category;
+			last;
 		}
-		
-		# Assign A to E grade
-		
-		if ($product_ref->{ecoscore_score} >= 80) {
-			$product_ref->{ecoscore_grade} = "a";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 60) {
-			$product_ref->{ecoscore_grade} = "b";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 40) {
-			$product_ref->{ecoscore_grade} = "c";
-		}
-		elsif ($product_ref->{ecoscore_score} >= 20) {
-			$product_ref->{ecoscore_grade} = "d";
-		}
-		else {
-			$product_ref->{ecoscore_grade} = "e";
-		}
-		$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
-		$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
-		$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
-		
-		$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
-		
-		if ($missing_data_warning) {
-			$product_ref->{ecoscore_data}{missing_data_warning} = 1;
-			add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-			remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
-		}
-		else {
-			remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-			add_tag($product_ref,"misc","en:ecoscore-no-missing-data");
-		}
-		
-		add_tag($product_ref,"misc","en:ecoscore-computed");
-		remove_tag($product_ref,"misc","en:ecoscore-not-computed");		
 	}
-	else {
-		# No AgriBalyse category match
-		$product_ref->{ecoscore_data}{missing_agribalyse_match_warning} = 1;
+	
+	if ($category_without_ecoscore) {
+		$product_ref->{ecoscore_data}{ecoscore_not_applicable_for_category} = $category_without_ecoscore;
 		$product_ref->{ecoscore_data}{status} = "unknown";
-		$product_ref->{ecoscore_tags} = ["unknown"];
-		$product_ref->{ecoscore_grade} = "unknown";
+		$product_ref->{ecoscore_tags} = ["not-applicable"];
+		$product_ref->{ecoscore_grade} = "not-applicable";
 		
+		add_tag($product_ref,"misc","en:ecoscore-not-applicable");
 		add_tag($product_ref,"misc","en:ecoscore-not-computed");
 		remove_tag($product_ref,"misc","en:ecoscore-computed");
 		remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
 		remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+	}
+	else {
+		remove_tag($product_ref,"misc","en:ecoscore-not-applicable");
+		
+		# Compute the LCA Eco-Score based on AgriBalyse
+		
+		compute_ecoscore_agribalyse($product_ref);
+		
+		# Compute the bonuses and maluses
+		
+		compute_ecoscore_production_system_adjustment($product_ref);
+		compute_ecoscore_threatened_species_adjustment($product_ref);
+		compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
+		compute_ecoscore_packaging_adjustment($product_ref);
+		
+		# Compute the final Eco-Score and assign the A to E grade
+		
+		# We need an AgriBalyse category match to compute the Eco-Score
+		if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
+			
+			$product_ref->{ecoscore_data}{status} = "known";
+			$product_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{agribalyse}{score};
+			
+			$log->debug("compute_ecoscore - agribalyse score", { agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
+			
+			# Add adjustments (maluses or bonuses)
+			
+			my $missing_data_warning;
+			
+			foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
+					$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
+					$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
+						value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+				}
+				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+					$missing_data_warning = 1;
+				}
+			}
+			
+			# Assign A to E grade
+			
+			if ($product_ref->{ecoscore_score} >= 80) {
+				$product_ref->{ecoscore_grade} = "a";
+			}
+			elsif ($product_ref->{ecoscore_score} >= 60) {
+				$product_ref->{ecoscore_grade} = "b";
+			}
+			elsif ($product_ref->{ecoscore_score} >= 40) {
+				$product_ref->{ecoscore_grade} = "c";
+			}
+			elsif ($product_ref->{ecoscore_score} >= 20) {
+				$product_ref->{ecoscore_grade} = "d";
+			}
+			else {
+				$product_ref->{ecoscore_grade} = "e";
+			}
+			$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
+			$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
+			$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
+			
+			$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
+			
+			if ($missing_data_warning) {
+				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
+				add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+				remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+			}
+			else {
+				remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+				add_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+			}
+			
+			add_tag($product_ref,"misc","en:ecoscore-computed");
+			remove_tag($product_ref,"misc","en:ecoscore-not-computed");		
+		}
+		else {
+			# No AgriBalyse category match
+			$product_ref->{ecoscore_data}{missing_agribalyse_match_warning} = 1;
+			$product_ref->{ecoscore_data}{status} = "unknown";
+			$product_ref->{ecoscore_tags} = ["unknown"];
+			$product_ref->{ecoscore_grade} = "unknown";
+			
+			add_tag($product_ref,"misc","en:ecoscore-not-computed");
+			remove_tag($product_ref,"misc","en:ecoscore-computed");
+			remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+			remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+		}
 	}
 }
 
@@ -601,7 +629,17 @@ sub compute_ecoscore_agribalyse($) {
 		else {
 			# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 			# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
-			$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
+			
+			if (has_tag($product_ref, 'categories', 'en:beverages')) {
+				# Beverages case: score = -36*\ln(x+1)+150score=− 36 * ln(x+1) + 150
+				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 1;
+				$product_ref->{ecoscore_data}{agribalyse}{score} = -36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150;			
+			}
+			else {
+				# General case: score=−15 * ln(x² + 220) + 180 
+				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
+				$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
+			}
 		}
 	}
 	else {

@@ -1987,14 +1987,19 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif ($tagtype eq 'ecoscore') {
-				my $grade;
-				if ($tagid =~ /^[abcde]$/) {
-					$grade = uc($tagid);
+				if ($tagid ne "not-applicable") {
+					my $grade;
+					if ($tagid =~ /^[abcde]$/) {
+						$grade = uc($tagid);
+					}
+					else {
+						$grade = lang("unknown");
+					}
+					$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 				}
 				else {
-					$grade = lang("unknown");
+					$display = lang("not_applicable");
 				}
-				$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 			}			
 			elsif ($tagtype eq 'nova_groups') {
 				if ($tagid =~ /^en:(1|2|3|4)/) {
