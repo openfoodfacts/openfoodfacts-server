@@ -424,7 +424,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge", "fr:msc", "fr:asc", "fr:aop", "fr:aop");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
