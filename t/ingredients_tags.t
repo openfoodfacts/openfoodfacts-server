@@ -129,6 +129,9 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:sugar', 'en:soya-lecithin', 'en:salt']],
 
 	[ { lc => "nl", ingredients_text => "romano"}, ['nl:romano']],
+
+	# MSC
+	[ { lc => "fr", ingredients_text => "72% saumon MSC"}, ['en:salmon']],
 );
 
 foreach my $test_ref (@tests) {
