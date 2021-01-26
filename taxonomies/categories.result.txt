@@ -19781,7 +19781,7 @@ wikidata:en: Q910095
 en:Meat of the grisons, Viande des Grisons, Bündnerfleisch, Dried beef meat
 de:Bündnerfleisch
 es:Bindenfleisch
-fr:Viande des grisons
+fr:Viande des grisons, Viande séchée des grisons
 it:Carne secca dei Grigioni, Carne essiccata dei Grigioni
 nl:Rundvlees uit Graubünden
 ciqual_food_code:en: 28860
@@ -22268,6 +22268,9 @@ fr:Foies gras, Foie gras
 he:כבד אווז
 it:Foie gras
 nl:Foie gras
+agribalyse_proxy_food_code:en: 40120
+agribalyse_proxy_food_name:en: Liver, goose, raw
+agribalyse_proxy_food_name:fr: Foie, oie, cru
 pnns_group_2:en: Salty and fatty products
 wikidata:en: Q34807
 
@@ -23971,6 +23974,9 @@ fi:Hanhenmaksapateet
 fr:Foies gras d'oies, Foie gras d'oies
 it:Foie gras di oca
 nl:Ganzen foie gras
+agribalyse_proxy_food_code:en: 40120
+agribalyse_proxy_food_name:en: Liver, goose, raw
+agribalyse_proxy_food_name:fr: Foie, oie, cru
 
 < en:Foies gras
 en:Foies gras pâtés
@@ -53628,14 +53634,6 @@ en:Salmon steaks
 fr:Pavés de saumon
 
 < en:Salmons
-en:Salmon wild
-fr:Saumon cru sauvage
-agribalyse_proxy_food_code:en: 26092
-agribalyse_proxy_food_name:en: Nursehound or lesser spotted dogfish, raw
-ciqual_food_code:en: 26161
-ciqual_food_name:en: Salmon, raw, wild
-
-< en:Salmons
 en:Salmon with sorrel
 fr:Saumon à l'oseille
 agribalyse_food_code:en: 25077
@@ -53660,10 +53658,12 @@ protected_name_file_number:en: PGI-GB-0141
 protected_name_type:en: pgi
 
 < en:Salmons
-en:Scottish Wild Salmon
-origins:en: en:United Kingdom
-protected_name_file_number:en: PGI-GB-0863
-protected_name_type:en: pgi
+en:Wild salmons
+fr:Saumons sauvages, saumon sauvage
+agribalyse_proxy_food_code:en: 26092
+agribalyse_proxy_food_name:en: Nursehound or lesser spotted dogfish, raw
+ciqual_food_code:en: 26161
+ciqual_food_name:en: Salmon, raw, wild
 
 < en:Cooked salmons
 < en:Salmons from farming
@@ -57536,15 +57536,6 @@ nl:Gerookte kweekzalm
 < en:Smoked salmons
 en:Smoked salmons from Scotland
 fr:Saumons fumés d'Écosse
-
-< en:Smoked salmons
-en:Wild smoked salmons
-de:Räucherwildlachs, Räucher-Wildlachs
-es:Salmones ahumados salvajes
-fi:savustetut villilohet
-fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés
-it:Salmoni affumicati selvaggi
-nl:Gerookte wilde zalm
 
 < en:Smoked salmons
 fr:Saumons Atlantique fumés
@@ -68417,6 +68408,22 @@ agribalyse_food_code:en: 34004
 ciqual_food_code:en: 34004
 ciqual_food_name:en: Rabbit, wild, meat, cooked
 ciqual_food_name:fr: Lapin de garenne, viande, cuite
+
+< en:Wild salmons
+en:Scottish Wild Salmon
+origins:en: en:United Kingdom
+protected_name_file_number:en: PGI-GB-0863
+protected_name_type:en: pgi
+
+< en:Smoked salmons
+< en:Wild salmons
+en:Wild smoked salmons, Smoked wild salmons
+de:Räucherwildlachs, Räucher-Wildlachs
+es:Salmones ahumados salvajes
+fi:savustetut villilohet
+fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés, saumon sauvage fumé
+it:Salmoni affumicati selvaggi
+nl:Gerookte wilde zalm
 
 < en:Wine-based drinks
 en:Spritz cocktails
