@@ -1,6 +1,7 @@
 {
    "categories_tags" : [
-      "en:sodas"
+      "en:beverages",
+      "en:orange-juices"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -37,39 +38,40 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_proxy_food_code" : "18340",
-         "co2_agriculture" : "0.0052740241",
+         "agribalyse_food_code" : "2013",
+         "co2_agriculture" : "0.40923055",
          "co2_consumption" : "0.0047993021",
          "co2_distribution" : "0.028932423",
-         "co2_packaging" : "0.18274931",
-         "co2_processing" : "0",
-         "co2_total" : "0.40246995",
-         "co2_transportation" : "0.18071489",
-         "code" : "18340",
-         "dqr" : "2.97",
-         "ef_agriculture" : "0.00091374504",
+         "co2_packaging" : "0.098786634",
+         "co2_processing" : "0.10433272",
+         "co2_total" : "1.0328872",
+         "co2_transportation" : "0.38680556",
+         "code" : "2013",
+         "dqr" : "2.27",
+         "ef_agriculture" : "0.18761485",
          "ef_consumption" : "0.0024293397",
          "ef_distribution" : "0.0088128735",
-         "ef_packaging" : "0.018005260999999998",
-         "ef_processing" : "0",
-         "ef_total" : 0.043941445,
-         "ef_transportation" : "0.013780225",
-         "name_en" : "Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)",
-         "name_fr" : "Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants",
-         "score" : 97.8336969127427
+         "ef_packaging" : "0.014974093",
+         "ef_processing" : "0.019422825",
+         "ef_total" : 0.26561763,
+         "ef_transportation" : "0.032363646999999995",
+         "is_beverage" : 1,
+         "name_en" : "Orange juice, home-made",
+         "name_fr" : "Jus d'orange, maison",
+         "score" : 30.6085411096605
       },
-      "grade" : "a",
+      "grade" : "e",
       "missing" : {
          "origins" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 82.8336969127427,
+      "score" : 15.6085411096605,
       "status" : "known"
    },
-   "ecoscore_grade" : "a",
-   "ecoscore_score" : 82.8336969127427,
+   "ecoscore_grade" : "e",
+   "ecoscore_score" : 15.6085411096605,
    "ecoscore_tags" : [
-      "a"
+      "e"
    ],
    "lc" : "en",
    "misc_tags" : [
