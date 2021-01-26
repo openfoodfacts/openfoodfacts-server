@@ -55212,9 +55212,9 @@ hu:Baromfihúsok
 it:Pollame
 nl:Gevogelte maaltijden
 th:ผลิตภัณฑ์จากสัตว์ปีก
-agribalyse_food_code:en:25126
-ciqual_food_code:en:25126
-ciqual_food_name:en:Poultry paupiette
+agribalyse_proxy_food_code:en:25190
+ciqual_proxy_food_code:en:25190
+ciqual_proxy_food_name:en:Chicken, Basque style
 
 <en:Poultry meals
 en:Cockerel in red wine sauce
@@ -59390,7 +59390,7 @@ nl:Rundvleesproducten
 en:Meat of the grisons, Viande des Grisons, Bündnerfleisch, Dried beef meat
 de:Bündnerfleisch
 es:Bindenfleisch
-fr:Viande des grisons
+fr:Viande des grisons, Viande séchée des grisons
 it:Carne secca dei Grigioni, Carne essiccata dei Grigioni
 nl:Rundvlees uit Graubünden
 wikidata:en:Q390726
@@ -60940,14 +60940,6 @@ ciqual_food_name:fr:Oie, viande et peau, rôtie/cuite au four
 <en:Geese
 en:Goose confits
 fr:Confits d’oie, Confit d’oie
-
-<en:goose meat
-en:Goose liver, goose liver
-fr:Foie d'oie, Foie d'oie
-agribalyse_food_code:en:40120
-ciqual_food_code:en:40120
-ciqual_food_name:en:Liver, goose, raw
-ciqual_food_name:fr:Foie, oie, cru
 
 <en:Poultries
 fr:Pintades, Pintade
@@ -70123,19 +70115,17 @@ agribalyse_food_code:en:25077
 ciqual_food_code:en:25077
 ciqual_food_name:en:Salmon with sorrel
 
-<en:Salmons
+<en:Wild salmons
 en:Scottish Wild Salmon
 protected_name_file_number:en: PGI-GB-0863
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
-agribalyse_food_code:en:26161
-ciqual_food_code:en:26161
-ciqual_food_name:en:Salmon, raw, wild
 
 <en:Salmons
-en:Salmon wild
-fr:Saumon cru sauvage
-agribalyse_food_code:en:26161
+en:Wild salmons
+fr:Saumons sauvages, saumon sauvage
+agribalyse_proxy_food_code:en:26092
+agribalyse_proxy_food_name:en:Nursehound or lesser spotted dogfish, raw
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 
@@ -70391,11 +70381,12 @@ en:Smoked salmon for tasting
 fr:Saumons fumés de dégustation
 
 <en:Smoked salmons
-en:Wild smoked salmons
+<en:Wild salmons
+en:Wild smoked salmons, Smoked wild salmons
 de:Räucherwildlachs, Räucher-Wildlachs
 es:Salmones ahumados salvajes
 fi:savustetut villilohet
-fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés
+fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés, saumon sauvage fumé
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
@@ -82154,6 +82145,17 @@ it:Foie gras
 nl:Foie gras
 wikidata:en:Q34807
 pnns_group_2:en:Salty and fatty products
+agribalyse_proxy_food_code:en:40120
+agribalyse_proxy_food_name:en:Liver, goose, raw
+agribalyse_proxy_food_name:fr:Foie, oie, cru
+
+<en:goose meat
+en:Goose liver, goose liver
+fr:Foie d'oie, Foie d'oie
+agribalyse_food_code:en:40120
+ciqual_food_code:en:40120
+ciqual_food_name:en:Liver, goose, raw
+ciqual_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
 fr:Bloc de foie gras
@@ -82198,6 +82200,9 @@ ciqual_food_name:fr:Foie gras, canard, bloc (aliment moyen)
 #ciqual_food_code:en:8328
 #ciqual_food_name:en:Foie gras, duck, raw
 #ciqual_food_name:fr:Foie gras de canard, cru
+agribalyse_proxy_food_code:en:40120
+agribalyse_proxy_food_name:en:Liver, goose, raw
+agribalyse_proxy_food_name:fr:Foie, oie, cru
 
 <en:duck meat
 en:duck liver
@@ -82250,6 +82255,9 @@ fi:Hanhenmaksapateet
 fr:Foies gras d'oies, Foie gras d'oies
 it:Foie gras di oca
 nl:Ganzen foie gras
+agribalyse_proxy_food_code:en:40120
+agribalyse_proxy_food_name:en:Liver, goose, raw
+agribalyse_proxy_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
 fr:Foies gras mi-cuits, foies gras mi-cuit, foie gras mi-cuit
