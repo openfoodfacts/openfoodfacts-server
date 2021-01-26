@@ -34071,6 +34071,7 @@ protected_name_file_number:en: PDO-ES-0088
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#made with cow milk or a mix between cow, sheep and goat
 <en:Spanish cheeses
 es:Cabrales
 protected_name_file_number:en: PDO-ES-0081
@@ -34078,18 +34079,21 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Idiazabal
 protected_name_file_number:en: PDO-ES-0082
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Mahón-Menorca
 protected_name_file_number:en: PDO-ES-9083
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso Nata de Cantabria
 protected_name_file_number:en: PDO-ES-0085
 protected_name_type:en: pdo
@@ -34102,17 +34106,20 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Queso de La Serena
 protected_name_file_number:en: PDO-ES-0086
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Queso Zamorano
 protected_name_file_number:en: PDO-ES-0089
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Can be made with cow, sheep or goat milk
 <en:Spanish cheeses
 es:Quesucos de Liébana
 protected_name_file_number:en: PDO-ES-0090
@@ -34120,24 +34127,28 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
-es:Roncal
+<en:Sheep's-milk cheeses
+es:Queso Roncal
 protected_name_file_number:en: PDO-ES-0091
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso Casín
 protected_name_file_number:en: PDO-ES-0718
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Made with a blend of cow, sheep and goat milk
 <en:Spanish cheeses
-es:Queso de Flor de Guía, Queso de Media Flor de Guía, Queso de Guía
+es:Queso flor de Guía, Queso de Flor de Guía, Queso de Media Flor de Guía, Queso de Guía
 protected_name_file_number:en: PDO-ES-0605
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Arzùa-Ulloa
 protected_name_file_number:en: PDO-ES-0497
 protected_name_type:en: pdo
@@ -34156,11 +34167,13 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Afuega'l Pitu
 protected_name_file_number:en: PDO-ES-0307
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Can be made with cow, sheep or goat milk
 <en:Spanish cheeses
 es:Gamoneu, Gamonedo
 protected_name_file_number:en: PDO-ES-0308
@@ -34168,11 +34181,13 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Ibores
 protected_name_file_number:en: PDO-ES-0261
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Made with a blend of cow and goat milk
 <en:Spanish cheeses
 es:Queso de Valdeón
 protected_name_file_number:en: PGI-ES-0267
@@ -34180,30 +34195,35 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Torta del Casar
 protected_name_file_number:en: PDO-ES-0213
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Palmero, Queso de la Palma
 protected_name_file_number:en: PDO-ES-0172
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso de Murcia
 protected_name_file_number:en: PDO-ES-0168
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso de Murcia al vino
 protected_name_file_number:en: PDO-ES-0204
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso de l'Alt Urgell y la Cerdanya
 protected_name_file_number:en: PDO-ES-0094
 protected_name_type:en: pdo
@@ -34222,6 +34242,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Camerano
 protected_name_file_number:en: PDO-ES-0767
 protected_name_type:en: pdo
@@ -34341,6 +34362,7 @@ it:Formaggio grattugiato
 nl:Geraspte kzen
 
 <en:French cheeses
+<en:Cow cheeses
 en:Maroilles
 fr:Maroilles, Marolles
 country:en:France
@@ -34555,7 +34577,7 @@ ciqual_food_name:fr:Crème chantilly, sous pression, UHT
 <en:Creams
 fr:Crèmes fleurettes, Crème fleurette
 
-#Cream that haven't been pasteurized
+#Cream that haven't been fermented
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
