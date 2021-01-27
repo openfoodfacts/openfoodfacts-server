@@ -640,6 +640,12 @@ sub compute_ecoscore_agribalyse($) {
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
 				$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
 			}
+			if ($product_ref->{ecoscore_data}{agribalyse}{score} < 0) {
+				$product_ref->{ecoscore_data}{agribalyse}{score} = 0;
+			}
+			elsif ($product_ref->{ecoscore_data}{agribalyse}{score} > 100) {
+				$product_ref->{ecoscore_data}{agribalyse}{score} = 100;
+			}
 		}
 	}
 	else {
