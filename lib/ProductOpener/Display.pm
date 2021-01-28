@@ -8305,7 +8305,7 @@ HTML
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
 	# for alpha test to moderators, display eco-score for all countries
 	
-	if ($show_ecoscore) {
+	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 		
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
