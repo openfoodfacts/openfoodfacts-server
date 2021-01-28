@@ -10178,6 +10178,7 @@ bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
 cv:Грана Падано
+da:Grana Padano, Grana Padano ost
 de:Grana Padano
 eo:Грана Падано
 es:Grana Padano,queso Grana Padano,queso DOP Grana Padano
@@ -10679,6 +10680,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 
 <en:pecorino
 en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
+da:Pecorino Romano, Pecorino Romano ost
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -17035,7 +17037,7 @@ wikidata:en:Q7128109
 <en:palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof, palmefedt
+da:palmfedtstof, palmefedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma,manteca de palma
 et:palmirasv
@@ -17071,7 +17073,7 @@ sv:hydrerad palmfett
 
 <en:palm fat
 en:totally hydrogenated palm fat
-da:helt hærdet palmefedt
+da:helt hærdet palmefedt, helt hærdet palmefedtstof
 de:vollständig gehärtetes Palmfett
 es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
@@ -21601,7 +21603,7 @@ sv:vaniljarom
 <en:vanilla flavouring
 en:natural vanilla flavouring
 ca:Aroma natural de vainilla, aromes naturals de vainilla
-da:naturlig vanillearoma
+da:naturlig vanillearoma, naturlig vaniljearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 et:looduslik vanillimaitseaine
@@ -25250,7 +25252,7 @@ sv:fullkornsmjöl
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
-da:hvedefuldkornsmel
+da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
@@ -27554,6 +27556,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
 <en:sugar
+en:candy sugar
+da:kandissukker
+de:Kandiszucker
+
+<en:sugar
 en:muscovado, muscovado sugar
 ca:Sucre mascavat
 da:Muscovadosukker
@@ -28580,6 +28587,11 @@ en:rye sirup
 et:odrasiirup
 hu:rozsszirup
 
+<en:glucose
+en:glucose powder
+da:glukosepulver
+de:Glukosepulver
+
 # FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
 en:fructose
@@ -28731,7 +28743,7 @@ en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
-da:glukos-fruktossirap
+da:glukos-fruktossirap, glukose-fruktosesirup
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
@@ -33878,7 +33890,7 @@ ce:Туьрк
 co:Baracuccu
 cs:meruňka
 cy:bricyllen
-da:abrikos
+da:abrikos, abrikoser
 de:Aprikose, Aprikosen
 el:Βερίκοκο
 eo:Abrikoto
@@ -34020,7 +34032,7 @@ nl:abrikozenpuree
 
 <en:apricot
 en:dried apricots
-da:tørret abrikos
+da:tørret abrikos, tørrede abrikoser
 de:getrocknete Aprikosen
 es:albaricoques deshidratados
 fi:kuivattu aprikoosi, kuivatut aprikoosit
@@ -34032,7 +34044,6 @@ nl:gedroogde abrikozen
 
 <en:dried apricots
 en:pitted dried apricots
-da:tørrede abrikoser
 de:getrocknete Aprikosen entsteint, entsteinte getrocknete Aprikosen
 fi:kivetön kuivattu aprikoosi, kivettömät kuivatut aprikoosit
 fr:abricots secs dénoyautés
@@ -34083,7 +34094,7 @@ ce:Банан
 co:Banana
 cs:Banán
 cy:Banana
-da:Banan
+da:Banan, bananer
 de:Bananen, Banane
 dv:ދޮންކެޔޮ
 ee:Akɔɖu
@@ -34605,7 +34616,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-da:fersken
+da:fersken, ferskener
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
@@ -34726,7 +34737,7 @@ ca:pera
 co:pera
 cs:hruška
 cy:gellygen
-da:pære
+da:pære, pærer
 de:Birne, Birnen
 el:αχλάδι
 eo:piro
@@ -34911,7 +34922,7 @@ sv:päronjuice från koncentrat
 
 <en:fruit
 en:plum
-da:blomme
+da:blomme, blommer
 de:Pflaume, Pflaumen
 el:Δαμάσκηνο
 es:ciruela
@@ -35018,8 +35029,8 @@ en:quince, quinces
 ar:سفرجل
 bg:dioulia
 ca:Codony
-da:Kvæde
-de:Quitten
+da:Kvæde, kveder
+de:Quitte, Quitten
 el:Κυδώνι
 es:membrillo
 et:Aiva
@@ -35149,7 +35160,7 @@ cs:jablko
 cu:аблъко
 cv:Панулми
 cy:afal
-da:æble
+da:æble, æbler
 de:Apfel, Äpfel
 dv:އާފަލް
 el:Μήλο,μήλα
@@ -35842,8 +35853,8 @@ ca:clementina
 co:Clementina
 cs:Klementinka
 cv:Клементина
-da:Klementin
-de:Clementinen
+da:Klementin, Klementiner
+de:Clementine, Clementinen
 eo:Klementinujo
 es:clementina
 et:Klementiin
@@ -35896,7 +35907,7 @@ fi:klementiinimehu
 en:grapefruit
 ca:aranger
 da:grape, grapefrugt
-de:Grapefruit
+de:Grapefruit, Grapefruits
 el:γκρέιπφρουτ
 eo:grapfrukto
 es:pomelo
@@ -36046,7 +36057,7 @@ es:piel de lima Kaffir
 en:lemon
 ca:Llimona
 cs:Citron
-da:Citron
+da:Citron, Citroner
 de:Zitrone, Zitronen
 es:limón,limones
 fi:sitruuna, sitruunaa
@@ -36452,7 +36463,7 @@ ca:mandarina
 co:Mandarina
 cs:mandarinka
 cv:Мандарин
-da:Mandarin
+da:Mandarin, Mandariner
 de:Mandarine, Mandarinen
 el:μανταρίνι
 es:mandarina
@@ -36539,7 +36550,7 @@ ca:taronja
 cs:pomeranč
 cv:Апельсин
 cy:Oren
-da:appelsin
+da:appelsin, appelsiner
 de:Orange, Orangen
 dv:ނާރިނގު
 el:πορτοκάλι
@@ -37909,8 +37920,8 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco,cocos
 cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
+da:kokos, kokosnød, kokosnødder
+de:Kokos, Kokosnuss, Kokosnüsse
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
