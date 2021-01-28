@@ -34071,6 +34071,7 @@ protected_name_file_number:en: PDO-ES-0088
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#made with cow milk or a mix between cow, sheep and goat
 <en:Spanish cheeses
 es:Cabrales
 protected_name_file_number:en: PDO-ES-0081
@@ -34078,18 +34079,21 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Idiazabal
 protected_name_file_number:en: PDO-ES-0082
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Mahón-Menorca
 protected_name_file_number:en: PDO-ES-9083
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso Nata de Cantabria
 protected_name_file_number:en: PDO-ES-0085
 protected_name_type:en: pdo
@@ -34102,17 +34106,20 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Queso de La Serena
 protected_name_file_number:en: PDO-ES-0086
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Queso Zamorano
 protected_name_file_number:en: PDO-ES-0089
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Can be made with cow, sheep or goat milk
 <en:Spanish cheeses
 es:Quesucos de Liébana
 protected_name_file_number:en: PDO-ES-0090
@@ -34120,24 +34127,28 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
-es:Roncal
+<en:Sheep's-milk cheeses
+es:Queso Roncal
 protected_name_file_number:en: PDO-ES-0091
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso Casín
 protected_name_file_number:en: PDO-ES-0718
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Made with a blend of cow, sheep and goat milk
 <en:Spanish cheeses
-es:Queso de Flor de Guía, Queso de Media Flor de Guía, Queso de Guía
+es:Queso flor de Guía, Queso de Flor de Guía, Queso de Media Flor de Guía, Queso de Guía
 protected_name_file_number:en: PDO-ES-0605
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Arzùa-Ulloa
 protected_name_file_number:en: PDO-ES-0497
 protected_name_type:en: pdo
@@ -34156,11 +34167,13 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Afuega'l Pitu
 protected_name_file_number:en: PDO-ES-0307
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Can be made with cow, sheep or goat milk
 <en:Spanish cheeses
 es:Gamoneu, Gamonedo
 protected_name_file_number:en: PDO-ES-0308
@@ -34168,11 +34181,13 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Ibores
 protected_name_file_number:en: PDO-ES-0261
 protected_name_type:en: pdo
 origins:en: en:Spain
 
+#Made with a blend of cow and goat milk
 <en:Spanish cheeses
 es:Queso de Valdeón
 protected_name_file_number:en: PGI-ES-0267
@@ -34180,30 +34195,35 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Sheep's-milk cheeses
 es:Torta del Casar
 protected_name_file_number:en: PDO-ES-0213
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Palmero, Queso de la Palma
 protected_name_file_number:en: PDO-ES-0172
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso de Murcia
 protected_name_file_number:en: PDO-ES-0168
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso de Murcia al vino
 protected_name_file_number:en: PDO-ES-0204
 protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Cow cheeses
 es:Queso de l'Alt Urgell y la Cerdanya
 protected_name_file_number:en: PDO-ES-0094
 protected_name_type:en: pdo
@@ -34222,6 +34242,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish cheeses
+<en:Goat cheeses
 es:Queso Camerano
 protected_name_file_number:en: PDO-ES-0767
 protected_name_type:en: pdo
@@ -34341,6 +34362,7 @@ it:Formaggio grattugiato
 nl:Geraspte kzen
 
 <en:French cheeses
+<en:Cow cheeses
 en:Maroilles
 fr:Maroilles, Marolles
 country:en:France
@@ -34369,6 +34391,11 @@ es:Queso Raclette, Raclette
 de:Raclettekäse, Raclette-Käse
 fr:Raclettes
 wikidata:en:Q20748
+
+<en:Raclette
+<en:Cow cheeses
+en:Cow raclette
+fr:Raclettes au lait de vache
 oqali_family:en: fr:Fromages - Fromage a raclette
 agribalyse_food_code:en:12749
 ciqual_food_code:en:12749
@@ -34381,6 +34408,11 @@ protected_name_file_number:en: PGI-FR-02095-AM02
 protected_name_type:en: pgi
 origins:en: en:France
 
+<en:Raclette
+<en:Goat cheeses
+en:Goat raclette
+fr:Raclettes au lait de chèvre
+
 <en:Cheeses
 en:Argentine cheeses, cheeses from Argentina
 
@@ -34390,6 +34422,7 @@ es:Sardo, Queso sardo, Sardo Argentino
 wikidata:en:Q925398
 
 <en:Argentine cheeses
+<en:Cow cheeses
 en:Chubut Cheese
 es:Queso Chubut, Queso Chubutense
 wikidata:en:Q6094556
@@ -34555,7 +34588,7 @@ ciqual_food_name:fr:Crème chantilly, sous pression, UHT
 <en:Creams
 fr:Crèmes fleurettes, Crème fleurette
 
-#Cream that haven't been pasteurized
+#Cream that haven't been fermented
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
@@ -35695,7 +35728,7 @@ nl:Gehomogeniseerde melken
 <en:Milks
 en:non-homogenized milks, non-homogenized milk
 de:nicht homogenisierte Milch, nicht homogenisierte Milche, nicht homogenisierte Milchen
-fr:Lait non homogénéisé
+fr:Laits non-homogénéisés, Lait non homogénéisé
 nl:Ongehomogeniseerde melken
 
 <en:non-homogenized milks
@@ -35729,15 +35762,15 @@ zh:鲜奶
 <en:Fresh milks
 de:traditionell hergestellte Frischmilch, traditionell hergestellte Frischmilche, traditionell hergestellte Frischmilchen, traditionell hergestellt
 
-<en:Fresh milks
-<en:homogenized milks
-en:Extended shelf life milks, ESL milks
+# Those milks undergo a heat treatment between HTST pasteurization and UHT. They can be referred as "fresh" in Germany, but not in France and Switzerland
+<en:Homogenized milks
+en:ESL milks, Extended shelf life milks 
 de:länger haltbare Frischmilch, länger haltbare Frischmilche, länger haltbare Frischmilchen, länger haltbar, ESL-Milch, ESL-Milche, ESL-Milchen
-fr:Lait longue conservation
+fr:Laits ESL, Lait longue conservation
 it:Latte ad alta conservazione
 nl:Langhoudbare melken
 
-<en:homogenized milks
+<en:Homogenized milks
 en:UHT Milks, Sterilized Milks
 ca:Llet UHT
 cs:Trvanlivá mléka
@@ -50831,8 +50864,8 @@ ciqual_food_code:en:11074
 ciqual_food_name:en:Ginger, raw
 ciqual_food_name:fr:Gingembre, racine crue
 
-<en:Ginger
-<en:Candied fruit
+#Please don't put in ginger
+<en:Confectioneries
 en:Crystallized ginger, Candied ginger, Sugar-coated dried ginger rhizomes
 de:kandierter Ingwer
 es:Jengibre confitado
