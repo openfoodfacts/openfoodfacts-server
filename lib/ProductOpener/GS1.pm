@@ -47,6 +47,8 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		%gs1_maps
+
 		&init_csv_fields
 		&read_gs1_json_file
 		&write_off_csv_file
@@ -112,10 +114,10 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 =cut
 
 
-my %maps = (
+%gs1_maps = (
 
-	# gs1:T4078
-	"allergenTypeCode" => {
+	# gs1:$gs1_maps
+	allergenTypeCode => {
 
 		"AC" => "Crustacés",
 		"AE" => "Oeuf",
@@ -141,13 +143,72 @@ my %maps = (
 	
 	measurementUnitCode => {
 		"GRM" => "g",
+		"MGM" => "mg",
+		"MC" => "mcg",
 		"E14" => "kcal",
 		"KJO" => "kJ",
 	},
 	
+	# reference: GS1 T4073 Nutrient type code
+	# https://gs1.se/en/guides/documentation/test-code-lists/t4073-nutrient-type-code/
 	nutrientTypeCode => {
+		"BIOT" => "biotin",
+		"CA" => "calcium",
+		"CHOAVL" => "carbohydrates",
+		"CLD" => "chloride",
+		"CR" => "chromium",
+		"CU" => "copper",
+		"ENER-" => "energy",
+		"ENERSF" => "calories-from-saturated-fat",
 		"FAT" => "fat",
 		"FASAT" => "saturated-fat",
+		"FAMSCIS" => "monounsaturated-fat",
+		"FAPUCIS" => "polyunsaturated-fat",
+		"FD" => "fluoride",
+		"FE" => "iron",
+		"FIBTG" => "fiber",
+		"FOL" => "folates",
+		"FOLDFE" => "vitamin-b9",
+		# G_ entries: cigarettes?
+		#"G_CMO" => "carbon-monoxide",
+		#"G_HC" => "bicarbonate",
+		#"G_NICT" => "nicotine",
+		#"G_NMES" => "non-milk-extrinsic-sugars",
+		#"G_TAR" => "tar",
+		"GINSENG" => "ginseng",
+		"HMB" => "beta-hydroxy-beta-methylburate",
+		"ID" => "iodine",
+		"IODIZED_SALT" => "iodized_salt",
+		"K" => "potassium",
+		"L_CARNITINE" => "carnitine",
+		"MG" => "magnesium",
+		"MN" => "manganese",
+		"MO" => "molybdenum",
+		"NA" => "sodium",
+		"NACL" => "nacl",
+		"NIA" => "vitamin-pp",
+		"NUCLEOTIDE" => "nucleotide",
+		"P" => "phosphorus",
+		"PANTAC" => "pantothenic-acid",
+		"POLYLS" => "polyols",	
+		"PRO-" => "proteins",
+		"RIBF" => "vitamin-b2",
+		"SALTEQ" => "salt",
+		"SE" => "selenium",
+		"STARCH" => "starch",
+		"SUGAR" => "sugars",
+		"SUGAR-" => "sugars",
+		"THIA-" => "vitamin-b1",
+		"VITA-" => "vitamin-a",
+		"VITB12" => "vitamin-b12",
+		"VITB6-" => "vitamin-b6",
+		"VITC-" => "vitamin-c",
+		"VITD-" => "vitamin-d",
+		"VITE-" => "vitamin-e",
+		"VITK-" => "vitamin-k",
+		"VITK" => "vitamin-k",
+		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
+		"ZN" => "zinc",
 	},
 );
 
@@ -263,9 +324,28 @@ my %gs1_to_off = (
 									},
 								],
 								
+								["food_and_beverage_preparation_servin:foodAndBeveragePreparationServingModule", {
+										fields => [
+											["preparationServing", {
+													fields => [
+														["preparationInstructions", "preparation"],
+													],
+												},
+											],
+										],
+									},
+								],
+																
 							],
 						},
 					],
+				],
+			},
+		],
+		
+		["tradeItemSynchronisationDates", {
+				fields => [
+					["publicationDateTime", "sources_fields:org-gs1:publicationDateTime"],
 				],
 			},
 		],
@@ -397,11 +477,11 @@ sub gs1_to_off ($$$) {
 					
 					if (defined $nutrient_header_ref->{servingSize}{'#'}) {
 						$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
-						$serving_size_unit = $maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
+						$serving_size_unit = $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
 					}
 					elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
 						$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
-						$serving_size_unit = $maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+						$serving_size_unit = $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
 					}
 					else {
 						$log->error("gs1_to_off - unrecognized serving size",
@@ -418,7 +498,7 @@ sub gs1_to_off ($$$) {
 					
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
 						foreach my $nutrient_detail_ref (@{$nutrient_header_ref->{nutrientDetail}}) {
-							my $nid = $maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
+							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 							
 							if (defined $nid) {
 								my $nutrient_field = $nid . $type . "_" . $per;
@@ -428,15 +508,21 @@ sub gs1_to_off ($$$) {
 								
 								if (defined $nutrient_detail_ref->{quantityContained}{'#'}) {
 									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'#'};
-									$nutrient_unit = $maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{'@'}{measurementUnitCode}};
+									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{'@'}{measurementUnitCode}};
 								}
 								elsif (defined $nutrient_detail_ref->{quantityContained}{'$t'}) {
 									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'$t'};
-									$nutrient_unit = $maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{measurementUnitCode}};
+									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{measurementUnitCode}};
 								}
 								else {
 									$log->error("gs1_to_off - unrecognized quantity contained",
 												{ quantityContained => $nutrient_detail_ref->{quantityContained} }) if $log->is_error();
+								}
+								
+								# less than < modifier
+								if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
+									and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
+									$nutrient_value = "< " . $nutrient_value;
 								}
 								
 								assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
@@ -467,8 +553,8 @@ sub gs1_to_off ($$$) {
 					if ($target_field =~ /\%/) {
 						$target_field = $`;
 						my $map = $';
-						if (defined $maps{$map}{$source_value}) {
-							$source_value = $maps{$map}{$source_value};
+						if (defined $gs1_maps{$map}{$source_value}) {
+							$source_value = $gs1_maps{$map}{$source_value};
 						}
 						else {
 							$log->error("gs1_to_off - unknown source value for map",

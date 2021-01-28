@@ -8,11 +8,14 @@ use Test::More;
 use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
+use Log::Any qw($log);
+
 use JSON;
 use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::GS1 qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 my $testdir = "import_gs1";
 
@@ -27,6 +30,17 @@ The directory will be created if it does not already exist.
 
 TXT
 ;
+
+# Check that the GS1 nutrient codes are associated with existing OFF nutrient ids.
+
+foreach my $gs1_nutrient (sort keys %{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}}) {
+		
+	if (not exists $Nutriments{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient}}) {
+		$log->warn("mapping for GS1 nutrient does not exist in OFF", 
+			{ gs1_nutrient => $gs1_nutrient, mapping => $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient} }) if $log->is_warn();
+	}
+}
+
 
 my $resultsdir;
 
