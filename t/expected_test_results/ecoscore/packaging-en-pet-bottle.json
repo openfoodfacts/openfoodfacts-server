@@ -39,40 +39,40 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_food_code" : "2013",
-         "co2_agriculture" : "0.40923055",
+         "agribalyse_proxy_food_code" : "2011",
+         "co2_agriculture" : "0.22282021",
          "co2_consumption" : "0.0047993021",
          "co2_distribution" : "0.028932423",
-         "co2_packaging" : "0.098786634",
-         "co2_processing" : "0.10433272",
-         "co2_total" : "1.0328872",
-         "co2_transportation" : "0.38680556",
-         "code" : "2013",
-         "dqr" : "2.27",
-         "ef_agriculture" : "0.18761485",
+         "co2_packaging" : "0.17256359",
+         "co2_processing" : "0.036217",
+         "co2_total" : "0.80120163",
+         "co2_transportation" : "0.33586911",
+         "code" : "2011",
+         "dqr" : "3.68",
+         "ef_agriculture" : "0.08590882100000001",
          "ef_consumption" : "0.0024293397",
          "ef_distribution" : "0.0088128735",
-         "ef_packaging" : "0.014974093",
-         "ef_processing" : "0.019422825",
-         "ef_total" : 0.26561763,
-         "ef_transportation" : "0.032363646999999995",
+         "ef_packaging" : "0.014792145999999999",
+         "ef_processing" : "0.0056288216",
+         "ef_total" : 0.14687612,
+         "ef_transportation" : "0.029304117999999997",
          "is_beverage" : 1,
-         "name_en" : "Orange juice, home-made",
-         "name_fr" : "Jus d'orange, maison",
-         "score" : 30.6085411096605
+         "name_en" : "Mixed fruits juice, orange based, multivitamin",
+         "name_fr" : "Jus multifruit - base orange, multivitaminé",
+         "score" : 50.8966311728851
       },
-      "grade" : "d",
+      "grade" : "c",
       "missing" : {
          "origins" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 20.6085411096605,
+      "score" : 40.8966311728851,
       "status" : "known"
    },
-   "ecoscore_grade" : "d",
-   "ecoscore_score" : 20.6085411096605,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 40.8966311728851,
    "ecoscore_tags" : [
-      "d"
+      "c"
    ],
    "lc" : "en",
    "misc_tags" : [
