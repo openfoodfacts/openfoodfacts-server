@@ -134,7 +134,12 @@ foreach my $code (@codes) {
 JSON
 ;
 			my $json = $content;
-			my $json_ref =  decode_json($json);
+			my $json_ref;
+			# URL: http://ratings.food.gov.uk/enhanced-search/en-GB/Framptons/%5E/Relevance/0/%5E/%5E/1/1/10/json
+			# malformed UTF-8 character in JSON string, at character offset 3698 (before "\x{e9} Bar","Address...") at ./update_packager_codes_fsa_ratings.pl line 137.
+			# put an eval
+			eval { $json_ref = decode_json($json); };
+			next if not $json_ref;
 
 			#use Data::Dumper;
 			#print Dumper($json_ref) . "\n";

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -28,7 +28,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
@@ -36,7 +35,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Import qw/:all/;
 
 use URI::Escape::XS;
@@ -48,6 +47,7 @@ use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
 
+use Log::Any::Adapter 'TAP', filter => "none";
 
 my $usage = <<TXT
 import_csv.pl imports product data (and optionnaly associated images) into the database of Product Opener.
@@ -74,10 +74,10 @@ TXT
 
 
 my $csv_file;
-# $User_id is a global variable from Display.pm
 my %global_values = ();
 my $skip_products_without_images = 0;
 my $images_dir;
+my $images_download_dir;
 my $comment = '';
 my $source_id;
 my $source_name;
@@ -95,14 +95,18 @@ my $skip_if_not_code;
 my $skip_products_without_info = 0;
 my $skip_existing_values = 0;
 my $only_select_not_existing_images = 0;
-
+my $user_id;
+my $org_id;
+my $owner_id;
 
 GetOptions (
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
-	"user_id=s" => \$User_id,
-	"org_id=s" => \$Org_id,
+	"images_download_dir=s" => \$images_download_dir,
+	"user_id=s" => \$user_id,
+	"org_id=s" => \$org_id,
+	"owner_id=s" => \$owner_id,
 	"comment=s" => \$comment,
 	"source_id=s" => \$source_id,
 	"source_name=s" => \$source_name,
@@ -122,13 +126,13 @@ GetOptions (
 		)
   or die("Error in command line arguments:\n$\nusage");
 
-print STDERR "import.pl
-- user_id: $User_id
-- org_id: $Org_id
+print STDERR "import_csv_file.pl
+- user_id: $user_id
+- org_id: $org_id
+- owner_id: $owner_id
 - csv_file: $csv_file
 - images_dir: $images_dir
 - skip_products_without_images: $skip_products_without_images
-- user_id: $User_id
 - comment: $comment
 - source_id: $source_id
 - source_name: $source_name
@@ -150,7 +154,7 @@ if (not defined $csv_file) {
 	$missing_arg++;
 }
 
-if (not defined $User_id) {
+if (not defined $user_id) {
 	print STDERR "missing --user_id parameter\n";
 	$missing_arg++;
 }
@@ -176,11 +180,13 @@ if (not $no_source) {
 $missing_arg and exit();
 
 my $stats_ref = import_csv_file( {
-	user_id => $User_id,
-	org_id => $Org_id,
+	user_id => $user_id,
+	org_id => $org_id,
+	owner_id => $owner_id,
 	csv_file => $csv_file,
 	global_values => \%global_values,
 	images_dir => $images_dir,
+	images_download_dir => $images_download_dir,
 	comment => $comment,
 	source_id => $source_id,
 	source_name => $source_name,
@@ -200,11 +206,11 @@ my $stats_ref = import_csv_file( {
 
 print STDERR "\n\nstats:\n\n";
 
-foreach my $stat (sort keys %$stats_ref) {
+foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open (my $out, ">", "import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open (my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
 	foreach my $code ( sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";

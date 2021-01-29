@@ -75,6 +75,7 @@ data:
 
     		$mongodb
     		$mongodb_host
+    		$mongodb_timeout_ms
 
     		$memd_servers
 
@@ -90,8 +91,6 @@ data:
 
     		%options
         %server_options
-
-    		%wiki_texts
 
     		@product_fields
     		@product_other_fields
@@ -247,6 +246,7 @@ data:
     @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
     $mongodb = $ProductOpener::Config2::mongodb;
     $mongodb_host = $ProductOpener::Config2::mongodb_host;
+    $mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
     $memd_servers = $ProductOpener::Config2::memd_servers;
 
     # server paths
@@ -297,7 +297,7 @@ data:
 
     my @related_applications = (
     	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
+    	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
     );
 
     my $manifest;
@@ -321,37 +321,6 @@ data:
     <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
     XML
     ;
-
-    %wiki_texts = (
-
-    "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
-    "es/descubrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/decouvrir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
-    "he/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
-    "ar/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
-    "pt/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
-    "jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
-
-    "de/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_German?action=raw",
-    "en/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
-    "es/contribuir" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
-    "fr/contribuer" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
-    "nl/contribute" => "https://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
-
-    "en/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
-    "fr/presse" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
-    "el/press" => "https://en.wiki.openfoodfacts.org/Translations_-_Press_-_Greek?action=raw",
-
-    "en/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-    "fr/code-de-conduite" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-    "ja/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
-    "de/code-of-conduct" => "https://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_German?action=raw",
-
-    "fr/notetondistrib" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
-    "en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
-
-    );
-
 
     # fields for which we will load taxonomies
     @taxonomy_fields = qw(states countries languages labels categories additives additives_classes
@@ -561,6 +530,7 @@ data:
         $geolite2_path
     		$mongodb
         $mongodb_host
+        $mongodb_timeout_ms
         $memd_servers
     		$facebook_app_id
     	  $facebook_app_secret
@@ -585,6 +555,7 @@ data:
 
     $mongodb = "off";
     $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";
+    $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
     $memd_servers = [ "{{ .Release.Name }}-memcached:11211" ];
 

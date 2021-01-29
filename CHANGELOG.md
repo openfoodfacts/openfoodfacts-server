@@ -165,7 +165,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - d115e27 hangy   Mon Aug 15 12:37:52 2016 +0200  Merge branch 'master' into update-package-name
 - 832ef2b hangy   Mon Aug 15 12:35:54 2016 +0200  Merge branch 'issue/107'
 - f57483d hangy   Mon Aug 15 12:27:32 2016 +0200  Redirect /fr:produit/123 to /product/123.
-- e472b38 hangy   Mon Aug 15 11:21:45 2016 +0200  Updated translations from https://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Web_site_interface&oldid=5121
+- e472b38 hangy   Mon Aug 15 11:21:45 2016 +0200  Updated translations from https://wiki.openfoodfacts.org/index.php?title=Translations_-_Web_site_interface&oldid=5121
 - e9b8d77 hangy   Sun Aug 14 23:15:24 2016 +0200  Some minor HTML validation problems.
 - 22b88cf Alex    Sun Aug 14 21:54:15 2016 +0200  added terrasuisse svg logo
 - 797b70e Alex    Sun Aug 14 21:46:12 2016 +0200  added usda logo

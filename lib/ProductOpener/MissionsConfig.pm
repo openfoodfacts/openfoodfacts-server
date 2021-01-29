@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,12 +26,11 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-			%Missions_by_lang
-			%Missions
-					);	# symbols to export on request
+		%Missions_by_lang
+		%Missions
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -49,6 +48,45 @@ en => [
 
 {name=>'First contribution', goal=>'Add one product', thanks=>'Thanks for contributing to Open Food Facts!',
 conditions=>[[1,{}]]},
+
+{name=>'10 products', goal=>'Add 10 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[10,{}]]},
+
+{name=>'25 products', goal=>'Add 25 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[25,{}]]},
+
+{name=>'50 products', goal=>'Add 50 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[50,{}]]},
+
+{name=>'100 products', goal=>'Add 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[100,{}]]},
+
+{name=>'250 products', goal=>'Add 250 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[250,{}]]},
+
+{name=>'500 products', goal=>'Add 500 products', thanks=>'Thanks for contributing to Open Food Facts!',
+conditions=>[[500,{}]]},
+
+{name=>'Informer - 100 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 100 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[100,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 250 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 250 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[250,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 500 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 500 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[500,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 1000 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 1000 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[1000,{informers_tags=>'<userid>'}]]},
+
+{name=>'Informer - 2500 products', goal=>'Add information for 100 products', thanks=>'Thanks for contributing to Open Food Facts!',
+description=>"Add information (name, brand, categories, labels, ingredients, nutrition facts, etc.) for 2500 products. You can add information for the products you added, but also for all other products with some information missing.",
+conditions=>[[2500,{informers_tags=>'<userid>'}]]},
+
 
 ],
 

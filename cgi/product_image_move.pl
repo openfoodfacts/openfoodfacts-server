@@ -106,7 +106,7 @@ if ((not defined $imgids) or ($imgids eq '')) {
 
 my $interface_version = '20150804';
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $path = product_path_from_id($product_id);
 
@@ -137,7 +137,7 @@ my %response = ('status' => 'ok');
 
 if ($move_to ne 'trash') {
 
-	my $move_to_id = product_id_for_user($User_id, $Org_id, $move_to);
+	my $move_to_id = product_id_for_owner($Owner_id, $move_to);
 	my $new_path = product_path_from_id($move_to_id);
 
 	if ($new_path eq 'invalid') {
@@ -154,7 +154,7 @@ if ($move_to ne 'trash') {
 
 	if (not $new_product_ref) {
 		$log->info("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id });
-		$new_product_ref = init_product($User_id, $Org_id, $move_to);
+		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
 
@@ -165,7 +165,8 @@ if ($move_to ne 'trash') {
 			$product_ref = retrieve_product($product_id);
 			my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries allergens states  );
 
-			use Clone 'clone';
+			require Clone;
+			Clone->import( qw( clone ) );
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang','nutriments') {
 				if (defined $product_ref->{$field}) {
@@ -191,7 +192,7 @@ if ($move_to ne 'trash') {
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
-my $error = process_image_move($code, $imgids, $move_to, $User_id, $Org_id);
+my $error = process_image_move($code, $imgids, $move_to, $Owner_id);
 
 my $data;
 
@@ -217,7 +218,7 @@ if ($error) {
 				display_url => "$imgid.$display_size.jpg",
 			};
 
-			if ($admin) {
+			if ($User{moderator}) {
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
 				$image_data_ref->{uploaded} = display_date($product_ref->{images}{$imgid}{uploaded_t}) . ""; # trying to convert the object to a scalar
 			}

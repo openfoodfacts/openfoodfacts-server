@@ -4,212 +4,212 @@
 	
 
 
-<h1>Guide for producers</h1>
+<h1>Opas tuottajille</h1>
 
-<p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
+<p>Tämä opas selittää miksi ja miten tuottajat voivat suoraan integroida kuvia ja tuotetietoja Open Food Facts -tietokantaan.</p>
 
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add your product data to Open Food Facts</a></li>
+<li><a href="#introduction">Johdanto</a></li>
+<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miksi lisätä tuotetietojanne Open Food Factsiin</a></li>
 <ul>
-<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</a></li>
+<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Esimerkkejä tuottajista, jotka lähettävät kuvia ja tuotetietoja Open Food Factsiin</a></li>
 </ul>
-<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add data for your products in Open Food Facts</a></li>
+<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miten lisätä tuotteidenne tietoja Open Food Factsiin</a></li>
 <ul>
 <li><a href="#licence">Lisenssi</a></li>
-<li><a href="#quelles_donnees">What data ?</a></li>
+<li><a href="#quelles_donnees">Mitä tietoja?</a></li>
 <ul>
-<li><a href="#une_base_dans_toutes_les_langues">A database in all languages</a></li>
-<li><a href="#photos_et_donnees">Photos and Data</a></li>
+<li><a href="#une_base_dans_toutes_les_langues">Tietokanta kaikilla kielillä</a></li>
+<li><a href="#photos_et_donnees">Kuvat ja tiedot</a></li>
 </ul>
-<li><a href="#ajout_manuel">Manual addition</a></li>
-<li><a href="#ajout_automatise">Automated addition</a></li>
+<li><a href="#ajout_manuel">Manuaalinen lisäys</a></li>
+<li><a href="#ajout_automatise">Automoitu lisäys</a></li>
 <ul>
-<li><a href="#format_des_images">Picture format</a></li>
+<li><a href="#format_des_images">Kuvamuoto</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">Format of image files</a></li>
-<li><a href="#nom_des_fichiers_images">Name of the image files</a></li>
+<li><a href="#format_des_fichiers_images">Kuvatiedostojen muoto</a></li>
+<li><a href="#nom_des_fichiers_images">Kuvatiedostojen nimi</a></li>
 </ul>
-<li><a href="#format_des_donnees">Data format</a></li>
+<li><a href="#format_des_donnees">Tietomuoto</a></li>
 <ul>
-<li><a href="#champs_obligatoires">Required fields</a></li>
-<li><a href="#champs_optionnels">Optional fields</a></li>
+<li><a href="#champs_obligatoires">Vaaditut kentät</a></li>
+<li><a href="#champs_optionnels">Valinnaiset kentät</a></li>
 </ul>
-<li><a href="#envoi_des_photos_et_des_donnees">Sending photos and data</a></li>
+<li><a href="#envoi_des_photos_et_des_donnees">Kuvien ja tietojen lähetys</a></li>
 </ul>
 </ul>
-<li><a href="#questions_frequentes">Frequently Asked Questions</a></li>
+<li><a href="#questions_frequentes">Usein Kysytyt Kysymykset</a></li>
 <ul>
-<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
-<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
-<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</a></li>
-<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</a></li>
+<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Onko tuotteiden listaus ilmaista?</a></li>
+<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Korvaako tuottajien tiedot osallistujien syöttämät tiedot?</a></li>
+<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Onko mahdollista poistaa tuotteita, joita ei enää myydä?</a></li>
+<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Voiko eläintuotteita, ei-elintarvikkeita, kosmetiikkaa ja muita tuotteita integroida Open Food Factsiin?</a></li>
 </ul>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Johdanto</h2>
 
-<p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
+<p>Open Food Facts -tietokannassa viitattujen tuotteiden kuvat ja tiedot tulevat 2 lähteestä:</p>
 <ul>
-<li>crowdsourcing through mobile apps and the Open Food Facts website: contributors scan barcodes, send product photos, ingredient lists and nutrition charts and then enter the data in a structured way.</li>
-  <li>the addition of data directly from the producers, either manually or automatically.</li>
+<li>joukkoistaminen mobiilisovelluksella ja Open Food Facts -verkkosivustolla: osallistujat lukevat viivakoodeja, lähettävät tuotekuvia, ainesosaluetteloita ja ravintotaulukoita, ja sitten syöttävät tiedot jäsennetyllä tavalla.</li>
+  <li>tietojen lisääminen suoraan tuottajilta, joko manuaalisesti tai automaattisesti.</li>
 </ul>
 
 
-<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add product data to Open Food Facts</h2>
-<p>There are many benefits to importing date directly from manufacturers:</p>
+<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miksi lisätä tuotetietoja Open Food Factsiin</h2>
+<p>Tietojen tuomisella suoraan valmistajilta on monta etua:</p>
 
 <ul>
-<li>The data is complete, up to date, and without risk of error.</li>
-<li>The photos are of better quality than the photos taken by the contributors in very variable conditions.</li>
-<li>The data is then available in more than 100 applications.</li>
-<li>You can easily obtain statistics about your products and export the data of your products supplemented by indicators calculated by Open Food Facts such as the Nutri-Score.</li>
+<li>Tiedot ovat täydellisiä, ajan tasalla, ja ilman virheriskiä.</li>
+<li>Kuvat ovat parempilaatuisia, kuin osallistujien erittäin vaihtelevissa olosuhteissa ottamat kuvat.</li>
+<li>Tiedot ovat siten saatavilla yli 100 sovelluksessa.</li>
+<li>Saatte helposti tilastoja tuotteistanne, ja voitte viedä tuotteidenne tiedot täydennettynä Open Food Factsin laskemilla ilmaisimilla, kuten Nutri-Score.</li>
 </ul>
   
   
-<h3 id="exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</h3>
+<h3 id="exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Esimerkkejä tuottajista, jotka lähettävät kuvia ja tuotetietoja Open Food Factsiin</h3>
 
-<p>A growing number of high level French producers are sending us the data of their products: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
+<p>Kasvava määrä korkean tason ranskalaisia tuottajia lähettävät meille tuotetietojaan: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
 
-<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add the data of your products in Open Food Facts</h2>
+<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miten lisätä tuotteidenne tietoja Open Food Factsiin</h2>
 
 <h3 id="licence">Lisenssi</h3>
   
-<p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
+<p>Kaikki Open Food Factsiin lähetetyt tiedot ovat julkaistu Open Database License (ODbL) -lisenssin alaisuuteen, ja kuvat Creative Commons License CC-BY-SA -lisenssin alaisuuteen. Nämä lisenssit sallivat tietojen vapaan uudelleenkäytön kaikille ja kaikkiin tarkoituksiin. Jos haluatte lisätietoja, katsokaa <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Käytön, osallistumisen ja uudelleenkäytön ehdot.</a></p>
   
-<h3 id="quelles_donnees">What data</h3>
+<h3 id="quelles_donnees">Mitä tietoja</h3>
 
-<p>All the data you have can be integrated into Open Food Facts: ingredients and nutritional information of course, but also labels, materials used for packaging, traceability of ingredients, instructions for preparation and recycling, ecological footprint etc.</p>
-<p>We regularly add new fields to the database based on the information on the packages or provided by the manufacturers.</p>
-We have recently added fields on the carbon footprint, and the packaging of products, which are already highlighted on Open Food Facts and in applications that help to change the behavior in terms of recycling.<p></p>
+<p>Kaikki teillä olevat tiedot voidaan integroida Open Food Factsiin: ainesosat ja ravinnolliset tiedot tietenkin, mutta myös merkit, pakkausmateriaalit, ainesosien jäljitettävyys, ohjeet valmistukselle ja kierrätykselle, ekologinen jalanjälki jne.</p>
+<p>Lisäämme säännöllisesti uusia kenttiä tietokantaan pakkauksista tai valmistajilta saatujen tietojen perusteella.</p>
+Lisäsimme hiljattain kentät tuotteiden hiilijalanjäljelle ja pakkaukselle, jotka jo korostetaan Open Food Factsissa ja sovelluksissa, jotka auttavat muuttamaan kierrätyskäyttäytymistä.<p></p>
 
- <h4 id="une_base_dans_toutes_les_langues">A database in all languages</h4>
+ <h4 id="une_base_dans_toutes_les_langues">Tietokanta kaikilla kielillä</h4>
   
-<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
+<p>Open Food Facts -tietokanta, -verkkosivusto ja -mobiilisovellukset ovat täysin monikielisiä ja saatavilla kaikissa maissa. Jos teillä on kuvia ja tietoja monella kielellä, voimme integroida myös ne Open Food Factsiin.</p>
 
-<h4 id="photos_et_donnees">Photos and Data</h4>
+<h4 id="photos_et_donnees">Kuvat ja tiedot</h4>
 
-<p>One of the fundamental principles of Open Food Facts is that the user or contributor must be able to verify the information from a photo.</p>
-<p>We therefore ask you to send us photos of the product and packaging (possibly as a flat file of the packaging) to support the structured data you send.</p>
+<p>Yksi Open Food Factsin keskeisistä periaatteista on, että käyttäjän tai osallistujan on pitää pystyä varmistamaan tiedot kuvasta.</p>
+<p>Siksi pyydämme teitä toimittamaan kuvia tuotteesta ja pakkauksesta (mahdollisesti littanana tiedostona pakkauksesta) tukemaan jäsennettyjä tietoja jotka lähetätte.</p>
 
-<h3 id="ajout_manuel">Manual addition</h3>
+<h3 id="ajout_manuel">Manuaalinen lisäys</h3>
 
-<p>If you have a small number of products whose formulation does not change often, you can create an account on Open Food Facts and add yourself photos and data of your products.</p>
-<p>Highly recommended method: Add photos and enter information from the <a href="https://world.openfoodfacts.org">Open Food Facts website</a> .</p>
-<p>Alternative method: Use the Android mobile application to scan and then photograph and finally enter a product completely.</p>
-<p>Thank you in advance for telling us if you add your products yourself so that we can identify your account as a producer account, and indicate that the information comes directly from your company.</p>
+<p>Jos teillä on pieni määrä tuotteita joiden koostumus ei muutu usein, voitte luoda tilin Open Food Factsiin, ja lisätä tuotteidenne kuvat ja tiedot itse.</p>
+<p>Suositeltu tapa: Lisätkää kuvat ja syöttäkää tiedot <a href="https://world.openfoodfacts.org">Open Food Facts -verkkosivustolla</a> .</p>
+<p>Vaihtoehtoinen tapa: Käyttäkää Android-mobiilisovellusta lukemiseen, ja sitten kuvatkaa, ja lopuksi syöttäkää tuote kokonaan.</p>
+<p>Kiitos etukäteen meille kertomisesta, jos lisäätte tuotteenne itse, jotta voimme tunnistaa tilinne tuottajatilinä, ja merkitä, että tiedot tulevat suoraan yritykseltänne.</p>
 
-<h3 id="ajout_automatise">Automated addition</h3>
+<h3 id="ajout_automatise">Automoitu lisäys</h3>
 
-To make importing data easier and faster, we have defined a standard format for images and data:
-<h4 id="format_des_images">Picture format</h4>
+Tehdäksemme tietojen tuomisesta helpompaa ja nopeampaa, olemme määritelleet standardimuodon kuville ja tiedoille:
+<h4 id="format_des_images">Kuvamuoto</h4>
 
-<p>At least 3 images are required:</p>
+<p>Vähintään 3 kuvaa vaaditaan:</p>
 <ul>
-<li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
+<li>Tuotteen etuosa valkoisella taustalla (vältä kolme neljäsosaa näkymiä, jotka eivät mahdollista tuotteiden visuaalista tunnistusta ilman viivakoodin lukemista)</li>
 <li>Ainesosat</li>
-<li>Nutritional table</li>
+<li>Ravintosisältö</li>
 </ul>
   
-<p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>Etunäkymä, ainesosat ja ravintotaulukko täytyy toimittaa vähintään tuotteen pääkielellä. On suositeltavaa, että toimitatte kuvat myös muille kielille, jos ne esiintyvät tuotteessa.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>Esimerkiksi, Belgian markkinoille tarkoitetussa tuotteessa voi olla kuvia, jossa tuote on kirjoitettu ranskaksi ja hollanniksi.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Muitakin kuvia voi sisällyttää:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Takaosa ja muita näkymiä tuotteesta (ne mahdollistavat erityisesti merkkien logojen jne. tunnistuksen)</li>
+<li>Litteän näkymän pakkauksesta</li>
 </ul>
   
-<h5 id="format_des_fichiers_images">Format of image files</h5>
+<h5 id="format_des_fichiers_images">Kuvatiedostojen muoto</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>JPEG- tai PNG-muoto</li>
+  <li>Koko vähintään 2000 pikseliä leveä tai korkea</li>
 </ul>
 
-<h5 id="nom_des_fichiers_images">Name of the image files</h5>
+<h5 id="nom_des_fichiers_images">Kuvatiedostojen nimet</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[viivakoodi]_[kuvan tyyppi]_[kielikoodi].[jpg tai png]</pre>
 
-  <p>For example :</p>
+  <p>Esimerkiksi:</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>3660140808750_front_en.jpg etukuvalle tuotteelle, jonka viivakoodi on 3660140808750</p>
 
-  <p>The types of images are:</p>
+  <p>Kuvien tyypit ovat:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
-  <li>any name you see fit (characters from a to e, no spaces) for other views</li>
+  <li>front: etukuva</li>
+  <li>ingredients: ainesosaluettelo</li>
+  <li>nutrition: ravintotaulukko</li>
+  <li>back: takaosa</li>
+  <li>mikä tahansa nimi, jota pidätte sopivana (merkit a-e, ei välilyöntejä) muille näkymille</li>
 </ul>
   
 
-<h4 id="format_des_donnees">Data format</h4>
+<h4 id="format_des_donnees">Tietomuoto</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>Tiedot täytyy toimittaa taulukossa CSV-muodossa, sarkain kenttäerottimena ja UTF-8-merkkikoodauksella.</p>
+<p>Ensimmäinen rivi sisältää kenttien nimet, ja jokainen tuotteista on yhdellä seuraavista riveistä. Kenttien järjestyksellä ei ole väliä, ja kaikkien sarakkeiden ei tarvitse olla täytetty.</p>
+<p>Jotkut kentät ovat pakollisia ja jotkut ovat valinnaisia. Suosittelemme, että täytätte mahdollisimman monta kenttää, jotta tietoja voi käyttää mahdollisimman monessa sovelluksessa. Jos ette ole varmoja, tai jos teillä on tietoja joille ei ole vielä kenttiä Open Food Facts -tietokannassa, voitte ottaa meihin yhteyttä, jotta voimme lisätä kenttiä ja tehdä parhaimman mahdollisen yhteensopivuuden.</p>
 
-  <h5 id="champs_obligatoires">Required fields</h5>
+  <h5 id="champs_obligatoires">Vaaditut kentät</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>code: tuotteen viivakoodi kuten se esiintyy pakkauksessa (EAN-13, EAN-8 tai muu)</li>
+  <li>lang: 2 kirjaiminen koodi tuotteen pääkielelle (eniten näkyvillä pakkauksessa) (esimerkki: fr ranskankielelle)</li>
+  <li>product_name_ [2 kirjaiminen koodi pääkielelle]: tuotteen nimi (kentässä product_name_en nimelle englanniksi)</li>
+  <li>generic_name_ [2 kirjaiminen koodi pääkielelle]: Tuotteen yleisnimi </li>
+  <li>brands: tuotemerkit (useampi mahdollinen arvo tuotemerkeille ja alituotemerkeille, eroteltuina pilkuilla)</li>
+  <li>quantity: määrä, määrittele yksikkö, ja mahdollisesti lisää sulkeet, jos tuote sisältää useita yksikköjä (esimerkki: 120 g (4 x 30 g))</li>
+  <li>categories: tuoteluokka, tuotteen pääkielellä (esimerkki: suklaakakut)</li>
+  <li>countries: maa, jossa tuotetta myydään, tuotteen pääkielellä (useita mahdollisia arvoja, eroteltuina pilkuilla)</li>
+  <li>ingredients_text_ [2 kirjaiminen koodi pääkielelle]: ainesosaluettelo (ingredients_text_fr kenttä luettelolle ranskaksi). Allergeenit voi merkitä ISOILLA KIRJAIMILLA tai alaviivojen välissä </li>
+  <li>allergens: allergeenit, tuotteen pääkielellä, eroteltuna pilkuilla</li>
+  <li>traces: allergeenien jäämät, tuotteen pääkielellä, eroteltuina pilkuilla</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>Pakollisten kenttien joukossa ovat ravinnolliset arvot, jotka näkyvät pakkauksessa, per 100g / 100ml myytävää tuotetta.</p>
+<p>Millään arvoista ei saa olla yksikköä (kJ on yksikkö energialle ja g kaikille muille kentille).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energy_100g: energia, kJ:na</li>
+  <li>fat_100g: rasva</li>
+  <li>saturated-fat_100g: tyydyttynyt rasva</li>
+  <li>carbohydrates_100g: hiilihydraatit</li>
+  <li>sugars_100g: sokerit</li>
+  <li>proteins_100g: proteiinit</li>
+  <li>salt_100g: suola</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
+<p>Suositeltavaa on myös merkitä kuidut ja %-osuus hedelmiä ja kasviksia, jotta ne tiedot voidaan ottaa huomioon Nutri-Scoren laskemisessa:</p>
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
+  <li>fiber_100g: kuidut</li>
   <li>fruits-vegetables-nuts_100g</li>
     <!-- Do not translate nutrient field names -->
   </ul>
   
-  <h5 id="champs_optionnels">Optional fields</h5>
+  <h5 id="champs_optionnels">Valinnaiset kentät</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
-    <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
-    <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores: places of sale (several possible values, to be separated by commas: names of supermarket chains)</li>
-    <li>nutri_score: Nutri-Score rating from A to E, only in case it is indicated on the package</li>
-    <li>serving_size: quantity of a serving, specify the unit</li>
+    <li>labels: merkit, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: AB Bio, MSC, Max Havelaar). Huomio: merkkien täytyy näkyä tuotteen pakkauksessa.</li>
+    <li>origins: ainesosien alkuperät, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: Peru, Périgord)</li>
+    <li>packaging: pakkauksen materiaalit ja muodot, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla) (esimerkki: tölkki, alumiini)</li>
+    <li>manufacturing_places: valmistussijainnit, tuotteen pääkielellä (monta mahdollista arvoa, eroteltuina pilkuilla: kaupunkien nimet, maat)</li>
+    <li>emb_codes: pakkaajankoodit ja Euroopan saniteettileimat (monta mahdollista arvoa, eroteltuina pilkuilla)</li>
+    <li>stores: myyntipaikat (monta mahdollista arvoa, eroteltuina pilkuilla: supermarketketjujen nimet)</li>
+    <li>nutri_score: Nutri-Score-arvostelu A-E, vain jos se on merkitty pakkaukseen</li>
+    <li>serving_size: annoskoko, määritelkää yksikkö</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>Ravinnolliset arvot voidaan myös merkitä valmistetulle tuotteelle (lisätyllä vedellä, maidolla jne.). Siinä tapauksessa lisätkää "_prepared" kentän nimeen. Esimerkiksi energy_prepared_100g.</p>
+<p>On myös mahdollista merkitä arvot muille ravintoaineille:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
@@ -263,7 +263,7 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>serum-proteins_100g</li>
 <li>nucleotides_100g</li>
 
-<li>sodium_100g - in the case the salt_100g is left empty</li>
+<li>sodium_100g - jos salt_100g on jätetty tyhjäksi</li>
 <li>alcohol_100g</li>
 
 <li>vitamin-a_100g</li>
@@ -316,28 +316,28 @@ To make importing data easier and faster, we have defined a standard format for 
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<h4 id="envoi_des_photos_et_des_donnees">Sending photos and data</h4>
-<p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
-<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
+<h4 id="envoi_des_photos_et_des_donnees">Kuvien ja tietojen lähetys</h4>
+<p>Jos tuotteiden määrä on suhteellisen pieni (alle 1000 tuotetta), ja päivitykset ovat harvinaisia (esimerkiksi 6 kuukauden välein), on mahdollista lähettää meille kuvat ja CSV-tiedosto millä keinolla tahansa (esimerkiksi posti CSV-tiedostolle ja WeTransfer, Google Drive, DropBox jne. kuville).</p>
+<p>Suuremmalle määrälle tuotteita tai säännöllisemmille päivityksille voimme luoda SFTP-tilan, jonne voitte lähettää tiedot ja kuvat manuaalisesti tai automaattisesti. Ottakaa meihin yhteyttä, jotta voimme valmistella tämän.</p>
 
-<h2 id="questions_frequentes">Frequently asked Questions</h2>
+<h2 id="questions_frequentes">Usein kysytyt kysymykset</h2>
 
-<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</h3>
-<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
+<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Onko tuotteiden listaus ilmaista?</h3>
+<p>Tietojen tuonti on täysin ilmaista. Emme ota vastaan mitään korvausta tietojen sisällyttämisestä. Olemme hyvin tyytyväisiä, että olette päättäneet osallistua tiedoilla tuotteistanne elintarvikkeiden läpinäkyvyyteen, ja kiitämme teitä siitä.</p>
   
-<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</h3>
-<p>Producer data is automatically controlled by Open Food Facts with consistency checking algorithms, and then by some contributors. We have full confidence in the data you send us, but we know by experience that typos  are possible.</p>
-<p>Once checked, they will replace and / or supplement the data entered by the contributors.</p>
+<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Korvaako tuottajien tiedot osallistujien syöttämät tiedot?</h3>
+<p>Open Food Facts hallitsee tuottajien tietoja automaattisesti johdonmukaisuuden tarkistavilla algoritmeilla ja sen jälkeen joillakin osallistujilla. Meillä on täysi luottamus tietoihin jotka lähetätte meille, mutta tiedämme kokemuksesta, että kirjoitusvirheet  ovat mahdollisia.</p>
+<p>Tarkistuksen jälkeen, ne korvaavat ja / tai täydentävät osallistujien syöttämät tiedot.</p>
 
-<p>In the case of a regular and automated import, the data will replace at every import the updates by contributors, unless a manifest error (which will be reported to you) is reported on a product by a contributor.</p>
+<p>Säännöllisessä ja automoidussa tuonnissa tiedot korvaavat jokaisen tuonnin yhteydessä osallistujien päivitykset, paitsi jos osallistuja raportoi luettelovirheen (joka raportoidaan teille) tuotteessa.</p>
 
-<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</h3>
+<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Onko mahdollista poistaa tuotteita, joita ei enää myydä?</h3>
 
-<p>When a product disappears from the shelves, it is quickly consumed, and we find that it is quickly no longer scanned.</p>
-<p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
-<p>If you have historical data on your old products or old versions of your products, we would also be very interested in this historical data, in order to be able to go back in time, to allow scientific analyzes on long time, and to make it possible to visualize the evolution some products.</p>
-<p>Producers can also send us the lists of barcodes removed from the sale so that we can label the products appropriately.</p>
+<p>Kun tuote katoaa hyllyiltä, se kulutetaan nopeasti, ja näemme ettei sitä enää lueta.</p>
+<p>Sitten arkistoimme tuotteen, jotta se säilyy saatavilla arkistona tieteellisiin tarkoituksiin mahdollisesti vuosikymmeniä kestävien ruokakohorttien yhteydessä. Tuotteen koostumuksen selvittäminen tiettynä päivänä on tosiaan välttämätöntä, vaikka se olisi muuttunut tai kadonnut.</p>
+<p>Jos teillä on historiallisia tietoja vanhoista tuotteistanne tai vanhoista versioista tuotteistanne, olisimme erittäin kiinnostuneita myös näistä historiallisista tiedoista, voidaksemme palata ajassa taaksepäin, mahdollistaaksemme tieteellisiä analyysejä pitkältä ajalta, ja joidenkin tuotteiden evoluution visualisoimiseksi.</p>
+<p>Tuottajat voivat myös lähettää meille listan myynnistä poistetuista viivakoodeista, jotta voimme merkitä tuotteet asianmukaisesti.</p>
   
-<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</h3>
-<p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
+<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Voiko eläintuotteita, ei-elintarvikkeita, kosmetiikkaa ja muita tuotteita integroida Open Food Factsiin?</h3>
+<p>Olemme luoneet tietyt hankkeet kosmetiikalle, eläinten ruoalle, sekä muille tuotteille (Open Beauty Facts, Open Pet Food Facts ja Open Products Facts vastaavasti). Tuomme siis ilomielin tuotteenne hankkeeseen joka sopii niille.</p>
 </div>

@@ -36,9 +36,14 @@ use Storable qw/dclone/;
 
 ProductOpener::Display::init();
 
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
+
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
-<script src="/js/dist/papaparse.min.js"></script>
+<script src="/js/dist/papaparse.js"></script>
 SCRIPTS
 ;
 
@@ -60,9 +65,15 @@ my $js = <<JS
 			skipEmptyLines: true,
 			withCredentials: false,
 			step: function(results, parser) {
-				dataSource = dataSource.concat(results.data);
-				console.log("Row data:", results.data);
-				console.log("Row errors:", results.errors);
+				if (results.errors.length === 0) {
+					dataSource = dataSource.concat(results.data);
+				}
+				else {
+					for (var i = 0; i < results.errors.length; ++i) {
+						var error = results.errors[0];
+						console.warn('%s error %s while parsing CSV row %d: %s', error.type, error.code, error.row, error.message);
+					}
+				}
 			},
 			complete: function () {
 				\$('#top_translators').DataTable({
@@ -86,41 +97,10 @@ JS
 ;
 $initjs .= $js;
 
-my $html = '<p>' . lang('translators_lead') . '</p>';
+my $html;
 
-my $translators_column_name = lang('translators_column_name');
-my $translators_column_translated_words = lang('translators_column_translated_words');
-my $translators_column_target_words = lang('translators_column_target_words');
-my $translators_column_approved_words = lang('translators_column_approved_words');
-my $translators_column_votes_made = lang('translators_column_votes_made');
-
-$html .= <<HTML
-<table id="top_translators" class="display" cellspacing="0" width="100%">
-	<thead>
-		<tr>
-			<th>$translators_column_name</th>
-			<th>$translators_column_translated_words</th>
-			<th>$translators_column_target_words</th>
-			<th>$translators_column_approved_words</th>
-			<th>$translators_column_votes_made</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<th>$translators_column_name</th>
-			<th>$translators_column_translated_words</th>
-			<th>$translators_column_target_words</th>
-			<th>$translators_column_approved_words</th>
-			<th>$translators_column_votes_made</th>
-		</tr>
-	</tfoot>
-	<tbody>
-	</tbody>
-</table>
-HTML
-;
-
-$html .= '<p style="font-size: smaller;">' . lang('translators_renewal_notice') . '</p>';
+$tt->process('top_translators.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
 	title=>lang('translators_title'),

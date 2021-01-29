@@ -5,24 +5,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-09-11 09:41\n"
+"PO-Revision-Date: 2020-09-10 13:08\n"
 "Language-Team: Hebrew\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
+"X-Crowdin-File-ID: 1384\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=he"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
@@ -58,12 +59,12 @@ msgid "OpenFoodFacts"
 msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
-msgstr "עמוד מוצר זה לוקה בחסר. ניתן לסייע להשלים אותו על ידי עריכה או הוספת נתונים נוספים מהתמונות שכבר יש לנו או על ידי צילום תמונות נוספות באמצעות יישומון ה־<a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> או ה־<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. תודה רבה!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "עמוד מוצר זה לוקה בחסר. ניתן לסייע להשלים אותו על ידי עריכה או הוספת נתונים נוספים מהתמונות שכבר יש לנו או על ידי צילום תמונות נוספות באמצעות יישומון ה־<a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> או ה־<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. תודה רבה!"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Products Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">תרומה ל־Open Products Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"תרומה ל־Open Products Facts\" /></a><p><<site_name>> נוסד על ידי ארגון ללא מטרות רווח, ללא תלות בתעשייה. הוא נוצר לטובת כולם, על ידי כולם ובמימון כולם. ניתן לתמוך בעבודה שלנו על ידי <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">תרומה ל־Open Products Facts</a> וגם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">שימוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
@@ -114,8 +115,8 @@ msgid "A collaborative, free and open database of products from around the world
 msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרים מכל רחבי העולם."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -144,10 +145,10 @@ msgstr "חיפוש מוצרים ב־Open Products Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
 msgstr ""
 

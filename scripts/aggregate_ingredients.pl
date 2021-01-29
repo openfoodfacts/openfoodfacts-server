@@ -45,7 +45,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 
 
@@ -108,7 +108,7 @@ while (<STDIN>) {
 	}
 	if (not defined $ingredient_ids{$ingredient_id}{texts}{$ingredient_text}) {
 		$ingredient_ids{$ingredient_id}{texts}{$ingredient_text} = 0;
-	}	
+	}
 	$ingredient_ids{$ingredient_id}{n}++;
 	$ingredient_ids{$ingredient_id}{texts}{$ingredient_text}++;
 	
@@ -156,7 +156,7 @@ foreach my $ingredient_id (sort {$ingredient_ids{$b}{n} <=> $ingredient_ids{$a}{
 				}
 			}
 		}
-		print "\n";	
+		print "\n";
 	}
 	
 }

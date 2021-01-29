@@ -45,7 +45,6 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -75,6 +74,8 @@ use JSON::PP;
 # or die("Error in command line arguments:\n$\nusage");
  
 my $query_ref = {};
+
+my $products_collection = get_products_collection();
 
 my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });
 

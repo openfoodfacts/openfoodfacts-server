@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
@@ -51,8 +51,10 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use XML::Rules;
+use HTML::Entities qw/decode_entities/;
 
 $lc = "fr";
+$country = "en:france";
 
 my %fleurymichon_nutrients = (
 
@@ -184,8 +186,8 @@ if (not $dir =~ /skip/) {
 				defined $fleury_michon_images_ref->{$code} or $fleury_michon_images_ref->{$code} = [];
 				push @{$fleury_michon_images_ref->{$code}}, $file;
 
-				if ($file =~ /A1C1/) {
-					$front_fr{$code} = $file;	# The files are sorted, so we will get the greatest version number
+				if ( $file =~ /A1C1/ ) {
+					$front_fr{$code} = $file;    # The files are sorted, so we will get the greatest version number
 				}
 			}
 		}
@@ -261,8 +263,8 @@ print STDERR "importing products\n";
 
 			if ($code eq '') {
 				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($fleurymichon_product_ref);
+				require Data::Dumper;
+				print STDERR Data::Dumper::Dumper($fleurymichon_product_ref);
 				exit;
 			}
 
@@ -276,7 +278,7 @@ print STDERR "importing products\n";
 				if (1 and (not $product_ref)) {
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
-					$product_ref = init_product($User_id, undef, $code);
+					$product_ref = init_product($User_id, undef, $code, $country);
 					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/09/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
@@ -335,7 +337,8 @@ print STDERR "importing products\n";
 
 						# upload a photo
 						my $imgid;
-						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid);
+						my $debug;
+						my $return_code = process_image_upload($code, "$dir/$file", $User_id, undef, $comment, \$imgid, \$debug);
 						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
 
 
@@ -353,7 +356,7 @@ print STDERR "importing products\n";
 								or ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid) ) {
 								print STDERR "assigning image $imgid ($fleury_michon_image_file) to front-fr\n";
 
-								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
+								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 
 								$crop++;
 							}
@@ -589,8 +592,8 @@ BOO_JOE_ROB => "Joël Robuchon"
 					$debug and print STDERR "ingredients 2 : $params{$ingredients_fields{$field}} \n";
 
 
-					use HTML::Entities qw(decode_entities);
-					$params{$ingredients_fields{$field}} = decode_entities($params{$ingredients_fields{$field}});
+					$params{ $ingredients_fields{$field} } = decode_entities(
+						$params{ $ingredients_fields{$field} } );
 
 					$debug and print STDERR "ingredients 3 : $params{$ingredients_fields{$field}} \n";
 

@@ -44,6 +44,10 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
+my $template_data_ref = {
+	lang => \&lang,
+};
+
 my $code = normalize_code(param('code'));
 my $id = param('id');
 
@@ -53,7 +57,7 @@ if (not defined $code) {
 	display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $product_ref = retrieve_product($product_id);
 
@@ -149,17 +153,19 @@ if ($product_name eq '') {
 my $url = product_url($product_ref);
 my $creativecommons = sprintf(lang('image_attribution_creativecommons'), "<a href=\"$url\" rel=\"about\">$product_name</a>", '<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" rel="license">Creative Commons Attribution-Share Alike 3.0 Unported</a>');
 
-my $html .= <<"HTML"
-<figure itemscope itemtype="https://schema.org/ImageObject">
-	<img src="$display_image_url" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy">
-	<figcaption>
-		<p><a href="$full_image_url" itemprop="contentUrl">$full_size</a></p>
-		<p>$creativecommons$original_link</p>
-		<p>$attribution</p>
-	</figcaption>
-</figure>
-HTML
-;
+$template_data_ref->{display_image_url} = $display_image_url;
+$template_data_ref->{display_size_width} = $product_ref->{images}{$id}{sizes}{$display_size}{w};
+$template_data_ref->{display_size_height} = $product_ref->{images}{$id}{sizes}{$display_size}{h};
+$template_data_ref->{alt} = $alt;
+$template_data_ref->{full_image_url} = $full_image_url;
+$template_data_ref->{full_size} = $full_size;
+$template_data_ref->{creativecommons} = $creativecommons;
+$template_data_ref->{original_link} = $original_link;
+$template_data_ref->{attribution} = $attribution;
+
+my $html;
+$tt->process('product_image.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
 	title=>$alt,

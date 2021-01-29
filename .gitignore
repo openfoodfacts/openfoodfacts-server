@@ -17,6 +17,7 @@ Thumbs.db
 Store.debug.txt
 *.log
 logs/modperl_error_log
+nytprof*.out
 
 # Local databases
 data/mongodb
@@ -32,8 +33,15 @@ local
 # Front build
 html/css/dist
 html/js/dist
-html/fonts/icons
-scss/_icons.scss
+html/images/icons/dist
+html/images/attributes/*.svg
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
+docker/logs
+
+# Exclude 3rd party deps, because SonarCloud ignores files in a .gitignore
+html/js/datatables.*
+html/js/jquery*
+html/js/*nivo-zoom*
+html/js/sigma*

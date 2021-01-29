@@ -38,13 +38,15 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
-
+use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -59,25 +61,36 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = normalize_code(param('code'));
+my $code = param('code');
 my $product_id;
 
 $log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
 
-if ($code !~ /^\d+$/) {
+# Allow apps to create products without barcodes
+# Assign a code and return it in the response.
+if ($code eq "new") {
 
-	$log->info("invalid code", { code => $code }) if $log->is_info();
+	($code, $product_id) = assign_new_code();
+	$response{code} = $code . "";	# Make sure the code is returned as a string
+}
+
+my $original_code = $code;
+
+$code = normalize_code($code);
+
+if ($code !~ /^\d{4,24}$/) {
+
+	$log->info("invalid code", { code => $code, original_code => $original_code }) if $log->is_info();
 	$response{status} = 0;
 	$response{status_verbose} = 'no code or invalid code';
-
 }
 else {
 
-	my $product_id = product_id_for_user($User_id, $Org_id, $code);
+	my $product_id = product_id_for_owner($Owner_id, $code);
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code);
+		$product_ref = init_product($User_id, $Org_id, $code, $country);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 
@@ -95,24 +108,104 @@ else {
 		$response{status} = 0;
 		$response{status_verbose} = 'Edit against edit rules';
 
-
 		my $data =  encode_json(\%response);
 
-		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 		exit(0);
-
 	}
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
 
+	# Store parameters for debug purposes
+	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
+	open (my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	print $out encode_json( Vars() );
+	close $out;
+
+	# Fix too low salt values
+	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
+	if ((defined $User_id) and ($User_id eq 'kiliweb') and (defined param("nutriment_salt"))) {
+
+		my $salt = param("nutriment_salt");
+
+		if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{salt_100g})) {
+
+			my $existing_salt = $product_ref->{nutriments}{salt_100g};
+
+			$log->debug("yuka - kiliweb : changing salt value of existing product", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < $existing_salt / 100) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : changing salt value - multiplying too low salt value by 1000", { salt => $salt, existing_salt => $existing_salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+		}
+		else {
+			$log->debug("yuka - kiliweb : adding salt value", { salt => $salt }) if $log->is_debug();
+
+			# Salt value may have been divided by 1000 by the calling app
+			if ($salt < 0.001) {
+				# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
+				$salt = $salt . '';
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$salt = $salt * 1000;
+				# The divided by 1000 value may have been of the form 9.99999925e-06: try again
+				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
+					$salt = $`. '.' . $1;
+				}
+				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
+					$salt = $`. '.' . $1 . ($2 + 1);
+				}
+				$log->debug("yuka - kiliweb : adding salt value - multiplying too low salt value by 1000", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => $salt);
+			}
+			elsif ($salt < 0.1) {
+				$log->debug("yuka - kiliweb : adding salt value - removing potentially too low salt value", { salt => $salt }) if $log->is_debug();
+				param(-name => "nutriment_salt", -value => "");
+			}
+		}
+	}
+
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param('new_code'))) {
 
 		change_product_server_or_code($product_ref, param('new_code'), \@errors);
 		$code = $product_ref->{code};
+		
+		if ($#errors >= 0) {
+			$response{status} = 0;
+			$response{status_verbose} = 'new code is invalid';
+
+			my $data =  encode_json(\%response);
+
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
+
+			exit(0);			
+		}
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
@@ -164,6 +257,17 @@ else {
 				us => "en",
 				ie => "en",
 				nz => "en",
+				il => "he",
+				mx => "es",
+				tr => "tr",
+				ru => "ru",
+				th => "th",
+				dk => "da",
+				at => "de",
+				se => "sv",
+				bg => "bg",
+				pl => "pl",
+			
 		);
 
 		if (defined $lc_overrides{$param_cc}) {
@@ -171,7 +275,7 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 
 
@@ -182,7 +286,7 @@ else {
 			and (($field eq 'brands') or ($field eq 'countries'))) {
 
 			param(-name => "add_" . $field, -value => param($field));
-			print STDERR "product_jqm_multilingual.pm - yuka / kiliweb - force $field -> add_$field - code: $code\n";
+			$log->debug("yuka - kiliweb : force add_field", { field => $field, code => $code }) if $log->is_debug();
 
 		}
 
@@ -193,27 +297,41 @@ else {
 
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 
-			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";
-
-			compute_field_tags($product_ref, $lc, $field);
-
+			$log->debug("add_field", { field => $field, code => $code, additional_fields => $additional_fields, existing_value => $product_ref->{$field} }) if $log->is_debug();
 		}
 
 		elsif (defined param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field\n";
+				$log->debug("producer data already exists for field, skip empty value", { field => $field, code => $code, existing_value => $product_ref->{$field} }) if $log->is_debug();
+
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-
-				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-					my $field_lc = $field . "_" . $product_ref->{lc};
-					$product_ref->{$field_lc} = $product_ref->{$field};
+				if ($field eq "lang") {
+					my $value = remove_tags_and_quote(decode utf8=>param($field));
+					
+					# strip variants fr-BE fr_BE
+					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+					$value = lc($value);
+					
+					# skip unrecognized languages (keep the existing lang & lc value)
+					if (defined $lang_lc{$value}) {
+						$product_ref->{lang} = $value;
+						$product_ref->{lc} = $value;
+					}				
+					
 				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 
-				compute_field_tags($product_ref, $lc, $field);
+					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
+						my $field_lc = $field . "_" . $product_ref->{lc};
+						$product_ref->{$field_lc} = $product_ref->{$field};
+					}
+
+					compute_field_tags($product_ref, $lc, $field);
+				}
 			}
 		}
 
@@ -225,7 +343,7 @@ else {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
-						print STDERR "product_jqm_multilingual.pm - code: $code - producer data already exists for field $field_lc\n";
+						$log->debug("producer data already exists for field, skip empty value", { field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc} }) if $log->is_debug();
 					}
 					else {
 
@@ -241,7 +359,7 @@ else {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		ProductOpener::Food::special_process_product($product_ref);
 	}
 
@@ -250,20 +368,6 @@ else {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		# strip variants fr-BE fr_BE
-		$product_ref->{lang} =~ s/^([a-z][a-z])(-|_).*/$1/ig;
-		$product_ref->{lang} = lc($product_ref->{lang});
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -363,7 +467,23 @@ else {
 
 			my $modifier = undef;
 
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy_value"};
+				delete $product_ref->{nutriments}{"energy_modifier"};
+				delete $product_ref->{nutriments}{"energy_100g"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 			# New label?
 			my $new_nid = undef;
@@ -432,8 +552,20 @@ else {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];	
+	
+	analyze_and_combine_packaging_data($product_ref);
+	
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 
 	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());
@@ -459,7 +591,7 @@ else {
 
 my $data =  encode_json(\%response);
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 
 
 exit(0);

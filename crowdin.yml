@@ -1,6 +1,7 @@
 files:
   - source: /po/common/common.pot
     translation: /po/common/%two_letters_code%.po
+    ignore: /po/common/nl.po
     languages_mapping:
       two_letters_code:
         pt-BR: pt_BR
@@ -19,6 +20,7 @@ files:
         kmr: kmr
   - source: /po/openbeautyfacts/openbeautyfacts.pot
     translation: /po/openbeautyfacts/%two_letters_code%.po
+    ignore: /po/openbeautyfacts/nl.po
     languages_mapping:
       two_letters_code:
         en-GB: en_GB
@@ -37,6 +39,7 @@ files:
         kmr: kmr
   - source: /po/openfoodfacts/openfoodfacts.pot
     translation: /po/openfoodfacts/%two_letters_code%.po
+    ignore: /po/openfoodfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -55,6 +58,7 @@ files:
         kmr: kmr
   - source: /po/openproductsfacts/openproductsfacts.pot
     translation: /po/openproductsfacts/%two_letters_code%.po
+    ignore: /po/openproductsfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -73,6 +77,7 @@ files:
         kmr: kmr
   - source: /po/openpetfoodfacts/openpetfoodfacts.pot
     translation: /po/openpetfoodfacts/%two_letters_code%.po
+    ignore: /po/openpetfoodfacts/nl.po
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -82,6 +87,7 @@ files:
         en-US: en_US
         pt-BR: pt_BR
         pt-PT: pt_PT
+        nl-BE: nl_BE
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
@@ -98,14 +104,15 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/contact.en.html
-    translation: /lang/%two_letters_code%/texts/contact.en.html
+  - source: /lang/en/texts/contact.html
+    translation: /lang/%two_letters_code%/texts/contact.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -114,7 +121,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -130,14 +138,15 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/data.en.html
-    translation: /lang/%two_letters_code%/texts/data.en.html
+  - source: /lang/en/texts/data.html
+    translation: /lang/%two_letters_code%/texts/data.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -146,7 +155,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -162,7 +172,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -178,7 +189,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -194,14 +206,15 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/index.en.html
-    translation: /lang/%two_letters_code%/texts/index.en.html
+  - source: /lang/en/texts/index.html
+    translation: /lang/%two_letters_code%/texts/index.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -210,23 +223,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/en/texts/index.foundation.en.html
-    translation: /lang/%two_letters_code%/texts/index.foundation.en.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -242,7 +240,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -258,13 +257,14 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/nutrition-score-uk.html
+  - source: /lang/en/texts/nutrition-traffic-lights.html
     translation: /lang/%two_letters_code%/texts/nutrition-score-uk.html
     languages_mapping:
       two_letters_code:
@@ -274,7 +274,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -290,23 +291,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/en/texts/press-and-blogs.html
-    translation: /lang/%two_letters_code%/texts/press-and-blogs.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -322,7 +308,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -338,7 +325,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -354,7 +342,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -370,23 +359,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/en/texts/rateyourvendingmachine.html
-    translation: /lang/%two_letters_code%/texts/rateyourvendingmachine.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -402,7 +376,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -418,7 +393,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -434,23 +410,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/obf/en/texts/press-and-blogs.html
-    translation: /lang/obf/%two_letters_code%/texts/press-and-blogs.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -466,7 +427,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -482,7 +444,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -498,7 +461,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -514,7 +478,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -530,14 +495,15 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/nova-groups-for-food-processing.html
-    translation: /lang/%two_letters_code%/texts/nova-groups-for-food-processing.html
+  - source: /lang/en/texts/nova.html
+    translation: /lang/%two_letters_code%/texts/nova.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -546,7 +512,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -562,7 +529,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -578,7 +546,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -594,7 +563,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -610,7 +580,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -626,7 +597,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -642,7 +614,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -658,7 +631,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -674,7 +648,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -690,7 +665,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -706,7 +682,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -722,7 +699,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -738,7 +716,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -754,7 +733,8 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
@@ -770,7 +750,333 @@ files:
         en-GB: en_GB
         pt-BR: pt_BR
         pt-PT: pt_PT
-        nl: nl_NL
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-android.html
+    translation: /lang/%two_letters_code%/texts/dev-android.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-artificial-intelligence.html
+    translation: /lang/%two_letters_code%/texts/dev-artificial-intelligence.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-general.html
+    translation: /lang/%two_letters_code%/texts/dev-general.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-ios.html
+    translation: /lang/%two_letters_code%/texts/dev-ios.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/dev-server.html
+    translation: /lang/%two_letters_code%/texts/dev-server.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/development.html
+    translation: /lang/%two_letters_code%/texts/development.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/sendinblue.html
+    translation: /lang/%two_letters_code%/texts/sendinblue.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/presskit_other_languages.html
+    translation: /lang/%two_letters_code%/texts/presskit_other_languages.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/press-kit.html
+    translation: /lang/%two_letters_code%/texts/presskit.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/keyfacts.html
+    translation: /lang/%two_letters_code%/texts/keyfacts.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/contacts.html
+    translation: /lang/%two_letters_code%/texts/contacts.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/numbers-selected.html
+    translation: /lang/%two_letters_code%/texts/numbers-selected.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /html/donate/en.html
+    translation: /html/donate/%two_letters_code%.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/index-pro.html
+    translation: /lang/%two_letters_code%/texts/index-pro.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/en/texts/help-complete-products.html
+    translation: /lang/%two_letters_code%/texts/help-complete-products.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+
+  - source: /lang/en/texts/contribute-to-open-food-facts-by-playing.html
+    translation: /lang/%two_letters_code%/texts/contribute-to-open-food-facts-by-playing.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+        
+  - source: /lang/en/texts/how-to-complete-products-on-android.html
+    translation: /lang/%two_letters_code%/texts/how-to-complete-products-on-android.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/opf/en/texts/index.html
+    translation: /lang/opf/%two_letters_code%/texts/index.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/opff/en/texts/index.html
+    translation: /lang/opff/%two_letters_code%/texts/index.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS

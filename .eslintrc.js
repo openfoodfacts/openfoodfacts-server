@@ -7,7 +7,11 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2018,
+        "sourceType": "script",
+    },
+    "globals": {
+        "Foundation": "readonly"
     },
     "rules": {
         "accessor-pairs": "error",
@@ -172,7 +176,7 @@ module.exports = {
         "no-throw-literal": "error",
         "no-trailing-spaces": "off",
         "no-undef-init": "error",
-        "no-undefined": "error",
+        "no-undefined": "warn",
         "no-underscore-dangle": "error",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",

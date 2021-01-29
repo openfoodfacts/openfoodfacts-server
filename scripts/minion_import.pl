@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -37,7 +37,6 @@ use ProductOpener::Producers qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -48,10 +47,10 @@ use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
 
-
 use Mojolicious::Lite;
-
 use Minion;
+
+use Log::Any::Adapter 'TAP', filter => "none";
 
 # Minion backend
 

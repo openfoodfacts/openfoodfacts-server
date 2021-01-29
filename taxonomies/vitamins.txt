@@ -14,13 +14,13 @@
 
 en:Vitamin A
 bg:Витамин А
-de:Vitamin A,
-he:ויטמין A, רטינול
+de:Vitamin A
 el:Βιταμίνη A
 es:Vitamina A
 et:A-vitamiin
 fi:A-vitamiini
 fr:Vitamine A
+he:ויטמין A, רטינול
 hu:A-vitamin
 it:Vitamina A
 ja:ビタミン A
@@ -44,6 +44,7 @@ es:retinol
 et:retinool
 fi:retinoli
 fr:rétinol
+hu:retinol
 it:retinolo
 lt:retinolis
 lv:retinols
@@ -74,12 +75,12 @@ sv:retinylacetat
 wikidata:en:Q7316808
 
 <en:Vitamin A
-en:retinyl palmitate
+en:retinyl palmitate, Vitamin A palmitate,palmitate
 bg:Ретинил палмитат
 cs:retinyl-palmitát
 de:Retinylpalmitat
 el:παλμιτική ρετινόλη
-es:palmitato de retinilo
+es:palmitato de retinilo,palmitato
 et:retinüülpalmitaat
 fi:retinyylipalmitaatti
 fr:palmitate de rétinol
@@ -124,16 +125,16 @@ wikidata:en:Q306135
 en:Vitamin D
 bg:Витамин D
 de:Vitamin D
-he:ויטמין D
-ja:ビタミン D
-ga:Vitimín D
 el:Βιταμίνη D
 es:Vitamina D
 et:D-vitamiin
 fi:D-vitamiini
 fr:Vitamine D
+ga:Vitimín D
+he:ויטמין D
 hu:D-vitamin
 it:Vitamina D
+ja:ビタミン D
 lt:Vitaminas D
 lv:D vitamīns
 mt:Vitamina D
@@ -142,6 +143,7 @@ pl:Witamina D
 pt:Vitamina D
 ro:Vitamina D
 sk:Vitamín D
+sv:D-vitamin
 wikidata:en:Q175621
 
 <en:Vitamin D
@@ -151,13 +153,14 @@ cs:ergokalciferol
 el:εργοκαλσιφερόλη
 es:ergocalciferol
 et:ergokaltsiferool
-fi:ergokalsiferoli
+fi:ergokalsiferoli, D2-vitamiini
 fr:ergocalciférol, Vitamine D2
-hu:ergokalciferol
+hu:ergokalciferol, D2-vitamin
 it:ergocalciferolo
 lt:ergokalciferolis
 lv:ergokalciferols
 mt:ergokalċiferol
+nb:ergokalsiferol, Vitamin D2
 pl:ergokalcyferol
 sk:ergokalciferol
 sl:ergokalciferol
@@ -175,11 +178,12 @@ es:colecalciferol
 et:kolekaltsiferool
 fi:kolekalsiferoli
 fr:cholécalciférol, Vitamine D3
-hu:kolekalciferol
+hu:kolekalciferol, D3-vitamin
 it:colecalciferolo
 lt:cholekalciferolis
 lv:holekalciferols
 mt:kolekalċiferol
+nb:kolekalsiferol
 pl:cholekalcyferol
 pt:colecalciferol
 ro:colecalciferol
@@ -197,7 +201,7 @@ es:Vitamina E
 et:E-vitamiin
 fi:E-vitamiini
 fr:Vitamine E, tocophérol
-hu:E-vitamin
+hu:E-vitamin, tokoferol
 it:Vitamina E
 ja:ビタミン E
 lt:Vitaminas E
@@ -259,7 +263,7 @@ sv:DL-alfa-tokoferol
 wikidata:en:Q155753
 
 <en:Vitamin E
-en:D-alpha tocopheryl acetate
+en:D-alpha tocopheryl acetate, alpha tocopheryl acetate, alpha tocopherol acetate
 bg:D-алфатокоферил ацетат
 cs:D- α-tokoferyl-acetát
 de:D-alpha-Tocopherylacetat
@@ -280,17 +284,18 @@ ro:acetat de tocoferil D-alfa
 sk:D-alfa-tokoferylacetát
 sl:D-alfa-tokoferil acetat
 sv:D-alfa-tokoferylacetat
+wikidata:en:Q364160
 
 <en:Vitamin E
-en:DL-alpha tocopheryl acetate
+en:DL-alpha tocopheryl acetate, dl-alpha tocopherol acetate
 bg:DL-алфатокоферил ацетат
 cs:DL-α-tokoferyl-acetát
 de:DL-alpha-Tocopherylacetat
 el:οξική DL-α-τοκοφερόλη
-es:acetato de DL-alfa tocoferilo
+es:acetato de DL-alfa tocoferilo, acetato de DL-alfa tocoferol
 et:DL-alfa-tokoferüülatsetaat
 fi:DL-alfa-tokoferyyliasetaatti
-fr:acétate de DL-alpha-tocophérol
+fr:acétate de DL-alpha-tocophérol, acétate de DL-alpha-tocophéryle
 hu:DL-alfa-tokoferil-acetát
 it:acetato di DL-alfa-tocoferile
 lt:DL-alfa-tokoferilacetatas
@@ -303,6 +308,7 @@ ro:acetat de tocoferil DL-alfa
 sk:DL-alfa-tokoferylacetát
 sl:DL-alfa-tokoferil acetat
 sv:DL-alfa-tokoferylacetat
+wikidata:en:Q27292783
 
 <en:Vitamin E
 en:D-alpha-tocopheryl acid succinate
@@ -417,28 +423,28 @@ sv:Menakinon
 
 <en:Vitamin K
 en:Vitamin K3
-fr:Vitamine K3, ménadione
-es:Vitamina K3
-ja:ビタミン K3
-it:Vitamina K3
-pt:Vitamina K3
+bg:Витамин K3
 de:Vitamin K3
-he:ויטמין K3, מנדיון
-ga:Vitimín K3
 el:Βιταμίνη K3
+es:Vitamina K3
+et:Vitamiin K3
 fi:K3-vitamiini
+fr:Vitamine K3, ménadione
+ga:Vitimín K3
+he:ויטמין K3, מנדיון
+hu:K3-vitamin
+it:Vitamina K3
+ja:ビタミン K3
+lt:Vitaminas K3
+lv:K3 vitamīns
+mt:Vitamina K3
 nl:Vitamine K3
 nl_be:Vitamine K3
-lv:K3 vitamīns
-et:Vitamiin K3
-hu:K3-vitamin
 pl:Witamina K3
-lt:Vitaminas K3
-mt:Vitamina K3
-sK3:Vitamín K3
+pt:Vitamina K3
 ro:Vitamina K3
-bg:Витамин K3
 zh:维生素K3
+sK3:Vitamín K3
 
 en:Vitamin C
 bg:Витамин C
@@ -562,7 +568,7 @@ es:almitato de L-ascorbilo
 et:L-askorbüül-6-palmitaat
 fi:L-askorbyyli-6-palmitaatti
 fr:L-ascorbyle 6-palmitate, palmitate d'ascorbyle
-hu:L-aszkorbil-6-palmitát
+hu:L-aszkorbil-6-palmitát, aszkorbil-palmitát
 it:almitato di L-ascorbile
 lt:L-askorbil- 6-palmitatas
 lv:L-askorbil-6-palmitāts
@@ -580,10 +586,11 @@ bg:Тиамин
 el:Θειαμίνη
 es:Tiamina, Vitamina B1
 et:Tiamiin
-fi:Tiamiini
+fi:Tiamiini, Tiamiinia
 fr:Thiamine, Vitamine B1
-hu:Tiamin
+hu:Tiamin, B1-vitamin
 it:Tiamina
+ja:チアミン, ビタミンB1, ビタミン B1, V.B1
 lt:Tiaminas
 lv:Tiamīns
 mt:Tiamina
@@ -647,16 +654,15 @@ es:Riboflavina, Vitamina B2
 et:Riboflaviin
 fi:Riboflaviini
 fr:Riboflavine, Vitamine B2
+hu:Riboflavin, B2-vitamin
 it:Riboflavina
+ja:リボフラビン, ビタミンB2, V.B2
 lt:Riboflavinas
 lv:Riboflavīns
 nl:Riboflavine
 pl:Ryboflawina
 pt:Riboflavina
 ro:Riboflavină
-
-<en:Riboflavin
-en:riboflavin 5'-phosphate sodium
 
 en:Niacin, Vitamin B3, Vitamin PP
 bg:Ниацин
@@ -665,15 +671,19 @@ es:Niacina, Vitamina B3
 et:Niatsiin
 fi:Niasiini
 fr:Niacine, Vitamine B3, Vitamine PP
+hu:Niacin, B3-vitamin, PP-vitamin
 it:Niacina
+ja:ナイアシン
 lt:Niacinas
 lv:Niacīns
 mt:Niaċina
+nb:Niacin
 nl:Niacine
 pl:Niacyna
 pt:Niacina
 ro:Niacină
 sk:Niacín
+sv:Niacin
 
 <en:Niacin
 en:nicotinic acid
@@ -726,7 +736,7 @@ es:Vitamina B6
 et:B6-vitamiin
 fi:B6-vitamiini
 fr:Vitamine B6, Pyridoxine
-hu:B6-vitamin
+hu:B6-vitamin, piridoxin
 it:Vitamina B6, piridoxina
 lt:Vitaminas B6
 lv:B6 vitamīns
@@ -763,6 +773,7 @@ sv:pyridoxinhydroklorid
 
 <en:Vitamin B6
 en:pyridoxine 5'-phosphate
+hu:pirodoxál-5-foszfát
 
 <en:Vitamin B6
 en:pyridoxine dipalmitate
@@ -820,6 +831,7 @@ fi:foolihappo, pteroyylimonoglutamiinihappo
 fr:acide folique, acide ptéroylmonoglutamique,Vitamine B9
 hu:folsav, pteroil-monoglutaminsav, B9-vitamin
 it:acido folico, acido pteroil-monoglutammico, Vitamina B9
+ja:葉酸
 lt:folio rūgštis, pteroilmonoglutamo rūgštis
 lv:Folijskābe, pteroilmonoglutamīnskābe
 mt:aċidu foliku, aċidu pterojlmonoglutamiku
@@ -862,7 +874,7 @@ es:Vitamina B12
 et:B12-vitamiin
 fi:B12-vitamiini
 fr:Vitamine B12, Cobalamine
-hu:B12-vitamin
+hu:B12-vitamin, kobalamin
 it:Vitamina B12, Cobalamina
 ja:ビタミン B12
 lt:Vitaminas B12
@@ -881,7 +893,7 @@ cs:kyanokobalamin
 el:κυανοκοβαλαμίνη
 es:cianocobalamina
 et:tsüanokobalamiin
-fi:syaanikobalamiini
+fi:syanokobalamiini
 fr:cyanocobalamine
 hu:cianokobalamin
 it:cianocobalamina
@@ -921,10 +933,11 @@ sv:hydroxykobalamin
 en:Biotin
 bg:Биотин
 el:Βιοτίνη
-es:Biotina, Vitamina B7
+es:Biotina, Vitamina B7,vitamina B8
 et:Biotiin
 fi:Biotiini
 fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
+hu:Biotin, B7-vitamin, H-vitamin
 it:Biotina
 lt:Biotinas
 lv:Biotīns
@@ -937,17 +950,19 @@ sk:Biotín
 
 <en:Biotin
 en:D-Biotin
+hu:D-biotin
 
 en:Pantothenic Acid, Vitamin B5
 bg:Пантотенова киселина
 cs:Kyselina pantothenová
+da:Pantotensyre, Pantothensyre
 de:Pantothensäure
 el:Παντοθενικό οξύ
 es:Ácido pantoténico
 et:Pantoteenhape
 fi:Pantoteenihappo
 fr:Acide pantothénique, Vitamine B5
-hu:Panoténsav
+hu:Panoténsav, B5-vitamin
 it:Acido pantotenico
 lt:Pantoteno rūgštis
 lv:Pantotēn-skābe
@@ -969,7 +984,7 @@ el:D-παντοθενικό ασβέστιο
 es:D-pantotenato cálcico
 et:kaltsium-D-pantotenaat
 fi:D-pantotenaatti kalsium
-fr:D-pantothénate de calcium
+fr:D-pantothénate de calcium,D- calcium pantothénate
 hu:kalcium-D-pantotenát
 it:D-pantotenato calcio
 lt:kalcio D-pantotenatas
@@ -1025,3 +1040,4 @@ ro:dexpantenol
 sk:dexpantenol
 sl:dekspantenol
 sv:dexpantenol
+

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,8 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
@@ -41,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -54,6 +54,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -69,8 +70,6 @@ BEGIN
 
 		%options
 		%server_options
-
-		%wiki_texts
 
 		@product_fields
 		@product_other_fields
@@ -185,6 +184,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -211,7 +211,7 @@ $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openproductsfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
+$producers_email = 'producers@openfoodfacts.org';
 
 $thumb_size = 100;
 $crop_size = 400;
@@ -223,44 +223,17 @@ $page_size = 20;
 
 
 $google_analytics = <<HTML
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-12"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-31851927-5', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-31851927-12');
 </script>
 HTML
 ;
-
-
-
-%wiki_texts = (
-
-"en/whatsinmyshampoo" => "http://en.wiki.openproductsfacts.org/Translations/whatsinmyshampoo.com/English?action=raw",
-
-"en/index.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Index_page/English?action=raw",
-"fr/index.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Index_page/French?action=raw",
-
-"en/contribute.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Contribute_page/English?action=raw",
-"fr/contribute.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Contribute_page/French?action=raw",
-
-"en/discover.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Discover_page/English?action=raw",
-"fr/discover.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Discover_page/French?action=raw",
-
-"en/press" => "http://en.wiki.openproductsfacts.org/Translations_-_Press_-_English?action=raw",
-"fr/presse" => "http://en.wiki.openproductsfacts.org/Translations_-_Press_-_French?action=raw",
-
-"en/code-of-conduct" => "http://en.wiki.openproductsfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openproductsfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
-
-"en/data" => "http://en.wiki.openproductsfacts.org/Translations/Data/English?action=raw",
-"fr/data" => "http://en.wiki.openproductsfacts.org/Translations/Data/French?action=raw",
-
-);
 
 #@product_image_fields = qw(front ingredients);
 

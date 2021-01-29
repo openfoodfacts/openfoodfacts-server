@@ -20,16 +20,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 my $tagtype = $ARGV[0];
 my $publish = $ARGV[1];
+
+(defined $tagtype) or die '$tagtype not defined, exited';
+(defined $publish) or die '$publish not defined, exited';
 
 print "building taxonomy for $tagtype - publish: $publish\n";
 
@@ -40,17 +42,37 @@ binmode STDOUT, ":encoding(UTF-8)";
 
 my $file = $tagtype . ".txt";
 
+# The nutrients_taxonomy.txt source file is created from values in the .po files
+if ($tagtype eq "nutrient_levels") {
+	create_nutrients_level_taxonomy();
+}
+
+my @files = ();
+
+# For the origins taxonomy, include the countries taxonomy
+
+if ($tagtype eq "origins") {
+
+	@files = ("countries", "origins");
+}
+
 # For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
 
-# For automated tests, the domain is off.travis-ci.org
+elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
 
-if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis/)) {
+	@files = ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients");
+}
+	
 
-	$file = "ingredients.all.txt";
+# Concatenate taxonomy files if needed
+
+if ((scalar @files) > 0) {
+
+	$file = "$tagtype.all.txt";
 
 	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file") or die("Cannot write $data_root/taxonomies/$file : $!\n");
 
-	foreach my $taxonomy ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients") {
+	foreach my $taxonomy (@files) {
 
 		if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")) {
 
@@ -64,7 +86,7 @@ if (($tagtype eq "ingredients") and ($server_domain =~ /openfoodfacts|off.travis
 			close($IN);
 		}
 		else {
-			print STDERR "Missing $data_root/taxonomies/$tagtype.txt\n";
+			print STDERR "Missing $data_root/taxonomies/$taxonomy.txt\n";
 		}
 	}
 

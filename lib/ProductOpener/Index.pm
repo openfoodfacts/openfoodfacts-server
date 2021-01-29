@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,21 +26,19 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					&normalize
-					&decode_html
-					&decode_html_utf8
-					&decode_html_entities
+		&normalize
+		&decode_html
+		&decode_html_utf8
+		&decode_html_entities
 
+		&normalize
 
-					&normalize
+		$memd
+		%texts
 
-					$memd
-					%texts
-
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -57,8 +55,6 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-#use Text::Unaccent::PurePerl "unac_string";
-use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
 use Log::Any qw($log);
@@ -75,10 +71,11 @@ use HTML::Entities qw(decode_entities);
 
 # Initialize exported variables
 
-$memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
-	'utf8' => 1,
-};
+$memd = Cache::Memcached::Fast->new(
+	{   'servers' => ["127.0.0.1:11211"],
+		'utf8'    => 1,
+	}
+);
 
 %texts = ();
 
@@ -87,7 +84,7 @@ opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
-	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+	#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
 	if (-e "$data_root/lang/$langid/texts") {
@@ -103,7 +100,7 @@ foreach my $langid (readdir(DH2)) {
 				$texts{$textid}{$langid} = $file;
 			}
 
-			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+			#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 		}
 		closedir(DH);
 	}

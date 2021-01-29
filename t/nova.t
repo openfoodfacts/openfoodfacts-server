@@ -20,6 +20,10 @@ my @tests = (
 [ { lc => "fr", categories_tags => ["en:salts"], ingredients_text_fr => "sel marin" }, 2 ],
 [ { lc => "fr", ingredients_text_fr => "lait, sucre en poudre" }, 3 ],
 [ { lc => "fr", ingredients_text_fr => "lait, édulcorant : aspartame"}, 4 ],
+[ { lc => "fr", ingredients_text_fr => "sauce"}, 3 ],
+
+[ { lc => "en", ingredients_text_en => "tomatoes", categories_tags => ["en:sandwiches"]}, 3],
+[ { lc => "en", ingredients_text_en => "sugar", categories_tags => ["en:sugars"]}, 2],
 
 );
 

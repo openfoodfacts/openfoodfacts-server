@@ -5,14 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-06-30 14:29\n"
+"PO-Revision-Date: 2020-09-10 16:03\n"
 "Language-Team: Danish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: da\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
+"X-Crowdin-File-ID: 1386\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -37,7 +38,7 @@ msgstr "Open Pet Food Facts indsamler oplysninger og data om dyrefoderprodukter 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=da"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
@@ -73,8 +74,8 @@ msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/da-dk/p/openfoodfacts/9nblggh0dkqr"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -82,12 +83,12 @@ msgid "OpenFoodFacts"
 msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
-msgstr "Denne produktside er ikke komplet. Du kan hjælpe med at færdiggøre den ved at redigere den og tilføje flere data fra de fotos, der er, eller ved at tage flere fotos vha. app'en til <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> ellerr <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Tak!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Denne produktside er ikke komplet. Du kan hjælpe med at færdiggøre den ved at redigere den og tilføje flere data fra de fotos, der er, eller ved at tage flere fotos vha. app'en til <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> ellerr <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Tak!"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er oprettet af en non-profit, industriuafhængig sammenslutning. Den er lavet til alle, af alle, og den finansieres af alle. Du kan støtte vores arbejde ved at <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donere til Open Beauty Facts</a> samt ved <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">benytte Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
+msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> er oprettet af en non-profit forening, uafhængig af branchen. Den er lavet til alle, af alle, og den finansieres af alle. Du kan støtte vores arbejde ved at <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donere til Open Beauty Facts</a> og også ved at <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">benytte Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
@@ -130,8 +131,8 @@ msgid "A collaborative, free and open database of pet food products from around 
 msgstr "En kollaborativ, gratis og åben database med kæledyrsfødevareprodukter fra hele verden."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
@@ -152,6 +153,6 @@ msgstr "Open Pet Food Facts-produktsøgning"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
-msgstr "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
 

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -88,6 +88,8 @@ sub find_products($$) {
 		}
 	}
 	closedir $dh or print "could not close $dir dir: $!\n";
+
+	return;
 }
 
 
@@ -111,7 +113,9 @@ my %codes = ();
 
 		#next if ($code ne "4072700318675");
 
-		my $path = product_path($code);
+		my $product_id = product_id_for_owner(undef, $code);
+
+		my $path = product_path_from_id($product_id);
 
 
 		#my $product_ref = retrieve_product($code);

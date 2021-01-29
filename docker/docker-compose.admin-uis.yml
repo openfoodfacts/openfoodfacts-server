@@ -12,15 +12,15 @@ services:
       - MONGOKU_DEFAULT_HOST=mongodb://mongodb:27017
       - MONGOKU_SERVER_PORT=8080
   phpmemcachedadmin:
-    image: hitwe/phpmemcachedadmin:v0.1.6
+    image: moonbuggy2000/phpmemcachedadmin:1.3.0
     depends_on:
       - memcached
     ports:
-      - 8081:80
+      - 8081:8080
     networks:
       - webnet
   adminer:
-    image: adminer:4.7.3-standalone
+    image: adminer:4.7.6-standalone
     depends_on:
       - postgres
     ports:

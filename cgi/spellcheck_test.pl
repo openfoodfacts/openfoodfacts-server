@@ -41,13 +41,17 @@ use Encode;
 
 ProductOpener::Display::init();
 
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA
-my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64})/i;
+# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA, ARABIC COMMA
+my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64}|\N{U+060C})/i;
 # '.' and synonyms - FULL STOP, SMALL FULL STOP, FULLWIDTH FULL STOP, IDEOGRAPHIC FULL STOP, HALFWIDTH IDEOGRAPHIC FULL STOP
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
@@ -68,16 +72,14 @@ not defined $tagtype and $tagtype eq 'ingredients';
 
 my $text = remove_tags_and_quote(decode utf8=>param('text'));
 
-my $html = '<p>The spellcheck results are based on matches in a given taxonomy.</p>
-<p>For words with at least 5 characters, we consider an edit distance of 1 (insert, replace or delete).</p>
-';
+my $html;
 
+$template_data_ref->{action_process} = $action;
+$template_data_ref->{tagtype} = $tagtype;
+$template_data_ref->{lc} = $lc;
 
 if ($action eq 'process') {
 
-
-	$html .= "<p>Spellcheck result for taxonomy <b>$tagtype</b> and language <b>$lc</b>:</p>";
-	$html .= "<table><tr><th>Input</th><th>Correction</th><th>$lc tag</th><th>Canonical tag</th></tr>";
 	foreach my $token2 (split(/$separators/, $text)) {
 	
 		my $token = $token2;
@@ -89,7 +91,7 @@ if ($action eq 'process') {
 		
 		$token =~ s/\s+$//;
 		$token =~ s/^\s+//;
-	
+
 		next if get_fileid($token) eq '';
 		
 		my ($canon_tagid, $tagid, $tag) = spellcheck_taxonomy_tag($lc, $tagtype, $token);
@@ -98,48 +100,28 @@ if ($action eq 'process') {
 			$tag = "";
 		}
 		
-		$html .= "<tr><td>$token</td><td>$tag</td><td>$tagid</td><td>$canon_tagid</td></tr>\n";
-		
+		push @{$template_data_ref->{tokens}}, {
+			token => $token,
+			tag => $tag,
+			tagid => $tagid,
+			canon_tagid => $canon_tagid,
+		};
+
 	}
-	
-	$html .= "</table>";	
-	
+
 	$action = 'display';
 }
 
-
-if ($action eq 'display') {
-	
-	$html .= start_form(-method => "GET");
-	
-	
-
-	$html .= <<HTML
-Taxonomy: <input type="text" name="tagtype" id="tagtype" value="$tagtype" /><br /><br />
-Text (language code: $lc): <br/>
-
-<textarea id="text" name="text" style="height:8rem;">$text</textarea>
-HTML
-;
-
-	$html .= ''
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'action', -value=>'process', -override=>1);
-	
-	$html .= submit()
-	. end_form();
-
-}
-elsif ($action eq 'process') {
-
-
-}
-
+$template_data_ref->{action_display} = $action;
+$template_data_ref->{text} = $text;
 
 my $full_width = 1;
 if ($action ne 'display') {
 	$full_width = 0;
 }
+
+$tt->process('spellcheck_test.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
 	title=>"Spellcheck Test",

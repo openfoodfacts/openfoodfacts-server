@@ -6,20 +6,22 @@
   "private": true,
   "scripts": {
     "build": "gulp",
-    "test": "yarn run test:lang && yarn run prove && yarn run lint && yarn run perlc",
-    "test:lang": "yarn run test:lang:common && yarn run test:lang:en",
+    "build:watch": "gulp watch",
+    "test": "npm run test:lang && npm run prove && npm run lint && npm run perlc",
+    "test:lang": "npm run test:lang:common && npm run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
-    "prove": "prove -l",
-    "lint": "yarn run lint:js && yarn run lint:css && yarn run lint:scss",
-    "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
-    "lint:css": "stylelint html/css/product-multilingual.css",
-    "lint:scss": "stylelint scss/app.scss",
-    "perlc": "yarn run perlc:startup && yarn run perlc:cgi && yarn run perlc:scripts",
+    "prove": "prove -l --jobs 2",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
+    "lint:js": "eslint gulpfile.js html/js/*.js scripts/*.js",
+    "lint:css": "stylelint html/css/*.css",
+    "lint:scss": "stylelint scss/*.scss",
+    "perlc": "npm run perlc:startup && npm run perlc:cgi && npm run perlc:scripts",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:cgi": "node compile_cgi.js cgi/*.pl",
-    "perlc:scripts": "node compile_cgi.js scripts/*.pl",
-    "postinstall": "opencollective-postinstall"
+    "perlc:cgi": "node scripts/check_perl.js cgi/*.pl",
+    "perlc:scripts": "node scripts/check_perl.js scripts/*.pl",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -37,34 +39,40 @@
     "win32"
   ],
   "dependencies": {
-    "blueimp-file-upload": "^10.2.0",
-    "foundation-sites": "zurb/bower-foundation#^5.5.3",
-    "jqueryui": "components/jqueryui#^1.12.1",
-    "leaflet": "Leaflet/Leaflet#>=1.5.1",
-    "leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
-    "opencollective": "^1.0.3",
-    "opencollective-postinstall": "^2.0.1",
-    "osmtogeojson": "tyrasd/osmtogeojson#^2.2.12",
-    "papaparse": "mholt/papaparse#^5.0.2",
-    "yarn": "^1.17.3"
+    "@webcomponents/webcomponentsjs": "2.5.0",
+    "@yaireo/tagify": "^3.21.0",
+    "blueimp-file-upload": "^10.31.0",
+    "cropperjs": "^1.5.9",
+    "foundation-sites": "5.5.3",
+    "highcharts": "^8.2.2",
+    "jquery-cropper": "^1.0.1",
+    "jquery-form": "^4.3.0",
+    "jquery-ui": "^1.12.1",
+    "jvectormap-content": "^0.1.0",
+    "jvectormap-next": "^3.1.1",
+    "leaflet": "^1.7.1",
+    "leaflet.markercluster": "1.4.1",
+    "osmtogeojson": "^3.0.0-beta.4",
+    "papaparse": "^5.3.0",
+    "snyk": "^1.440.1"
   },
   "devDependencies": {
-    "eslint": "^6.2.0",
+    "eslint": "^7.18.0",
     "gulp": "^4.0.2",
-    "gulp-csso": "^3.0.1",
-    "gulp-iconfont": "^10.0.3",
-    "gulp-iconfont-css": "^3.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "stylelint": "^10.1.0",
-    "stylelint-config-recommended-scss": "^3.3.0",
-    "stylelint-scss": "^3.9.2"
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svgmin": "^3.0.0",
+    "gulp-terser-js": "^5.2.2",
+    "stylelint": "^13.9.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.18.0"
   },
-  "engines": {
-    "yarn": ">= 1.0.0"
-  },
-  "collective": {
+  "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/openfoodfacts-server"
-  }
+  },
+  "snyk": true
 }

@@ -1,0 +1,178 @@
+This file describes the fields from the CSV export of the products in the Open Food Facts database.
+
+See https://world.openfoodfacts.org/data for more information.
+
+The file encoding is Unicode UTF-8. The character that separates fields is <tab> (tabulation).
+
+Generalities:
+
+- fields that end with _t are dates in the UNIX timestamp format (number of seconds since Jan 1st 1970)
+- fields that end with _datetime are dates in the iso8601 format: yyyy-mm-ddThh:mn:ssZ
+- fields that end with _tags are comma separated list of tags (e.g. categories_tags is the set of normalized tags computer from the categories field)
+- fields that end with a language 2 letter code (e.g. fr for French) is the set of tags in that language
+- fields that end with _100g correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
+- fields that end with _serving correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
+
+List of fields:
+
+# general information:
+
+code : barcode of the product (can be EAN-13 or internal codes for some food stores), for products without a barcode, Open Food Facts assigns a number starting with the 200 reserved prefix
+url : url of the product page on Open Food Facts
+creator : contributor who first added the product
+created_t : date that the product was added (UNIX timestamp format)
+created_datetime : date that the product was added (iso8601 format: yyyy-mm-ddThh:mn:ssZ)
+last_modified_t : date that the product page was last modified
+last_modified_datetime
+product_name : name of the product
+generic_name
+quantity : quantity and unit
+
+# tags:
+
+packaging : shape, material
+packaging_tags
+brands
+brands_tags
+categories
+categories_tags
+categories_fr
+origins : origins of ingredients
+origins_tags
+manufacturing_places : places where manufactured or transformed
+manufacturing_places_tags
+labels
+labels_tags
+labels_fr
+emb_codes
+emb_codes_tags
+first_packaging_code_geo : coordinates corresponding to the first packaging code indicated
+cities
+cities_tags
+purchase_places
+stores
+countries : list of countries where the product is sold
+countries_tags
+countries_fr
+
+# ingredients:
+
+ingredients_text
+traces
+traces_tags
+
+# misc. data:
+
+serving_size : serving size in g
+no_nutriments : indicates if the nutrition facts are indicated on the food label
+additives_n : number of food additives
+additives
+additives_tags
+ingredients_from_palm_oil_n
+ingredients_from_palm_oil
+ingredients_from_palm_oil_tags
+ingredients_that_may_be_from_palm_oil_n
+ingredients_that_may_be_from_palm_oil
+ingredients_that_may_be_from_palm_oil_tags
+nutrition_grade_fr : nutrition grade ('a' to 'e'). see https://fr.openfoodfacts.org/nutriscore
+main_category
+main_category_fr
+image_url
+image_small_url
+
+# nutrition facts:
+
+energy_100g
+energy-kj_100g
+energy-kcal_100g
+proteins_100g
+casein_100g
+serum-proteins_100g
+nucleotides_100g
+carbohydrates_100g
+sugars_100g
+sucrose_100g
+glucose_100g
+fructose_100g
+lactose_100g
+maltose_100g
+maltodextrins_100g
+starch_100g
+polyols_100g
+fat_100g
+saturated-fat_100g
+butyric-acid_100g
+caproic-acid_100g
+caprylic-acid_100g
+capric-acid_100g
+lauric-acid_100g
+myristic-acid_100g
+palmitic-acid_100g
+stearic-acid_100g
+arachidic-acid_100g
+behenic-acid_100g
+lignoceric-acid_100g
+cerotic-acid_100g
+montanic-acid_100g
+melissic-acid_100g
+monounsaturated-fat_100g
+polyunsaturated-fat_100g
+omega-3-fat_100g
+alpha-linolenic-acid_100g
+eicosapentaenoic-acid_100g
+docosahexaenoic-acid_100g
+omega-6-fat_100g
+linoleic-acid_100g
+arachidonic-acid_100g
+gamma-linolenic-acid_100g
+dihomo-gamma-linolenic-acid_100g
+omega-9-fat_100g
+oleic-acid_100g
+elaidic-acid_100g
+gondoic-acid_100g
+mead-acid_100g
+erucic-acid_100g
+nervonic-acid_100g
+trans-fat_100g
+cholesterol_100g
+fiber_100g
+sodium_100g
+alcohol_100g : % vol of alcohol
+vitamin-a_100g
+vitamin-d_100g
+vitamin-e_100g
+vitamin-k_100g
+vitamin-c_100g
+vitamin-b1_100g
+vitamin-b2_100g
+vitamin-pp_100g
+vitamin-b6_100g
+vitamin-b9_100g
+vitamin-b12_100g
+biotin_100g: also known as Vitamine B8
+pantothenic-acid_100g: also known as Vitamine B5
+silica_100g
+bicarbonate_100g
+potassium_100g
+chloride_100g
+calcium_100g
+phosphorus_100g
+iron_100g
+magnesium_100g
+zinc_100g
+copper_100g
+manganese_100g
+fluoride_100g
+selenium_100g
+chromium_100g
+molybdenum_100g
+iodine_100g
+caffeine_100g
+taurine_100g
+ph_100g : pH (no unit)
+fruits-vegetables-nuts_100g : % of fruits, vegetables and nuts (excluding potatoes, yams, manioc)
+
+carbon-footprint_100g : carbon footprint (as indicated on the packaging of some products)
+
+nutrition-score-fr_100g : Nutri-Score - Nutrition score derived from the UK FSA score and adapted for the French market (formula defined by the team of Professor Hercberg)
+nutrition-score-uk_100g : nutrition score defined by the UK Food Standards Administration (FSA)

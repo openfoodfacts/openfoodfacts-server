@@ -56,16 +56,17 @@ ProductOpener::Display::init();
 my $title = '';
 my $html = '';
 
-if (not defined $owner) {
+if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $import_files_ref = retrieve("$data_root/import_files/$owner/import_files.sto");
+my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
 if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
 
-my $file_id = get_string_id_for_lang("no_language", param('file_id'));
+my $param_file_id = param('file_id');
+my $file_id = get_string_id_for_lang("no_language", $param_file_id);
 
 local $log->context->{file_id} = $file_id;
 
@@ -74,7 +75,7 @@ my $extension;
 
 if (defined $import_files_ref->{$file_id}) {
 	$extension = $import_files_ref->{$file_id}{extension};
-	$file = "$data_root/import_files/$owner/$file_id.$extension";
+	$file = "$data_root/import_files/${Owner_id}/$file_id.$extension";
 }
 else {
 	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
@@ -103,10 +104,11 @@ if ($action eq "display") {
 
 	# Create an options array for select2
 
+	$log->debug("before generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
+
 	my $select2_options_ref = generate_import_export_columns_groups_for_select2([ $lc ]);
 
-	# Number of pre-selected columns
-	my $selected = 0;
+	$log->debug("after generate_import_export_columns_groups_for_select2", { lc=>$lc }) if $log->is_debug();
 
 	# Upload a file
 
@@ -115,7 +117,7 @@ if ($action eq "display") {
 
 	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0) . "</p>";
 
-	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns">' . $selected . '</span>', @$headers_ref + 0);
+	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 
 	$html .= start_multipart_form(-id=>"select_format_form", -action=>"/cgi/import_file_process.pl") ;
 
@@ -135,6 +137,7 @@ HTML
 	foreach my $column (@$headers_ref) {
 
 		my $examples = "";
+		my $instructions = "";
 
 		foreach my $example (@{$columns_fields_ref->{$column}{examples}}) {
 			$examples .= $example . "\n";
@@ -146,9 +149,21 @@ HTML
 		if ($examples ne "") {
 			$examples = "<p>" . lang("examples") . "</p>\n<pre>$examples</pre>\n";
 		}
+		else {
+			$examples = "<p>" . lang("empty_column") . "</p>\n";
+			$instructions = lang("empty_column_description");
+		}
+
+		# Only numbers? Display min and max-height
+		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
+			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
+		}
+		
+		my $column_without_tags = $column;
+		$column_without_tags =~ s/<(([^>]|\n)*)>//g;
 
 		$html .= <<HTML
-<tr id="column_$col" class="column_row"><td>$column</td>
+<tr id="column_$col" class="column_row"><td>$column_without_tags</td>
 <td>
 <select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
 <option></option>
@@ -162,6 +177,7 @@ HTML
 $examples
 </td>
 <td colspan="2" id="column_instructions_$col">
+$instructions
 </td>
 </tr>
 HTML
@@ -208,6 +224,7 @@ CSS
 	my $select2_options_json = to_json($select2_options_ref);
 
 	$initjs .= <<JS
+var selected_columns = 0;
 
 var columns = $columns_json;
 
@@ -219,7 +236,6 @@ var select2_options = $select2_options_json ;
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -229,6 +245,7 @@ function show_column_info(col) {
 \$('.column_row').click( function() {
 	var col = this.id.replace(/column_/, '');
 	show_column_info(col);
+	\$(document).foundation('equalizer', 'reflow');
 }
 );
 
@@ -248,14 +265,17 @@ function init_select_field_option(col) {
 JS
 ;
 
-	foreach my $tagtype ("categories", "labels") {
+	foreach my $tagtype ("sources_fields", "categories", "labels") {
 
 		my $tagtype_specific = $tagtype . "_specific";
 		my $placeholder = $Lang{$tagtype . "_s"}{$lc};
+		my $specific_tag = $Lang{$tagtype . "_specific_tag"}{$lc};
+		my $specific_tag_value = $Lang{$tagtype . "_specific_tag_value"}{$lc};
+
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
-			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px">';
+			var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="$placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
 			\$("#select_field_option_" + col).html(input);
 
@@ -271,8 +291,8 @@ JS
 				columns_fields[column]["tag"] = \$(this).val();
 			});
 
-			instructions += "<p>$Lang{specific_tag_label}{$lc}</p>"
-			+ "<p>$Lang{specific_tag_label_value}{$lc}</p>";
+			instructions += "<p>$specific_tag</p>"
+			+ "<p>$specific_tag_value</p>";
 		}
 JS
 ;
@@ -308,6 +328,7 @@ JS
 				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
 				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
 				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
+				+ '<option value="value_in_iu">$Lang{value_in_iu}{$lc}</option>'
 				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
 			}
 
@@ -361,14 +382,22 @@ function init_select_field() {
 		var id = e.params.data.id;
 		var col = this.id.replace(/select_field_/, '');
 		var column = columns[col];
+		if (! columns_fields[column]["field"]) {
+			selected_columns++;
+		}
 		columns_fields[column]["field"] = \$(this).val();
 		init_select_field_option(col);
+		\$('.selected_columns').text(selected_columns);
 	}).on("select2:unselect", function(e) {
+		delete columns_fields[column]["field"];
+		selected_columns--;
+		\$('.selected_columns').text(selected_columns);
 	});
 
 	if (columns_fields[column]["field"]) {
 		\$(this).val(columns_fields[column]["field"]);
 		\$(this).trigger('change');
+		selected_columns++;
 	}
 
 	init_select_field_option(col);
@@ -379,6 +408,7 @@ function init_select_field() {
 
 \$('.select2_field').each(init_select_field);
 
+\$('.selected_columns').text(selected_columns);
 
 JS
 ;

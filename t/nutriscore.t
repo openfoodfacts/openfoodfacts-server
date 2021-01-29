@@ -9,7 +9,9 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
 
+init_emb_codes();
 
 my @tests = (
 
@@ -18,6 +20,9 @@ my @tests = (
 [{ lc=>"en", categories=>"colza oils", nutriments=>{energy_100g=>3760, fat_100g=>100, "saturated-fat_100g"=>7, sugars_100g=>0, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}, 5, "c"],
 [{ lc=>"en", categories=>"walnut oils", nutriments=>{energy_100g=>3378, fat_100g=>100, "saturated-fat_100g"=>10, sugars_100g=>0, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}, 6, "c"],
 [{ lc=>"en", categories=>"sunflower oils", nutriments=>{energy_100g=>3378, fat_100g=>100, "saturated-fat_100g"=>10, sugars_100g=>0, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}, 11, "d"],
+
+# saturated fat 1.03 should be rounded to 1.0 which is not strictly greater than 1.0
+[{ lc=>"en", categories=>"breakfast cereals", nutriments=>{energy_100g=>2450, fat_100g=>100, "saturated-fat_100g"=>1.03, sugars_100g=>31, sodium_100g=>0.221, fiber_100g=>6.9, proteins_100g=>10.3}}, 10, "c"],
 
 );
 
@@ -32,6 +37,8 @@ foreach my $test_ref (@tests) {
 	is($product_ref->{nutriments}{"nutrition-score-fr"}, $test_ref->[1]) or diag explain $product_ref;
 
 }
+
+is (compute_nutriscore_grade(1.56, 1, 0), "c");
 
 
 done_testing();

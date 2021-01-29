@@ -26,13 +26,25 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "huile de palme, unknown ingredient" }, [ "en:palm-oil", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
 [ { lc => "fr", ingredients_text => "sucre, unknown ingredient" }, [ "en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"] ],
-[ { lc => "fr", ingredients_text => "sucre, colour: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
+[ { lc => "fr", ingredients_text => "sucre, colorant: e150" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "fat, proteins" }, [ "en:palm-oil-free", "en:non-vegan", "en:maybe-vegetarian"] ],
 [ { lc => "en", ingredients_text => "vegetable fat, vegetable proteins" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "en", ingredients_text => "modified palm oil" }, [ "en:palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales (huile de tournesol', huile de colza)" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huiles végétales" }, [ "en:may-contain-palm-oil", "en:vegan", "en:vegetarian"] ],
 [ { lc => "fr", ingredients_text => "huile de poisson" }, [ "en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"] ],
+
+# labels overrides
+
+[ { lc => "fr", labels_tags => ["en:palm-oil-free"] }, [ "en:palm-oil-free"] ],
+[ { lc => "fr", labels_tags => ["en:vegan"] }, [ "en:vegan", "en:vegetarian"] ],
+[ { lc => "fr", labels_tags => ["en:vegetarian"] }, [ "en:vegetarian"] ],
+[ { lc => "fr", labels_tags => ["en:non-vegetarian"] }, [ "en:non-vegan", "en:non-vegetarian"] ],
+[ { lc => "fr", labels_tags => ["en:palm-oil-free"], ingredients_text => "huiles végétales" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
+[ { lc => "fr", ingredients_text => "miel" }, [ "en:palm-oil-free", "en:non-vegan", "en:vegetarian"] ],
+# check that the label overrides the en:non-vegan for "miel" / honey
+# (just for testing, it should not happen)
+[ { lc => "fr", labels_tags => ["en:vegan"], ingredients_text => "miel" }, [ "en:palm-oil-free", "en:vegan", "en:vegetarian"] ],
 );
 
 

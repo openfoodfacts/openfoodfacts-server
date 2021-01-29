@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,7 +39,10 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -50,6 +53,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+use File::Copy qw(move);
 
 ProductOpener::Display::init();
 
@@ -81,30 +85,18 @@ if ($type eq 'search_or_add') {
 
 	# barcode in image?
 	my $filename;
-	if ((not defined $code) or ($code !~ /^\d+$/)) {
+	if ((not defined $code) or ($code eq "")) {
 		$code = process_search_image_form(\$filename);
+	}
+	elsif ($code !~ /^\d{4,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 
 	my $r = Apache2::RequestUtil->request();
 	my $method = $r->method();
 	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
-		$code = 2000000000001; # Codes beginning with 2 are for internal use
 
-		my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
-		if ((defined $internal_code_ref) and ($$internal_code_ref > $code)) {
-			$code = $$internal_code_ref;
-		}
-
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
-
-		while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
-
-			$code++;
-			$product_id = product_id_for_user($User_id, $Org_id, $code);
-		}
-
-		store("$data_root/products/internal_code.sto", \$code);
-
+		($code, $product_id) = assign_new_code();
 	}
 
 	my %data = ();
@@ -112,7 +104,7 @@ if ($type eq 'search_or_add') {
 
 	if (defined $code) {
 		$data{code} = $code;
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
+		$product_id = product_id_for_owner($Owner_id, $code);
 		$log->debug("we have a code", { code => $code, product_id => $product_id }) if $log->is_debug();
 
 		$product_ref = product_exists($product_id); # returns 0 if not
@@ -135,7 +127,7 @@ if ($type eq 'search_or_add') {
 		}
 		else {
 			$log->info("product does not exist, creating product", { code => $code, product_id => $product_id }) if $log->is_info();
-			$product_ref = init_product($User_id, $Org_id, $code);
+			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
 
@@ -146,7 +138,8 @@ if ($type eq 'search_or_add') {
 			# If we got a barcode image, upload it
 			if (defined $filename) {
 				my $imgid;
-				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
+				my $debug;
+				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid, \$debug);
 			}
 		}
 	}
@@ -181,18 +174,26 @@ if ($type eq 'search_or_add') {
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error($Lang{no_barcode}{$lang}, 403);
+		display_error($Lang{missing_barcode}{$lang}, 403);
+	}
+	elsif ($code !~ /^\d{4,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
-		$product_id = product_id_for_user($User_id, $Org_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $admin);
+		if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
+			and (not defined $Owner_id)) {
+
+			display_error(lang("no_owner_defined"), 200);
+		}
+		$product_id = product_id_for_owner($Owner_id, $code);
+		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
 	}
 }
 
-if (($type eq 'delete') and (not $admin)) {
+if (($type eq 'delete') and (not $User{moderator})) {
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
@@ -211,6 +212,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		$html = <<HTML
 <p>$Lang{login_to_add_products}{$lang}</p>
 
+<div style="display: inline;">
 <form method="post" action="/cgi/session.pl">
 <div class="row">
 <div class="small-12 columns">
@@ -233,7 +235,10 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 <input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
 <input type="hidden" name="code" value="$code" />
 <input type="hidden" name="next_action" value="product_$type" />
+<button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">$Lang{login_create_your_account}{$lc}</button>
+<input type="hidden" name="prdct_mult" value="True" />
 </form>
+</div>
 
 HTML
 ;
@@ -249,6 +254,12 @@ my @fields = @ProductOpener::Config::product_fields;
 
 if ($admin) {
 	push @fields, "environment_impact_level";
+
+	# Let admins edit any other fields
+	if (defined param("fields")) {
+		push @fields, split(/,/, param("fields"));
+	}
+
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -271,19 +282,21 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param("new_code")) and (param("new_code") ne "")) {
 
-		change_product_server_or_code($product_ref, param('new_code'), \@errors);
+		change_product_server_or_code($product_ref, param("new_code"), \@errors);
 		$code = $product_ref->{code};
 	}
 
 	my @param_fields = ();
 
 	my @param_sorted_langs = ();
+	my %param_sorted_langs = ();
 	if (defined param("sorted_langs")) {
 		foreach my $display_lc (split(/,/, param("sorted_langs"))) {
 			if ($display_lc =~ /^\w\w$/) {
 				push @param_sorted_langs, $display_lc;
+				$param_sorted_langs{$display_lc} = 1;
 			}
 		}
 	}
@@ -291,9 +304,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @param_sorted_langs, $product_ref->{lc};
 	}
 
+	# Make sure we have the main language of the product (which could be new)
+	# needed if we are moving data from one language to the main language
+	if ((defined param("lang")) and (param("lang") =~ /^\w\w$/) and (not defined $param_sorted_langs{param("lang")} )) {
+		push @param_sorted_langs, param("lang");
+	}
+
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -305,11 +324,130 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
+	# Move all data and photos from one language to another?
+	if ($User{moderator}) {
+
+		my $product_lc = param("lang");
+
+		foreach my $from_lc (@param_sorted_langs) {
+
+			my $moveid = "move_" . $from_lc . "_data_and_images_to_main_language";
+
+			if (($from_lc ne $product_lc) and (defined param($moveid)) and (param($moveid) eq "on")) {
+
+				my $mode = param($moveid . "_mode") || "replace";
+
+				$log->debug("moving all data and photos from one language to another",
+					{ from_lc => $from_lc, product_lc => $product_lc, mode => $mode }) if $log->is_debug();
+
+				# Text fields
+
+				foreach my $field (sort keys %language_fields) {
+
+					my $from_field = $field . "_" . $from_lc;
+					my $to_field = $field . "_" . $product_lc;
+
+					my $from_value = param($from_field);
+
+					$log->debug("moving field value?",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field }) if $log->is_debug();
+
+					if ((defined $from_value) and ($from_value ne "")) {
+
+						my $to_value = param($to_field);
+
+						$log->debug("moving field value",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+						if (($mode eq "replace") or ((not defined $to_value) or ($to_value eq ""))) {
+
+							$log->debug("replacing to field value",
+								{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+							param($to_field, $from_value);
+						}
+
+						$log->debug("deleting from field value",
+							{ from_field => $from_field, from_value => $from_value, to_field => $to_field, to_value => $to_value, mode => $mode }) if $log->is_debug();
+
+						param($from_field, "");
+					}
+				}
+
+				# Selected photos
+
+				foreach my $imageid ("front", "ingredients", "nutrition") {
+
+					my $from_imageid = $imageid . "_" . $from_lc;
+					my $to_imageid = $imageid . "_" . $product_lc;
+
+					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$from_imageid})) {
+
+						$log->debug("moving selected image",
+							{ from_imageid => $from_imageid, to_imageid => $to_imageid }) if $log->is_debug();
+
+
+						if (($mode eq "replace") or (not defined $product_ref->{images}{$to_imageid})) {
+
+							$product_ref->{images}{$to_imageid} = $product_ref->{images}{$from_imageid};
+							my $rev = $product_ref->{images}{$from_imageid}{rev};
+
+							# Rename the images
+
+							my $path = product_path($product_ref);
+
+							foreach my $max ($thumb_size, $small_size, $display_size, "full") {
+								my $from_file = "$www_root/images/products/$path/" . $from_imageid . "." . $rev . "." . $max . ".jpg";
+								my $to_file = "$www_root/images/products/$path/" . $to_imageid . "." . $rev . "." . $max . ".jpg";
+								File::Copy::move($from_file, $to_file);
+							}
+						}
+
+						delete $product_ref->{images}{$from_imageid};
+					}
+				}
+			}
+		}
+	}
+
 
 	foreach my $field (@param_fields) {
 
 		if (defined param($field)) {
-			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+
+			# If we are on the public platform, and the field data has been imported from the producer platform
+			# ignore the field changes for non tag fields, unless made by a moderator
+			if (((not defined $server_options{private_products}) or (not $server_options{private_products}))
+				and (defined $product_ref->{owner_fields}) and (defined $product_ref->{owner_fields}{$field})
+				and (not $User{moderator})) {
+				$log->debug("skipping field with a value set by the owner",
+					{ code => $code, field_name => $field, existing_field_value => $product_ref->{$field},
+					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
+			}
+
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8=>param($field));
+				
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+				
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}				
+				
+			}
+			else {
+				# infocards set by admins can contain HTML
+				if (($admin) and ($field =~ /infocard/)) {
+					$product_ref->{$field} = decode utf8=>param($field);
+				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
+			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
@@ -331,7 +469,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$log->debug("Food::special_process_product") if $log->is_debug();
 		ProductOpener::Food::special_process_product($product_ref);
 	}
@@ -345,17 +483,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -399,7 +526,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
 
-	if (($admin) and (defined param('obsolete_since_date'))) {
+	if (($User{moderator} or $Owner_id) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
@@ -475,6 +602,28 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
 
+		# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+		# 1. if energy-kcal or energy-kj is set, delete existing energy data
+		if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+			delete $product_ref->{nutriments}{"energy"};
+			delete $product_ref->{nutriments}{"energy_unit"};
+			delete $product_ref->{nutriments}{"energy_label"};
+			delete $product_ref->{nutriments}{"energy_value"};
+			delete $product_ref->{nutriments}{"energy_modifier"};
+			delete $product_ref->{nutriments}{"energy_100g"};
+			delete $product_ref->{nutriments}{"energy_serving"};
+			delete $product_ref->{nutriments}{"energy_prepared_value"};
+			delete $product_ref->{nutriments}{"energy_prepared_modifier"};
+			delete $product_ref->{nutriments}{"energy_prepared_100g"};
+			delete $product_ref->{nutriments}{"energy_prepared_serving"};
+		}
+		# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+		elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+			$nid = $nid . "-" . lc($unit);
+			$nidp = $nid . "_prepared";
+			$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+		}
+
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
 		}
@@ -482,10 +631,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $modifier = undef;
 		my $modifierp = undef;
 
-		normalize_nutriment_value_and_modifier(\$value, \$modifier);
-		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
+		(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
+		(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 
-		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
+		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep, unit => $unit }) if $log->is_debug();
 
 		# New label?
 		my $new_nid = undef;
@@ -556,7 +705,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# product check
 
-	if ($admin or $moderator) {
+	if ($User{moderator}) {
 
 		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));
 		if ((defined $checked) and ($checked eq 'on')) {
@@ -598,8 +747,20 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];	
+	
+	analyze_and_combine_packaging_data($product_ref);
+	
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
-	ProductOpener::SiteQuality::check_quality($product_ref);
+	ProductOpener::DataQuality::check_quality($product_ref);
 
 	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
 
@@ -628,87 +789,20 @@ sub display_field($$) {
 		$display_lc = $2;
 	}
 
-	my $tagsinput = '';
+	my $autocomplete = "";
+	my $class = "";
 	if (defined $tags_fields{$fieldtype}) {
-		$tagsinput = ' tagsinput';
-
-		my $autocomplete = "";
+		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			my $world = format_subdomain('world');
-			$autocomplete = "$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&";
+			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
 		}
-
-		my $default_text = "";
-		if (defined $Lang{$field . "_tagsinput"}) {
-			$default_text = $Lang{$field . "_tagsinput"}{$lang};
-		}
-
-		my $arrayLenght = 3;
-
-		# For the field autocomplete_url it has to have a value
-		# otherwise tagsInput will not load the autocomplete plugin
-		# (see line https://github.com/xoxco/jQuery-Tags-Input/blob/ae31b175fbfd0a0476822182ef52e76c2629e9c3/src/jquery.tagsinput.js#L264)
-		$initjs .= <<"JAVASCRIPT"
-\$('#$field').tagsInput({
-	height: '3rem',
-	width: '100%',
-	interactive: true,
-	minInputWidth: 130,
-	delimiter: [','],
-	defaultText: "$default_text",
-	autocomplete_url: "I love OpenFoodFacts",
-	autocomplete: {
-		source: function(request, response) {
-			if (request.term === "") {
-				let obj = window.localStorage.getItem("po_last_tags");
-				obj = JSON.parse(obj) || {};
-				obj = obj['${field}'] || [];
-
-				response(obj.filter( function(el) {
-  					return !\$('#$field').tagExist(el);
-				}));
-			} else {
-				const url = "${autocomplete}";
-				if (url == "") return;
-				\$.ajax({
-					type: "GET",
-					url: "${autocomplete}",
-					data: "term="+ request.term,
-  					dataType: "json",
-					success: function(data) {
-						response(data)
-					}
-				});
-			}
-		},
-		minLength: 0
-	},
-	onAddTag: function(tag) {
-		let obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-
-		if (obj == null) {
-			obj = {"${field}": [tag]}
-		} else if (obj["${field}"] == null) {
-			obj["${field}"] = [tag];
-		} else {
-			if (obj["${field}"].indexOf(tag) != -1) return;
-			if (obj["${field}"].length >= $arrayLenght) obj["${field}"].pop();
-			obj["${field}"].unshift(tag);
-		}
-		window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-		\$('#${field}_tag').autocomplete("search", "");
-	}
-});
-\$("#${field}_tag").focus(function() {
-    \$(this).autocomplete("search", "");
-});
-JAVASCRIPT
-;
 	}
 
 	my $value = $product_ref->{$field};
 
-	if ((defined $value) and (defined $taxonomy_fields{$field})) {
+	if ((defined $value) and (defined $taxonomy_fields{$field})
+		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+		and (defined $product_ref->{$field . "_hierarchy"})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
 		$value =~ s/<(([^>]|\n)*)>//g;
@@ -722,24 +816,28 @@ JAVASCRIPT
 HTML
 ;
 
-	if ($field =~ /infocard/) {	# currently not used
+	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
 ;
 	}
 	else {
+		# Line feeds will be removed in text inputs, convert them to spaces
+		$value =~ s/\n/ /g;
 		$html .= <<HTML
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />
+<input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML
 ;
 	}
 
-	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
-		$html .= <<HTML
-<p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>
+	foreach my $note ("_note", "_note_2") {
+		if (defined $Lang{$fieldtype . $note }{$lang}) {
+			$html .= <<HTML
+<p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
 HTML
 ;
+		}
 	}
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
@@ -763,60 +861,63 @@ HTML
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
+	# Populate the energy-kcal or energy-kj field from the energy field if it exists
+	compute_serving_size_data($product_ref);
+
 	$log->debug("displaying product", { code => $code }) if $log->is_debug();
 
 	# Lang strings for product.js
 
-	$scripts .=<<JS
-<script type="text/javascript">
-var admin = $admin;
-var Lang = {
-JS
-;
-
-	foreach my $key (sort keys %Lang) {
-		next if $key !~ /^product_js_/;
-		$scripts .= '"' . $' . '" : "' . lang($key) . '",' . "\n";
+	my $moderator = 0;
+	if ($User{moderator}) {
+		$moderator = 1;
 	}
 
-	$scripts =~ s/,\n$//s;
-	$scripts .=<<JS
-};
-</script>
-JS
-;
-
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
 HTML
 ;
 
-
-#<!-- Autocomplete -->
-#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
-
 	$scripts .= <<HTML
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
-<script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.autoresize.js"></script>
-<script type="text/javascript" src="/js/jquery.rotate.js"></script>
+<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="/js/dist/cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.min.js"></script>
-<script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
-<script type="text/javascript" src="/js/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript">
+var admin = $moderator;
+</script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
 
 
+	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
+	 and (defined $Org_id)) {
+
+		# Display a link to the producers platform
+		
+		my $producers_platform_url = $formatted_subdomain . '/';
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
+		
+		$html .= '<div class="panel callout">'
+		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
+		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_import") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_analysis") . " " . lang("product_edits_by_producers_indicators"). "</p>"
+		. '<p><a href="' . $producers_platform_url . '" class="button">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>"
+		. "</div>";
+	}
+
 	if ($#errors >= 0) {
-		$html .= "<p>Merci de corriger les erreurs suivantes :</p>";
+		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
 			$html .= "<p class=\"error\">$error</p>\n";
 		}
@@ -838,48 +939,16 @@ CSS
 
 	$styles .= <<CSS
 
-.ui-selectable { list-style-type: none; margin: 0; padding: 0; }
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-.ui-selectable img {
-  vertical-align:middle;
-}
-.ui-selectee:hover { background: #FECA40; }
-.ui-selected { background: #F39814; color: white; }
 
-.command { margin-bottom:5px; }
-
-label { margin-top: 20px; }
-
-fieldset { margin-top: 15px; margin-bottom:15px;}
-
-legend { font-size: 1.375em; margin-top:2rem; }
-
-textarea {  height:8rem; }
-
-.cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; max-width:400px; }
-.cropbox { margin-right: 20px; }
-
-.upload_image_div {
-	padding-top:0.5rem;
-}
-
-.button_div {
-	margin-top:0.5rem;
-}
-
-#label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
-
-th {
-	font-weight:bold;
-}
 CSS
 ;
 
 	my $label_new_code = $Lang{new_code}{$lang};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($admin) {
+	if ($User{moderator}) {
 		$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
@@ -887,8 +956,9 @@ HTML
 ;
 	}
 
-	# obsolete products
-	if ($admin) {
+	# obsolete products: restrict to admin on public site
+	# authorize owners on producers platform
+	if ($User{moderator} or $Owner_id) {
 
 		my $checked = '';
 		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
@@ -944,27 +1014,19 @@ HTML
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
 
-	my @lang_values = @Langs;
-	push @lang_values, "other";
+	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
+
 	my %lang_labels = ();
 	foreach my $l (@lang_values) {
 		next if (length($l) > 2);
-		$lang_labels{$l} = lang("lang_$l");
-		if ($lang_labels{$l} eq '') {
-			if (defined $Langs{$l}) {
-				$lang_labels{$l} = $Langs{$l};
-			}
-			else {
-				$lang_labels{$l} = $l;
-			}
-		}
+		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
 	}
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
-	$html .= popup_menu(-name=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
+	$html .= popup_menu(-name=>'lang', -id=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
 
 
 
@@ -984,11 +1046,11 @@ function toggle_manage_images_buttons() {
 JS
 ;
 
-	if ($admin) {
+	if ($User{moderator}) {
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
-<a href="#manage_images_drop"><i class="icon-collections"></i> $Lang{manage_images}{$lc}</a>
+<a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
@@ -998,10 +1060,10 @@ HTML
 <<HTML
 
 	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled"><i class="icon-delete"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
 		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled"><i class="icon-arrow_right_alt"></i> $Lang{move_images_to_another_product}{$lc}</a>
+			<button id="move_images" class="button small disabled">@{[ display_icon('arrow_right_alt') ]} $Lang{move_images_to_another_product}{$lc}</a>
 		</div>
 		<div class="small-4 medium-2 columns">
 			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
@@ -1052,7 +1114,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.deleting_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1078,17 +1140,17 @@ if (! \$("#delete_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_deleted);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 
@@ -1112,7 +1174,7 @@ if (! \$("#move_images").hasClass("disabled")) {
 	\$("#delete_images").addClass("disabled");
 	\$("#move_images").addClass("disabled");
 
- \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.moving_images);
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
  \$('div[id="moveimagesmsg"]').show();
 
 	var imgids = '';
@@ -1138,17 +1200,17 @@ if (! \$("#move_images").hasClass("disabled")) {
   success: function(data) {
 
 	if (data.error) {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + data.error);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
 	}
 	else {
-		\$('div[id="moveimagesmsg"]').html(Lang.images_moved + ' &rarr; ' + data.link);
+		\$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
 	}
 	\$([]).selectcrop('init_images',data.images);
 	\$(".select_crop").selectcrop('show');
 
   },
   error : function(jqXHR, textStatus, errorThrown) {
-	\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + textStatus);
+	\$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
   },
   complete: function(XMLHttpRequest, textStatus) {
 		\$("#move_images").addClass("disabled");
@@ -1172,113 +1234,7 @@ JS
 
 
 
-
-$styles .= <<CSS
-
-// add borders to Foundation 5 tabs
-// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
-  ul.tabs {
-     > li > a {
-       border-width: 1px;
-       border-style: solid;
-       border-color: #ccc #ccc #fff;
-       margin-right: -1px;
-     }
-     > li:not(.active) > a {
-       border-bottom: solid 1px #ccc;
-     }
-   }
-  .tabs-content {
-    border: 1px solid #ccc;
-    .content {
-      padding: .9375rem;
-      margin-top: 0;
-    }
-    margin: -1px 0 .9375rem 0;
-  }
-//}
-
-// if tabs container has a background color
-.tabs-content { background-color: #fff; }
-
-.contained {
-	border:1px solid #ccc;
-	padding:1rem;
-}
-
-ul.tabs {
-	border-top:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-	background-color:#EFEFEF;
-}
-
-.tabs dd>a, .tabs .tab-title>a {
-padding:0.5rem 1rem;
-}
-
-.tabs-content {
-	background-color:white;
-	padding:1rem;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
-}
-
-.select_add_language {
-	border:0;
-}
-
-
-.select2-container--default .select2-selection--single {
-	height:2.5rem;
-	top:0;
-	border:0;
-  background-color: #0099ff;
-  color: #FFFFFF;
-  transition: background-color 300ms ease-out;
-}
-
-.select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
-background-color: #007acc;
-color:#FFFFFF;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: #fff transparent transparent transparent;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__placeholder {
-	color:white;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-	line-height:2.5rem;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
-	margin-top:4px;
-}
-
-CSS
-;
-
 	$initjs .= <<JAVASCRIPT
-\$(".select_add_language").select2({
-	placeholder: "$Lang{add_language}{$lang}",
-    allowClear: true
-	}
-	).on("select2:select", function(e) {
-	var lc =  e.params.data.id;
-	var language = e.params.data.text;
-	add_language_tab (lc, language);
-	\$(".select_add_language_" + lc).remove();
-	\$(this).val("").trigger("change");
-	var new_sorted_langs = \$("#sorted_langs").val() + "," + lc;
-	\$("#sorted_langs").val(new_sorted_langs);
-})
-;
-
 \$(document).foundation({
     tab: {
       callback : function (tab) {
@@ -1302,7 +1258,7 @@ JAVASCRIPT
 
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+	$html .= "<div id=\"product_image\" class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
 
 
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
@@ -1323,23 +1279,8 @@ JAVASCRIPT
 	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
 
 	my $select_add_language = <<HTML
-
 <select class="select_add_language" style="width:100%">
 <option></option>
-HTML
-;
-
-	foreach my $olc (sort keys %Langs) {
-		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
-			my $olanguage = display_taxonomy_tag($lc,'languages',$language_codes{$olc}); # $Langs{$olc}
-			$select_add_language .=<<HTML
- <option value="$olc" class="select_add_language_$olc">$olanguage</option>
-HTML
-;
-		}
-	}
-
-	$select_add_language .= <<HTML
 </select>
 		</li>
 
@@ -1400,16 +1341,13 @@ HTML
 			}
 
 			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
+	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 
 		}
 
-		my $html_content_tab = <<HTML
-<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
-HTML
-;
+		my $html_content_tab = "";
 
 		if ($tabid ne 'new') {
 
@@ -1428,8 +1366,10 @@ HTML
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
+					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
 					$html_content_tab .= <<HTML
+<div id="$ingredients_image_full_id"></div>
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
 <textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>
@@ -1456,12 +1396,40 @@ HTML
 
 		}
 
-		$html_content_tab .= <<HTML
+		# For moderators, add a checkbox to move all data and photos to the main language
+		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
+		if (($User{moderator}) and ($tabsid eq "front_image")) {
+
+			my $msg = sprintf(lang("move_data_and_photos_to_main_language"),
+				'<span class="tab_language">' . $language . '</span>',
+				'<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>');
+
+			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
+
+			$html_content_tab = <<HTML
+<div class="move_data_and_images_to_main_language" id="${moveid}_div" style="display:hidden">
+<input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="$moveid" name="$moveid" />
+<label for="$moveid" class="checkbox_label">$msg</label><br/>
+<div id="${moveid}_radio" style="display:hidden">
+<input type="radio" id="${moveid}_replace" value="replace" name="${moveid}_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
+<label for="${moveid}_replace" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_replace}{$lc}</label>
+<input type="radio" id="${moveid}_ignore" value="ignore" name="${moveid}_mode" />
+<label for="${moveid}_ignore" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_ignore}{$lc}</label><br/>
+</div>
+</div>
+HTML
+. $html_content_tab;
+
+		}
+
+		$html_content .= <<HTML
+<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
+HTML
+. $html_content_tab
+. <<HTML
 </div>
 HTML
 ;
-
-		$html_content .= $html_content_tab;
 
 		$active = "";
 
@@ -1487,7 +1455,7 @@ HTML
 
 	$html .= <<HTML
 
-<div class="fieldset">
+<div id="product_characteristics" class="fieldset">
 <legend>$Lang{product_characteristics}{$lang}</legend>
 HTML
 ;
@@ -1506,16 +1474,11 @@ HTML
 	$html .= "</div><!-- fieldset -->\n";
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
+	$html .= "<div id=\"ingredients\" class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
-
-
-	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
-	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
-	# maybe calling $('textarea.growfield').data('AutoResizer').check();
 
 	$html .= display_field($product_ref, "allergens");
 
@@ -1644,6 +1607,11 @@ HTML
 		}
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
+		
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
+		}
 
 		$initjs .= <<JS
 \$('#$nutrition_data').change(function() {
@@ -1653,6 +1621,7 @@ HTML
 	} else {
 		\$('#$nutrition_data_instructions').hide();
 		\$('.$nutriment_col_class').hide();
+		\$('.nutriment_value_$product_type_as_sold_or_prepared').val('');
 	}
 	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
@@ -1737,6 +1706,9 @@ HTML
 
 		next if $nid =~ /^nutrition-score/;
 
+		# Do not display the energy field without a unit, display energy-kcal or energy-kj instead
+		next if $nid eq "energy";
+
 		my $class = 'main';
 		my $prefix = '';
 
@@ -1810,6 +1782,11 @@ HTML
 			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
+		elsif ($nid eq 'energy-kcal') {
+			# energy-kcal is already in kcal
+			$value = $product_ref->{nutriments}{$nid};
+			$valuep = $product_ref->{nutriments}{$nidp};
+		}
 		else {
 			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
@@ -1840,6 +1817,10 @@ HTML
 			}
 		}
 
+		if (lc($unit) eq "mcg") {
+			$unit = "µg";
+		}
+
 		my $disabled_backup = $disabled;
 		if ($nid eq 'carbon-footprint') {
 			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
@@ -1854,84 +1835,91 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_as_sold" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_prepared" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
 
-		if ($nid ne 'alcohol') {
+		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
+			my $unit = '';
 
+			if (($nid eq 'alcohol')) { $unit = '% vol / °'; } # alcohol in % vol / °
+			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
+			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
-		my @units = ('g','mg','µg');
-		if ($nid =~ /^energy/) {
-			@units = ('kJ','kcal');
-		}
-		elsif ($nid eq 'alcohol') {
-			@units = ('% vol');
-		}
-		elsif ($nid eq 'water-hardness') {
-			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
-		}
-
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq '% DV')) {
-			push @units, '% DV';
-		}
-		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)
-			or ($unit eq 'IU')
-			or ($unit eq 'UI')) {
-			push @units, 'IU';
-		}
-
-		my $hide_percent = '';
-		my $hide_select = '';
-
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
-			$hide_percent = ' style="display:none"';
-			$hide_select = ' style="display:none"';
-
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
-			$hide_select = ' style="display:none"';
+			$input .= <<"HTML"
+<td>
+<span class="nutriment_unit">$unit</span>
+HTML
+;
 		}
 		else {
-			$hide_percent = ' style="display:none"';
-		}
 
-		$input .= <<HTML
+			my @units = ('g','mg','µg');
+
+			if ($nid =~ /^energy/) {
+				@units = ('kJ','kcal');
+			}
+			elsif ($nid eq 'water-hardness') {
+				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+			}
+
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+				or ($nid =~ /^new_/)
+				or (uc($unit) eq '% DV')) {
+				push @units, '% DV';
+			}
+			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+				or ($nid =~ /^new_/)
+				or (uc($unit) eq 'IU')
+				or (uc($unit) eq 'UI')) {
+				push @units, 'IU';
+			}
+
+			my $hide_percent = '';
+			my $hide_select = '';
+
+			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+				$hide_percent = ' style="display:none"';
+				$hide_select = ' style="display:none"';
+
+			}
+			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+				$hide_select = ' style="display:none"';
+			}
+			else {
+				$hide_percent = ' style="display:none"';
+			}
+
+			$input .= <<HTML
 <td>
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;
-		$disabled = $disabled_backup;
+			$disabled = $disabled_backup;
 
-		foreach my $u (@units) {
-			my $selected = '';
-			if ($unit eq $u) {
-				$selected = 'selected="selected" ';
+			foreach my $u (@units) {
+				my $selected = '';
+				if (lc($unit) eq lc($u)) {
+					$selected = 'selected="selected" ';
+				}
+				my $label = $u;
+				# Display both mcg and µg as different food labels show the unit differently
+				if ($u eq 'µg') {
+					$label = "mcg/µg";
+				}
+				$input .= <<HTML
+<option value="$u" $selected>$label</option>
+HTML
+;
 			}
-			$input .= <<HTML
-<option value="$u" $selected>$u</option>
-HTML
-;
-		}
 
-		$input .= <<HTML
-</select>
-HTML
-;
-		}
-		else {
-			# alcohol in % vol / °
 			$input .= <<HTML
-<td>
-<span class="nutriment_unit" >% vol / °</span>
+</select>
 HTML
 ;
 		}
@@ -2062,12 +2050,15 @@ function swapSalt(from, to, multiplier) {
 JAVASCRIPT
 ;
 
+	if ($User{moderator}) {
+		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
+	}
+
 
 	$html .= <<HTML
 <p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 HTML
 ;
-
 
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
@@ -2097,11 +2088,29 @@ HTML
 ;
 
 	$html .= "</div><!-- fieldset -->";
+	
+	
+	# Packaging photo and data
+
+	my @packaging_fields = ("packaging_image", "packaging_text");
+	
+	$html .= <<HTML
+
+<div id="packaging" class="fieldset">
+<legend>$Lang{packaging}{$lang}</legend>
+HTML
+;	
+	
+	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	
+
+
+	$html .= "</div><!-- fieldset -->";	
 
 
 	# Product check
 
-	if ($admin or $moderator) {
+	if ($User{moderator}) {
 
 		$html .= <<HTML
 <div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
@@ -2136,7 +2145,13 @@ HTML
 
 	}
 
+	if ($admin) {
 
+		# Let admins edit any other fields
+		if (defined param("fields")) {
+			$html .= hidden(-name=>'fields', -value=>param("fields"), -override=>1);
+		}
+	}
 
 	$html .= ''
 	. hidden(-name=>'type', -value=>$type, -override=>1)
@@ -2177,13 +2192,13 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small">
-			<i class="icon-check"></i> $Lang{save}{$lc}
+		<button type="submit" name=".submit" class="button postfix small success">
+			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
 		<button type="button" id="back-btn" class="button postfix small secondary">
-			<i class="icon-cancel"></i> $Lang{cancel}{$lc}
+			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
 		</button>
 	</div>
 </div>
@@ -2196,7 +2211,7 @@ HTML
 <div class="small-12 medium-12 large-8 xlarge-10 columns">
 </div>
 <div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
 </div>
 </div>
 HTML
@@ -2211,7 +2226,7 @@ HTML
 
 	$html .= display_product_history($code, $product_ref);
 }
-elsif (($action eq 'display') and ($type eq 'delete') and ($admin)) {
+elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
 
@@ -2241,11 +2256,11 @@ elsif ($action eq 'process') {
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
-	if (($admin) and ($type eq 'delete')) {
+	if (($User{moderator}) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
-	elsif (($admin) and (exists $product_ref->{deleted})) {
+	elsif (($User{moderator}) and (exists $product_ref->{deleted})) {
 		delete $product_ref->{deleted};
 	}
 
@@ -2318,4 +2333,3 @@ display_new( {
 
 
 exit(0);
-

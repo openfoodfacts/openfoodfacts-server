@@ -1,0 +1,96 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "origins" : "en:brittany",
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "rank" : 1,
+         "text" : "Fraises",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:unsalted-butter",
+         "origins" : "en:normandy",
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "rank" : 2,
+         "text" : "beurre doux",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cherry-tomato",
+         "origins" : "en:brittany",
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "rank" : 3,
+         "text" : "tomates cerises",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:apple",
+         "origins" : "en:normandy",
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "rank" : 4,
+         "text" : "pommes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:unsalted-butter",
+      "en:dairy",
+      "en:butter",
+      "en:cherry-tomato",
+      "en:vegetable",
+      "en:tomato",
+      "en:apple"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:unsalted-butter",
+      "en:cherry-tomato",
+      "en:apple"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:unsalted-butter",
+      "en:dairy",
+      "en:butter",
+      "en:cherry-tomato",
+      "en:vegetable",
+      "en:tomato",
+      "en:apple"
+   ],
+   "ingredients_text" : "Fraises de Bretagne, beurre doux de Normandie, tomates cerises (Bretagne), pommes (origine : Normandie)",
+   "known_ingredients_n" : 10,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25
+   },
+   "unknown_ingredients_n" : 0
+}

@@ -1,8 +1,12 @@
+# Including "to be" in the state makes it a TODO state
+
 en:Empty
+ca:Buit
 cs:Prázdný
 de:Leer
 el:Άδειο
 es:Vacío
+fi:Tyhjä
 fr:Vide
 he:ריק
 hu:Üres
@@ -10,6 +14,7 @@ it:Vuoto
 ja:空
 nl:Leeg
 nl_be:Leeg
+pl:Pusty
 pt:Vazio
 ro:Gol
 rs:Prazno
@@ -22,10 +27,12 @@ zh-TW:空
 zh-HK:空
 
 en:Checked
+ca:Comprovat
 cs:Potvrzený
 de:Geprüft
 el:Ελέγχθηκε
 es:Comprobado
+fi:Tarkistettu
 fr:Vérifié
 he:נבדק
 hu:Ellenőrizve
@@ -33,6 +40,7 @@ it:Verificato
 ja:確認済
 nl:Gecontroleerd
 nl_be:Geverifieerd
+pl:Sprawdzony
 pt:Verificado
 ro:Verificat
 rs:Provereno
@@ -44,17 +52,20 @@ zh-TW:已確認
 zh-HK:已確認
 
 en:To be checked
+ca:Pendent de comprovar
 cs:K potvrzení
 de:Zu prüfen
 el:Να ελεγχθεί
 es:Pendiente de comprobación
-fr:A vérifier
+fi:Odottaa tarkistusta
+fr:À vérifier
 he:לבדיקה
 hu:Ellenőrizni kell
 it:Da verificare
 ja:要確認
 nl:Te controleren
 nl_be:Nog te verifiëren
+pl:Do sprawdzenia
 pt:Pendente de verificação
 ro:De verificat
 sv:Att kontrolleras
@@ -65,10 +76,12 @@ zh-TW:需確認
 zh-HK:需確認
 
 en:Complete
+ca:Complet
 cs:Hotový
 de:Ausgefüllt
 el:Συμπληρώθηκε
 es:Completado
+fi:Valmis
 fr:Complet
 he:הושלם
 hu:Teljes
@@ -88,17 +101,20 @@ zh-TW:完成
 zh-HK:完成
 
 en:To be completed
+ca:Pendent de completar
 cs:Před dokončením
 de:Auszufüllen
 el:Να συμπληρωθεί
 es:A completar
-fr:A compléter
+fi:Tarvitsee täydentää
+fr:À compléter
 he:להשלמה
-hu:Ki kell egészíteni
+hu:Kiegészítendő
 it:Da completare
 ja:未完了
 nl:Aan te vullen
 nl_be:Te vervolledigen
+pl:Do uzupełnienia
 pt:A completar
 ro:De completat
 ru:Не заполненные
@@ -110,17 +126,20 @@ zh-TW:應完成
 zh-HK:應完成
 
 en:Expiration date to be completed
+ca:Data de caducitat pendent d'omplir
 cs:Datum exporace je třeba doplnit
 de:Verbrauchsdatum auszufüllen
 el:Να συμπληρωθεί η ημερομηνία λήξης
 es:Fecha límite de consumo a completar
+fi:Parasta ennen päiväys tarvitsee täydentää
 fr:Date limite à compléter
 he:תאריך תפוגה להשלמה
-hu:A lejárati dátumot ki kell egészíteni
+hu:Lejárati dátum kitöltendő
 it:Data di scadenza da completare
 ja:期限未完了
 nl:Houdbaarheidsdatum invullen
 nl_be:Houdbaarheidsdatum invullen
+pl:Data ważności do uzupełnienia
 pt:Data de validade a completar
 ro:De completat data de expirare
 rs:Rok isticanja nije upotpunjen
@@ -133,13 +152,15 @@ zh-TW:應完成期限
 zh-HK:應完成期限
 
 en:Expiration date completed
+ca:Data de caducitat completa
 cs:Datum expirace hotovo
 de:Verbrauchsdatum ausgefüllt
 el:Η ημερομηνία λήξης συμπληρώθηκε
 es:Fecha límite de consumo completada
+fi:&quot;Parasta ennen&quot; täytetty
 fr:Date limite complétée
 he:תאריך התפוגה הושלם
-hu:A lejárati dátum teljes
+hu:Lejárati dátum megadva
 it:Data di scadenza completata
 ja:期限完了
 nl:Houdbaarheidsdatum ingevuld
@@ -156,17 +177,20 @@ zh-TW:完成期限
 zh-HK:完成期限
 
 en:Product name to be completed
+ca:Nom de producte pendent d'omplir
 cs:Jméno produktu je třeba doplnit
 de:Produktname auszufüllen
 el:Να συμπληρωθεί το όνομα του προϊόντος
 es:Nombre de producto a completar
+fi:Tuotteen nimi kaipaa täydennystä
 fr:Nom du produit à compléter
 he:שם המוצר להשלמה
-hu:A termék nevét ki kell egészíteni
+hu:Termék neve kitöltendő
 it:Nome prodotto da completare
 ja:製品名未完了
 nl:Productnaam invullen
 nl_be:Productnaam invullen
+pl:Nazwa produktu do uzupełnienia
 pt:Nome do produto a completar
 ro:De completat numele produsului
 rs:Naziv proizvoda nije upotpunjen
@@ -179,13 +203,15 @@ zh-TW:應完成品名
 zh-HK:應完成品名
 
 en:Quantity to be completed
+ca:Quantitat de producte pendent d'omplir
 cs:Množství je třeba doplnit
 de:Menge auszufüllen
 el:Να συμπληρωθεί η ποσότητα
 es:Cantidad a completar
+fi:Määrä tarvitsee täydentää
 fr:Quantité à compléter
 he:כמות להשלמה
-hu:A mennyiséget ki kell egészíteni
+hu:Mennyiség kitöltendő
 it:Quantità da completare
 ja:数量未完了
 nl:Hoeveelheid invullen
@@ -202,13 +228,15 @@ zh-TW:應完成數量
 zh-HK:應完成數量
 
 en:Packaging to be completed
+ca:Tipus d'envàs pendent d'omplir
 cs:Balení je třeba doplnit
 de:Verpackung auszufüllen
 el:Να συμπληρωθεί η συσκευασία
 es:Envase a completar
+fi:Pakkausta pitää täydentää
 fr:Emballage à compléter
 he:אריזה להשלמה
-hu:A csomagolást ki kell egészíteni
+hu:Csomagolás kitöltendő
 it:Imballaggio da completare
 ja:包装未完了
 nl:Verpakking invullen
@@ -225,13 +253,15 @@ zh-TW:應完成包裝
 zh-HK:應完成包裝
 
 en:Brands to be completed
+ca:Marca o marques pendents d'omplir
 cs:Značky jsou třeba doplnit
 de:Marken auszufüllen
 el:Να συμπληρωθούν οι μάρκες
 es:Marcas a completar
+fi:Tuotemerkit tarvitsee täydentää
 fr:Marques à compléter
 he:מותגים להשלמה
-hu:A márkaneveket ki kell egészíteni
+hu:Márkanév kitöltendő
 it:Marchi da completare
 ja:ブランド未完了
 nl:Merken invullen
@@ -247,13 +277,15 @@ zh-TW:應完成商標
 zh-HK:應完成商標
 
 en:Categories to be completed
+ca:Categories pendents d'omplir
 cs:Kategorie je třeba doplnit
 de:Kategorien auszufüllen
 el:Να συμπληρωθούν οι κατηγορίες
 es:Categorías a completar
+fi:Luokat tarvitsee täydentää
 fr:Catégories à compléter
 he:קטגוריות להשלמה
-hu:A kategóriákat ki kell egészíteni
+hu:Kategóriákat kell megadni
 it:Categorie da completare
 ja:カテゴリー未完了
 nl:Categorieën invullen
@@ -269,13 +301,15 @@ zh-TW:應完成分類
 zh-HK:應完成分類
 
 en:Characteristics completed
+ca:Característiques completes
 cs:Charakteristiky jsou hotové
 de:Merkmale ausgefüllt
 el:Τα χαρακτηριστικά συμπληρώθηκαν
 es:Características completadas
+fi:Ominaisuudet täytetty
 fr:Caractéristiques complétées
 he:מאפיינים הושלמו
-hu:A jellemzők teljes
+hu:Jellemzők teljes
 it:Caratteristiche completate
 ja:特徴完了
 nl:Eigenschappen klaar
@@ -292,13 +326,15 @@ zh-TW:完成特徵
 zh-HK:完成特徵
 
 en:Characteristics to be completed
+ca:Característiques del producte pendents d'omplir
 cs:Charakteristiky je třeba doplnit
 de:Merkmale auszufüllen
 el:Να συμπληρωθούν τα χαρακτηριστικά
 es:Características a completar
+fi:Ominaisuuksia tarvitsee täydentää
 fr:Caractéristiques à compléter
 he:מאפיינים להשלמה
-hu:A jellemzőket ki kell egészíteni
+hu:Jellemzők kitöltendő
 it:Caratteristiche da completare
 ja:特徴未完了
 nl:Eigenschappen invullen
@@ -315,13 +351,15 @@ zh-TW:應完成特徵
 zh-HK:應完成特徵
 
 en:Ingredients completed
+ca:Ingredients complets
 cs:Ingredience jsou hotové
 de:Zutaten ausgefüllt
 el:Τα συσταστικά συμπληρώθηκαν
 es:Ingredientes completados
+fi:Ainesosat täytetty
 fr:Ingrédients complétés
 he:הרכיבים הושלמו
-hu:Az összetevők teljes
+hu:Összetevők teljes
 it:Ingredienti completati
 ja:原材料完了
 nl:Ingrediënten klaar
@@ -337,13 +375,15 @@ zh-TW:完成成分
 zh-HK:完成成分
 
 en:Ingredients to be completed
+ca:Ingredients pendents d'omplir
 cs:Ingredience je třeba doplnit
 de:Zutaten auszufüllen
 el:Να συμπληρωθούν τα συστατικά
 es:Ingredientes a completar
+fi:Ainesosat tarvitsevat täydennystä
 fr:Ingrédients à compléter
 he:רכיבים להשלמה
-hu:Az összetevőket ki kell egészíteni
+hu:Összetevők kitöltendő
 it:Ingredienti da completare
 ja:原材料未完了
 nl:Ingrediënten invullen
@@ -359,13 +399,15 @@ zh-TW:應完成成分
 zh-HK:應完成成分
 
 en:Nutrition facts completed
+ca:Dades nutricionals completes
 cs:Nutriční hodnoty jsou hotové
 de:Nährwertinformationen ausgefüllt
 el:Τα διατροφικά στοιχεία συμπληρώθηκαν
 es:Valores nutricionales completados
+fi:Ravintotiedot täytetty
 fr:Informations nutritionnelles complétées
 he:מפרט תזונתי הושלם
-hu:A tápértékadatok teljes
+hu:Tápértékadatok teljes
 it:Valori nutrizionali completati
 ja:栄養成分表完了
 nl:Voedingswaarden klaar
@@ -381,13 +423,15 @@ zh-TW:完成營養成分
 zh-HK:完成營養成分
 
 en:Nutrition facts to be completed
+ca:Dades nutricionals completes
 cs:Nutriční hodnoty je třeba doplnit
 de:Nährwertinformationen auszufüllen
 el:Να συμπληρωθούν τα διατροφικά στοιχεία
 es:Valores nutricionales a completar
+fi:Ravintotiedot tarvitsee täydentää
 fr:Informations nutritionnelles à compléter
 he:מפרט תזונתי להשלמה
-hu:A tápértékadatokat ki kell egészíteni
+hu:Tápértékadatok kitöltendő
 it:Valori nutrizionali da completare
 ja:栄養成分表未完了
 nl:Voedingswaarden invullen
@@ -403,13 +447,15 @@ zh-TW:應完成營養成分
 zh-HK:應完成營養成分
 
 en:Photos validated
+ca:Imatges validades
 cs:Fotografie jsou ověřené
 de:Bilder geprüft
 el:Οι φωτογραφίες επικυρώθηκαν
 es:Fotografías validadas
+fi:Valokuvat vahvistettu
 fr:Photos validées
 he:התמונות אומתו
-hu:A fényképek érvényesítve
+hu:Fényképek érvényesítve
 it:Foto validate
 ja:写真検証済
 nl:Foto's gecontroleerd
@@ -418,21 +464,22 @@ pt:Imagens validadas
 ro:Fotografii validate
 ru:Фотографии выбраны
 sv:Bilder godkända
-vi:Photos validated
 zh:已验证照片
 zh-CN:已验证照片
 zh-TW:已驗證照片
 zh-HK:已驗證照片
 
 en:Photos to be validated
+ca:Imatges pendents de validar
 cs:Fotografie je třeba ověřit
 de:Bilder in Prüfung
 el:Να επικυρωθούν οι φωτογραφίες
 es:Fotografías a validar
+fi:Valokuvia jotka tarvitsevat vahvistamista
 fr:Photos à valider
 he:תמונות לאימות
-hu:A fényképeket érvényesíteni kell
-it:Foto da validare
+hu:Fényképeket érvényesíteni kell
+it:Foto da convalidare
 ja:写真未検証
 nl:Te controleren foto's
 nl_be:Te controleren foto's
@@ -447,17 +494,20 @@ zh-TW:應驗證照片
 zh-HK:應驗證照片
 
 en:Photos uploaded
+ca:Imatges carregades
 cs:Fotografie jsou nahrány
 de:Bilder hochgeladen
 el:Οι φωτογραφίες μεταφορτώθηκαν
 es:Fotografías subidas
+fi:Kuvia ladattu
 fr:Photos envoyées
 he:התמונות הועלו
-hu:A fényképek feltöltve
+hu:Fényképek feltöltve
 it:Foto caricate
 ja:写真のアップロード完了
 nl:Geüploade foto's
 nl_be:Geüploade foto's
+pl:Zdjęcia dodane
 pt:Imagens enviadas
 ro:Fotografii încărcate
 ru:Фотографии загружены
@@ -469,13 +519,15 @@ zh-TW:已上傳照片
 zh-HK:已上傳照片
 
 en:Photos to be uploaded
+ca:Imatges pendents de carregar
 cs:Fotografie je třeba doplnit
 de:Bilder hochladen
 el:Να μεταφορτωθούν οι φωτογραφίες
 es:Fotografías a subir
+fi:Valokuvat tarvitsee ladata
 fr:Photos à envoyer
 he:תמונות להעלאה
-hu:A fényképeket fel kell tölteni
+hu:Fényképeket kell feltölteni
 it:Foto da caricare
 ja:写真のアップロード未完了
 nl:Foto's uploaden
@@ -491,12 +543,15 @@ zh-TW:應上傳照片
 zh-HK:應上傳照片
 
 en:Categories completed
+ca:Categories completes
 cs:Kategorie jsou hotové
 de:Kategorien ausgefüllt
 el:Οι φωτογραφίες συμπληρώθηκαν
 es:Categorías completadas
+fi:Luokat täytetty
 fr:Catégories complétées
-hu:A kategóriák teljes
+he:קטגוריות הושלמו
+hu:Kategóriák megadva
 it:Categorie completate
 ja:カテゴリー完了
 nl:Categorieën klaar
@@ -509,12 +564,15 @@ zh-TW:完成分類
 zh-HK:完成分類
 
 en:Brands completed
+ca:Marca o marques completes
 cs:Značky jsou hotové
 de:Marken ausgefüllt
 el:Οι μάρκες συμπληρώθηκαν
 es:Marcas completadas
+fi:Tuotemerkit täytetty
 fr:Marques complétées
-hu:A márkanevek teljes
+he:מותגים הושלמו
+hu:Márkanevek megadva
 it:Marchi completati
 ja:ブランド完了
 nl:Merken klaar
@@ -527,12 +585,15 @@ zh-TW:完成商標
 zh-HK:完成商標
 
 en:Packaging completed
+ca:Envàs complet
 cs:Informace o balení jsou hotové
 de:Verpackung ausgefüllt
 el:Η συσκευασία συμπληρώθηκε
 es:Empaquetado completado
+fi:Pakkaus täytetty
 fr:Emballage complété
-hu:A csomagolás teljes
+he:אריזה הושלמה
+hu:Csomagolás megadva
 it:Imballaggio completato
 ja:包装完了
 nl:Verpakking klaar
@@ -545,12 +606,15 @@ zh-TW:完成包裝
 zh-HK:完成包裝
 
 en:Quantity completed
+ca:Quantitat completa
 cs:Informace o množství jsou hotové
 de:Menge ausgefüllt
 el:Η ποσότητα συμπληρώθηκε
 es:Cantidad completada
+fi:Määrä täytetty
 fr:Quantité complétée
-hu:A mennyiség teljes
+he:כמות הושלמה
+hu:Mennyiség megadva
 it:Quantità completata
 ja:数量完了
 nl:Hoeveelheid klaar
@@ -563,15 +627,19 @@ zh-TW:完成數量
 zh-HK:完成數量
 
 en:Product name completed
+ca:Nom del producte complet
 cs:Jméno produktu je hotové
 de:Produktname ausgefüllt
 el:Το όνομα του προϊόντος συμπληρώθηκε
 es:Nombre de producto completado
-fr:Nom du produit complete
-hu:A termék neve teljes
+fi:Tuotteen nimi täytetty
+fr:Nom du produit complété
+he:שם מוצר הושלם
+hu:Termék neve megadva
 it:Nome prodotto completato
 ja:製品名完了
 nl:Productnaam klaar
+pl:Nazwa produktu uzupełniona
 ru:Название указано
 sv:Produktnamn fullständigt
 vi:Tên sản phẩm đã hoàn thành
@@ -581,24 +649,71 @@ zh-TW:完成品名
 zh-HK:完成品名
 
 en:Packaging code to be completed
+ca:Codi d'envasat pendent d'omplir
 cs:Kód balení je třeba doplnit
 de:Verpackungscode auszufüllen
 el:Να συμπληρωθεί ο κωδικός συσκευασίας
 es:Código de empaque a completar
+fi:Pakkauskoodi tarvitsee täydentää
 fr:Code emballeur à compléter
-hu:A csomagolási kódot ki kell egészíteni
+he:קוד אריזה להשלמה
+hu:Csomagolási kód kitöltendő
 it:Codice di imballaggio da completare
+nl:Verpakkerscode niet ingevuld
 sv:Identifieringsmärke saknas
 vi:Mã đóng gói cần hoàn thành
+zh:包装代码需要完成
 
 en:Packaging code completed
+ca:Codi d'envasat complet
 cs:Kód balení je hotový
 de:Verpackungscode ausgefüllt
 el:Ο κωδικός συσκευασίας συμπληρώθηκε
 es:Código de empaque completado
+fi:Pakkauskoodi täytetty
 fr:Code emballeur complété
-hu:A csomagolási kód teljes
+he:קוד אריזה הושלם
+hu:Csomagolási megadva
 it:Codice di imballaggio completato
+nl:Verpakkerscode gereed
 sv:Identifieringsmärke fullständigt
 vi:Mã đóng gói đã hoàn thành
+zh:包装代码已完成
 
+en:Front photo selected
+fi:Etukuva valittu
+fr:Photo de face sélectionnée
+
+en:Front photo to be selected
+fi:Etukuva valitsematta
+fr:Photo de face non sélectionnée
+
+en:Ingredients photo selected
+fi:Ainesosakuva valittu
+fr:Photo des ingrédients sélectionnée
+
+en:Ingredients photo to be selected
+fi:Ainesosakuva valitsematta
+fr:Photo des ingrédients non sélectionnée
+
+en:Nutrition photo selected
+fi:Ravintokuva valittu
+fr:Photo de la nutrition non sélectionnée
+
+en:Nutrition photo to be selected
+fi:Ravintokuva valitsematta
+fr:Photo de la nutrition non sélectionnée
+
+en:Packaging photo selected
+fi:Pakkauskuva valittu
+fr:Photo de l'emballage sélectionnée
+
+en:Packaging photo to be selected
+fi:Pakkauskuva valitsematta
+fr:Photo de l'emballage non sélectionnée
+
+en:Origins completed
+fr:Origines complétées
+
+en:Origins to be completed
+fr:Origines à compléter

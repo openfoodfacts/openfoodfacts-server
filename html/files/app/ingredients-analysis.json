@@ -1,17 +1,62 @@
-[
-["en:vegan",
-["en:vegan", { "icon" : "egg", "color": "#00aa00"}],
-["en:maybe-vegan", { "icon" : "egg", "color": "#ff6600"}],
-["en:non-vegan", { "icon" : "egg", "color": "#ff0000"}]
-],
-["en:vegetarian",
-["en:vegetarian", { "icon" : "leaf", "color": "#00aa00"}],
-["en:maybe-vegetarian", { "icon" : "leaf", "color": "#ff6600"}],
-["en:non-vegetarian", { "icon" : "leaf", "color": "#ff0000"}]
-],
-["en:palm-oil",
-["en:palm-oil-free", { "icon" : "monkey_happy", "color": "#00aa00"}],
-["en:may-contain-palm-oil", { "icon" : "monkey_uncertain", "color": "#ff6600"}],
-["en:palm-oil", { "icon" : "monkey_unhappy", "color": "#ff0000"}]
-]
-]
+{
+	"en:maybe-vegan": {
+		"type": "vegan",
+		"icon": "leaf",
+		"color": "#ff6600"
+	},
+	"en:non-vegan": {
+		"type": "vegan",
+		"icon": "leaf",
+		"color": "#ff0000"
+	},
+	"en:vegan": {
+		"type": "vegan",
+		"icon" : "leaf", 
+		"color": "#00aa00"
+	},
+	"en:vegan-status-unknown": {
+		"type": "vegan",
+		"icon" : "leaf", 
+		"color": "#8c8c8c"
+	},
+	"en:vegetarian": {
+		"type": "vegetarian",
+		"icon" : "egg", 
+		"color": "#00aa00"
+	},
+	"en:maybe-vegetarian": {
+		"type": "vegetarian",
+		"icon" : "egg", 
+		"color": "#ff6600"
+	},
+	"en:non-vegetarian": {
+		"type": "vegetarian",
+		"icon" : "egg", 
+		"color": "#ff0000"
+	}, 
+	"en:vegetarian-status-unknown": {
+		"type": "vegetarian",
+		"icon" : "egg", 
+		"color": "#8c8c8c"
+	},
+	"en:palm-oil-free": {
+		"type": "palm-oil",
+		"icon" : "monkey_happy", 
+		"color": "#00aa00"
+	},
+	"en:may-contain-palm-oil": {
+		"type": "palm-oil",
+		"icon" : "monkey_uncertain", 
+		"color": "#ff6600"
+	},
+	"en:palm-oil": {
+		"type": "palm-oil",
+		"icon" : "monkey_unhappy", 
+		"color": "#ff0000"
+	},
+	"en:palm-oil-content-unknown": {
+		"type": "palm-oil",
+		"icon": "monkey_uncertain",
+		"color": "#8c8c8c"
+	}
+}

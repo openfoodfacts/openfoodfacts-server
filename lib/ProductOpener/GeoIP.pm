@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,13 +26,12 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					&get_country_for_ip
-					&get_country_code_for_ip
+		&get_country_for_ip
+		&get_country_code_for_ip
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -45,9 +44,13 @@ use ProductOpener::Config qw/:all/;
 use GeoIP2::Database::Reader;
 use Log::Any qw($log);
 
-my $gi = GeoIP2::Database::Reader->new(file => $geolite2_path);
+my $gi;
+if (-e $geolite2_path) {
+	$gi = GeoIP2::Database::Reader->new(file => $geolite2_path);
+}
 
 sub get_country_for_ip {
+	return unless $gi;
 	my $ip = shift;
 
 	my $country;
@@ -65,8 +68,8 @@ sub get_country_for_ip {
 	return $country;
 }
 
-
 sub get_country_code_for_ip {
+	return unless $gi;
 	my $ip = shift;
 
 	my $country;
@@ -83,6 +86,5 @@ sub get_country_code_for_ip {
 
 	return $country;
 }
-
 
 1;
