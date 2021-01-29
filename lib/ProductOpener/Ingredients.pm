@@ -154,7 +154,7 @@ my %may_contain_regexps = (
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
-	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
+	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr => "može sadržavati|može sadržati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
@@ -162,12 +162,13 @@ my %may_contain_regexps = (
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
-	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	nb => "kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
+	ru => "Могут содержаться следы",
 	sk => "Môže obsahovať",
-	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
+	sv => "kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -291,6 +292,7 @@ en => [
 	["w/o", "without"],
 	["w/", "with "], # note trailing space
 	["vit.", "vitamin"],
+	["i.a.", "inter alia"],
 
 ],
 
@@ -302,6 +304,7 @@ fi => [
 	[ "mikro.", "mikrobiologinen" ],
 	[ "mm.",    "muun muassa" ],
 	[ "sis.",   "sisältää" ],
+	[ "n.",     "noin" ],
 ],
 
 fr => [
@@ -333,6 +336,7 @@ sv => [
 	[ "stabil.",         "stabiliseringsämne" ],
 	[ "surhetsreg.",     "surhetsreglerande" ],
 	[ "veg.",            "vegetabilisk" ],
+	[ "ca.",             "cirka" ],
 ],
 );
 
@@ -812,9 +816,11 @@ my %min_regexp = (
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
-	en => "of (the )?total weight",
+	en => "of (the )?(?:total weight|grain is wholegrain rye)",
 	es => "(en el chocolate( con leche)?)",
+	fi => "jauhojen määrästä",
 	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	sv => "fetthalt",
 );
 
 
@@ -984,7 +990,7 @@ sub parse_ingredients_text($) {
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -1003,7 +1009,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1399,6 +1405,10 @@ sub parse_ingredients_text($) {
 						# Remove some sentences
 						my %ignore_regexps = (
 
+							'da' => [
+								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+							   ],
+
 							'de' => [
 								'^in ver[äa]nderlichen Gewichtsanteilen$',
 								'^Unter Schutzatmosph.re verpackt$',
@@ -1414,6 +1424,9 @@ sub parse_ingredients_text($) {
 								'^see ingredients in bold$',
 								'^in var(iable|ying) proportions$',
 								'^dietary advice[:]?$',
+								'^in milk chocolate cocoa solids',
+								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
+								'^meat content',
 							],
 
 							'fr' => [
@@ -1438,23 +1451,44 @@ sub parse_ingredients_text($) {
 							],
 
 							'fi' => [
-								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^(?:Täysjyvää|Kauraa) \d{1,3}\s*% leivän viljasta ja \d{1,3}\s*% leivän painosta$',
+								'^jyviä ja siemeniä \d{1,3}\s*% leivontaan käytettyjen jauhojen määrästä$',
+								'^(?:Täysjyvä(?:ruista|ä)|Kauraa) \d{1,3}\s*% viljaraaka-aineesta',
+								'^Lihaa? ja lihaan verrattav(?:at|ia) valmistusaine(?:et|ita)',
+								'^Maitosuklaa sisältää maidon kiinteitä aineita vähintään',
+								'^Leivontaan käytetyistä viljasta \d{1,3}\s*% on ruista$',
+								'^(?:Maito|Tummassa )?suklaassa(?: kaakaota)? vähintään',
 								'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
-								'^Lihaa ja lihaan verrattavia valmistusaineita',
-								'^(?:Maito)?rasvaa',
-								'^Täysmehu(?:osuus|pitoisuus)',
-								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
+								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
+								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
+								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
+								'^Maitosuklaa sisältää kaakaota vähintään',
+								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
+								'^Kuorta ei ole tarkoitettu syötäväksi$',
+								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^Valmistettu (?:myllyssä|tehtaassa)',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Kuiva-aineiden täysjyväpitoisuus',
-								'^Valmistettu myllyssä',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Tuote on valmistettu linjalla',       # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
-								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^vastaa 100 g porkkanaa$',
+								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
+								'^lakritsin osuudesta$',
+								'^Kaakaota vähintään',
+								'^(?:Maito)?rasvaa',
+								'^täysjyväsisältö',
 							],
 
 							'it' => [
 								'^in proporzion[ei] variabil[ei]$',
 							],
+
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+							   ],
 
 							'nl' => [
 								'^allergie.informatie$',
@@ -1463,7 +1497,18 @@ sub parse_ingredients_text($) {
 								'o\.a\.',
 							],
 
-							'sv' => [ 'varierande proportion', ],
+							'sv' => [
+								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Mjölkchokladen innehåller minst',
+								'^Fruktmängd \d+\s*g per$',
+								'^Kakaohalt i chokladen$',
+								'varierande proportion',
+								'^total mängd socker',
+								'kan innehålla ben$',
+								'^per 100 g sylt$',
+								'^Kakao minst',
+								'^fetthalt',
+							   ],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -2910,7 +2955,7 @@ fi => [
 '(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
 'Sisältää aluspaperin',
 'Suositellaan säilytettäväksi',
-'Säily(?:y|tys|tetään)',
+'Säily(?:tettävä|tetään|tys|y)',
 'Tämä tuote on tehty ihmisille',
 'Valmist(?:aja:|us)',
 ],
@@ -3088,6 +3133,7 @@ sv => [
 'närings(?:deklaration|innehåll|värde)',
 '(?:bör )?förvar(?:ing|as?)',
 'till(?:agning|redning)',
+'produkten innehåller',
 'serveringsförslag',
 'produkterna bör',
 'bruksanvisning',
@@ -3711,7 +3757,13 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
-	if ($product_lc eq 'es') {
+	if ($product_lc eq 'de') {
+		# deletes comma in "Bienenwachs, weiß und gelb" since it is just one ingredient
+		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb/ig;
+		# deletes brackets in "Bienenwachs, weiß und gelb" since it is just one ingredient
+		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
+	}
+	elsif ($product_lc eq 'es') {
 
 		# Special handling for sal as it can mean salt or shorea robusta
 		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)
@@ -4254,9 +4306,6 @@ sub extract_ingredients_classes_from_text($) {
 			$log->debug("ingredient 3", { ingredient => $ingredient }) if $log->is_debug();
 		}
 	}
-
-	#$product_ref->{ingredients_debug} = clone(\@ingredients);
-	#$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
 
 	my $with_sweeteners;
 

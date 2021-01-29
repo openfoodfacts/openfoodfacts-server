@@ -221,13 +221,23 @@ my @tests = (
 		}
 	],
 	
+	[
+		'origins-of-ingredients-unspecified-origin',
+		{
+			lc => "en",
+			categories_tags=>["en:cheeses"],
+			origins_tags=>["en:unspecified"],
+			ingredients_text=>"Milk",
+		}
+	],	
+	
 	# Packaging adjustment
 	
 	[
 		'packaging-en-pet-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"PET bottle"
 		}
 	],
@@ -238,7 +248,7 @@ my @tests = (
 		'packaging-en-plastic-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"Plastic bottle"
 		}
 	],
@@ -247,7 +257,7 @@ my @tests = (
 		'packaging-en-multiple',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
 		}
 	],
@@ -256,7 +266,7 @@ my @tests = (
 		'packaging-en-unspecified-material-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"bottle"
 		}
 	],		
@@ -265,10 +275,21 @@ my @tests = (
 		'packaging-en-unspecified-material-can',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"can"
 		}
 	],
+	
+	# Sodas: no Eco-Score
+	
+	[
+		'category-without-ecoscore-sodas',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			ingredients_text=>"Water, sugar",
+		}
+	],	
 );
 
 

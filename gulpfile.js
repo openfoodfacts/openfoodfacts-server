@@ -42,6 +42,19 @@ function icons() {
     pipe(dest("./html/images/icons/dist"));
 }
 
+function attributesIcons() {
+  return src("*.svg", { cwd: "./html/images/attributes/src" }).
+    pipe(
+      svgmin({
+      plugins: [
+        { removeMetadata: true },
+        { removeTitle: true },
+      ]
+      })
+    ).
+    pipe(dest("./html/images/attributes"));
+}
+
 function css() {
   return src(sassSrc).
     pipe(sourcemaps.init()).
@@ -144,7 +157,8 @@ exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.attributesIcons = attributesIcons;
+exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, attributesIcons, css));
 exports.watch = function () {
   watch(jsSrc, { delay: 500 }, buildJs);
   watch(sassSrc, { delay: 500 }, css);

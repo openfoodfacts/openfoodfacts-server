@@ -837,10 +837,6 @@ Compute sort keys that are stored in the MongoDB database and used to order resu
 
 Used on the web site for facets pages, except the index page.
 
-=head3 sortkey - date of last modification, with obsolete products last and complete products first
-
-Used on the web site for index page.
-
 =head3 popularity_key - Popular and recent products
 
 Used for the Personal Search project to provide generic search results that apps can personnalize later.
@@ -850,12 +846,6 @@ Used for the Personal Search project to provide generic search results that apps
 sub compute_sort_keys($) {
 
 	my $product_ref = shift;
-
-	# put obsolete products last  		(substract 200000000000 when products are obsolete)
-	# then put complete products first	(add 100000000000 when products are complete)
-	# otherwise sort by last_modified_t (e.g.  1571384133)
-
-	my $sortkey = $product_ref->{last_modified_t};
 	
 	my $popularity_key = 0;
 	
@@ -900,20 +890,7 @@ sub compute_sort_keys($) {
 		}
 	}
 
-	# Put obsolete products last (negative key)
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$sortkey -= 200000000000;
-		$popularity_key -= 200000000000;
-	}
-
-	# Put products with complete data before uncomplete products
-	if ($product_ref->{complete}) {
-		$sortkey += 100000000000;
-		$popularity_key += 100000000000;
-	}
-
-# Add 0 so we are sure the key is saved as int
-	$product_ref->{sortkey} = $sortkey + 0;
+	# Add 0 so we are sure the key is saved as int
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
@@ -1122,7 +1099,7 @@ sub store_product($$) {
 	$product_ref->{last_modified_t} += 0;
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
-	$product_ref->{sortkey} += 0;
+	$product_ref->{popularity_key} += 0;
 	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
@@ -1324,7 +1301,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$notempty++;
 	}
 
-	my @needed_fields = qw(product_name quantity packaging brands categories );
+	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
@@ -2170,6 +2147,12 @@ sub product_name_brand($) {
 	}
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
+	}
+	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
+		$full_name = $ref->{"abbreviated_product_name_$lc"};
+	}
+	elsif ((defined $ref->{abbreviated_product_name}) and ($ref->{abbreviated_product_name} ne '')) {
+		$full_name = $ref->{abbreviated_product_name};
 	}
 
 	if (defined $ref->{brands}) {

@@ -853,6 +853,15 @@ sub clean_fields($) {
 
 			# FR 62.907.030 EC (DANS UN OVALE)
 			$product_ref->{$field} =~ s/\(?dans un ovale\)?//ig;
+			
+			# FR 72.024.001 EC - FR 72 024 520 CE
+			$product_ref->{$field} =~ s/ (CE|EC) - ([A-Z][A-Z]) / $1, $2/g;
+		}
+		
+		# category with "organic" in it
+		if ($field eq "categories") {
+			$product_ref->{$field} =~ s/^organic //i; # English
+			$product_ref->{$field} =~ s/ bio$//i; # French
 		}
 
 		# Origin of ingredients that contains other things than tags (e.g. Leroux)
@@ -873,21 +882,31 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
 		}
 
-
-		# Lowercase fields in ALL CAPS
-		if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
+		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
+			
+			# Lowercase fields in ALL CAPS
+			
 			if (($product_ref->{$field} =~ /[A-Z]{4}/)
 				and ($product_ref->{$field} !~ /[a-z]/)
 				) {
 				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
 				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 			}
+			
+			# Remove fields with "0"
+			$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
 		}
-
+		
+		# All fields
+		# Remove fields with "-" or "X"
+		$product_ref->{$field} =~ s/^(\s|x|X|-|_|\.|\/)+$//;
 
 		# Ingredients
 
 		if ($field =~ /^ingredients_text/) {
+			
+			# _x000D_
+			$product_ref->{$field} =~ s/_x000D_/\n/g;
 
 			# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
 

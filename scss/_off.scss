@@ -371,6 +371,10 @@ details.recent {
   height:1em;
 }
 
+h4 > .icon {
+  font-size:24px;
+}
+
 .ingredients_analysis {
   color: white;
   font-size: 1rem;
@@ -578,3 +582,50 @@ html[dir="rtl"] {
   border-bottom:1px solid grey;
 }
 
+// from https://www.w3.org/WAI/tutorials/forms/labels/
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.f-dropdown {
+  max-width:300px;
+}
+
+#preferences_switch input:checked+label {
+  background-color:#4fa125;
+}
+
+.ecoscore_panel {
+  border-radius:1rem;	
+}
+
+.ecoscore_panel li:hover {
+  background-color:transparent;
+  cursor:default;
+}
+
+.ecoscore_panel ul {
+  list-style-type:none;
+}
+
+#ecoscore_panel_lca { background-color:#fafafa; }
+#ecoscore_panel_production_system { background-color:#e1fdd4; }
+#ecoscore_panel_origins { background-color:#d6f5ff; }
+#ecoscore_panel_threatened_species { background-color:#ffe4d1; }
+#ecoscore_panel_packaging { background-color:#fff6d5; }
+
+.agribalyse_impact_bar {
+  background-color:#ffbb88;height:1.2rem;float:left;
+}
+
+.agribalyse_impact_bar_full {
+  width:200px;
+  background-color:#eeeeee;height:1.2rem;
+}

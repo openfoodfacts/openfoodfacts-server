@@ -13,6 +13,9 @@ services:
       - type: bind
         source: ../
         target: /opt/product-opener/
+      - ./logs/apache2:/var/log/apache2
+      - ./logs/apache2:/mnt/podata/logs
+      - ./logs/apache2:/var/log/httpd
   frontend:
     image: nginx:1.17.9-alpine
     volumes:

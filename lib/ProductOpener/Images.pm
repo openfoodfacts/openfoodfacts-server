@@ -435,6 +435,10 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	my $code;
 	my $imagefield;
+	
+	# codes with spaces
+	# 4 LR GROS LOUE_3 251 320 080 419_3D avant.png
+	$filename =~ s/(\d) (\d)/$1$2/g;
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
@@ -903,14 +907,29 @@ sub process_image_crop($$$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 	my $coordinates_image_size = shift;
+	
+	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
 	# -> $coordinates_image_size = $crop_size
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
+	# There was an issue saving coordinates_image_size for some products
+	# if any coordinate is above the $crop_size, then assume it was on the full size
+
 	if (not defined $coordinates_image_size) {
-		$coordinates_image_size = $crop_size;
+		if (($x2 <= $crop_size) and ($y2 <= $crop_size)) {
+			$coordinates_image_size = $crop_size;
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 and y2 less than crop_size, setting to crop_size", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+		else {
+			$coordinates_image_size = "full";
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 or y2 greater than crop_size, setting to full", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+	}
+	else {
+		$log->debug("process_image_crop - coordinates_image_size set", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 	}
 
 	my $path = product_path_from_id($product_id);
@@ -1210,6 +1229,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		y1 => $y1,
 		x2 => $x2,
 		y2 => $y2,
+		coordinates_image_size => $coordinates_image_size,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,

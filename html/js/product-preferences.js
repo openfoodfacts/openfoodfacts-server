@@ -1,8 +1,10 @@
 /*global lang */
+/*global page_type*/ // depends on which type of page the preferences are shown on
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
 var preferences;	// All supported preferences + translated strings
+var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 
 function get_user_product_preferences () {
 	// Retrieve user preferences from local storage
@@ -21,11 +23,12 @@ function get_user_product_preferences () {
 	return user_product_preferences;
 }
 
-
 // display a summary of the selected preferences
 // in the order mandatory, very important, important
 
-function display_selected_preferences (target_selected, target_selection_form, product_preferences) {
+/* exported display_selected_preferences */ 
+
+function display_selected_preferences (target_selected_summary, product_preferences) {
 	
 	var selected_preference_groups = {
 		"mandatory" : [],
@@ -68,21 +71,63 @@ function display_selected_preferences (target_selected, target_selection_form, p
 		}
 	});
 	
-	$( target_selected ).html(
-		'<div style="float:left;margin-right:1em;">'
-		+ '<p><span id="preferences_title">' + preferences_text + "</span><br>"
-		+ '&raquo; ' + '<a id="preferences_link" data-dropdown="selected_preferences">'
-		+ lang().see_your_preferences + '</a></p>'
-		+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
-		+ selected_preferences_html
-		+ '</div>'
-		+ '</div>'
-		+ '<div>'
-		+ '<a id="show_selection_form" class="button small">'
+	// dropdown link to see a preferences summary
+	var html = '<a id="preferences_link" data-dropdown="selected_preferences">'
+	+ lang().see_your_preferences + '</a></p>'
+	+ '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' 
+	+ selected_preferences_html
+	+ '</div>';		
+			
+	$( target_selected_summary ).html(html);
+	
+	$(document).foundation('reflow');
+}
+
+
+// display a switch to use preferences (on list of products pages) and a button to edit preferences
+
+function display_use_preferences_switch_and_edit_preferences_button (target_selected, target_selection_form, change) {
+	
+	var html = '';
+	
+	var html_edit_preferences = '<a id="show_selection_form" class="button small success round" style="margin-left:3em;">'
 		+ '<img src="/images/icons/dist/food-cog.svg" class="icon" style="filter:invert(1)">'
-		+ " " + lang().preferences_edit_your_food_preferences + '</a></div>'
-		+ '<hr style="clear:left;height:0;border:0;margin:0;padding:0;">'
-	);
+		+ " " + lang().preferences_edit_your_food_preferences + '</a>';
+	
+	// Display a switch for classifying according to the user preferences if
+	// we are on a page with multiple products
+	
+	if (page_type == 'products') {
+		
+		var checked = '';
+		if (use_user_product_preferences_for_ranking) {
+			checked = " checked";
+		}
+	
+		html += '<div class="switch round success" id="preferences_switch" style="float:left;margin-right:.5rem;padding-top:0.1rem;">'
+		+ '<input id="preferences_checkbox" type="checkbox"' + checked + '>'
+		+ '<label for="preferences_checkbox"></label></div>'
+		+ '<label for="preferences_checkbox" style="float:left;margin-right:1em;padding-top:0.5rem;">' + preferences_text + '</label>' + html_edit_preferences;
+	}
+	else {
+		
+		html += preferences_text + html_edit_preferences;
+	}
+			
+	$( target_selected ).html(html);
+	
+	if (page_type == 'products') {
+		$("#preferences_checkbox").change(function() {
+			
+			localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
+			use_user_product_preferences_for_ranking = this.checked;
+				
+			// Call the change callback if we have one (e.g. to update search results)
+			if (change) {
+				change();
+			}	
+		});
+	}
 		
 	$( "#show_selection_form").click(function() {
 		$( target_selected ).hide();
@@ -186,18 +231,18 @@ function display_user_product_preferences (target_selected, target_selection_for
 		$(target_selection_form).html(
 			'<div class="panel callout">'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small">'
+			+ '<a class="show_selected button small success round">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
 			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
-			+ '<a id="delete_all_preferences_button" class="button small">' + lang().delete_all_preferences + '</a>'
+			+ '<a id="delete_all_preferences_button" class="button small round success">' + lang().delete_all_preferences + '</a>'
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
 			+ '<br><br>'
 			+ '<div class="edit_button">'
-			+ '<a class="show_selected button small">'
+			+ '<a class="show_selected button small round success">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'
@@ -209,7 +254,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 				user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
 				localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
 				
-				display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+				display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 				
 				// Call the change callback if we have one (e.g. to update search results)
 				if (change) {
@@ -219,7 +264,7 @@ function display_user_product_preferences (target_selected, target_selection_for
 		});
 			
 		if (target_selected) {	
-			display_selected_preferences(target_selected, target_selection_form, user_product_preferences);
+			display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
 		}
 
 		$( "#delete_all_preferences_button").click(function() {

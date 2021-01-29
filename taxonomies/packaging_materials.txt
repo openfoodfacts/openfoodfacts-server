@@ -7,6 +7,9 @@ synonyms:fr:transparent,transparente
 
 synonyms:fr:coloré,colorée
 
+en:Unknown
+fr:Inconnu, inconnue, inconnus, inconnues
+
 en:Plastic
 de:Kunststoff
 fr:Plastique
@@ -21,6 +24,7 @@ fr:Matériau recyclable
 hu:Újrahasznosítható anyag
 it:Materiale riciclabile
 pt:Material reciclável
+wikidata:en:Q57305800
 
 <en:Recyclable material
 <en:Plastic
@@ -40,6 +44,7 @@ it:Materiale riciclato
 nl:Hergebruikt materiaal
 nl_be:Hergebruikt materiaal
 pt:Material reciclado
+wikidata:en:Q37328535
 
 <en:Recycled material
 <en:Plastic
@@ -85,18 +90,22 @@ nl_be:hergebruikt PET
 
 <xx:PET
 en:Biobased PET
+de:Biobasiertes PET
 fr:PET biosourcé
 
 <xx:PET
 en:Transparent PET
+de:Transparentes PET
 fr:PET transparent
 
 <xx:rPET
 en:Transparent rPET
+de:Transparentes rPET
 fr:rPET transparent
 
 <xx:PET
 en:Colored PET
+de:Gefärbtes PET
 fr:PET coloré
 
 <xx:PET
@@ -186,15 +195,18 @@ nl_be:Acrylonitril-butadieen-styreen, ABS
 
 <en:Plastic
 <en:Other plastics
-en:PLA - Polylactic acid, Polylactic acid
+en:PLA - Polylactic acid, Polylactic acid, PLA
+de:PLA - Polylactide, PLA, Polylactide
 xx:PLA
 fr:PLA - Acide polylactique, Acide polylactique
+wikidata:en:Q413769
 
 en:Lead–acid battery, 8 Lead, Lead 8
 de:Bleibatterie, 8 Lead, 8-Lead
 hu:Ólom-sav akkumulátor, 8 Lead, Lead 8
 nl:Lood, Loodaccu
 nl_be:Lood, Loodaccu
+wikidata:en:Q337724
 
 en:Alkaline battery, 19 Alkaline, 19
 de:Alkalibatterie, 19 Alkaline, 19-Alkaline
@@ -202,6 +214,7 @@ fr:Pile alcaline, batterie alcaline, accumulateur alcaline
 hu:Alkáli elem, 19 Alkaline, 19
 nl:Alkalinebatterij
 nl_be:Alkalinebatterij
+wikidata:en:Q861345
 
 en:Nickel–cadmium battery, 10 NiCD
 de:Nickel–Cadmium-Batterie, 10 NiCD, 10-NiCD
@@ -209,6 +222,7 @@ fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
 hu:Nikkel-kadmium akkumulátor, 10 NiCD
 nl:Nikkel-cadmium-accu
 nl_be:Nikkel-cadmium-accu
+wikidata:en:Q898377
 
 en:Nickel–metal hydride battery, 11 NiMH
 de:Nickelmetallhydrid Batterie, 11 NiMH, 11-NiMH
@@ -216,6 +230,7 @@ fr:Accumulateur nickel-hydrure métallique, batterie nickel-hydrure métallique
 hu:Nikkel-fémhidrid akkumulátor,Nikkel-metál-hidrid akkumulátor, 11 NiMH
 nl:nikkel-metaalhydride-accu, NiMH-accu
 nl_be:nikkel-metaalhydride-accu, NiMH-accu
+wikidata:en:Q308567
 
 en:Lithium battery, 12 Li
 de:Litiumbatterie, 12 Li, 12-Li
@@ -223,18 +238,21 @@ fr:Accumulateur lithium, batterie lithium, batterie au lithium, accumulateur au 
 hu:Lítium akkumulátor, 12 Li, 12-Li
 nl:Lithium-ion-accu, Li-ion-accu
 nl_be:Lithium-ion-accu, Li-ion-accu
+wikidata:en:Q899079
 
 en:Silver-oxide battery, 13 SO(Z)
 de:Silberoxidbatterie, 13 SO(Z), 13-SO
 hu:Ezüst-oxid akkumulátor, Ezüst-oxid elem, 13 SO(Z), 13-SO
 nl:zilveroxide batterij
 nl_be:zilveroxide batterij
+wikidata:en:Q900791
 
 en:Zinc–carbon battery, 14 CZ
 de:Zink–Kohle-Batterie, 14 CZ, 14-CZ
 hu:Cink-szén akkumulátor, Szén-cink elem, 14 CZ
 nl:Zink-koolstofcel
 nl_be:Zink-koolstofcel
+wikidata:en:Q28765
 
 en:Cardboard, 20 C PAP, 20 C PCB
 de:Pappe, Wellpappe, 20 C PAP, 20 C PCB
@@ -247,10 +265,12 @@ nl_be:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vor
 <en:Cardboard
 <en:Recycled material
 en:Recycled cardboard
+de:Recycelter Karton, Recyclingkarton
 fr:Carton recyclé, carton recyclé (100%)
 
 <en:Cardboard
 en:FSC cardboard
+de:FSC-Karton
 fr:Carton FSC
 
 en:Other paper, 21 PAP
@@ -268,13 +288,17 @@ nl:Papier
 nl_be:Papier
 ru:Бумага
 ja:紙
+wikidata:en:Q11472
 
 <en:Paper
 en:Kraft paper, kraft
+de:Kraftpapier
 fr:Papier kraft, kraft
 
 en:Wax
+de:Wachs
 fr:Cire
+wikidata:en:Q124695
 
 en:Paperboard, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
 de:Karton, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23, 23-PBD
@@ -284,7 +308,7 @@ it:Cartoncino, PBD
 
 en:Metal, Metals
 fr:Métal, Métaux
-de:Metalle
+de:Metall, Metalle
 hu:Fémek, fém
 it:Metalli
 nl:Metaal
@@ -293,7 +317,7 @@ ru:Металл
 
 <en:Metals
 en:Recyclable Metals
-de:Wiederverwertbare Metalle
+de:Wiederverwertbare Metalle, Wiederverwertbares Metall
 hu:Újrahasznosított fémek
 it:Metalli riciclabili
 
@@ -306,24 +330,29 @@ it:Acciaio
 nl:Staal
 ru:Сталь
 ja:スチール
+wikidata:en:Q11427
 
 <en:Recyclable Metals
-en:Aluminium, 41 ALU
-de:Aluminium, 41 ALU, 41-ALU
-hu:Alumínium, 41 ALU
+en:Aluminium
+de:Aluminium
+fr:Aluminium
+hu:Alumínium
 it:Alluminio
 nl:Aluminium
 ru:Алюминий
 ja:アルミ
+xx:41 ALU
 wikidata:en:Q663
 
 <en:Aluminium
 en:Heavy aluminium, thick aluminium
+de:Schweres Aluminium, dickes Aluminium
 fr:Aluminium lourd, aluminium épais
 
 # Thin sheets, small things that cannot be easily recycled
 <en:Aluminium
 en:Light aluminium, thin aluminium
+de:Leichtes Aluminium, dünnes Aluminium
 fr:Aluminium léger, aluminium fin
 
 en:Wood, 50 FOR
@@ -333,6 +362,7 @@ hu:Fa, 50 FOR
 it:Legno
 nl:Hout
 ru:Древесина
+wikidata:en:Q287
 
 en:Cork, 51 FOR
 de:Kork, 51 FOR, 51-FOR
@@ -340,6 +370,7 @@ fr:Liège
 hu:Parafa, 51 FOR, 51-FOR
 nl:Kurk
 ru:Пробка
+wikidata:en:Q49444
 
 en:Cotton, 60 COT
 de:Baumwolle, 60 COT, 60-COT
@@ -348,11 +379,13 @@ hu:Pamut, 60 COT
 it:Cotone
 nl:Katoen
 ru:Хлопок
+wikidata:en:Q8231603
 
 en:Jute, 61 TEX
 de:Jute, 61 TEX, 61-TEX
 hu:Juta, 61 TEX, 61-TEX
 ru:Джутовое волокно
+wikidata:en:Q107211
 
 en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 de:Andere Textilien, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
@@ -361,9 +394,11 @@ hu:Egyéb textília, Más textilek, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 T
 nl:Ander textiel
 
 en:Glass
+de:Glas
 fr:Verre
 hu:Üveg
 it:Vetro
+wikidata:en:Q11469
 
 <en:Glass
 en:Mixed Glass Container/Multi-Part Container, 70 GLS
@@ -371,23 +406,25 @@ hu:Vegyes üveg
 
 <en:Glass
 en:Clear Glass, 71 GLS, 71-GLS
-de:Klarglas
+de:Klarglas, 71 GLS, 71-GLS
 fr:Verre transparent
 hu:Fehér üveg
 
 <en:Glass
 en:Green Glass, 72 GLS, 72-GLS
-de:Grünglas
+de:Grünglas, 72 GLS, 72-GLS
 fr:Verre vert
 hu:Zöld üveg
 
 <en:Glass
 en:Dark Sort Glass, 73 GLS
+de:Dunkles Sortierglas, 73 GLS
 fr:Verre sombre
 hu:Sötét válogatott üveg
 
 <en:Glass
 en:Light Sort Glass, 74 GLS
+de:Helles Sortierglas, 74 GLS
 fr:Verre clair
 hu:Világos válogatott üveg
 
@@ -396,7 +433,7 @@ en:Light Leaded Glass, 75 GLS
 
 <en:Glass
 en:Leaded Glass, 76 GLS, 76-GLS
-de:Bleiglas
+de:Bleiglas, 76 GLS, 76-GLS
 hu:Ólomüveg
 
 <en:Glass
@@ -424,10 +461,13 @@ xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard
 
 en:Biobased Tetra Pak
+de:Biobasiertes Tetra Pak
 fr:Tetra Pak biosourcé
 
 en:Multilayer composite, multilayer, composite composite materials, polycoat
 fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
 
 en:Ceramic
+de:Keramik
 fr:Céramique
+wikidata:en:Q45621

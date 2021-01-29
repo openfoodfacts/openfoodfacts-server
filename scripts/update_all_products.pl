@@ -126,6 +126,7 @@ my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
 my $compute_ecoscore = '';
 my $compute_forest_footprint = '';
+my $fix_nutrition_data_per = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -172,6 +173,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"all-owners" => \$all_owners,
 			"delete-old-fields" => \$delete_old_fields,
 			"mongodb-to-mongodb" => \$mongodb_to_mongodb,
+			"fix-nutrition-data-per" => \$fix_nutrition_data_per,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -212,7 +214,7 @@ if (
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
-	and (not $fix_spanish_ingredientes)
+	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date)
@@ -241,11 +243,19 @@ if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc
 }
 
 # Get a list of all products not yet updated
-# Use query filtes entered using --query categories_tags=en:plant-milks
+# Use query filters entered using --query categories_tags=en:plant-milks
 
 use boolean;
 
 foreach my $field (sort keys %{$query_ref}) {
+	
+	my $not = 0;
+	
+	if ( $query_ref->{$field} =~ /^-/ ) {
+		$query_ref->{$field} = $';
+		$not = 1;
+	}
+	
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -253,11 +263,22 @@ foreach my $field (sort keys %{$query_ref}) {
 	elsif ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
-	elsif ( $query_ref->{$field} =~ /^-/ ) {
-		$query_ref->{$field} = { '$ne' => $' };
-	}
 	elsif ( $field =~ /_t$/ ) {    # created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
+	}
+	# Multiple values separated by commas 
+	elsif ($query_ref->{$field} =~ /,/) {
+		my @tagids = split(/,/, $query_ref->{$field});
+
+		if ($not) {
+			$query_ref->{$field} =  { '$nin' => \@tagids };
+		}
+		else {
+			$query_ref->{$field} = { '$in' => \@tagids };
+		}					
+	}
+	elsif ($not) {
+		$query_ref->{$field} = { '$ne' => $query_ref->{$field} };
 	}
 }
 
@@ -295,9 +316,14 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 my $socket_timeout_ms = 2 * 60000; # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $products_collection = get_products_collection($socket_timeout_ms);
 
-my $products_count = $products_collection->count_documents($query_ref);
+my $products_count = "";
+
+eval {
+$products_count = $products_collection->count_documents($query_ref);
 
 print STDERR "$products_count documents to update.\n";
+};
+
 if ($count) { exit(0); }
 
 my $cursor;
@@ -317,6 +343,8 @@ my $fix_rev_not_incremented_fixed = 0;
 
 # Used to get stats on fields deleted by an user
 my %deleted_fields = ();
+
+my $nutrition_data_per_n = 0;
 
 while (my $product_ref = $cursor->next) {
 
@@ -350,8 +378,17 @@ while (my $product_ref = $cursor->next) {
 		my $product_values_changed = 0;
 
 		if ($delete_old_fields) {
-			# renamed to categories_properties
-			delete $product_ref->{category_properties};
+			
+			foreach my $field (qw(
+				additives_old_n
+				categories_properties
+				ingredients_debug
+				ingredients_ids_debug
+				sortkey
+			)) {
+				
+				defined $product_ref->{$field} and delete $product_ref->{$field};
+			}
 		}
 
 		if ((defined $remove_team) and ($remove_team ne "")) {
@@ -407,6 +444,46 @@ while (my $product_ref = $cursor->next) {
 					}
 				}
 				$rev--;
+			}
+		}
+		
+		# Fix for nutrition_data_per / nutrition_data_prepared_per field that was set to "100.0 g" or "240 g" by Equadis import
+		if ($fix_nutrition_data_per) {
+						
+			foreach my $type ("", "_prepared") {
+				
+				my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
+				if ((defined $product_ref->{$nutrition_data_per_field}) and ($product_ref->{$nutrition_data_per_field} ne "")) {
+					
+					my $nutrition_data_per_value = $product_ref->{$nutrition_data_per_field};
+									
+					# Apps and the web product edit form on OFF always send "100g" or "serving" in the nutrition_data_per fields
+					# but imports from GS1 / Equadis can have values like "100.0 g" or "240.0 grm"
+					
+					# 100.00g -> 100g
+					$nutrition_data_per_value =~ s/(\d)(\.|,)0?0?([^0-9])/$1$3/;
+					$nutrition_data_per_value =~ s/(grammes|grams|gr)\b/g/ig;
+					
+					# 100 g or 100 ml -> assign to the per 100g value
+					if ($nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
+						$nutrition_data_per_value = "100g";
+					}
+					# otherwise -> assign the per serving value, and assign serving size
+					else {
+						if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $product_ref->{$nutrition_data_per_field})) {
+							$product_ref->{serving_size} = $product_ref->{$nutrition_data_per_field};
+							$product_values_changed = 1;
+						}
+						$nutrition_data_per_value = "serving";
+					}
+
+					if ($product_ref->{$nutrition_data_per_field} ne $nutrition_data_per_value) {
+						print STDERR "owner:  " . $product_ref->{owner}  . " - $nutrition_data_per_field - old: " . $product_ref->{$nutrition_data_per_field} . " - new: $nutrition_data_per_value\n";
+						$product_ref->{$nutrition_data_per_field} = $nutrition_data_per_value;
+						$product_values_changed = 1;
+						$nutrition_data_per_n++;
+					}
+				}
 			}
 		}
 
@@ -891,6 +968,10 @@ while (my $product_ref = $cursor->next) {
 		}
 		
 		if ($process_packagings) {
+			# Until we provide an interface to directly change the packaging data structure
+			# erase it before reconstructing it
+			# (otherwise there is no way to remove incorrect entries)
+			$product_ref->{packagings} = [];	
 			analyze_and_combine_packaging_data($product_ref);
 		}	
 		
@@ -978,7 +1059,7 @@ while (my $product_ref = $cursor->next) {
 		# Delete old debug tags (many were created by error)
 		if ($delete_debug_tags) {
 			foreach my $field (sort keys %{$product_ref}) {
-				if ($field =~ /_debug_tags/) {
+				if ($field =~ /_(debug|prev|next)_tags/) {
 					delete $product_ref->{$field};
 				}
 			}
@@ -1038,6 +1119,10 @@ print "$n products updated (pretend: $pretend) - $m new versions created\n";
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";
+}
+
+if ($fix_nutrition_data_per) {
+	print $nutrition_data_per_n . " nutrition_data_per fixed\n";
 }
 
 if ($restore_values_deleted_by_user) {
