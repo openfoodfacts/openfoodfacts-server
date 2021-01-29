@@ -23,6 +23,10 @@ fr:Inconnu, inconnue, inconnus, inconnues, non-spécifié, non-spécifiée
 en:Africa
 fr:Afrique
 
+<en:Africa
+en:West Africa
+fr:Afrique de l'Ouest
+
 en:Latin America
 fr:Amérique Latine
 
@@ -85,8 +89,24 @@ en:Corsica
 fr:Corse
 
 <en:france
+en:Morbihan
+fr:Morbihan
+
+<en:france
 en:Loire-Atlantique
 fr:Loire-Atlantique
+
+<en:france
+en:Pays de la Loire
+fr:Pays de la Loire
+
+<en:france
+en:Auvergne
+fr:Auvergne
+
+<en:france
+en:Franche-Compte
+fr:Franche-Compte
 
 <en:france
 en:Normandy
@@ -115,6 +135,95 @@ fr:Gers
 <en:France
 en:Loué
 fr:Loué
+
+<en:France
+en:Rhône-Alpes
+fr:Rhône-Alpes
+
+<en:France
+en:Lorraine
+fr:Lorraine
+
+<en:France
+en:Aveyron
+fr:Aveyron
+
+<en:France
+en:Vendée
+fr:Vendée
+
+<en:France
+en:Périgord
+fr:Périgord
+
+<en:France
+en:Dordogne
+fr:Dordogne
+
+<en:France
+en:Guérande
+fr:Guérande, 44350 Guérande
+
+<en:France
+en:Île de France
+fr:Île de France
+
+<en:France
+en:Poitou-Charentes
+fr:Poitou-Charentes
+
+<en:France
+en:Roussillon
+fr:Roussillon
+
+<en:France
+en:Languedoc-Roussillon
+fr:Languedoc-Roussillon
+
+<en:France
+en:Pyrénées-Atlantiques
+fr:Pyrénées-Atlantiques
+
+<en:France
+en:Picardy
+fr:Picardie
+
+<en:France
+en:Haute-Savoie
+fr:Haute-Savoie
+
+<en:France
+en:Manche
+fr:Manche
+
+<en:France
+en:Drôme
+fr:Drôme
+
+# Disabling as parent because it can skew the Eco-Score
+#<en:France
+en:Guadeloupe
+fr:Guadeloupe
+
+en:Réunion Island
+fr:Île de la Réunion
+
+en:Antilles
+fr:Antilles
+
+# Germany regions
+
+<en:germany
+en:Baden-Württemberg
+de:Baden-Württemberg
+
+<en:germany
+en:Bayern
+de:Bayern
+
+<en:germany
+en:Schleswig-Holstein
+de:Schleswig-Holstein
 
 # Italy regions
 
@@ -176,6 +285,7 @@ it:Oceano Pacifico
 <en:Pacific Ocean
 en:Northeast Pacific Ocean
 fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
+de:Nordostpazifik
 
 <en:Pacific Ocean
 en:Northwest Pacific Ocean
@@ -204,6 +314,7 @@ it:Oceano Atlantico, Atlantico
 <en:Atlantic Ocean
 en:North-East Atlantic Ocean
 fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
+de:Nordostatlantik
 
 <en:Atlantic Ocean
 en:Central-East Atlantic Ocean
@@ -226,6 +337,7 @@ fr:Océan Indien Est
 
 en:North Sea
 fr:Mer du Nord
+de:Nordsee
 
 en:Norwegian Sea
 fr:Mer de Norvège
