@@ -118,6 +118,9 @@ BEGIN
 		$nutriment_table
 
 		%file_timestamps
+		
+		$show_ecoscore
+		$attributes_options_ref
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -580,6 +583,19 @@ CSS
 	}
 	else {
 		$user_preferences = 0;
+	}
+	
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
+		and (($cc eq "fr") or ($User{moderator}))) {
+		$show_ecoscore = 1;
+		$attributes_options_ref = {};
+	}
+	else {
+		$show_ecoscore = 0;
+		$attributes_options_ref = {
+			skip_ecoscore => 1,
+			skip_forest_footprint => 1,
+		};
 	}
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
@@ -4492,9 +4508,6 @@ sub customize_response_for_product($$) {
 		# Eco-Score
 		elsif ($field =~ /^ecoscore/) {
 
-			if (not defined $product_ref->{ecoscore_data}) {
-				compute_ecoscore($product_ref);
-			}
 			if (defined $product_ref->{$field}) {
 				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
@@ -4502,12 +4515,12 @@ sub customize_response_for_product($$) {
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc);
+			compute_attributes($product_ref, $target_lc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
 		# Product attributes in the $lc language
 		elsif ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc);
+			compute_attributes($product_ref, $lc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 		}
 		
@@ -4668,8 +4681,7 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
 	# Show Eco-score sort only for France or moderators
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (($cc eq "fr") or ($User{moderator}))) {
+	if ($show_ecoscore) {
 		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
 	}
 	
@@ -4937,8 +4949,7 @@ sub search_and_display_products($$$$$) {
 				# Eco-score: currently only for moderators
 				
 				if ($newtagtype eq 'ecoscore') {
-					next if not (((defined $options{product_type}) and ($options{product_type} eq "food"))
-						and (($cc eq "fr") or ($User{moderator})));
+					next if not ($show_ecoscore);
 				}
 
 				push @{$template_data_ref->{current_drilldown_fields}}, {
@@ -8294,12 +8305,8 @@ HTML
 	# Limit to France as the Eco-Score is currently valid only for products sold in France
 	# for alpha test to moderators, display eco-score for all countries
 	
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (($cc eq "fr") or ($User{moderator}))) {
+	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 		
-		if (not defined $product_ref->{ecoscore_data}) {
-			compute_ecoscore($product_ref);
-		}
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
@@ -8434,7 +8441,7 @@ HTML
 	
 		# A result summary will be computed according to user preferences on the client side
 
-		compute_attributes($product_ref, $lc);
+		compute_attributes($product_ref, $lc, $attributes_options_ref);
 		
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
 		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");

@@ -1446,6 +1446,12 @@ This parameter sets the desired language for the user facing strings.
 
 If $target_lc is equal to "data", no strings are returned.
 
+=head4 options $options_ref
+
+Defines how some attributes should be computed (or not computed)
+
+- skip_[attribute_id] : do not compute a specific attribute
+
 =head3 Return values
 
 Attributes are returned in the "attribute_groups_[$target_lc]" array of the product reference
@@ -1455,10 +1461,11 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$) {
+sub compute_attributes($$$) {
 
 	my $product_ref = shift;
-	my $target_lc = shift;	
+	my $target_lc = shift;
+	my $options_ref = shift;	
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 
@@ -1503,11 +1510,15 @@ sub compute_attributes($$) {
 	
 	# Environment
 	
-	$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	if ((not defined $options_ref) or (not defined $options_ref->{skip_ecoscore}) or (not $options_ref->{skip_ecoscore})) {
+		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
+		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	}
 	
-	$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	if ((not defined $options_ref) or (not defined $options_ref->{skip_forest_footprint}) or (not $options_ref->{skip_forest_footprint})) {
+		$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);	
+		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	}
 		
 	# Labels groups
 	
