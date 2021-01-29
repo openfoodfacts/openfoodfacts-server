@@ -394,6 +394,31 @@ my %gs1_to_off = (
 									},
 								],
 								
+								["referenced_file_detail_information:referencedFileDetailInformationModule", {
+										fields => [
+											["referencedFileHeader",  [
+													{
+														match => [
+															["isPrimaryFile", "TRUE"],
+														],
+														fields => [
+															["uniformResourceIdentifier", "image_front"],
+														],
+													},
+													{
+														does_not_match => [
+															["isPrimaryFile", "TRUE"],
+														],
+														fields => [
+															["uniformResourceIdentifier", "+image_other"],
+														],
+													},
+												],
+											],
+										],
+									},
+								],								
+								
 								["trade_item_description:tradeItemDescriptionModule", {
 										fields => [
 											["tradeItemDescriptionInformation", {
@@ -535,6 +560,35 @@ sub gs1_to_off ($$$) {
 		
 		$log->debug("gs1_to_off - conditions match") if $log->is_debug();
 	}
+	
+	if (defined $gs1_to_off_ref->{does_not_match}) {
+		
+		$log->debug("gs1_to_off - checking conditions", { does_not_match => $gs1_to_off_ref->{does_not_match} } ) if $log->is_debug();
+		
+		my $match = 1;
+	
+		foreach my $match_field_ref (@{$gs1_to_off_ref->{does_not_match}}) {
+			
+			my $match_field = $match_field_ref->[0];
+			my $match_value = $match_field_ref->[1];
+			
+			if ((not defined $json_ref->{$match_field})
+				or ($json_ref->{$match_field} ne $match_value)) {
+									
+				$log->debug("gs1_to_off - condition does not match",
+					{	match_field => $match_field,
+						match_value => $match_value,
+						actual_value => $json_ref->{$match_field} }) if $log->is_debug();
+				
+				$match = 0;
+				last;
+			}	
+		}
+		
+		return if $match;
+		
+		$log->debug("gs1_to_off - conditions match") if $log->is_debug();
+	}	
 		
 	$log->debug("gs1_to_off - assigning fields") if $log->is_debug();
 	
@@ -802,6 +856,12 @@ sub gs1_to_off ($$$) {
 				foreach my $gs1_to_off_array_entry_ref (@{$source_target}) {
 					
 					# Loop through the array entries of the JSON file
+					
+					# If the source file is not an array, create it
+					# (e.g. if only one element is there, the xml to json conversion might not create an array)
+					if (ref($json_ref->{$source_field}) ne "ARRAY") {
+						$json_ref->{$source_field} = [ $json_ref->{$source_field} ];
+					}
 							
 					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
 
