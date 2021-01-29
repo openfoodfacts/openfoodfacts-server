@@ -145,8 +145,10 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 		"GRM" => "g",
 		"MGM" => "mg",
 		"MC" => "mcg",
+		"MLT" => "ml",
 		"E14" => "kcal",
 		"KJO" => "kJ",
+		"H87" => "pièces",
 	},
 	
 	# reference: GS1 T4073 Nutrient type code
@@ -210,6 +212,10 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
 	},
+	
+	targetMarketCountryCode => {
+		"250" => "en:france",
+	},
 );
 
 
@@ -241,7 +247,14 @@ my %gs1_to_off = (
 					["partyName", "sources_fields:org-gs1:partyName, org_name"],
 				],
 			},
-		],		
+		],
+		
+		["targetMarket", {
+				fields => [
+					["targetMarketCountryCode", "countries%targetMarketCountryCode"],
+				],
+			},
+		],
 		
 		# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:ContactTypeCode&release=4
 		# source_field => array of hashes: go down one level, expect an array
@@ -324,11 +337,47 @@ my %gs1_to_off = (
 									},
 								],
 								
-								["food_and_beverage_preparation_servin:foodAndBeveragePreparationServingModule", {
+								["food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule", {
 										fields => [
 											["preparationServing", {
 													fields => [
 														["preparationInstructions", "preparation"],
+													],
+												},
+											],
+										],
+									},
+								],
+								
+								["health_related_information:healthRelatedInformationModule", {
+										fields => [
+											["healthRelatedInformation", {
+													match => [
+														["nutritionalProgramCode","8"],
+													],
+													fields => [
+														["nutritionalScore", "nutriscore_grade_producer"],
+													],
+												},
+											],
+										],
+									},
+								],
+								
+								["trade_item_description:tradeItemDescriptionModule", {
+										fields => [
+											["tradeItemDescriptionInformation", {
+													fields => [
+														["descriptionShort", "abbreviated_product_name"],
+														["regulatedProductName", "generic_name"],
+														["tradeItemDescription", "product_name"],
+														["brandNameInformation", {
+																fields => [
+																	['brandName' => '+brands'],
+																	['subBrand' => '+brands'],
+																],
+															},
+														],
 													],
 												},
 											],
@@ -506,6 +555,11 @@ sub gs1_to_off ($$$) {
 								my $nutrient_value;
 								my $nutrient_unit;
 								
+								# quantityContained may be an array with a single hash
+								if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) eq "ARRAY")) {
+									$nutrient_detail_ref->{quantityContained} = $nutrient_detail_ref->{quantityContained}[0];
+								}
+								
 								if (defined $nutrient_detail_ref->{quantityContained}{'#'}) {
 									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'#'};
 									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{'@'}{measurementUnitCode}};
@@ -523,6 +577,16 @@ sub gs1_to_off ($$$) {
 								if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
 									and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
 									$nutrient_value = "< " . $nutrient_value;
+								}
+								
+								# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
+								if ($nid eq "energy") {
+									if ($nutrient_unit eq "kcal") {
+										$nutrient_field = "energy-kcal" . $type . "_" . $per;
+									}
+									else {
+										$nutrient_field = "energy-kj" . $type . "_" . $per;
+									}
 								}
 								
 								assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
@@ -669,7 +733,20 @@ sub gs1_to_off ($$$) {
 			elsif (ref($source_target) eq "HASH") {
 				
 				# Go down one level
-				gs1_to_off($source_target, $json_ref->{$source_field}, $results_ref);
+				
+				# The source structure may be a hash or an array of hashes
+				# e.g. Equadis: allergenRelatedInformation is a hash, CodeOnline: it is an array
+				
+				if (ref($json_ref->{$source_field}) eq "HASH") {
+				
+					gs1_to_off($source_target, $json_ref->{$source_field}, $results_ref);
+				}
+				elsif (ref($json_ref->{$source_field}) eq "ARRAY") {
+					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
+
+						gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
+					}
+				}
 			}
 		}
 	}
