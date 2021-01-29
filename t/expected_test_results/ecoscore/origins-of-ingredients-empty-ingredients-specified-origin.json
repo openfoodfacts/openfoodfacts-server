@@ -1,0 +1,90 @@
+{
+   "categories_tags" : [
+      "en:cheeses"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:france",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 93.0663626138272,
+            "epi_value" : 4.30663626138272,
+            "origins_from_origins_field" : [
+               "en:france"
+            ],
+            "transportation_score" : 99.7567795833333,
+            "transportation_value" : 14.9784954329329,
+            "value" : 19.2851316943157
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "12001",
+         "co2_agriculture" : "4.7126103",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.029050683",
+         "co2_packaging" : "0.26662691",
+         "co2_processing" : "0.22452742",
+         "co2_total" : "5.4920327",
+         "co2_transportation" : "0.25844052",
+         "code" : "12001",
+         "dqr" : "1.81",
+         "ef_agriculture" : "0.41632178999999997",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0088270864",
+         "ef_packaging" : "0.019721226",
+         "ef_processing" : "0.028839787",
+         "ef_total" : "0.49584621999999995",
+         "ef_transportation" : "0.020064567000000002",
+         "name_en" : "Camembert cheese, from cow's milk",
+         "name_fr" : "Camembert, sans précision",
+         "score" : 61.604062231297
+      },
+      "grade" : "b",
+      "missing" : {
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 70.8891939256127,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 70.8891939256127,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "ingredients" : [],
+   "ingredients_hierarchy" : [],
+   "ingredients_original_tags" : [],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [],
+   "ingredients_text" : "",
+   "lc" : "en",
+   "origins_tags" : [
+      "en:france"
+   ],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ]
+}

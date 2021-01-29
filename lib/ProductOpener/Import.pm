@@ -95,6 +95,9 @@ use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_f
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -260,6 +263,7 @@ sub import_csv_file($) {
 	'products_with_info' => {},
 	'products_with_ingredients' => {},
 	'products_with_nutrition' => {},
+	'products_with_nutrition_prepared' => {},
 	'products_without_images' => {},
 	'products_without_data' => {},
 	'products_without_info' => {},
@@ -442,6 +446,29 @@ sub import_csv_file($) {
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
 			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
+				
+				# Re-assign some organizations
+				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
+				
+				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				$org_id =~ s/^cereal-partners-france$/nestle-france/;
+				$org_id =~ s/^nestle-spac$/nestle-france/;
+
+				# organizations by GLN
+
+				my %gln = (
+					"3010337111109" => "nestle-france",
+					"3012789200103" => "nestle-france",	# SPAC (Buitoni)
+					"3011542300012" => "nestle-france",	# Herta
+					"3013873929306" => "nestle-france",	# Cereal Partners
+					"3011797320001" => "nestle-france",	# Nestlé Waters
+				);
+
+				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
+					and (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
+					$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				}
+				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
 				
@@ -653,7 +680,7 @@ EMAIL
 
 		my @param_fields = ();
 
-		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'generic_name',
+		foreach my $field ('owner', 'lc', 'lang', 'product_name', 'abbreviated_product_name', 'generic_name', 'packaging_text',
 			@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
 			'obsolete', 'obsolete_since_date',
 			'no_nutrition_data', 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'data_sources', 'imports') {
@@ -1001,9 +1028,6 @@ EMAIL
 
 		my $seen_salt = 0;
 
-		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
-		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
-
 		foreach my $nutriment (@sorted_nutriments) {
 
 			next if $nutriment =~ /^\#/;
@@ -1093,7 +1117,7 @@ EMAIL
 					# calcium_100g_value_in_mcg
 
 					if (not defined $values{$type}) {
-						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu') {
+						foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
 							my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
 							if ((defined $value_in_u) and ($value_in_u ne "")) {
 								$values{$type} = $value_in_u;
@@ -1123,6 +1147,9 @@ EMAIL
 					elsif ($unit eq "iu") {
 						$unit = "IU";
 					}
+					elsif ($unit eq "percent") {
+						$unit = '%';
+					}
 				}
 
 				my $modifier = undef;
@@ -1136,7 +1163,7 @@ EMAIL
 					}
 
 					$log->debug("nutrient with defined and non empty value", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
-					$stats{products_with_nutrition}{$code} = 1;
+					$stats{"products_with_nutrition" . $type}{$code} = 1;
 
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
@@ -1185,39 +1212,70 @@ EMAIL
 				}
 			}
 		}
+		
+		my $nutrition_data_per = $imported_product_ref->{nutrition_data_per};
+		my $nutrition_data_prepared_per = $imported_product_ref->{nutrition_data_prepared_per};
+		
 
-		# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
-		if (defined $stats{products_with_nutrition}{$code}) {
-			if (not defined $imported_product_ref->{nutrition_data_per}) {
-				if (defined $nutrition_data_per) {
-					$imported_product_ref->{nutrition_data_per} = $nutrition_data_per;
+		# Set nutrition_data_per and nutrition_data_prepared_per fields
+		
+		foreach my $type ("", "_prepared") {
+			
+			if (defined $stats{"products_with_nutrition" . $type}{$code}) {
+			
+				my $nutrition_data_field = "nutrition_data" . $type;
+				my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
+				my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
+				
+				$log->debug("nutrition_data_per_field imported value", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
+				
+				# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
+				if ((not defined $imported_nutrition_data_per_value) or ($imported_nutrition_data_per_value eq "")) {
+					
+					$log->debug("nutrition_data_per_field value not supplied, setting to 100g", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();
+					$imported_nutrition_data_per_value = "100g";
 				}
+				
+				# Apps and the web product edit form on OFF always send "100g" or "serving" in the nutrition_data_per fields
+				# but imports from GS1 / Equadis can have values like "100.0 g" or "240.0 grm"
+				
+				# 100.00g -> 100g
+				$imported_nutrition_data_per_value =~ s/(\d)(\.|,)0?0?([^0-9])/$1$3/;
+				$imported_nutrition_data_per_value =~ s/(grammes|grams|gr)\b/g/ig;
+				
+				# 100 g or 100 ml -> assign to the per 100g value
+				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
+					$imported_nutrition_data_per_value = "100g";
+				}
+				# otherwise -> assign the per serving value, and assign serving size
 				else {
-					$imported_product_ref->{nutrition_data_per} = "100g";
+					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
+					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
+						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
+						$modified++;
+						$stats{products_data_updated}{$code} = 1;
+					}
+					$imported_nutrition_data_per_value = "serving";
+				}
+
+				# Set the nutrition_data[_prepared]_per field
+				if ((not defined $product_ref->{$nutrition_data_per_field}) or ($product_ref->{$nutrition_data_per_field} ne $imported_nutrition_data_per_value)) {
+					$product_ref->{$nutrition_data_per_field} = $imported_nutrition_data_per_value;
+					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+					$modified++;
+					$stats{products_data_updated}{$code} = 1;
+				}
+				
+				# Set the nutrition_data[_prepared] checkbox
+				if ((not defined $product_ref->{$nutrition_data_field}) or ($product_ref->{$nutrition_data_field} ne "on")) {
+					$product_ref->{$nutrition_data_field} = "on";
+					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
+					$modified++;
+					$stats{products_data_updated}{$code} = 1;
 				}
 			}
+		}		
 
-			if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne $imported_product_ref->{nutrition_data_per})) {
-				$product_ref->{nutrition_data_per} = $imported_product_ref->{nutrition_data_per};
-				$stats{products_nutrition_data_per_updated}{$code} = 1;
-				$modified++;
-			}
-
-			if (not defined $imported_product_ref->{nutrition_data_prepared_per}) {
-				if (defined $nutrition_data_prepared_per) {
-					$imported_product_ref->{nutrition_data_prepared_per} = $nutrition_data_prepared_per;
-				}
-				else {
-					$imported_product_ref->{nutrition_data_prepared_per} = "100g";
-				}
-			}
-
-			if ((not defined $product_ref->{nutrition_data_prepared_per}) or ($product_ref->{nutrition_data_prepared_per} ne $imported_product_ref->{nutrition_data_prepared_per})) {
-				$product_ref->{nutrition_data_prepared_per} = $imported_product_ref->{nutrition_data_prepared_per};
-				$stats{products_nutrition_data_per_updated}{$code} = 1;
-				$modified++;
-			}
-		}
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1250,7 +1308,8 @@ EMAIL
 			$stats{products_without_nutrition}{$code} = 1;
 		}
 
-		if ((defined $stats{products_with_info}{$code}) or (defined $stats{products_with_nutrition}{$code})) {
+		if ((defined $stats{products_with_info}{$code})
+			or (defined $stats{products_with_nutrition}{$code}) or (defined $stats{products_with_nutrition_prepared}{$code})) {
 			$stats{products_with_data}{$code} = 1;
 		}
 		else {
@@ -1352,17 +1411,40 @@ EMAIL
 
 			if (not $args_ref->{test}) {
 
+				$log->debug("fix_salt_equivalent", { code => $code, product_id => $product_id }) if $log->is_debug();
 				fix_salt_equivalent($product_ref);
 
+				$log->debug("compute_serving_size_data", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_serving_size_data($product_ref);
 
+				$log->debug("compute_nutrition_score", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nutrition_score($product_ref);
 
+				$log->debug("compute_nova_group", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nova_group($product_ref);
 
+				$log->debug("compute_nutrient_levels", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_nutrient_levels($product_ref);
 
+				$log->debug("compute_unknown_nutrients", { code => $code, product_id => $product_id }) if $log->is_debug();
 				compute_unknown_nutrients($product_ref);
+				
+				$log->debug("analyze_and_combine_packaging_data", { code => $code, product_id => $product_id }) if $log->is_debug();
+				
+				# Until we provide an interface to directly change the packaging data structure
+				# erase it before reconstructing it
+				# (otherwise there is no way to remove incorrect entries)
+				$product_ref->{packagings} = [];	
+				
+				analyze_and_combine_packaging_data($product_ref);
+				
+				if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+					
+					$log->debug("compute_ecoscore", { code => $code, product_id => $product_id }) if $log->is_debug();
+					
+					compute_ecoscore($product_ref);
+					compute_forest_footprint($product_ref);
+				}				
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 
@@ -1386,7 +1468,7 @@ EMAIL
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_\w\w)?(_\d+)?)_file/;
+			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_\w\w)?(_\d+)?)_file/;
 
 			my $imagefield = $1;
 
@@ -1404,7 +1486,7 @@ EMAIL
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|other)(_[a-z]{2})?)_url/;
+			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
 
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
 
@@ -1563,7 +1645,7 @@ EMAIL
 						$log->debug("select and crop image?", { code => $code, imgid => $imgid, current_max_imgid => $current_max_imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 
 						# select the photo
-						if (($imagefield_with_lc =~ /front|ingredients|nutrition/) and
+						if (($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/) and
 							( (not ((defined $args_ref->{only_select_not_existing_images}) and ($args_ref->{only_select_not_existing_images})))
 								or ((not defined $product_ref->{images}) or (not defined $product_ref->{images}{$imagefield_with_lc})) ) ) {
 
@@ -1583,16 +1665,17 @@ EMAIL
 								# or if we have non null crop coordinates that differ
 								if (($imgid > 0)
 									and (exists $product_ref->{images})
-									and (exists $product_ref->{images}{$imagefield_with_lc})
-									and (($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-										or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-										or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-										or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
-										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-										)
+									and ((not exists $product_ref->{images}{$imagefield_with_lc})
+										or ((($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+												or (($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+												or (($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+												or (($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+												or (($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+												)))
 									) {
-									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
+									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
+										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
 									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
@@ -1603,7 +1686,8 @@ EMAIL
 						# If the image type is "other" and we don't have a front image, assign it
 						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 						elsif (($imgid > 0) and ($imagefield_with_lc =~ /^other/) and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}}) and (not defined $selected_images{"front_" . $product_ref->{lc}})) {
-							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
+							$log->debug("selecting front image as we don't have one", { imgid => $imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
+									coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic}) if $log->is_debug();
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;

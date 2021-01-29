@@ -1219,6 +1219,8 @@ sub mmoll_to_unit {
 		de          => "Energie (kcal)",
 		el          => "Ενέργεια (kcal)",
 		en          => "Energy (kcal)",
+		en_synonyms =>
+			[ "kcal", "kilocalories" ],		
 		es          => "Energía (kcal)",
 		es_synonyms => ["Valor Energético (kcal)"],
 		et          => "Energia (kcal)",
@@ -1226,7 +1228,7 @@ sub mmoll_to_unit {
 		fi          => "Energia (kcal)",
 		fr          => "Énergie (kcal)",
 		fr_synonyms =>
-			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)" ],
+			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)", "kcal", "kilocalories" ],
 		ga    => "Fuinneamh (kcal)",
 		he    => "אנרגיה - קלוריות (kcal)",
 		hu    => "Energia (kcal)",
@@ -1751,6 +1753,8 @@ sub mmoll_to_unit {
 	},
 	'saturated-fat' => {
 		en => "Saturated fat",
+		en_synonyms =>
+			[ "Saturated fatty acids" ],
 		bg => "Наситени мастни киселини",
 		cs => "Nasycené mastné kyseliny",
 		da => "Mættede fedtsyrer",
@@ -2460,7 +2464,7 @@ sub mmoll_to_unit {
 	fiber => {
 		en => "Fibers",
 		en_synonyms =>
-			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers" ],
+			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers", "fibers aoac", "fibre", "fibres", "fibres aoac" ],
 		bg          => "Влакнини",
 		cs          => "Vláknina",
 		da          => "Kostfibre",
@@ -3706,7 +3710,8 @@ sub mmoll_to_unit {
 		en_synonyms => [
 			"Fruits and vegetables",
 			"Fruits, vegetables and nuts",
-			"Fruits, vegetables, nuts"
+			"Fruits, vegetables, nuts",
+			"Fruits, vegetables, pulses, nuts, and rapeseed, walnut and olive oils",
 		],
 		fi =>
 			"Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",
@@ -4641,6 +4646,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
+	delete $product_ref->{nutriscore_score_opposite};
 	delete $product_ref->{nutriscore_grade};
 	delete $product_ref->{nutriscore_data};
 	delete $product_ref->{nutriscore_points};
@@ -4653,14 +4659,16 @@ sub compute_nutrition_score($) {
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		add_tag($product_ref,"misc","en:nutriscore-missing-category");
 		return;
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		add_tag($product_ref,"misc","en:nutriscore-beverage-status-unknown");
 		return;
 	}
 
@@ -4679,8 +4687,9 @@ sub compute_nutrition_score($) {
 				last;
 			}
 			else {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				add_tag($product_ref,"misc","en:nutriscore-missing-prepared-nutrition-data");
 				return;
 			}
 		}
@@ -4706,6 +4715,7 @@ sub compute_nutrition_score($) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
 					return;
 				}
@@ -4730,6 +4740,8 @@ sub compute_nutrition_score($) {
 					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
 				}
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data");
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data-$nid");
 				return;
 			}
 		}
@@ -4855,6 +4867,12 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+	
+	# In order to be able to sort by nutrition score in MongoDB,
+	# we create an opposite of the nutrition score
+	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+	# instead we can sort on descending order on nutriscore_score_opposite
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;		
 
 	return;
 }

@@ -158,9 +158,12 @@ HTML
 		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
 			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
+		
+		my $column_without_tags = $column;
+		$column_without_tags =~ s/<(([^>]|\n)*)>//g;
 
 		$html .= <<HTML
-<tr id="column_$col" class="column_row"><td>$column</td>
+<tr id="column_$col" class="column_row"><td>$column_without_tags</td>
 <td>
 <select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
 <option></option>

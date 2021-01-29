@@ -6,10 +6,10 @@
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
-               [
-                  "en:unknown",
-                  100
-               ]
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
             ],
             "epi_score" : 0,
             "epi_value" : -5,
@@ -18,29 +18,59 @@
             ],
             "transportation_score" : 0,
             "transportation_value" : 0,
-            "value" : -5
+            "value" : -5,
+            "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
          "production_system" : {},
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_ef_total" : 0.55246032,
-         "agribalyse_food_name_en" : "Jam, strawberry",
-         "agribalyse_food_name_fr" : "Confiture de fraise (extra ou classique)",
          "agribalyse_proxy_food_code" : "31024",
+         "co2_agriculture" : "0.4391425",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.032692835",
+         "co2_packaging" : "0.54656517",
+         "co2_processing" : "0.24580915",
+         "co2_total" : "1.6271789",
+         "co2_transportation" : "0.35817",
+         "code" : "31024",
+         "dqr" : "3.16",
+         "ef_agriculture" : "0.41455559000000003",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0091648653",
+         "ef_packaging" : "0.056809478",
+         "ef_processing" : "0.041272627",
+         "ef_total" : 0.55246032,
+         "ef_transportation" : "0.02822842",
+         "is_beverage" : 0,
+         "name_en" : "Jam, strawberry",
+         "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 58.6020808480656
       },
       "grade" : "c",
-      "score" : 53.6020808480656,
+      "missing" : {
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 43.6020808480656,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 53.6020808480656,
+   "ecoscore_score" : 43.6020808480656,
    "ecoscore_tags" : [
       "c"
    ],
@@ -113,9 +143,18 @@
    "ingredients_text" : "60% apricots, 30% cane sugar, lemon juice",
    "known_ingredients_n" : 6,
    "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
-   "packagings" : [],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
    "unknown_ingredients_n" : 0
 }

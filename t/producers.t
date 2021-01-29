@@ -81,6 +81,22 @@ my @tests = (
 ["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
 ["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
 ["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
+["en", "energy per 100g or 100ml", { 'field' => 'energy_100g_value_unit'}],
+["fr", "énergie (100g / 100ml)", { 'field' => 'energy_100g_value_unit'}],
+
+["fr", "Fibres (g) pour 100 g / 100 ml", {'field' => 'fiber_100g_value_unit','value_unit' => 'value_in_g'}],
+
+["es", "Energía", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) ", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Energía / 100 g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía por 100g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía por 100 g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+
+["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Azúcares por 100 g / 100 ml", {'field' => 'sugars_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Grasas saturadas preparado por 100 g / 100 ml", {'field' => 'saturated-fat_prepared_100g_value_unit'}],
 
 );
 

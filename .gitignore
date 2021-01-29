@@ -34,9 +34,11 @@ local
 html/css/dist
 html/js/dist
 html/images/icons/dist
+html/images/attributes/*.svg
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
+docker/logs
 
 # Exclude 3rd party deps, because SonarCloud ignores files in a .gitignore
 html/js/datatables.*

@@ -721,8 +721,8 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "The expiration date is a way to track product changes over time and to identify the most recent version."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
-msgstr "Drilldown into products by..."
+msgid "Explore products by..."
+msgstr "Explore products by..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -4980,7 +4980,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr "Edit your user profile"
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Ingredients"
 
@@ -5043,12 +5043,12 @@ msgid "Missing nutrition facts"
 msgstr "Missing nutrition facts"
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5260,3 +5260,69 @@ msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
 msgstr "Currently only for products with chicken or eggs"
 
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr "Classify products according to your preferences"
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr "Classify the %d products below according to your preferences"
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr "Most scanned products"
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr "Products with the best Nutri-Score"
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr "Products with the best Eco-Score"
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr "Recently added products"
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr "Recently modified products"
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr "%d products per page"
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr "Not applicable"
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr "Abbreviated product name"
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr "Product name with abbreviations shown on receipts"
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr "Vision, Mission, Values and Programs"
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr "Forgotten password?"
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr "We could not reinitialize your password, please contact us for assistance."
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr "Remove all nutrient values"

@@ -724,4 +724,7 @@ is_deeply ($product_ref->{test_tags},
 ]
 ) or diag explain $product_ref->{test_tags};
 
+# Double synonym: zumo/jugo and soja/soya
+is( canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base' );
+
 done_testing();
