@@ -83,10 +83,10 @@ HTML
 
 elsif ($action eq "process") {
 
-	$log->debug("Deleting products for owner in mongodb", { owner_id => $Owner_id }) if $log->is_debug();
+	$log->debug("Deleting products for owner in mongodb", { owners_tags => $Owner_id }) if $log->is_debug();
 
 	my $products_collection = get_products_collection();
-	$products_collection->delete_many({"owner" => $Owner_id});
+	$products_collection->delete_many({"owners_tags" => $Owner_id});
 
 	require File::Copy::Recursive;
 	File::Copy::Recursive->import( qw( dirmove ) );

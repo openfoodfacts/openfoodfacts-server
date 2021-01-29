@@ -69,6 +69,9 @@ Have a bug or a feature request? Please search for existing and closed issues. I
 You can help translate the Open Food Facts web version and the app at :
 <https://translate.openfoodfacts.org/> (no technical knowledge required, takes a minute to signup)
 
+## Helping with HTML and CSS
+We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates)] Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
+
 ### Who do I talk to?
 * Join our discussion room at <https://slack.openfoodfacts.org/> Make sure to join the #productopener and #productopener-alerts channels. Stéphane, Pierre, Charles or Hangy will be around to help you get started.
 

@@ -82,7 +82,34 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% html_manufacturer_source %]
+[% IF owner %]
+	<p>
+		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
+		
+		[% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
+				 - [% lang("customer_service") %][% sep %]:
+				[% IF owner_org.customer_service.email %]
+					[% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
+				[% ELSIF owner_org.customer_service.link %]
+					[% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
+				[% END %]
+				
+				[% IF owner_org.customer_service.phone %]
+					[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
+				[% END %]
+		[% END %]
+	</p>
+[% END %]
+
+<!-- product summary -->
+
+<div id="product_summary"></div>
+
+<div id="preferences_selected"></div>
+	
+<div id="preferences_selection_form" style="display:none"></div>
+	
+
 <!-- product_characteristics -->
 <h2>[% lang('product_characteristics') %]</h2>
 <div class="row">
@@ -111,7 +138,7 @@
             <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
             <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
 
-            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %])) are completely bogus, erase them.</button></div>
+            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %]) are completely bogus, erase them.</button></div>
         [% END %]
 
          <!-- Offer to add the ingredients in the language of the interface -->
@@ -190,6 +217,141 @@
     [% END %]
 [% END %]
 
+<!-- ecoscore -->
+[% IF ecoscore_grade || forest_footprint_data %]
+	<h2>[% lang('environmental_impact') %]</h2>
+[% END %]
+
+[% IF ecoscore_grade %]
+	<h4>Eco-score
+		<a href="/ecoscore" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
+	</h4>
+	<a href="/ecoscore" title="[% lang('ecoscore_information') %]">
+		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
+	</a>
+	<br>
+
+	[% IF ecoscore_data.missing_agribalyse_match_warning %]
+		<div class="panel warning">
+			<strong>L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise.</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% ELSIF ecoscore_data.missing_data_warning %]
+		<div class="panel warning">
+			<strong>Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous).</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter les informations manquantes.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]	
+
+	[% ecoscore_calculation_details %]
+[% END %]
+
+<!-- forest footprint -->
+[% IF forest_footprint_data %]
+
+<h4>[% lang('forest_footprint') %]</h4>
+
+<a href="/empreinte-foret-des-produits-alimentaires" title="[% lang('forest_footprint_information') %]" style="float:left">
+	<img src="/images/icons/forest-footprint-[% forest_footprint_data.grade %].svg" alt="[% lang('forest_footprint') %]" style="height:130px" >
+</a>
+<div>
+	<p><strong>[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_title") %]</strong><br>
+	[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_description_short") %]</p>
+	
+	<p>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</p>
+</div>
+
+<p style="clear:left">
+  <a data-dropdown="forest_footprint_drop" aria-controls="forest_footprint_drop" aria-expanded="false">[% lang('forest_footprint_calculation_details') %] &raquo;</a>
+</p>
+<div id="forest_footprint_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+
+	<h3>[% lang("ingredients_requiring_soy") %]</h3>
+	
+	<p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>
+	
+	[% IF forest_footprint_data.ingredients && forest_footprint_data.ingredients %]
+
+		<table id="forest_footprint_table">
+			<caption style="text-align:left">[% lang("ingredients_requiring_soy") %][% sep %]:</caption>
+			<tr>
+				<th scope="col">[% lang("ingredients_s") FILTER ucfirst %]</th>
+				<th scope="col">[% lang("type") %]</th>
+				<th scope="col">[% lang("percent_in_product") %]</th>
+				<th scope="col">[% lang("processing_factor") %]<br><span style="font-weight:normal">([% lang("percent_of_food_after_processing") %])</span></th>
+				<th scope="col">[% lang("soy_feed_factor") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_kg_of_food") %])</span></th>
+				<th scope="col">[% lang("soy_yield") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_square_meter") %])</span></th>
+				<th scope="col">[% lang("deforestation_risk") %]<br><span style="font-weight:normal">(%)</span></th>
+				<th scope="col">[% lang("forest_footprint") %]<br><span style="font-weight:normal">([% lang("square_meters_per_kg_of_food") %])</span></th>
+			</tr>
+		[% FOREACH ingredient IN forest_footprint_data.ingredients %]
+			<tr>
+				<td>
+					<span style="border-bottom:1px dotted #ccc" title="[% display_taxonomy_tag(ingredient.tag_type, ingredient.matching_tag_id) %]">
+					[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]
+					</span>
+				</td>
+				<td>
+					<span style="border-bottom:1px dotted #ccc" title="
+					[% FOREACH tag IN ingredient.conditions_tags %]
+						[% lang("${tag.0}_s") FILTER ucfirst %] [% display_taxonomy_tag(tag.0, tag.1) %]
+					[% END %]
+					">
+						[% ingredient.type.name %]
+					</span>
+				</td>
+				<td>[% ingredient.percent FILTER format("%.2f"); %]</td>
+				<td>[% ingredient.processing_factor * 100 FILTER format("%d"); %]</td>
+				<td>[% ingredient.type.soy_feed_factor %]</td>
+				<td>[% ingredient.type.soy_yield %]</td>
+				<td>[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %]</td>
+				<td>[% ingredient.footprint_per_kg FILTER format("%.2f"); %]</td>
+			</tr>
+		[% END %]
+		</table>
+	[% END %]
+	
+	<h3>[% lang("total_forest_footprint") %]</h3>
+
+	<p><strong>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</strong></p>
+
+</div>
+
+[% END %]
+
+<!-- packaging -->
+<h2>[% lang('packaging') %]</h2>
+<div class="row">
+    <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
+    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+        <div><span class="field">[% lang("packaging_text") %][% sep %]:</span>
+            <p id="packaging_text">[% packaging_text %]</p>
+        </div>
+    </div>
+    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
+</div>
+
+[% IF packagings && packagings.size %]
+	<table id="packagings_table">
+		<caption style="text-align:left">[% lang("packaging_parts") %][% sep %]:</caption>
+	[% FOREACH property IN ["number", "shape", "material", "recycling"] %]
+		<th scope="col">[% lang("packaging_${property}") %]</th>
+	[% END %]
+	[% FOREACH packaging IN packagings %]
+		<tr>
+			<td>[% packaging.number %]</td>
+			<td>[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+				[% IF packaging.quantity %]([% packaging.quantity %])[% END %]
+			</td>
+			<td>[% display_taxonomy_tag("packaging_materials",packaging.material) %]</td>
+			<td>[% display_taxonomy_tag("packaging_recycling",packaging.recycling) %]</td>
+		</tr>
+	[% END %]
+	</table>
+[% END %]
+
 <!-- other fields -->
 [% IF other_fields != "" %]
     <h2>[% lang('product_other_information') %]</h2>
@@ -213,11 +375,25 @@
 [% END %]
 
 <!-- photos and data sources -->
-[% FOREACH source IN sources %]
-    <p>[% lang("sources_${source.lang_id}") %]</p>
-    [% IF source.url %]
-        <p><a href="\[% source.url %]\">[% lang("sources_${source.lang_id}_product_page") %]</a></p>
-    [% END %]
+[%IF sources %]
+	[% lang("list_of_sources") %]
+	<ul>
+	[% FOREACH source IN unique_sources %]
+		<li>
+			[% IF source.url %]
+				<a href="\[% source.url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.name %]
+			[% END %]
+			
+			[% IF source.source_licence_url %]
+				<a href="\[% source.source_licence_url %]\">[% source.name %]</a></li>
+			[% ELSE %]
+				[% source.source_licence %]
+			[% END %]
+		</li>
+	[% END %]
+	</ul>
 [% END %]
 
 <p class="details">

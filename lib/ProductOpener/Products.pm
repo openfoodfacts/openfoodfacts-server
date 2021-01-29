@@ -806,7 +806,7 @@ sub change_product_server_or_code($$$) {
 
 	$new_code = normalize_code($new_code);
 	if ($new_code !~ /^\d{4,24}$/) {
-		display_error($Lang{invalid_barcode}{$lang}, 403);
+		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
 	# check that the new code is available
@@ -837,10 +837,6 @@ Compute sort keys that are stored in the MongoDB database and used to order resu
 
 Used on the web site for facets pages, except the index page.
 
-=head3 sortkey - date of last modification, with obsolete products last and complete products first
-
-Used on the web site for index page.
-
 =head3 popularity_key - Popular and recent products
 
 Used for the Personal Search project to provide generic search results that apps can personnalize later.
@@ -850,12 +846,6 @@ Used for the Personal Search project to provide generic search results that apps
 sub compute_sort_keys($) {
 
 	my $product_ref = shift;
-
-	# put obsolete products last  		(substract 200000000000 when products are obsolete)
-	# then put complete products first	(add 100000000000 when products are complete)
-	# otherwise sort by last_modified_t (e.g.  1571384133)
-
-	my $sortkey = $product_ref->{last_modified_t};
 	
 	my $popularity_key = 0;
 	
@@ -900,20 +890,7 @@ sub compute_sort_keys($) {
 		}
 	}
 
-	# Put obsolete products last (negative key)
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$sortkey -= 200000000000;
-		$popularity_key -= 200000000000;
-	}
-
-	# Put products with complete data before uncomplete products
-	if ($product_ref->{complete}) {
-		$sortkey += 100000000000;
-		$popularity_key += 100000000000;
-	}
-
-# Add 0 so we are sure the key is saved as int
-	$product_ref->{sortkey} = $sortkey + 0;
+	# Add 0 so we are sure the key is saved as int
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
@@ -1122,7 +1099,7 @@ sub store_product($$) {
 	$product_ref->{last_modified_t} += 0;
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
-	$product_ref->{sortkey} += 0;
+	$product_ref->{popularity_key} += 0;
 	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
@@ -1290,15 +1267,30 @@ sub compute_completeness_and_missing_tags($$$) {
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 3.0);
-		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
-		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
-		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
-
-		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
+		my $image_step = $half_step * (1.0 / 4.0);
+		
+		my $images_completeness = 0;
+		
+		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		
+			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
+				$images_completeness += $image_step;
+				push @states_tags, "en:" . $imagetype . "-photo-selected";
+			}
+			else {
+				if (($imagetype eq "nutrition")
+					and (defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+					$images_completeness += $image_step;
+				}
+				else {
+					push @states_tags, "en:" . $imagetype . "-photo-to-be-selected";
+				}
+			}
+		}
+		
+		$completeness += $images_completeness;
+		
+		if ($images_completeness == $half_step) {
 			push @states_tags, "en:photos-validated";
 
 		}
@@ -1309,7 +1301,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$notempty++;
 	}
 
-	my @needed_fields = qw(product_name quantity packaging brands categories );
+	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
@@ -1392,6 +1384,16 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	else {
 		delete $product_ref->{empty};
+	}
+	
+	# On the producers platform, keep track of which products have changes to be exported
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if ((defined $product_ref->{last_exported_t}) and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t})) {
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+		}
 	}
 
 	$product_ref->{complete} = $complete;
@@ -2146,6 +2148,12 @@ sub product_name_brand($) {
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
 	}
+	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
+		$full_name = $ref->{"abbreviated_product_name_$lc"};
+	}
+	elsif ((defined $ref->{abbreviated_product_name}) and ($ref->{abbreviated_product_name} ne '')) {
+		$full_name = $ref->{abbreviated_product_name};
+	}
 
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
@@ -2322,7 +2330,7 @@ sub compute_languages($) {
 
 	foreach my $field (keys %{$product_ref}) {
 
-		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
 			if (defined $language_codes{$language_code}) {

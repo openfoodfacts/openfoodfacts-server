@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 1
     - name: Publish frontend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@2.21
+      uses: elgohr/Publish-Docker-Github-Action@3.02
       with:
         name: ${{ github.repository }}/frontend
         username: ${{ github.actor }}
@@ -34,7 +34,7 @@ jobs:
         rm icons.tar js.tar css.tar
         docker rm -v $CONTAINER
     - name: Publish backend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@2.21
+      uses: elgohr/Publish-Docker-Github-Action@3.02
       with:
         name: ${{ github.repository }}/backend
         username: ${{ github.actor }}

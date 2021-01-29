@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests of ImportConvert::clean_fields()
+
 use strict;
 use warnings;
 
@@ -62,52 +64,52 @@ crème fraîche
 	# # SCANDINAVIAN LANGUAGES #
 	############################
 	["da",
-	 "ingredienser: 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
-	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+		"ingredienser: 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
 	],
 	["da",
-	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
-	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
 	],
 	["da",
-	 "INGREDIENSER : 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt. NÆRINGSINDHOLD pr. 100 g; Energi 1204 kJ /291 kcal Fedt 24g heraf mættede fedtsyrer 2,89g Kulhydrat 7,3g heraf sukkerarter 0,9g",
-	 "56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+		"INGREDIENSER : 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt. NÆRINGSINDHOLD pr. 100 g; Energi 1204 kJ /291 kcal Fedt 24g heraf mættede fedtsyrer 2,89g Kulhydrat 7,3g heraf sukkerarter 0,9g",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
 	],
 	["is",
-	 "Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni. Næringargildi í 100g af þurrefni: Orka 527kJ Fita 3,6g Þar af mettuð 2,7g Kolvetni 19,1g þar af sykurtegundii 3,1g",
-	 "Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni."
+		"Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni. Næringargildi í 100g af þurrefni: Orka 527kJ Fita 3,6g Þar af mettuð 2,7g Kolvetni 19,1g þar af sykurtegundii 3,1g",
+		"Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni."
 	],
 	["is",
-	 "Innihald: Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli.",
-	 "Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli."
+		"Innihald: Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli.",
+		"Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli."
 	],
 	["is",
-	 "INNIHALDSEFNI : Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt. Eftir opnum skal geyma drykkinn í kæli og neyta innan 3-4 daga.",
-	 "Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt."
+		"INNIHALDSEFNI : Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt. Eftir opnum skal geyma drykkinn í kæli og neyta innan 3-4 daga.",
+		"Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt."
 	],
 	["nb",
-	 "pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
-	 "pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+		"pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+		"pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
 	],
 	["nb",
-	 "Ingredienser: pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
-	 "Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+		"Ingredienser: pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+		"Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
 	],
 	["nb",
-	 "INGREDIENSER : pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid). NÆRINGSINNHOLD: 100 g vare gir ca.: energi 1458 kJ (351 kcal), fett 27 g, -hvorav mettede fettsyrer 17 g, karbohydrat 0 g, -hvorav sukkerarter 0 g, protein 27 g, salt 1,2g.",
-	 "Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+		"INGREDIENSER : pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid). NÆRINGSINNHOLD: 100 g vare gir ca.: energi 1458 kJ (351 kcal), fett 27 g, -hvorav mettede fettsyrer 17 g, karbohydrat 0 g, -hvorav sukkerarter 0 g, protein 27 g, salt 1,2g.",
+		"Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
 	],
 	["sv",
-	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
-	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
 	],
 	["sv",
-	 "INGREDIENSER : Pastöriserad mjölk, salt, syrningskultur, ystenzym. Näringsvärde per 100 g ost Energi 1763 kJ/426 kcal Fett 38g varav mättat fett 24g Kolhydrater 0g varav sockerarter 0g Protein 20g Salt 1,8g",
-	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+		"INGREDIENSER : Pastöriserad mjölk, salt, syrningskultur, ystenzym. Näringsvärde per 100 g ost Energi 1763 kJ/426 kcal Fett 38g varav mättat fett 24g Kolhydrater 0g varav sockerarter 0g Protein 20g Salt 1,8g",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
 	],
 	["sv",
-	 "Ingredienser: Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
-	 "Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+		"Ingredienser: Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
 	],
 
 	############################
@@ -162,11 +164,11 @@ Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä"],
 	"Caories per gram: at 9 Carbekydrate 4 . Protein 4 INGREDIENTS: MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA. DIST& SOLD EXCLUSIVELY BY: ALD ALDI Tuice as Nice GLUTEN FREE BATAVIA, IL 610 GUARANTEE NET WT 48 0Z (3 LB) 1. 0. TRANS FATNG Item eplaced money refunded PLASTIC WRAP
 Edit ingredients (en)",
 	"MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA."],
-	
+
 	["en",
 	"INGREDIENTS Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt. NUTRITIONAL INFORMATION Serving: 1, Serving size: 20g",
 	"Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt."],
-	
+
 	["en",
 	"Savoury crackers with sesame seeds. Ingredients: Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts. Nutrition Information 1 Portion %*/1 Portion (25 g) 100 g (25 g) 2023 kJ",
 	"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts."],
@@ -175,7 +177,7 @@ Edit ingredients (en)",
 	["pl",
 	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii.",
 	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii."],
-	
+
 	["fr","INGREDIENTS : badiane* (Illicium verum) 30%, anis vert* (Pimpinella anisum) 30%, fenouil* (Foeniculum vulgare) 30%, racine de réglisse* (Glycyrrhiza glabra). *Produits issus de l'agriculture biologique. INGREDIENTS: star anise* 30%, green anise* 30%, fennel* 30%, liquorice*. *Organically grown products. INGREDIËNTEN: steranijs* 30%, groene anijs* 30%, venkel* 30%, zoethout*. *Biologisch geteelde producten.",
 "Badiane* (Illicium verum) 30%, anis vert* (Pimpinella anisum) 30%, fenouil* (Foeniculum vulgare) 30%, racine de réglisse* (Glycyrrhiza glabra). *Produits issus de l'agriculture biologique. INGREDIENTS: star anise* 30%, green anise* 30%, fennel* 30%, liquorice*. *Organically grown products. INGREDIËNTEN: steranijs* 30%, groene anijs* 30%, venkel* 30%, zoethout*. *Biologisch geteelde producten."],
 
@@ -229,7 +231,7 @@ foreach my $test_ref (@tests) {
 
 	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
 
-	my $product_ref = { 
+	my $product_ref = {
 		lc => $test_ref->[0],
 		$ingredients_lc => $test_ref->[1],
 	};

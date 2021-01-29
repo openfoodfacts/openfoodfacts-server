@@ -68,6 +68,7 @@ BEGIN
 
 		&import_csv_file_task
 		&export_csv_file_task
+		&update_export_status_for_csv_file_task
 		&import_products_categories_from_public_database_task
 
 		);    # symbols to export on request
@@ -230,30 +231,62 @@ sub load_csv_or_excel_file($) {
 
 			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
 
-			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
-			# the header function crashes with some csv files... use getline instead
-			my $row_ref = $csv->getline ($io);
+			# Remove completely empty rows and columns
 
-			# empty line or only title in first column?
-			while (((not defined $row_ref) or (not defined $row_ref->[0]) or ($row_ref->[0] eq "") or (not defined $row_ref->[1]) or ($row_ref->[1] eq ""))
-				and ($row_ref = $csv->getline ($io))) {
-			}
+			my @original_rows = ();
+			my @non_empty_columns = ();
 
-			if (not defined $row_ref) {
-				$log->debug("could not read headers row", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-				$results_ref->{error} = "Could not read headers row $file.csv: $!";
-			}
-			else {
-				@{$headers_ref} = @{$row_ref};
-
-				# May need to deal with possible empty lines before header
-
-				while ($row_ref = $csv->getline ($io)) {
+			while (my $row_ref = $csv->getline ($io)) {
+				my $non_empty_values= 0;
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+						$non_empty_values++;
+					}
+				}
+				# Remove rows with a value for only one column, and do not use that value for non empty columns
+				if ($non_empty_values >= 2) {
+					push @original_rows, $row_ref;
 					
+					for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+						if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+							$non_empty_columns[$i] = 1;
+						}
+					}
+				}
+			}
+			
+			$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
+			
+			# Copy non empty columns and rows
+			
+			my $seen_header = 0;
+			
+			foreach my $row_ref (@original_rows) {
+				my @new_row = ();
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ($non_empty_columns[$i]) {
+						push @new_row, $row_ref->[$i];
+					}
+				}
+				
+				$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
+				
+				# Is it a header? (column 1 or 2 should not be empty)
+				if (not $seen_header) {
+					
+					if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
+						$seen_header = 1;
+						@{$headers_ref} = @new_row;
+						
+						$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
+					}
+					
+					# Otherwise skip the line until we see a header
+				}
+				else {
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @{$row_ref}) !~ /[0-9]{8}/);
-					
-					push @{$rows_ref}, $row_ref;
+					next if (join(" ", @new_row) !~ /[0-9]{8}/);
+					push @{$rows_ref}, \@new_row;
 				}
 			}
 		}
@@ -439,6 +472,10 @@ sub convert_file($$$$) {
 sub normalize_column_name($) {
 
 	my $name = shift;
+	
+	# remove HTML tags
+	
+	$name =~ s/<(([^>]|\n)*)>//g;
 
 	# non-alpha chars will be turned to -, change the ones we want to keep
 
@@ -447,6 +484,11 @@ sub normalize_column_name($) {
 
 	# nutrient in unit
 	$name =~ s/ in / /i;
+	
+	# 100g / 100ml
+	$name =~ s/100(\s|_|-)*g(r?)(\b|$)/100g/i;
+	$name =~ s/100(\s|_|-)*ml(\b|$)/100ml/i;
+	$name =~ s/100g(\s|_|-)*(or|ou|\/|-)?(\s|_|-)*100ml/100g/i;
 
 	# estampille(s) sanitaire(s)
 
@@ -459,7 +501,7 @@ sub normalize_column_name($) {
 
 	# fr
 	$name =~ s/^(teneur|taux) (en |de |d')?//i;
-	$name =~ s/^dont //i;
+	$name =~ s/^(dont|soit) //i;
 	$name =~ s/ en / /i;
 
 	$name =~ s/pourcentage/percent/i;
@@ -494,7 +536,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods","ean-barcode","ean-barcode-number","ean-code"],
 	producer_product_id => ["internal code"],
 	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -503,23 +545,27 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 	nova_group_producer => ["nova"],
+	obsolete => ["The product is no longer sold", "Product is no longer sold."],
 },
 
 es => {
+	code => ["Código de barras", "Códigos de barras"],
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
 	net_weight_value_unit => ["peso unitrario", "peso unitario"],   # Yuka
 	"energy-kcal_100g_value_unit" => ["calorias"],
+	"link" => ["Enlace a la página del producto en el sitio oficial del fabricante"],
 },
 
 fr => {
-
 	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
+	brands => ["Marque(s)", "libellé marque"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
+	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
-	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients"],
+	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
 	traces => ["Traces éventuelles"],
 	image_front_url_fr => ["visuel", "photo", "photo produit"],
@@ -535,8 +581,10 @@ fr => {
 	link => ["lien", "lien du produit", "lien internet", "lien vers la page internet"],
 	manufacturing_places => ["lieu de conditionnement", "lieux de conditionnement", "lieu de fabrication", "lieux du fabrication", "lieu de fabrication du produit"],
 	nutriscore_grade_producer => ["note nutri-score", "note nutriscore", "lettre nutri-score", "lettre nutriscore"],
+	nutriscore_score_producer => ["score nutri-score", "score nutritionnel"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
+	obsolete => ["Le produit n'est plus en vente."],
 },
 
 );
@@ -544,13 +592,12 @@ fr => {
 my %prepared_synonyms = (
 	# "" is the default unprepared, it needs to have "" as the first synonym
 	"" => {
-	# code with i18n opportunity
 		en => ["", "unprepared"],
 		fr => ["", "non préparé"],
 	},
 	"_prepared" => {
-	# code with i18n opportunity
 		en => ["prepared"],
+		es => ["preparado"],
 		fr => ["préparé", "préparation"],
 	}
 );
@@ -559,9 +606,8 @@ my %per_synonyms = (
 	# per 100g includes an empty "" synonym
 	# may need to be changed for the US, CA etc.
 	"100g" => {
-	# code with i18n opportunity
-		en => ["", "for 100g", "per 100g", "100g", "100gr", "100 gr", "for 100 g", "per 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
-		fr => ["", "pour 100g", "100g", "100gr", "100 gr", "pour 100 g", "100 g", "100g/100ml", "100 g / 100 ml"],
+		en => ["", "for 100g", "per 100g", "100g"],
+		fr => ["", "pour 100g", "100g"],
 	},
 	"serving" => {
 		en => ["per serving", "serving"],
@@ -620,7 +666,9 @@ sub init_fields_columns_names_for_lang($) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = { field=>"energy-kj_100g_value_unit", value_unit=>"value_in_kj" };
 
-	(! -e "$data_root/debug") and mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	if (! -e "$data_root/debug") {
+		mkdir("$data_root/debug", 0755) or $log->warn("Could not create debug dir", { dir => "$data_root/debug", error=> $!}) if $log->is_warn();
+	}
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
@@ -686,7 +734,16 @@ sub init_nutrients_columns_names_for_lang($) {
 							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
-						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, lang("nutrition_data_per_" . $per)) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, $Lang{"nutrition_data_per_" . $per}{$l}, "nutrition_data_per_" . $per) {
+							
+							if ($per_synonym =~ /^nutrition_data_per/) {
+								# per 100 g / 100 ml -> per 100g
+								$per_synonym = $Lang{"nutrition_data_per_" . $per}{$l};
+								# remove the 100ml from "per 100g / 100ml";
+								$per_synonym =~ s/100 g/100g/i;
+								$per_synonym =~ s/100 ml/100ml/i;
+								$per_synonym =~ s/100ml//i; 
+							}
 
 							# field name without "unit" or "quantity"
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
@@ -802,8 +859,8 @@ sub init_other_fields_columns_names_for_lang($) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field . "_$l"};
+					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field . "_$l"};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)} = {field => $field . "_$l"};
@@ -812,7 +869,7 @@ sub init_other_fields_columns_names_for_lang($) {
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field . " " . display_taxonomy_tag($l,'languages',$language_codes{$l}))} = {field => $field . "_$l"};
 					}
 					elsif ($field =~ /image_(other)/) {
-						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{$field}{$l})} = {field => $field };
+						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))} = {field => $field };
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $1 . "_" . $l . "_url")} = {field => $field};
 						$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", "image_" . $1 . "_" . $l . "_url")} = {field => $field};
 					}
@@ -926,6 +983,9 @@ sub init_other_fields_columns_names_for_lang($) {
 			}
 		}
 	}
+	
+	# lc field uses translations for "lang"
+	$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $Lang{lang}{$l})} = {field => "lc" };
 
 	return;
 }
@@ -1081,6 +1141,9 @@ sub init_columns_fields_match($$) {
 	foreach my $column (@{$headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
+		
+		# Skip empty columns
+		next if $column_id eq "";
 
 		if ((defined $all_columns_fields_ref->{$column_id}) and (defined $all_columns_fields_ref->{$column_id}{field})) {
 
@@ -1113,6 +1176,12 @@ sub init_columns_fields_match($$) {
 						and ($columns_fields_ref->{$column}{max} <= 100)) {
 						$columns_fields_ref->{$column}{value_unit} = "value_in_g";
 					}
+					
+					# Sodium usually in mg
+					elsif (($columns_fields_ref->{$column}{field} =~ /^(sodium)_100g_value_unit$/)
+						and ($columns_fields_ref->{$column}{max} > 50)) {
+						$columns_fields_ref->{$column}{value_unit} = "value_in_mg";
+					}
 
 				}
 				elsif ($columns_fields_ref->{$column}{letters}) {
@@ -1129,6 +1198,10 @@ sub init_columns_fields_match($$) {
 				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{letters}) and (not $columns_fields_ref->{$column}{both})) {
 				$columns_fields_ref->{$column}{field} = "nutriscore_score_producer";
 			}
+			if (($columns_fields_ref->{$column}{field} eq "nutriscore_score_producer")
+				and ($columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{numbers}) and (not $columns_fields_ref->{$column}{both})) {
+				$columns_fields_ref->{$column}{field} = "nutriscore_grade_producer";
+			}			
 		}
 
 		delete $columns_fields_ref->{$column}{existing_examples};
@@ -1277,7 +1350,7 @@ JSON
 
 				$log->debug("Select2 option", { group_id => $group_id, field=>$field, name=>$name }) if $log->is_debug();
 
-				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition)/))) {
+				if ((defined $language_fields{$field}) or (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/))) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
@@ -1340,6 +1413,7 @@ sub export_and_import_to_public_database($) {
 	$args_ref->{export_id}            = $export_id;
 	$args_ref->{comment}              = "Import from producers platform";
 	$args_ref->{include_images_paths} = 1;                                  # Export file paths to images
+	$args_ref->{exported_t}	= $started_t;
 
 
 	if (defined $Org_id) {
@@ -1372,17 +1446,27 @@ sub export_and_import_to_public_database($) {
 	else {
 		$args_ref->{no_source} = 1;
 	}
+	
+	# Local export
 
 	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_local_queue}});
 
 	$args_ref->{export_job_id} = $local_export_job_id;
 
+	# Remote import
+	
 	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
 		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
+		
+	# Local export status update
+	
+	my $local_export_status_job_id = $minion->enqueue(update_export_status_for_csv_file => [$args_ref]
+		=> { queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
+	$exports_ref->{$export_id}{local_export_status_job_id} = $local_export_status_job_id;
 
 	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
 	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
@@ -1394,6 +1478,7 @@ sub export_and_import_to_public_database($) {
 			exported_file => $exported_file,
 			local_export_job_id => $local_export_job_id,
 			remote_import_job_id => $remote_import_job_id,
+			local_export_status_job_id => $local_export_status_job_id,
 	};
 }
 
@@ -1508,6 +1593,35 @@ sub import_products_categories_from_public_database_task() {
 
 	open(my $log, ">>", "$data_root/logs/minion.log");
 	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
+	close($log);
+
+	$job->finish("done");
+
+	return;
+}
+
+
+sub update_export_status_for_csv_file_task() {
+
+	my $job = shift;
+	my $args_ref = shift;
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	close($minion_log);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+
+	ProductOpener::Import::update_export_status_for_csv_file($args_ref);
+
+	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
+
+	open(my $log, ">>", "$data_root/logs/minion.log");
+	print $log "update_export_status_file_task - job: $job_id done\n";
 	close($log);
 
 	$job->finish("done");

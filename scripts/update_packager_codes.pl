@@ -209,7 +209,8 @@ if (opendir DH, "$data_root/packager-codes") {
 			open my $in_fh, '<', $abs_file;
 
 			my $parser = Text::CSV->new(
-				{   quote_char     => q{"},
+				{   auto_diag      => 1,
+					quote_char     => q{"},
 					binary         => 1,
 					empty_is_undef => 1
 				}
@@ -232,7 +233,10 @@ if (opendir DH, "$data_root/packager-codes") {
 
 			binmode $in_fh, ":encoding($encoding)";
 
-			while ( my $row = $parser->getline_hr($in_fh) ) {
+			while (1) {
+				my $row = $parser->getline_hr($in_fh);
+				last if $parser->eof;
+
 				my $code = $row->{$key};
 				next if not $code;
 

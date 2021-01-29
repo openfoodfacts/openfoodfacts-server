@@ -46,13 +46,15 @@ my @tests = (
 
 foreach my $test_ref (@tests) {
 
-        my $product_ref = $test_ref->[0];
-        my $expected_fruits = $test_ref->[1];
+	my $product_ref = $test_ref->[0];
+	my $expected_fruits = $test_ref->[1];
 
-        extract_ingredients_from_text($product_ref);
+	extract_ingredients_from_text($product_ref);
 
-        is ((defined $product_ref->{nutriments} ? $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} : undef),
-                $expected_fruits) or diag explain $product_ref->{ingredients};
+	is (
+		(defined $product_ref->{nutriments} ? $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} : undef),
+		$expected_fruits
+	) or diag explain $product_ref->{ingredients};
 }
 
 done_testing();

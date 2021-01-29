@@ -14,7 +14,7 @@
 
 en:Vitamin A
 bg:Витамин А
-de:Vitamin A,
+de:Vitamin A
 el:Βιταμίνη A
 es:Vitamina A
 et:A-vitamiin
@@ -153,13 +153,14 @@ cs:ergokalciferol
 el:εργοκαλσιφερόλη
 es:ergocalciferol
 et:ergokaltsiferool
-fi:ergokalsiferoli
+fi:ergokalsiferoli, D2-vitamiini
 fr:ergocalciférol, Vitamine D2
 hu:ergokalciferol, D2-vitamin
 it:ergocalciferolo
 lt:ergokalciferolis
 lv:ergokalciferols
 mt:ergokalċiferol
+nb:ergokalsiferol, Vitamin D2
 pl:ergokalcyferol
 sk:ergokalciferol
 sl:ergokalciferol
@@ -262,7 +263,7 @@ sv:DL-alfa-tokoferol
 wikidata:en:Q155753
 
 <en:Vitamin E
-en:D-alpha tocopheryl acetate
+en:D-alpha tocopheryl acetate, alpha tocopheryl acetate, alpha tocopherol acetate
 bg:D-алфатокоферил ацетат
 cs:D- α-tokoferyl-acetát
 de:D-alpha-Tocopherylacetat
@@ -283,9 +284,10 @@ ro:acetat de tocoferil D-alfa
 sk:D-alfa-tokoferylacetát
 sl:D-alfa-tokoferil acetat
 sv:D-alfa-tokoferylacetat
+wikidata:en:Q364160
 
 <en:Vitamin E
-en:DL-alpha tocopheryl acetate
+en:DL-alpha tocopheryl acetate, dl-alpha tocopherol acetate
 bg:DL-алфатокоферил ацетат
 cs:DL-α-tokoferyl-acetát
 de:DL-alpha-Tocopherylacetat
@@ -293,7 +295,7 @@ el:οξική DL-α-τοκοφερόλη
 es:acetato de DL-alfa tocoferilo, acetato de DL-alfa tocoferol
 et:DL-alfa-tokoferüülatsetaat
 fi:DL-alfa-tokoferyyliasetaatti
-fr:acétate de DL-alpha-tocophérol
+fr:acétate de DL-alpha-tocophérol, acétate de DL-alpha-tocophéryle
 hu:DL-alfa-tokoferil-acetát
 it:acetato di DL-alfa-tocoferile
 lt:DL-alfa-tokoferilacetatas
@@ -306,6 +308,7 @@ ro:acetat de tocoferil DL-alfa
 sk:DL-alfa-tokoferylacetát
 sl:DL-alfa-tokoferil acetat
 sv:DL-alfa-tokoferylacetat
+wikidata:en:Q27292783
 
 <en:Vitamin E
 en:D-alpha-tocopheryl acid succinate
@@ -583,11 +586,11 @@ bg:Тиамин
 el:Θειαμίνη
 es:Tiamina, Vitamina B1
 et:Tiamiin
-fi:Tiamiini
+fi:Tiamiini, Tiamiinia
 fr:Thiamine, Vitamine B1
 hu:Tiamin, B1-vitamin
 it:Tiamina
-ja:チアミン, ビタミンB1, V.B1
+ja:チアミン, ビタミンB1, ビタミン B1, V.B1
 lt:Tiaminas
 lv:Tiamīns
 mt:Tiamina
@@ -674,11 +677,13 @@ ja:ナイアシン
 lt:Niacinas
 lv:Niacīns
 mt:Niaċina
+nb:Niacin
 nl:Niacine
 pl:Niacyna
 pt:Niacina
 ro:Niacină
 sk:Niacín
+sv:Niacin
 
 <en:Niacin
 en:nicotinic acid

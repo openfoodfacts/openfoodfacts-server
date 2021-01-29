@@ -42,6 +42,9 @@ my @tests = (
 [ { lc => "pl", ingredients_text => "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." }, [ "en:e330","en:e331" ] ],
 [ { lc => "es", ingredients_text => "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216)."}, ["en:e420","en:e960","en:e952","en:e954","en:e950","en:e955","en:e218","en:e202","en:e216"]],
 [ { lc => "fr", ingredients_text => "cal" }, []],
+[ { lc => "fr", ingredients_text => "colorant: caramel" }, ["en:e150"]],
+[ { lc => "fr", ingredients_text => "caramel" }, []],
+[ { lc => "fr", ingredients_text => "caramel aromatique" }, []],
 );
 
 foreach my $test_ref (@tests) {

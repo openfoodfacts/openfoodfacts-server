@@ -48,6 +48,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -118,6 +119,10 @@ use ProductOpener::Config2;
 		lowercase => 1,
 	},
 	# Same for Spanish, Italian and Portuguese
+	ca => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	es => {
 		unaccent => 1,
 		lowercase => 1,
@@ -215,6 +220,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -246,6 +252,7 @@ $page_size = 20;
 
 $google_analytics = '';
 
+
 my @icons = (
 	{ "platform" => "ios", "sizes" => "57x57", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-57x57.png" },
 	{ "platform" => "ios", "sizes" => "60x60", "src" => "https://static.$server_domain/images/favicon/apple-touch-icon-60x60.png" },
@@ -265,14 +272,19 @@ my @icons = (
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
 	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948' },
+	{ 'platform' => 'windows', 'id' => '9nblggh0dkqr', 'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr' },
 );
 
-my $manifest;
-$manifest->{icons} = \@icons;
-$manifest->{related_applications} = \@related_applications;
-$manifest->{theme_color} = '#ffffff';
-$manifest->{background_color} = '#ffffff';
+my $manifest = {
+	icons => \@icons,
+	related_applications => \@related_applications,
+	theme_color => '#ffffff',
+	background_color => '#ffffff',
+};
 $options{manifest} = $manifest;
+
+$options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
+$options{display_random_sample_of_products_after_edits} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
 <link rel="manifest" href="/cgi/manifest.pl">
@@ -281,6 +293,9 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+<meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+<meta name="apple-itunes-app" content="app-id=588797948">
+<meta name="flattr:id" content="dw637l">
 HTML
 ;
 
@@ -360,7 +375,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements
+improvements origins packaging_shapes packaging_materials packaging_recycling
 );
 
 
@@ -399,6 +414,8 @@ improvements
 	preparation
 	warning
 	data_sources
+	obsolete
+	obsolete_since_date
 );
 
 
@@ -478,6 +495,7 @@ improvements
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -511,20 +529,145 @@ improvements
 
 
 $options{import_export_fields_groups} = [
-	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
-		"brands", "brand_owner", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
+	[   "identification",
+		[   "code",                      "producer_product_id",
+			"producer_version_id",       "lc",
+			"product_name",              "generic_name",
+			"quantity_value_unit",       "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit",   "packaging",
+			"packaging_text",
+			"brands",                    "brand_owner",
+			"categories",                "categories_specific",
+			"labels",                    "labels_specific",
+			"countries",                 "stores",
+			"obsolete",                  "obsolete_since_date"
+		]
 	],
-	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	[   "origins",
+		[   "origins",              "origin",
+			"manufacturing_places", "producer",
+			"emb_codes"
+		]
 	],
-	["ingredients", ["ingredients_text", "allergens", "traces"]
-	],
+	[ "ingredients", [ "ingredients_text", "allergens", "traces" ] ],
 	["nutrition"],
 	["nutrition_other"],
-	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	[   "other",
+		[   "nutriscore_score_producer",
+			"nutriscore_grade_producer",
+			"nova_group_producer",
+			"conservation_conditions",
+			"warning",
+			"preparation",
+			"recipe_idea",
+			"recycling_instructions_to_recycle",
+			"recycling_instructions_to_discard",
+			"customer_service",
+			"link"
+		]
 	],
-	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
+	[   "images",
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
+		]
+	],
 ];
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore",
+		"low_salt", "low_sugars", "low_fat", "low_saturated_fat",
+		],
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"allergens",
+		[
+			"allergens_no_gluten",
+			"allergens_no_milk",
+			"allergens_no_eggs",
+			"allergens_no_nuts",
+			"allergens_no_peanuts",
+			"allergens_no_sesame_seeds",
+			"allergens_no_soybeans",
+			"allergens_no_celery",
+			"allergens_no_mustard",
+			"allergens_no_lupin",
+			"allergens_no_fish",
+			"allergens_no_crustaceans",
+			"allergens_no_molluscs",
+			"allergens_no_sulphur_dioxide_and_sulphites",
+		],
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm_oil_free",
+		]		
+	],
+	[
+		"labels",
+		["labels_organic", "labels_fair_trade"]
+	],
+	[
+		"environment",
+		[
+			"ecoscore",
+		]
+	],
+];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"nutriscore" => "very_important",
+	"nova" => "important",
+	"ecoscore" => "important",
+};
+
+# Used to generate the sample import file for the producers platform
+# possible values: mandatory, recommended, optional.
+# when not specified, fields are considered optional
+$options{import_export_fields_importance} = {
+	
+	# default values for groups
+	nutrition_group => "mandatory",
+	images_group => "mandatory",
+	ingredients_group => "mandatory",
+	
+	# values for fields
+	code => "mandatory",
+	lc => "mandatory",
+	product_name => "mandatory",
+	generic_name => "recommended",
+	quantity => "mandatory",
+	serving_size => "recommended",
+	packaging => "recommended",
+	packaging_text => "mandatory",
+	brands => "mandatory",
+	categories => "mandatory",
+	labels => "mandatory",
+	countries => "recommended",
+	obsolete => "mandatory",
+	obsolete_since_date => "recommended",
+	
+	origins => "mandatory",
+	emb_codes => "recommended",
+	
+	recycling_instructions_to_recycle => "recommended",
+	recycling_instructions_to_discard => "recommended",
+	
+	image_other_url => "optional",
+	
+	alcohol_100g_value_unit => "optional",
+
+};
+
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -547,17 +690,61 @@ $options{import_export_fields_groups} = [
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
-	{
-		my ($url) = @_;
-		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
-			return $1
+	'wikidata:en' => {
+		href => 'https://www.wikidata.org/wiki/%s',
+		text => 'Wikidata',
+		parse => sub {
+			my ($url) = @_;
+			if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
+				return $1
+			}
+
+			return;
 		}
-
-		return;
-	} },
-
+	},
 );
+
+# allow moving products to other instances of Product Opener on the same server
+# e.g. OFF -> OBF
+
+$options{current_server} = "off";
+
+$options{other_servers} = {
+	obf =>
+	{
+		name => "Open Beauty Facts",
+		data_root => "/srv/obf",
+		www_root => "/srv/obf/html",
+		mongodb => "obf",
+		domain => "openbeautyfacts.org",
+	},
+	off =>
+	{
+		name => "Open Food Facts",
+		data_root => "/srv/off",
+		www_root => "/srv/off/html",
+		mongodb => "off",
+		domain => "openfoodfacts.org",
+	},
+	opf =>
+	{
+		name => "Open Products Facts",
+		data_root => "/srv/opf",
+		www_root => "/srv/opf/html",
+		mongodb => "opf",
+		domain => "openproductsfacts.org",
+	},
+	opff =>
+	{
+		prefix => "opff",
+		name => "Open Pet Food Facts",
+		data_root => "/srv/opff",
+		www_root => "/srv/opff/html",
+		mongodb => "opff",
+		domain => "openpetfoodfacts.org",
+	}
+};
+
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
@@ -842,8 +1029,8 @@ $options{nova_groups_tags} = {
 	"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
 	"additives/en:e636" => 4, #Maltol
 	"additives/en:e637" => 4, #Ethyl maltol
-	"additives/en:e640" => 4, #	glycine
-	"additives/en:e641" => 4, #	leucine
+	"additives/en:e640" => 4, # glycine
+	"additives/en:e641" => 4, # leucine
 	"additives/en:e650" => 4, # zinc acetatel
 	"additives/en:e1104" => 4, # lipase
 
@@ -1007,4 +1194,3 @@ $options{nova_groups_tags} = {
 
 
 1;
-

@@ -92,9 +92,12 @@ BEGIN
 
 		&compare_nutriments
 
-		$ec_code_regexp
 		%packager_codes
 		%geocode_addresses
+		&init_packager_codes
+		&init_geocode_addresses
+		
+		$ec_code_regexp
 		&normalize_packager_codes
 		&localize_packager_code
 		&get_canon_local_authority
@@ -109,8 +112,6 @@ BEGIN
 
 		&assign_categories_properties_to_product
 
-		&remove_insignificant_digits
-
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -123,75 +124,13 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Numbers qw/:all/;
 
 use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
-
-
-=head2 remove_insignificant_digits($)
-
-Some apps send us nutrient values that they have stored internally as
-floating point numbers.
-
-So we get values like:
-
-2.9000000953674
-1.6000000238419
-0.89999997615814
-0.359999990463256
-2.5999999046326
-
-On the other hand, when we get values like 2.0, 2.50 or 2.500,
-we want to keep the trailing 0s.
-
-The goal is to keep the precision if it makes sense. The tricky part
-is that we do not know in advance how many significant digits we can have,
-it varies from products to products, and even nutrients to nutrients.
-
-The desired output is thus:
-
-2.9000000953674 -> 2.9
-1.6000000238419 -> 1.6
-0.89999997615814 -> 0.9
-0.359999990463256 -> 0.36
-2.5999999046326 -> 2.6
-2 -> 2
-2.0 -> 2.0
-2.000 -> 2.000
-2.0001 -> 2
-0.0001 -> 0.0001
-
-=cut
-
-
-sub remove_insignificant_digits($) {
-
-	my $value = shift;
-	
-	# Make the value a string
-	$value .= '';
-	
-	# Very small values may have been converted to scientific notation
-	
-	if ($value =~ /\.(\d*?[1-9]\d*?)0{3}/) {
-		$value = $`. '.' . $1;
-	}
-	elsif ($value =~ /([1-9]0*)\.0{3}/) {
-		$value = $`. $1;
-	}
-	elsif ($value =~ /\.(\d*)([0-8]+)9999/) {
-		$value = $`. '.' . $1 . ($2 + 1);
-	}
-	elsif ($value =~ /\.9999/) {
-		$value = $` + 1;
-	}
-	return $value;
-}
-
-
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -215,7 +154,7 @@ sub normalize_nutriment_value_and_modifier($$) {
 
 	return if not defined ${$value_ref};
 
-	if (${$value_ref} =~ /nan/i) {
+	if (lc(${$value_ref}) =~ /nan/) {
 		${$value_ref} = '';
 	}
 
@@ -242,9 +181,6 @@ sub normalize_nutriment_value_and_modifier($$) {
 	if (${$value_ref} =~ /trace|traces/) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
-	}
-	if (${$value_ref} !~ /\./) {
-		${$value_ref} =~ s/,/\./;
 	}
 
 	return;
@@ -294,9 +230,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		$unit = default_unit_for_nid($nid);
 	}
 
-	$value =~ s/(\d) (\d)/$1$2/g;
-	$value =~ s/,/./;
-	$value += 0;
+	$value = convert_string_to_number($value);
 
 	if ((defined $modifier) and ($modifier ne '')) {
 		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -1285,6 +1219,8 @@ sub mmoll_to_unit {
 		de          => "Energie (kcal)",
 		el          => "Ενέργεια (kcal)",
 		en          => "Energy (kcal)",
+		en_synonyms =>
+			[ "kcal", "kilocalories" ],		
 		es          => "Energía (kcal)",
 		es_synonyms => ["Valor Energético (kcal)"],
 		et          => "Energia (kcal)",
@@ -1292,7 +1228,7 @@ sub mmoll_to_unit {
 		fi          => "Energia (kcal)",
 		fr          => "Énergie (kcal)",
 		fr_synonyms =>
-			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)" ],
+			[ "valeurs énergétique (kcal)", "valeur énergétique (kcal)", "kcal", "kilocalories" ],
 		ga    => "Fuinneamh (kcal)",
 		he    => "אנרגיה - קלוריות (kcal)",
 		hu    => "Energia (kcal)",
@@ -1817,6 +1753,8 @@ sub mmoll_to_unit {
 	},
 	'saturated-fat' => {
 		en => "Saturated fat",
+		en_synonyms =>
+			[ "Saturated fatty acids" ],
 		bg => "Наситени мастни киселини",
 		cs => "Nasycené mastné kyseliny",
 		da => "Mættede fedtsyrer",
@@ -2526,7 +2464,7 @@ sub mmoll_to_unit {
 	fiber => {
 		en => "Fibers",
 		en_synonyms =>
-			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers" ],
+			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers", "fibers aoac", "fibre", "fibres", "fibres aoac" ],
 		bg          => "Влакнини",
 		cs          => "Vláknina",
 		da          => "Kostfibre",
@@ -3297,7 +3235,8 @@ sub mmoll_to_unit {
 		unit    => "mg",
 		dv      => 1000,
 		dv_2016 => 1300,
-		unit_us => "% DV",
+		# 2020: US now also indicate value in mg (preferred as %DV is based on changing daily values)
+		# unit_us => "% DV",
 		unit_ca => "% DV",
 	},
 	phosphorus => {
@@ -3365,7 +3304,8 @@ sub mmoll_to_unit {
 		unit    => "mg",
 		dv      => 18,
 		dv_2016 => 18,
-		unit_us => "% DV",
+		# 2020: US now also indicate value in mg (preferred as %DV is based on changing daily values)
+		# unit_us => "% DV",
 		unit_ca => "% DV",
 	},
 	magnesium => {
@@ -3770,7 +3710,8 @@ sub mmoll_to_unit {
 		en_synonyms => [
 			"Fruits and vegetables",
 			"Fruits, vegetables and nuts",
-			"Fruits, vegetables, nuts"
+			"Fruits, vegetables, nuts",
+			"Fruits, vegetables, pulses, nuts, and rapeseed, walnut and olive oils",
 		],
 		fi =>
 			"Hedelmät, kasvikset, pähkinät ja rapsi-, saksanpähkinä- ja oliiviöljyt",
@@ -4185,13 +4126,13 @@ sub normalize_quantity($) {
 		my $m = $1;
 		$q = lc($7);
 		$u = $12;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q * $m, $u);
 	}
 	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
 		$q = lc($1);
 		$u = $6;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q,$u);
 	}
 
@@ -4217,7 +4158,7 @@ sub normalize_serving_size($) {
 	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?($units)\b/i) {
 		$q = lc($1);
 		$u = $6;
-		$q =~ s/,/\./;
+		$q = convert_string_to_number($q);
 		$q = unit_to_g($q,$u);
 	}
 
@@ -4705,6 +4646,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value};
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 	delete $product_ref->{nutriscore_score};
+	delete $product_ref->{nutriscore_score_opposite};
 	delete $product_ref->{nutriscore_grade};
 	delete $product_ref->{nutriscore_data};
 	delete $product_ref->{nutriscore_points};
@@ -4717,14 +4659,16 @@ sub compute_nutrition_score($) {
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		add_tag($product_ref,"misc","en:nutriscore-missing-category");
 		return;
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		add_tag($product_ref,"misc","en:nutriscore-beverage-status-unknown");
 		return;
 	}
 
@@ -4743,8 +4687,9 @@ sub compute_nutrition_score($) {
 				last;
 			}
 			else {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				add_tag($product_ref,"misc","en:nutriscore-missing-prepared-nutrition-data");
 				return;
 			}
 		}
@@ -4770,6 +4715,7 @@ sub compute_nutrition_score($) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
 					return;
 				}
@@ -4794,6 +4740,8 @@ sub compute_nutrition_score($) {
 					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
 				}
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data");
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data-$nid");
 				return;
 			}
 		}
@@ -4919,6 +4867,12 @@ sub compute_nutrition_score($) {
 
 	shift @{$product_ref->{misc_tags}};
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+	
+	# In order to be able to sort by nutrition score in MongoDB,
+	# we create an opposite of the nutrition score
+	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+	# instead we can sort on descending order on nutriscore_score_opposite
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;		
 
 	return;
 }
@@ -5597,14 +5551,31 @@ sub get_canon_local_authority($) {
 	return $canon_local_authority;
 }
 
-if (-e "$data_root/packager-codes/packager_codes.sto") {
-	my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
-	%packager_codes = %{$packager_codes_ref};
+
+sub init_packager_codes() {
+	return if (%packager_codes);
+
+	if (-e "$data_root/packager-codes/packager_codes.sto") {
+		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
+		%packager_codes = %{$packager_codes_ref};
+	}
+
 }
 
-if (-e "$data_root/packager-codes/geocode_addresses.sto") {
-	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
-	%geocode_addresses = %{$geocode_addresses_ref};
+sub init_geocode_addresses() {
+	return if (%geocode_addresses);
+
+	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
+		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
+		%geocode_addresses = %{$geocode_addresses_ref};
+	}
+
+}
+
+# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
+INIT {
+	init_packager_codes();
+	init_geocode_addresses();
 }
 
 

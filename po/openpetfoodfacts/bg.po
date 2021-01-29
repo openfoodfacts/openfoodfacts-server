@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:11\n"
+"PO-Revision-Date: 2020-10-09 18:43\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bg\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 448\n"
+"X-Crowdin-File-ID: 1386\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -75,7 +75,7 @@ msgstr "https://apps.apple.com/bg/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -88,7 +88,7 @@ msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>>е създаден от сдружение с нестопанска цел,което е независимо от индустрията. Той е направен за всички, от всички и се финансира от всички. Можете да подкрепите нашата работа чрез <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">дарение за Open Beauty Facts</a> а също и чрез <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">използвайки Lilo търсачката</a>.<br/><b>Благодарим Ви!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
@@ -110,7 +110,7 @@ msgstr ""
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
@@ -139,7 +139,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ С Chrome, Firefox и Safari можете да изберете множество снимки (продукт, съставки и т. н.), като щракнете върху тях задържайки натиснат клавиша Ctrl, за да ги добавите наведнъж."
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
@@ -147,6 +147,6 @@ msgstr ""
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
 msgstr ""
 

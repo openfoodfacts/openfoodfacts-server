@@ -104,7 +104,7 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition]_[new_]?[lc]
+	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -219,7 +219,11 @@ sub scan_code($) {
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
 	local $log->context->{file} = $file;
-	if ("$x") {
+	
+	# ImageMagick can trigger an exception for some images that it can read anyway
+	# Exception codes less than 400 are warnings and not errors (see https://www.imagemagick.org/script/perl-magick.php#exceptions )
+	# e.g. Exception 365: CorruptImageProfile `xmp' @ warning/profile.c/SetImageProfileInternal/1704
+	if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
 		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
 	else {
@@ -431,12 +435,17 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	my $code;
 	my $imagefield;
+	
+	# codes with spaces
+	# 4 LR GROS LOUE_3 251 320 080 419_3D avant.png
+	$filename =~ s/(\d) (\d)/$1$2/g;
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
 		$code = $1;
 		# Make sure it's not a date like 20200201..
-		if ($filename =~ /^20(18|19|(2[0-9]))(0|1)/) {
+		# e.g. IMG_20200810_111131.jpg
+		if ($filename =~ /(^|[^0-9])20(18|19|(2[0-9]))(0|1)/) {
 			$code = undef;
 		}
 		else {
@@ -448,7 +457,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
-	if ($filename =~ /((front|ingredients|nutrition)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
 		$imagefield = $1;
 		$imagefield =~ s/-/_/;
 	}
@@ -898,14 +907,29 @@ sub process_image_crop($$$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 	my $coordinates_image_size = shift;
+	
+	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
 	# -> $coordinates_image_size = $crop_size
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
+	# There was an issue saving coordinates_image_size for some products
+	# if any coordinate is above the $crop_size, then assume it was on the full size
+
 	if (not defined $coordinates_image_size) {
-		$coordinates_image_size = $crop_size;
+		if (($x2 <= $crop_size) and ($y2 <= $crop_size)) {
+			$coordinates_image_size = $crop_size;
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 and y2 less than crop_size, setting to crop_size", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+		else {
+			$coordinates_image_size = "full";
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 or y2 greater than crop_size, setting to full", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+	}
+	else {
+		$log->debug("process_image_crop - coordinates_image_size set", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 	}
 
 	my $path = product_path_from_id($product_id);
@@ -1205,6 +1229,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		y1 => $y1,
 		x2 => $x2,
 		y2 => $y2,
+		coordinates_image_size => $coordinates_image_size,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,
@@ -1294,7 +1319,7 @@ sub _set_magickal_options($$) {
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1361,7 +1386,7 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition]_[lc]
+	my $id_lc       = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 	my $size        = shift;    # currently = $small_size , 200px
 
 	my $html = '';

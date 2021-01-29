@@ -25,7 +25,7 @@
                                                 
                         <select name="tagtype_${tagtype.id}" id="tagtype_${tagtype.id}">
                             [% FOREACH tags_field IN tags_fields_options %]                          
-                                <option value="[% tags_field.value %]" label="[% tags_field.label %]"[% IF tags_field.value == tagtype.selected_tags_field_value %]selected="selected"[% END %]></option>
+                                <option value="[% tags_field.value %]" label="[% tags_field.label %]"[% IF tags_field.value == tagtype.selected_tags_field_value %]selected="selected"[% END %]>[% tags_field.label %]</option>
                             [% END %]
                         </select>
                         
@@ -35,7 +35,7 @@
 
                         <select name="tag_contains_${tagtype.id}" id="tag_contains_${tagtype.id}">
                             [% FOREACH contain IN contain_options %]
-                                <option value="[% contain.value %]" label="[% contain.label %]" [% IF contain.value == tagtype.selected_contain_value %]selected="selected"[% END %]></option>
+                                <option value="[% contain.value %]" label="[% contain.label %]" [% IF contain.value == tagtype.selected_contain_value %]selected="selected"[% END %]>[% contain.label %]</option>
                             [% END %]
                         </select>
                     </div>
@@ -111,7 +111,7 @@
                         <label for="sort_by">[% lang('sort_by') %]</label>
                         <select name="sort_by" id="sort_by">
                             [% FOREACH sort IN sort_options %]
-                                <option value="[% sort.value %]" label="[% sort.label %]"[% IF sort.value == selected_sort_by_value %] selected="selected"[% END %]></option>
+                                <option value="[% sort.value %]" label="[% sort.label %]"[% IF sort.value == selected_sort_by_value %] selected="selected"[% END %]>[% sort.label %]</option>
                             [% END %]
                         </select>
                     </div>
@@ -120,9 +120,9 @@
                         <select name="page_size" id="page_size">
                             [% FOREACH size IN size_options %]
                                 [% IF size == 20 %]
-                                    <option value=[% size %] label=[% size %] selected="selected"></option>
+                                    <option value=[% size %] label=[% size %] selected="selected">[% size %]</option>
                                 [% ELSE %]
-                                    <option value=[% size %] label=[% size %]></option>
+                                    <option value=[% size %] label=[% size %]>[% size %]</option>
                                 [% END %]
                             [% END %]
                         </select>
