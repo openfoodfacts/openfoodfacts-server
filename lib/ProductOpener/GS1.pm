@@ -405,6 +405,24 @@ my %gs1_to_off = (
 										],
 									},
 								],
+								
+								["trade_item_measurements:tradeItemMeasurementsModule", {
+										fields => [
+											["tradeItemMeasurements", {
+													fields => [
+														["netContent", "quantity"],
+														["tradeItemWeight", {
+																fields => [
+																	["netWeight", "net_weight"],
+																],
+															},
+														],
+													],
+												},
+											],
+										],
+									},
+								],								
 																
 							],
 						},
@@ -681,12 +699,13 @@ sub gs1_to_off ($$$) {
 							my $language_code;
 							my $value;
 							
+							# There may be a language code
 							if (defined $source_value->{languageCode}) {
 								$language_code = $source_value->{languageCode};
 							}
 							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{languageCode})) {
 								$language_code = $source_value->{'@'}{languageCode};
-							}
+							}					
 							
 							if (defined $source_value->{'$t'}) {
 								$value = $source_value->{'$t'};
@@ -694,6 +713,16 @@ sub gs1_to_off ($$$) {
 							elsif (defined $source_value->{'#'}) {
 								$value = $source_value->{'#'};
 							}
+							
+							# There may be a measurement unit code
+							# in that case, concatenate it to the value
+							
+							if (defined $source_value->{measurementUnitCode}) {
+								$value .= " " . $gs1_maps{measurementUnitCode}{$source_value->{measurementUnitCode}};
+							}
+							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{measurementUnitCode})) {
+								$value .= " " . $gs1_maps{measurementUnitCode}{$source_value->{'@'}{measurementUnitCode}};
+							}									
 							
 							# If the field is a language specific field, we can assign the value to the language specific field
 							if ((defined $language_code) and (defined $language_fields{$target_field})) {
