@@ -5,7 +5,7 @@ use strict;
 my $entry_format = <<TXT
 en:<i> minutes, <i>minutes, <i> min, <i>M, <i>
 fr:<i> minutes, <i>min
-numeric_minutes:en:<i>
+cooking_duration_in_minutes:en:<i>
 TXT
 ;
 
