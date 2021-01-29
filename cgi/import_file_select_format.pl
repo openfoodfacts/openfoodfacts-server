@@ -158,9 +158,12 @@ HTML
 		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
 			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
+		
+		my $column_without_tags = $column;
+		$column_without_tags =~ s/<(([^>]|\n)*)>//g;
 
 		$html .= <<HTML
-<tr id="column_$col" class="column_row"><td>$column</td>
+<tr id="column_$col" class="column_row"><td>$column_without_tags</td>
 <td>
 <select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
 <option></option>
@@ -262,10 +265,13 @@ function init_select_field_option(col) {
 JS
 ;
 
-	foreach my $tagtype ("categories", "labels") {
+	foreach my $tagtype ("sources_fields", "categories", "labels") {
 
 		my $tagtype_specific = $tagtype . "_specific";
 		my $placeholder = $Lang{$tagtype . "_s"}{$lc};
+		my $specific_tag = $Lang{$tagtype . "_specific_tag"}{$lc};
+		my $specific_tag_value = $Lang{$tagtype . "_specific_tag_value"}{$lc};
+
 		$initjs .= <<JS
 		if (field == "$tagtype_specific") {
 
@@ -285,8 +291,8 @@ JS
 				columns_fields[column]["tag"] = \$(this).val();
 			});
 
-			instructions += "<p>$Lang{specific_tag_label}{$lc}</p>"
-			+ "<p>$Lang{specific_tag_label_value}{$lc}</p>";
+			instructions += "<p>$specific_tag</p>"
+			+ "<p>$specific_tag_value</p>";
 		}
 JS
 ;
@@ -322,6 +328,7 @@ JS
 				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
 				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
 				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
+				+ '<option value="value_in_iu">$Lang{value_in_iu}{$lc}</option>'
 				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
 			}
 

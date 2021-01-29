@@ -40,10 +40,6 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsâure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ ], [ "en:celery", "en:mustard"] ],
 	[ { lc => "it", ingredients_text => "Puo contenere tracce di frutta a guscio, sesamo, soia e uova"}, [ ], [ "en:eggs", "en:nuts", "en:sesame-seeds", "en:soybeans"] ],
 
-	# for languages when we don't have a translation for "and" in Ingredients.pm
-	# use " and "
-	[ { lc => "xx", ingredients_text => "NUTS AND SOMETHING" }, [ "en:nuts", ] ],
-
 	[ { lc => "fr", traces => "Traces de lait"}, [], ["en:milk"] ],
 	[ { lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [], ["en:milk", "en:nuts"] ],
 	[ { lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"] ],
@@ -67,8 +63,10 @@ my @tests = (
 
 	# Currently not supported
 	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
-  
+
 	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+	[ { lc => "en", ingredients_text => "salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:eggs'], ['en:nuts'] ],
+	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:soybeans'], ['en:gluten', 'en:nuts' ] ],
 
 );
 

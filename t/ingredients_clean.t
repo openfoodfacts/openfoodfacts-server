@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests of ImportConvert::clean_fields()
+
 use strict;
 use warnings;
 
@@ -14,6 +16,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 ProductOpener::Ingredients::validate_regular_expressions();
 
@@ -32,15 +35,15 @@ my @tests = (
 
 	["fr",
 	"Ingrédients: viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel. A consommer cuit à coeur. Conditionné sous atmosphère protectrice ALLERGENES: GLUTEN,LAIT. Valeurs nutritionnelles pour 100 g: Energie: 1306 kJ ou 316 kcal Matières grasses 27.8 g donl acides gras saturés : 11.1 g Glucides: 3.1 g dont sucres 2.1 g Protéines 13.3 g Sel 1.4 g LOT 2530187431",
-	"viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel."],
+	"Viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel."],
 
 	["fr",
 	"CERVITA NATURE VOUS APPORTE Valeurs nutritionnelles moyennes pour 100 g en % des RNJ* par pot INGRÉDIENTS: fromage blanc à 3,6% de matière grasse (75,3%), crème fouettée stérilisée (24,6%), gélatine, ferments lactiques. Valeur énergétique Proteines 561 k] 135 kcal 6,9g 3,8 g 3,7 9 10,3g 14 Glucides dont Sucres Lipides 15 35 dont Acides gras satures Fibres 6,9 g 0 9 0,03g allimentaires Sodium Repères Nutritionnels Journaliers pour un adulte avec un apport moyen de 2000 kcal. Ces valeurs et les portions peuvent varier vius ",
-	"fromage blanc à 3,6% de matière grasse (75,3%), crème fouettée stérilisée (24,6%), gélatine, ferments lactiques."],
+	"Fromage blanc à 3,6% de matière grasse (75,3%), crème fouettée stérilisée (24,6%), gélatine, ferments lactiques."],
 
 	["fr",
 	"INGREDIENTS lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait). ",
-	"lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait)."],
+	"Lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait)."],
 
 	["fr", "Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique",
 	"Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique"],
@@ -57,6 +60,59 @@ crème fraîche
 	["fr", "Lait demi - écrémé, fromage Saint - Moret 3% - pommes - bananes",
 	"Lait demi-écrémé, fromage Saint-Moret 3% - pommes - bananes"],
 
+	############################
+	# # SCANDINAVIAN LANGUAGES #
+	############################
+	["da",
+		"ingredienser: 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["da",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt.",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["da",
+		"INGREDIENSER : 56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt. NÆRINGSINDHOLD pr. 100 g; Energi 1204 kJ /291 kcal Fedt 24g heraf mættede fedtsyrer 2,89g Kulhydrat 7,3g heraf sukkerarter 0,9g",
+		"56 % kogte kikærter (kikærter, vand), solsikkeolie, vand, 9 % sesampuré, citronsaft, sukker, salt."
+	],
+	["is",
+		"Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni. Næringargildi í 100g af þurrefni: Orka 527kJ Fita 3,6g Þar af mettuð 2,7g Kolvetni 19,1g þar af sykurtegundii 3,1g",
+		"Hveiti, mjólk, egg, jurtafita, maltextrín (Úr hveiti), sykur, E450a, E500, bragðefni."
+	],
+	["is",
+		"Innihald: Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli.",
+		"Sykur, glúkósi, fondant, bragðefni, mjólkurduft, kakósmjör, kakómassi, sojalesitín (£322), litarefni (E160a). Gæti innihaldið snefil af heslihnetum, möndlum og kókosmjóli."
+	],
+	["is",
+		"INNIHALDSEFNI : Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt. Eftir opnum skal geyma drykkinn í kæli og neyta innan 3-4 daga.",
+		"Vatn, möndlu (5%), agave-síróp*, sjávarsalt. *Lifrænt."
+	],
+	["nb",
+		"pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+		"pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["nb",
+		"Ingredienser: pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid).",
+		"Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["nb",
+		"INGREDIENSER : pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid). NÆRINGSINNHOLD: 100 g vare gir ca.: energi 1458 kJ (351 kcal), fett 27 g, -hvorav mettede fettsyrer 17 g, karbohydrat 0 g, -hvorav sukkerarter 0 g, protein 27 g, salt 1,2g.",
+		"Pasteurisert melk, syrekultur, salt, mikrøobiell løpe og surhetsregularnde middel (kalsiumklorid)."
+	],
+	["sv",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+	["sv",
+		"INGREDIENSER : Pastöriserad mjölk, salt, syrningskultur, ystenzym. Näringsvärde per 100 g ost Energi 1763 kJ/426 kcal Fett 38g varav mättat fett 24g Kolhydrater 0g varav sockerarter 0g Protein 20g Salt 1,8g",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+	["sv",
+		"Ingredienser: Pastöriserad mjölk, salt, syrningskultur, ystenzym.",
+		"Pastöriserad mjölk, salt, syrningskultur, ystenzym."
+	],
+
+	############################
 	# Finnish
 
 	["fi",
@@ -73,7 +129,7 @@ crème fraîche
 
 	["fi",
 	"Ainesosat: sitruunajauhe, maustamisvalmiste (vesi, suola, glukoosisiirappi, valkopippuri), rapsiöljy. Valmistus pannulla: Paista jäisiä leikkeitä kuumalla pannulla runsaassa öljyssä kummaltakin puolelta n. 3 minuuttia. Sulanutta tuotetta ei saa jäädyttää uudelleen. Kuumennettava läpikotaisin ennen tarjoilua.",
-	"sitruunajauhe, maustamisvalmiste (vesi, suola, glukoosisiirappi, valkopippuri), rapsiöljy."],
+	"Sitruunajauhe, maustamisvalmiste (vesi, suola, glukoosisiirappi, valkopippuri), rapsiöljy."],
 
 	["fi",
 	"Cornflakes - Maissihiutaleet INGREDIENSER: Majs 92% (EU), socker, kornmaltextrakt, salt. Kan innehälla spär av vete, räg, havre, mjölk och soja. FÖRVARING: Torrt och inte för varmt. AINESOSAT: Maissi 92% (EU), sokeri, ohramallasuute, suola. PARASTA ENNEN: Katso pakkauksen yläosa.",
@@ -109,25 +165,29 @@ Saattaa sisältää pieniä määrlä soijaa ja seesaminslemeniä"],
 Edit ingredients (en)",
 	"MECHANICALLY SEPARATED CHIGKEN, PORK, CORN SYRUP, WATER, 2% OR LESS OF: MODIFIED FOOD STARCH NATURAL FLAVORINGS, SALT, POTASSIUM LACTATE, BEEF, SODIUM PHOSPHATES, SODIUM DIACETATE, PAPRIKA, SODIUMERYTHORBATE, SODIUM NITRITE, EXTRACTIVES OF PAPRIKA."],
 
+	["en",
+	"INGREDIENTS Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt. NUTRITIONAL INFORMATION Serving: 1, Serving size: 20g",
+	"Almonds (76%), rice malt, dried blueberries (6%), sesame seeds, unrefined cane sugar natural flavours, sea salt."],
+
+	["en",
+	"Savoury crackers with sesame seeds. Ingredients: Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts. Nutrition Information 1 Portion %*/1 Portion (25 g) 100 g (25 g) 2023 kJ",
+	"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts."],
+
 	# Polish
 	["pl",
 	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii.",
 	"jogurt*, cukier, owoce 7%, (maliny 2,3%, ananasy 1,8%, sok ananasowy z koncentratu 1,6%, sok malinowy z koncentratu 1,3%), musli 2,5% (otręby pszenne, płatki owsiane, pszenica, siemię lniane, ziarno słonecznika,orzechy laskowe), koncentrat soku z buraków czerwonych - aromat. *zawiera składniki pochodzące z mleka oraz żywe kultury bakterii."],
 
+	["fr","INGREDIENTS : badiane* (Illicium verum) 30%, anis vert* (Pimpinella anisum) 30%, fenouil* (Foeniculum vulgare) 30%, racine de réglisse* (Glycyrrhiza glabra). *Produits issus de l'agriculture biologique. INGREDIENTS: star anise* 30%, green anise* 30%, fennel* 30%, liquorice*. *Organically grown products. INGREDIËNTEN: steranijs* 30%, groene anijs* 30%, venkel* 30%, zoethout*. *Biologisch geteelde producten.",
+"Badiane* (Illicium verum) 30%, anis vert* (Pimpinella anisum) 30%, fenouil* (Foeniculum vulgare) 30%, racine de réglisse* (Glycyrrhiza glabra). *Produits issus de l'agriculture biologique. INGREDIENTS: star anise* 30%, green anise* 30%, fennel* 30%, liquorice*. *Organically grown products. INGREDIËNTEN: steranijs* 30%, groene anijs* 30%, venkel* 30%, zoethout*. *Biologisch geteelde producten."],
+
+	["de", "ZUTATEN: 67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen.", "67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."],
 
 );
 
 foreach my $test_ref (@tests) {
 
-	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
-
-	my $product_ref = { lc => $test_ref->[0],
-		$ingredients_lc => $test_ref->[1] };
-
-	compute_languages($product_ref);
-	clean_ingredients_text($product_ref);
-
-	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
+	is(cut_ingredients_text_for_lang($test_ref->[1], $test_ref->[0]), $test_ref->[2]);
 
 }
 
@@ -151,34 +211,39 @@ foreach my $test_ref (@tests) {
 	["en", "Natural pasteurized cow milk - Natural milk fat", "Natural pasteurized cow milk - Natural milk fat"],
 	["en", "NA.", ""],
 
-	# 4 arguments: call clean_ingredients_text_for_field instead of clean_fields
-	# e.g. for OCR, we all clean_ingredients_text_for_field insted of clean_fields
-	["de", "ZUTATEN: 67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen.", "", "67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."],
+
+	# HTML entities
+	["fr", "P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma", "Pâtes alimentaires cuites aromatisées au curcuma"],
+
+	# The clean_fields function should remove "Ingrédients:" only when at the very beginning
+	["fr","eau, sel, sucre - Garniture - Ingrédients: Chocolat, sucre",
+		"Eau, sel, sucre - Garniture - Ingrédients: Chocolat, sucre"],
+	["fr","Ingrédients: eau, sel, sucre - Garniture - Ingrédients: Chocolat, sucre",
+		"Eau, sel, sucre - Garniture - Ingrédients: Chocolat, sucre"],
 
 );
+
+# Results of some tests are different on the producers platform (on purpose)
+
+$server_options{producers_platform} = 0;
 
 foreach my $test_ref (@tests) {
 
 	my $ingredients_lc = "ingredients_text_" . $test_ref->[0];
 
-	my $product_ref = { 
+	my $product_ref = {
 		lc => $test_ref->[0],
 		$ingredients_lc => $test_ref->[1],
 	};
 
-	if (not defined $test_ref->[3]) {
-		clean_fields($product_ref);
-		is($product_ref->{$ingredients_lc}, $test_ref->[2]);
-	}
-	else {
-		$product_ref->{$ingredients_lc} = clean_ingredients_text_for_lang($product_ref->{$ingredients_lc}, $test_ref->[0]);
-		is($product_ref->{$ingredients_lc}, $test_ref->[3]);
-	}
-
+	clean_fields($product_ref);
+	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
 }
 
-# split_generic_name_from_ingredients() tests
+$server_options{producers_platform} = 1;
 
+
+# split_generic_name_from_ingredients() tests
 
 @tests = (
 

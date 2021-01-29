@@ -24,10 +24,10 @@
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -50,8 +50,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-use Geo::IP;
-my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
+use ProductOpener::GeoIP;
 
 my $year = $ARGV[0];
 
@@ -61,7 +60,7 @@ print STDERR "Running scanbot for year $year\n";
 
 my %codes = ();
 
-my $j = 0;	# API calls (or scans if logs have been filtered to keep only scans)
+my $j = 0;    # API calls (or scans if logs have been filtered to keep only scans)
 
 # 139.167.246.115 - - [02/Jan/2019:17:46:57 +0100] "GET /api/v0/product/123.json?f
 
@@ -107,11 +106,11 @@ open (my $PRODUCTS, ">:encoding(UTF-8)", "scanbot.products.csv") or die("Cannot 
 open (my $LOG, ">:encoding(UTF-8)", "scanbot.log") or die("Cannot create scanbot.log: $!\n");
 
 
-my $rank = 0;	# existing products scanned
-my $cumulative_scans = 0;	# cumulative total of scans so that we can compute which top products represent 95% of the scans
-my %rank_by_country = ();
+my $rank             = 0;    # existing products scanned
+my $cumulative_scans = 0;    # cumulative total of scans so that we can compute which top products represent 95% of the scans
+my %rank_by_country  = ();
 
-my $i = 0;	# products scanned
+my $i = 0;    # products scanned
 
 foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $codes{$a}{n} } keys %codes) {
 
@@ -126,7 +125,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	my %countries = ();
 	foreach my $ip (keys %{$codes{$code}{ips}}) {
-		my $countrycode = $gi->country_code_by_addr($ip);
+		my $countrycode = ProductOpener::GeoIP::get_country_code_for_ip($ip);
 		if ((defined $countrycode) and ($countrycode ne "")) {
 			$countrycode = lc($countrycode);
 			$countries{$countrycode}++;
@@ -303,7 +302,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 				print "notifying slack: $bot\n";
 
-				use LWP::UserAgent;
+				require LWP::UserAgent;
 
 				my $ua = LWP::UserAgent->new;
 
@@ -354,7 +353,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 	print $msg;
 
 	if (1) {
-		use LWP::UserAgent;
+		require LWP::UserAgent;
 
 		my $ua = LWP::UserAgent->new;
 

@@ -29,4 +29,4 @@ When you file a feature request or when you are submitting a bug report to the [
 
 ## Code of Conduct
 
-For our Code of Conduct, you should head over [here](https://en.wiki.openfoodfacts.org/Code_of_conduct).
+For our Code of Conduct, you should head over [here](https://wiki.openfoodfacts.org/Code_of_conduct).

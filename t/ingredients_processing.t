@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
+
 use strict;
 use warnings;
 
@@ -16,84 +18,260 @@ use ProductOpener::Ingredients qw/:all/;
 # dummy product for testing
 
 my @tests = (
-#                 English
-	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant, 
-			courgette powder, sieved ham"}, 
+##################################################################
+#
+#                           E N G L I S H ( E N  )
+#
+##################################################################
+
+	[ { lc => "en", ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant,
+			courgette powder, sieved ham"},
 		[
-	  		{
-	    		'id' => 'en:raw-milk',
-	    		'text' => 'raw milk'
-	  		},
-	  		{
-	    		'id' => 'en:tomato',
-	    		'processing' => 'en:sliced',
-	    		'text' => 'tomatoes'
-	  		},
-	  		{
-	    		'id' => 'en:garlic-powder',
-	    		'text' => 'garlic powder'
-	  		},
-	  		{
-	    		'id' => 'en:aubergine',
-	    		'processing' => 'en:powdered',
-	    		'text' => 'eggplant'
-	  		},
-	  		{
-	    		'id' => 'en:courgette',
-	    		'processing' => 'en:powdered',
-	    		'text' => 'courgette'
-	  		},
-	  		{
-	    		'id' => 'en:ham',
-	    		'processing' => 'en:sieved',
-	    		'text' => 'ham'
-	  		}
+			{
+				'id' => 'en:raw-milk',
+				'text' => 'raw milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:sliced',
+				'text' => 'tomatoes'
+			},
+			{
+				'id' => 'en:garlic-powder',
+				'text' => 'garlic powder'
+			},
+			{
+				'id' => 'en:aubergine',
+				'processing' => 'en:powdered',
+				'text' => 'eggplant'
+			},
+			{
+				'id' => 'en:courgette',
+				'processing' => 'en:powdered',
+				'text' => 'courgette'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sieved',
+				'text' => 'ham'
+			}
 		]
 	],
 
-	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés, 
-			tomates bio pré-cuites, poudre de noisettes, banane tamisé"}, 
+# en:dried (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "dried milk"},
 		[
-  {
-    'id' => 'en:ham',
-    'processing' => 'en:diced, en:fried',
-    'text' => 'jambon'
-  },
-  {
-    'id' => 'en:tomato',
-    'processing' => 'en:diced, en:raw',
-    'text' => 'tomates'
-  },
-  {
-    'id' => 'en:tomato',
-    'labels' => 'en:organic',
-    'processing' => 'en:pre-cooked',
-    'text' => 'tomates'
-  },
-  {
-    'id' => 'en:hazelnut',
-    'processing' => 'en:powdered',
-    'text' => 'noisettes'
-  },
-  {
-    'id' => 'en:banana',
-    'processing' => 'en:sieved',
-    'text' => 'banane'
-  }
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:dried',
+				'text' => 'milk'
+			}
 		]
 	],
 
-		[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-			[
-	  			{
-	    			'id' => 'en:banana',
-	    			'processing' => 'en:cooked, en:cut',
-	    			'text' => 'banane'
-	  			}
-			]
-		],
+# en: smoked (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"},
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:smoked',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:not-smoked',
+				'text' => 'tomatoes'
+			}
+		]
+	],
 
-	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"}, 
+# en: smoked (children are lef out at the moment)
+	[ { lc => "en", ingredients_text => "sweetened milk, unsweetened tomatoes, sugared ham"},
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:sweetened',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:unsweetened',
+				'text' => 'tomatoes'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sugared',
+				'text' => 'ham'
+			}
+		]
+	],
+
+# en: halved
+	[ { lc => "en", ingredients_text => "halved milk, tomatoes halves"},
+		[
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:halved',
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:halved',
+				'text' => 'tomatoes'
+			}
+		]
+	],
+
+##################################################################
+#
+#                           S P A N I S H   ( E S )
+#
+##################################################################
+
+	[ { lc => "es", ingredients_text => "tomate endulzado, berenjena endulzada, calabacín endulzados, jamón endulzadas" },
+		[
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:sweetened',
+				'text' => 'tomate'
+			},
+			{
+				'id' => 'en:aubergine',
+				'processing' => 'en:sweetened',
+				'text' => 'berenjena'
+			},
+			{
+				'id' => 'en:courgette',
+				'processing' => 'en:sweetened',
+				'text' => 'calabacín'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:sweetened',
+				'text' => 'jamón'
+			}
+		]
+	],
+
+
+	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" },
+		[
+			{
+				'id' => 'en:yellow-bell-pepper',
+				'processing' => 'en:dehydrated',
+				'text' => 'pimientos amarillos'
+			}
+		]
+	],
+
+##################################################################
+#
+#                           F R E N C H ( F R )
+#
+##################################################################
+
+	[ { lc => "fr", ingredients_text => "dés de jambon frits, tomates crues en dés,
+			tomates bio pré-cuites, poudre de noisettes, banane tamisé"},
+		[
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:diced, en:fried',
+				'text' => 'jambon'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:diced, en:raw',
+				'text' => 'tomates'
+			},
+			{
+				'id' => 'en:tomato',
+				'labels' => 'en:organic',
+				'processing' => 'en:pre-cooked',
+				'text' => 'tomates'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:powdered',
+				'text' => 'noisettes'
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:sieved',
+				'text' => 'banane'
+			}
+		]
+	],
+
+
+	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"},
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:cooked, en:cut',
+				'text' => 'banane'
+			}
+		]
+	],
+
+
+	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"},
+		[
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:cooked, en:cut',
+				'text' => 'banane'
+			}
+		]
+	],
+
+
+# test for jus and concentré with extra "de"
+#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+#		[
+#		]
+#	],
+
+##################################################################
+#
+#                           F I N N I SH ( F I )
+#
+##################################################################
+# test for mehu inside an ingredient
+
+#	[ { lc => "fi", ingredients_text => "hedelmätäysmehutiivisteet"},
+#		[
+#		]
+#	],
+
+# Assert that processing patterns are in descending length order
+# i.e 'fi:jauhettu' is matched before 'fi:jauhe'
+# [
+# 	{	lc => "fi",
+# 		ingredients_text =>
+# 			"raakamaito, mustikkajauhe, jauhettu vaniljatanko"
+# 	},
+# 	[	{	'id'   => 'en:raw-milk',
+# 			'text' => 'raakamaito'
+# 		},
+# 		{	'id'         => 'en:blueberry',
+# 			'processing' => 'en:powdered',
+# 			'text'       => 'mustikka'
+# 		},
+# 		{	'id'         => 'en:vanilla-pod',
+# 			'processing' => 'en:ground',
+# 			'text'       => 'vaniljatanko'
+# 		}
+# 	]
+# ],
+
+
+##################################################################
+#
+#                           D U T C H ( N L )
+#
+##################################################################
+
+	[ { lc => "nl", ingredients_text => "sjalotpoeder, wei-poeder, vanillepoeder, gemalen sjalot, geraspte sjalot, gepelde goudsbloem"},
 		[
 			{
 				'id' => 'en:shallot',
@@ -126,15 +304,6 @@ my @tests = (
 		]
 	],
 
-	[ { lc => "fr", ingredients_text => "banane coupée et cuite au naturel"}, 
-		[
-			{
-				'id' => 'en:banana',
-				'processing' => 'en:cooked, en:cut',
-				'text' => 'banane'
-			}
-		]
-	],
 ##################################################################
 #
 #                           G E R M A N ( D E )
@@ -142,27 +311,27 @@ my @tests = (
 ##################################################################
 
 # de:pulver and variants
-	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver" }, 
+	[ { lc => "de", ingredients_text => "bourbon-vanillepulver, Sauerkrautpulver, acerola-pulver" },
 		[
-	  		{
-	    		'id' => 'en:bourbon-vanilla-powder',
-	    		'text' => 'bourbon-vanillepulver'
-	  		},
 			{
-    			'id' => 'en:sauerkraut',
-    			'processing' => 'en:powdered',
-    			'text' => 'Sauerkraut'
+				'id' => 'en:bourbon-vanilla-powder',
+				'text' => 'bourbon-vanillepulver'
 			},
 			{
-    			'id' => 'en:acerola',
-    			'processing' => 'en:powdered',
-    			'text' => 'acerola'
+				'id' => 'en:sauerkraut',
+				'processing' => 'en:powdered',
+				'text' => 'Sauerkraut'
+			},
+			{
+				'id' => 'en:acerola',
+				'processing' => 'en:powdered',
+				'text' => 'acerola'
 			}
 		]
 	],
 
 # de:gehackt and variants
-	[ { lc => "de", ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"}, 
+	[ { lc => "de", ingredients_text => "gehacktes Buttermilch, gehackter Dickmilch"},
 		[
 			{
 				'id' => 'en:buttermilk',
@@ -170,40 +339,40 @@ my @tests = (
 				'text' => 'Buttermilch'
 			},
 			{
-	    		'id' => 'en:soured-milk',
-	    		'processing' => 'en:chopped',
-	    		'text' => 'Dickmilch'
+				'id' => 'en:soured-milk',
+				'processing' => 'en:chopped',
+				'text' => 'Dickmilch'
 			}
 		]
 	],
 
-# de:gehobelt and variants	
-	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" }, 
+# de:gehobelt and variants
+	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" },
 		[
 			{
-    			'id' => 'en:passion-fruit',
-    			'processing' => 'en:sliced',
-    			'text' => 'passionsfrucht'
-  			}
+				'id' => 'en:passion-fruit',
+				'processing' => 'en:sliced',
+				'text' => 'passionsfrucht'
+			}
 		]
 	],
 
 
 # Test for de:püree (and for process placing de:püree without space)
-	[ { lc => "de", ingredients_text => "Schalottepüree" }, 
+	[ { lc => "de", ingredients_text => "Schalottepüree" },
 		[
 			{
-	    		'id' => 'en:shallot',
-	    		'processing' => 'en:pureed',
-	    		'text' => 'Schalotte'
+				'id' => 'en:shallot',
+				'processing' => 'en:pureed',
+				'text' => 'Schalotte'
 			}
 		]
 	],
-	
+
 # Test for process de:püree placing with space (not really necessary as it has been tested with the other)
-	[ { lc => "de", ingredients_text => "Schalotte püree" }, 
+	[ { lc => "de", ingredients_text => "Schalotte püree" },
 		[
-		  	{
+			{
 				'id' => 'en:shallot',
 				'processing' => 'en:pureed',
 				'text' => 'Schalotte'
@@ -212,27 +381,27 @@ my @tests = (
 	],
 
 # de:gegart and variants
-	[ { lc => "de", ingredients_text => "Schalotte gegart, gegarte haselnüsse, gegarter mandeln, gegartes passionsfrucht, 
-					gurken dampfgegart, dampfgegarte acerola, dampfgegarter spinat" }, 
+	[ { lc => "de", ingredients_text => "Schalotte gegart, gegarte haselnüsse, gegarter mandeln, gegartes passionsfrucht,
+			gurken dampfgegart, dampfgegarte acerola, dampfgegarter spinat" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:cooked',
-				'text' => "haselnüsse"
+				'processing' => 'de:gegart',
+				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:almond',
-				'processing' => "en:cooked",
+				'processing' => 'de:gegart',
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passion-fruit',
-				'processing' => 'en:cooked',
+				'processing' => 'de:gegart',
 				'text' => 'passionsfrucht'
 			},
 			{
@@ -254,37 +423,33 @@ my @tests = (
 	],
 
 # Test for de:geölt
-	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse, mandeln mit sonnenblumenöl geölt" }, 
-	[
-	  {
-	    'id' => 'en:shallot',
-	    'processing' => "de:ge\x{f6}lt",
-	    'text' => 'Schalotte'
-	  },
-	  {
-	    'id' => 'en:hazelnut',
-	    'processing' => "de:ge\x{f6}lt",
-	    'text' => "haseln\x{fc}sse"
-	  },
-	  {
-	    'id' => "de:mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt",
-	    'text' => "mandeln mit sonnenblumen\x{f6}l ge\x{f6}lt"
-	  }
-	]
-	],
-
-# de:gepökelt and variants
-	[ { lc => "de", ingredients_text => "Schalotte gepökelt, gepökeltes haselnüsse, 
-				passionsfrucht ungepökelt" }, 
+	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gepökelt',
+				'processing' => "de:ge\x{f6}lt",
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gepökelt',
+				'processing' => "de:ge\x{f6}lt",
+				'text' => "haseln\x{fc}sse"
+			}
+		]
+	],
+
+# de:gepökelt and variants
+	[ { lc => "de", ingredients_text => "Schalotte gepökelt, gepökeltes haselnüsse,
+			passionsfrucht ungepökelt" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:brined',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:brined',
 				'text' => "haselnüsse"
 			},
 			{
@@ -294,10 +459,42 @@ my @tests = (
 			}
 		]
 	],
-		
+
+# de:gepoppt and variants
+	[ { lc => "de", ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse,
+			passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes gurken" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:puffed',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:puffed',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'en:puffed',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'en:puffed',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'en:puffed',
+				'text' => 'gurken'
+			}
+		]
+	],
+
 # de:geschält and variants
-	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln, 
-				passionsfrucht ungeschält, ungeschälte gurken" }, 
+	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln,
+			passionsfrucht ungeschält, ungeschälte gurken" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -328,59 +525,59 @@ my @tests = (
 	],
 
 # de:geschwefelt and variants
-	[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse, 
-				passionsfrucht ungeschwefelt, geschwefelte gurken" },
-		[
-			{
-			    'id' => 'en:shallot',
-			    'processing' => 'de:geschwefelt',
-			    'text' => 'Schalotte'
-			},
-			{
-			    'id' => 'en:hazelnut',
-			    'processing' => 'de:geschwefelt',
-			    'text' => "haseln\x{fc}sse"
-			},
-			{
-			    'id' => 'en:passion-fruit',
-			    'processing' => 'de:ungeschwefelt',
-			    'text' => 'passionsfrucht'
-			},
-			{
-			    'id' => 'en:gherkin',
-			    'processing' => 'de:geschwefelt',
-			    'text' => 'gurken'
-			}
-		]
-	],
-
-# Test for process de:gesüßt 
-	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" }, 
+	[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse,
+			passionsfrucht ungeschwefelt, geschwefelte gurken" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gesüßt',
+				'processing' => 'de:geschwefelt',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesüßt',
+				'processing' => 'de:geschwefelt',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:ungeschwefelt',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:geschwefelt',
+				'text' => 'gurken'
+			}
+		]
+	],
+
+#  de:gesüßt
+	[ { lc => "de", ingredients_text => "Schalotte gesüßt, gesüßte haselnüsse" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:sweetened',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:sweetened',
 				'text' => "haselnüsse"
 			}
 		]
 	],
 
 # de:gezuckert and variants
-	[ { lc => "de", ingredients_text => "Schalotte gezuckert, gezuckerte haselnüsse, mandeln leicht gezuckert, passionsfrucht ungezuckert" }, 
+	[ { lc => "de", ingredients_text => "Schalotte gezuckert, gezuckerte haselnüsse, mandeln leicht gezuckert, passionsfrucht ungezuckert" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gezuckert',
+				'processing' => 'en:sugared',
 				'text' => "haselnüsse"
 			},
 			{
@@ -396,88 +593,151 @@ my @tests = (
 		]
 	],
 
-# Process de:konzentriert (and children) and synonyms
-	[ { lc => "de", ingredients_text => "konzentriert shallot, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerola, 
-		zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert, 
-		200fach konzentriertes, eingekochter" }, 
+	# de:halbiert and variants
+	[ { lc => "de", ingredients_text => "Schalotte halbiert, halbierte haselnüsse, halbe mandeln" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:concentrated',
-				'text' => 'shallot'
+				'processing' => 'en:halved',
+				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:concentrated',
+				'processing' => 'en:halved',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:almond',
+				'processing' => 'en:halved',
+				'text' => 'mandeln'
+			}
+		]
+	],
+
+# de:konzentriert (and children) and synonyms
+	[ { lc => "de", ingredients_text => "konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen,
+			zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert,
+			200fach konzentriertes, eingekochter" },
+		[
+			{	'id'         => 'en:shallot',
 				'processing' => 'en:concentrated',
+				'text'       => 'schalotte'
+			},
+			{	'id'         => 'en:hazelnut',
+				'processing' => 'en:concentrated',
+				'text'       => "haseln\x{fc}sse"
+			},
+			{	'id'         => 'en:almond',
+				'processing' => 'en:concentrated',
+				'text'       => 'mandeln'
+			},
+			{	'id'         => 'en:acerola',
+				'processing' => 'en:concentrated',
+				'text'       => 'acerolakirschen'
+			},
+			{	'id'   => 'de:zweifach konzentriert',
+				'text' => 'zweifach konzentriert'
+			},
+			{	'id'   => 'de:2 fach konzentriert',
+				'text' => '2 fach konzentriert'
+			},
+			{	'id'   => 'de:doppelt konzentriertes',
+				'text' => 'doppelt konzentriertes'
+			},
+			{	'id'   => 'de:zweifach konzentriertes',
+				'text' => 'zweifach konzentriertes'
+			},
+			{	'id'   => 'de:2-fach konzentriert',
+				'text' => '2-fach konzentriert'
+			},
+			{	'id'   => 'de:dreifach konzentriert',
+				'text' => 'dreifach konzentriert'
+			},
+			{	'id'   => 'de:200fach konzentriertes',
+				'text' => '200fach konzentriertes'
+			},
+			{	'id'   => 'de:eingekochter',
+				'text' => 'eingekochter'
+			}
+		]
+	],
+
+# de:zerkleinert and variants
+	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht,
+			gurken grob zerkleinert,
+			acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
+			zwiebel zum teil fein zerkleinert,
+			haselnüsse feinst zerkleinert,
+			überwiegend feinst zerkleinert Feigen"
+		},
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'de:zerkleinert',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:zerkleinert',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'de:zerkleinert',
 				'text' => 'mandeln'
 			},
 			{
+				'id' => 'en:passion-fruit',
+				'processing' => 'de:zerkleinert',
+				'text' => 'passionsfrucht'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'de:grob-zerkleinert',
+				'text' => 'gurken'
+			},
+			{
 				'id' => 'en:acerola',
-				'processing' => 'en:concentrated',
-				'text' => 'acerola'
+				'processing' => 'de:fein-zerkleinert',
+				'text' => 'acerolakirschen'
 			},
 			{
-			    'id' => 'de:zweifach konzentriert',
-			    'text' => 'zweifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:2 fach konzentriert',
-			    'text' => '2 fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:doppelt konzentriertes',
-			    'text' => 'doppelt konzentriertes'
+				'id' => 'en:spinach',
+				'processing' => 'de:fein-zerkleinert',
+				'text' => 'spinat'
 			},
 			{
-				'id' => 'de:zweifach konzentriertes',
-				'text' => 'zweifach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:2-fach konzentriert',
-			    'text' => '2-fach konzentriert'
-			 },
-			 {
-			    'id' => 'de:dreifach konzentriert',
-			    'text' => 'dreifach konzentriert'
-			 },
-			 {
-			    'id' => 'de:200fach konzentriertes',
-			    'text' => '200fach konzentriertes'
-			 },
-			 {
-			    'id' => 'de:eingekochter',
-			    'text' => 'eingekochter'
-			 }
-		]	
+				'id' => 'en:onion',
+				'processing' => 'de:zum-teil-fein-zerkleinert',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'de:feinst-zerkleinert',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:fig',
+				'processing' => "de:\x{fc}berwiegend-feinst-zerkleinert",
+				'text' => 'Feigen'
+			}
+		]
 	],
 
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln" },
+# combinations
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet,
+			gehackte und geröstete haselnuss, gehobelte und gehackte mandeln" },
 		[
-			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
-			},
+		# change on 17:01
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
+				'processing' => 'en:toasted, en:chopped',
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:toasted-hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "geröstete haselnuss"
 			},
 			{
 				'id' => 'en:almond',
@@ -488,8 +748,8 @@ my @tests = (
 	],
 
 # Test for de:gemahlen and synonyms
-	[ { lc => "de", ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel, 
-			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen gurken" }, 
+	[ { lc => "de", ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel,
+			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen gurken" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -525,102 +785,102 @@ my @tests = (
 	],
 
 	# Test for de:getrocknet and synonyms
-		[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel, 
-				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet, 
-				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas, 
-				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten, 
-				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" }, 
-				[
-				  {
-				    'id' => 'en:shallot',
-				    'processing' => 'en:dried',
-				    'text' => 'Schalotte'
-				  },
-				  {
-				    'id' => 'en:almond',
-				    'processing' => 'en:dried',
-				    'text' => 'mandeln'
-				  },
-				  {
-				    'id' => 'en:onion',
-				    'processing' => 'en:dried',
-				    'text' => 'zwiebel'
-				  },
-				  {
-				    'id' => 'en:hazelnut',
-				    'processing' => 'en:dried',
-				    'text' => "haseln\x{fc}sse"
-				  },
-				  {
-				    'id' => 'en:spinach',
-				    'processing' => 'de:halbgetrocknet',
-				    'text' => 'spinat'
-				  },
-				  {
-				    'id' => 'en:gherkin',
-				    'processing' => 'de:halbgetrocknet',
-				    'text' => 'gurken'
-				  },
-				  {
-				    'id' => 'en:fig',
-				    'processing' => 'de:halbgetrocknet',
-				    'text' => 'Feigen'
-				  },
-				  {
-				    'id' => 'en:elder',
-				    'processing' => 'de:gefriergetrocknet',
-				    'text' => 'Holunder'
-				  },
-				  {
-				    'id' => 'en:papaya',
-				    'processing' => 'de:gefriergetrocknet',
-				    'text' => 'Papaya'
-				  },
-				  {
-				    'id' => 'en:kiwi',
-				    'processing' => 'de:gefriergetrocknet',
-				    'text' => 'Kiwi'
-				  },
-				  {
-				    'id' => 'en:pineapple',
-				    'processing' => 'de:sonnengetrocknet',
-				    'text' => 'Ananas'
-				  },
-				  {
-				    'id' => 'en:prune',
-				    'processing' => 'de:sonnengetrocknet',
-				    'text' => 'Pflaumen'
-				  },
-				  {
-				    'id' => 'en:grapefruit',
-				    'processing' => 'de:sonnengetrocknet',
-				    'text' => 'Grapefruit'
-				  },
-				  {
-				    'id' => 'en:guava',
-				    'processing' => 'de:luftgetrocknet',
-				    'text' => 'Guaven'
-				  },
-				  {
-				    'id' => 'en:rosehip',
-				    'processing' => 'de:luftgetrocknet',
-				    'text' => 'Hagebutten'
-				  },
-				  {
-				    'id' => 'en:grape',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
-				    'text' => 'Traube'
-				  },
-				  {
-				    'id' => 'en:tamarind',
-				    'processing' => "de:spr\x{fc}hgetrocknet",
-				    'text' => 'Tamarinde'
-				  }
-			]
-		],
+	[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
+			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet,
+			 Holunder gefriergetrocknet, gefriergetrocknete Papaye, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
+			 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
+			 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" },
+		[
+			{
+				'id' => 'en:shallot',
+				'processing' => 'en:dried',
+				'text' => 'Schalotte'
+			},
+			{
+				'id' => 'en:almond',
+				'processing' => 'en:dried',
+				'text' => 'mandeln'
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:dried',
+				'text' => 'zwiebel'
+			},
+			{
+				'id' => 'en:hazelnut',
+				'processing' => 'en:dried',
+				'text' => "haseln\x{fc}sse"
+			},
+			{
+				'id' => 'en:spinach',
+				'processing' => 'en:semi-dried',
+				'text' => 'spinat'
+			},
+			{
+				'id' => 'en:gherkin',
+				'processing' => 'en:semi-dried',
+				'text' => 'gurken'
+			},
+			{
+				'id' => 'en:fig',
+				'processing' => 'en:semi-dried',
+				'text' => 'Feigen'
+			},
+			{
+				'id' => 'en:elder',
+				'processing' => 'en:freeze-dried',
+				'text' => 'Holunder'
+			},
+			{
+				'id' => 'en:papaya',
+				'processing' => 'en:freeze-dried',
+				'text' => 'Papaye'
+			},
+			{
+				'id' => 'en:kiwi',
+				'processing' => 'en:freeze-dried',
+				'text' => 'Kiwi'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:sundried',
+				'text' => 'Ananas'
+			},
+			{
+				'id' => 'en:plum',
+				'processing' => 'en:sundried',
+				'text' => 'Pflaumen'
+			},
+			{
+				'id' => 'en:grapefruit',
+				'processing' => 'en:sundried',
+				'text' => 'Grapefruit'
+			},
+			{
+				'id' => 'en:guava',
+				'processing' => 'en:air-dried',
+				'text' => 'Guaven'
+			},
+			{
+				'id' => 'en:rose-hip',
+				'processing' => 'en:air-dried',
+				'text' => 'Hagebutten'
+			},
+			{
+				'id' => 'en:grape',
+				'processing' => "en:spray-dried",
+				'text' => 'Traube'
+			},
+			{
+				'id' => 'en:tamarind',
+				'processing' => "en:spray-dried",
+				'text' => 'Tamarinde'
+			}
+		]
+	],
 
 # Test for de:passiert
-	[ { lc => "de", ingredients_text => "Schalotte passiert" }, 
+	[ { lc => "de", ingredients_text => "Schalotte passiert" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -631,47 +891,47 @@ my @tests = (
 	],
 
 # Test for de:ungesalzen
-	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes, 
-	gesalzener haselnusskerne, ungesalzen schalotte, ungesalzene mandeln" },
+	[ { lc => "de", ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes,
+			gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln" },
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
-				'processing' => 'de:gesalzen',
+				'id' => "en:hard-cheese",
+				'processing' => 'en:salted',
 				'text' => "hartk\x{e4}se"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
+				'processing' => 'en:salted',
 				'text' => "haseln\x{fc}sse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'de:gesalzen',
-				'text' => 'haselnusskerne'
+				'processing' => 'en:salted',
+				'text' => 'haselnuss'
 			},
 			{
 				'id' => 'en:shallot',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'schalotte'
- 			},
+			},
 			{
 				'id' => 'en:almond',
-				'processing' => 'de:ungesalzen',
+				'processing' => 'en:unsalted',
 				'text' => 'mandeln'
 			}
 		]
 	],
-	
+
 
 # Test for process de:entsteint
-	[ { lc => "de", ingredients_text => "Schalotte entsteint" }, 
+	[ { lc => "de", ingredients_text => "Schalotte entsteint" },
 		[
-		  	{
+			{
 				'id' => 'en:shallot',
 				'processing' => 'en:pitted',
 				'text' => 'Schalotte'
@@ -680,19 +940,19 @@ my @tests = (
 	],
 
 # Test for process de:eingelegt
-	[ { lc => "de", ingredients_text => "Schalotte eingelegt" }, 
+	[ { lc => "de", ingredients_text => "Schalotte eingelegt" },
 		[
-		  	{
+			{
 				'id' => 'en:shallot',
-				'processing' => 'de:eingelegt',
+				'processing' => 'en:pickled',
 				'text' => 'Schalotte'
 			}
 		]
 	],
-	
+
 
 # Test for de: ingredients, that should NOT be detected through processing
-	[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" }, 
+	[ { lc => "de", ingredients_text => "Markerbsen, Deutsche Markenbutter" },
 		[
 			{
 				'id' => 'en:garden-peas',
@@ -706,28 +966,39 @@ my @tests = (
 	],
 
 	# Various tests
-	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt, haselnüsse gehackt und geröstet, 
-		gehackte und geröstete haselnusskerne, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+	[ { lc => "de", ingredients_text => "haselnüsse gehackt und geröstet" },
 		[
 			{
-				'id' => "de:hartk\x{e4}se",
+				'id' => 'en:hazelnut',
+				'processing' => 'en:toasted, en:chopped',
+				'text' => "haselnüsse"
+			}
+		]
+	],
+	# Various tests
+	#[ { lc => "de", ingredients_text => "gehackte und geröstete haselnüs" },
+	#	[
+	#		{
+	#			'id' => 'en:hazelnut',
+	#			'processing' => 'en:toasted, en:chopped',
+	#			'text' => "gehackte und geröstete haselnüs"
+	#		}
+	#	]
+	#],
+
+	# Various tests
+	[ { lc => "de", ingredients_text => "hartkäse gehobelt, haselnüsse gehackt,
+		, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten" },
+		[
+			{
+				'id' => "en:hard-cheese",
 				'processing' => 'en:sliced',
-				'text' => "hartk\x{e4}se"
+				'text' => "hartkäse"
 			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
-			{
-				'id' => 'en:hazelnut',
-				'processing' => 'en:roasted, en:chopped',
-				'text' => "haseln\x{fc}sse"
-			},
-			{
-				'id' => 'en:toasted-hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "ger\x{f6}stete haselnusskerne"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -763,24 +1034,8 @@ my @tests = (
 		]
 	],
 
-# All variants of de:halbiert
-	[ { lc => "de", ingredients_text => "Schalotte halbiert, zwiebel halbierte" },
-		[
-			{
-				'id' => 'en:shallot',
-				'processing' => 'de:halbiert',
-				'text' => 'Schalotte'
-			},
-			{
-				'id' => 'en:onion',
-				'processing' => 'de:halbiert',
-				'text' => 'zwiebel'
-			}
-		]
-	],
-	
 # All variants of de:mariniert
-	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter, 
+	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter,
 		mariniertes gurken" },
 		[
 			{
@@ -807,8 +1062,8 @@ my @tests = (
 	],
 
 # All variants of de:geschnitten
-	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten, 
-		fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
+	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten,
+			fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -842,6 +1097,7 @@ my @tests = (
 			}
 		]
 	],
+
 
 	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
 		[
@@ -888,10 +1144,10 @@ my @tests = (
 			}
 		]
 	],
-	
+
 # de würfel and synonyms tests
-	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken, 
-zwiebel in würfel geschnitten, mandeln in würfel" },
+	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken,
+			zwiebel in würfel geschnitten, mandeln in würfel" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -919,7 +1175,108 @@ zwiebel in würfel geschnitten, mandeln in würfel" },
 				'text' => 'mandeln'
 			}
 		]
-	]
+	],
+
+
+	[ { lc => "en", ingredients_text => "smoked sea salt, smoked turkey"},
+		[
+			{
+				'id' => 'en:sea-salt',
+				'processing' => 'en:smoked',
+				'text' => 'sea salt'
+			},
+			{
+				'id' => 'en:turkey',
+				'processing' => 'en:smoked',
+				'text' => 'turkey'
+			}
+		]
+	],
+
+
+	[ { lc => "fr", ingredients_text => "sel marin fumé, jambon fumé, arôme de fumée, lardons fumés au bois de hêtre "},
+		[
+			{
+				'id' => 'en:sea-salt',
+				'processing' => 'en:smoked',
+				'text' => 'sel marin'
+			},
+			{
+				'id' => 'en:ham',
+				'processing' => 'en:smoked',
+				'text' => 'jambon'
+			},
+			{
+				'id' => 'en:smoke-flavouring',
+				'text' => "ar\x{f4}me de fum\x{e9}e"
+			},
+			{
+				'id' => 'en:lardon',
+				'processing' => 'en:beech-smoked',
+				'text' => 'lardons'
+			}
+		]
+	],
+
+
+	[ { lc => "es", ingredients_text => "tofu ahumado, panceta ahumada"},
+		[
+			{
+				'id' => 'en:tofu',
+				'processing' => 'en:smoked',
+				'text' => 'tofu'
+			},
+			{
+				'id' => 'en:bacon',
+				'processing' => 'en:smoked',
+				'text' => 'panceta'
+			}
+		]
+	],
+
+	# ingredient with (processing) in parenthesis
+	[ { lc => "en", ingredients_text => "garlic (powdered)",},
+		[
+			{
+				'id' => 'en:garlic',
+				'processing' => 'en:powdered',
+				'text' => 'garlic'
+			}
+		]
+	],
+
+
+	[ { lc => "fr", ingredients_text => "piment (en poudre)"},
+		[
+			{
+				'id' => 'en:chili-pepper',
+				'processing' => 'en:powdered',
+				'text' => 'piment'
+			}
+		]
+	],
+
+
+	[ { lc => "en", ingredients_text => "pasteurized eggs" },
+		[
+			{
+				'id' => 'en:egg',
+				'processing' => 'en:pasteurised',
+				'text' => 'eggs'
+			}
+		]
+	],
+
+
+	[ { lc => "es", ingredients_text => "pimientos amarillos deshidratados" },
+		[
+			{
+				'id' => 'en:yellow-bell-pepper',
+				'processing' => 'en:dehydrated',
+				'text' => 'pimientos amarillos'
+			}
+		]
+	],
 
 );
 

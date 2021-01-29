@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -44,8 +44,6 @@ use Log::Any::Adapter ('Stderr');
 # convert data from CSV generated from json files from https://www.foodrepo.org/api-docs/swaggers/v3
 
 # default language (needed for cleaning fields)
-
-$lc = "fr";
 
 %global_params = (
 #	lc => 'fr',
@@ -1287,7 +1285,7 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{alcohol_value}) and ($product_ref->{alcohol_value} == 0)) {
 		delete $product_ref->{alcohol_value};
 		delete $product_ref->{alcohol_unit};
-	}		
+	}
 	
 	clean_fields($product_ref);
 		

@@ -139,8 +139,8 @@ foreach my $libelle_marque_id (sort { $libelle_marque_id{$b} <=> $libelle_marque
 
 	$search_terms =~ s/\(([^\)]*)\)/ /i;
 
-			my %terms = ();	
-		
+			my %terms = ();
+
 			foreach my $term (split(/,|'|\s/, $search_terms)) {
 				if (length(get_fileid($term)) >= 2) {
 					my $n = normalize_search_terms(get_fileid($term));

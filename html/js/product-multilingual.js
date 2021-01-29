@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2019 Association Open Food Facts
+// Copyright (C) 2011-2020 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,9 +18,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+/*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
-/*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
+/*global toggle_manage_images_buttons */ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -38,6 +39,7 @@ var img_path;
 var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
+var use_low_res_images = false;
 
 var units = [
 	[ 'g', 'mg', "\u00B5g", '% DV' ],
@@ -59,9 +61,11 @@ function add_language_tab (lc, language) {
 
     var $clone = $(this).clone();
 
-    var $th = $clone;
-    var newID = $th.attr('id').replace(/new_lc/, lc);
-    $th.attr('id', newID);
+    var $newTh = $clone;
+    var newLcID = $newTh.attr('id').replace(/new_lc/, lc);
+    $newTh.attr('id', newLcID);
+
+    $clone.attr('data-language', lc);
 
     $clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
 
@@ -173,7 +177,7 @@ function add_line() {
 	$(this).unbind("change");
 	$(this).unbind("autocompletechange");
 
-	var id = parseInt($("#new_max").val()) + 1;
+	var id = parseInt($("#new_max").val(), 10) + 1;
 	$("#new_max").val(id);
 
 	var newline = $("#nutriment_new_0_tr").clone();
@@ -199,45 +203,6 @@ function add_line() {
 
 	$(document).foundation('equalizer', 'reflow');
 }
-
-function upload_image (imagefield) {
-
- $('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
- $('.img_input[name="imgupload_' + imagefield + '"]').hide();
- $('div[id="uploadimagemsg_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image);
- $('div[id="uploadimagemsg_' + imagefield +'"]').show();
-
- $("#product_form").ajaxSubmit({
-
-  url: "/cgi/product_image_upload.pl",
-  data: { imagefield: imagefield },
-  dataType: 'json',
-  beforeSubmit: function() {
-   //o.dataType = 'json';
-  },
-  success: function(data) {
-	//alert(data.status);
-	//alert("input:hidden[name=\"" + data.imagefield + ".imgid\"]");
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_received);
-	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.image.imgid);
-	$([]).selectcrop('add_image',data.image);
-	$(".select_crop").selectcrop('show');
-
-	$('#' + imagefield + '_' + data.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
-	change_image(imagefield, data.image.imgid);
-
-  },
-  error : function() {
-	$('div[id="uploadimagemsg_' + imagefield +'"]').html(lang().product_js_image_upload_error);
-  },
-  complete: function() {
-	$('.img_input').prop("disabled", false).show();
-  }
- });
-}
-
-
-
 
 function update_image(imagefield) {
 
@@ -276,7 +241,7 @@ function rotate_image(event) {
 		console.log("selection - image - w:" + w + ' - h:' + h);
 
 
-		if (angle == 90) {
+		if (angle === 90) {
 			selection.x = h - y2;
 			selection.y = x1;
 			selection.width = y2 - y1;
@@ -310,6 +275,18 @@ function change_image(imagefield, imgid) {
 	angles[imagefield] = 0;
 	imagefield_imgid[imagefield] = imgid;
 
+  // load small 400 pixels image if the use_low_res_images checkbox is checked
+
+  var image_size = '';
+  var cropimgdiv_style = '';
+  var coordinates_image_size = "full";
+
+  if ( $("#use_low_res_images_" + imagefield).is(':checked')) {
+      image_size = '.400';
+      cropimgdiv_style = 'style="max-width:400px"';
+      coordinates_image_size = "400";
+  }
+
 	var html = '';
 
   html += '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
@@ -317,6 +294,7 @@ function change_image(imagefield, imgid) {
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
 	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
+	html += '<br><a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a>';
   html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield +'" name="zoom_on_wheel_' + imagefield +'" value="">';
   html += '<label for="zoom_on_wheel_' + imagefield +'" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
 	html += '</div>';
@@ -325,7 +303,7 @@ function change_image(imagefield, imgid) {
 	html += '<div class="cropbutton_' + imagefield + '"></div>';
 	html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
   html += '</div></div>';
-	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv"><img src="' + img_path + image.imgid +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
+	html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv" ' + cropimgdiv_style + '><img src="' + img_path + image.imgid + image_size +'.jpg" id="' + 'crop_' + imagefield + '"/></div>';
 
   html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
 	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
@@ -352,7 +330,6 @@ function change_image(imagefield, imgid) {
   $("." + crop_button).click({imagefield:imagefield},function(event) {
     event.stopPropagation();
     event.preventDefault();
-    var imgid = imagefield_imgid[imagefield];
 
     var selection = $('img#crop_' + imagefield ).cropper('getData');
 
@@ -364,22 +341,40 @@ function change_image(imagefield, imgid) {
     $('.cropbutton_' + imagefield).hide();
     $('.cropbuttonmsg_' + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
     $('.cropbuttonmsg_' + imagefield).show();
-    $.post('/cgi/product_image_crop.pl',
-  {
-    code: code, id: imagefield, imgid: imgid,
+    $.post(
+      '/cgi/product_image_crop.pl',
+      {
+        code: code, id: imagefield, imgid: imagefield_imgid[imagefield],
         x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
-        coordinates_image_size : "full",
+        coordinates_image_size : coordinates_image_size,
         angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'),
-    white_magic: $("#white_magic_" + imagefield).prop('checked')
-  }, function (data) {
-
-      imagefield_url[imagefield] = data.image.display_url;
-      update_display(imagefield, false);
-      $('.cropbutton_' + imagefield).show();
-      $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
-      $(document).foundation('equalizer', 'reflow');
-    }, 'json');
+        white_magic: $("#white_magic_" + imagefield).prop('checked')
+      },
+      null,
+      'json'
+    )
+      .done(function(data) {
+        imagefield_url[imagefield] = data.image.display_url;
+        update_display(imagefield, false);
+        $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
+      })
+      .fail(function() {
+        $('.cropbuttonmsg_' + imagefield).html(lang().not_saved);
+      })
+      .always(function() {
+        $('.cropbutton_' + imagefield).show();
+        $(document).foundation('equalizer', 'reflow');
+      });
   });
+
+  $('img#crop_' + imagefield).on('ready', function () {
+    $("#rotate_left_" + imagefield).attr("disabled", false);
+    $("#rotate_right_" + imagefield).attr("disabled", false);
+    $("." + crop_button).attr("disabled", false);
+  });
+  $("#rotate_left_" + imagefield).attr("disabled", true);
+  $("#rotate_right_" + imagefield).attr("disabled", true);
+  $("." + crop_button).attr("disabled", true);
 
 	$("#rotate_left_" + imagefield).click({imagefield:imagefield, angle:-90}, rotate_image);
 	$("#rotate_right_" + imagefield).click({imagefield:imagefield, angle:90}, rotate_image);
@@ -389,13 +384,13 @@ function change_image(imagefield, imgid) {
   });
 
 	$('img#crop_' + imagefield).cropper({
-		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+		"viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": false, "zoomOnTouch": false, "toggleDragModeOnDblclick": true, "checkCrossOrigin" : false
 	});
 
 	$("#zoom_on_wheel_" + imagefield).change(function() {
     var zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
     $('img#crop_' + imagefield).cropper('destroy').cropper({
-      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true
+      "viewMode" : 2, "guides": false, "autoCrop": false, "zoomable": true, "zoomOnWheel": zoomOnWheel, "zoomOnTouch": false, "toggleDragModeOnDblclick": true, "checkCrossOrigin": false
 	});	} );
 
 	$(document).foundation('equalizer', 'reflow');
@@ -422,107 +417,102 @@ function update_display(imagefield, first_display) {
 	var display_url = imagefield_url[imagefield];
 
 	if (display_url) {
+		
+		var imagetype = imagefield.replace(/_\w\w$/, '');
 
-	var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
-	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
-	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><!--<button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_extract_ingredients + '</button>-->'
-		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang().product_js_extract_ingredients + '</button></div>';
-	}
+		var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
+		html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
 
-	if (stringStartsWith(imagefield, 'nutrition')) {
-		// width big enough to display a copy next to nutrition table?
-		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+		if (stringStartsWith(imagefield, 'nutrition')) {
+			// width big enough to display a copy next to nutrition table?
+			if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 
-			if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {
-				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+				if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {
+					$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+				}
 			}
 		}
-	}
 
-	if (stringStartsWith(imagefield, 'ingredients')) {
+		if ((imagetype == 'ingredients') || (imagetype == 'packaging')) {
 
-    var full_url = display_url.replace(/\.400\./, ".full.");
-    $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="ingredients_image_full"/>');
-	}
+			html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '">'
+			+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
 
-	$('div[id="display_' + imagefield +'"]').html(html);
+			var full_url = display_url.replace(/\.400\./, ".full.");
+			$('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
+			
 
-	$("#ocrbutton_" + imagefield).click({imagefield:imagefield},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
+			$('div[id="display_' + imagefield +'"]').html(html);
 
-		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_extracting_ingredients).show();
-		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
-		$.post('/cgi/ingredients.pl',
-				{code: code, id: imagefield, process_image:1, ocr_engine:"tesseract" }, function(data) {
+			$("#ocrbuttongooglecloudvision_" + imagefield).click({imagefield:imagefield},function(event) {
+				event.stopPropagation();
+				event.preventDefault();
+				// alert(event.data.imagefield);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
+				$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
+				$.post(
+					'/cgi/' + imagetype + '.pl',
+					{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" },
+					null,
+					'json'
+				)
+					.done(function(data) {
+						$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
+						if (data.status === 0) {
+							$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
+							var text_id = imagefield.replace(imagetype, imagetype + "_text");
+							$("#" + text_id).val(data[imagetype + "_text_from_image"]);
+						}
+						else {
+							$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
+						}
+					})
+					.fail(function() {
+						$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
+						$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().job_status_failed);
+					})
+					.always(function() {
+						$(document).foundation('equalizer', 'reflow');
+					});
 
-			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
-			if (data.status === 0) {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_ok);
+			});
 
-				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
-				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
-			}
-			else {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(ocr_button_div_original_html + lang().product_js_extracted_ingredients_nok);
-			}
-			$(document).foundation('equalizer', 'reflow');
-		}, 'json');
+		} else {
+			
+			$('div[id="display_' + imagefield +'"]').html(html);
+			
+		}
 
-		$(document).foundation('equalizer', 'reflow');
+		$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
+			event.stopPropagation();
+			event.preventDefault();
+			// alert(event.data.imagefield);
+			$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
+			$.post(
+				'/cgi/product_image_unselect.pl',
+				{code: code, id: imagefield },
+				null, 
+				'json'
+			)
+				.done(function(data) {
+					if (data.status_code === 0) {
+						$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_ok);
+						delete imagefield_url[imagefield];
+					}
+					else {
+						$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
+					}
+					update_display(imagefield, false);
+					$('div[id="display_' + imagefield +'"]').html('');
+				})
+				.fail(function() {
+					$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
+				})
+				.always(function() {
+					$(document).foundation('equalizer', 'reflow');
+				});
 
-	});
-	$("#ocrbuttongooglecloudvision_" + imagefield).click({imagefield:imagefield},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
-		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_extracting_ingredients).show();
-		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
-		$.post('/cgi/ingredients.pl',
-				{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" }, function(data) {
-
-			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
-			if (data.status === 0) {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_ok);
-				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
-				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
-			}
-			else {
-				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(lang().product_js_extracted_ingredients_nok);
-			}
-			$(document).foundation('equalizer', 'reflow');
-		}, 'json');
-
-		$(document).foundation('equalizer', 'reflow');
-
-	});
-
-
-	$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
-		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
-		$.post('/cgi/product_image_unselect.pl',
-				{code: code, id: imagefield }, function(data) {
-
-			if (data.status_code === 0) {
-				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_ok);
-				delete imagefield_url[imagefield];
-			}
-			else {
-				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(lang().product_js_unselected_image_nok);
-			}
-			update_display(imagefield, false);
-			$('div[id="display_' + imagefield +'"]').html('');
-			$(document).foundation('equalizer', 'reflow');
-		}, 'json');
-
-		$(document).foundation('equalizer', 'reflow');
-
-	});
+		});
 
 	}
 
@@ -641,6 +631,10 @@ function get_recents(tagfield) {
 
 	initializeTagifyInputs();
 
+  if (typeof $.cookie('use_low_res_images') !== "undefined") {
+      use_low_res_images = true;
+  }
+
 	var settings = {
 		'thumb_width' : 100,
 		'thumb_height' : 100
@@ -738,6 +732,9 @@ function get_recents(tagfield) {
 + '</div>';
 
 
+      html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
+      html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
+
       html += '<div class="row">';
 			html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id +'"></div></div>';
 			html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id +'"></div></div>';
@@ -745,6 +742,23 @@ function get_recents(tagfield) {
 			}
 
 			$this.html(html);
+
+      if (use_low_res_images) {
+          $("#use_low_res_images_" + id).prop("checked", true);
+      }
+
+      $("#use_low_res_images_" + id).change(function() {
+        use_low_res_images = $("#use_low_res_images_" + id).is(':checked');
+        if (use_low_res_images) {
+          $.cookie('use_low_res_images', '1', { expires: 180, path: '/' });
+        }
+        else {
+          $.removeCookie('use_low_res_images', { path: '/'});
+        }
+        $(".use_low_res_images").each(function() {
+          $(this).prop( "checked", use_low_res_images );
+        });
+      });
 
       $(document).foundation('equalizer', 'reflow');
 
@@ -760,7 +774,7 @@ function get_recents(tagfield) {
         sequentialUploads: true,
         dataType: 'json',
         url: '/cgi/product_image_upload.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code} ],
+		formData : [{name: 'jqueryfileupload', value: 1}, {name: 'imagefield', value: imagefield}, {name: 'code', value: code}, {name: 'source', value: 'product_edit_form'}],
 		resizeMaxWidth : 2000,
 		resizeMaxHeight : 2000,
 

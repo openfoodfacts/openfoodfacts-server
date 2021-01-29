@@ -42,4 +42,20 @@ $link = "/spain";
 $tag_prefix = "-";
 is ( add_tag_prefix_to_link($link,$tag_prefix),"/-spain");
 
+$lc = 'en';
+my $product_ref = {
+	states           => ['en:front-photo-selected'],
+	states_hierarchy => ['en:front-photo-selected']
+};
+my $expected = lang('done_status') . separator_before_colon($lc) . q{:};
+like( display_field( $product_ref, 'states' ), qr/$expected/ );
+
+$lc = 'en';
+$product_ref = {
+	states           => ['en:front-photo-to-be-selected'],
+	states_hierarchy => ['en:front-photo-to-be-selected']
+};
+$expected = lang('to_do_status') . separator_before_colon($lc) . q{:};
+like( display_field( $product_ref, 'states' ), qr/$expected/ );
+
 done_testing();

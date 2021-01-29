@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -40,7 +40,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 
 
 my $usage = <<TXT
-export_csv_file.pl expors product data from the database of Product Opener.
+export_csv_file.pl exports product data from the database of Product Opener.
 
 If the --fields argument is specified, only the corresponding fields are exported,
 otherwise all populated input fields (provided by users or producers) are exported.
@@ -52,6 +52,7 @@ Usage:
 
 export_csv_file.pl --query field_name=field_value --query other_field_name=other_field_value
 [--fields code,ingredients_texts_fr,categories_tags] [--extra_fields nova_group,nutrition_grade_fr]
+[--include-images-paths]
 TXT
 ;
 
@@ -60,12 +61,14 @@ my %query_fields_values = ();
 my $fields;
 my $extra_fields;
 my $separator = "\t";
+my $include_images_paths;
 
 GetOptions (
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
 	"query=s%" => \%query_fields_values,
 	"separator=s" => \$separator,
+	"include-images-paths" => \$include_images_paths,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
@@ -73,6 +76,7 @@ print STDERR "export_csv_file.pl
 - fields: $fields
 - extra_fields: $extra_fields
 - separator: $separator
+- include_images_paths : $include_images_paths
 - query fields values:
 ";
 
@@ -87,7 +91,7 @@ foreach my $field (sort keys %query_fields_values) {
 
 use boolean;
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
@@ -110,6 +114,10 @@ if ((defined $fields) and ($fields ne "")) {
 
 if ((defined $extra_fields) and ($extra_fields ne "")) {
 	$args_ref->{extra_fields} = [split(/,/, $extra_fields)];
+}
+
+if (defined $include_images_paths) {
+	$args_ref->{include_images_paths} = 1;
 }
 
 export_csv($args_ref);

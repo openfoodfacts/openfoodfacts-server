@@ -26,8 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
@@ -41,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -54,6 +54,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -181,6 +182,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -207,7 +209,7 @@ $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
+$producers_email = 'producers@openfoodfacts.org';
 
 $thumb_size = 100;
 $crop_size = 400;
@@ -245,7 +247,7 @@ $options{favicons} = <<HTML
 <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicon/manifest.json">
+<link rel="manifest" href="/cgi/manifest.pl">
 <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 <meta name="msapplication-TileColor" content="#da532c">

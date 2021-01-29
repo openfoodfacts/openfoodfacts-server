@@ -24,6 +24,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -40,6 +41,7 @@ my $cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->fiel
 
 my $n = 0;
 
+my $recent_changes_collection = get_recent_changes_collection();
 $recent_changes_collection->drop;
 
 my $cmd = [
@@ -48,8 +50,8 @@ my $cmd = [
 	size   => 104857600
 ];
 
+my $database = get_database();
 $database->run_command($cmd);
-$recent_changes_collection = $database->get_collection('recent_changes');
 
 while (my $product_ref = $cursor->next) {
 
@@ -64,7 +66,7 @@ while (my $product_ref = $cursor->next) {
 		$changes_ref = [];
 	}
 
-	foreach my $change_ref (@$changes_ref) {
+	foreach my $change_ref (@{$changes_ref}) {
 		log_change($product_ref, $change_ref);
 	}
 

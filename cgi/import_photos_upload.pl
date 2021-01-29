@@ -180,10 +180,6 @@ JS
               <span>$Lang{add_photos}{$lang}</span>
               <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
             </span>
-            <button type="submit" class="button small btn-primary start">
-              @{[ display_icon('arrow_upward') ]}
-              <span>$Lang{start_upload}{$lang}</span>
-            </button>
             <!-- The global file processing state -->
             <span class="fileupload-process"></span>
           </div>
@@ -234,20 +230,6 @@ HTML
                   <span class="size">Processing...</span><br>
                   <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success meter" style="width:0\%;"></div></div>
               </td>
-              <td>
-                  {\% if (!i && !o.options.autoUpload) { \%}
-                      <button class="button tiny btn-primary start" disabled>
-                          @{[ display_icon('arrow_upward') ]}
-                          <span>$Lang{start}{$lang}</span>
-                      </button>
-                  {\% } \%}
-                  {\% if (!i) { \%}
-                      <button class="button tiny btn-warning cancel alert">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{cancel}{$lang}</span>
-                      </button>
-                  {\% } \%}
-              </td>
           </tr>
       {\% } \%}
     </script>
@@ -293,25 +275,16 @@ HTML
                       $Lang{file_received}{$lang} </div>
                   {\% } \%}
               </td>
-              <td>
-                  {\% if (file.deleteUrl) { \%}
-                  {\% } else { \%}
-                      <button class="button tiny btn-warning cancel">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{close}{$lang}</span>
-                      </button>
-                  {\% } \%}
-              </td>
           </tr>
       {\% } \%}
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+    <script src="/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+    <script src="/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <script src="/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="/js/dist/jquery.iframe-transport.js"></script>
@@ -377,7 +350,8 @@ HTML
 	sequentialUploads: true,
 	replaceFileInput : false,
 	// Uncomment the following to send cross-domain cookies:
-	xhrFields: {withCredentials: true}
+	xhrFields: {withCredentials: true},
+	autoUpload: true
 });
 
 
@@ -402,9 +376,14 @@ HTML
 	return false;
 });
 
+var images_processed = 0;
+
 \$('#fileupload')
-    .bind('fileuploadadd', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
-    .bind('fileuploadstart', function (e, data) { \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadadd', function (e, data) { console.log("fileuploadadd"); })
+    .bind('fileuploadstart', function (e, data) { console.log("fileuploadstart");})
+    .bind('fileuploadprocessstart', function (e, data) { console.log("fileuploadstart"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessstop', function (e, data) { console.log("fileuploadprocessstop"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessalways', function (e, data) { console.log("fileuploadprocessalways"); images_processed++; if (images_processed % 20 === 0) { \$(document).foundation('equalizer', 'reflow'); }})
 	.bind('fileuploadalways', function (e, data) {
 		lastFileUploaded++;
 		console.log("always - lastFileUploaded: " + lastFileUploaded);

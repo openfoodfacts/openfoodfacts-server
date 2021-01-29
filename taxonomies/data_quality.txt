@@ -24,8 +24,14 @@ show_on_producers_platform:en:yes
 
 en:Energy value in kcal greater than in kJ
 fr:La valeur de l'énergie en kcal est plus grande qu'en kJ
-description:en:The energy value in kJ must be about 4.8 times greater than the value in kcal
-description:fr:La valeur de l'énergie en kJ doit être environ 4,8 fois plus grande que la valeur en kcal
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be inverted.
+description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
+show_on_producers_platform:en:yes
+
+en:Energy value in kcal does not match value in kJ
+fr:La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal
+description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal
 show_on_producers_platform:en:yes
 
 en:Nutri-Score score from producer does not match calculated score

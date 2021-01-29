@@ -1,0 +1,10 @@
+<h2 id="history">[% lang('history') %]</h2>
+<ul id="history_list">
+  [% FOREACH revision IN revisions %]
+  <li>
+    [% revision.date %] - [% display_editor_link(revision.userid) %] [% revision.diffs %] [% IF
+    revision.comment %] - [% revision.comment %] [% END %] -
+    <a href="[% product_url %]?rev=[% revision.number %]">[% lang('view') %]</a>
+  </li>
+  [% END %]
+</ul>

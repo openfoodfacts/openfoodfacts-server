@@ -298,23 +298,6 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/press-and-blogs.html
-    translation: /lang/%two_letters_code%/texts/press-and-blogs.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl-BE: nl_BE
-        nl-NL: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
   - source: /lang/en/texts/press.html
     translation: /lang/%two_letters_code%/texts/press.html
     languages_mapping:
@@ -383,23 +366,6 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/texts/rateyourvendingmachine.html
-    translation: /lang/%two_letters_code%/texts/rateyourvendingmachine.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl-BE: nl_BE
-        nl-NL: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
   - source: /lang/en/texts/scan-parties.html
     translation: /lang/%two_letters_code%/texts/scan-parties.html
     languages_mapping:
@@ -436,23 +402,6 @@ files:
         kmr: kmr
   - source: /lang/obf/en/texts/open-beauty-hunt.html
     translation: /lang/obf/%two_letters_code%/texts/open-beauty-hunt.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl-BE: nl_BE
-        nl-NL: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/obf/en/texts/press-and-blogs.html
-    translation: /lang/obf/%two_letters_code%/texts/press-and-blogs.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -1048,6 +997,76 @@ files:
         kmr: kmr
   - source: /lang/en/texts/help-complete-products.html
     translation: /lang/%two_letters_code%/texts/help-complete-products.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+
+  - source: /lang/en/texts/contribute-to-open-food-facts-by-playing.html
+    translation: /lang/%two_letters_code%/texts/contribute-to-open-food-facts-by-playing.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+        
+  - source: /lang/en/texts/how-to-complete-products-on-android.html
+    translation: /lang/%two_letters_code%/texts/how-to-complete-products-on-android.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/opf/en/texts/index.html
+    translation: /lang/opf/%two_letters_code%/texts/index.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl-NL: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /lang/opff/en/texts/index.html
+    translation: /lang/opff/%two_letters_code%/texts/index.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK

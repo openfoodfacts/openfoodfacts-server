@@ -1,0 +1,169 @@
+{
+   "categories_tags" : [
+      "en:jams"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:france",
+                  "percent" : 60
+               },
+               {
+                  "origin" : "en:martinique",
+                  "percent" : 30
+               },
+               {
+                  "origin" : "en:italy",
+                  "percent" : 10
+               }
+            ],
+            "epi_score" : 62.6503443706568,
+            "epi_value" : 1.26503443706568,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 82.6751407570834,
+            "transportation_value" : 12.4136847983609,
+            "value" : 13.6787192354265
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "31024",
+         "co2_agriculture" : "0.4391425",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.032692835",
+         "co2_packaging" : "0.54656517",
+         "co2_processing" : "0.24580915",
+         "co2_total" : "1.6271789",
+         "co2_transportation" : "0.35817",
+         "code" : "31024",
+         "dqr" : "3.16",
+         "ef_agriculture" : "0.41455559000000003",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0091648653",
+         "ef_packaging" : "0.056809478",
+         "ef_processing" : "0.041272627",
+         "ef_total" : 0.55246032,
+         "ef_transportation" : "0.02822842",
+         "is_beverage" : 0,
+         "name_en" : "Jam, strawberry",
+         "name_fr" : "Confiture de fraise (extra ou classique)",
+         "score" : 58.6020808480656
+      },
+      "grade" : "b",
+      "missing" : {
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 62.2808000834921,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 62.2808000834921,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:apricot",
+         "origins" : "en:france",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
+         "rank" : 1,
+         "text" : "apricots",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cane-sugar",
+         "origins" : "en:martinique",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
+         "rank" : 2,
+         "text" : "cane sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lemon-juice",
+         "origins" : "en:italy",
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
+         "rank" : 3,
+         "text" : "lemon juice",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar",
+      "en:lemon-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apricot",
+      "en:cane-sugar",
+      "en:lemon-juice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar",
+      "en:lemon-juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_text" : "60% apricots (France), 30% cane sugar (Martinique), lemon juice (Italy)",
+   "known_ingredients_n" : 6,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
+   },
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

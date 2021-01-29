@@ -1,0 +1,75 @@
+[% IF action == 'display' || action == 'none' %]
+[% INCLUDE 'error_list.tt.html' %]
+[% END %]
+
+[% IF action == 'display' %]
+
+    <!-- Start form -->
+    
+    <p>[% lang('org_profile_description') %]</p>
+    <p>[% lang('org_profile_description_2') %]</p>
+
+    <form method="post" action="/cgi/org.pl" enctype="multipart/form-data">
+
+		[% IF admin %]
+			<div>
+				<label>
+					<input type="checkbox" name="delete" value="on" />
+					[% lang("delete_org") %]
+				</label>
+			</div>
+		[% END %]
+		
+		[% FOREACH section IN sections %]
+		
+			[% IF section.name %]
+				<fieldset>
+					<legend>[% section.name %]</legend>
+			[% END %]
+			
+			[% IF section.description %]
+				<p>[% section.description %]</p>
+			[% END %]
+			[% IF section.note %]
+				<p>[% section.note %]</p>
+			[% END %]
+
+			[% FOREACH field IN section.fields %]
+
+				[% IF field.description %]
+					<p>[% field.description %]</p>
+				[% END %]			
+			
+				<label for="[% field.field %]">[% field.label %]</label>
+
+				[% IF field.type == 'text' %]
+					<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
+				[% ELSIF field.type == 'textarea' %]
+					<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+				[% END %]
+				
+				[% IF field.note %]
+					<p>[% field.note %]</p>
+				[% END %]
+
+			[% END %]
+			
+			[% IF section.name %]
+				</fieldset>
+			[% END %]
+
+		[% END %]
+
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="[% type %]" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" />
+    </form>
+
+    <!-- End form -->
+
+[% ELSIF action == 'process' %]
+    <p>[% result %]</p>
+    <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
+[% END %]
+
