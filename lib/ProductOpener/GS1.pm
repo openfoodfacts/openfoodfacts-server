@@ -213,6 +213,14 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 		"ZN" => "zinc",
 	},
 	
+	packagingMarkedLabelAccreditationCode => {
+		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
+		# mispelling present in many files
+		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
+		"EU_ORGANIC_FARMING" => "en:eu-organic",
+		"GREEN_DOT" => "en:green-dot",
+	},
+	
 	targetMarketCountryCode => {
 		"250" => "en:france",
 	},
@@ -357,6 +365,19 @@ my %gs1_to_off = (
 													],
 													fields => [
 														["nutritionalScore", "nutriscore_grade_producer"],
+													],
+												},
+											],
+										],
+									},
+								],
+								
+								["packaging_marking:packagingMarkingModule", {
+										fields => [
+											["packagingMarking", {
+													fields => [
+														# the source can be an array if there are multiple labels
+														["packagingMarkedLabelAccreditationCode", "+labels%packagingMarkedLabelAccreditationCode"],
 													],
 												},
 											],
@@ -606,94 +627,107 @@ sub gs1_to_off ($$$) {
 				
 				$log->debug("gs1_to_off - source field directly maps to target field",
 						{ source_field => $source_field, target_field => $source_target }) if $log->is_debug();
+						
+				# We may have multiple source values, in an array
 				
-				# We may have multiple target fields, separated by commas
-				foreach my $target_field (split(/\s*,\s*/, $source_target)) {
-								
-					my $source_value = $json_ref->{$source_field};
-					
-					# allergenTypeCode => '+traces%allergens',
-					# % sign means we will use a map to transform the source value
-					if ($target_field =~ /\%/) {
-						$target_field = $`;
-						my $map = $';
-						if (defined $gs1_maps{$map}{$source_value}) {
-							$source_value = $gs1_maps{$map}{$source_value};
-						}
-						else {
-							$log->error("gs1_to_off - unknown source value for map",
-								{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
-						}
-					}
-					
-					$log->debug("gs1_to_off - assign value to target field",
-						{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
-						
-					# Some fields indicate a language:
-					
-# ingredientStatement: {
-#   languageCode: "fr",
-#   $t: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium."
-# },
-
-					# or another format (depending on how the XML was converted to JSON):
-					
-# ingredientStatement: {
-#   #: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium.",
-#   @: {
-#     languageCode: "fr"
-#   }
-# },
-
-					if (ref($source_value) eq "HASH") {
-						my $language_code;
-						my $value;
-						
-						if (defined $source_value->{languageCode}) {
-							$language_code = $source_value->{languageCode};
-						}
-						elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{languageCode})) {
-							$language_code = $source_value->{'@'}{languageCode};
-						}
-						
-						if (defined $source_value->{'$t'}) {
-							$value = $source_value->{'$t'};
-						}
-						elsif (defined $source_value->{'#'}) {
-							$value = $source_value->{'#'};
-						}
-						
-						# If the field is a language specific field, we can assign the value to the language specific field
-						if ((defined $language_code) and (defined $language_fields{$target_field})) {
-							$target_field = $target_field . "_" . lc($language_code);
-							$log->debug("gs1_to_off - changed to language specific target field",
-								{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
-						}
-						
-						if (defined $value) {
-							$source_value = $value;
-						}
-						else {
-							$log->error("gs1_to_off - issue with source value structure",
-								{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_error();
-							$source_value = undef;
-						}
-					}
-					
-					if ((defined $source_value) and ($source_value ne "")) {
-					
+				my @source_values;
+				
+				if (ref($json_ref->{$source_field}) eq "ARRAY") {
+					@source_values = @{$json_ref->{$source_field}};
+				}
+				else {
+					@source_values = ($json_ref->{$source_field});
+				}
+				
+				foreach my $source_value (@source_values) {
+				
+					# We may have multiple target fields, separated by commas
+					foreach my $target_field (split(/\s*,\s*/, $source_target)) {
+														
 						# allergenTypeCode => '+traces%allergens',
-						# + sign means we will create a comma separated list if we have multiple values
-						if ($target_field =~ /^\+/) {
-							$target_field = $';
-							
-							if (defined $results_ref->{$target_field}) {
-								$source_value = $results_ref->{$target_field} . ', ' . $source_value;
+						# % sign means we will use a map to transform the source value
+						if ($target_field =~ /\%/) {
+							$target_field = $`;
+							my $map = $';
+							if (defined $gs1_maps{$map}{$source_value}) {
+								$source_value = $gs1_maps{$map}{$source_value};
+							}
+							else {
+								$log->error("gs1_to_off - unknown source value for map",
+									{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
 							}
 						}
 						
-						assign_field($results_ref, $target_field, $source_value);
+						$log->debug("gs1_to_off - assign value to target field",
+							{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
+							
+						# Some fields indicate a language:
+						
+	# ingredientStatement: {
+	#   languageCode: "fr",
+	#   $t: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium."
+	# },
+
+						# or another format (depending on how the XML was converted to JSON):
+						
+	# ingredientStatement: {
+	#   #: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium.",
+	#   @: {
+	#     languageCode: "fr"
+	#   }
+	# },
+
+						if (ref($source_value) eq "HASH") {
+							my $language_code;
+							my $value;
+							
+							if (defined $source_value->{languageCode}) {
+								$language_code = $source_value->{languageCode};
+							}
+							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{languageCode})) {
+								$language_code = $source_value->{'@'}{languageCode};
+							}
+							
+							if (defined $source_value->{'$t'}) {
+								$value = $source_value->{'$t'};
+							}
+							elsif (defined $source_value->{'#'}) {
+								$value = $source_value->{'#'};
+							}
+							
+							# If the field is a language specific field, we can assign the value to the language specific field
+							if ((defined $language_code) and (defined $language_fields{$target_field})) {
+								$target_field = $target_field . "_" . lc($language_code);
+								$log->debug("gs1_to_off - changed to language specific target field",
+									{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
+							}
+							
+							if (defined $value) {
+								$source_value = $value;
+							}
+							else {
+								$log->error("gs1_to_off - issue with source value structure",
+									{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_error();
+								$source_value = undef;
+							}
+						}
+						
+						if ((defined $source_value) and ($source_value ne "")) {
+						
+							# allergenTypeCode => '+traces%allergens',
+							# + sign means we will create a comma separated list if we have multiple values
+							if ($target_field =~ /^\+/) {
+								$target_field = $';
+								
+								if (defined $results_ref->{$target_field}) {
+									$source_value = $results_ref->{$target_field} . ', ' . $source_value;
+								}
+							}
+							
+							assign_field($results_ref, $target_field, $source_value);
+						}
 					}
+					
 				}
 			}
 			
