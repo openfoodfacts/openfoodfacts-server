@@ -733,6 +733,13 @@ sub analyze_request($)
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
 	}
+	
+	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
+	# assign the codes to the code parameter
+	elsif ($components[0] eq "products") {
+		$request_ref->{search} = 1;
+		param("code", $components[1]);
+	}
 
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
@@ -4133,7 +4140,10 @@ sub add_country_and_owner_filters_to_query($$) {
 	# Country filter
 
 	if (defined $country) {
-		if ($country ne 'en:world') {
+		
+		# Do not add a country restriction iff the query specifies a list of codes
+		
+		if (($country ne 'en:world') and (not defined $query_ref->{code})) {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
 			if (not defined $query_ref->{countries_tags}) {
 				$query_ref->{countries_tags} = $country;
@@ -4235,6 +4245,24 @@ sub add_params_to_query($$) {
 		
 		elsif ($field eq "sort_by") {
 			$request_ref->{$field} = param($field);
+		}
+		
+		# Exact match on a specific field
+		elsif ($field eq "code") {
+			
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
+			
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+			
+			if ($values =~ /\||\+|,/) {
+				my @values = split(/\||\+|,/, $values);
+				$query_ref->{$field} = { '$in' => \@values };
+			}
+			else {
+				$query_ref->{$field} = $values;
+			}
 		}
 		
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
