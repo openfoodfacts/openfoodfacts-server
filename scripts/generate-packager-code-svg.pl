@@ -33,7 +33,7 @@ numeric_number_of_months_after_opening:en:<i>
 TXT
 ;
 
-my $image_path = "/home/obf/html/images/lang/en/periods_after_opening";
+my $image_path = $html_root + "/images/lang/en/packager_codes";
 
 for (my $i = 1; $i <= 4 * 12; $i++) {
 
