@@ -132,6 +132,15 @@ my @tests = (
 
 	# MSC
 	[ { lc => "fr", ingredients_text => "72% saumon MSC"}, ['en:salmon']],
+	
+	# TODO: https://fr.openfoodfacts.org/ingredients?filter=msc
+    # German can be tricky
+	# TODO: https://fr.openfoodfacts.org/ingredients?filter=asc
+    #"ascorbique"
+	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [  ], ],
+	# TODO: https://fr.openfoodfacts.org/ingredients?filter=aop
+	# TODO: https://fr.openfoodfacts.org/ingredients?filter=aoc
+	
 );
 
 foreach my $test_ref (@tests) {
