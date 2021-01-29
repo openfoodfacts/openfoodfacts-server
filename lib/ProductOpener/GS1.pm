@@ -715,7 +715,14 @@ sub gs1_to_off ($$$) {
 							}
 							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{languageCode})) {
 								$language_code = $source_value->{'@'}{languageCode};
-							}					
+							}
+							
+							# Keep track of language codes so that we can assign the lc and lang fields
+							if (defined $language_code) {
+								defined $results_ref->{languages} or $results_ref->{languages} = {};
+								defined $results_ref->{languages}{$language_code} or $results_ref->{languages}{$language_code} = 0;
+								$results_ref->{languages}{$language_code};
+							}
 							
 							if (defined $source_value->{'$t'}) {
 								$value = $source_value->{'$t'};
@@ -891,6 +898,15 @@ sub convert_gs1_json_to_off_csv($) {
 	my $results_ref = {};
 	
 	gs1_to_off(\%gs1_to_off, $json_ref, $results_ref);
+	
+	# assign the lang and lc fields
+	if (defined $results_ref->{languages}) {
+		my @sorted_languages = sort ( { $results_ref->{languages}{$b} <=> $results_ref->{languages}{$a} } keys %{$results_ref->{languages}});
+		my $top_language = $sorted_languages[0];
+		$results_ref->{lc} = $top_language;
+		$results_ref->{lang} = $top_language;
+		delete $results_ref->{languages};
+	}
 	
 	return $results_ref;
 }
