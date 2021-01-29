@@ -247,6 +247,15 @@ my %gs1_to_off = (
 				],
 			},
 		],
+		
+		["gdsnTradeItemClassification", {
+				fields => [
+					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode"],
+					# not always present and could be in different languages
+					["gpcCategoryName", "sources_fields:org-gs1:gpcCategoryName, +categories_if_match_in_taxonomy"],
+				],
+			},
+		],		
 			
 		["informationProviderOfTradeItem", {
 				fields => [
@@ -390,6 +399,7 @@ my %gs1_to_off = (
 											["tradeItemDescriptionInformation", {
 													fields => [
 														["descriptionShort", "abbreviated_product_name"],
+														["functionalName", "+categories_if_match_in_taxonomy"],
 														["regulatedProductName", "generic_name"],
 														["tradeItemDescription", "product_name"],
 														["brandNameInformation", {
