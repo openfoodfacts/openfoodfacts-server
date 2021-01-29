@@ -22,7 +22,7 @@
 
 use Modern::Perl '2017';
 
-open (my $IN, q{<}, "periods_after_opening_logo.svg") or die ;
+open (my $IN, q{<}, "eu-packager-code-3-parts.156x90.svg") or die ;
 my $svg = join ("",(<$IN>));
 close($IN);
 
@@ -45,7 +45,7 @@ for (my $i = 1; $i <= 4 * 12; $i++) {
 	my $isvg = $svg;
 	$isvg =~ s/49 M/$i M/;
 	
-	my $file = "$image_path/$i-months.90x90.svg";
+	my $file = "$image_path/$i-eu-packager-code-3-parts.156x90.svg";
 	$file =~ s/^1-months/1-month/;
 	
 	open (my $OUT, q{>}, "$file") or die;
