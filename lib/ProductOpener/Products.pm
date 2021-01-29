@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -65,16 +65,19 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_code
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
+		&server_for_product_id
+		&data_root_for_product_id
+		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
 		&product_exists
+		&product_exists_on_other_server
 		&get_owner_id
 		&init_product
 		&retrieve_product
@@ -96,7 +99,7 @@ BEGIN
 		&compute_languages
 		&compute_changes_diff_text
 		&compute_data_sources
-		&compute_sort_key
+		&compute_sort_keys
 
 		&add_back_field_values_removed_by_user
 
@@ -108,7 +111,7 @@ BEGIN
 		&find_and_replace_user_id_in_products
 
 		&add_users_team
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -175,6 +178,8 @@ sub make_sure_numbers_are_stored_as_numbers($) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 assign_new_code ( )
@@ -208,8 +213,8 @@ sub assign_new_code() {
 	my $code = 2000000000001; # Codes beginning with 2 are for internal use
 
 	my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
-	if ((defined $internal_code_ref) and ($$internal_code_ref > $code)) {
-		$code = $$internal_code_ref;
+	if ((defined $internal_code_ref) and (${$internal_code_ref} > $code)) {
+		$code = ${$internal_code_ref};
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -263,10 +268,10 @@ sub normalize_code($) {
 sub split_code($) {
 
 	my $code = shift;
-	$code !~ /^\d+$/ and return "invalid";
+	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
+	if ($code !~ /^\d{4,24}$/) {
 
-	if (length($code) > 100) {
-		$log->info("invalid code, code too long", { code => $code }) if $log->is_info();
+		$log->info("invalid code", { code => $code }) if $log->is_info();
 		return "invalid";
 	}
 
@@ -284,8 +289,12 @@ C<product_id_for_owner()> returns the product id associated with a product barco
 
 If the products on the server are public, the product id is equal to the product code.
 
-If the products on the server as private (e.g. on the platform for producers),
+If the products on the server are private (e.g. on the platform for producers),
 the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
+
+The product id can be prefixed by a server id to indicate that is is on another server
+(e.g. Open Food Facts, Open Beauty Facts, Open Products Facts or Open Pet Food Facts)
+e.g. off:[code]
 
 =head3 Parameters
 
@@ -325,18 +334,152 @@ sub product_id_for_owner($$) {
 	}
 }
 
+
+=head2 server_for_product_id ( $product_id )
+
+Returns the server for the product, if it is not on the current server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+undef is the product is on the current server, or server id of the server of the product otherwise.
+
+=cut
+
+sub server_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		return $server;
+	}
+	
+	return;
+}
+
+
+=head2 data_root_for_product_id ( $product_id )
+
+Returns the data root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The data root for the product.
+
+=cut
+
+sub data_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{data_root};
+		}
+	}
+	
+	return $data_root;
+}
+
+
+=head2 www_root_for_product_id ( $product_id )
+
+Returns the www root for the product, possibly on another server.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The www root for the product.
+
+=cut
+
+sub www_root_for_product_id($) {
+
+	my $product_id = shift;
+	
+	if ($product_id =~ /:/) {
+	
+		my $server = $`;
+		
+		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
+			return $options{other_servers}{$server}{www_root};
+		}
+	}
+	
+	return $www_root;
+}
+
+
+=head2 product_path_from_id ( $product_id )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_id
+
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
+
 sub product_path_from_id($) {
 
 	my $product_id = shift;
+	
+	my $product_id_without_server = $product_id;
+	$product_id_without_server =~ s/(.*)://;
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id =~ /\//)) {
+	if ((defined $server_options{private_products}) and ($server_options{private_products}) and ($product_id_without_server =~ /\//)) {
 		return $` . "/" . split_code($');
 	}
 	else {
-		return split_code($product_id);
+		return split_code($product_id_without_server);
 	}
 
 }
+
+
+=head2 product_path ( $product_ref )
+
+Returns the relative path for the product.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Product object reference.
+
+=head3 Return values
+
+The relative path for the product.
+
+=cut
 
 sub product_path($) {
 
@@ -375,6 +518,38 @@ sub product_exists($) {
 		return 0;
 	}
 }
+
+
+sub product_exists_on_other_server($$) {
+
+	my $server = shift;
+	my $id = shift;
+		
+	if (not ((defined $options{other_servers}) and (defined $options{other_servers}{$server}))) {
+		return 0;
+	}
+		
+	my $server_data_root = $options{other_servers}{$server}{data_root};
+
+	my $path = product_path_from_id($id);
+	
+	$log->debug("product_exists_on_other_server", { id => $id, server => $server, server_data_root => $server_data_root, path => $path }) if $log->is_debug();
+	
+	if (-e "$server_data_root/products/$path") {
+
+		my $product_ref = retrieve("$server_data_root/products/$path/product.sto");
+		if ((not defined $product_ref) or ($product_ref->{deleted})) {
+			return 0;
+		}
+		else {
+			return $product_ref;
+		}
+	}
+	else {
+		return 0;
+	}
+}
+
 
 sub get_owner_id($$$) {
 
@@ -423,12 +598,12 @@ sub init_product($$$$) {
 	}
 
 	my $product_ref = {
-		id=>$code . '',	# treat code as string
-		_id=>$code . '',
-		code=>$code . '',	# treat code as string
-		created_t=>time(),
-		creator=>$creator,
-		rev=>0,
+		id        => $code . '',    # treat code as string
+		_id       => $code . '',
+		code      => $code . '',    # treat code as string
+		created_t => time(),
+		creator   => $creator,
+		rev       => 0,
 	};
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -444,7 +619,7 @@ sub init_product($$$$) {
 
 	if ((not defined $countryid) or ($countryid eq "en:world")) {
 
-		use ProductOpener::GeoIP;
+		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
 	else {
@@ -529,16 +704,25 @@ sub send_notification_for_product_change($$) {
 			'server_domain' => "api." . $server_domain
 		} );
 	}
+
+	return;
 }
 
 sub retrieve_product($) {
 
 	my $product_id = shift;
 	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
 
-	$log->debug("retrieve_product", { product_id => $product_id, path => $path } ) if $log->is_debug();
+	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path } ) if $log->is_debug();
 
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ((defined $product_ref) and (defined $server)) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -549,10 +733,18 @@ sub retrieve_product($) {
 
 sub retrieve_product_or_deleted_product($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $deleted_ok = shift;
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/product.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+	
+	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ( ( defined $product_ref ) and ( defined $server ) ) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})
 	and (not $deleted_ok)) {
@@ -565,15 +757,23 @@ sub retrieve_product_or_deleted_product($$) {
 
 sub retrieve_product_rev($$) {
 
-	my $id = shift;
+	my $product_id = shift;
 	my $rev = shift;
 
 	if ($rev !~ /^\d+$/) {
 		return;
 	}
 
-	my $path = product_path_from_id($id);
-	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+	my $path = product_path_from_id($product_id);
+	my $product_data_root = data_root_for_product_id($product_id);
+
+	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
+
+	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+	my $server = server_for_product_id($product_id);
+	if ( ( defined $product_ref ) and ( defined $server ) ) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
 		return;
@@ -605,7 +805,10 @@ sub change_product_server_or_code($$$) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code =~ /^\d+$/) {
+	if ($new_code !~ /^\d{4,24}$/) {
+		push @$errors_ref, lang("invalid_barcode");
+	}
+	else {
 	# check that the new code is available
 		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
 			push @{$errors_ref}, lang("error_new_code_already_exists");
@@ -621,27 +824,78 @@ sub change_product_server_or_code($$$) {
 			$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 		}
 	}
+
+	return;
 }
 
-sub compute_sort_key($) {
+
+=head2 compute_sort_keys ( $product_ref )
+
+Compute sort keys that are stored in the MongoDB database and used to order results of queries.
+
+=head3 last_modified_t - date of last modification of the product page
+
+Used on the web site for facets pages, except the index page.
+
+=head3 popularity_key - Popular and recent products
+
+Used for the Personal Search project to provide generic search results that apps can personnalize later.
+
+=cut
+
+sub compute_sort_keys($) {
 
 	my $product_ref = shift;
-
-	# put obsolete products last  		(add 200000000000 when products are not obsolete)
-	# then put complete products first	(add 100000000000 when products are complete)
-	# otherwise sort by last_modified_t (e.g.  1571384133)
-
-	my $sortkey = $product_ref->{last_modified_t};
-
-	if ((not defined $product_ref->{obsolete}) or (not $product_ref->{obsolete})) {
-		$sortkey += 200000000000;
+	
+	my $popularity_key = 0;
+	
+	# Use the popularity tags
+	if (defined $product_ref->{popularity_tags}) {
+		my %years = ();
+		my $latest_year;
+		foreach my $tag (@{$product_ref->{popularity_tags}}) {
+			# one product could have:
+			# "top-50000-scans-2019",
+			# "top-100000-scans-2019",
+			# "top-100000-scans-2020",
+			if ($tag =~ /^top-(\d+)-scans-20(\d\d)$/) {
+				my $top = $1;
+				my $year = $2;
+				# Save the smaller top for each year
+				if ((not defined $years{$year}) or ($years{$year} > $top)) {
+					$years{$year} = $top;
+				}
+				if ((not defined $latest_year) or ($year > $latest_year)) {
+					$latest_year = $year;
+				}
+			}
+		}
+		# Keep only the latest year, and make the latest year count more than previous years
+		if (defined $latest_year) {
+			$popularity_key += $latest_year * 1000000 * 1000 - $years{$latest_year} * 1000;
+		}
 	}
-	if ($product_ref->{complete}) {
-		$sortkey += 100000000000;
+	
+	# unique_scans_n : number of unique scans for the last year processed by scanbot.pl
+	if (defined $product_ref->{unique_scans_n}) {
+		$popularity_key += $product_ref->{unique_scans_n};
+	}
+	
+	# give a small boost to products for which we have recent images
+	if (defined $product_ref->{last_image_t}) {
+
+		my $age = int( ( time() - $product_ref->{last_image_t} ) / ( 86400 * 30 ) );    # in months
+		if ($age < 12) {
+			$popularity_key += 12 - $age;
+		}
 	}
 
-	$product_ref->{sortkey} = $sortkey + 0;
+	# Add 0 so we are sure the key is saved as int
+	$product_ref->{popularity_key} = $popularity_key + 0;
+
+	return;
 }
+
 
 sub store_product($$) {
 
@@ -656,20 +910,35 @@ sub store_product($$) {
 	$log->debug("store_product - start", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
-	# then we first move the existing files (product and images)
+	# the "new_server" value will be set to off, obf etc.
+	# we first move the existing files (product and images)
 	# and then store the product with a comment.
+	
+	# if we have a "server" value (e.g. from an import),
+	# we save the product on the corresponding server but we don't need to move an existing product
 
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
 
 	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
+	
+	if (    ( defined $product_ref->{server} )
+		and ( defined $options{other_servers} )
+		and ( defined $options{other_servers}{ $product_ref->{server} } ) )
+	{
+		my $server = $product_ref->{server};
+		$new_data_root = $options{other_servers}{$server}{data_root};
+		$new_www_root  = $options{other_servers}{$server}{www_root};
+		$new_products_collection
+			= get_collection( $options{other_servers}{$server}{mongodb},
+			'products' );
+	}
 
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path_from_id($old_code);
-
 
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
@@ -680,12 +949,12 @@ sub store_product($$) {
 			delete $product_ref->{new_server};
 		}
 
-		$log->info("moving product", { old_code => $old_code, code => $code, new_dat_root => $new_data_root }) if $log->is_info();
+		$log->info("moving product", { old_code => $old_code, code => $code, new_data_root => $new_data_root }) if $log->is_info();
 
 		# Move directory
 
 		my $prefix_path = $path;
-		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		$prefix_path =~ s/\/[^\/]+$//; # remove the last subdir: we'll move it
 		if ($path eq $prefix_path) {
 			# short barcodes with no prefix
 			$prefix_path = '';
@@ -694,10 +963,10 @@ sub store_product($$) {
 		$log->debug("creating product directories", { path => $path, prefix_path => $prefix_path }) if $log->is_debug();
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
+			(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
+				(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
 			}
 		}
 
@@ -715,7 +984,9 @@ sub store_product($$) {
 			#
 			# use File::Copy;
 
-			use File::Copy::Recursive qw(dirmove);
+			require File::Copy::Recursive;
+			File::Copy::Recursive->import( qw( dirmove ) );
+
 			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
 			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
 
@@ -757,7 +1028,7 @@ sub store_product($$) {
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
-	my $current_rev = scalar @$changes_ref;
+	my $current_rev = scalar @{$changes_ref};
 	if ($rev != $current_rev) {
 		# The product was updated after the form was loaded..
 
@@ -792,7 +1063,7 @@ sub store_product($$) {
 		delete $product_ref->{owners_tags};
 	}
 
-	push @$changes_ref, {
+	push @{$changes_ref}, {
 		userid => $User_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
@@ -808,11 +1079,11 @@ sub store_product($$) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
 
-	compute_sort_key($product_ref);
+	compute_sort_keys($product_ref);
 
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -828,13 +1099,13 @@ sub store_product($$) {
 	$product_ref->{last_modified_t} += 0;
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
-	$product_ref->{sortkey} += 0;
+	$product_ref->{popularity_key} += 0;
 	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
-	my $change_ref = @$changes_ref[-1];
+	my $change_ref = $changes_ref->[-1];
 	my $diffs = $change_ref->{diffs};
 	my %diffs = %{$diffs};
 	if ((!$diffs) or (!keys %diffs)) {
@@ -950,8 +1221,9 @@ sub compute_data_sources($) {
 
 	if ((scalar keys %data_sources) > 0) {
 		add_tags_to_field($product_ref, "en", "data_sources", join(',', sort keys %data_sources));
-		compute_field_tags($product_ref, "en", "data_sources");
 	}
+
+	return;
 }
 
 
@@ -995,15 +1267,30 @@ sub compute_completeness_and_missing_tags($$$) {
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 3.0);
-		$completeness += $image_step if defined $current_ref->{selected_images}{"front_$lc"};
-		$completeness += $image_step if defined $current_ref->{selected_images}{"ingredients_$lc"};
-		$completeness += $image_step if ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')));
-
-		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
-				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
+		my $image_step = $half_step * (1.0 / 4.0);
+		
+		my $images_completeness = 0;
+		
+		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		
+			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
+				$images_completeness += $image_step;
+				push @states_tags, "en:" . $imagetype . "-photo-selected";
+			}
+			else {
+				if (($imagetype eq "nutrition")
+					and (defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+					$images_completeness += $image_step;
+				}
+				else {
+					push @states_tags, "en:" . $imagetype . "-photo-to-be-selected";
+				}
+			}
+		}
+		
+		$completeness += $images_completeness;
+		
+		if ($images_completeness == $half_step) {
 			push @states_tags, "en:photos-validated";
 
 		}
@@ -1014,7 +1301,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$notempty++;
 	}
 
-	my @needed_fields = qw(product_name quantity packaging brands categories );
+	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
@@ -1098,6 +1385,16 @@ sub compute_completeness_and_missing_tags($$$) {
 	else {
 		delete $product_ref->{empty};
 	}
+	
+	# On the producers platform, keep track of which products have changes to be exported
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		if ((defined $product_ref->{last_exported_t}) and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t})) {
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+		}
+	}
 
 	$product_ref->{complete} = $complete;
 	$current_ref->{complete} = $complete;
@@ -1136,6 +1433,8 @@ sub compute_completeness_and_missing_tags($$$) {
 	# old name
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
+
+	return;
 }
 
 
@@ -1222,7 +1521,7 @@ sub replace_user_id_in_product($$$) {
 
 	my $revs = 0;
 
-	foreach my $change_ref (@$changes_ref) {
+	foreach my $change_ref (@{$changes_ref}) {
 
 		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $user_id)) {
 			$change_ref->{userid} = $new_user_id;
@@ -1232,8 +1531,8 @@ sub replace_user_id_in_product($$$) {
 
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
@@ -1291,6 +1590,8 @@ sub replace_user_id_in_product($$$) {
 	}
 
 	store("$data_root/products/$path/changes.sto", $changes_ref);
+
+	return;
 }
 
 
@@ -1320,7 +1621,7 @@ sub find_and_replace_user_id_in_products($$) {
 	my $or = [];
 
 	foreach my $users_field (@users_fields) {
-		push @$or, { $users_field => $user_id };
+		push @{$or}, { $users_field => $user_id };
 	}
 
 	my $query_ref = {'$or' => $or};
@@ -1350,13 +1651,15 @@ sub find_and_replace_user_id_in_products($$) {
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done", { user_id => $user_id, new_user_id => $new_user_id, count => $count } ) if $log->is_info();
+
+	return;
 }
 
 
 
-sub compute_product_history_and_completeness($$$) {
+sub compute_product_history_and_completeness($$$$) {
 
-
+	my $product_data_root = shift;
 	my $current_product_ref = shift;
 	my $changes_ref = shift;
 	my $blame_ref = shift;
@@ -1367,7 +1670,7 @@ sub compute_product_history_and_completeness($$$) {
 	$log->debug("compute_product_history_and_completeness", { code => $code, product_id => $product_id } ) if $log->is_debug();
 
 	# Keep track of the last user who modified each field
-	%$blame_ref = ();
+	%{$blame_ref} = ();
 
 	return if not defined $changes_ref;
 
@@ -1427,13 +1730,13 @@ sub compute_product_history_and_completeness($$$) {
 
 	my %changed_by = ();
 
-	foreach my $change_ref (@$changes_ref) {
+	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -1573,7 +1876,7 @@ sub compute_product_history_and_completeness($$$) {
 				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
-				my $uniq = sub { my %seen; grep !$seen{$_}++, @_ };
+				my $uniq = sub { my %seen; grep { !$seen{$_}++ } @_ };
 				@ids = $uniq->( keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
@@ -1636,8 +1939,9 @@ sub compute_product_history_and_completeness($$$) {
 							# when moving images, attribute the image to the user that uploaded the image
 
 							$userid = $current_product_ref->{images}{$id}{uploader};
-							if ($userid eq 'unknown') {	# old unknown user
-								$current_product_ref->{images}{$id}{uploader} = "openfoodfacts-contributors";
+							if ( $userid eq 'unknown' ) {   # old unknown user
+								$current_product_ref->{images}{$id}{uploader}
+									= "openfoodfacts-contributors";
 								$userid = "openfoodfacts-contributors";
 							}
 							$change_ref->{userid} = $userid;
@@ -1712,6 +2016,8 @@ sub compute_product_history_and_completeness($$$) {
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
 	$log->debug("compute_product_history_and_completeness - done", { code => $code, product_id => $product_id } ) if $log->is_debug();
+
+	return;
 }
 
 
@@ -1747,11 +2053,11 @@ sub add_back_field_values_removed_by_user($$$$) {
 
 	my $revs = 0;
 
-	foreach my $change_ref (@$changes_ref) {
+	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;	# was not set before June 2012
+		if ( not defined $rev ) {
+			$rev = $revs;    # was not set before June 2012
 		}
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
@@ -1814,7 +2120,7 @@ sub add_back_field_values_removed_by_user($$$$) {
 
 	if ($added > 0) {
 
-		$added . $added_countries;
+		return $added . $added_countries;
 	}
 	else {
 		return 0;
@@ -1842,10 +2148,16 @@ sub product_name_brand($) {
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
 	}
+	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
+		$full_name = $ref->{"abbreviated_product_name_$lc"};
+	}
+	elsif ((defined $ref->{abbreviated_product_name}) and ($ref->{abbreviated_product_name} ne '')) {
+		$full_name = $ref->{abbreviated_product_name};
+	}
 
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
-		$brand =~ s/,.*//;	# take the first brand
+		$brand =~ s/,.*//;    # take the first brand
 		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
 		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
@@ -1944,6 +2256,8 @@ sub index_product($)
 	}
 
 	$product_ref->{_keywords} = [keys %keywords];
+
+	return;
 }
 
 
@@ -1993,6 +2307,8 @@ sub compute_codes($) {
 	}
 
 	$product_ref->{codes_tags} = \@codes;
+
+	return;
 }
 
 
@@ -2012,9 +2328,9 @@ sub compute_languages($) {
 
 	# check all the fields of the product
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
-		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne '')) {
 			my $language_code = $1;
 			my $language = undef;
 			if (defined $language_codes{$language_code}) {
@@ -2060,6 +2376,8 @@ sub compute_languages($) {
 	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+
+	return;
 }
 
 
@@ -2331,7 +2649,7 @@ sub process_product_edit_rules($) {
 										$emoji = ":pear:";
 									}
 
-									use LWP::UserAgent;
+									require LWP::UserAgent;
 									my $ua = LWP::UserAgent->new;
 									my $server_endpoint = "https://hooks.slack.com/services/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";
 
@@ -2384,6 +2702,7 @@ sub log_change {
 	};
 	get_recent_changes_collection()->insert_one($change_document);
 
+	return;
 }
 
 sub compute_changes_diff_text {
@@ -2459,6 +2778,8 @@ sub add_user_teams ($) {
 			}
 		}
 	}
+
+	return;
 }
 
 1;

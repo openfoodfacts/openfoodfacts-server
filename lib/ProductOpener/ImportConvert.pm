@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,8 +54,7 @@ use Text::Fuzzy;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		%fields
@@ -92,7 +91,7 @@ BEGIN
 
 		@xml_errors
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -113,6 +112,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use HTML::Entities qw(decode_entities);
 
 %fields = ();
 @fields = ();
@@ -201,10 +201,16 @@ sub assign_value($$$) {
 		elsif (($field =~ /^(.+)_(\w\w)$/) and (defined $language_fields{$1})) {
 			$product_ref->{$field} .= "\n" . $value;
 		}
+		# we have a different value that we cannot append, replace it
+		else {
+			$product_ref->{$field} = $value;
+		}
 	}
 	else {
 		$product_ref->{$field} = $value;
 	}
+
+	return;
 }
 
 
@@ -219,6 +225,8 @@ sub remove_value($$$) {
 	if (defined $product_ref->{$field}) {
 		$field =~ s/(, )?$value//ig;
 	}
+
+	return;
 }
 
 
@@ -233,6 +241,8 @@ sub apply_global_params($) {
 
 		assign_value($product_ref, $field, $global_params{$field});
 	}
+
+	return;
 }
 
 sub apply_global_params_to_all_products() {
@@ -242,6 +252,8 @@ sub apply_global_params_to_all_products() {
 	foreach my $code (sort keys %products) {
 		apply_global_params($products{$code});
 	}
+
+	return;
 }
 
 
@@ -255,7 +267,7 @@ sub assign_main_language_of_product($$$) {
 
 	if ((not defined $product_ref->{lc}) or (not defined $product_ref->{"product_name_" . $product_ref->{lc}})) {
 
-		foreach my $possible_lc (@$lcs_ref) {
+		foreach my $possible_lc (@{$lcs_ref}) {
 			if ((defined $product_ref->{"product_name_" . $possible_lc}) and ($product_ref->{"product_name_" . $possible_lc} !~ /^\s*$/)) {
 				$log->info("assign_main_language_of_product: assigning value", { lc => $possible_lc}) if $log->is_info();
 				assign_value($product_ref, "lc", $possible_lc);
@@ -268,6 +280,8 @@ sub assign_main_language_of_product($$$) {
 		$log->info("assign_main_language_of_product: assigning default value", { lc => $default_lc}) if $log->is_info();
 		assign_value($product_ref, "lc", $default_lc);
 	}
+
+	return;
 }
 
 sub assign_countries_for_product($$$) {
@@ -276,7 +290,7 @@ sub assign_countries_for_product($$$) {
 	my $lcs_ref = shift;
 	my $default_country = shift;
 
-	foreach my $possible_lc (keys %$lcs_ref) {
+	foreach my $possible_lc (keys %{$lcs_ref}) {
 		if (defined $product_ref->{"product_name_" . $possible_lc}) {
 			assign_value($product_ref,"countries", $lcs_ref->{$possible_lc});
 			$log->info("assign_countries_for_product: found lc - assigning value", { lc => $possible_lc, countries => $lcs_ref->{$possible_lc}}) if $log->is_info();
@@ -287,6 +301,8 @@ sub assign_countries_for_product($$$) {
 		assign_value($product_ref,"countries", $default_country);
 		$log->info("assign_countries_for_product: assigning default value", { countries => $default_country}) if $log->is_info();
 	}
+
+	return;
 }
 
 
@@ -349,6 +365,8 @@ sub match_taxonomy_tags($$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -363,11 +381,11 @@ sub match_specific_taxonomy_tags($$$$) {
 
 	my $tag_lc = $product_ref->{lc};
 
-	$log->trace("match_specific_taxonomy_tags - start", { source => $source, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
+	$log->trace("match_specific_taxonomy_tags - start", { source => $source, source_value => $product_ref->{$source}, target => $target, tag_lc => $tag_lc, tags_ref => $tags_ref}) if $log->is_trace();
 
 	if ((defined $product_ref->{$source}) and ($product_ref->{$source} ne "")) {
 
-		foreach my $tagid (@$tags_ref) {
+		foreach my $tagid (@{$tags_ref}) {
 
 			$log->trace("match_specific_taxonomy_tags - looping through tags", { tagid => $tagid}) if $log->is_trace();
 
@@ -401,13 +419,22 @@ sub match_specific_taxonomy_tags($$$$) {
 				$log->trace("match_specific_taxonomy_tags - regexp", { tag_regexp => $tag_regexp}) if $log->is_trace();
 				$log->trace("match_specific_taxonomy_tags - source value", { source_value => $product_ref->{$source}}) if $log->is_trace();
 
-				if ($product_ref->{$source} =~ /\b${tag_regexp}\b/i) {
+				if ($product_ref->{$source} =~ /\b(${tag_regexp})\b/i) {
+					$log->info(
+						"match_specific_taxonomy_tags: assigning value",
+						{   matching => $1,
+							source   => $source,
+							value    => $tagid,
+							target   => $target
+						}
+					) if $log->is_info();
 					assign_value($product_ref, $target, $tagid);
-					$log->info("match_specific_taxonomy_tags: assigning value", { source => $source, value => $tagid, target => $target}) if $log->is_info();
 				}
 			}
 		}
 	}
+
+	return;
 }
 
 sub match_labels_in_product_name($) {
@@ -423,6 +450,8 @@ sub match_labels_in_product_name($) {
 	}
 
 	match_specific_taxonomy_tags($product_ref, "product_name_" . $tag_lc, "labels", \@tags);
+
+	return;
 }
 
 
@@ -484,6 +513,8 @@ sub assign_quantity_from_field($$) {
 		}
 
 	}
+
+	return;
 }
 
 
@@ -535,21 +566,35 @@ sub clean_weights($) {
 			assign_value($product_ref, $field . "_unit", "g");
 		}
 
-		# combine value and unit
-		if ((not defined $product_ref->{$field})
-			and (defined $product_ref->{$field . "_value"})
-			and ($product_ref->{$field . "_value"} ne "")
-			and (defined $product_ref->{$field . "_unit"}) ) {
-
-			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
-		}
-
 		# We may be passed quantity_value_unit, in that case assign it to quantity
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value_unit"})
 			and ($product_ref->{$field . "_value_unit"} ne "")) {
 
 			assign_value($product_ref, $field, $product_ref->{$field . "_value_unit"});
+		}
+
+		# for quantity and serving_size, we might have 3 values:
+		# - a quantity with a non normalized unit ("2 biscuits)
+		# - a value and a unit ("30 g")
+		# in this case, we can combine them: "2 biscuits (30 g)"
+
+		if ((($field eq "quantity") or ($field eq "serving_size"))
+			and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+			and (defined $product_ref->{$field . "_value"}) and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"})
+
+			# check we have not already combined the value and unit
+			and (not (index($product_ref->{$field}, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"}) >= 0)) ) {
+
+			assign_value($product_ref, $field, $product_ref->{$field} . " (" . $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"} . ")" );
+		}
+		elsif ((not defined $product_ref->{$field})
+			and (defined $product_ref->{$field . "_value"})
+			and ($product_ref->{$field . "_value"} ne "")
+			and (defined $product_ref->{$field . "_unit"}) ) {
+
+			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
 		}
 
 		if (defined $product_ref->{$field}) {
@@ -580,6 +625,9 @@ sub clean_weights($) {
 
 			# remove the e
 			$product_ref->{$field} =~ s/ e\b//g;
+
+			# 1 units (with units in plural)
+			$product_ref->{$field} =~ s/^1 (unit|piece|pièce)s$/1 $1/ig;
 		}
 
 	}
@@ -647,12 +695,12 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 		}
 
 		# 1/2 , 3/4
-		if ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
+		elsif ($product_ref->{quantity} =~ /^'?\s*\d+((\/)\d+)\s*$/i) {
 			delete $product_ref->{quantity};
 		}
 
 		# No numbers (e.g. "sachet", "bouteille")
-		if ($product_ref->{quantity} !~ /[1-9]/) {
+		elsif ($product_ref->{quantity} !~ /[1-9]/) {
 			delete $product_ref->{quantity};
 		}
 	}
@@ -666,7 +714,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 	# empty or incomplete quantity, but net_weight etc. present
 	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") or (not defined $normalized_quantity)
 		or (($product_ref->{lc} eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
-		or ($product_ref->{quantity} =~ /^\(.+\)$/)	#  (4 x 125 g)
+		or ($product_ref->{quantity} =~ /^\(.+\)$/)     #  (4 x 125 g)
 		) {
 
 		# See if we have other quantity related values: net_weight_value	net_weight_unit	drained_weight_value	drained_weight_unit	volume_value	volume_unit
@@ -675,7 +723,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
-				and ($product_ref->{$field} =~ /^\d/) ) {	# make sure we have a number
+				and ($product_ref->{$field} =~ /^\d/) ) {   # make sure we have a number
 				$extra_quantity = $product_ref->{$field};
 				last;
 			}
@@ -683,7 +731,7 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 
 		if (defined $extra_quantity) {
 			if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-				if ($product_ref->{quantity} =~ /^\(.+\)$/)	{
+				if ($product_ref->{quantity} =~ /^\(.+\)$/) {
 					$product_ref->{quantity} = $extra_quantity . " " . $product_ref->{quantity};
 				}
 				else {
@@ -695,6 +743,8 @@ drained_weight => '(peso )?(neto )?(escurrido)',
 			}
 		}
 	}
+
+	return;
 }
 
 
@@ -719,7 +769,7 @@ sub clean_fields($) {
 
 	$log->debug("clean_fields - start", {  }) if $log->is_debug();
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
 		# If we have generic_name but not product_name, also assign generic_name to product_name
 		if (($field =~ /^generic_name_(\w\w)$/) and (not defined $product_ref->{"product_name_" . $1})) {
@@ -733,10 +783,12 @@ sub clean_fields($) {
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
 		# Split the generic name from the ingredient list
-		if ($field =~ /^ingredients_text_(\w\w)/) {
+		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
+		# It should not be done again when we import product data from the producers platform to the public database
+		if (($server_options{producers_platform}) and ($field =~ /^ingredients_text_(\w\w)/)) {
 			my $ingredients_lc = $1;
 			split_generic_name_from_ingredients($product_ref, $ingredients_lc);
 		}
@@ -753,9 +805,15 @@ sub clean_fields($) {
 		}
 	}
 
-	foreach my $field (keys %$product_ref) {
+	foreach my $field (keys %{$product_ref}) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		# HTML entities
+		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
+		if ($product_ref->{$field} =~ /\&/) {
+			$product_ref->{$field} = decode_entities($product_ref->{$field});
+		}
 
 		$product_ref->{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 		$product_ref->{$field} =~ s/’/'/g;
@@ -795,6 +853,15 @@ sub clean_fields($) {
 
 			# FR 62.907.030 EC (DANS UN OVALE)
 			$product_ref->{$field} =~ s/\(?dans un ovale\)?//ig;
+			
+			# FR 72.024.001 EC - FR 72 024 520 CE
+			$product_ref->{$field} =~ s/ (CE|EC) - ([A-Z][A-Z]) / $1, $2/g;
+		}
+		
+		# category with "organic" in it
+		if ($field eq "categories") {
+			$product_ref->{$field} =~ s/^organic //i; # English
+			$product_ref->{$field} =~ s/ bio$//i; # French
 		}
 
 		# Origin of ingredients that contains other things than tags (e.g. Leroux)
@@ -815,21 +882,31 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
 		}
 
-
-		# Lowercase fields in ALL CAPS
-		if ($field =~ /^(ingredients_text|product_name|generic_name|brands)/) {
+		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
+			
+			# Lowercase fields in ALL CAPS
+			
 			if (($product_ref->{$field} =~ /[A-Z]{4}/)
 				and ($product_ref->{$field} !~ /[a-z]/)
 				) {
 				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
 				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 			}
+			
+			# Remove fields with "0"
+			$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
 		}
-
+		
+		# All fields
+		# Remove fields with "-" or "X"
+		$product_ref->{$field} =~ s/^(\s|x|X|-|_|\.|\/)+$//;
 
 		# Ingredients
 
 		if ($field =~ /^ingredients_text/) {
+			
+			# _x000D_
+			$product_ref->{$field} =~ s/_x000D_/\n/g;
 
 			# Farine de<STRONG> <i>blé</i> </STRONG> - sucre
 
@@ -907,10 +984,16 @@ sub clean_fields($) {
 		}
 
 		# remove N, N/A, NA etc.
-		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no|n)\s*(,|$)//ig;
+		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*(,|$)//ig;
+		
+		# remove none except for allergens and traces
+		if ($field !~ /allergens|traces/) {
+			$product_ref->{$field} =~ s/(^|,)\s*(none|aucun|aucune|aucun\(e\))\s*(,|$)//ig;			
+		}
 
 		if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-			$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
+			$product_ref->{$field} =~ s/^\s*(autre logo)?\s*$//ig;
 		}
 
 		$product_ref->{$field} =~ s/ +/ /g;
@@ -933,6 +1016,8 @@ sub clean_fields($) {
 	}
 
 	match_labels_in_product_name($product_ref);
+
+	return;
 }
 
 
@@ -941,6 +1026,8 @@ sub clean_fields_for_all_products() {
 	foreach my $code (sort keys %products) {
 		clean_fields($products{$code});
 	}
+
+	return;
 }
 
 
@@ -968,7 +1055,7 @@ sub load_xml_file($$$$) {
 
 	my $xml_ref;
 
-	eval { $xml_ref = $parser->parse_file( $file);	};
+	eval { $xml_ref = $parser->parse_file($file); };
 
 	if ($@ ne "") {
 		$log->error("error parsing xml file with XML::Rules", { file => $file, error=>$@ }) if $log->is_error();
@@ -1137,7 +1224,7 @@ sub load_xml_file($$$$) {
 		$product_ref = get_or_create_product_for_code($code);
 	}
 
-	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
+	foreach my $field_mapping_ref (@{$xml_fields_mapping_ref}) {
 		my $source = $field_mapping_ref->[0];
 		my $target = $field_mapping_ref->[1];
 
@@ -1335,7 +1422,7 @@ sub load_csv_file($) {
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
 
-	my $i = 0;	# line number
+	my $i = 0;    # line number
 
 	if (defined $skip_lines) {
 		$log->info("Skipping $skip_lines lines before header") if $log->is_info();
@@ -1369,7 +1456,7 @@ sub load_csv_file($) {
 
 		$log->info("Reading line $i") if $log->is_info();
 
-		my $code = undef;	# code must be first
+		my $code = undef;    # code must be first
 
 		my $seen_energy_kj = 0;
 
@@ -1452,7 +1539,7 @@ sub load_csv_file($) {
 
 							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
 							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
-							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}
 
@@ -1506,6 +1593,8 @@ sub load_csv_file($) {
 		}
 
 	}
+
+	return;
 }
 
 sub recursive_list($$);
@@ -1532,8 +1621,10 @@ sub recursive_list($$) {
 		closedir (DH);
 	}
 	else {
-		push @$list_ref, $arg;
+		push @{$list_ref}, $arg;
 	}
+
+	return;
 }
 
 sub get_list_of_files(@) {
@@ -1582,6 +1673,7 @@ sub print_csv_file() {
 		print STDERR "code: $code\n";
 	}
 
+	return;
 }
 
 
@@ -1609,6 +1701,8 @@ sub print_stats() {
 			print STDERR "$field:\t$existing_values{$field}\n";
 		}
 	}
+
+	return;
 }
 
 
@@ -1657,19 +1751,19 @@ sub extract_nutrition_facts_from_text($$$$$) {
 
 		if ($text_lc eq "en") {
 			if ($text =~ /^\s*(for|per) ((1|a|one) )?serving (of )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $5;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $5;
 			}
 		}
 		elsif ($text_lc eq "fr") {
 			if ($text =~ /^\s*(à la |a la |pour |par |)(1 |une )?portion (de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $4;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $4;
 			}
 			# Pour un carré de 10.7g :
 			if ($text =~ /^\s*(pour )(\D+) ?(de |d'environ )?\(? ?(\d+((\.|,)\d+)? ?(g|kg|mg|µg|l|dl|cl|ml))/i) {
-				$$nutrition_data_per_ref = "serving";
-				$$serving_size_ref = $4;
+				${$nutrition_data_per_ref} = "serving";
+				${$serving_size_ref} = $4;
 			}
 		}
 
@@ -1797,6 +1891,8 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			}
 		}
 	}
+
+	return;
 }
 
 

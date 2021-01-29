@@ -62,7 +62,7 @@ my $white_magic = param('white_magic');
 # that has a max width and height of 400 pixels
 my $coordinates_image_size = param('coordinates_image_size') || $crop_size;
 
-$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2 }) if $log->is_debug();
+$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, param_coordinates_image_size => param('coordinates_image_size'), coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 if (not defined $code) {
 

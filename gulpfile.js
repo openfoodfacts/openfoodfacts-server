@@ -1,12 +1,20 @@
-"use strict";
+/*global exports */
 
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
+
+const jsSrc = [
+  './html/js/display*.js',
+  './html/js/product-multilingual.js',
+  './html/js/search.js'
+];
+
+const sassSrc = "./scss/**/*.scss";
 
 const sassOptions = {
   errLogToConsole: true,
@@ -15,12 +23,12 @@ const sassOptions = {
 };
 
 function icons() {
-  return src("*.svg", { cwd: "./icons" })
-    .pipe(
+  return src("*.svg", { cwd: "./icons" }).
+    pipe(
       svgmin({
       plugins: [
-        { removeMetadata: false },
-        { removeTitle: false },
+        { removeMetadata: true },
+        { removeTitle: true },
         { removeDimensions: true },
           { addClassesToSVGElement: { className: "icon" } },
           {
@@ -30,51 +38,66 @@ function icons() {
           }
       ]
       })
-    )
-    .pipe(dest("./html/images/icons/dist"));
+    ).
+    pipe(dest("./html/images/icons/dist"));
+}
+
+function attributesIcons() {
+  return src("*.svg", { cwd: "./html/images/attributes/src" }).
+    pipe(
+      svgmin({
+      plugins: [
+        { removeMetadata: true },
+        { removeTitle: true },
+      ]
+      })
+    ).
+    pipe(dest("./html/images/attributes"));
 }
 
 function css() {
-  return src("./scss/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on("error", sass.logError))
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/css/dist"));
+  return src(sassSrc).
+    pipe(sourcemaps.init()).
+    pipe(sass(sassOptions).on("error", sass.logError)).
+    pipe(minifyCSS()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/css/dist"));
 }
 
 function copyJs() {
   return src(
     [
+      "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
       "./node_modules/foundation-sites/js/vendor/*.js",
       "./node_modules/foundation-sites/js/foundation.js",
       "./node_modules/papaparse/papaparse.js",
       "./node_modules/osmtogeojson/osmtogeojson.js",
       "./node_modules/leaflet/dist/leaflet.js",
       "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
-      "./node_modules/blueimp-tmpl/js/*.js",
+      "./node_modules/blueimp-tmpl/js/tmpl.js",
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
-      "./node_modules/cropper/dist/*.js"
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(terser())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/js/dist"));
+      "./node_modules/cropperjs/dist/cropper.js",
+      "./node_modules/jquery-cropper/dist/jquery-cropper.js",
+      "./node_modules/jquery-form/src/jquery.form.js",
+      "./node_modules/highcharts/highcharts.js",
+      "./node_modules/jvectormap-next/jquery-jvectormap.js",
+      "./node_modules/jvectormap-content/world-mill.js"
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(terser()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/js/dist"));
 }
 
 function buildJs() {
-  return src([
-    './html/js/display*.js',
-    './html/js/product-multilingual.js',
-    './html/js/search.js'
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(sourcemaps.write("."))
-  .pipe(dest("./html/js/dist"));
+  return src(jsSrc).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(sourcemaps.write(".")).
+  pipe(dest("./html/js/dist"));
 }
 
 function buildjQueryUi() {
@@ -87,12 +110,12 @@ function buildjQueryUi() {
     './node_modules/jquery-ui/ui/safe-active-element.js',
     './node_modules/jquery-ui/ui/widgets/autocomplete.js',
     './node_modules/jquery-ui/ui/widgets/menu.js'
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(terser())
-  .pipe(concat('jquery-ui.js'))
-  .pipe(sourcemaps.write("."))
-  .pipe(dest('./html/js/dist'))
+  ]).
+  pipe(sourcemaps.init()).
+  pipe(terser()).
+  pipe(concat('jquery-ui.js')).
+  pipe(sourcemaps.write(".")).
+  pipe(dest('./html/js/dist'));
 }
 
 function jQueryUiThemes() {
@@ -101,12 +124,12 @@ function jQueryUiThemes() {
       './node_modules/jquery-ui/themes/base/autocomplete.css',
       './node_modules/jquery-ui/themes/base/menu.css',
       './node_modules/jquery-ui/themes/base/theme.css',
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(minifyCSS())
-    .pipe(concat('jquery-ui.css'))
-    .pipe(sourcemaps.write("."))
-    .pipe(dest('./html/css/dist/jqueryui/themes/base'));
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(minifyCSS()).
+    pipe(concat('jquery-ui.css')).
+    pipe(sourcemaps.write(".")).
+    pipe(dest('./html/css/dist/jqueryui/themes/base'));
 }
 
 function copyCss() {
@@ -116,23 +139,27 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css"
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./html/css/dist"));
+      "./node_modules/cropperjs/dist/cropper.css",
+      "./node_modules/jvectormap-next/jquery-jvectormap.css"
+    ]).
+    pipe(sourcemaps.init()).
+    pipe(minifyCSS()).
+    pipe(sourcemaps.write(".")).
+    pipe(dest("./html/css/dist"));
 }
 
 function copyImages() {
-  return src([
-      "./node_modules/leaflet/dist/**/*.png"
-    ])
-    .pipe(dest("./html/css/dist"));
+  return src(["./node_modules/leaflet/dist/**/*.png"]).
+    pipe(dest("./html/css/dist"));
 }
 
 exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.attributesIcons = attributesIcons;
+exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, attributesIcons, css));
+exports.watch = function () {
+  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(sassSrc, { delay: 500 }, css);
+};

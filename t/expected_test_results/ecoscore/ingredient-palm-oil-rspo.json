@@ -1,0 +1,94 @@
+{
+   "categories_tags" : [
+      "en:margarines"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 0,
+            "transportation_value" : 0,
+            "value" : -5,
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "16737",
+         "co2_agriculture" : "0.85619568",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.030254944",
+         "co2_packaging" : "0.20585948",
+         "co2_processing" : "0.12042224",
+         "co2_total" : "1.4400484",
+         "co2_transportation" : "0.22241292",
+         "code" : "16737",
+         "dqr" : "3.31",
+         "ef_agriculture" : "0.2785495",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.009194265200000001",
+         "ef_packaging" : "0.015478282000000001",
+         "ef_processing" : "0.01151692",
+         "ef_total" : 0.33526651,
+         "ef_transportation" : "0.018090858",
+         "is_beverage" : 0,
+         "name_en" : "Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3",
+         "name_fr" : "Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3",
+         "score" : 71.9485117508868
+      },
+      "grade" : "c",
+      "missing" : {
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 56.9485117508868,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 56.9485117508868,
+   "ecoscore_tags" : [
+      "c"
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil"
+   ],
+   "labels_tags" : [
+      "en:roundtable-on-sustainable-palm-oil"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ]
+}

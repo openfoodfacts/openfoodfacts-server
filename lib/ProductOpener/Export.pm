@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -82,13 +82,12 @@ use Log::Any qw($log);
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		&export_csv
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -201,7 +200,7 @@ sub export_csv($) {
 
 			my $group_number = 0;
 
-			foreach my $group_ref (@$fields_groups_ref) {
+			foreach my $group_ref (@{$fields_groups_ref}) {
 
 				$group_number++;
 				my $item_number = 0;
@@ -265,14 +264,14 @@ sub export_csv($) {
 							my %selected_images = ();
 							foreach my $imageid (sort keys %{$product_ref->{images}}) {
 
-								if ($imageid =~ /^(front|ingredients|nutrition|other)_(\w\w)$/) {
+								if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
 
 									$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 									$populated_fields{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid;
 									# Also export the crop coordinates
 									foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
 										if ((defined $product_ref->{images}{$imageid}{$coord})
-											and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))	# -1 is passed when the image is not cropped
+											and (($coord !~ /^(x|y)/) or ($product_ref->{images}{$imageid}{$coord} != -1))  # -1 is passed when the image is not cropped
 											) {
 												$populated_fields{"image_" . $imageid . "_" . $coord} = sprintf("%08d", 10 * 1000 ) . "_" . $imageid . "_" . $coord;
 										}
@@ -326,6 +325,15 @@ sub export_csv($) {
 					}
 				}
 			}
+
+			# Source specific fields in the sources_fields hash
+			if (defined $product_ref->{sources_fields}) {
+				foreach my $source_id (sort keys %{$product_ref->{sources_fields}}) {
+					foreach my $field (sort keys %{$product_ref->{sources_fields}{$source_id}}) {
+						$populated_fields{"sources_fields:${source_id}:$field"} = sprintf("%08d", 10 * 1000 . "${source_id}:$field");
+					}
+				}
+			}
 		}
 
 		@sorted_populated_fields = sort ({ $populated_fields{$a} cmp $populated_fields{$b} } keys %populated_fields);
@@ -334,7 +342,7 @@ sub export_csv($) {
 	}
 	else {
 		# The fields to export are specified by the fields parameter
-		@sorted_populated_fields = @$fields_ref;
+		@sorted_populated_fields = @{$fields_ref};
 	}
 
 	# Extra fields such as Nova or Nutri-Score that do not originate from users or producers but are computed
@@ -366,71 +374,83 @@ sub export_csv($) {
 
 			my $value;
 
-			foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
-				if ($field =~ /$suffix$/) {
-					my $nid = $`;
-					if (defined $product_ref->{nutriments}) {
-						$value = $product_ref->{nutriments}{$nid . $suffix};
-					}
-					$nutriment_field = 1;
-					last;
+			# Source specific fields
+			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
+				my $source_id = $1;
+				my $source_field = $';
+				if ((defined $product_ref->{sources_fields}) and (defined $product_ref->{sources_fields}{$source_id})
+					and (defined $product_ref->{sources_fields}{$source_id}{$source_field})) {
+					$value = $product_ref->{sources_fields}{$source_id}{$source_field};
 				}
 			}
+			else {
 
-			if (not $nutriment_field) {
-
-				# If we export image fields, we first need to generate the paths to images
-
-				if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-					ProductOpener::Display::add_images_urls_to_product($product_ref);
-					$added_images_urls = 1;
-				}
-
-				if ($field =~ /^image_(.*)_file/) {
-					# File path for the image on the server, used for exporting from producers platform to public database
-
-					my $imagefield = $1;
-
-					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-						$value = "$www_root/images/products/" . $product_path . "/" . $product_ref->{images}{$imagefield}{imgid} . ".jpg";
-					}
-					elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
-						$value = "$www_root/images/products/" . $product_path . "/" . $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+				foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
+					if ($field =~ /$suffix$/) {
+						my $nid = $`;
+						if (defined $product_ref->{nutriments}) {
+							$value = $product_ref->{nutriments}{$nid . $suffix};
+						}
+						$nutriment_field = 1;
+						last;
 					}
 				}
-				elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/) {
-					# Coordinates for image cropping
-					my $imagefield = $1;
-					my $coord = $2;
 
-					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-						$value = $product_ref->{images}{$imagefield}{$coord};
+				if (not $nutriment_field) {
+
+					# If we export image fields, we first need to generate the paths to images
+
+					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
+						ProductOpener::Display::add_images_urls_to_product($product_ref);
+						$added_images_urls = 1;
 					}
-				}
-				elsif ($field =~ /^image_(ingredients|nutrition)_json$/) {
-					if (defined $product_ref->{"image_$1_url"}) {
-						$value = $product_ref->{"image_$1_url"};
-						$value =~ s/\.(\d+)\.jpg/.json/;
+
+					if ($field =~ /^image_(.*)_file/) {
+						# File path for the image on the server, used for exporting from producers platform to public database
+
+						my $imagefield = $1;
+
+						if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+							$value = "$www_root/images/products/" . $product_path . "/" . $product_ref->{images}{$imagefield}{imgid} . ".jpg";
+						}
+						elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
+							$value = "$www_root/images/products/" . $product_path . "/" . $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+						}
 					}
-				}
-				elsif ($field =~ /^image_(.*)_full_url$/) {
-					if (defined $product_ref->{"image_$1_url"}) {
-						$value = $product_ref->{"image_$1_url"};
-						$value =~ s/\.(\d+)\.jpg/.full.jpg/;
+					elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/) {
+						# Coordinates for image cropping
+						my $imagefield = $1;
+						my $coord = $2;
+
+						if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+							$value = $product_ref->{images}{$imagefield}{$coord};
+						}
 					}
-				}
-				elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
-					$value = join(",", @{$product_ref->{$field}});
-				}
-				elsif (defined $taxonomy_fields{$field}) {
-					# we do not know the language of the current value of $product_ref->{$field}
-					# so regenerate it in the main language of the product
-					$value = display_tags_hierarchy_taxonomy($product_ref->{lc}, $field, $product_ref->{$field . "_hierarchy"});
-					# Remove tags
-					$value =~ s/<(([^>]|\n)*)>//g;
-				}
-				else {
-					$value = $product_ref->{$field};
+					elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
+						if (defined $product_ref->{"image_$1_url"}) {
+							$value = $product_ref->{"image_$1_url"};
+							$value =~ s/\.(\d+)\.jpg/.json/;
+						}
+					}
+					elsif ($field =~ /^image_(.*)_full_url$/) {
+						if (defined $product_ref->{"image_$1_url"}) {
+							$value = $product_ref->{"image_$1_url"};
+							$value =~ s/\.(\d+)\.jpg/.full.jpg/;
+						}
+					}
+					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
+						$value = join(",", @{$product_ref->{$field}});
+					}
+					elsif (defined $taxonomy_fields{$field}) {
+						# we do not know the language of the current value of $product_ref->{$field}
+						# so regenerate it in the main language of the product
+						$value = display_tags_hierarchy_taxonomy($product_ref->{lc}, $field, $product_ref->{$field . "_hierarchy"});
+						# Remove tags
+						$value =~ s/<(([^>]|\n)*)>//g;
+					}
+					else {
+						$value = $product_ref->{$field};
+					}
 				}
 			}
 
@@ -440,6 +460,8 @@ sub export_csv($) {
 		$csv->print ($filehandle, \@values);
 		print $filehandle "\n";
 	}
+
+	return;
 }
 
 

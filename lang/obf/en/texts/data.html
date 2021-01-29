@@ -1,30 +1,36 @@
+
 <h1>Data</h1>
 
-<p>The Open Beauty Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br>
-The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br>
+<p>The Open Beauty Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
+The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br/>
 Products images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.
 They may contain graphical elements subject to copyright or other rights, that may in some cases be reproduced (quotation rights or fair use).</p>
 
 <p>Please read <a href="https://world.openbeautyfacts.org/terms-of-use">Terms and conditions of use and re-use</a> before re-using the data.</p> 
 
 
-<p>We are very interested in learning what the Open Beauty Facts data is used for. It is not mandatory, but we would very much appreciate it if you tell us about your re-uses so that we can share them
+<p>We are very interested in learning what the Open Beauty Facts data is used for. It is not mandatory, but we would very much appreciate it if you <a href="mailto:contact@openfoodfacts.org">tell us about your re-uses</a> so that we can share them
 with the Open Beauty Facts community.</p>
 
 <h2>Open Beauty Facts data exports</h2>
 
 <p>Database dumps and exports are generated nightly.</p>
 
-<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://world.openbeautyfacts.org/data/data-fields.txt">https://world.openbeautyfacts.org/data/data-fields.txt</a></p>
+<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openbeautyfacts.org/data/data-fields.txt">https://world.openbeautyfacts.org/data/data-fields.txt</a></p>
 
 
 <h3>MongoDB dump</h3>
 
 <p>Data for all products is available in a MongoDB database dump.</p>
 
-<p>Link : <a href="https://world.openbeautyfacts.org/data/openbeautyfacts-mongodbdump.tar.gz">https://world.openbeautyfacts.org/data/openbeautyfacts-mongodbdump.tar.gz</a>
-</p><p>sha256sum : <a href="https://world.openbeautyfacts.org/data/sha256sum">https://world.openbeautyfacts.org/data/sha256sum</a>
-</p><p>md5sum : <a href="https://world.openbeautyfacts.org/data/md5sum">https://world.openbeautyfacts.org/data/md5sum</a>
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openbeautyfacts.org/data/openbeautyfacts-mongodbdump.tar.gz">https://static.openbeautyfacts.org/data/openbeautyfacts-mongodbdump.tar.gz</a></dd>
+ <dt>sha256sum</dt>
+ <dd><a href="https://static.openbeautyfacts.org/data/sha256sum">https://static.openbeautyfacts.org/data/sha256sum</a></dd>
+ <dt>md5sum</dt>
+ <dd><a href="https://static.openbeautyfacts.org/data/md5sum">https://static.openbeautyfacts.org/data/md5sum</a></dd>
+</dl>
 
 <h4>Delta Export</h4>
 
@@ -36,48 +42,79 @@ with the Open Beauty Facts community.</p>
 <p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
  deleted products from your database, you will need to import the full MongoDB dump.</p>
  
- 
-</p><h3>CSV Data Export</h3>
+<h3>CSV Data Export</h3>
 
 <p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
  through the <a href="https://world.openbeautyfacts.org/cgi/search.pl">advanced search form</a>.</p>
  
-<p>Link : <a href="https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.csv">https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.csv</a>
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openbeautyfacts.org/data/en.openbeautyfacts.org.products.csv">https://static.openbeautyfacts.org/data/en.openbeautyfacts.org.products.csv</a></dd>
+</dl>
 
+<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
 
-</p><p>The file encoding is Unicode UTF-8. The character that separates fields is <tab> (tabulation).</p>
-
- 
 
 
 <h3>RDF Data Export</h3>
 
 <p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
 
-<p>Link: <a href="https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.rdf">https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.rdf</a>
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.rdf">https://world.openbeautyfacts.org/data/en.openbeautyfacts.org.products.rdf</a></dd>
+</dl>
 
-</p><h2>Experimental JSON API</h2>
+<h2>Live JSON API</h2>
 
 <p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Beauty Facts mobile app for iPhone and Android.</p>
 
-<p>This API is experimental and can change. Please tell us if you use it, so that we can tell you about potential changes.</p>
+<p>We change the API over-time but we are careful to keep backwards compatibility. Please tell us if you use it, so that we can tell you about potential changes.</p>
 
 <p>URL to read data for a product: https://world.openbeautyfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
 
 <p>Example: <a href="https://world.openbeautyfacts.org/api/v0/product/3600550578041.json">https://world.openbeautyfacts.org/api/v0/product/3600550578041.json</a></p>
 
-<h2>Android and iPhone mobile app </h2>
+Further documentation is <a href="https://wiki.openfoodfacts.org/API">available on the Wiki</a>. (Important note: the page is divided into subpages for READ and WRITE). 
+A better documentation is being developped, with uses cases for displaying a product, and letting your users add the data required to get the Nutri-Score, NOVA groups and additives.
+<a href="https://documenter.getpostman.com/view/8470508/SVtN3Wzy?version=latest#intro">You can access it here</a>.
+<p>You are very welcome to use the API for production cases, as long as 1 API call = 1 real scan by a user.
+Any attempt to scrape the database using the API will very likely be blocked, as full daily exports are available on this very page.</p>
+<p>Also, sending an HTTP header with your API call is a good way we can get in touch, should any issue arise.</p>
+<p>If you are unsure about anything, or have any question (there is no silly question), feel free to ask it on Slack :-)</p>
 
-<p>The code for the Open Beauty Facts mobile app is available on <a href="https://github.com/openfoodfacts/openfoodfacts-android/tree/master/phonegap/Open%20Food%20Facts">github</a>.
+<h2>Android and iPhone mobile app (help needed!)</h2>
+
+<p>The code for the Open Beauty Facts mobile app is available on GitHub (<a href="https://github.com/openfoodfacts/openfoodfacts-androidapp">Android</a> and <a href="https://github.com/openfoodfacts/openfoodfacts-ios">iOS</a>). <b>We need help to adapt the new native iOS code to cosmetics</b>
 The app allows users to scan the barcode of products, to view the product information, and to take and send pictures and data for missing products.</p>
 
-<p>The app is developed in HTML and Javascript thanks to Phonegap (Cordova) which enables to use the same code for all mobile platforms.</p>
+<p>The app for iOS is developed in Swift.</p>
+<p>The app for Android is developed in Java.</p>
+<p>You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.
 
-<h2>Mailing list for data, API and exports</h2>
+<h2>Wrappers and SDKs</h2>
+<p>We probably have a wrapper for your favorite programming language. If we do, you can use it and improve it, and probably add Open Beauty Facts support to it. If we don't, you can help create it.</p>
+<p>They will let you consume data, as well as let your users contribute new data</p>
+<ul>
+<li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Beauty Facts official app)</a></li>
+<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub (OFF only at the moment)</a></li>
+<li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub (OFF only at the moment)</a></li>
+<li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub (OFF only at the moment)</a></li>
+<li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub (OFF only at the moment)</a></li>
+<li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub (OFF only at the moment)</a></li>
+<li>PHP (Lararel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub (OFF only at the moment)</a></li>
+<li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub (OFF only at the moment)</a></li>
+<li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub (OFF only at the moment)</a></li>
+<li>Ruby: <a href="https://github.com/openfoodfacts/openbeautyfacts-ruby">GitHub (OBF compatible)</a></li>
+</ul>
+
+<h2>Discussing data, API and exports</h2>
+<p>You can <a href="https://slack.openfoodfacts.org">join the Open Beauty Facts Slack chatroom which is the preferred way to ask questions and discuss the API</a>.</p>
 
 <p>You can also join the mailing list to discuss the API and exports, tell us about your re-uses, and be notified when improvements or changes are made to the API. Send an empty e-mail to
-<a href="mailto:api-subscribe@openbeautyfacts.org">api-subscribe@openbeautyfacts.org</a> to subscribe.</p>
+<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> to subscribe.</p>
+
 
 <h2>Contact</h2>
 
-<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openbeautyfacts.org">contact@openbeautyfacts.org</a></p>
+<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

@@ -1174,8 +1174,7 @@ Twinnings_of_London
 Valaisanne
 Veganz
 Walkers
-YOGI_TEA 
- 
+YOGI_TEA
 );
 
 my @brands_regexps = ();
@@ -1294,10 +1293,10 @@ if (opendir (DH, "$dir/json")) {
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
-					delete $product_ref->{countries_hierarchy};					
-					store_product($product_ref, "Creating product (import_openfood_ch.pl bulk upload) - " . $comment );					
-				}				
-				
+					delete $product_ref->{countries_hierarchy};
+					store_product($product_ref, "Creating product (import_openfood_ch.pl bulk upload) - " . $comment );
+				}
+
 			}
 			else {
 				print "- already exists in OFF\n";
@@ -1334,7 +1333,7 @@ if (opendir (DH, "$dir/json")) {
 						
 						# upload a photo
 						my $imgid = process_image_upload($code, "$dir/$file", $User_id, undef, $comment);
-						print "process_image_upload - file: $file - result: $imgid\n";		
+						print "process_image_upload - file: $file - result: $imgid\n";
 						if ($imgid > 0) {
 							push @images_ids, $imgid;
 							
@@ -1356,19 +1355,19 @@ if (opendir (DH, "$dir/json")) {
 								if (defined $imagefields{$first_category}) {
 								
 									my $imagefield = $imagefields{$first_category} . "_" . $global_params{lc} ;
-									
+
 									if (not defined $product_ref->{images}{$imagefield}) {
 										# select a photo
 										print "no image selected for $imagefield yet, selecting it\n";
-										process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);				
+										process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
 									}
 									else {
 										print "image already selected for $imagefield \n";
 									}
-								
+
 								}
-								
-							}							
+
+							}
 						}
 					}
 					else {
@@ -1412,24 +1411,24 @@ if (opendir (DH, "$dir/json")) {
 					print "no brand found in name $openfood_product_ref->{name} \n";
 				}
 				}
-				
+
 				# copy value to main language
 				$params{"product_name_" . $global_params{lc}} = $params{product_name};
-				
-				
-			}			
-			
+
+
+			}
+
 			if (defined $openfood_product_ref->{quantity}) {
 				$params{quantity} = $openfood_product_ref->{quantity} . ' ' .  $openfood_product_ref->{unit};
 				print "set quantity to $params{quantity}\n";
 			}
-			
+
 			if (defined $openfood_product_ref->{"portion-quantity"}) {
 				$params{serving_size} = $openfood_product_ref->{"portion-quantity"} . ' ' .  $openfood_product_ref->{"portion-unit"};
 				#$params{serving_size} = $openfood_product_ref->{"portion-quantity"} . ' ' .  $openfood_product_ref->{"unit"};
 				print "set serving_size to $params{serving_size}\n";
-			}			
-			
+			}
+
 			my %openfood_language_specific_fields = (
 				'ingredients' => 'ingredients_text',
 				'origins' => 'origins',
@@ -1444,14 +1443,14 @@ if (opendir (DH, "$dir/json")) {
 				#	de: "Dinkelmehl 89% (Deutschland), Palmfett, Sesam 3% (Ägypten), Meersalz, Gerstenmalzextrakt, Hefe. Oberflächenbehandlung: Natriumhydroxid E 524. ",
 				#	fr: "farine d'epeautre 89% (Allemagne), graisse de palme, sésame 3% (Egypte), sel marin, extrait de malt d'orge, levure. Traitement en surface: hydroxyde de sodium E 524. ",
 				#	it: "farina di spelta 89% (Germania), grasso di palma, sesamo 3% (Egitto), sale marino, estratto di malto di orzo, lievito. Sostanza per il trattamento in superficie: idrossido di sodio E 524"				
-				
+
 				if (defined $openfood_product_ref->{$field}) {
 					$params{$off_field} = $openfood_product_ref->{$field};
 					if (ref ($params{$off_field}) eq 'ARRAY') {
 						$params{$off_field} = join(', ', @{$params{$off_field}});
-					}					
+					}
 					print "set $field to $params{$field}\n";
-					
+
 					if (defined $openfood_product_ref->{$field . "-translations"}) {
 					
 						foreach my $language (@param_sorted_langs) {
@@ -1465,13 +1464,13 @@ if (opendir (DH, "$dir/json")) {
 							}
 						}
 					}
-					
+
 					# override value with main language
 					if (defined $params{$off_field . "_" . $global_params{lc}}) {
 						$params{$off_field} = $params{$off_field . "_" . $global_params{lc}}
 					}
-				}			
-			
+				}
+
 			}
 
 
@@ -1493,13 +1492,13 @@ if (opendir (DH, "$dir/json")) {
 					push @param_fields, $field;
 				}
 			}
-	
-					
-			foreach my $field (@param_fields) {
-				
-				if (defined $params{$field}) {				
 
-				
+
+			foreach my $field (@param_fields) {
+
+				if (defined $params{$field}) {
+
+
 					# for tag fields, only add entries to it, do not remove other entries
 					
 					if (defined $tags_fields{$field}) {
@@ -1530,16 +1529,15 @@ if (opendir (DH, "$dir/json")) {
 						}
 						
 						# next if ($code ne '3017620401473');
-						
-						
-						if ($product_ref->{$field} =~ /^, /) {
+
+						if ( $product_ref->{$field} =~ /^, / ) {
 							$product_ref->{$field} = $';
-						}	
-						
+						}
+
 						if ($field eq 'emb_codes') {
 							# French emb codes
 							$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
+							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
 						}
 						if ($current_field ne $product_ref->{$field}) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field \n";
@@ -1555,7 +1553,7 @@ if (opendir (DH, "$dir/json")) {
 						if (($field eq 'quantity') or ($field eq 'serving_size')) {
 							
 								# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-								$new_field_value =~ s/\.0 / /;					
+								$new_field_value =~ s/\.0 / /;
 						}
 
 						my $normalized_new_field_value = $new_field_value;
@@ -1565,10 +1563,10 @@ if (opendir (DH, "$dir/json")) {
 						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 							my $current_value = $product_ref->{$field};
 							$current_value =~ s/\s+$//g;
-							$current_value =~ s/^\s+//g;							
+							$current_value =~ s/^\s+//g;
 							
 							# normalize current value
-							if (($field eq 'quantity') or ($field eq 'serving_size')) {								
+							if (($field eq 'quantity') or ($field eq 'serving_size')) {
 							
 								$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
@@ -1596,7 +1594,7 @@ if (opendir (DH, "$dir/json")) {
 							if (lc($current_value) ne lc($normalized_new_field_value)) {
 								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.openfoodfacts.org/product/$code \n";
 								$differing++;
-								$differing_fields{$field}++;								
+								$differing_fields{$field}++;
 							}
 						}
 						else {
@@ -1604,7 +1602,7 @@ if (opendir (DH, "$dir/json")) {
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
 						}
-					}					
+					}
 				}
 			}
 			
@@ -1642,7 +1640,7 @@ if (opendir (DH, "$dir/json")) {
 						if (defined $openfood_nutrients{$nutrient_name}) {
 							my $nid = $openfood_nutrients{$nutrient_name};
 							$nid =~ s/^(-|!)+//g;
-							$nid =~ s/-$//g;		
+							$nid =~ s/-$//g;
 							
 							
 							# skip sodium if we have salt
@@ -1651,13 +1649,13 @@ if (opendir (DH, "$dir/json")) {
 							my $enid = encodeURIComponent($nid);
 							my $value = $nutrient_ref->{"per-hundred"};
 							# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-							$value =~ s/\.0$//;	
+							$value =~ s/\.0$//;
 							my $unit = $nutrient_ref->{"unit"};
 							my $value_g = unit_to_g($value, $unit);
 							
 							if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq "")) {
 							
-								$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+								$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 								$product_ref->{nutriments}{$nid . "_value"} = $value;
 								if (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
 									$value = $value / 100 * $Nutriments{$nid}{dv} ;
@@ -1668,7 +1666,7 @@ if (opendir (DH, "$dir/json")) {
 								}
 								else {
 									$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-								}							
+								}
 								print "setting nutrient for code $code - nid $nid - value $value unit $unit = $product_ref->{nutriments}{$nid} \n";
 								push @modified_fields, "nutrients.$nid";
 							}
@@ -1688,7 +1686,7 @@ if (opendir (DH, "$dir/json")) {
 					# avoid mixing apple and oranges
 					print "skipping nutrition data as product_ref->{nutrition_data_per} is set to " . $product_ref->{nutrition_data_per} . "\n";
 				}
-			}			
+			}
 			
 			
 			# Process the fields
@@ -1704,7 +1702,7 @@ if (opendir (DH, "$dir/json")) {
 			if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 				push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
-			}	
+			}
 			
 			if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
 				push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
@@ -1719,7 +1717,7 @@ if (opendir (DH, "$dir/json")) {
 			
 			if (not defined $lang_lc{$product_ref->{lc}}) {
 				$product_ref->{lc} = 'xx';
-			}	
+			}
 			
 			
 			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
@@ -1738,7 +1736,7 @@ if (opendir (DH, "$dir/json")) {
 			extract_ingredients_classes_from_text($product_ref);
 
 			compute_languages($product_ref); # need languages for allergens detection
-			detect_allergens_from_text($product_ref);			
+			detect_allergens_from_text($product_ref);
 
 			
 			
@@ -1767,36 +1765,36 @@ if (opendir (DH, "$dir/json")) {
 				url => "https://www.openfood.ch/en/products/$openfood_id",
 				import_t => time(),
 				fields => \@modified_fields,
-				images => \@images_ids,	
+				images => \@images_ids,
 			};
 
-			
-				
+
+
 			$User_id = $editor_user_id;
-			
+
 			if (not $testing) {
-			
+
 				fix_salt_equivalent($product_ref);
-					
+
 				compute_serving_size_data($product_ref);
-				
+
 				compute_nutrition_score($product_ref);
-				
+
 				compute_nutrient_levels($product_ref);
-				
-				compute_unknown_nutrients($product_ref);			
-			
+
+				compute_unknown_nutrients($product_ref);
+
 				store_product($product_ref, "Editing product (import_openfood_ch.pl bulk import) - " . $comment );
-				
+
 				push @edited, $code;
 				$edited{$code}++;
-				
+
 				$i > 10000000 and last;
 			}
-			
+
 			#last;
 		}  # if $file =~ json
-			
+
 	}
 	closedir DH;
 }

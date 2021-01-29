@@ -26,8 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
@@ -41,6 +40,7 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
+		$producers_email
 
 		$facebook_app_id
 		$facebook_app_secret
@@ -54,6 +54,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -175,6 +176,8 @@ use ProductOpener::Config2;
 
 );
 
+$options{product_type} = "beauty";
+
 @edit_rules = ();
 
 
@@ -183,6 +186,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
@@ -209,7 +213,7 @@ $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openbeautyfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
-
+$producers_email = 'producers@openfoodfacts.org';
 
 $thumb_size = 100;
 $crop_size = 400;

@@ -41,6 +41,21 @@ then
   ln -sf /opt/product-opener/packager-codes /mnt/podata/packager-codes
 fi
 
+if [ ! -e /mnt/podata/ecoscore ]
+then
+  ln -sf /opt/product-opener/ecoscore /mnt/podata/ecoscore
+fi
+
+if [ ! -e /mnt/podata/forest-footprint ]
+then
+  ln -sf /opt/product-opener/forest-footprint /mnt/podata/forest-footprint
+fi
+
+if [ ! -e /mnt/podata/templates ]
+then
+  ln -sf /opt/product-opener/templates /mnt/podata/templates
+fi
+
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 chown -R www-data:www-data /mnt/podata
 chown -R www-data:www-data /opt/product-opener/html/images/products
@@ -51,4 +66,8 @@ set -e
 # Apache gets grumpy about PID files pre-existing
 rm -f /usr/local/apache2/logs/httpd.pid
 
-exec apache2ctl -DFOREGROUND
+if [ -n "$PERLDB" ]; then
+  exec apache2ctl -X -DPERLDB
+else
+  exec apache2ctl -DFOREGROUND
+fi

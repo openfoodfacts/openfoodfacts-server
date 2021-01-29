@@ -19,6 +19,8 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	else {
 		ok( !has_tag($product_ref, 'data_quality', $tag), $reason ) or diag explain $product_ref;
 	}
+
+	return;
 }
 
 sub product_with_energy_has_quality_tag($$$) {
@@ -34,6 +36,8 @@ sub product_with_energy_has_quality_tag($$$) {
 	};
 
 	check_quality_and_test_product_has_quality_tag($product_ref, 'en:nutrition-value-over-3800-energy', $reason, $yesno);
+
+	return;
 }
 
 # en:nutrition-value-over-3800-energy - does not add tag, if there is no nutriments.
@@ -204,14 +208,43 @@ ok( has_tag($product_ref, 'data_quality', 'en:missing-nutrition-data-prepared-wi
 'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
 
 
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy_prepared_100g => 5
+	},
+	no_nutrition_data => 'on'
+
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
+
 use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag({
-	categories_tags => ["en:cakes"],
-	nutriments => { 
-		salt_100g => 10,
-		fat_100g => 99,
-	},
-}, "en:nutrition-value-very-high-for-category-fat", "very high salt value", 1);
+	 'ecoscore_data' => {
+     'adjustments' => {
+       'origins_of_ingredients' => {
+         'aggregated_origins' => [
+           {
+             'origin' => 'en:unknown',
+             'percent' => 100
+           }
+         ],
+         'epi_score' => 0,
+         'epi_value' => -5,
+         'origins_from_origins_field' => [
+           'en:unknown'
+         ],
+         'transportation_score' => 0,
+         'transportation_value' => 0,
+         'value' => -5,
+         'warning' => 'origins_are_100_percent_unknown'
+       },
+      }
+	}
+}, "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown", "origins 100 percent unknown", 1);
 
 done_testing();

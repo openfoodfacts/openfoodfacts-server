@@ -31,6 +31,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -39,6 +40,11 @@ use Log::Any qw($log);
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
+
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
@@ -53,7 +59,13 @@ if (($type eq "add") and (defined param('prdct_mult'))) {
 
 ProductOpener::Display::init();
 
-my $userid = get_fileid(param('userid'), 1);
+my $userid = $User_id;
+
+if (defined param('userid')) {
+	$userid = get_fileid(param('userid'), 1);
+}
+
+$log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
 
 my $html = '';
 
@@ -94,7 +106,7 @@ if ($action eq 'process') {
 		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 	}
 	else {
-		ProductOpener::Users::check_user_form($user_ref, \@errors);
+		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 
 	if ($#errors >= 0) {
@@ -107,21 +119,10 @@ if ($action eq 'process') {
 	}
 }
 
-if (($action eq "display") or ($action eq "none")) {
+$template_data_ref->{action} = $action;
+$template_data_ref->{errors} = \@errors;
 
-	if ($#errors >= 0) {
-		$html .= "
-		<div class='alert-box alert'>
-			<p>
-				<b>$Lang{correct_the_following_errors}{$lang}</b>
-			</p>
-		";
-		foreach my $error (@errors) {
-			$html .= "$error<br />";
-		}
-		$html .= '</div>';
-	}
-}
+$log->debug("user form - before display / process", { type => $type, action => $action, userid => $userid }) if $log->is_debug();
 
 if ($action eq 'display') {
 
@@ -149,53 +150,45 @@ SCRIPT
 		}
 	}
 
-	$html .= start_form()
-	. "<table>";
+	$template_data_ref->{display_user_form} = ProductOpener::Users::display_user_form($type, $user_ref,\$scripts);
+	$template_data_ref->{display_user_form_optional} = ProductOpener::Users::display_user_form_optional($type, $user_ref);
+	$template_data_ref->{display_user_form_admin_only} = ProductOpener::Users::display_user_form_admin_only($type, $user_ref);
 
-	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
-	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
-	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
-
-	if ($admin) {
-		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
-	}
-
-	$html .= "\n<tr><td>"
-	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'userid', -value=>$userid, -override=>1)
-	. submit(-class=>'button')
-	. "</td></tr>\n</table>"
-	. end_form();
+	$template_data_ref->{admin} = $admin;
 
 }
 elsif ($action eq 'process') {
 
-	my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		if ( ProductOpener::Users::process_user_form($user_ref) ) {
-            $dialog = '_user_confirm_no_mail';
-        }
+		ProductOpener::Users::process_user_form($type, $user_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
+	
+	if ($type eq 'add') {
 
-	$html .= lang($type . $dialog);
+		$template_data_ref->{user_requested_org} = $user_ref->{requested_org};
+	
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{add_user_existing_org} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
 
-	if (($type eq 'add') or ($type eq 'edit')) {
+		$template_data_ref->{user_org} = $user_ref->{org};
 
-		# Do not display donate link on producers platform
-		if (not $server_options{producers_platform}) {
-			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-			$html .= "<p>" . lang("bottom_content") . "</p>\n";
-		}
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
+				
+		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
+
+		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
+		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 	}
+
 }
 
-if ($debug) {
-	$html .= "<p>type: $type action: $action userid: $userid</p>";
-}
+$template_data_ref->{debug} = $debug;
+$template_data_ref->{userid} = $userid;
+$template_data_ref->{type} = $type;
 
 my $full_width = 1;
 if ($action ne 'display') {
@@ -207,12 +200,18 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 
 	my $r = shift;
 	$r->headers_out->set(Location =>"/");
-	$r->status(301);
-	return 301;
+	$r->status(302);
+	return 302;
 }
 else {
+	
+	my $title = lang($type . '_user_' . $action);
+
+	$tt->process('user_form.tt.html', $template_data_ref, \$html);
+	$html .= "<p>" . $tt->error() . "</p>";
+	
 	display_new( {
-		title=>lang($type . '_user'),
+		title=>$title,
 		content_ref=>\$html,
 		full_width=>$full_width,
 	});

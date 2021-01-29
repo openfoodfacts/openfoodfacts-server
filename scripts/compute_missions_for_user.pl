@@ -52,8 +52,8 @@ my $user_id = $ARGV[0];
 
 my $user_ref = retrieve("$data_root/users/${user_id}.sto");
 
-if (defined $user_ref) {		
-	ProductOpener::Missions::compute_missions_for_user($user_ref);	
+if ( defined $user_ref ) {
+	ProductOpener::Missions::compute_missions_for_user($user_ref);
 	# store("$data_root/users/${user_id}.sto", $user_ref);
 }
 else {

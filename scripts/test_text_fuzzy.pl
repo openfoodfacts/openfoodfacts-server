@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
-use strict;
+use Modern::Perl '2017';
+use utf8;
 
 use Text::Fuzzy;
 

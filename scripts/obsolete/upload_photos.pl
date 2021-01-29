@@ -152,8 +152,8 @@ if (opendir (DH, "$images_dir")) {
 
 			print $file . "\tcode: " . $code . "\n";
 
-			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
-			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
+			if ( ( defined $code ) and ( not defined $codes{$code} ) ) {    # in some pictures we detect the wrong code, for a product we already scanned..
+																			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
 
 				$codes{$code}++;
 
@@ -262,7 +262,8 @@ if (opendir (DH, "$images_dir")) {
 				}
 
 				my $imgid;
-				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid);
+				my $debug;
+				my $return_code = process_image_upload($current_code, "$images_dir/$file", $User_id, $filetime, $comment, \$imgid, \$debug);
 
 				print "process_image_upload - file: $file - filetime: $filetime - result: $imgid\n";
 				if (($imgid > 0) and ($imgid <= 2)) { # assume the 1st image is the barcode, and 2nd the product front (or 1st if there's only one image)

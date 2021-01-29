@@ -6,8 +6,8 @@ use warnings;
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP', filter => "none";
+#use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -136,6 +136,10 @@ Protéines (g) : 0
 Sel (g) : 0
 Cette bouteille contient 20 portions de 25ml pour un verre de 200ml de sirop dilué (1 volume de sirop + 7 volumes d'eau).", { 'carbohydrates'=>['16.8','g',''], 'energy-kcal'=>['67','kcal',''], 'energy-kj'=>['285','kJ',''], 'fat'=>['0','g',''], 'fiber'=>['0','g',''], 'proteins'=>['0','g',''], 'salt'=>['0','g',''], 'saturated-fat'=>['0','g',''], 'sugars'=>['16.8','g',''] }
  , "serving", "0.025L"],
+
+	["fr", "Pour 100g : Energie 391 kJ/ 93kcal, Matières grasses 0.8 g dont Acides gras saturés 0.1 g, Glucides 12 g dont Sucres <0.5 g , Fibres alimentaires 6.3 g, Protéines 6.1 g, Sel 0.58 g",
+		{ 'carbohydrates'=>['12','g',''], 'energy-kcal'=>['93','kcal',''], 'energy-kj'=>['391','kJ',''], 'fat'=>['0.8','g',''], 'fiber'=>['6.3','g',''], 'proteins'=>['6.1','g',''], 'salt'=>['0.58','g',''], 'saturated-fat'=>['0.1','g',''], 'sugars'=>['0.5','g','<'] }
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -176,24 +180,55 @@ foreach my $test_ref (@tests) {
 
 # Remove brand at end of product name
 [
-        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
-        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour"},
+	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour"},
 ],
 
 [
-        {lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
-        {lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
 ],
+
+	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
+
+[
+	{ lc => "en", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "10 g", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+	{ lc => "en", serving_size => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+[
+	{ lc => "en", serving_size_value_unit => "1 biscuit", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size_value_unit => "1 biscuit", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
+
+[
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
+],
+
 
 
 );
 
 foreach my $test_ref (@tests) {
 
-	clean_fields($test_ref->[0]);	
+	clean_fields( $test_ref->[0] );
 	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
 
 }
 
+# test match_specific_taxonomy_tags / match_labels_in_product_name
+
+$product_ref = { lc => "fr", product_name_fr => "NUGGETS DE POULET, poulet élevé sans traitement antibiotique"};
+
+match_labels_in_product_name($product_ref);
+
+is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
 
 done_testing();

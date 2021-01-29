@@ -36,7 +36,7 @@ class RobotoffAsker extends HTMLElement {
     const tmpl = document.createElement('template');
     tmpl.innerHTML = `
       <style>
-        :host { background-color: #274477; color: white; position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; z-index: 100; padding-top: 10px; }
+        :host { background-color: #274477; color: white; position: fixed; bottom: 0; left: 0; width: 100%; border-top: 1px solid #eee; z-index: 100; padding-top: 10px; }
         #value { font-weight: bold; }
         #close { width: 10px; height: 10px; position: absolute; top: 0; left: 0; margin: 2px 0 0 2px; color: #888888 }
         #zoom[data-zoom-in-src=""] { cursor: zoom-out; }

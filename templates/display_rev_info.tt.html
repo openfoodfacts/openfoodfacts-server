@@ -1,0 +1,18 @@
+<div class="rev_summary panel callout">
+	<h4 class="rev_warning">[% lang('rev_warning') %]</h4>
+	<p>
+		[% lang('rev_number') %]<span class="rev_nb">[% rev_number %]</span>
+		-
+		[% date %]
+		-
+		[% lang('rev_contributor') %]<span class="rev_contributor">[% user %]</span>
+	</p>
+	<p>[% lang('edit_comment') %]: [% comment %]</p>
+	[% IF previous_link %]
+		<span class="rev_previous"><a href="[% previous_link %]">← [% lang('rev_previous') %]</a></span>
+	[% END %]
+	<span class="rev_latest"><a href="[% current_link %]">[% lang('rev_latest') %]</a></span>
+	[% IF next_link %]
+		<span class="rev_next"><a href="[% next_link %]">[% lang('rev_next') %] →</a></span>
+	[% END %]
+</div>

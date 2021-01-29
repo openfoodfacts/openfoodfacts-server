@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,6 +40,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -82,8 +85,11 @@ if ($type eq 'search_or_add') {
 
 	# barcode in image?
 	my $filename;
-	if ((not defined $code) or ($code !~ /^\d+$/)) {
+	if ((not defined $code) or ($code eq "")) {
 		$code = process_search_image_form(\$filename);
+	}
+	elsif ($code !~ /^\d{4,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 
 	my $r = Apache2::RequestUtil->request();
@@ -132,7 +138,8 @@ if ($type eq 'search_or_add') {
 			# If we got a barcode image, upload it
 			if (defined $filename) {
 				my $imgid;
-				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
+				my $debug;
+				process_image_upload($product_ref->{_id},$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid, \$debug);
 			}
 		}
 	}
@@ -167,7 +174,10 @@ if ($type eq 'search_or_add') {
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error($Lang{no_barcode}{$lang}, 403);
+		display_error($Lang{missing_barcode}{$lang}, 403);
+	}
+	elsif ($code !~ /^\d{4,24}$/) {
+		display_error($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
 		if ( ((defined $server_options{private_products}) and ($server_options{private_products}))
@@ -244,6 +254,12 @@ my @fields = @ProductOpener::Config::product_fields;
 
 if ($admin) {
 	push @fields, "environment_impact_level";
+
+	# Let admins edit any other fields
+	if (defined param("fields")) {
+		push @fields, split(/,/, param("fields"));
+	}
+
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -266,9 +282,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined param('new_code'))) {
+	if ($User{moderator} and (defined param("new_code")) and (param("new_code") ne "")) {
 
-		change_product_server_or_code($product_ref, param('new_code'), \@errors);
+		change_product_server_or_code($product_ref, param("new_code"), \@errors);
 		$code = $product_ref->{code};
 	}
 
@@ -296,7 +312,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -409,7 +425,29 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					new_field_value => remove_tags_and_quote(decode utf8=>param($field))}) if $log->is_debug();
 			}
 
-			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8=>param($field));
+				
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+				
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}				
+				
+			}
+			else {
+				# infocards set by admins can contain HTML
+				if (($admin) and ($field =~ /infocard/)) {
+					$product_ref->{$field} = decode utf8=>param($field);
+				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
+			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
@@ -431,7 +469,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 
-	if ($server_domain =~ /openfoodfacts/) {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$log->debug("Food::special_process_product") if $log->is_debug();
 		ProductOpener::Food::special_process_product($product_ref);
 	}
@@ -445,17 +483,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -720,6 +747,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
+	
+	# Until we provide an interface to directly change the packaging data structure
+	# erase it before reconstructing it
+	# (otherwise there is no way to remove incorrect entries)
+	$product_ref->{packagings} = [];	
+	
+	analyze_and_combine_packaging_data($product_ref);
+	
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		compute_ecoscore($product_ref);
+		compute_forest_footprint($product_ref);
+	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 
@@ -756,12 +795,14 @@ sub display_field($$) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
-					}
+		}
 	}
 
 	my $value = $product_ref->{$field};
 
-	if ((defined $value) and (defined $taxonomy_fields{$field})) {
+	if ((defined $value) and (defined $taxonomy_fields{$field})
+		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+		and (defined $product_ref->{$field . "_hierarchy"})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
 		$value =~ s/<(([^>]|\n)*)>//g;
@@ -775,7 +816,7 @@ sub display_field($$) {
 HTML
 ;
 
-	if ($field =~ /infocard/) {	# currently not used
+	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
@@ -790,11 +831,13 @@ HTML
 ;
 	}
 
-	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
-		$html .= <<HTML
-<p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>
+	foreach my $note ("_note", "_note_2") {
+		if (defined $Lang{$fieldtype . $note }{$lang}) {
+			$html .= <<HTML
+<p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
 HTML
 ;
+		}
 	}
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
@@ -839,9 +882,10 @@ HTML
 ;
 
 	$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
-<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="/js/dist/tagify.min.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
@@ -854,6 +898,23 @@ var admin = $moderator;
 HTML
 ;
 
+
+	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
+	 and (defined $Org_id)) {
+
+		# Display a link to the producers platform
+		
+		my $producers_platform_url = $formatted_subdomain . '/';
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
+		
+		$html .= '<div class="panel callout">'
+		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
+		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_import") . "</p>"
+		. "<p>" . lang("product_edits_by_producers_analysis") . " " . lang("product_edits_by_producers_indicators"). "</p>"
+		. '<p><a href="' . $producers_platform_url . '" class="button">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>"
+		. "</div>";
+	}
 
 	if ($#errors >= 0) {
 		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
@@ -1546,6 +1607,11 @@ HTML
 		}
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
+		
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
+		}
 
 		$initjs .= <<JS
 \$('#$nutrition_data').change(function() {
@@ -1555,6 +1621,7 @@ HTML
 	} else {
 		\$('#$nutrition_data_instructions').hide();
 		\$('.$nutriment_col_class').hide();
+		\$('.nutriment_value_$product_type_as_sold_or_prepared').val('');
 	}
 	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
@@ -1715,6 +1782,11 @@ HTML
 			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
+		elsif ($nid eq 'energy-kcal') {
+			# energy-kcal is already in kcal
+			$value = $product_ref->{nutriments}{$nid};
+			$valuep = $product_ref->{nutriments}{$nidp};
+		}
 		else {
 			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
 			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
@@ -1745,6 +1817,10 @@ HTML
 			}
 		}
 
+		if (lc($unit) eq "mcg") {
+			$unit = "µg";
+		}
+
 		my $disabled_backup = $disabled;
 		if ($nid eq 'carbon-footprint') {
 			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
@@ -1759,10 +1835,10 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_as_sold" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_prepared" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
@@ -1793,13 +1869,13 @@ HTML
 
 			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 				or ($nid =~ /^new_/)
-				or ($unit eq '% DV')) {
+				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
 			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
 				or ($nid =~ /^new_/)
-				or ($unit eq 'IU')
-				or ($unit eq 'UI')) {
+				or (uc($unit) eq 'IU')
+				or (uc($unit) eq 'UI')) {
 				push @units, 'IU';
 			}
 
@@ -1828,11 +1904,16 @@ HTML
 
 			foreach my $u (@units) {
 				my $selected = '';
-				if ($unit eq $u) {
+				if (lc($unit) eq lc($u)) {
 					$selected = 'selected="selected" ';
 				}
+				my $label = $u;
+				# Display both mcg and µg as different food labels show the unit differently
+				if ($u eq 'µg') {
+					$label = "mcg/µg";
+				}
 				$input .= <<HTML
-<option value="$u" $selected>$u</option>
+<option value="$u" $selected>$label</option>
 HTML
 ;
 			}
@@ -1969,12 +2050,15 @@ function swapSalt(from, to, multiplier) {
 JAVASCRIPT
 ;
 
+	if ($User{moderator}) {
+		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
+	}
+
 
 	$html .= <<HTML
 <p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 HTML
 ;
-
 
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
@@ -2004,6 +2088,24 @@ HTML
 ;
 
 	$html .= "</div><!-- fieldset -->";
+	
+	
+	# Packaging photo and data
+
+	my @packaging_fields = ("packaging_image", "packaging_text");
+	
+	$html .= <<HTML
+
+<div id="packaging" class="fieldset">
+<legend>$Lang{packaging}{$lang}</legend>
+HTML
+;	
+	
+	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	
+
+
+	$html .= "</div><!-- fieldset -->";	
 
 
 	# Product check
@@ -2043,7 +2145,13 @@ HTML
 
 	}
 
+	if ($admin) {
 
+		# Let admins edit any other fields
+		if (defined param("fields")) {
+			$html .= hidden(-name=>'fields', -value=>param("fields"), -override=>1);
+		}
+	}
 
 	$html .= ''
 	. hidden(-name=>'type', -value=>$type, -override=>1)
@@ -2084,7 +2192,7 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small">
+		<button type="submit" name=".submit" class="button postfix small success">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
@@ -2103,7 +2211,7 @@ HTML
 <div class="small-12 medium-12 large-8 xlarge-10 columns">
 </div>
 <div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
 </div>
 </div>
 HTML

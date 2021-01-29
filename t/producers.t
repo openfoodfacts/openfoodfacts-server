@@ -58,12 +58,52 @@ my @tests = (
 ["en", "vitamin c (µg)", { field=>"vitamin-c_100g_value_unit", value_unit=>"value_in_mcg"}],
 ["en", "folates_ug_100g", { 'field' => 'folates_100g_value_unit', 'value_unit' => 'value_in_mcg' }],
 ["en", "vitamin-a_iu_100g", { 'field' => 'vitamin-a_100g_value_unit', 'value_unit' => 'value_in_iu' }],
+["en", "soluble-fiber_g_100g", { 'field' => 'soluble-fiber_100g_value_unit', 'value_unit' => 'value_in_g' }],
+
+# English fields in another language
+["fr", "name", {'field' => 'product_name_fr'}],
+["fr", "product name", {'field' => 'product_name_fr'}],
+
+# nutrient in unit
+["en", "energy in kJ", { 'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj'}],
+["en", "carbohydrates in mg", { 'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_mg' }],
+["fr", "énergie en kJ", {  'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj' }],
+
+["fr", "% Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit'}],
+["fr", "Glucides (%)", {'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_percent'}],
+["fr", "Fibres (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres 100g", { 'field' => 'fiber_100g_value_unit'}],
+["fr", "Fibres (en g) / 100g", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "Fibres / 100g (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+
+["es", "azucar", {'field' => 'sugars_100g_value_unit'}],
+["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
+["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
+["en", "energy per 100g or 100ml", { 'field' => 'energy_100g_value_unit'}],
+["fr", "énergie (100g / 100ml)", { 'field' => 'energy_100g_value_unit'}],
+
+["fr", "Fibres (g) pour 100 g / 100 ml", {'field' => 'fiber_100g_value_unit','value_unit' => 'value_in_g'}],
+
+["es", "Energía", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) ", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Energía / 100 g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía por 100g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía por 100 g", {'field' => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+
+["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Azúcares por 100 g / 100 ml", {'field' => 'sugars_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Grasas saturadas preparado por 100 g / 100 ml", {'field' => 'saturated-fat_prepared_100g_value_unit'}],
+
 );
 
 foreach my $test_ref (@tests) {
 
 	my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
-	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);	
+	my $result_ref = match_column_name_to_field( $test_ref->[0], $fieldid );
 	is_deeply($result_ref, $test_ref->[2])
 		or diag explain { test => $test_ref, fieldid => $fieldid, result => $result_ref };
 
