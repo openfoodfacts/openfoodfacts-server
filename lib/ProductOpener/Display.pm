@@ -4141,7 +4141,7 @@ sub add_country_and_owner_filters_to_query($$) {
 
 	if (defined $country) {
 		
-		# Do not add a country restriction iff the query specifies a list of codes
+		# Do not add a country restriction if the query specifies a list of codes
 		
 		if (($country ne 'en:world') and (not defined $query_ref->{code})) {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
