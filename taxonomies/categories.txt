@@ -1527,16 +1527,11 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:Beers from Germany
-de:Bremer Bier
-protected_name_file_number:en: PGI-DE-0514
-protected_name_type:en: pgi
-origins:en: en:Germany
-
-<en:Beers from Germany
-de:Münchener Bier
+de:Münchener Biere, Münchener Bier
 protected_name_file_number:en: PGI-DE-0516
 protected_name_type:en: pgi
 origins:en: en:Germany
+
 
 <en:Beers from Germany
 en:Bavarian beers
@@ -1555,7 +1550,9 @@ en:Beers from Bremen
 de:Bremer Biere, Bremer Bier
 hu:Sörök Bremenből, Bremen sörök
 nl:Bremense bieren, Bieren uit Bremen
-country:en:Germany
+protected_name_file_number:en: PGI-DE-0514
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 en:Beers from Dortmund
@@ -1581,18 +1578,8 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:Beers from Germany
-de:Kulmbacher Biere, Kulmbacher Bier
-country:en:Germany
-
-<en:Beers from Germany
 de:Mainfranken Biere, Mainfranken Bier
 protected_name_file_number:en: PGI-DE-1102
-protected_name_type:en: pgi
-origins:en: en:Germany
-
-<en:Beers from Germany
-de:Münchener Biere, Münchener Bier
-protected_name_file_number:en: PGI-DE-0516-AM04
 protected_name_type:en: pgi
 origins:en: en:Germany
 
@@ -17439,9 +17426,10 @@ country:en:Greece
 el:Krannona, Κραννώνα
 country:en:Greece
 
-<en:Wines from Greece
-el:Lakonia, Λακωνία
-country:en:Greece
+# conflicts with Greek oil
+#<en:Wines from Greece
+#el:Lakonia, Λακωνία
+#country:en:Greece
 
 <en:Wines from Greece
 el:Lasithi, Λασίθι
@@ -17655,9 +17643,10 @@ country:en:Greece
 el:Retsina of Viotia, Ρετσίνα Βοιωτίας
 country:en:Greece
 
-<en:Wines from Greece
-el:Rhodes, Ρόδος
-country:en:Greece
+# conflicts with greek oil
+#<en:Wines from Greece
+#el:Rhodes, Ρόδος
+#country:en:Greece
 
 <en:Wines from Greece
 el:Rhodes Muscatel, Μοσχάτος Ρόδου
@@ -17671,9 +17660,10 @@ country:en:Greece
 el:Robola of Cephalonia, Ρομπόλα Κεφαλληνίας
 country:en:Greece
 
-<en:Wines from Greece
-el:Samos, Σάμος
-country:en:Greece
+# conflicts with the Samos cheese
+#<en:Wines from Greece
+#el:Samos, Σάμος
+#country:en:Greece
 
 <en:Wines from Greece
 el:Santorini, Σαντορίνη
@@ -31599,7 +31589,7 @@ wikidata_category:en:Q6808711
 <en:Greek cheeses
 en:Feta
 de:Feta
-el:Feta
+el:Φέτα, Feta
 es:Feta
 fi:feta
 fr:Fetan
@@ -31611,6 +31601,10 @@ wikidata:en:Q182760
 agribalyse_food_code:en:12061
 ciqual_food_code:en:12061
 ciqual_food_name:en:Feta cheese, from ewe's milk
+# to be checked: is "feta" always from Greece?
+#protected_name_file_number:en: PDO-GR-0427
+#protected_name_type:en: pdo
+#origins:en: en:Greece
 
 <en:Feta
 en:Feta cubes
@@ -31656,12 +31650,6 @@ origins:en: en:Greece
 <en:Greek cheeses
 el:Ξύγαλο Σητείας, Ξίγαλο Σητείας, Xygalo Siteias, Xigalo Siteias
 protected_name_file_number:en: PDO-GR-0731
-protected_name_type:en: pdo
-origins:en: en:Greece
-
-<en:Greek cheeses
-el:Φέτα, Feta
-protected_name_file_number:en: PDO-GR-0427
 protected_name_type:en: pdo
 origins:en: en:Greece
 
@@ -31721,7 +31709,9 @@ protected_name_type:en: pdo
 origins:en: en:Greece
 
 <en:Greek cheeses
+de:Manouri
 el:Μανούρι, Manouri
+fr:Manouri
 protected_name_file_number:en: PDO-GR-0441
 protected_name_type:en: pdo
 origins:en: en:Greece
@@ -31764,12 +31754,6 @@ protected_name_type:en: pdo
 origins:en: en:Greece
 
 <en:Greek cheeses
-el:Κοπανιστή, Kopanisti
-protected_name_file_number:en: PDO-GR-0450
-protected_name_type:en: pdo
-origins:en: en:Greece
-
-<en:Greek cheeses
 el:Γραβιέρα Κρήτης, Graviera Kritis
 protected_name_file_number:en: PDO-GR-0451
 protected_name_type:en: pdo
@@ -31782,19 +31766,10 @@ protected_name_type:en: pdo
 origins:en: en:Greece
 
 <en:Greek cheeses
-el:Kopanisti, Κοπανιστή
-country:en:Greece
-
-<en:Greek cheeses
-de:Manouri
-el:Manouri
-fr:Manouri
-country:en:Greece
-wikidata:en:Q94606
-
-<en:Greek cheeses
-el:Xygalo Siteias, Xigalo Siteias, Ξύγαλο Σητείας, Ξίγαλο Σητείας
-country:en:Greece
+el:Κοπανιστή, Kopanisti
+protected_name_file_number:en: PDO-GR-0450
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Cheeses
 en:Halloumi
