@@ -37175,22 +37175,6 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with su
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
 
 <en:Fruit yogurts
-en:Fermented milks with fruits and sugar
-fr:Laits fermentés sucrés aux fruits
-agribalyse_food_code:en:19587
-ciqual_food_code:en:19587
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
-
-<en:Fruit yogurts
-en:Dairy specialties with fruits and sugar
-fr:Spécialités laitières sucrées aux fruits
-agribalyse_food_code:en:19587
-ciqual_food_code:en:19587
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
-
-<en:Fruit yogurts
 en:Yogurt fruit flavoured with sugar no 0% fat
 fr:Yaourts aromatisés sucrés non allégés en matières grasses
 ciqual_food_code:en:19677
@@ -37200,20 +37184,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 <en:Fruit yogurts
 en:Yogurts with fruits and sugar no 0% fat
 fr:Yaourts aux fruits sucrés non allégés en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Fermented milk fruit flavoured with sugar no 0% fat
-fr:Lait fermenté aromatisé sucré non allégé en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Fermented milk with fruits and sugar no 0% fat
-fr:Lait fermenté aux fruits sucré non allégé en matières grasses
 ciqual_food_code:en:19677
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
@@ -37487,13 +37457,13 @@ nl:Honingyoghurts
 ro:Iaurturi cu miere
 
 <en:Yogurts
-en:Greek yogurts, Greek yogurt, Plain Greek-style Yogurt
+en:Greek-style yogurts, Greek yogurts, Greek yogurt
 ca:Iogurt grec
 da:Græsk yoghurt
 de:Griechische Joghurt, Griechische Jogurt, Griechische Joghurts, Griechische Jogurts, Griechischer Joghurt
 es:Yogures estilo griego, Yogurt al estilo griego, Yogures al estilo griego
 fi:Kreikkalaiset jogurtit
-fr:Yaourts à la grecque, Yaourt à la grecque, Yaourt à la grecque nature
+fr:Yaourts à la grecque, Yaourt à la grecque
 he:יוגורטים יווניים
 hu:Görög joghurtok
 it:Yogurt greco
@@ -37501,6 +37471,11 @@ nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
+
+<en:Greek-style yogurts
+<en:Plain yogurts, Plain Greek-style Yogurt
+en:Plain greek-style yogurts
+fr:Yaourts à la grecque nature, Yaourt à la grecque nature
 agribalyse_food_code:en:19860
 ciqual_food_code:en:19860
 ciqual_food_name:en:Yogurt, Greek-style, plain
@@ -37530,10 +37505,6 @@ ciqual_food_code:en:19552
 ciqual_food_name:en:Yogurt, Greek-style, on a bed of fruits
 ciqual_food_name:fr:Yaourt à la grecque, sur lit de fruits
 
-<en:Greek yogurts
-<en:Strawberry yogurts
-fr:Yaourt à la grecque fraise
-
 <en:Yogurts
 en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
 de:fettarme Joghurt, fettarme Jogurt, fettarme Joghurts, fettarme Jogurts
@@ -37557,7 +37528,7 @@ it:Yogurt misti
 nl:Gemengde yoghurts
 
 <en:Yogurts
-en:Cow milk yogurt, Cow's milk yogurts, Yoghurt from cow milk
+en:Cow milk yogurts, Cow milk yogurt, Cow's milk yogurts, Yoghurt from cow milk
 ca:Iogurt de llet de vaca
 de:Kuhmilchjoghurt
 es:Yogur de leche de vaca
@@ -37569,7 +37540,7 @@ nl:Koemelkyoghurts, Koemelkyoghurt
 ro:Iaurturi din lapte de vacă
 
 <en:Yogurts
-en:Sheep milk Yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
+en:Sheep milk yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
 ca:Iogurt de llet d'ovella
 de:Schafmilchjoghurt, Schafmilchjogurt, Schafmilchjoghurts, Schafmilchjogurts
 es:Yogures de leche de oveja
@@ -37589,6 +37560,11 @@ fr:Yaourts au lait de chèvre, Yaourts de chèvre
 it:Yogurt di capra
 nl:Geitenmelkyoghurts
 ro:Iaurturi din lapte de capră
+
+<en:Goat milk yogurts
+<en:Plain yogurts
+en:Plain goat yogurts
+fr:Yaourts de chèvre nature
 agribalyse_food_code:en:19556
 ciqual_food_code:en:19556
 ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
@@ -37611,6 +37587,7 @@ ru:Йогурт фруктово-ягодный
 ru:Биойогурт фруктово-ягодный
 
 <en:Stirred yogurts
+<en:Plain yogurts
 en:Plain stirred yogurts
 fr:Yaourts brassés nature, Yaourt brassé nature
 nl:Naturel standyoghurts
