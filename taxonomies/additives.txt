@@ -1525,9 +1525,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caramel
 # too many synonyms for fr, makes taxonomy break
 e_number:en:150
 mandatory_additive_class:en: en:colour
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
+efsa_evaluation_date:en: 2012
+efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
 vegan:en:yes
 vegetarian:en:yes
 description:en:CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
@@ -1571,15 +1571,14 @@ wikidata:en:Q227816
 wikipedia:en:https://en.wikipedia.org/wiki/Caramel_color
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
-#Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
 efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
 e_number:en:150a
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
+efsa_evaluation_date:en: 2012
+efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
 additives_classes:en: en:colour
 vegan:en:yes
 vegetarian:en:yes
@@ -1614,7 +1613,7 @@ sv:E150b, kaustiksulfitprocessen
 # nl_be:E150b, Alkali-sulfietkaramel
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
-efsa_evaluation_date:en: 2011-03-08
+efsa_evaluation_date:en: 2011-12-03
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_adi:en: 300
@@ -1653,13 +1652,13 @@ wikidata:en:Q11735907
 # ingredient/fr:caramel-ammoniacal has 123 products in 6 languages @2019-03-09
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
+efsa_evaluation_date:en: 2012-12-03
+efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 #Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:toddlers
 efsa_evaluation_adi:en: 100
 e_number:en:150c
 additives_classes:en: en:colour
@@ -1693,13 +1692,12 @@ wikidata:en:Q13081740
 # ingredient/fr:caramel-au-sulfite-d’ammonium has 147 products in 5 languages @2019-03-09
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
-#Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
+efsa_evaluation_date:en: 2012-12-03
+efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
 efsa_evaluation_adi:en: 300
 e_number:en:150d
 additives_classes:en: en:colour
@@ -14982,7 +14980,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives
 efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 vegan:en:yes
 vegetarian:en:yes
@@ -15018,7 +15016,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives
 efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 additives_classes:en: en:stabilizer, en:thickener, en:preservative
 vegan:en:yes
@@ -15055,7 +15053,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives
 efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
@@ -15180,7 +15178,7 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives
 efsa_evaluation_overexposure_risk:en: en:moderate
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
 additives_classes:en: en:stabilizer
 vegan:en:yes
