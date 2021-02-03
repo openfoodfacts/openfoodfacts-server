@@ -757,16 +757,50 @@ sub check_ingredients($) {
 	# Multiple languages in ingredient lists
 
 	my $nb_languages = 0;
+	my $nb_languages_fr = 0;
+	my $nb_languages_en = 0;
+	my $nb_languages_nl = 0;
+	my $nb_languages_es = 0;
+	my $nb_languages_de = 0;
+	my $nb_languages_pt = 0;
+	my $nb_languages_it = 0;
 
 	if (defined $product_ref->{ingredients_text}) {
-		($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
+		($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++ and $nb_languages_fr++;
+		($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++ and $nb_languages_en++;
+		($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++ and $nb_languages_nl++;
+		($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++ and $nb_languages_es++;
+		($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++ and $nb_languages_de++;
+		($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++ and $nb_languages_pt++;
+		($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++ and $nb_languages_it++;
 	}
+
+	if ($nb_languages_de > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "german-ingredient-list-stored-as-french-ingredient-list";
+	}
+
+	if ($nb_languages_it > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "italian-ingredient-list-stored-as-french-ingredient-list";
+	}
+
+	if ($nb_languages_nl > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "dutch-ingredient-list-stored-as-french-ingredient-list";
+	}
+	
+	if ($nb_languages_fr > 0) and ( $product_language = "nl") {
+		push @{$product_ref->{quality_tags}}, "french-ingredient-list-stored-as-dutch-ingredient-list";
+	}
+
+	if ($nb_languages_es > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "spanish-ingredient-list-stored-as-french-ingredient-list";
+	}
+
+	if ($nb_languages_en > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "english-ingredient-list-stored-as-french-ingredient-list";
+	}
+
+	if ($nb_languages_pt > 0) and ( $product_language = "fr") {
+		push @{$product_ref->{quality_tags}}, "portuguese-ingredient-list-stored-as-french-ingredient-list";
 
 	if ($nb_languages > 1) {
 			foreach my $max (5, 4, 3, 2, 1) {
