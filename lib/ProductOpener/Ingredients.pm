@@ -232,6 +232,10 @@ sub init_allergens_regexps() {
 					my $allergens_lc_allergenid = get_string_id_for_lang($allergens_lc, $translations_to{allergens}{$allergen}{$allergens_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$allergens_lc}{$allergens_lc_allergenid}}) {
+						# Change parenthesis to dots
+						# e.g. chemical formula in Open Beauty Facts ingredients
+						$synonym =~ s/\(/./g;
+						$synonym =~ s/\)/./g;
 						push @allergenssuffixes, $synonym;
 					}
 				}
