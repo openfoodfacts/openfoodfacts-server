@@ -801,7 +801,7 @@ sub check_ingredients($) {
 
 	if ($nb_languages_pt > 0) and ( $product_language = "fr") {
 		push @{$product_ref->{quality_tags}}, "portuguese-ingredient-list-stored-as-french-ingredient-list";
-
+}
 	if ($nb_languages > 1) {
 			foreach my $max (5, 4, 3, 2, 1) {
 				if ($nb_languages > $max) {
