@@ -145,7 +145,7 @@ is_deeply($product_ref->{traces_tags},  [
 
 $product_ref = {
 	lc => "it", lang => "it",
-	ingredients_text_it => "Può contenere altra frutta a guscio (mandorle, noci pistacchi)",
+	ingredients_text_it => "Può contenere altra frutta a guscio (mandorle, noci, pistacchi)",
 };
 
 compute_languages($product_ref);
