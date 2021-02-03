@@ -311,6 +311,7 @@ sub process_template($$$) {
 	
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
@@ -3815,7 +3816,8 @@ HTML
 		}
 	}
 
-	if ($tagtype eq 'categories') {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")
+		and ($tagtype eq 'categories')) {
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
@@ -4629,7 +4631,13 @@ sub search_and_display_products($$$$$) {
 			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
 			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
 			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
-			$sort_by = 'popularity_key';
+
+			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+				$sort_by = 'popularity_key';
+			}
+			else {
+				$sort_by = 'last_modified_t';
+			}
 	}
 	
 	if (defined $sort_by) {
@@ -4676,13 +4684,18 @@ sub search_and_display_products($$$$$) {
 	# Sort options
 	
 	$template_data_ref->{sort_options} = [];
+
+	# Nutri-Score and Eco-Score are only for food products
+	# and currently scan data is only loaded for Open Food Facts
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	
-	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
-	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
+		push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
+		push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-	# Show Eco-score sort only for France or moderators
-	if ($show_ecoscore) {
-		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+		# Show Eco-score sort only for France or moderators
+		if ($show_ecoscore) {
+			push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+		}
 	}
 	
 	push @{$template_data_ref->{sort_options}}, { value => "created_t", link => $request_ref->{current_link} . "?sort_by=created_t", name => lang("sort_by_created_t") };
