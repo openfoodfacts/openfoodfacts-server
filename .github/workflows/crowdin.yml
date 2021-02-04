@@ -3,6 +3,11 @@ name: Crowdin Sync
 #on:
 #  push:
    # branches: [ * ]
+   
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
   synchronize-with-crowdin:
