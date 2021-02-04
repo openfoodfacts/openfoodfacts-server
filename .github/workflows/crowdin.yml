@@ -1,8 +1,8 @@
 name: Crowdin Sync
 
-on:
-  push:
-    branches: [ * ]
+#on:
+#  push:
+   # branches: [ * ]
 
 jobs:
   synchronize-with-crowdin:
