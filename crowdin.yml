@@ -1,7 +1,7 @@
 files:
   - source: /po/common/common.pot
     translation: /po/common/%two_letters_code%.po
-    ignore: : ["/po/common/nl.po"]
+    ignore: ["/po/common/nl.po"]
     languages_mapping:
       two_letters_code:
         pt-BR: pt_BR
