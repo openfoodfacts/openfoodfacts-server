@@ -630,7 +630,8 @@ sub compute_ecoscore_agribalyse($) {
 			# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 			# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
 			
-			if (has_tag($product_ref, 'categories', 'en:beverages')) {
+			if ((has_tag($product_ref, 'categories', 'en:beverages'))
+				or (has_tag($product_ref, 'categories', 'en:milks'))) {
 				# Beverages case: score = -36*\ln(x+1)+150score=− 36 * ln(x+1) + 150
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 1;
 				$product_ref->{ecoscore_data}{agribalyse}{score} = -36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150;			
