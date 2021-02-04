@@ -385,8 +385,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /openfoodfacts-server/madenearme/madenearme-world.html
-    translation: /openfoodfacts-server/madenearme/madenearme_%two_letters_code%.html
+  - source: /madenearme/madenearme-world.html
+    translation: /madenearme/madenearme_%two_letters_code%.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -438,23 +438,6 @@ files:
         kmr: kmr
   - source: /lang/obf/en/texts/contribute.html
     translation: /lang/obf/%two_letters_code%/texts/contribute.html
-    languages_mapping:
-      two_letters_code:
-        zh-HK: zh_HK
-        zh-CN: zh_CN
-        en-AU: en_AU
-        en-GB: en_GB
-        pt-BR: pt_BR
-        pt-PT: pt_PT
-        nl-BE: nl_BE
-        nl-NL: nl_NL
-        zh-TW: zh_TW
-        sr-CS: sr_CS
-        sr: sr_RS
-        ku : kmr_TR
-        kmr: kmr
-  - source: /lang/obf/en/texts/data.en.html
-    translation: /lang/obf/%two_letters_code%/texts/data.en.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -572,8 +555,8 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
-  - source: /lang/en/obf/texts/mobile-app-open-beauty-facts.html
-    translation: /lang/%two_letters_code%/obf/texts/mobile-app-open-beauty-facts.html
+  - source: /lang/obf/en/texts/mobile-app-open-beauty-facts.html
+    translation: /lang/obf/%two_letters_code%/texts/mobile-app-open-beauty-facts.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
