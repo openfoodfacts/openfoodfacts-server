@@ -226,7 +226,10 @@ sub load_ecoscore_data_packaging() {
 
 	# Packaging materials
 
-	my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.11";
+	# Eco_score_Calculateur.csv is not up to date anymore, instead use a copy of the table in 
+	# https://docs.score-environnemental.com/methodologie/produit/emballages/score-par-materiaux
+	# my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.11";
+	my $csv_file = $data_root . "/ecoscore/data/fr_packaging_materials.csv";
 	my $encoding = "UTF-8";
 		
 	$ecoscore_data{packaging_materials} = {};
@@ -267,6 +270,10 @@ sub load_ecoscore_data_packaging() {
 				$shape = "en:bottle";
 				$material = $';
 			}
+			if ($material =~ /^bouchon /i) {
+				$shape = "en:bottle-cap";
+				$material = $';
+			}			
 			
 			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material);
 			
@@ -323,6 +330,7 @@ sub load_ecoscore_data_packaging() {
 	# Packaging shapes / formats
 
 	$csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.12";
+	$csv_file = $data_root . "/ecoscore/data/fr_packaging_shapes.csv";
 	$encoding = "UTF-8";
 		
 	$ecoscore_data{packaging_shapes} = {};
@@ -630,8 +638,7 @@ sub compute_ecoscore_agribalyse($) {
 			# Formula to transform the Environmental Footprint single score to a 0 to 100 scale
 			# Note: EF score are for mPt / kg in Agribalyse, we need it in micro points per 100g
 			
-			if ((has_tag($product_ref, 'categories', 'en:beverages'))
-				or (has_tag($product_ref, 'categories', 'en:milks'))) {
+			if (has_tag($product_ref, 'categories', 'en:beverages')) {
 				# Beverages case: score = -36*\ln(x+1)+150score=− 36 * ln(x+1) + 150
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 1;
 				$product_ref->{ecoscore_data}{agribalyse}{score} = -36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150;			

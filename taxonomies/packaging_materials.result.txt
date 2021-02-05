@@ -1,3 +1,5 @@
+stopwords:en:100%
+stopwords:fr:100%
 
 
 synonyms:en:biobased, bio-based, biosourced, bio-sourced
@@ -28,7 +30,7 @@ fr:Aluminium léger, aluminium fin
 
 en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
-fr:Tetra Pak biosourcé
+fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Cardboard, 20 C PAP, 20 C PCB
 de:Pappe, Wellpappe, 20 C PAP, 20 C PCB
@@ -44,9 +46,9 @@ fr:Carton FSC
 
 < en:Cardboard
 < en:Recycled material
-en:Recycled cardboard
+en:Recycled cardboard, 100% recycled cardboard
 de:Recycelter Karton, Recyclingkarton
-fr:Carton recyclé, carton recyclé (100%)
+fr:Carton recyclé, carton recyclé 100%, carton 100% recyclé
 
 en:Ceramic
 de:Keramik
@@ -210,7 +212,7 @@ nl:Ander textiel
 
 en:Paper, 22 PAP, PAP 22
 de:Papier, 22 PAP, PAP 22
-fr:Papier
+fr:Papier, papier standard
 hu:Papír, 22 PAP, PAP 22
 ja:紙
 nl:Papier
@@ -218,9 +220,17 @@ ru:Бумага
 wikidata:en: Q11472
 
 < en:Paper
+en:FSC paper
+fr:Papier FSC
+
+< en:Paper
 en:Kraft paper, kraft
 de:Kraftpapier
 fr:Papier kraft, kraft
+
+< en:Paper
+en:Recycled paper, 100% recycled paper
+fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
 
 en:Paper and plastic, Paper + Plastic, 81 PapPet
 fr:Papier et plastique
@@ -240,7 +250,7 @@ fr:PET biosourcé
 < en:PET - Polyethylene terephthalate
 en:Colored PET
 de:Gefärbtes PET
-fr:PET coloré
+fr:PET coloré, PET colorée
 
 < en:PET - Polyethylene terephthalate
 en:Opaque PET
@@ -408,7 +418,7 @@ xx:rPET
 < en:RPET - Recycled Polyethylene terephthalate
 en:Transparent rPET
 de:Transparentes rPET
-fr:rPET transparent
+fr:rPET transparent, rPET transparente
 
 en:Silver-oxide battery, 13 SO(Z)
 de:Silberoxidbatterie, 13 SO(Z), 13-SO
@@ -417,7 +427,7 @@ nl:zilveroxide batterij
 wikidata:en: Q900791
 
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
-fr:Tetra Pak, Tetra Pak Standard
+fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 
 en:Unknown

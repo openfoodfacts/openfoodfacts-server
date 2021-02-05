@@ -7,6 +7,9 @@ synonyms:fr:transparent,transparente
 
 synonyms:fr:coloré,colorée
 
+stopwords:en:100%
+stopwords:fr:100%
+
 en:Unknown
 fr:Inconnu, inconnue, inconnus, inconnues
 
@@ -101,12 +104,12 @@ fr:PET transparent
 <xx:rPET
 en:Transparent rPET
 de:Transparentes rPET
-fr:rPET transparent
+fr:rPET transparent, rPET transparente
 
 <xx:PET
 en:Colored PET
 de:Gefärbtes PET
-fr:PET coloré
+fr:PET coloré, PET colorée
 
 <xx:PET
 en:Opaque PET
@@ -264,9 +267,9 @@ nl_be:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vor
 
 <en:Cardboard
 <en:Recycled material
-en:Recycled cardboard
+en:Recycled cardboard, 100% recycled cardboard
 de:Recycelter Karton, Recyclingkarton
-fr:Carton recyclé, carton recyclé (100%)
+fr:Carton recyclé, carton recyclé 100%, carton 100% recyclé
 
 <en:Cardboard
 en:FSC cardboard
@@ -282,13 +285,21 @@ nl_be:Ander karton
 
 en:Paper, 22 PAP, PAP 22
 de:Papier, 22 PAP, PAP 22
-fr:Papier
+fr:Papier, papier standard
 hu:Papír, 22 PAP, PAP 22
 nl:Papier
 nl_be:Papier
 ru:Бумага
 ja:紙
 wikidata:en:Q11472
+
+<en:paper
+en:Recycled paper, 100% recycled paper
+fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
+
+<en:paper
+en:FSC paper
+fr:Papier FSC
 
 <en:Paper
 en:Kraft paper, kraft
@@ -458,11 +469,11 @@ hu:Lebomló műanyag, Laminált kartonpapír, 87
 
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
-fr:Tetra Pak, Tetra Pak Standard
+fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
 
 en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
-fr:Tetra Pak biosourcé
+fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Multilayer composite, multilayer, composite composite materials, polycoat
 fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
