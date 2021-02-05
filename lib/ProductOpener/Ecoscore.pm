@@ -67,6 +67,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
+use Math::Round;
 
 my %agribalyse = ();
 
@@ -641,12 +642,12 @@ sub compute_ecoscore_agribalyse($) {
 			if (has_tag($product_ref, 'categories', 'en:beverages')) {
 				# Beverages case: score = -36*\ln(x+1)+150score=− 36 * ln(x+1) + 150
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 1;
-				$product_ref->{ecoscore_data}{agribalyse}{score} = -36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150;			
+				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150);
 			}
 			else {
 				# General case: score=−15 * ln(x² + 220) + 180 
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
-				$product_ref->{ecoscore_data}{agribalyse}{score} = -15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180;			
+				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180);
 			}
 			if ($product_ref->{ecoscore_data}{agribalyse}{score} < 0) {
 				$product_ref->{ecoscore_data}{agribalyse}{score} = 0;
@@ -948,9 +949,9 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		aggregated_origins => \@aggregated_origins,
 		transportation_score => $transportation_score,
 		epi_score => $epi_score,
-		transportation_value => $transportation_value,
-		epi_value => $epi_value,
-		value => $transportation_value + $epi_value,
+		transportation_value => round($transportation_value),
+		epi_value => round($epi_value),
+		value => round($transportation_value) + round($epi_value),
 	};
 	
 	# Add a warning if the only origin is en:unknown
@@ -1097,7 +1098,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 	
 	$packaging_score = 100 - $packaging_score;
 	
-	my $value = $packaging_score / 10 - 10;
+	my $value = round($packaging_score / 10 - 10);
 	if ($value < -10) {
 		$value = -10;
 	}
