@@ -219,6 +219,8 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
 		"EU_ORGANIC_FARMING" => "en:eu-organic",
 		"GREEN_DOT" => "en:green-dot",
+		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
+		"TRIMAN" => "en:triman",
 	},
 	
 	targetMarketCountryCode => {
@@ -626,6 +628,8 @@ sub gs1_to_off ($$$) {
 					
 					my $serving_size_value;
 					my $serving_size_unit;
+					my $serving_size_description;
+					my $serving_size_description_lc;
 					
 					if (defined $nutrient_header_ref->{servingSize}{'#'}) {
 						$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
@@ -640,12 +644,29 @@ sub gs1_to_off ($$$) {
 									{ servingSize => $nutrient_header_ref->{servingSize} }) if $log->is_error();
 					}
 					
+					if (defined $nutrient_header_ref->{servingSizeDescription}) {
+						if (defined $nutrient_header_ref->{servingSizeDescription}{'#'}) {
+							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'#'};
+							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{'@'}{languageCode};
+						}
+						elsif (defined $nutrient_header_ref->{servingSizeDescription}{'$t'}) {
+							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'$t'};
+							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{languageCode};
+						}
+					}
+					
 					my $per = "100g";
 					
-					if ((defined $serving_size_value) and ($serving_size_value == 100)) {
+					if ((defined $serving_size_value) and ($serving_size_value != 100)) {
 						$per = "serving";
 						$serving_size_value += 0;	# remove extra .0
-						assign_field($results_ref, "serving_size", $serving_size_value . " " . $serving_size_unit);
+						
+						my $extra_serving_size_description = "";
+						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
+							$extra_serving_size_description = ' (' . $serving_size_description . ')';
+						}
+						
+						assign_field($results_ref, "serving_size", $serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
 					}
 					
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
@@ -1023,7 +1044,9 @@ sub write_off_csv_file($$) {
 	my $csv_file = shift;
 	my $products_ref = shift;
 	
-	open(my $filehandle, ">" . $csv_file) or die("Cannot write csv file $csv_file : $!\n");
+	$log->debug("write_off_csv_file", { csv_file => $csv_file }) if $log->is_debug();
+	
+	open(my $filehandle, ">:encoding(UTF-8)", $csv_file) or die("Cannot write csv file $csv_file : $!\n");
 	
 	my $separator = "\t";
 	
@@ -1031,10 +1054,15 @@ sub write_off_csv_file($$) {
 		or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 	# Print the header line with fields names
+	
+	$log->debug("write_off_csv_file - header", { csv_fields => \@csv_fields }) if $log->is_debug();
+	
 	$csv->print ($filehandle, \@csv_fields);
 	print $filehandle "\n";
 	
 	foreach my $product_ref (@$products_ref) {
+		
+		$log->debug("write_off_csv_file - product", { code => $product_ref->{code} }) if $log->is_debug();
 		
 		my @csv_fields_values = ();
 		foreach my $field (@csv_fields) {
