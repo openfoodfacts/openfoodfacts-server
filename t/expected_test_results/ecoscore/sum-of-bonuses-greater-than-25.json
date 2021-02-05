@@ -1,0 +1,133 @@
+{
+   "categories_tags" : [
+      "en:chicken-breasts"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:france",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 93.0663626138272,
+            "epi_value" : 4,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score" : 99.7567795833333,
+            "transportation_value" : 15,
+            "value" : 19
+         },
+         "packaging" : {
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0,
+                  "material" : "en:unknown",
+                  "shape" : "en:bulk"
+               }
+            ],
+            "score" : 100,
+            "value" : 0,
+            "warning" : "unspecified_material"
+         },
+         "production_system" : {
+            "label" : "en:demeter",
+            "value" : 20
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "36018",
+         "co2_agriculture" : "4.9994509",
+         "co2_consumption" : "0.068120731",
+         "co2_distribution" : "0.040124726",
+         "co2_packaging" : "0.38186454",
+         "co2_processing" : "1.5004807",
+         "co2_total" : "7.3080109",
+         "co2_transportation" : "0.31798877",
+         "code" : "36018",
+         "dqr" : "2.67",
+         "ef_agriculture" : "0.90989336",
+         "ef_consumption" : "0.034481763",
+         "ef_distribution" : "0.011840366",
+         "ef_packaging" : "0.023412096",
+         "ef_processing" : "0.10705326",
+         "ef_total" : 1.1111394,
+         "ef_transportation" : "0.02444929",
+         "is_beverage" : 0,
+         "name_en" : "Chicken, breast, without skin, cooked",
+         "name_fr" : "Poulet, filet, sans peau, cuit",
+         "score" : 38
+      },
+      "grade" : "b",
+      "missing" : {
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 77,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 77,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:chicken",
+         "origins" : "en:france",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "rank" : 1,
+         "text" : "Poulet",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:chicken",
+      "en:poultry"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:chicken"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:chicken",
+      "en:poultry"
+   ],
+   "ingredients_text" : "Poulet (origine France)",
+   "known_ingredients_n" : 2,
+   "labels_tags" : [
+      "en:demeter"
+   ],
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "packaging_text" : "vrac",
+   "packagings" : [
+      {
+         "shape" : "en:bulk"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}
