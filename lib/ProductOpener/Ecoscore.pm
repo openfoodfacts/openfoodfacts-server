@@ -493,9 +493,11 @@ sub compute_ecoscore($) {
 			
 			my $missing_data_warning;
 			
+			my $bonus = 0;
+			
 			foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
 				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-					$product_ref->{ecoscore_score} += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
+					$bonus += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
 					$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
 						value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
 				}
@@ -503,6 +505,13 @@ sub compute_ecoscore($) {
 					$missing_data_warning = 1;
 				}
 			}
+			
+			# The sum of the bonuses is capped at 25
+			if ($bonus > 25) {
+				$bonus = 25;
+			}
+			
+			$product_ref->{ecoscore_score} += $bonus;
 			
 			# Assign A to E grade
 			
