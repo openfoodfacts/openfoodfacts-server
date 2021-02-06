@@ -471,15 +471,15 @@ sub init()
 	# Allow cc and lc overrides as query parameters
 	# do not redirect to the corresponding subdomain
 	my $cc_lc_overrides = 0;
-	if ((defined param('cc')) and ((defined $country_codes{param('cc')}) or (param('cc') eq 'world')) ) {
-		$cc = param('cc');
+	if ((defined param('cc')) and ((defined $country_codes{lc(param('cc'))}) or (lc(param('cc')) eq 'world')) ) {
+		$cc = lc(param('cc'));
 		$country = $country_codes{$cc};
 		$cc_lc_overrides = 1;
 		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
 	if (defined param('lc')) {
 		# allow multiple languages in an ordered list
-		@lcs = split(/,/, param('lc'));
+		@lcs = split(/,/, lc(param('lc')));
 		if (defined $language_codes{$lcs[0]}) {
 			$lc = $lcs[0];
 			$lang = $lc;
