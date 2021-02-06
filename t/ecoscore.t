@@ -289,7 +289,31 @@ my @tests = (
 			categories_tags=>["en:sodas"],
 			ingredients_text=>"Water, sugar",
 		}
+	],
+	
+	# Packaging bulk
+	
+	[
+		'packaging-en-bulk',
+		{
+			lc => "en",
+			categories_tags=>["en:beverages", "en:orange-juices"],
+			packaging_text=>"bulk"
+		}
 	],	
+	
+	# Sum of bonuses greater than 25
+	
+	[
+		'sum-of-bonuses-greater-than-25',
+		{
+			lc => "fr",
+			categories_tags=>["en:chicken-breasts"],
+			packaging_text => "vrac",
+			labels_tags => ["en:demeter"],
+			ingredients_text => "Poulet (origine France)",
+		},
+	],
 );
 
 
@@ -302,10 +326,8 @@ foreach my $test_ref (@tests) {
 	
 	# Run the test
 	
-	if ($testid =~ /^origins-of-ingredients/) {
-		# Parse the ingredients (and extract the origins), and compute the ingredients percent
-		extract_ingredients_from_text($product_ref);
-	}
+	# Parse the ingredients (and extract the origins), and compute the ingredients percent
+	extract_ingredients_from_text($product_ref);
 	
 	analyze_and_combine_packaging_data($product_ref);
 	compute_ecoscore($product_ref);

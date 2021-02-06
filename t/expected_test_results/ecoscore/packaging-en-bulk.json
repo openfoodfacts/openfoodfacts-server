@@ -25,15 +25,15 @@
          "packaging" : {
             "packagings" : [
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:pet-polyethylene-terephthalate",
-                  "material_shape" : "en:pet-polyethylene-terephthalate.en:bottle",
-                  "shape" : "en:bottle"
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0,
+                  "material" : "en:unknown",
+                  "shape" : "en:bulk"
                }
             ],
-            "score" : 50,
-            "value" : -5
+            "score" : 100,
+            "value" : 0,
+            "warning" : "unspecified_material"
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -63,14 +63,15 @@
       },
       "grade" : "c",
       "missing" : {
-         "origins" : 1
+         "origins" : 1,
+         "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 41,
+      "score" : 46,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 41,
+   "ecoscore_score" : 46,
    "ecoscore_tags" : [
       "c"
    ],
@@ -79,11 +80,10 @@
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
-   "packaging_text" : "PET bottle",
+   "packaging_text" : "bulk",
    "packagings" : [
       {
-         "material" : "en:pet-polyethylene-terephthalate",
-         "shape" : "en:bottle"
+         "shape" : "en:bulk"
       }
    ]
 }
