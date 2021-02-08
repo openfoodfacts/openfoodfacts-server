@@ -186,7 +186,7 @@ foreach my $test_ref (@tests) {
 
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
-	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, Carrefour bio"},
 ],
 
 	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)

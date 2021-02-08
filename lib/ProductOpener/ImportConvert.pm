@@ -893,7 +893,7 @@ sub clean_fields($) {
 					
 				# Tag field: uppercase the first letter (e.g. brands)
 				if (defined $tags_fields{$field}) {
-					$product_ref->{$field} = join(",", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
+					$product_ref->{$field} = join(", ", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
 				}
 				else {
 					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
