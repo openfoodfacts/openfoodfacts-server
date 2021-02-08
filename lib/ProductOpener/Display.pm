@@ -4177,7 +4177,7 @@ sub add_country_and_owner_filters_to_query($$) {
 		and ( $server_options{private_products} ) )
 	{
 		if ( $Owner_id ne 'all' ) {    # Administrator mode to see all products
-			$query_ref->{owners_tags} = $Owner_id;
+			$query_ref->{owner} = $Owner_id;
 		}
 	}
 

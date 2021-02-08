@@ -1,4 +1,3 @@
-
 db.products.createIndex({"last_modified_t": -1}, { background: true });
 db.products.createIndex({"created_t": -1}, { background: true });
 db.products.createIndex({countries_tags:1,"popularity_key": -1}, { background: true });
@@ -61,4 +60,8 @@ db.products.createIndex({ecoscore_tags:1,"last_modified_t": -1}, { background: t
 db.products.createIndex({nutriscore_score_opposite: -1}, { background: true });
 db.products.createIndex({ecoscore_score: -1}, { background: true });
 db.products.createIndex({popularity_key: -1}, { background: true });
+db.products.createIndex({countries_tags:1,"last_modified_t": -1}, { background: true });
 
+
+# for off-pro only:
+db.products.createIndex({owner:1, countries_tags:1, "last_modified_t": -1}, { background: true });
