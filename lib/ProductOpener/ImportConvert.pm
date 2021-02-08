@@ -889,7 +889,15 @@ sub clean_fields($) {
 			if (($product_ref->{$field} =~ /[A-Z]{4}/)
 				and ($product_ref->{$field} !~ /[a-z]/)
 				) {
-				$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+					
+					
+				# Tag field: uppercase the first letter (e.g. brands)
+				if (defined $tags_fields{$field}) {
+					$product_ref->{$field} = join(",", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
+				}
+				else {
+					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+				}
 				$log->debug("clean_fields - after lowercase", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 			}
 			
@@ -980,6 +988,12 @@ sub clean_fields($) {
 		}
 
 		if ($field =~ /^nutrition_grade_/) {
+			$product_ref->{$field} = lc($product_ref->{$field});
+		}
+		
+		if ($field eq "nutrition_grade_producer") {
+			# Nutriscore_A -> a
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+//i;
 			$product_ref->{$field} = lc($product_ref->{$field});
 		}
 
