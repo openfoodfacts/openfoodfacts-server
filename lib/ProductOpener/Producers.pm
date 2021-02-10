@@ -285,8 +285,15 @@ sub load_csv_or_excel_file($) {
 				}
 				else {
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @new_row) !~ /[0-9]{8}/);
-					push @{$rows_ref}, \@new_row;
+					my $line = join(",", @new_row);
+					# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
+					$line =~ s/ |_|-|\.//g;
+					if ($line !~ /[0-9]{8}/) {
+						$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
+					}
+					else {
+						push @{$rows_ref}, \@new_row;
+					}
 				}
 			}
 		}
@@ -431,6 +438,8 @@ sub convert_file($$$$) {
 	# Output CSV product data
 
 	foreach my $row_ref (@{$rows_ref}) {
+		
+		$log->debug("convert_file - row", { row_ref => $row_ref }) if $log->is_debug();
 
 		# Go through all fields to populate $product_ref with OFF field names
 		# so that we can run clean_fields() or other OFF functions

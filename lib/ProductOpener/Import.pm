@@ -1153,6 +1153,12 @@ EMAIL
 				}
 
 				my $modifier = undef;
+				
+				# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
+				if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
+					$log->debug("nutrient with strange value, skipping", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
+					delete $values{$type};
+				} 
 
 				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
 
@@ -1524,7 +1530,7 @@ EMAIL
 						my $magick = Image::Magick->new();
 						my $x = $magick->Read($file);
 						if ("$x") {
-							$log->warn("cannot read image file", { error => $x, file => $file }) if $log->is_warn();
+							$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
 							unlink($file);
 						}
 						# If the product has an images field, assume that the image has already been uploaded
@@ -1532,8 +1538,9 @@ EMAIL
 						# This can happen when testing: we download the images once, then delete the products and reimport them again
 						elsif (not defined $product_ref->{images}) {
 							# Assign the download image to the field
-                                                        (defined $images_ref->{$code}) or $images_ref->{$code} = {};
-                                                        $images_ref->{$code}{$imagefield} = $file;
+							$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+							$images_ref->{$code}{$imagefield} = $file;
 						}
 					}
 
@@ -1559,10 +1566,20 @@ EMAIL
 							open (my $out, ">", $file);
 							print $out $response->decoded_content;
 							close($out);
-
-							# Assign the download image to the field
-							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-							$images_ref->{$code}{$imagefield} = $file;
+							
+							# Is the image readable?
+							my $magick = Image::Magick->new();
+							my $x = $magick->Read($file);
+							if ("$x") {
+								$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+								unlink($file);
+							}
+							else {
+								# Assign the download image to the field
+								$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+								$images_ref->{$code}{$imagefield} = $file;
+							}
 						}
 						else {
 							$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
