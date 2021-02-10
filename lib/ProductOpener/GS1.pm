@@ -52,6 +52,7 @@ BEGIN
 		&init_csv_fields
 		&read_gs1_json_file
 		&write_off_csv_file
+		&print_unknown_entries_in_gs1_maps
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -91,28 +92,27 @@ nutrition_infocard => 1,
 environment_infocard => 1,
 );
 
-=head1 FUNCTIONS
+=head1 GS1 MAPS
 
-=head2 convert_gs1_json_to_off_csv_fields
+GS1 uses many different codes for allergens, packaging etc.
+We need to map the different values to the values we use in the taxonomies.
 
-Thus function converts the data for one product in the GS1 format converted to JSON.
-GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
-In some cases, the conversion to JSON has already be done by a third party (e.g. the CodeOnline database from GS1 France).
+The GS1 standards are evolving, so new values may be introduced over time.
 
-=head3 Arguments
+=head2 %unknown_entries_in_gs1_maps
 
-=head4 json text
+Used to keep track of values we encounter in GS1 data for which we do not have a mapping.
 
-=head3 Return value
+=head2 %gs1_maps
 
-=head4 Reference to a hash of fields
-
-The function returns a reference to a hash.
-
-Each key is the name of the OFF csv field, and it is associated with the corresponding value for the product.
+Maps from GS1 to OFF
 
 =cut
 
+
+my %unknown_entries_in_gs1_maps = ();
+
+# see https://www.gs1.fr/content/download/2265/17736/version/3/file/FicheProduit3.1.9_PROFIL_ParfumerieSelective_20190523.xlsx
 
 %gs1_maps = (
 
@@ -143,9 +143,12 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 	
 	measurementUnitCode => {
 		"GRM" => "g",
+		"KGM" => "kg",
 		"MGM" => "mg",
 		"MC" => "mcg",
 		"MLT" => "ml",
+		"CLT" => "cl",
+		"LTR" => "L",
 		"E14" => "kcal",
 		"KJO" => "kJ",
 		"H87" => "pièces",
@@ -213,21 +216,71 @@ Each key is the name of the OFF csv field, and it is associated with the corresp
 		"ZN" => "zinc",
 	},
 	
+	packagingTypeCode => {
+		"AE" => "Aérosol",
+		"BG" => "Sac",
+		"BK" => "Barquette",
+		"BO" => "Bouteille",
+		"BPG" => "Blister",
+		"BRI" => "Brique",
+		"BX" => "Boite",
+		"CNG" => "Canette",
+		"CR" => "Caisse",
+		"CU" => "Pot",
+		"EN" => "Enveloppe",
+		"JR" => "Bocal",
+		"PO" => "Poche",
+		"TU" => "Tube",
+		"WRP" => "Film",
+	},		
+	
+	packagingTypeCode_unused_not_taxonomized_yet => {
+		"AE" => "en:aerosol",
+		"BG" => "en:bag",
+		"BK" => "en:tray",
+		"BO" => "en:bottle",
+		"BPG" => "en:film",
+		"BRI" => "en:brick",
+		"BX" => "en:box",
+		"CNG" => "en:can",
+		"CR" => "en:crate",
+		"EN" => "en:envelope",
+		"JR" => "en:jar",
+		"PO" => "en:bag",
+		"TU" => "en:tube",
+		"WRP" => "en:film",
+	},	
+	
 	packagingMarkedLabelAccreditationCode => {
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
+		"DEMETER" => "en:demeter",
 		"EU_ORGANIC_FARMING" => "en:eu-organic",
+		"FAIR_TRADE_MARK" => "en:fairtrade-international",
 		"GREEN_DOT" => "en:green-dot",
+		"MAX_HAVELAAR" => "en:max-havelaar",
 		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
 		"TRIMAN" => "en:triman",
+		"UTZ_CERTIFIED" => "en:utz-certified",
 	},
 	
 	targetMarketCountryCode => {
 		"250" => "en:france",
 	},
+	
+	timeMeasurementUnitCode => {
+		"MON" => "month",
+		"DAY" => "day",
+	},	
 );
 
+
+=head2 %gs1_to_off
+
+Defines the structure of the GS1 data and how it maps to the OFF data.
+
+=cut
 
 my %gs1_to_off = (
 
@@ -356,6 +409,13 @@ my %gs1_to_off = (
 									},
 								],
 								
+								["nonfood_ingredient:nonfoodIngredientModule", {
+										fields => [
+											["nonfoodIngredientStatement", "ingredients_text"],
+										],
+									},
+								],								
+								
 								["food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule", {
 										fields => [
 											["preparationServing", {
@@ -382,6 +442,18 @@ my %gs1_to_off = (
 										],
 									},
 								],
+							
+								["packaging_information:packagingInformationModule", {
+										fields => [
+											["packaging", {
+													fields => [
+														["packagingTypeCode", "+packaging%packagingTypeCode"],
+													],
+												},
+											],
+										],
+									},
+								],							
 								
 								["packaging_marking:packagingMarkingModule", {
 										fields => [
@@ -460,7 +532,19 @@ my %gs1_to_off = (
 										],
 									},
 								],								
-																
+								
+								["trade_item_lifespan:tradeItemLifespanModule", {
+										fields => [
+											["tradeItemLifespan", {
+													fields => [
+														# the source can be an array if there are multiple labels
+														["itemPeriodSafeToUseAfterOpening", "+periods_after_opening"],
+													],
+												},
+											],
+										],
+									},
+								],
 							],
 						},
 					],
@@ -478,8 +562,7 @@ my %gs1_to_off = (
 );
 
 
-my %seen_csv_fields = ();
-my @csv_fields = ();
+=head1 FUNCTIONS
 
 =head2 init_csv_fields ()
 
@@ -487,11 +570,21 @@ my @csv_fields = ();
 
 =cut
 
+my %seen_csv_fields = ();
+my @csv_fields = ();
+
 sub init_csv_fields() {
 
 	%seen_csv_fields = ();
 	@csv_fields = ();	
 }
+
+
+=head2 assign_field ( $results_ref $target_field $target_value)
+
+Used to assign a value to a field, and keep track of the order of the fields.
+
+=cut
 
 sub assign_field($$$) {
 
@@ -725,7 +818,7 @@ sub gs1_to_off ($$$) {
 				}
 			}
 		
-			# Is the value a scalar, it is a target field (or multiple target fields)			
+			# If the value is a scalar, it is a target field (or multiple target fields)			
 			elsif (ref($source_target) eq "") {
 				
 				$log->debug("gs1_to_off - source field directly maps to target field",
@@ -746,20 +839,6 @@ sub gs1_to_off ($$$) {
 				
 					# We may have multiple target fields, separated by commas
 					foreach my $target_field (split(/\s*,\s*/, $source_target)) {
-														
-						# allergenTypeCode => '+traces%allergens',
-						# % sign means we will use a map to transform the source value
-						if ($target_field =~ /\%/) {
-							$target_field = $`;
-							my $map = $';
-							if (defined $gs1_maps{$map}{$source_value}) {
-								$source_value = $gs1_maps{$map}{$source_value};
-							}
-							else {
-								$log->error("gs1_to_off - unknown source value for map",
-									{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
-							}
-						}
 						
 						$log->debug("gs1_to_off - assign value to target field",
 							{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
@@ -796,7 +875,7 @@ sub gs1_to_off ($$$) {
 							if (defined $language_code) {
 								defined $results_ref->{languages} or $results_ref->{languages} = {};
 								defined $results_ref->{languages}{$language_code} or $results_ref->{languages}{$language_code} = 0;
-								$results_ref->{languages}{$language_code};
+								$results_ref->{languages}{$language_code}++;
 							}
 							
 							if (defined $source_value->{'$t'}) {
@@ -806,15 +885,18 @@ sub gs1_to_off ($$$) {
 								$value = $source_value->{'#'};
 							}
 							
-							# There may be a measurement unit code
+							# There may be a measurement unit code, or a time measurement unit code
 							# in that case, concatenate it to the value
 							
-							if (defined $source_value->{measurementUnitCode}) {
-								$value .= " " . $gs1_maps{measurementUnitCode}{$source_value->{measurementUnitCode}};
+							foreach my $code ("measurementUnitCode", "timeMeasurementUnitCode") {
+							
+								if (defined $source_value->{$code}) {
+									$value .= " " . $gs1_maps{$code}{$source_value->{$code}};
+								}
+								elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{$code})) {
+									$value .= " " . $gs1_maps{$code}{$source_value->{'@'}{$code}};
+								}
 							}
-							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{measurementUnitCode})) {
-								$value .= " " . $gs1_maps{measurementUnitCode}{$source_value->{'@'}{measurementUnitCode}};
-							}									
 							
 							# If the field is a language specific field, we can assign the value to the language specific field
 							if ((defined $language_code) and (defined $language_fields{$target_field})) {
@@ -834,6 +916,23 @@ sub gs1_to_off ($$$) {
 						}
 						
 						if ((defined $source_value) and ($source_value ne "")) {
+							
+							# allergenTypeCode => '+traces%allergens',
+							# % sign means we will use a map to transform the source value
+							if ($target_field =~ /\%/) {
+								$target_field = $`;
+								my $map = $';
+								if (defined $gs1_maps{$map}{$source_value}) {
+									$source_value = $gs1_maps{$map}{$source_value};
+								}
+								else {
+									$log->error("gs1_to_off - unknown source value for map",
+										{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
+									defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
+									defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+									$unknown_entries_in_gs1_maps{$map}{$source_value}++;
+								}
+							}							
 						
 							# allergenTypeCode => '+traces%allergens',
 							# + sign means we will create a comma separated list if we have multiple values
@@ -912,7 +1011,6 @@ sub gs1_to_off ($$$) {
 		}
 	}
 }
-
 
 
 =head2 convert_gs1_json_to_off_csv_fields ($json)
@@ -1074,6 +1172,34 @@ sub write_off_csv_file($$) {
 	}
 	
 	close $filehandle;
+}
+
+
+=head2 print_unknown_entries_in_gs1_maps ()
+
+Prints the entries for GS1 data types for which we do not have a corresponding OFF match,
+ordered by the number of occurences in the GS1 data
+
+=cut
+
+sub print_unknown_entries_in_gs1_maps() {
+	
+	my $unknown_entries = 0;
+	
+	foreach my $map (sort keys %unknown_entries_in_gs1_maps) {
+		print "$map map has unknown entries:\n";
+		
+		foreach my $source_value
+			(sort { $unknown_entries_in_gs1_maps{$map}{$a} <=> $unknown_entries_in_gs1_maps{$map}{$b} }
+				keys %{$unknown_entries_in_gs1_maps{$map}}) {
+			print $source_value . "\t" . $unknown_entries_in_gs1_maps{$map}{$source_value} . "\n";
+			$unknown_entries++;
+		}
+		
+		print "\n";
+	}
+	
+	return $unknown_entries;
 }
 
 1;
