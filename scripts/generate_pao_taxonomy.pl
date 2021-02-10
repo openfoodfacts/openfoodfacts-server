@@ -27,13 +27,14 @@ my $svg = join ("",(<$IN>));
 close($IN);
 
 my $entry_format = <<TXT
-en:<i> months, <i>months, <i> M, <i>M, <i>
+en:<i> months, <i>months
 fr:<i> mois, <i>mois
+xx:<i> M, <i>M, <i>, <i> months, <i> month, <i>months, <i>month
 numeric_number_of_months_after_opening:en:<i>
 TXT
 ;
 
-my $image_path = "/home/obf/html/images/lang/en/periods_after_opening";
+my $image_path = "/home/off/openfoodfacts-server/html/images/lang/en/periods_after_opening";
 
 for (my $i = 1; $i <= 4 * 12; $i++) {
 
