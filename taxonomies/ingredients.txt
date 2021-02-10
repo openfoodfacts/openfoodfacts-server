@@ -12920,7 +12920,15 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_value:fr:0.5
 
-<en:Salt
+<en:salt
+de:Siedesalz
+
+<en:salt
+en:melting salt
+de:Schmelzsalz, Schmelzsalze
+fr:Sel de fonte
+
+<en:salt
 en:finegrained salt
 ca:sal fina
 de:feinkörniges Salz
@@ -14690,6 +14698,7 @@ es:cerdo de bellota ibéric
 <en:animal protein
 <en:pork
 en:pigs blood
+de:Schweineblut
 es:sangre de cerdo
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -14710,7 +14719,7 @@ co:coghja
 cs:škvarky
 cy:Couenne
 da:flæskesvær
-de:Schwarte, Schwarten
+de:Schwarte, Schwarten, Schweineschwarte, Schweineschwarten
 eo:fritita porkhaŭtaĵo
 es:chicharrón
 et:seakamar
@@ -14873,12 +14882,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bacon
 
 <en:pork
 en:pork heart
+de:Schweineherz
 fr:coeur de porc
 vegan:en:no
 vegetarian:en:no
 
 <en:pork
 en:pork kidney
+de:Schweineniere
 fr:rogons de porc
 vegan:en:no
 vegetarian:en:no
@@ -19384,6 +19395,9 @@ it:liquore al cioccolato
 nl:chocoladelikeur
 # ingredient/chocolate-liqueur has 46 products @2019-02-15
 
+<en:liqueur
+en:advocaat
+de:Eierlikör
 
 # Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 
@@ -20725,7 +20739,7 @@ hu:whiskey
 
 <en:alcohol
 en:cognac
-de:Cognac
+de:Cognac,  Kognak
 es:coñac
 fi:konjakki
 fr:cognac
@@ -27257,7 +27271,7 @@ en:carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
-de:Carobin, Carobpulver
+de:Carobin, Carobpulver, Johannisbrot, Johannisbrote
 es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
 et:Jaanileivapuujahu
 fi:carob
@@ -27273,6 +27287,7 @@ vegetarian:en:yes
 
 #description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 #comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
+<en:carob
 <en:flour
 <en:E410
 en:carob seed flour, carob kernel flour, carob flour
@@ -28604,7 +28619,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose, Fruktose
+de:Fructose, Fruktose, Fruchtzucker
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -30289,7 +30304,7 @@ en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
 ar:كاكاو
 ca:gra de cacau
-de:Kakaobohne
+de:Kakaobohne, Kakaobohnen
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
@@ -35378,6 +35393,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Apple
 # 5809 products in 12 languages @2018-10-05
 
 <en:apple
+en:Pink Lady apple
+fr:pomme Pink Lady
+it:Mela Pink Lady
+es:Manzana Pink Lady
+
+<en:apple
+en:Granny apple
+fr:pomme Granny
+it:mela Granny
+es:manzana Granny
+
+<en:apple
+en:cinnamon apple
+fr:pomme cannelle
+it:cannella di mele
+es:manzana canela
+
+<en:apple
 en:green apple
 es:manzana verde, manzanas verdes
 
@@ -37147,7 +37180,7 @@ br:Mouar
 bs:Kupina
 ca:Mora
 da:brombær
-de:Brombeeren
+de:Brombeeren, Brombeere, Brombeer
 es:Mora, moras
 eu:Masusta
 fi:karhunvatukka, karhunvadelma
@@ -38826,6 +38859,8 @@ es:Lichis deshuesados
 <en:fruit
 en:Rambutan
 fr:Ramboutan, Litchi chevelu
+it:rambutan
+es:rambután
 
 <en:fruit
 en:longan
@@ -39455,9 +39490,10 @@ es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:persimmon,sharon fruit
+en:persimmon,sharon fruit,khaki
 es:caqui
 fr:kaki
+it:cachi
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
 <en:persimmon
@@ -40060,6 +40096,12 @@ wikidata:Q68192318
 
 
 # nectarine
+
+<en:fruit
+en:nectarine
+fr:nectarine
+it:nettarina
+es:nectarina
 
 ###################################################################################################
 #
@@ -43889,7 +43931,7 @@ co:rundonu
 cs:mrkev, karotka
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -45511,7 +45553,9 @@ de:Radieschensprossen
 en:daikon, white radish, winter radish, Oriental radish, long white radish
 ca:rave blanc
 de:Winterrettich
+es:rábano blanco
 fr:radis blanc, radis d'hiver, radis chinois, daikon
+it:ravanello bianco
 ja:ダイコン
 nl:witte rammenas
 
@@ -45524,6 +45568,8 @@ nl:Rammenas
 <en:root vegetable
 en:lotus root
 fr:racine de lotus
+it:radice di loto
+es:raíz de loto
 
 <en:vegetable
 en:okra
@@ -46309,6 +46355,10 @@ carbon_footprint_fr_foodges_value:fr:0.6
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:potato
+en:table potatoes
+de:Speisekartoffeln
+
+<en:potato
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
 
@@ -46894,18 +46944,18 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno pepper
-en:chipotle, chipotle chilli, chipotle chile
+en:chipotle, chipotle chilli, chipotle chile, chipotle pepper
 ca:chipotle
 cs:chipotle
 da:chipotle
 el:τσιπότλε
-es:chile chipotle
+es:chile chipotle, chipotle
 fi:chipotle, chipotle chili
-fr:chipotle
+fr:chipotle, piment chipotle
 gl:chipotle
 he:צ'יפוטלה
 hu:chipotle
-it:chipotle
+it:chipotle, pepe chipotle
 ja:チポトレ
 kn:ಚಿಪೋಟ್ಲೆ
 ko:치폴레
@@ -48406,7 +48456,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 <en:mung bean
 en:Mung bean sprout, bean sprouts, beansprouts
 da:bønnespirer
+de:Mungobohnensprosse, Mungobohnensprossen
 es:brotes de judia mungo
+
+<en:mung bean
+en:mung bean seedlings
+de:Mungobohnenkeimlinge
 
 <fr:haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
@@ -48538,7 +48593,7 @@ bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen
+de:Lupinen, Lupine
 el:λούπινο
 eo:Lupenoj
 es:altramuces, altramuz
@@ -49799,7 +49854,7 @@ bg:кашу
 ca:anacards
 cs:kešu ořechy
 da:cashewnødder
-de:Cashewkerne, Kaschunüsse, Cashewnüsse
+de:Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew
 el:καρύδια κάσιους
 es:anacardos,nueces de anacardos
 et:kašupähklid, India pähkel, kašupähkleid
@@ -54451,6 +54506,8 @@ hr:peršinov list
 ro:frunze de pătrunjel
 
 <en:parsley
+en:parsley root
+de:Petersilienwurzel
 nl:peterseliewortel
 
 ###################################################################################################
@@ -56303,7 +56360,7 @@ ca:regalèssia
 cs:lékořice lysá
 cy:Gwylys
 da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
+de:Lakritz, Sussholz, Süßholz, Echtes Süßholz, Süßholzwurzel, Süßholzwurzeln
 dv:ވޭމުއި
 el:Γλυκόριζα
 eo:Vera glicirizo
@@ -68326,6 +68383,7 @@ fr:poulet fermier, poulet fermier élevé en plein air
 <en:animal protein
 <en:chicken
 en:chicken blood
+de:Hühnerblut
 es:sangre de pollo
 fr:sang de poulet
 
@@ -68345,7 +68403,7 @@ nl:kippenbeenderen
 # <en:liver
 <en:chicken
 en:chicken liver
-de:Pouletleber
+de:Pouletleber, Hühnerleber
 es:Higado de pollo
 fi:kananmaksa
 fr:foie de poulet
@@ -75275,3 +75333,38 @@ nl:gevulde tomaat, gevulde tomaten
 en:stuffed poblano peppers
 
 fr:encornets farcis
+
+en:alfalfa
+fr:luzerne
+it:erba medica
+es:alfalfa
+
+<en:melon
+en:bitter melon
+fr:melon amer
+it:melone amaro
+es:melón amargo
+
+<en:melon
+en:Honeydew melon
+fr:melon miel
+it:melone verde
+es:melón honeydew
+
+<en:chili pepper
+en:poblano chili
+fr:piment poblano
+it:pepe Poblano
+es:chile poblano
+
+<en:vegetable
+en:momordic
+fr:momordique, margose, melon amer
+it:momordic
+es:momordic
+
+<en:flour
+en:chestnut flour
+fr:farine de châtaigne
+it:farina di castagne
+es:harina de castaña

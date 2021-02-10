@@ -1503,7 +1503,7 @@ protected_name_type:en: pgi
 origins:en: en:Czech Republic
 
 <en:Beers
-en:Beers from Germany
+en:Beers from Germany, German beers
 de:Deutsche Biere
 es:Cervezas de alemania
 fi:saksalaiset oluet
@@ -1513,6 +1513,25 @@ it:Birre tedesche, Birre della Germania
 nl:Duitse bieren
 ro:Beri germane, Beri Germania, Bere germană, Bere Germania, Bere germana
 country:en:Germany
+
+<en:Beers from Germany
+de:Oktoberfestbier
+protected_name_file_number:en: PGI-DE-1034
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:Beers from Germany
+de:Kulmbacher Bier
+protected_name_file_number:en: PGI-DE-0473
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:Beers from Germany
+de:Münchener Biere, Münchener Bier
+protected_name_file_number:en: PGI-DE-0516
+protected_name_type:en: pgi
+origins:en: en:Germany
+
 
 <en:Beers from Germany
 en:Bavarian beers
@@ -1531,7 +1550,9 @@ en:Beers from Bremen
 de:Bremer Biere, Bremer Bier
 hu:Sörök Bremenből, Bremen sörök
 nl:Bremense bieren, Bieren uit Bremen
-country:en:Germany
+protected_name_file_number:en: PGI-DE-0514
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Beers from Germany
 en:Beers from Dortmund
@@ -1557,18 +1578,8 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:Beers from Germany
-de:Kulmbacher Biere, Kulmbacher Bier
-country:en:Germany
-
-<en:Beers from Germany
 de:Mainfranken Biere, Mainfranken Bier
 protected_name_file_number:en: PGI-DE-1102
-protected_name_type:en: pgi
-origins:en: en:Germany
-
-<en:Beers from Germany
-de:Münchener Biere, Münchener Bier
-protected_name_file_number:en: PGI-DE-0516-AM04
 protected_name_type:en: pgi
 origins:en: en:Germany
 
@@ -1823,6 +1834,63 @@ zh:硬酒
 wikidata:en:Q2832208
 
 <en:Alcoholic beverages
+en:German liqueur
+
+<en:German liqueur
+de:Bayerischer Blutwurz
+protected_name_file_number:en: PGI-DE-02581
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Hüttentee
+protected_name_file_number:en: PGI-DE-01954
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Blutwurz
+protected_name_file_number:en: PGI-DE-02061
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Bayerischer Kräuterlikör
+protected_name_file_number:en: PGI-DE-01900
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Ettaler Klosterlikör
+protected_name_file_number:en: PGI-DE-02060
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Benediktbeurer Klosterlikör
+protected_name_file_number:en: PGI-DE-02002
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Hamburger Kümmel
+protected_name_file_number:en: PGI-DE-01972
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Münchener Kümmel
+protected_name_file_number:en: PGI-DE-01992
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German liqueur
+de:Chiemseer Klosterlikör
+protected_name_file_number:en: PGI-DE-02020
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:Alcoholic beverages
 en:Pure alcohol
 fr:Alcool pur
 agribalyse_food_code:en:1014
@@ -1832,6 +1900,27 @@ ciqual_food_name:en:Pure alcohol
 <en:Alcoholic beverages
 en:Spirit drinks
 fr:Boissons spiritueuses
+
+<en:Spirit drinks
+en:French spirit drinks
+
+<en:French spirit drinks
+fr:Pommeau de Bretagne
+protected_name_file_number:en: PGI-FR-01974
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French spirit drinks
+fr:Pommeau de Normandie
+protected_name_file_number:en: PGI-FR-01978
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French spirit drinks
+fr:Pommeau du Maine
+protected_name_file_number:en: PGI-FR-01975
+protected_name_type:en: gi
+origins:en: en:France
 
 <en:Spirit drinks
 en:Austrian spirit drinks
@@ -1995,6 +2084,21 @@ de:Wachauer Weinbrand
 protected_name_file_number:en: PGI-AT-01919
 protected_name_type:en: gi
 origins:en: en:Austria
+
+<en:Alcoholic beverages
+en:German Weinbrand
+
+<en:German Weinbrand
+de:Pfälzer Weinbrand
+protected_name_file_number:en: PGI-DE-01930
+protected_name_type:en: gi
+origins:en: en:Germany
+
+<en:German Weinbrand
+de:Deutscher Weinbrand
+protected_name_file_number:en: PGI-DE-02059
+protected_name_type:en: gi
+origins:en: en:Germany
 
 <fr:Eaux-de-vie
 en:Brandys, Brandies
@@ -3398,6 +3502,12 @@ en:Herefordshire cider
 protected_name_file_number:en: PGI-GB-0292
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+
+<en:Ciders
+fr:Cidre Cotentin, Cotentin
+protected_name_file_number:en: PDO-FR-02206
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Alcoholic beverages
 <en:Mixed drinks
@@ -5659,6 +5769,12 @@ it:Assenzio
 la:Artemisia absinthium
 nl:Absint
 wikidata:en:Q25686
+
+<en:Absinthium
+fr:Absinthe de Pontarlier
+protected_name_file_number:en: PGI-FR-01870
+protected_name_type:en: gi
+origins:en: en:France
 
 <en:Herbal teas
 en:Alexandrian senna
@@ -17310,9 +17426,10 @@ country:en:Greece
 el:Krannona, Κραννώνα
 country:en:Greece
 
-<en:Wines from Greece
-el:Lakonia, Λακωνία
-country:en:Greece
+# conflicts with Greek oil
+#<en:Wines from Greece
+#el:Lakonia, Λακωνία
+#country:en:Greece
 
 <en:Wines from Greece
 el:Lasithi, Λασίθι
@@ -17526,9 +17643,10 @@ country:en:Greece
 el:Retsina of Viotia, Ρετσίνα Βοιωτίας
 country:en:Greece
 
-<en:Wines from Greece
-el:Rhodes, Ρόδος
-country:en:Greece
+# conflicts with greek oil
+#<en:Wines from Greece
+#el:Rhodes, Ρόδος
+#country:en:Greece
 
 <en:Wines from Greece
 el:Rhodes Muscatel, Μοσχάτος Ρόδου
@@ -17542,9 +17660,10 @@ country:en:Greece
 el:Robola of Cephalonia, Ρομπόλα Κεφαλληνίας
 country:en:Greece
 
-<en:Wines from Greece
-el:Samos, Σάμος
-country:en:Greece
+# conflicts with the Samos cheese
+#<en:Wines from Greece
+#el:Samos, Σάμος
+#country:en:Greece
 
 <en:Wines from Greece
 el:Santorini, Σαντορίνη
@@ -22898,6 +23017,13 @@ wikidata:en:Q1626894
 
 <fr:Muscats
 <en:Wines from France
+fr:Muscat du Ventoux
+protected_name_file_number:en: PDO-FR-0049
+protected_name_type:en: pdo
+origins:en: en:France
+
+<fr:Muscats
+<en:Wines from France
 fr:Rivesaltes Rancio, Muscat de Rivesaltes Rancio
 country:en:France
 
@@ -24113,6 +24239,23 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:Bakery products
+en:Hungarian bakery products
+fr:Produits de boulangerie hongrois
+origins:en: en:Hungary
+
+<en:Hungarian bakery products
+hu:Tepertős pogácsa
+protected_name_file_number:en: TSG-HU-0060-AM02
+protected_name_type:en: tsg
+origins:en: en:Hungary
+
+<en:Hungarian bakery products
+hu:Tepertős pogácsa
+protected_name_file_number:en: TSG-HU-0060
+protected_name_type:en: tsg
+origins:en: en:Hungary
+
+<en:Bakery products
 en:Polish bakery products
 fr:Produits de boulangerie polonais
 
@@ -25311,6 +25454,25 @@ sv:Frukostmat, Frukost, Frukostar
 th:อาหารเช้า
 zh:早餐
 
+en:Cocoa and its products
+fr:Cacao et dérivés
+
+<en:Cocoa and its products
+en:Cocoa beans
+fr:Fèves de cacao
+
+<en:Cocoa beans
+en:Roasted cocoa beans
+fr:Fèves de cacao torréfiées
+
+<en:Cocoa beans
+en:Raw cocoa beans
+fr:Fèves de cacao crues
+
+<en:Cocoa beans
+fr:Grué de cacao
+
+<en:Cocoa and its products
 en:Cocoa and chocolate powders, chocolate and cocoa powders
 ca:Pols de coco i xocolata
 de:Kakao- und Schokoladenpulver, Schkoladen- und Kakaopulver
@@ -26398,6 +26560,7 @@ ciqual_food_name:fr:Calissons d'Aix en Provence
 
 #should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in Bonbons
 <en:Sugary snacks
+<en:Cocoa and its products
 en:Chocolates, chocolate products
 ca:Xocolata
 cs:Čokolády
@@ -26434,7 +26597,6 @@ en:Plant milk chocolates
 fi:Kasvimaitosuklaat
 fr:Chocolats au lait végétal
 nl:Plantaardige melkchocolade, Plantaardige melkchocolades
-
 
 
 <en:Chocolates
@@ -27246,6 +27408,7 @@ it:Barrette biscottate al cioccolato e caramello
 nl:Koekjesrepen met caramel en chocola
 
 <en:Confectioneries
+<en:Cocoa and its products
 en:Chocolate candies
 ca:Caramels de xocolata
 de:Schokoladenkonfekt
@@ -27315,6 +27478,10 @@ fi:suklaamakeissekoitus
 fr:Assortiments de bonbons de chocolat
 it:Assortimento di cioccolatini
 nl:Gemengde chocosnoepjes
+
+<en:Bonbons
+en:Peanut butter cups
+wikidata:en:Q7157931
 
 <en:Bonbons
 en:Chocolate truffles
@@ -27947,7 +28114,7 @@ nl:Kerstvoedsel en - dranken
 wikidata:en:Q5876127
 
 <en:Christmas foods and drinks
-<en:Chocolates
+<en:Cocoa and its products
 en:Christmas chocolates
 de:Weihnachtsschokolade
 es:Chocolates de navidad
@@ -30087,6 +30254,12 @@ ciqual_food_name:fr:Haricot blanc, appertisé, égoutté
 <en:White beans
 fr:Lingots blancs
 
+<en:White beans
+fr:Lingot du Nord
+protected_name_file_number:en: PGI-FR-0301
+protected_name_type:en: pgi
+origins:en: en:France
+
 en:Chips and fries
 ca:Patates fregides i similars
 de:Chips und Pommes Frites
@@ -30827,6 +31000,9 @@ country:en:France
 agribalyse_food_code:en:12519
 ciqual_food_code:en:12519
 ciqual_food_name:en:Fourme de Montbrison cheese
+protected_name_file_number:en: PDO-FR-0542
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French blue-veined cheeses
 fr:Fromages de pays
@@ -31437,7 +31613,7 @@ wikidata_category:en:Q6808711
 <en:Greek cheeses
 en:Feta
 de:Feta
-el:Feta
+el:Φέτα, Feta
 es:Feta
 fi:feta
 fr:Fetan
@@ -31449,6 +31625,10 @@ wikidata:en:Q182760
 agribalyse_food_code:en:12061
 ciqual_food_code:en:12061
 ciqual_food_name:en:Feta cheese, from ewe's milk
+# to be checked: is "feta" always from Greece?
+#protected_name_file_number:en: PDO-GR-0427
+#protected_name_type:en: pdo
+#origins:en: en:Greece
 
 <en:Feta
 en:Feta cubes
@@ -31480,89 +31660,140 @@ ciqual_food_code:en:12063
 ciqual_food_name:en:Feta-type cheese from cow's milk, in oil and spices
 
 <en:Greek cheeses
-el:Anevato
-country:en:Greece
+el:Αρσενικό Νάξου, Arseniko Naxou
+protected_name_file_number:en: PDO-GR-2323
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Batzos
-country:en:Greece
+el:Κρασοτύρι Κω, Krasotiri Ko, Τυρί της Πόσιας, Tiri tis Possias
+protected_name_file_number:en: PGI-GR-02387
+protected_name_type:en: pgi
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Formaella Arachovas Parnassou
-country:en:Greece
+el:Ξύγαλο Σητείας, Ξίγαλο Σητείας, Xygalo Siteias, Xigalo Siteias
+protected_name_file_number:en: PDO-GR-0731
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Galotyri
-country:en:Greece
+el:Πηχτόγαλο Χανίων, Pichtogalo Chanion
+protected_name_file_number:en: PDO-GR-0429
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Graviera Agrafon
-country:en:Greece
+el:Φορμαέλλα Αράχωβας Παρνασσού, Formaella Arachovas Parnassou
+protected_name_file_number:en: PDO-GR-0430
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Graviera Kritis
-country:en:Greece
+el:Σαν Μιχάλη, San Michali
+protected_name_file_number:en: PDO-GR-0432
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Graviera Naxou
-country:en:Greece
-
-<en:Greek cheeses
-el:Kalathaki Limnou
-country:en:Greece
-
-<en:Greek cheeses
-el:Kasseri
-country:en:Greece
-
-<en:Greek cheeses
-el:Katiki Domokou
-country:en:Greece
-
-<en:Greek cheeses
-el:Kefalograviera
-country:en:Greece
-wikidata:en:Q1232535
-
-<en:Greek cheeses
-el:Kopanisti, Κοπανιστή
-country:en:Greece
-
-<en:Greek cheeses
-el:Ladotyri Mytilinis
-country:en:Greece
-
-<en:Greek cheeses
-de:Manouri
-el:Manouri
-fr:Manouri
-country:en:Greece
-wikidata:en:Q94606
-
-<en:Greek cheeses
-el:Metsovone
-country:en:Greece
+el:Μετσοβόνε, Metsovone
+protected_name_file_number:en: PDO-GR-0433
+protected_name_type:en: pdo
+origins:en: en:Greece
 wikidata:en:Q1223811
 
 <en:Greek cheeses
-el:Pichtogalo Chanion
-country:en:Greece
+el:Γραβιέρα Νάξου, Graviera Naxou
+protected_name_file_number:en: PDO-GR-0434
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:San Michali
-country:en:Greece
+el:Καλαθάκι Λήμνου, Kalathaki Limnou
+protected_name_file_number:en: PDO-GR-0435
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Sfela
-country:en:Greece
+el:Σφέλα, Sfela
+protected_name_file_number:en: PDO-GR-0436
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Xygalo Siteias, Xigalo Siteias, Ξύγαλο Σητείας, Ξίγαλο Σητείας
-country:en:Greece
+el:Ανεβατό, Anevato
+protected_name_file_number:en: PDO-GR-0438
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Greek cheeses
-el:Xynomyzithra Kritis
-country:en:Greece
+el:Κασέρι, Kasseri
+protected_name_file_number:en: PDO-GR-0440
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+de:Manouri
+el:Μανούρι, Manouri
+fr:Manouri
+protected_name_file_number:en: PDO-GR-0441
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Γαλοτύρι, Galotyri
+protected_name_file_number:en: PDO-GR-0443
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Κεφαλογραβιέρα, Kefalograviera
+protected_name_file_number:en: PDO-GR-0444
+protected_name_type:en: pdo
+origins:en: en:Greece
+wikidata:en:Q1232535
+
+<en:Greek cheeses
+el:Λαδοτύρι Μυτιλήνης, Ladotyri Mytilinis
+protected_name_file_number:en: PDO-GR-0445
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Μπάτζος, Batzos
+protected_name_file_number:en: PDO-GR-0447
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Ξυνομυζήθρα Κρήτης, Xynomyzithra Kritis
+protected_name_file_number:en: PDO-GR-0448
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Γραβιέρα Αγράφων, Graviera Agrafon
+protected_name_file_number:en: PDO-GR-0449
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Γραβιέρα Κρήτης, Graviera Kritis
+protected_name_file_number:en: PDO-GR-0451
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Κατίκι Δομοκού, Katiki Domokou
+protected_name_file_number:en: PDO-GR-0452
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek cheeses
+el:Κοπανιστή, Kopanisti
+protected_name_file_number:en: PDO-GR-0450
+protected_name_type:en: pdo
+origins:en: en:Greece
 
 <en:Cheeses
 en:Halloumi
@@ -31575,6 +31806,7 @@ sv:Halloumi
 wikidata:en:Q549793
 country:en:Cyprus
 
+<en:Cheeses
 en:Austrian cheeses
 fr:Fromages autrichiens
 
@@ -31803,7 +32035,7 @@ ciqual_food_name:en:Causses blue cheese, from cow's milk
 <en:Bries
 en:Brie de Meaux cheeses, Brie de Meaux cheese from cow's milk
 fr:Brie de Meaux, Bries de Meaux
-protected_name_file_number:en: PDO-FR-9110-AM01
+protected_name_file_number:en: PDO-FR-9110-AM01, PDO-FR-9110
 protected_name_type:en: pdo
 origins:en: en:France
 agribalyse_food_code:en:12021
@@ -32066,6 +32298,9 @@ fr:Rigotte de Condrieu
 country:en:France
 wikidata:en:Q2089007
 oqali_family:en: fr:Fromages - Crottin de chevre
+protected_name_file_number:en: PDO-FR-0782
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -32144,6 +32379,9 @@ wikidata:en:Q524966
 agribalyse_food_code:en:12763
 ciqual_food_code:en:12763
 ciqual_food_name:en:Tomme cheese (PDO) from the French Bauges mountains
+protected_name_file_number:en: PDO-FR-0254
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
@@ -33250,6 +33488,15 @@ it:Formaggio industriale
 nl:Fabriekskazen, Industriële kazen
 
 <en:Cheeses
+en:Irish cheeses, cheeses from Ireland
+
+<en:Irish cheeses
+ie:Imokilly Regato
+protected_name_file_number:en: PDO-IE-0070-AM01, PDO-IE-0070
+protected_name_type:en: pdo
+origins:en: en:Ireland
+
+<en:Cheeses
 en:Italian cheeses, cheeses from Italy
 ca:Formatges italians, Formatges d'Itàlia
 de:Italienischer Käse, Käse aus Italien
@@ -33327,7 +33574,7 @@ origins:en: en:Italy
 
 <en:Italian cheeses
 it:Casatella Trevigiana
-protected_name_file_number:en: PDO-IT-0348-AM02
+protected_name_file_number:en: PDO-IT-0348-AM02, PDO-IT-0348
 protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
@@ -33360,13 +33607,24 @@ ciqual_food_name:en:Fontina cheese, from cow's milk
 
 <en:Italian cheeses
 it:Formaggella del Luinese
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0524
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q20009675
 
 <en:Italian cheeses
 it:Formaggio di Fossa di Sogliano
+protected_name_file_number:en: PDO-IT-0580
+protected_name_type:en: pdo
+origins:en: en:Italy
 country:en:Italy
 wikidata:en:Q21272237
+
+<en:Italian cheeses
+it:Salva Cremasco
+protected_name_file_number:en: PDO-IT-0639
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Formai de Mut Dell'alta Valle Brembana
@@ -33421,6 +33679,12 @@ oqali_family:en: fr:Fromages - Mozzarella
 agribalyse_food_code:en:19590
 ciqual_food_code:en:19590
 ciqual_food_name:en:Mozzarella cheese, from cow's milk
+
+#<en:Italian cheeses
+#it:Mozzarella
+#protected_name_file_number:en: TSG-IT-0001-AM01
+#protected_name_type:en: tsg
+#origins:en: en:Italy
 
 <en:Grated cheese
 en:Grated Mozzarella
@@ -33613,8 +33877,9 @@ wikidata:en:Q2277500
 <en:Italian cheeses
 <en:Provolone
 it:Provolone del Monaco
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0466
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Provola dei Nebrodi
@@ -33684,8 +33949,9 @@ wikidata:Q248149
 
 <en:Italian cheeses
 it:Spressa delle Giudicarie
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0252
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Squacquerone di Romagna
@@ -33701,6 +33967,9 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Strachitunt
+protected_name_file_number:en: PDO-IT-1047
+protected_name_type:en: pdo
+origins:en: en:Italy
 country:en:Italy
 wikidata:en:Q3974593
 
@@ -33737,8 +34006,25 @@ country:en:Italy
 
 <en:Italian cheeses
 it:Vastedda della valle del Belìce
-country:en:Italy
-#wikidata:en:
+protected_name_file_number:en: PDO-IT-0661
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Cheeses
+en:Hungarian cheeses, Cheeses from Hungary
+fr:Fromages hongrois
+
+<en:Hungarian cheeses
+hu:Győr-Moson-Sopron megyei Csemege sajt
+protected_name_file_number:en: PGI-HU-02303
+protected_name_type:en: pgi
+origins:en: en:Hungary
+
+<en:Hungarian cheeses
+hu:Rögös túró
+protected_name_file_number:en: TSG-HU-1113
+protected_name_type:en: tsg
+origins:en: en:Hungary
 
 <en:Cheeses
 en:Lithuanian cheeses, cheeses from Lithuania
@@ -36913,22 +37199,6 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with su
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
 
 <en:Fruit yogurts
-en:Fermented milks with fruits and sugar
-fr:Laits fermentés sucrés aux fruits
-agribalyse_food_code:en:19587
-ciqual_food_code:en:19587
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
-
-<en:Fruit yogurts
-en:Dairy specialties with fruits and sugar
-fr:Spécialités laitières sucrées aux fruits
-agribalyse_food_code:en:19587
-ciqual_food_code:en:19587
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré
-
-<en:Fruit yogurts
 en:Yogurt fruit flavoured with sugar no 0% fat
 fr:Yaourts aromatisés sucrés non allégés en matières grasses
 ciqual_food_code:en:19677
@@ -36938,20 +37208,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 <en:Fruit yogurts
 en:Yogurts with fruits and sugar no 0% fat
 fr:Yaourts aux fruits sucrés non allégés en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Fermented milk fruit flavoured with sugar no 0% fat
-fr:Lait fermenté aromatisé sucré non allégé en matières grasses
-ciqual_food_code:en:19677
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
-
-<en:Fruit yogurts
-en:Fermented milk with fruits and sugar no 0% fat
-fr:Lait fermenté aux fruits sucré non allégé en matières grasses
 ciqual_food_code:en:19677
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar, no 0% fat (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
@@ -37225,13 +37481,13 @@ nl:Honingyoghurts
 ro:Iaurturi cu miere
 
 <en:Yogurts
-en:Greek yogurts, Greek yogurt, Plain Greek-style Yogurt
+en:Greek-style yogurts, Greek yogurts, Greek yogurt
 ca:Iogurt grec
 da:Græsk yoghurt
 de:Griechische Joghurt, Griechische Jogurt, Griechische Joghurts, Griechische Jogurts, Griechischer Joghurt
 es:Yogures estilo griego, Yogurt al estilo griego, Yogures al estilo griego
 fi:Kreikkalaiset jogurtit
-fr:Yaourts à la grecque, Yaourt à la grecque, Yaourt à la grecque nature
+fr:Yaourts à la grecque, Yaourt à la grecque
 he:יוגורטים יווניים
 hu:Görög joghurtok
 it:Yogurt greco
@@ -37239,6 +37495,11 @@ nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
+
+<en:Greek-style yogurts
+<en:Plain yogurts
+en:Plain greek-style yogurts
+fr:Yaourts à la grecque nature, Yaourt à la grecque nature
 agribalyse_food_code:en:19860
 ciqual_food_code:en:19860
 ciqual_food_name:en:Yogurt, Greek-style, plain
@@ -37268,10 +37529,6 @@ ciqual_food_code:en:19552
 ciqual_food_name:en:Yogurt, Greek-style, on a bed of fruits
 ciqual_food_name:fr:Yaourt à la grecque, sur lit de fruits
 
-<en:Greek yogurts
-<en:Strawberry yogurts
-fr:Yaourt à la grecque fraise
-
 <en:Yogurts
 en:Low-fat yogurts, Yogurt with fruits and 0% fat, Yogurt fruit flavoured with 0% fat, Fermented milk with fruits and 0% fat, Fermented milk fruit flavoured with 0% fat, Dairy specialty with fruits and 0% fat, Dairy specialty fruit flavoured with 0% fat
 de:fettarme Joghurt, fettarme Jogurt, fettarme Joghurts, fettarme Jogurts
@@ -37295,7 +37552,7 @@ it:Yogurt misti
 nl:Gemengde yoghurts
 
 <en:Yogurts
-en:Cow milk yogurt, Cow's milk yogurts, Yoghurt from cow milk
+en:Cow milk yogurts, Cow milk yogurt, Cow's milk yogurts, Yoghurt from cow milk
 ca:Iogurt de llet de vaca
 de:Kuhmilchjoghurt
 es:Yogur de leche de vaca
@@ -37307,7 +37564,7 @@ nl:Koemelkyoghurts, Koemelkyoghurt
 ro:Iaurturi din lapte de vacă
 
 <en:Yogurts
-en:Sheep milk Yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
+en:Sheep milk yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
 ca:Iogurt de llet d'ovella
 de:Schafmilchjoghurt, Schafmilchjogurt, Schafmilchjoghurts, Schafmilchjogurts
 es:Yogures de leche de oveja
@@ -37327,6 +37584,11 @@ fr:Yaourts au lait de chèvre, Yaourts de chèvre
 it:Yogurt di capra
 nl:Geitenmelkyoghurts
 ro:Iaurturi din lapte de capră
+
+<en:Goat milk yogurts
+<en:Plain yogurts
+en:Plain goat yogurts
+fr:Yaourts de chèvre nature
 agribalyse_food_code:en:19556
 ciqual_food_code:en:19556
 ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
@@ -37349,6 +37611,7 @@ ru:Йогурт фруктово-ягодный
 ru:Биойогурт фруктово-ягодный
 
 <en:Stirred yogurts
+<en:Plain yogurts
 en:Plain stirred yogurts
 fr:Yaourts brassés nature, Yaourt brassé nature
 nl:Naturel standyoghurts
@@ -38123,7 +38386,7 @@ fr:Panna cottas sur lit de mangue
 <en:Panna cottas with fruit coulis
 fr:Panna cottas aux fruits rouges
 
-<<en:Panna cottas with fruit coulis
+<en:Panna cottas with fruit coulis
 fr:Panna cotta sur lit de fruit de la passion
 es:Pannacotta con maracuya
 
@@ -39556,6 +39819,64 @@ origins:en: en:Belgium
 en:Italian honeys
 fr:Miels italiens
 origins:en: en:Italy
+
+<en:Honeys
+en:Portuguese honeys
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel do Ribatejo Norte (Serra d'Aire, Albufeira de Castelo de Bode, Bairro, Alto Nabão
+protected_name_file_number:en: PDO-PT-0240
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel das Terras Altas do Minho
+protected_name_file_number:en: PDO-PT-0244
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel da Terra Quente
+protected_name_file_number:en: PDO-PT-0245
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel da Serra de Monchique
+protected_name_file_number:en: PDO-PT-0250
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel do Alentejo
+protected_name_file_number:en: PDO-PT-0252
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel dos Açores
+protected_name_file_number:en: PDO-PT-0268
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel da Serra da Lousã
+protected_name_file_number:en: PDO-PT-0222
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel de Barroso
+protected_name_file_number:en: PDO-PT-0229
+protected_name_type:en: pdo
+origins:en: en:Portugal
+
+<en:Portuguese honeys
+pt:Mel do Parque de Montezinho
+protected_name_file_number:en: PDO-PT-9234
+protected_name_type:en: pdo
+origins:en: en:Portugal
 
 <en:Honeys
 en:Spanish honeys
@@ -41326,6 +41647,10 @@ protected_name_file_number:en: PDO-IT-0200
 protected_name_type:en: pdo
 origins:en: en:Italy
 
+<en:Fats
+en:Italian oils and fats
+fr:Huiles et graisses italiennes
+
 <en:Olive oils from Italy
 en:Olive oils from Aprutino Pescarese
 fr:Huiles d'olive de Aprutino Pescarese
@@ -41775,12 +42100,213 @@ protected_name_file_number:en: PDO-IT-0452
 protected_name_type:en: pdo
 origins:en: en:Italy
 
+<en:Fats
+en:Greek oils and fats
+fr:Huiles et graisses grecques
+
+<en:Greek oils and fats
+el:Κριτσά, Kritsa
+protected_name_file_number:en: PGI-GR-2317
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Σητεία Λασιθίου Κρήτης, Sitia Lasithiou Kritis
+protected_name_file_number:en: PDO-GR-0052-AM01
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Ελαιόλαδο Μάκρης, Elaiolado Makris
+protected_name_file_number:en: PDO-GR-02388
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Γαλανό Μεταγγιτσίου Χαλκιδικής, Galano Metaggitsiou Chalkidikis
+protected_name_file_number:en: PDO-EL-1027
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Μεσσαρά, Messara
+protected_name_file_number:en: PDO-GR-0973
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Αγουρέλαιο Χαλκιδικής, Agoureleo Chalkidikis
+protected_name_file_number:en: PDO-GR-0736
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Εξαιρετικό Παρθένο Ελαιόλαδο Σέλινο Κρήτης, Exeretiko Partheno Eleolado Selino Kritis
+protected_name_file_number:en: PDO-GR-0515
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Εξαιρετικό παρθένο ελαιόλαδο Τροιζηνία, Exeretiko partheno eleolado ""Trizinia""
+protected_name_file_number:en: PDO-GR-0206
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Άγιος Ματθαίος Κέρκυρας, Agios Mattheos Kerkyras
+protected_name_file_number:en: PGI-GR-0214
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Ελαιόλαδ Φοινίκι Λακωνίας, Elaiolado Finiki Lakonias
+protected_name_file_number:en: PDO-GR-0361
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Εξαιρετικό παρθένο ελαιόλαδο Θραψανό, Exeretiko partheno eleolado Thrapsano
+protected_name_file_number:en: PDO-GR-0125
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Σάμος, Samos
+protected_name_file_number:en: PGI-GR-0032
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Ζάκυνθος, Zakynthos
+protected_name_file_number:en: PGI-GR-0051
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Αποκορώνας Χανίων Κρήτης, Apokoronas Chanion Kritis
+protected_name_file_number:en: PDO-GR-0047
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Σητεία Λασιθίου Κρήτης, Sitia Lasithiou Kritis
+protected_name_file_number:en: PDO-GR-0052
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Καλαμάτα, Kalamata
+protected_name_file_number:en: PDO-GR-0037
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Κολυμβάρι Χανίων Κρήτης, Kolymvari Chanion Kritis
+protected_name_file_number:en: PDO-GR-0053
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Χανιά Κρήτης, Chania Kritis
+protected_name_file_number:en: PGI-GR-0033
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Ολυμπία, Olympia
+protected_name_file_number:en: PGI-GR-0034
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Πεζά Ηρακλείου Κρήτης, Peza Irakliou Kritis
+protected_name_file_number:en: PDO-GR-0035
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Βόρειος Μυλοπόταμος Ρεθύμνης Κρήτης, Vorios Mylopotamos Rethymnis Kritis
+protected_name_file_number:en: PDO-GR-0039
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Βιάννος Ηρακλείου Κρήτης, Viannos Irakliou Kritis
+protected_name_file_number:en: PDO-GR-0045
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Λυγουριό Ασκληπιείου, Lygourio Asklipiou
+protected_name_file_number:en: PDO-GR-0050
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Αρχάνες Ηρακλείου Κρήτης, Arxanes Irakliou Kritis
+protected_name_file_number:en: PDO-GR-0055
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Λέσβος, Mυτιλήνη, Lesvos ; Mytilini
+protected_name_file_number:en: PGI-GR-0059
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Θάσος, Thassos
+protected_name_file_number:en: PGI-GR-0377
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Κεφαλονιά, Kefalonia
+protected_name_file_number:en: PGI-GR-0388
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Ρόδος, Rodos
+protected_name_file_number:en: PGI-GR-0390
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Πέτρινα Λακωνίας, Petrina Lakonias
+protected_name_file_number:en: PDO-GR-0394
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Πρέβεζα, Preveza
+protected_name_file_number:en: PGI-GR-0399
+protected_name_type:en: pgi
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Κρανίδι Αργολίδας, Kranidi Argolidas
+protected_name_file_number:en: PDO-GR-0400
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Κροκεές Λακωνίας, Krokees Lakonias
+protected_name_file_number:en: PDO-GR-0407
+protected_name_type:en: pdo
+origins:en: en:Greece
+
+<en:Greek oils and fats
+el:Λακωνία, Lakonia
+protected_name_file_number:en: PGI-GR-0457
+protected_name_type:en: pgi
+origins:en: en:Greece
+
 <en:Olive oils
 en:Olive oils from Spain, Spanish olive oils
 fr:Huiles d'olive d'Espagne
 nl:Olijfoliën uit Spanje, Olijfolies uit Spanje, Spaanse olijfolies, Spaanse olijfoliën
 origins:en: en:Spain
-
 
 # also a pdo hoeny from this region
 <en:Olive oils from Spain
@@ -44343,6 +44869,12 @@ fr:Farines de petit épeautre de Haute-Provence, Farine de Petit Épeautre de Ha
 protected_name_file_number:en: PGI-FR-0476
 protected_name_type:en: pgi
 origins:en: en:France
+
+#<en:Einkorn wheat flours
+#fr:Petit Épeautre de Haute Provence
+#protected_name_file_number:en: PGI-FR-0475
+#protected_name_type:en: pgi
+#origins:en: en:France
 
 <en:Wheat flours
 en:Emmer wheat flours
@@ -47683,6 +48215,12 @@ en:Fresh grapes
 es:Uvas frescas
 fr:Raisins frais, Raisin frais
 
+<en:Fresh grapes
+fr:Chasselas de Moissac
+protected_name_file_number:en: PDO-FR-0140
+protected_name_type:en: pdo
+origins:en: en:France
+
 <en:Grapes
 en:Black grapes, Red grapes
 de:Rote Weintrauben
@@ -48039,6 +48577,18 @@ en:Fresh pears
 es:Peras frescas
 fr:Poires fraîches
 season_in_country_fr:en: 1,2,3,8,9,10,11,12
+
+<en:Apples
+fr:Pommes de Savoie
+protected_name_file_number:en: PGI-FR-0196
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Pears
+fr:Poires de Savoie
+protected_name_file_number:en: PGI-FR-0196
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Pears
 en:Pear pulp and peel
@@ -60412,7 +60962,9 @@ origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Loué
-country:en:France
+protected_name_file_number:en: PGI-FR-9149
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles de Normandie
@@ -60822,6 +61374,12 @@ agribalyse_food_code:en:36300
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
 
+<en:Turkeys
+fr:Dinde de Bresse
+protected_name_file_number:en: PDO-FR-0144
+protected_name_type:en: pdo
+origins:en: en:France
+
 # TODO check this one
 <en:Turkeys
 fr:viande de dinde sans peau
@@ -60979,6 +61537,12 @@ nl:Parelhoenders
 agribalyse_food_code:en:36700
 ciqual_food_code:en:36700
 ciqual_food_name:en:Guinea fowl, raw
+
+<en:Poultries
+fr:Pintadeau de la Drôme
+protected_name_file_number:en: PGI-FR-0546
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Pintades
 fr:Pintade de l'Ardèche
@@ -63194,6 +63758,12 @@ nl:Landelijke pasteien
 agribalyse_food_code:en:8211
 ciqual_food_code:en:8211
 ciqual_food_name:en:Country-style pâté or terrine
+
+<en:Country-style Pâtés
+fr:Pâté de Campagne Breton
+protected_name_file_number:en: PGI-FR-0879
+protected_name_type:en: pgi
+origins:en: en:France
 
 <fr:Pâté
 en:Breton pâté
@@ -65586,6 +66156,21 @@ it:Vincisgrassi
 
 <en:Pasta
 it:Ziti
+
+<en:Pasta
+en:German pasta
+
+<en:German pasta
+de:Schwäbische Spätzle, Schwäbische Knöpfle
+protected_name_file_number:en: PGI-DE-0738
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German pasta
+de:Schwäbische Maultaschen, Schwäbische Suppenmaultaschen
+protected_name_file_number:en: PGI-DE-0521
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Pasta
 en:Italian pasta
@@ -68477,6 +69062,64 @@ cs:Pohořelický kapr
 protected_name_file_number:en: PDO-CZ-0360
 protected_name_type:en: pdo
 origins:en: en:Czech Republic
+
+<en:Seafood
+en:German sea products
+fr:Produits de la mer allemands
+
+<en:German sea products
+de:Aischgründer Karpfen
+protected_name_file_number:en: PGI-DE-0689-AM01
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Peitzer Karpfen, Carpy z picnjo (Sorbisch)
+protected_name_file_number:en: PGI-DE-02587
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Oberlausitzer Biokarpfen
+protected_name_file_number:en: PGI-DE-01070
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Glückstädter Matjes
+protected_name_file_number:en: PGI-DE-1112
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Aischgründer Karpfen
+protected_name_file_number:en: PGI-DE-0689
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Fränkischer Karpfen, Frankenkarpfen, Karpfen aus Franken
+protected_name_file_number:en: PGI-DE-0688
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Holsteiner Karpfen
+protected_name_file_number:en: PGI-DE-0343
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Oberpfälzer Karpfen
+protected_name_file_number:en: PGI-DE-0191
+protected_name_type:en: pgi
+origins:en: en:Germany
+
+<en:German sea products
+de:Schwarzwaldforelle
+protected_name_file_number:en: PGI-DE-1232
+protected_name_type:en: pgi
+origins:en: en:Germany
 
 <en:Seafood
 en:Hungarian sea products
@@ -74431,6 +75074,12 @@ ciqual_food_name:en:Red kidney bean, cooked
 ciqual_food_name:fr:Haricot rouge, cuit
 
 <en:Vegetables
+fr:Haricot tarbais
+protected_name_file_number:en: PGI-FR-0080
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Vegetables
 en:Vegetable rods
 ca:Verdures allargades
 de:Stangengemüse
@@ -75783,6 +76432,12 @@ es:Puerro fresco
 fr:Poireaux frais
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
+<en:Leeks
+fr:Poireaux de Créances
+protected_name_file_number:en: PGI-FR-0198
+protected_name_type:en: pgi
+origins:en: en:France
+
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
 # comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
@@ -76349,6 +77004,13 @@ protected_name_type:en: pdo
 origins:en: en:France, fr:Noirmoutier
 protected_name_file_number:en: PGI-FR-02434
 protected_name_type:en: pgi
+
+<en:French potatoes
+fr:Pommes de terre de Merville
+protected_name_file_number:en: PGI-FR-0197
+protected_name_type:en: pgi
+origins:en: en:France
+wikidata:en:Q3395971
 
 <en:Potatoes
 en:Boiled potatoes, Potatoes cooked in water
@@ -77333,6 +77995,12 @@ ciqual_food_name:fr:Mâche, crue
 fr:Mâche fraîche
 season_in_country_fr:en: 1,2,10,11,12
 
+<en:corn salad
+fr:Mâche nantaise
+protected_name_file_number:en: PGI-FR-0072
+protected_name_type:en: pgi
+origins:en: en:France
+
 <en:Leaf vegetables
 en:Salad rocket, rucola, rucoli, rugula, colewort, roquette, arugula
 de:Garten-Senfrauke
@@ -78193,7 +78861,16 @@ agribalyse_proxy_food_name:en:Lentil, green, dried
 agribalyse_proxy_food_name:fr:Lentille verte, sèche
 
 <en:Green lentils
-fr:Lentilles vertes du Puy
+fr:Lentilles vertes du Berry
+protected_name_file_number:en: PGI-FR-0030
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Green lentils
+fr:Lentille verte du Puy
+protected_name_file_number:en: PDO-FR-0202
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Green lentils
 <en:Cooked vegetables
@@ -79458,6 +80135,13 @@ fr:Olive de Nîmes
 protected_name_file_number:en: PDO-FR-0568
 protected_name_type:en: pdo
 origins:en: en:France, fr:Nîmes
+
+<en:French vegetables
+<en:Olives
+fr:Olive de Nice
+protected_name_file_number:en: PDO-FR-0333
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Olives
 en:Black olives

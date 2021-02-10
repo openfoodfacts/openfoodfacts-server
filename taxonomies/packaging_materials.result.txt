@@ -1,3 +1,5 @@
+stopwords:en:100%
+stopwords:fr:100%
 
 
 synonyms:en:biobased, bio-based, biosourced, bio-sourced
@@ -18,15 +20,17 @@ wikidata:en: Q861345
 
 < en:Aluminium
 en:Heavy aluminium, thick aluminium
+de:Schweres Aluminium, dickes Aluminium
 fr:Aluminium lourd, aluminium épais
 
 < en:Aluminium
 en:Light aluminium, thin aluminium
+de:Leichtes Aluminium, dünnes Aluminium
 fr:Aluminium léger, aluminium fin
 
 en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
-fr:Tetra Pak biosourcé
+fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Cardboard, 20 C PAP, 20 C PCB
 de:Pappe, Wellpappe, 20 C PAP, 20 C PCB
@@ -37,12 +41,14 @@ nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormka
 
 < en:Cardboard
 en:FSC cardboard
+de:FSC-Karton
 fr:Carton FSC
 
 < en:Cardboard
 < en:Recycled material
-en:Recycled cardboard
-fr:Carton recyclé, carton recyclé (100%)
+en:Recycled cardboard, 100% recycled cardboard
+de:Recycelter Karton, Recyclingkarton
+fr:Carton recyclé, carton recyclé 100%, carton 100% recyclé
 
 en:Ceramic
 de:Keramik
@@ -75,7 +81,7 @@ wikidata:en: Q11469
 
 < en:Glass
 en:Clear Glass, 71 GLS
-de:Klarglas
+de:Klarglas, 71 GLS
 fr:Verre transparent
 hu:Fehér üveg
 
@@ -84,6 +90,7 @@ en:Copper Mixed/Copper Backed Glass, 77 GLS
 
 < en:Glass
 en:Dark Sort Glass, 73 GLS
+de:Dunkles Sortierglas, 73 GLS
 fr:Verre sombre
 hu:Sötét válogatott üveg
 
@@ -92,13 +99,13 @@ en:Gold Mixed/Gold Backed Glass, 79 GLS
 
 < en:Glass
 en:Green Glass, 72 GLS
-de:Grünglas
+de:Grünglas, 72 GLS
 fr:Verre vert
 hu:Zöld üveg
 
 < en:Glass
 en:Leaded Glass, 76 GLS
-de:Bleiglas
+de:Bleiglas, 76 GLS
 hu:Ólomüveg
 
 < en:Glass
@@ -106,6 +113,7 @@ en:Light Leaded Glass, 75 GLS
 
 < en:Glass
 en:Light Sort Glass, 74 GLS
+de:Helles Sortierglas, 74 GLS
 fr:Verre clair
 hu:Világos válogatott üveg
 
@@ -140,7 +148,7 @@ nl:Lithium-ion-accu, Li-ion-accu
 wikidata:en: Q899079
 
 en:Metal, Metals
-de:Metalle
+de:Metall, Metalle
 fr:Métal, Métaux
 hu:Fémek, fém
 it:Metalli
@@ -150,7 +158,7 @@ ru:Металл
 
 < en:Metal
 en:Recyclable Metals
-de:Wiederverwertbare Metalle
+de:Wiederverwertbare Metalle, Wiederverwertbares Metall
 hu:Újrahasznosított fémek
 it:Metalli riciclabili
 
@@ -204,7 +212,7 @@ nl:Ander textiel
 
 en:Paper, 22 PAP, PAP 22
 de:Papier, 22 PAP, PAP 22
-fr:Papier
+fr:Papier, papier standard
 hu:Papír, 22 PAP, PAP 22
 ja:紙
 nl:Papier
@@ -212,8 +220,17 @@ ru:Бумага
 wikidata:en: Q11472
 
 < en:Paper
+en:FSC paper
+fr:Papier FSC
+
+< en:Paper
 en:Kraft paper, kraft
+de:Kraftpapier
 fr:Papier kraft, kraft
+
+< en:Paper
+en:Recycled paper, 100% recycled paper
+fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
 
 en:Paper and plastic, Paper + Plastic, 81 PapPet
 fr:Papier et plastique
@@ -233,7 +250,7 @@ fr:PET biosourcé
 < en:PET - Polyethylene terephthalate
 en:Colored PET
 de:Gefärbtes PET
-fr:PET coloré
+fr:PET coloré, PET colorée
 
 < en:PET - Polyethylene terephthalate
 en:Opaque PET
@@ -401,7 +418,7 @@ xx:rPET
 < en:RPET - Recycled Polyethylene terephthalate
 en:Transparent rPET
 de:Transparentes rPET
-fr:rPET transparent
+fr:rPET transparent, rPET transparente
 
 en:Silver-oxide battery, 13 SO(Z)
 de:Silberoxidbatterie, 13 SO(Z), 13-SO
@@ -410,7 +427,7 @@ nl:zilveroxide batterij
 wikidata:en: Q900791
 
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
-fr:Tetra Pak, Tetra Pak Standard
+fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 
 en:Unknown

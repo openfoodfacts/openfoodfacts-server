@@ -683,7 +683,7 @@ fr:cidre
 
 < en:Alcohol
 en:cognac
-de:Cognac
+de:Cognac, Kognak
 es:coñac
 fi:konjakki
 fr:cognac
@@ -2078,7 +2078,7 @@ nl:kalfsstremsel
 en:beef fat
 ca:greix de bou
 de:Rinderfett
-es:Grasa de vacuno
+es:Grasa de vacuno, grasa bovina, grasa vacuna
 fi:naudanrasva
 fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
@@ -2195,6 +2195,7 @@ vegetarian:en: yes
 < en:Animal protein
 < en:Pork
 en:pigs blood
+de:Schweineblut
 es:sangre de cerdo
 
 < en:Animal protein
@@ -2526,7 +2527,7 @@ sv:aprikoskärnor
 
 < en:Apricot
 en:dried apricots
-da:tørret abrikos
+da:tørret abrikos, tørrede abrikoser
 de:getrocknete Aprikosen
 es:albaricoques deshidratados
 fi:kuivattu aprikoosi, kuivatut aprikoosit
@@ -5915,7 +5916,7 @@ en:carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
-de:Carobin, Carobpulver
+de:Carobin, Carobpulver, Johannisbrot, Johannisbrote
 es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
 et:Jaanileivapuujahu
 fi:carob
@@ -7726,6 +7727,7 @@ bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
 cv:Грана Падано
+da:Grana Padano, Grana Padano ost
 de:Grana Padano
 eo:Грана Падано
 es:Grana Padano, queso Grana Padano, queso DOP Grana Padano
@@ -8745,6 +8747,7 @@ nutriscore_fruits_vegetables_nuts:en: no
 < en:Animal protein
 < en:Chicken
 en:chicken blood
+de:Hühnerblut
 es:sangre de pollo
 fr:sang de poulet
 
@@ -8755,7 +8758,7 @@ es:proteina de pollo
 
 < en:Chicken
 en:chicken liver
-de:Pouletleber
+de:Pouletleber, Hühnerleber
 es:Higado de pollo
 fi:kananmaksa
 fr:foie de poulet
@@ -9898,8 +9901,8 @@ ca:clementina
 co:Clementina
 cs:Klementinka
 cv:Клементина
-da:Klementin
-de:Clementinen
+da:Klementin, Klementiner
+de:Clementine, Clementinen
 eo:Klementinujo
 es:clementina
 et:Klementiin
@@ -9930,7 +9933,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 en:grapefruit
 ca:aranger
 da:grape, grapefrugt
-de:Grapefruit
+de:Grapefruit, Grapefruits
 el:γκρέιπφρουτ
 eo:grapfrukto
 es:pomelo
@@ -9986,7 +9989,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kaffir_lime
 en:lemon
 ca:Llimona
 cs:Citron
-da:Citron
+da:Citron, Citroner
 de:Zitrone, Zitronen
 es:limón, limones
 fi:sitruuna, sitruunaa
@@ -10081,7 +10084,7 @@ ca:mandarina
 co:Mandarina
 cs:mandarinka
 cv:Мандарин
-da:Mandarin
+da:Mandarin, Mandariner
 de:Mandarine, Mandarinen
 el:μανταρίνι
 es:mandarina
@@ -10131,7 +10134,7 @@ ca:taronja
 cs:pomeranč
 cv:Апельсин
 cy:Oren
-da:appelsin
+da:appelsin, appelsiner
 de:Orange, Orangen
 dv:ނާރިނގު
 el:πορτοκάλι
@@ -10470,7 +10473,7 @@ en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
 ar:كاكاو
 ca:gra de cacau
-de:Kakaobohne
+de:Kakaobohne, Kakaobohnen
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
@@ -11497,7 +11500,7 @@ en:natural colours
 ca:Color natural, colors naturals
 da:naturlig farve
 de:natürliche Farbstoffe
-es:Color natural, colores naturales
+es:Color natural, colores naturales, colorante natural, colorantes naturales
 fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
 hu:természetes színezék
@@ -14717,7 +14720,6 @@ sv:torkade äppelskivor
 
 < en:Dried apricots
 en:pitted dried apricots
-da:tørrede abrikoser
 de:getrocknete Aprikosen entsteint, entsteinte getrocknete Aprikosen
 fi:kivetön kuivattu aprikoosi, kivettömät kuivatut aprikoosit
 fr:abricots secs dénoyautés
@@ -14788,6 +14790,10 @@ en:duck breast
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr: Magret canard
 carbon_footprint_fr_foodges_value:fr: 9.7
+
+< en:Duck meat
+en:duck fillet
+fr:filet de canard
 
 < en:Duck meat
 en:duck gizzards
@@ -17638,7 +17644,7 @@ bs:Etanol
 ca:Etanol
 cs:E1510, ethanol, Etanol, Ethylalkohol, Etylalkohol, C2H5OH
 cy:Ethanol
-da:E1510, Ethanol
+da:E1510, Ethanol, ethylalkohol
 de:E1510, Ethanol, Äthanol, Ethylalkohol
 el:E1510, Αιθανόλη
 eo:etanolo
@@ -22832,7 +22838,7 @@ en:E322i, Lecithin
 bg:E322i, Лецитин
 ca:E322i, lecitina
 cs:E322i, lecitin
-da:E322i, Lecitin
+da:E322i, Lecitin, lecithin
 de:E322i, Lecithin
 el:E322i, λεκιθίνη
 eo:E322i, Lecitino
@@ -26038,6 +26044,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q221391
 
+< en:Carob seeds
 < en:E410
 < en:Flour
 en:carob seed flour, carob kernel flour, carob flour
@@ -27593,7 +27600,7 @@ en:E450, Diphosphates, Pyrophosphate, diphosphate, E-450
 bg:E450, Дифосфат
 ca:E450, Difosfat
 cs:E450, E450 food additive, difosforečnany
-da:E450, E450 food additive
+da:E450, diphosphater
 de:E450, Diphosphate
 el:E450, E450 food additive
 es:E450, Difosfatos, Difosfato, Pirofosfato
@@ -29939,7 +29946,7 @@ bs:E500ii, Natrij-hidrogenkarbonat
 ca:E500ii, hidrogencarbonat de sodi, bicarbonat sòdic
 cs:E500ii, Hydrogenuhličitan sodný, Kyselý uhličitan sodný, bikarbonát sodný
 cy:E500ii, sodiwm deucarbonad
-da:E500ii, Natriumhydrogencarbonat, Natriumbicarbonat, surt natriumcarbonat
+da:E500ii, Natriumhydrogencarbonat, Natriumbicarbonat, surt natriumcarbonat, natron
 de:E500ii, Natriumhydrogencarbonat, Natriumbicarbonat, doppeltkohlensaures Natrium, doppeltkohlensaures Natron
 el:E500ii, Οξινο ανθρακικο νατριο, Διττανθρακικό νάτριο, όξινο ανθρακικό νάτριο, διττανθρακική σόδα
 eo:E500ii, natria bikarbonato
@@ -40236,7 +40243,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose, Fruktose
+de:Fructose, Fruktose, Fruchtzucker
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -40310,7 +40317,7 @@ en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
-da:glukos-fruktossirap
+da:glukos-fruktossirap, glukose-fruktosesirup
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
@@ -40458,7 +40465,7 @@ cs:jablko
 cu:аблъко
 cv:Панулми
 cy:afal
-da:æble
+da:æble, æbler
 de:Apfel, Äpfel
 dv:އާފަލް
 el:Μήλο, μήλα
@@ -40593,7 +40600,7 @@ ce:Туьрк
 co:Baracuccu
 cs:meruňka
 cy:bricyllen
-da:abrikos
+da:abrikos, abrikoser
 de:Aprikose, Aprikosen
 el:Βερίκοκο
 eo:Abrikoto
@@ -40703,7 +40710,7 @@ ce:Банан
 co:Banana
 cs:Banán
 cy:Banana
-da:Banan
+da:Banan, bananer
 de:Bananen, Banane
 dv:ދޮންކެޔޮ
 ee:Akɔɖu
@@ -40877,7 +40884,7 @@ br:Mouar
 bs:Kupina
 ca:Mora
 da:brombær
-de:Brombeeren
+de:Brombeeren, Brombeere, Brombeer
 es:Mora, moras
 eu:Masusta
 fi:karhunvatukka, karhunvadelma
@@ -41192,8 +41199,8 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco, cocos
 cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
+da:kokos, kokosnød, kokosnødder
+de:Kokos, Kokosnuss, Kokosnüsse
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
@@ -41993,7 +42000,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-da:fersken
+da:fersken, ferskener
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
@@ -42037,7 +42044,7 @@ ca:pera
 co:pera
 cs:hruška
 cy:gellygen
-da:pære
+da:pære, pærer
 de:Birne, Birnen
 el:αχλάδι
 eo:piro
@@ -42176,7 +42183,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pineapple
 
 < en:Fruit
 en:plum
-da:blomme
+da:blomme, blommer
 de:Pflaume, Pflaumen
 el:Δαμάσκηνο
 es:ciruela
@@ -42240,8 +42247,8 @@ en:quince, quinces
 ar:سفرجل
 bg:dioulia
 ca:Codony
-da:Kvæde
-de:Quitten
+da:Kvæde, kveder
+de:Quitte, Quitten
 el:Κυδώνι
 es:membrillo
 et:Aiva
@@ -43152,6 +43159,11 @@ ru:Декстроза
 sk:dextróza
 sl:dekstroza
 sv:dextros
+
+< en:Glucose
+en:glucose powder
+da:glukosepulver
+de:Glukosepulver
 
 < en:Glucose
 en:glucose syrup
@@ -48006,7 +48018,7 @@ bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen
+de:Lupinen, Lupine
 el:λούπινο
 eo:Lupenoj
 es:altramuces, altramuz
@@ -48556,6 +48568,10 @@ hu:bio lenmagolaj
 nl:olie van biologisch geteelde zaden van de vlasplant
 
 < en:Liqueur
+en:advocaat
+de:Eierlikör
+
+< en:Liqueur
 en:amaretto
 be:Амарэта
 bg:Амарето
@@ -48812,7 +48828,7 @@ sv:lakritspulver
 < en:Liquorice
 en:liquorice root, licorice root
 da:lakridsrod
-de:Sussholzwurzel, Sußholzwurzel, Süßholzwurzel, Süssholzwurzel
+de:Sussholzwurzel, Sußholzwurzel, Süssholzwurzel
 fi:lakritsijuuri, lakritsanjuuri
 fr:racine de réglisse
 it:radice di liquirizia
@@ -53375,8 +53391,13 @@ wikidata:en: Q52406
 wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 
 < en:Mung bean
+en:mung bean seedlings
+de:Mungobohnenkeimlinge
+
+< en:Mung bean
 en:Mung bean sprout, bean sprouts, beansprouts
 da:bønnespirer
+de:Mungobohnensprosse, Mungobohnensprossen
 es:brotes de judia mungo
 
 < en:Mung bean
@@ -57296,7 +57317,7 @@ it:grasso di palma non idrogenato
 
 < en:Palm fat
 en:totally hydrogenated palm fat
-da:helt hærdet palmefedt
+da:helt hærdet palmefedt, helt hærdet palmefedtstof
 de:vollständig gehärtetes Palmfett
 es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
@@ -57476,7 +57497,7 @@ hu:pálma- és repcemag
 < en:Palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof, palmefedt
+da:palmfedtstof, palmefedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma, manteca de palma
 et:palmirasv
@@ -57719,6 +57740,8 @@ hr:peršinov list
 ro:frunze de pătrunjel
 
 < en:Parsley
+en:parsley root
+de:Petersilienwurzel
 nl:peterseliewortel
 
 < en:Parsnip
@@ -58318,6 +58341,7 @@ sv:karamelliserade pekannötter
 
 < en:Pecorino
 en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
+da:Pecorino Romano, Pecorino Romano ost
 de:Pecorino Romano
 es:Pecorino romano, queso DOP Pecorino romano
 fi:Pecorino romano
@@ -59122,7 +59146,7 @@ ca:regalèssia
 cs:lékořice lysá
 cy:Gwylys
 da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
+de:Lakritz, Sussholz, Süßholz, Echtes Süßholz, Süßholzwurzel, Süßholzwurzeln
 dv:ވޭމުއި
 el:Γλυκόριζα
 eo:Vera glicirizo
@@ -60271,12 +60295,14 @@ vegetarian:en: no
 
 < en:Pork
 en:pork heart
+de:Schweineherz
 fr:coeur de porc
 vegan:en: no
 vegetarian:en: no
 
 < en:Pork
 en:pork kidney
+de:Schweineniere
 fr:rogons de porc
 vegan:en: no
 vegetarian:en: no
@@ -60295,7 +60321,7 @@ co:coghja
 cs:škvarky
 cy:Couenne
 da:flæskesvær
-de:Schwarte, Schwarten
+de:Schwarte, Schwarten, Schweineschwarte, Schweineschwarten
 eo:fritita porkhaŭtaĵo
 es:chicharrón
 et:seakamar
@@ -60874,6 +60900,10 @@ fr:pommes de terre précuites
 en:russet potatoes
 de:Geröstete Kartoffeln
 fr:Pommes de terres rousses
+
+< en:Potato
+en:table potatoes
+de:Speisekartoffeln
 
 < en:Potato
 fr:Pommes de terre de consommation à chair ferme
@@ -63239,7 +63269,7 @@ co:rundonu
 cs:mrkev, karotka
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -65411,6 +65441,9 @@ wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
 < en:Salt
+de:Siedesalz
+
+< en:Salt
 de:Steinsalz
 hu:Kősó
 
@@ -65472,6 +65505,11 @@ id:Garam kosher
 ms:Garam kosher
 sv:Koshersalt
 wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
+
+< en:Salt
+en:melting salt
+de:
+fr:
 
 < en:Salt
 en:Pink salt
@@ -70980,6 +71018,11 @@ wikidata:en: Q11190742
 wikipedia:en: https://en.wikipedia.org/wiki/Brown_sugar
 
 < en:Sugar
+en:candy sugar
+da:kandissukker
+de:Kandiszucker
+
+< en:Sugar
 en:cane sugar, pure cane sugar, sugar cane
 bg:захар от захарна тръстика
 ca:Sucre de canya
@@ -72998,7 +73041,7 @@ bg:кашу
 ca:anacards
 cs:kešu ořechy
 da:cashewnødder
-de:Cashewkerne, Kaschunüsse, Cashewnüsse
+de:Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew
 el:καρύδια κάσιους
 es:anacardos, nueces de anacardos
 et:kašupähklid, India pähkel, kašupähkleid
@@ -73781,7 +73824,7 @@ it:estratto puro di vaniglia
 < en:Vanilla flavouring
 en:natural vanilla flavouring
 ca:Aroma natural de vainilla, aromes naturals de vainilla
-da:naturlig vanillearoma
+da:naturlig vanillearoma, naturlig vaniljearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 et:looduslik vanillimaitseaine
@@ -75264,7 +75307,7 @@ es:Acelgas
 eu:Zerba
 fa:برگ چغندر
 fi:mangoldi, lehtimangoldi, lehtijuurikas
-fr:blette, Blettes
+fr:blette, Blettes, bette, bettes, côtes de blettes
 ga:Biatas bán
 gl:Acelga
 he:סלק עלים
@@ -79857,7 +79900,7 @@ fr:farine mi-blanche
 < en:Wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
-da:hvedefuldkornsmel
+da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
