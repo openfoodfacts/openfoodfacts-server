@@ -61,6 +61,9 @@ foreach my $file (sort(readdir($dh))) {
 	
 	next if $file !~ /\.json$/;
 	
+	# skip expected test results
+	next if $file =~ /\.off\.json$/;
+	
 	my $testid = $`;
 	
 	init_csv_fields();
@@ -85,11 +88,11 @@ foreach my $file (sort(readdir($dh))) {
 		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
 	}
 	else {
-		fail("could not load expected_test_results/$testdir/$testid.json");
+		fail("could not load expected_test_results/$testdir/$testid.off.json");
 		diag explain $product_ref;
 	}
 }
 
-# 
+is(print_unknown_entries_in_gs1_maps(),0);
 
 done_testing();
