@@ -451,6 +451,23 @@ sub import_csv_file($) {
 				# e.g. nestle-france-div-choc-cul-bi-inf -> nestle-france
 				
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
+				$org_id =~ s/^cereal-partners-france$/nestle-france/;
+				$org_id =~ s/^nestle-spac$/nestle-france/;
+
+				# organizations by GLN
+
+				my %gln = (
+					"3010337111109" => "nestle-france",
+					"3012789200103" => "nestle-france",	# SPAC (Buitoni)
+					"3011542300012" => "nestle-france",	# Herta
+					"3013873929306" => "nestle-france",	# Cereal Partners
+					"3011797320001" => "nestle-france",	# Nestlé Waters
+				);
+
+				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
+					and (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
+					$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				}
 				
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
@@ -698,8 +715,11 @@ EMAIL
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
 				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
-					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 					$modified++;
+					defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
+					$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
+					print "different sources_field values - field: $field - existing: " . $product_ref->{sources_fields}{$source_id}{$source_field} . " - new: " . $imported_product_ref->{$field} . "\n";
+					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 				}
 			}
 		}
@@ -764,15 +784,19 @@ EMAIL
 					# only if we have a matching taxonomy entry
 					# there may be multiple columns for the same field: [tags type]_if_match_in_taxonomy.2 etc.
 					
-					if (($subfield =~ /^${field}_if_match_in_taxonomy/)
-						and (exists_taxonomy_tag($field,
-							canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $imported_product_ref->{$subfield})))) {
-						if (defined $imported_product_ref->{$field}) {
-							$imported_product_ref->{$field} .= "," . $imported_product_ref->{$subfield};
-						}
-						else {
-							$imported_product_ref->{$field}
-								= $imported_product_ref->{$subfield};
+					if ($subfield =~ /^${field}_if_match_in_taxonomy/) {
+						
+						# we may have comma separated values
+						foreach my $value (split(/\s*,\s*/, $imported_product_ref->{$subfield})) {
+							if (exists_taxonomy_tag($field,
+									canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $value))) {
+								if (defined $imported_product_ref->{$field}) {
+									$imported_product_ref->{$field} .= "," . $value;
+								}
+								else {
+									$imported_product_ref->{$field}	= $value;
+								}
+							}
 						}
 					}
 				}
@@ -808,6 +832,8 @@ EMAIL
 						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
 						$modified++;
+						defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
+						$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
 					}
 
 					# Skip data that we have already imported before (even if it has been changed)
@@ -904,6 +930,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_added}{$code} = 1;
+						defined $stats{"products_info_added_" . $current_field } or $stats{"products_info_added_" . $current_field } = {};
+						$stats{"products_info_added_field_" . $current_field }{$code} = 1;
 					}
 					elsif ($current_field ne $product_ref->{$field}) {
 						$log->debug("changed value for field", { field => $field, value => $product_ref->{$field}, old_value => $current_field }) if $log->is_debug();
@@ -911,6 +939,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
+						defined $stats{"products_info_changed_" . $current_field } or $stats{"products_info_changed_" . $current_field } = {};
+						$stats{"products_info_changed_field_" . $current_field }{$code} = 1;
 					}
 					elsif ( $field eq "brands" ) {    # we removed it earlier
 						compute_field_tags( $product_ref, $tag_lc, $field );
@@ -990,6 +1020,8 @@ EMAIL
 							$modified++;
 
 							$stats{products_info_changed}{$code} = 1;
+							defined $stats{"products_info_changed_" . $field } or $stats{"products_info_changed_" . $field } = {};
+							$stats{"products_info_changed_field_" . $field }{$code} = 1;
 						}
 					}
 					else {
@@ -1136,6 +1168,12 @@ EMAIL
 				}
 
 				my $modifier = undef;
+				
+				# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
+				if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
+					$log->debug("nutrient with strange value, skipping", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
+					delete $values{$type};
+				} 
 
 				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
 
@@ -1237,6 +1275,8 @@ EMAIL
 						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
 						$modified++;
 						$stats{products_data_updated}{$code} = 1;
+						defined $stats{"products_serving_size_updated"} or $stats{"products_serving_size_updated"} = {};
+						$stats{"products_serving_size_updated"}{$code} = 1;
 					}
 					$imported_nutrition_data_per_value = "serving";
 				}
@@ -1252,6 +1292,7 @@ EMAIL
 				# Set the nutrition_data[_prepared] checkbox
 				if ((not defined $product_ref->{$nutrition_data_field}) or ($product_ref->{$nutrition_data_field} ne "on")) {
 					$product_ref->{$nutrition_data_field} = "on";
+					defined $stats{"products_" . $nutrition_data_per_field . "_updated"} or $stats{"products_" . $nutrition_data_per_field . "_updated"} = {};
 					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
 					$modified++;
 					$stats{products_data_updated}{$code} = 1;
@@ -1318,7 +1359,6 @@ EMAIL
 		if ($modified == 0) {
 			$log->debug("skipping - no modifications", { code => $code }) if $log->is_debug();
 			$stats{products_data_not_updated}{$code} = 1;
-
 		}
 		elsif (($args_ref->{skip_products_without_info}) and ($stats{products_without_info}{$code})) {
 			$log->debug("skipping - product without info and --skip_products_without_info", { code => $code }) if $log->is_debug();
@@ -1507,7 +1547,7 @@ EMAIL
 						my $magick = Image::Magick->new();
 						my $x = $magick->Read($file);
 						if ("$x") {
-							$log->warn("cannot read image file", { error => $x, file => $file }) if $log->is_warn();
+							$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
 							unlink($file);
 						}
 						# If the product has an images field, assume that the image has already been uploaded
@@ -1515,8 +1555,9 @@ EMAIL
 						# This can happen when testing: we download the images once, then delete the products and reimport them again
 						elsif (not defined $product_ref->{images}) {
 							# Assign the download image to the field
-                                                        (defined $images_ref->{$code}) or $images_ref->{$code} = {};
-                                                        $images_ref->{$code}{$imagefield} = $file;
+							$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+							$images_ref->{$code}{$imagefield} = $file;
 						}
 					}
 
@@ -1542,10 +1583,20 @@ EMAIL
 							open (my $out, ">", $file);
 							print $out $response->decoded_content;
 							close($out);
-
-							# Assign the download image to the field
-							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-							$images_ref->{$code}{$imagefield} = $file;
+							
+							# Is the image readable?
+							my $magick = Image::Magick->new();
+							my $x = $magick->Read($file);
+							if ("$x") {
+								$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+								unlink($file);
+							}
+							else {
+								# Assign the download image to the field
+								$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+								$images_ref->{$code}{$imagefield} = $file;
+							}
 						}
 						else {
 							$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();

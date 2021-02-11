@@ -518,6 +518,37 @@ sub assign_quantity_from_field($$) {
 }
 
 
+=head2 remove_quantity_from_field ( $product_ref, $field )
+
+Look for the quantity in a field like a product name.
+If found, remove it from the field.
+
+=cut
+
+sub remove_quantity_from_field($$) {
+
+	my $product_ref = shift;
+	my $field = shift;
+
+	if (defined $product_ref->{$field}) {
+		
+		my $quantity = $product_ref->{quantity};
+		my $quantity_value = $product_ref->{quantity_value};
+		my $quantity_unit = $product_ref->{quantity_unit};
+		
+		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*\b\(?$quantity\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value$quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}		
+	}
+}
+
+
 sub clean_weights($) {
 
 	my $product_ref = shift;
@@ -779,6 +810,8 @@ sub clean_fields($) {
 
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
+	
+	remove_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
@@ -893,7 +926,7 @@ sub clean_fields($) {
 					
 				# Tag field: uppercase the first letter (e.g. brands)
 				if (defined $tags_fields{$field}) {
-					$product_ref->{$field} = join(",", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
+					$product_ref->{$field} = join(", ", map {ucfirst} split /, |,/, lc($product_ref->{$field}));
 				}
 				else {
 					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
@@ -988,6 +1021,12 @@ sub clean_fields($) {
 		}
 
 		if ($field =~ /^nutrition_grade_/) {
+			$product_ref->{$field} = lc($product_ref->{$field});
+		}
+		
+		if ($field eq "nutrition_grade_producer") {
+			# Nutriscore_A -> a
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+//i;
 			$product_ref->{$field} = lc($product_ref->{$field});
 		}
 

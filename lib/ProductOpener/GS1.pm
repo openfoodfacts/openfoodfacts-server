@@ -66,32 +66,6 @@ use ProductOpener::Tags qw/:all/;
 use JSON::PP;
 use boolean;
 
-# specify language fields here instead of importing Tags.pm to speed up execution
-
-# Fields that can have different values by language
-my %language_fields = (
-front_image => 1,
-ingredients_image => 1,
-nutrition_image => 1,
-product_name => 1,
-generic_name => 1,
-ingredients_text => 1,
-conservation_conditions => 1,
-other_information => 1,
-packaging_text => 1,
-recycling_instructions_to_recycle => 1,
-recycling_instructions_to_discard => 1,
-producer => 1,
-origin => 1,
-preparation => 1,
-warning => 1,
-recipe_idea => 1,
-customer_service => 1,
-product_infocard => 1,
-ingredients_infocard => 1,
-nutrition_infocard => 1,
-environment_infocard => 1,
-);
 
 =head1 GS1 MAPS
 
@@ -508,7 +482,7 @@ my %gs1_to_off = (
 															["isPrimaryFile", "TRUE"],
 														],
 														fields => [
-															["uniformResourceIdentifier", "image_front"],
+															["uniformResourceIdentifier", "image_front_url"],
 														],
 													},
 													{
@@ -516,7 +490,7 @@ my %gs1_to_off = (
 															["isPrimaryFile", "TRUE"],
 														],
 														fields => [
-															["uniformResourceIdentifier", "+image_other"],
+															["uniformResourceIdentifier", "+image_other_url"],
 														],
 													},
 												],
@@ -1205,9 +1179,21 @@ sub write_off_csv_file($$) {
 	$csv->print ($filehandle, \@csv_fields);
 	print $filehandle "\n";
 	
-	foreach my $product_ref (@$products_ref) {
+	# We may have the same product multiple times, sort by sources_fields:org-gs1:publicationDateTime
+	my %seen_products = ();
+	
+	foreach my $product_ref (
+		sort {$b->{"sources_fields:org-gs1:publicationDateTime"} cmp $a->{"sources_fields:org-gs1:publicationDateTime"} } 
+			@$products_ref) {
 		
 		$log->debug("write_off_csv_file - product", { code => $product_ref->{code} }) if $log->is_debug();
+		if (defined $seen_products{$product_ref->{code}}) {
+			# Skip product for which we have a more recent publication
+			next;
+		}
+		else {
+			$seen_products{$product_ref->{code}} = 1;
+		}
 		
 		my @csv_fields_values = ();
 		foreach my $field (@csv_fields) {
