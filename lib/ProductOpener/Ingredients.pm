@@ -3601,7 +3601,7 @@ sub preparse_ingredients_text($$) {
 	$prev_text = $text;
 
 	# Symbols to indicate labels like organic, fairtrade etc.
-	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
+	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
 	my $symbols_regexp = join('|', @symbols);
 
 	if ((scalar keys %labels_regexps) == 0) {
