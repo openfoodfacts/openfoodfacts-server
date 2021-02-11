@@ -428,7 +428,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -457,6 +457,15 @@ sub init_labels_regexps() {
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
 			}
+			
+			# also add the xx: entries and synonyms
+			if (($label_lc ne "xx") and (defined $translations_to{labels}{$labelid}{"xx"})) {
+				my $label_xx_labelid = get_string_id_for_lang("xx", $translations_to{labels}{$labelid}{"xx"});
+
+				foreach my $synonym (@{$synonyms_for{labels}{"xx"}{$label_xx_labelid}}) {
+					push @synonyms, $synonym;
+				}
+			}			
 
 			my $label_regexp = "";
 			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
