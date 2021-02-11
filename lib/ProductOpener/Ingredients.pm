@@ -453,6 +453,15 @@ sub init_labels_regexps() {
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
 			}
+			
+			# also add the xx: entries and synonyms
+			if (($label_lc ne "xx") and (defined $translations_to{labels}{$labelid}{"xx"})) {
+				my $label_xx_labelid = get_string_id_for_lang("xx", $translations_to{labels}{$labelid}{"xx"});
+
+				foreach my $synonym (@{$synonyms_for{labels}{"xx"}{$label_xx_labelid}}) {
+					push @synonyms, $synonym;
+				}
+			}			
 
 			my $label_regexp = "";
 			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
