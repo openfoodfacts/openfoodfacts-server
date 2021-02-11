@@ -543,9 +543,11 @@ EMAIL
 		foreach my $imagefield ("front", "ingredients", "nutrition", "other") {
 			my $k = 0;
 			if (defined $imported_product_ref->{"image_" . $imagefield}) {
-				foreach my $file (split(/,/, $imported_product_ref->{"image_" . $imagefield})) {
+				foreach my $file (split(/\s*,\s*/, $imported_product_ref->{"image_" . $imagefield})) {
 					$file =~ s/^\s+//;
 					$file =~ s/\s+$//;
+					
+					$log->debug("images", { file => $file }) if $log->is_debug();
 
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
 					if ($imagefield ne "other") {
@@ -554,6 +556,8 @@ EMAIL
 					else {
 						$k++;
 						$images_ref->{$code}{$imagefield . "_$k"} = $file;
+						
+						$log->debug("images - other", { file => $file, imagefield => $imagefield, k => $k }) if $log->is_debug();
 
 						# No front image?
 						if (not (defined $images_ref->{$code}{front})) {
@@ -1514,97 +1518,103 @@ EMAIL
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
 
 			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
+			
+			if (defined $imported_product_ref->{$field}) {
+			
+				# We may have several URLs separated by commas
+				foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
+				
+					if ($image_url =~ /^http/) {
 
-			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} =~ /^http/)) {
+						# Create a local filename from the url
+						my $filename = $image_url;
+						$filename =~ s/.*\///;
+						$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
 
-				# Create a local filename from the url
-				my $filename = $imported_product_ref->{$field};
-				$filename =~ s/.*\///;
-				$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
+						# If the filename does not include the product code, prefix it
+						if ($filename !~ /$code/) {
 
-				# If the filename does not include the product code, prefix it
-				if ($filename !~ /$code/) {
-
-					$filename = $code . "_" . $filename;
-				}
-
-				my $images_download_dir = $args_ref->{images_download_dir};
-
-				if ((defined $images_download_dir) and ($images_download_dir ne '')) {
-					if (not -d $images_download_dir) {
-						$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
-						mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
-					}
-
-					my $file = $images_download_dir . "/" . $filename;
-
-					# Check if the image exists
-					if (-e $file) {
-
-						$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
-
-						# Is the image readable?
-						my $magick = Image::Magick->new();
-						my $x = $magick->Read($file);
-						if ("$x") {
-							$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
-							unlink($file);
+							$filename = $code . "_" . $filename;
 						}
-						# If the product has an images field, assume that the image has already been uploaded
-						# otherwise, upload it
-						# This can happen when testing: we download the images once, then delete the products and reimport them again
-						elsif (not defined $product_ref->{images}) {
-							# Assign the download image to the field
-							$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
-							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-							$images_ref->{$code}{$imagefield} = $file;
-						}
-					}
 
-					# Download the image
-					if (! -e $file) {
+						my $images_download_dir = $args_ref->{images_download_dir};
 
-						# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-						# -> remove thumb=true to get the full image
-
-						my $image_url = $imported_product_ref->{$field};
-						$image_url =~ s/thumb=true&//;
-
-						$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
-
-						require LWP::UserAgent;
-
-						my $ua = LWP::UserAgent->new(timeout => 10);
-
-						my $response = $ua->get($image_url);
-
-						if ($response->is_success) {
-							$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
-							open (my $out, ">", $file);
-							print $out $response->decoded_content;
-							close($out);
-							
-							# Is the image readable?
-							my $magick = Image::Magick->new();
-							my $x = $magick->Read($file);
-							if ("$x") {
-								$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
-								unlink($file);
+						if ((defined $images_download_dir) and ($images_download_dir ne '')) {
+							if (not -d $images_download_dir) {
+								$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
+								mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
 							}
-							else {
-								# Assign the download image to the field
-								$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
-								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-								$images_ref->{$code}{$imagefield} = $file;
+
+							my $file = $images_download_dir . "/" . $filename;
+
+							# Check if the image exists
+							if (-e $file) {
+
+								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
+
+								# Is the image readable?
+								my $magick = Image::Magick->new();
+								my $x = $magick->Read($file);
+								if ("$x") {
+									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
+									unlink($file);
+								}
+								# If the product has an images field, assume that the image has already been uploaded
+								# otherwise, upload it
+								# This can happen when testing: we download the images once, then delete the products and reimport them again
+								elsif (not defined $product_ref->{images}) {
+									# Assign the download image to the field
+									$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+									(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+									$images_ref->{$code}{$imagefield} = $file;
+								}
+							}
+
+							# Download the image
+							if (! -e $file) {
+
+								# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+								# -> remove thumb=true to get the full image
+
+								$image_url =~ s/thumb=true&//;
+
+								$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
+
+								require LWP::UserAgent;
+
+								my $ua = LWP::UserAgent->new(timeout => 10);
+
+								my $response = $ua->get($image_url);
+
+								if ($response->is_success) {
+									$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
+									open (my $out, ">", $file);
+									print $out $response->decoded_content;
+									close($out);
+									
+									# Is the image readable?
+									my $magick = Image::Magick->new();
+									my $x = $magick->Read($file);
+									if ("$x") {
+										$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+										unlink($file);
+									}
+									else {
+										# Assign the download image to the field
+										$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+										$images_ref->{$code}{$imagefield} = $file;
+									}
+								}
+								else {
+									$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+								}
 							}
 						}
 						else {
-							$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+							$log->warn("no image download dir specified", { }) if $log->is_warn();
 						}
 					}
-				}
-				else {
-					$log->warn("no image download dir specified", { }) if $log->is_warn();
 				}
 			}
 		}
