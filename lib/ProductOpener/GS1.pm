@@ -246,7 +246,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"GREEN_DOT" => "en:green-dot",
 		"MAX_HAVELAAR" => "en:max-havelaar",
 		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
-		"TRIMAN" => "en:triman",
+		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
 	},
 	
