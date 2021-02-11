@@ -294,7 +294,12 @@ my @lists =(
 	# (origins, contains milk)
 	["en","Chocolate (Italy, contains milk)","Chocolate (Italy, Substances or products causing allergies or intolerances : milk.)"],
 	["en","Chocolate (contains milk)","Chocolate ( Substances or products causing allergies or intolerances : milk.)"],
-	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."]
+	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."],
+
+	# ¹ and ² symbols
+	["fr", "Sel, sucre², graisse de palme¹, amidons¹ (maïs¹, pomme de terre¹), oignon¹ : 8,9%, ail¹, oignon grillé¹ : 1,4%, épices¹ et aromate¹ (livèche¹ : 0,4%, curcuma¹, noix de muscade¹), carotte¹ : 0,5%. Peut contenir : céleri, céréales contenant du gluten, lait, moutarde, œuf, soja. ¹Ingrédients issus de l'Agriculture Biologique. ² Ingrédients issus du commerce équitable",
+"sel, sucre commerce équitable, graisse de palme bio, amidons bio (maïs bio, pomme de terre bio ), oignon bio : 8,9%, ail bio, oignon grillé bio : 1,4%, épices bio et aromate bio (livèche bio : 0,4%, curcuma bio, noix de muscade bio ), carotte bio : 0,5%. traces éventuelles : céleri, traces éventuelles : céréales contenant du gluten, traces éventuelles : lait, traces éventuelles : moutarde, traces éventuelles : œuf, traces éventuelles : soja."],
+
 
 );
 

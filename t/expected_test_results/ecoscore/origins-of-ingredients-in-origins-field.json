@@ -16,13 +16,13 @@
                }
             ],
             "epi_score" : 65.146453829679,
-            "epi_value" : 1.5146453829679,
+            "epi_value" : 2,
             "origins_from_origins_field" : [
                "en:france"
             ],
             "transportation_score" : 87.1286388820833,
-            "transportation_value" : 13.082378210523,
-            "value" : 14.5970235934909
+            "transportation_value" : 13,
+            "value" : 15
          },
          "packaging" : {
             "packagings" : [
@@ -58,20 +58,21 @@
          "ef_processing" : "0.041272627",
          "ef_total" : 0.55246032,
          "ef_transportation" : "0.02822842",
+         "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
-         "score" : 58.6020808480656
+         "score" : 59
       },
       "grade" : "b",
       "missing" : {
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 63.1991044415565,
+      "score" : 64,
       "status" : "known"
    },
    "ecoscore_grade" : "b",
-   "ecoscore_score" : 63.1991044415565,
+   "ecoscore_score" : 64,
    "ecoscore_tags" : [
       "b"
    ],

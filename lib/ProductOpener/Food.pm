@@ -4659,14 +4659,16 @@ sub compute_nutrition_score($) {
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		add_tag($product_ref,"misc","en:nutriscore-missing-category");
 		return;
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
-		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		add_tag($product_ref,"misc","en:nutriscore-beverage-status-unknown");
 		return;
 	}
 
@@ -4685,8 +4687,9 @@ sub compute_nutrition_score($) {
 				last;
 			}
 			else {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
+				add_tag($product_ref,"misc","en:nutriscore-missing-prepared-nutrition-data");
 				return;
 			}
 		}
@@ -4712,6 +4715,7 @@ sub compute_nutrition_score($) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					add_tag($product_ref,"misc","en:nutriscore-not-applicable");
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
 					return;
 				}
@@ -4736,6 +4740,8 @@ sub compute_nutrition_score($) {
 					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
 				}
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data");
+				add_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data-$nid");
 				return;
 			}
 		}

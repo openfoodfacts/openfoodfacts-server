@@ -136,7 +136,7 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 	# First export CSV from the producers platform, then import on the public platform
 	
 	my $args_ref = {
-		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
+		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 	};
 	
 	# Add query filters

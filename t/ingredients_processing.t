@@ -422,17 +422,17 @@ my @tests = (
 		]
 	],
 
-# Test for de:geölt
+# Test for en:oiled
 	[ { lc => "de", ingredients_text => "Schalotte geölt, geölte haselnüsse" },
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => "de:ge\x{f6}lt",
+				'processing' => "en:oiled",
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => "de:ge\x{f6}lt",
+				'processing' => "en:oiled",
 				'text' => "haseln\x{fc}sse"
 			}
 		]

@@ -35,10 +35,7 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {},
-         "threatened_species" : {
-            "ingredient" : "en:palm-oil",
-            "value" : -10
-         }
+         "threatened_species" : {}
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "16737",
@@ -58,9 +55,10 @@
          "ef_processing" : "0.01151692",
          "ef_total" : 0.33526651,
          "ef_transportation" : "0.018090858",
+         "is_beverage" : 0,
          "name_en" : "Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3",
          "name_fr" : "Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3",
-         "score" : 71.9485117508868
+         "score" : 72
       },
       "grade" : "c",
       "missing" : {
@@ -68,16 +66,13 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 46.9485117508868,
+      "score" : 57,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 46.9485117508868,
+   "ecoscore_score" : 57,
    "ecoscore_tags" : [
       "c"
-   ],
-   "ingredients_analysis_tags" : [
-      "en:palm-oil"
    ],
    "lc" : "en",
    "misc_tags" : [

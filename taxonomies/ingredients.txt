@@ -132,7 +132,7 @@ en:natural colours
 ca:Color natural, colors naturals
 da:naturlig farve
 de:natürliche Farbstoffe
-es:Color natural, colores naturales
+es:Color natural, colores naturales, colorante natural, colorantes naturales
 fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
 hu:természetes színezék
@@ -10178,6 +10178,7 @@ bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
 cv:Грана Падано
+da:Grana Padano, Grana Padano ost
 de:Grana Padano
 eo:Грана Падано
 es:Grana Padano,queso Grana Padano,queso DOP Grana Padano
@@ -10679,6 +10680,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 
 <en:pecorino
 en:pecorino romano, pecorino romano cheese, Peccorino Romano PDO cheese
+da:Pecorino Romano, Pecorino Romano ost
 de:Pecorino Romano
 es:Pecorino romano,queso DOP Pecorino romano
 fi:Pecorino romano
@@ -12918,7 +12920,15 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_value:fr:0.5
 
-<en:Salt
+<en:salt
+de:Siedesalz
+
+<en:salt
+en:melting salt
+de:Schmelzsalz, Schmelzsalze
+fr:Sel de fonte
+
+<en:salt
 en:finegrained salt
 ca:sal fina
 de:feinkörniges Salz
@@ -14688,6 +14698,7 @@ es:cerdo de bellota ibéric
 <en:animal protein
 <en:pork
 en:pigs blood
+de:Schweineblut
 es:sangre de cerdo
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
@@ -14708,7 +14719,7 @@ co:coghja
 cs:škvarky
 cy:Couenne
 da:flæskesvær
-de:Schwarte, Schwarten
+de:Schwarte, Schwarten, Schweineschwarte, Schweineschwarten
 eo:fritita porkhaŭtaĵo
 es:chicharrón
 et:seakamar
@@ -14871,12 +14882,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bacon
 
 <en:pork
 en:pork heart
+de:Schweineherz
 fr:coeur de porc
 vegan:en:no
 vegetarian:en:no
 
 <en:pork
 en:pork kidney
+de:Schweineniere
 fr:rogons de porc
 vegan:en:no
 vegetarian:en:no
@@ -16480,7 +16493,7 @@ nl:kalfsvet
 en:beef fat
 ca:greix de bou
 de:Rinderfett
-es:Grasa de vacuno
+es:Grasa de vacuno, grasa bovina, grasa vacuna
 fi:naudanrasva
 fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
@@ -17035,7 +17048,7 @@ wikidata:en:Q7128109
 <en:palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
-da:palmfedtstof, palmefedt
+da:palmfedtstof, palmefedtstof, palmefedt
 de:Palmfett
 es:grasa de palma, grasa vegetal de palma,manteca de palma
 et:palmirasv
@@ -17071,7 +17084,7 @@ sv:hydrerad palmfett
 
 <en:palm fat
 en:totally hydrogenated palm fat
-da:helt hærdet palmefedt
+da:helt hærdet palmefedt, helt hærdet palmefedtstof
 de:vollständig gehärtetes Palmfett
 es:grasa de palma totalmente hidrogenada
 fi:kokonaan kovetettu palmurasva, kokonaan kovetettua palmurasvaa, kokonaan hydrogenoitu palmurasva
@@ -19382,6 +19395,9 @@ it:liquore al cioccolato
 nl:chocoladelikeur
 # ingredient/chocolate-liqueur has 46 products @2019-02-15
 
+<en:liqueur
+en:advocaat
+de:Eierlikör
 
 # Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 
@@ -20723,7 +20739,7 @@ hu:whiskey
 
 <en:alcohol
 en:cognac
-de:Cognac
+de:Cognac,  Kognak
 es:coñac
 fi:konjakki
 fr:cognac
@@ -21601,7 +21617,7 @@ sv:vaniljarom
 <en:vanilla flavouring
 en:natural vanilla flavouring
 ca:Aroma natural de vainilla, aromes naturals de vainilla
-da:naturlig vanillearoma
+da:naturlig vanillearoma, naturlig vaniljearoma
 de:natürliches Vanillearoma, natürliches Vanille-Aroma
 es:aroma natural de vainilla
 et:looduslik vanillimaitseaine
@@ -22979,7 +22995,7 @@ cy:Gwenith barfog
 da:Durumhvede
 de:Hartweizen
 eo:Durum-tritiko
-es:trigo duro, Triticum durum
+es:trigo duro, Triticum durum, trigo candeal
 eu:Gari gogor
 fa:گندم الجزایری
 fi:Durumvehnä
@@ -23064,7 +23080,7 @@ en:durum wheat semolina, durum semolina
 da:durumhvede semulje, durumhvedesemulje
 de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
-es:sémola de trigo duro
+es:sémola de trigo duro, sémola de trigo candeal
 fi:durumvehnäsuurimo
 fr:semoule de blé dur, semoule de blé dure
 hr:krupica durum pšenice
@@ -23142,6 +23158,7 @@ en:whole durum wheat semolina, durum wholewheat semolina
 bs:integralna krupica durum pšenice
 de:Vollkorn-Hartweizengriß, Vollkorn-Hartweizengrieß
 el:σιμιγδάλι αλέσεως σκληρού σιταριού
+es:sémola de trigo candeal integral
 fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
 hr:integralna krupica durum pšenice
 hu:teljes kiőrlésű durumbúzadara
@@ -25249,7 +25266,7 @@ sv:fullkornsmjöl
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 ca:farina integral
-da:hvedefuldkornsmel
+da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
 et:täistera nisujahu, täisteranisujahu
@@ -27254,7 +27271,7 @@ en:carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
-de:Carobin, Carobpulver
+de:Carobin, Carobpulver, Johannisbrot, Johannisbrote
 es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
 et:Jaanileivapuujahu
 fi:carob
@@ -27270,6 +27287,7 @@ vegetarian:en:yes
 
 #description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 #comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
+<en:carob
 <en:flour
 <en:E410
 en:carob seed flour, carob kernel flour, carob flour
@@ -27551,6 +27569,11 @@ zh:紅糖
 wikidata:en:Q11190742
 wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
+
+<en:sugar
+en:candy sugar
+da:kandissukker
+de:Kandiszucker
 
 <en:sugar
 en:muscovado, muscovado sugar
@@ -28579,6 +28602,11 @@ en:rye sirup
 et:odrasiirup
 hu:rozsszirup
 
+<en:glucose
+en:glucose powder
+da:glukosepulver
+de:Glukosepulver
+
 # FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
 en:fructose
@@ -28591,7 +28619,7 @@ bs:Fruktoza
 ca:Fructosa
 cs:Fruktóza
 da:Fruktose
-de:Fructose, Fruktose
+de:Fructose, Fruktose, Fruchtzucker
 el:Φρουκτόζη
 eo:Fruktozo
 es:fructosa
@@ -28730,7 +28758,7 @@ en:glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg:глюкозо-фруктозен сироп
 ca:Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs:glukózo-fruktózový sirup, glukózový-fruktózový sirup
-da:glukos-fruktossirap
+da:glukos-fruktossirap, glukose-fruktosesirup
 de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el:σιρόπι γλυκόζης-φρουκτόζης
 es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
@@ -30276,7 +30304,7 @@ en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
 ar:كاكاو
 ca:gra de cacau
-de:Kakaobohne
+de:Kakaobohne, Kakaobohnen
 es:Cacao en grano
 et:Kakaopuu seemned
 fi:kaakaopapu, kaakaopavut
@@ -33877,7 +33905,7 @@ ce:Туьрк
 co:Baracuccu
 cs:meruňka
 cy:bricyllen
-da:abrikos
+da:abrikos, abrikoser
 de:Aprikose, Aprikosen
 el:Βερίκοκο
 eo:Abrikoto
@@ -34019,7 +34047,7 @@ nl:abrikozenpuree
 
 <en:apricot
 en:dried apricots
-da:tørret abrikos
+da:tørret abrikos, tørrede abrikoser
 de:getrocknete Aprikosen
 es:albaricoques deshidratados
 fi:kuivattu aprikoosi, kuivatut aprikoosit
@@ -34031,7 +34059,6 @@ nl:gedroogde abrikozen
 
 <en:dried apricots
 en:pitted dried apricots
-da:tørrede abrikoser
 de:getrocknete Aprikosen entsteint, entsteinte getrocknete Aprikosen
 fi:kivetön kuivattu aprikoosi, kivettömät kuivatut aprikoosit
 fr:abricots secs dénoyautés
@@ -34082,7 +34109,7 @@ ce:Банан
 co:Banana
 cs:Banán
 cy:Banana
-da:Banan
+da:Banan, bananer
 de:Bananen, Banane
 dv:ދޮންކެޔޮ
 ee:Akɔɖu
@@ -34604,7 +34631,7 @@ br:Pechez
 bs:Breskva
 ca:préssec
 cs:broskev
-da:fersken
+da:fersken, ferskener
 de:Pfirsich, Pfirsiche
 el:Ροδάκινο
 eo:persiko
@@ -34725,7 +34752,7 @@ ca:pera
 co:pera
 cs:hruška
 cy:gellygen
-da:pære
+da:pære, pærer
 de:Birne, Birnen
 el:αχλάδι
 eo:piro
@@ -34910,7 +34937,7 @@ sv:päronjuice från koncentrat
 
 <en:fruit
 en:plum
-da:blomme
+da:blomme, blommer
 de:Pflaume, Pflaumen
 el:Δαμάσκηνο
 es:ciruela
@@ -35017,8 +35044,8 @@ en:quince, quinces
 ar:سفرجل
 bg:dioulia
 ca:Codony
-da:Kvæde
-de:Quitten
+da:Kvæde, kveder
+de:Quitte, Quitten
 el:Κυδώνι
 es:membrillo
 et:Aiva
@@ -35148,7 +35175,7 @@ cs:jablko
 cu:аблъко
 cv:Панулми
 cy:afal
-da:æble
+da:æble, æbler
 de:Apfel, Äpfel
 dv:އާފަލް
 el:Μήλο,μήλα
@@ -35364,6 +35391,24 @@ wikidata:en:Q89
 wikipedia:en:https://en.wikipedia.org/wiki/Apple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple
 # 5809 products in 12 languages @2018-10-05
+
+<en:apple
+en:Pink Lady apple
+fr:pomme Pink Lady
+it:Mela Pink Lady
+es:Manzana Pink Lady
+
+<en:apple
+en:Granny apple
+fr:pomme Granny
+it:mela Granny
+es:manzana Granny
+
+<en:apple
+en:cinnamon apple
+fr:pomme cannelle
+it:cannella di mele
+es:manzana canela
 
 <en:apple
 en:green apple
@@ -35841,8 +35886,8 @@ ca:clementina
 co:Clementina
 cs:Klementinka
 cv:Клементина
-da:Klementin
-de:Clementinen
+da:Klementin, Klementiner
+de:Clementine, Clementinen
 eo:Klementinujo
 es:clementina
 et:Klementiin
@@ -35895,7 +35940,7 @@ fi:klementiinimehu
 en:grapefruit
 ca:aranger
 da:grape, grapefrugt
-de:Grapefruit
+de:Grapefruit, Grapefruits
 el:γκρέιπφρουτ
 eo:grapfrukto
 es:pomelo
@@ -36045,7 +36090,7 @@ es:piel de lima Kaffir
 en:lemon
 ca:Llimona
 cs:Citron
-da:Citron
+da:Citron, Citroner
 de:Zitrone, Zitronen
 es:limón,limones
 fi:sitruuna, sitruunaa
@@ -36451,7 +36496,7 @@ ca:mandarina
 co:Mandarina
 cs:mandarinka
 cv:Мандарин
-da:Mandarin
+da:Mandarin, Mandariner
 de:Mandarine, Mandarinen
 el:μανταρίνι
 es:mandarina
@@ -36538,7 +36583,7 @@ ca:taronja
 cs:pomeranč
 cv:Апельсин
 cy:Oren
-da:appelsin
+da:appelsin, appelsiner
 de:Orange, Orangen
 dv:ނާރިނގު
 el:πορτοκάλι
@@ -37135,7 +37180,7 @@ br:Mouar
 bs:Kupina
 ca:Mora
 da:brombær
-de:Brombeeren
+de:Brombeeren, Brombeere, Brombeer
 es:Mora, moras
 eu:Masusta
 fi:karhunvatukka, karhunvadelma
@@ -37908,8 +37953,8 @@ ar:نارجيل
 bg:Кокосов орех
 ca:coco,cocos
 cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
+da:kokos, kokosnød, kokosnødder
+de:Kokos, Kokosnuss, Kokosnüsse
 ee:Eneh
 el:καρύδα
 eo:kokosnukso
@@ -38814,6 +38859,8 @@ es:Lichis deshuesados
 <en:fruit
 en:Rambutan
 fr:Ramboutan, Litchi chevelu
+it:rambutan
+es:rambután
 
 <en:fruit
 en:longan
@@ -39443,9 +39490,10 @@ es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:persimmon,sharon fruit
+en:persimmon,sharon fruit,khaki
 es:caqui
 fr:kaki
+it:cachi
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
 <en:persimmon
@@ -40048,6 +40096,12 @@ wikidata:Q68192318
 
 
 # nectarine
+
+<en:fruit
+en:nectarine
+fr:nectarine
+it:nettarina
+es:nectarina
 
 ###################################################################################################
 #
@@ -42018,7 +42072,7 @@ es:Acelgas
 eu:Zerba
 fa:برگ چغندر
 fi:mangoldi, lehtimangoldi, lehtijuurikas
-fr:blette, Blettes
+fr:blette, Blettes, bette, bettes, côtes de blettes
 ga:Biatas bán
 gl:Acelga
 he:סלק עלים
@@ -43877,7 +43931,7 @@ co:rundonu
 cs:mrkev, karotka
 cy:moronen
 da:gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -45499,7 +45553,9 @@ de:Radieschensprossen
 en:daikon, white radish, winter radish, Oriental radish, long white radish
 ca:rave blanc
 de:Winterrettich
+es:rábano blanco
 fr:radis blanc, radis d'hiver, radis chinois, daikon
+it:ravanello bianco
 ja:ダイコン
 nl:witte rammenas
 
@@ -45512,6 +45568,8 @@ nl:Rammenas
 <en:root vegetable
 en:lotus root
 fr:racine de lotus
+it:radice di loto
+es:raíz de loto
 
 <en:vegetable
 en:okra
@@ -46297,6 +46355,10 @@ carbon_footprint_fr_foodges_value:fr:0.6
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:potato
+en:table potatoes
+de:Speisekartoffeln
+
+<en:potato
 fr:Pommes de terre de consommation à chair ferme
 # ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
 
@@ -46882,18 +46944,18 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno pepper
-en:chipotle, chipotle chilli, chipotle chile
+en:chipotle, chipotle chilli, chipotle chile, chipotle pepper
 ca:chipotle
 cs:chipotle
 da:chipotle
 el:τσιπότλε
-es:chile chipotle
+es:chile chipotle, chipotle
 fi:chipotle, chipotle chili
-fr:chipotle
+fr:chipotle, piment chipotle
 gl:chipotle
 he:צ'יפוטלה
 hu:chipotle
-it:chipotle
+it:chipotle, pepe chipotle
 ja:チポトレ
 kn:ಚಿಪೋಟ್ಲೆ
 ko:치폴레
@@ -48394,7 +48456,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 <en:mung bean
 en:Mung bean sprout, bean sprouts, beansprouts
 da:bønnespirer
+de:Mungobohnensprosse, Mungobohnensprossen
 es:brotes de judia mungo
+
+<en:mung bean
+en:mung bean seedlings
+de:Mungobohnenkeimlinge
 
 <fr:haricot mungo
 fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
@@ -48526,7 +48593,7 @@ bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen
+de:Lupinen, Lupine
 el:λούπινο
 eo:Lupenoj
 es:altramuces, altramuz
@@ -49787,7 +49854,7 @@ bg:кашу
 ca:anacards
 cs:kešu ořechy
 da:cashewnødder
-de:Cashewkerne, Kaschunüsse, Cashewnüsse
+de:Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew
 el:καρύδια κάσιους
 es:anacardos,nueces de anacardos
 et:kašupähklid, India pähkel, kašupähkleid
@@ -54439,6 +54506,8 @@ hr:peršinov list
 ro:frunze de pătrunjel
 
 <en:parsley
+en:parsley root
+de:Petersilienwurzel
 nl:peterseliewortel
 
 ###################################################################################################
@@ -56291,7 +56360,7 @@ ca:regalèssia
 cs:lékořice lysá
 cy:Gwylys
 da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
+de:Lakritz, Sussholz, Süßholz, Echtes Süßholz, Süßholzwurzel, Süßholzwurzeln
 dv:ވޭމުއި
 el:Γλυκόριζα
 eo:Vera glicirizo
@@ -56860,6 +56929,7 @@ sv:kalamonoliver
 
 # <en:compound
 <en:olive
+en:stuffed olives
 fr:olives farcies
 # usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
 
@@ -68313,6 +68383,7 @@ fr:poulet fermier, poulet fermier élevé en plein air
 <en:animal protein
 <en:chicken
 en:chicken blood
+de:Hühnerblut
 es:sangre de pollo
 fr:sang de poulet
 
@@ -68332,7 +68403,7 @@ nl:kippenbeenderen
 # <en:liver
 <en:chicken
 en:chicken liver
-de:Pouletleber
+de:Pouletleber, Hühnerleber
 es:Higado de pollo
 fi:kananmaksa
 fr:foie de poulet
@@ -68643,6 +68714,10 @@ en:duck breast
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr:Magret canard
 carbon_footprint_fr_foodges_value:fr:9.7
+
+<en:duck meat
+en:duck fillet
+fr:filet de canard
 
 <en:duck meat
 en:duck gizzards
@@ -71881,10 +71956,17 @@ fr:Crème dessert saveur vanille
 fr:Crème dessert au chocolat
 # usage:fr:Crème dessert au chocolat: Lait partiellement écrémé 75%, sucre, amidon modifié de maïs, cacao maigre, chocolat 1,9% (pâte de cacao, sucre, émulsifiant : lécithine de tournesol), lactose** et deprotéines _lait,_ épaississants : carraghénanes - gomme xanthane.
 
+<en:pasta
+en:stuffed pasta
+fr:pâtes farcies
+
+<en:stuffed pasta
+fr:pâtes fraiches farcies cuites
+
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
 # <en:compound
-# <en:Stuffed Pastas
+<en:stuffed pasta
 en:ravioli
 ar:رافيولي
 bg:Равиоли
@@ -71930,6 +72012,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # usage:fr:ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
+<en:ravioli
+fr:raviolis farcis aux légumes
 
 # description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
 
@@ -75238,3 +75322,49 @@ fr:caramel aromatique
 it:caramello aromatico
 nl:aromatische karamel, aromatiserende karamel
 pt:caramelo aromático
+
+# filled ingredients, is compound as it contains multiple other ingredients
+
+# en:category:en:Stuffed tomatoes
+en:stuffed tomatoes
+fr:tomates farcies, tomate farcie
+nl:gevulde tomaat, gevulde tomaten
+
+en:stuffed poblano peppers
+
+fr:encornets farcis
+
+en:alfalfa
+fr:luzerne
+it:erba medica
+es:alfalfa
+
+<en:melon
+en:bitter melon
+fr:melon amer
+it:melone amaro
+es:melón amargo
+
+<en:melon
+en:Honeydew melon
+fr:melon miel
+it:melone verde
+es:melón honeydew
+
+<en:chili pepper
+en:poblano chili
+fr:piment poblano
+it:pepe Poblano
+es:chile poblano
+
+<en:vegetable
+en:momordic
+fr:momordique, margose, melon amer
+it:momordic
+es:momordic
+
+<en:flour
+en:chestnut flour
+fr:farine de châtaigne
+it:farina di castagne
+es:harina de castaña

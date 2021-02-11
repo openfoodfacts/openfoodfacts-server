@@ -1,6 +1,7 @@
 {
    "categories_tags" : [
-      "en:sodas"
+      "en:beverages",
+      "en:orange-juices"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -38,39 +39,40 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_proxy_food_code" : "18340",
-         "co2_agriculture" : "0.0052740241",
+         "agribalyse_proxy_food_code" : "2011",
+         "co2_agriculture" : "0.22282021",
          "co2_consumption" : "0.0047993021",
          "co2_distribution" : "0.028932423",
-         "co2_packaging" : "0.18274931",
-         "co2_processing" : "0",
-         "co2_total" : "0.40246995",
-         "co2_transportation" : "0.18071489",
-         "code" : "18340",
-         "dqr" : "2.97",
-         "ef_agriculture" : "0.00091374504",
+         "co2_packaging" : "0.17256359",
+         "co2_processing" : "0.036217",
+         "co2_total" : "0.80120163",
+         "co2_transportation" : "0.33586911",
+         "code" : "2011",
+         "dqr" : "3.68",
+         "ef_agriculture" : "0.08590882100000001",
          "ef_consumption" : "0.0024293397",
          "ef_distribution" : "0.0088128735",
-         "ef_packaging" : "0.018005260999999998",
-         "ef_processing" : "0",
-         "ef_total" : 0.043941445,
-         "ef_transportation" : "0.013780225",
-         "name_en" : "Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)",
-         "name_fr" : "Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants",
-         "score" : 97.8336969127427
+         "ef_packaging" : "0.014792145999999999",
+         "ef_processing" : "0.0056288216",
+         "ef_total" : 0.14687612,
+         "ef_transportation" : "0.029304117999999997",
+         "is_beverage" : 1,
+         "name_en" : "Mixed fruits juice, orange based, multivitamin",
+         "name_fr" : "Jus multifruit - base orange, multivitaminé",
+         "score" : 51
       },
-      "grade" : "a",
+      "grade" : "c",
       "missing" : {
          "origins" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 87.8336969127427,
+      "score" : 41,
       "status" : "known"
    },
-   "ecoscore_grade" : "a",
-   "ecoscore_score" : 87.8336969127427,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 41,
    "ecoscore_tags" : [
-      "a"
+      "c"
    ],
    "lc" : "en",
    "misc_tags" : [

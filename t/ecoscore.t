@@ -237,7 +237,7 @@ my @tests = (
 		'packaging-en-pet-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"PET bottle"
 		}
 	],
@@ -248,7 +248,7 @@ my @tests = (
 		'packaging-en-plastic-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"Plastic bottle"
 		}
 	],
@@ -257,7 +257,7 @@ my @tests = (
 		'packaging-en-multiple',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
 		}
 	],
@@ -266,7 +266,7 @@ my @tests = (
 		'packaging-en-unspecified-material-bottle',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"bottle"
 		}
 	],		
@@ -275,9 +275,44 @@ my @tests = (
 		'packaging-en-unspecified-material-can',
 		{
 			lc => "en",
-			categories_tags=>["en:sodas"],
+			categories_tags=>["en:beverages", "en:orange-juices"],
 			packaging_text=>"can"
 		}
+	],
+	
+	# Sodas: no Eco-Score
+	
+	[
+		'category-without-ecoscore-sodas',
+		{
+			lc => "en",
+			categories_tags=>["en:sodas"],
+			ingredients_text=>"Water, sugar",
+		}
+	],
+	
+	# Packaging bulk
+	
+	[
+		'packaging-en-bulk',
+		{
+			lc => "en",
+			categories_tags=>["en:beverages", "en:orange-juices"],
+			packaging_text=>"bulk"
+		}
+	],	
+	
+	# Sum of bonuses greater than 25
+	
+	[
+		'sum-of-bonuses-greater-than-25',
+		{
+			lc => "fr",
+			categories_tags=>["en:chicken-breasts"],
+			packaging_text => "vrac",
+			labels_tags => ["en:demeter"],
+			ingredients_text => "Poulet (origine France)",
+		},
 	],
 );
 
@@ -291,10 +326,8 @@ foreach my $test_ref (@tests) {
 	
 	# Run the test
 	
-	if ($testid =~ /^origins-of-ingredients/) {
-		# Parse the ingredients (and extract the origins), and compute the ingredients percent
-		extract_ingredients_from_text($product_ref);
-	}
+	# Parse the ingredients (and extract the origins), and compute the ingredients percent
+	extract_ingredients_from_text($product_ref);
 	
 	analyze_and_combine_packaging_data($product_ref);
 	compute_ecoscore($product_ref);

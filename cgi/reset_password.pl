@@ -50,8 +50,9 @@ my $type = param('type') || 'send_email';
 my $action = param('action') || 'display';
 
 my $id = param('userid_or_email');
+my $resetid = param('resetid');
 
-$log->info("start", { type => $type, action => $action, userid_or_email => $id }) if $log->is_info();
+$log->info("start", { type => $type, action => $action, userid_or_email => $id, resetid => $resetid }) if $log->is_info();
 
 my @errors = ();
 
@@ -102,11 +103,13 @@ if ($action eq 'process') {
 
 	}
 	else {
+		$log->debug("invalid address", {type => $type }) if $log->is_debug();
 		display_error(lang("error_invalid_address"), 404);
 	}
 
 
 	if ($#errors >= 0) {
+		$log->debug("errors", {errors => \@errors }) if $log->is_debug();
 		$action = 'display';
 	}
 }
@@ -114,9 +117,13 @@ if ($action eq 'process') {
 $template_data_ref->{action} = $action;
 $template_data_ref->{type} = $type;
 
-
 if ($action eq 'display') {
 	push @{$template_data_ref->{errors}}, @errors;
+	
+	if ($type eq 'reset') {
+		$template_data_ref->{token} = param('token');
+		$template_data_ref->{resetid} = param('resetid');
+	}
 }
 
 elsif ($action eq 'process') {
@@ -131,7 +138,7 @@ elsif ($action eq 'process') {
 			@userids = ($userid);
 		}
 
-		my $i = 0;
+		$template_data_ref->{status} = "error";
 
 		foreach my $userid (@userids) {
 
@@ -151,21 +158,25 @@ elsif ($action eq 'process') {
 				$email =~ s/<RESET_URL>/$url/g;
 				send_email($user_ref, lang("reset_password_email_subject"), $email);
 
-				$i++;
+				$template_data_ref->{status} = "email_sent";
 			}
 		}
-
-		$template_data_ref->{i} = $i;
-
 	}
 	elsif ($type eq 'reset') {
 		my $userid = get_string_id_for_lang("no_language", param('resetid'));
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
+		
+		$log->debug("resetting password", {userid => $userid }) if $log->is_debug();
+		
+		$template_data_ref->{status} = "error";
+		
 		if (defined $user_ref) {
 
-			if ((param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
+			if ((defined $user_ref->{token}) and (defined param('token')) and (param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
 				
-				$template_data_ref->{user_token} = "defined";
+				$log->debug("token is valid, updating password", {userid => $userid }) if $log->is_debug();
+				
+				$template_data_ref->{status} = "password_reset";
 
 				$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
 
@@ -175,16 +186,14 @@ elsif ($action eq 'process') {
 
 			}
 			else {
+				$log->debug("token is invalid", {userid => $userid }) if $log->is_debug();
 				display_error($Lang{error_reset_invalid_token}{$lang}, undef);
 			}
 		}
 	}
-
-
 }
 
-$tt->process('reset_password.tt.html', $template_data_ref, \$html);
-$html .= "<p>" . $tt->error() . "</p>";
+process_template('reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 display_new( {
 
