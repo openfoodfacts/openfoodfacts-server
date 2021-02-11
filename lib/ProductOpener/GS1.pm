@@ -61,6 +61,7 @@ BEGIN
 use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use JSON::PP;
 use boolean;
@@ -116,29 +117,38 @@ my %unknown_entries_in_gs1_maps = ();
 
 %gs1_maps = (
 
-	# gs1:$gs1_maps
+	# https://gs1.se/en/guides/documentation/code-lists/t4078-allergen-type-code/
 	allergenTypeCode => {
 
-		"AC" => "Crustacés",
-		"AE" => "Oeuf",
-		"AF" => "Poisson",
-		"AM" => "Lait",
-		"AN" => "Fruits à coque",
-		"AP" => "Cacahuètes",
-		"AS" => "Sésame",
+		"AC" => "Crustaceans",
+		"AE" => "Eggs",
+		"AF" => "Fish",
+		"AM" => "Milk",
+		"AN" => "Tree nuts",
+		"AP" => "Peanuts",
+		"AS" => "Sesame seeds",
 		"AU" => "Sulfites",
 		"AW" => "Gluten",
-		"AY" => "Soja",
-		"BC" => "Céleri",
-		"BM" => "Moutarde",
-		"GB" => "Orge",
-		"NL" => "Lupin",
-		"SA" => "Amandes",
-		"SB" => "Graines",
-		"SH" => "Noisette",
-		"SW" => "Noix",
-		"UM" => "Mollusques",
-		"UW" => "Blé",
+		"AY" => "Soybean",
+		"BC" => "Celery",
+		"BM" => "Mustard",
+		"GB" => "Barley",
+		"GK" => "Kamut",
+		"GO" => "Oats",
+		"GS" => "Spelt",
+		"ML" => "Lactose",
+		"NL" => "Lupine",
+		"NR" => "Rye",
+		"SA" => "Almond",
+		"SH" => "Hazelnut",
+		"SM" => "Macadamia nut",
+		"SP" => "Pecan nut",
+		"ST" => "Pistachio",
+		"SW" => "Walnut",
+		"UM" => "Molluscs",
+		# Shellfish could be Molluscs or Crustaceans
+		# "UN" => "Shellfish",
+		"UW" => "Wheat",
 	},
 	
 	measurementUnitCode => {
@@ -257,6 +267,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
 		"DEMETER" => "en:demeter",
 		"EU_ORGANIC_FARMING" => "en:eu-organic",
+		"EUROPEAN_V_LABEL_VEGAN" => "en:european-vegetarian-union-vegan",
 		"FAIR_TRADE_MARK" => "en:fairtrade-international",
 		"GREEN_DOT" => "en:green-dot",
 		"MAX_HAVELAAR" => "en:max-havelaar",
@@ -274,6 +285,20 @@ my %unknown_entries_in_gs1_maps = ();
 		"DAY" => "day",
 	},	
 );
+
+# Normalize some entries
+
+foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
+	my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
+	if (exists_taxonomy_tag("allergens", $canon_tag)) {
+		$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
+	}
+	else {
+		$log->error("gs1_maps - entry not in taxonomy",
+			{ tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag} }) if $log->is_error();
+			die;
+	}
+}
 
 
 =head2 %gs1_to_off
@@ -347,6 +372,8 @@ my %gs1_to_off = (
 		["tradeItemInformation",
 			{
 				fields => [
+					# Sometimes contains strings like "Signal CLAY&CHARCOAL DENTIFRICE 75 ML", not a good fit for the producer_version_id
+					# but other time contains strings that look like internal version ids / item ids (e.g. "44041392")
 					["productionVariantDescription", "sources_fields:org-gs1:productionVariantDescription, producer_version_id"],
 					
 					["extension", {
@@ -397,7 +424,12 @@ my %gs1_to_off = (
 								
 								["consumer_instructions:consumerInstructionsModule", {
 										fields => [
-											["consumerStorageInstructions", "conservation_conditions"],
+											["consumerInstructions", {
+													fields => [
+														["consumerStorageInstructions", "conservation_conditions"],
+													],
+												},
+											],
 										],
 									}
 								],
@@ -843,6 +875,10 @@ sub gs1_to_off ($$$) {
 						$log->debug("gs1_to_off - assign value to target field",
 							{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
 							
+						# We might combine a value and a unit, but also keep them separate so that we can assign fields like quantity_value and quantity_unit
+						my $source_value_value;
+						my $source_value_unit;
+							
 						# Some fields indicate a language:
 						
 	# ingredientStatement: {
@@ -891,9 +927,13 @@ sub gs1_to_off ($$$) {
 							foreach my $code ("measurementUnitCode", "timeMeasurementUnitCode") {
 							
 								if (defined $source_value->{$code}) {
+									$source_value_value = $value;
+									$source_value_unit = $gs1_maps{$code}{$source_value->{$code}};
 									$value .= " " . $gs1_maps{$code}{$source_value->{$code}};
 								}
 								elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{$code})) {
+									$source_value_value = $value;
+									$source_value_unit = $gs1_maps{$code}{$source_value->{'@'}{$code}};
 									$value .= " " . $gs1_maps{$code}{$source_value->{'@'}{$code}};
 								}
 							}
@@ -945,6 +985,13 @@ sub gs1_to_off ($$$) {
 							}
 							
 							assign_field($results_ref, $target_field, $source_value);
+							
+							if ($target_field eq "quantity") {
+								if (defined $source_value_value) {
+									assign_field($results_ref, $target_field . "_value", $source_value_value);
+									assign_field($results_ref, $target_field . "_unit", $source_value_unit);
+								}
+							}
 						}
 					}
 					
