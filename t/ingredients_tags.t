@@ -131,15 +131,10 @@ my @tests = (
 	[ { lc => "nl", ingredients_text => "romano"}, ['nl:romano']],
 
 	# MSC
-	[ { lc => "fr", ingredients_text => "72% saumon MSC"}, ['en:salmon']],
-	
-	# TODO: https://fr.openfoodfacts.org/ingredients?filter=msc
-    # German can be tricky
-	# TODO: https://fr.openfoodfacts.org/ingredients?filter=asc
-    #"ascorbique"
-	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [  ], ],
-	# TODO: https://fr.openfoodfacts.org/ingredients?filter=aop
-	# TODO: https://fr.openfoodfacts.org/ingredients?filter=aoc
+	[ { lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"}, ['en:salmon', 'en:alaska-pollock', 'en:cod']],
+	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
+	# AOP
+	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
 	
 );
 
