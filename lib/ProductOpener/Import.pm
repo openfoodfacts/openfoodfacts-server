@@ -1527,8 +1527,13 @@ EMAIL
 					if ($image_url =~ /^http/) {
 
 						# Create a local filename from the url
+						
+						# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
+						# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
+						
 						my $filename = $image_url;
 						$filename =~ s/.*\///;
+						$filename =~ s/.*(file|filename=)//i;
 						$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
 
 						# If the filename does not include the product code, prefix it
@@ -1595,7 +1600,9 @@ EMAIL
 									# Is the image readable?
 									my $magick = Image::Magick->new();
 									my $x = $magick->Read($file);
-									if ("$x") {
+									# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+									# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+									if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
 										$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
 										unlink($file);
 									}
