@@ -71,7 +71,7 @@ if (not defined $org_ref) {
 
 # Does the user have permission to edit the org profile?
 
-if (not (is_user_in_org_group($org_ref, "admins", $User_id) or $admin)) {
+if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin)) {
 	$log->debug("user does not have permission to edit org", { orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id }) if $log->is_debug();
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
@@ -232,7 +232,7 @@ elsif ($action eq 'process') {
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 		
-		$template_data_ref->{profile_url} = canonicalize_tag_link("users", "org-" . $orgid);
+		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 	}
 	elsif ($type eq 'delete') {
