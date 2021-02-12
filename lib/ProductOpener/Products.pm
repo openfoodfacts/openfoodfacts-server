@@ -617,7 +617,7 @@ sub init_product($$$$) {
 
 	my $country;
 
-	if ((not defined $countryid) or ($countryid eq "en:world")) {
+	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
 
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
