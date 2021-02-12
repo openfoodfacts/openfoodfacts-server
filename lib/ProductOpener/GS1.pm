@@ -760,9 +760,16 @@ sub gs1_to_off ($$$) {
 						$per = "serving";
 						$serving_size_value += 0;	# remove extra .0
 						
+						# Some serving sizes have an extra description
+						# e.g. par portion : 14 g + 200 ml d'eau
 						my $extra_serving_size_description = "";
 						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
-							$extra_serving_size_description = ' (' . $serving_size_description . ')';
+							$serving_size_description =~ s/^par portion\s*:\s*//;
+							# skip the extra description if it is equal to value + unit
+							# to avoid things like 43 g (43 g)
+							if ($serving_size_description ne ($serving_size_value . " " . $serving_size_unit)) {
+								$extra_serving_size_description = ' (' . $serving_size_description . ')';
+							}
 						}
 						
 						assign_field($results_ref, "serving_size", $serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
