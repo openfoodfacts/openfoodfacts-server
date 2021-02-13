@@ -3785,7 +3785,7 @@ HTML
 				
 				# Display the organization profile
 				
-				if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
+				if (is_user_in_org_group($user_or_org_ref, $User_id, "admins") or $admin) {
 					$template_data_ref->{edit_profile} = 1;
 					$template_data_ref->{orgid} = $orgid;
 				}					
