@@ -966,6 +966,8 @@ sub gs1_to_off ($$$) {
 									defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
 									defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
 									$unknown_entries_in_gs1_maps{$map}{$source_value}++;
+									# Skip the entry
+									next;
 								}
 							}							
 						
