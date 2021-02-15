@@ -1027,19 +1027,18 @@ sub clean_fields($) {
 
 		}
 
-		if ($field =~ /^nutrition_grade_/) {
+		if ($field =~ /^nutriscore_grade_/) {
 			$product_ref->{$field} = lc($product_ref->{$field});
 		}
 		
-		if ($field eq "nutrition_grade_producer") {
+		if ($field eq "nutriscore_grade_producer") {
 			# Nutriscore_A -> a
-			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+//i;
-			$product_ref->{$field} = lc($product_ref->{$field});
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+[a-e]//i;
 		}
 
 		# remove N, N/A, NA etc.
 		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
-		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*(,|$)//ig;
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|no aplica|nr|n\/r)\s*(,|$)//ig;
 		
 		# remove none except for allergens and traces
 		if ($field !~ /allergens|traces/) {
@@ -1054,7 +1053,8 @@ sub clean_fields($) {
 		$product_ref->{$field} =~ s/,(\s*),/,/g;
 		$product_ref->{$field} =~ s/\.(\.+)$/\./;
 		$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-		$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
+		# be careful not to turn -5 to 5: remove dashes only if they are not followed by a number
+		$product_ref->{$field} =~ s/^(\s|-(?![0-9])|;|,|\.)+//;
 		$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
 
 		# remove empty values for tag fields
