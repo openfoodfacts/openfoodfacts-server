@@ -919,8 +919,15 @@ sub clean_fields($) {
 			
 			# Lowercase fields in ALL CAPS
 			
-			if (($product_ref->{$field} =~ /[A-Z]{4}/)
-				and ($product_ref->{$field} !~ /[a-z]/)
+			# do not count x4 as a lowercase letter
+			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
+			
+			my $value = $product_ref->{$field};
+			$value =~ s/x(\d)/X$1/;
+			$value =~ s/(\d)x/$1X/;
+			
+			if (($value =~ /[A-Z]{4}/)
+				and ($value !~ /[a-z]/)
 				) {
 					
 					
