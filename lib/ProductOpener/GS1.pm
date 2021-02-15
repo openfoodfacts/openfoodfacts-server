@@ -103,6 +103,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"AS" => "Sesame seeds",
 		"AU" => "Sulfites",
 		"AW" => "Gluten",
+		"AX" => "Gluten",
 		"AY" => "Soybean",
 		"BC" => "Celery",
 		"BM" => "Mustard",
@@ -236,7 +237,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"WRP" => "en:film",
 	},	
 	
-	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode&release=3
+	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode
 	packagingMarkedLabelAccreditationCode => {
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
