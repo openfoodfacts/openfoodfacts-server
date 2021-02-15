@@ -1569,9 +1569,20 @@ EMAIL
 								# This can happen when testing: we download the images once, then delete the products and reimport them again
 								elsif (not defined $product_ref->{images}) {
 									# Assign the download image to the field
-									$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+									
+									# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+									my $new_imagefield = $imagefield;
+									if (defined $images_ref->{$code}{$new_imagefield}) {
+										my $image_number = 2;
+										while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+											$image_number++;
+										}
+										$new_imagefield = $imagefield . '.' . $image_number;
+									}	
+								
+									$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
 									(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-									$images_ref->{$code}{$imagefield} = $file;
+									$images_ref->{$code}{$new_imagefield} = $file;
 								}
 							}
 
@@ -1608,9 +1619,20 @@ EMAIL
 									}
 									else {
 										# Assign the download image to the field
-										$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
+										
+										# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+										my $new_imagefield = $imagefield;
+										if (defined $images_ref->{$code}{$new_imagefield}) {
+											my $image_number = 2;
+											while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+												$image_number++;
+											}
+											$new_imagefield = $imagefield . '.' . $image_number;
+										}	
+									
+										$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
 										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-										$images_ref->{$code}{$imagefield} = $file;
+										$images_ref->{$code}{$new_imagefield} = $file;
 									}
 								}
 								else {
