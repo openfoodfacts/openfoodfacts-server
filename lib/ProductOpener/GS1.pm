@@ -29,7 +29,13 @@ ProductOpener::GS1 - convert data from GS1 Global Data Synchronization Network (
 
 =head1 DESCRIPTION
 
-..
+This module converts GDSN data that has previously been converted to JSON
+(either from XML with xml2json (e.g. Equadis data), or from JSON provided by a GDSN partner (e.g. CodeOnline)
+to the Open Food Facts CSV format.
+
+The conversion is configured through the %gs1_to_off structure to indicate which source field maps to which target field.
+
+And the %gs1_maps translate the GS1 specific identifiers (e.g. for allergens or units) to OFF identifiers.
 
 =cut
 
@@ -597,7 +603,8 @@ sub init_csv_fields() {
 
 =head2 assign_field ( $results_ref $target_field $target_value)
 
-Used to assign a value to a field, and keep track of the order of the fields.
+Used to assign a value to a field, and keep track of the order of the fields we are matching,
+so that we can output the fields in the same order when we export a CSV.
 
 =cut
 
@@ -670,6 +677,8 @@ sub gs1_to_off ($$$) {
 		
 		$log->debug("gs1_to_off - conditions match") if $log->is_debug();
 	}
+	
+	# Check the matching exceptions
 	
 	if (defined $gs1_to_off_ref->{does_not_match}) {
 		
