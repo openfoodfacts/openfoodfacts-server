@@ -187,6 +187,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"STARCH" => "starch",
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
+		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
 		"VITB12" => "vitamin-b12",
@@ -235,6 +236,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"WRP" => "en:film",
 	},	
 	
+	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode&release=3
 	packagingMarkedLabelAccreditationCode => {
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
@@ -831,6 +833,11 @@ sub gs1_to_off ($$$) {
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
 									{ nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
+								my $map = "nutrientTypeCode";
+								my $source_value = $nutrient_detail_ref->{nutrientTypeCode};
+								defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
+								defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+								$unknown_entries_in_gs1_maps{$map}{$source_value}++;
 							}
 						}
 					}
