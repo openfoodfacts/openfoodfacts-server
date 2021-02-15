@@ -17,3 +17,7 @@ export PERL5LIB="../lib:${PERL5LIB}"
 
 ./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-cristalco
 
+./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-materne
+
+./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-garofalo-france
+
