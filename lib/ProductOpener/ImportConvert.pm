@@ -1033,7 +1033,7 @@ sub clean_fields($) {
 		
 		if ($field eq "nutriscore_grade_producer") {
 			# Nutriscore_A -> a
-			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+[a-e]//i;
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+([a-e])/$3/i;
 		}
 
 		# remove N, N/A, NA etc.
