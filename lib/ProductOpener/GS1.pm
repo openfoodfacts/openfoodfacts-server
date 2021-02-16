@@ -801,7 +801,7 @@ sub gs1_to_off ($$$) {
 							$serving_size_description =~ s/^par portion\s*:\s*//;
 							# skip the extra description if it is equal to value + unit
 							# to avoid things like 43 g (43 g)
-							if ($serving_size_description ne ($serving_size_value . " " . $serving_size_unit)) {
+							if (lc($serving_size_description) ne lc($serving_size_value . " " . $serving_size_unit)) {
 								$extra_serving_size_description = ' (' . $serving_size_description . ')';
 							}
 						}
