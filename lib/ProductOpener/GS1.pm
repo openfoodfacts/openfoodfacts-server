@@ -367,6 +367,19 @@ my %gs1_to_off = (
 					
 					["extension", {
 							fields => [
+
+								["alcohol_information:alcoholInformationModule", {
+										fields => [
+											["alcoholInformation", {
+													fields => [
+														["percentageOfAlcoholByVolume", "alcohol_100g_value"],
+													],
+												},
+											],
+										],
+									},
+								],						
+							
 								["allergen_information:allergenInformationModule", {
 										fields => [
 											["allergenRelatedInformation", {
@@ -734,6 +747,9 @@ sub gs1_to_off ($$$) {
 			if ($source_field eq "nutrientHeader") {
 				
 				$log->debug("gs1_to_off - special handling for nutrientHeader array") if $log->is_debug();
+				
+				# Some products like ice cream may have nutrients per 100g + nutrients per 100ml
+				# in that case, the last values (e.g. for 100g) will override previous values (e.g. for 100ml)
 				
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
 					
