@@ -453,6 +453,7 @@ sub import_csv_file($) {
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
 				$org_id =~ s/^cereal-partners-france$/nestle-france/;
 				$org_id =~ s/^nestle-spac$/nestle-france/;
+				$org_id =~ s/^lustucru.*/panzani-sa/;
 
 				# organizations by GLN
 
