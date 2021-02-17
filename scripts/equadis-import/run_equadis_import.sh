@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /srv/off-pro/scripts/equadis-import2
+cd /srv/off-pro/scripts/equadis-import
 
 # copy files modified in the last few days
 
