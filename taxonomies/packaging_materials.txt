@@ -12,6 +12,7 @@ stopwords:fr:100%
 
 en:Unknown
 fr:Inconnu, inconnue, inconnus, inconnues
+non_recyclable_and_non_biodegradable:en:maybe
 
 en:Plastic
 de:Kunststoff
@@ -20,6 +21,7 @@ hu:Műanyag
 it:Plastica
 ru:Пластик
 wikidata:en:Q11474
+non_recyclable_and_non_biodegradable:en:maybe
 
 en:Recyclable material
 de:wiederverwertbares Material
@@ -79,6 +81,7 @@ pt:PET - Tereftalato de polietileno, Tereftalato de polietileno
 ru:PET - Полиэтилентерефталат, Полиэтилентерефталат
 wikidata:en:Q145863
 recycling_code:en:1
+non_recyclable_and_non_biodegradable:en:no
 
 <en:Polyethylene terephthalate
 <en:Recycled plastic
@@ -125,6 +128,7 @@ it:Polietilene ad alta densità
 nl:Hogedichtheidpolyetheen, HDPE, PE-HD
 nl_be:Hogedichtheidpolyetheen, HDPE, PE-HD 02
 wikidata:en:Q2641430
+non_recyclable_and_non_biodegradable:en:no
 
 <xx:HDPE
 en:Biobased HDPE
@@ -152,6 +156,7 @@ it:Polietilene a bassa densità
 nl:lagedichtheidpolyetheen
 nl_be:lagedichtheidpolyetheen
 wikidata:en:Q2033818
+non_recyclable_and_non_biodegradable:en:no
 
 <en:Plastic
 en:PP - Polypropylene, Polypropylene
@@ -164,6 +169,7 @@ nl:Polypropeen, polypropyleen
 nl_be:Polypropeen, polypropyleen
 ru:Полипропилен
 wikidata:en:Q146174
+non_recyclable_and_non_biodegradable:en:no
 
 <en:Plastic
 en:PS - Polystyrene, Polystyrene
@@ -187,6 +193,7 @@ it:Altre plastiche
 nl:Andere plastics
 nl_be:Andere plastics
 ru:Другие пластики, Другие пластмассы
+non_recyclable_and_non_biodegradable:en:yes
 
 <en:Plastic
 en:Acrylonitrile butadiene styrene, 09 ABS, ABS, ABS 09, ABS 9, 9 ABS
@@ -477,8 +484,10 @@ fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Multilayer composite, multilayer, composite composite materials, polycoat
 fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
+non_recyclable_and_non_biodegradable:en:yes
 
 en:Ceramic
 de:Keramik
 fr:Céramique
 wikidata:en:Q45621
+non_recyclable_and_non_biodegradable:en:yes
