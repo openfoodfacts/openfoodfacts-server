@@ -654,9 +654,10 @@ sub compute_ecoscore_agribalyse($) {
 				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150);
 			}
 			else {
-				# General case: score=−15 * ln(x² + 220) + 180 
+				# 2021-02-17: new updated formula: 100-(20 * ln(10*x+1))/ln(2+ 1/(100*x*x*x*x))  - with x in MPt / kg.
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
-				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180);
+				$product_ref->{ecoscore_data}{agribalyse}{score} = round(100 - 20 * log(10 * $agribalyse{$agb}{ef_total} + 1)
+					/ log(2 + 1 / (100 * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total})));
 			}
 			if ($product_ref->{ecoscore_data}{agribalyse}{score} < 0) {
 				$product_ref->{ecoscore_data}{agribalyse}{score} = 0;
