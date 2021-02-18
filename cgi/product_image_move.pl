@@ -196,7 +196,9 @@ if ($move_to ne 'trash') {
 	# URL on another server?
 	my $server = server_for_product_id($move_to);
 	if (defined $server) {
-		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{$domain} . $response{url};
+		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{domain} . $response{url};
+		$url =~ s/\/([a-z]+):([0-9])/\/$2/;
+		$response{url} = $url;
 	}
 	
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
