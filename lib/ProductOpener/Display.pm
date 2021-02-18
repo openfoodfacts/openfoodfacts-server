@@ -9339,8 +9339,6 @@ sub display_nutrition_table($$) {
 				rows => [],
 			},
 		],
-
-		carbon_footprint => [],
 	};
 
 	my @cols;
@@ -10006,8 +10004,9 @@ JS
 	}
 
 	# Remove the ecological table if we have no rows
+	# 2021-02: remove the ecological table as we now show the Eco-Score
 
-	if (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0) {
+	if ((1) or (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0)) {
 		pop @{$template_data_ref->{tables}};
 	}
 
