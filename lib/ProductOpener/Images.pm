@@ -877,6 +877,7 @@ sub process_image_move($$$$) {
 				$log->info("moving source image to deleted images directory", { source_path => "$www_root/images/products/$path/$imgid.jpg", destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg" });
 
 				move("$www_root/images/products/$path/$imgid.jpg", "$data_root/deleted.images/product.$code.$imgid.jpg");
+				move("$www_root/images/products/$path/$imgid.json", "$data_root/deleted.images/product.$code.$imgid.json");
 				move("$www_root/images/products/$path/$imgid.$thumb_size.jpg", "$data_root/deleted.images/product.$code.$imgid.$thumb_size.jpg");
 				move("$www_root/images/products/$path/$imgid.$crop_size.jpg", "$data_root/deleted.images/product.$code.$imgid.$crop_size.jpg");
 
