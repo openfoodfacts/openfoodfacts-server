@@ -153,10 +153,13 @@ if ($move_to ne 'trash') {
 		exit(0);
 	}
 
-	my $new_product_ref = product_exists($move_to_id); # returns 0 if not
+	my $new_product_ref = retrieve_product($move_to_id);
 
-	if (not $new_product_ref) {
-		$log->info("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id });
+	if (defined $new_product_ref) {
+		$log->debug("new product code already exists", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
+	}
+	else {
+		$log->debug("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
 		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
@@ -186,9 +189,6 @@ if ($move_to ne 'trash') {
 		}
 
 		store_product($new_product_ref, "Creating product (moving image from product $code");
-	}
-	else {
-		$log->info("new product code already exists", { move_to => $move_to });
 	}
 
 	$response{url} = product_url($move_to);

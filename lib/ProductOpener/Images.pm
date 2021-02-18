@@ -742,7 +742,13 @@ sub process_image_upload($$$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
+				$log->debug("update the product image data", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
 				my $product_ref = retrieve_product($product_id);
+				
+				if (not defined $product_ref) {
+					$log->debug("product could not be loaded", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
+				}
+				
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
 					uploader => $userid,
@@ -765,6 +771,8 @@ sub process_image_upload($$$$$$$) {
 				if ((defined $comment) and ($comment ne '')) {
 					$store_comment .= ' - ' . $comment;
 				}
+				
+				$log->debug("storing product", {product_id => $product_id }) if $log->is_debug();
 				store_product($product_ref, $store_comment);
 
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
@@ -833,7 +841,7 @@ sub process_image_move($$$$) {
 	my $product_id = product_id_for_owner($ownerid, $code);
 	my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
-	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+	$log->debug("process_image_move - start", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	my $path = product_path_from_id($product_id);
 
@@ -855,14 +863,17 @@ sub process_image_move($$$$) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
+			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
+			}
+			else {
+				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
@@ -889,6 +900,8 @@ sub process_image_move($$$$) {
 	}
 
 	store_product($product_ref, "Moved images $imgids to $move_to");
+	
+	$log->debug("process_image_move - end", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	return 0;
 }
