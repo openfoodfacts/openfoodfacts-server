@@ -47,7 +47,10 @@ my $action = param('action') || 'display';
 my $code = normalize_code(param('code'));
 my $imgids = param('imgids');
 my $move_to = param('move_to_override');
-if ($move_to ne 'trash') {
+if ($move_to =~ /^(off|obf|opf|opff)$/) {
+	$move_to .= ':' . $code;
+}
+elsif ($move_to ne 'trash') {
 	$move_to = normalize_code($move_to);
 }
 my $copy_data = param('copy_data_override');
@@ -189,6 +192,13 @@ if ($move_to ne 'trash') {
 	}
 
 	$response{url} = product_url($move_to);
+	
+	# URL on another server?
+	my $server = server_for_product_id($move_to);
+	if (defined $server) {
+		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{$domain} . $response{url};
+	}
+	
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 
