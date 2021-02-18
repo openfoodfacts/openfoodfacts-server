@@ -25,7 +25,7 @@
          "packaging" : {
             "packagings" : [
                {
-                  "ecoscore_material_score" : 91.25,
+                  "ecoscore_material_score" : 92,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:cardboard",
                   "number" : "1",
@@ -33,13 +33,13 @@
                },
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "ecoscore_shape_ratio" : "0,1",
                   "material" : "en:plastic",
                   "number" : "1",
                   "shape" : "en:film"
                },
                {
-                  "ecoscore_material_score" : 75.5,
+                  "ecoscore_material_score" : 76,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:steel",
                   "number" : "6",
@@ -49,8 +49,8 @@
                   "shape" : "en:drink-can"
                }
             ],
-            "score" : 56.75,
-            "value" : -4.325
+            "score" : 68,
+            "value" : -3
          },
          "production_system" : {},
          "threatened_species" : {}
@@ -76,18 +76,18 @@
          "is_beverage" : 1,
          "name_en" : "Mixed fruits juice, orange based, multivitamin",
          "name_fr" : "Jus multifruit - base orange, multivitaminé",
-         "score" : 50.8966311728851
+         "score" : 51
       },
       "grade" : "c",
       "missing" : {
          "origins" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 41.5716311728851,
+      "score" : 43,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 41.5716311728851,
+   "ecoscore_score" : 43,
    "ecoscore_tags" : [
       "c"
    ],

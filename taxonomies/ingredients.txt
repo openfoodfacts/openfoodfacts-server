@@ -35393,6 +35393,24 @@ wikipedia:en:https://en.wikipedia.org/wiki/Apple
 # 5809 products in 12 languages @2018-10-05
 
 <en:apple
+en:Pink Lady apple
+fr:pomme Pink Lady
+it:Mela Pink Lady
+es:Manzana Pink Lady
+
+<en:apple
+en:Granny apple
+fr:pomme Granny
+it:mela Granny
+es:manzana Granny
+
+<en:apple
+en:cinnamon apple
+fr:pomme cannelle
+it:cannella di mele
+es:manzana canela
+
+<en:apple
 en:green apple
 es:manzana verde, manzanas verdes
 
@@ -38841,6 +38859,8 @@ es:Lichis deshuesados
 <en:fruit
 en:Rambutan
 fr:Ramboutan, Litchi chevelu
+it:rambutan
+es:rambután
 
 <en:fruit
 en:longan
@@ -39470,9 +39490,10 @@ es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:persimmon,sharon fruit
+en:persimmon,sharon fruit,khaki
 es:caqui
 fr:kaki
+it:cachi
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 
 <en:persimmon
@@ -40075,6 +40096,12 @@ wikidata:Q68192318
 
 
 # nectarine
+
+<en:fruit
+en:nectarine
+fr:nectarine
+it:nettarina
+es:nectarina
 
 ###################################################################################################
 #
@@ -45526,7 +45553,9 @@ de:Radieschensprossen
 en:daikon, white radish, winter radish, Oriental radish, long white radish
 ca:rave blanc
 de:Winterrettich
+es:rábano blanco
 fr:radis blanc, radis d'hiver, radis chinois, daikon
+it:ravanello bianco
 ja:ダイコン
 nl:witte rammenas
 
@@ -45539,6 +45568,8 @@ nl:Rammenas
 <en:root vegetable
 en:lotus root
 fr:racine de lotus
+it:radice di loto
+es:raíz de loto
 
 <en:vegetable
 en:okra
@@ -46913,18 +46944,18 @@ sv:grön jalapeño
 # description:en:A CHIPOTLE or chilpotle, is a smoke-dried ripe jalapeño chili pepper used for seasoning.
 
 <en:jalapeno pepper
-en:chipotle, chipotle chilli, chipotle chile
+en:chipotle, chipotle chilli, chipotle chile, chipotle pepper
 ca:chipotle
 cs:chipotle
 da:chipotle
 el:τσιπότλε
-es:chile chipotle
+es:chile chipotle, chipotle
 fi:chipotle, chipotle chili
-fr:chipotle
+fr:chipotle, piment chipotle
 gl:chipotle
 he:צ'יפוטלה
 hu:chipotle
-it:chipotle
+it:chipotle, pepe chipotle
 ja:チポトレ
 kn:ಚಿಪೋಟ್ಲೆ
 ko:치폴레
@@ -56898,6 +56929,7 @@ sv:kalamonoliver
 
 # <en:compound
 <en:olive
+en:stuffed olives
 fr:olives farcies
 # usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
 
@@ -71924,10 +71956,17 @@ fr:Crème dessert saveur vanille
 fr:Crème dessert au chocolat
 # usage:fr:Crème dessert au chocolat: Lait partiellement écrémé 75%, sucre, amidon modifié de maïs, cacao maigre, chocolat 1,9% (pâte de cacao, sucre, émulsifiant : lécithine de tournesol), lactose** et deprotéines _lait,_ épaississants : carraghénanes - gomme xanthane.
 
+<en:pasta
+en:stuffed pasta
+fr:pâtes farcies
+
+<en:stuffed pasta
+fr:pâtes fraiches farcies cuites
+
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
 # <en:compound
-# <en:Stuffed Pastas
+<en:stuffed pasta
 en:ravioli
 ar:رافيولي
 bg:Равиоли
@@ -71973,6 +72012,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # usage:fr:ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 
+<en:ravioli
+fr:raviolis farcis aux légumes
 
 # description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
 
@@ -75281,3 +75322,49 @@ fr:caramel aromatique
 it:caramello aromatico
 nl:aromatische karamel, aromatiserende karamel
 pt:caramelo aromático
+
+# filled ingredients, is compound as it contains multiple other ingredients
+
+# en:category:en:Stuffed tomatoes
+en:stuffed tomatoes
+fr:tomates farcies, tomate farcie
+nl:gevulde tomaat, gevulde tomaten
+
+en:stuffed poblano peppers
+
+fr:encornets farcis
+
+en:alfalfa
+fr:luzerne
+it:erba medica
+es:alfalfa
+
+<en:melon
+en:bitter melon
+fr:melon amer
+it:melone amaro
+es:melón amargo
+
+<en:melon
+en:Honeydew melon
+fr:melon miel
+it:melone verde
+es:melón honeydew
+
+<en:chili pepper
+en:poblano chili
+fr:piment poblano
+it:pepe Poblano
+es:chile poblano
+
+<en:vegetable
+en:momordic
+fr:momordique, margose, melon amer
+it:momordic
+es:momordic
+
+<en:flour
+en:chestnut flour
+fr:farine de châtaigne
+it:farina di castagne
+es:harina de castaña

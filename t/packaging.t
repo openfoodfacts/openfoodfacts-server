@@ -281,6 +281,15 @@ my @tests = (
 			packaging => "Verre, Couvercle, Plastique, Pot, Petit Format, couvercle en plastique, opercule aluminium, pot en verre",
 		}
 	],
+	
+	[
+		'packaging_fr_coffee_capsules',
+		{
+			lc => "fr",
+			packaging => "Capsules en aluminium à recycler",
+			categories_tags => ["en:coffees"],
+		}
+	],	
 );
 
 init_packaging_taxonomies_regexps();

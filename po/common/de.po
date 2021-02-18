@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-12-07 12:04\n"
+"PO-Revision-Date: 2021-02-06 10:30\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: de\n"
-"X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1378\n"
+"X-Crowdin-File: common.pot\n"
+"X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -538,7 +538,7 @@ msgstr "Bearbeitung begründen"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "Ein Produkt bearbeiten"
+msgstr "Produkt bearbeiten"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -730,8 +730,8 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "Das Ablaufdatum ist eine Möglichkeit, um Produktänderungen zu verfolgen und die aktuellste Version zu identifizieren."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
-msgstr "Produkte nach Kriterien anzeigen …"
+msgid "Explore products by..."
+msgstr "Produkte erkunden von …"
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -918,7 +918,7 @@ msgstr "hoch"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr "großen Mengen"
+msgstr "hohe Menge"
 
 msgctxt "history"
 msgid "Changes history"
@@ -996,7 +996,7 @@ msgstr "Fotodetail und Zuordnungsinformationen"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "Von Ihnen hinzugefügte Produkte, die noch abgeschlossen werden müssen"
+msgstr "Von Ihnen hinzugefügte Produkte, die noch fertiggestellt werden müssen"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -1008,11 +1008,11 @@ msgstr "Hinweisgeber"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -1630,7 +1630,7 @@ msgstr "Produkte mit einer Verpackung aus %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "Verpackungsart"
+msgstr "Verpackungsarten"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -2144,7 +2144,7 @@ msgstr "Egal"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2280,7 +2280,7 @@ msgstr "Produktdetails anzeigen"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Land"
+msgstr "Vertriebsländer"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3326,7 +3326,7 @@ msgstr "Herkunfte"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
@@ -4820,7 +4820,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr "Eigenes Benutzerprofil bearbeiten"
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Zutaten"
 
@@ -5043,4 +5043,127 @@ msgstr "Die Plattform bietet auch eine gründliche Analyse der Produkte."
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr "Es berechnet Indikatoren wie den Nutri-Score, die NOVA und den Eco-Score und identifiziert automatisch Verbesserungsvorschläge (z. B. alle Produkte, die mit einer geringfügigen Änderung der Zusammensetzung eine bessere Nutri-Score-Note erhalten würden)."
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr "Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr "Geringes Entwaldungsrisiko (Waldfußabdruck)"
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr "Sehr kleiner Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr "Kleiner Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr "Mittlerer Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr "Großer Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr "Sehr großer Waldfußabdruck"
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr "Wald-Fußabdruck nicht berechnet"
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr "Fast keine Abholzungsgefahr"
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr "Geringe Abholzungsgefahr"
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr "Mäßiges Entwaldungsrisiko"
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr "Hohes Entwaldungsrisiko"
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr "Sehr hohes Entwaldungsrisiko"
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr "Derzeit nur für Produkte mit Hühnern oder Eiern"
+
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr "Produkte nach Ihren Präferenzen klassifizieren"
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr "Klassifizieren Sie die %d Produkte unten nach"
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr "Meistgescannte Produkte"
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr "Produkte mit dem besten Nutri-Score"
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr "Produkte mit dem besten Eco-Score"
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr "Kürzlich hinzugefügte Produkte"
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr "Kürzlich geänderte Produkte"
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr "%d Produkte pro Seite"
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr "Nicht anwendbar"
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr "Abgekürzter Produktname"
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr "Produktname mit Abkürzungen auf den Belegen"
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr "Vision, Mission, Werte und Programme"
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr "https://world-de.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr "Passwort vergessen?"
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr "Wir konnten Ihr Passwort nicht neu initialisieren, bitte kontaktieren Sie uns für Unterstützung."
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr "Alle Nährwertwerte entfernen"
 

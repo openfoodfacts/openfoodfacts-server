@@ -129,6 +129,13 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:sugar', 'en:soya-lecithin', 'en:salt']],
 
 	[ { lc => "nl", ingredients_text => "romano"}, ['nl:romano']],
+
+	# MSC
+	[ { lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"}, ['en:salmon', 'en:alaska-pollock', 'en:cod']],
+	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
+	# AOP
+	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
+	
 );
 
 foreach my $test_ref (@tests) {
