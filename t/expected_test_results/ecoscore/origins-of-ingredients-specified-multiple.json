@@ -41,11 +41,13 @@
             "value" : 9
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -77,18 +79,18 @@
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
-         "score" : 59
+         "score" : 50
       },
       "grade" : "c",
       "missing" : {
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 58,
+      "score" : 49,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 58,
+   "ecoscore_score" : 49,
    "ecoscore_tags" : [
       "c"
    ],

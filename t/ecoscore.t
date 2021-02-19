@@ -314,6 +314,30 @@ my @tests = (
 			ingredients_text => "Poulet (origine France)",
 		},
 	],
+	
+	# downgrade from B to A when the product contains non-recyclable and non-biodegradable materials
+	
+	[
+		'carrots',
+		{
+			lc => "fr",
+			categories_tags=>["en:carrots"],
+			packaging_text => "vrac",
+			labels_tags => ["en:demeter"],
+			ingredients_text => "Carottes (origine France)",
+		},
+	],
+	
+	[
+		'carrots-plastic',
+		{
+			lc => "fr",
+			categories_tags=>["en:carrots"],
+			packaging_text => "Barquette en plastique",
+			labels_tags => ["en:demeter"],
+			ingredients_text => "Carottes (origine France)",
+		},
+	],	
 );
 
 

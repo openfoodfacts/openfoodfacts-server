@@ -530,6 +530,13 @@ sub compute_ecoscore($) {
 			else {
 				$product_ref->{ecoscore_grade} = "e";
 			}
+			
+			# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
+			if (($product_ref->{ecoscore_grade} eq "a") and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
+				$product_ref->{ecoscore_grade} = "b";
+				$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
+			}
+			
 			$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
 			$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
 			$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
@@ -654,9 +661,10 @@ sub compute_ecoscore_agribalyse($) {
 				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1 ) + 150);
 			}
 			else {
-				# General case: score=−15 * ln(x² + 220) + 180 
+				# 2021-02-17: new updated formula: 100-(20 * ln(10*x+1))/ln(2+ 1/(100*x*x*x*x))  - with x in MPt / kg.
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
-				$product_ref->{ecoscore_data}{agribalyse}{score} = round(-15 * log($agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * (1000 * 1000 / 100) + 220 ) + 180);
+				$product_ref->{ecoscore_data}{agribalyse}{score} = round(100 - 20 * log(10 * $agribalyse{$agb}{ef_total} + 1)
+					/ log(2 + 1 / (100 * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total} * $agribalyse{$agb}{ef_total})));
 			}
 			if ($product_ref->{ecoscore_data}{agribalyse}{score} < 0) {
 				$product_ref->{ecoscore_data}{agribalyse}{score} = 0;
@@ -1018,6 +1026,8 @@ sub compute_ecoscore_packaging_adjustment($) {
 	
 	my $packaging_score = 0;
 	
+	my $non_recyclable_and_non_biodegradable_materials = 0;
+	
 	foreach my $packaging_ref (@$packagings_ref) {
 		
 		# We need to match the material and shape to the Eco-score materials and shapes.
@@ -1064,7 +1074,15 @@ sub compute_ecoscore_packaging_adjustment($) {
 					$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
 				}
 			}
-
+			
+			# Check if the material is non recyclable and non biodegradable
+			my $non_recyclable_and_non_biodegradable = get_inherited_property("packaging_materials", $packaging_ref->{material}, "non_recyclable_and_non_biodegradable:en");
+			if (defined $non_recyclable_and_non_biodegradable) {
+				$packaging_ref->{non_recyclable_and_non_biodegradable} = $non_recyclable_and_non_biodegradable;
+				if ($non_recyclable_and_non_biodegradable ne "en:no") {
+					$non_recyclable_and_non_biodegradable_materials++;
+				}
+			}
 		}
 		else {
 			$packaging_ref->{material} = "en:unknown";
@@ -1116,6 +1134,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 		packagings => $packagings_ref,
 		score => $packaging_score,
 		value => $value,
+		non_recyclable_and_non_biodegradable_materials => $non_recyclable_and_non_biodegradable_materials,
 	};
 	
 	if (defined $warning) {

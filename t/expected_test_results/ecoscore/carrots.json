@@ -1,6 +1,6 @@
 {
    "categories_tags" : [
-      "en:chicken-breasts"
+      "en:carrots"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -41,62 +41,63 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_proxy_food_code" : "36018",
-         "co2_agriculture" : "4.9994509",
-         "co2_consumption" : "0.068120731",
-         "co2_distribution" : "0.040124726",
-         "co2_packaging" : "0.38186454",
-         "co2_processing" : "1.5004807",
-         "co2_total" : "7.3080109",
-         "co2_transportation" : "0.31798877",
-         "code" : "36018",
-         "dqr" : "2.67",
-         "ef_agriculture" : "0.90989336",
-         "ef_consumption" : "0.034481763",
-         "ef_distribution" : "0.011840366",
-         "ef_packaging" : "0.023412096",
-         "ef_processing" : "0.10705326",
-         "ef_total" : 1.1111394,
-         "ef_transportation" : "0.02444929",
+         "agribalyse_food_code" : "20009",
+         "co2_agriculture" : "0.087677241",
+         "co2_consumption" : "0.099564814",
+         "co2_distribution" : "0.029228063",
+         "co2_packaging" : "0",
+         "co2_processing" : "0",
+         "co2_total" : "0.38690672",
+         "co2_transportation" : "0.1704366",
+         "code" : "20009",
+         "dqr" : "2.15",
+         "ef_agriculture" : "0.044256253",
+         "ef_consumption" : "0.0042189169",
+         "ef_distribution" : "0.0091483656",
+         "ef_packaging" : "0",
+         "ef_processing" : "0",
+         "ef_total" : 0.070883164,
+         "ef_transportation" : "0.013259629",
          "is_beverage" : 0,
-         "name_en" : "Chicken, breast, without skin, cooked",
-         "name_fr" : "Poulet, filet, sans peau, cuit",
-         "score" : 28
+         "name_en" : "Carrot, raw",
+         "name_fr" : "Carotte, crue",
+         "score" : 98
       },
-      "grade" : "c",
+      "grade" : "a",
       "missing" : {
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 53,
+      "score" : 123,
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 53,
+   "ecoscore_grade" : "a",
+   "ecoscore_score" : 123,
    "ecoscore_tags" : [
-      "c"
+      "a"
    ],
    "ingredients" : [
       {
-         "id" : "en:chicken",
+         "id" : "en:carrot",
          "origins" : "en:france",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
          "rank" : 1,
-         "text" : "Poulet",
-         "vegan" : "no",
-         "vegetarian" : "no"
+         "text" : "Carottes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:non-vegan",
-      "en:non-vegetarian"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "en:chicken",
-      "en:poultry"
+      "en:carrot",
+      "en:vegetable",
+      "en:root-vegetable"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -104,15 +105,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:chicken"
+      "en:carrot"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:chicken",
-      "en:poultry"
+      "en:carrot",
+      "en:vegetable",
+      "en:root-vegetable"
    ],
-   "ingredients_text" : "Poulet (origine France)",
-   "known_ingredients_n" : 2,
+   "ingredients_text" : "Carottes (origine France)",
+   "known_ingredients_n" : 3,
    "labels_tags" : [
       "en:demeter"
    ],
@@ -122,7 +124,7 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
    },
    "packaging_text" : "vrac",
    "packagings" : [

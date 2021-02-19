@@ -22,11 +22,13 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -61,7 +63,7 @@
          "is_beverage" : 0,
          "name_en" : "Butter, 82% fat, unsalted",
          "name_fr" : "Beurre à 82% MG, doux",
-         "score" : 37
+         "score" : 27
       },
       "grade" : "d",
       "missing" : {
@@ -69,11 +71,11 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 37,
+      "score" : 27,
       "status" : "known"
    },
    "ecoscore_grade" : "d",
-   "ecoscore_score" : 37,
+   "ecoscore_score" : 27,
    "ecoscore_tags" : [
       "d"
    ],
