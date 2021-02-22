@@ -375,6 +375,8 @@ sub load_ecoscore_data_packaging() {
 			
 			(defined $properties{"packaging_shapes"}{$shape_id}) or $properties{"packaging_shapes"}{$shape_id} = {};
 			$properties{"packaging_shapes"}{$shape_id}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{$shape_id}{ratio};
+			# if the ratio has a comma (0,2), turn it to a dot (0.2)
+			$properties{"packaging_shapes"}{$shape_id}{"ecoscore_ratio:en"} =~ s/,/\./;
 			
 			$log->debug("ecoscore shapes CSV file - row", { shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}) if $log->is_debug();
 		}
