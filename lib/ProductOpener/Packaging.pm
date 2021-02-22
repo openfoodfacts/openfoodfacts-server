@@ -204,8 +204,12 @@ sub parse_packaging_from_text_phrase($$) {
 						# If we already have a value for the property,
 						# apply the new value only if it is a child of the existing value
 						# e.g. if we already have "plastic", we can override it with "PET"
+						# Special case for "cardboard" that can be both a shape (card) and a material (cardboard):
+						# -> a new shape can be assigned. e.g. "carboard box" -> shape = box
 						if ((not defined $packaging_ref->{$property})
-							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))) {
+							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))
+							or (($property eq "shape") and ($packaging_ref->{$property} eq "en:card"))
+							) {
 							
 							$packaging_ref->{$property} = $tagid;
 						}
