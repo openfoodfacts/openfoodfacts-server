@@ -453,6 +453,7 @@ sub import_csv_file($) {
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
 				$org_id =~ s/^cereal-partners-france$/nestle-france/;
 				$org_id =~ s/^nestle-spac$/nestle-france/;
+				$org_id =~ s/^lustucru.*/panzani-sa/;
 
 				# organizations by GLN
 
@@ -543,9 +544,11 @@ EMAIL
 		foreach my $imagefield ("front", "ingredients", "nutrition", "other") {
 			my $k = 0;
 			if (defined $imported_product_ref->{"image_" . $imagefield}) {
-				foreach my $file (split(/,/, $imported_product_ref->{"image_" . $imagefield})) {
+				foreach my $file (split(/\s*,\s*/, $imported_product_ref->{"image_" . $imagefield})) {
 					$file =~ s/^\s+//;
 					$file =~ s/\s+$//;
+					
+					$log->debug("images", { file => $file }) if $log->is_debug();
 
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
 					if ($imagefield ne "other") {
@@ -554,6 +557,8 @@ EMAIL
 					else {
 						$k++;
 						$images_ref->{$code}{$imagefield . "_$k"} = $file;
+						
+						$log->debug("images - other", { file => $file, imagefield => $imagefield, k => $k }) if $log->is_debug();
 
 						# No front image?
 						if (not (defined $images_ref->{$code}{front})) {
@@ -715,8 +720,11 @@ EMAIL
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
 				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
-					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 					$modified++;
+					defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
+					$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
+					print "different sources_field values - field: $field - existing: " . $product_ref->{sources_fields}{$source_id}{$source_field} . " - new: " . $imported_product_ref->{$field} . "\n";
+					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 				}
 			}
 		}
@@ -781,15 +789,19 @@ EMAIL
 					# only if we have a matching taxonomy entry
 					# there may be multiple columns for the same field: [tags type]_if_match_in_taxonomy.2 etc.
 					
-					if (($subfield =~ /^${field}_if_match_in_taxonomy/)
-						and (exists_taxonomy_tag($field,
-							canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $imported_product_ref->{$subfield})))) {
-						if (defined $imported_product_ref->{$field}) {
-							$imported_product_ref->{$field} .= "," . $imported_product_ref->{$subfield};
-						}
-						else {
-							$imported_product_ref->{$field}
-								= $imported_product_ref->{$subfield};
+					if ($subfield =~ /^${field}_if_match_in_taxonomy/) {
+						
+						# we may have comma separated values
+						foreach my $value (split(/\s*,\s*/, $imported_product_ref->{$subfield})) {
+							if (exists_taxonomy_tag($field,
+									canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $value))) {
+								if (defined $imported_product_ref->{$field}) {
+									$imported_product_ref->{$field} .= "," . $value;
+								}
+								else {
+									$imported_product_ref->{$field}	= $value;
+								}
+							}
 						}
 					}
 				}
@@ -825,6 +837,8 @@ EMAIL
 						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
 						$modified++;
+						defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
+						$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
 					}
 
 					# Skip data that we have already imported before (even if it has been changed)
@@ -921,6 +935,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_added}{$code} = 1;
+						defined $stats{"products_info_added_" . $current_field } or $stats{"products_info_added_" . $current_field } = {};
+						$stats{"products_info_added_field_" . $current_field }{$code} = 1;
 					}
 					elsif ($current_field ne $product_ref->{$field}) {
 						$log->debug("changed value for field", { field => $field, value => $product_ref->{$field}, old_value => $current_field }) if $log->is_debug();
@@ -928,6 +944,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_changed}{$code} = 1;
+						defined $stats{"products_info_changed_" . $current_field } or $stats{"products_info_changed_" . $current_field } = {};
+						$stats{"products_info_changed_field_" . $current_field }{$code} = 1;
 					}
 					elsif ( $field eq "brands" ) {    # we removed it earlier
 						compute_field_tags( $product_ref, $tag_lc, $field );
@@ -1007,6 +1025,8 @@ EMAIL
 							$modified++;
 
 							$stats{products_info_changed}{$code} = 1;
+							defined $stats{"products_info_changed_" . $field } or $stats{"products_info_changed_" . $field } = {};
+							$stats{"products_info_changed_field_" . $field }{$code} = 1;
 						}
 					}
 					else {
@@ -1260,6 +1280,8 @@ EMAIL
 						$product_ref->{serving_size} = $imported_nutrition_data_per_value;
 						$modified++;
 						$stats{products_data_updated}{$code} = 1;
+						defined $stats{"products_serving_size_updated"} or $stats{"products_serving_size_updated"} = {};
+						$stats{"products_serving_size_updated"}{$code} = 1;
 					}
 					$imported_nutrition_data_per_value = "serving";
 				}
@@ -1275,6 +1297,7 @@ EMAIL
 				# Set the nutrition_data[_prepared] checkbox
 				if ((not defined $product_ref->{$nutrition_data_field}) or ($product_ref->{$nutrition_data_field} ne "on")) {
 					$product_ref->{$nutrition_data_field} = "on";
+					defined $stats{"products_" . $nutrition_data_per_field . "_updated"} or $stats{"products_" . $nutrition_data_per_field . "_updated"} = {};
 					$stats{"products_" . $nutrition_data_per_field . "_updated"}{$code} = 1;
 					$modified++;
 					$stats{products_data_updated}{$code} = 1;
@@ -1341,7 +1364,6 @@ EMAIL
 		if ($modified == 0) {
 			$log->debug("skipping - no modifications", { code => $code }) if $log->is_debug();
 			$stats{products_data_not_updated}{$code} = 1;
-
 		}
 		elsif (($args_ref->{skip_products_without_info}) and ($stats{products_without_info}{$code})) {
 			$log->debug("skipping - product without info and --skip_products_without_info", { code => $code }) if $log->is_debug();
@@ -1497,97 +1519,132 @@ EMAIL
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
 
 			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
+			
+			if (defined $imported_product_ref->{$field}) {
+			
+				# We may have several URLs separated by commas
+				foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
+				
+					if ($image_url =~ /^http/) {
 
-			if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} =~ /^http/)) {
+						# Create a local filename from the url
+						
+						# https://secure.equadis.com/Equadis/MultimediaFileViewer?key=49172280_A8E8029F60B478AE56CFA5A87B7E0F4C&idFile=1502347&file=10144/08710522680612_C8N1_s35.png
+						# https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=202078864&filename=08593893749702_A1L1_s03.jpg
+						
+						my $filename = $image_url;
+						$filename =~ s/.*\///;
+						$filename =~ s/.*(file|filename=)//i;
+						$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
 
-				# Create a local filename from the url
-				my $filename = $imported_product_ref->{$field};
-				$filename =~ s/.*\///;
-				$filename =~ s/[^A-Za-z0-9-_\.]/_/g;
+						# If the filename does not include the product code, prefix it
+						if ($filename !~ /$code/) {
 
-				# If the filename does not include the product code, prefix it
-				if ($filename !~ /$code/) {
-
-					$filename = $code . "_" . $filename;
-				}
-
-				my $images_download_dir = $args_ref->{images_download_dir};
-
-				if ((defined $images_download_dir) and ($images_download_dir ne '')) {
-					if (not -d $images_download_dir) {
-						$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
-						mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
-					}
-
-					my $file = $images_download_dir . "/" . $filename;
-
-					# Check if the image exists
-					if (-e $file) {
-
-						$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
-
-						# Is the image readable?
-						my $magick = Image::Magick->new();
-						my $x = $magick->Read($file);
-						if ("$x") {
-							$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
-							unlink($file);
+							$filename = $code . "_" . $filename;
 						}
-						# If the product has an images field, assume that the image has already been uploaded
-						# otherwise, upload it
-						# This can happen when testing: we download the images once, then delete the products and reimport them again
-						elsif (not defined $product_ref->{images}) {
-							# Assign the download image to the field
-							$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
-							(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-							$images_ref->{$code}{$imagefield} = $file;
-						}
-					}
 
-					# Download the image
-					if (! -e $file) {
+						my $images_download_dir = $args_ref->{images_download_dir};
 
-						# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-						# -> remove thumb=true to get the full image
-
-						my $image_url = $imported_product_ref->{$field};
-						$image_url =~ s/thumb=true&//;
-
-						$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
-
-						require LWP::UserAgent;
-
-						my $ua = LWP::UserAgent->new(timeout => 10);
-
-						my $response = $ua->get($image_url);
-
-						if ($response->is_success) {
-							$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
-							open (my $out, ">", $file);
-							print $out $response->decoded_content;
-							close($out);
-							
-							# Is the image readable?
-							my $magick = Image::Magick->new();
-							my $x = $magick->Read($file);
-							if ("$x") {
-								$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
-								unlink($file);
+						if ((defined $images_download_dir) and ($images_download_dir ne '')) {
+							if (not -d $images_download_dir) {
+								$log->debug("Creating images_download_dir", { images_download_dir => $images_download_dir}) if $log->is_debug();
+								mkdir($images_download_dir, 0755) or $log->warn("Could not create images_download_dir", { images_download_dir => $images_download_dir, error=> $!}) if $log->is_warn();
 							}
-							else {
-								# Assign the download image to the field
-								$log->debug("assigning image file", { imagefield => $imagefield, file => $file }) if $log->is_debug();
-								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-								$images_ref->{$code}{$imagefield} = $file;
+
+							my $file = $images_download_dir . "/" . $filename;
+
+							# Check if the image exists
+							if (-e $file) {
+
+								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
+
+								# Is the image readable?
+								my $magick = Image::Magick->new();
+								my $x = $magick->Read($file);
+								if ("$x") {
+									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
+									unlink($file);
+								}
+								# If the product has an images field, assume that the image has already been uploaded
+								# otherwise, upload it
+								# This can happen when testing: we download the images once, then delete the products and reimport them again
+								elsif (not defined $product_ref->{images}) {
+									# Assign the download image to the field
+									
+									# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+									my $new_imagefield = $imagefield;
+									if (defined $images_ref->{$code}{$new_imagefield}) {
+										my $image_number = 2;
+										while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+											$image_number++;
+										}
+										$new_imagefield = $imagefield . '.' . $image_number;
+									}	
+								
+									$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+									(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+									$images_ref->{$code}{$new_imagefield} = $file;
+								}
+							}
+
+							# Download the image
+							if (! -e $file) {
+
+								# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+								# -> remove thumb=true to get the full image
+
+								$image_url =~ s/thumb=true&//;
+
+								$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
+
+								require LWP::UserAgent;
+
+								my $ua = LWP::UserAgent->new(timeout => 10);
+
+								my $response = $ua->get($image_url);
+
+								if ($response->is_success) {
+									$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
+									open (my $out, ">", $file);
+									print $out $response->decoded_content;
+									close($out);
+									
+									# Is the image readable?
+									my $magick = Image::Magick->new();
+									my $x = $magick->Read($file);
+									# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+									# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+									if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
+										$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+										unlink($file);
+									}
+									else {
+										# Assign the download image to the field
+										
+										# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+										my $new_imagefield = $imagefield;
+										if (defined $images_ref->{$code}{$new_imagefield}) {
+											my $image_number = 2;
+											while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+												$image_number++;
+											}
+											$new_imagefield = $imagefield . '.' . $image_number;
+										}	
+									
+										$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+										$images_ref->{$code}{$new_imagefield} = $file;
+									}
+								}
+								else {
+									$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+								}
 							}
 						}
 						else {
-							$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
+							$log->warn("no image download dir specified", { }) if $log->is_warn();
 						}
 					}
-				}
-				else {
-					$log->warn("no image download dir specified", { }) if $log->is_warn();
 				}
 			}
 		}

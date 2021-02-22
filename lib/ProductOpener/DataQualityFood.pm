@@ -907,7 +907,7 @@ sub check_ingredients($) {
 		|(aus biologischer Landwirtschaft)
 		|(aus kontrolliert ökologischer Landwirtschaft)
 		|(Zutaten aus ökol. Landwirtschaft)
-	/xx;
+	/x;
 
 	if ((defined $product_ref->{ingredients_text}) and
 		(($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic"))) {

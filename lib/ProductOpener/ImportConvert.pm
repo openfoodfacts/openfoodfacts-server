@@ -518,6 +518,37 @@ sub assign_quantity_from_field($$) {
 }
 
 
+=head2 remove_quantity_from_field ( $product_ref, $field )
+
+Look for the quantity in a field like a product name.
+If found, remove it from the field.
+
+=cut
+
+sub remove_quantity_from_field($$) {
+
+	my $product_ref = shift;
+	my $field = shift;
+
+	if (defined $product_ref->{$field}) {
+		
+		my $quantity = $product_ref->{quantity};
+		my $quantity_value = $product_ref->{quantity_value};
+		my $quantity_unit = $product_ref->{quantity_unit};
+		
+		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*\b\(?$quantity\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}
+		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value$quantity_unit\)?\s*$/i)) {
+			$product_ref->{$field} = $`;
+		}		
+	}
+}
+
+
 sub clean_weights($) {
 
 	my $product_ref = shift;
@@ -779,6 +810,8 @@ sub clean_fields($) {
 
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
+	
+	remove_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
@@ -886,8 +919,15 @@ sub clean_fields($) {
 			
 			# Lowercase fields in ALL CAPS
 			
-			if (($product_ref->{$field} =~ /[A-Z]{4}/)
-				and ($product_ref->{$field} !~ /[a-z]/)
+			# do not count x4 as a lowercase letter
+			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
+			
+			my $value = $product_ref->{$field};
+			$value =~ s/x(\d)/X$1/;
+			$value =~ s/(\d)x/$1X/;
+			
+			if (($value =~ /[A-Z]{4}/)
+				and ($value !~ /[a-z]/)
 				) {
 					
 					
@@ -987,19 +1027,18 @@ sub clean_fields($) {
 
 		}
 
-		if ($field =~ /^nutrition_grade_/) {
+		if ($field =~ /^nutriscore_grade_/) {
 			$product_ref->{$field} = lc($product_ref->{$field});
 		}
 		
-		if ($field eq "nutrition_grade_producer") {
+		if ($field eq "nutriscore_grade_producer") {
 			# Nutriscore_A -> a
-			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+//i;
-			$product_ref->{$field} = lc($product_ref->{$field});
+			$product_ref->{$field} =~ s/(nutri-score|nutriscore)(\s|:|-|_|\.)+([a-e])/$3/i;
 		}
 
 		# remove N, N/A, NA etc.
 		# but not "no", "none" that are useful values (e.g. for specific labels "organic:no", allergens : "none")
-		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*(,|$)//ig;
+		$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|no aplica|nr|n\/r)\s*(,|$)//ig;
 		
 		# remove none except for allergens and traces
 		if ($field !~ /allergens|traces/) {
@@ -1014,7 +1053,8 @@ sub clean_fields($) {
 		$product_ref->{$field} =~ s/,(\s*),/,/g;
 		$product_ref->{$field} =~ s/\.(\.+)$/\./;
 		$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-		$product_ref->{$field} =~ s/^(\s|-|;|,|\.)+//;
+		# be careful not to turn -5 to 5: remove dashes only if they are not followed by a number
+		$product_ref->{$field} =~ s/^(\s|-(?![0-9])|;|,|\.)+//;
 		$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
 
 		# remove empty values for tag fields
