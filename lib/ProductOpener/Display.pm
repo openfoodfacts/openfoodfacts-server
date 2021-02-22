@@ -4476,6 +4476,12 @@ sub customize_response_for_product($$) {
 		elsif ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
+		# The environment infocard now displays the Eco-Score details
+                elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
+                        if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+                                $customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
+                        }
+                }
 		
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
@@ -4542,12 +4548,6 @@ sub customize_response_for_product($$) {
 				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
 		}
-		# The environment infocard now displays the Eco-Score details
-		elsif ($field =~ /^environment_infocard/) {
-			if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-				$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
-			}		
-		}		
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
@@ -8383,7 +8383,8 @@ HTML
 
 	$template_data_ref->{admin} = $admin;
 
-	if ($admin) {
+	# the carbon footprint infocard has been replaced by the Eco-Score details
+	if (0 and $admin) {
 		compute_carbon_footprint_infocard($product_ref);
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
