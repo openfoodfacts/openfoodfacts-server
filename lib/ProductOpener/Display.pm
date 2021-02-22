@@ -4461,8 +4461,8 @@ sub customize_response_for_product($$) {
 	
 	foreach my $field (split(/,/, $fields)) {
 
-		# On demand carbon footprint tags
-		if ((not $carbon_footprint_computed)
+		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
+		if (0 and (not $carbon_footprint_computed)
 			and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 			compute_carbon_footprint_infocard($product_ref);
 			$carbon_footprint_computed = 1;
@@ -4542,6 +4542,12 @@ sub customize_response_for_product($$) {
 				$customized_product_ref->{$field} = $product_ref->{$field};
 			}
 		}
+		# The environment infocard now displays the Eco-Score details
+		elsif ($field =~ /^environment_infocard/) {
+			if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+				$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
+			}		
+		}		
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
@@ -11054,6 +11060,34 @@ sub display_ecoscore_calculation_details($) {
 
 	my $html;
 	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
+}
+
+
+=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_data_ref )
+
+Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
+
+=cut
+
+sub display_ecoscore_calculation_details_simple_html($) {
+
+	my $ecoscore_data_ref = shift;
+
+	# Generate a data structure that we will pass to the template engine
+
+	my $template_data_ref = dclone($ecoscore_data_ref);
+	
+	my $decf = get_decimal_formatter($lc);
+	$template_data_ref->{round} = sub($) {
+		return sprintf ("%.0f", $_[0]);
+	};
+
+	# Eco-score Calculation Template
+
+	my $html;
+	process_template('ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
