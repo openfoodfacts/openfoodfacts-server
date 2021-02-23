@@ -313,6 +313,14 @@ my @tests = (
 			lc => "en",
 			packaging => "1 cardboard box",
 		}
+	],
+	
+	[
+		'packaging_fr_support_carton',
+		{
+			lc => "fr",
+			packaging => "1 support carton",
+		}
 	],	
 );
 
