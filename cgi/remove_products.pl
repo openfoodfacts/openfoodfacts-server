@@ -83,17 +83,18 @@ HTML
 
 elsif ($action eq "process") {
 
-	$log->debug("Deleting products for owner in mongodb", { owner_id => $Owner_id }) if $log->is_debug();
+	$log->debug("Deleting products for owner in mongodb", { owner => $Owner_id }) if $log->is_debug();
 
 	my $products_collection = get_products_collection();
 	$products_collection->delete_many({"owner" => $Owner_id});
 
-	use File::Copy::Recursive qw(dirmove);
+	require File::Copy::Recursive;
+	File::Copy::Recursive->import( qw( dirmove ) );
 
 	my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
 	(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
 
-	$log->debug("Moving data to deleted dir", { owners_tags => $Owner_id, deleted_dir => $deleted_dir }) if $log->is_debug();
+	$log->debug("Moving data to deleted dir", { owner => $Owner_id, deleted_dir => $deleted_dir }) if $log->is_debug();
 
 	mkdir($deleted_dir, oct(755));
 

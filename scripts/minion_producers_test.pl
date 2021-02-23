@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -30,7 +30,9 @@ use Minion;
 
 $minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 $minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
-$minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+$minion->add_task(import_products_categories_from_public_database => \&ProductOpener::Producers::import_products_categories_from_public_database_task);
+$minion->add_task(update_export_status_for_csv_file => \&ProductOpener::Producers::update_export_status_for_csv_file_task);
+
 
 print STDERR "Perform 1 job in current process\n";
 

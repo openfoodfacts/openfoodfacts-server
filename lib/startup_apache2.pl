@@ -20,8 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-
 # startup file for preloading modules into Apache/mod_perl when the server starts
 # (instead of when each httpd child starts)
 # see http://apache.perl.org/docs/1.0/guide/performance.html#Code_Profiling_Techniques
@@ -31,17 +29,18 @@ use Modern::Perl '2017';
 
 use Carp ();
 
-eval { Carp::confess("init") };
+eval { Carp::confess('init') };  ## no critic (RequireCheckingReturnValueOfEval)
 
 # used for debugging hanging httpd processes
 # http://perl.apache.org/docs/1.0/guide/debug.html#Detecting_hanging_processes
-$SIG{'USR2'} = sub {
-   Carp::confess("caught SIGUSR2!");
+local $SIG{'USR2'} = sub {
+   Carp::confess('caught SIGUSR2!');
 };
 
 use CGI ();
 CGI->compile(':all');
 
+use Fcntl qw/:mode/;
 use Storable ();
 use LWP::Simple ();
 use LWP::UserAgent ();
@@ -51,6 +50,7 @@ use XML::Encoding ();
 use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+use File::chmod::Recursive;
 
 use ProductOpener::Config qw/:all/;
 
@@ -72,39 +72,61 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
 use Apache2::RequestRec ();
 use APR::Table ();
 
-
-$Apache::Registry::NameWithVirtualHost = 0;
-
-sub My::ProxyRemoteAddr ($) {
+sub get_remote_proxy_address {
   my $r = shift;
 
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
-  return Apache2::Const::OK
-      unless (($r->useragent_ip eq "127.0.0.1")
-	or 1	# all IPs
-)
-          and $r->headers_in->get('X-Forwarded-For');
+if (!(  (   ( $r->useragent_ip eq '127.0.0.1' )
+			or 1    # all IPs
+		)
+		and $r->headers_in->get('X-Forwarded-For')
+	)
+	)
+{
+	return Apache2::Const::OK;
+}
 
   # Select last value in the chain -- original client's ip
-  if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/) {
+  if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/sxm) {
     $r->useragent_ip($ip);
   }
 
   return Apache2::Const::OK;
 }
 
+# set up error logging
+open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
+print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
+
+# load large data files into mod_perl memory
 init_emb_codes();
-$log->info("product opener started", { version => $ProductOpener::Version::version });
+init_packager_codes();
+init_geocode_addresses();
+init_packaging_taxonomies_regexps();
 
-open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
 
-print STDERR $log;
+# This startup script is run as root, it will create the $data_root/tmp directory
+# if it does not exist, as well as sub-directories for the Template module
+# We need to set more permissive permissions so that it can be writable by the Apache user.
+
+chmod_recursive( S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp" );
+
+$log->info('product opener started', { version => $version });
 
 1;

@@ -1,3 +1,5 @@
+# Including "to be" in the state makes it a TODO state
+
 en:Empty
 ca:Buit
 cs:Prázdný
@@ -12,6 +14,7 @@ it:Vuoto
 ja:空
 nl:Leeg
 nl_be:Leeg
+pl:Pusty
 pt:Vazio
 ro:Gol
 rs:Prazno
@@ -37,6 +40,7 @@ it:Verificato
 ja:確認済
 nl:Gecontroleerd
 nl_be:Geverifieerd
+pl:Sprawdzony
 pt:Verificado
 ro:Verificat
 rs:Provereno
@@ -54,13 +58,14 @@ de:Zu prüfen
 el:Να ελεγχθεί
 es:Pendiente de comprobación
 fi:Odottaa tarkistusta
-fr:A vérifier
+fr:À vérifier
 he:לבדיקה
 hu:Ellenőrizni kell
 it:Da verificare
 ja:要確認
 nl:Te controleren
 nl_be:Nog te verifiëren
+pl:Do sprawdzenia
 pt:Pendente de verificação
 ro:De verificat
 sv:Att kontrolleras
@@ -102,13 +107,14 @@ de:Auszufüllen
 el:Να συμπληρωθεί
 es:A completar
 fi:Tarvitsee täydentää
-fr:A compléter
+fr:À compléter
 he:להשלמה
 hu:Kiegészítendő
 it:Da completare
 ja:未完了
 nl:Aan te vullen
 nl_be:Te vervolledigen
+pl:Do uzupełnienia
 pt:A completar
 ro:De completat
 ru:Не заполненные
@@ -133,6 +139,7 @@ it:Data di scadenza da completare
 ja:期限未完了
 nl:Houdbaarheidsdatum invullen
 nl_be:Houdbaarheidsdatum invullen
+pl:Data ważności do uzupełnienia
 pt:Data de validade a completar
 ro:De completat data de expirare
 rs:Rok isticanja nije upotpunjen
@@ -183,6 +190,7 @@ it:Nome prodotto da completare
 ja:製品名未完了
 nl:Productnaam invullen
 nl_be:Productnaam invullen
+pl:Nazwa produktu do uzupełnienia
 pt:Nome do produto a completar
 ro:De completat numele produsului
 rs:Naziv proizvoda nije upotpunjen
@@ -456,7 +464,6 @@ pt:Imagens validadas
 ro:Fotografii validate
 ru:Фотографии выбраны
 sv:Bilder godkända
-vi:Photos validated
 zh:已验证照片
 zh-CN:已验证照片
 zh-TW:已驗證照片
@@ -500,6 +507,7 @@ it:Foto caricate
 ja:写真のアップロード完了
 nl:Geüploade foto's
 nl_be:Geüploade foto's
+pl:Zdjęcia dodane
 pt:Imagens enviadas
 ro:Fotografii încărcate
 ru:Фотографии загружены
@@ -625,12 +633,13 @@ de:Produktname ausgefüllt
 el:Το όνομα του προϊόντος συμπληρώθηκε
 es:Nombre de producto completado
 fi:Tuotteen nimi täytetty
-fr:Nom du produit complete
+fr:Nom du produit complété
 he:שם מוצר הושלם
 hu:Termék neve megadva
 it:Nome prodotto completato
 ja:製品名完了
 nl:Productnaam klaar
+pl:Nazwa produktu uzupełniona
 ru:Название указано
 sv:Produktnamn fullständigt
 vi:Tên sản phẩm đã hoàn thành
@@ -671,3 +680,40 @@ sv:Identifieringsmärke fullständigt
 vi:Mã đóng gói đã hoàn thành
 zh:包装代码已完成
 
+en:Front photo selected
+fi:Etukuva valittu
+fr:Photo de face sélectionnée
+
+en:Front photo to be selected
+fi:Etukuva valitsematta
+fr:Photo de face non sélectionnée
+
+en:Ingredients photo selected
+fi:Ainesosakuva valittu
+fr:Photo des ingrédients sélectionnée
+
+en:Ingredients photo to be selected
+fi:Ainesosakuva valitsematta
+fr:Photo des ingrédients non sélectionnée
+
+en:Nutrition photo selected
+fi:Ravintokuva valittu
+fr:Photo de la nutrition non sélectionnée
+
+en:Nutrition photo to be selected
+fi:Ravintokuva valitsematta
+fr:Photo de la nutrition non sélectionnée
+
+en:Packaging photo selected
+fi:Pakkauskuva valittu
+fr:Photo de l'emballage sélectionnée
+
+en:Packaging photo to be selected
+fi:Pakkauskuva valitsematta
+fr:Photo de l'emballage non sélectionnée
+
+en:Origins completed
+fr:Origines complétées
+
+en:Origins to be completed
+fr:Origines à compléter

@@ -181,7 +181,7 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(images|css|js|rss|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -210,6 +210,10 @@ server {
 	location = /doner-til-open-food-facts {
 			try_files /donate/da.html =404;
 	}
+  
+	location = /donar-a-open-food-facts {
+			try_files /donate/ca.html =404;
+	}
 
 	location = /doniraj-k-open-food-facts {
 			try_files /donate/sl.html =404;
@@ -231,6 +235,10 @@ server {
 			try_files /donate/he.html =404;
 	}
 	
+	location = /donate-to-open-food-facts-pl {
+			try_files /donate/pl.html =404;
+	}
+  
 	location = /fazer-um-donativo-ao-open-food-facts {
 			try_files /donate/pt.html =404;
 	}
@@ -238,12 +246,19 @@ server {
 	location = /lahjoita-open-food-factsille {
 			try_files /donate/fi.html =404;
 	}
+  
 	location = /dar-a-open-food-facts {
 			try_files /donate/es.html =404;
 	}
+  
 	location = /haz-su-donacion-a-open-food-facts {
 			try_files /donate/es.html =404;
 	}
+  
+	location = /donate-to-open-food-facts-ko {
+			try_files /donate/ko.html =404;
+	}
+  
 	location = /hunger-game {
 		return 301 https://hunger.openfoodfacts.org;
 	}

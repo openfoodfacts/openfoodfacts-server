@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,37 +48,34 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					%User
-					$User_id
-					%Org
-					$Org_id
-					$Owner_id
+		%User
+		$User_id
+		%Org
+		$Org_id
+		$Owner_id
 
-					$cookie
+		$cookie
 
-					&display_user_form
-					&check_user_form
-					&process_user_form
-					&check_edit_owner
+		&display_user_form
+		&check_user_form
+		&process_user_form
+		&check_edit_owner
 
-					&display_login_form
+		&init_user
+		&save_user
 
-					&init_user
-					&save_user
+		&userpath
+		&create_user
+		&create_password_hash
+		&check_password_hash
 
-					&userpath
-					&create_user
-					&create_password_hash
-					&check_password_hash
+		&check_session
 
-					&check_session
+		&generate_token
 
-					&generate_token
-
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -90,6 +87,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -105,14 +103,13 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
-	join '',map {$chars[irand @chars]} 1..$name_length;
+	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
 
 sub create_password_hash($) {
 
 	my $password = shift;
-	scrypt_hash($password);
-
+	return scrypt_hash($password);
 }
 
 sub check_password_hash($$) {
@@ -129,7 +126,7 @@ sub check_password_hash($$) {
 		}
 	}
 	else {
-		scrypt_hash_verify($password, $hash);
+		return scrypt_hash_verify($password, $hash);
 	}
 }
 
@@ -164,22 +161,21 @@ sub create_user($) {
 		$log->info("creating new user file", { userid => $name_id2 }) if $log->is_info();
 		store("$data_root/users/$name_id2.sto", $user_ref);
 	}
+
+	return;
 }
 
 
-sub display_user_form($$) {
+sub display_user_form($$$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $scripts_ref = shift;
-
-	my $type = param('type');
 
 	my $html = '';
 
 	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"
 	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
-#	. "\n<tr><td>$Lang{sex}{$lang}</td><td>"
-#	. radio_group(-name=>'sex', -values=>['f','m'], -labels=>{'f'=>$Lang{female}{$lang},'m'=>$Lang{male}{$lang}}, -default=>$user_ref->{sex}, -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{email}{$lang}</td><td>"
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
@@ -191,10 +187,90 @@ sub display_user_form($$) {
 	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	;
 
+	# Professional account
+
+	$html .= "\n<tr><td>" . lang("pro_account") . "</td><td>";
+
+	$html .= "<p>" . lang("if_you_work_for_a_producer") . "</p>"
+	. "<p>" . lang("producers_platform_description_long") . "</p>";
+
+	my $teams_display = '';
+
+	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
+
+		# Existing user with an accepted organization
+
+		$html .= "<p>"
+			. sprintf(
+			lang("this_is_a_pro_account_for_org"),
+			"<b>" . $user_ref->{org} . "</b>"
+			) . "</p>";
+	}
+
+	# Pro platform is only for food right now
+
+	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		# New user or existing user without an accepted organization
+
+		my $pro_checked = '';
+		my $pro_org_display = 'style="display:none"';
+
+		# Check the "pro account" checkbox for register screen on the producers platform
+
+		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
+			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
+			$pro_checked = "checked";
+			$pro_org_display = "";
+			$teams_display = 'style="display:none"';
+		}
+
+		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
+		. "<label for=\"pro\">"
+		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
+		. lang("this_is_a_pro_account") . "</label>"
+		. "<div id=\"pro_org\" $pro_org_display>"
+		. "<p id=\"org-field\">" . lang("producer_or_brand") . separator_before_colon($lc) . ": "
+		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1)
+		. "</p>";
+
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+
+		if ( defined $requested_org_ref ) {
+
+			$html .= "<div id=\"existing_org_warning\">"
+			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
+			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
+			. "<p>" .lang("please_email_producers") . "</p>"
+			. "</div>";
+		}
+		else {
+			$html .= "<p>" . lang("enter_name_of_org") . "</p>";
+		}
+
+		$html .= "</div>";
+
+		$html .= "</td></tr>";
+
+		$initjs .= <<JAVASCRIPT
+\$('#pro').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#pro_org').show();
+		\$('#tr_teams').hide();
+	} else {
+		\$('#pro_org').hide();
+		\$('#tr_teams').show();
+	}
+	\$(document).foundation('equalizer', 'reflow');
+});
+JAVASCRIPT
+;
+
+	}
+
 	# On the public web site, but not on the producers platform, offer to be part of a team
 
 	if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
-		$html .= "\n<tr><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
+		$html .= "\n<tr id=\"tr_teams\" $teams_display><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
 		. lang("teams_description") . "</p><p>" . lang("teams_names_warning") . "</p>"
 		. '<div class="row">';
 
@@ -206,7 +282,8 @@ sub display_user_form($$) {
 		$html .= "</div></td></tr>";
 	}
 
-	$$scripts_ref .= <<SCRIPT
+
+	${$scripts_ref} .= <<SCRIPT
 <script type="text/javascript">
 
 function normalize_string_value(inputfield) {
@@ -239,18 +316,17 @@ SCRIPT
 }
 
 
-sub display_user_form_optional($) {
+sub display_user_form_optional($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
 
 	my $html = '';
 
 	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
 	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 
 		$html .=
 		"\n<tr><td colspan=\"2\">" . checkbox(-name=>'newsletter', -label=>lang("newsletter_description"), -checked=>'on') . "<br />
@@ -261,11 +337,10 @@ sub display_user_form_optional($) {
 }
 
 
-sub display_user_form_admin_only($) {
+sub display_user_form_admin_only($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
 
 	my $html = '';
 
@@ -278,14 +353,16 @@ sub display_user_form_admin_only($) {
 
 	if (($type eq 'add') or ($type eq 'edit')) {
 
+		$html .= "\n<tr><td colspan=\"2\" style=\"background-color:#ffcccc\">Administrator fields</td></tr>";
+
 		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
-		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
+		. textfield(-id=>'org', -name=>'org', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'org', -override=>1) . "</td></tr>";
 
 		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
 
 		foreach my $group (@user_groups) {
 			$html .= "<li>"
-			. checkbox(-name=>"user_group_$group", -label=>lang("user_group_$group") . lang("sep") . ": " . lang("user_group_${group}_description")
+			. checkbox(-name=>"user_group_$group", -label=>" " . lang("user_group_$group") . separator_before_colon($lc) . " " . lang("user_group_${group}_description")
 				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
 		}
 
@@ -296,26 +373,31 @@ sub display_user_form_admin_only($) {
 }
 
 
-sub check_user_form($$) {
+sub check_user_form($$$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $errors_ref = shift;
-
-	my $type = param('type');
 
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
 
-	if ($user_ref->{email} ne decode utf8=>param('email')) {
+	my $email = remove_tags_and_quote(decode utf8=>param('email'));
+
+	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
+
+	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
 		my $emails_ref = retrieve("$data_root/users_emails.sto");
-		if (defined $emails_ref->{decode utf8=>param('email')}) {
-			push @$errors_ref, $Lang{error_email_already_in_use}{$lang};
+		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
 
-		$user_ref->{email} = remove_tags_and_quote(decode utf8=>param('email'));
-
+		# Keep old email until the user is saved
+		$user_ref->{old_email} = $user_ref->{email};
+		$user_ref->{email} = $email;
 	}
 
 	if (defined param('twitter')) {
@@ -324,25 +406,75 @@ sub check_user_form($$) {
 		$user_ref->{twitter} =~ s/^\@//;
 	}
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	# Is there a checkbox to make a professional account
+	if (defined param("pro_checkbox")) {
+
+		if (param("pro")) {
+			$user_ref->{pro} = 1;
+
+			if (defined param("requested_org")) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
+
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+				}
+				else {
+					push @{$errors_ref}, "error_missing_org";
+				}
+			}
+			else {
+				delete $user_ref->{requested_org_id}
+			}
+		}
+		else {
+			delete $user_ref->{pro};
+			delete $user_ref->{requested_org_id}
+		}
+	}
+
+
+	if ($type eq 'add') {
 		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
-
 	}
 
 	if ($admin) {
-		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('organization'));
+
+		# Org
+
+		my $previous_org = $user_ref->{org};
+		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+			# Admin field for org overrides the requested org field
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id};
+
+			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
+
+			add_user_to_org( $org_ref, $user_ref->{userid},
+				[ "admins", "members" ] );
 		}
 		else {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
 		}
+
+		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
+			my $org_ref = retrieve_org($previous_org);
+			if (defined $org_ref) {
+				remove_user_from_org( $org_ref, $user_ref->{userid},
+					[ "admins", "members" ] );
+			}
+		}
+
+		# Permission groups
 
 		foreach my $group (@user_groups) {
 			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
@@ -363,7 +495,7 @@ sub check_user_form($$) {
 	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
-		push @$errors_ref, $Lang{error_no_name}{$lang};
+		push @{$errors_ref}, $Lang{error_no_name}{$lang};
 	}
 
 	my $address;
@@ -372,45 +504,98 @@ sub check_user_form($$) {
 	};
 	$address = 0 if $@;
 	if (not $address) {
-		push @$errors_ref, $Lang{error_invalid_email}{$lang};
+		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
 	}
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
 		if (length($user_ref->{userid}) < 2) {
-			push @$errors_ref, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lang};
 		}
 		elsif (-e "$data_root/users/$userid.sto") {
-			push @$errors_ref, $Lang{error_username_not_available}{$lang};
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @$errors_ref, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
 		}
 
 		if (length(decode utf8=>param('password')) < 6) {
-			push @$errors_ref, $Lang{error_invalid_password}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
 		}
 	}
 
 	if (param('password') ne param('confirm_password')) {
-		push @$errors_ref, $Lang{error_different_passwords}{$lang};
+		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
 
+	return;
 }
 
 
 
 
-sub process_user_form($) {
+sub process_user_form($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
+
+	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+
+    # Professional account with requested org?
+
+    if (defined $user_ref->{requested_org_id}) {
+
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+
+		if (defined $requested_org_ref) {
+			# The requested org already exists
+
+			my $admin_mail_body = <<EMAIL
+requested_org_id: $user_ref->{requested_org_id}
+userid: $user_ref->{userid}
+name: $user_ref->{name}
+email: $user_ref->{email}
+lc: $user_ref->{initial_lc}
+cc: $user_ref->{initial_cc}
+EMAIL
+;
+			send_email_to_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+		}
+		else {
+			# The requested org does not exist, create it
+
+			my $org_ref = create_org($userid, $user_ref->{requested_org});
+			add_user_to_org($org_ref, $userid, ["admins", "members"]);
+
+			$user_ref->{org} = $user_ref->{requested_org_id};
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+
+			my $admin_mail_body = <<EMAIL
+requested_org_id: $user_ref->{requested_org_id}
+userid: $user_ref->{userid}
+name: $user_ref->{name}
+email: $user_ref->{email}
+lc: $user_ref->{initial_lc}
+cc: $user_ref->{initial_cc}
+EMAIL
+;
+			send_email_to_admin(
+				"Org created by user: $userid - org: "
+					. $user_ref->{requested_org_id},
+				$admin_mail_body
+			);
+
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id}
+		}
+	}
 
 	store("$data_root/users/$userid.sto", $user_ref);
 
@@ -421,10 +606,22 @@ sub process_user_form($) {
 	if ((defined $email) and ($email =~/\@/)) {
 		$emails_ref->{$email} = [$userid];
 	}
+	if (defined $user_ref->{old_email}) {
+		delete $emails_ref->{$user_ref->{old_email}};
+		delete $user_ref->{old_email};
+	}
 	store("$data_root/users_emails.sto", $emails_ref);
 
 
-	if ((param('type') eq 'add') or (param('type') eq 'suggest')) {
+	if ($type eq 'add') {
+
+		# Initialize the session to send a session cookie back
+		# so that newly created users do not have to login right after
+
+		param("user_id", $userid);
+		init_user();
+
+
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
@@ -476,7 +673,7 @@ sub check_edit_owner($$) {
 		# Add check that organization exists when we add org profiles
 
 		if (! -e "$data_root/users/$userid.sto") {
-			push @$errors_ref, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
@@ -489,16 +686,12 @@ sub check_edit_owner($$) {
 		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	else {
-		push @$errors_ref,$Lang{error_malformed_owner}{$lang};
+		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
 		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
+
+	return;
 }
-
-
-
-sub display_login_form() {
-}
-
 
 sub init_user()
 {
@@ -506,10 +699,10 @@ sub init_user()
 	my $user_ref = undef;
 	my $org_ref = undef;
 
-	my $cookie_name = 'session';
-	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-	if (defined $server_options{cookie_domain}) {
-		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	my $cookie_name   = 'session';
+	my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if ( defined $server_options{cookie_domain} ) {
+		$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 	}
 
 	$cookie = undef;
@@ -542,6 +735,9 @@ sub init_user()
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
+				$log->info("bad user e-mail") if $log->is_info();
+				# Trigger an error
+				return ($Lang{error_bad_login_password}{$lang}) ;
 			}
 			else {
 				my @userids = @{$emails_ref->{$user_id}};
@@ -747,7 +943,7 @@ sub init_user()
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
-		%User = %$user_ref;
+		%User = %{$user_ref};
 	}
 	else {
 		%User = ();
@@ -763,7 +959,7 @@ sub init_user()
 	}
 
 	if (defined $Org_id) {
-		%Org = %$org_ref;
+		%Org = %{$org_ref};
 	}
 	else {
 		%Org = ();
@@ -894,6 +1090,8 @@ sub save_user() {
 	if (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);
 	}
+
+	return;
 }
 
 1;

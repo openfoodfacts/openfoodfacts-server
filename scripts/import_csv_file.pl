@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -37,6 +37,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Import qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -47,6 +50,7 @@ use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
 
+use Log::Any::Adapter 'TAP', filter => "none";
 
 my $usage = <<TXT
 import_csv.pl imports product data (and optionnaly associated images) into the database of Product Opener.
@@ -76,6 +80,7 @@ my $csv_file;
 my %global_values = ();
 my $skip_products_without_images = 0;
 my $images_dir;
+my $images_download_dir;
 my $comment = '';
 my $source_id;
 my $source_name;
@@ -101,6 +106,7 @@ GetOptions (
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
+	"images_download_dir=s" => \$images_download_dir,
 	"user_id=s" => \$user_id,
 	"org_id=s" => \$org_id,
 	"owner_id=s" => \$owner_id,
@@ -176,6 +182,17 @@ if (not $no_source) {
 
 $missing_arg and exit();
 
+init_emb_codes();
+init_packager_codes();
+init_geocode_addresses();
+init_packaging_taxonomies_regexps();
+
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
+
 my $stats_ref = import_csv_file( {
 	user_id => $user_id,
 	org_id => $org_id,
@@ -183,6 +200,7 @@ my $stats_ref = import_csv_file( {
 	csv_file => $csv_file,
 	global_values => \%global_values,
 	images_dir => $images_dir,
+	images_download_dir => $images_download_dir,
 	comment => $comment,
 	source_id => $source_id,
 	source_name => $source_name,
@@ -202,11 +220,11 @@ my $stats_ref = import_csv_file( {
 
 print STDERR "\n\nstats:\n\n";
 
-foreach my $stat (sort keys %$stats_ref) {
+foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open (my $out, ">", "import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open (my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
 	foreach my $code ( sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";

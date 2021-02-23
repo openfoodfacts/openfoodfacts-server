@@ -43,26 +43,36 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-if (0) {
-if (param('jqm')) {
+# Passing values to the template
+my $template_data_ref = {
+	lang => \&lang,
+};
 
-                        print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
+my $html;
 
+# Automated requests by Google Spreadsheet can overload the server
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/4357
+# User-Agent: Mozilla/5.0 (compatible; GoogleDocs; apps-spreadsheets; +http://docs.google.com)
 
-return "";
+if (user_agent() =~ /apps-spreadsheets/) {
+
+	display_error("Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.", 200);
 }
-elsif (param('json')) {
 
-print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
-
+if (0) {
+	if (param('jqm')) {
+		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
+		return "";
+	}
+	elsif (param('json')) {
+		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
 <<JSON
 { "page_size": "20", "products": [ { "image_small_url": "https://static.openfoodfacts.org/images/misc/yeswescan-313x222.png", "product_name": "Le serveur est surcharge !", "brands": "Merci de votre comprehension", "quantity": "1", "code": "3554748001005", "nutrition_grade_fr": "A" } ], "page": 1, "skip": 0, "count": 1 }
 JSON
 ;
 
-	return "";
-
-}
+		return "";
+	}
 }
 
 ProductOpener::Display::init();
@@ -83,7 +93,13 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states );
+# if the query request json or xml, either through the json=1 parameter or a .json extension
+# set the $request_ref->{api} field
+if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+	$request_ref->{api} = 'v0';
+}
+
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
 
 $admin and push @search_fields, "lang";
 
@@ -107,9 +123,9 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 if ((not defined param('json')) and (not defined param('jsonp')) and
 	(not defined param('jqm')) and (not defined param('jqm_loadmore')) and
 	(not defined param('xml')) and (not defined param('rss')) and
-	($search_terms =~ /^(\d{8})\d*$/)) {
+	($search_terms =~ /^(\d{4,24})$/)) {
 
-		my $code = $search_terms;
+		my $code = normalize_code($search_terms);
 
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -152,7 +168,7 @@ foreach my $tagtype (@search_ingredient_classes) {
 	$search_ingredient_classes_checked{$tagtype} = { $search_ingredient_classes{$tagtype} => 'checked="checked"' };
 }
 
-for (my $i = 0; $i < $nutriments_n ; $i++) {
+for (my $i = 0; defined param("nutriment_$i") ; $i++) {
 
 	my $nutriment = remove_tags_and_quote(decode utf8=>param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8=>param("nutriment_compare_$i"));
@@ -169,7 +185,7 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 my $sort_by = remove_tags_and_quote(decode utf8=>param("sort_by"));
 if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 	and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
-	and ($sort_by ne 'completeness')) {
+	and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key')) {
 	$sort_by = 'unique_scans_n';
 }
 
@@ -193,8 +209,9 @@ foreach my $series (@search_series, "nutrition_grades") {
 	}
 }
 
-
 if ($action eq 'display') {
+
+	$template_data_ref->{search_terms} = $search_terms;
 
 	my $active_list = 'active';
 	my $active_map = '';
@@ -208,321 +225,193 @@ if ($action eq 'display') {
 		$active_list = '';
 		$active_graph = 'active';
 	}
-
-	# Display the search form
-
-	my $html = start_form(-id=>"search_form", -action=>"/cgi/search.pl") ;
-
-	$html .= <<HTML
-<div class="row">
-	<div class="large-12 columns">
-<label for="search_terms2">$Lang{search_terms_note}{$lc}</label>
-<input type="text" name="search_terms2" id="search_terms2" value="$search_terms" />
-	</div>
-</div>
-
-<h3>$Lang{search_tags}{$lang}</h3>
-<label>$Lang{search_criteria}{$lc}</label>
-HTML
-;
+	
+	$template_data_ref->{active_list} = $active_list;
+	$template_data_ref->{active_graph} = $active_graph;
+	$template_data_ref->{active_map} = $active_map;
 
 	my %search_fields_labels = ();
+	my @tags_fields_options;
+	my @contains;
+	
+	push (@tags_fields_options, { 
+		value => "search",
+		label => lang("search_tag"),
+	});
+		
 	foreach my $field (@search_fields) {
+		my $label;
+		
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
-			$search_fields_labels{$field} = lc(lang($field));
+			$label = lc(lang($field));			
 		}
 		else {
 			if ($field eq 'creator') {
-				$search_fields_labels{$field} = lang("users_p");
+				$label = lang("users_p");
 			}
 			else {
-				$search_fields_labels{$field} = lang($field . "_p");
+				$label = lang($field . "_p");
 			}
 		}
+		push (@tags_fields_options, { 
+			value => $field,
+			label => $label,
+		});
 	}
-	$search_fields_labels{search_tag} = lang("search_tag");
 
-	$html .= <<HTML
-<div class="row">
-HTML
-;
+	$template_data_ref->{tags_fields_options} = \@tags_fields_options;
+	 
+	$template_data_ref->{contain_options} = [
+		{ value => "contains", label => lang("search_contains") },
+		{ value => "does_not_contain", label => lang("search_does_not_contain") },
+	];
 
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
-
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
-		<div class="row">
-			<div class="small-12 medium-12 large-5 columns">
-HTML
-;
-
-		$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> $search_tags[$i][0], -values=>['search_tag', @search_fields], -labels=>\%search_fields_labels);
-
-		$html .= <<HTML
-			</div>
-			<div class="small-12 medium-12 large-3 columns">
-HTML
-;
-		$html .=  popup_menu(-name=>"tag_contains_$i", -id=>"tag_contains_$i", -value=> $search_tags[$i][1], -values=>["contains", "does_not_contain"],
-                        -labels=>{"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")} );
-
-		$html .= <<HTML
-			</div>
-			<div class="small-12 medium-12 large-4 columns tag-search-criterion">
-				<input type="text" id="tag_$i" name="tag_$i" value="$search_tags[$i][2]" placeholder="$Lang{search_value}{$lc}"/>
-			</div>
-		</div>
-	</div>
-HTML
-;
+		
+		push @{$template_data_ref->{criteria}}, {
+			id => $i,
+			selected_tags_field_value => $search_tags[$i][0],
+			selected_contain_value => $search_tags[$i][1],
+			input_value => $search_tags[$i][2],
+		};
 	}
-
-	$html .= <<HTML
-</div>
-
-<h3>$Lang{search_ingredients}{$lang}</h3>
-
-<div class="row">
-HTML
-;
 
 	foreach my $tagtype (@search_ingredient_classes) {
 
 		not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 
-		my $label = ucfirst(lang($tagtype . "_p")) ;
-
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns">
-		<label>$label</label>
-HTML
-;
-
-
-		$html .= <<HTML
-			<input type="radio" name="$tagtype" value="without" id="without_$tagtype" $search_ingredient_classes_checked{$tagtype}{without}/>
-				<label for="without_$tagtype">$Lang{search_without}{$lc}</label>
-			<input type="radio" name="$tagtype" value="with" id="with_$tagtype" $search_ingredient_classes_checked{$tagtype}{with}/>
-				<label for="with_$tagtype">$Lang{search_with}{$lc}</label>
-			<input type="radio" name="$tagtype" value="indifferent" id="indifferent_$tagtype" $search_ingredient_classes_checked{$tagtype}{indifferent}/>
-				<label for="indifferent_$tagtype">$Lang{search_indifferent}{$lc}</label>
-	</div>
-HTML
-;
+		push @{$template_data_ref->{ingredients}}, {
+			tagtype => $tagtype,
+			search_ingredient_classes_checked_without => $search_ingredient_classes_checked{$tagtype}{without},
+			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
+			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
+		};
 	}
 
-
-	$html .= <<HTML
-</div>
-
-<h3>$Lang{search_nutriments}{$lang}</h3>
-<div class="row">
-HTML
-;
-
-	my %nutriments_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
-		$nutriments_labels{$nid} = $Nutriments{$nid}{$lang};
-		$nutriments_labels{$nid} =~ s/'/\&apos;/g;
-		$log->debug("nutriments", { nid => $nid, value => $nutriments_labels{$nid} }) if $log->is_debug();
-	}
-	$nutriments_labels{search_nutriment} = lang("search_nutriment");
-
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
-
-		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns">
-		<div class="row">
-			<div class="small-8 columns">
-HTML
-;
-
-		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients"], -labels=>\%nutriments_labels);
-
-
-		$html .= <<HTML
-			</div>
-			<div class="small-2 columns">
-HTML
-;
-		$html .= popup_menu(-name=>"nutriment_compare_$i", -id=>"nutriment_compare_$i", -value=> $search_nutriments[$i][1], -values=>['lt','lte','gt','gte','eq'],
-			-labels => {'lt' => '<', 'lte' => "\N{U+2264}", 'gt' => '>', 'gte' => "\N{U+2265}", 'eq' => '='} );
-
-		$html .= <<HTML
-			</div>
-			<div class="small-2 columns">
-				<input type="text" id="nutriment_value_$i" name="nutriment_value_$i" value="$search_nutriments[$i][2]" />
-			</div>
-		</div>
-	</div>
-HTML
-;
-	}
-
-	# Different types to display results
-
-	my $popup_sort = popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by,
-		-values=>['unique_scans_n','product_name','created_t','last_modified_t','completeness'],
-		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"),
-			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t"),
-			completeness=>lang("sort_completeness")});
-
-	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
-
-	$html .= <<HTML
-</div>
-
-<input type="hidden" name="action" value="process" />
-
-<ul class="accordion" style="margin-left:0" data-accordion>
-	<li class="accordion-navigation">
-		<a href="#results_list" style="border-top:1px solid #ccc"><h3>$Lang{search_list_choice}{$lc}</h3></a>
-		<div id="results_list" class="content $active_list">
-
-			<div class="row">
-				<div class="small-6 columns">
-					<label for="sort_by">$Lang{sort_by}{$lang}</label>
-					$popup_sort
-				</div>
-				<div class="small-6 columns">
-					<label for="page_size">$Lang{search_page_size}{$lc}</label>
-					$popup_size
-				</div>
-			</div>
-
-		<input type="submit" name="search" class="button" value="$Lang{search_button}{$lc}" />
-		</div>
-	</li>
-HTML
-;
-
-	# Graphs and visualization
-
-	$html .= <<HTML
-	<li class="accordion-navigation">
-		<a href="#results_graph" style="border-top:1px solid #ccc"><h3>$Lang{search_graph_choice}{$lc}</h3></a>
-		<div id="results_graph" class="content $active_graph">
-
-			<div class="alert-box info">$Lang{search_graph_note}{$lang}</div>
-
-			<label for="graph_title">$Lang{graph_title}{$lang}</label>
-			<input type="text" name="graph_title" id="graph_title" value="$graph_ref->{graph_title}" />
-
-			<p>$Lang{search_graph_instructions}{$lc}</p>
-
-			<div class="row">
-HTML
-;
-
-	# Compute possible axis values
+	
+	# Compute possible fields values
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
-	my %axis_labels = %nutriments_labels;
+	my %axis_labels = ();
+	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
+		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
+	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
 	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
+	push @axis_values, "forest_footprint";
 	$axis_labels{additives_n} = lang("number_of_additives");
 	$axis_labels{ingredients_n} = lang("ingredients_n_s");
 	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
 	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
+	$axis_labels{forest_footprint} = lang("forest_footprint");
 
-	foreach my $axis ('x','y') {
-		if ($axis eq 'y') {
-			unshift @axis_values, "products_n";
-		}
-		$html .= <<HTML
-				<div class="small-12 medium-6 columns">
-HTML
-;
-		$html .= "<label for=\"axis_$axis\">" . lang("axis_$axis") . "</label>"
-			. popup_menu(-name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>\@axis_values, -labels=>\%axis_labels);
+	my @sorted_axis_values = ("", sort({ lc($axis_labels{$a}) cmp lc($axis_labels{$b}) } @axis_values));
 
-		$html .= <<HTML
-				</div>
-HTML
-;
+	my @fields_options = ();
+	
+	foreach my $field (@sorted_axis_values) {
+		push @fields_options, {
+			value => $field,
+			label => $axis_labels{$field},
+		};
+	}
+	
+	$template_data_ref->{fields_options} = \@fields_options;
+
+	$template_data_ref->{compare_options} = [
+		{
+			'value' => "lt",
+			'label' => '<',
+		},
+		{
+			'value' => "lte",
+			'label' => "\N{U+2264}",
+		},
+		{
+			'value' => "gt",
+			'label' => '>',
+		},
+		{
+			'value' => "gte",
+			'label' => "\N{U+2265}",
+		},
+		{
+			'value' => "eq",
+			'label' => '=',
+		},
+	];
+	
+	for (my $i = 0; ($i < $nutriments_n) or (defined param("nutriment_$i")) ; $i++) {
+
+		push @{$template_data_ref->{nutriments}}, {
+			id => $i,
+			selected_field_value => $search_nutriments[$i][0],
+			selected_compare_value => $search_nutriments[$i][1],
+			input_value => $search_nutriments[$i][2],
+		};
 	}
 
-	$html .= <<HTML
-			</div>
+	# Different types to display results
 
-			<div class="row">
-				<div class="small-12 medium-6 columns">
-					<p>$Lang{search_series}{$lc}</p>
-HTML
-;
+	$template_data_ref->{sort_options} = [
+		{
+			'value' => "unique_scans_n",
+			'label' => lang("sort_popularity"),
+		},
+		{
+			'value' => "product_name",
+			'label' => lang("sort_product_name"),
+		},
+		{
+			'value' => "created_t",
+			'label' => lang("sort_created_t"),
+		},
+		{
+			'value' => "last_modified_t",
+			'label' => lang("sort_modified_t"),
+		},
+		{
+			'value' => "completeness",
+			'label' => lang("sort_completeness"),
+		},
+	];
+
+	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
+
+	my @size_array =(20, 50, 100, 250, 500, 1000);
+	push @{$template_data_ref->{size_options}}, @size_array;
+	
+	$template_data_ref->{axes} = [];
+	foreach my $axis ('x','y') {
+		push @{$template_data_ref->{axes}}, {
+			id => $axis,
+			selected_field_value => $graph_ref->{"axis_" . $axis},
+		}; 
+	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
 
 		next if $series eq 'default';
 		my $checked = '';
-		if ($graph_ref->{"series_$series"} eq 'on') {
+		if (($graph_ref->{"series_$series"} // '') eq 'on') {
 			$checked = 'checked="checked"';
 		}
 
-			if ($series eq 'nutrition_grades') {
-				$html .= <<HTML
-				</div>
-				<div class="small-12 medium-6 columns">
-					<p>$Lang{or}{$lc}</p>
-HTML
-;
-			}
-
-		$html .= <<HTML
-					<input type="checkbox" id="series_$series" name="series_$series" $checked />
-					<label for="series_$series" class="checkbox_label">$Lang{"search_series_$series"}{$lc}</label>
-
-HTML
-;
+		push @{$template_data_ref->{search_series}}, {
+			series => $series,
+			checked => $checked,
+		};
 
 	}
 
-	$html .= <<HTML
-				</div>
-			</div>
 
-			<input type="submit" name="graph" value="$Lang{search_generate_graph}{$lc}" class="button" />
-
-		</div>
-	</li>
-
-	<!-- Map results -->
-
-	<li class="accordion-navigation">
-		<a href="#results_map" style="border-top:1px solid #ccc"><h3>$Lang{search_map_choice}{$lc}</h3></a>
-		<div id="results_map" class="content $active_map">
-
-			<div class="alert-box info">$Lang{search_map_note}{$lc}</div>
-
-			<label for="map_title">$Lang{map_title}{$lc}</label>
-			<input type="text" name="map_title" id="map_title" value="$map_title" />
-
-			<input type="submit" name="generate_map" value="$Lang{search_generate_map}{$lc}" class="button" />
-
-		</div>
-	</li>
-
-	<!-- Download results -->
-
-	<li class="accordion-navigation">
-		<a href="#results_download" style="border-top:1px solid #ccc"><h3>$Lang{search_download_choice}{$lc}</h3></a>
-		<div id="results_download" class="content">
-
-			<p>$Lang{search_download_results}{$lc}</p>
-
-			<input type="radio" name="format" value="xlsx" id="format_xlsx" checked/>
-				<label for="format_xlsx">$Lang{search_download_xlsx}{$lc} - $Lang{search_download_xlsx_description}{$lc}</label><br>
-			<input type="radio" name="format" value="csv" id="format_csv" />
-				<label for="format_csv">$Lang{search_download_csv}{$lc} - $Lang{search_download_csv_description}{$lc}</label><br>
-
-			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
-
-		</div>
-	</li>
-</ul>
-</form>
-
-HTML
+	$styles .= <<CSS
+.select2-container--default .select2-results > .select2-results__options {
+    max-height: 400px
+}
+CSS
 ;
 
 	$scripts .= <<HTML
@@ -530,11 +419,28 @@ HTML
 HTML
 ;
 
+	$initjs .= <<JS
+var select2_options = {
+		placeholder: "$Lang{select_a_field}{$lc}",
+		allowClear: true
+};
+
+\$(".select2_field").select2(select2_options);
+
+
+\$('#result_accordion').on('toggled', function (event, accordion) {
+	\$(".select2_field").select2(select2_options);
+});
+
+JS
+;
+
+
+$tt->process('search_form.tt.html', $template_data_ref, \$html);
+$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
-
-	$request_ref->{title} = lang("search_products");
-
+	
 	display_new($request_ref);
 
 }
@@ -605,43 +511,36 @@ elsif ($action eq 'process') {
 			}
 
 			if ($tagid ne '') {
+				
+				my $suffix = "";
+				
+				if (defined $tags_fields{$tagtype}) {
+					$suffix = "_tags";
+				}
 
-				if (not defined $tags_fields{$tagtype}) {
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype} = $tagid;
+				# 2 or more criteria on the same field?
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
 					}
-					else {
-						$query_ref->{$tagtype} =  { '$ne' => $tagid };
-					}
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+				}
 
+				if ($contains eq 'contains') {
+					$query_ref->{$tagtype . $suffix} = $tagid;
 				}
 				else {
-
-					# 2 or more criteria on the same field?
-					my $remove = 0;
-					if (defined $query_ref->{$tagtype . "_tags"}) {
-						$remove = 1;
-						if (not defined $and) {
-							$and = [];
-						}
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-					}
-
-					if ($contains eq 'contains') {
-						$query_ref->{$tagtype . "_tags"} = $tagid;
-					}
-					else {
-						$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
-					}
-
-					if ($remove) {
-						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-						delete $query_ref->{$tagtype . "_tags"};
-						$query_ref->{"\$and"} = $and;
-					}
-
+					$query_ref->{$tagtype . $suffix} =  { '$ne' => $tagid };
 				}
+
+				if ($remove) {
+					push @$and, { $tagtype . $suffix => $query_ref->{$tagtype . $suffix} };
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);
 
@@ -667,21 +566,31 @@ elsif ($action eq 'process') {
 
 	# Nutriments
 
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
+	for (my $i = 0; (defined $search_nutriments[$i]) ; $i++) {
 
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 
 		if (($nutriment ne 'search_nutriment') and ($value ne '')) {
+			
+			my $field;
+			
+			if (($nutriment eq "ingredients_n") or ($nutriment eq "additives_n")
+				or ($nutriment eq "known_ingredients_n") or ($nutriment eq "unknown_ingredients_n") or ($nutriment eq "forest_footprint")) {
+				$field = $nutriment;
+			}
+			else {
+				$field = "nutriments.${nutriment}_100g";
+			}
 
 			if ($compare eq 'eq') {
-				$query_ref->{"nutriments.${nutriment}_100g"} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
+				$query_ref->{$field} = $value + 0.0; # + 0.0 to force scalar to be treated as a number
 			}
 			elsif ($compare =~ /^(lt|lte|gt|gte)$/) {
-				if (defined $query_ref->{"nutriments.${nutriment}_100g"}) {
-					$query_ref->{"nutriments.${nutriment}_100g"}{ '$' . $compare}  = $value + 0.0;
+				if (defined $query_ref->{$field}) {
+					$query_ref->{$field}{ '$' . $compare} = $value + 0.0;
 				}
 				else {
-					$query_ref->{"nutriments.${nutriment}_100g"} = { '$' . $compare  => $value + 0.0 };
+					$query_ref->{$field} = { '$' . $compare  => $value + 0.0 };
 				}
 			}
 			$current_link .= "\&nutriment_$i=$nutriment\&nutriment_compare_$i=$compare\&nutriment_value_$i=" . URI::Escape::XS::encodeURIComponent($value);
@@ -790,7 +699,7 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x','y') {
-			if ($graph_ref->{"axis_$axis"} !~ /_n$/) {
+			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} ne "forest_footprint") and ($graph_ref->{"axis_$axis"} !~ /_n$/)) {
 				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}) or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
 				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} { '$exists'} = 1  ;
 			}

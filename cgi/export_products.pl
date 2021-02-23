@@ -61,90 +61,84 @@ if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
-my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
-if (not defined $exports_ref) {
-	$exports_ref = {};
-}
-
 if ($action eq "display") {
-
-	$html .= "<p>" . lang("producers_platform_licence") . "</p>";
-	$html .= "<p>" . lang("export_product_data_photos_please_check") . "</p>";
-
-	# Display button for moderators only
-
-	if ($User{moderator}) {
-
+	
+	my $template_data_ref = {
+		lang => \&lang,
+	};
+	
 	# Query filters
 
 	my $query_ref = {};
 
-	my $html_hidden = "";
-
 	foreach my $param (multi_param()) {
 		if ($param =~ /^query_/) {
-			my $query = $';
+			my $field = $';
 			my $value = remove_tags_and_quote(decode utf8=>param($param));
-			$html .= "<p>Query filter $query : $value</p>";
-			$html_hidden .= hidden(-name => "query_" . $query, -value => $value);
-			$query_ref->{$query} = $value;
+			
+			if (not defined $template_data_ref->{query_filters}) {
+				$template_data_ref->{query_filters} = [];
+			}
+			
+			push @{$template_data_ref->{query_filters}}, { field => $field, value => $value };
+
+			$query_ref->{$field} = $value;
 		}
 	}
-
-	$html .= "<p>" . sprintf(lang("n_products_will_be_exported"), count_products({}, $query_ref)) . "</p>";
-
-	$html .= start_multipart_form(-id=>"export_products_form") ;
-
-	$html .= <<HTML
-<input type="submit" class="button small" value="$Lang{export_product_data_photos}{$lc}">
-<input type="hidden" name="action" value="process">
-$html_hidden
-HTML
-;
-	$html .= end_form();
-
+	
+	# Number of products matching the optional query
+	my $count = count_products({}, $query_ref);
+	
+	# Number of products matching the query with changes that have not yet been imported
+	$query_ref->{states_tags} = "en:to-be-exported";
+	my $count_to_be_exported = count_products({}, $query_ref);
+	
+	$template_data_ref->{count} = $count;
+	$template_data_ref->{count_to_be_exported} = $count_to_be_exported;
+	
+	if ($count == 0) {
+		$template_data_ref->{n_products_will_be_exported} = lang("no_products_to_export");
+	}
+	elsif ($count == 1) {
+		$template_data_ref->{n_products_will_be_exported} = lang("one_product_will_be_exported");
 	}
 	else {
-		$html .= "<p>" . lang("export_products_to_public_database_email") . "</p>";
+		$template_data_ref->{n_products_will_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
 	}
+	
+	my $export_photos_value = "";
+	my $replace_selected_photos_value = "";
+	if ((defined $Org_id)
+		and ($Org_id !~ /^(app|database|label)-/)) {
+		$export_photos_value = "checked";
+		$replace_selected_photos_value = "checked";
+	}
+	my $only_export_products_with_changes_value = "checked";
+	
+	$template_data_ref->{export_photos_value} = $export_photos_value;
+	$template_data_ref->{replace_selected_photos_value} = $replace_selected_photos_value;
+	$template_data_ref->{only_export_products_with_changes_value} = $only_export_products_with_changes_value;
+
+	# Require moderator status to launch the export / import process,
+	# unless there is only one product specified through the ?query_code= parameter
+	if (($User{moderator}) or (defined param("query_code"))) {
+		$template_data_ref->{allow_submit} = 1;
+	}
+	
+	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 }
 
-elsif (($action eq "process") and ($User{moderator})) {
-
-	my $started_t = time();
-	my $export_id = $started_t;
-
-	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
-
-	$exports_ref->{$export_id} = {
-		started_t => $started_t,
-		exported_file => $exported_file,
-	};
-
-	# Set the user to the owner userid or org
-
-	my $user_id = $User_id;
-	if ($Owner_id =~ /^(user)-/) {
-		$user_id = $';
-	}
-	elsif ($Owner_id =~ /^(org)-/) {
-		$user_id = $Owner_id;
-	}
-
-	# First export the data locally
-
+# Require moderator status to launch the export / import process,
+# unless there is only one product specified through the ?query_code= parameter
+elsif (($action eq "process") and (($User{moderator}) or (defined param("query_code")))) {
+	
+	# First export CSV from the producers platform, then import on the public platform
+	
 	my $args_ref = {
-		user_id => $user_id,
-		org_id => $Org_id,
-		owner_id => $Owner_id,
-		csv_file => $exported_file,
-		export_id => $export_id,
-		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
-		comment => "Import from producers platform",
-		include_images_paths => 1,	# Export file paths to images
+		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 	};
-
+	
 	# Add query filters
 
 	foreach my $param (multi_param()) {
@@ -153,65 +147,104 @@ elsif (($action eq "process") and ($User{moderator})) {
 			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8=>param($param));
 		}
 	}
-
-	if (defined $Org_id) {
-		if (($Owner_id !~ /^org-database-/) and ($Owner_id !~ /^org-label-/) ) {
-			$args_ref->{manufacturer} = 1;
-		}
-		$args_ref->{source_id} = "org-" . $Org_id;
-		$args_ref->{source_name} = $Org_id;
+	if (not ((defined param("export_photos")) and (param("export_photos")))) {
+		$args_ref->{do_not_upload_images} = 1;
 	}
-	else {
-		$args_ref->{no_source} = 1;
+	
+	if (not ((defined param("replace_selected_photos")) and (param("replace_selected_photos")))) {
+		$args_ref->{only_select_not_existing_images} = 1;
 	}
+	
+	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
+		$args_ref->{query}{states_tags} = 'en:to-be-exported';
+	}
+	
+	# Create Minion tasks for export and import
 
-	my $local_export_job_id = $minion->enqueue(export_csv_file => [$args_ref]
-		=> { queue => $server_options{minion_local_queue}});
+	my $results_ref = export_and_import_to_public_database($args_ref);
+	
+	my $local_export_job_id = $results_ref->{local_export_job_id};
+	my $remote_import_job_id = $results_ref->{remote_import_job_id};
+	my $local_export_status_job_id = $results_ref->{local_export_status_job_id};
+	my $export_id = $results_ref->{export_id};
+	
 
-	$args_ref->{export_job_id} = $local_export_job_id;
+	$html .= "<p>Local export job_id: " . $local_export_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_job_id\">Status</a>"
+	. " - <span id=\"result1\"></span></p>";
+	
+	$html .= "<p>Remote import job_id: " . $remote_import_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$remote_import_job_id\">Status</a>"
+	. " - <span id=\"result2\"></span></p>";
 
-	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref]
-		=> { queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
-
-	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
-	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
-
-	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
-
-	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
-
-	$html .= "<p>local export job_id: " . $local_export_job_id . "</p>";
-
-	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
-
-	$html .= "<p>remote import job_id: " . $remote_import_job_id . "</p>";
-
-	$html .= "<a href=\"/cgi/export_job_status.pl?export_id=$export_id\">status</a>";
-
-	$html .= "Poll: <div id=\"poll\"></div> Result:<div id=\"result\"></div>";
+	$html .= "<p>Local export status update job_id: " . $local_export_status_job_id . " - "
+	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_status_job_id\">Status</a>"
+	. " - <span id=\"result3\"></span></p>";
 
 	$initjs .= <<JS
 
-var poll_n = 0;
-var timeout = 5000;
-var job_info_state;
+var poll_n1 = 0;
+var timeout1 = 5000;
+var job_info_state1;
 
-(function poll() {
+var poll_n2 = 0;
+var timeout2 = 5000;
+var job_info_state2;
+
+var poll_n3 = 0;
+var timeout3 = 5000;
+var job_info_state3;
+
+(function poll1() {
   \$.ajax({
-    url: '/cgi/export_job_status.pl?export_id=$export_id',
+    url: '/cgi/minion_job_status.pl?job_id=$local_export_job_id',
     success: function(data) {
-      \$('#result').html(data.job_info.state);
-	  job_info_state = data.job_info.state;
+      \$('#result1').html(data.job_info.state);
+	  job_info_state1 = data.job_info.state;
     },
     complete: function() {
       // Schedule the next request when the current one's complete
-	  if (job_info_state == "inactive") {
-		setTimeout(poll, timeout);
-		timeout += 1000;
+	  if ((job_info_state1 == "inactive") || (job_info_state1 == "active")) {
+		setTimeout(poll1, timeout1);
+		timeout1 += 1000;
 	}
-	  poll_n++;
-	  \$('#poll').html(poll_n);
+	  poll_n1++;
+    }
+  });
+})();
+
+(function poll2() {
+  \$.ajax({
+    url: '/cgi/minion_job_status.pl?job_id=$remote_import_job_id',
+    success: function(data) {
+      \$('#result2').html(data.job_info.state);
+	  job_info_state2 = data.job_info.state;
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+	  if ((job_info_state2 == "inactive") || (job_info_state2 == "active")) {
+		setTimeout(poll2, timeout2);
+		timeout2 += 1000;
+	}
+	  poll_n2++;
+    }
+  });
+})();
+
+(function poll3() {
+  \$.ajax({
+    url: '/cgi/minion_job_status.pl?job_id=$local_export_status_job_id',
+    success: function(data) {
+      \$('#result3').html(data.job_info.state);
+	  job_info_state3 = data.job_info.state;
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+	  if ((job_info_state3 == "inactive") || (job_info_state3 == "active")) {
+		setTimeout(poll3, timeout3);
+		timeout2 += 1000;
+	}
+	  poll_n3++;
     }
   });
 })();

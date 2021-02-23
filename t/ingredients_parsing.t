@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests of Ingredients::preparse_ingredients_text()
+
 use strict;
 use warnings;
 
@@ -62,12 +64,12 @@ my @lists =(
 	["fr","agent de traitement de la farine (acide ascorbique)", "agent de traitement de la farine (acide ascorbique)"],
 	["fr","lait demi-écrémé", "lait demi-écrémé"],
 	["fr","Saveur vanille : lait demi-écrémé 77%, sucre", "Saveur vanille : lait demi-écrémé 77%, sucre"],
-	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires E124, E122, E133, E104, E110"],
+	["fr","colorants alimentaires E (124,122,133,104,110)", "colorants alimentaires : E124, E122, E133, E104, E110"],
 	["fr","INS 240,241,242b","E240, E241, E242b"],
 	["fr","colorants E (124, 125, 120 et 122", "colorants : E124, E125, E120, E122"],
 	["fr","E250-E251", "E250 - E251"],
 	["fr","E250-E251-E260", "E250 - E251 - E260"],
-	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fr","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fr","émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475","émulsifiants : e463, e432, e472 - correcteurs d'acidité : e322/e333, e474 - e475"],
 	["fr","E100 E122", "E100, E122"],
 	["fr","E103 et E140", "E103, E140"],
@@ -90,6 +92,40 @@ my @lists =(
 	["es","Trazas de cacahuete, huevo y frutos de cáscara.","Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 	["es","sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara.","sal y acidulante (ácido cítrico). Trazas : cacahuete, Trazas : huevo, Trazas : frutos de cáscara."],
 
+
+	###########################
+	# SCANDINAVIAN LANGUAGES  #
+	###########################
+	[ "da",
+		"bl. a. inkl. mod. past. emulgator E322 E103, E140, E250 og E100",
+		"blandt andet inklusive modificeret pasteuriserede emulgator E322, E103, E140, E250, E100"
+	],
+	[ "nb",
+		"bl. a. inkl. E322 E103, E140, E250 og E100",
+		"blant annet inklusive E322, E103, E140, E250, E100"
+	],
+	[ "sv",
+		"bl. a. förtjockn.medel inkl. emulgeringsmedel E322 E103, E140, E250 och E100",
+		"bland annat förtjockningsmedel inklusive emulgeringsmedel E322, E103, E140, E250, E100"
+	],
+	[ "da",
+		"Vitaminer A, B og C. Vitaminer (B2, E, D), Hvede**. Indeholder mælk. Kan indeholde spor af soja, mælk, mandler og sesam. ** = Økologisk",
+		"Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Hvede Økologisk. Stoffer, eller produkter, som forårsager allergi eller overfølsomhed : mælk. Spor : soja, Spor : mælk, Spor : mandler, Spor : sesam."
+	],
+	[ "is",
+		"Vítamín (B2, E og D). Getur innihaldið hnetur, soja og mjólk í snefilmagni.",
+		"Vítamín, B2-Vítamín, E-Vítamín, D-Vítamín. Leifar : hnetur, Leifar : Soja, Leifar : mjólk."
+	],
+	[ "nb",
+		"Vitaminer A, B og C. Vitaminer (B2, E, D). Kan inneholde spor av andre nøtter, soya og melk.",
+		"Vitaminer, Vitamin A, Vitamin B, Vitamin C. Vitaminer, Vitamin B2, Vitamin E, Vitamin D. Spor : andre nøtter, Spor : soya, Spor : melk."
+	],
+	[ "sv",
+		"Vitaminer (B2, E och D), Vete*. Innehåller hasselnötter. Kan innehålla spår av råg, jordnötter, mandel, hasselnötter, cashewnötter och valnötter. *Ekologisk",
+		"Vitaminer, Vitamin B2, Vitamin E, Vitamin D, Vete Ekologisk. Ämnen eller produkter som orsakar allergi eller intolerans : hasselnötter. Spår : råg, Spår : jordnötter, Spår : mandel, Spår : hasselnötter, Spår : cashewnötter, Spår : valnötter."
+	],
+	###########################
+
 	["fi","Vitamiinit A, B ja C", "Vitamiinit, A-Vitamiini, B-Vitamiini, C-Vitamiini"],
 	["fi","Vitamiinit (B1, B2, B6)", "Vitamiinit, B1-Vitamiini, B2-Vitamiini, B6-Vitamiini"],
 	["fi","mansikat 30%", "mansikat 30%"],
@@ -98,15 +134,16 @@ my @lists =(
 	["fi","jauhonparanne (askorbiinihappo)", "jauhonparanne (askorbiinihappo)"],
 	["fi","E250-E251", "E250 - E251"],
 	["fi","E250-E251-E260", "E250 - E251 - E260"],
-	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260(ii)"],
+	["fi","E 250b-E251-e.260(ii)", "E250b - E251 - E260ii"],
 	["fi","E100 E122", "E100, E122"],
 	["fi","E103 ja E140", "E103, E140"],
 	["fi","E103 JA E140", "E103, E140"],
 	["fi","kurkumiini ja E140", "kurkumiini, E140"],
 	["fi","E140 ja karoteeni", "E140, karoteeni"],
-	["fi","omenamehu, vesi, sokeri. Saattaa sisältää maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
+	["fi","omenamehu, vesi, sokeri. jossa käsitellään myös maitoa.","omenamehu, vesi, sokeri. jäämät : maitoa."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pieniä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
 	["fi","omenamehu, vesi, sokeri. Saattaa sisältää pienehköjä määriä selleriä, sinappia ja vehnää.","omenamehu, vesi, sokeri. jäämät : selleriä, jäämät : sinappia, jäämät : vehnää."],
+	["fi","luomurypsiöljy, luomu kaura, vihreä luomutee", "luomu rypsiöljy, luomu kaura, vihreä luomu tee"],
 
 
 	["fr","arôme naturel de citron-citron vert et d'autres agrumes", "arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"],
@@ -143,6 +180,8 @@ my @lists =(
 
 	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
 	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs, weiß und gelb", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs (weiß und gelb)", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
 
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
@@ -204,6 +243,63 @@ my @lists =(
 	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
 
 	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
+
+	["es", "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216).", "Agua, edulcorantes (e420, e960, e952, e954, e950, e955), conservantes (e218, e202, e216)."],
+
+	# Spanish Vitamin E can be mistaken for "e" meaning "and"
+	["es", "Vitamina E y C", "vitaminas, vitamina E, vitamina C"],
+	["es", "color E 124", "color : e124"],
+	["es", "colores E (124, 125)", "colores e124, e125"],
+	["it", "vitamine A, B, E e K", "vitamine, vitamina A, vitamina B, vitamina E, vitamina K"],
+
+	# Additives normalization
+	["en", "E 102, E-104 color, E-101(i), E101 (ii), E160a(iv), e172-i, E-160 i", "e102, e104 color, e101i, e101ii, e160aiv, e172i, e160i"],
+	["fr", "E102-E1400", "e102 - e1400"],
+	["de", "E172i-E174ii, E102(i)-E101i", "e172i - e174ii, e102i - e101i"],
+	["fr", "correcteurs d'acidité : E322/E333 E474-E475", "correcteurs d'acidité : e322/e333, e474 - e475"],
+	["es", "E-330; E-331; Estabilizantes (E-327; E-418)", "e330; e331; Estabilizantes (e327; e418)"],
+	["es", "E120 color", "e120 color"],
+	["es", "E172-i", "e172i"],
+	["es", "E172 i", "e172i"],
+	["es", "(E172i)", "(e172i)"],
+	["es", "E102(i)-E101i", "e102i - e101i"],
+	["es", "E102(i)", "e102i"],
+	["es", "S.I.N.:160 b", "e160b"],
+	["pt", "estabilizadores (E 422, E 412)", "estabilizadores (e422, e412)"],
+
+	["es", "contiene apio y derivados de leche", "Sustancias o productos que causan alergias o intolerancias : apio, Sustancias o productos que causan alergias o intolerancias : derivados de leche."],
+
+	["fr", "E160a(ii)","e160aii"],
+	["fr", "(E160a-ii)","(e160aii)"],
+	["fr", "colorant (E160a(ii))","colorant (e160aii)"],
+
+	# do not separate acide acétique into acide : acétique
+	["fr", "Esters glycéroliques de l'acide acétique et d'acides gras", "Esters glycéroliques de l'acide acétique et d'acides gras"],
+	["fr", "acide acétique", "acide acétique"],
+
+	# russian abbreviations
+	["ru", "мука пшеничная х/п в/с", "мука пшеничная хлебопекарная высшего сорта"],
+	
+	# w/ with and w/o without abbreviations
+	["en", "Organic garbanzo beans (cooked w/o salt), water", "Organic garbanzo beans (cooked without salt), water"],
+	["en", "sugar, cocoa (processed w/alkali), egg yolk", "sugar, cocoa (processed with alkali), egg yolk"],
+
+	# * ingrédient issu..
+        ["fr", "LAIT entier pasteurisé*. *ingrédient issu de l'agriculture biologique.","LAIT entier pasteurisé Bio."],
+
+	# vitamines
+	["fr", "vitamines B1, B6, B9, PP et E", "vitamines, vitamine B1, vitamine B6, vitamine B9, vitamine PP, vitamine E"],
+	["fr", "vitamines (B1, acide folique (B9))", "vitamines, vitamine B1, acide folique, vitamine B9"],
+
+	# (origins, contains milk)
+	["en","Chocolate (Italy, contains milk)","Chocolate (Italy, Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate (contains milk)","Chocolate ( Substances or products causing allergies or intolerances : milk.)"],
+	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."],
+
+	# ¹ and ² symbols
+	["fr", "Sel, sucre², graisse de palme¹, amidons¹ (maïs¹, pomme de terre¹), oignon¹ : 8,9%, ail¹, oignon grillé¹ : 1,4%, épices¹ et aromate¹ (livèche¹ : 0,4%, curcuma¹, noix de muscade¹), carotte¹ : 0,5%. Peut contenir : céleri, céréales contenant du gluten, lait, moutarde, œuf, soja. ¹Ingrédients issus de l'Agriculture Biologique. ² Ingrédients issus du commerce équitable",
+"sel, sucre commerce équitable, graisse de palme bio, amidons bio (maïs bio, pomme de terre bio ), oignon bio : 8,9%, ail bio, oignon grillé bio : 1,4%, épices bio et aromate bio (livèche bio : 0,4%, curcuma bio, noix de muscade bio ), carotte bio : 0,5%. traces éventuelles : céleri, traces éventuelles : céréales contenant du gluten, traces éventuelles : lait, traces éventuelles : moutarde, traces éventuelles : œuf, traces éventuelles : soja."],
+
 
 );
 

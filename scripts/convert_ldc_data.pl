@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,9 +20,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
-
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -63,7 +62,7 @@ my @csv_fields_mapping = (
 ["Code EAN", "code"],
 ["Nom du Produit", "ldc_nom_du_produit"],
 ["Dénomination générique du produit", "ldc_denomination"],
-["Dénomination générique du produit", "product_name_fr"],	# we can overwrite it with the image file name
+["Dénomination générique du produit", "product_name_fr"],   # we can overwrite it with the image file name
 ["Quantité", "quantity"],
 ["Conditionnement (Frais/Surgelé)", "labels"],
 ["Marques", "brands"],
@@ -112,8 +111,9 @@ foreach my $file (@files) {
 		my $suffix = $3;
 		$suffix =~ s/^(-|_|\s)\d+$//;
 		my $name = $prefix . $suffix;
-		$name =~ s/^(.*)\///;	# remove path
-		use Encode qw( from_to decode encode decode_utf8 );
+		$name =~ s/^(.*)\///;    # remove path
+		require Encode;
+		Encode->import( qw( from_to decode encode decode_utf8 ) );
 		my $data2 = $name;
 		from_to($data2, "utf8", "iso-8859-1");
 		my $name2 = decode_utf8($data2);
@@ -184,7 +184,7 @@ foreach my $code (sort keys %products) {
 				$product_ref->{categories} =~ s/^, ?//g;
 				$product_ref->{categories} =~ s/, ?$//g;
 			}
-		}	
+		}
 	}
 	
 	# 0, aucun, aucune in allergens / traces
