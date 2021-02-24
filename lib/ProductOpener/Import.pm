@@ -107,6 +107,7 @@ use JSON::PP;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
+use DateTime::Format::ISO8601;
 
 =head1 FUNCTIONS
 
@@ -453,7 +454,6 @@ sub import_csv_file($) {
 				$org_id =~ s/^nestle-france-.*/nestle-france/;
 				$org_id =~ s/^cereal-partners-france$/nestle-france/;
 				$org_id =~ s/^nestle-spac$/nestle-france/;
-				$org_id =~ s/^lustucru.*/panzani-sa/;
 
 				# organizations by GLN
 
@@ -473,10 +473,25 @@ sub import_csv_file($) {
 				$Org_id = $org_id;
 				$Owner_id = "org-" . $org_id;
 				
+				$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
+				
 				# Create the org if it does not exist yet
 				if (not defined retrieve_org($org_id)) {
 					
-					my $org_ref = create_org($User_id, $imported_product_ref->{org_name});
+					my $org_ref = create_org($User_id, $org_id);
+					
+					$org_ref->{name} = $imported_product_ref->{org_name};
+					
+					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+						$org_ref->{sources_field} = {
+							"org-gs1" => {
+								gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+							}
+						};
+						if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
+							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
+						}
+					}
 			
 					store_org($org_ref);
 					
@@ -666,6 +681,36 @@ EMAIL
 			$log->debug("product already exists", { code => $code, product_id => $product_id }) if $log->is_debug();
 			$existing++;
 			$stats{products_already_existing}{$code} = 1;
+		}
+		
+		# If the data comes from GS1 / GSDN (e.g. through Equadis or Code Online Food)
+		# skip the data if it less recent than the last publication date we have in sources_fields:org-gs1:publicationDateTime
+		# use lastChangeDateTime if publicationDateTime is not available (e.g. CodeOnline)
+		# e.g. if we have real time Equadis data, do not overwrite it with monthly Code Online Food extracts
+		
+		if ((defined $product_ref->{sources_fields}) and (defined $product_ref->{sources_fields}{"org-gs1"})) {
+		
+			my $imported_date = $imported_product_ref->{"sources_fields:org-gs1:publicationDateTime"}
+				// $imported_product_ref->{"sources_fields:org-gs1:lastChangeDateTime"};
+				
+			my $existing_date = $product_ref->{sources_fields}{"org-gs1"}{publicationDateTime}
+				// $product_ref->{sources_fields}{"org-gs1"}{lastChangeDateTime};
+			
+			if ((defined $imported_date) and (defined $existing_date)) {
+				
+				if (DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch
+					< DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch) {
+					$log->debug("existing GS1 data with a greater sources_fields:org-gs1:publicationDateTime - skipping product", { 
+						existing => $existing_date,
+						imported => $imported_date }) if $log->is_debug();
+					next;
+				}
+				else {
+					$log->debug("existing GS1 data without a greater sources_fields:org-gs1:publicationDateTime - importing product", { 
+						existing => $existing_date,
+						imported => $imported_date }) if $log->is_debug();
+				}
+			}
 		}
 
 		# First load the global params, then apply the product params on top
@@ -1561,7 +1606,9 @@ EMAIL
 								# Is the image readable?
 								my $magick = Image::Magick->new();
 								my $x = $magick->Read($file);
-								if ("$x") {
+								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+								if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
 									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
 									unlink($file);
 								}
