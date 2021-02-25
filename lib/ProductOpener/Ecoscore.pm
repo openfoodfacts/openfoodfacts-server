@@ -373,10 +373,11 @@ sub load_ecoscore_data_packaging() {
 				ratio => $row_ref->[1], # Ratio
 			};
 			
+			# if the ratio has a comma (0,2), turn it to a dot (0.2)
+			$ecoscore_data{packaging_shapes}{$shape_id}{ratio} =~ s/,/\./;			
+			
 			(defined $properties{"packaging_shapes"}{$shape_id}) or $properties{"packaging_shapes"}{$shape_id} = {};
 			$properties{"packaging_shapes"}{$shape_id}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{$shape_id}{ratio};
-			# if the ratio has a comma (0,2), turn it to a dot (0.2)
-			$properties{"packaging_shapes"}{$shape_id}{"ecoscore_ratio:en"} =~ s/,/\./;
 			
 			$log->debug("ecoscore shapes CSV file - row", { shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}) if $log->is_debug();
 		}
@@ -388,7 +389,13 @@ sub load_ecoscore_data_packaging() {
 		# Extra assignments
 		
 		$ecoscore_data{packaging_shapes}{"en:can"} = $ecoscore_data{packaging_shapes}{"en:drink-can"};
-		$properties{"packaging_shapes"}{"en:can"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:can"}{ratio};		
+		$properties{"packaging_shapes"}{"en:can"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:can"}{ratio};
+		
+		$ecoscore_data{packaging_shapes}{"en:card"} = $ecoscore_data{packaging_shapes}{"en:backing"};
+		$properties{"packaging_shapes"}{"en:card"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:backing"}{ratio};		
+		
+		$ecoscore_data{packaging_shapes}{"en:label"} = $ecoscore_data{packaging_shapes}{"en:sheet"};
+		$properties{"packaging_shapes"}{"en:label"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:sheet"}{ratio};
 	}
 	else {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
@@ -1035,6 +1042,34 @@ sub compute_ecoscore_packaging_adjustment($) {
 		# We need to match the material and shape to the Eco-score materials and shapes.
 		# We may have a child of the entries listed in the Eco-score data.
 		
+		# Shape is needed first, as it is used in the material section to determine if a non recyclable material has a ratio >= 1
+		
+		if (defined $packaging_ref->{shape}) {
+			
+			my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
+			if (defined $ratio) {
+				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
+			}
+			else {
+				if (not defined $warning) {
+					$warning = "unscored_shape";
+				}
+			}
+		}
+		else {
+			$packaging_ref->{shape} = "en:unknown";
+			if (not defined $warning) {
+				$warning = "unspecified_shape";
+			}
+		}
+		
+		if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
+			# No shape specified, or no Eco-score score for it, use a ratio of 1
+			$packaging_ref->{ecoscore_shape_ratio} = 1;
+		}		
+		
+		# Material
+		
 		if (defined $packaging_ref->{material}) {
 			
 			# For aluminium, we need to differentiate heavy and light aluminium based on the shape
@@ -1081,7 +1116,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 			my $non_recyclable_and_non_biodegradable = get_inherited_property("packaging_materials", $packaging_ref->{material}, "non_recyclable_and_non_biodegradable:en");
 			if (defined $non_recyclable_and_non_biodegradable) {
 				$packaging_ref->{non_recyclable_and_non_biodegradable} = $non_recyclable_and_non_biodegradable;
-				if ($non_recyclable_and_non_biodegradable ne "en:no") {
+				if (($non_recyclable_and_non_biodegradable ne "no") and ($packaging_ref->{ecoscore_shape_ratio} >= 1)) {
 					$non_recyclable_and_non_biodegradable_materials++;
 				}
 			}
@@ -1097,30 +1132,8 @@ sub compute_ecoscore_packaging_adjustment($) {
 			# No material specified, or no Eco-score score for it, use a score of 0
 			$packaging_ref->{ecoscore_material_score} = 0;
 		}
-		
-		if (defined $packaging_ref->{shape}) {
-			
-			my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
-			if (defined $ratio) {
-				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
-			}
-			else {
-				if (not defined $warning) {
-					$warning = "unscored_shape";
-				}
-			}
-		}
-		else {
-			$packaging_ref->{shape} = "en:unknown";
-			if (not defined $warning) {
-				$warning = "unspecified_shape";
-			}
-		}
-		
-		if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
-			# No shape specified, or no Eco-score score for it, use a ratio of 1
-			$packaging_ref->{ecoscore_shape_ratio} = 1;
-		}		
+
+		# Multiply the shape ratio and the material score
 		
 		$packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
 	}
