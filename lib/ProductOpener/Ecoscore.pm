@@ -833,27 +833,11 @@ sub aggregate_origins_of_ingredients($$$) {
 	my $aggregated_origins_ref = shift;
 	my $ingredients_ref = shift;
 	
-	# The ingredients array contains sub-ingredients in nested ingredients properties
-	# and they are also listed at the end on the ingredients array, without the rank property
-	# For this aggregation, we want to use the nested sub-ingredients,
-	# and ignore the same sub-ingredients listed at the end
-	my $ranked = 0;
-	
+	# The ingredients array contains sub-ingredients in nested ingredients
+		
 	foreach my $ingredient_ref (@$ingredients_ref) {
 		
 		my $ingredient_origins_ref;
-		
-		# If we are at the first level of the ingredients array,
-		# ingredients have a rank, except the sub-ingredients listed at the end
-		if ($ingredient_ref->{rank}) {
-			$ranked = 1;
-		}
-		elsif ($ranked) {
-			# The ingredient does not have a rank, but a previous ingredient had one:
-			# we are at the first level of the ingredients array,
-			# and we are at the end where the sub-ingredients have been added
-			last;
-		}
 		
 		# If the ingredient has specified origins, use them
 		if (defined $ingredient_ref->{origins}) {
