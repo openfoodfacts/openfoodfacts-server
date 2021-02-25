@@ -5064,23 +5064,17 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
+		if ((defined param("api_version")) and (param("api_version") > 1)) {
 
-		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			if (defined $product_ref->{ingredients}) {
-				my $i = 0;
-				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-					$i++;
-					if ((defined param("api_version")) and (param("api_version") > 1)) {
-						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						if (not exists $ingredient_ref->{rank}) {
-							# delete this ingredient and ingredients after
-							while (scalar @{$product_ref->{ingredients}} >= $i) {
-								pop @{$product_ref->{ingredients}};
-							}
-							last;
-						}
-					}
-					else {
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+				if (defined $product_ref->{ingredients}) {
+					
+					flatten_sub_ingredients_and_compute_ingredients_tags($product_ref);
+
+					foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 						# Delete sub-ingredients, keep only flattened ingredients
 						exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 					}
@@ -10258,24 +10252,14 @@ HTML
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
 		if (defined $product_ref->{ingredients}) {
-			my $i = 0;
+
 			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-				$i++;
-				if ((defined param("api_version")) and (param("api_version") > 1)) {
-					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					if ( not exists $ingredient_ref->{rank} ) {
-						# delete this ingredient and ingredients after
-						while (scalar @{$product_ref->{ingredients}} >= $i) {
-							pop @{$product_ref->{ingredients}};
-						}
-						last;
-					}
-				}
-				else {
-					# Delete sub-ingredients, keep only flattened ingredients
-					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
-				}
+				# Delete sub-ingredients, keep only flattened ingredients
+				exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 			}
 		}
 
@@ -10876,6 +10860,8 @@ sub display_ingredients_analysis_details($) {
 		lang => \&lang,
 	};
 
+	# 2021-02-25: we will now store only nested ingredients, the following code can be deleted
+	# once the ingredients are reprocessed for all products
 	my $i = 0;
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 		$i++;
