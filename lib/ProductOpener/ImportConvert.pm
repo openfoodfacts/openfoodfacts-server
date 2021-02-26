@@ -535,6 +535,11 @@ sub remove_quantity_from_field($$) {
 		my $quantity = $product_ref->{quantity};
 		my $quantity_value = $product_ref->{quantity_value};
 		my $quantity_unit = $product_ref->{quantity_unit};
+
+		$quantity =~ s/\(/\\\(/g;
+		$quantity =~ s/\)/\\\)/g;
+		$quantity =~ s/\[/\\\[/g;
+		$quantity =~ s/\]/\\\]/g;
 		
 		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*\b\(?$quantity\)?\s*$/i)) {
 			$product_ref->{$field} = $`;
@@ -1852,8 +1857,10 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			foreach my $synonym (@synonyms) {
 
 				# Energy (kJ) -> escape parenthesis
-				$synonym =~ s/\(/\\\(/;
-				$synonym =~ s/\)/\\\)/;
+				$synonym =~ s/\(/\\\(/g;
+				$synonym =~ s/\)/\\\)/g;
+				$synonym =~ s/\[/\\\[/g;
+				$synonym =~ s/\]/\\\]/g;
 
 				# Vitamine D µg  0.4 soit 8  % des AQR*
 
