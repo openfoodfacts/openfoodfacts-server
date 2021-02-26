@@ -82,7 +82,8 @@ BEGIN
 		&preparse_ingredients_text
 		&parse_ingredients_text
 		&analyze_ingredients
-		&flatten_sub_ingredients_and_compute_ingredients_tags
+		&flatten_sub_ingredients
+		&compute_ingredients_tags
 
 		&compute_ingredients_percent_values
 		&init_percent_values
@@ -1638,11 +1639,9 @@ sub flatten_sub_ingredients($) {
 			# Add a rank for all first level ingredients
 			$product_ref->{ingredients}[$i]{rank} = $rank++;
 		}
-		else {
-			# For sub-ingredients, do not list again the sub-ingredients
-			delete $product_ref->{ingredients}[$i]{ingredients};
-		}
-		push @{$product_ref->{ingredients_tags}}, $product_ref->{ingredients}[$i]{id};
+
+		# Delete the sub-ingredients, as they have been pushed at the end of the list
+		delete $product_ref->{ingredients}[$i]{ingredients};
 	}
 }
 
