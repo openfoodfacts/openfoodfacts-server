@@ -10255,13 +10255,18 @@ HTML
 		
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 		
-		if (defined $product_ref->{ingredients}) {
+		if ((defined param("api_version")) and (param("api_version") > 1)) {
 
-			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-				# Delete sub-ingredients, keep only flattened ingredients
-				exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
+			if (defined $product_ref->{ingredients}) {
+				
+				flatten_sub_ingredients_and_compute_ingredients_tags($product_ref);
+
+				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+					# Delete sub-ingredients, keep only flattened ingredients
+					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
+				}
 			}
-		}
+		}		
 
 		# Return blame information
 		if (defined param("blame")) {
