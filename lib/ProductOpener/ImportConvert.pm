@@ -80,6 +80,7 @@ BEGIN
 		&assign_main_language_of_product
 
 		&assign_quantity_from_field
+		&remove_quantity_from_field
 
 		&clean_fields
 		&clean_weights
@@ -541,7 +542,7 @@ sub remove_quantity_from_field($$) {
 		$quantity =~ s/\[/\\\[/g;
 		$quantity =~ s/\]/\\\]/g;
 		
-		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*\b\(?$quantity\)?\s*$/i)) {
+		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i)) {
 			$product_ref->{$field} = $`;
 		}
 		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
