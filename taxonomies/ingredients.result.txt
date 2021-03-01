@@ -1115,6 +1115,11 @@ es:vinagre de alcohol de caña
 < en:Alcohol vinegar
 fr:poudre de vinaigre d'alcool
 
+en:alfalfa
+es:alfalfa
+fr:luzerne
+it:erba medica
+
 en:algae
 af:Alg
 an:Algas
@@ -2377,6 +2382,12 @@ wikidata:en: Q2923647
 wikipedia:en: https://en.wikipedia.org/wiki/Bramley_apple
 
 < en:Apple
+en:cinnamon apple
+es:manzana canela
+fr:pomme cannelle
+it:cannella di mele
+
+< en:Apple
 en:dried apple, dried apples
 de:getrocknete Äpfel, Äpfel getrocknet
 es:manzana deshidratada, manzanas deshidratadas
@@ -2408,6 +2419,12 @@ wikidata:en: Q201996
 wikipedia:en: https://en.wikipedia.org/wiki/Golden_Delicious
 
 < en:Apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+
+< en:Apple
 en:green apple
 es:manzana verde, manzanas verdes
 
@@ -2418,6 +2435,12 @@ fi:luomuomena, luomu omena
 fr:pomme bio, Pommes bio
 it:mele bio
 nl:biologische appel, Biologische appels
+
+< en:Apple
+en:Pink Lady apple
+es:Manzana Pink Lady
+fr:pomme Pink Lady
+it:Mela Pink Lady
 
 < en:Apple
 en:red apple
@@ -9215,6 +9238,12 @@ uk:пім'єнто
 vi:ớt pimiento
 wikidata:en: Q1236127
 wikipedia:en: https://en.wikipedia.org/wiki/Pimiento
+
+< en:Chili pepper
+en:poblano chili
+es:chile poblano
+fr:piment poblano
+it:pepe Poblano
 
 < en:Chili pepper
 en:preserved chili pepper
@@ -17355,9 +17384,9 @@ vi:E150, Nước caramen
 zh:E150, 焦糖
 description:en: CARAMEL is a medium to dark-orange confectionery product made by heating a variety of sugars.
 e_number:en: 150
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours -E 150 a,b,c,d- as food additives
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
+efsa_evaluation:en: Refined exposure assessment for caramel colours -E 150a, c, d-
+efsa_evaluation_date:en: 2012-12-03
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
 mandatory_additive_class:en: en:colour
 vegan:en: yes
 vegetarian:en: yes
@@ -17508,13 +17537,13 @@ additives_classes:en: en:colour
 description:en: Caramel color or caramel coloring is a water-soluble food coloring.
 e_number:en: 150a
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours -E 150 a,b,c,d- as food additives
+efsa_evaluation:en: Refined exposure assessment for caramel colours -E 150a, c, d-
 efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150-a,b,c,d-
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
+efsa_evaluation_date:en: 2012-12-03
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q227816
@@ -17580,13 +17609,13 @@ sv:E150d, ammoniaksulfitprocessen
 additives_classes:en: en:colour
 e_number:en: 150d
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
-efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours -E 150 a,b,c,d- as food additives
+efsa_evaluation:en: Refined exposure assessment for caramel colours -E 150a, c, d-
 efsa_evaluation_adi:en: 300
-efsa_evaluation_date:en: 2011-03-08
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
+efsa_evaluation_date:en: 2012-12-03
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q13081740
@@ -30510,7 +30539,7 @@ e_number:en: 507
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 vegan:en: yes
@@ -30577,7 +30606,7 @@ e_number:en: 508
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:flavour-enhancer, en:stabilizer, en:thickener
@@ -30638,7 +30667,7 @@ e_number:en: 509
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:firming-agent, en:stabilizer, en:thickener
@@ -30759,7 +30788,7 @@ e_number:en: 511
 efsa_evaluation:en: Re‐evaluation of hydrochloric acid -E 507-, potassium chloride -E 508-, calcium chloride -E 509- and magnesium chloride -E 511- as food additives
 efsa_evaluation_date:en: 2019/07/06
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:adolescents, en:children, en:toddlers
-efsa_evaluation_exposure_mean_greater_than_adi:en: 
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
@@ -39824,6 +39853,12 @@ pt:Farinha de cereais
 sv:spannmålsmjöl
 
 < en:Flour
+en:chestnut flour
+es:harina de castaña
+fr:farine de châtaigne
+it:farina di castagne
+
+< en:Flour
 en:flour blend, flour mix
 de:mehlmischung
 fi:jauhoseos
@@ -41954,6 +41989,12 @@ de:fruchtmischung
 es:mix de frutas, mezcla de frutas
 
 < en:Fruit
+en:nectarine
+es:nectarina
+fr:nectarine
+it:nettarina
+
+< en:Fruit
 en:papaya
 ak:Bofr3
 ca:papaie, papaies
@@ -42131,9 +42172,10 @@ wikidata:en: Q13099586
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
 
 < en:Fruit
-en:persimmon, sharon fruit
+en:persimmon, sharon fruit, khaki
 es:caqui
 fr:kaki
+it:cachi
 wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
 
 < en:Fruit
@@ -42264,7 +42306,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Quince
 
 < en:Fruit
 en:Rambutan
+es:rambután
 fr:Ramboutan, Litchi chevelu
+it:rambutan
 
 < en:Fruit
 en:red fruits
@@ -46878,18 +46922,18 @@ es:isomaltosa
 wikipedia:en: https://en.wikipedia.org/wiki/Isomaltose
 
 < en:Jalapeno
-en:chipotle, chipotle chilli, chipotle chile
+en:chipotle, chipotle chilli, chipotle chile, chipotle pepper
 ca:chipotle
 cs:chipotle
 da:chipotle
 el:τσιπότλε
-es:chile chipotle
+es:chile chipotle, chipotle
 fi:chipotle, chipotle chili
-fr:chipotle
+fr:chipotle, piment chipotle
 gl:chipotle
 he:צ'יפוטלה
 hu:chipotle
-it:chipotle
+it:chipotle, pepe chipotle
 ja:チポトレ
 kn:ಚಿಪೋಟ್ಲೆ
 ko:치폴레
@@ -50130,6 +50174,12 @@ fi:broileripyörykkä, broileripyörykät
 fr:boulettes de poulet
 
 < en:Melon
+en:bitter melon
+es:melón amargo
+fr:melon amer
+it:melone amaro
+
+< en:Melon
 en:cantaloupe, cantaloupe melon
 af:Spanspek
 ar:شمام
@@ -50185,6 +50235,12 @@ nl:galia meloen
 pl:Melon Galia
 sv:Galiamelon
 wikidata:en: Q356844
+
+< en:Melon
+en:Honeydew melon
+es:melón honeydew
+fr:melon miel
+it:melone verde
 
 < en:Melon
 en:watermelon
@@ -56544,6 +56600,7 @@ en:pitted olive
 es:aceituna deshuesada, aceitunas deshuesadas, aceituna sin hueso, acietunas sin hueso
 
 < en:Olives
+en:stuffed olives
 fr:olives farcies
 
 en:omega 9
@@ -58001,6 +58058,10 @@ vi:spaghetti
 zh:意大利粉
 wikidata:en: Q20026
 wikipedia:en: https://en.wikipedia.org/wiki/Spaghetti
+
+< en:Pasta
+en:stuffed pasta
+fr:pâtes farcies
 
 < en:Pasta
 en:tagliatelle
@@ -62018,7 +62079,9 @@ nl:Rammenas
 en:daikon, white radish, winter radish, Oriental radish, long white radish
 ca:rave blanc
 de:Winterrettich
+es:rábano blanco
 fr:radis blanc, radis d'hiver, radis chinois, daikon
+it:ravanello bianco
 ja:ダイコン
 nl:witte rammenas
 
@@ -62257,43 +62320,8 @@ es:puré de frambuesa concentrado
 fi:vadelmapyreetiiviste
 pt:concentrado de polme de framboesa
 
-en:ravioli
-ar:رافيولي
-bg:Равиоли
-ca:ravioli
-cs:ravioly
-da:Ravioli
-de:Ravioli
-el:ραβιόλια
-eo:Ravioloj
-es:Ravioli
-fa:راویولی
-fi:ravioli
-fr:ravioli
-gl:Ravioli
-he:רביולי
-hu:Ravioli
-hy:Ռավիոլի
-it:ravioli
-ja:ラビオリ
-kk:Равиоли
-ko:라비올리
-lt:Ravioliai
-ms:Ravioli
-nb:ravioli
-nl:ravioli
-oc:Ravioli
-pl:ravioli
-pt:ravioli
-ro:ravioli
-ru:Равиоли
-sk:Raviola
-sv:Ravioli
-th:ราวีโอลี
-uk:Равіолі
-zh:意大利餃
-wikidata:en: Q20053
-wikipedia:en: https://en.wikipedia.org/wiki/Ravioli
+< en:Ravioli
+fr:raviolis farcis aux légumes
 
 < en:Raw ham
 en:Italian raw ham
@@ -63869,7 +63897,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
 < en:Root vegetable
 en:lotus root
+es:raíz de loto
 fr:racine de lotus
+it:radice di loto
 
 < en:Root vegetable
 en:onion, onions
@@ -65404,7 +65434,7 @@ pl:sól, sól kuchenna
 ps:مالگه
 pt:sal, sal de cozinha, sal de cosina, sal de taula
 ro:sare, Sare de bucătărie, sare de masă
-ru:соль, Поваренная соль
+ru:соль, Поваренная соль, соль поваренная пищевая, соль пищевая, соль поваренная
 rw:Umunyu
 sa:लवणम्
 sd:لوڻ
@@ -65483,7 +65513,7 @@ nl:gejodeerd zout
 pl:Jodowanie soli
 pt:Sal iodado
 ro:sare iodată, sare iodata
-ru:Йодированная поваренная соль
+ru:Йодированная поваренная соль, соль йодированная
 sv:joderat salt, joderad salt, jodsalt, salt med jod
 th:เกลือเสริมไอโอดีน
 uk:Йодована сіль
@@ -70856,6 +70886,54 @@ de:Erdbeerpüree aus Konzentrat
 fi:tiivistetty mansikkapyree
 fr:purée de fraise concentrée, purée de fraise å base de concentré
 
+< en:Stuffed pasta
+en:ravioli
+ar:رافيولي
+bg:Равиоли
+ca:ravioli
+cs:ravioly
+da:Ravioli
+de:Ravioli
+el:ραβιόλια
+eo:Ravioloj
+es:Ravioli
+fa:راویولی
+fi:ravioli
+fr:ravioli
+gl:Ravioli
+he:רביולי
+hu:Ravioli
+hy:Ռավիոլի
+it:ravioli
+ja:ラビオリ
+kk:Равиоли
+ko:라비올리
+lt:Ravioliai
+ms:Ravioli
+nb:ravioli
+nl:ravioli
+oc:Ravioli
+pl:ravioli
+pt:ravioli
+ro:ravioli
+ru:Равиоли
+sk:Raviola
+sv:Ravioli
+th:ราวีโอลี
+uk:Равіолі
+zh:意大利餃
+wikidata:en: Q20053
+wikipedia:en: https://en.wikipedia.org/wiki/Ravioli
+
+< en:Stuffed pasta
+fr:pâtes fraiches farcies cuites
+
+en:stuffed poblano peppers
+
+en:stuffed tomatoes
+fr:tomates farcies, tomate farcie
+nl:gevulde tomaat, gevulde tomaten
+
 < en:Beef fat
 < en:Suet
 en:beef suet
@@ -75643,6 +75721,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
 < en:Vegetable
 en:mixed vegetables
 es:mezclas vegetales
+
+< en:Vegetable
+en:momordic
+es:momordic
+fr:momordique, margose
+it:momordic
 
 < en:Vegetable
 en:okra
@@ -82171,6 +82255,8 @@ it:fiocchi di Hüppen
 < fr:Éclats de noisettes
 fr:éclats de noisettes caramélisés
 fi:karamellisoidut hasselpähkinät
+
+fr:encornets farcis
 
 
 fr:farines de graines et céréales
