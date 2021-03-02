@@ -231,4 +231,44 @@ match_labels_in_product_name($product_ref);
 
 is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
 
+$product_ref = {
+	product_name => "Nutella 40 g",
+	quantity => "40 g",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella (40g)",
+	quantity => "(40g)",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella[40g]",
+	quantity => "[40g]",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella[40g]",
+	quantity => "40g",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella 2x20g (80g)",
+	quantity => "2x20g (80g)",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
 done_testing();
