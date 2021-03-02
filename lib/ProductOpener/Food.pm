@@ -125,6 +125,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 use Hash::Util;
 
@@ -4230,6 +4231,8 @@ foreach my $group (keys %pnns) {
 Determines if a product should be considered as a beverage for Nutri-Score computations,
 based on the product categories.
 
+Dairy drinks are not considered as beverages if they have at least 80% of milk.
+
 =cut
 
 sub is_beverage_for_nutrition_score($) {
@@ -4261,6 +4264,21 @@ sub is_beverage_for_nutrition_score($) {
 					$is_beverage = 1;
 					last;
 				}
+			}
+		}
+		
+		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
+		if (has_tag($product_ref, "categories", "en:dairy-drinks")) {
+			
+			my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
+			
+			if ($milk_percent < 80) {
+				$log->debug("in en:dairy-drinks category but milk < 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+				$is_beverage = 1;
+			}
+			else {
+				$log->debug("in en:dairy-drinks category but milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+				$is_beverage = 0;
 			}
 		}
 	}
@@ -4313,6 +4331,14 @@ sub is_fat_for_nutrition_score($) {
 	return has_tag($product_ref, "categories", "en:fats");
 }
 
+
+=head2 special_process_product ( $ingredients_ref )
+
+Computes PNNS groups, and whether a product is to be considered a beverage for the Nutri-Score.
+
+Ingredients analysis (extract_ingredients_from_text) needs to be done before calling this function?
+
+=cut
 
 sub special_process_product($) {
 

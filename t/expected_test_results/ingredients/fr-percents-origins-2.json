@@ -1,24 +1,23 @@
 {
    "ingredients" : [
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:emulsifier",
          "ingredients" : [
             {
                "id" : "en:sunflower-lecithin",
                "percent_estimate" : 50,
-               "text" : "lécithines de tournesol"
+               "text" : "lécithines de tournesol",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 50,
-         "rank" : 1,
          "text" : "émulsifiant"
       },
       {
          "id" : "en:flavouring",
          "origins" : "en:european-union",
          "percent_estimate" : 25,
-         "rank" : 2,
          "text" : "arôme",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -28,7 +27,6 @@
          "origins" : "en:france",
          "percent" : "33",
          "percent_estimate" : 25,
-         "rank" : 3,
          "text" : "farine de blé",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -36,7 +34,6 @@
       {
          "id" : "en:sugar",
          "percent_estimate" : 0,
-         "rank" : 4,
          "text" : "sucre",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -47,16 +44,8 @@
          "origins" : "en:france",
          "percent" : "6.5",
          "percent_estimate" : 0,
-         "rank" : 5,
          "text" : "beurre concentré",
          "vegan" : "no",
-         "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:sunflower-lecithin",
-         "percent_estimate" : 50,
-         "text" : "lécithines de tournesol",
-         "vegan" : "yes",
          "vegetarian" : "yes"
       }
    ],
