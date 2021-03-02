@@ -44,6 +44,7 @@ requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'DateTime', '>= 1.52, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
 requires 'DateTime::Locale', '>= 1.25, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
+requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
 requires 'Crypt::ScryptKDF';
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';

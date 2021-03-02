@@ -253,6 +253,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"EUROPEAN_VEGETARIAN_UNION" => "en:european-vegetarian-union",
 		"EUROPEAN_V_LABEL_VEGAN" => "en:european-vegetarian-union-vegan",
 		"FAIR_TRADE_MARK" => "en:fairtrade-international",
+		"FAIRTRADE_COCOA" => "en:fair-trade",
 		"FOREST_STEWARDSHIP_COUNCIL_LABEL" => "en:fsc",		
 		"FOREST_STEWARDSHIP_COUNCIL_MIX" => "en:fsc-mix",
 		"GREEN_DOT" => "en:green-dot",
@@ -588,7 +589,8 @@ my %gs1_to_off = (
 		
 		["tradeItemSynchronisationDates", {
 				fields => [
-					["publicationDateTime", "sources_fields:org-gs1:publicationDateTime"],
+					["publicationDateTime", "sources_fields:org-gs1:publicationDateTime"],	# Not available in CodeOnline export
+					["lastChangeDateTime", "sources_fields:org-gs1:lastChangeDateTime"],
 				],
 			},
 		],
@@ -1228,10 +1230,12 @@ sub write_off_csv_file($$) {
 	print $filehandle "\n";
 	
 	# We may have the same product multiple times, sort by sources_fields:org-gs1:publicationDateTime
+	# or by lastChangeDateTime (publicationDateTime is not in the CodeOnline export)
 	my %seen_products = ();
 	
 	foreach my $product_ref (
-		sort {$b->{"sources_fields:org-gs1:publicationDateTime"} cmp $a->{"sources_fields:org-gs1:publicationDateTime"} } 
+		sort {($b->{"sources_fields:org-gs1:publicationDateTime"} // $b->{"sources_fields:org-gs1:lastChangeDateTime"})
+				cmp ($a->{"sources_fields:org-gs1:publicationDateTime"} // $a->{"sources_fields:org-gs1:lastChangeDateTime"}) } 
 			@$products_ref) {
 		
 		$log->debug("write_off_csv_file - product", { code => $product_ref->{code} }) if $log->is_debug();
