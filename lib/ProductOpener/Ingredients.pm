@@ -1059,8 +1059,20 @@ sub parse_ingredients_text($) {
 										else {
 											$labels = $labelid;
 										}
-										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
-										$between = '';
+										
+										# some labels are in fact ingredients. e.g. "sustainable palm oil"
+										# in that case, add the corresponding ingredient
+																				
+										my $label_ingredient_id  = get_inherited_property("labels", $labelid, "ingredients:en");
+										
+										$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $labelid, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+										
+										if (defined $label_ingredient_id) {
+											$between = $label_ingredient_id;
+										}
+										else {
+											$between = '';
+										}
 									}
 									else {
 
@@ -1406,12 +1418,40 @@ sub parse_ingredients_text($) {
 						# and "France" matched "produit de France" / made in France (bug #2927)
 						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
 						if (exists_taxonomy_tag("labels", $label_id)) {
+							
 							# Add the label to the product
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-							$skip_ingredient = 1;
+														
 							$ingredient_recognized = 1;
 							
-							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							# some labels are in fact ingredients. e.g. "sustainable palm oil"
+							# in that case, add the corresponding ingredient
+																	
+							my $label_ingredient_id  = get_inherited_property("labels", $label_id, "ingredients:en");
+							
+							$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $label_id, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+							
+							if (defined $label_ingredient_id) {
+								
+								# The label is specific to an ingredient
+								
+								$ingredient_id = $label_ingredient_id;
+								
+								if (defined $labels) {
+									$labels .= ", " . $label_id;
+								}
+								else {
+									$labels = $label_id;
+								}
+								
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and add corresponding ingredient", { ingredient => $ingredient, label_id => $label_id, ingredient_id => $ingredient_id }) if $log->is_debug();
+							}
+							else {
+								# The label is not specific to an ingredient
+								
+								$skip_ingredient = 1;
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							}
 						}
 					}
 
