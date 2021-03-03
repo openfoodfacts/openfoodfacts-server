@@ -308,7 +308,7 @@ my @tests = (
 		}
 	],
 	
-	# Ingredient that is also an existing label
+	# Ingredient that is also an existing label - https://github.com/openfoodfacts/openfoodfacts-server/issues/4907
 	
 	[
 		"fr-huile-de-palme-certifiee-durable",
