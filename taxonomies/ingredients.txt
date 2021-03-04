@@ -418,7 +418,7 @@ no:Karoten
 pl:Karoteny
 pt:Caroteno
 ro:Caroten
-ru:Каротин
+ru:Каротин, краситель-каротин
 sh:Karoten
 sk:Karotén
 sr:Karoten
@@ -510,7 +510,7 @@ nn:sojalecitin
 pl:lecytyna sojowa
 pt:lecitina de soja
 ro:lecitină din soia, lecitina din soia, lecitină de soia, lecitina de soia, lecitine din soia
-ru:соевый лецитин, лецитин соевый, эмульгатор лецитин соевый
+ru:соевый лецитин, лецитин соевый, эмульгатор лецитин соевый, эмульгатор соевый лецитин
 sk:sójový lecitin
 sl:sojin lecitin
 sr:sojin lecitin
@@ -1826,7 +1826,7 @@ nl:polyglycerolesters van vetzuren
 pl:estry kwasów tłuszczowych i poliglicerolu
 pt:Esteres de poliglicerol de ácidos gordos
 ro:Esteri poliglicerici ai acizilor grași
-ru:Полиглицериновые эфиры жирных кислот, e475
+ru:Полиглицериновые эфиры жирных кислот, e475, эфиры полиглицерина и жирных кислот
 sk:Estery polyglycerolu s mastnými kyselinami
 sl:Poliglicerolni estri maščobnih kislin
 sv:Polyglycerolestrar av fettsyror
@@ -4429,6 +4429,7 @@ fi:lysotsyymi kananmunasta
 fr:lysozyme d'œuf, lysozyme d'oeuf
 it:lisozima da uovo, lisozima d'uovo
 nl:lysozym uit ei
+ru:белок яичный сухой, белок яичный
 sv:lysozym från ägg, lysozym av ägg
 allergens:en: en:eggs
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
@@ -4540,6 +4541,7 @@ it:amido di patate modificiate, amido modificato di patata
 nb:modifisert potetstivelse
 nl:gemodificeerd aardappelzetmeel
 pt:amido modificado de batata, amido de batata modificado
+ru:модифицированный крахмал
 sv:modifierad potatisstärkelse
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
 # fr:e1404 has 19 products in 4 languages @2018-10-15
@@ -6440,7 +6442,7 @@ nl:gepasteuriseerde melk
 pl:Mleko pasteryzowane
 pt:leite pasteurizado
 ro:lapte pasteurizat
-ru:Пастеризованное молоко
+ru:Пастеризованное молоко, молоко пастеризованное
 sv:pastöriserad mjölk
 
 <en:sterilised milk
@@ -6638,6 +6640,10 @@ en:organic UHT sterilised skimmed milk
 ca:llet desnatada esterilitzada UHT ecològica, llet descremada esterilitzada ecològica
 es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
 fr:lait écrémé stérilisé uht issu de l'agriculture biologique
+
+<en:skimmed milk
+en:powder skimmed milk
+ru:молоко обезжиренное сухое, сухое безжиренное молоко
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -6937,6 +6943,7 @@ fi:lehmän täysmaito
 fr:Lait de vache entier, lait entier de vache
 hu:teljes tehéntej
 ro:lapte de vacă integral, lapte de vaca integral
+ru:молоко коровье цельное
 
 <en:whole cow's milk
 en:raw whole cow's milk
@@ -7418,7 +7425,7 @@ nl:melkpoeder
 pl:mleko w proszku
 pt:leite em pó
 ro:lapte praf
-ru:сухое молоко
+ru:сухое молоко, молоко сухое
 sv:mjölkpulver
 vegan:en:no
 vegetarian:en:yes
@@ -7526,6 +7533,7 @@ fr:poudres de lait écrémé et entier
 <en:whole milk powder
 en:reconstituted milk powder
 ca:llet en pols reconstituida
+ru:восстановленное молоко из сухого молока
 
 <en:milk
 fr:lait écrémé reconstitué
@@ -8353,6 +8361,7 @@ hu:pasztőrözött tejszín, pasztörizált tejszín
 it:crema pastorizzata
 nl:gepasteuriseerde room
 pt:nata pasteurizada
+ru:пастеризованные сливки
 sv:pastöriserad grädde
 # ingredient/pasteurized-cream has 1877 products in 9 languages @2019-07-12
 
@@ -8956,7 +8965,7 @@ pt:queijo
 qu:Kisu
 rm:chaschiel
 ro:brânză
-ru:сыр
+ru:сыр, сыры полутвердые
 rw:ifromaje
 sa:दधिकम्
 sc:Casu
@@ -11474,7 +11483,7 @@ nn:betakaroten
 pl:beta-karoten
 pt:Betacaroteno
 ro:Beta-caroten
-ru:бета-каротин
+ru:бета-каротин, β-каротин
 sh:Beta-karoten
 sk:Betakarotén
 sl:Beta karoten
@@ -12300,7 +12309,7 @@ pa:ਵਿਟਾਮਿਨ ਸੀ
 pl:witamina C, kwas askorbinowy
 pt:vitamina C, ácido ascórbico
 ro:Vitamina C, Acid ascorbic
-ru:Аскорбиновая кислота
+ru:Аскорбиновая кислота, витамин c
 rw:Vitamini C
 sh:Vitamin C
 sk:Kyselina askorbová
@@ -13277,7 +13286,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 en:curing salt, curing salts
 ar:ملح معالج
 de:pökelsalz
-ru:нитритно-посолочная смесь
+ru:нитритно-посолочная смесь, посолочная смесь
 wikidata:en:Q5194756
 wikipedia:https://en.wikipedia.org/wiki/Curing_salt
 # usage:en:Curing Salt (Salt, Preservative: Sodium Nitrite)
@@ -15362,7 +15371,7 @@ nl:Reuzel, varkensvet
 nn:Smult
 pl:Smalec
 pt:banha
-ru:Смалец
+ru:Смалец, шпик
 sh:Svinjska mast
 sl:Svinjska mast
 sr:Svinjska mast
@@ -15970,7 +15979,7 @@ nl:tarwezetmeel, tarwe zetmeel
 pl:Skrobia pszenna
 pt:amido de trigo
 ro:amidon din grâu
-ru:Пшеничный крахмал
+ru:Пшеничный крахмал, крахмал-пшеничный
 se:pšenični skrob
 sv:vetestärkelse
 allergens:en: en:gluten
@@ -16776,7 +16785,7 @@ nn:vegetabilisk fett
 pl:tłuszcz roślinny, tłuszcze roślinne
 pt:gordura vegetal, gorduras vegetais, matérias gordas vegetais
 ro:grăsime vegetală, grăsimi vegetale
-ru:растительные жиры, жир растительный
+ru:растительные жиры, жир растительный, растительный-жир
 sk:rastlinný tuk
 sq:yndyrë bimore
 sv:vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
@@ -16869,6 +16878,7 @@ da:helt hærdet vegetabilsk olie
 fi:kokonaan kovetetut kasviöljyt
 fr:huiles végétales totalement hydrogénées
 nb:fullherdet vegetabilske oljer
+ru:дезодорированные растительные масла
 sv:fullhärdade vegetabiliska oljor
 # ingredient/en:fully-hydrogenated-vegetable-oils has 130 products in 2 languages @2020-06-08
 
@@ -16954,7 +16964,7 @@ oc:Òli de palma
 pl:Olej palmowy
 pt:óleo de palma, óleo de palmeira, óleo vegetal de palma
 ro:Ulei de palmier, ulei vegetal de palmier
-ru:Пальмовое масло
+ru:Пальмовое масло, масло пальмовое
 sk:Palmový olej
 sr:Палмино уље
 sv:Palmolja
@@ -17278,7 +17288,7 @@ os:Кокосы зети
 pl:Olej kokosowy
 pt:óleo de coco
 ro:Ulei de cocos
-ru:Кокосовое масло
+ru:Кокосовое масло, масло кокосовое
 sa:नारिकेलतैलम्
 si:පොල් තෙල්
 sl:Kokosovo olje
@@ -18800,7 +18810,7 @@ pl:Ocet
 pt:vinagre
 qu:Mama aqha
 ro:Oțet
-ru:уксус, уксусная кислота, уксус натуральный
+ru:уксус, уксусная кислота, уксус натуральный, уксус столовый
 rw:Vinegre
 sh:sirće, Ocat
 si:විනාකිරි
@@ -18929,6 +18939,7 @@ es:vinagre de alcohol de caña
 <en:vinegar
 en:fruit vinegar
 de:Obstessig
+ru:уксус из пищевого сырья
 
 <en:vinegar
 en:apple vinegar
@@ -21000,7 +21011,7 @@ nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke ar
 pl:Naturalny aromat
 pt:aroma natural
 ro:aromă naturală, aroma naturala
-ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные
+ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
 sv:naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
 zh:天然调味剂
 vegan:en:maybe
@@ -21048,6 +21059,7 @@ es:con otros aromas naturales
 fi:muut luontaiset aromit
 fr:avec autres arômes naturels, autres arômes naturels
 is:með öðrum náttúrulegum bragðefnum
+ru:ароматизатор идентичный натуральному
 nl:Met andere natuurlijke smaakstoffen
 
 <en:natural flavouring
@@ -22214,6 +22226,7 @@ en:butter flavouring
 de:butteraroma, butter-aroma
 fi:voiaromi
 fr:arôme de beurre
+ru:ароматизатор масла
 sv:smörarom
 # ingredient/fr:arome-de-beurre has 25 products in 5 languages @2020-06-08
 
@@ -23098,7 +23111,7 @@ nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries, griesmeel van hard
 pl:Kasza z pszenicy durum
 pt:sêmola de trigo duro
 ro:griș din grâu, griș de grău
-ru:манная крупа
+ru:манная крупа, крупа манная
 sl:pšenični zdrob durum
 sv:durumvetegryn
 tr:durum buğdayı ırmığı
@@ -23786,6 +23799,9 @@ fr:extrait de malt en poudre
 hu:szárított malátakivonat
 it:estratto di malto in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
+
+<en:kvass wort concentrate
+ru:концентрат квасного сусла
 
 <en:malt
 en:caramel malt
@@ -24677,7 +24693,7 @@ fi:mallastettu täysjyväruishiutale
 en:malted wholemeal rye flour
 de:Gemahlenes Vollkornroggenmehl
 fi:mallastettu täysjyväruisjauho
-ru:мука ржаная хлебопекарная обдирная
+ru:мука ржаная хлебопекарная обдирная, мука ржаная обдирная
 
 <en:malted wholemeal rye flakes
 <en:malted wholemeal rye flour
@@ -25164,7 +25180,7 @@ nn:hvetemel
 pl:mąka pszenna
 pt:farinha de trigo
 ro:făină de grâu, faina de grau, făină din grâu, faina din grau
-ru:Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта
+ru:Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта
 sa:गोधूमपिष्टम्
 sk:pšeničná múka
 sl:psenicna moka, pšenična moka
@@ -25775,7 +25791,7 @@ nl:rijstebloem, rijstbloem, rijstmeel
 pl:Mąka ryżowa
 pt:farinha de arroz
 ro:făină de orez
-ru:Рисовая мука
+ru:Рисовая мука, мука-рисовая
 sk:ryžová múka
 sv:rismjöl
 
@@ -28793,7 +28809,7 @@ nn:glukos-fruktossirap
 pl:syrop glukozowo-fruktozowy
 pt:xarope de glucose-frutose, xarope de glucose e frutose
 ro:sirop de glucoză-fructoză, sirop glucoză-fructoză
-ru:глюкозно-фруктозный сироп
+ru:глюкозно-фруктозный сироп, сироп глюкозно-фруктозный, сироп глюкозно фруктозный
 sk:glukózový-fruktózový sirup
 sr:glukozno-fruktozni sirup
 sv:glukos-fruktossirap, glukosfruktossirap
@@ -29563,7 +29579,7 @@ it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
 pl:Białko sojowe
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
-ru:Соевый протеин
+ru:Соевый протеин, соевый белок
 sk:sójová bielkovina
 sv:sojaprotein, sojaproteinpeparat
 allergens:en: en:soybeans
@@ -30062,6 +30078,7 @@ fr:Cacao en poudre alcalinisé
 
 <en:cocoa-powder
 en:skimmed cocoa powder
+ru:тертое какао
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
@@ -31005,7 +31022,7 @@ ps:اوبه
 pt:Água
 qu:Yaku
 ro:Apă
-ru:Вода, вода питьевая, вода питьевая очищенная, очищенная вода
+ru:Вода, вода питьевая, вода питьевая очищенная, очищенная вода, вода подготовленная, подготовленная вода, вода очищенная
 sa:जलम्
 sc:Aba
 sd:پاڻي
@@ -35268,7 +35285,7 @@ ps:مڼه
 pt:Maçã, maçãs
 qu:Mansana
 ro:măr
-ru:яблоко
+ru:яблоко, яблоки
 rw:Pome
 sa:सेवफलम्
 sc:Mela
@@ -38163,6 +38180,7 @@ fi:kookoshiutale, kookoshiutaleet
 fr:flocons de coco, flocons de noix de coco
 it:fiocchi di cocco
 nl:Kokosschilfers
+ru:кокосовая-стружка
 sv:kokosflinga, kokosflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
 # 15 products in 4 languages @2018-10-03
@@ -40397,7 +40415,7 @@ pl:Rodzynki
 pt:passa
 qu:Pasa
 ro:Stafidă, stafide
-ru:Изюм
+ru:Изюм, виноград сушеный
 sd:ڪشمش
 sk:Hrozienka
 sl:Rozine
@@ -42409,7 +42427,7 @@ ps:هوږه
 pt:alho
 qu:Ahus
 ro:usturoi
-ru:чеснок
+ru:чеснок, чеснок свежий
 sa:लशुनम्
 sc:Azu
 sd:ٿوم
@@ -42547,7 +42565,7 @@ nn:hvitløkspulver
 pl:czosnek sproszkowany, czosnek w proszku
 pt:alho em pó
 ro:pudră de usturoi, usturoi pudră
-ru:Чесночный порошок
+ru:Чесночный порошок, чеснок сушёный, чеснок сушеный
 sk:sušený cesnak
 sl:česen v prahu
 sv:vitlökspulver, vitlökpulver
@@ -43523,6 +43541,7 @@ it:cavolo bianco
 nb:hvitkål
 nl:witte kool
 pl:kapusta biała
+ru:капуста белокочанная
 sv:vitkål
 wikidata:en:Q35051
 # fr:chou-blanc has 188 products in 5 languages @2018-10-17
@@ -45309,6 +45328,7 @@ fr:oignons préfrits, oignon préfrit
 nl:voorgefrituurde uitjes
 nn:friterad lök
 pt:cebolas pre fritas
+ru:лук жареный
 sv:forhåndsstekt løk
 # ingredient/fr:oignons-préfrits has 422 products in 4 languages @2018-12-06
 
@@ -45654,6 +45674,7 @@ fr:salade
 hu:saláta
 it:Insalata
 nl:sla, salade
+ru:зелень
 sv:Sallad
 zh:沙拉
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
@@ -46766,7 +46787,7 @@ pl:papryka chili
 pt:chili
 qu:Utsu
 ro:Chili
-ru:красный перец
+ru:перец чили
 sa:मरीचिका
 sd:ڳاڙھا مرچ
 sh:Čili
@@ -47029,6 +47050,7 @@ fi:maustepippuri
 de:Jamaikapfeffer
 nb:allehånde
 nl:Jamaicaanse peper
+ru:перец душистый, перец душистый молотый
 sv:kryddpeppar
 wikidata:en:Q158468
 wikipedia:en:https://en.wikipedia.org/wiki/Allspice
@@ -47284,6 +47306,7 @@ es:Tomates frescos
 fi:tuore tomaatti, tuoreet tomaatit
 fr:tomates fraîches
 it:pomodori freschi
+ru:томаты свежие
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
 carbon_footprint_fr_foodges_value:fr:0.4
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche hors saison (France)
@@ -50343,6 +50366,7 @@ fi:paahdettu maapähkinä, paahdetut maapähkinät
 fr:cacahuètes grillées
 it:arachidi tostate
 nl:geroosterde pinda's, geroosterde pindanoten
+ru:арахис обжаренный
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées
 # 66 products in 6 languages @2018-10-06
 
@@ -51130,6 +51154,7 @@ nl:lijnzaad
 nn:linfrø
 pl:Siemię lniane
 pt:linhaça
+ru:семена льна
 sv:linfrön, linfrö
 tr:keten
 # nah:Lino xināchtli
@@ -51237,6 +51262,7 @@ en:black and white pepper
 de:schwarzer und weißer Pfeffer
 fi:musta- ja valkopippuri
 fr:Poivres noir et blanc
+ru:перец белый
 
 ###################################################################################################
 #
@@ -51352,7 +51378,7 @@ de:zerstoßener schwarzer Pfeffer, schwarzer Pfeffer zerstoßen
 fi:mustapippurirouhe, rouhittu mustapippuri
 fr:poivre noir concassé
 nl:grove zwarte peper
-ru:перец черный молотый
+ru:перец черный молотый, перец-чёрный-молотый
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
 # 64 products @2018-10-08
 
@@ -51884,6 +51910,7 @@ de:Gewürze und Gewürzextrakte
 fi:mausteet ja mausteuutteet
 fr:épices et extrait d'épices
 nb:krydder og krydderekstrakter
+ru:экстракты специй
 ro:condimente și extracte de condimente
 sv:kryddor och kryddextrakt
 # ingredient/fr:epices-et-extrait-d'epices has 135 products in 3 languages @2020-05-21
@@ -52777,6 +52804,7 @@ fi:kanelijauhe
 fr:cannelle en poudre, cannelle moulue
 it:cannella in polvere
 nl:kaneelpoeder
+ru:корица молотая
 # fr:cannelle-en-poudre has 73 products in 4 languages @2018-10-24
 
 # Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
@@ -53262,7 +53290,7 @@ pl:Musztarda, gorczyca, gorczycę
 pt:mostarda
 qu:Mustasa
 ro:muștar, muştar
-ru:горчица
+ru:горчица, горчицы
 sh:Senf
 sk:Horčica
 sl:Gorčica
@@ -54471,7 +54499,7 @@ os:Басгæрдæг
 pl:pietruszka zwyczajna
 pt:salsa
 ro:Pătrunjel
-ru:Петрушка кудрявая, петрушка
+ru:Петрушка кудрявая, петрушка, зелень петрушки
 sc:Pedrusìmula
 sd:پارسلي
 sh:Peršin
@@ -55638,7 +55666,7 @@ pl:kolender, kolendra
 pt:Coentro
 qu:Kulantru
 ro:Coriandru
-ru:кориандр
+ru:кориандр, кориандр молотый
 sa:कुस्तुम्बरी
 sd:ڌاڻا
 sh:Korijandar
@@ -55775,6 +55803,7 @@ es:Extracto de guaraná
 fi:guaranauute
 fr:extrait de guarana
 it:estratto di guarana
+ru:экстракт гуараны
 sv:guaranaextrakt
 # ingredient/fr:extrait-de-guarana has 53 products in 4 languages @2019-01-27
 # guarana extract (maltodextrin, guarana extract)
@@ -55822,7 +55851,7 @@ nn:humle
 pl:chmiel
 pt:lúpolo
 ro:hamei
-ru:хмель
+ru:хмель, хмелепродукты
 sk:chmel
 sl:hmelj
 sr:hmelj
@@ -56361,6 +56390,7 @@ en:panax ginseng root extract
 de:Panax ginseng Wurzelextrakt
 fi:panax ginseng-juuriuute
 fr:extrait de racine de panax ginseng
+ru:экстракт женьшеня
 sv:panax ginseng rotextrakt
 # ingredient/en:panax-ginseng-root-extract has 117 products in 2 languages @2020-05-21
 
@@ -58264,6 +58294,7 @@ nl:vanille-extract
 pl:Ekstrakt z wanillii
 pt:extrato de baunilha
 ro:extract de vanilie
+ru:экстракт ванили
 sv:vaniljextrakt
 # ingredient/vanilla-extract has 4017 products in 13 languages @2019-02-24
 
@@ -69264,7 +69295,7 @@ fi:kananmuna, kananmunaa, kanamunaa
 fr:œufs de poules, oeufs de poules
 it:Uova di gallina
 nl:kippeneieren
-ru:яйцо куриное
+ru:яйцо куриное, яйца куриные
 # ingredient/fr:œufs-de-poules has 16 products in french @2018-12-18
 
 <en:chicken egg
@@ -69605,7 +69636,7 @@ en:pasteurised powdered egg white
 de:pasteurisiertes Eiweißpulver
 fi:pastöroitu munanvalkuaisjauhe
 fr:blanc d'oeuf en poudre pasteurisé
-ru:продукты яичные
+ru:продукты яичные, яичные-продукты
 
 <en:powdered egg white
 nl:scharrelei-eiwitpoeder
@@ -74190,7 +74221,7 @@ nl:ketchup, tomatenketchup
 pl:Keczup
 pt:ketchup
 ro:Ketchup
-ru:кетчуп
+ru:кетчуп, томатное пюре
 sd:ڪيچپ
 sk:kečup
 sl:Kečap
