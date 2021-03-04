@@ -15,17 +15,17 @@
             [% IF admin %]
                 <tr><td colspan="2">
 					<label>
-						<input type="checkbox" name="delete" value="on" />
+						<input type="checkbox" name="delete" onchange="if (this.checked) { if (!confirm('This action cannot be undone, are you sure you want to delete the user?')) { this.checked = false }}" />
 						[% lang("delete_user") %]
 					</label>
                 </td></tr>
             [% END %]
             <tr>
                 <td>
-                    <input type="hidden" name="action" value="process"  />
-                    <input type="hidden" name="type" value="[% type %]"  />
+                    <input type="hidden" name="action" value="process" />
+                    <input type="hidden" name="type" value="[% type %]" />
                     [% IF userid %]
-						<input type="hidden" name="userid" value="[% userid %]"  />
+						<input type="hidden" name="userid" value="[% userid %]" />
 					[% END %]
                     <input type="submit" name=".submit" class="button" />
                 </td>
