@@ -135,6 +135,11 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
 	# AOP
 	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
+
+	# palm oil false negative
+	[ { lc => "fr", ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)", "" }, ['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme certifiée durable", "" }, ['en:palm-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme RSPO", "" }, ['en:palm-oil']],
 	
 );
 
