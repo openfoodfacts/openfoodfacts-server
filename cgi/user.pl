@@ -105,7 +105,7 @@ if ($action eq 'process') {
 	if ($type eq 'edit_owner') {
 		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 	}
-	else {
+	elsif ($type ne 'delete') {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 

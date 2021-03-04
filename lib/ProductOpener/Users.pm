@@ -88,6 +88,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -163,6 +164,35 @@ sub create_user($) {
 	}
 
 	return;
+}
+
+
+sub delete_user($) {
+	
+	my $user_ref = shift;
+	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
+	my $new_userid = "openfoodfacts-contributors";
+	
+	$log->info("delete_user", { userid => $userid, new_userid => $new_userid }) if $log->is_info();
+	
+	# Remove the user file
+	unlink("$data_root/users/$userid.sto");
+	
+	# Remove the e-mail
+
+	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $email = $user_ref->{email};
+
+	if ((defined $email) and ($email =~/\@/)) {
+		
+		if (defined $emails_ref->{$email}) {
+			delete $emails_ref->{$email};
+			store("$data_root/users_emails.sto", $emails_ref);
+		}
+	}
+	
+	#  re-assign product edits to openfoodfacts-contributors-[random number]
+	find_and_replace_user_id_in_products($userid, $new_userid);
 }
 
 
