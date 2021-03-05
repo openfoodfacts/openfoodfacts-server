@@ -4229,6 +4229,32 @@ Reference to the MongoDB query object.
 
 =cut
 
+# Parameters that are not query filters
+
+my %ignore_params = (
+	fields => 1,
+	format => 1,
+	json => 1,
+	jsonp => 1,
+	xml => 1,
+	keywords => 1,	# added by CGI.pm
+	api_version => 1,
+	api_method => 1,
+	search_simple => 1,
+	search_terms => 1,
+	userid => 1,
+	password => 1,
+	action => 1,
+	type => 1,
+);
+
+# Parameters that can be query filters
+# It is safer to use a positive list, instead of just the %ignore_params list
+
+my %valid_params = (
+	code => 1,
+);
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -4243,8 +4269,7 @@ sub add_params_to_query($$) {
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
 		# skip params that are not query filters
-		# warning: keywords is added by CGI.pm and should be ignored
-		next if (($field eq "fields") or ($field eq "format") or ($field =~ /^api_/) or ($field eq "json") or ($field eq "jsonp") or ($field eq "xml") or ($field eq "keywords") or ($field eq "userid") or ($field eq "password"));
+		next if (defined $ignore_params{$field});
 		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
@@ -4403,7 +4428,7 @@ sub add_params_to_query($$) {
 		}
 		
 		# Exact match on a specific field (e.g. "code")
-		elsif ($field =~ /^[a-z0-9-_]+$/) {
+		elsif (defined $valid_params{$field}) {
 			
 			my $values = remove_tags_and_quote(decode utf8=>param($field));
 			
