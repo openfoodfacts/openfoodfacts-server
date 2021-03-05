@@ -448,6 +448,8 @@ sub export_csv($) {
 						# Remove tags
 						$value =~ s/<(([^>]|\n)*)>//g;
 					}
+					# Allow returning fields that are not at the root of the product structure
+					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
 					elsif ($field =~ /^([^\.]+)\.([^\.]+)\.([^\.]+)$/) {
 						if ((defined $product_ref->{$1}) and (defined $product_ref->{$1}{$2})) {
 							$value = $product_ref->{$1}{$2}{$3};
