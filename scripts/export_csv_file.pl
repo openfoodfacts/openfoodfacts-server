@@ -50,11 +50,13 @@ otherwise all populated input fields (provided by users or producers) are export
 The --extra_fields parameter allows to specify other fields to export (e.g fields
 that are computed from other fields).
 
+The --query-codes-from-file parameter allows to specify a file containing barcodes (one barcode per line).
+
 Usage:
 
 export_csv_file.pl --query field_name=field_value --query other_field_name=other_field_value
 [--fields code,ingredients_texts_fr,categories_tags] [--extra_fields nova_group,nutrition_grade_fr]
-[--include-images-paths]
+[--include-images-paths] [--query-codes-from-file codes]
 TXT
 ;
 
