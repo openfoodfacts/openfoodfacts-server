@@ -545,7 +545,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods","ean-barcode","ean-barcode-number","ean-code"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code"],
 	producer_product_id => ["internal code"],
 	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -554,7 +554,7 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 	nova_group_producer => ["nova"],
-	obsolete => ["The product is no longer sold", "Product is no longer sold."],
+	obsolete => ["The product is no longer sold", "Product is no longer sold.", "Product no longer sold"],
 },
 
 es => {
@@ -571,7 +571,7 @@ fr => {
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
 	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
@@ -582,6 +582,7 @@ fr => {
 	countries => ["pays de vente"],
 	serving_size_value_unit => ["Taille d'une portion"],
 	volume_value_unit => ["volume net"],
+	net_weight_value_unit => ["poids"],
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
@@ -593,7 +594,7 @@ fr => {
 	nutriscore_score_producer => ["score nutri-score", "score nutritionnel"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
-	obsolete => ["Le produit n'est plus en vente."],
+	obsolete => ["Le produit n'est plus en vente.", "Produit retiré de la vente", "Produit obsolète", "Obsolète"],
 },
 
 );
