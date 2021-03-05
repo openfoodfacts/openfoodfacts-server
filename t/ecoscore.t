@@ -363,7 +363,33 @@ my @tests = (
 			origins_tags => ["en:france"],
 			ingredients_text => "Aubergine 60%, Pomme de terre 39%, Huile de colza 1%",
 		},
-	],		
+	],
+	
+	# Milks should be considered as beverages for the Eco-Score
+	
+	[
+		'milk',
+		{
+			lc => "fr",
+			categories_tags=>["en:milks"],
+			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
+			labels_tags => ["en:eu-organic"],
+			origins_tags => ["en:france"],
+			ingredients_text => "Lait",
+		},
+	],
+	
+	# Energy drinks should not have an Eco-Score (like waters and sodas)
+	
+	[
+		'energy-drink',
+		{
+			lc => "fr",
+			categories_tags=>["en:energy-drinks"],
+			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
+			ingredients_text => "Water",
+		},
+	],	
 
 );
 
