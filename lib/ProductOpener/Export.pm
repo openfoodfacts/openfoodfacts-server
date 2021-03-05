@@ -448,6 +448,16 @@ sub export_csv($) {
 						# Remove tags
 						$value =~ s/<(([^>]|\n)*)>//g;
 					}
+					elsif ($field =~ /^([^\.]+)\.([^\.]+)\.([^\.]+)$/) {
+						if ((defined $product_ref->{$1}) and (defined $product_ref->{$1}{$2})) {
+							$value = $product_ref->{$1}{$2}{$3};
+						}
+					}
+					elsif ($field =~ /^([^\.]+)\.([^\.]+)$/) {
+						if (defined $product_ref->{$1}) {
+							$value = $product_ref->{$1}{$2};
+						}
+					}
 					else {
 						$value = $product_ref->{$field};
 					}

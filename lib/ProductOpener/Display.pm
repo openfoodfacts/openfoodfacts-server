@@ -89,6 +89,7 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		&add_params_to_query
 		
 		&process_template
 
@@ -4249,24 +4250,6 @@ sub add_params_to_query($$) {
 			$request_ref->{$field} = param($field);
 		}
 		
-		# Exact match on a specific field
-		elsif ($field eq "code") {
-			
-			my $values = remove_tags_and_quote(decode utf8=>param($field));
-			
-			# Possible values:
-			# xyz=a
-			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
-			
-			if ($values =~ /\||\+|,/) {
-				my @values = split(/\||\+|,/, $values);
-				$query_ref->{$field} = { '$in' => \@values };
-			}
-			else {
-				$query_ref->{$field} = $values;
-			}
-		}
-		
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
 		# or with values in a given language (e.g. labels_tags_fr=bio)
 		
@@ -4414,6 +4397,24 @@ sub add_params_to_query($$) {
 				}			
 			}
 		}
+		
+		# Exact match on a specific field (e.g. "code")
+		elsif ($field =~ /^[a-z0-9-_]+$/) {
+			
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
+			
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+			
+			if ($values =~ /\||\+|,/) {
+				my @values = split(/\||\+|,/, $values);
+				$query_ref->{$field} = { '$in' => \@values };
+			}
+			else {
+				$query_ref->{$field} = $values;
+			}
+		}		
 	}
 }
 

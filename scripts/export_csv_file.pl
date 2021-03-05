@@ -25,6 +25,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -34,6 +35,7 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use Getopt::Long;
+use CGI qw(:cgi :cgi-lib);
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -62,6 +64,7 @@ my $fields;
 my $extra_fields;
 my $separator = "\t";
 my $include_images_paths;
+my $query_codes_from_file;
 
 GetOptions (
 	"fields=s" => \$fields,
@@ -69,6 +72,7 @@ GetOptions (
 	"query=s%" => \%query_fields_values,
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
+	"query-codes-from-file=s" => \$query_codes_from_file,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
@@ -81,13 +85,16 @@ print STDERR "export_csv_file.pl
 ";
 
 my $query_ref = {};
+my $request_ref = {};
 
 foreach my $field (sort keys %query_fields_values) {
 	print STDERR "-- $field: $query_fields_values{$field}\n";
-	$query_ref->{$field} = $query_fields_values{$field};
+	param($field, $query_fields_values{$field});
 }
 
 # Construct the MongoDB query
+
+add_params_to_query($request_ref, $query_ref);
 
 use boolean;
 
@@ -99,6 +106,18 @@ foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'exists') {
 		$query_ref->{$field} = { '$exists' => true };
 	}
+}
+
+if (defined $query_codes_from_file) {
+	my @codes = ();
+	open(my $in, "<", "$query_codes_from_file") or die ("Cannot read $query_codes_from_file: $!\n");
+	while (<$in>) {
+		if ($_ =~ /^(\d+)/) {
+			push @codes, $1;
+		}
+	}
+	close($in);
+	$query_ref->{"code"} = { '$in' => \@codes };
 }
 
 use Data::Dumper;
