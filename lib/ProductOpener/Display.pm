@@ -4242,6 +4242,10 @@ sub add_params_to_query($$) {
 		
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
+		# skip params that are not query filters
+		# warning: keywords is added by CGI.pm and should be ignored
+		next if (($field eq "fields") or ($field eq "format") or ($field =~ /^api_/) or ($field eq "json") or ($field eq "jsonp") or ($field eq "xml") or ($field eq "keywords") or ($field eq "userid") or ($field eq "password"));
+		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
