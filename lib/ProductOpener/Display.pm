@@ -89,6 +89,7 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		&add_params_to_query
 		
 		&process_template
 
@@ -4228,6 +4229,32 @@ Reference to the MongoDB query object.
 
 =cut
 
+# Parameters that are not query filters
+
+my %ignore_params = (
+	fields => 1,
+	format => 1,
+	json => 1,
+	jsonp => 1,
+	xml => 1,
+	keywords => 1,	# added by CGI.pm
+	api_version => 1,
+	api_method => 1,
+	search_simple => 1,
+	search_terms => 1,
+	userid => 1,
+	password => 1,
+	action => 1,
+	type => 1,
+);
+
+# Parameters that can be query filters
+# It is safer to use a positive list, instead of just the %ignore_params list
+
+my %valid_params = (
+	code => 1,
+);
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -4241,30 +4268,15 @@ sub add_params_to_query($$) {
 		
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
+		# skip params that are not query filters
+		next if (defined $ignore_params{$field});
+		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
 		
 		elsif ($field eq "sort_by") {
 			$request_ref->{$field} = param($field);
-		}
-		
-		# Exact match on a specific field
-		elsif ($field eq "code") {
-			
-			my $values = remove_tags_and_quote(decode utf8=>param($field));
-			
-			# Possible values:
-			# xyz=a
-			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
-			
-			if ($values =~ /\||\+|,/) {
-				my @values = split(/\||\+|,/, $values);
-				$query_ref->{$field} = { '$in' => \@values };
-			}
-			else {
-				$query_ref->{$field} = $values;
-			}
 		}
 		
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
@@ -4414,6 +4426,24 @@ sub add_params_to_query($$) {
 				}			
 			}
 		}
+		
+		# Exact match on a specific field (e.g. "code")
+		elsif (defined $valid_params{$field}) {
+			
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
+			
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+			
+			if ($values =~ /\||\+|,/) {
+				my @values = split(/\||\+|,/, $values);
+				$query_ref->{$field} = { '$in' => \@values };
+			}
+			else {
+				$query_ref->{$field} = $values;
+			}
+		}		
 	}
 }
 
