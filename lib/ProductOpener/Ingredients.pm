@@ -3800,7 +3800,8 @@ sub preparse_ingredients_text($$) {
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
+	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
 	
 	# E 240, E.240, E-240..
 	# E250-E251-E260

@@ -298,9 +298,10 @@ my @lists =(
 
 	# ¹ and ² symbols
 	["fr", "Sel, sucre², graisse de palme¹, amidons¹ (maïs¹, pomme de terre¹), oignon¹ : 8,9%, ail¹, oignon grillé¹ : 1,4%, épices¹ et aromate¹ (livèche¹ : 0,4%, curcuma¹, noix de muscade¹), carotte¹ : 0,5%. Peut contenir : céleri, céréales contenant du gluten, lait, moutarde, œuf, soja. ¹Ingrédients issus de l'Agriculture Biologique. ² Ingrédients issus du commerce équitable",
-"sel, sucre commerce équitable, graisse de palme bio, amidons bio (maïs bio, pomme de terre bio ), oignon bio : 8,9%, ail bio, oignon grillé bio : 1,4%, épices bio et aromate bio (livèche bio : 0,4%, curcuma bio, noix de muscade bio ), carotte bio : 0,5%. traces éventuelles : céleri, traces éventuelles : céréales contenant du gluten, traces éventuelles : lait, traces éventuelles : moutarde, traces éventuelles : œuf, traces éventuelles : soja."],
+"Farine de blé, sucre, huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza), sirop de sucre candi, poudre à lever (carbonate acide de sodium), sel, cannelle. Substances ou produits provoquant des allergies ou intolérances : gluten."],
 
-
+	# Russian е character
+	["ru", "е322, Куркумины e100, е-1442, (е621)", "e322, куркумины e100, e1442, (e621)"],
 );
 
 foreach my $test_ref (@lists) {
