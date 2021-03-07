@@ -89,6 +89,7 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		&add_params_to_query
 		
 		&process_template
 
@@ -4228,6 +4229,32 @@ Reference to the MongoDB query object.
 
 =cut
 
+# Parameters that are not query filters
+
+my %ignore_params = (
+	fields => 1,
+	format => 1,
+	json => 1,
+	jsonp => 1,
+	xml => 1,
+	keywords => 1,	# added by CGI.pm
+	api_version => 1,
+	api_method => 1,
+	search_simple => 1,
+	search_terms => 1,
+	userid => 1,
+	password => 1,
+	action => 1,
+	type => 1,
+);
+
+# Parameters that can be query filters
+# It is safer to use a positive list, instead of just the %ignore_params list
+
+my %valid_params = (
+	code => 1,
+);
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -4241,30 +4268,15 @@ sub add_params_to_query($$) {
 		
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
 		
+		# skip params that are not query filters
+		next if (defined $ignore_params{$field});
+		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
 		}
 		
 		elsif ($field eq "sort_by") {
 			$request_ref->{$field} = param($field);
-		}
-		
-		# Exact match on a specific field
-		elsif ($field eq "code") {
-			
-			my $values = remove_tags_and_quote(decode utf8=>param($field));
-			
-			# Possible values:
-			# xyz=a
-			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
-			
-			if ($values =~ /\||\+|,/) {
-				my @values = split(/\||\+|,/, $values);
-				$query_ref->{$field} = { '$in' => \@values };
-			}
-			else {
-				$query_ref->{$field} = $values;
-			}
 		}
 		
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
@@ -4414,6 +4426,24 @@ sub add_params_to_query($$) {
 				}			
 			}
 		}
+		
+		# Exact match on a specific field (e.g. "code")
+		elsif (defined $valid_params{$field}) {
+			
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
+			
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+			
+			if ($values =~ /\||\+|,/) {
+				my @values = split(/\||\+|,/, $values);
+				$query_ref->{$field} = { '$in' => \@values };
+			}
+			else {
+				$query_ref->{$field} = $values;
+			}
+		}		
 	}
 }
 
@@ -4461,8 +4491,8 @@ sub customize_response_for_product($$) {
 	
 	foreach my $field (split(/,/, $fields)) {
 
-		# On demand carbon footprint tags
-		if ((not $carbon_footprint_computed)
+		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
+		if (0 and (not $carbon_footprint_computed)
 			and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 			compute_carbon_footprint_infocard($product_ref);
 			$carbon_footprint_computed = 1;
@@ -4476,6 +4506,12 @@ sub customize_response_for_product($$) {
 		elsif ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
+		# The environment infocard now displays the Eco-Score details
+                elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
+                        if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+                                $customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
+                        }
+                }
 		
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
@@ -5058,23 +5094,17 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
+		if ((defined param("api_version")) and (param("api_version") <= 1)) {
 
-		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			if (defined $product_ref->{ingredients}) {
-				my $i = 0;
-				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-					$i++;
-					if ((defined param("api_version")) and (param("api_version") > 1)) {
-						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						if (not exists $ingredient_ref->{rank}) {
-							# delete this ingredient and ingredients after
-							while (scalar @{$product_ref->{ingredients}} >= $i) {
-								pop @{$product_ref->{ingredients}};
-							}
-							last;
-						}
-					}
-					else {
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+				if (defined $product_ref->{ingredients}) {
+					
+					flatten_sub_ingredients($product_ref);
+
+					foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 						# Delete sub-ingredients, keep only flattened ingredients
 						exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 					}
@@ -8377,7 +8407,8 @@ HTML
 
 	$template_data_ref->{admin} = $admin;
 
-	if ($admin) {
+	# the carbon footprint infocard has been replaced by the Eco-Score details
+	if (0 and $admin) {
 		compute_carbon_footprint_infocard($product_ref);
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
@@ -10251,26 +10282,21 @@ HTML
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
-		if (defined $product_ref->{ingredients}) {
-			my $i = 0;
-			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-				$i++;
-				if ((defined param("api_version")) and (param("api_version") > 1)) {
-					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					if ( not exists $ingredient_ref->{rank} ) {
-						# delete this ingredient and ingredients after
-						while (scalar @{$product_ref->{ingredients}} >= $i) {
-							pop @{$product_ref->{ingredients}};
-						}
-						last;
-					}
-				}
-				else {
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
+		if ((defined param("api_version")) and (param("api_version") <= 1)) {
+
+			if (defined $product_ref->{ingredients}) {
+				
+				flatten_sub_ingredients($product_ref);
+
+				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 					# Delete sub-ingredients, keep only flattened ingredients
 					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 				}
 			}
-		}
+		}		
 
 		# Return blame information
 		if (defined param("blame")) {
@@ -10869,6 +10895,8 @@ sub display_ingredients_analysis_details($) {
 		lang => \&lang,
 	};
 
+	# 2021-02-25: we will now store only nested ingredients, the following code can be deleted
+	# once the ingredients are reprocessed for all products
 	my $i = 0;
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 		$i++;
@@ -11054,6 +11082,34 @@ sub display_ecoscore_calculation_details($) {
 
 	my $html;
 	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
+}
+
+
+=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_data_ref )
+
+Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
+
+=cut
+
+sub display_ecoscore_calculation_details_simple_html($) {
+
+	my $ecoscore_data_ref = shift;
+
+	# Generate a data structure that we will pass to the template engine
+
+	my $template_data_ref = dclone($ecoscore_data_ref);
+	
+	my $decf = get_decimal_formatter($lc);
+	$template_data_ref->{round} = sub($) {
+		return sprintf ("%.0f", $_[0]);
+	};
+
+	# Eco-score Calculation Template
+
+	my $html;
+	process_template('ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

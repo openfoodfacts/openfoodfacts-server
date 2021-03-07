@@ -1,7 +1,6 @@
 {
    "ingredients" : [
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:gelling-agent",
          "ingredients" : [
             {
@@ -9,23 +8,15 @@
                "percent_estimate" : 100,
                "percent_max" : 100,
                "percent_min" : 100,
-               "text" : "pectines"
+               "text" : "pectines",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "rank" : 1,
          "text" : "gélifiant"
-      },
-      {
-         "id" : "en:e440a",
-         "percent_estimate" : 100,
-         "percent_max" : 100,
-         "percent_min" : 100,
-         "text" : "pectines",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis_tags" : [

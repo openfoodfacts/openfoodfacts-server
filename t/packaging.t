@@ -289,6 +289,38 @@ my @tests = (
 			packaging => "Capsules en aluminium à recycler",
 			categories_tags => ["en:coffees"],
 		}
+	],
+	
+	[
+		'packaging_fr_cartonnette',
+		{
+			lc => "fr",
+			packaging => "1 cartonnette à recycler",
+		}
+	],
+	
+	[
+		'packaging_en_cardboard',
+		{
+			lc => "en",
+			packaging => "1 cardboard",
+		}
+	],	
+
+	[
+		'packaging_en_cardboard_box',
+		{
+			lc => "en",
+			packaging => "1 cardboard box",
+		}
+	],
+	
+	[
+		'packaging_fr_support_carton',
+		{
+			lc => "fr",
+			packaging => "1 support carton",
+		}
 	],	
 );
 

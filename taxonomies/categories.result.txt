@@ -5633,6 +5633,10 @@ fr:Bonbons de chocolat au lait
 nl:Melkchocolabonbons
 
 < en:Bonbons
+en:Peanut butter cups
+wikidata:en: Q7157931
+
+< en:Bonbons
 fr:Gingembrettes
 
 < en:Bonbons
@@ -13818,16 +13822,6 @@ es:Turrones de chocolate con arroz inflado, Turrones de chocolate negro con arro
 fr:Turrón au chocolat avec riz soufflé, turrón au chocolat noir avec riz soufflé
 
 < en:Chocolates
-< en:Christmas foods and drinks
-en:Christmas chocolates
-de:Weihnachtsschokolade
-es:Chocolates de navidad
-fi:joulusuklaat
-fr:Chocolats de Noël
-it:Cioccolatini di Natale
-nl:Kerstmischocola
-
-< en:Chocolates
 en:Assorted chocolates
 de:Verschiedene Pralinen, Pralinensortimente
 fi:suklaasekoitus
@@ -14194,6 +14188,16 @@ nl:Adventskalender
 pl:Kalendarz adwentowy
 pt:Calendário do Advento
 ru:Рождественский календарь
+
+< en:Christmas foods and drinks
+< en:Cocoa and its products
+en:Christmas chocolates
+de:Weihnachtsschokolade
+es:Chocolates de navidad
+fi:joulusuklaat
+fr:Chocolats de Noël
+it:Cioccolatini di Natale
+nl:Kerstmischocola
 
 < en:Christmas foods and drinks
 < en:Confectioneries
@@ -14580,18 +14584,6 @@ origins:en: en:France
 protected_name_file_number:en: PDO-FR-0062
 protected_name_type:en: pdo
 
-en:Cocoa and chocolate powders, chocolate and cocoa powders
-ca:Pols de coco i xocolata
-de:Kakao- und Schokoladenpulver, Schkoladen- und Kakaopulver
-es:Cacaos y chocolates en polvo, chocolates y cacaos en polvo
-fi:Kaakao- ja suklaajauheet
-fr:Cacaos et chocolats en poudre, chocolats et cacaos en poudre
-hu:Kakaó- és csokoládéporok
-it:Cacao e cioccolato in polvere
-nl:Cacao en cacaopoeders, cacao en cacapoeder
-agribalyse_proxy_food_code:en: 18167
-agribalyse_proxy_food_name:en: Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins and chemical elements
-
 < en:Cocoa and chocolate powders
 en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders, Instant cocoa powder without sugar
 ca:Cacau en pols, Cacau
@@ -14612,6 +14604,60 @@ fr:Poudre maltée cacaotée, Poudre maltée cacaotée sucrée pour boisson enric
 ciqual_food_code:en: 18102
 ciqual_food_name:en: Malted cocoa or chocolate powder for beverage, with sugar
 ciqual_food_name:fr: Poudre maltée, cacaotée ou au chocolat pour boisson, sucrée, enrichie en vitamines et minéraux
+
+en:Cocoa and its products
+fr:Cacao et dérivés
+
+< en:Cocoa and its products
+en:Cocoa and chocolate powders, chocolate and cocoa powders
+ca:Pols de coco i xocolata
+de:Kakao- und Schokoladenpulver, Schkoladen- und Kakaopulver
+es:Cacaos y chocolates en polvo, chocolates y cacaos en polvo
+fi:Kaakao- ja suklaajauheet
+fr:Cacaos et chocolats en poudre, chocolats et cacaos en poudre
+hu:Kakaó- és csokoládéporok
+it:Cacao e cioccolato in polvere
+nl:Cacao en cacaopoeders, cacao en cacapoeder
+agribalyse_proxy_food_code:en: 18167
+agribalyse_proxy_food_name:en: Cocoa or chocolate powder, for beverages, with sugar, fortified with vitamins and chemical elements
+
+< en:Cocoa and its products
+en:Cocoa beans
+fr:Fèves de cacao
+
+< en:Cocoa and its products
+< en:Sweet snacks
+en:Chocolates, chocolate products
+ca:Xocolata
+cs:Čokolády
+da:Chokolader, chokolade
+de:Schokoladen, Schokolade, Schokoladenprodukte
+es:Chocolates
+fi:suklaat
+fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
+he:שוקולדים
+hu:Csokoládék, csokoládé termékek
+it:Cioccolato
+nl:Chocoladeproducten
+pl:Czekolada, Produkty czekoladowe
+pt:Chocolates, produtos com chocolate
+ru:Шоколад, шоколадные продукты
+sv:Choklad, Chokladprodukter
+th:ช็อกโกแลต
+zh:巧克力
+nova:en: 3
+pnns_group_2:en: Chocolate products
+
+< en:Cocoa beans
+en:Raw cocoa beans
+fr:Fèves de cacao crues
+
+< en:Cocoa beans
+en:Roasted cocoa beans
+fr:Fèves de cacao torréfiées
+
+< en:Cocoa beans
+fr:Grué de cacao
 
 < en:Cocoa powders
 en:Cocoa powder for beverages with sugar, Chocolate powder for beverages with sugar
@@ -15473,6 +15519,25 @@ nl:Kruiderijen
 pl:Przyprawy, przyprawa
 wikidata:en: Q773108
 
+< en:Cocoa and its products
+< en:Confectioneries
+en:Chocolate candies
+ca:Caramels de xocolata
+de:Schokoladenkonfekt
+es:Dulces de chocolate
+fi:suklaamakeiset
+fr:Confiseries chocolatées
+he:ממתקי שוקולד
+hu:Csokoládés cukorka
+it:Confetti al cioccolato
+nl:Chocoladesnoep
+pl:Cukierki czekoladowe
+pt:Bombons de chocolate
+ru:Шоколад и шоколадные конфеты
+sv:Chokladgodis
+th:ลูกอมช็อกโกแลต
+zh:巧克力糖果
+
 < en:Confectioneries
 en:Calissons
 de:Calissons
@@ -15543,24 +15608,6 @@ ciqual_food_code:en: 31121
 ciqual_food_name:en: Chewing gum, sugar level unknown -average-
 ciqual_food_name:fr: Chewing-gum, teneur en sucre inconnue -aliment moyen-
 wikidata:en: Q130878
-
-< en:Confectioneries
-en:Chocolate candies
-ca:Caramels de xocolata
-de:Schokoladenkonfekt
-es:Dulces de chocolate
-fi:suklaamakeiset
-fr:Confiseries chocolatées
-he:ממתקי שוקולד
-hu:Csokoládés cukorka
-it:Confetti al cioccolato
-nl:Chocoladesnoep
-pl:Cukierki czekoladowe
-pt:Bombons de chocolate
-ru:Шоколад и шоколадные конфеты
-sv:Chokladgodis
-th:ลูกอมช็อกโกแลต
-zh:巧克力糖果
 
 < en:Confectioneries
 en:Cotton candy, fairy floss, candy floss
@@ -18067,6 +18114,9 @@ ru:Молоко
 sv:Mjölk
 th:กลุ่มผลิตภัณฑ์นม
 zh:奶
+agribalyse_proxy_food_code:en: 19041
+agribalyse_proxy_food_name:en: Milk, semi-skimmed, UHT
+agribalyse_proxy_food_name:fr: Lait demi-écrémé, UHT
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q8495
 
@@ -62414,28 +62464,6 @@ ro:Batoane
 ru:Батончики
 zh:棒状零食
 pnns_group_2:en: Biscuits and cakes
-
-< en:Sweet snacks
-en:Chocolates, chocolate products
-ca:Xocolata
-cs:Čokolády
-da:Chokolader, chokolade
-de:Schokoladen, Schokolade, Schokoladenprodukte
-es:Chocolates
-fi:suklaat
-fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
-he:שוקולדים
-hu:Csokoládék, csokoládé termékek
-it:Cioccolato
-nl:Chocoladeproducten
-pl:Czekolada, Produkty czekoladowe
-pt:Chocolates, produtos com chocolate
-ru:Шоколад, шоколадные продукты
-sv:Choklad, Chokladprodukter
-th:ช็อกโกแลต
-zh:巧克力
-nova:en: 3
-pnns_group_2:en: Chocolate products
 
 < en:Sweet snacks
 en:Confectioneries, confectionary, confectionery

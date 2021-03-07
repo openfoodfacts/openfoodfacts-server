@@ -82,7 +82,6 @@
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
-         "rank" : 1,
          "text" : "Milk",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -92,13 +91,11 @@
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
-         "rank" : 2,
          "text" : "salt",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:colour",
          "ingredients" : [
             {
@@ -106,23 +103,15 @@
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
-               "text" : "e160b"
+               "text" : "e160b",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "rank" : 3,
          "text" : "coloring"
-      },
-      {
-         "id" : "en:e160b",
-         "percent_estimate" : 16.6666666666667,
-         "percent_max" : 33.3333333333333,
-         "percent_min" : 0,
-         "text" : "e160b",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis_tags" : [

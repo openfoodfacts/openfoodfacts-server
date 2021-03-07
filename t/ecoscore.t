@@ -337,7 +337,60 @@ my @tests = (
 			labels_tags => ["en:demeter"],
 			ingredients_text => "Carottes (origine France)",
 		},
+	],
+	
+	# Label ratio = sheet ratio (0.1) : no downgrade if non recyclable
+	
+	[
+		'grade-a-with-recyclable-label',
+		{
+			lc => "fr",
+			categories_tags=>["en:carrots"],
+			packaging_text => "1 Pot verre A recycler, 1 Couvercle acier A recycler,1 Etiquette Polypropylène A jeter",
+			labels_tags => ["en:eu-organic"],
+			origins_tags => ["en:france"],
+			ingredients_text => "Aubergine 60%, Pomme de terre 39%, Huile de colza 1%",
+		},
+	],
+	
+	[
+		'grade-a-with-non-recyclable-label',
+		{
+			lc => "fr",
+			categories_tags=>["en:carrots"],
+			packaging_text => "1 Pot verre A recycler, 1 Couvercle acier A recycler,1 Etiquette plastique A jeter",
+			labels_tags => ["en:eu-organic"],
+			origins_tags => ["en:france"],
+			ingredients_text => "Aubergine 60%, Pomme de terre 39%, Huile de colza 1%",
+		},
+	],
+	
+	# Milks should be considered as beverages for the Eco-Score
+	
+	[
+		'milk',
+		{
+			lc => "fr",
+			categories_tags=>["en:milks"],
+			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
+			labels_tags => ["en:eu-organic"],
+			origins_tags => ["en:france"],
+			ingredients_text => "Lait",
+		},
+	],
+	
+	# Energy drinks should not have an Eco-Score (like waters and sodas)
+	
+	[
+		'energy-drink',
+		{
+			lc => "fr",
+			categories_tags=>["en:energy-drinks"],
+			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
+			ingredients_text => "Water",
+		},
 	],	
+
 );
 
 

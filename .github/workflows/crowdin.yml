@@ -5,7 +5,7 @@ name: Crowdin Sync
    # branches: [ * ]
    
 on:
-  pull_request:
+  push:
     branches:
       - master
 

@@ -32,7 +32,7 @@ foreach my $test_ref (@ingredients) {
 }
 
 
-# dummy product for testing
+# test the estimate percent of fruits and vegetables
 
 my @tests = (
 [ { lc => "fr", ingredients_text => "" }, undef ],
@@ -56,6 +56,37 @@ foreach my $test_ref (@tests) {
 		$expected_fruits
 	) or diag explain $product_ref->{ingredients};
 }
+
+# test the estimate percent of milk
+
+@tests = (
+[ { lc => "fr", ingredients_text => "" }, 0 ],
+[ { lc => "fr", ingredients_text => "lait" }, 100 ],
+[ { lc => "fr", ingredients_text => "lait entier" }, 100 ],
+[ { lc => "fr", ingredients_text => "lait frais" }, 100 ],
+[ { lc => "fr", ingredients_text => "lait de vache" }, 100 ],
+[ { lc => "fr", ingredients_text => "lait pasteurisé" }, 100 ],
+[ { lc => "fr", ingredients_text => "lait de coco" }, 0 ],
+[ { lc => "fr", ingredients_text => "lait, sucre, noisettes" }, 33.3333333333333 ],
+[ { lc => "fr", ingredients_text => "lait écrémé 50%, fraise 30%, eau" }, 50 ],
+[ { lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau" }, 0 ],
+[ { lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau" }, 65 ],
+);
+
+
+foreach my $test_ref (@tests) {
+
+	my $product_ref = $test_ref->[0];
+	my $expected_milk = $test_ref->[1];
+
+	extract_ingredients_from_text($product_ref);
+
+	is (
+		estimate_milk_percent_from_ingredients($product_ref),
+		$expected_milk
+	) or diag explain $product_ref->{ingredients};
+}
+
 
 done_testing();
 
