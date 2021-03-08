@@ -327,6 +327,7 @@ my %gs1_to_off = (
 			},
 		],		
 			
+		# will override brandOwner values if present
 		["informationProviderOfTradeItem", {
 				fields => [
 					["gln", "sources_fields:org-gs1:gln"],
@@ -977,7 +978,11 @@ sub gs1_to_off ($$$) {
 							}
 						}
 						
-						if ((defined $source_value) and ($source_value ne "")) {
+						if ((defined $source_value) and ($source_value ne "")
+							# CodeOnline sometimes has empty values '.' or '0' for partyName for one of the fields brandOwner or informationProviderOfTradeItem
+							# ignore them in order to keep the partyName value from the other fields
+							and not (($source_field eq "partyName") and (length($source_value) < 2))
+						) {
 							
 							# allergenTypeCode => '+traces%allergens',
 							# % sign means we will use a map to transform the source value
