@@ -10895,21 +10895,6 @@ sub display_ingredients_analysis_details($) {
 		lang => \&lang,
 	};
 
-	# 2021-02-25: we will now store only nested ingredients, the following code can be deleted
-	# once the ingredients are reprocessed for all products
-	my $i = 0;
-	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-		$i++;
-		# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-		if ( not exists $ingredient_ref->{rank} ) {
-			# delete this ingredient and ingredients after
-			while (scalar @{$product_ref->{ingredients}} >= $i) {
-				pop @{$product_ref->{ingredients}};
-			}
-			last;
-		}
-	}
-
 	my $ingredients_text = "";
 	my $ingredients_list = "";
 
