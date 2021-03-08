@@ -34,6 +34,7 @@ stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papi
 stopwords:nn:av
 stopwords:pl:w tym, zawiera, z
 stopwords:pt:do qual, dos quais,e
+stopwords:ru:состав
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
 stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
@@ -4768,6 +4769,7 @@ lv:ferments
 nl:Ferment
 pl:Fermentacja
 pt:fermento, fermentos
+ru:Фермент, закваска
 sv:jäsa, syrningsmedel
 tt:Фермент
 uk:Ферменти
@@ -6308,7 +6310,7 @@ ps:شيدې
 pt:Leite
 qu:Lichi, Pilli
 ro:Lapte
-ru:Молоко
+ru:Молоко, нормализованное молоко
 sa:क्षीरम्
 sd:کير
 sh:Mlijeko
@@ -16550,7 +16552,6 @@ nl:melkvet
 pl:tłuszcz mlecny, tłuszcz mleczny
 pt:gorda do leite
 ro:grasimi din lapte, grăsimi din lapte, grasime din lapte, grăsime din lapte
-ru:молочный жнр
 sk:mliečny tuk
 sv:mjölkfett
 vegan:en:no
@@ -16918,6 +16919,10 @@ fr:Huile et matière grasse de palmiste
 hu:pálmamagolaj és -zsír
 nl:palmpitolie en vet
 from_palm_oil:en:yes
+
+en:milk fat substitute
+ru:заменитель молочного жира
+# in Russia manufacturers often use milk-fat-substitute as cheap substitute of milk fat
 
 # <en:palm
 <en:palm oil and fat
