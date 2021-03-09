@@ -125,7 +125,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"SC" => "Cashew",
 		"SM" => "Macadamia nut",
 		"SP" => "Pecan nut",
-		"QR" => "Queensland nut",
+		"SQ" => "Queensland nut",
 		"SR" => "Brazil nut",
 		"ST" => "Pistachio",
 		"SW" => "Walnut",
@@ -171,10 +171,13 @@ my %unknown_entries_in_gs1_maps = ();
 		"FASAT" => "saturated-fat",
 		"FAMSCIS" => "monounsaturated-fat",
 		"FAPUCIS" => "polyunsaturated-fat",
+		"FAPUN3" => "omega-3-fat",
+		"FAPUN6" => "omega-6-fat",
 		"FD" => "fluoride",
 		"FE" => "iron",
 		"FIBSOL" => "soluble-fiber",
 		"FIBTG" => "fiber",
+		"FIB-" => "fiber",
 		"FOL" => "folates",
 		"FOLDFE" => "vitamin-b9",
 		"FRUFB" => "fructo-oligosaccharide",
@@ -266,29 +269,56 @@ my %unknown_entries_in_gs1_maps = ();
 	
 	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode
 	packagingMarkedLabelAccreditationCode => {
+		"ADCCPA" => "fr:produit-certifie",
 		"AGENCE_BIO" => "fr:ab-agriculture-biologique",
+		"AB_FRANCE" => "fr:ab-agriculture-biologique",
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
+		"AGRI_CONFIANCE" => "fr:agri-confiance",
+		"APPELLATION_ORIGINE_CONTROLEE" => "fr:aoc",
+		"AQUACULTURE_STEWARDSHIP_COUNCIL" => "en:responsible-aquaculture-asc",
+		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
+		"BIO_PARTENAIRE" => "fr:biopartenaire",
+		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
+		"DEMETER_LABEL" => "en:demeter",
+		"ECOCERT_CERTIFICATE" => "en:certified-by-ecocert",
+		"ETP" => "en:Ethical Tea Partnership",
+		"EU_ECO_LABEL" => "en:eu-ecolabel",
 		"EU_ORGANIC_FARMING" => "en:eu-organic",
 		"EUROPEAN_VEGETARIAN_UNION" => "en:european-vegetarian-union",
 		"EUROPEAN_V_LABEL_VEGAN" => "en:european-vegetarian-union-vegan",
+		"EUROPEAN_V_LABEL_VEGETARIAN" => "en:european-vegetarian-union-vegetarian",
 		"FAIR_TRADE_MARK" => "en:fairtrade-international",
 		"FAIRTRADE_COCOA" => "en:fair-trade",
+		"FAIR_TRADE_USA" => "en:fairtrade-usa",
 		"FOREST_STEWARDSHIP_COUNCIL_LABEL" => "en:fsc",		
 		"FOREST_STEWARDSHIP_COUNCIL_MIX" => "en:fsc-mix",
+		"FOREST_STEWARDSHIP_COUNCIL_RECYCLED" => "en:fsc-recycled",
 		"GREEN_DOT" => "en:green-dot",
+		"HAUTE_VALEUR_ENVIRONNEMENTALE" => "fr:haute-valeur-environnementale",
 		"IGP" => "en:pgi",
+		"LABEL_ROUGE" => "fr:label-rouge",
+		"LE_PORC_FRANCAIS" => "en:french-pork",
 		"MAX_HAVELAAR" => "en:max-havelaar",
+		"MARINE_STEWARDSHIP_COUNCIL_LABEL" => "en:sustainable-seafood-msc",
+		"ŒUFS_DE_FRANCE" => "en:french-eggs",
+		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
 		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
 		"PEFC" => "en:pefc",
 		"PEFC_CERTIFIED" => "en:pefc",
 		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
+		"SUSTAINABLE_PALM_OIL_RSPO" => "en:roundtable-on-sustainable-palm-oil",
+		"TRADITIONAL_SPECIALTY_GUARANTEED" => "en:tsg",
 		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
+		"UTZ_CERTIFIED_COCOA" => "en:utz-certified-cocoa",
+		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
+		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 	
 	targetMarketCountryCode => {
@@ -311,6 +341,18 @@ foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
 	else {
 		$log->error("gs1_maps - entry not in taxonomy",
 			{ tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag} }) if $log->is_error();
+			die;
+	}
+}
+
+foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
+	my $canon_tag = canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
+	if (exists_taxonomy_tag("labels", $canon_tag)) {
+		$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+	}
+	else {
+		$log->error("gs1_maps - entry not in taxonomy",
+			{ tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} }) if $log->is_error();
 			die;
 	}
 }
@@ -892,7 +934,7 @@ sub gs1_to_off ($$$) {
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
-									{ nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
+									{ code => $results_ref->{code}, nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
 								my $map = "nutrientTypeCode";
 								my $source_value = $nutrient_detail_ref->{nutrientTypeCode};
 								defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
@@ -1025,7 +1067,7 @@ sub gs1_to_off ($$$) {
 								}
 								else {
 									$log->error("gs1_to_off - unknown source value for map",
-										{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
+										{ code => $results_ref->{code}, source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
 									defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
 									defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
 									$unknown_entries_in_gs1_maps{$map}{$source_value}++;
