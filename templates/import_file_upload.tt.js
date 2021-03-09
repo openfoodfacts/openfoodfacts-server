@@ -8,6 +8,8 @@
 			\$(location).attr('href',data.result.location);
 		}
 		if (data.result.error) {
+			\$("#file_input_button_$id").show();
+			\$("#progressbar_$id").hide();
 			\$("#file_input_error_$id").html(data.result.error);
 			\$("#file_input_error_$id").show();
 		}
