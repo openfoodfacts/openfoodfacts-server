@@ -122,8 +122,11 @@ my %unknown_entries_in_gs1_maps = ();
 		"NR" => "Rye",
 		"SA" => "Almond",
 		"SH" => "Hazelnut",
+		"SC" => "Cashew",
 		"SM" => "Macadamia nut",
 		"SP" => "Pecan nut",
+		"QR" => "Queensland nut",
+		"SR" => "Brazil nut",
 		"ST" => "Pistachio",
 		"SW" => "Walnut",
 		"UM" => "Molluscs",
@@ -150,21 +153,32 @@ my %unknown_entries_in_gs1_maps = ();
 	nutrientTypeCode => {
 		"BIOT" => "biotin",
 		"CA" => "calcium",
+		"CASN" => "casein",
 		"CHOAVL" => "carbohydrates",
+		"CHOCAL" => "vitamin-d",	# cholecalciferol
+		"CHOLN" => "choline",
 		"CLD" => "chloride",
 		"CR" => "chromium",
 		"CU" => "copper",
 		"ENER-" => "energy",
 		"ENERSF" => "calories-from-saturated-fat",
+		"F18D2CN6" => "linoleic-acid",
+		"F18D3N3" => "alpha-linolenic-acid",
+		"F20D4" => "arachidonic-acid",
+		"F20D5N3" => "eicosapentaenoic-acid",
+		"F22D6N3" => "docosahexaenoic-acid",
 		"FAT" => "fat",
 		"FASAT" => "saturated-fat",
 		"FAMSCIS" => "monounsaturated-fat",
 		"FAPUCIS" => "polyunsaturated-fat",
 		"FD" => "fluoride",
 		"FE" => "iron",
+		"FIBSOL" => "soluble-fiber",
 		"FIBTG" => "fiber",
 		"FOL" => "folates",
 		"FOLDFE" => "vitamin-b9",
+		"FRUFB" => "fructo-oligosaccharide",
+		"GALFB" => "galacto-oligosaccharide",
 		# G_ entries: cigarettes?
 		#"G_CMO" => "carbon-monoxide",
 		#"G_HC" => "bicarbonate",
@@ -174,9 +188,12 @@ my %unknown_entries_in_gs1_maps = ();
 		"GINSENG" => "ginseng",
 		"HMB" => "beta-hydroxy-beta-methylburate",
 		"ID" => "iodine",
+		"INOTL" => "inositol",
 		"IODIZED_SALT" => "iodized_salt",
 		"K" => "potassium",
 		"L_CARNITINE" => "carnitine",
+		"LACS" => "lactose",
+		"MALTDEX" => "maltodextrins",
 		"MG" => "magnesium",
 		"MN" => "manganese",
 		"MO" => "molybdenum",
@@ -186,14 +203,17 @@ my %unknown_entries_in_gs1_maps = ();
 		"NUCLEOTIDE" => "nucleotide",
 		"P" => "phosphorus",
 		"PANTAC" => "pantothenic-acid",
+		"POLYL" => "polyols",	
 		"POLYLS" => "polyols",	
 		"PRO-" => "proteins",
 		"RIBF" => "vitamin-b2",
 		"SALTEQ" => "salt",
 		"SE" => "selenium",
 		"STARCH" => "starch",
+		"SUCS" => "sucrose",
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
+		"TAU" => "taurine",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
@@ -204,6 +224,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"VITE-" => "vitamin-e",
 		"VITK-" => "vitamin-k",
 		"VITK" => "vitamin-k",
+		"WHEY" => "serum-proteins",
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
 	},
@@ -245,6 +266,7 @@ my %unknown_entries_in_gs1_maps = ();
 	
 	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode
 	packagingMarkedLabelAccreditationCode => {
+		"AGENCE_BIO" => "fr:ab-agriculture-biologique",
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
@@ -260,6 +282,9 @@ my %unknown_entries_in_gs1_maps = ();
 		"IGP" => "en:pgi",
 		"MAX_HAVELAAR" => "en:max-havelaar",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
+		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
+		"PEFC" => "en:pefc",
 		"PEFC_CERTIFIED" => "en:pefc",
 		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
 		"TRIMAN" => "fr:triman",
@@ -665,6 +690,12 @@ sub gs1_to_off ($$$) {
 	my $gs1_to_off_ref = shift;
 	my $json_ref = shift;
 	my $results_ref = shift;
+	
+	# We should have a hash
+	if (ref($json_ref) ne "HASH") {
+		$log->error("gs1_to_off - json_ref is not a hash", { json_re => $json_ref, results_ref => $results_ref }) if $log->is_error();
+		return;
+	}
 	
 	$log->debug("gs1_to_off", { json_ref_keys => [sort keys %$json_ref] }) if $log->is_debug();
 	
