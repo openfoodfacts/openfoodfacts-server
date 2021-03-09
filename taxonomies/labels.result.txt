@@ -899,6 +899,9 @@ it:Agricoltura EU/non-EU
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
 
+en:EU Ecolabel
+xx:EU Ecolabel
+
 < en:EU Organic
 en:AD-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
@@ -13388,6 +13391,12 @@ it:Carne francese
 origins:en: en:france
 
 < en:French meat
+en:French beef
+fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+ingredients:en: en:beef
+origins:en: en:france
+
+< en:French meat
 en:French duck
 de:Französische Ente
 es:Pato francés
@@ -13414,15 +13423,17 @@ ingredients:en: en:pork
 origins:en: en:france
 
 < en:French meat
+en:French poultry
+fr:Volaille Française, volaille Origine France
+ingredients:en: en:poultry
+origins:en: en:france
+
+< en:French meat
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
 origins:en: en:france
 
 < en:French meat
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
-origins:en: en:france
-
-< en:French meat
-fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
 origins:en: en:france
 
 < en:French meat
@@ -13447,10 +13458,6 @@ origins:en: en:france
 
 < en:French meat
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
-origins:en: en:france
-
-< en:French meat
-fr:Volaille Française, volaille Origine France
 origins:en: en:france
 
 en:French milk
@@ -15076,6 +15083,10 @@ opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
 < en:No gluten
+en:Crossed Grain Symbol, Crossed Grain
+xx:Crossed Grain Symbol
+
+< en:No gluten
 en:DZG Gluten free
 de:DZG glutenfrei
 
@@ -16158,7 +16169,7 @@ origins:en: en:france
 en:Pro Montagna, ProMontagna, Coop Pro Montagna
 ca:Pro Montagna, ProMontagna, Coop Pro Montagna
 
-en:Produced in Bretagne
+en:Produced in Brittany, Produced in Bretagne
 ca:Produït a la Bretanya
 de:Produziert in der Bretagne
 es:Producido en Bretaña
@@ -17236,7 +17247,7 @@ fi:CCOF-sertifioitu luomu
 pl:CCOF certified organic
 
 < en:UTZ Certified
-en:UTZ Certified Cacao, UTZ Certified Cocoa
+en:UTZ Certified Cocoa, UTZ Certified Cacao
 ca:Cacau certificat UTZ
 de:UTZ Zertifizierter Kakao, UTZ Certified Kakao
 fi:UTZ-sertifioitua kaakaota
@@ -17809,6 +17820,9 @@ wikidata:en: Q11895580
 
 fr:100% filet
 
+fr:Agri-Confiance
+xx:Agri-Confiance
+
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée
 protected_name_type:en: aoc
 
@@ -18012,7 +18026,8 @@ fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 fr:Grand cru
 label_categories:en: en:Wines
 
-fr:Haute Valeur Environnementale
+fr:Haute Valeur Environnementale, HVE
+xx:Haute Valeur Environnementale, HVE
 auth_url:fr: https://hve-asso.com
 label_categories:en: en:Environment
 wikidata:en: Q3128557
@@ -18278,7 +18293,7 @@ fr:prix d'excellence du concours général agricole 2015, Concours général agr
 < fr:Prix d'excellence du Concours général agricole
 fr:prix d'excellence du concours général agricole 2016, Concours général agricole prix d'excellence 2016
 
-fr:Produit certifié
+fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
 fr:Salage naturel
