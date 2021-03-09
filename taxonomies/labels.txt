@@ -725,6 +725,10 @@ zh:无麸质
 wikidata:en:Q2632776
 opposite:en: en:contains-gluten
 
+<en:gluten-free
+en:Crossed Grain Symbol, Crossed Grain
+xx:Crossed Grain Symbol
+
 <en:Gluten-free
 en:FACE
 xx:FACE
@@ -16498,7 +16502,7 @@ wikidata:en:Q2305872
 auth_url:en:https://utz.org
 
 <en:UTZ Certified
-en:UTZ Certified Cacao, UTZ Certified Cocoa
+en:UTZ Certified Cocoa, UTZ Certified Cacao
 ca:Cacau certificat UTZ
 de:UTZ Zertifizierter Kakao, UTZ Certified Kakao
 fi:UTZ-sertifioitua kaakaota
@@ -17012,7 +17016,7 @@ it:Latte francese
 pt:Leite francês
 origins:en: en:france
 
-en:Produced in Bretagne
+en:Produced in Brittany, Produced in Bretagne
 ca:Produït a la Bretanya
 de:Produziert in der Bretagne
 es:Producido en Bretaña
@@ -17157,8 +17161,10 @@ origins:en: en:france
 ingredients:en: en:pork
 
 <fr:Viande Française
+en:French beef
 fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
 origins:en: en:france
+ingredients:en: en:beef
 
 <fr:Viande Française
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
@@ -17169,8 +17175,10 @@ fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français,
 origins:en: en:france
 
 <fr:Viande Française
+en:French poultry
 fr:Volaille Française, volaille Origine France
 origins:en: en:france
+ingredients:en: en:poultry
 
 <fr:Viande Française
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
@@ -18529,13 +18537,14 @@ en:Health Star Rating 4.5
 <en:Health Star Rating
 en:Health Star Rating 5
 
-fr:Haute Valeur Environnementale
+fr:Haute Valeur Environnementale, HVE
+xx:Haute Valeur Environnementale, HVE
 wikidata:en:Q3128557
 label_categories:en: en:Environment
 auth_url:fr:https://hve-asso.com
 
 # French quality label: https://fr.wikipedia.org/wiki/Certification_de_conformit%C3%A9_produit
-fr:Produit certifié
+fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
 en:Certified quality
@@ -18575,6 +18584,9 @@ fr:Agri-Éthique France, Agri-Éthique
 xx:Agri-Éthique France
 https://www.agriethique.fr/
 
+fr:Agri-Confiance
+xx:Agri-Confiance
+
 <en:fair-trade
 <en:organic
 fr:Biopartenaire, Bio partenaire
@@ -18584,3 +18596,5 @@ fr:Herta s'engage
 
 en:Nestlé Cocoa Plan, Cocoa Plan
 
+en:EU Ecolabel
+xx:EU Ecolabel
