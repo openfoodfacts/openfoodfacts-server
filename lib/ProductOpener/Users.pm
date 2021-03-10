@@ -596,7 +596,7 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 EMAIL
 ;
-			send_email_to_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
 		}
 		else {
 			# The requested org does not exist, create it
@@ -616,7 +616,7 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 EMAIL
 ;
-			send_email_to_admin(
+			send_email_to_producers_admin(
 				"Org created by user: $userid - org: "
 					. $user_ref->{requested_org_id},
 				$admin_mail_body
