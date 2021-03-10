@@ -36,14 +36,20 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
-         "threatened_species" : {}
+         "production_system" : {
+            "warning" : "no_label"
+         },
+         "threatened_species" : {
+            "warning" : "ingredients_missing"
+         }
       },
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
       "missing" : {
          "agb_category" : 1,
+         "ingredients" : 1,
+         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },

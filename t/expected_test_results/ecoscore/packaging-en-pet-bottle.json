@@ -37,8 +37,12 @@
             "score" : 50,
             "value" : -5
          },
-         "production_system" : {},
-         "threatened_species" : {}
+         "production_system" : {
+            "warning" : "no_label"
+         },
+         "threatened_species" : {
+            "warning" : "ingredients_missing"
+         }
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "2011",
@@ -65,6 +69,8 @@
       },
       "grade" : "c",
       "missing" : {
+         "ingredients" : 1,
+         "labels" : 1,
          "origins" : 1
       },
       "missing_data_warning" : 1,
