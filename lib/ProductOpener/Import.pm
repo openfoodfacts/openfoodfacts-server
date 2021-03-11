@@ -463,6 +463,7 @@ sub import_csv_file($) {
 					"3011542300012" => "nestle-france",	# Herta
 					"3013873929306" => "nestle-france",	# Cereal Partners
 					"3011797320001" => "nestle-france",	# Nestlé Waters
+					"3010737870309" => "groupe-bel",	# BEL FRANCE
 				);
 
 				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
