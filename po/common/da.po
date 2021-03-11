@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-02-06 10:28\n"
+"PO-Revision-Date: 2021-03-11 12:44\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -513,7 +513,7 @@ msgstr "Slettet:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Doner til Open Food Facts"
+msgstr "Donér til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -597,11 +597,11 @@ msgstr "Sporbarhedskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Sporbarhedskode"
+msgstr "Emballagekode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Sporbarhedskode"
+msgstr "Emballagekode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -1454,11 +1454,11 @@ msgstr "Produkter som ikke indeholder næringsstoffet %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1530,7 +1530,7 @@ msgstr "Standardafvigelse"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -3329,7 +3329,7 @@ msgstr "Ingredienser"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -5165,3 +5165,8 @@ msgstr "Din adgangskode kunne ikke geninitialisere. Kontakt supporten for hjælp
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
 msgstr "Fjern alle næringsværdier"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "Bruger slettet."
+

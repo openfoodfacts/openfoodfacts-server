@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-02-06 10:30\n"
+"PO-Revision-Date: 2021-03-11 12:45\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -598,11 +598,11 @@ msgstr "Rückverfolgbarkeitscodes"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Rückverfolgbarkeitscode"
+msgstr "Identitätskennzeichen"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Rückverfolgbarkeitscode"
+msgstr "Identitätskennzeichen"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -1973,7 +1973,7 @@ msgstr "Hallo <NAME>,\n\n"
 "Falls Sie das Zurücksetzen nicht angefordert haben, ignorieren Sie einfach diese E-Mail.\n\n"
 "<RESET_URL>\n\n"
 "Mit freundlichen Grüßen,\n\n"
-"Stephane\n"
+"Stéphane\n"
 "https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
@@ -4378,7 +4378,7 @@ msgstr "Produktfotos können auch separat über die Funktion „Produktfotos imp
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr "Etiketten"
+msgstr "Labels"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4516,7 +4516,7 @@ msgstr "Unverarbeitete oder minimal verarbeitete Lebensmittel"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "Verarbeitete Küchenzutaten"
+msgstr "Verarbeitete kulinarische Zutaten"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
@@ -4961,7 +4961,7 @@ msgstr "Zutaten, die Soja enthalten"
 
 msgctxt "type"
 msgid "Type"
-msgstr "Typ"
+msgstr "Art"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5166,4 +5166,8 @@ msgstr "Wir konnten Ihr Passwort nicht neu initialisieren, bitte kontaktieren Si
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
 msgstr "Alle Nährwertwerte entfernen"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "Benutzer gelöscht."
 
