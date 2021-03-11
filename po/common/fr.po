@@ -599,11 +599,11 @@ msgstr "Codes de traçabilité"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Code emballeur"
+msgstr "Code de traçabilité"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Code emballeur"
+msgstr "Code de traçabilité"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -656,7 +656,7 @@ msgstr "Le mot de passe et sa confirmation sont différents."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "L'adresse électronique est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
+msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -664,7 +664,7 @@ msgstr "Adresse invalide."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "L'adresse électronique est invalide"
+msgstr "L'adresse e-mail est invalide."
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -1232,7 +1232,7 @@ msgstr "<p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Nom d'utilisateur ou adresse électronique :"
+msgstr "Nom d'utilisateur ou adresse e-mail :"
 
 msgctxt "low"
 msgid "low"
@@ -2487,7 +2487,7 @@ msgstr "Vous pouvez vous désabonner de la lettre d'information à tout moment e
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "Nom d'utilisateur ou adresse électronique : "
+msgstr "Nom d'utilisateur ou adresse e-mail : "
 
 msgctxt "username"
 msgid "User name"
@@ -2499,7 +2499,7 @@ msgstr "(lettres non accentuées, chiffres et/ou tirets)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "Nom d'utilisateur ou adresse électronique"
+msgstr "Nom d'utilisateur ou adresse e-mail : "
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -3005,7 +3005,7 @@ msgstr "Volume"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr "Autres informations"
+msgstr "Informations complémentaires"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
