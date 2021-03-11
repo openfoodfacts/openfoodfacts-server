@@ -886,6 +886,14 @@ sub gs1_to_off ($$$) {
 					}
 					
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
+						
+						# If there's only one nutrient, we may not get an array
+						
+						if (ref($nutrient_header_ref->{nutrientDetail}) ne 'ARRAY') {
+							$log->error("gs1_to_off - nutrient_header is not an array ", { results_ref => $results_ref  }) if $log->is_error();
+							next;
+						}
+						
 						foreach my $nutrient_detail_ref (@{$nutrient_header_ref->{nutrientDetail}}) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 							

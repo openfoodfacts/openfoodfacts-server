@@ -1216,13 +1216,21 @@ sub compute_data_sources($) {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
 			}
+			if ($source_ref->{id} eq 'codeonline') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - CodeOnline"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
+			if ($source_ref->{id} eq 'equadis') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Equadis"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}				
 		}
 	}
 
 
 	# Add a data source forapps
-
-	%data_sources = ();
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {
