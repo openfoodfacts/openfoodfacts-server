@@ -34,7 +34,7 @@ stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papi
 stopwords:nn:av
 stopwords:pl:w tym, zawiera, z
 stopwords:pt:do qual, dos quais,e
-stopwords:ru:состав
+stopwords:ru:состав, состав продукта, энергетическая ценность, калорийность, содержат, идентичный натуральному, g, ж, ул
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
 stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
@@ -4770,7 +4770,7 @@ lv:ferments
 nl:Ferment
 pl:Fermentacja
 pt:fermento, fermentos
-ru:Фермент, закваска, заквасочные культуры
+ru:Фермент, закваска, заквасочные культуры, йогуртовая закваска, с использованием закваски
 sv:jäsa, syrningsmedel
 tt:Фермент
 uk:Ферменти
@@ -5363,6 +5363,9 @@ zh:嗜热链球菌
 wikidata:en:Q1041276
 wikipedia:en:https://en.wikipedia.org/wiki/Streptococcus_thermophilus
 # ingredient/Streptococcus-thermophilus has 173 products in 11 languages @2019-07-08
+
+<en:lactic ferments
+ru:закваска на кефирных грибках
 
 <en:ferment
 fr:ferments de maturation
@@ -16363,7 +16366,7 @@ pl:tłuszcz
 pt:gordura
 qu:Wira
 ro:Grăsime
-ru:жиры
+ru:жиры, жир, жир специального назначения
 sd:چرٻي
 sh:Mast
 si:මේදය
@@ -16414,6 +16417,7 @@ from_palm_oil:en:no
 <en:fat
 en:shortening
 fr:graisse alimentaire
+ru:жир кондитрерский, кондитрерский жир
 ja:ショートニング
 wikidata:en:Q1194601
 wikipedia:en:https://en.wikipedia.org/wiki/Shortening
@@ -16750,7 +16754,7 @@ nn:vegetabilisk olie
 pl:Oleje roślinne
 pt:Óleo vegetal, óleos vegetais
 ro:Ulei vegetal, uleiuri vegetale
-ru:Растительные масла, растительное масло, рафинированные дезодорированные растительные масла, рафинированные дезодорированные растительные масла в натуральном и модифицированном виде, масла растительные рафинированные дезодорированные, масла растительные, рафинированные дезодорированные масла в натуральном и модифицированном виде, рафинированные дезодорированные растительные масла в натуральном и отвержденном виде
+ru:Растительные масла, масла растительные, масла растительные рафинированные дезодорированные, масло растительное, растительное масло, рафинированные дезодорированные масла в натуральном и модифицированном виде, рафинированные дезодорированные растительные масла, рафинированные дезодорированные растительные масла в натуральном и модифицированном виде, рафинированные дезодорированные растительные масла в натуральном и отвержденном виде
 sh:Biljno ulje
 sr:Биљно уље
 sv:vegetabilisk olja, vegetabiliska oljor
@@ -16766,7 +16770,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vegetable_oil
 
 <en:vegetable oil
 fr:huile végétale raffinée
-ru:масло растительное, растительное масло
 
 <en:vegetable oil and fat
 en:vegetable fat, vegetal fat, vegetable fats
@@ -16926,9 +16929,14 @@ hu:pálmamagolaj és -zsír
 nl:palmpitolie en vet
 from_palm_oil:en:yes
 
+<en:vegetable fat
 en:milk fat substitute
 ru:заменитель молочного жира
 # in Russia manufacturers often use milk-fat-substitute as cheap substitute of milk fat
+
+<en:vegetable oil and fat
+en:cocoa butter substitute
+ru:заменитель масла какао, заменитель какао масла
 
 # <en:palm
 <en:palm oil and fat
@@ -31663,7 +31671,7 @@ pl:Soja, soję
 pt:Soja
 qu:Suya
 ro:soia
-ru:Соя, соевый
+ru:Соя, соевый, сои
 rw:Soya
 sh:Soja
 sk:sójové
@@ -31883,7 +31891,7 @@ nl:Gluten
 pl:gluten
 pt:glúten
 ro:gluten
-ru:глютен, клейковина пшеничная
+ru:глютен, клейковина пшеничная, глютен
 sk:lepok, glutén
 sl:gluten
 sv:gluten
@@ -44423,7 +44431,7 @@ pl:Selery zwyczajne, seler
 pt:aipo,aipos
 qu:Apiyu
 ro:Țelină
-ru:Сельдерей пахучий, сельдерей
+ru:Сельдерей пахучий, сельдерей, сельдерея
 sa:कुस्तुम्बरीपर्णम्
 sc:Appiu
 sh:Celer
@@ -49596,7 +49604,7 @@ pa:ਗਿਰੀ
 pl:orzech, orzechy, inne orzechy
 pt:nozes, frutos de casca rija
 ro:nuci, fructe cu coajă lemnoasă, alte fructe cu coajă lemnoasă
-ru:орех, орехи
+ru:орех, орехи, орехов
 se:Niehtit
 sh:orašasti plod
 sk:oriešok, orechy, iné orechy
@@ -70587,7 +70595,7 @@ nb:Kjøttdeig
 nl:garnituur, vulling
 pl:Farsz
 pt:recheio
-ru:фаршировка
+ru:фаршировка, начинка
 sv:fyllning
 ta:உள்வைப்பு
 th:อาหารยัดไส้
@@ -73090,7 +73098,7 @@ nn:Glasering
 or:ଚମକ
 pa:ਚਮਕ
 pl:Polewa
-ru:глазурь
+ru:глазурь, кондитерская глазурь, глазурь кондитерская
 sq:lustrimi
 sv:glasering
 zh:包糖衣
