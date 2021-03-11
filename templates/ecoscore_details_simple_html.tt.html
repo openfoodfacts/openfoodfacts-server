@@ -129,7 +129,14 @@
 	
 	[% IF adjustments.packaging.warning %]
 		<div class="panel warning">
-			<strong>Les informations sur l'emballage de ce produit ne sont pas renseignées.</strong><br><br>
+			<strong>
+				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
+					Les informations sur l'emballage de ce produit ne sont pas renseignées.
+				[% ELSE %]
+					Les informations sur l'emballage de ce produit ne sont pas suffisamment précises (formes et matériaux exacts de tous les composants de l'emballage).
+				[% END %]
+			</strong>
+			<br><br>
 			Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.<br><br>
 			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
 		</div>
@@ -140,5 +147,4 @@
 
 	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
 	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
-
 

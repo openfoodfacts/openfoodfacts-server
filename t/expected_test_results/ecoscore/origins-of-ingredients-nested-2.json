@@ -36,7 +36,9 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {}
       },
       "agribalyse" : {
@@ -64,6 +66,7 @@
       },
       "grade" : "d",
       "missing" : {
+         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },

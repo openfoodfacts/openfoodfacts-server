@@ -759,6 +759,13 @@ sub compute_ecoscore_production_system_adjustment($) {
 		}
 	}
 	
+	# No labels warning
+	if (not defined $product_ref->{ecoscore_data}{adjustments}{production_system}{label}) {
+		$product_ref->{ecoscore_data}{adjustments}{production_system}{warning} = "no_label";
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{labels} = 1;
+	}	
+	
 }
 
 
@@ -796,6 +803,13 @@ sub compute_ecoscore_threatened_species_adjustment($) {
 		
 		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} = -10;
 		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{ingredient} = "en:palm-oil";
+	}
+	
+	# No ingredients warning
+	if ((not defined $product_ref->{ingredients}) or (scalar @{$product_ref->{ingredients}} == 0)) {
+		$product_ref->{ecoscore_data}{adjustments}{threatened_species}{warning} = "ingredients_missing";
+		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
+		$product_ref->{ecoscore_data}{missing}{ingredients} = 1;
 	}
 	
 }
