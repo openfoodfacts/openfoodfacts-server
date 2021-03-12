@@ -2537,6 +2537,16 @@ sub mmoll_to_unit {
 		zh_HK => "不可溶性纖維",
 		zh_TW => "不可溶性纖維",
 	},
+	"fructo-oligosaccharide" => {
+		en => "Fructo-oligosaccharide",
+		en_synonyms => ["Fructooligosaccharide", "Fructo-oligo-saccharide", "FOS", "oligofructose", "oligofructan"],
+		fr => "Fructo-oligosaccharide",
+	},
+	"galacto-oligosaccharides" => {
+		en => "Galacto-oligosaccharide",
+		en_synonyms => ["Galactooligosaccharides", "GOS", "oligogalactosyllactose", "oligogalactose", "oligolactose", "transgalactooligosaccharides", "TOS"],
+		fr => "Galacto-oligosaccharide",
+	},	
 	sodium => {
 		ar    => "الصوديوم",
 		cs    => "Sodík",
