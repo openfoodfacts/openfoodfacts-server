@@ -17,14 +17,20 @@ stopwords:es:agricultura
 
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en:Unknown
+ca:Desconegut
+es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 
 en:Unspecified, not specified, non specified, nonspecified, not available, n/a
+ca:No especificat
+es:No especificado
 fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 
 # World regions
 
 en:Africa
+ca:Àfrica
+es:África
 fr:Afrique
 
 <en:Africa
@@ -32,6 +38,8 @@ en:West Africa
 fr:Afrique de l'Ouest
 
 en:Latin America
+ca:Amèrica Llatina
+es:America latina
 fr:Amérique Latine
 
 en:Central America
@@ -41,22 +49,30 @@ en:North-America
 fr:Amérique du Nord
 
 en:South-America
+ca:Sud Amèrica
+es:Sudamerica
 fr:Amérique du Sud
 
 en:Asia
+ca:Àsia
+es:Asia
 fr:Asie
 
 en:Europe
+ca:Europa
+es:Europa
 fr:Europe
 
 en:European Union, EU
-fr:Union Européenne, UE
 es:Unión Europea, UE
+fr:Union Européenne, UE
 
 en:Non European Union, Non EU
+ca:No Unió Europea, No UE
 fr:Non Union Européenne, Non UE
 
 en:European Union and Non European Union, EU and non EU, EU non EU
+ca:Unió Europea i no Unió Europea, UE i no UE
 fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
 
 
@@ -82,6 +98,8 @@ fr:Bourgogne
 
 <en:france
 en:Brittany
+ca:Bretanya
+es:Bretaña
 fr:Bretagne
 
 <en:france
@@ -114,6 +132,8 @@ fr:Franche-Comté
 
 <en:france
 en:Normandy
+ca:Normandia
+es:Normandía
 fr:Normandie
 
 <en:france
@@ -264,6 +284,8 @@ fr:Navarre
 
 <en:united-states
 en:California
+ca:Califòrnia
+es:California
 fr:Californie
 
 <en:united-states
@@ -283,13 +305,15 @@ fr:Bande de Gaza
 # Marine zones
 
 en:Pacific Ocean
+ca:Oceà Pacífic
+es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
 it:Oceano Pacifico
 
 <en:Pacific Ocean
 en:Northeast Pacific Ocean
-fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
 de:Nordostpazifik
+fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
 
 <en:Pacific Ocean
 en:Northwest Pacific Ocean
@@ -301,10 +325,13 @@ fr:Océan Pacifique Nord
 
 <en:Pacific Ocean
 en:West Central Pacific Ocean
+ca:Oceà Pacífic central-oest
 fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
 
 <en:Pacific Ocean
 en:Southwest Pacific Ocean
+ca:Oceà Pacífic Sud-oest
+es:Océano Pacífico suroeste
 fr:Océan Pacifique Sud-Ouest, FAO 87, FAO N°87
 
 <en:Pacific Ocean
@@ -317,8 +344,8 @@ it:Oceano Atlantico, Atlantico
 
 <en:Atlantic Ocean
 en:North-East Atlantic Ocean
-fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
 de:Nordostatlantik
+fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
 
 <en:Atlantic Ocean
 en:Central-East Atlantic Ocean
@@ -340,11 +367,12 @@ en:Eastern Indian Ocean
 fr:Océan Indien Est
 
 en:North Sea
-fr:Mer du Nord
 de:Nordsee
+fr:Mer du Nord
 
 en:Norwegian Sea
 fr:Mer de Norvège
 
 en:Barents sea
 fr:Mer de Barents
+
