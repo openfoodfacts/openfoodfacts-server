@@ -244,7 +244,6 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_adi_established:en: en:no
 additives_classes:en: en:colour
 
-comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
 en:E101a, E101a food additive
 bg:E101a, E101a food additive
 cs:E101a, E101a food additive
@@ -267,6 +266,7 @@ ro:E101a, E101a food additive
 sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
+comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
 wikidata:en:Q130365
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
@@ -2140,8 +2140,12 @@ nl:E160b, — annatto, bixine, norbixine, Orleaan, Anatto, Annato
 nl_be:E160b, — annatto, bixine, norbixine, Orleaan, Anatto, Annato
 pl:E160b, Annato, biksyna, norbiksyna, Annatto
 pt:E160b, Anato, bixina, norbixina, Colorau, Coloral, Urucu
+<<<<<<< Updated upstream
 ru:E160b, Annatto, аннато, экстракт анато
+=======
+>>>>>>> Stashed changes
 ro:E160b, Annatto, bixină, norbixină (i)
+ru:E160b, Annatto, аннато
 sk:E160b, Annatto, bixín, norbixín
 sl:E160b, Anato, biksin, norbiksin
 sv:E160b, Annattoextrakt, bixin, norbixin i., Annatto, E 160b, Roucou
@@ -3031,13 +3035,16 @@ e_number:en:166
 vegan:en:yes
 vegetarian:en:yes
 
-comment:en:enter the synonyms in plural.
 en:E170, Calcium carbonates
 ca:E170, Carbonats de calci
+de:E170, Calciumcarbonate, Calciumcarbonat
 es:E170, Carbonatos de calcio
 fi:E170, Kalsiumkarbonaatit
 fr:E170, Carbonates de calcium
+hu:E170
+it:Carbonato di calcio
 nl:E170, Calciumcarbonaten
+comment:en:enter the synonyms in plural.
 
 #comment:en:This entry must be doubled in the minerals and additives taxonomy (for the time being).
 #<en:calcium
@@ -3140,7 +3147,6 @@ vegetarian:en:maybe
 <en:E170
 en:E170(ii), Calcium hydrogen carbonate, Calcium bicarbonate, Calcium acid carbonate
 ar:E170(ii), بيكربونات الكالسيوم
-#azb:E170(ii), کلسیوم بیکربونات
 ca:E170(ii), Hidrogencarbonat de calci
 cs:E170(ii), Hydrogenuhličitan vápenatý
 da:E170(ii), calciumhydrogencarbonat
@@ -3167,6 +3173,7 @@ th:E170(ii), แคลเซียมไบคาร์บอเนต
 uk:E170(ii), Калійні солі
 vi:E170(ii), Canxi bicacbonat
 zh:E170(ii), 碳酸氫鈣
+#azb:E170(ii), کلسیوم بیکربونات
 #wuu:E170(ii), 碳酸氢钙
 wikidata:en:Q415144
 
@@ -3590,8 +3597,8 @@ nl:E200, Sorbinezuur, Sorbinezuur
 nn:E200, sorbinsyre
 pl:E200, Kwas sorbowy, Kwas sorbowy, Kwas sorbinowy
 pt:E200, Ácido sórbico, Ácido sórbico, Sorbato
-ru:E200, Acid sorbic, sorbic acid, сорбиновая кислота, консервант сорбиновая кислота
 ro:E200, Acid sorbic, Acid sorbic
+ru:E200, Acid sorbic, sorbic acid, сорбиновая кислота, консервант сорбиновая кислота
 sh:E200, Sorbinska kiselina
 sk:E200, Kyselina sorbová, Kyselina sorbová
 sl:E200, Sorbinska kislina, sorbinska kislina
@@ -3673,8 +3680,8 @@ fi:E202, Kaliumsorbaatti, Kaliumsorbaattia
 fr:E202, Sorbate de potassium
 he:E202, אשלגן סורבט
 hu:E202, Kálium-szorbát
-it:E202, Sorbato di potassio, potassio sorbato
 is:E202, Kalíumsorbat
+it:E202, Sorbato di potassio, potassio sorbato
 ja:E202, ソルビン酸カリウム
 lt:E202, Kalio sorbatas
 lv:E202, Kālija sorbāts
@@ -7256,6 +7263,7 @@ es:E322, Lecitinas, Fosfátidos
 et:E322, Letsitiinid, Fosfatiidid
 fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
 fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
+he:E322, לציטינים, לציטין, פוספטידים, תרכובות שומניות
 hu:E322, Lecitinek, Foszfatidek
 it:E322, Lecitine, Fosfatidi
 lt:E322, Lecitinai, Fosfatidai
@@ -7304,9 +7312,9 @@ is:E322(i), Lesitín
 it:E322(i), Lecitina
 ja:E322(i), レシチン
 ko:E322(i), 레시틴
-ms:E322(i), Lesitin
 lt:E322(i), E322(i) food additive
 lv:E322(i), E322(i) food additive
+ms:E322(i), Lesitin
 mt:E322(i), E322(i) food additive
 nl:E322(i), Lecithine
 pl:E322(i), lecytyna
@@ -7748,8 +7756,8 @@ pl:E331, cytryniany sodu
 pt:E331, E331 food additive
 ro:E331, E331 food additive
 ru:E331, Натрия гидроцетрат
-sl:E331, E331 food additive
 sk:E331, Citran sodný, Nátrium citrát
+sl:E331, E331 food additive
 sv:E331, Natriumcitrater
 e_number:en:331
 wikidata:en:Q6460572
@@ -8509,8 +8517,8 @@ el:E339(ii), Οξινο φωσφορικο νατριο
 eo:E339(ii), Dunatria fosfato
 es:E339(ii), Fosfato disódico, Monofosfato disódico, fosfato sódico secundario
 et:E339(ii), Dinaatriumvesinikfosfaat, Dinaatriumvesinikfosfaat
-fi:E339(ii), Dinatriumfosfaatti, Dinatriummonofosfaatti, Sekundaarinen natriumfosfaatti, Dinatriumfosfaattia, Dinatriummonofosfaattia, Sekundaarista natriumfosfaattia
 fa:E339(ii), دی‌سدیم فسفات
+fi:E339(ii), Dinatriumfosfaatti, Dinatriummonofosfaatti, Sekundaarinen natriumfosfaatti, Dinatriumfosfaattia, Dinatriummonofosfaattia, Sekundaarista natriumfosfaattia
 fr:E339(ii), Phosphate disodique, Monophosphate disodique, phosphate de sodium secondaire
 hu:E339(ii), Dinátrium-foszfát, Dinátrium-monofoszfát, Szekunder nátrium-foszfát
 it:E339(ii), Fosfato disodico, Monofosfato disodico, fosfato secondario di sodio
@@ -9081,8 +9089,8 @@ pt:E350(i), Malato de sódio
 ro:E350(i), Malat de sodiu
 sh:E350(i), Natrijum malat
 sk:E350(i), Jablčnan sodný
-sr:E350(i), Natrijum malat
 sl:E350(i), Natrijev malat
+sr:E350(i), Natrijum malat
 sv:E350(i), Natriummalat
 ta:E350(i), சோடியம் மேலேட்டு
 # azb:E350(i), سودیوم مالات
@@ -9641,7 +9649,6 @@ wikidata:en:Q13081798
 vegan:en:yes
 vegetarian:en:yes
 
-comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 #<en:Iron
 #<en:E381
 en:E381, ferric ammonium citrate, ammonium ferric citrate
@@ -9665,13 +9672,13 @@ ro:E381, citrat feric de amoniu
 sk:E381, citran amónno-železitý
 sl:E381, železov amonijev citrat
 sv:E381, ferriammoniumcitrat
+comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en:381
 wikidata:en:Q473522
 vegan:en:yes
 vegetarian:en:yes
 
 
-comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 #<en:Calcium
 #<en:E383
 en:E383, calcium glycerophosphate
@@ -9699,6 +9706,7 @@ sk:E383, glycerofosforečnan vápenatý
 sl:E383, kalcijev glicerofosfat
 sr:E383, Kalcijum glicerilfosfat
 sv:E383, kalciumglycerolfosfat
+comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en:383
 wikidata:en:Q4119838
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
@@ -9753,8 +9761,8 @@ mt:E385, Etilendiammintetraaċetat disodiku tal-kalċju, EDTA disodiku tal-kalċ
 nl:E385, Calciumdinatrium-ethyleendiaminetetraäcetaat, Calciumdinatrium-EDTA
 pl:E385, Sól wapniowo-disodowa kwasu etylenodiaminotetraoctowego
 pt:E385, Etilenodiaminotetracetato de cálcio dissódico, EDTA de cálcio dissódico
-ru:E385, Этилендиаминтетраацетат кальция-натрия
 ro:E385, Etilendiaminotetraacetat de calciu disodic, EDTA de calciu disodic
+ru:E385, Этилендиаминтетраацетат кальция-натрия
 sk:E385, Etyléndiamíntetraacetát vápenato-disodný, Kalcium-dinátrium-EDTA
 sl:E385, Kalcijev dinatrijev etilendiamintetra acetat, kalcijev dinatrijev EDTA
 sv:E385, Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
@@ -11093,7 +11101,6 @@ sl:E428, Želatina
 sq:E428, xhelatinë
 sr:E428, Желатин
 sv:E428, gelatin
-sv:E428, gelatin
 th:E428, เจลาติน
 tr:E428, Jelatin
 uk:E428, Желатин
@@ -11652,6 +11659,7 @@ es:E441, Aceite de semillas de colza superglicerinado hidrogenado
 fi:E441, Superglyseroitu hydrattu rypsiöljy
 fr:E441, Huile de colza superglycérinée hydrogénée
 it:E441
+nl:E441
 e_number:en:441
 
 
@@ -13671,6 +13679,7 @@ es:E476, Polirricinoleato de poliglicerol, Polyglycerol polyricinoleate,poliglic
 et:E476, Ritsinoolhappe polüglütseroolestrid
 fi:E476, Polyglyserolipolyrisiinioleaatti, PGPR, Polyglyserolipolyrisiinioleaatteja
 fr:E476, Esters polyglycériques d'acides gras d'huile de ricin, Polyricinoléate de polyglycérol, Esters polyglycériques de l'acide ricinoléique interesterifié, PGPR, Esters polyglycéroliques de l'acide ricinoléique interesterifié, Esters polyglycériques d'acides gras polycondensés d'huile de ricin, Esters glycériques d'acides gras condensés d'huile de ricin
+he:E476, פוליגליצרול פוליריצינולאט, חומר מתחלב, PGPR
 hu:E476, Poliglicerin-poliricinoleát
 it:E476, Poliricinoleato di poliglicerolo
 lt:E476, Poliglicerolio poliricinoleatas
@@ -13679,8 +13688,8 @@ mt:E476, Poligliċerol poligriċinoleat
 nl:E476, Polyglycerolpolyricinoleaat
 pl:E476, Polirycynooleinian poliglicerolu
 pt:E476, Polirricinoleato de poliglicerol
-ru:E476, Полиглицерол полирицинолеат, е476
 ro:E476, Poliricinoleat de poliglicerol, poliricinoleat de poliglicerină
+ru:E476, Полиглицерол полирицинолеат, е476
 sk:E476, Polyglycerolpolyricínoleát
 sl:E476, Poliglicerol poliricinoleat
 sv:E476, Polyglycerolpolyricinoleat
@@ -14314,6 +14323,7 @@ es:E500, Carbonatos de sodio
 et:E500, E500 food additive
 fi:E500, natriumkarbonaatit
 fr:E500, Carbonates de sodium
+he:E500, קרבונטים של נתרן, נתרן קרבונט, נתרן ביקרבונט, נתרן מימן-קרבונט, נתרן ססקויקרבונט, נתרן פחמתי, סודיום קרבונטים, סודיום קרבונט, חומר מווסת חומציות, חומר התפחה, מווסת חומציות
 hu:E500, nátrium-karbonátok
 it:E500, Carbonati di sodio
 lt:E500, E500 food additive
@@ -14357,7 +14367,6 @@ eo:E500(i), natria karbonato
 es:E500(i), Carbonato sódico, Carbonato de sodio, Sosa comercial
 et:E500(i), Naatriumkarbonaat
 fa:E500(i), سدیم کربنات
-fi:E500(i), Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda
 fi:E500(i), , Sooda, Pesusooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
 fr:E500(i), Carbonate de sodium, Carbonate de soude, Cristaux de soude
 gv:E500(i), Carboanaayt sodjum
@@ -14429,7 +14438,6 @@ description:en:SODIUM CARBONATE, (also known as washing soda, soda ash and soda 
 en:E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 af:E500(ii), Natriumbikarbonaat
 ar:E500(ii), بيكربونات الصوديوم
-bg:E500(ii), Натриев бикарбонат
 bg:E500(ii), Натриев хидроген карбонат, Натриев бикарбонат, натриев кисел карбонат, сода бикарбонат
 bn:E500(ii), সোডিয়াম বাইকার্বনেট
 bs:E500(ii), Natrij-hidrogenkarbonat
@@ -14563,7 +14571,6 @@ additives_classes:en: en:stabilizer, en:thickener
 organic_eu:en:authorized
 # additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
-comment:en:Use plural for E501 and singular for E501i.
 en:E501, Potassium carbonates
 bg:E501, E501 food additive
 ca:E501, E501 food additive
@@ -14587,6 +14594,7 @@ ro:E501, Carbonați de potasiu
 sk:E501, E501 food additive
 sl:E501, E501 food additive
 sv:E501, Kaliumkarbonater
+comment:en:Use plural for E501 and singular for E501i.
 e_number:en:501
 mandatory_additive_class:en: en:acidity-regulator
 wikidata:en:Q379885
@@ -16619,7 +16627,6 @@ additives_classes:en: en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
 
-comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 #<en:Calcium
 en:E578, calcium gluconate
 bg:E578, Калциев глюконат
@@ -16643,6 +16650,7 @@ ro:E578, gluconat de calciu
 sk:E578, glukónan vápenatý
 sl:E578, kalcijev glukonat
 sv:E578, kalciumglukonat
+comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
 e_number:en:578
 wikidata:en:Q413739
@@ -17805,7 +17813,6 @@ ms:E904, Syelek
 mt:E904, Xellak, Xellak ibbliċjat
 my:E904, ချိပ်ဆေး
 nb:E904, Skjellakk
-#nds:E904, Schellack
 nl:E904, Schellak, Gebleekte schellak
 pl:E904, Szelak, Szelak bielony
 pt:E904, Goma-laca, Goma-laca branqueada
@@ -17821,8 +17828,9 @@ tl:E904, shellac
 tr:E904, Şellak
 uk:E904, Шелак
 vi:E904, Sơn cánh kiến
-# yue:E904, 士叻
 zh:E904, 蟲膠
+#nds:E904, Schellack
+# yue:E904, 士叻
 e_number:en:904
 wikidata:en:Q429659
 #synchronised with wikidata 21-08-2020
@@ -17940,12 +17948,6 @@ io:E905b, Vazelino
 it:E905b, Petrolato
 ja:E905b, ワセリン
 kk:E905b, Вазелин
-#kk-arab:E905b, ۆازەلىين
-# kk-cn:ۆازەلىينE905b
-# kk-cyrl:E905b, Вазелин
-# kk-kz:E905b, Вазелин
-# kk-latn:E905b, Vazelïn
-# kk-tr:E905b, Vazelïn
 ko:E905b, 석유 젤리, 바셀린
 ky:E905b, Вазелин
 lt:E905b, E905b food additive
@@ -17954,7 +17956,6 @@ ms:Vaseline
 mt:E905b, E905b food additive
 nb:E905b, hvit myk parafin, Vaselin
 nl:E905b, petroleum jelly, Vaseline
-nn:E905b, Петролатум
 nn:E905b, kvit mjuk parafin
 pl:E905b, Wazelina
 ps:E905b, واسلين
@@ -17969,14 +17970,20 @@ ta:E905b, தைலக்களிம்பு
 tg:E905b, Вазелин
 tl:E905b, Vaseline
 tr:E905b, Vazelin
-#tyv:E905b, Вазелин
 uk:E905b, Вазелін
 uz:E905b, Vazelin
 vi:VE905b, aseline
 wa:E905b, Petroleum jelly
 yi:E905b, וואזעלין
-#yue:E905b, 凡士林
 zh:E905b, 礦脂, 凡士林
+#kk-arab:E905b, ۆازەلىين
+# kk-cn:ۆازەلىينE905b
+# kk-cyrl:E905b, Вазелин
+# kk-kz:E905b, Вазелин
+# kk-latn:E905b, Vazelïn
+# kk-tr:E905b, Vazelïn
+#tyv:E905b, Вазелин
+#yue:E905b, 凡士林
 #zh-cn:E905b, 矿脂, 凡士林
 #zh-hans:E905b, 矿脂, 凡士林
 #zh-hant:E905b, 礦脂, 凡士林
@@ -18060,21 +18067,16 @@ vegetarian:en:yes
 <en:E905c
 en:E905c(ii), Paraffin wax
 ar:E905c(ii), برافين
-#ast:E905c(ii), Parafina
 az:E905c(ii), Parafin
 ba:E905c(ii), Парафин
 be:E905c(ii), Парафін
-#be-tarask:E905c(ii), Парафіна
 bg:E905c(ii), Парафин
 ca:E905c(ii), Parafina
 cs:E905c(ii), Parafín
 cy:E905c(ii), Paraffîn
 da:E905c(ii), Paraffin
 de:E905c(ii), Paraffin
-#de-ch:E905c(ii), Paraffin
 el:E905c(ii), E905c(ii) food additive
-#en-ca:E905c(ii), Paraffin wax
-#en-gb:E905c(ii), Paraffin wax
 eo:E905c(ii), parafino
 es:E905c(ii), parafina
 et:E905c(ii), Parafiin, Toorparafiin
@@ -18095,12 +18097,6 @@ is:E905c(ii), Paraffínvax
 it:E905c(ii), Paraffina
 ja:E905c(ii), パラフィン
 kk:E905c(ii), Парафин
-#kk-arab:E905c(ii), پارافىين
-#kk-cn:E905c(ii), پارافىين
-#kk-cyrl:E905c(ii), Парафин
-#kk-kz:E905c(ii), Парафин
-#kk-latn:E905c(ii), Parafïn
-#kk-tr:E905c(ii), Parafïn
 ko:E905c(ii), 파라핀
 la:E905c(ii), Paraffinum
 lt:E905c(ii), Parafinas
@@ -18111,7 +18107,6 @@ nl:E905c(ii), Parafine was
 nn:E905c(ii), parafinvoks
 pl:E905c(ii), Parafina
 pt:E905c(ii), parafina
-#pt-br:E905c(ii), parafina
 ro:E905c(ii), E905c(ii), Parafină
 ru:E905c(ii), парафин
 sd:E905c(ii), paraffin wax
@@ -18127,6 +18122,18 @@ ur:E905c(ii), نالفین
 vi:E905c(ii), Parafin
 yi:E905c(ii), פאראפין
 zh:E905c(ii), 石蜡
+#ast:E905c(ii), Parafina
+#be-tarask:E905c(ii), Парафіна
+#de-ch:E905c(ii), Paraffin
+#en-ca:E905c(ii), Paraffin wax
+#en-gb:E905c(ii), Paraffin wax
+#kk-arab:E905c(ii), پارافىين
+#kk-cn:E905c(ii), پارافىين
+#kk-cyrl:E905c(ii), Парафин
+#kk-kz:E905c(ii), Парафин
+#kk-latn:E905c(ii), Parafïn
+#kk-tr:E905c(ii), Parafïn
+#pt-br:E905c(ii), parafina
 #zh-cn:E905c(ii), 石蜡
 #zh-hans:E905c(ii), 石蜡
 #zh-hant:E905c(ii), 石蠟
@@ -18574,7 +18581,6 @@ wikidata:en:Q2185998
 vegan:en:yes
 vegetarian:en:yes
 
-comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 #<en:Iodine
 # <en:E917
 en:E917, potassium iodate
@@ -18612,6 +18618,7 @@ tr:E917, Potasyum iyodat
 uk:E917, Йодат калію
 vi:E917, Kali iodat
 zh:E917, 碘酸钾
+comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 #azb:E917, پوتاسیوم یدات
 #zh-cn:E917, 碘酸钾
 #zh-hans:E917, 碘酸钾
@@ -18961,7 +18968,6 @@ vegetarian:en:yes
 
 <en:E927
 en:E927a, Azodicarbonamide
-# azb:E927a, آزودیکربونآمید
 bg:E927a, E927a food additive
 cs:E927a, E927a food additive
 da:E927a, E927a food additive
@@ -18990,6 +18996,7 @@ sr:E927a, Azodikarbonamid
 sv:E927a, E927a, E927a food additive
 ta:E927a, அசோ-டை-கார்போனமைடு
 zh:E927a, 偶氮甲酰胺
+# azb:E927a, آزودیکربونآمید
 #zh-cn:E927a, 偶氮甲酰胺
 wikidata:en:Q415646
 # synchronised with wikidata 21-08-2020
@@ -19001,7 +19008,6 @@ vegetarian:en:yes
 en:E927b, Carbamide, urea
 ar:E927b, يوريا
 az:E927b, Karbamid
-# azb:اورهE927b
 be:E927b, Мачавіна
 bg:E927b, Карбамид, Пикочина, Карбонилдиамид, Урея, Уреа
 bn:E927b, ইউরিয়া
@@ -19038,9 +19044,7 @@ kn:E927b, ಯೂರಿಯಾ
 ko:E927b, 요소
 ky:E927b, Мочевина
 la:E927b, Urea, Ureum
-# lmo:E927b, Ürea
 lt:E927b, Karbamidas, Anglies rūgšties diamidas, Urėja, Anglies rūgšties diamindas, Šlapalas
-# lzh:E927b, 尿素
 lv:E927b, Karbamīds, Urīnviela
 mk:E927b, уреја
 ml:E927b, യൂറിയ
@@ -19048,21 +19052,16 @@ mn:E927b, Шүвтэр
 mr:E927b, युरिया खत
 ms:E927b, Urea
 mt:E927b, E927b, Karbamida
-# nan:E927b, Jiō-sò͘
 nb:E927b, urea
-# nds:E927b, Miegstoff
 ne:E927b, युरिया
 nl:E927b, Carbamide, Ureum, Urea
 nn:E927b, urea
 oc:E927b, Urèa
 pa:E927b, ਯੂਰੀਆ
 pl:E927b, Karbamid, Mocznik
-# pnb:E927b, یوریا
 pt:E927b, Carbamida, Ureia
-# pt-br:E927b, ureia
 ro:E927b, Carbamidă, Uree
 ru:E927b, мочевина
-# sco:E927b, urea
 sh:E927b, Urea
 sk:E927b, Karbamid, Močovina
 sl:E927b, Karbamid, Sečnina, Urea
@@ -19078,9 +19077,17 @@ uk:E927b, Сечовина
 uz:E927b, Karbamid
 vi:E927b, Urê
 wa:E927b, Urea
+zh:E927b, 尿素
+# azb:اورهE927b
+# lmo:E927b, Ürea
+# lzh:E927b, 尿素
+# nan:E927b, Jiō-sò͘
+# nds:E927b, Miegstoff
+# pnb:E927b, یوریا
+# pt-br:E927b, ureia
+# sco:E927b, urea
 # wuu:E927b, 尿素
 # yue:E927b, 尿素
-zh:E927b, 尿素
 wikidata:en:Q48318
 # synchronised with wikidata 21-08-2020
 e_number:en:927b
@@ -21726,9 +21733,13 @@ vegan:en:yes
 vegetarian:en:yes
 
 en:isomaltose
+de:Isomaltose
 es:isomaltosa
+fr:Isomaltose
+it:Isomaltosio
 wikipedia:en:https://en.wikipedia.org/wiki/Isomaltose
 
 es:potassium iodide
 es:yoduro potásico
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
+
