@@ -1187,6 +1187,28 @@ sub display_index_for_producer($) {
 
 	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
+	
+	# Display a message if some product updates have not been published yet
+	
+	my $count = count_products($request_ref, { states_tags => "en:to-be-exported"});
+	
+	my $message = "";
+	
+	if ($count == 0) {
+		$message = lang("no_products_to_export");
+	}
+	elsif ($count == 1) {
+		$message = lang("one_product_will_be_exported");
+	}
+	else {
+		$message = sprintf(lang("n_products_will_be_exported"), $count);
+	}	
+	
+	if ($count > 0) {
+		$html .= "<p>" . lang("some_product_updates_have_not_been_published_on_the_public_database") . "</p>"
+		. "<p>" . $message . "</p>"
+		. "&rarr; <a href=\"/cgi/export_products.pl\">$Lang{export_product_data_photos}{$lc}</a><br>";
+	}
 
 	return $html;
 }
@@ -1229,7 +1251,7 @@ sub display_text($)
 	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
-			$owner_user_or_org = $Org{org};
+			$owner_user_or_org = $Org{name};
 		}
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
@@ -6739,7 +6761,7 @@ sub display_my_block($)
 		
 		if (defined $Org_id) {
 			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
-			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{org} . "</a><br>"
+			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{name} . "</a><br>"
 			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
 		}		
 
@@ -7879,6 +7901,13 @@ CSS
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
 		return 301;
+	}
+	
+	# On the producers platform, show a link to the public platform
+	if ($server_options{producers_platform}) {
+		my $public_product_url = "https:\/\/$cc.${server_domain}" . $request_ref->{canon_url};
+		$public_product_url =~ s/\.pro\./\./;
+		$template_data_ref->{public_product_url} = $public_product_url;
 	}
 
 	$template_data_ref->{product_changes_saved} = $request_ref->{product_changes_saved};
