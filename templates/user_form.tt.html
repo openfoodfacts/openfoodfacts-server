@@ -26,8 +26,10 @@
                     <input type="hidden" name="type" value="[% type %]" />
                     [% IF userid %]
 						<input type="hidden" name="userid" value="[% userid %]" />
+						<input type="submit" name=".submit" class="button" value="[% lang("save") %]" />
+					[% ELSE %]
+						<input type="submit" name=".submit" class="button" value="[% lang("add_user") %]" />
 					[% END %]
-                    <input type="submit" name=".submit" class="button" />
                 </td>
             </tr>
         </table>
