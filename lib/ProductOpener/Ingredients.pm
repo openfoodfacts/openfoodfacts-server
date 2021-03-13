@@ -386,6 +386,7 @@ my %and = (
 	pl => " i ",
 	pt => " e ",
 	ro => " și ",
+	ru => " и ",
 	sv => " och ",
 );
 
@@ -413,6 +414,7 @@ my %and_or = (
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
 );
 
