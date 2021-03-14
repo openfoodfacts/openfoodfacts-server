@@ -141,6 +141,12 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "huile de palme certifiée durable", "" }, ['en:palm-oil']],
 	[ { lc => "fr", ingredients_text => "huile de palme RSPO", "" }, ['en:palm-oil']],
 	
+	# Russian and / or
+	[ { lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "яблоко и / или малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "бензоат натрия и сорбат калия"}, ["en:e211", "en:e202"]],
+	
+	
 );
 
 foreach my $test_ref (@tests) {
