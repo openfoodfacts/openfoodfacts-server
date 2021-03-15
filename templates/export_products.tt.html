@@ -34,11 +34,10 @@
 				<input type="checkbox" name="only_export_products_with_changes" [% only_export_products_with_changes_value %]>	
 				[% lang('only_export_products_with_changes') %]
 			</label>
-
-			<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
-		[% ELSE %]
-			<p>[% lang('export_products_to_public_database_email') %]</p>
 		[% END %]
+			
+		<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
+		
 	[% END %]
 
 </form>
