@@ -594,6 +594,8 @@ name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
+
 EMAIL
 ;
 			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
@@ -614,6 +616,7 @@ name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
 EMAIL
 ;
 			send_email_to_producers_admin(
