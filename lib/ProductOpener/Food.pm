@@ -3770,6 +3770,7 @@ sub mmoll_to_unit {
 		nl    => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de    => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		it    => "Frutta, verdura, noci e olio di colza, noci e oliva (stima manuale dalla lista degli ingredienti)",
 		unit  => "%",
 	},
 
@@ -3782,6 +3783,8 @@ sub mmoll_to_unit {
 			"Früchte, Gemüse, Nüsse und Raps, Walnuss- und Olivenöl (Schätzung aus der Analyse der Zutatenliste)",
 		es =>
 			"Frutas, verduras, nueces y aceites de canola, nueces y oliva (estimado del análisis en la lista de ingredientes)",
+		it => 
+			"Frutta, verdura, noci e olio di colza, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -3826,6 +3829,7 @@ sub mmoll_to_unit {
 		en   => "NOVA group",
 		fi   => "NOVA-ryhmä",
 		fr   => "Groupe NOVA",
+		it   => "Gruppo NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
@@ -3863,6 +3867,7 @@ sub mmoll_to_unit {
 		en   => "Alcohol units",
 		de   => "Alkoholeinheiten",
 		fr   => "Unités d'alcool",
+		it   => "Unità di alcol",
 		unit => "",
 	},
 	"choline" => {
