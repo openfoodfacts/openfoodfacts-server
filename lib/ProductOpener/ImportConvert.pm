@@ -922,7 +922,7 @@ sub clean_fields($) {
 			foreach my $regexp (@{$unspecified{$l}}) {
 				if ($product_ref->{$field} =~ /^\s*($regexp)\s*$/i) {
 					if (defined $tags_fields{$field}) {
-						$product_ref->{$field} ="";
+						$product_ref->{$field} = "";
 					}
 					else {
 						$product_ref->{$field} = '-';
