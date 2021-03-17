@@ -229,6 +229,23 @@ uploaded and added to the product, but it will not be selected.
 
 =cut
 
+# Regexps to match localized Yes or No values in some fields
+# lowercased
+
+my %yes = (
+	en => "on|yes|y",	# on is a special value, it does not need to be translated to other languages
+	es => "si|s",
+	fr => "oui|o",
+);
+
+my %no = (
+	en => "off|no|n|not",	# off is a special value, it does not need to be translated to other languages
+	es => "no|n",
+	fr => "non|n",
+);
+
+
+
 sub import_csv_file($) {
 
 	my $args_ref = shift;
@@ -776,6 +793,17 @@ EMAIL
 				}
 			}
 		}
+		
+		# Construct Yes and No regexps with English + local language
+		my $yes_regexp = '1|' . $yes{en};
+		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+			$yes_regexp .= '|' . $yes{$imported_product_ref->{lc}};
+		}
+		
+		my $no_regexp = '0|' . $no{en};
+		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+			$no_regexp .= '|' . $no{$imported_product_ref->{lc}};
+		}		
 
 		# Go through all the possible fields that can be imported
 		foreach my $field (@param_fields) {
@@ -802,13 +830,13 @@ EMAIL
 						
 						$log->debug("specific field", { field => $field, tag_name => $tag_name, value => $imported_product_ref->{$subfield} } ) if $log->is_debug();
 						
-						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
+						if ($imported_product_ref->{$subfield} =~ /^\s*($yes_regexp)\s*$/i) {
 							$tag_to_add = $tag_name;
 						}
 						
 						# If we have a value like 0, N, No and an opposite entry exists in the taxonomy
 						# then add the negative entry
-						elsif ($imported_product_ref->{$subfield} =~ /^\s*(0|n|no|not|non)\s*$/i) {
+						elsif ($imported_product_ref->{$subfield} =~ /^\s*($no_regexp)\s*$/i) {
 							
 							my $tagid = canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag_name);
 							
@@ -890,7 +918,8 @@ EMAIL
 					}
 
 					# Skip data that we have already imported before (even if it has been changed)
-					elsif ((defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+					# But do import the field "obsolete"
+					elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
 						$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 						next;
 					}
@@ -1023,69 +1052,99 @@ EMAIL
 							$new_field_value =~ s/litre|litres|liter|liters/l/i;
 							$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 					}
-
+					
 					$new_field_value =~ s/\s+$//g;
-					$new_field_value =~ s/^\s+//g;
-
-					next if $new_field_value eq "";
-
-					# existing value?
-					if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
-
-						if ($args_ref->{skip_existing_values}) {
-							$log->debug("skip existing value for field", { field => $field, value => $product_ref->{$field} }) if $log->is_debug();
-							next;
+					$new_field_value =~ s/^\s+//g;					
+					
+					# Some fields like "obsolete" can have yes/no values
+					if ($field eq "obsolete") {
+						if ($new_field_value =~ /^\s*($yes_regexp)\s*$/i) {
+							$new_field_value = "on";	# internal value (value of the checkbox field)
 						}
-
-						my $current_value = $product_ref->{$field};
-						$current_value =~ s/\s+$//g;
-						$current_value =~ s/^\s+//g;
-
-						# normalize current value
-						if (($field eq 'quantity') or ($field eq 'serving_size')) {
-
-							$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
-							$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-							$current_value =~ s/litre|litres|liter|liters/l/i;
-							$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
+						# If we have a value like 0, N, No, delete the field
+						if ($new_field_value =~ /^\s*($no_regexp)\s*$/i) {
+							$new_field_value = "-";
 						}
+					}
+					
+					if ($new_field_value eq "") {
+						next;
+					}
 
-						if (lc($current_value) ne lc($new_field_value)) {
-						# if ($current_value ne $new_field_value) {
-							$log->debug("differing value for field", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
+					# if the value is -, it is an indication that we should remove existing values
+					if ($new_field_value eq '-') {
+						# existing value?
+						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
+							$log->debug("removing existing value for field", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
 							$differing++;
 							$differing_fields{$field}++;
 
+							$product_ref->{$field} = "";
+
+							push @modified_fields, $field;
+							$modified++;
+							$stats{products_info_changed}{$code} = 1;
+						}
+					}
+					else {
+						# existing value?
+						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
+
+							if ($args_ref->{skip_existing_values}) {
+								$log->debug("skip existing value for field", { field => $field, value => $product_ref->{$field} }) if $log->is_debug();
+								next;
+							}
+
+							my $current_value = $product_ref->{$field};
+							$current_value =~ s/\s+$//g;
+							$current_value =~ s/^\s+//g;
+
+							# normalize current value
+							if (($field eq 'quantity') or ($field eq 'serving_size')) {
+
+								$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
+								$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
+								$current_value =~ s/litre|litres|liter|liters/l/i;
+								$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
+							}
+
+							if (lc($current_value) ne lc($new_field_value)) {
+							# if ($current_value ne $new_field_value) {
+								$log->debug("differing value for field", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
+								$differing++;
+								$differing_fields{$field}++;
+
+								$product_ref->{$field} = $new_field_value;
+
+								# do not count the import id as a change
+								if ($field ne "imports") {
+									push @modified_fields, $field;
+									$modified++;
+									$stats{products_info_changed}{$code} = 1;
+								}
+							}
+							elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
+								# normalize quantity
+								$log->debug("normalizing quantity", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
+								$product_ref->{$field} = $new_field_value;
+								push @modified_fields, $field;
+								$modified++;
+
+								$stats{products_info_changed}{$code} = 1;
+								defined $stats{"products_info_changed_" . $field } or $stats{"products_info_changed_" . $field } = {};
+								$stats{"products_info_changed_field_" . $field }{$code} = 1;
+							}
+						}
+						else {
+							$log->debug("setting previously unexisting value for field", { field => $field, new_value => $new_field_value }) if $log->is_debug();
 							$product_ref->{$field} = $new_field_value;
 
 							# do not count the import id as a change
 							if ($field ne "imports") {
 								push @modified_fields, $field;
 								$modified++;
-								$stats{products_info_changed}{$code} = 1;
+								$stats{products_info_added}{$code} = 1;
 							}
-						}
-						elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
-							# normalize quantity
-							$log->debug("normalizing quantity", { field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value }) if $log->is_debug();
-							$product_ref->{$field} = $new_field_value;
-							push @modified_fields, $field;
-							$modified++;
-
-							$stats{products_info_changed}{$code} = 1;
-							defined $stats{"products_info_changed_" . $field } or $stats{"products_info_changed_" . $field } = {};
-							$stats{"products_info_changed_field_" . $field }{$code} = 1;
-						}
-					}
-					else {
-						$log->debug("setting previously unexisting value for field", { field => $field, new_value => $new_field_value }) if $log->is_debug();
-						$product_ref->{$field} = $new_field_value;
-
-						# do not count the import id as a change
-						if ($field ne "imports") {
-							push @modified_fields, $field;
-							$modified++;
-							$stats{products_info_added}{$code} = 1;
 						}
 					}
 				}

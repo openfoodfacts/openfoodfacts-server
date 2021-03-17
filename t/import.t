@@ -6,8 +6,7 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";
-#use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -212,7 +211,23 @@ foreach my $test_ref (@tests) {
 	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
+	# Test unspecified values
+[
+	{ lc => "en", generic_name_en => "unspecified", labels => "non-specified", origins => "unknown", warning_en => "not specified" },
+	{ lc => "en", product_name_en => '-', generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
+	# product_name_en is missing, so it is copied from generic_name_en
+],
 
+[
+	{ lc => "fr", preparation_fr => "non renseignée", categories => "non spécifiée", labels => "NON RENSEIGNES", conservation_conditions_fr => "non indiquées", origins => "n/a", ingredients_text_fr => "N/A" },
+	{ lc => "fr", preparation_fr => "-", categories => "", labels => "", conservation_conditions_fr => "-", origins => "", 'ingredients_text_fr' => '' },
+],
+
+	# Tags fields: separators should be normalized to a comma
+[
+	{ lc => "fr", packaging => "étui carton FSC + sachet individuel papier" },
+	{ lc => "fr", packaging => "étui carton FSC, sachet individuel papier" },
+],
 
 );
 

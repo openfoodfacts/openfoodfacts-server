@@ -339,6 +339,10 @@ sub export_csv($) {
 		@sorted_populated_fields = sort ({ $populated_fields{$a} cmp $populated_fields{$b} } keys %populated_fields);
 
 		push @sorted_populated_fields, "data_sources";
+		if (not defined $populated_fields{"obsolete"}) {
+			# Always output the "obsolete" field so that obsolete products can be unobsoleted
+			push @sorted_populated_fields, "obsolete";
+		}
 	}
 	else {
 		# The fields to export are specified by the fields parameter
@@ -463,6 +467,15 @@ sub export_csv($) {
 					elsif ($field =~ /^([^\.]+)\.([^\.]+)$/) {
 						if (defined $product_ref->{$1}) {
 							$value = $product_ref->{$1}{$2};
+						}
+					}
+					# Fields like "obsolete" : output 1 for true values or 0
+					elsif ($field eq "obsolete") {
+						if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
+							$value = 1;
+						}
+						else {
+							$value = 0;
 						}
 					}
 					else {
