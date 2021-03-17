@@ -16180,7 +16180,7 @@ ar:نشا البطاطا
 ca:Fècula de patata
 cs:Bramborový škrob
 da:kartoffelstivelse, Kartoffelmel
-de:Kartoffelstärke, Kartoffelmehl
+de:Kartoffelstärke
 es:fécula de patata, Almidón de papa, Almidón de patata
 et:Kartulitärklis
 fi:perunatärkkelys
@@ -17106,7 +17106,6 @@ sv:vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 <en:shortening
 <en:vegetable fat
 en:vegetable shortening
-de:Gemüsebrühe
 fr:Matière grasse végétale
 it:Grasso alimentare vegetale
 
@@ -17746,7 +17745,7 @@ en:coconut fat
 ca:greix de coco
 da:kokosfedt
 de:Kokosfett
-es:Grasa de coco,grasa vegetal de coco,manteca de coco
+es:Grasa de coco,grasa vegetal de coco # ,manteca de coco
 et:kookosrasv
 fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
@@ -35327,7 +35326,7 @@ ja:バナナチップス
 <en:banana
 en:banana chips
 de:getrocknete Banane
-es:chips de platano,copos de plátano
+es:chips de platano
 fr:Chips de bananes
 
 <en:banana
@@ -38860,10 +38859,6 @@ it:Succo di amarena
 <en:sour cherry
 de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 
-<en:cherry
-en:glacé cherry, glacé cherries
-de:kandierte Kirsche, kandierte Kirschen
-
 ###################################################################################################
 #
 #                                Cherry (Sweet)
@@ -38973,8 +38968,9 @@ fr:bigarreaux confits
 
 # CERISES CONFITES is a compound ingredient
 <en:cherry
+en:glacé cherry, glacé cherries
 fr:cerises confites
-de:kandierte Kirschen
+de:kandierte Kirsche, kandierte Kirschen
 fi:kandeeratut kirsikat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerises-confites
 # 42 products @2018-09-29
@@ -40910,11 +40906,8 @@ sv:frystorkade hallon
 <en:raspberry
 en:raspberry powder
 de:Himbeerpulver, Himbeerfruchtpulver
-es:fresas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
 fi:vadelmajauhe
-fr:Poudre de fraise
 sv:hallonpulver
-
 
 en:raspberry jam
 de:Himbeermarmelade
@@ -40925,6 +40918,21 @@ wikidata:en:Q11962286
 en:raspberry sauce
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
 
+#TODO delete
+#es:fresas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
+#fr:Poudre de fraise
+
+<en:strawberry
+en:strawberry powder
+de:Erdbeerpulver
+es:fresa en polvo, polvo de fresa, polvo de fresas
+et:maasikapulber
+fi:mansikkajauhe
+fr:poudre de fraise
+it:Polvere di fragole
+ja:イチゴパウダー
+nl:aardbeipoeder
+ro:pudră de căpșuni
 
 ###################################################################################################
 #
@@ -41240,18 +41248,6 @@ de:Erdbeerpüree aus Konzentrat
 es:puré de fresa concentrado
 fi:tiivistetty mansikkapyree
 fr:purée de fraise concentrée, puree de fraise concentree, purée de fraise å base de concentré
-
-<en:strawberry
-en:strawberry powder
-de:Erdbeerpulver
-es:fresa en polvo, polvo de fresa, polvo de fresas
-et:maasikapulber
-fi:mansikkajauhe
-fr:poudre de fraise
-it:Polvere di fragole
-ja:イチゴパウダー
-nl:aardbeipoeder
-ro:pudră de căpșuni
 
 <en:strawberry
 <en:fruit juice
@@ -44547,8 +44543,9 @@ es:azucar de remolacha
 
 <en:beetroot
 en:beetroot syrup
-de:Rote-Beete-Sirup, Zuckerrübensirup
+de:Rote-Beete-Sirup
 es:sirope de remolacha
+# TODO : merge with en:sugar beet syrup ?
 
 <en:beetroot
 en:beetroot juice
@@ -50284,7 +50281,7 @@ hy:ոլոռ
 id:Ercis
 io:Pizo
 is:Gráerta
-it:Pisello, piselli, pisellini
+it:Pisello, Piselli
 ja:エンドウ
 ka:ბარდა
 kk:Бұршақ
@@ -50551,7 +50548,7 @@ de:Markerbsen, Gartenerbsen, Markerbsenschoten
 es:Guisantes de jardín
 fi:tarhaherne, tarhaherneet
 fr:petits pois, petit pois, pois doux
-it:Piselli
+it:Pisellini
 nl:doperwten
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
@@ -62904,7 +62901,7 @@ en:European anchovy
 be:Еўрапейскі анчоус
 br:Genougamm Europa
 de:Europäische Sardelle
-es:boquerón, anchoa
+es:boquerón
 fi:sardelli
 fr:anchois commun, Anchois européen, Anchois de l'Afrique australe, Anchois italien
 it:European anchovy, acciuga o alice
@@ -64806,7 +64803,7 @@ cy:Marlin
 de:Echter Bonito
 dv:ކަޅުބިލަ މަސް
 eo:Vera bonito
-es:Bonito de altura, listado, bonito del norte
+es:Bonito de altura, listado
 eu:Lanpo sabelmarradun
 fa:هوور مسقطی
 fi:Boniitti
@@ -70762,7 +70759,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turkey_(bird)
 <en:poultry meat
 <en:turkey
 en:turkey meat
-ca:Carn de gall dindi, Gall dindi
+ca:Carn de gall dindi
 da:kalkun
 de:Trutenfleisch, Truthahnfleisch
 eo:meleagraĵo
@@ -74344,7 +74341,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cake
 
 <en:cakes
 en:sponge cake
-de:Biskuitkuchen, Biskuit
+de:Biskuitkuchen
 es:bizcocho
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
@@ -77371,7 +77368,7 @@ it:pepe Poblano
 <en:vegetable
 en:momordic
 es:momordic
-fr:momordique, margose, melon amer
+fr:momordique, margose
 it:momordic
 
 <en:flour
