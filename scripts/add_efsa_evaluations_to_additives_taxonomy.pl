@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -128,7 +128,7 @@ my %properties = ();
 my $j = 0;
 my $override_existing_efsa_evaluation = 0;
 
-while (<STDIN>) {
+while (<>) {
 
 	my $line = $_;
 	

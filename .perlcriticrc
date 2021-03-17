@@ -1,4 +1,4 @@
-severity        = 5
+severity        = 4
 color           = 1
 
 [-Subroutines::ProhibitSubroutinePrototypes]
@@ -14,3 +14,5 @@ equivalent_modules = Modern::Perl
 # Allow `$`', `$&', `$'', because since Perl 5.20.0
 # there are no performance implications any more.
 [-Variables::ProhibitMatchVars]
+
+[-Subroutines::RequireArgUnpacking]

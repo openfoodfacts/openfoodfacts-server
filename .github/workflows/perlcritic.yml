@@ -16,4 +16,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: cgi/*.pl scripts/*.pl lib/ProductOpener/*.pm lib/*.pl t/*.t
+        args: cgi/*.pl cgi/i18n/*.pl scripts/*.pl lib/ProductOpener/*.pm lib/*.pl t/*.t

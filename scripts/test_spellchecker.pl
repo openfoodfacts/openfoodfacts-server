@@ -45,7 +45,7 @@ GetOptions ("lc=s"   => \$lc,      # string
 			);
 
 
-while(<STDIN>) {
+while(<>) {
 	chomp();
 	my ($canon_tagid, $tagid, $tag) = spellcheck_taxonomy_tag($lc, $tagtype, $_);
 	if (defined $tagid) {
