@@ -4799,6 +4799,7 @@ it:enzima coagulante
 nl:stremmingsenzymen, stollingsmiddel
 pl:Enzym koagulujący
 pt:coagulante
+ru:молокосвертывающий фермент
 sv:koagulerande enzym, mjölkkoagulerande enzym, mjölkkoagulerande ystenzym
 vegan:en:maybe
 vegetarian:en:maybe
@@ -16936,7 +16937,7 @@ ru:заменитель молочного жира
 
 <en:vegetable oil and fat
 en:cocoa butter substitute
-ru:заменитель масла какао, заменитель какао масла
+ru:заменитель масла какао, заменитель какао масла, эквивалент масла какао, заменитель какао масла лауринового типа
 
 # <en:palm
 <en:palm oil and fat
@@ -22047,6 +22048,10 @@ fr:arôme naturel de crustacés
 fr:arôme de gentiane
 fi:katkeroaromi
 
+<en:flavouring
+en:milk flavouring
+ru:ароматизатор молоко, ароматизатор топленое молоко
+
 <en:natural flavouring
 fr:arôme naturel de gentiane
 fi:luontainen katkeroaromi
@@ -22256,7 +22261,7 @@ en:butter flavouring
 de:butteraroma, butter-aroma
 fi:voiaromi
 fr:arôme de beurre
-ru:ароматизатор масла
+ru:ароматизатор масла, ароматизатор идентичный натуральному сливки
 sv:smörarom
 # ingredient/fr:arome-de-beurre has 25 products in 5 languages @2020-06-08
 
@@ -27518,7 +27523,7 @@ ps:بوره
 pt:Açúcar
 qu:Asukar
 ro:Zahăr, zahar, zaharuri
-ru:Сахар, сахар песок
+ru:Сахар, сахар песок, сахара
 rw:Isukari
 sa:शर्करा
 sd:کنڊ
@@ -30120,7 +30125,7 @@ fr:Cacao en poudre alcalinisé
 
 <en:cocoa-powder
 en:skimmed cocoa powder
-ru:обезжиренный какаопорошок
+ru:обезжиренный какаопорошок, сухой обезжиренный остаток какао
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
@@ -35806,6 +35811,10 @@ nl:Royal Gala appel, Tenroy, Tenroy appel
 <en:apple
 fr:pommes d'Aquitaine
 # 22@2019-06-09
+
+<en:apple
+en:apple jam
+ru:повидло яблочное, яблочное повидло
 
 ###################################################################################################
 #
@@ -73970,6 +73979,9 @@ fi:mustaherukkahillo
 # usage:fi:Mustaherukkahillo: Mustaherukka, sokeri, happamuudensäätöaine (E330), säilöntäaine (E202).
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
+
+en:jam
+ru:джем, повидло, варенье
 
 ###################################################################################################
 #
