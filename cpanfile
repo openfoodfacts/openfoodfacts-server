@@ -55,9 +55,14 @@ requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, lib
 requires 'XML::Rules';
 requires 'Text::CSV', '>= 2.0, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.
 requires 'Text::Fuzzy';
-requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
+requires 'File::Copy::Recursive';
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 requires 'Devel::Size'; # deps: libdevel-size-perl
+requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
+requires 'List::MoreUtils';
+requires 'Excel::Writer::XLSX';
+requires 'Web::Sitemap', '>= 0.902, < 1.0';
+requires 'Pod::Simple::HTMLBatch';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
