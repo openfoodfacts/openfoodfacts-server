@@ -229,6 +229,23 @@ uploaded and added to the product, but it will not be selected.
 
 =cut
 
+# Regexps to match localized Yes or No values in some fields
+# lowercased
+
+my %yes = (
+	en => "on|yes|y",	# on is a special value, it does not need to be translated to other languages
+	es => "si|s",
+	fr => "oui|o",
+);
+
+my %no = (
+	en => "off|no|n|not",	# off is a special value, it does not need to be translated to other languages
+	es => "no|n",
+	fr => "non|n",
+);
+
+
+
 sub import_csv_file($) {
 
 	my $args_ref = shift;
@@ -776,6 +793,17 @@ EMAIL
 				}
 			}
 		}
+		
+		# Construct Yes and No regexps with English + local language
+		my $yes_regexp = '1|' . $yes{en};
+		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+			$yes_regexp .= '|' . $yes{$imported_product_ref->{lc}};
+		}
+		
+		my $no_regexp = '0|' . $no{en};
+		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+			$no_regexp .= '|' . $no{$imported_product_ref->{lc}};
+		}		
 
 		# Go through all the possible fields that can be imported
 		foreach my $field (@param_fields) {
@@ -802,13 +830,13 @@ EMAIL
 						
 						$log->debug("specific field", { field => $field, tag_name => $tag_name, value => $imported_product_ref->{$subfield} } ) if $log->is_debug();
 						
-						if ($imported_product_ref->{$subfield} =~ /^\s*(1|y|yes|o|oui)\s*$/i) {
+						if ($imported_product_ref->{$subfield} =~ /^\s*($yes_regexp)\s*$/i) {
 							$tag_to_add = $tag_name;
 						}
 						
 						# If we have a value like 0, N, No and an opposite entry exists in the taxonomy
 						# then add the negative entry
-						elsif ($imported_product_ref->{$subfield} =~ /^\s*(0|n|no|not|non)\s*$/i) {
+						elsif ($imported_product_ref->{$subfield} =~ /^\s*($no_regexp)\s*$/i) {
 							
 							my $tagid = canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag_name);
 							
@@ -1030,15 +1058,16 @@ EMAIL
 					
 					# Some fields like "obsolete" can have yes/no values
 					if ($field eq "obsolete") {
-						if ($new_field_value =~ /^\s*(1|y|yes|o|oui|s|si)\s*$/i) {
-							$new_field_value = "on";
+						if ($new_field_value =~ /^\s*($yes_regexp)\s*$/i) {
+							$new_field_value = "on";	# internal value (value of the checkbox field)
 						}
 						# If we have a value like 0, N, No, delete the field
-						if ($new_field_value =~ /^\s*(0|n|no|not|non)\s*$/i) {
-							$new_field_value = "";
+						if ($new_field_value =~ /^\s*($no_regexp)\s*$/i) {
+							$new_field_value = "-";
 						}
 					}
-					elsif ($new_field_value eq "") {
+					
+					if ($new_field_value eq "") {
 						next;
 					}
 
