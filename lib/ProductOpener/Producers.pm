@@ -567,12 +567,12 @@ es => {
 },
 
 fr => {
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
-	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
+	abbreviated_product_name_fr => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
