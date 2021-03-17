@@ -37,9 +37,12 @@
 [% IF server_options_producers_platform %]
     <div class="delete_button">
         <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+			[% display_icon('publish') %]
             <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
         </a>
     </div>
+    
+    <p>&rarr; <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
@@ -52,7 +55,7 @@
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc_code == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]

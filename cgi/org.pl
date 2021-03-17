@@ -91,6 +91,16 @@ if ($action eq 'process') {
 		}
 		else {
 			
+			# Administrator fields
+			
+			if ($admin) {
+				foreach my $field ("list_of_gs1_gln", "enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform") {
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
+			}
+			
+			# Other fields
+			
 			foreach my $field ("name", "link") {
 				$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 				if ($org_ref->{$field} eq "") {
@@ -101,6 +111,8 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lang};
 			}
+			
+			# Contact sections
 			
 			foreach my $contact ("customer_service", "commercial_service") {
 				
@@ -138,23 +150,48 @@ if ($action eq 'display') {
 	
 	# Create the list of sections and fields
 	
-	$template_data_ref->{sections} = [
-		{
+	$template_data_ref->{sections} = [];
+	
+	# Admin
+	
+	if ($admin) {
+		push @{$template_data_ref->{sections}}, {
+			id => "admin",
 			fields => [
 				{
-					field => "name",
+					field => "list_of_gs1_gln",
 				},
 				{
-					field => "link",
+					field => "enable_manual_export_to_public_platform",
+					type => "checkbox",
+				},
+				{
+					field => "activate_automated_daily_export_to_public_platform",
+					type => "checkbox",
 				},
 			]
-		}
-	];
+		};		
+	}
+	
+	# Name and information of the organization
+	
+	push @{$template_data_ref->{sections}}, {
+		fields => [
+			{
+				field => "name",
+			},
+			{
+				field => "link",
+			},
+		]
+	};
+	
+	# Contact information
 	
 	foreach my $contact ("customer_service", "commercial_service") {
 		
 		push @{$template_data_ref->{sections}}, {
-			section => $contact,
+			id => $contact,
 			fields => [
 				{ field => $contact . "_name" },
 				{ field => $contact . "_address", type => "textarea" },
@@ -171,15 +208,15 @@ if ($action eq 'display') {
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
 		
 		# Descriptions and notes for sections
-		if (defined $section_ref->{section}) {
-			if (lang("org_" . $section_ref->{section})) {
-				$section_ref->{name} = lang("org_" . $section_ref->{section});
+		if (defined $section_ref->{id}) {
+			if (lang("org_" . $section_ref->{id})) {
+				$section_ref->{name} = lang("org_" . $section_ref->{id});
 			}			
-			if (lang("org_" . $section_ref->{section} . "_description")) {
-				$section_ref->{description} = lang("org_" . $section_ref->{section} . "_description");
+			if (lang("org_" . $section_ref->{id} . "_description")) {
+				$section_ref->{description} = lang("org_" . $section_ref->{id} . "_description");
 			}
-			if (lang("org_" . $section_ref->{section} . "_note")) {
-				$section_ref->{note} = lang("org_" . $section_ref->{section} . "_note");
+			if (lang("org_" . $section_ref->{id} . "_note")) {
+				$section_ref->{note} = lang("org_" . $section_ref->{id} . "_note");
 			}
 		}
 		

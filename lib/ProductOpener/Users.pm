@@ -594,6 +594,8 @@ name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
+
 EMAIL
 ;
 			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
@@ -614,6 +616,7 @@ name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
 EMAIL
 ;
 			send_email_to_producers_admin(
@@ -979,13 +982,11 @@ sub init_user()
 		%User = ();
 	}
 
-	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
-	# Populate $Org_id and %org_ref from the user profile.
-	# TODO: create org profiles with customer service info etc.
+	# Load the user org profile
 
 	if (defined $user_ref->{org_id}) {
 		$Org_id = $user_ref->{org_id};
-		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+		$org_ref = retrieve_or_create_org($User_id, $Org_id);
 	}
 
 	if (defined $Org_id) {
