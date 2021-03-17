@@ -5626,7 +5626,8 @@ de:Gemüse basierte Getränke
 es:Bebidas a base de verduras y hortalizas
 fi:kasvispohjaiset juomat
 fr:Boissons aux légumes, boissons à base de légumes
-he:משקאות צמחים, משקאות מבוססי צמחים, משקה צמחים
+#Duplicate
+#he:משקאות צמחים, משקאות מבוססי צמחים, משקה צמחים
 it:Bevande a base di verdure
 nl:Groentedranken, Groentedrank, Groentendrank
 
@@ -26567,7 +26568,7 @@ de:Süßwaren, Süßigkeiten, Konfekt, Konditorwaren
 es:Dulces
 fi:Sokerileipomotuotteet
 fr:Confiseries, confiserie
-he:מתוקים, ממתקים, דברי מתיקה
+he:מתוקים, דברי מתיקה
 hu:Sütemények, Cukrász áruk
 it:Dolci, dolce
 nl:Zoetwaren, Confiserie, Suikerwerk
@@ -39098,7 +39099,7 @@ de:Nusskerne, geschälte Nüsse, Nüsse ohne Schale
 es:Frutos de cáscara sin cáscara
 fi:pähkinät kuoressa
 fr:Fruits à coques décortiqués, Fruits à coques décortiquées
-it:Frutta a guscio
+it:Noci sgusciate
 nl:Gepelde noten
 zh:带壳坚果
 
@@ -46061,7 +46062,7 @@ nl:Bevroren desserts
 pl:Mrożone desery
 pt:Sobremesas congeladas
 ru:Холодные десерты
-sv:Dessert, Efterrätter
+sv:Frysta efterrätter
 zh:冷冻甜点
 
 <en:Frozen desserts
@@ -50076,8 +50077,9 @@ it:Condimenti
 nl:Smaakmakers
 pl:Przyprawy
 pt:Condimentos
-ru:Вкусовые добавки, Приправы, Пряности
 zh:调味品, 调料
+#ru:Вкусовые добавки, Приправы, Пряности
+# Russian does not seem to make a difference between condiment and seasoning
 
 <en:Condiments
 en:Gomasio, Gomashio
@@ -54857,7 +54859,7 @@ nl:Siciliaanse sauzen
 
 <en:Tomato sauces
 en:Fried tomato sauces, Tomate frito
-ca:Salses de tomàquet fregit, Salsa de tomàquet
+ca:Salses de tomàquet fregit
 de:Gebratene Tomatensoßen
 es:Salsas de tomate frito, Tomate frito
 fi:paistetut tomaattikastikkeet
@@ -64272,7 +64274,7 @@ fr:Mousses de foies de volailles, mousses de foie de volaille, mousses de foies 
 <en:Prepared meats
 en:Cured sausages
 de:Würstchen
-es:Embutidos curados, Embutidos
+es:Embutidos curados
 fi:Suolatut makkarat
 fr:Saucissons, Saucisson
 nl:Worstjes
@@ -73168,7 +73170,7 @@ de:Konfitüren und Marmeladen
 es:Preparaciones a base de frutas y verduras
 fi:hedelmäsäilykkeet
 fr:Confitures et marmelades
-he:שימורי פרות וירקות, שימורי פירות וירקות, פחיות, קופסאות שימורים
+he:שימורי פרות וירקות, שימורי פירות וירקות
 hu:Gyümölcskonzervek
 it:Confetture e marmellate
 nl:Confituren en marmelades
