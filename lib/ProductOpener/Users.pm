@@ -583,16 +583,13 @@ sub process_user_form($$) {
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
-
-		if (defined $requested_org_ref) {
-			# The requested org already exists
-			
-			my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+		
+		my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
 Aide pour importer vos produits sur Open Food Facts
 TEXT
 );
 
-			my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
 Bonjour,
 
 J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
@@ -615,7 +612,10 @@ Bien cordialement,
 
 
 TEXT
-);
+);		
+
+		if (defined $requested_org_ref) {
+			# The requested org already exists
 
 			my $admin_mail_body = <<EMAIL
 requested_org_id: $user_ref->{requested_org_id}<br>
@@ -643,13 +643,17 @@ EMAIL
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
 			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
+requested_org_id: $user_ref->{requested_org_id}<br>
+userid: $user_ref->{userid}<br>
+name: $user_ref->{name}<br>
+email: $user_ref->{email}<br>
+lc: $user_ref->{initial_lc}<br>
+cc: $user_ref->{initial_cc}<br>
+
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
+
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+
 EMAIL
 ;
 			send_email_to_producers_admin(
