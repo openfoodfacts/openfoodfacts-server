@@ -143,6 +143,35 @@ foreach my $test_ref (@tests) {
 	compute_forest_footprint($product_ref);
 			
 	compute_attributes($product_ref, $product_ref->{lc}, $options_ref);
+
+	# Travis has a different $server_domain, so we need to change the resulting URLs
+	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
+	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
+	
+	# code below from https://www.perlmonks.org/?node_id=1031287
+	
+	use Scalar::Util qw/reftype/;
+
+	sub walk {
+	  my ($entry,$code) =@_;
+	  my $type = reftype($entry);
+	  $type //= "SCALAR";
+
+	  if    ($type eq "HASH") {
+		walk($_,$code) for values %$entry;
+	  }
+	  elsif ($type eq "ARRAY") {
+		walk($_,$code) for @$entry;
+	  }
+	  elsif ($type eq "SCALAR" ) {
+		$code->($_[0]);        # alias of entry
+	  }
+	  else {
+		warn "unknown type $type";
+	  }
+	}
+	
+	walk $product_ref, sub { $_[0] =~ s/https:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
 	
 	# Save the result
 	

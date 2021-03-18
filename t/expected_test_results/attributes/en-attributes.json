@@ -25,7 +25,7 @@
             {
                "description" : "",
                "description_short" : "Average nutritional quality",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nutriscore-c.svg",
+               "icon_url" : "https://server_domain/images/attributes/nutriscore-c.svg",
                "id" : "nutriscore",
                "match" : 45,
                "name" : "Nutri-Score",
@@ -34,7 +34,7 @@
             },
             {
                "description_short" : "0.25 g / 100 g",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nutrient-level-salt-low.svg",
+               "icon_url" : "https://server_domain/images/attributes/nutrient-level-salt-low.svg",
                "id" : "low_salt",
                "match" : 83.3333333333333,
                "name" : "Salt",
@@ -43,7 +43,7 @@
             },
             {
                "description_short" : "12 g / 100 g",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nutrient-level-fat-medium.svg",
+               "icon_url" : "https://server_domain/images/attributes/nutrient-level-fat-medium.svg",
                "id" : "low_fat",
                "match" : 48.2352941176471,
                "name" : "Fat",
@@ -52,7 +52,7 @@
             },
             {
                "description_short" : "25 g / 100 g",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nutrient-level-sugars-high.svg",
+               "icon_url" : "https://server_domain/images/attributes/nutrient-level-sugars-high.svg",
                "id" : "low_sugars",
                "match" : 0,
                "name" : "Sugars",
@@ -61,7 +61,7 @@
             },
             {
                "description_short" : "4 g / 100 g",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nutrient-level-saturated-fat-medium.svg",
+               "icon_url" : "https://server_domain/images/attributes/nutrient-level-saturated-fat-medium.svg",
                "id" : "low_saturated_fat",
                "match" : 37.1428571428571,
                "name" : "Saturated fat",
@@ -76,133 +76,7 @@
          "attributes" : [
             {
                "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-soybeans.svg",
-               "id" : "allergens_no_soybeans",
-               "match" : 100,
-               "name" : "Soybeans",
-               "status" : "known",
-               "title" : "Does not contain: Soybeans"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-peanuts.svg",
-               "id" : "allergens_no_peanuts",
-               "match" : 100,
-               "name" : "Peanuts",
-               "status" : "known",
-               "title" : "Does not contain: Peanuts"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-sesame-seeds.svg",
-               "id" : "allergens_no_sesame_seeds",
-               "match" : 100,
-               "name" : "Sesame seeds",
-               "status" : "known",
-               "title" : "Does not contain: Sesame seeds"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-none.svg",
-               "id" : "allergens_no_none",
-               "match" : 100,
-               "name" : "None",
-               "status" : "known",
-               "title" : "Does not contain: None"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-nuts.svg",
-               "id" : "allergens_no_nuts",
-               "match" : 100,
-               "name" : "Nuts",
-               "status" : "known",
-               "title" : "Does not contain: Nuts"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-milk.svg",
-               "id" : "allergens_no_milk",
-               "match" : 100,
-               "name" : "Milk",
-               "status" : "known",
-               "title" : "Does not contain: Milk"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-lupin.svg",
-               "id" : "allergens_no_lupin",
-               "match" : 100,
-               "name" : "Lupin",
-               "status" : "known",
-               "title" : "Does not contain: Lupin"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-molluscs.svg",
-               "id" : "allergens_no_molluscs",
-               "match" : 100,
-               "name" : "Molluscs",
-               "status" : "known",
-               "title" : "Does not contain: Molluscs"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-fish.svg",
-               "id" : "allergens_no_fish",
-               "match" : 100,
-               "name" : "Fish",
-               "status" : "known",
-               "title" : "Does not contain: Fish"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-crustaceans.svg",
-               "id" : "allergens_no_crustaceans",
-               "match" : 100,
-               "name" : "Crustaceans",
-               "status" : "known",
-               "title" : "Does not contain: Crustaceans"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-gluten.svg",
-               "id" : "allergens_no_gluten",
-               "match" : 100,
-               "name" : "Gluten",
-               "status" : "known",
-               "title" : "Does not contain: Gluten"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-oats.svg",
-               "id" : "allergens_no_oats",
-               "match" : 100,
-               "name" : "Oats",
-               "status" : "known",
-               "title" : "Does not contain: Oats"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-mustard.svg",
-               "id" : "allergens_no_mustard",
-               "match" : 100,
-               "name" : "Mustard",
-               "status" : "known",
-               "title" : "Does not contain: Mustard"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-celery.svg",
-               "id" : "allergens_no_celery",
-               "match" : 100,
-               "name" : "Celery",
-               "status" : "known",
-               "title" : "Does not contain: Celery"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-sulphur-dioxide-and-sulphites.svg",
+               "icon_url" : "https://server_domain/images/attributes/no-sulphur-dioxide-and-sulphites.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                "match" : 100,
                "name" : "Sulphur dioxide and sulphites",
@@ -211,12 +85,138 @@
             },
             {
                "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/no-eggs.svg",
+               "icon_url" : "https://server_domain/images/attributes/no-soybeans.svg",
+               "id" : "allergens_no_soybeans",
+               "match" : 100,
+               "name" : "Soybeans",
+               "status" : "known",
+               "title" : "Does not contain: Soybeans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-lupin.svg",
+               "id" : "allergens_no_lupin",
+               "match" : 100,
+               "name" : "Lupin",
+               "status" : "known",
+               "title" : "Does not contain: Lupin"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-milk.svg",
+               "id" : "allergens_no_milk",
+               "match" : 100,
+               "name" : "Milk",
+               "status" : "known",
+               "title" : "Does not contain: Milk"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-sesame-seeds.svg",
+               "id" : "allergens_no_sesame_seeds",
+               "match" : 100,
+               "name" : "Sesame seeds",
+               "status" : "known",
+               "title" : "Does not contain: Sesame seeds"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-fish.svg",
+               "id" : "allergens_no_fish",
+               "match" : 100,
+               "name" : "Fish",
+               "status" : "known",
+               "title" : "Does not contain: Fish"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-oats.svg",
+               "id" : "allergens_no_oats",
+               "match" : 100,
+               "name" : "Oats",
+               "status" : "known",
+               "title" : "Does not contain: Oats"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-none.svg",
+               "id" : "allergens_no_none",
+               "match" : 100,
+               "name" : "None",
+               "status" : "known",
+               "title" : "Does not contain: None"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-crustaceans.svg",
+               "id" : "allergens_no_crustaceans",
+               "match" : 100,
+               "name" : "Crustaceans",
+               "status" : "known",
+               "title" : "Does not contain: Crustaceans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-celery.svg",
+               "id" : "allergens_no_celery",
+               "match" : 100,
+               "name" : "Celery",
+               "status" : "known",
+               "title" : "Does not contain: Celery"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-mustard.svg",
+               "id" : "allergens_no_mustard",
+               "match" : 100,
+               "name" : "Mustard",
+               "status" : "known",
+               "title" : "Does not contain: Mustard"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-eggs.svg",
                "id" : "allergens_no_eggs",
                "match" : 100,
                "name" : "Eggs",
                "status" : "known",
                "title" : "Does not contain: Eggs"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-nuts.svg",
+               "id" : "allergens_no_nuts",
+               "match" : 100,
+               "name" : "Nuts",
+               "status" : "known",
+               "title" : "Does not contain: Nuts"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-molluscs.svg",
+               "id" : "allergens_no_molluscs",
+               "match" : 100,
+               "name" : "Molluscs",
+               "status" : "known",
+               "title" : "Does not contain: Molluscs"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
+               "id" : "allergens_no_gluten",
+               "match" : 100,
+               "name" : "Gluten",
+               "status" : "known",
+               "title" : "Does not contain: Gluten"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-peanuts.svg",
+               "id" : "allergens_no_peanuts",
+               "match" : 100,
+               "name" : "Peanuts",
+               "status" : "known",
+               "title" : "Does not contain: Peanuts"
             }
          ],
          "id" : "allergens",
@@ -226,7 +226,7 @@
       {
          "attributes" : [
             {
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/non-vegan.svg",
+               "icon_url" : "https://server_domain/images/attributes/non-vegan.svg",
                "id" : "vegan",
                "match" : 0,
                "name" : "Vegan",
@@ -234,7 +234,7 @@
                "title" : "Non-vegan"
             },
             {
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/non-vegetarian.svg",
+               "icon_url" : "https://server_domain/images/attributes/non-vegetarian.svg",
                "id" : "vegetarian",
                "match" : 0,
                "name" : "Vegetarian",
@@ -242,7 +242,7 @@
                "title" : "Non-vegetarian"
             },
             {
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/palm-oil-free.svg",
+               "icon_url" : "https://server_domain/images/attributes/palm-oil-free.svg",
                "id" : "palm_oil_free",
                "match" : 100,
                "name" : "Palm oil free",
@@ -258,7 +258,7 @@
             {
                "description" : "",
                "description_short" : "Ultra processed foods",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/nova-group-4.svg",
+               "icon_url" : "https://server_domain/images/attributes/nova-group-4.svg",
                "id" : "nova",
                "match" : 0,
                "name" : "NOVA group",
@@ -272,7 +272,7 @@
       {
          "attributes" : [
             {
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/2-additives.svg",
+               "icon_url" : "https://server_domain/images/attributes/2-additives.svg",
                "id" : "additives",
                "match" : 60,
                "name" : "Additives",
@@ -288,7 +288,7 @@
             {
                "description" : "",
                "description_short" : "Low environmental impact",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/ecoscore-b.svg",
+               "icon_url" : "https://server_domain/images/attributes/ecoscore-b.svg",
                "id" : "ecoscore",
                "match" : 62,
                "name" : "Eco-Score",
@@ -298,7 +298,7 @@
             {
                "description" : "",
                "description_short" : "Almost no risk of deforestation",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/forest-footprint-a.svg",
+               "icon_url" : "https://server_domain/images/attributes/forest-footprint-a.svg",
                "id" : "forest_footprint",
                "match" : 99.9292929292929,
                "name" : "Forest footprint",
@@ -314,7 +314,7 @@
             {
                "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
                "description_short" : "Promotes ecological sustainability and biodiversity.",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/organic.svg",
+               "icon_url" : "https://server_domain/images/attributes/organic.svg",
                "id" : "labels_organic",
                "match" : 100,
                "name" : "Organic farming",
@@ -324,7 +324,7 @@
             {
                "description" : "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
                "description_short" : "Helps producers in developping countries.",
-               "icon_url" : "https://static.openfoodfacts.dev/images/attributes/fair-trade.svg",
+               "icon_url" : "https://server_domain/images/attributes/fair-trade.svg",
                "id" : "labels_fair_trade",
                "match" : 100,
                "name" : "Fair trade",
@@ -687,7 +687,7 @@
       "en:forest-footprint-a"
    ],
    "nova_group" : 4,
-   "nova_group_debug" : " -- ingredients/en:salt : 3 -- additives/en:e120 : 4",
+   "nova_group_debug" : " -- ingredients/en:sugar : 3 -- ingredients/en:high-fructose-corn-syrup : 4",
    "nova_groups" : "4",
    "nova_groups_tags" : [
       "en:4-ultra-processed-food-and-drink-products"
