@@ -96,6 +96,7 @@ sub send_email_to_producers_admin($$)
 			->to( lang("site_name") . " <$producers_email>" )
 			->subject($subject)
 			->text_body($text)
+			->html_body($text)
 			->send;
 	};
 

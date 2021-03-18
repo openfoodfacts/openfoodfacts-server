@@ -586,16 +586,48 @@ sub process_user_form($$) {
 
 		if (defined $requested_org_ref) {
 			# The requested org already exists
+			
+			my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+Aide pour importer vos produits sur Open Food Facts
+TEXT
+);
+
+			my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+
+J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
+
+Cette plateforme totalement gratuite soutenue par Santé publique France vous permet d'importer vos produits dans Open Food Facts ainsi que les plus de 100 applications et services qui utilisent nos données.
+
+- Elle vous permet également de trouver des opportunités de reformulation pour améliorer le Nutri-Score de vos produits.
+- Il vous suffit d'importer tout tableau Excel dont vous disposez déjà, de vérifier et d’éventuellement ajuster la correspondance des colonnes pour importer l'ensemble de votre gamme.
+- Vous pouvez également glisser-déposer des images de vos produits (face avant, ingrédients, nutrition et éventuellement pack à plat, instruction de recyclage…)
+
+Nous disposons également d’une intégration automatisée via plusieurs systèmes de gestion de données.
+
+Vous trouverez une présentation complète de la plateforme dans cette présentation :
+
+Guide plateforme - https://docs.google.com/presentation/d/e/2PACX-1vQiPrVqyVFxie7embgOIeCAWkfPALWOjfMOBQBvFBiNqxyUJUrgr_rt48WnWuvvJKo-UPtLx52xuV6M/pub?start=false&loop=false&delayms=3000&slide=id.g76aba96933_2_51
+
+Je suis à votre disposition si vous avez des questions ou besoin d'aide sur ces divers points.
+
+Bien cordialement,
+
+
+TEXT
+);
 
 			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
-<a href="mailto:$user_ref->{email}?subject=Aide%20pour%20importer%20vos%20produits%20sur%20Open%20Food%20Facts&cc=producteurs@openfoodfacts.org&body=Bonjour%0D%0A%20%2C%0D%0AJ'ai%20remarqu%C3%A9%20que%20vous%20avez%20cr%C3%A9%C3%A9%20un%20compte%20sur%20la%20plate-forme%20producteur%20de%20Open%20Food%20Facts%20%20-%20https%3A%2F%2Ffr.pro.openfoodfacts.org%20-%20mais%20que%20vous%20n'avez%20pas%20encore%20import%C3%A9%20de%20produits.%0D%0ACette%20plateforme%20totalement%20gratuite%20soutenue%20par%20Sant%C3%A9%20Publique%20France%20vous%20permet%20d'importer%20vos%20produits%20dans%20Open%20Food%20Facts%20ainsi%20que%20les%20plus%20de%20100%20applications%20et%20services%20qui%20utilisent%20nos%20donn%C3%A9es.%0D%0A-%20Elle%20vous%20permet%20%C3%A9galement%20de%20trouver%20des%20opportunit%C3%A9s%20de%20reformulation%20pour%20am%C3%A9liorer%20le%20Nutri-Score%20de%20vos%20produits.%0D%0A-%20Il%20vous%20suffit%20d'importer%20tout%20tableau%20Excel%20dont%20vous%20disposez%20d%C3%A9j%C3%A0%2C%20de%20v%C3%A9rifier%20et%20d%E2%80%99%C3%A9ventuellement%20ajuster%20la%20correspondance%20des%20colonnes%20pour%20importer%20l'ensemble%20de%20votre%20gamme.%0D%0A-%20Vous%20pouvez%20%C3%A9galement%20glisser-d%C3%A9poser%20des%20images%20de%20vos%20produits%20(face%20avant%2C%20ingr%C3%A9dients%2C%20nutrition%20et%20%C3%A9ventuellement%20pack%20%C3%A0%20plat%2C%20instruction%20de%20recyclage%E2%80%A6)%0D%0ANous%20disposons%20%C3%A9galement%20d%E2%80%99une%20int%C3%A9gration%20automatis%C3%A9e%20via%20plusieurs%20syst%C3%A8mes%20de%20gestion%20de%20donn%C3%A9es.%0D%0AVous%20trouverez%20une%20pr%C3%A9sentation%20compl%C3%A8te%20de%20la%20plateforme%20dans%20cette%20pr%C3%A9sentation%3A%20Guide%20plateforme%20-%20https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2Fe%2F2PACX-1vQiPrVqyVFxie7embgOIeCAWkfPALWOjfMOBQBvFBiNqxyUJUrgr_rt48WnWuvvJKo-UPtLx52xuV6M%2Fpub%3Fstart%3Dfalse%26loop%3Dfalse%26delayms%3D3000%26slide%3Did.g76aba96933_2_51%0D%0A%0D%0AJe%20suis%20%C3%A0%20votre%20disposition%20si%20vous%20avez%20des%20questions%20ou%20besoin%20d'aide%20sur%20ces%20divers%20points.">linkText</a>
+requested_org_id: $user_ref->{requested_org_id}<br>
+userid: $user_ref->{userid}<br>
+name: $user_ref->{name}<br>
+email: $user_ref->{email}<br>
+lc: $user_ref->{initial_lc}<br>
+cc: $user_ref->{initial_cc}<br>
+
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
+
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
 
 EMAIL
 ;
