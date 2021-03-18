@@ -1282,10 +1282,10 @@ sub compute_attribute_ingredients_analysis($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $attribute_id = shift;
+	my $analysis = shift;
 	
-	my $analysis = $attribute_id;
-	$analysis =~ s/_/-/g;
+	my $attribute_id = $analysis;
+	$attribute_id =~ s/-/_/g;
 	
 	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, attribute_id => $attribute_id, analysis => $analysis }) if $log->is_debug();
 	
