@@ -76,30 +76,12 @@
          "attributes" : [
             {
                "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-sulphur-dioxide-and-sulphites.svg",
-               "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+               "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
+               "id" : "allergens_no_gluten",
                "match" : 100,
-               "name" : "Sulphur dioxide and sulphites",
+               "name" : "Gluten",
                "status" : "known",
-               "title" : "Does not contain: Sulphur dioxide and sulphites"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-soybeans.svg",
-               "id" : "allergens_no_soybeans",
-               "match" : 100,
-               "name" : "Soybeans",
-               "status" : "known",
-               "title" : "Does not contain: Soybeans"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-lupin.svg",
-               "id" : "allergens_no_lupin",
-               "match" : 100,
-               "name" : "Lupin",
-               "status" : "known",
-               "title" : "Does not contain: Lupin"
+               "title" : "Does not contain: Gluten"
             },
             {
                "debug" : "11 ingredients (0 unknown)",
@@ -109,69 +91,6 @@
                "name" : "Milk",
                "status" : "known",
                "title" : "Does not contain: Milk"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-sesame-seeds.svg",
-               "id" : "allergens_no_sesame_seeds",
-               "match" : 100,
-               "name" : "Sesame seeds",
-               "status" : "known",
-               "title" : "Does not contain: Sesame seeds"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-fish.svg",
-               "id" : "allergens_no_fish",
-               "match" : 100,
-               "name" : "Fish",
-               "status" : "known",
-               "title" : "Does not contain: Fish"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-oats.svg",
-               "id" : "allergens_no_oats",
-               "match" : 100,
-               "name" : "Oats",
-               "status" : "known",
-               "title" : "Does not contain: Oats"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-none.svg",
-               "id" : "allergens_no_none",
-               "match" : 100,
-               "name" : "None",
-               "status" : "known",
-               "title" : "Does not contain: None"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-crustaceans.svg",
-               "id" : "allergens_no_crustaceans",
-               "match" : 100,
-               "name" : "Crustaceans",
-               "status" : "known",
-               "title" : "Does not contain: Crustaceans"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-celery.svg",
-               "id" : "allergens_no_celery",
-               "match" : 100,
-               "name" : "Celery",
-               "status" : "known",
-               "title" : "Does not contain: Celery"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-mustard.svg",
-               "id" : "allergens_no_mustard",
-               "match" : 100,
-               "name" : "Mustard",
-               "status" : "known",
-               "title" : "Does not contain: Mustard"
             },
             {
                "debug" : "11 ingredients (0 unknown)",
@@ -193,6 +112,78 @@
             },
             {
                "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-peanuts.svg",
+               "id" : "allergens_no_peanuts",
+               "match" : 100,
+               "name" : "Peanuts",
+               "status" : "known",
+               "title" : "Does not contain: Peanuts"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-sesame_seeds.svg",
+               "id" : "allergens_no_sesame_seeds",
+               "match" : 100,
+               "name" : "Sesame seeds",
+               "status" : "known",
+               "title" : "Does not contain: Sesame seeds"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-soybeans.svg",
+               "id" : "allergens_no_soybeans",
+               "match" : 100,
+               "name" : "Soybeans",
+               "status" : "known",
+               "title" : "Does not contain: Soybeans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-celery.svg",
+               "id" : "allergens_no_celery",
+               "match" : 100,
+               "name" : "Celery",
+               "status" : "known",
+               "title" : "Does not contain: Celery"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-mustard.svg",
+               "id" : "allergens_no_mustard",
+               "match" : 100,
+               "name" : "Mustard",
+               "status" : "known",
+               "title" : "Does not contain: Mustard"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-lupin.svg",
+               "id" : "allergens_no_lupin",
+               "match" : 100,
+               "name" : "Lupin",
+               "status" : "known",
+               "title" : "Does not contain: Lupin"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-fish.svg",
+               "id" : "allergens_no_fish",
+               "match" : 100,
+               "name" : "Fish",
+               "status" : "known",
+               "title" : "Does not contain: Fish"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "icon_url" : "https://server_domain/images/attributes/no-crustaceans.svg",
+               "id" : "allergens_no_crustaceans",
+               "match" : 100,
+               "name" : "Crustaceans",
+               "status" : "known",
+               "title" : "Does not contain: Crustaceans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
                "icon_url" : "https://server_domain/images/attributes/no-molluscs.svg",
                "id" : "allergens_no_molluscs",
                "match" : 100,
@@ -202,21 +193,12 @@
             },
             {
                "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
-               "id" : "allergens_no_gluten",
+               "icon_url" : "https://server_domain/images/attributes/no-sulphur_dioxide_and_sulphites.svg",
+               "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                "match" : 100,
-               "name" : "Gluten",
+               "name" : "Sulphur dioxide and sulphites",
                "status" : "known",
-               "title" : "Does not contain: Gluten"
-            },
-            {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-peanuts.svg",
-               "id" : "allergens_no_peanuts",
-               "match" : 100,
-               "name" : "Peanuts",
-               "status" : "known",
-               "title" : "Does not contain: Peanuts"
+               "title" : "Does not contain: Sulphur dioxide and sulphites"
             }
          ],
          "id" : "allergens",
@@ -687,7 +669,7 @@
       "en:forest-footprint-a"
    ],
    "nova_group" : 4,
-   "nova_group_debug" : " -- ingredients/en:sugar : 3 -- ingredients/en:high-fructose-corn-syrup : 4",
+   "nova_group_debug" : " -- ingredients/en:salt : 3 -- additives/en:e102 : 4",
    "nova_groups" : "4",
    "nova_groups_tags" : [
       "en:4-ultra-processed-food-and-drink-products"

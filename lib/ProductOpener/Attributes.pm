@@ -95,6 +95,17 @@ $options{attribute_groups} = [
 	],
 [..]
 
+=cut
+
+# Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
+my %attribute_groups = ();
+
+if (defined $options{attribute_groups}) {
+	foreach my $attribute_group_ref (@{$options{attribute_groups}}) {
+		$attribute_groups{$attribute_group_ref->[0]} = $attribute_group_ref->[1];
+	}
+}
+
 
 =head1 FUNCTIONS
 
@@ -123,12 +134,12 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %attribute_groups hash.
+The return value is cached for each language in the %localized_attribute_groups hash.
 
 =cut
 
 # Global structure to cache the return structure for each language
-my %attribute_groups = ();
+my %localized_attribute_groups = ();
 
 sub list_attributes($) {
 
@@ -138,13 +149,13 @@ sub list_attributes($) {
 
 	# Construct the return structure only once for each language
 	
-	if (not defined $attribute_groups{$target_lc}) {
+	if (not defined $localized_attribute_groups{$target_lc}) {
 		
-		$attribute_groups{$target_lc} = [];
+		$localized_attribute_groups{$target_lc} = [];
 		
-		if (defined $options{attribute_groups}) {
+		if (defined $options{localized_attribute_groups}) {
 			
-			foreach my $options_attribute_group_ref (@{$options{attribute_groups}}) {
+			foreach my $options_attribute_group_ref (@{$options{localized_attribute_groups}}) {
 				
 				my $group_id = $options_attribute_group_ref->[0];
 				my $attributes_ref = $options_attribute_group_ref->[1];
@@ -157,12 +168,12 @@ sub list_attributes($) {
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 				
-				push @{$attribute_groups{$target_lc}}, $group_ref;
+				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
 			}
 		}
 	}
 	
-	return $attribute_groups{$target_lc};
+	return $localized_attribute_groups{$target_lc};
 }
 
 
@@ -1489,7 +1500,9 @@ sub compute_attributes($$$) {
 	}
 	
 	# Allergens
-	foreach my $allergen (keys %{$translations_to{allergens}}) {
+	foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
+		my $allergen = $allergen_attribute_id;
+		$allergen =~ s/^allergens_no_//;
 		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
 		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
 	}
