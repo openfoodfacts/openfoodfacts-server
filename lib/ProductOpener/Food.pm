@@ -5679,7 +5679,7 @@ sub compute_nova_group($) {
 
 	if (defined $options{nova_groups_tags}) {
 
-		foreach my $tag (sort {$options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}} keys %{$options{nova_groups_tags}}) {
+		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {			
 
 			if ($tag =~ /\//) {
 
@@ -5719,7 +5719,7 @@ sub compute_nova_group($) {
 					# don't move group 2 to group 3
 					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
 					) {
-					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group_debug} .= " --- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
 					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
 				}
 			}
