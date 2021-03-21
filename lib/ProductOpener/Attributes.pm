@@ -153,9 +153,9 @@ sub list_attributes($) {
 		
 		$localized_attribute_groups{$target_lc} = [];
 		
-		if (defined $options{localized_attribute_groups}) {
+		if (defined $options{attribute_groups}) {
 			
-			foreach my $options_attribute_group_ref (@{$options{localized_attribute_groups}}) {
+			foreach my $options_attribute_group_ref (@{$options{attribute_groups}}) {
 				
 				my $group_id = $options_attribute_group_ref->[0];
 				my $attributes_ref = $options_attribute_group_ref->[1];
