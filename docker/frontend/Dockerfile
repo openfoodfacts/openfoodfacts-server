@@ -1,4 +1,4 @@
-FROM node:12.16.1-alpine as builder
+FROM node:lts as builder
 
 # Install Product Opener from the workdir.
 COPY . /opt/product-opener/
