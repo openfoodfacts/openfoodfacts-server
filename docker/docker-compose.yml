@@ -1,17 +1,17 @@
 ﻿version: "3.7"
 services:
   mongodb:
-    image: mongo:4.2.3
+    image: mongo:4.2
     volumes:
       - dbdata:/var/lib/mongodb
     networks:
       - webnet
   memcached:
-    image: memcached:1.5.16-alpine
+    image: memcached:1.6-alpine
     networks:
       - webnet
   postgres:
-    image: postgres:12.2-alpine
+    image: postgres:12-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:

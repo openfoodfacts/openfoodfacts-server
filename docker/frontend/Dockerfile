@@ -10,6 +10,6 @@ RUN npm install
 # Run gulp
 RUN npm run build
 
-FROM nginx:1.17.9-alpine
+FROM nginx:stable-alpine
 WORKDIR /opt/product-opener
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/

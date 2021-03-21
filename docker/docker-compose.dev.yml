@@ -17,7 +17,7 @@ services:
       - ./logs/apache2:/mnt/podata/logs
       - ./logs/apache2:/var/log/httpd
   frontend:
-    image: nginx:1.17.9-alpine
+    image: nginx:stable-alpine
     volumes:
       - type: bind
         source: ../

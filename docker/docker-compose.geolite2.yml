@@ -4,7 +4,7 @@ services:
     volumes:
       - geolite2:/usr/local/share/GeoLite2-Country
   geoipupdate:
-    image: tkrs/maxmind-geoipupdate:4.2.2
+    image: tkrs/maxmind-geoipupdate:4.3.0
     volumes:
       - geolite2:/usr/local/share/GeoLite2-Country
     environment:
