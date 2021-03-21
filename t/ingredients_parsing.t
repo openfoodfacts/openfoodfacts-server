@@ -314,8 +314,9 @@ my @lists =(
 	# used to have bad output: sunflower vegetable oils, colza vegetable oilsand strawberry
 	["en", "vegetable oils : sunflower, colza and strawberry","sunflower vegetable oils, colza vegetable oils and strawberry"],
 	# Russian oils (more tests needed)
-	["ru", "масло (Подсолнечное)", "Подсолнечное масло"],
-	["ru", "масло растительное (подсолнечное, соевое)","подсолнечное масло растительное, соевое масло растительное"],
+	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
+	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
+	["ru", "масло растительное (подсолнечное, соевое)","масло растительное подсолнечное, масло растительное соевое"],
 );
 
 foreach my $test_ref (@lists) {

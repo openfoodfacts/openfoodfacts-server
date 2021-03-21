@@ -2491,6 +2491,7 @@ sub normalize_fr_a_de_enumeration {
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive
+# Russian: масло растительное, пальмовое -> масло растительное оливковое
 
 sub normalize_a_of_b($$$) {
 
@@ -2518,7 +2519,7 @@ sub normalize_a_of_b($$$) {
 		}
 	}
 	elsif ($lc eq "ru") {
-		return $b . " " . $a;		
+		return $a . " " . $b;		
 	}
 }
 
@@ -3922,8 +3923,15 @@ ru =>
 		],
 		# types
 		[
-			"подсолнечное",
-			"соевое",
+			"Подсолнечное",
+			"Пальмовое",
+			"Рапсовое",
+			"Кокосовое",
+			"горчицы",
+			"Соевое",
+			"Пальмоядровое",
+			"Оливковое",
+			"пальм",
 		],
 	],
 ],
