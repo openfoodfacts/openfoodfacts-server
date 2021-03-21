@@ -211,12 +211,12 @@
                "title" : "Végétarien"
             },
             {
-               "icon_url" : "https://server_domain/images/attributes/contains-palm-oil.svg",
+               "icon_url" : "https://server_domain/images/attributes/palm-oil-free.svg",
                "id" : "palm_oil_free",
-               "match" : 0,
+               "match" : 100,
                "name" : "Sans huile de palme",
                "status" : "known",
-               "title" : "Huile de palme"
+               "title" : "Sans huile de palme"
             }
          ],
          "id" : "ingredients_analysis",
@@ -349,10 +349,7 @@
          "production_system" : {
             "warning" : "no_label"
          },
-         "threatened_species" : {
-            "ingredient" : "en:palm-oil",
-            "value" : -10
-         }
+         "threatened_species" : {}
       },
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
@@ -372,31 +369,27 @@
    ],
    "ingredients" : [
       {
-         "from_palm_oil" : "yes",
-         "id" : "en:palm-kernel-fat",
+         "id" : "en:sesame-seeds",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "graisse de palmiste",
+         "text" : "graines de sésame",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis_tags" : [
-      "en:palm-oil",
+      "en:palm-oil-free",
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 1,
-   "ingredients_from_palm_oil_n" : 1,
-   "ingredients_from_palm_oil_tags" : [
-      "huile-de-palme"
-   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
-      "en:palm-kernel-fat",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-kernel-oil-and-fat"
+      "en:sesame-seeds",
+      "en:seed",
+      "en:sesame"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -404,19 +397,18 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:palm-kernel-fat"
+      "en:sesame-seeds"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:palm-kernel-fat",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-kernel-oil-and-fat"
+      "en:sesame-seeds",
+      "en:seed",
+      "en:sesame"
    ],
-   "ingredients_text" : "graisse de palmiste",
+   "ingredients_text" : "graines de sésame",
    "ingredients_that_may_be_from_palm_oil_n" : 0,
    "ingredients_that_may_be_from_palm_oil_tags" : [],
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
