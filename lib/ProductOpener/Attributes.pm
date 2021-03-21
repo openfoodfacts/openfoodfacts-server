@@ -1134,7 +1134,7 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
 
-=head4 allergen_id $allergen_id
+=head4 attribute_allergen_id $attribute_allergen_id
 
 "en:gluten", "en:sulphur-dioxide-and-sulphites" : allergen ids from the allergens taxonomy
 
@@ -1154,15 +1154,15 @@ sub compute_attribute_allergen($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $allergen_id = shift;	
+	my $attribute_id = shift;	# e.g. "allergens_no_gluten",
+	
+	my $allergen = $attribute_id;
+	$allergen =~ s/^allergens_no_//;
+	$allergen =~ s/_/-/g;
+	
+	my $allergen_id = "en:" . $allergen;
 
-	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, allergen_id => $allergen_id }) if $log->is_debug();
-
-	my $allergen = $allergen_id;
-	$allergen =~ s/^en://;
-
-	my $attribute_id = "allergens_no_" . $allergen;
-	$attribute_id =~ s/-/_/g;
+	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id }) if $log->is_debug();
 	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
@@ -1501,9 +1501,7 @@ sub compute_attributes($$$) {
 	
 	# Allergens
 	foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
-		my $allergen = $allergen_attribute_id;
-		$allergen =~ s/^allergens_no_//;
-		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
+		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen_attribute_id);
 		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
 	}
 	
