@@ -651,7 +651,7 @@ lc: $user_ref->{initial_lc}<br>
 cc: $user_ref->{initial_cc}<br>
 
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
-
+TODO: Add a specific mail telling that the account was linked
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
 
 EMAIL
