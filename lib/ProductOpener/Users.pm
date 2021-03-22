@@ -614,6 +614,24 @@ Bien cordialement,
 TEXT
 );		
 
+		my $mailto_body_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+Nous venons de mettre à jour votre compte pour le rattacher à l'organisation $user_ref->{requested_org_id}. 
+Vous pouvez accéder à votre espace producteur depuis votre compte $user_ref->{userid} (avec votre mot de passe habituel) sur https://fr.pro.openfoodfacts.org
+
+Merci beaucoup pour votre démarche de transparence,
+Bien cordialement,
+TEXT
+);
+
+
+
+my $mailto_subject_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
+Vous avez été rattaché à l'organisation $user_ref->{requested_org_id}
+TEXT
+);
+
+
 		if (defined $requested_org_ref) {
 			# The requested org already exists
 
@@ -652,7 +670,7 @@ cc: $user_ref->{initial_cc}<br>
 
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
 TODO: Add a specific mail telling that the account was linked
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
 
 EMAIL
 ;
