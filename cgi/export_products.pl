@@ -262,7 +262,7 @@ else {
 
 		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
 Bonjour,
-Vos produits ont été exportés vers la base publique. Voici la page publique avec vos produits : https://fr.openfoodfacts.org/editeur/org- org_id: $Org_id
+Vos produits ont été exportés vers la base publique. Voici la page publique avec vos produits : https://fr.openfoodfacts.org/editeur/org-$Org_id
 
 Merci beaucoup pour votre démarche de transparence,
 Bien cordialement,
@@ -302,4 +302,3 @@ display_new( {
 });
 
 exit(0);
-
