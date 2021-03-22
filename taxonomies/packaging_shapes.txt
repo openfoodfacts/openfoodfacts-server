@@ -2,12 +2,14 @@
 
 en:Unknown
 fr:Inconnu, inconnue, inconnus, inconnues
+pt:Desconhecido
 
 # Use singular as the main name, and add plural as synonym
 en:Tray, trays
 de:Tablettverpackung, Tablett
 fr:Barquette, barquettes
 hu:Tálca
+pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
 en:Jar, jars
 de:Krug
@@ -16,6 +18,7 @@ fr:Bocal, bocaux
 hu:Befőttes üveg
 it:Vasetto, Barattolo
 nl:Pot
+pt:Jarro, jarros, jarra, jarras
 
 en:Box, boxes
 de:Kasten
@@ -24,7 +27,7 @@ nl:Boos
 fr:Boîte, boîtes
 hu:Doboz
 it:Scatola
-pt:Caixa
+pt:Caixa, caixas
 
 en:Bottle, bottles
 de:Flasche
@@ -33,7 +36,7 @@ fr:Bouteille, bouteilles
 hu:Palack
 it:Bottiglia
 nl:Fles
-pt:Garaffa
+pt:Garrafa, garrafas
 wikidata:en:Q80228
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
@@ -47,7 +50,7 @@ es:Lata
 fr:Boîte de conserve ou canette, boîtes de conserve ou canettes
 it:Lattina, Latta
 nl:Blik
-pt:Lata
+pt:Lata, latas
 
 # Can for drink, not canned food
 <en:can
@@ -57,7 +60,7 @@ es:Lata de bebida
 fr:Canette, cannette, canettes, cannettes
 it:Lattina per bevande
 nl:Blikje
-pt:Lata de bebida
+pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 
 # Can for food, not canned drinks
 <en:can
@@ -67,23 +70,27 @@ es:Lata de comida
 fr:Boîte de conserve, conserve, boîtes de conserves, conserves
 nl:Conservenblik
 it:Lattina di cibo
-pt:Lata de comida
+pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, lata de conserva, lata de conservas, latas de conserva, latas de conservas, lata de comida, latas de comida, lata de comidas, latas de comidas, lata para alimentos, latas para alimentos, lata para alimento, latas para alimento
 
 en:pot, cup, pots, cups
 de:Kanne
 fr:Pot, pots
+pt:Pote, potes, boião, boiões
 
 <en:pot
 en:individual pot, individual cup, individual pots, individual cups
 fr:pot individuel, pots individuels
+pt:Pote individual, potes individuais, boião individual, boiões individuais
 
 en:Tube, tubes
 de:Tube, Tuben
 fr:Tube, tubes
 hu:Cső
+pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 
 en:Fastener, clip, tie
 fr:Attache
+pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
 
 en:Bag, bags
 de:Tüte, Sack
@@ -92,23 +99,27 @@ fr:Sachet, sac, sachets, sacs, berlingots, berlingot
 hu:Zacskó
 it:Sacco
 nl:Zak
-pt:Saco
+pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
 en:Crate
 fr:Cagette, cageot
+pt:Caixote, caixotes
 
 <en:Bag
 en:Individual bag, individual bags
 de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
+pt:Saco individual, sacos individuais, saquinho individual, saquinhos individuais, saqueta individual, saquetas individuais
 
 en:Flask, flasks
 fr:Gourde, gourde individuelle, gourdes individuelles
 hu:Kulacs
 it:Borraccia
+pt:Frasco, frascos
 
 en:Sleeve, sleeves
 fr:Étui, étuis
+pt:Manga, mangas
 
 en:Mold
 fr:Moule
@@ -119,61 +130,70 @@ el:Καπάκι
 fr:Couvercle, couvercles
 hu:Fedél
 nl:Deksel
-pt:Tampa
-
-en:Mold
-fr:Moule
+pt:Tampa, tampas
 
 en:Bottle cap, bottle top, cap, top, Wine cork, wine bottle cork, cork, bottle caps, bottle tops, caps, tops, wine corks, wine bottle corks, corks
 fr:Bouchon de bouteille, bouchon, bouchon de bouteille de vin, bouchons de bouteille, bouchons de bouteilles, bouchons
+pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 
 en:Capsule, capsules
 fr:Capsule, capsules
+pt:Cápsula, cápsulas
 
 en:Coffee capsule, coffee capsules
 fr:Capsule de café, Capsules de café, capsules café, capsule café
+pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
 
 # keep the plural as the main name
 en:Eating utensils, utensils, eating utensil, utensil
 de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
+pt:Talheres, talher 
 
 # keep the plural
 <en:Eating utensils
 en:Chopsticks
 de:Essstäbchen
 fr:Baguettes
+pt:Pauzinhos chineses, palitinhos, hashi
 
 <en:Eating utensils
 en:Knife, knives
 de:Messer
 fr:Couteau, couteaux
+pt:Faca, facas
 
 <en:Eating utensils
 en:Fork, forks
 de:Gabel, Gabeln
 fr:Fourchette, fourchettes
+pt:Garfo, garfos
 
 <en:Eating utensils
 en:Spoon, spoons
 de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
+pt:Colher, colheres
 
 en:sheet, sheets
 fr:feuille, feuilles
+pt:Folha, folhas
 weight:en:light
 
 # cardboard is both a shape and a material
 en:card, cardboard
 fr:carte, cartonnette
+pt:papelão, cartão, cartolina, papelões, cartões, cartolinas
 
 en:backing, support, board, stand
 fr:support, plaque
+pt:suporte, placa, suportes, placas
 
 en:Net, nets
 de:Netz
 fr:Filet, filets
 hu:Háló
+pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 
 en:Film, wrap, films, wraps, film wrap, film wraps
 de:Folie, Film
@@ -182,38 +202,46 @@ fr:Film, pellicule, films, pellicules, film de regroupement
 hu:Film
 it:Film, Pellicola
 nl:Film
+pt:Película, películas, filme, filmes, filme extensível, filme estirável
 weight:en:light
 
 en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
+pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
 en:Grouping package, grouping packages
 de:Gruppierungspaket
 fr:Emballage de regroupement, emballages de regroupement
+pt:Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embalagens de agrupagem, embalagem agrupadora, embalagens agrupadoras
 
 en:Seal, operculum, seals
 de:Deckel
 fr:Opercule, opercules
+pt:Tampo, tampos
 weight:en:light
 
 en:bulk, without packaging
 de:ohne Verpackung
 fr:vrac, sans emballage
+pt:Granel, a granel, sem embalagem, sem embalagens
 
 en:Bowl, bows
 de:Schüssel
 el:Μπολ
 fr:Bol, bols
 hu:Tál
-pt:Tigela
+pt:Tigela, taça, tigelas, taças
 
 en:Plate, plates
 fr:Assiette, assiettes
+pt:Prato, pratos
 
 en:Stick, sticks
 fr:Batonnet, bâtonnets
+pt:Paus, pauzinhos, varetas de madeira
 
 en:label, labels
 de:Etikett, Etiketten
 fr:étiquette, étiquettes
+pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
