@@ -729,11 +729,6 @@ sub check_edit_owner($$) {
 		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
-		my $orgid = $';
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
-	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
@@ -751,13 +746,22 @@ sub check_edit_owner($$) {
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
 		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
 	else {
-		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
-		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		# if there is no user- or org- prefix, assume it is an org
+		my $orgid = $user_ref->{pro_moderator_owner};
+		$User{pro_moderator_owner} = "org-" . $orgid;
+		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 
 	return;
 }
+
 
 sub init_user()
 {

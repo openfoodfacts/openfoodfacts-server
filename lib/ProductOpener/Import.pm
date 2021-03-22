@@ -254,7 +254,11 @@ sub import_csv_file($) {
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
-	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
+	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id, args_ref => $args_ref }) if $log->is_debug();
+	
+	# Load GS1 GLNs so that we can map products to the owner orgs
+	my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
 	if (defined $args_ref->{global_values}) {
@@ -484,10 +488,16 @@ sub import_csv_file($) {
 					"3700935300011" => "panzani-sa",	# Garofalo France
 					"3012409300206" => "panzani-sa",	# Lustucru Frais
 				);
-
-				if ((defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
-					and (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}})) {
-					$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+				
+				# GLNs can now be stored inside organization profiles (loaded in $glns_ref)
+				
+				if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+					if ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
+						$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+					}
+					elsif (defined $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}}) {
+						$org_id = $gln{$imported_product_ref->{"sources_fields:org-gs1:gln"}};	
+					}
 				}
 				
 				$Org_id = $org_id;
@@ -495,10 +505,20 @@ sub import_csv_file($) {
 				
 				$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
 				
-				# Create the org if it does not exist yet
-				if (not defined retrieve_org($org_id)) {
+				my $org_ref = retrieve_org($org_id);
+		
+				if (defined $org_ref) {
+					# Check if it is a CodeOnline import for an org with do_not_import_codeonline
+					if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
+						and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
+						$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
+						next;
+					}
+				}
+				else {
+					# The org does not exist yet, create it
 					
-					my $org_ref = create_org($User_id, $org_id);
+					$org_ref = create_org($User_id, $org_id);
 					
 					$org_ref->{name} = $imported_product_ref->{org_name};
 					
@@ -771,9 +791,25 @@ EMAIL
 			and ($Owner_id !~ /^org-app-/)
 			and ($Owner_id !~ /^org-database-/)
 			and ($Owner_id !~ /^org-label-/) ) {
+				
+			# If the product already has an owner different from the imported owner,
+			# skip the product, unless the overwrite_owner property is set
+			if ((defined $product_ref->{owner}) and ($product_ref->{owner} ne $Owner_id)
+				and (not defined $args_ref->{overwrite_owner})) {
+				$log->info("existing product has a different owner, skip the product", { 
+						product_owner => $product_ref->{owner}, owner_id => $Owner_id, args_ref_overwrite_owner => $args_ref->{overwrite_owner} }) if $log->is_info();
+				next;
+			}
+				
 			defined $product_ref->{owner_fields} or $product_ref->{owner_fields} = {};
-			$product_ref->{owner} = $Owner_id;
-			$product_ref->{owners_tags} = $product_ref->{owner};
+			if ((not defined $product_ref->{owner}) or ($product_ref->{owner} ne $Owner_id)) {
+				$product_ref->{owner} = $Owner_id;
+				$product_ref->{owners_tags} = [$product_ref->{owner}];
+				$modified++;
+				my $field eq "owner";
+				defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
+				$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
+			}
 		}
 
 		# We can have source specific fields of the form : sources_fields:org-database-usda:fdc_category

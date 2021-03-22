@@ -131,8 +131,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
-
+	process_template('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
 elsif (($action eq "process") and $allow_submit) {
@@ -161,6 +160,12 @@ elsif (($action eq "process") and $allow_submit) {
 	
 	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
+	}
+	
+	if ($admin) {
+		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+			$args_ref->{overwrite_owner} = 1;
+		}		
 	}
 	
 	# Create Minion tasks for export and import
