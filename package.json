@@ -42,7 +42,7 @@
     "@webcomponents/webcomponentsjs": "2.5.0",
     "@yaireo/tagify": "^3.21.0",
     "blueimp-file-upload": "^10.31.0",
-    "cropperjs": "^1.5.9",
+    "cropperjs": "^1.5.11",
     "foundation-sites": "5.5.3",
     "highcharts": "^8.2.2",
     "jquery-cropper": "^1.0.1",
@@ -51,13 +51,14 @@
     "jvectormap-content": "^0.1.0",
     "jvectormap-next": "^3.1.1",
     "leaflet": "^1.7.1",
-    "leaflet.markercluster": "1.4.1",
+    "leaflet.markercluster": "1.5.0",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.3.0",
-    "snyk": "^1.440.1"
+    "snyk": "^1.503.0",
+    "xml2json": "^0.12.0"
   },
   "devDependencies": {
-    "eslint": "^7.18.0",
+    "eslint": "^7.22.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
@@ -65,10 +66,10 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgmin": "^3.0.0",
     "gulp-terser-js": "^5.2.2",
-    "stylelint": "^13.9.0",
-    "stylelint-config-recommended": "^3.0.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recommended": "^4.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.19.0"
   },
   "funding": {
     "type": "opencollective",

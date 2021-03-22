@@ -20,20 +20,22 @@
                }
             ],
             "epi_score" : 62.6503443706568,
-            "epi_value" : 1.26503443706568,
+            "epi_value" : 1,
             "origins_from_origins_field" : [
                "en:unknown"
             ],
             "transportation_score" : 82.6751407570834,
-            "transportation_value" : 12.4136847983609,
-            "value" : 13.6787192354265
+            "transportation_value" : 12,
+            "value" : 13
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -41,7 +43,9 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {}
       },
       "agribalyse" : {
@@ -65,20 +69,21 @@
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
-         "score" : 58.6020808480656
+         "score" : 50
       },
-      "grade" : "b",
+      "grade" : "c",
       "missing" : {
+         "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 62.2808000834921,
+      "score" : 53,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 62.2808000834921,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 53,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
@@ -88,7 +93,6 @@
          "percent_estimate" : 60,
          "percent_max" : 60,
          "percent_min" : 60,
-         "rank" : 1,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -100,7 +104,6 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "rank" : 2,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -111,7 +114,6 @@
          "percent_estimate" : 10,
          "percent_max" : 10,
          "percent_min" : 10,
-         "rank" : 3,
          "text" : "lemon juice",
          "vegan" : "yes",
          "vegetarian" : "yes"

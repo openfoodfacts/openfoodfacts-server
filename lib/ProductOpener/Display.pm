@@ -89,6 +89,7 @@ BEGIN
 		&display_ingredients_analysis
 
 		&count_products
+		&add_params_to_query
 		
 		&process_template
 
@@ -311,6 +312,7 @@ sub process_template($$$) {
 	
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
@@ -470,15 +472,15 @@ sub init()
 	# Allow cc and lc overrides as query parameters
 	# do not redirect to the corresponding subdomain
 	my $cc_lc_overrides = 0;
-	if ((defined param('cc')) and ((defined $country_codes{param('cc')}) or (param('cc') eq 'world')) ) {
-		$cc = param('cc');
+	if ((defined param('cc')) and ((defined $country_codes{lc(param('cc'))}) or (lc(param('cc')) eq 'world')) ) {
+		$cc = lc(param('cc'));
 		$country = $country_codes{$cc};
 		$cc_lc_overrides = 1;
 		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
 	if (defined param('lc')) {
 		# allow multiple languages in an ordered list
-		@lcs = split(/,/, param('lc'));
+		@lcs = split(/,/, lc(param('lc')));
 		if (defined $language_codes{$lcs[0]}) {
 			$lc = $lcs[0];
 			$lang = $lc;
@@ -732,6 +734,13 @@ sub analyze_request($)
 	# /search search endpoint, parameters will be parser by CGI.pm param()
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
+	}
+	
+	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
+	# assign the codes to the code parameter
+	elsif ($components[0] eq "products") {
+		$request_ref->{search} = 1;
+		param("code", $components[1]);
 	}
 
 	# Renamed text?
@@ -1178,6 +1187,28 @@ sub display_index_for_producer($) {
 
 	$html .= "<h2>" . lang("your_products") . separator_before_colon($lc) . ":" . "</h2>";
 	$html .= '<p>&rarr; <a href="/cgi/import_file_upload.pl">' . lang("add_or_update_products") . '</a></p>';
+	
+	# Display a message if some product updates have not been published yet
+	
+	my $count = count_products($request_ref, { states_tags => "en:to-be-exported"});
+	
+	my $message = "";
+	
+	if ($count == 0) {
+		$message = lang("no_products_to_export");
+	}
+	elsif ($count == 1) {
+		$message = lang("one_product_will_be_exported");
+	}
+	else {
+		$message = sprintf(lang("n_products_will_be_exported"), $count);
+	}	
+	
+	if ($count > 0) {
+		$html .= "<p>" . lang("some_product_updates_have_not_been_published_on_the_public_database") . "</p>"
+		. "<p>" . $message . "</p>"
+		. "&rarr; <a href=\"/cgi/export_products.pl\">$Lang{export_product_data_photos}{$lc}</a><br>";
+	}
 
 	return $html;
 }
@@ -1220,7 +1251,7 @@ sub display_text($)
 	if (($textid eq 'index-pro') and (defined $Owner_id)) {
 		my $owner_user_or_org = $Owner_id;
 		if (defined $Org_id) {
-			$owner_user_or_org = $Org{org};
+			$owner_user_or_org = $Org{name};
 		}
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
@@ -3777,7 +3808,7 @@ HTML
 				
 				# Display the organization profile
 				
-				if (is_user_in_org_group($user_or_org_ref, "admins", $User_id) or $admin) {
+				if (is_user_in_org_group($user_or_org_ref, $User_id, "admins") or $admin) {
 					$template_data_ref->{edit_profile} = 1;
 					$template_data_ref->{orgid} = $orgid;
 				}					
@@ -3815,7 +3846,8 @@ HTML
 		}
 	}
 
-	if ($tagtype eq 'categories') {
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")
+		and ($tagtype eq 'categories')) {
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 
@@ -4133,7 +4165,10 @@ sub add_country_and_owner_filters_to_query($$) {
 	# Country filter
 
 	if (defined $country) {
-		if ($country ne 'en:world') {
+		
+		# Do not add a country restriction if the query specifies a list of codes
+		
+		if (($country ne 'en:world') and (not defined $query_ref->{code})) {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
 			if (not defined $query_ref->{countries_tags}) {
 				$query_ref->{countries_tags} = $country;
@@ -4165,7 +4200,7 @@ sub add_country_and_owner_filters_to_query($$) {
 		and ( $server_options{private_products} ) )
 	{
 		if ( $Owner_id ne 'all' ) {    # Administrator mode to see all products
-			$query_ref->{owners_tags} = $Owner_id;
+			$query_ref->{owner} = $Owner_id;
 		}
 	}
 
@@ -4216,6 +4251,32 @@ Reference to the MongoDB query object.
 
 =cut
 
+# Parameters that are not query filters
+
+my %ignore_params = (
+	fields => 1,
+	format => 1,
+	json => 1,
+	jsonp => 1,
+	xml => 1,
+	keywords => 1,	# added by CGI.pm
+	api_version => 1,
+	api_method => 1,
+	search_simple => 1,
+	search_terms => 1,
+	userid => 1,
+	password => 1,
+	action => 1,
+	type => 1,
+);
+
+# Parameters that can be query filters
+# It is safer to use a positive list, instead of just the %ignore_params list
+
+my %valid_params = (
+	code => 1,
+);
+
 sub add_params_to_query($$) {
 	
 	my $request_ref = shift;
@@ -4228,6 +4289,9 @@ sub add_params_to_query($$) {
 	foreach my $field (param()) {
 		
 		$log->debug("add_params_to_query - field", { field => $field }) if $log->is_debug();		
+		
+		# skip params that are not query filters
+		next if (defined $ignore_params{$field});
 		
 		if (($field eq "page") or ($field eq "page_size")) {
 			$request_ref->{$field} = param($field) + 0;	# Make sure we have a number
@@ -4384,6 +4448,24 @@ sub add_params_to_query($$) {
 				}			
 			}
 		}
+		
+		# Exact match on a specific field (e.g. "code")
+		elsif (defined $valid_params{$field}) {
+			
+			my $values = remove_tags_and_quote(decode utf8=>param($field));
+			
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+			
+			if ($values =~ /\||\+|,/) {
+				my @values = split(/\||\+|,/, $values);
+				$query_ref->{$field} = { '$in' => \@values };
+			}
+			else {
+				$query_ref->{$field} = $values;
+			}
+		}		
 	}
 }
 
@@ -4431,8 +4513,8 @@ sub customize_response_for_product($$) {
 	
 	foreach my $field (split(/,/, $fields)) {
 
-		# On demand carbon footprint tags
-		if ((not $carbon_footprint_computed)
+		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
+		if (0 and (not $carbon_footprint_computed)
 			and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 			compute_carbon_footprint_infocard($product_ref);
 			$carbon_footprint_computed = 1;
@@ -4446,6 +4528,12 @@ sub customize_response_for_product($$) {
 		elsif ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
+		# The environment infocard now displays the Eco-Score details
+                elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
+                        if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+                                $customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
+                        }
+                }
 		
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
@@ -4629,7 +4717,13 @@ sub search_and_display_products($$$$$) {
 			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
 			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
 			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
-			$sort_by = 'popularity_key';
+
+			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+				$sort_by = 'popularity_key';
+			}
+			else {
+				$sort_by = 'last_modified_t';
+			}
 	}
 	
 	if (defined $sort_by) {
@@ -4676,13 +4770,18 @@ sub search_and_display_products($$$$$) {
 	# Sort options
 	
 	$template_data_ref->{sort_options} = [];
+
+	# Nutri-Score and Eco-Score are only for food products
+	# and currently scan data is only loaded for Open Food Facts
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	
-	push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
-	push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
+		push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
+		push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-	# Show Eco-score sort only for France or moderators
-	if ($show_ecoscore) {
-		push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+		# Show Eco-score sort only for France or moderators
+		if ($show_ecoscore) {
+			push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
+		}
 	}
 	
 	push @{$template_data_ref->{sort_options}}, { value => "created_t", link => $request_ref->{current_link} . "?sort_by=created_t", name => lang("sort_by_created_t") };
@@ -5017,23 +5116,17 @@ sub search_and_display_products($$$$$) {
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
+		if ((defined param("api_version")) and (param("api_version") <= 1)) {
 
-		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			if (defined $product_ref->{ingredients}) {
-				my $i = 0;
-				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-					$i++;
-					if ((defined param("api_version")) and (param("api_version") > 1)) {
-						# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-						if (not exists $ingredient_ref->{rank}) {
-							# delete this ingredient and ingredients after
-							while (scalar @{$product_ref->{ingredients}} >= $i) {
-								pop @{$product_ref->{ingredients}};
-							}
-							last;
-						}
-					}
-					else {
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+				if (defined $product_ref->{ingredients}) {
+					
+					flatten_sub_ingredients($product_ref);
+
+					foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 						# Delete sub-ingredients, keep only flattened ingredients
 						exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 					}
@@ -6668,7 +6761,7 @@ sub display_my_block($)
 		
 		if (defined $Org_id) {
 			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
-			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{org} . "</a><br>"
+			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{name} . "</a><br>"
 			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
 		}		
 
@@ -7809,6 +7902,13 @@ CSS
 		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
 		return 301;
 	}
+	
+	# On the producers platform, show a link to the public platform
+	if ($server_options{producers_platform}) {
+		my $public_product_url = "https:\/\/$cc.${server_domain}" . $request_ref->{canon_url};
+		$public_product_url =~ s/\.pro\./\./;
+		$template_data_ref->{public_product_url} = $public_product_url;
+	}
 
 	$template_data_ref->{product_changes_saved} = $request_ref->{product_changes_saved};
 	$template_data_ref->{structured_response_count} = $request_ref->{structured_response}{count};
@@ -8336,7 +8436,8 @@ HTML
 
 	$template_data_ref->{admin} = $admin;
 
-	if ($admin) {
+	# the carbon footprint infocard has been replaced by the Eco-Score details
+	if (0 and $admin) {
 		compute_carbon_footprint_infocard($product_ref);
 		$template_data_ref->{display_field_environment_infocard} = display_field($product_ref, 'environment_infocard');
 		$template_data_ref->{carbon_footprint_from_meat_or_fish_debug} = $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
@@ -9298,8 +9399,6 @@ sub display_nutrition_table($$) {
 				rows => [],
 			},
 		],
-
-		carbon_footprint => [],
 	};
 
 	my @cols;
@@ -9965,8 +10064,9 @@ JS
 	}
 
 	# Remove the ecological table if we have no rows
+	# 2021-02: remove the ecological table as we now show the Eco-Score
 
-	if (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0) {
+	if ((1) or (scalar @{$template_data_ref->{tables}[1]->{rows}} == 0)) {
 		pop @{$template_data_ref->{tables}};
 	}
 
@@ -10211,26 +10311,21 @@ HTML
 		}
 
 		# Disable nested ingredients in ingredients field (bug #2883)
-		if (defined $product_ref->{ingredients}) {
-			my $i = 0;
-			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-				$i++;
-				if ((defined param("api_version")) and (param("api_version") > 1)) {
-					# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-					if ( not exists $ingredient_ref->{rank} ) {
-						# delete this ingredient and ingredients after
-						while (scalar @{$product_ref->{ingredients}} >= $i) {
-							pop @{$product_ref->{ingredients}};
-						}
-						last;
-					}
-				}
-				else {
+		
+		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
+		
+		if ((defined param("api_version")) and (param("api_version") <= 1)) {
+
+			if (defined $product_ref->{ingredients}) {
+				
+				flatten_sub_ingredients($product_ref);
+
+				foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 					# Delete sub-ingredients, keep only flattened ingredients
 					exists $ingredient_ref->{ingredients} and delete $ingredient_ref->{ingredients};
 				}
 			}
-		}
+		}		
 
 		# Return blame information
 		if (defined param("blame")) {
@@ -10829,19 +10924,6 @@ sub display_ingredients_analysis_details($) {
 		lang => \&lang,
 	};
 
-	my $i = 0;
-	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-		$i++;
-		# Keep only nested ingredients, delete sub-ingredients that have been flattened and added at the end
-		if ( not exists $ingredient_ref->{rank} ) {
-			# delete this ingredient and ingredients after
-			while (scalar @{$product_ref->{ingredients}} >= $i) {
-				pop @{$product_ref->{ingredients}};
-			}
-			last;
-		}
-	}
-
 	my $ingredients_text = "";
 	my $ingredients_list = "";
 
@@ -11014,6 +11096,34 @@ sub display_ecoscore_calculation_details($) {
 
 	my $html;
 	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+
+	return $html;
+}
+
+
+=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_data_ref )
+
+Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
+
+=cut
+
+sub display_ecoscore_calculation_details_simple_html($) {
+
+	my $ecoscore_data_ref = shift;
+
+	# Generate a data structure that we will pass to the template engine
+
+	my $template_data_ref = dclone($ecoscore_data_ref);
+	
+	my $decf = get_decimal_formatter($lc);
+	$template_data_ref->{round} = sub($) {
+		return sprintf ("%.0f", $_[0]);
+	};
+
+	# Eco-score Calculation Template
+
+	my $html;
+	process_template('ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

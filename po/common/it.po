@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-12-07 09:32\n"
+"PO-Revision-Date: 2021-03-11 11:51\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: it\n"
-"X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1378\n"
+"X-Crowdin-File: common.pot\n"
+"X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -271,7 +271,7 @@ msgstr "Asse verticale"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Codice a barre"
+msgstr "Codice a Barre"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -395,7 +395,7 @@ msgstr "Prodotti imballati nella città di %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "Città di imballaggio"
+msgstr "città di imballaggio"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -587,7 +587,7 @@ msgstr "editore"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "Indirizzo e-mail"
+msgstr "indirizzo e-mail"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -599,11 +599,11 @@ msgstr "Codici di tracciabilità"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Codice di tracciabilità"
+msgstr "Codice Packager"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Codice di tracciabilità"
+msgstr "Codice Packager"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -731,7 +731,7 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "La data di scadenza permette di tracciare le modifiche dei prodotti nel tempo e riconoscere la versione più recente."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
+msgid "Explore products by..."
 msgstr "Esplora i prodotti per..."
 
 msgctxt "facebook_locale"
@@ -1375,7 +1375,7 @@ msgstr "Per i prodotti senza un codice a barre, un codice interno viene impostat
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Iscriviti alla newsletter (2 email al mese massimo)"
+msgstr "Iscriviti alla newsletter (2 e-mail al mese massimo)"
 
 msgctxt "next"
 msgid "Next"
@@ -1584,7 +1584,7 @@ msgstr "Origine degli ingredienti"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr "California, USA"
+msgstr "California, Stati Uniti"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1970,12 +1970,12 @@ msgid "Hello <NAME>,\n\n"
 "https://openfoodfacts.org\n"
 msgstr "Ciao <NAME>,\n\n"
 "Hai chiesto di reimpostare la password su https://openfoodfacts.org\n\n"
-"per l'utente: <USERID>\n\n"
+"per li nome utente: <USERID>\n\n"
 "Per reimpostare la password fai clic sul collegamento sottostante.\n"
 "Se non hai chiesto di reimpostare la password puoi ignorare questo messaggio.\n\n"
 "<RESET_URL>\n\n"
 "A presto,\n\n"
-"Stephane\n"
+"Stéphane\n"
 "https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
@@ -1992,7 +1992,7 @@ msgstr "Introdurre una nuova password"
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "Una mail con un link per consentirvi di cambiare la password è stata inviata all' indirizzo e-mail associato al vostro account."
+msgstr "Un'e-mail con un collegamento per consentirvi di cambiare la password è stata inviata all'indirizzo e-mail associato al tuo account."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
@@ -2126,7 +2126,7 @@ msgstr "Selezionare ciò che si desidera rappresentare graficamente sull'asse or
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "Link permanente a questo grafico, condivisibile via e-mail e sui social network"
+msgstr "Collegamento permanente a questo grafico, condivisibile via posta elettronica e sui reti sociali"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
@@ -2150,7 +2150,7 @@ msgstr "Ingredienti"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr "Collegamento permanente a questi risultati, condivisibile via email e sui social network"
+msgstr "Collegamento permanente a questi risultati, condivisibile via posta elettronica e sui reti sociali"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2166,7 +2166,7 @@ msgstr "I risultati su una mappa"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr "Collegamento permanente a questa mappa, condivisibile via email e sui social network"
+msgstr "Collegamento permanente a questa mappa, condivisibile via posta elettronica e sui reti sociali"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
@@ -2282,7 +2282,7 @@ msgstr "Vedi la pagina del prodotto"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Paese"
+msgstr "Paesi di vendita"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2498,7 +2498,7 @@ msgstr "(lettere non accentate, numeri e/o trattini)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "Username o indirizzo e-mail"
+msgstr "Nome utente o indirizzo e-mail"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2654,11 +2654,11 @@ msgstr "Elimina l’utente"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
-msgstr ""
+msgstr "Alcuni dei dati per questo prodotto sono stati forniti direttamente dal produttore %s."
 
 msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
-msgstr ""
+msgstr "Alcuni dei dati e/o foto per questo prodotto provengono da queste fonti:"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -3678,7 +3678,7 @@ msgstr "I tuoi prodotti"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Il tuo account non è ancora associato a un'azienda. Invia un'email a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per attivare l'accesso gratuito alla piattaforma per i produttori."
+msgstr "Il tuo account non è ancora associato a un'azienda. Invia un'e-mail a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per attivare l'accesso gratuito alla piattaforma per i produttori."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -3967,7 +3967,7 @@ msgstr "Il Nutri-Score Nutri può essere modificato da %s a %s modificando il va
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr "La piattaforma per i produttori è ancora sotto sviluppo ed effettuiamo controlli manuali prima di importare i prodotti al database pubblico. Sei pregato di inviarci una email a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per aggiornare il database pubblico."
+msgstr "La piattaforma per i produttori è ancora sotto sviluppo ed effettuiamo controlli manuali prima di importare i prodotti al database pubblico. Sei pregato di inviarci una email a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per aggiornare la banca dati pubblica."
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4772,7 +4772,7 @@ msgstr "Numero telefonico"
 
 msgctxt "contact_email"
 msgid "e-mail address"
-msgstr "Indirizzo e-mail"
+msgstr "indirizzo e-mail"
 
 msgctxt "contact_link"
 msgid "Contact form link"
@@ -4822,7 +4822,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr "Modifica il tuo profilo utente"
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Ingredienti"
 
@@ -5011,38 +5011,165 @@ msgstr "Dettagli del calcolo dell'impronta forestale"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Ti trovi su un database pubblico."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Gestisci i tuoi prodotti sulla piattaforma per i produttori"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "Numero di prodotti con modifiche dall'ultima esportazione"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "Esporta solo i prodotti con modifiche"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "Questo è il tuo prodotto? Se lo è, sei pregato di usare la nostra piattaforma gratuita per i produttori per aggiornarlo."
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Incoraggiamo i produttori ad aggiungere o modificare dati e foto per i loro prodotti tramite la nostra piattaforma gratuita per i produttori così che possano essere contrassegnati come ufficiali e protetti dalle modifiche di altri."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "La piattaforma facilita l'importazione dei dati e delle foto del prodotto con un file Excel o CSV in ogni formato."
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "La piattaforma fornisce anche analisi profonde del prodotto."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Calcola indicatori come il Nutri-Score, NOVA e l'Eco-score e identifica automaticamente suggerimenti per migliorarli (per esempio tutti i prodotti che riceveranno un punteggio del Nutri-Score migliore con un lieve cambiamento di composizione)."
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr "Impronta forestale"
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr "Basso rischio di deforestazione (impronta forestale)"
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr "Impronta forestale molto piccola"
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr "Piccola impronta forestale"
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr "Impronta forestale media"
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr "Grande impronta forestale"
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr "Impronta forestale molto grande"
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr "Impronta forestale non calcolata"
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr "Quasi nessun rischio di deforestazione"
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr "Basso rischio di deforestazione"
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr "Rischio moderato di deforestazione"
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr "Alto rischio di deforestazione"
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr "Rischio molto elevato di deforestazione"
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr "Attualmente solo per prodotti con pollo o uova"
+
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr "Classifica i prodotti in base alle tue preferenze"
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr "Classifica i %d prodotti qui sotto in base alle tue preferenze"
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr "Prodotti più scansionati"
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr "Prodotti con il miglior Nutri-Score"
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr "Prodotti con il miglior Eco-Score"
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr "Prodotti aggiunti di recente"
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr "Prodotti modificati di recente"
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr "%d prodotti per pagina"
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr "Non applicabile"
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr "Nome del prodotto abbreviato"
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr "Nome del prodotto con abbreviazioni mostrate sulle ricevute"
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr "Visione, missione, valori e programmi"
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr "Password dimenticata?"
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr "Non è stato possibile reinizializzare la tua password, ti preghiamo di contattarci per assistenza."
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr "Rimuovi tutti i valori nutrizionali"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "Utente rimosso."
 

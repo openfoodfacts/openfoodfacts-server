@@ -22,11 +22,13 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -34,10 +36,11 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {
-            "ingredient" : "en:palm-oil",
-            "value" : -10
+            "warning" : "ingredients_missing"
          }
       },
       "agribalyse" : {
@@ -61,24 +64,23 @@
          "is_beverage" : 0,
          "name_en" : "Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3",
          "name_fr" : "Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3",
-         "score" : 71.9485117508868
+         "score" : 71
       },
       "grade" : "c",
       "missing" : {
+         "ingredients" : 1,
+         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 46.9485117508868,
+      "score" : 56,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 46.9485117508868,
+   "ecoscore_score" : 56,
    "ecoscore_tags" : [
       "c"
-   ],
-   "ingredients_analysis_tags" : [
-      "en:palm-oil"
    ],
    "lc" : "en",
    "misc_tags" : [

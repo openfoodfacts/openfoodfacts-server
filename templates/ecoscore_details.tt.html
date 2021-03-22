@@ -118,7 +118,7 @@
 	[% ELSE %]
 		<p>Pas de labels pris en compte pour le système de production.</p>
 		
-	[% IF adjustments.origins_of_ingredients.warning %]
+	[% IF adjustments.production_system.warning %]
 		<div class="panel warning">
 			Si ce produit a un label caractérisant le système de production (bio, commerce équitable, Label Rouge, Bleu Blanc Coeur etc.), vous pouvez modifier la fiche produit pour l'ajouter.<br><br>
 			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
@@ -172,6 +172,15 @@
 	[% ELSE %]
 		<p>Aucun ingrédient dont la culture menace des espèces n'a été détecté.</p>
 	[% END %]
+	
+	[% IF adjustments.threatened_species.warning %]
+		<div class="panel warning">
+			<strong>Les informations sur les ingrédients de ce produit ne sont pas renseignées.</strong><br><br>
+			Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]	
+	
 	</div>
 	</div>
 	
@@ -197,13 +206,20 @@
 		<p><strong>Emballage : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	[% END %]
 	
-	[% IF adjustments.origins_of_ingredients.warning %]
+	[% IF adjustments.packaging.warning %]
 		<div class="panel warning">
-			<strong>Les informations sur l'emballage de ce produit ne sont pas renseignées.</strong><br><br>
+			<strong>
+				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
+					Les informations sur l'emballage de ce produit ne sont pas renseignées.
+				[% ELSE %]
+					Les informations sur l'emballage de ce produit ne sont pas suffisamment précises (formes et matériaux exacts de tous les composants de l'emballage).
+				[% END %]
+			</strong>
+			<br><br>
 			Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.<br><br>
 			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
 		</div>
-	[% END %]		
+	[% END %]
 
 	</div>
 	</div>

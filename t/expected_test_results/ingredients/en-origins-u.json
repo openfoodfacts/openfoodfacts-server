@@ -1,7 +1,6 @@
 {
    "ingredients" : [
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:Something",
          "ingredients" : [
             {
@@ -15,15 +14,7 @@
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "rank" : 1,
          "text" : "Something"
-      },
-      {
-         "id" : "en:U",
-         "percent_estimate" : 100,
-         "percent_max" : 100,
-         "percent_min" : 100,
-         "text" : "U"
       }
    ],
    "ingredients_analysis_tags" : [

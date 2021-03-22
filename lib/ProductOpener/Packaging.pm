@@ -204,8 +204,12 @@ sub parse_packaging_from_text_phrase($$) {
 						# If we already have a value for the property,
 						# apply the new value only if it is a child of the existing value
 						# e.g. if we already have "plastic", we can override it with "PET"
+						# Special case for "cardboard" that can be both a shape (card) and a material (cardboard):
+						# -> a new shape can be assigned. e.g. "carboard box" -> shape = box
 						if ((not defined $packaging_ref->{$property})
-							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))) {
+							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))
+							or (($property eq "shape") and ($packaging_ref->{$property} eq "en:card"))
+							) {
 							
 							$packaging_ref->{$property} = $tagid;
 						}
@@ -315,6 +319,12 @@ sub analyze_and_combine_packaging_data($) {
 		next if $phrase eq "";
 		
 		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
+		
+		# If the shape is "capsule" and the product is in category "en:coffees", mark the shape as a "coffee capsule"
+		if ((defined $packaging_ref->{"shape"}) and ($packaging_ref->{"shape"} eq "en:capsule")
+			and (has_tag($product_ref, "categories", "en:coffees"))) {
+			$packaging_ref->{"shape"} = "en:coffee-capsule";
+		}
 		
 		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
 		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {

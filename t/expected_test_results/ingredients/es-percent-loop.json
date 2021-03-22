@@ -5,7 +5,6 @@
          "percent_estimate" : 62.125,
          "percent_max" : 68,
          "percent_min" : 56.25,
-         "rank" : 1,
          "text" : "Tomate",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -16,7 +15,6 @@
          "percent_estimate" : "12",
          "percent_max" : "12",
          "percent_min" : "12",
-         "rank" : 2,
          "text" : "pimiento",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -27,7 +25,6 @@
          "percent_estimate" : "10",
          "percent_max" : "10",
          "percent_min" : "10",
-         "rank" : 3,
          "text" : "atún",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -39,7 +36,6 @@
          "percent_estimate" : "4",
          "percent_max" : "4",
          "percent_min" : "4",
-         "rank" : 4,
          "text" : "aceite de oliva virgen extra",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -50,7 +46,6 @@
          "percent_estimate" : "3",
          "percent_max" : "3",
          "percent_min" : "3",
-         "rank" : 5,
          "text" : "huevo",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -61,7 +56,6 @@
          "percent_estimate" : "3",
          "percent_max" : "3",
          "percent_min" : "3",
-         "rank" : 6,
          "text" : "cebolla",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -71,7 +65,6 @@
          "percent_estimate" : 1.5,
          "percent_max" : "3",
          "percent_min" : 0,
-         "rank" : 7,
          "text" : "azúcar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -81,7 +74,6 @@
          "percent_estimate" : 1.5,
          "percent_max" : "3",
          "percent_min" : 0,
-         "rank" : 8,
          "text" : "almidón de maíz",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -91,13 +83,11 @@
          "percent_estimate" : 1.4375,
          "percent_max" : "3",
          "percent_min" : 0,
-         "rank" : 9,
          "text" : "sal",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:acid",
          "ingredients" : [
             {
@@ -105,23 +95,15 @@
                "percent_estimate" : 1.4375,
                "percent_max" : 2.75,
                "percent_min" : 0,
-               "text" : "ácido cítrico"
+               "text" : "ácido cítrico",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 1.4375,
          "percent_max" : 2.75,
          "percent_min" : 0,
-         "rank" : 10,
          "text" : "acidulante"
-      },
-      {
-         "id" : "en:e330",
-         "percent_estimate" : 1.4375,
-         "percent_max" : 2.75,
-         "percent_min" : 0,
-         "text" : "ácido cítrico",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis_tags" : [

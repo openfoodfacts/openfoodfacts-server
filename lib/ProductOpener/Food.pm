@@ -125,6 +125,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 use Hash::Util;
 
@@ -2536,6 +2537,16 @@ sub mmoll_to_unit {
 		zh_HK => "不可溶性纖維",
 		zh_TW => "不可溶性纖維",
 	},
+	"fructo-oligosaccharide" => {
+		en => "Fructo-oligosaccharide",
+		en_synonyms => ["Fructooligosaccharide", "Fructo-oligo-saccharide", "FOS", "oligofructose", "oligofructan"],
+		fr => "Fructo-oligosaccharide",
+	},
+	"galacto-oligosaccharides" => {
+		en => "Galacto-oligosaccharide",
+		en_synonyms => ["Galactooligosaccharides", "GOS", "oligogalactosyllactose", "oligogalactose", "oligolactose", "transgalactooligosaccharides", "TOS"],
+		fr => "Galacto-oligosaccharide",
+	},	
 	sodium => {
 		ar    => "الصوديوم",
 		cs    => "Sodík",
@@ -3759,6 +3770,7 @@ sub mmoll_to_unit {
 		nl    => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de    => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		it    => "Frutta, verdura, noci e olio di colza, noci e oliva (stima manuale dalla lista degli ingredienti)",
 		unit  => "%",
 	},
 
@@ -3771,6 +3783,8 @@ sub mmoll_to_unit {
 			"Früchte, Gemüse, Nüsse und Raps, Walnuss- und Olivenöl (Schätzung aus der Analyse der Zutatenliste)",
 		es =>
 			"Frutas, verduras, nueces y aceites de canola, nueces y oliva (estimado del análisis en la lista de ingredientes)",
+		it => 
+			"Frutta, verdura, noci e olio di colza, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -3815,6 +3829,7 @@ sub mmoll_to_unit {
 		en   => "NOVA group",
 		fi   => "NOVA-ryhmä",
 		fr   => "Groupe NOVA",
+		it   => "Gruppo NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
@@ -3852,6 +3867,7 @@ sub mmoll_to_unit {
 		en   => "Alcohol units",
 		de   => "Alkoholeinheiten",
 		fr   => "Unités d'alcool",
+		it   => "Unità di alcol",
 		unit => "",
 	},
 	"choline" => {
@@ -4230,6 +4246,8 @@ foreach my $group (keys %pnns) {
 Determines if a product should be considered as a beverage for Nutri-Score computations,
 based on the product categories.
 
+Dairy drinks are not considered as beverages if they have at least 80% of milk.
+
 =cut
 
 sub is_beverage_for_nutrition_score($) {
@@ -4261,6 +4279,21 @@ sub is_beverage_for_nutrition_score($) {
 					$is_beverage = 1;
 					last;
 				}
+			}
+		}
+		
+		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
+		if (has_tag($product_ref, "categories", "en:dairy-drinks")) {
+			
+			my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
+			
+			if ($milk_percent < 80) {
+				$log->debug("in en:dairy-drinks category but milk < 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+				$is_beverage = 1;
+			}
+			else {
+				$log->debug("in en:dairy-drinks category but milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+				$is_beverage = 0;
 			}
 		}
 	}
@@ -4313,6 +4346,14 @@ sub is_fat_for_nutrition_score($) {
 	return has_tag($product_ref, "categories", "en:fats");
 }
 
+
+=head2 special_process_product ( $ingredients_ref )
+
+Computes PNNS groups, and whether a product is to be considered a beverage for the Nutri-Score.
+
+Ingredients analysis (extract_ingredients_from_text) needs to be done before calling this function?
+
+=cut
 
 sub special_process_product($) {
 
@@ -5638,7 +5679,7 @@ sub compute_nova_group($) {
 
 	if (defined $options{nova_groups_tags}) {
 
-		foreach my $tag (sort {$options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}} keys %{$options{nova_groups_tags}}) {
+		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {			
 
 			if ($tag =~ /\//) {
 
@@ -5678,7 +5719,7 @@ sub compute_nova_group($) {
 					# don't move group 2 to group 3
 					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
 					) {
-					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group_debug} .= " --- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
 					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
 				}
 			}

@@ -82,7 +82,8 @@ BEGIN
 		&preparse_ingredients_text
 		&parse_ingredients_text
 		&analyze_ingredients
-		&flatten_sub_ingredients_and_compute_ingredients_tags
+		&flatten_sub_ingredients
+		&compute_ingredients_tags
 
 		&compute_ingredients_percent_values
 		&init_percent_values
@@ -93,6 +94,9 @@ BEGIN
 
 		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
+		
+		&add_milk
+		&estimate_milk_percent_from_ingredients
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -232,6 +236,10 @@ sub init_allergens_regexps() {
 					my $allergens_lc_allergenid = get_string_id_for_lang($allergens_lc, $translations_to{allergens}{$allergen}{$allergens_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$allergens_lc}{$allergens_lc_allergenid}}) {
+						# Change parenthesis to dots
+						# e.g. chemical formula in Open Beauty Facts ingredients
+						$synonym =~ s/\(/./g;
+						$synonym =~ s/\)/./g;
 						push @allergenssuffixes, $synonym;
 					}
 				}
@@ -378,6 +386,7 @@ my %and = (
 	pl => " i ",
 	pt => " e ",
 	ro => " și ",
+	ru => " и ",
 	sv => " och ",
 );
 
@@ -405,6 +414,7 @@ my %and_or = (
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
 );
 
@@ -424,7 +434,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -453,6 +463,15 @@ sub init_labels_regexps() {
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
 			}
+			
+			# also add the xx: entries and synonyms
+			if (($label_lc ne "xx") and (defined $translations_to{labels}{$labelid}{"xx"})) {
+				my $label_xx_labelid = get_string_id_for_lang("xx", $translations_to{labels}{$labelid}{"xx"});
+
+				foreach my $synonym (@{$synonyms_for{labels}{"xx"}{$label_xx_labelid}}) {
+					push @synonyms, $synonym;
+				}
+			}			
 
 			my $label_regexp = "";
 			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
@@ -1042,8 +1061,20 @@ sub parse_ingredients_text($) {
 										else {
 											$labels = $labelid;
 										}
-										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
-										$between = '';
+										
+										# some labels are in fact ingredients. e.g. "sustainable palm oil"
+										# in that case, add the corresponding ingredient
+																				
+										my $label_ingredient_id  = get_inherited_property("labels", $labelid, "ingredients:en");
+										
+										$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $labelid, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+										
+										if (defined $label_ingredient_id) {
+											$between = $label_ingredient_id;
+										}
+										else {
+											$between = '';
+										}
 									}
 									else {
 
@@ -1389,12 +1420,40 @@ sub parse_ingredients_text($) {
 						# and "France" matched "produit de France" / made in France (bug #2927)
 						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
 						if (exists_taxonomy_tag("labels", $label_id)) {
+							
 							# Add the label to the product
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-							$skip_ingredient = 1;
+														
 							$ingredient_recognized = 1;
 							
-							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							# some labels are in fact ingredients. e.g. "sustainable palm oil"
+							# in that case, add the corresponding ingredient
+																	
+							my $label_ingredient_id  = get_inherited_property("labels", $label_id, "ingredients:en");
+							
+							$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $label_id, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+							
+							if (defined $label_ingredient_id) {
+								
+								# The label is specific to an ingredient
+								
+								$ingredient_id = $label_ingredient_id;
+								
+								if (defined $labels) {
+									$labels .= ", " . $label_id;
+								}
+								else {
+									$labels = $label_id;
+								}
+								
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and add corresponding ingredient", { ingredient => $ingredient, label_id => $label_id, ingredient_id => $ingredient_id }) if $log->is_debug();
+							}
+							else {
+								# The label is not specific to an ingredient
+								
+								$skip_ingredient = 1;
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							}
 						}
 					}
 
@@ -1497,6 +1556,19 @@ sub parse_ingredients_text($) {
 								'o\.a\.',
 							],
 
+							'ru' => [
+								'^россия$',
+								'^состав( продукта)?$',
+								'^энергетическая ценность$',
+								'^калорийность$',
+								'^углеводы$',
+								'^не менее$',
+								'^средние значения$',
+								'^содержат$',
+								'^идентичный натуральному$',
+								'^(g|ж|ул)$'
+							],
+
 							'sv' => [
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
@@ -1593,14 +1665,13 @@ sub parse_ingredients_text($) {
 }
 
 
-=head2 flatten_sub_ingredients_and_compute_ingredients_tags ( product_ref )
+=head2 flatten_sub_ingredients ( product_ref )
 
-Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
-that expect a flat list of ingredients.
+Flatten the nested list of ingredients.
 
 =cut
 
-sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
+sub flatten_sub_ingredients($) {
 
 	my $product_ref = shift;
 
@@ -1623,11 +1694,47 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 			# Add a rank for all first level ingredients
 			$product_ref->{ingredients}[$i]{rank} = $rank++;
 		}
-		else {
-			# For sub-ingredients, do not list again the sub-ingredients
-			delete $product_ref->{ingredients}[$i]{ingredients};
+
+		# Delete the sub-ingredients, as they have been pushed at the end of the list
+		delete $product_ref->{ingredients}[$i]{ingredients};
+	}
+}
+
+
+=head2 compute_ingredients_tags ( product_ref )
+
+Go through the nested ingredients and compute ingredients_original_tags and ingredients_tags
+
+=cut
+
+sub compute_ingredients_tags($) {
+
+	my $product_ref = shift;
+	
+	$product_ref->{ingredients_tags} = [];
+	
+	# Traverse the ingredients tree, breadth first
+	
+	my @ingredients = ();
+
+	for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+		
+		push @ingredients, $product_ref->{ingredients}[$i];
+	}
+	
+	while (@ingredients) {
+		
+		my $ingredient_ref = shift @ingredients;
+		
+		push @{$product_ref->{ingredients_tags}}, $ingredient_ref->{id};
+		
+		if (defined $ingredient_ref->{ingredients}) {
+			
+			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+				
+				push @ingredients, $ingredient_ref->{ingredients}[$i];
+			}			
 		}
-		push @{$product_ref->{ingredients_tags}}, $product_ref->{ingredients}[$i]{id};
 	}
 
 	my $field = "ingredients";
@@ -1671,9 +1778,8 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		delete $product_ref->{unknown_ingredients_n};
 		delete $product_ref->{ingredients_n_tags};
 	}
-
-	return;
 }
+
 
 =head2 extract_ingredients_from_text ( product_ref )
 
@@ -1684,8 +1790,7 @@ to extract individual ingredients and sub-ingredients
 
 - compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
 
-- flatten_sub_ingredients_and_compute_ingredients_tags() to keep the nested list of sub-ingredients,
-but also copy the sub-ingredients at the end for apps that expect a flat list of ingredients
+- compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
 - analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
@@ -1729,7 +1834,7 @@ sub extract_ingredients_from_text($) {
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
 
-	flatten_sub_ingredients_and_compute_ingredients_tags($product_ref);
+	compute_ingredients_tags($product_ref);
 
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
@@ -2190,8 +2295,27 @@ sub analyze_ingredients($) {
 		foreach my $property (@properties) {
 
 			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
+			
+			# Traverse the ingredients tree, breadth first
+			
+			my @ingredients = ();
 
-			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+			for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+				
+				push @ingredients, $product_ref->{ingredients}[$i];
+			}
+			
+			while (@ingredients) {
+				
+				my $ingredient_ref = shift @ingredients;
+								
+				if (defined $ingredient_ref->{ingredients}) {
+					
+					for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+						
+						push @ingredients, $ingredient_ref->{ingredients}[$i];
+					}			
+				}
 
 				$values{all_ingredients}++;
 
@@ -2223,7 +2347,7 @@ sub analyze_ingredients($) {
 
 				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
 				if (($property eq "from_palm_oil") and (defined $value) and ($value eq "maybe")
-					and (defined $ingredient_ref->{has_sub_ingredients}) and ($ingredient_ref->{has_sub_ingredients} eq "yes")) {
+					and (defined $ingredient_ref->{ingredients})) {
 					$value = "ignore";
 				}
 
@@ -3588,7 +3712,7 @@ sub preparse_ingredients_text($$) {
 	$prev_text = $text;
 
 	# Symbols to indicate labels like organic, fairtrade etc.
-	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
+	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
 	my $symbols_regexp = join('|', @symbols);
 
 	if ((scalar keys %labels_regexps) == 0) {
@@ -3691,7 +3815,8 @@ sub preparse_ingredients_text($$) {
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
+	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
 	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -5143,7 +5268,7 @@ sub add_fruits($) {
 		elsif (defined $ingredient_ref->{ingredients}) {
 			$fruits += add_fruits($ingredient_ref->{ingredients});
 		}
-			$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
+		$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
 	}
 
 	$log->debug("add_fruits result", { fruits => $fruits }) if $log->is_debug();
@@ -5179,6 +5304,73 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 	}
 
 	return;
+}
+
+
+=head2 add_milk ( $ingredients_ref )
+
+Recursive function to compute the % of milk for Nutri-Score computation.
+
+=cut
+
+sub add_milk($) {
+
+	my $ingredients_ref = shift;
+
+	my $milk = 0;
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		
+		if (is_a("ingredients", $ingredient_ref->{id}, "en:milk")) {
+
+			if (defined $ingredient_ref->{percent}) {
+				$milk += $ingredient_ref->{percent};
+			}
+			elsif (defined $ingredient_ref->{percent_min}) {
+				$milk += $ingredient_ref->{percent_min};
+			}
+			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
+			# in that case, try to get the possible percent values in nested sub ingredients
+			elsif (defined $ingredient_ref->{ingredients}) {
+				$milk += add_milk($ingredient_ref->{ingredients});
+			}
+		}
+		elsif (defined $ingredient_ref->{ingredients}) {
+			$milk += add_milk($ingredient_ref->{ingredients});
+		}
+		
+		$log->debug("add_milk ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_milk => $milk }) if $log->is_debug();
+	}
+
+	$log->debug("add_milk result", { milk => $milk }) if $log->is_debug();
+
+	return $milk;
+}
+
+
+=head2 estimate_milk_percent_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the minimum percentage of milk in a product,
+in order to know if a dairy drink should be considered as a food (at least 80% of milk) or a beverage.
+
+Return value: estimated % of milk.
+
+=cut
+
+sub estimate_milk_percent_from_ingredients($) {
+
+	my $product_ref = shift;
+	my $milk_percent = 0;
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+	
+		$log->debug("milk percent - start", { milk_percent => $milk_percent }) if $log->is_debug();
+		$milk_percent = add_milk($product_ref->{ingredients});
+	}
+	
+	$log->debug("milk percent", { milk_percent => $milk_percent }) if $log->is_debug();
+
+	return $milk_percent;
 }
 
 1;

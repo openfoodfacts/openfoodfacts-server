@@ -23,6 +23,7 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
@@ -35,8 +36,12 @@
             "value" : -10,
             "warning" : "unspecified_material"
          },
-         "production_system" : {},
-         "threatened_species" : {}
+         "production_system" : {
+            "warning" : "no_label"
+         },
+         "threatened_species" : {
+            "warning" : "ingredients_missing"
+         }
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "2011",
@@ -59,19 +64,21 @@
          "is_beverage" : 1,
          "name_en" : "Mixed fruits juice, orange based, multivitamin",
          "name_fr" : "Jus multifruit - base orange, multivitaminé",
-         "score" : 50.8966311728851
+         "score" : 51
       },
       "grade" : "d",
       "missing" : {
+         "ingredients" : 1,
+         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 35.8966311728851,
+      "score" : 36,
       "status" : "known"
    },
    "ecoscore_grade" : "d",
-   "ecoscore_score" : 35.8966311728851,
+   "ecoscore_score" : 36,
    "ecoscore_tags" : [
       "d"
    ],

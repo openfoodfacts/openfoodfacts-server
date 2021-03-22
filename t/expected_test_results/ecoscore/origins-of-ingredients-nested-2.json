@@ -22,11 +22,13 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -34,7 +36,9 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {}
       },
       "agribalyse" : {
@@ -58,21 +62,22 @@
          "is_beverage" : 0,
          "name_en" : "Camembert cheese, from cow's milk",
          "name_fr" : "Camembert, sans précision",
-         "score" : 61.604062231297
+         "score" : 54
       },
-      "grade" : "c",
+      "grade" : "d",
       "missing" : {
+         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 46.604062231297,
+      "score" : 39,
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 46.604062231297,
+   "ecoscore_grade" : "d",
+   "ecoscore_score" : 39,
    "ecoscore_tags" : [
-      "c"
+      "d"
    ],
    "ingredients" : [
       {
@@ -80,13 +85,11 @@
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
-         "rank" : 1,
          "text" : "Milk",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:chocolate",
          "ingredients" : [
             {
@@ -94,14 +97,18 @@
                "percent_estimate" : 8.33333333333333,
                "percent_max" : 50,
                "percent_min" : 0,
-               "text" : "cocoa"
+               "text" : "cocoa",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:cocoa-butter",
                "percent_estimate" : 4.16666666666667,
                "percent_max" : 25,
                "percent_min" : 0,
-               "text" : "cocoa butter"
+               "text" : "cocoa butter",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:sweetener",
@@ -111,7 +118,9 @@
                      "percent_estimate" : 4.16666666666667,
                      "percent_max" : 16.6666666666667,
                      "percent_min" : 0,
-                     "text" : "aspartame"
+                     "text" : "aspartame",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
                   }
                ],
                "percent_estimate" : 4.16666666666667,
@@ -123,7 +132,6 @@
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
-         "rank" : 2,
          "text" : "chocolate",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -133,43 +141,7 @@
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "rank" : 3,
          "text" : "salt",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:cocoa",
-         "percent_estimate" : 8.33333333333333,
-         "percent_max" : 50,
-         "percent_min" : 0,
-         "text" : "cocoa",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:cocoa-butter",
-         "percent_estimate" : 4.16666666666667,
-         "percent_max" : 25,
-         "percent_min" : 0,
-         "text" : "cocoa butter",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "has_sub_ingredients" : "yes",
-         "id" : "en:sweetener",
-         "percent_estimate" : 4.16666666666667,
-         "percent_max" : 16.6666666666667,
-         "percent_min" : 0,
-         "text" : "sweetener"
-      },
-      {
-         "id" : "en:e951",
-         "percent_estimate" : 4.16666666666667,
-         "percent_max" : 16.6666666666667,
-         "percent_min" : 0,
-         "text" : "aspartame",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }

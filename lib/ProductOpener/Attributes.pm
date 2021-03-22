@@ -95,6 +95,17 @@ $options{attribute_groups} = [
 	],
 [..]
 
+=cut
+
+# Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
+my %attribute_groups = ();
+
+if (defined $options{attribute_groups}) {
+	foreach my $attribute_group_ref (@{$options{attribute_groups}}) {
+		$attribute_groups{$attribute_group_ref->[0]} = $attribute_group_ref->[1];
+	}
+}
+
 
 =head1 FUNCTIONS
 
@@ -123,12 +134,12 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %attribute_groups hash.
+The return value is cached for each language in the %localized_attribute_groups hash.
 
 =cut
 
 # Global structure to cache the return structure for each language
-my %attribute_groups = ();
+my %localized_attribute_groups = ();
 
 sub list_attributes($) {
 
@@ -138,9 +149,9 @@ sub list_attributes($) {
 
 	# Construct the return structure only once for each language
 	
-	if (not defined $attribute_groups{$target_lc}) {
+	if (not defined $localized_attribute_groups{$target_lc}) {
 		
-		$attribute_groups{$target_lc} = [];
+		$localized_attribute_groups{$target_lc} = [];
 		
 		if (defined $options{attribute_groups}) {
 			
@@ -157,12 +168,12 @@ sub list_attributes($) {
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 				
-				push @{$attribute_groups{$target_lc}}, $group_ref;
+				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
 			}
 		}
 	}
 	
-	return $attribute_groups{$target_lc};
+	return $localized_attribute_groups{$target_lc};
 }
 
 
@@ -1123,7 +1134,7 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
 
-=head4 allergen_id $allergen_id
+=head4 attribute_allergen_id $attribute_allergen_id
 
 "en:gluten", "en:sulphur-dioxide-and-sulphites" : allergen ids from the allergens taxonomy
 
@@ -1143,15 +1154,15 @@ sub compute_attribute_allergen($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $allergen_id = shift;	
+	my $attribute_id = shift;	# e.g. "allergens_no_gluten",
+	
+	my $allergen = $attribute_id;
+	$allergen =~ s/^allergens_no_//;
+	$allergen =~ s/_/-/g;
+	
+	my $allergen_id = "en:" . $allergen;
 
-	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, allergen_id => $allergen_id }) if $log->is_debug();
-
-	my $allergen = $allergen_id;
-	$allergen =~ s/^en://;
-
-	my $attribute_id = "allergens_no_" . $allergen;
-	$attribute_id =~ s/-/_/g;
+	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id }) if $log->is_debug();
 	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
@@ -1282,10 +1293,10 @@ sub compute_attribute_ingredients_analysis($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $attribute_id = shift;
+	my $analysis = shift;
 	
-	my $analysis = $attribute_id;
-	$analysis =~ s/_/-/g;
+	my $attribute_id = $analysis;
+	$attribute_id =~ s/-/_/g;
 	
 	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, attribute_id => $attribute_id, analysis => $analysis }) if $log->is_debug();
 	
@@ -1489,8 +1500,8 @@ sub compute_attributes($$$) {
 	}
 	
 	# Allergens
-	foreach my $allergen (keys %{$translations_to{allergens}}) {
-		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
+	foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
+		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen_attribute_id);
 		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
 	}
 	

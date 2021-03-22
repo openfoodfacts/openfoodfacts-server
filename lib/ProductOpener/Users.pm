@@ -88,6 +88,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -163,6 +164,35 @@ sub create_user($) {
 	}
 
 	return;
+}
+
+
+sub delete_user($) {
+	
+	my $user_ref = shift;
+	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
+	my $new_userid = "openfoodfacts-contributors";
+	
+	$log->info("delete_user", { userid => $userid, new_userid => $new_userid }) if $log->is_info();
+	
+	# Remove the user file
+	unlink("$data_root/users/$userid.sto");
+	
+	# Remove the e-mail
+
+	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $email = $user_ref->{email};
+
+	if ((defined $email) and ($email =~/\@/)) {
+		
+		if (defined $emails_ref->{$email}) {
+			delete $emails_ref->{$email};
+			store("$data_root/users_emails.sto", $emails_ref);
+		}
+	}
+	
+	#  re-assign product edits to openfoodfacts-contributors-[random number]
+	find_and_replace_user_id_in_products($userid, $new_userid);
 }
 
 
@@ -556,17 +586,52 @@ sub process_user_form($$) {
 
 		if (defined $requested_org_ref) {
 			# The requested org already exists
+			
+			my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+Aide pour importer vos produits sur Open Food Facts
+TEXT
+);
+
+			my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+
+J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
+
+Cette plateforme totalement gratuite soutenue par Santé publique France vous permet d'importer vos produits dans Open Food Facts ainsi que les plus de 100 applications et services qui utilisent nos données.
+
+- Elle vous permet également de trouver des opportunités de reformulation pour améliorer le Nutri-Score de vos produits.
+- Il vous suffit d'importer tout tableau Excel dont vous disposez déjà, de vérifier et d’éventuellement ajuster la correspondance des colonnes pour importer l'ensemble de votre gamme.
+- Vous pouvez également glisser-déposer des images de vos produits (face avant, ingrédients, nutrition et éventuellement pack à plat, instruction de recyclage…)
+
+Nous disposons également d’une intégration automatisée via plusieurs systèmes de gestion de données.
+
+Vous trouverez une présentation complète de la plateforme dans cette présentation :
+
+Guide plateforme - https://docs.google.com/presentation/d/e/2PACX-1vQiPrVqyVFxie7embgOIeCAWkfPALWOjfMOBQBvFBiNqxyUJUrgr_rt48WnWuvvJKo-UPtLx52xuV6M/pub?start=false&loop=false&delayms=3000&slide=id.g76aba96933_2_51
+
+Je suis à votre disposition si vous avez des questions ou besoin d'aide sur ces divers points.
+
+Bien cordialement,
+
+
+TEXT
+);
 
 			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
+requested_org_id: $user_ref->{requested_org_id}<br>
+userid: $user_ref->{userid}<br>
+name: $user_ref->{name}<br>
+email: $user_ref->{email}<br>
+lc: $user_ref->{initial_lc}<br>
+cc: $user_ref->{initial_cc}<br>
+
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
+
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+
 EMAIL
 ;
-			send_email_to_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
 		}
 		else {
 			# The requested org does not exist, create it
@@ -584,9 +649,10 @@ name: $user_ref->{name}
 email: $user_ref->{email}
 lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
 EMAIL
 ;
-			send_email_to_admin(
+			send_email_to_producers_admin(
 				"Org created by user: $userid - org: "
 					. $user_ref->{requested_org_id},
 				$admin_mail_body
@@ -949,13 +1015,11 @@ sub init_user()
 		%User = ();
 	}
 
-	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
-	# Populate $Org_id and %org_ref from the user profile.
-	# TODO: create org profiles with customer service info etc.
+	# Load the user org profile
 
 	if (defined $user_ref->{org_id}) {
 		$Org_id = $user_ref->{org_id};
-		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+		$org_ref = retrieve_or_create_org($User_id, $Org_id);
 	}
 
 	if (defined $Org_id) {

@@ -5326,3 +5326,92 @@ msgstr "We could not reinitialize your password, please contact us for assistanc
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
 msgstr "Remove all nutrient values"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "User deleted."
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr "List of GS1 GLN identifiers to be associated with the organization"
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr "Enable organization members to manually export product data and photos to the public database."
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr "Activate automated daily exports of product data and photos to the public database."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr "Administrator fields"
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr "Queued"
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr "In progress"
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr "Finished"
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr "Failed"
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr "Export from the producers platform"
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr "Import to the public database"
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr "Update of the import status on the producers platform"
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr "The export has been scheduled. This page can be closed."
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr "Your export has been scheduled. You will receive an e-mail once it is finished."
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr "Product page on the public database"
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr "The product does not exist yet on the public database"
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr "Some product updates have not been published on the public database."
+

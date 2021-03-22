@@ -47,7 +47,10 @@ my $action = param('action') || 'display';
 my $code = normalize_code(param('code'));
 my $imgids = param('imgids');
 my $move_to = param('move_to_override');
-if ($move_to ne 'trash') {
+if ($move_to =~ /^(off|obf|opf|opff)$/) {
+	$move_to .= ':' . $code;
+}
+elsif ($move_to ne 'trash') {
 	$move_to = normalize_code($move_to);
 }
 my $copy_data = param('copy_data_override');
@@ -150,10 +153,13 @@ if ($move_to ne 'trash') {
 		exit(0);
 	}
 
-	my $new_product_ref = product_exists($move_to_id); # returns 0 if not
+	my $new_product_ref = retrieve_product($move_to_id);
 
-	if (not $new_product_ref) {
-		$log->info("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id });
+	if (defined $new_product_ref) {
+		$log->debug("new product code already exists", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
+	}
+	else {
+		$log->debug("new product code does not exist yet, creating product", { move_to => $move_to, move_to_id => $move_to_id }) if $log->is_debug();
 		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
@@ -184,11 +190,17 @@ if ($move_to ne 'trash') {
 
 		store_product($new_product_ref, "Creating product (moving image from product $code");
 	}
-	else {
-		$log->info("new product code already exists", { move_to => $move_to });
-	}
 
 	$response{url} = product_url($move_to);
+	
+	# URL on another server?
+	my $server = server_for_product_id($move_to);
+	if (defined $server) {
+		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{domain} . $response{url};
+		$url =~ s/\/([a-z]+):([0-9])/\/$2/;
+		$response{url} = $url;
+	}
+	
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }
 

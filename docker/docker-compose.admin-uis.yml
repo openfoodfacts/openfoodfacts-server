@@ -20,7 +20,7 @@ services:
     networks:
       - webnet
   adminer:
-    image: adminer:4.7.6-standalone
+    image: adminer:4-standalone
     depends_on:
       - postgres
     ports:

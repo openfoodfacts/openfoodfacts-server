@@ -12,7 +12,7 @@
     <form method="post" action="/cgi/org.pl" enctype="multipart/form-data">
 
 		[% IF admin %]
-			<div>
+			<div class="panel callout">
 				<label>
 					<input type="checkbox" name="delete" value="on" />
 					[% lang("delete_org") %]
@@ -22,40 +22,53 @@
 		
 		[% FOREACH section IN sections %]
 		
-			[% IF section.name %]
-				<fieldset>
-					<legend>[% section.name %]</legend>
-			[% END %]
-			
-			[% IF section.description %]
-				<p>[% section.description %]</p>
-			[% END %]
-			[% IF section.note %]
-				<p>[% section.note %]</p>
-			[% END %]
-
-			[% FOREACH field IN section.fields %]
-
-				[% IF field.description %]
-					<p>[% field.description %]</p>
-				[% END %]			
-			
-				<label for="[% field.field %]">[% field.label %]</label>
-
-				[% IF field.type == 'text' %]
-					<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
-				[% ELSIF field.type == 'textarea' %]
-					<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+			[% IF admin OR section.id != "admin" %]
+		
+				[% IF section.name %]
+					<fieldset[% IF section.id == "admin" %] class="panel callout"[% END %]>
+						<legend>[% section.name %]</legend>
 				[% END %]
 				
-				[% IF field.note %]
-					<p>[% field.note %]</p>
+				[% IF section.description %]
+					<p>[% section.description %]</p>
+				[% END %]
+				[% IF section.note %]
+					<p>[% section.note %]</p>
 				[% END %]
 
-			[% END %]
+				[% FOREACH field IN section.fields %]
+
+					[% IF field.description %]
+						<p>[% field.description %]</p>
+					[% END %]								
+
+					[% IF field.type == 'text' %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
+					[% ELSIF field.type == 'textarea' %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+					[% ELSIF field.type == 'checkbox' %]
+						<label for="[% field.field %]">
+							<input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+							[% field.label %]
+							value: [% field.value %]
+						</label>
+					[% END %]
+					
+					[% IF field.note %]
+						<p style="font-size:.8em">&rarr; [% field.note %]</p>
+					[% END %]
+
+				[% END %]
+				
+				[% IF section.name %]
+					</fieldset>
+					[% IF section.name == "admin" %]
+						</div>
+					[% END %]
+				[% END %]
 			
-			[% IF section.name %]
-				</fieldset>
 			[% END %]
 
 		[% END %]
@@ -63,7 +76,7 @@
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="[% type %]" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" />
+		<input type="submit" name=".submit" class="button" value="[% lang("save") %]"/>
     </form>
 
     <!-- End form -->

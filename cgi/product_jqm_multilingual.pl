@@ -355,15 +355,6 @@ else {
 		}
 	}
 
-
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
-
 	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
@@ -388,6 +379,13 @@ else {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
+	
+	# Food category rules for sweeetened/sugared beverages
+	# French PNNS groups from categories
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		ProductOpener::Food::special_process_product($product_ref);
+	}	
 
 	# Nutrition data
 
