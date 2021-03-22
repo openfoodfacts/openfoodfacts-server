@@ -6122,94 +6122,9 @@ la:Tilia cordata
 nl:Winterlinde
 wikidata:en:Q158746
 
-# description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-
 <en:Herbal teas
-# <en:Plant
-en:liquorice, licorice
-af:Soethout
-ar:عرقسوس
-az:Şirinbiyan
-ba:Татлы тамыр
-bg:женско биле
-bo:ཤིང་མངར།
-bs:Sladić
-ca:regalèssia
-cs:lékořice lysá
-cy:Gwylys
-da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
-dv:ވޭމުއި
-el:Γλυκόριζα
-eo:Vera glicirizo
-es:regaliz
-et:Lagritsa-magusjuur
-eu:Erregaliz
-fa:شیرین‌بیان
-fi:Lakritsikasvi
-fr:Infusions de réglisse, réglisse
-ga:Liocras
-gl:Regalicia
-he:שוש קירח
-hi:यष्टिमधु
-hr:Slatki korijen
-hu:Igazi édesgyökér
-hy:քաղցրարմատ
-id:Akar manis
-io:Regoliso
-is:Lakkrísrót
-it:liquirizia
-ja:スペインカンゾウ
-ka:ძირტკბილა
-kk:Қызылмия
-kn:ಅತಿಮಧುರ
-ko:민감초
-ku:Sûs
-la:Glycyrrhiza glabra
-lb:Séissholz
-lt:Paprastasis saldymedis
-lv:lakrica# mai:मुलेठी
-ml:ഇരട്ടിമധുരം
-mr:ज्येष्ठमध
-ms:Akar manis
-nb:lakrisplante
-ne:जेठी मधु
-nl:zoethout
-oc:Regalícia
-pa:ਮੁਲ੍ਹਠੀ
-pl:Lukrecja gładka
-pt:alcaçuz
-ro:Lemn dulce
-ru:лакрица
-sa:यष्टी
-sh:Sladić
-sl:Golostebelni sladki koren
-sr:Сладић
-sv:lakrits, Lakritsrot
-ta:அதிமதுரம்
-te:అతిమధురము
-th:ชะเอมเทศ
-tl:Likorisa
-tr:Meyan
-uk:локриця
-uz:Qizilmiya
-zh:光果甘草
-# aeb-arab:عرب السوس
-# arz:عرقسوس
-# bar:Bärndreck
-# diq:Sus
-# frr:Swetholt
-# gsw:Lakritze
-# hsb:Słódnik
-# sco:alicreesh
-# tcy:ಜೇಷ್ಠಮಧು
-# vec:Sugorisia
-# vls:Kalissie
-# yue:洋甘草
-wikidata:en:Q257106
-wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
-# ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
-# category/liquorice has 27 products @2019-05-22
+en:Liquorice herbal teas, licorice teas, liquorice teas
+fr:Infusions de réglisse
 
 <en:Herbal teas
 en:Mallow, Common mallow
@@ -6326,6 +6241,12 @@ fr:Salsepareille
 la:Smilax regelii, Smilax aspera
 nl:Sarsaparilla
 wikidata:en:Q161119
+
+# description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
+
+<en:Plant-based foods
+en:Liquorice roots, licorice roots
+fr:Bâtons de réglisse, bâton de réglisse
 
 <en:Plant-based foods
 en:Psyllium
@@ -25564,7 +25485,7 @@ ca:Cacau en pols, Cacau
 de:Kakaopulver, Kakao
 es:Cacaos en polvo, cacao en polvo, cacao
 fi:kaakaojauheet
-fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao, Cacao non sucré en poudre soluble
+fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao, Cacao non sucré en poudre soluble, Cacao en poudre non sucré
 it:Cacao in polvere
 nl:Cacaopoeders, Cacaopoeder, Cacao
 ru:Какао-порошок
@@ -25572,9 +25493,6 @@ agribalyse_food_code:en:18100
 ciqual_food_code:en:18100
 ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
 ciqual_food_name:fr:Cacao, non sucré, poudre soluble
-
-<en:Cocoa powders
-fr:Cacao en poudre non sucré
 
 <en:Instant beverages
 <en:Cocoa and chocolate powders
@@ -27759,6 +27677,10 @@ fi:hunajamakeiset
 fr:Bonbons au miel, bonbon au miel
 it:Caramelle al miele
 nl:Honingbonbons
+
+<en:Candies
+en:Liquorice candies
+fr:Bonbons au réglisse, Bonbons à la réglisse
 
 <en:Candies
 en:Candy meringues, candy meringue
@@ -43663,7 +43585,7 @@ who_id:en:6
 
 <en:Breakfast cereals
 en:Cereals with fruits
-de:Müsli mit Früchten, Frühstückscerealien mit Früchten
+de:Frühstückscerealien mit Früchten
 es:Cereales con frutas
 fi:Viljat hedelmillä
 fr:Céréales aux fruits
@@ -44069,7 +43991,7 @@ agribalyse_proxy_food_name:fr:Muesli floconneux ou de type traditionnel
 <en:Mueslis
 <en:Cereals with fruits
 en:Mueslis with fruits
-de:Müslis mit Früchten, Früchtemüslis
+de:Müslis mit Früchten, Müsli mit Früchten, Früchtemüslis
 es:Mueslis con frutas
 fi:hedelmämyslit
 fr:Mueslis aux fruits
