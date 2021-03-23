@@ -6124,92 +6124,13 @@ wikidata:en:Q158746
 
 # description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 
+# 2021-03-23: removed "en:liquorice" as a category. It was under herbal teas,
+# but almost all entries under the en:liquorice category are candies.
+# Creating instead en:Liquorice herbal teas + en:Liquorice candies
+
 <en:Herbal teas
-# <en:Plant
-en:liquorice, licorice
-af:Soethout
-ar:عرقسوس
-az:Şirinbiyan
-ba:Татлы тамыр
-bg:женско биле
-bo:ཤིང་མངར།
-bs:Sladić
-ca:regalèssia
-cs:lékořice lysá
-cy:Gwylys
-da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
-dv:ވޭމުއި
-el:Γλυκόριζα
-eo:Vera glicirizo
-es:regaliz
-et:Lagritsa-magusjuur
-eu:Erregaliz
-fa:شیرین‌بیان
-fi:Lakritsikasvi
-fr:Infusions de réglisse, réglisse
-ga:Liocras
-gl:Regalicia
-he:שוש קירח
-hi:यष्टिमधु
-hr:Slatki korijen
-hu:Igazi édesgyökér
-hy:քաղցրարմատ
-id:Akar manis
-io:Regoliso
-is:Lakkrísrót
-it:liquirizia
-ja:スペインカンゾウ
-ka:ძირტკბილა
-kk:Қызылмия
-kn:ಅತಿಮಧುರ
-ko:민감초
-ku:Sûs
-la:Glycyrrhiza glabra
-lb:Séissholz
-lt:Paprastasis saldymedis
-lv:lakrica# mai:मुलेठी
-ml:ഇരട്ടിമധുരം
-mr:ज्येष्ठमध
-ms:Akar manis
-nb:lakrisplante
-ne:जेठी मधु
-nl:zoethout
-oc:Regalícia
-pa:ਮੁਲ੍ਹਠੀ
-pl:Lukrecja gładka
-pt:alcaçuz
-ro:Lemn dulce
-ru:лакрица
-sa:यष्टी
-sh:Sladić
-sl:Golostebelni sladki koren
-sr:Сладић
-sv:lakrits, Lakritsrot
-ta:அதிமதுரம்
-te:అతిమధురము
-th:ชะเอมเทศ
-tl:Likorisa
-tr:Meyan
-uk:локриця
-uz:Qizilmiya
-zh:光果甘草
-# aeb-arab:عرب السوس
-# arz:عرقسوس
-# bar:Bärndreck
-# diq:Sus
-# frr:Swetholt
-# gsw:Lakritze
-# hsb:Słódnik
-# sco:alicreesh
-# tcy:ಜೇಷ್ಠಮಧು
-# vec:Sugorisia
-# vls:Kalissie
-# yue:洋甘草
-wikidata:en:Q257106
-wikipedia:en:https://en.wikipedia.org/wiki/Liquorice
-# ingredient/fr:réglisse has 237 products in 6 languages @2018-12-28
-# category/liquorice has 27 products @2019-05-22
+en:Liquorice herbal teas, Liquorice teas, licorice herbal teas, licorice teas
+fr:Infusions au réglisse
 
 <en:Herbal teas
 en:Mallow, Common mallow
@@ -6326,6 +6247,10 @@ fr:Salsepareille
 la:Smilax regelii, Smilax aspera
 nl:Sarsaparilla
 wikidata:en:Q161119
+
+<en:Plant-based foods
+en:Liquorice roots, licorice roots
+fr:Bâtons de réglisse, bâton de réglisse
 
 <en:Plant-based foods
 en:Psyllium
@@ -27731,6 +27656,10 @@ ciqual_food_name:fr:Bonbons, tout type
 <en:Candies
 en:French candies
 fr:Bonbons français
+
+en:Candies
+en:Liquorice candies, Licorice candies
+fr:Bonbons au réglisse, Bonbons à la réglisse
 
 <en:French candies
 fr:Bêtises de Cambrai
@@ -68393,8 +68322,7 @@ wikidata:Q1886522
 
 en:Pickles
 ca:Conserves
-da:Syltede agurker
-de:Gurken
+de:Eingelegte Lebensmittel
 es:Encurtidos
 fi:säilykkeet
 fr:Pickles
@@ -75404,6 +75332,7 @@ nl:Ingemaakte wortels
 <en:Vegetable pickles
 en:Pickled cucumbers
 bg:Кисели краставици
+da:Syltede agurker
 de:Eingelegte Gurken
 es:Pepinos encurtidos
 fi:säilötyt kurkut
