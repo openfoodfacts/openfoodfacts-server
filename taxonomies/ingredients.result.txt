@@ -22,7 +22,6 @@ stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papi
 stopwords:nn:av
 stopwords:pl:w tym, zawiera, z
 stopwords:pt:do qual, dos quais,e
-stopwords:ru:состав, состав продукта, энергетическая ценность, калорийность, содержат, идентичный натуральному, g, ж, ул
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
 stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
@@ -2370,6 +2369,10 @@ wikidata:en: Q133948
 
 < en:Antioxidant
 en:natural antioxidant
+
+< en:Apple
+en:apple jam
+ru:повидло яблочное, яблочное повидло
 
 < en:Apple
 en:apple pieces
@@ -10800,7 +10803,7 @@ fr:Poudre de cacao brute
 
 < en:Cocoa powder
 en:skimmed cocoa powder
-ru:обезжиренный какаопорошок
+ru:обезжиренный какаопорошок, сухой обезжиренный остаток какао
 
 < en:Cocoa powder
 fr:poudre de cacao cru
@@ -14011,7 +14014,7 @@ ps:شيدې
 pt:Leite
 qu:Lichi, Pilli
 ro:Lapte
-ru:Молоко, нормализованное молоко, молоко нормализованное пастеризованное, молоко нормализованное по содержанию жира
+ru:Молоко, нормализованное молоко, молоко нормализованное, молоко нормализованное пастеризованное, молоко нормализованное по содержанию жира
 sa:क्षीरम्
 sd:کير
 sh:Mlijeko
@@ -15267,6 +15270,7 @@ sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
 additives_classes:en: en:colour
+comment:en: E101a is the same as E101ii. All synonyms are under E101-ii-. Needs more cleanup
 e_number:en: 101a
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin -E 101i- and riboflavin-5'-phosphate sodium -E 101-ii-- as food additives.
 efsa_evaluation_date:en: 2013-10-22
@@ -19252,10 +19256,14 @@ vegetarian:en: yes
 
 en:E170, Calcium carbonates
 ca:E170, Carbonats de calci
+de:E170, Calciumcarbonate, Calciumcarbonat
 es:E170, Carbonatos de calcio
 fi:E170, Kalsiumkarbonaatit
 fr:E170, Carbonates de calcium
+hu:E170
+it:Carbonato di calcio
 nl:E170, Calciumcarbonaten
+comment:en: enter the synonyms in plural.
 
 < en:E170
 en:E170i, Calcium carbonate, CI Pigment White 18, Chalk
@@ -19269,7 +19277,7 @@ ca:E170i, Carbonat de calci
 cs:E170i, Uhličitan vápenatý, CI bílý pigment 18
 cy:E170i, calsiwm carbonad
 da:E170i, Calciumcarbonat, CI Pigment White 18
-de:E170i, Calciumcarbonat, Pigment White 18, Kalk
+de:E170i, Pigment White 18, Kalk
 el:E170i, Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
 eo:E170i, kalcia karbonato
 es:E170i, Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
@@ -19288,7 +19296,7 @@ hu:E170i, Kalcium-karbonát, CI Pigment White 18
 hy:E170i, Կալցիումի կարբոնատ
 id:E170i, calsium carbonat
 is:E170i, Kalsíumkarbónat
-it:E170i, Carbonato di calcio, CI pigmento bianco 18
+it:E170i, CI pigmento bianco 18
 ja:E170i, 炭酸カルシウム
 ko:E170i, 탄산 칼슘
 ky:E170i, Кальций карбонаты
@@ -22889,6 +22897,7 @@ es:E322, Lecitinas, Fosfátidos
 et:E322, Letsitiinid, Fosfatiidid
 fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
 fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
+he:E322, לציטינים, לציטין, פוספטידים, תרכובות שומניות
 hu:E322, Lecitinek, Foszfatidek
 it:E322, Lecitine, Fosfatidi
 lt:E322, Lecitinai, Fosfatidai
@@ -22926,7 +22935,7 @@ fa:E322i, لسیتین
 fi:E322i, Lesitiini, Lesitiiniä
 fr:E322i, Lécithine
 gl:E322i, Lecitina
-he:E322i, לציטין
+he:E322i
 hr:E322i, Lecitin
 hu:E322i, Lecitin
 hy:E322i, Լեցիտիններ
@@ -25335,6 +25344,7 @@ ro:E381, citrat feric de amoniu
 sk:E381, citran amónno-železitý
 sl:E381, železov amonijev citrat
 sv:E381, ferriammoniumcitrat
+comment:en: FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en: 381
 vegan:en: yes
 vegetarian:en: yes
@@ -25365,6 +25375,7 @@ sk:E383, glycerofosforečnan vápenatý
 sl:E383, kalcijev glicerofosfat
 sr:E383, Kalcijum glicerilfosfat
 sv:E383, kalciumglycerolfosfat
+comment:en: CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 description:en: CALCIUM GLYCERYLPHOSPHATE -or calcium glycerophosphate- is a mineral supplement for Calcium.
 e_number:en: 383
 vegan:en: yes
@@ -27521,6 +27532,7 @@ es:E441, Aceite de semillas de colza superglicerinado hidrogenado
 fi:E441, Superglyseroitu hydrattu rypsiöljy
 fr:E441, Huile de colza superglycérinée hydrogénée
 it:E441
+nl:E441
 e_number:en: 441
 
 en:E442, Ammonium phosphatides, Mixed ammonium salts of phosphorylated glycerides, Emulsifier YN, Ammonium phosphatide, E 442
@@ -29290,6 +29302,7 @@ et:E476, Ritsinoolhappe polüglütseroolestrid
 fi:E476, Polyglyserolipolyrisiinioleaatti, PGPR, Polyglyserolipolyrisiinioleaatteja
 fr:E476, Esters polyglycériques d'acides gras d'huile de ricin, Polyricinoléate de polyglycérol, Esters polyglycériques de l'acide ricinoléique interesterifié, PGPR, Esters polyglycéroliques de l'acide ricinoléique interesterifié, Esters polyglycériques d'acides gras polycondensés d'huile de ricin, Esters glycériques d'acides gras condensés d'huile de ricin
 ga:polairicineoláit pholaigliocróil
+he:E476, פוליגליצרול פוליריצינולאט, חומר מתחלב, PGPR
 hr:poliglicerol - poliricinoleat
 hu:E476, Poliglicerin-poliricinoleát
 it:E476, Poliricinoleato di poliglicerolo
@@ -29921,6 +29934,7 @@ es:E500, Carbonatos de sodio
 et:E500, E500 food additive
 fi:E500, natriumkarbonaatit
 fr:E500, Carbonates de sodium
+he:E500, קרבונטים של נתרן, נתרן קרבונט, נתרן ביקרבונט, נתרן מימן-קרבונט, נתרן ססקויקרבונט, נתרן פחמתי, סודיום קרבונטים, סודיום קרבונט, חומר מווסת חומציות, חומר התפחה
 hu:E500, nátrium-karbonátok
 it:E500, Carbonati di sodio
 lt:E500, E500 food additive
@@ -29974,10 +29988,10 @@ eo:E500i, natria karbonato
 es:E500i, Carbonato sódico, Carbonato de sodio, Sosa comercial
 et:E500i, Naatriumkarbonaat
 fa:E500i, سدیم کربنات
-fi:E500i, Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
+fi:E500i, Sooda, Pesusooda, Natriumkarbonaattidekahydraatti, Natriumkarbonaatti, Natriitti, Kidesooda, Natriumkarbonaattimonohydraatti, Soodaa, Pesusoodaa, Natriumkarbonaattidekahydraattia, Natriumkarbonaattia, Natriittia, Kidesoodaa, Natriumkarbonaattimonohydraattia
 fr:E500i, Carbonate de sodium, Carbonate de soude, Cristaux de soude
 gv:E500i, Carboanaayt sodjum
-he:E500i, נתרן פחמתי
+he:E500i
 hi:E500i, क्षारातु प्रांगारीय
 hr:E500i, Natrijev karbonat
 hu:E500i, Nátrium-karbonát, szóda, sziksó, mosószóda, kalcinált szóda
@@ -30026,7 +30040,7 @@ wikidata:en: Q190227
 en:E500ii, Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 af:E500ii, Natriumbikarbonaat
 ar:E500ii, بيكربونات الصوديوم
-bg:E500ii, Натриев бикарбонат, Натриев хидроген карбонат, натриев кисел карбонат, сода бикарбонат
+bg:E500ii, Натриев хидроген карбонат, Натриев бикарбонат, натриев кисел карбонат, сода бикарбонат
 bn:E500ii, সোডিয়াম বাইকার্বনেট
 bs:E500ii, Natrij-hidrogenkarbonat
 ca:E500ii, hidrogencarbonat de sodi, bicarbonat sòdic
@@ -30140,7 +30154,7 @@ wikidata:en: Q2234978
 < en:E500ii
 ca:carbonat àcid de sodi i difosfat de disodi
 fr:diphosphate disodique et carbonate acide de sodium
-ru:сода, сода пищевая, гидрокарбонат натрия  разрыхлитель гидрокарбонат натрия
+ru:сода, сода пищевая, гидрокарбонат натрия, разрыхлитель гидрокарбонат натрия
 
 en:E501, Potassium carbonates, E-501
 bg:E501, E501 food additive
@@ -30167,6 +30181,7 @@ sk:E501, E501 food additive, uhličitany draselné
 sl:E501, E501 food additive
 sv:E501, Kaliumkarbonater
 additives_classes:en: en:stabilizer
+comment:en: Use plural for E501 and singular for E501i.
 e_number:en: 501
 mandatory_additive_class:en: en:acidity-regulator
 organic_eu:en: authorized
@@ -32921,6 +32936,7 @@ uk:Глюконат кальцію
 vi:canxi gluconat
 zh:葡萄糖酸钙
 additives_classes:en: en:sequestrant
+comment:en: CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en: 578
 mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
 vegan:en: yes
@@ -34381,7 +34397,7 @@ ms:Vaseline
 mt:E905b, E905b food additive
 nb:E905b, hvit myk parafin, Vaselin
 nl:E905b, petroleum jelly, Vaseline
-nn:E905b, Петролатум, kvit mjuk parafin
+nn:E905b, kvit mjuk parafin
 pl:E905b, Wazelina
 ps:E905b, واسلين
 pt:E905b, vaselina, gelatina de petróleo
@@ -35012,6 +35028,7 @@ tr:E917, Potasyum iyodat
 uk:E917, Йодат калію
 vi:E917, Kali iodat
 zh:E917, 碘酸钾
+comment:en: POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en: 917
 mandatory_additive_class:en: en:flour-treatment-agent
 organic_eu:en: authorized
@@ -37710,6 +37727,7 @@ it:enzima coagulante
 nl:stremmingsenzymen, stollingsmiddel
 pl:Enzym koagulujący
 pt:coagulante
+ru:молокосвертывающий фермент
 sv:koagulerande enzym, mjölkkoagulerande enzym, mjölkkoagulerande ystenzym
 vegan:en: maybe
 vegetarian:en: maybe
@@ -38185,7 +38203,7 @@ vegetarian:en: no
 en:shortening
 fr:graisse alimentaire
 ja:ショートニング
-ru:жир кондитрерский, кондитрерский жир
+ru:жир кондитерский, кондитерский жир
 wikidata:en: Q1194601
 wikipedia:en: https://en.wikipedia.org/wiki/Shortening
 
@@ -39336,7 +39354,7 @@ en:butter flavouring
 de:butteraroma, butter-aroma
 fi:voiaromi
 fr:arôme de beurre
-ru:ароматизатор масла
+ru:ароматизатор масла, ароматизатор идентичный натуральному сливки
 sv:smörarom
 
 < en:Flavouring
@@ -39518,6 +39536,10 @@ sv:mangoarom
 < en:Flavouring
 en:meat flavour
 es:aroma de carne
+
+< en:Flavouring
+en:milk flavouring
+ru:ароматизатор молоко, ароматизатор топленое молоко
 
 < en:Flavouring
 en:mint flavouring
@@ -47001,7 +47023,10 @@ es:hierro reducido
 fr:fer réduit
 
 en:isomaltose
+de:Isomaltose
 es:isomaltosa
+fr:Isomaltose
+it:Isomaltosio
 wikipedia:en: https://en.wikipedia.org/wiki/Isomaltose
 
 < en:Jalapeno
@@ -47036,6 +47061,9 @@ de:grüne jalapenos
 fi:vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
 fr:piment jalapeño vert
 sv:grön jalapeño
+
+en:jam
+ru:джем, повидло, варенье
 
 en:juice
 de:Saft
@@ -57711,7 +57739,7 @@ oc:Òli de palma
 pl:Olej palmowy
 pt:óleo de palma, óleo de palmeira, óleo vegetal de palma
 ro:Ulei de palmier, ulei vegetal de palmier
-ru:Пальмовое масло, масло пальмовое, пальмовое масло и его фракции
+ru:Пальмовое масло, масло пальмовое, пальмовое масло и его фракции, масло растительное пальмовое
 sk:Palmový olej
 sr:Палмино уље
 sv:Palmolja
@@ -71134,7 +71162,7 @@ ps:بوره
 pt:Açúcar
 qu:Asukar
 ro:Zahăr, zahar, zaharuri
-ru:Сахар, сахар песок
+ru:Сахар, сахар песок, сахара
 rw:Isukari
 sa:शर्करा
 sd:کنڊ
@@ -77196,7 +77224,7 @@ nb:soyaolje
 nl:sojaolie
 pl:olej sojowy
 pt:óleo de soja
-ru:Соевое масло, масло соевое
+ru:Соевое масло, масло соевое, масло растительное соевое
 sv:Sojaolja, sojaböns olja
 uk:Соєва олія
 zh:大豆油
@@ -77210,7 +77238,7 @@ en:sunflower oil, sunflower seed oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
-bg:Слънчогледово олио, слънчогледово масло
+bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово
 ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
@@ -77242,7 +77270,7 @@ nn:solsikkeolje
 pl:Olej słonecznikowy
 pt:óleo de girassol, óleo vegetal de girassol
 ro:ulei de floarea soarelui
-ru:подсолнечное масло, масло подсолнечное
+ru:подсолнечное масло, масло подсолнечное, масло растительное подсолнечное
 sa:सूर्यकान्तितैलम्
 sh:Suncokretovo ulje
 sk:Slnečnicový olej
@@ -77293,7 +77321,7 @@ fr:huile végétale raffinée
 
 < en:Vegetable oil and fat
 en:cocoa butter substitute
-ru:заменитель масла какао, заменитель какао масла
+ru:заменитель масла какао, заменитель какао масла, эквивалент масла какао, заменитель какао масла лауринового типа
 
 < en:Vegetable oil and fat
 en:non hydrogenated vegetable oil and fat
