@@ -146,6 +146,9 @@ my @tests = (
 	[ { lc => "ru", ingredients_text => "яблоко и / или малина"}, ["en:apple","en:raspberry"]],
 	[ { lc => "ru", ingredients_text => "бензоат натрия и сорбат калия"}, ["en:e211", "en:e202"]],
 	
+	# Russian oil
+	[ { lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"}, ["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]],
+	
 	
 );
 

@@ -557,6 +557,10 @@ en => {
 	obsolete => ["The product is no longer sold", "Product is no longer sold.", "Product no longer sold"],
 },
 
+de => {
+	code => ["Strichcode"],
+},
+
 es => {
 	code => ["Código de barras", "Códigos de barras"],
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
@@ -1304,16 +1308,13 @@ JSON
 				my $nid = $nutriment;
 
 				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
-
-				if ($group_id eq "nutrition") {
-					if ($nid =~ /-$/) {
-						next;
-					}
+				# Keep the % of fruits/vegetables/nuts in the main nutrition group
+				
+				if (($nid =~ /-$/) and ($nid ne 'fruits-vegetables-nuts-') and ($nid ne 'fruits-vegetables-nuts-dried-')) {
+					next if ($group_id eq "nutrition");
 				}
 				else {
-					if ($nid !~ /-$/) {
-						next;
-					}
+					next if ($group_id eq "nutrition_other");
 				}
 
 				$nid =~ s/^(-|!)+//g;

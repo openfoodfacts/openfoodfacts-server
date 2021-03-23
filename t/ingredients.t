@@ -317,6 +317,15 @@ my @tests = (
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)",
 		},
 	],
+	
+	# Russian oil parsing
+	[
+		"ru-russian-oil",
+		{
+			lc => "ru",
+			ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)",
+		},
+	],
 
 );
 
