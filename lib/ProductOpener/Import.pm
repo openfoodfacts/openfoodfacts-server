@@ -234,14 +234,18 @@ uploaded and added to the product, but it will not be selected.
 
 my %yes = (
 	en => "on|yes|y",	# on is a special value, it does not need to be translated to other languages
+	de => "ja|j",
 	es => "si|s",
 	fr => "oui|o",
+	it => "si|s",	
 );
 
 my %no = (
 	en => "off|no|n|not",	# off is a special value, it does not need to be translated to other languages
+	de => "nein|n",
 	es => "no|n",
 	fr => "non|n",
+	it => "no|n",	
 );
 
 
