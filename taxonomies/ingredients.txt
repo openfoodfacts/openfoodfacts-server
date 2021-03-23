@@ -20599,6 +20599,10 @@ de:modifizierter roter Portwein
 fr:porto rouge modifié
 # usage:en:modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
 
+<en:port
+en:ruby port
+
+
 # description:en:SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 
 <en:liqueur wine
@@ -27043,7 +27047,7 @@ fi:valkoinen jasmiiniriisi
 
 <en:Thai rice
 <en:black rice
-en:blaack Thai rice
+en:black Thai rice
 de:Thailändischer schwarzer Naturreis, Thailändischer schwarzer Reis, Thailändischer schwarzer Klebreis
 fr:thai riz noir
 hu:fekete jázminrizs, fekete jázmin rizs
@@ -35335,7 +35339,7 @@ pl:jabłko, jabłka
 ps:مڼه
 pt:Maçã, maçãs
 qu:Mansana
-ro:măr
+ro:măr, mere
 ru:яблоко, яблоки
 rw:Pome
 sa:सेवफलम्
@@ -39496,6 +39500,7 @@ fr:sirop d'ananas
 <en:fruit
 en:pomegranate
 am:ሩማን
+bg:нар
 bo:སེ་འབྲུ།
 ca:magrana
 cs:granátové jablko
@@ -39511,6 +39516,7 @@ gl:milgranda
 gu:દાડમ
 hi:अनार
 ht:Grenad
+hu:gránátalma
 it:melagrana
 ks:دٲن
 mr:डाळिंब
@@ -39520,9 +39526,11 @@ nl:granaatappel
 pa:ਅਨਾਰ
 pl:granat
 ps:انار
+ro:rodie
 ru:гранатина
 sd:ڏاڙهون
 sk:granátové jablko
+sl:granatno jabolko
 sq:shegë
 tg:Анор
 ug:ئانار
@@ -39540,7 +39548,7 @@ za:Maksigloux
 # pnb:انار
 # vro:Granaatupin
 wikidata:en:Q13222088
-wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
+wikipedia:fr:https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
 # 53 products in 3 languages @2018-10-03
 
@@ -39796,6 +39804,17 @@ en:raspberry powder
 de:Himbeerpulver, Himbeerfruchtpulver
 fi:vadelmajauhe
 sv:hallonpulver
+
+
+en:raspberry jam
+de:Himbeermarmelade
+fr:confiture de framboise
+wikidata:en:Q11962286
+
+<en:sauce
+en:raspberry sauce
+fr:sauce aux framboises, sauce à la framboise, sauce framboise
+
 
 ###################################################################################################
 #
@@ -54637,6 +54656,7 @@ ro:frunze de pătrunjel
 <en:parsley
 en:parsley root
 de:Petersilienwurzel
+fr:racine de persil
 nl:peterseliewortel
 
 ###################################################################################################
@@ -54779,6 +54799,14 @@ pt:extracto de manjericão
 <en:basil
 fr:basilic en poudre
 fi:basilikajauhe
+
+<en:basil
+en:Thai basil
+de:Thai Basilikum
+fr:basilic thaï, basilic thai
+wikidata:en:Q3073413
+wikipedia:en:https://en.wikipedia.org/wiki/Thai_basil
+
 
 ###################################################################################################
 #
@@ -71347,6 +71375,18 @@ nl:rijstnoedels
 wikidata:en:Q1322949
 wikipedia:en:https://en.wikipedia.org/wiki/Rice_noodles
 
+<en:noodle
+en:soba, soba noodle
+fr:nouille soba
+wikidata:en:Q753910
+wikipedia:en:https://en.wikipedia.org/wiki/Soba
+
+<en:noodle
+en:udon, udon noodle
+fr:nouille udon
+wikidata:en:Q471861
+wikipedia:en:https://en.wikipedia.org/wiki/Udon
+
 
 <en:dough
 en:shortcrust dough
@@ -74877,7 +74917,7 @@ fr:préparation de tomates décongelée
 # description:en:WORCESTERSHIRE SAUCE is a fermented liquid condiment created in the city of Worcester. Worcestershire sauce is frequently used to enhance food and drink recipes.
 
 <en:sauce
-en:worcestershire sauce
+en:worcestershire sauce, worcester sauce
 af:worcestersous
 ar:صلصة رسيستيرشاير
 be:Вустэрскі соус

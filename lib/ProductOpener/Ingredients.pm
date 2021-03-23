@@ -1486,6 +1486,7 @@ sub parse_ingredients_text($) {
 								'^in milk chocolate cocoa solids',
 								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
 								'^meat content',
+								'^packaged in a protective atmosphere',
 							],
 
 							'fr' => [
@@ -2861,6 +2862,10 @@ sk => [
 sl => [
 'vsebuje',
 'sestavine',
+],
+
+sq => [
+'P[eë]rb[eë]r[eë]sit',
 ],
 
 sr => [
