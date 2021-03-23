@@ -4,6 +4,10 @@
 
 [% IF action == 'display' %]
 
+	[% IF org_does_not_exist %]
+		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid %]</strong> does not exist yet. It will be created if you submit the form.</div>
+	[% END %]
+
     <!-- Start form -->
     
     <p>[% lang('org_profile_description') %]</p>
@@ -52,7 +56,6 @@
 						<label for="[% field.field %]">
 							<input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
 							[% field.label %]
-							value: [% field.value %]
 						</label>
 					[% END %]
 					
