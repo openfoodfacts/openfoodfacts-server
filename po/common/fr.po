@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-03-11 12:45\n"
+"PO-Revision-Date: 2021-03-24 05:30\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -587,7 +587,7 @@ msgstr "éditeur"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "Adresse e-mail"
+msgstr "adresse électronique"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -664,7 +664,7 @@ msgstr "Adresse invalide."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "L'adresse e-mail est invalide."
+msgstr "L'adresse e-mail est invalide"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -732,7 +732,7 @@ msgstr "La date limite permet de repérer les changements des produits dans le t
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr "Explorer les produits par..."
+msgstr "Explorer les produits par…"
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -887,7 +887,7 @@ msgstr "Produit"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Dénomination générique"
+msgstr "Nom générique"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1098,7 +1098,7 @@ msgstr "/images/misc/appstore/black/appstore_FR.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr "Disponible sur App Store"
+msgstr "Disponible sur l'App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -1232,7 +1232,7 @@ msgstr "<p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Nom d'utilisateur ou adresse e-mail :"
+msgstr "Nom d'utilisateur ou adresse électronique :"
 
 msgctxt "low"
 msgid "low"
@@ -1375,7 +1375,7 @@ msgstr "Pour les produits sans code-barres, un code interne est attribué automa
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
+msgstr "S'inscrire à la lettre d'information (2 courriels par mois maximum)"
 
 msgctxt "next"
 msgid "Next"
@@ -1456,11 +1456,11 @@ msgstr "Les produits qui ne contiennent pas le nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1532,7 +1532,7 @@ msgstr "Ecart type"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1633,7 +1633,7 @@ msgstr "Les produits avec le conditionnement %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "conditionnement"
+msgstr "conditionnements"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1993,7 +1993,7 @@ msgstr "Entrez un nouveau mot de passe."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "Un e-mail avec un lien pour vous permettre de changer le mot de passe a été envoyé à l'adresse e-mail associée à votre compte."
+msgstr "Un courriel avec un lien pour vous permettre de changer le mot de passe a été envoyé à l'adresse électronique associée à votre compte."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
@@ -2122,12 +2122,12 @@ msgstr "Résultats sur un graphique"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Choisissez ce que vous voulez représenter sur l'axe horizontale du graphique pour obtenir un histogramme, et\n"
+msgstr "Choisissez ce que vous voulez représenter sur l'axe horizontal du graphique pour obtenir un histogramme, et\n"
 "sur les deux axes pour obtenir un nuage de produits."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "Lien permanent vers ce graphique, partageable par e-mail et les réseaux sociaux"
+msgstr "Lien permanent vers ce graphique, partageable par courriel et les réseaux sociaux"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
@@ -2283,7 +2283,7 @@ msgstr "Voir la fiche du produit"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Pays"
+msgstr "Pays de vente"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2487,7 +2487,7 @@ msgstr "Vous pouvez vous désabonner de la lettre d'information à tout moment e
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "Nom d'utilisateur ou adresse e-mail : "
+msgstr "Nom d'utilisateur ou adresse électronique : "
 
 msgctxt "username"
 msgid "User name"
@@ -3005,7 +3005,7 @@ msgstr "Volume"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -3333,7 +3333,7 @@ msgstr "Ingrédients"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informations nutritionnelles"
+msgstr "Tableau nutritionnel"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3410,7 +3410,7 @@ msgstr "Sélectionnez cette option si la colonne indique la présence d'un label
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr "Saisissez le nom de la catégorie dans le champ texte à droite."
+msgstr "Saisissez le nom du label dans le champ texte à droite."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
@@ -3586,7 +3586,7 @@ msgstr "informations sur la qualité des données"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr "information sur la qualité des données"
+msgstr "informations sur la qualité des données"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
@@ -3789,7 +3789,7 @@ msgstr "Chaque nom de fichier doit contenir le code-barres du produit."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr "Vous pouvez aussi spécifiez le type de la photo dans le nom du fichier :"
+msgstr "Vous pouvez aussi spécifier le type de la photo dans le nom du fichier :"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
@@ -4674,13 +4674,6 @@ msgstr "Faible impact environnemental (Éco-Score)"
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Éco-Score %s"
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
-msgstr "Eco-Score non calculé"
-
-msgctxt "attribute_ecoscore_unknown_description_short"
-msgid "Unknown environmental impact"
-msgstr "Impact environnemental inconnu"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4780,7 +4773,7 @@ msgstr "N° de téléphone"
 
 msgctxt "contact_email"
 msgid "e-mail address"
-msgstr "Adresse e-mail"
+msgstr "adresse électronique"
 
 msgctxt "contact_link"
 msgid "Contact form link"
@@ -4893,12 +4886,12 @@ msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
-msgstr "Eco-Score"
+msgid "Eco-Score"
+msgstr "Éco-Score"
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
-msgstr "Eco-Score"
+msgid "Eco-Score"
+msgstr "Éco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5108,7 +5101,7 @@ msgstr "Très haut risque de déforestation"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
-msgstr "Pour l'instant seulement pour les produits avec du poulet ou des oeufs"
+msgstr "Pour l'instant seulement pour les produits avec du poulet ou des œufs"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5180,3 +5173,104 @@ msgstr "Supprimer toutes les valeurs nutritives"
 msgctxt "delete_user_process"
 msgid "User deleted."
 msgstr "Utilisateur supprimé."
+
+msgctxt "attribute_ecoscore_unknown_title"
+msgid "Eco-Score not computed"
+msgstr "Eco-Score non calculé"
+
+msgctxt "attribute_ecoscore_unknown_description_short"
+msgid "Unknown environmental impact"
+msgstr "Impact environnemental inconnu"
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr "Food"
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr "Liste des identifiants GS1 GLN à associer à l'organisation"
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr "Une liste d'identificateurs GS1 GLN séparés par des virgules pour forcer l'association avec cette organisation."
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr "Permettre aux membres de l'organisation d'exporter manuellement les données et les photos des produits vers la base de données publique."
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr "Les exports manuels ne peuvent être activés que lorsque les données importées ont été examinées par un administrateur."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr "Activez les exportations quotidiennes automatisées de données produit et de photos vers la base de données publique."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr "Les exportations automatisées devraient être activées seulement pour les organisations qui ont des importations automatisées (par exemple via Equadis)."
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr "Champs administrateur"
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr "En file d'attente"
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr "En cours"
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr "Terminé"
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr "Echoué"
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr "Exporter depuis la plateforme des producteurs"
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr "Importer dans la base de données publique"
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr "Mise à jour du statut d'importation sur la plateforme des producteurs"
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr "L'exportation a été planifiée. Cette page peut être fermée."
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr "Votre exportation a été planifiée. Vous recevrez un courriel dès qu'elle sera terminée."
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr "Page produit sur la base de données publique"
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr "Le produit n'existe pas encore dans la base de données publique"
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr "Certaines mises à jour de produits n'ont pas été publiées dans la base de données publique."
+
+msgctxt "org_do_not_import_codeonline"
+msgid "Do not import CodeOnline data."
+msgstr "Ne pas importer les données CodeOnline."
+
+msgctxt "overwrite_owner"
+msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+msgstr "Ecrire sur les produits dont le propriétaire est différent sur la plate-forme publique. Les produits avec un propriétaire différent seront sinon ignorés."
+
