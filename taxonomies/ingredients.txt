@@ -17988,21 +17988,10 @@ from_palm_oil:en:no
 # Polish does not differentiate between colza and canola oil TODO
 
 <en:rapeseed oil
-en:low erucic acid rapeseed oil
-de:eurucasäurearmes Rapsöl, LEAR
-
-<en:rapeseed oil
-en:british rapeseed oil
-
-# Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
-# The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
-
-<en:rapeseed oil
 en:canola oil
 ca:Oli de canola
 de:Ölrübsenöl
 es:aceite de canola
-fi:rypsiöljy, rypsiöljyä
 fr:huile de navette, huile de canola
 hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
@@ -18012,6 +18001,38 @@ sv:rybsolja, rypsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
+
+#fi:rypsiöljy, rypsiöljyä
+
+<en:rapeseed oil
+en:colza oil
+bg:рапично олио
+ca:Oli de colza
+de:Kolzaöl
+el:κραμβέλαιο
+es:aceite de colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
+it:olio di colza, olio vegetale di colza
+nb:rapsolje
+nl:koolzaadolie, plantaardige koolzaadolie
+pl:Olej rzepakowy
+pt:óleo de colza
+wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
+wikidata:en:Q697248
+carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
+carbon_footprint_fr_foodges_value:fr:2.2
+from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
+
+<en:rapeseed oil
+en:low erucic acid rapeseed oil
+de:eurucasäurearmes Rapsöl, LEAR
+
+<en:rapeseed oil
+en:british rapeseed oil
+
+# Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
+# The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
 
 #da:Rapsolie
 #pl:Olej rzepakowy
@@ -18036,27 +18057,6 @@ sv:rypsoljeberedning
 # ingredient/fi:rypsiöljyvalmiste has 2 products in 1 language @2020-06-08
 
 # Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
-
-<en:rapeseed oil
-en:colza oil
-bg:рапично олио
-ca:Oli de colza
-de:Kolzaöl
-el:κραμβέλαιο
-es:aceite de colza
-fi:rapsiöljy
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
-it:olio di colza, olio vegetale di colza
-nb:rapsolje
-nl:koolzaadolie, plantaardige koolzaadolie
-pl:Olej rzepakowy
-pt:óleo de colza
-wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
-wikidata:en:Q697248
-carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
-carbon_footprint_fr_foodges_value:fr:2.2
-from_palm_oil:en:no
-nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:colza oil
 en:organic colza oil
