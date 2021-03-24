@@ -5184,7 +5184,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr "Food"
+msgstr ""
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
@@ -5204,11 +5204,11 @@ msgstr "Les exports manuels ne peuvent être activés que lorsque les données i
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr "Activez les exportations quotidiennes automatisées de données produit et de photos vers la base de données publique."
+msgstr "Activez les exports quotidiens automatisés de données produit et de photos vers la base de données publique."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr "Les exportations automatisées devraient être activées seulement pour les organisations qui ont des importations automatisées (par exemple via Equadis)."
+msgstr "Les exports automatisés doivent être activés uniquement pour les organisations qui ont des imports automatisés (par exemple via Equadis)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
@@ -5243,15 +5243,15 @@ msgstr "Importer dans la base de données publique"
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr "Mise à jour du statut d'importation sur la plateforme des producteurs"
+msgstr "Mise à jour du statut d'import sur la plateforme des producteurs"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr "L'exportation a été planifiée. Cette page peut être fermée."
+msgstr "Votre export a été planifié. Cette page peut être fermée."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr "Votre exportation a été planifiée. Vous recevrez un courriel dès qu'elle sera terminée."
+msgstr "Votre export a été planifié. Vous recevrez un courriel dès qu'il sera terminé."
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
@@ -5273,4 +5273,3 @@ msgstr "Ne pas importer les données CodeOnline."
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
 msgstr "Ecrire sur les produits dont le propriétaire est différent sur la plate-forme publique. Les produits avec un propriétaire différent seront sinon ignorés."
-
