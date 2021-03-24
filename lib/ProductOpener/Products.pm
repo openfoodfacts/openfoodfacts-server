@@ -1230,7 +1230,7 @@ sub compute_data_sources($) {
 	}
 
 
-	# Add a data source forapps
+	# Add a data source for apps
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {

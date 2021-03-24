@@ -84,7 +84,7 @@
     </div>
 [% END %]
 
-<!-- photos and data sources -->
+<!-- owner -->
 [% IF owner %]
 	<p>
 		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
@@ -398,6 +398,19 @@
 	[% END %]
 	</ul>
 [% END %]
+
+<!-- databases data sources -->
+<h2>[% lang('data_sources_p') FILTER ucfirst %]</h2>
+
+[% IF data_source_database_equadis %]
+	<p>[% data_source_database_equadis %]</p>
+[% ELSIF data_source_database_codeonline %]
+	<p>[% data_source_database_codeonline %]</p>
+	<p>[% data_source_database_note_about_the_producers_platform %]</p>
+[% ELSE %]
+<p>_</p>
+[% END %]
+
 
 <p class="details">
     [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
