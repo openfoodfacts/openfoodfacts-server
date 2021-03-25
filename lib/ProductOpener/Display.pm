@@ -110,6 +110,7 @@ BEGIN
 		$formatted_subdomain
 		$static_subdomain
 		$world_subdomain
+		$producers_platform_url
 		$test
 		@lcs
 		$cc
@@ -599,6 +600,11 @@ CSS
 			skip_forest_footprint => 1,
 		};
 	}
+	
+	# Producers platform url
+	
+	$producers_platform_url = $formatted_subdomain . '/';
+	$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 	$log->debug("owner, org and user", { private_products => $server_options{private_products}, owner_id => $Owner_id, user_id => $User_id, org_id => $Org_id }) if $log->is_debug();
 
@@ -3626,11 +3632,19 @@ HTML
 		}
 	}
 
+	# We may have a text corresponding to the tag
 
-	if (($request_ref->{page} <= 1 ) and (defined $tags_texts{$lc}{$tagtype}{$icid})) {
-		$description .= $tags_texts{$lc}{$tagtype}{$icid};
+	if (defined $tags_texts{$lc}{$tagtype}{$icid}) {
+		my $tag_text = $tags_texts{$lc}{$tagtype}{$icid};
+		if ($tag_text =~ /<h1>(.*?)<\/h1>/) {
+			$title = $1;
+			$tag_text =~ s/<h1>(.*?)<\/h1>//;
+		}
+		if ($request_ref->{page} <= 1) {
+			$description .= $tag_text;
+		}
 	}
-
+	
 	my @markers = ();
 	if ($tagtype eq 'emb_codes') {
 
@@ -6803,9 +6817,6 @@ HTML
 			if (defined $Org_id) {
 				# Display a link to the producers platform
 				
-				my $producers_platform_url = $formatted_subdomain . '/';
-				$producers_platform_url =~ s/\.open/\.pro\.open/;
-				
 				$content .= "<p>" . lang("you_are_on_the_public_database") . "<br>"
 				. '<a href="' . $producers_platform_url . '">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>";
 			}
@@ -8011,6 +8022,32 @@ CSS
 		if (defined $org_ref) {
 			$template_data_ref->{owner} = $product_ref->{owner};
 			$template_data_ref->{owner_org} = $org_ref;
+		}
+		
+		# Indicate data sources
+		
+		if (defined $product_ref->{data_sources_tags}) {
+			foreach my $data_source_tagid (@{$product_ref->{data_sources_tags}}) {
+				if ($data_source_tagid =~ /^database/) {
+					$data_source_tagid =~ s/-/_/g;
+					
+					if ($data_source_tagid eq "database_equadis") {
+						$template_data_ref->{"data_source_database_equadis"}
+							= sprintf(lang("data_source_database_equadis"), 
+							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>', 
+							'<a href="/data-source/database-equadis">Equadis</a>');
+					}
+					elsif ($data_source_tagid eq "database_codeonline") {
+						$template_data_ref->{"data_source_database_codeonline"}
+							= sprintf(lang("data_source_database"), 
+							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>', 
+							'<a href="/data-source/database-codeonline">CodeOnline Food</a>');
+							
+						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} = lang("data_source_database_note_about_the_producers_platform");
+						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} =~ s/<producers_platform_url>/$producers_platform_url/g;
+					}					
+				}
+			}
 		}
 	}
 
