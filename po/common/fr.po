@@ -5273,3 +5273,18 @@ msgstr "Ne pas importer les données CodeOnline."
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
 msgstr "Ecrire sur les produits dont le propriétaire est différent sur la plate-forme publique. Les produits avec un propriétaire différent seront sinon ignorés."
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr "Certaines des informations des produits de %s proviennent de %s."
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr "Les fabricants peuvent utiliser la <a href=\"<producers_platform_url>\">plateforme gratuite pour les producteurs</a> d'Open Food Facts pour accéder à ces données et les compléter, et obtenir des rapports, analyses et pistes d'améliorations des produits (par exemple meilleur Nutri-Score)."
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr "Le fabricant %s utilise %s pour transmettre automatiquement les photos et données de ses produits."
+
+
+
