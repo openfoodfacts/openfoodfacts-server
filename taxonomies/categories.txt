@@ -6124,7 +6124,7 @@ wikidata:en:Q158746
 
 <en:Herbal teas
 en:Liquorice herbal teas, licorice teas, liquorice teas
-fr:Infusions de réglisse, réglisse
+fr:Infusions de réglisse
 
 <en:Herbal teas
 en:Mallow, Common mallow
@@ -24750,6 +24750,12 @@ it:Focacce
 nl:Platte broden, Flat breads
 wikidata:en:Q666242
 
+<en:Flatbreads
+en:Piadina
+fr:Piadina
+it:Piadina
+wikidata:en:Q926532
+
 <en:Breads
 en:Rusk, rusks
 fr:Biscotte
@@ -26069,6 +26075,11 @@ fr:Panettone sans gluten
 en:Pandoro
 fr:Pandoro
 it:Pandoro
+
+<en:Brioches
+en:Colomba
+fr:Colomba
+it:Colomba
 
 <en:Brioches
 en:Small brioches
@@ -37705,7 +37716,6 @@ en:Stirred yogurts
 de:cremiger Joghurt
 fi:Sekoitetut jogurtit
 fr:Yaourts brassés, Yaourt brassé
-it:Yogurt
 nl:Roeryoghurts
 
 <ru:Йогурт
@@ -43585,15 +43595,18 @@ ciqual_proxy_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, 
 who_id:en:6
 
 <en:Breakfast cereals
+en:Extruded cereals
+fr:Céréales extrudées
+
+<en:Breakfast cereals
 en:Cereals with fruits
 de:Frühstückscerealien mit Früchten
-de:Müsli mit Früchten, Frühstückscerealien mit Früchten
 es:Cereales con frutas
 fi:Viljat hedelmillä
 fr:Céréales aux fruits
 
 <en:Cereals with fruits
-<en:Cereal flakes
+<en:Extruded cereals
 en:Cereal flakes with fruits
 fr:Pétales de céréales aux fruits
 
@@ -43614,14 +43627,10 @@ it:Cereali al cioccolato
 nl:Chocolade ontbijtgranen
 
 <en:Chocolate cereals
-<en:Cereal flakes
+<en:Extruded cereals
 en:Cereal flakes with chocolate
 es:Copos de cereales con chocolate, Cereales con chocolate
 fr:Pétales de céréales au chocolat
-
-<en:Breakfast cereals
-en:Sweet breakfast cereals
-fr:Céréales pour petit déjeuner
 
 <en:Breakfast cereals
 en:Cereals with caramel
@@ -43639,7 +43648,7 @@ fr:Céréales au miel
 it:Cereali al miele
 nl:Ontbijtgranen met honing
 
-<en:Breakfast cereals
+<en:Extruded cereals
 en:Filled cereals
 de:Gefüllte Cerealien
 es:Cereales rellenos
@@ -43679,9 +43688,11 @@ ciqual_food_name:en:Breakfast cereals, sweet, not fortified with vitamins and ch
 ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines et minéraux (aliment moyen)
 
 # Chocapic-type cereals
+<en:Extruded cereals
 <en:Chocolate cereals
 en:Breakfast chocolate cereals with wheat grain flakes
 fr:Pétales de blé chocolatés
+it:Petali di Frumento al cacao
 
 <en:Breakfast chocolate cereals with wheat grain flakes
 en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
@@ -43873,20 +43884,19 @@ agribalyse_food_code:en:32116
 ciqual_food_code:en:32116
 ciqual_food_name:en:Breakfast cereals, very rich in fibre, fortified with vitamins and chemical elements
 
-# Puffed corn
-# Miel Pops
+# Miel Pops style cereals. Is originally made with corn flour, but wheat flour is often added
 <en:Breakfast cereals
-en:Breakfast cereals puffed corn with honey
-fr:Boules de maïs soufflées au miel
+en:Honey cereal balls, Breakfast cereals puffed corn with honey
+fr:Boules de céréales au miel, Boules de maïs soufflées au miel
 
-<en:Breakfast cereals puffed corn with honey
+<en:Honey cereal balls
 en:Breakfast cereals puffed corn with honey not fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey not fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel non enrichies en vitamines et minéraux
 agribalyse_food_code:en:32129
 ciqual_food_code:en:32129
 ciqual_food_name:en:Breakfast cereals, puffed/popped corn, with honey (not fortified with vitamins and chemical elements)
 
-<en:Breakfast cereals puffed corn with honey
+<en:Honey cereal balls
 en:Breakfast cereals puffed corn with honey fortified with vitamins and chemical elements, Breakfast cereals popped corn with honey fortified with vitamins and chemical elements
 fr:Boules de maïs soufflées au miel enrichies en vitamines et minéraux
 agribalyse_food_code:en:32133
@@ -44154,6 +44164,7 @@ ro:Fulgi de hrișcă
 
 <en:Cereal flakes
 <en:Extruded flakes
+<en:Extruded cereals
 en:Corn flakes, Corn-Flakes
 cs:Kukuřičné lupínky
 de:Cornflakes
@@ -44246,6 +44257,7 @@ nl:Gierstvlokken
 
 <en:Cereal flakes
 <en:Extruded flakes
+<en:Extruded cereals
 en:Mixed cereal flakes
 ca:Barreja de flocs de cereals
 de:gemischte Getreideflocken
@@ -44302,6 +44314,7 @@ nl:Speltvlokken
 
 <en:Cereal flakes
 <en:Extruded flakes
+<en:Extruded cereals
 en:Extruded spelt flakes
 fr:Pétales d'épeautre
 
@@ -44323,6 +44336,7 @@ nl:Kamutvlokken
 
 <en:Cereal flakes
 <en:Extruded flakes
+<en:Extruded cereals
 en:Extruded wheat flakes
 fr:Pétales de blé
 
@@ -67433,15 +67447,6 @@ pt:Esparguete, espaguete
 ru:Спагетти
 wikidata:en:Q20026
 
-<en:Spaghetti
-en:Whole wheat spaghetti
-de:Vollkorn-Spaghetti, Vollkornspaghetti
-es:Espaguetis integrales
-fi:Täysjyväspagetti
-fr:Spaghettis de blé complet, spaghettis au blé complet
-it:Spaghetti integrali
-nl:Volkorenspaghettis
-
 <en:Durum wheat pasta
 <en:Spaghetti
 en:Durum wheat spaghetti
@@ -67453,10 +67458,14 @@ it:Spaghetti di grano duro
 nl:Durum tarwespaghettis, Durum tarwe spaghettis
 ru:Спагетти из муки твёрдой пшеницы, спагетти из муки твердой пшеницы, спагетти группы А
 
-<en:Whole wheat spaghetti
+<en:Durum wheat spaghetti
 <en:Whole durum wheat pasta
-fr:Spaghettis de blé dur complet, Spaghetti au blé dur complet, Spaghettis au blé dur complet, Spaghettis complet au blé dur
-nl:Volkoren durum tarwespaghettis
+en:Whole durm wheat spaghetti
+es:Spaghetti di grano duro integrali, Spaghetti integrali
+de:Vollkorn-Hartweizenspaghetti, Vollkorn-Spaghetti, Vollkornspaghetti
+fi:Täysjyväspagetti
+fr:Spaghettis de blé dur complet, Spaghetti au blé dur complet, Spaghettis au blé dur complet, Spaghettis complet au blé dur, Spaghettis de blé complet, spaghettis au blé complet
+nl:Volkoren durum tarwespaghettis, Volkorenspaghettis
 
 <en:Spaghetti
 fr:Spaghettis de petit épeautre, spaghetti au petit épeautre, Spaghettis au petit épeautre
@@ -68382,6 +68391,14 @@ fr:Tartes sucrées, tarte sucrée
 it:Torte dolci
 nl:Zoeten taarten
 pnns_group_2:en:Biscuits and cakes
+
+#Italian sweet pie. Usually made with fruits, but can also be made with chocolate and hazelnut spread
+<en:Sweet pies
+en:Crostata
+es:Crostata
+fr:Crostata
+it:Crostata
+wikidata:en:Q3698703
 
 <en:Sweet pies
 fr:Tarte au vin, Tartes au vin, sèche au vin, wein-tarte
@@ -85732,4 +85749,3 @@ ru:Дубликаты с ошибочным кодом, Дубликаты с н
 <en:Proposed for deletion
 en:Empty, Actually empty, No data
 ru:Пустое, Пустые
-
