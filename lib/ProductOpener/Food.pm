@@ -230,6 +230,10 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	if ((not defined $unit) or ($unit eq "")) {
 		$unit = default_unit_for_nid($nid);
 	}
+	# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
+	elsif (($nid eq "energy") and (($unit eq "kj") or ($unit eq "kcal"))) {
+		$nid = "energy-" . $unit;
+	}
 
 	$value = convert_string_to_number($value);
 
@@ -241,7 +245,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	}
 	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 	$product_ref->{nutriments}{$nid . "_value"} = $value;
-
+	
 	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
@@ -261,7 +265,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
-
+	
 	return;
 }
 
@@ -309,8 +313,6 @@ sub kcal_to_unit($$) {
 
 	(not defined $value) and return $value;
 	
-	print STDERR "value: $value - unit: $unit\n";
-
 	($unit eq 'kj') and return int($value * 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal

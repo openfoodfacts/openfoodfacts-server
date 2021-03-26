@@ -35,6 +35,7 @@ BEGIN
 		&process_search_image_form
 
 		&get_code_and_imagefield_from_file_name
+		&get_imagefield_from_string
 		&process_image_upload
 		&process_image_move
 
@@ -494,7 +495,7 @@ sub get_code_and_imagefield_from_file_name($$) {
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
 	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
-		$imagefield = $1;
+		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
@@ -525,6 +526,43 @@ sub get_code_and_imagefield_from_file_name($$) {
 	return ($code, $imagefield);
 }
 
+
+sub get_imagefield_from_string($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $imagefield;
+	
+	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+		$imagefield = lc($1);
+		$imagefield =~ s/-/_/;
+	}
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_imagefield_from_string", { l => $l, filename => $filename, imagefield => $imagefield }) if $log->is_debug();
+
+	return $imagefield;
+}
 
 sub process_image_upload($$$$$$$) {
 
