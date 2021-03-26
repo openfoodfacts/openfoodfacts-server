@@ -5286,5 +5286,11 @@ msgctxt "data_source_database_equadis"
 msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
 msgstr "Le fabricant %s utilise %s pour transmettre automatiquement les photos et données de ses produits."
 
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr "Type de la photo du produit"
 
-
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr "Si vous utilisez la même colonne sur plusieurs lignes pour fournir les URLs des images d'un même produit, vous pouvez utiliser ce champ pour indiquer le type de l'image : front, ingredients, nutrition or packaging."

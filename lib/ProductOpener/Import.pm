@@ -1259,7 +1259,7 @@ EMAIL
 							# Assign energy-kj and energy-kcal values from energy field
 
 							if (($nid eq "energy") and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i)) {
-								if (not defined $imported_product_ref->{$nid . "-j" . $type . $per . "_value_unit"}) {
+								if (not defined $imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"}) {
 									$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
 								}
 							}
@@ -1451,7 +1451,6 @@ EMAIL
 				}
 			}
 		}		
-
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1664,6 +1663,13 @@ EMAIL
 			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
 
 			my $imagefield = $1 . $'; # e.g. image_front_url_fr -> front_fr
+			
+					# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
+					if (($imagefield eq "other") and (defined $imported_product_ref->{"image_other_type"}) and ($imported_product_ref->{"image_other_type"} ne "")) {
+						my $type_imagefield = get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
+						$log->debug("imagefield is other, tried to guess it image_other_type", { imagefield => $imagefield, type_imagefield => $type_imagefield, image_other_type => $imported_product_ref->{"image_other_type"} }) if $log->is_debug();
+						$imagefield = $type_imagefield;
+					}			
 
 			$log->debug("image file", { field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field} }) if $log->is_debug();
 			
