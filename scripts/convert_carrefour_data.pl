@@ -270,7 +270,8 @@ F=>undef,
 
 			["ProductCode", "producer_product_id"],
 
-			["nutrients.ENERKJ.[0].RoundValue", "nutriments.energy_kJ"],
+			["nutrients.ENERKJ.[0].RoundValue", "nutriments.energy-kj_kJ"],
+			["nutrients.ENERKC.[0].RoundValue", "nutriments.energy-kcal_kcal"],
 			["nutrients.FAT.[0].RoundValue", "nutriments.fat_g"],
 			["nutrients.FASAT.[0].RoundValue", "nutriments.saturated-fat_g"],
 			["nutrients.CHOAVL.[0].RoundValue", "nutriments.carbohydrates_g"],
