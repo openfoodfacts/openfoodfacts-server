@@ -123,7 +123,8 @@ RUN set -x \
     # Spreadsheet::CSV
     libspreadsheet-parseexcel-perl \
     # Test::Number::Delta
-    libtest-number-delta-perl
+    libtest-number-delta-perl \
+    libdevel-size-perl
 
 # Stage for installing/compiling cpanfile dependencies
 FROM modperl AS builder
