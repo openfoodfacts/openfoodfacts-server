@@ -131,8 +131,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
-
+	process_template('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
 elsif (($action eq "process") and $allow_submit) {
@@ -161,6 +160,12 @@ elsif (($action eq "process") and $allow_submit) {
 	
 	if ((defined param("only_export_products_with_changes")) and (param("only_export_products_with_changes"))) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
+	}
+	
+	if ($admin) {
+		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+			$args_ref->{overwrite_owner} = 1;
+		}		
 	}
 	
 	# Create Minion tasks for export and import
@@ -259,14 +264,32 @@ JS
 else {
 	
 	# The organization does not have the permission enable_manual_export_to_public_platform checked
-	
+
+		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+Vos produits ont été exportés vers la base publique. Voici la page publique avec vos produits : https://fr.openfoodfacts.org/editeur/org-$Org_id
+
+Merci beaucoup pour votre démarche de transparence,
+Bien cordialement,
+TEXT
+);
+
+my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+Export de vos produits vers la base Open Food Facts publique
+TEXT
+);
+
+
+
 	my $admin_mail_body = <<EMAIL
 org_id: $Org_id
 user id: $User_id
 user name: $User{name}
 user email: $User{email}
 
+
 https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id
+<a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
 
 EMAIL
 ;
@@ -284,4 +307,3 @@ display_new( {
 });
 
 exit(0);
-

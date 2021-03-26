@@ -583,16 +583,13 @@ sub process_user_form($$) {
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
-
-		if (defined $requested_org_ref) {
-			# The requested org already exists
-			
-			my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+		
+		my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
 Aide pour importer vos produits sur Open Food Facts
 TEXT
 );
 
-			my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
 Bonjour,
 
 J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
@@ -615,7 +612,28 @@ Bien cordialement,
 
 
 TEXT
+);		
+
+		my $mailto_body_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+Nous venons de mettre à jour votre compte pour le rattacher à l'organisation $user_ref->{requested_org_id}. 
+Vous pouvez accéder à votre espace producteur depuis votre compte $user_ref->{userid} (avec votre mot de passe habituel) sur https://fr.pro.openfoodfacts.org
+
+Merci beaucoup pour votre démarche de transparence,
+Bien cordialement,
+TEXT
 );
+
+
+
+my $mailto_subject_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
+Vous avez été rattaché à l'organisation $user_ref->{requested_org_id}
+TEXT
+);
+
+
+		if (defined $requested_org_ref) {
+			# The requested org already exists
 
 			my $admin_mail_body = <<EMAIL
 requested_org_id: $user_ref->{requested_org_id}<br>
@@ -643,13 +661,17 @@ EMAIL
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
 			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}
+requested_org_id: $user_ref->{requested_org_id}<br>
+userid: $user_ref->{userid}<br>
+name: $user_ref->{name}<br>
+email: $user_ref->{email}<br>
+lc: $user_ref->{initial_lc}<br>
+cc: $user_ref->{initial_cc}<br>
+
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
+TODO: Add a specific mail telling that the account was linked
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
+
 EMAIL
 ;
 			send_email_to_producers_admin(
@@ -729,11 +751,6 @@ sub check_edit_owner($$) {
 		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
-		my $orgid = $';
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
-	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
@@ -751,13 +768,22 @@ sub check_edit_owner($$) {
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
 		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
 	else {
-		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
-		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		# if there is no user- or org- prefix, assume it is an org
+		my $orgid = $user_ref->{pro_moderator_owner};
+		$User{pro_moderator_owner} = "org-" . $orgid;
+		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 
 	return;
 }
+
 
 sub init_user()
 {

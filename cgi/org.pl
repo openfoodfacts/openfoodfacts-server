@@ -66,7 +66,13 @@ my $org_ref = retrieve_org($orgid);
 
 if (not defined $org_ref) {
 	$log->debug("org does not exist", { orgid => $orgid }) if $log->is_debug();
-	display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	
+	if ($admin) {
+		$template_data_ref->{org_does_not_exist} = 1;
+	}
+	else {
+		display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	}
 }
 
 # Does the user have permission to edit the org profile?
@@ -94,9 +100,39 @@ if ($action eq 'process') {
 			# Administrator fields
 			
 			if ($admin) {
-				foreach my $field ("list_of_gs1_gln", "enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform") {
+				
+				# If the org does not exist yet, create it
+				if (not defined $org_ref) {
+					$org_ref = create_org($User_id, $orgid);
+				}
+				
+				foreach my $field ("enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform", "do_not_import_codeonline") {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 				}
+				
+				# List of GS1 GLNs
+				# Remove existing GLNs
+				my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+				not defined $glns_ref and $glns_ref = {};
+				if (defined $org_ref->{list_of_gs1_gln}) {
+					foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
+						$gln =~ s/\s//g;
+						if ($gln =~ /[0-9]+/) {
+							delete $glns_ref->{$gln};
+						}
+					}
+				}
+				# Add new GLNs
+				$org_ref->{list_of_gs1_gln} = remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln"));
+				if (defined $org_ref->{list_of_gs1_gln}) {
+					foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
+						$gln =~ s/\s//g;
+						if ($gln =~ /[0-9]+/) {
+							$glns_ref->{$gln} = $orgid;
+						}
+					}
+				}
+				store("$data_root/orgs_glns.sto", $glns_ref);
 			}
 			
 			# Other fields
@@ -159,9 +195,6 @@ if ($action eq 'display') {
 			id => "admin",
 			fields => [
 				{
-					field => "list_of_gs1_gln",
-				},
-				{
 					field => "enable_manual_export_to_public_platform",
 					type => "checkbox",
 				},
@@ -169,6 +202,13 @@ if ($action eq 'display') {
 					field => "activate_automated_daily_export_to_public_platform",
 					type => "checkbox",
 				},
+				{
+					field => "list_of_gs1_gln",
+				},
+				{
+					field => "do_not_import_codeonline",
+					type => "checkbox",
+				},				
 			]
 		};		
 	}

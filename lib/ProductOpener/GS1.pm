@@ -735,7 +735,7 @@ sub gs1_to_off ($$$) {
 	
 	# We should have a hash
 	if (ref($json_ref) ne "HASH") {
-		$log->error("gs1_to_off - json_ref is not a hash", { json_re => $json_ref, results_ref => $results_ref }) if $log->is_error();
+		$log->error("gs1_to_off - json_ref is not a hash", { gs1_to_off_ref => $gs1_to_off_ref, json_ref => $json_ref, results_ref => $results_ref }) if $log->is_error();
 		return;
 	}
 	

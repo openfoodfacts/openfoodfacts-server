@@ -138,9 +138,9 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
-my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]/i;
+my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}|\N{U+FF08}])[\p{Ps}]/i;
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
-my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]/i;
+my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
@@ -1486,6 +1486,7 @@ sub parse_ingredients_text($) {
 								'^in milk chocolate cocoa solids',
 								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
 								'^meat content',
+								'^packaged in a protective atmosphere',
 							],
 
 							'fr' => [
@@ -2491,6 +2492,7 @@ sub normalize_fr_a_de_enumeration {
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive
+# Russian: масло растительное, пальмовое -> масло растительное оливковое
 
 sub normalize_a_of_b($$$) {
 
@@ -2502,7 +2504,6 @@ sub normalize_a_of_b($$$) {
 	$b =~ s/^\s+//;
 
 	if ($lc eq "en") {
-
 		return $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
@@ -2518,6 +2519,9 @@ sub normalize_a_of_b($$$) {
 			return $a . " de " . $b;
 		}
 	}
+	elsif ($lc eq "ru") {
+		return $a . " " . $b;		
+	}
 }
 
 
@@ -2531,13 +2535,19 @@ sub normalize_enumeration($$$) {
 	my $enumeration = shift;
 
 	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
+	
+	# If there is a trailing space, save it and output it
+	my $trailing_space = "";
+	if ($enumeration =~ /\s+$/) {
+		$trailing_space = " ";
+	}
 
 	my $and = $Lang{_and_}{$lc};
 	#my $enumeration_separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
-	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list);
+	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list) . $trailing_space;
 }
 
 
@@ -2852,6 +2862,10 @@ sk => [
 sl => [
 'vsebuje',
 'sestavine',
+],
+
+sq => [
+'P[eë]rb[eë]r[eë]sit',
 ],
 
 sr => [
@@ -3661,6 +3675,420 @@ sub replace_additive($$$) {
 }
 
 
+=head2 develop_ingredients_categories_and_types ( $product_lc, $text ) - turn "oil (sunflower, olive and palm)" into "sunflower oil, olive oil, palm oil"
+
+Some ingredients are specified by an ingredient "category" (e.g. "oil", "flavouring") and a "type" (e.g. "sunflower", "palm" or "strawberry", "vanilla").
+
+Sometimes, the category is mentioned only once for several types:
+"strawberry and vanilla flavourings", "vegetable oil (palm, sunflower)".
+
+This function lists each individual ingredient: 
+"oil (sunflower, olive and palm)" becomes "sunflower oil, olive oil, palm oil"
+
+=head3 Arguments
+
+=head4 Language
+
+=head4 Ingredients list text
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+=cut
+
+# simple plural (just an additional "s" at the end) will be added in the regexp
+my %ingredients_categories_and_types = (
+
+en =>
+[
+	# oils
+	[
+		# categories
+		[
+			"oil",
+			"vegetable oil",
+			"vegetal oil",
+		],
+		# types
+		[
+			"colza",
+			"olive",
+			"palm",
+			"rapeseed",
+			"sunflower",
+		],
+	],
+],
+
+
+fr =>
+[
+	# huiles
+	[
+		[
+			"huile",
+			"huile végétale",
+			"huiles végétales",
+			"matière grasse",
+			"matières grasses",
+			"matière grasse végétale",
+			"matières grasses végétales",
+			"graisse",
+			"graisse végétale",
+			"graisses végétales",
+		],
+		[
+			"arachide",
+			"avocat",
+			"chanvre",
+			"coco",
+			"colza",
+			"illipe",
+			"karité",
+			"lin",
+			"mangue",
+			"noisette",
+			"noix",
+			"noyaux de mangue",
+			"olive",
+			"olive extra",
+			"olive vierge",
+			"olive extra vierge",
+			"olive vierge extra",
+			"palme",
+			"palmiste",
+			"pépins de raisin",
+			"sal",
+			"sésame",
+			"soja",
+			"tournesol",
+			"tournesol oléique",
+		]
+	],
+		
+	[
+		[
+			"extrait",
+			"extrait naturel",
+		],
+		[
+			"café",
+			"chicorée",
+			"curcuma",
+			"houblon",
+			"levure",
+			"malt",
+			"muscade",
+			"poivre",
+			"poivre noir",
+			"romarin",
+			"thé",
+			"thé vert",
+			"thym",
+		]
+	],
+
+	[
+		[
+			"lécithine",
+		],
+		[
+			"colza",
+			"soja",
+			"soja sans ogm",
+			"tournesol",
+		]
+	],
+
+	[
+		[
+			"arôme naturel",
+			"arômes naturels",
+			"arôme artificiel",
+			"arômes artificiels",
+			"arômes naturels et artificiels",
+			"arômes",
+		],
+		[
+			"abricot",
+			"ail",
+			"amande",
+			"amande amère",
+			"agrumes",
+			"aneth",
+			"boeuf",
+			"cacao",
+			"cannelle",
+			"caramel",
+			"carotte",
+			"carthame",
+			"cassis",
+			"céleri",
+			"cerise",
+			"curcuma",
+			"cumin",
+			"citron",
+			"citron vert",
+			"crustacés",
+			"estragon",
+			"fenouil",
+			"figue",
+			"fraise",
+			"framboise",
+			"fromage de chèvre",
+			"fruit",
+			"fruit de la passion",
+			"fruits de la passion",
+			"fruits de mer",
+			"fumée",
+			"gentiane",
+			"herbes",
+			"jasmin",
+			"laurier",
+			"lime",
+			"limette",
+			"mangue",
+			"menthe",
+			"menthe crêpue",
+			"menthe poivrée",
+			"muscade",
+			"noix",
+			"noix de coco",
+			"oignon",
+			"olive",
+			"orange",
+			"orange amère",
+			"origan",
+			"pamplemousse",
+			"pamplemousse rose",
+			"pêche",
+			"piment",
+			"pistache",
+			"porc",
+			"pomme",
+			"poire",
+			"poivre",
+			"poisson",
+			"poulet",
+			"réglisse",
+			"romarin",
+			"rose",
+			"rhum",
+			"sauge",
+			"saumon",
+			"sureau",
+			"thé",
+			"thym",
+			"vanille",
+			"vanille de Madagascar",
+			"autres agrumes",
+		]
+	],
+
+	[
+		[
+			"carbonate",
+			"carbonates acides",
+			"chlorure",
+			"citrate",
+			"iodure",
+			"nitrate",
+			"diphosphate",
+			"diphosphate",
+			"phosphate",
+			"sélénite",
+			"sulfate",
+			"hydroxyde",
+			"sulphate",
+		],
+		[
+			"aluminium",
+			"ammonium",
+			"calcium",
+			"cuivre",
+			"fer",
+			"magnésium",
+			"manganèse",
+			"potassium",
+			"sodium",
+			"zinc",
+		]
+	],
+],
+
+ru =>
+[
+	# oils
+	[
+		# categories
+		[
+			"масло",
+			"масло растительное",
+		],
+		# types
+		[
+			"Подсолнечное",
+			"Пальмовое",
+			"Рапсовое",
+			"Кокосовое",
+			"горчицы",
+			"Соевое",
+			"Пальмоядровое",
+			"Оливковое",
+			"пальм",
+		],
+	],
+],
+
+);
+
+# Symbols to indicate labels like organic, fairtrade etc.
+my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
+my $symbols_regexp = join('|', @symbols);
+
+sub develop_ingredients_categories_and_types ($$) {
+	
+	my $product_lc = shift;
+	my $text = shift;	
+	
+	if (defined $ingredients_categories_and_types{$product_lc}) {
+
+		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$product_lc}}) {
+
+			my $category_regexp = "";
+			foreach my $category (@{$categories_and_types_ref->[0]}) {
+				$category_regexp .= '|' . $category . '|' . $category . 's';
+				my $unaccented_category = unac_string_perl($category);
+				if ($unaccented_category ne $category) {
+					$category_regexp .= '|' . $unaccented_category . '|' . $unaccented_category . 's';
+				}
+
+			}
+			$category_regexp =~ s/^\|//;
+
+			if ($product_lc eq "en") {
+				$category_regexp = '(?:organic |fair trade )*(?:' . $category_regexp . ')(?:' . $symbols_regexp . ')*';
+			}
+			elsif ($product_lc eq "fr") {
+				$category_regexp = '(?:' . $category_regexp . ')(?: bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
+			}
+			else {
+				$category_regexp = '(?:' . $category_regexp . ')(?:' . $symbols_regexp . ')*';
+			}
+
+			my $type_regexp = "";
+			foreach my $type (@{$categories_and_types_ref->[1]}) {
+				$type_regexp .= '|' . $type . '|' . $type . 's';
+				my $unaccented_type = unac_string_perl($type);
+				if ($unaccented_type ne $type) {
+					$type_regexp .= '|' . $unaccented_type . '|' . $unaccented_type . 's';
+				}
+
+			}
+			$type_regexp =~ s/^\|//;
+
+			# arôme naturel de citron-citron vert et d'autres agrumes
+			# -> separate types
+			$text =~ s/($type_regexp)-($type_regexp)/$1, $2/g;
+			
+			my $and = ' - ';
+			if (defined $and{$product_lc}) {
+				$and = $and{$product_lc};
+			}			
+			my $of = ' - ';
+			if (defined $of{$product_lc}) {
+				$of = $of{$product_lc};
+			}
+			my $and_of = ' - ';
+			if (defined $and_of{$product_lc}) {
+				$and_of = $and_of{$product_lc};
+			}
+			my $and_or = ' - ';
+			if (defined $and_or{$product_lc}) {
+				$and_or = $and_or{$product_lc};
+			}	
+			
+			if (($product_lc eq "en") or ($product_lc eq "ru")) {
+
+				# vegetable oil (palm, sunflower and olive)
+				$text =~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$2)/ieg;
+				
+				# vegetable oil (palm)
+				$text =~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$2)/ieg;
+				# vegetable oil: palm
+				$text =~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($product_lc,$1,$2)/ieg;	
+			}
+			elsif ($product_lc eq "fr") {
+				# arôme naturel de pomme avec d'autres âromes
+				$text =~ s/ (ou|et|avec) (d')?autres /, /g;
+
+				$text =~ s/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
+				
+				# Huiles végétales de palme, de colza et de tournesol
+				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
+				# TODO 18/07/2020 remove when we have a better solution
+				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
+				$text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$2)/ieg;
+				$text =~ s/fer_élémentaire/fer élémentaire/ig;				
+
+				# huile végétale (colza)
+				$text =~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$2)/ieg;
+				# huile végétale : colza,
+				$text =~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($product_lc,$1,$2)/ieg;
+			}
+		}
+
+		# Some additives have "et" in their name: need to recombine them
+		
+		if ($product_lc eq "fr") {
+
+			# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
+		
+			my $info = <<INFO
+Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
+oxyde et hydroxyde de fer rouge,
+oxyde et hydroxyde de fer jaune et rouge,
+Tartrate double de sodium et de potassium,
+Éthylènediaminetétraacétate de calcium et de disodium,
+Phosphate d'aluminium et de sodium,
+Diphosphate de potassium et de sodium,
+Tripoliphosphates de sodium et de potassium,
+Sels de sodium de potassium et de calcium d'acides gras,
+Mono- et diglycérides d'acides gras,
+Esters acétiques des mono- et diglycérides,
+Esters glycéroliques de l'acide acétique et d'acides gras,
+Esters glycéroliques de l'acide citrique et d'acides gras,
+Esters monoacétyltartriques et diacétyltartriques,
+Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
+Esters lactyles d'acides gras du glycérol et du propane-1,
+Silicate double d'aluminium et de calcium,
+Silicate d'aluminium et calcium,
+Silicate d'aluminium et de calcium,
+Silicate double de calcium et d'aluminium,
+Glycine et son sel de sodium,
+Cire d'abeille blanche et jaune,
+Acide cyclamique et ses sels,
+Saccharine et ses sels,
+Acide glycyrrhizique et sels,
+Sels et esters de choline,
+Octénylesuccinate d'amidon et d'aluminium,
+INFO
+;
+
+			# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+
+			$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+
+			# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
+			$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
+		}
+	}
+	
+	return $text;
+}
+
+
 =head2 preparse_ingredients_text ($product_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -3688,7 +4116,6 @@ It does the following:
 
 =cut
 
-
 sub preparse_ingredients_text($$) {
 
 	my $product_lc = shift;
@@ -3710,10 +4137,6 @@ sub preparse_ingredients_text($$) {
 
 	$prev_lc = $product_lc;
 	$prev_text = $text;
-
-	# Symbols to indicate labels like organic, fairtrade etc.
-	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
-	my $symbols_regexp = join('|', @symbols);
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
@@ -3921,305 +4344,12 @@ sub preparse_ingredients_text($$) {
 
 		$text =~ s/dient\(s\)/dients/ig;
 		$text =~ s/\bissu(\(e\))?(\(s\))?/issu/ig;
-
-		# simple plural (just an additional "s" at the end) will be added in the regexp
-		my @prefixes_suffixes_list = (
-# huiles
-[[
-"huile",
-"huile végétale",
-"huiles végétales",
-"matière grasse",
-"matières grasses",
-"matière grasse végétale",
-"matières grasses végétales",
-"graisse",
-"graisse végétale",
-"graisses végétales",
-],
-[
-"arachide",
-"avocat",
-"chanvre",
-"coco",
-"colza",
-"illipe",
-"karité",
-"lin",
-"mangue",
-"noisette",
-"noix",
-"noyaux de mangue",
-"olive",
-"olive extra",
-"olive vierge",
-"olive extra vierge",
-"olive vierge extra",
-"palme",
-"palmiste",
-"pépins de raisin",
-"sal",
-"sésame",
-"soja",
-"tournesol",
-"tournesol oléique",
-]
-],
-
-
-[[
-"extrait",
-"extrait naturel",
-],
-[
-"café",
-"chicorée",
-"curcuma",
-"houblon",
-"levure",
-"malt",
-"muscade",
-"poivre",
-"poivre noir",
-"romarin",
-"thé",
-"thé vert",
-"thym",
-]
-],
-
-[[
-"lécithine",
-],
-[
-"colza",
-"soja",
-"soja sans ogm",
-"tournesol",
-]
-],
-
-[
-[
-"arôme naturel",
-"arômes naturels",
-"arôme artificiel",
-"arômes artificiels",
-"arômes naturels et artificiels",
-"arômes",
-],
-[
-"abricot",
-"ail",
-"amande",
-"amande amère",
-"agrumes",
-"aneth",
-"boeuf",
-"cacao",
-"cannelle",
-"caramel",
-"carotte",
-"carthame",
-"cassis",
-"céleri",
-"cerise",
-"curcuma",
-"cumin",
-"citron",
-"citron vert",
-"crustacés",
-"estragon",
-"fenouil",
-"figue",
-"fraise",
-"framboise",
-"fromage de chèvre",
-"fruit",
-"fruit de la passion",
-"fruits de la passion",
-"fruits de mer",
-"fumée",
-"gentiane",
-"herbes",
-"jasmin",
-"laurier",
-"lime",
-"limette",
-"mangue",
-"menthe",
-"menthe crêpue",
-"menthe poivrée",
-"muscade",
-"noix",
-"noix de coco",
-"oignon",
-"olive",
-"orange",
-"orange amère",
-"origan",
-"pamplemousse",
-"pamplemousse rose",
-"pêche",
-"piment",
-"pistache",
-"porc",
-"pomme",
-"poire",
-"poivre",
-"poisson",
-"poulet",
-"réglisse",
-"romarin",
-"rose",
-"rhum",
-"sauge",
-"saumon",
-"sureau",
-"thé",
-"thym",
-"vanille",
-"vanille de Madagascar",
-"autres agrumes",
-]
-],
-
-
-[
-[
-"carbonate",
-"carbonates acides",
-"chlorure",
-"citrate",
-"iodure",
-"nitrate",
-"diphosphate",
-"diphosphate",
-"phosphate",
-"sélénite",
-"sulfate",
-"hydroxyde",
-"sulphate",
-],
-[
-"aluminium",
-"ammonium",
-"calcium",
-"cuivre",
-"fer",
-"magnésium",
-"manganèse",
-"potassium",
-"sodium",
-"zinc",
-]
-],
-
-);
-
-		foreach my $prefixes_suffixes_ref (@prefixes_suffixes_list) {
-
-			my $prefixregexp = "";
-			foreach my $prefix (@{$prefixes_suffixes_ref->[0]}) {
-				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
-				my $unaccented_prefix = unac_string_perl($prefix);
-				if ($unaccented_prefix ne $prefix) {
-					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
-				}
-
-			}
-			$prefixregexp =~ s/^\|//;
-
-			$prefixregexp = '(' . $prefixregexp . ')( bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
-
-			my $suffixregexp = "";
-			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
-				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
-				my $unaccented_suffix = unac_string_perl($suffix);
-				if ($unaccented_suffix ne $suffix) {
-					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
-				}
-
-			}
-			$suffixregexp =~ s/^\|//;
-
-			# arôme naturel de citron-citron vert et d'autres agrumes
-			# -> separate suffixes
-			$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
-
-			# arôme naturel de pomme avec d'autres âromes
-			$text =~ s/ (ou|et|avec) (d')?autres /, /g;
-
-			$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $4, $8)/ieg;
-
-			# old:
-
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
-
-			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
-
-			# Huiles végétales de palme, de colza et de tournesol
-			# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
-			# TODO 18/07/2020 remove when we have a better solution
-			$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
-			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
-			$text =~ s/fer_élémentaire/fer élémentaire/ig;
-		}
-
-		# Caramel ordinaire et curcumine
-		# $text =~ s/ et /, /ig;
-		# --> too dangerous, too many exceptions
-
-		# Some additives have "et" in their name: need to recombine them
-
-		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
-		my $info = <<INFO
-		Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
-		oxyde et hydroxyde de fer rouge,
-		oxyde et hydroxyde de fer jaune et rouge,
-		Tartrate double de sodium et de potassium,
-		Éthylènediaminetétraacétate de calcium et de disodium,
-		Phosphate d'aluminium et de sodium,
-		Diphosphate de potassium et de sodium,
-		Tripoliphosphates de sodium et de potassium,
-		Sels de sodium de potassium et de calcium d'acides gras,
-		Mono- et diglycérides d'acides gras,
-		Esters acétiques des mono- et diglycérides,
-		Esters glycéroliques de l'acide acétique et d'acides gras,
-		Esters glycéroliques de l'acide citrique et d'acides gras,
-		Esters monoacétyltartriques et diacétyltartriques,
-		Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
-		Esters lactyles d'acides gras du glycérol et du propane-1,
-		Silicate double d'aluminium et de calcium,
-		Silicate d'aluminium et calcium,
-		Silicate d'aluminium et de calcium,
-		Silicate double de calcium et d'aluminium,
-		Glycine et son sel de sodium,
-		Cire d'abeille blanche et jaune,
-		Acide cyclamique et ses sels,
-		Saccharine et ses sels,
-		Acide glycyrrhizique et sels,
-		Sels et esters de choline,
-		Octénylesuccinate d'amidon et d'aluminium,
-INFO
-;
-
-
-		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
-
-		$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
-
-		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
-		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
-
-		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
-		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
-
 	}
-
+	
+	$text = develop_ingredients_categories_and_types($product_lc, $text);
+	
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
 "a", "rétinol",

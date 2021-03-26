@@ -6122,8 +6122,12 @@ la:Tilia cordata
 nl:Winterlinde
 wikidata:en:Q158746
 
+# 2021-03-23: removed "en:liquorice" as a category. It was under herbal teas,
+# but almost all entries under the en:liquorice category are candies.
+# Creating instead en:Liquorice herbal teas + en:Liquorice candies
+
 <en:Herbal teas
-en:Liquorice herbal teas, licorice teas, liquorice teas
+en:Liquorice herbal teas, Liquorice teas, licorice herbal teas, licorice teas
 fr:Infusions de réglisse
 
 <en:Herbal teas
@@ -6243,6 +6247,10 @@ nl:Sarsaparilla
 wikidata:en:Q161119
 
 # description:en:LIQUORICE is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
+
+<en:Plant-based foods
+en:Liquorice roots, licorice roots
+fr:Bâtons de réglisse, bâton de réglisse
 
 <en:Plant-based foods
 en:Liquorice roots, licorice roots
@@ -27660,6 +27668,10 @@ ciqual_food_name:fr:Bonbons, tout type
 <en:Candies
 en:French candies
 fr:Bonbons français
+
+en:Candies
+en:Liquorice candies, Licorice candies
+fr:Bonbons au réglisse, Bonbons à la réglisse
 
 <en:French candies
 fr:Bêtises de Cambrai
@@ -68325,8 +68337,7 @@ wikidata:Q1886522
 
 en:Pickles
 ca:Conserves
-da:Syltede agurker
-de:Gurken
+de:Eingelegte Lebensmittel
 es:Encurtidos
 fi:säilykkeet
 fr:Pickles
@@ -75344,6 +75355,7 @@ nl:Ingemaakte wortels
 <en:Vegetable pickles
 en:Pickled cucumbers
 bg:Кисели краставици
+da:Syltede agurker
 de:Eingelegte Gurken
 es:Pepinos encurtidos
 fi:säilötyt kurkut

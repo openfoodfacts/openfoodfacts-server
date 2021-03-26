@@ -371,6 +371,9 @@ sub export_csv($) {
 
 		my $added_images_urls = 0;
 		my $product_path = product_path($product_ref);
+		
+		# Add data sources from the sources field (useful for old imports for which we did not have some sources -> data_sources associations)
+		compute_data_sources($product_ref);
 
 		foreach my $field (@sorted_populated_fields) {
 
