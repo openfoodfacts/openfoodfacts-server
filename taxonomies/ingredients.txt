@@ -383,7 +383,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
 <en:carotenoids
-en:carotene, carotin
+en:carotene, carotin, mixed carotenes
 ar:كاروتين
 be:Карацін
 bg:Каротин
@@ -20897,6 +20897,11 @@ wikidata:en:Q26869768
 <en:white rum
 fr:Rhum blanc agricole
 
+<en:rum
+en:dark rum
+fr:rhum brun
+
+
 <en:alcohol
 en:armagnac
 de:Armagnac
@@ -30371,6 +30376,10 @@ fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
 de:stark entöltes Kakaopulver
 it:cacao fortemente sgrassato ed cacao in polvere
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
+
+<en:cocoa
+en:cocoa solids
+wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_solids
 
 <en:cocoa paste
 <en:cocoa butter
@@ -46821,7 +46830,7 @@ sv:röd och grön paprika
 
 <en:red pepper
 <en:yellow pepper
-en:red and yellow bell peppers, yellow and red bell peppers
+en:red and yellow peppers, red and yellow bell peppers, yellow and red peppers, yellow and red bell peppers
 fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 de:Peperoni rot und gelb
 it:peperoni rossi e gialli
@@ -52756,8 +52765,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Elettaria_cardamomum
 <en:cardamom
 en:black cardamom
 fr:cardamome noire
+la:Amomum subulatum
 wikidata:en:Q1369048
 wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
+
+# the pod contains the seeds
+<en:cardamom
+en:cardamom pod
 
 <en:seed
 <en:cardamom
@@ -68862,6 +68876,11 @@ fr:Escalopes de poulet
 en:chicken protein
 es:proteina de pollo
 
+<en:chicken
+en:chicken wing
+fr:aile de poulet
+
+
 ###################################################################################################
 #
 #                                Duck
@@ -69502,6 +69521,7 @@ fr:Gros Œufs de Poules Élevées en Plein Air
 fr:œuf moyen de poule élevé en plein air sans antibiotiques
 
 <en:free range chicken eggs
+en:free range pasteurised egg, free range pasteurised whole egg
 fr:œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 nl:gepasteuriseerd ei van hennen met vrije uitloop
 # ingredient/fr:œufs-de-poules-élevées-en-plein-air-pasteurisés has 49 products in 3 languages @2018-12-18
@@ -75548,9 +75568,11 @@ en:stuffed poblano peppers
 fr:encornets farcis
 
 en:alfalfa
+es:alfalfa
 fr:luzerne
 it:erba medica
-es:alfalfa
+wikidata:en:Q156106
+wikipedia:en:https://en.wikipedia.org/wiki/Alfalfa
 
 <en:melon
 en:bitter melon
