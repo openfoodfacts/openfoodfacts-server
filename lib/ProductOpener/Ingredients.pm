@@ -3195,6 +3195,7 @@ it => [
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
 'Una volta aperto', # once opened...
+'Da consumarsi preferibilmente entro', # best before
 ],
 
 ja => [
