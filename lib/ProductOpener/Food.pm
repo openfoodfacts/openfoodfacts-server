@@ -230,10 +230,6 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	if ((not defined $unit) or ($unit eq "")) {
 		$unit = default_unit_for_nid($nid);
 	}
-	# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-	elsif (($nid eq "energy") and (($unit eq "kj") or ($unit eq "kcal"))) {
-		$nid = "energy-" . $unit;
-	}
 
 	$value = convert_string_to_number($value);
 

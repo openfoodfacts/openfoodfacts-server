@@ -1338,6 +1338,11 @@ EMAIL
 					$log->debug("nutrient with defined and non empty value", { nid => $nid, type => $type, value => $values{$type}, unit => $unit }) if $log->is_debug();
 					$stats{"products_with_nutrition" . $type}{$code} = 1;
 
+					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
+					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+						$nid = "energy-" . lc($unit);
+					}
+
 					assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
 
 					if ((defined $Owner_id) and ($Owner_id =~ /^org-/)
