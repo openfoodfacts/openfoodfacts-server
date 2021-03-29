@@ -383,7 +383,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
 
 <en:carotenoids
-en:carotene, carotin
+en:carotene, carotin, mixed carotenes
 ar:كاروتين
 be:Карацін
 bg:Каротин
@@ -5428,7 +5428,7 @@ ia:enzyma
 id:enzim
 io:enzimo
 is:ensím
-it:enzima
+it:enzima, enzimi
 ja:酵素
 jv:Ènzim
 ka:ფერმენტები
@@ -16008,7 +16008,7 @@ es:almidón de trigo modificado
 fi:muunnettu vehnätärkkelys, muunneltu vehnätärkkelys
 fr:amidon modifié de blé, amidon transformé de blé
 hu:módosított búzakeményítő
-it:amido modificato de fromento
+it:amido modificato di frumento
 nl:gemodificeerd tarwezetmeel
 sv:modifierad vetestärkelse
 
@@ -17400,6 +17400,7 @@ de:ganz gehärtetes kokosfett
 es:grasa de coco totalmente hidrogenada
 fi:kokonaan kovetettu kookosrasva, kokonaan kovetettua kookosrasvaa
 fr:graisse de coco totalement hydrogénée
+it:grassi totalmente idrogenati da cocco
 nb:fullherdet kokosfett
 nl:geheel gehard kokosvet
 sv:fullhärdat kokosfett
@@ -18360,6 +18361,7 @@ es:aceite de girasol totalmente hidrogenado
 fi:kokonaan kovetettu auringonkukkaöljy, täysin hydrogenoitu auringonkukkaöljy
 fr:huile de tournesol entièrement hydrogénée
 hu:teljesen hidrogénezett napraforgóolaj
+it:oli totalmente idrogenati da girasole
 nl:zonnebloemolie geheel gehard
 
 <en:sunflower oil
@@ -20894,6 +20896,11 @@ wikidata:en:Q26869768
 
 <en:white rum
 fr:Rhum blanc agricole
+
+<en:rum
+en:dark rum
+fr:rhum brun
+
 
 <en:alcohol
 en:armagnac
@@ -25257,7 +25264,7 @@ es:harina de trigo malteada
 fi:vehnämallasjauho, mallastettu vehnäjauho
 fr:farine de blé maltée, farine de blé fermenté, farine de blé malté, farine de malt de froment
 hu:búzamaláta liszt
-it:farina di grano maltato
+it:farina di grano maltato, farina di malto di frumento
 nl:gemout tarwemeel
 sv:vetemaltmjöl
 
@@ -25544,6 +25551,7 @@ de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
 fi:täysjyväkaurajauho, täysjyväkaurajauhoa
 fr:farine d'avoine complète, farine complète d'avoine
 hu:teljes kiőrlésű zabliszt
+it:farina di avena integrale
 nl:volkorenhavermeel
 pl:mąka owsiana pełnoziarnista
 pt:farinha de aveia integral
@@ -30369,6 +30377,10 @@ de:stark entöltes Kakaopulver
 it:cacao fortemente sgrassato ed cacao in polvere
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
+<en:cocoa
+en:cocoa solids
+wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_solids
+
 <en:cocoa paste
 <en:cocoa butter
 en:cocoa mass and cocoa butter
@@ -31995,6 +32007,7 @@ de:Mais-Maltodextrin
 es:maltodextrina de maiz
 fi:maissimaltodekstriini
 fr:maltodextrine de maïs, malto-dextrine de maïs
+it:maltodestrine di mais
 nl:maïsmaltodextrine
 pt:maltodextrina de milho
 sv:majsmaltodextrin
@@ -46817,7 +46830,7 @@ sv:röd och grön paprika
 
 <en:red pepper
 <en:yellow pepper
-en:red and yellow bell peppers, yellow and red bell peppers
+en:red and yellow peppers, red and yellow bell peppers, yellow and red peppers, yellow and red bell peppers
 fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 de:Peperoni rot und gelb
 it:peperoni rossi e gialli
@@ -52752,8 +52765,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Elettaria_cardamomum
 <en:cardamom
 en:black cardamom
 fr:cardamome noire
+la:Amomum subulatum
 wikidata:en:Q1369048
 wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
+
+# the pod contains the seeds
+<en:cardamom
+en:cardamom pod
 
 <en:seed
 <en:cardamom
@@ -68858,6 +68876,11 @@ fr:Escalopes de poulet
 en:chicken protein
 es:proteina de pollo
 
+<en:chicken
+en:chicken wing
+fr:aile de poulet
+
+
 ###################################################################################################
 #
 #                                Duck
@@ -69354,6 +69377,7 @@ de:Freilandeier
 es:Huevos de corral,huevos de gallinas criadas en el suelo
 fi:ulkomunat
 fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
+it:uova da allevamento a terra
 nl:vrije uitloop ei
 
 <en:eggs
@@ -69497,6 +69521,7 @@ fr:Gros Œufs de Poules Élevées en Plein Air
 fr:œuf moyen de poule élevé en plein air sans antibiotiques
 
 <en:free range chicken eggs
+en:free range pasteurised egg, free range pasteurised whole egg
 fr:œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 nl:gepasteuriseerd ei van hennen met vrije uitloop
 # ingredient/fr:œufs-de-poules-élevées-en-plein-air-pasteurisés has 49 products in 3 languages @2018-12-18
@@ -75543,9 +75568,11 @@ en:stuffed poblano peppers
 fr:encornets farcis
 
 en:alfalfa
+es:alfalfa
 fr:luzerne
 it:erba medica
-es:alfalfa
+wikidata:en:Q156106
+wikipedia:en:https://en.wikipedia.org/wiki/Alfalfa
 
 <en:melon
 en:bitter melon

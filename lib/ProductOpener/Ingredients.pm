@@ -2594,6 +2594,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'it') and return "vitamina $a";
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
+		($lc eq 'pl') and return "witamina $a";
 		return "vitamin $a";
 	}
 	else {
@@ -2623,6 +2624,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
 	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
+	elsif ($lc eq 'pl') { $split_vitamins_list = "witaminy" }
 	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
@@ -3195,6 +3197,7 @@ it => [
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
 'Una volta aperto', # once opened...
+'Da consumarsi preferibilmente entro', # best before
 ],
 
 ja => [

@@ -241,6 +241,7 @@ my @lists =(
 	# vit. e
 	["en", "vit. e, vitamins b2, B3 and K, vit d, vit a & c, vit. B12", "vitamin e, vitamins, vitamin b2, vitamin B3, vitamin K, vitamin d, vitamin a, vitamin c, vitamin B12"],
 	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
+	["pl", "witaminy A i D", "witaminy, witamina A, witamina D"],
 
 	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
 
