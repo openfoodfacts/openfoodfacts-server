@@ -128,8 +128,6 @@ while (<STDIN>)
 	}
 }
 
-my $products = $j;
-
 print STDERR "Loaded scan logs: $j lines\n";
 
 my $changed_products = 0;
@@ -137,12 +135,12 @@ my $added_countries = 0;
 
 # Count unique ips
 
-my $total_scans = 0;
+my $total_scans = $j;
+my $total_unique_scans = 0;
 
 foreach my $code (keys %codes) {
 	$codes{$code}{u} = scalar keys %{$codes{$code}{ips}};
-	$total_scans += $codes{$code}{u};
-	
+	$total_unique_scans += $codes{$code}{u};
 }
 
 # Cache GeoIP results
@@ -168,6 +166,7 @@ foreach my $ip (keys %ips) {
 print STDERR "Computing countries for all products\n";
 
 my %countries_for_products = ();
+my %countries_for_all_products = ();
 my %products_for_countries = ();
 
 my %countries_ranks_for_products = ();
@@ -203,9 +202,11 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		
 		if ((defined $country_code) and ($country_code ne "")) {
 			$countries_for_products{$code}{$country_code}++;
+			$countries_for_all_products{$country_code}++;
 		}
 		
 		$countries_for_products{$code}{"world"}++;
+		$countries_for_all_products{"world"}++;
 	}
 	
 	foreach my $country_code (keys %{$countries_for_products{$code}}) {
@@ -218,6 +219,24 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		$k = 0;
 		$i = 0;
 	}
+}
+
+# Update scans.json
+
+if ($update_scans) {
+	
+	my $scans_ref = retrieve_json("$data_root/products/all_products_scans.json");
+	if (not defined $scans_ref) {
+		$scans_ref = {};
+	}
+	
+	$scans_ref->{$year} = {
+		scans_n => $total_scans + 0,
+		unique_scans_n => $total_unique_scans + 0,
+		unique_scans_n_by_country => \%countries_for_all_products,
+	};
+	
+	store_json("$data_root/products/all_products_scans.json", $scans_ref);
 }
 
 print STDERR "Ranking products for all countries\n";
@@ -351,7 +370,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 			$cumulative_scans += $codes{$code}{u};
 
 			foreach my $percent (75, 80, 85, 90) {
-				if ($cumulative_scans / $total_scans <= $percent / 100) {
+				if ($cumulative_scans / $total_unique_scans <= $percent / 100) {
 					push @{$product_ref->{popularity_tags}}, "top-" . $percent . "-percent-scans-$year";
 				}
 				else {
