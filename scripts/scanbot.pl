@@ -73,7 +73,7 @@ scanbot.pl --year 2020 --update-popularity --update-scans < scans_log
 
 Options:
 	--update-popularity	Update the popularity_tags facet for each scanned products.
-	--update-scans		Update the scans.sto file for each scanned product.
+	--update-scans		Update the scans.json file for each scanned product.
 	
 Products that are scanned but do not exist on OFF are not created,
 but they are taken into account to compute some values of the popularity facets (e.g. top-95-percent-scans).
@@ -242,7 +242,7 @@ open (my $LOG, ">:encoding(UTF-8)", "scanbot.log") or die("Cannot create scanbot
 
 my $cumulative_scans = 0;    # cumulative total of scans so that we can compute which top products represent 95% of the scans
 
-my $i = 0;    # products scanned
+$i = 0;    # products scanned
 
 foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $codes{$a}{n} } keys %codes) {
 
@@ -281,11 +281,11 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 		my $path = product_path($product_ref);
 		
-		# Update scans.sto
+		# Update scans.json
 		
 		if ($update_scans) {
 			
-			my $scans_ref = retrieve("$data_root/products/$path/scans.sto");
+			my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
 			if (not defined $scans_ref) {
 				$scans_ref = {};
 			}
@@ -297,7 +297,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				unique_scans_rank_by_country => $countries_ranks_for_products{$code},
 			};
 			
-			store("$data_root/products/$path/scans.sto", $scans_ref);
+			store_json("$data_root/products/$path/scans.json", $scans_ref);
 		}
 		
 		# Update popularity_tags + add countries
@@ -372,6 +372,9 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 			my $top_country;
 
 			foreach my $cc (sort { $countries{$b} <=> $countries{$a} } keys %countries) {
+				
+				next if $cc eq "world";
+				
 				print "$cc:$countries{$cc} ";
 
 				foreach my $top (10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000) {
