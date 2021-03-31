@@ -56,11 +56,13 @@ use Getopt::Long;
 my $year;
 my $update_popularity;
 my $update_scans;
+my $add_countries;
 
 GetOptions (
 	'year=s' => \$year,
 	'update-popularity' => \$update_popularity,
 	'update-scans' => \$update_scans,
+	'add-countries' => \$add_countries,
 );
 
 if ((not defined $year) or not ((defined $update_popularity) or (defined $update_scans))) {
@@ -69,7 +71,7 @@ scanbot.pl processes nginx log files that have been filtered to keep only the OF
 
 Usage:
 
-scanbot.pl --year 2020 --update-popularity --update-scans < scans_log
+scanbot.pl --year 2020 --update-popularity --update-scans --add-countries < scans_log
 
 Options:
 	--update-popularity	Update the popularity_tags facet for each scanned products.
@@ -394,7 +396,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 					# Do not add countries for products with a code beginning by 2
 					# (codes can be reused by different companies in different countries)
-					if (($code !~ /^(02|2)/) and (not exists $existing{$country})) {
+					if (($add_countries) and ($code !~ /^(02|2)/) and (not exists $existing{$country})) {
 						print "- adding $country to $product_ref->{countries}\n";
 						$product_ref->{countries} .= ", $country";
 						$bot .= "+$country ";
