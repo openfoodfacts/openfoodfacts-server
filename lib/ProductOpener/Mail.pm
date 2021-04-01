@@ -73,7 +73,7 @@ C<send_email()> sends email from the contact email of Open Food Facts to the ema
 
 =head3 Arguments
 
-The first argument is a hash reference. The other two arguments are scalar varaibles that consist of email subject and body.
+The first argument is a hash reference. The other two arguments are scalar variables that consist of email subject and body.
 
 =head4 Input keys: user data
 
@@ -123,7 +123,7 @@ C<send_email_to_admin()> sends email from the contact email of Open Food Facts t
 
 =head3 Arguments
 
-Two scalar varaibles that contain the email subject and body are passed as an argument.
+Two scalar variables that contain the email subject and body are passed as an argument.
 
 =head3 Return Values
 
@@ -155,11 +155,11 @@ sub send_email_to_admin($$)
 
 =head2 send_email_to_producers_admin( SUBJECT, TEXT )
 
-C<send_email_to_producers_admin()> sends email from the contacts email of Open Food Facts to producers admin.
+C<send_email_to_producers_admin()> sends email from the contact email of Open Food Facts to producers admin.
 
 =head3 Arguments
 
-Two scalar varaibles that contain the email subject and body are passed as an argument.
+Two scalar variables that contain the email subject and body are passed as an argument.
 
 =head3 Return Values
 
