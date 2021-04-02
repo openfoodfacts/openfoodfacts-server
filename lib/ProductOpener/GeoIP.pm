@@ -118,7 +118,7 @@ One scalar variable ip is passed as an argument.
 
 =head3 Return values
 
-If the function executes successfully it returns the iso code for the country where the IP address is located.
+If the function executes successfully it returns the two-character ISO 3166-1 (http://en.wikipedia.org/wiki/ISO_3166-1) alpha code for the country where the IP address is located (eg. "AF" for Afghanistan).
 On the other hand, if it throws an exception, it simply returns undefined.
 
 =cut
