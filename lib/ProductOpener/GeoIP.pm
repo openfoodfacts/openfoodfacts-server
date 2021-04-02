@@ -110,7 +110,7 @@ sub get_country_for_ip {
 
 =head2 get_country_code_for_ip()
 
-C<get_country_code_for_ip()> takes the IP address as input paramter and returns the country iso code where IP address is located.
+C<get_country_code_for_ip()> takes the IP address as input parameter and returns the country iso code where IP address is located.
 
 =head3 Arguments
 
