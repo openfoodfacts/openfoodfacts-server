@@ -23,8 +23,8 @@
 		[% agribalyse.name_fr %]</a>
 	</p>
 	<ul>
-		<li>[% lang('pef_environmental_score') %]PEF environmental score: [% agribalyse.ef_total FILTER format("%.2f"); %] (the lower the score, the lower the impact)</li>
-		<li>[% lang('incl_climate_change_impact') %]- including impact on climate change: [% agribalyse.co2_total FILTER format("%.2f"); %] kg CO2 eq/kg of product</li>
+		<li>[% lang('pef_environmental_score') %]PEF environmental score: [% agribalyse.ef_total FILTER format("%.2f"); %] [% lang('lower_the_score_lower_the_impact') %](the lower the score, the lower the impact)</li>
+		<li>[% lang('incl_climate_change_impact') %]- including impact on climate change: [% agribalyse.co2_total FILTER format("%.2f"); %] [% lang('kg_co2_eq_kg_product') %] kg CO2 eq/kg of product</li>
 	</ul>
 	
 		<table id="agribalyse_impacts">
@@ -225,7 +225,7 @@
 	</div>
 	</div>
 	
-	<h3>Score final</h3>
+	<h3>[% lang('final_score') %]</h3>
 
 	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
 	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
