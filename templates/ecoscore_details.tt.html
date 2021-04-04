@@ -3,21 +3,21 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h3>[% lang('ecoscore_product_category_reference_score') %] Baseline score of the product category</h3>
+	<h3>[% lang('ecoscore_product_category_reference_score') %]</h3>
 
 	<div class="row">
 	<div class="small-12 columns">
 		<div class="panel ecoscore_panel" id="ecoscore_panel_lca">
-	<h4>[% display_icon('lca') %] [% lang('ecoscore_panel_lca') %] Lifecyle Analysis (LCA)</h4>
+	<h4>[% display_icon('lca') %] [% lang('ecoscore_panel_lca') %]</h4>
 	
 	[% IF agribalyse.code %]
 	
 	<p>
 		[% lang('agribalyse_category') %] Agribalyse category</a> : <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
-			[% lang('category_proxy_match') %]Approximate match with the product category
+			[% lang('category_proxy_match') %]
 		[% ELSE %]
-      [% lang('category_exact_match') %]Exact match with the product category
+      [% lang('category_exact_match') %]
 		[% END %]
 		">
 		[% agribalyse.name_fr %]</a>
@@ -30,11 +30,11 @@
 		<table id="agribalyse_impacts">
 			<caption style="text-align:left">[% lang('impact_detail_by_stages') %]Details of the impacts by stages of the life cycle</caption>
 			<tr>
-				<th scope="col">[% lang('stage') %]Stage</th>
-				<th scope="colgroup" colspan="2">[% lang('impact') %]Impact</th>
+				<th scope="col">[% lang('stage') %]</th>
+				<th scope="colgroup" colspan="2">[% lang('impact') %]</th>
 			</tr>
 			<tr>
-				<td>[% display_icon('agriculture') %] [% lang('agriculture') %]Agriculture</td>
+				<td>[% display_icon('agriculture') %] [% lang('agriculture') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_agriculture / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:220px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -43,7 +43,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>[% display_icon('processing') %] [% lang('transformation') %]Transformation</td>
+				<td>[% display_icon('processing') %] [% lang('transformation') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_processing / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -52,7 +52,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('packaging') %] [% lang('packaging') %]Packaging</td>
+				<td>[% display_icon('packaging') %] [% lang('packaging') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_packaging / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -61,7 +61,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('truck') %] [% lang('transportation') %]Transportation</td>
+				<td>[% display_icon('truck') %] [% lang('transportation') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_transportation / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -70,7 +70,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('cart') %] [% lang('distribution') %]Distribution</td>
+				<td>[% display_icon('cart') %] [% lang('distribution') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_distribution / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -79,7 +79,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('cooking-pan') %] [% lang('consumption') %]Consumption</td>
+				<td>[% display_icon('cooking-pan') %] [% lang('consumption') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_consumption / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -90,13 +90,13 @@
 		</table>	
 	
 	<p>
-		<strong>[% lang('lca_score_on_100') %]LCA score on 100: [% round(agribalyse.score) %]</strong>
+		<strong>[% lang('lca_score_on_100') %] [% round(agribalyse.score) %]</strong>
 	</p>
 	
 	[% ELSE %]
 	<div class="panel warning">
-		<strong>[% lang('no_agribalyse_category_match') %]No match between product categories and Agribalyse categories.</strong><br><br>
-		[% lang('edit_category_to_more_granular') %]You can modify the product page to add a more granular category.<br><br>
+		<strong>[% lang('no_agribalyse_category_match') %]</strong><br><br>
+		[% lang('edit_category_to_more_granular') %]<br><br>
 		[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 	</div>
 	[% END %]
@@ -105,7 +105,7 @@
 	</div>
 	</div>
 
-	<h3>[% lang('additional_bonuses_and_maluses') %]Additional bonuses and maluses</h3>
+	<h3>[% lang('additional_bonuses_and_maluses') %]</h3>
 	
 	<div class="row" data-equalizer="ecoscore1">
 	
@@ -116,7 +116,7 @@
 	[% IF adjustments.production_system.value %]
 		<p><strong>[% lang('label') %]Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
-		<p>[% lang('no_labels_taken_into_account') %]No labels taken into account for the production system.</p>
+		<p>[% lang('no_labels_taken_into_account') %]</p>
 		
 	[% IF adjustments.production_system.warning %]
 		<div class="panel warning">
@@ -131,7 +131,7 @@
 	
 	<div class="small-12 large-6 columns">	
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_origins" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('public') %] [% lang('origin_of_ingredients') %]Origin of ingredients</h4>
+	<h4>[% display_icon('public') %] [% lang('origin_of_ingredients') %]</h4>
 	
 	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
 		<ul>
@@ -150,8 +150,8 @@
 	[% END %]
 
 	<p>
-		<strong>[% lang('environmental_policy') %]Environmental policy : [% IF adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
-		<strong>[% lang('transportation') %]Transportation : [% IF adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+		<strong>[% lang('environmental_policy') %] [% IF adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>[% lang('transportation') %] [% IF adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
 	</p>
 	</div>
 	</div>
@@ -161,10 +161,10 @@
 	
 	<div class="small-12 large-6 columns">
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_threatened_species" data-equalizer-watch="ecoscore2">
-	<h4>[% display_icon('monkey_unhappy') %] [% lang('threatened_species') %]Threatened species</h4>
+	<h4>[% display_icon('monkey_unhappy') %] [% lang('threatened_species') %]</h4>
 	
 	[% IF adjustments.threatened_species.value %]
-		<p>[% lang('ingredients_whose_cultivation_threatens_species') %]Ingredients whose cultivation threatens species:</p>
+		<p>[% lang('ingredients_whose_cultivation_threatens_species') %]</p>
 		<ul>
 			<li>[% display_taxonomy_tag("ingredients",adjustments.threatened_species.ingredient) %]</li>
 		</ul>
@@ -175,8 +175,8 @@
 	
 	[% IF adjustments.threatened_species.warning %]
 		<div class="panel warning">
-			<strong>[% lang('ingredients_unknown') %]The information on the ingredients of this product has not been given.</strong><br><br>
-			[% lang('edit_for_more_precise_ecoscore') %]For a more precise calculation of the Eco-Score, you can edit the product page and add them.<br><br>
+			<strong>[% lang('ingredients_unknown') %]</strong><br><br>
+			[% lang('edit_for_more_precise_ecoscore') %]<br><br>
 			[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
 	[% END %]	
@@ -187,7 +187,7 @@
 	<div class="small-12 large-6 columns">
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_packaging" data-equalizer-watch="ecoscore2">
 	
-	<h4>[% display_icon('packaging') %] [% lang('packaging') %]Packaging</h4>
+	<h4>[% display_icon('packaging') %] [% lang('packaging') %]</h4>
 	
 	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
 		<ul>
@@ -201,7 +201,7 @@
 				</li>
 			[% END %]
 		</ul>
-		<p>[% lang('score_of_all_components') %]Score of all components: [% adjustments.packaging.score %]</p>
+		<p>[% lang('score_of_all_components') %] [% adjustments.packaging.score %]</p>
 		
 		<p><strong>[% lang('packaging_enum') %]Packaging : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	[% END %]
@@ -210,13 +210,13 @@
 		<div class="panel warning">
 			<strong>
 				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
-					[% lang('no_packaging_information') %]The information on the packaging of this product is not provided.
+					[% lang('no_packaging_information') %]
 				[% ELSE %]
 					[% lang('unprecise_packaging_information') %]The information on the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging).
 				[% END %]
 			</strong>
 			<br><br>
-			[% lang('edit_for_more_precise_ecoscore') %]For a more precise calculation of the Eco-Score, you can modify the product sheet and add them.<br><br>
+			[% lang('edit_for_more_precise_ecoscore') %]<br><br>
 			[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
 	[% END %]
