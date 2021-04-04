@@ -3,34 +3,36 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h3>Score de référence de la catégorie du produit</h3>
+	<h3>ecoscore_product_category_reference_score Score de référence de la catégorie du produit</h3>
 
 	<div class="row">
 	<div class="small-12 columns">
 		<div class="panel ecoscore_panel" id="ecoscore_panel_lca">
-	<h4>[% display_icon('lca') %] Analyse de cycle de vie (ACV)</h4>
+	<h4>[% display_icon('lca') %] ecoscore_panel_lca Lifecyle Analysis (LCA) Analyse de cycle de vie (ACV)</h4>
 	
 	[% IF agribalyse.code %]
 	
 	<p>
 		Catégorie Agribalyse</a> : <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
-			Correspondance approchée avec la catégorie du produit
+			Approximate correspondence with the product category
+      Correspondance approchée avec la catégorie du produit
 		[% ELSE %]
 			Correspondance exacte avec la catégorie du produit
+      Exact match with product category
 		[% END %]
 		">
 		[% agribalyse.name_fr %]</a>
 	</p>
 	<ul>
-		<li>Score environnemental PEF : [% agribalyse.ef_total FILTER format("%.2f"); %] (plus le score est bas, plus l'impact est faible)</li>
-		<li>- dont impact sur le changement climatique : [% agribalyse.co2_total FILTER format("%.2f"); %] kg CO2 eq/kg de produit</li>
+		<li>PEF environmental score: [% agribalyse.ef_total FILTER format("%.2f"); %] (the lower the score, the lower the impact)</li>
+		<li>- including impact on climate change: [% agribalyse.co2_total FILTER format("%.2f"); %] kg CO2 eq/kg de produit</li>
 	</ul>
 	
 		<table id="agribalyse_impacts">
-			<caption style="text-align:left">Détail des impacts par étapes du cycle de vie</caption>
+			<caption style="text-align:left">Details of the impacts by stages of the life cycle</caption>
 			<tr>
-				<th scope="col">Etape</th>
+				<th scope="col">Stage</th>
 				<th scope="colgroup" colspan="2">Impact</th>
 			</tr>
 			<tr>
@@ -52,7 +54,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('packaging') %] Emballage</td>
+				<td>[% display_icon('packaging') %] Packaging</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_packaging / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -61,7 +63,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('truck') %] Transport</td>
+				<td>[% display_icon('truck') %] Transportation</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_transportation / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -175,9 +177,9 @@
 	
 	[% IF adjustments.threatened_species.warning %]
 		<div class="panel warning">
-			<strong>Les informations sur les ingrédients de ce produit ne sont pas renseignées.</strong><br><br>
-			Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter.<br><br>
-			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+			<strong>The information on the ingredients of this product has not been given.</strong><br><br>
+			For a more precise calculation of the Eco-Score, you can edit the product page and add them.<br><br>
+			If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
 	[% END %]	
 	
@@ -187,7 +189,7 @@
 	<div class="small-12 large-6 columns">
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_packaging" data-equalizer-watch="ecoscore2">
 	
-	<h4>[% display_icon('packaging') %] Emballage</h4>
+	<h4>[% display_icon('packaging') %] Packaging</h4>
 	
 	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
 		<ul>
@@ -201,7 +203,7 @@
 				</li>
 			[% END %]
 		</ul>
-		<p>Score de tous les composants : [% adjustments.packaging.score %]</p>
+		<p>Score of all components: [% adjustments.packaging.score %]</p>
 		
 		<p><strong>Emballage : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	[% END %]
@@ -210,9 +212,9 @@
 		<div class="panel warning">
 			<strong>
 				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
-					Les informations sur l'emballage de ce produit ne sont pas renseignées.
+					The information on the packaging of this product is not provided.
 				[% ELSE %]
-					Les informations sur l'emballage de ce produit ne sont pas suffisamment précises (formes et matériaux exacts de tous les composants de l'emballage).
+					The information on the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging).
 				[% END %]
 			</strong>
 			<br><br>
