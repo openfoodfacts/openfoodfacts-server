@@ -114,13 +114,13 @@
 	<h4>[% display_icon('agriculture') %] [% lang('production_mode') %]Production mode</h4>
 	
 	[% IF adjustments.production_system.value %]
-		<p><strong>[% lang('') %]Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
+		<p><strong>[% lang('label') %]Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
-		<p>[% lang('') %]No labels taken into account for the production system.</p>
+		<p>[% lang('no_labels_taken_into_account') %]No labels taken into account for the production system.</p>
 		
 	[% IF adjustments.production_system.warning %]
 		<div class="panel warning">
-			[% lang('') %]If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it.<br><br>
+			[% lang('please_add_the_labels') %]If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it.<br><br>
 			[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
 	[% END %]		
@@ -131,7 +131,7 @@
 	
 	<div class="small-12 large-6 columns">	
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_origins" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('public') %] [% lang('') %]Origin of ingredients</h4>
+	<h4>[% display_icon('public') %] [% lang('origin_of_ingredients') %]Origin of ingredients</h4>
 	
 	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
 		<ul>
@@ -144,7 +144,7 @@
 	[% IF adjustments.origins_of_ingredients.warning %]
 		<div class="panel warning">
 			<strong>[% lang('ingredients_not_indicated') %]The origins of the ingredients of this product are not indicated.</strong><br><br>
-			[% lang('') %]If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>
+			[% lang('please_add_the_ingredients') %]If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>
 			[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
 	[% END %]
@@ -175,7 +175,7 @@
 	
 	[% IF adjustments.threatened_species.warning %]
 		<div class="panel warning">
-			<strong>[% lang('') %]The information on the ingredients of this product has not been given.</strong><br><br>
+			<strong>[% lang('ingredients_unknown') %]The information on the ingredients of this product has not been given.</strong><br><br>
 			[% lang('edit_for_more_precise_ecoscore') %]For a more precise calculation of the Eco-Score, you can edit the product page and add them.<br><br>
 			[% lang('platform_prompt_ecoscore_modal') %]If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
 		</div>
@@ -187,7 +187,7 @@
 	<div class="small-12 large-6 columns">
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_packaging" data-equalizer-watch="ecoscore2">
 	
-	<h4>[% display_icon('packaging') %] [% lang('') %]Packaging</h4>
+	<h4>[% display_icon('packaging') %] [% lang('packaging') %]Packaging</h4>
 	
 	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
 		<ul>
@@ -203,7 +203,7 @@
 		</ul>
 		<p>[% lang('score_of_all_components') %]Score of all components: [% adjustments.packaging.score %]</p>
 		
-		<p><strong>[% lang('') %]Packaging : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+		<p><strong>[% lang('packaging_enum') %]Packaging : [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	[% END %]
 	
 	[% IF adjustments.packaging.warning %]
