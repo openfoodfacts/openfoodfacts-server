@@ -233,21 +233,16 @@
 		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
-
+  
 	[% IF ecoscore_data.missing_agribalyse_match_warning %]
 		<div class="panel warning">
-			<strong>L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise.</strong><br><br>
-			Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise.<br><br>
-			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+      [% lang('ecoscore_missing_agribalyse_match_warning') %]
 		</div>
 	[% ELSIF ecoscore_data.missing_data_warning %]
 		<div class="panel warning">
-			<strong>Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous).</strong><br><br>
-			Vous pouvez modifier la fiche produit pour ajouter les informations manquantes.<br><br>
-			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+			[% lang('ecoscore_missing_data_warning') %]
 		</div>
 	[% END %]	
-
 	[% ecoscore_calculation_details %]
 [% END %]
 
@@ -273,7 +268,7 @@
 
 	<h3>[% lang("ingredients_requiring_soy") %]</h3>
 	
-	<p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>
+	<p>[% lang("forest_footprint_one_line_explanation") %]</p>
 	
 	[% IF forest_footprint_data.ingredients && forest_footprint_data.ingredients %]
 
