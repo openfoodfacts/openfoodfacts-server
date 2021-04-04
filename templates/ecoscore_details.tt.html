@@ -119,7 +119,8 @@
 	<h4>[% display_icon('agriculture') %] [% lang('production_mode') %]</h4>
 	
 	[% IF adjustments.production_system.value %]
-		<p><strong>[% lang('label') %]Label [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
+       <!--Label-->
+		<p><strong>[% lang('label') %] [% display_taxonomy_tag("labels",adjustments.production_system.label) %] : +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
 		<p>[% lang('no_labels_taken_into_account') %]</p>
 		
@@ -204,9 +205,11 @@
 			[% FOREACH packaging IN adjustments.packaging.packagings %]
 				<li>
 					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+          <!-- TODO inject the variable into the string -->
 					[% lang('packaging_ratio') %](ratio : [% packaging.ecoscore_shape_ratio %])
 					-
 					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
+          <!-- TODO inject the variable into the string -->
 					[% lang('packaging_score') %](score : [% packaging.ecoscore_material_score %])
 				</li>
 			[% END %]
