@@ -3,23 +3,21 @@
 </p>
 <div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h3>ecoscore_product_category_reference_score Score de référence de la catégorie du produit</h3>
+	<h3>ecoscore_product_category_reference_score Baseline score of the product category</h3>
 
 	<div class="row">
 	<div class="small-12 columns">
 		<div class="panel ecoscore_panel" id="ecoscore_panel_lca">
-	<h4>[% display_icon('lca') %] ecoscore_panel_lca Lifecyle Analysis (LCA) Analyse de cycle de vie (ACV)</h4>
+	<h4>[% display_icon('lca') %] ecoscore_panel_lca Lifecyle Analysis (LCA)</h4>
 	
 	[% IF agribalyse.code %]
 	
 	<p>
-		Catégorie Agribalyse</a> : <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
+		Agribalyse category</a> : <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
-			Approximate correspondence with the product category
-      Correspondance approchée avec la catégorie du produit
+			Approximate match with the product category
 		[% ELSE %]
-			Correspondance exacte avec la catégorie du produit
-      Exact match with product category
+      Exact match with the product category
 		[% END %]
 		">
 		[% agribalyse.name_fr %]</a>
@@ -81,7 +79,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('cooking-pan') %]Consommation</td>
+				<td>[% display_icon('cooking-pan') %] Consumption</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_consumption / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -92,12 +90,12 @@
 		</table>	
 	
 	<p>
-		<strong>Score ACV sur 100 : [% round(agribalyse.score) %]</strong>
+		<strong>LCA score on 100: [% round(agribalyse.score) %]</strong>
 	</p>
 	
 	[% ELSE %]
 	<div class="panel warning">
-		<strong>Pas de correspondance entre les catégories du produit et les catégories Agribalyse.</strong><br><br>
+		<strong>No match between product categories and Agribalyse categories.</strong><br><br>
 		Vous pouvez modifier la fiche produit pour ajouter une catégorie plus fine.<br><br>
 		Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
 	</div>
