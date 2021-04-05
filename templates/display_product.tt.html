@@ -236,11 +236,21 @@
   
 	[% IF ecoscore_data.missing_agribalyse_match_warning %]
 		<div class="panel warning">
-      [% lang('ecoscore_missing_agribalyse_match_warning') %]
+      <strong>
+      [% lang('ecoscore_agribalyse_match_warning') %]
+      </strong><br><br>
+      [% lang('ecoscore_add_more_precise_category') %]
+      <br><br>
+      [% lang('ecoscore_platform_promo') %]
 		</div>
 	[% ELSIF ecoscore_data.missing_data_warning %]
 		<div class="panel warning">
-			[% lang('ecoscore_missing_data_warning') %]
+      <strong>
+      [% lang('ecoscore_warning_missing_information') %]
+      </strong><br><br>
+      [% lang('ecoscore_add_missing_information') %]
+      <br><br>
+      [% lang('ecoscore_platform_promo') %]
 		</div>
 	[% END %]	
 	[% ecoscore_calculation_details %]
