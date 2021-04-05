@@ -5429,16 +5429,28 @@ msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
 msgstr "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
 
-msgctxt "ecoscore_missing_data_warning"
-msgid "<strong>Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)</strong><br><br>You can edit the product to add the missing information.<br><br>If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
-
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr ""
 
-msgctxt "ecoscore_missing_agribalyse_match_warning"
-msgid "<strong>The Eco-Score can only be calculated if the product has a sufficiently precise category.</strong><br><br>You can modify the product page to add a more precise category.<br><br>If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgctxt "ecoscore_agribalyse_match_warning
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr ""
+
+msgctxt "ecoscore_add_more_precise_category
+msgid "You can modify the product page to add a more precise category."
+msgstr ""
+      
+msgctxt "ecoscore_platform_promo
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+msgctxt "ecoscore_warning_missing_information
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)"
+msgstr ""
+      
+msgctxt "ecoscore_add_missing_information
+msgid "You can edit the product to add the missing information."
 msgstr ""
 
 # TODO DEDUPLICATE SOME STRINGS, CHECK THAT msgctxt are unique
