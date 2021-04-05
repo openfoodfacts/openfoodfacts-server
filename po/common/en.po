@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
-"X-Crowdin-Language: en\n"
+"X-Crowdin-Language: en\tn"
 "X-Crowdin-File: /master/po/common/common.pot\n"
 
 msgctxt "1_product"
@@ -5458,4 +5458,196 @@ msgstr ""
 
 msgctxt "ecoscore_missing_agribalyse_match_warning"
 msgid "<strong>The Eco-Score can only be calculated if the product has a sufficiently precise category.</strong><br><br>You can modify the product page to add a more precise category.<br><br>If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+# TODO DEDUPLICATE SOME STRINGS, CHECK THAT msgctxt are unique
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr ""
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)</h4>
+msgstr ""
+
+msgctxt "agribalyse_category"
+msgid "Agribalyse category"
+msgstr ""
+
+msgctxt "category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr ""
+
+msgctxt "category_exact_match"
+msgid "Exact match with the product category"
+msgstr ""
+
+msgctxt "pef_environmental_score"
+msgid "PEF environmental score:"
+msgstr ""
+
+msgctxt "incl_climate_change_impact"
+msgid "- including impact on climate change:"
+msgstr ""
+
+msgctxt "impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr ""
+
+msgctxt "stage"
+msgid "Stage"
+msgstr ""
+
+msgctxt "impact"
+msgid "Impact"
+msgstr ""
+
+msgctxt "agriculture"
+msgid "Agriculture"
+msgstr ""
+
+msgctxt "transformation"
+msgid "Transformation"
+msgstr ""
+
+msgctxt "packaging"
+msgid "Packaging"
+msgstr ""
+
+msgctxt "transportation"
+msgid "Transportation"
+msgstr ""
+
+msgctxt "distribution"
+msgid "Distribution"
+msgstr ""
+
+msgctxt "consumption"
+msgid "Consumption"
+msgstr ""
+
+msgctxt "lca_score_on_100"
+msgid "LCA score on 100:"
+msgstr ""
+
+msgctxt "no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr ""
+
+msgctxt "edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr ""
+
+msgctxt "additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr ""
+
+msgctxt "production_mode"
+msgid "Production mode"
+msgstr ""
+
+msgctxt "label"
+msgid "Label"
+msgstr ""
+
+msgctxt "no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr ""
+
+msgctxt "please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr ""
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr ""
+
+msgctxt "please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr ""
+
+msgctxt "environmental_policy"
+msgid "Environmental policy :"
+msgstr ""
+
+msgctxt "transportation"
+msgid "Transportation :"
+msgstr ""
+
+msgctxt "threatened_species"
+msgid "Threatened species"
+msgstr ""
+
+msgctxt "ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species:"
+msgstr ""
+
+msgctxt "threatened_species"
+msgid "Threatened species :"
+msgstr ""
+
+msgctxt "no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr ""
+
+msgctxt "ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr ""
+
+msgctxt "edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr ""
+
+msgctxt "packaging"
+msgid "Packaging"
+msgstr ""
+
+# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_shape_ratio 
+msgctxt "packaging_ratio"
+msgid "(ratio : %s)"
+msgstr ""
+
+# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_material_score
+msgctxt "packaging_score"
+msgid "(score : %s)"
+msgstr ""
+
+msgctxt "score_of_all_components"
+msgid "Score of all components:"
+msgstr ""
+
+msgctxt "packaging_enum"
+msgid "Packaging :"
+msgstr ""
+
+msgctxt "no_packaging_information"
+msgid "The information on the packaging of this product is not provided."
+msgstr ""
+
+msgctxt "unprecise_packaging_information"
+msgid "The information on the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr ""
+
+msgctxt "edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product sheet and add them.<br><br>"
+msgstr ""
+
+msgctxt "final_score"
+msgid "Final Score"
+msgstr "Score final"
+
+msgctxt "lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr ""
+
+msgctxt "kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr ""
+
+msgctxt "platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr ""
