@@ -44,9 +44,7 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -96,8 +94,7 @@ if ($action ne 'display') {
 	$full_width = 0;
 }
 
-$tt->process('test_ingredients_analysis.tt.html', $template_data_ref, \$html);
-$html .= "<p>" . $tt->error() . "</p>";
+process_template('test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
 
 display_new( {
 	title=>"Ingredient Analysis Test",
