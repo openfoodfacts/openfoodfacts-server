@@ -150,7 +150,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	my $csv = Text::CSV->new ( $csv_options_ref )
 		or die("Cannot use CSV: " . Text::CSV->error_diag ());
 		
-	my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.9";
+	my $csv_file = $data_root . "/ecoscore/data/fr_countries.csv";
 	my $encoding = "UTF-8";
 	
 	$ecoscore_data{origins} = {};
@@ -161,10 +161,19 @@ sub load_ecoscore_data_origins_of_ingredients() {
 
 		my $row_ref;
 
-		# Skip first line
-		$csv->getline ($io);
+		my $header_row_ref = $csv->getline ($io);
 		
-		# headers: Country,Pays,"Score Transport","Score EPI","Bonus transport","Bonus EPI",Région
+		my @countries = ();
+		for (my $i = 0; $i < (scalar @{$header_row_ref}); $i++) {
+			if ($header_row_ref->[$i] =~  / - /s) {
+				my $country = $';
+				my $country_id = canonicalize_taxonomy_tag("fr", "countries", $country);
+				$countries[$i] = country_to_cc($country_id);
+			}
+		}
+		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries }) if $log->is_debug();		
+				
+		# headers: Pays	"Score Politique environnementale"	Score Transport - France	"Score Transport - Belgique"	"Score Transport - Allemagne"	"Score Transport - Irlande"	Score Transport - Italie	"Score Transport - Luxembourg"	"Score Transport - Pays-Bas"	"Score Transport - Espagne"	"Score Transport - Suisse"
 
 		while ($row_ref = $csv->getline ($io)) {
 			
@@ -172,35 +181,48 @@ sub load_ecoscore_data_origins_of_ingredients() {
 			
 			next if ((not defined $origin) or ($origin eq ""));
 			
-			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin);
 			
 			if (not exists_taxonomy_tag("origins", $origin_id)) {
 				
 				# Eco-Score entries like "Macedonia [FYROM]": remove the [..] part
 				# but keep it in the first try, as it is needed to distinguish "Congo [DRC]" and "Congo [Republic]"
-				if ($origin =~ /^(.*)\[/) {
-					$origin_id = canonicalize_taxonomy_tag("en", "origins", $1);
-				}
-				
-				if (not exists_taxonomy_tag("origins", $origin_id)) {
-				
-					$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
-					$errors++;
+				if ($origin =~ /^(.*)\[(.*)\]/) {
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1);
+					if (not exists_taxonomy_tag("origins", $origin_id)) {
+						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					}
 				}
 			}
 			
+			# La Guyane Française -> Guyane Française
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+				
+				if ($origin =~ /^(la|les|l'|le)\s?(.*)$/i) {
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+				}
+			}
+				
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			
+				$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
+				$errors++;
+			}
+		
 			$ecoscore_data{origins}{$origin_id} = {
-				name_en => $row_ref->[0], # Country
-				name_fr => $row_ref->[1], # Pays
-				transportation_score => $row_ref->[2], # "Score Transport"
-				epi_score => $row_ref->[3], # "Score EPI"
+				name_fr => $row_ref->[0],
+				epi_score => $row_ref->[1],
 			};
+			
+			for (my $i = 2; $i <= (scalar @{$row_ref}); $i++) {
+				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
+			}
 			
 			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
 		}
 		
 		if ($errors) {
-			die("$errors unrecognized origins in CSV $csv_file");
+			#die("$errors unrecognized origins in CSV $csv_file");
 		}
 		
 		$ecoscore_data{origins}{"en:unspecified"} = $ecoscore_data{origins}{"en:unknown"};
@@ -961,7 +983,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		}
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
-		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score} * $percent / 100;
+		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score_fr} * $percent / 100;
 	}
 	
 	my $transportation_value = $transportation_score / 6.66;
