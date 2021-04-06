@@ -54,6 +54,9 @@ BEGIN
 		&load_agribalyse_data
 		&load_ecoscore_data
 		&compute_ecoscore
+		
+		@ecoscore_countries_sorted
+		%ecoscore_countries
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -158,23 +161,27 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	$log->debug("opening ecoscore origins CSV file", { file => $csv_file }) if $log->is_debug();
 
 	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
-
-		my $row_ref;
+		
+		# headers: Pays	"Score Politique environnementale"	Score Transport - France	"Score Transport - Belgique"	"Score Transport - Allemagne"	"Score Transport - Irlande"	Score Transport - Italie	"Score Transport - Luxembourg"	"Score Transport - Pays-Bas"	"Score Transport - Espagne"	"Score Transport - Suisse"		
 
 		my $header_row_ref = $csv->getline ($io);
 		
 		my @countries = ();
+		%ecoscore_countries = ();
 		for (my $i = 0; $i < (scalar @{$header_row_ref}); $i++) {
 			if ($header_row_ref->[$i] =~  / - /s) {
 				my $country = $';
 				my $country_id = canonicalize_taxonomy_tag("fr", "countries", $country);
 				$countries[$i] = country_to_cc($country_id);
+				$ecoscore_countries{$countries[$i]} = 1;
 			}
 		}
-		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries }) if $log->is_debug();		
-				
-		# headers: Pays	"Score Politique environnementale"	Score Transport - France	"Score Transport - Belgique"	"Score Transport - Allemagne"	"Score Transport - Irlande"	Score Transport - Italie	"Score Transport - Luxembourg"	"Score Transport - Pays-Bas"	"Score Transport - Espagne"	"Score Transport - Suisse"
+		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
 
+		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries, ecoscore_countries_sorted => \@ecoscore_countries_sorted }) if $log->is_debug();		
+
+		my $row_ref;
+		
 		while ($row_ref = $csv->getline ($io)) {
 			
 			my $origin = $row_ref->[0];
@@ -516,63 +523,83 @@ sub compute_ecoscore($) {
 		if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
 			
 			$product_ref->{ecoscore_data}{status} = "known";
-			$product_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{agribalyse}{score};
-			
-			$log->debug("compute_ecoscore - agribalyse score", { agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
-			
-			# Add adjustments (maluses or bonuses)
 			
 			my $missing_data_warning;
 			
-			my $bonus = 0;
-			
-			foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
-				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-					$bonus += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
-					$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
-						value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+			# Compute the Eco-Score for all countries + a default Eco-Score without transportation bonus/malus
+			foreach my $cc (@ecoscore_countries_sorted, undef) {
+				
+				my $suffix = "";
+				if (defined $cc) {
+					$suffix .= "_" . $cc;
 				}
-				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
-					$missing_data_warning = 1;
+
+				$product_ref->{ecoscore_data}{"score" . $suffix} = $product_ref->{ecoscore_data}{agribalyse}{score};
+				
+				$log->debug("compute_ecoscore - agribalyse score", { cc => $cc, agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
+				
+				# Add adjustments (maluses or bonuses)
+				
+				my $bonus = 0;
+				
+				foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+					
+					my $value = "value";
+					if ((defined $cc) and (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{"value_" . $cc})) {
+						$value = "value_" . $cc;
+					}
+					
+					if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value}) {
+						$bonus += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value};
+						$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
+							$value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value} }) if $log->is_debug();
+					}
+					if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+						$missing_data_warning = 1;
+					}
 				}
+				
+				# The sum of the bonuses is capped at 25
+				if ($bonus > 25) {
+					$bonus = 25;
+				}
+				
+				$product_ref->{ecoscore_data}{"score" . $suffix} += $bonus;
+				
+				# Assign A to E grade
+				
+				if ($product_ref->{ecoscore_data}{"score" . $suffix} >= 80) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "a";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 60) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 40) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "c";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 20) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "d";
+				}
+				else {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "e";
+				}
+				
+				# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
+				if (($product_ref->{ecoscore_data}{"grade" . $suffix} eq "a")
+					and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
+						
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
+					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
+				}
+				
+				if ($cc eq undef) {
+					$product_ref->{"ecoscore_score" . $suffix} = $product_ref->{ecoscore_data}{"score" . $suffix};
+					$product_ref->{"ecoscore_grade" . $suffix} = $product_ref->{ecoscore_data}{"grade" . $suffix};
+					$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
+				}
+				
+				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"ecoscore_score" . $suffix}, grade => $product_ref->{"ecoscore_grade" . $suffix}}) if $log->is_debug();				
 			}
-			
-			# The sum of the bonuses is capped at 25
-			if ($bonus > 25) {
-				$bonus = 25;
-			}
-			
-			$product_ref->{ecoscore_score} += $bonus;
-			
-			# Assign A to E grade
-			
-			if ($product_ref->{ecoscore_score} >= 80) {
-				$product_ref->{ecoscore_grade} = "a";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 60) {
-				$product_ref->{ecoscore_grade} = "b";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 40) {
-				$product_ref->{ecoscore_grade} = "c";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 20) {
-				$product_ref->{ecoscore_grade} = "d";
-			}
-			else {
-				$product_ref->{ecoscore_grade} = "e";
-			}
-			
-			# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
-			if (($product_ref->{ecoscore_grade} eq "a") and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
-				$product_ref->{ecoscore_grade} = "b";
-				$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
-			}
-			
-			$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
-			$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
-			$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
-			
-			$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
 			
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
@@ -923,9 +950,9 @@ The adjustment value and computations details are stored in the product referenc
 Returned values:
 
 $product_ref->{adjustments}{origins_of_ingredients} hash with:
-- value: combined bonus or malus for transportation + EPI
+- value_[country code]: combined bonus or malus for transportation + EPI
 - epi_value
-- transportation_value
+- transportation_value_[country code]
 - aggregated origins: sorted array of origin + percent to show the % of ingredients by country used in the computation
 
 =cut
@@ -969,7 +996,10 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	# Compute the transportation and EPI values and a sorted list of aggregated origins
 	
 	my @aggregated_origins = ();
-	my $transportation_score = 0;
+	my %transportation_scores;
+	foreach my $cc (@ecoscore_countries_sorted) {
+		$transportation_scores{$cc} = 0;
+	}
 	my $epi_score = 0;
 	
 	foreach my $origin_id (sort ( { ($aggregated_origins{$b} <=> $aggregated_origins{$a}) || ($a cmp $b) } keys %aggregated_origins)) {
@@ -983,10 +1013,11 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		}
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
-		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score_fr} * $percent / 100;
+		foreach my $cc (@ecoscore_countries_sorted) {
+			$transportation_scores{$cc} += $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc} * $percent / 100;
+		}
 	}
 	
-	my $transportation_value = $transportation_score / 6.66;
 	my $epi_value = $epi_score / 10 - 5;
 	
 	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - aggregated origins", {  aggregated_origins => \@aggregated_origins } ) if $log->is_debug();
@@ -994,12 +1025,16 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,		
 		aggregated_origins => \@aggregated_origins,
-		transportation_score => $transportation_score,
 		epi_score => $epi_score,
-		transportation_value => round($transportation_value),
 		epi_value => round($epi_value),
-		value => round($transportation_value) + round($epi_value),
 	};
+	
+	foreach my $cc (@ecoscore_countries_sorted) {
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score_" . $cc} = $transportation_scores{$cc};
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc} = round($transportation_scores{$cc} / 6.66);
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value_" . $cc} = round($epi_value)
+			+ $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+	}
 	
 	# Add a warning if the only origin is en:unknown
 	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
