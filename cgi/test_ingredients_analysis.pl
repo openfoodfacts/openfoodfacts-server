@@ -44,30 +44,19 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
+my $template_data_ref = {};
+
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
 my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
 
 
-my $html = '<p>You can use this form to see how an ingredient list is analyzed.</p>';
+my $html= '';
+$template_data_ref->{action} = $action;
+$template_data_ref->{type} = $type;
 
-$html .= start_form(-method => "GET");
-
-$html .= <<HTML
-Ingredients text (language code: $lc): <br/>
-
-<textarea id="ingredients_text" name="ingredients_text" style="height:8rem;">$ingredients_text</textarea>
-HTML
-;
-
-$html .= ''
-. hidden(-name=>'type', -value=>$type, -override=>1)
-. hidden(-name=>'action', -value=>'process', -override=>1);
-
-$html .= submit()
-. end_form();
-
+$template_data_ref->{ingredients_text} = $ingredients_text;
 
 if ($action eq 'process') {
 
@@ -85,17 +74,18 @@ if ($action eq 'process') {
 	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
 	extract_ingredients_classes_from_text($product_ref);
 
-	$html .= display_ingredients_analysis($product_ref);
+
 
 	my $html_details = display_ingredients_analysis_details($product_ref);
 	$html_details =~ s/.*tabindex="-1">/<div>/;
 
-	$html .= "<h4>Ingredients analysis</h4>" . $html_details;
+	$template_data_ref->{lc} = $lc;
+	$template_data_ref->{html_details} = $html_details;
+	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
+	$template_data_ref->{product_ref} = $product_ref;
 
-	$html .= "<h4>JSON</h4>"
-	. '<pre>'
-	. JSON::PP->new->pretty->encode($product_ref->{ingredients})
-	. '</pre>'
+	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
+	$template_data_ref->{json} = $json;
 }
 
 
@@ -103,6 +93,8 @@ my $full_width = 1;
 if ($action ne 'display') {
 	$full_width = 0;
 }
+
+process_template('test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
 
 display_new( {
 	title=>"Ingredient Analysis Test",
