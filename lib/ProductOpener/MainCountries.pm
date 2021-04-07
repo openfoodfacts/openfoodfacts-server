@@ -181,7 +181,7 @@ sub compute_main_countries($) {
 					
 					# More than 5 scans, and a scan ratio for the country < 10% of the average scan ratio
 					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 5)
-						and ($cc_to_world_scans_ratio <= 0.5 * $average_cc_to_world_scans_ratio)) {
+						and ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio)) {
 						
 						$log->debug("compute_main_countries - low scan ratio for country", { code => $product_ref->{code}, cc => $cc,
 							cc_to_world_scans_ratio => $cc_to_world_scans_ratio,
@@ -201,12 +201,6 @@ sub compute_main_countries($) {
 						}
 						elsif ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio) {
 							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-20-30-percent-of-expected";
-						}
-						elsif ($cc_to_world_scans_ratio <= 0.4 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-30-40-percent-of-expected";
-						}
-						elsif ($cc_to_world_scans_ratio <= 0.5 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-40-50-percent-of-expected";
 						}
 						
 						if ($data_in_country_language < 1) {
