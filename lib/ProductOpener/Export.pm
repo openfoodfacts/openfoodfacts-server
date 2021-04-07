@@ -372,17 +372,36 @@ sub export_csv($) {
 		my $added_images_urls = 0;
 		my $product_path = product_path($product_ref);
 		
-		# Add data sources from the sources field (useful for old imports for which we did not have some sources -> data_sources associations)
-		compute_data_sources($product_ref);
+		my $scans_ref;
 
 		foreach my $field (@sorted_populated_fields) {
 
 			my $nutriment_field = 0;
 
 			my $value;
-
+			
+			# Scans must be loaded separately
+			if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
+				
+				my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
+				
+				if (not defined $scans_ref) {
+					# Load the scan data
+					$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+				}
+				if (not defined $scans_ref) {
+					$scans_ref = {};
+				}
+				if ((defined $scans_ref->{$scan_year}) and (defined $scans_ref->{$scan_year}{$scan_field})
+					and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc})) {
+					$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
+				}
+				else {
+					$value =  "";
+				}
+			}
 			# Source specific fields
-			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
+			elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 				my $source_id = $1;
 				my $source_field = $';
 				if ((defined $product_ref->{sources_fields}) and (defined $product_ref->{sources_fields}{$source_id})
