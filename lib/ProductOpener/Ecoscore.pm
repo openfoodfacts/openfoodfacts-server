@@ -166,6 +166,11 @@ sub load_ecoscore_data_origins_of_ingredients() {
 
 		my $header_row_ref = $csv->getline ($io);
 		
+		
+		$ecoscore_data{origins}{"en:unknown"} = {
+			epi_score => 0,
+		};
+		
 		my @countries = ();
 		%ecoscore_countries = ();
 		for (my $i = 0; $i < (scalar @{$header_row_ref}); $i++) {
@@ -174,9 +179,14 @@ sub load_ecoscore_data_origins_of_ingredients() {
 				my $country_id = canonicalize_taxonomy_tag("fr", "countries", $country);
 				$countries[$i] = country_to_cc($country_id);
 				$ecoscore_countries{$countries[$i]} = 1;
+				# Score 0 for unknown origin
+				$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 			}
 		}
 		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+
+		$ecoscore_data{origins}{"en:world"} = $ecoscore_data{origins}{"en:unknown"};
+		$ecoscore_data{origins}{"en:european-union-and-non-european-union"} = $ecoscore_data{origins}{"en:unknown"};
 
 		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries, ecoscore_countries_sorted => \@ecoscore_countries_sorted }) if $log->is_debug();		
 
@@ -592,7 +602,7 @@ sub compute_ecoscore($) {
 					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
 				}
 				
-				if ($cc eq undef) {
+				if (not defined $cc) {
 					$product_ref->{"ecoscore_score" . $suffix} = $product_ref->{ecoscore_data}{"score" . $suffix};
 					$product_ref->{"ecoscore_grade" . $suffix} = $product_ref->{ecoscore_data}{"grade" . $suffix};
 					$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
