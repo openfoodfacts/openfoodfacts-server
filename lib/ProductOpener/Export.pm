@@ -330,7 +330,7 @@ sub export_csv($) {
 			if (defined $product_ref->{sources_fields}) {
 				foreach my $source_id (sort keys %{$product_ref->{sources_fields}}) {
 					foreach my $field (sort keys %{$product_ref->{sources_fields}{$source_id}}) {
-						$populated_fields{"sources_fields:${source_id}:$field"} = sprintf("%08d", 10 * 1000 . "${source_id}:$field");
+						$populated_fields{"sources_fields:${source_id}:$field"} = sprintf("%08d", 10 * 1000) . "_${source_id}:$field";
 					}
 				}
 			}
