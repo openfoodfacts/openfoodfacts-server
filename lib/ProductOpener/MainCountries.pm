@@ -153,11 +153,16 @@ sub compute_main_countries($) {
 						
 					# Check if the product has data in one of the languages of the country
 					my $data_in_country_language = 0;
+					my $product_name_in_country_language = 0;
+					
 					foreach my $country_language (@{$country_languages{$cc}}) {
 						foreach my $field ("product_name", "generic_name", "ingredients_text") {
 							if ((defined $product_ref->{$field . "_" . $country_language})
 								and ($product_ref->{$field . "_" . $country_language} ne "")) {
 								$data_in_country_language++;
+								if ($field eq "product_name") {
+									$product_name_in_country_language++;
+								}
 							}
 						}
 					}						
@@ -174,9 +179,9 @@ sub compute_main_countries($) {
 							data_in_country_language => $data_in_country_language,
 							  } ) if $log->is_debug();						
 					
-					# More than 10 scans, and a scan ratio for the country < 10% of the average scan ratio
-					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 10)
-						and ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio)) {
+					# More than 5 scans, and a scan ratio for the country < 10% of the average scan ratio
+					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 5)
+						and ($cc_to_world_scans_ratio <= 0.5 * $average_cc_to_world_scans_ratio)) {
 						
 						$log->debug("compute_main_countries - low scan ratio for country", { code => $product_ref->{code}, cc => $cc,
 							cc_to_world_scans_ratio => $cc_to_world_scans_ratio,
@@ -189,13 +194,19 @@ sub compute_main_countries($) {
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans";
 						
 						if ($cc_to_world_scans_ratio <= 0.1 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-10";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-0-10-percent-of-expected";
 						}
 						elsif ($cc_to_world_scans_ratio <= 0.2 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-20";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-10-20-percent-of-expected";
 						}
 						elsif ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-30";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-20-30-percent-of-expected";
+						}
+						elsif ($cc_to_world_scans_ratio <= 0.4 * $average_cc_to_world_scans_ratio) {
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-30-40-percent-of-expected";
+						}
+						elsif ($cc_to_world_scans_ratio <= 0.5 * $average_cc_to_world_scans_ratio) {
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-40-50-percent-of-expected";
 						}
 						
 						if ($data_in_country_language < 1) {
@@ -205,6 +216,11 @@ sub compute_main_countries($) {
 							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-and-only-1-field-in-country-language";
 						}
 					}
+					
+					if ($product_name_in_country_language < 1) {
+						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-product-name-not-in-country-language";
+					}					
 					
 					if ($data_in_country_language < 1) {
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
