@@ -186,30 +186,33 @@ sub compute_main_countries($) {
 							  } ) if $log->is_debug();
 							  
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-						push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-low-scans";
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans";
 						
 						if ($cc_to_world_scans_ratio <= 0.1 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-low-scans-10";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-10";
 						}
 						elsif ($cc_to_world_scans_ratio <= 0.2 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-low-scans-20";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-20";
 						}
 						elsif ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-low-scans-30";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-30";
 						}
 						
 						if ($data_in_country_language < 1) {
-							push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-low-scans-and-no-data-in-country-language";
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-and-no-data-in-country-language";
+						}
+						elsif ($data_in_country_language == 1) {
+							push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans-and-only-1-field-in-country-language";
 						}
 					}
 					
 					if ($data_in_country_language < 1) {
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-						push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-no-data-in-country-language";
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-no-data-in-country-language";
 					}
 					elsif ($data_in_country_language == 1) {
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-						push @{$product_ref->{misc_tags}}, "en:main-countries-remove-$cc-only-1-field-in-country-language";
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-only-1-field-in-country-language";
 					}
 				}
 			}
