@@ -7,14 +7,14 @@
          "origins_of_ingredients" : {
             "aggregated_origins" : [
                {
-                  "origin" : "en:unknown",
+                  "origin" : "en:unspecified",
                   "percent" : 100
                }
             ],
             "epi_score" : 0,
             "epi_value" : -5,
             "origins_from_origins_field" : [
-               "en:unknown"
+               "en:unspecified"
             ],
             "transportation_score_be" : 0,
             "transportation_score_ch" : 0,
@@ -42,8 +42,7 @@
             "value_ie" : -5,
             "value_it" : -5,
             "value_lu" : -5,
-            "value_nl" : -5,
-            "warning" : "origins_are_100_percent_unknown"
+            "value_nl" : -5
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
@@ -100,7 +99,6 @@
       "grade_nl" : "d",
       "missing" : {
          "labels" : 1,
-         "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
