@@ -161,6 +161,7 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
+use JSON;
 use JSON::PP;
 use Text::CSV;
 use XML::Simple;
@@ -4528,6 +4529,9 @@ sub customize_response_for_product($$) {
 		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
+	# Localize the Eco-Score fields that depend on the country of the request
+	localize_ecoscore($cc, $product_ref);
+	
 	foreach my $field (split(/,/, $fields)) {
 
 		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
@@ -8447,14 +8451,11 @@ HTML
 	
 	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 		
-		my $suffix = "";
-		if (defined $ecoscore_countries{$cc}) {
-			$suffix = "_" . $cc;
-		}
+		localize_ecoscore($cc, $product_ref);
 		
-		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade" . $suffix});
-		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade" . $suffix};
-		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score" . $suffix};
+		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
+		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
+		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
 	}
@@ -10610,7 +10611,10 @@ sub display_structured_response($)
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		my $data =  encode_json($request_ref->{structured_response});
+		# my $data =  encode_json($request_ref->{structured_response});
+		# Sort keys of the JSON output
+		my $json = JSON->new->allow_nonref->canonical;
+		my $data = $json->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
@@ -11138,26 +11142,6 @@ sub display_ecoscore_calculation_details($$) {
 	# Generate a data structure that we will pass to the template engine
 
 	my $template_data_ref = dclone($ecoscore_data_ref);
-	
-	# Replace the transport values for the target country
-	
-	if (defined $ecoscore_data_ref->{"score_" . $ecoscore_cc}) {
-		
-		$ecoscore_data_ref->{"score"} = $ecoscore_data_ref->{"score_" . $ecoscore_cc};
-		$ecoscore_data_ref->{"grade"} = $ecoscore_data_ref->{"grade_" . $ecoscore_cc};
-		
-		if (defined $ecoscore_data_ref->{adjustments}{origins_of_ingredients}) {
-	
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"value"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"value_" . $ecoscore_cc};
-			
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_score"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_score_" . $ecoscore_cc};
-			
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_value"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_value_" . $ecoscore_cc};
-		}
-	}
 
 	# Eco-score Calculation Template
 
@@ -11181,27 +11165,7 @@ sub display_ecoscore_calculation_details_simple_html($$) {
 
 	# Generate a data structure that we will pass to the template engine
 
-	my $template_data_ref = dclone($ecoscore_data_ref);
-	
-	# Replace the transport values for the target country
-	
-	if (defined $ecoscore_data_ref->{"score_" . $ecoscore_cc}) {
-		
-		$ecoscore_data_ref->{"score"} = $ecoscore_data_ref->{"score_" . $ecoscore_cc};
-		$ecoscore_data_ref->{"grade"} = $ecoscore_data_ref->{"grade_" . $ecoscore_cc};
-		
-		if (defined $ecoscore_data_ref->{adjustments}{origins_of_ingredients}) {
-	
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"value"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"value_" . $ecoscore_cc};
-			
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_score"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_score_" . $ecoscore_cc};
-			
-			$ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_value"}
-			= $ecoscore_data_ref->{adjustments}{origins_of_ingredients}{"transportation_value_" . $ecoscore_cc};
-		}
-	}	
+	my $template_data_ref = dclone($ecoscore_data_ref);	
 
 	# Eco-score Calculation Template
 

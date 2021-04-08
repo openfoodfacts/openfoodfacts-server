@@ -54,6 +54,7 @@ BEGIN
 		&load_agribalyse_data
 		&load_ecoscore_data
 		&compute_ecoscore
+		&localize_ecoscore
 		
 		@ecoscore_countries_sorted
 		%ecoscore_countries
@@ -1223,6 +1224,60 @@ sub compute_ecoscore_packaging_adjustment($) {
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
 	}
+	
+}
+
+
+=head2 localize_ecoscore ( $cc, $product_ref)
+
+The Eco-Score and some of its components depend on the country of the consumer,
+as we take transportation to the consumer into account.
+
+We compute the Eco-Score for all countries, and this function copies the values
+for a specific country to the main Eco-Score fields.
+
+=head3 Arguments
+
+=head4 Country code of the request $cc
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+
+=cut
+
+sub localize_ecoscore ($$) {
+	
+	my $cc = shift;
+	my $product_ref = shift;
+
+	# Localize the Eco-Score fields that depends on the country of the request
+	if (defined $product_ref->{"ecoscore_grade_" . $cc}) {
+		$product_ref->{"ecoscore_grade"} = $product_ref->{"ecoscore_grade_" . $cc};
+	}
+	if (defined $product_ref->{"ecoscore_score_" . $cc}) {
+		$product_ref->{"ecoscore_score"} = $product_ref->{"ecoscore_grade_" . $cc};
+	}
+	if ((defined $product_ref->{ecoscore_data}) and (defined  $product_ref->{ecoscore_data}{"score_" . $cc})) {
+		
+		$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"score_" . $cc};
+		$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grade_" . $cc};
+
+		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {
+	
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value_" . $cc};
+			
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score_" . $cc};
+			
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+		}
+	}		
 	
 }
 
