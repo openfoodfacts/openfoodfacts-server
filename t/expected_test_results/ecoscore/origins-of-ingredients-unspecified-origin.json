@@ -16,9 +16,33 @@
             "origins_from_origins_field" : [
                "en:unspecified"
             ],
-            "transportation_score" : 0,
-            "transportation_value" : 0,
-            "value" : -5
+            "transportation_score_be" : 0,
+            "transportation_score_ch" : 0,
+            "transportation_score_de" : 0,
+            "transportation_score_es" : 0,
+            "transportation_score_fr" : 0,
+            "transportation_score_ie" : 0,
+            "transportation_score_it" : 0,
+            "transportation_score_lu" : 0,
+            "transportation_score_nl" : 0,
+            "transportation_value_be" : 0,
+            "transportation_value_ch" : 0,
+            "transportation_value_de" : 0,
+            "transportation_value_es" : 0,
+            "transportation_value_fr" : 0,
+            "transportation_value_ie" : 0,
+            "transportation_value_it" : 0,
+            "transportation_value_lu" : 0,
+            "transportation_value_nl" : 0,
+            "value_be" : -5,
+            "value_ch" : -5,
+            "value_de" : -5,
+            "value_es" : -5,
+            "value_fr" : -5,
+            "value_ie" : -5,
+            "value_it" : -5,
+            "value_lu" : -5,
+            "value_nl" : -5
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
@@ -63,19 +87,37 @@
          "name_fr" : "Camembert, sans précision",
          "score" : 54
       },
-      "grade" : "d",
+      "grade" : "c",
+      "grade_be" : "d",
+      "grade_ch" : "d",
+      "grade_de" : "d",
+      "grade_es" : "d",
+      "grade_fr" : "d",
+      "grade_ie" : "d",
+      "grade_it" : "d",
+      "grade_lu" : "d",
+      "grade_nl" : "d",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 39,
+      "score" : 44,
+      "score_be" : 39,
+      "score_ch" : 39,
+      "score_de" : 39,
+      "score_es" : 39,
+      "score_fr" : 39,
+      "score_ie" : 39,
+      "score_it" : 39,
+      "score_lu" : 39,
+      "score_nl" : 39,
       "status" : "known"
    },
-   "ecoscore_grade" : "d",
-   "ecoscore_score" : 39,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 44,
    "ecoscore_tags" : [
-      "d"
+      "c"
    ],
    "ingredients" : [
       {

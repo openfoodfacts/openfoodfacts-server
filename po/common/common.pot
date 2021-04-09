@@ -5428,3 +5428,205 @@ msgstr "Type of the product photo"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
 msgstr "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation"
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr "You can modify the product page to add a more precise category."
+      
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+      
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr "You can edit the product to add the missing information."
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr "Baseline score of the product category"
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr "Lifecyle Analysis (LCA)"
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr "Agribalyse category"
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr "Approximate match with the product category"
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr "Exact match with the product category"
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr "PEF environmental score"
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr "including impact on climate change"
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr "Details of the impacts by stages of the life cycle"
+
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr "Stage"
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr "Impact"
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr "Agriculture"
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr "Processing"
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Packaging"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Transportation"
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr "Distribution"
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr "Consumption"
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "LCA score out of 100"
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr "No match between product categories and Agribalyse categories."
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr "You can modify the product page to add a more granular category."
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr "Additional bonuses and maluses"
+
+msgctxt "ecoscore_production_mode"
+msgid "Production mode"
+msgstr "Production mode"
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr "No labels taken into account for the production system."
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+
+msgctxt "ecoscore_origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Origin of ingredients"
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr "The origins of the ingredients of this product are not indicated."
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr "If they are indicated on the packaging, you can modify the product sheet and add them."
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr "Environmental policy"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Transportation"
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr "Threatened species"
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ingredients whose cultivation threatens species"
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr "No ingredient which cultivation threatens species has been detected."
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr "The information on the ingredients of this product has not been given."
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Packaging"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr "ratio"
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr "score"
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr "Score of all components"
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr "The information about the packaging of this product is not filled in."
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr "Final score"
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr "(the lower the score, the lower the impact)"
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr "kg CO2 eq/kg of product"
+
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+
