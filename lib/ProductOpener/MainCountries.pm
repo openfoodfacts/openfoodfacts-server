@@ -148,7 +148,7 @@ sub compute_main_countries($) {
 					
 					my $average_cc_to_world_scans_ratio = $all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc}
 						/ $all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"};
-					my $cc_to_world_scans_ratio = $scans_ref->{$year}{unique_scans_n_by_country}{$cc}
+					my $cc_to_world_scans_ratio = ($scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
 						/ $scans_ref->{$year}{unique_scans_n_by_country}{"world"};
 						
 					# Check if the product has data in one of the languages of the country
@@ -179,8 +179,8 @@ sub compute_main_countries($) {
 							data_in_country_language => $data_in_country_language,
 							  } ) if $log->is_debug();						
 					
-					# More than 5 scans, and a scan ratio for the country < 10% of the average scan ratio
-					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 5)
+					# More than 10 scans, and a scan ratio for the country < 10% of the average scan ratio
+					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 10)
 						and ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio)) {
 						
 						$log->debug("compute_main_countries - low scan ratio for country", { code => $product_ref->{code}, cc => $cc,
@@ -226,6 +226,20 @@ sub compute_main_countries($) {
 					}
 				}
 			}
+		}
+		
+		my $most_recent_year = 2020;
+		
+		if (not exists $scans_ref->{$most_recent_year}) {
+			push @{$product_ref->{misc_tags}}, "en:main-countries-old-product-without-scans-in-$most_recent_year";
+		}
+	}
+	else {
+		if ($product_ref->{created_t} < 1609462800) {	# 2021-01-01
+			push @{$product_ref->{misc_tags}}, "en:main-countries-no-scans";
+		}
+		else {
+			push @{$product_ref->{misc_tags}}, "en:main-countries-new-product";
 		}
 	}
 }
