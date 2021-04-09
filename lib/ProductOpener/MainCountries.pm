@@ -40,11 +40,9 @@ may scan products when they are back in their home country.
 
 This module tries to determine which countries a product is "mostly" sold in.
 
-The determination can be made on different factors:
+The determination is currently made on different factors:
 - scan data
 - languages
-- brands
-- etc.
 
 =cut
 
