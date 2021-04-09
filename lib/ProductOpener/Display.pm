@@ -161,6 +161,7 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
+use JSON;
 use JSON::PP;
 use Text::CSV;
 use XML::Simple;
@@ -324,6 +325,9 @@ sub process_template($$$) {
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
 	};
+	$template_data_ref->{round} = sub($) {
+		return sprintf ("%.0f", $_[0]);
+	};	
 	
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
@@ -589,7 +593,7 @@ CSS
 	}
 	
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and (($cc eq "fr") or ($User{moderator}))) {
+		and ((defined $ecoscore_countries{$cc}) or ($User{moderator}))) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 	}
@@ -4525,6 +4529,9 @@ sub customize_response_for_product($$) {
 		$fields = "code,product_display_name,url,image_front_thumb_url,attribute_groups";
 	}
 	
+	# Localize the Eco-Score fields that depend on the country of the request
+	localize_ecoscore($cc, $product_ref);
+	
 	foreach my $field (split(/,/, $fields)) {
 
 		# On demand carbon footprint tags -- deactivated: the environmental footprint infocard is now replaced by the Eco-Score details
@@ -4543,11 +4550,11 @@ sub customize_response_for_product($$) {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
 		}
 		# The environment infocard now displays the Eco-Score details
-                elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
-                        if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-                                $customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($product_ref->{ecoscore_data});
-                        }
-                }
+		elsif (($field =~ /^environment_infocard/) or ($field eq "ecoscore_details_simple_html")) {
+				if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+						$customized_product_ref->{$field} = display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
+				}
+		}
 		
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
@@ -4792,7 +4799,7 @@ sub search_and_display_products($$$$$) {
 		push @{$template_data_ref->{sort_options}}, { value => "popularity", link => $request_ref->{current_link} . "?sort_by=popularity", name => lang("sort_by_popularity") };
 		push @{$template_data_ref->{sort_options}}, { value => "nutriscore_score", link => $request_ref->{current_link} . "?sort_by=nutriscore_score", name => lang("sort_by_nutriscore_score") };
 	
-		# Show Eco-score sort only for France or moderators
+		# Show Eco-score sort only for some countries, or for moderators
 		if ($show_ecoscore) {
 			push @{$template_data_ref->{sort_options}}, { value => "ecoscore_score", link => $request_ref->{current_link} . "?sort_by=ecoscore_score", name => lang("sort_by_ecoscore_score") };
 		}
@@ -8439,16 +8446,18 @@ HTML
 	$template_data_ref->{packagings} = $product_ref->{packagings};
 	
 	# Environmental impact and Eco-Score
-	# Limit to France as the Eco-Score is currently valid only for products sold in France
+	# Limit to the countries for which we have computed the Eco-Score
 	# for alpha test to moderators, display eco-score for all countries
 	
 	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 		
-		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_grade});
-		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_grade};
-		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_score};
+		localize_ecoscore($cc, $product_ref);
+		
+		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
+		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
+		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
-		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($product_ref->{ecoscore_data});
+		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
 	}
 	
 	# Forest footprint
@@ -10602,7 +10611,10 @@ sub display_structured_response($)
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		my $data =  encode_json($request_ref->{structured_response});
+		# my $data =  encode_json($request_ref->{structured_response});
+		# Sort keys of the JSON output
+		my $json = JSON->new->allow_nonref->canonical;
+		my $data = $json->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
@@ -11110,24 +11122,26 @@ sub _format_comment {
 }
 
 
-=head2 display_ecoscore_calculation_details( $ecoscore_data_ref )
+=head2 display_ecoscore_calculation_details( $cc, $ecoscore_data_ref )
 
 Generates HTML code with information on how the Eco-score was computed for a particular product.
 
+=head3 Parameters
+
+=head4 country code $cc
+
+=head4 ecoscore data $ecoscore_data_ref
+
 =cut
 
-sub display_ecoscore_calculation_details($) {
+sub display_ecoscore_calculation_details($$) {
 
+	my $ecoscore_cc = shift;
 	my $ecoscore_data_ref = shift;
 
 	# Generate a data structure that we will pass to the template engine
 
 	my $template_data_ref = dclone($ecoscore_data_ref);
-	
-	my $decf = get_decimal_formatter($lc);
-	$template_data_ref->{round} = sub($) {
-		return sprintf ("%.0f", $_[0]);
-	};
 
 	# Eco-score Calculation Template
 
@@ -11138,24 +11152,20 @@ sub display_ecoscore_calculation_details($) {
 }
 
 
-=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_data_ref )
+=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_cc, $ecoscore_data_ref )
 
 Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
 
 =cut
 
-sub display_ecoscore_calculation_details_simple_html($) {
+sub display_ecoscore_calculation_details_simple_html($$) {
 
+	my $ecoscore_cc = shift;
 	my $ecoscore_data_ref = shift;
 
 	# Generate a data structure that we will pass to the template engine
 
-	my $template_data_ref = dclone($ecoscore_data_ref);
-	
-	my $decf = get_decimal_formatter($lc);
-	$template_data_ref->{round} = sub($) {
-		return sprintf ("%.0f", $_[0]);
-	};
+	my $template_data_ref = dclone($ecoscore_data_ref);	
 
 	# Eco-score Calculation Template
 
