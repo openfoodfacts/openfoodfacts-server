@@ -5427,9 +5427,6 @@ sub search_and_export_products($$$) {
 
 		# Send the CSV file line by line
 
-		require Apache2::RequestRec;
-		my $r = Apache2::RequestUtil->request();
-
 		my $workbook;
 		my $worksheet;
 
@@ -5442,8 +5439,13 @@ sub search_and_export_products($$$) {
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
 		my @row = ();
+		
+		my @fields_to_export = @export_fields;
+		if (defined $request_ref->{fields}) {
+			@fields_to_export = @{$request_ref->{fields}};
+		}
 
-		foreach my $field (@export_fields) {
+		foreach my $field (@fields_to_export) {
 
 			# skip additives field and put only additives_tags
 			if ($field ne 'additives') {
@@ -5459,35 +5461,51 @@ sub search_and_export_products($$$) {
 			}
 
 		}
+		
+		# Do not add images and nutrients if the fields to export are specified
+		if (not defined $request_ref->{fields}) {
 
-		push @row, "main_category";
-		push @row, "image_url";
-		push @row, "image_small_url";
-		push @row, "image_front_url";
-		push @row, "image_front_small_url";
-		push @row, "image_ingredients_url";
-		push @row, "image_ingredients_small_url";
-		push @row, "image_nutrition_url";
-		push @row, "image_nutrition_small_url";
+			push @row, "main_category";
+			push @row, "image_url";
+			push @row, "image_small_url";
+			push @row, "image_front_url";
+			push @row, "image_front_small_url";
+			push @row, "image_ingredients_url";
+			push @row, "image_ingredients_small_url";
+			push @row, "image_nutrition_url";
+			push @row, "image_nutrition_small_url";
 
-		foreach (@{$nutriments_tables{$nutriment_table}}) {
+			foreach (@{$nutriments_tables{$nutriment_table}}) {
 
-			my $nid = $_;    # Copy instead of alias
+				my $nid = $_;    # Copy instead of alias
 
-			$nid =~/^#/ and next;
+				$nid =~/^#/ and next;
 
-			$nid =~ s/!//g;
-			$nid =~ s/^-//g;
-			$nid =~ s/-$//g;
+				$nid =~ s/!//g;
+				$nid =~ s/^-//g;
+				$nid =~ s/-$//g;
 
-			push @row, "${nid}_100g";
+				push @row, "${nid}_100g";
+			}
 		}
+		
+		if (defined $request_ref->{extra_fields}) {
+			foreach my $field (@{$request_ref->{extra_fields}}) {
+				push @row, $field;
+			}
+		}		
 
 		if ($format eq "xlsx") {
-			$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.xlsx");
+			
+			# Send HTTP headers, unless search_and_export_products() is called from a script
+			if (not defined $request_ref->{skip_http_headers}) {
+				require Apache2::RequestRec;
+				my $r = Apache2::RequestUtil->request();
+				$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+				$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.xlsx");
+				print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+			}
 			binmode( STDOUT );
-			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
 			$workbook = Excel::Writer::XLSX->new( \*STDOUT );
 			$worksheet = $workbook->add_worksheet();
@@ -5503,14 +5521,24 @@ sub search_and_export_products($$$) {
 			}
 		}
 		else {
-			$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
-			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
+			# Send HTTP headers, unless search_and_export_products() is called from a script
+			if (not defined $request_ref->{skip_http_headers}) {
+				require Apache2::RequestRec;
+				my $r = Apache2::RequestUtil->request();
+				$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
+				$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
+				print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+			}
 			binmode(STDOUT, ":encoding(UTF-8)");
-			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+			
+			my $separator = ",";
+			if (defined $request_ref->{separator}) {
+				$separator = $request_ref->{separator};
+			}
 
 			$csv = Text::CSV->new ({
 				eol => "\n",
-				sep => "\t",
+				sep => $separator,
 				quote_space => 0,
 				binary => 1
 			});
@@ -5560,49 +5588,100 @@ sub search_and_export_products($$$) {
 				}
 			}
 
-			# "main" category: lowest level category
+			# Do not add images and nutrients if the fields to export are specified
+			if (not defined $request_ref->{fields}) {
 
-			my $main_cid = '';
-			my $main_cid_lc = '';
+				# "main" category: lowest level category
 
-			if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+				my $main_cid = '';
+				my $main_cid_lc = '';
 
-				$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
+				if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-				$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
-			}
+					$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
-			push @row, $main_cid;
-
-			$product_ref->{main_category} = $main_cid;
-
-			add_images_urls_to_product($product_ref);
-
-			# image_url = image_front_url
-			foreach my $id ('front', 'front','ingredients','nutrition') {
-				push @row, $product_ref->{"image_" . $id . "_url"};
-				push @row, $product_ref->{"image_" . $id . "_small_url"};
-			}
-
-			# Nutriments
-
-			foreach (@{$nutriments_tables{$nutriment_table}}) {
-
-				my $nid = $_;    # Copy instead of alias
-
-				$nid =~/^#/ and next;
-
-				$nid =~ s/!//g;
-				$nid =~ s/^-//g;
-				$nid =~ s/-$//g;
-				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
-					my $value = $product_ref->{nutriments}{"${nid}_100g"};
-					push @row, $value;
+					$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
 				}
-				else {
-					push @row, '';
+
+				push @row, $main_cid;
+
+				$product_ref->{main_category} = $main_cid;
+
+				add_images_urls_to_product($product_ref);
+
+				# image_url = image_front_url
+				foreach my $id ('front', 'front','ingredients','nutrition') {
+					push @row, $product_ref->{"image_" . $id . "_url"};
+					push @row, $product_ref->{"image_" . $id . "_small_url"};
+				}
+
+				# Nutriments
+
+				foreach (@{$nutriments_tables{$nutriment_table}}) {
+
+					my $nid = $_;    # Copy instead of alias
+
+					$nid =~/^#/ and next;
+
+					$nid =~ s/!//g;
+					$nid =~ s/^-//g;
+					$nid =~ s/-$//g;
+					if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
+						my $value = $product_ref->{nutriments}{"${nid}_100g"};
+						push @row, $value;
+					}
+					else {
+						push @row, '';
+					}
 				}
 			}
+			
+			# Extra fields
+			
+			my $scans_ref;
+			
+			if (defined $request_ref->{extra_fields}) {
+				foreach my $field (@{$request_ref->{extra_fields}}) {
+					
+					my $value;
+					
+					# Scans must be loaded separately
+					if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
+						
+						my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
+						
+						if (not defined $scans_ref) {
+							# Load the scan data
+							my $product_path = product_path($product_ref);
+							$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+						}
+						if (not defined $scans_ref) {
+							$scans_ref = {};
+						}
+						if ((defined $scans_ref->{$scan_year}) and (defined $scans_ref->{$scan_year}{$scan_field})
+							and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc})) {
+							$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
+						}
+						else {
+							$value =  "";
+						}
+					}
+					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
+						$value = join(",", @{$product_ref->{$field}});
+					}
+					else {
+						$value = $product_ref->{$field};
+					}
+								
+					if (defined $value) {
+						$value =~ s/(\r|\n|\t)/ /g;
+						push @row, $value;
+					}
+					else {
+						push @row, '';
+					}
+				}
+			}				
 
 			if ($format eq "xlsx") {
 				$worksheet->write_row( $j, 0, \@row);
