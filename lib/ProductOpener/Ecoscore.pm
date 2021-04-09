@@ -232,7 +232,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 				epi_score => $row_ref->[1],
 			};
 			
-			for (my $i = 2; $i <= (scalar @{$row_ref}); $i++) {
+			for (my $i = 2; $i < (scalar @{$row_ref}); $i++) {
 				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
 			}
 			

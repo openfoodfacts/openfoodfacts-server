@@ -1486,7 +1486,7 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$$) {
+sub compute_attributes($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
