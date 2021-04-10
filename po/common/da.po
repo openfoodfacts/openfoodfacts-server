@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-06 07:59\n"
+"PO-Revision-Date: 2021-04-10 14:10\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5312,8 +5312,8 @@ msgid "If you are the manufacturer of this product, you can send us the informat
 msgstr "Er du producent af dette produkt, kan du indsende oplysningerne via vores <a href=\"https://world.pro.openfoodfacts.org\">gratis producentplatform</a>."
 
 msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)"
-msgstr "Advarsel: Nogle oplysninger, som er nødvendige for at beregne præcis Øko-Score, er ikke angivet (se beregningsoplysningerne nedenfor)"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Advarsel: Nogle oplysninger, som er nødvendige for at beregne præcis Øko-Score, er ikke angivet (se beregningsoplysningerne nedenfor)."
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5327,6 +5327,7 @@ msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Livscyklusanalyse (LCA)"
 
+# do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Agribalyse-kategori"
@@ -5340,12 +5341,12 @@ msgid "Exact match with the product category"
 msgstr "Præcis match med produktkategorien"
 
 msgctxt "ecoscore_pef_environmental_score"
-msgid "PEF environmental score:"
-msgstr "PEF-miljøscore:"
+msgid "PEF environmental score"
+msgstr "PEF-miljøscore"
 
 msgctxt "ecoscore_incl_climate_change_impact"
-msgid "- including impact on climate change:"
-msgstr "- herunder klimaændringsindvirkning:"
+msgid "including impact on climate change"
+msgstr "herunder klimaændringsindvirkning"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
@@ -5383,9 +5384,9 @@ msgctxt "ecoscore_consumption"
 msgid "Consumption"
 msgstr "Forbrug"
 
-msgctxt "ecoscore_lca_score_on_100"
-msgid "LCA score out of 100:"
-msgstr "LCA-score ud af 100:"
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "LCA-score ud af 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5402,10 +5403,6 @@ msgstr "Ekstra bonusser og misbrug"
 msgctxt "ecoscore_production_mode"
 msgid "Production mode"
 msgstr "Produktionstilstand"
-
-msgctxt "ecoscore_label"
-msgid "Label"
-msgstr "Etiket"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5428,24 +5425,20 @@ msgid "If they are indicated on the packaging, you can modify the product sheet 
 msgstr "Er disse angivet på emballagen, kan du ændre produktarket og tilføje dem."
 
 msgctxt "ecoscore_environmental_policy"
-msgid "Environmental policy :"
-msgstr "Miljøpolitik:"
+msgid "Environmental policy"
+msgstr "Miljøpolitik"
 
 msgctxt "ecoscore_transportation"
-msgid "Transportation :"
-msgstr "Transport:"
+msgid "Transportation"
+msgstr "Transport"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Truede arter"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species:"
-msgstr "Ingredienser, hvis dyrkning truer arter:"
-
-msgctxt "ecoscore_threatened_species"
-msgid "Threatened species :"
-msgstr "Truede arter:"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ingredienser, hvis dyrkning truer arter"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredient which cultivation threatens species has been detected."
@@ -5463,23 +5456,17 @@ msgctxt "ecoscore_packaging"
 msgid "Packaging"
 msgstr "Emballage"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_shape_ratio 
 msgctxt "ecoscore_packaging_ratio"
-msgid "(ratio : %s)"
-msgstr "(forhold: %s)"
+msgid "ratio"
+msgstr "forhold"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_material_score
 msgctxt "ecoscore_packaging_score"
-msgid "(score : %s)"
-msgstr "(score: %s)"
+msgid "score"
+msgstr "score"
 
 msgctxt "ecoscore_score_of_all_components"
-msgid "Score of all components:"
-msgstr "Samlet bestanddelsscore:"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging :"
-msgstr "Emballage:"
+msgid "Score of all components"
+msgstr "Score for all bestanddele"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
