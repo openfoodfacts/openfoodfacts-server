@@ -26,6 +26,8 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Food qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -42,10 +44,9 @@ binmode(STDERR, ":encoding(UTF-8)");
 
 
 my $usage = <<TXT
-export_csv_file.pl exports product data from the database of Product Opener.
+export_data.pl exports product data from the database of Product Opener.
 
-This script is intended primarily to export all the "raw" source product data,
-and not the structured data that is extracted from it.
+The default fields exported are specified in \@export_fields in Config.pm
 
 If the --fields argument is specified, only the corresponding fields are exported,
 otherwise all populated input fields (provided by users or producers) are exported.
@@ -67,11 +68,17 @@ TXT
 my %query_fields_values = ();
 my $fields;
 my $extra_fields;
-my $separator = "\t";
+my $separator = ",";
 my $include_images_paths;
 my $query_codes_from_file;
+my $format = "csv";
+$cc = "world";
+$lc = "en";
 
 GetOptions (
+	"cc=s" => \$cc,
+	"lc=s" => \$lc,
+	"format=s" => \$format,
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
 	"query=s%" => \%query_fields_values,
@@ -81,7 +88,10 @@ GetOptions (
 		)
   or die("Error in command line arguments:\n$\nusage");
 
-print STDERR "export_csv_file.pl
+print STDERR "export_data.pl
+- format: $format
+- cc: $cc
+- lc: $lc
 - fields: $fields
 - extra_fields: $extra_fields
 - separator: $separator
@@ -91,6 +101,7 @@ print STDERR "export_csv_file.pl
 
 my $query_ref = {};
 my $request_ref = {};
+$request_ref->{skip_http_headers} =1;
 
 foreach my $field (sort keys %query_fields_values) {
 	print STDERR "-- $field: $query_fields_values{$field}\n";
@@ -130,19 +141,25 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 # CSV export
 
-my $args_ref = {filehandle=>*STDOUT, separator=>$separator, query=>$query_ref };
+$request_ref->{format} = $format;
+if (defined $separator) {
+	$request_ref->{separator} = $separator;
+}
 
 if ((defined $fields) and ($fields ne "")) {
-	$args_ref->{fields} = [split(/,/, $fields)];
+	$request_ref->{fields} = [split(/,/, $fields)];
 }
 
 if ((defined $extra_fields) and ($extra_fields ne "")) {
-	$args_ref->{extra_fields} = [split(/,/, $extra_fields)];
+	$request_ref->{extra_fields} = [split(/,/, $extra_fields)];
 }
 
-if (defined $include_images_paths) {
-	$args_ref->{include_images_paths} = 1;
+# select the nutriment table format according to the country
+$nutriment_table = $cc_nutriment_table{default};
+if (exists $cc_nutriment_table{$cc}) {
+	$nutriment_table = $cc_nutriment_table{$cc};
 }
+$subdomain = $cc;
 
-export_csv($args_ref);
+search_and_export_products($request_ref, $query_ref, undef);
 
