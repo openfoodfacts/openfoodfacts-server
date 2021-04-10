@@ -950,6 +950,8 @@ sub aggregate_origins_of_ingredients($$$) {
 Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
 according to the countries of origin of the ingredients.
 
+The transportation bonus or malus is computed for all the countries where the Eco-Score is enabled.
+
 =head3 Arguments
 
 =head4 Product reference $product_ref
