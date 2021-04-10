@@ -36,11 +36,15 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
+my @user_groups = qw(producer database app bot moderator pro_moderator);
+
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
 # Passing values to the template
-my $template_data_ref = {};
+my $template_data_ref = {
+	lang => \&lang,
+};
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
@@ -79,6 +83,7 @@ if (defined param('userid')) {
 $log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
 
 my $html = '';
+my $js = '';
 
 my $user_ref = {};
 
@@ -161,22 +166,15 @@ SCRIPT
 		}
 	}
 
-    #$template_data_ref->{display_user_form} = ProductOpener::Users::display_user_form($type, $user_ref,\$scripts);
-	#$template_data_ref->{display_user_form_optional} = ProductOpener::Users::display_user_form_optional($type, $user_ref);
-	#$template_data_ref->{display_user_form_admin_only} = ProductOpener::Users::display_user_form_admin_only($type, $user_ref);
-
-
-
 	$template_data_ref->{user_ref} = $user_ref;
 	
 	# Create the list of sections and fields
 	
 	$template_data_ref->{sections} = [];
 
-	
 	if ($user_ref) {
 		push @{$template_data_ref->{sections}}, {
-			id => "user_ref",
+			id => "user",
 			fields => [
 				{
 					field => "name"
@@ -195,12 +193,77 @@ SCRIPT
 				{
 					field => "password_confirm",
 					type => "password",
-				},				
+				},
 			]
-		};		
+		};
+
+		# Professional account
+		push @{$template_data_ref->{sections}}, {
+			id => "professional",
+			fields => [
+				{
+					field => "this_is_a_pro_account",
+					type => "checkbox",
+				},
+				{
+					field => "producer_or_brand"
+				}
+			]
+		};
+
+		
+		for (my $i = 1; $i <= 3; $i++) {
+			push @{$template_data_ref->{sections}}, {
+			id => "teams",
+			fields => [
+				{
+					field => "team_$i",
+				},
+			]
+		};
+		}
+
+		
+
+
+		push @{$template_data_ref->{sections}}, {
+			id => "administrator",
+			fields => [
+				{
+					field => "org",
+				},
+				{
+					field => "user_group_producer , user_group_producer_description",
+					type => "checkbox"
+				},
+				{
+					field => "user_group_database",
+					type => "checkbox"
+				},
+			]
+		};
+
+		#foreach my $group (@user_groups) {
+		#	push @{$template_data_ref->{sections}}, {
+		#		id => "administrator",
+		
+		#		fields => [
+		#		{
+		#				field => "user_group_$group",
+		#				type => "checkbox",
+		#			},
+		#		]
+		#	};
+		#}
+
+		#foreach my $group (@user_groups) {
+		#	$html .= "<li>"
+		#	. checkbox(-name=>"user_group_$group", -label=>" " . lang("user_group_$group") . separator_before_colon($lc) . " " . lang("user_group_${group}_description")
+		#		, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
+		#}
+
+		
 	}
-	
-	# Contact information
 	
 	# Add labels, types, descriptions, notes and existing values for all fields
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
@@ -226,6 +289,28 @@ SCRIPT
 		
 		}
 	}
+
+	$template_data_ref->{accepted_organization} = $user_ref->{org};
+
+	# Pro platform is only for food right now
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		# New user or existing user without an accepted organization
+
+		my $pro_checked = '';
+
+		# Check the "pro account" checkbox for register screen on the producers platform
+
+		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
+			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
+			$pro_checked = "checked";
+		}
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+
+		$template_data_ref->{requested_org_ref} = $requested_org_ref;
+		$template_data_ref-> {org_name} = org_name($requested_org_ref);
+	}
+
 
 }
 elsif ($action eq 'process') {
@@ -279,7 +364,19 @@ else {
 	
 	my $title = lang($type . '_user_' . $action);
 
+	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
+
 	$tt->process('user_form2.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
+	$tt->process('user_form2.tt.js', $template_data_ref, \$js);
+
+	$initjs .= $js;
+
+
+	$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+HTML
+;
 	
 	display_new( {
 		title=>$title,
