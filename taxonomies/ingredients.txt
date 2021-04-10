@@ -513,7 +513,7 @@ it:lecitina di soia, lecitine di soia
 nb:soyalecitin, soyalecitiner
 nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
-pl:lecytyna sojowa
+pl:lecytyna sojowa, lecytyny sojowe
 pt:lecitina de soja
 ro:lecitină din soia, lecitina din soia, lecitină de soia, lecitina de soia, lecitine din soia
 ru:соевый лецитин, лецитин соевый, эмульгатор лецитин соевый, эмульгатор соевый лецитин
@@ -7558,7 +7558,7 @@ lt:nugriebto pieno milteliai
 lv:sausais vajpiena pulveris
 nb:skummetmelkepulver, skummetmelkpulver
 nl:magere melkpoeder, mageremelkpoeder, mager melkpoeder
-pl:chude mleko w proszku, odtłuszczone mleko w proszku
+pl:chude mleko w proszku, odtłuszczone mleko w proszku, mleko odtłuszczone w proszku
 pt:leite magro em pó, leite em pó magro,leite desnatado em po
 ro:lapte praf degresat
 ru:обезжиренный молоко-порошок, молоко сухое обезжиренное, сухое обезжиренное молоко
@@ -13049,7 +13049,7 @@ sl:Sol, Kuhinjska sol, jedilna sol
 sn:Munyu
 so:Milix, Cusbo
 sq:Kripa
-sr:Со
+sr:Со, so
 su:Uyah
 sv:salt, koksalt, bordssalt, bordssalt utan jod
 ta:உப்பு
@@ -21528,7 +21528,7 @@ it:aroma naturale, aromi naturali
 lv:dabīgs aromatizētājs
 nb:naturlig aroma
 nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
-pl:Naturalny aromat
+pl:Naturalny aromat, naturalne aromaty
 pt:aroma natural
 ro:aromă naturală, aroma naturala
 ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
@@ -23350,7 +23350,7 @@ nv:Tłʼoh naadą́ą́ʼ
 oc:Blat
 os:Мæнæу
 pa:ਕਣਕ
-pl:pszenica, pszenicy, pszenna, pszenne, pszenny
+pl:pszenica, pszenicy, pszenicę, pszenna, pszenne, pszenny
 ps:غنم
 pt:trigo
 ro:Grâu, grau
@@ -24976,6 +24976,7 @@ it:Fiocchi d'avena integrali
 lt:pilno grūdo avižiniai dribsniai
 lv:pilngraudu auzu pārslas
 nl:volkoren havervlokken
+sl:ovseni polnozrnati kosmiči
 
 <en:whole grain oat flakes
 en:british wholegrain oat flakes
@@ -27031,6 +27032,10 @@ nl:gemalen maïs
 pt:milho moído
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs-moulu 28 products in 3 languages @2018-09-24
 
+<en:corn
+en:popcorn
+
+
 #######################################################################################################################################
 #
 #                         Rice
@@ -28277,7 +28282,7 @@ sl:Sladkor
 sn:Shuga
 so:Sonkor
 sq:Sheqeri, sheqer
-sr:Шећер
+sr:Шећер, šećer
 su:Gula
 sv:Socker
 sw:Sukari
@@ -29702,6 +29707,7 @@ hu:invert cukorszirup, invertcukor-szirup, invertcukor szirup
 it:sciroppo di zucchero invertito
 lv:invertcukura sīrups
 nl:Invertsuikerstroop
+pl:syrop cukru inwertowanego
 pt:Xarope de açúcar invertido
 ro:sirop de zahăr invertit, sirop de zahar invertit
 ru:сироп инвертный
@@ -31055,6 +31061,7 @@ ru:масло какао, какао-масло
 sk:kakaové maslo
 sl:Kakavovo maslo
 sq:Gjalpa e kakaos, kakao gjalpë
+sr:kakao maslac
 sv:kakaosmör, kakaofett
 tg:равгани какао
 th:เนยโกโก้
@@ -53353,7 +53360,7 @@ ru:пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
-en:herb
+en:herb, mixed herbs
 ca:Herbes, herbes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
@@ -70343,6 +70350,9 @@ fr:viande de poulet rôtie
 fr:produit à base de viande de poulet
 
 <en:chicken meat
+en:white chicken meat
+
+<en:chicken meat
 fr:viande de cuisse de poulet
 # ingredient/fr:viande-de-cuisse-de-poulet has 53 products in french @2019-04-16
 
@@ -70350,6 +70360,7 @@ fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
 <en:chicken meat
+en:roast chicken
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
 carbon_footprint_fr_foodges_value:fr:5.2
@@ -71424,7 +71435,7 @@ li:eiwit
 ms:putih telur
 nb:eggehvite
 nl:ei-eiwit, eiwit, albumine
-pl:bialka jaj
+pl:bialka jaj, białko jaja
 pt:clara do ovo, clara de ovos
 ru:белок
 sh:bjelance
@@ -71877,7 +71888,7 @@ he:תרכיז
 it:concentrato, da concentrato
 ko:농축물
 nl:concentraat, concentraten
-pl:koncentrat
+pl:koncentrat, koncentraty
 pt:concentratos
 sn:Mutape
 sr:Концентрат
@@ -74791,6 +74802,7 @@ en:persipan
 de:Persipan
 es:persipan
 fr:persipan
+pl:percepan
 wikidata:en:Q1929741
 wikipedia:en:https://en.wikipedia.org/wiki/Persipan
 
