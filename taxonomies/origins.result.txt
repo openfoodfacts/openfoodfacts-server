@@ -141,11 +141,15 @@ wikidata:en: Q889
 
 en:Africa
 ca:Àfrica
+da:Afrika
+de:Afrika
 es:África
 fr:Afrique
 
 < en:Africa
 en:West Africa
+da:Vestafrika
+de:Westafrika
 fr:Afrique de l'Ouest
 
 en:Åland Islands, Åland, Ahvenanmaa, Aaland, Aaland Islands, AX, ALA
@@ -1737,10 +1741,13 @@ languages:en:
 
 en:Asia
 ca:Àsia
+da:Asien
+de:Asien
 es:Asia
 fr:Asie
 
 en:Atlantic Ocean, Atlantic
+de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 it:Oceano Atlantico, Atlantico
 
@@ -5506,6 +5513,7 @@ languages:en: fr,sg
 wikidata:en: Q929
 
 en:Central America
+de:Zentralamerika
 fr:Amérique centrale
 
 en:Chad, Republic of Chad, République du Tchad, جمهورية تشاد, Ǧumhūriyyat Tšād, Tchad, TD, TCD
@@ -8939,6 +8947,8 @@ languages:en: am
 
 en:Europe
 ca:Europa
+da:Europa
+de:Europa
 es:Europa
 fr:Europe
 
@@ -8961,7 +8971,7 @@ co:Unioni Auropea
 cs:Evropská unie
 cv:Европа Пĕрлешĕвĕ
 cy:Undeb Ewropeaidd
-da:Den Europæiske Union
+da:Den Europæiske Union, EU
 de:Europäische Union, EU
 el:Ευρωπαϊκή Ένωση
 eo:Eŭropa Unio, EU
@@ -10761,8 +10771,74 @@ en:Bayern
 de:Bayern
 
 < en:Germany
+en:Berlin
+de:Berlin
+xx:Berlin
+
+< en:Germany
+en:Brandenburg
+de:Brandenburg
+xx:Brandenburg
+
+< en:Germany
+en:Bremen
+de:Bremen
+xx:Bremen
+
+< en:Germany
+en:Hamburg
+de:Hamburg
+xx:Hamburg
+
+< en:Germany
+en:Hesse, Hessen
+de:Hessen
+xx:Hessen
+
+< en:Germany
+en:Lower Saxony, Niedersachsen
+de:Niedersachsen
+xx:Niedersachsen
+
+< en:Germany
+en:Mecklenburg-Vorpommern
+de:Mecklenburg-Vorpommern
+xx:Mecklenburg-Vorpommern
+
+< en:Germany
+en:North Rhine-Westphalia, Nordrhein-Westfalen
+de:Nordrhein-Westfalen
+xx:Nordrhein-Westfalen
+
+< en:Germany
+en:Rheinland-Pfalz
+de:Rheinland-Pfalz
+xx:Rheinland-Pfalz
+
+< en:Germany
+en:Saarland
+de:Saarland
+xx:Saarland
+
+< en:Germany
+en:Sachsen-Anhalt
+de:Sachsen-Anhalt
+xx:Sachsen-Anhalt
+
+< en:Germany
+en:Saxony, Sachsen
+de:Sachsen
+xx:Sachsen
+
+< en:Germany
 en:Schleswig-Holstein
 de:Schleswig-Holstein
+xx:Schleswig-Holstein
+
+< en:Germany
+en:Thuringia, Thüringen
+de:Thüringen
+xx:Thüringen
 
 en:Ghana, Republic of Ghana, GH, GHA
 af:Ghana
@@ -13010,6 +13086,7 @@ country_code_3:en: IND
 languages:en: en,hi
 
 en:Indian Ocean
+de:Indischer Ozean
 fr:Océan Indien
 
 < en:Indian Ocean
@@ -15303,6 +15380,7 @@ languages:en: lo
 
 en:Latin America
 ca:Amèrica Llatina
+de:Lateinamerika
 es:America latina
 fr:Amérique Latine
 
@@ -20176,6 +20254,8 @@ languages:en:
 
 en:Non European Union, Non EU
 ca:No Unió Europea, No UE
+da:Ikke-EU
+de:Nicht-Europäische Union, Nicht-EU
 fr:Non Union Européenne, Non UE
 
 en:Norfolk Island, NF, NFK
@@ -20257,6 +20337,8 @@ country_code_3:en: NFK
 languages:en: en
 
 en:North-America
+da:Nordamerika
+de:Nordamerika
 fr:Amérique du Nord
 
 en:North Korea, Democratic People's Republic of Korea, DPRK, PRK, KP
@@ -20878,6 +20960,7 @@ languages:en: ar
 
 en:Pacific Ocean
 ca:Oceà Pacífic
+de:Pazifische Ozean
 es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
 it:Oceano Pacifico
@@ -29773,6 +29856,7 @@ languages:en: en
 < en:United States
 en:California
 ca:Califòrnia
+de:Kalifornien
 es:California
 fr:Californie
 
