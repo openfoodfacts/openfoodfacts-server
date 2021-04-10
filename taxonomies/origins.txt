@@ -29,23 +29,31 @@ fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, n
 # World regions
 
 en:Africa
+da:Afrika
+de:Afrika
 ca:Àfrica
 es:África
 fr:Afrique
 
 <en:Africa
 en:West Africa
+da:Vestafrika
+de:Westafrika
 fr:Afrique de l'Ouest
 
 en:Latin America
 ca:Amèrica Llatina
+de:Lateinamerika
 es:America latina
 fr:Amérique Latine
 
 en:Central America
+de:Zentralamerika
 fr:Amérique centrale
 
 en:North-America
+da:Nordamerika
+de:Nordamerika
 fr:Amérique du Nord
 
 en:South-America
@@ -55,20 +63,28 @@ fr:Amérique du Sud
 
 en:Asia
 ca:Àsia
+da:Asien
+de:Asien
 es:Asia
 fr:Asie
 
 en:Europe
 ca:Europa
+da:Europa
+de:Europa
 es:Europa
 fr:Europe
 
 en:European Union, EU
+da:Den Europæiske Union, EU
+de:Europäische Union, EU
 es:Unión Europea, UE
 fr:Union Européenne, UE
 
 en:Non European Union, Non EU
 ca:No Unió Europea, No UE
+da:Ikke-EU
+de:Nicht-Europäische Union, Nicht-EU
 fr:Non Union Européenne, Non UE
 
 en:European Union and Non European Union, EU and non EU, EU non EU
@@ -246,8 +262,74 @@ en:Bayern
 de:Bayern
 
 <en:germany
+en:Berlin
+de:Berlin
+xx:Berlin
+
+<en:germany
+en:Brandenburg
+de:Brandenburg
+xx:Brandenburg
+
+<en:germany
+en:Bremen
+de:Bremen
+xx:Bremen
+
+<en:germany
+en:Hamburg
+de:Hamburg
+xx:Hamburg
+
+<en:germany
+en:Hesse, Hessen
+de:Hessen
+xx:Hessen
+
+<en:germany
+en:Mecklenburg-Vorpommern
+de:Mecklenburg-Vorpommern
+xx:Mecklenburg-Vorpommern
+
+<en:germany
+en:Lower Saxony, Niedersachsen
+de:Niedersachsen
+xx:Niedersachsen
+
+<en:germany
+en:North Rhine-Westphalia, Nordrhein-Westfalen
+de:Nordrhein-Westfalen
+xx:Nordrhein-Westfalen
+
+<en:germany
+en:Rheinland-Pfalz
+de:Rheinland-Pfalz
+xx:Rheinland-Pfalz
+
+<en:germany
+en:Saarland
+de:Saarland
+xx:Saarland
+
+<en:germany
+en:Saxony, Sachsen
+de:Sachsen
+xx:Sachsen
+
+<en:germany
+en:Sachsen-Anhalt
+de:Sachsen-Anhalt
+xx:Sachsen-Anhalt
+
+<en:germany
 en:Schleswig-Holstein
 de:Schleswig-Holstein
+xx:Schleswig-Holstein
+
+<en:germany
+en:Thuringia, Thüringen
+de:Thüringen
+xx:Thüringen
 
 # Italy regions
 
@@ -285,6 +367,7 @@ fr:Navarre
 <en:united-states
 en:California
 ca:Califòrnia
+de:Kalifornien
 es:California
 fr:Californie
 
@@ -306,6 +389,7 @@ fr:Bande de Gaza
 
 en:Pacific Ocean
 ca:Oceà Pacífic
+de:Pazifische Ozean
 es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
 it:Oceano Pacifico
@@ -339,6 +423,7 @@ en:Southeast Pacific Ocean
 fr:Océan Pacifique Sud-Est
 
 en:Atlantic Ocean, Atlantic
+de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 it:Oceano Atlantico, Atlantico
 
@@ -356,6 +441,7 @@ en:Northwest Atlantic Ocean
 fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 
 en:Indian Ocean
+de:Indischer Ozean
 fr:Océan Indien
 
 <en:Indian Ocean
