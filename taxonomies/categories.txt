@@ -24762,16 +24762,6 @@ it:Piadina
 wikidata:en:Q926532
 
 <en:Breads
-en:Rusk, rusks
-fr:Biscotte
-it:Fette biscottate
-wikidata:en:Q5477096
-agribalyse_food_code:en:7300
-ciqual_food_code:en:7300
-ciqual_food_name:en:Rusk
-ciqual_food_name:fr:Biscotte classique
-
-<en:Breads
 en:Rye breads, Wheat rye breads
 de:Roggenbrote
 es:Panes de centeno, Pan de centeno
@@ -25011,42 +25001,6 @@ ciqual_food_name:en:Rusk with eggs, sliced, prepacked
 ciqual_food_name:fr:Pain grillé brioché, tranché, préemballé
 
 <en:Toasts
-en:Rusk with eggs
-fr:Biscottes briochées
-agribalyse_food_code:en:7301
-ciqual_food_code:en:7301
-ciqual_food_name:en:Rusk, w eggs
-ciqual_food_name:fr:Biscotte briochée
-
-<en:Toasts
-en:Unsalted rusk
-fr:Biscotte sans adjonction de sel
-agribalyse_food_code:en:7310
-ciqual_food_code:en:7310
-ciqual_food_name:en:Rusk, unsalted
-ciqual_food_name:fr:Biscotte sans adjonction de sel
-
-<en:Toasts
-en:Multigrain rusk
-de:Mehrkorn Zwieback
-fr:Biscottes multicéréales
-nl:Meergranen beschuiten, Meergranen beschuit
-agribalyse_food_code:en:7330
-ciqual_food_code:en:7330
-ciqual_food_name:en:Rusk, multigrain
-ciqual_food_name:fr:Biscotte multicéréale
-
-
-<en:Toasts
-en:Wholemeal rusk, High-fiber rusk
-fr:Biscottes complètes, Biscottes riches en fibres
-it:Fetta biscottata integrale
-agribalyse_food_code:en:7340
-ciqual_food_code:en:7340
-ciqual_food_name:en:Rusk, wholemeal or rich in fibre
-ciqual_food_name:fr:Biscotte complète ou riche en fibres
-
-<en:Toasts
 en:Wheat swedish toast
 fr:Pain grillé suédois au froment
 agribalyse_food_code:en:7407
@@ -25226,44 +25180,77 @@ agribalyse_food_code:en:38500
 ciqual_food_code:en:38500
 ciqual_food_name:en:Crouton with garlic, herbs or onions, prepacked
 
+
 <en:Breads
-en:Zwieback
+en:Rusks, rusk, Zwieback
 de:Zwiebäcke, Zwiebacke, Zwieback
 es:Biscotes
-fr:Biscottes
-it:Pane abbrustolito
+fr:Biscottes, Biscotte
+it:Fette biscottate, Pane abbrustolito
 nl:Beschuiten, Beschuit
 ru:Сухари
-wikidata:en:Q4122049
-agribalyse_proxy_food_code:en:7330
-agribalyse_proxy_food_name:en:Rusk, multigrain
-agribalyse_proxy_food_name:fr:Biscotte multicéréale
+wikidata:en:Q5477096
+agribalyse_food_code:en:7300
+ciqual_food_code:en:7300
+ciqual_food_name:en:Rusk
+ciqual_food_name:fr:Biscotte classique
 
-<en:Zwieback
-fr:Biscottes à la farine d'épeautre, Biscottes d’épeautre
+<en:Rusks
+en:Spelt rusks
+fr:Biscottes d'épeautre, Biscottes à la farine d'épeautre, Biscottes d’épeautre
 de:Dinkelzwieback
+it:Fette biscottate di farro
 nl:Speltbeschuiten, Speltbeschuit
 
-<en:Zwieback
-fr:Biscottes au froment
+<en:Rusks
+fr:Biscottes de froment, Biscottes au froment
 de:Weizenzwieback
 nl:Tarwebeschuiten, Tarwebeschuit
 
-<en:Zwieback
-fr:Biscottes aux céréales
-de:Getreide Zwieback
-nl:Granenbeschuiten, Granenbeschuit
+<en:Rusks
+en:Multigrain rusks, Multigrain rusk
+de:Mehrkorn Zwieback, Getreide Zwieback
+fr:Biscottes multicéréales, Biscottes aux céréales
+it:Fette biscottate multicereali
+nl:Meergranen beschuiten, Meergranen beschuit, Granenbeschuiten, Granenbeschuit
+agribalyse_food_code:en:7330
+ciqual_food_code:en:7330
+ciqual_food_name:en:Rusk, multigrain
+ciqual_food_name:fr:Biscotte multicéréale
 
-<en:Zwieback
-fr:Biscottes complètes
+<en:Rusks
+en:Wholemeal rusks, Wholemeal rusk, High-fiber rusk
 de:Vollkorn Zwieback
+fr:Biscottes complètes, Biscottes riches en fibres
+it:Fette biscottate integrali, Fetta biscottata integrale
 nl:Volkorenbeschuiten, Volkorenbeschuit
+agribalyse_food_code:en:7340
+ciqual_food_code:en:7340
+ciqual_food_name:en:Rusk, wholemeal or rich in fibre
+ciqual_food_name:fr:Biscotte complète ou riche en fibres
 
 <en:Products with reduced salt
-<en:Zwieback
+<en:Rusks
 fr:Biscottes pauvres en sel
 de:Salzarmer Zwieback
 nl:Zoutarme beschuiten, Zoutarme beschuit
+
+<en:Rusks
+en:Rusk with eggs
+fr:Biscottes briochées
+agribalyse_food_code:en:7301
+ciqual_food_code:en:7301
+ciqual_food_name:en:Rusk, w eggs
+ciqual_food_name:fr:Biscotte briochée
+
+<en:Rusks
+en:Unsalted rusk
+fr:Biscotte sans adjonction de sel
+agribalyse_food_code:en:7310
+ciqual_food_code:en:7310
+ciqual_food_name:en:Rusk, unsalted
+ciqual_food_name:fr:Biscotte sans adjonction de sel
+
 
 <en:Breads
 fr:Pains croustillants, Pain croustillant
