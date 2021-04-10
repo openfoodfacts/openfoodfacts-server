@@ -35,6 +35,7 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
+use Data::Dumper;
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -84,6 +85,8 @@ $log->debug("user form - start", { type => $type, action => $action, userid => $
 
 my $html = '';
 my $js = '';
+
+my $i =3;
 
 my $user_ref = {};
 
@@ -137,6 +140,7 @@ if ($action eq 'process') {
 
 $template_data_ref->{action} = $action;
 $template_data_ref->{errors} = \@errors;
+my $i;
 
 $log->debug("user form - before display / process", { type => $type, action => $action, userid => $userid }) if $log->is_debug();
 
@@ -211,57 +215,33 @@ SCRIPT
 			]
 		};
 
-		
-		for (my $i = 1; $i <= 3; $i++) {
-			push @{$template_data_ref->{sections}}, {
-			id => "teams",
-			fields => [
-				{
-					field => "team_$i",
-				},
-			]
+		my $team_section_ref = { id => "teams", fields => [] };
+		for ( $i = 1; $i <= 3; $i++) {
+			push @{$team_section_ref->{fields}}, { 
+				field => sprintf("Team %s", $i),
+				label2 => sprintf("Team %s", $i),
+			 };
 		};
+
+		push @{$template_data_ref->{sections}}, {%$team_section_ref};
+
+		#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+
+
+
+
+		my $administrator_section_ref = { id => "administrator", fields => [] };
+
+
+		foreach my $group (@user_groups) {
+			push @{$administrator_section_ref->{fields}}, { 
+				field =>  "user_group_". $group,
+				label2 =>  "user_group_" . ${group} . "_description",
+				type => "checkbox",
+			};
 		}
 
-		
-
-
-		push @{$template_data_ref->{sections}}, {
-			id => "administrator",
-			fields => [
-				{
-					field => "org",
-				},
-				{
-					field => "user_group_producer , user_group_producer_description",
-					type => "checkbox"
-				},
-				{
-					field => "user_group_database",
-					type => "checkbox"
-				},
-			]
-		};
-
-		#foreach my $group (@user_groups) {
-		#	push @{$template_data_ref->{sections}}, {
-		#		id => "administrator",
-		
-		#		fields => [
-		#		{
-		#				field => "user_group_$group",
-		#				type => "checkbox",
-		#			},
-		#		]
-		#	};
-		#}
-
-		#foreach my $group (@user_groups) {
-		#	$html .= "<li>"
-		#	. checkbox(-name=>"user_group_$group", -label=>" " . lang("user_group_$group") . separator_before_colon($lc) . " " . lang("user_group_${group}_description")
-		#		, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
-		#}
-
+		push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
 		
 	}
 	
@@ -368,6 +348,8 @@ else {
 
 	$tt->process('user_form2.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
 	$tt->process('user_form2.tt.js', $template_data_ref, \$js);
+
+	
 
 	$initjs .= $js;
 

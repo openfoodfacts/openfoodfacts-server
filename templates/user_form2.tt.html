@@ -75,7 +75,7 @@
                     <div>
                         [% FOREACH field IN section.fields %]
                             [% IF field.type == 'text' %]
-                                <label for="[% field.field %]">[% field.label %]</label>
+                                <label for="[% field.field %]">[% field.label2 %]</label>
                                 <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)"/>
                             [% END %]
                         [% END %]
@@ -99,7 +99,7 @@
                         [% ELSIF field.type == 'checkbox' %]
                             <label for="[% field.field %]">
                             <input type="checkbox" id="[% field.field %]" name="[% field.field %]" />
-                            [% field.label %]
+                            [% field.label %] [% lang(field.label2) %]
                             </label>
                         [% END %]
                         
