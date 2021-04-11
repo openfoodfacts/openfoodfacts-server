@@ -10,15 +10,15 @@ on:
       - main
 
 jobs:
-  synchronize-with-crowdin:
-    name: Synchronize with crowdin
+  synchronize:
+    name: Synchronize
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: crowdin action
+    - name: Synchronize with Crowdin
       uses: crowdin/github-action@1.1.0
       with:
         upload_translations: true # default is false

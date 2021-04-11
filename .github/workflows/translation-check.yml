@@ -1,12 +1,17 @@
 name: Validate translation files
+
 on:
   push:
     branches: [l10n_main]
+
 jobs:
-  validate:
+  validate_i18n:
+    name: Validate translations
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
+
       - name: Validate .po files
         uses: Tar-Minyatur/gettext-validation@master
         with:
