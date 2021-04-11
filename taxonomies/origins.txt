@@ -32,6 +32,8 @@ hu:Nincs megadva, kitöltetlen, nem elérhető
 # World regions
 
 en:Africa
+da:Afrika
+de:Afrika
 ca:Àfrica
 es:África
 fr:Afrique
@@ -39,20 +41,26 @@ hu:Afrika
 
 <en:Africa
 en:West Africa
+da:Vestafrika
+de:Westafrika
 fr:Afrique de l'Ouest
 hu:Nyugat-Afrika
 
 en:Latin America
 ca:Amèrica Llatina
+de:Lateinamerika
 es:America latina
 fr:Amérique Latine
 hu:Latin-Amerika
 
 en:Central America
+de:Zentralamerika
 fr:Amérique centrale
 hu:Közép-Amerika
 
 en:North-America
+da:Nordamerika
+de:Nordamerika
 fr:Amérique du Nord
 hu:Észak-Amerika
 
@@ -64,23 +72,31 @@ hu:Dél-Amerika
 
 en:Asia
 ca:Àsia
+da:Asien
+de:Asien
 es:Asia
 fr:Asie
 hu:Ázsia
 
 en:Europe
 ca:Europa
+da:Europa
+de:Europa
 es:Europa
 fr:Europe
 hu:Európa
 
 en:European Union, EU
+da:Den Europæiske Union, EU
+de:Europäische Union, EU
 es:Unión Europea, UE
 fr:Union Européenne, UE
 hu:Európai Unió, EU
 
 en:Non European Union, Non EU
 ca:No Unió Europea, No UE
+da:Ikke-EU
+de:Nicht-Europäische Union, Nicht-EU
 fr:Non Union Européenne, Non UE
 hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
 
@@ -266,8 +282,74 @@ de:Bayern
 hu:Bajorország
 
 <en:germany
+en:Berlin
+de:Berlin
+xx:Berlin
+
+<en:germany
+en:Brandenburg
+de:Brandenburg
+xx:Brandenburg
+
+<en:germany
+en:Bremen
+de:Bremen
+xx:Bremen
+
+<en:germany
+en:Hamburg
+de:Hamburg
+xx:Hamburg
+
+<en:germany
+en:Hesse, Hessen
+de:Hessen
+xx:Hessen
+
+<en:germany
+en:Mecklenburg-Vorpommern
+de:Mecklenburg-Vorpommern
+xx:Mecklenburg-Vorpommern
+
+<en:germany
+en:Lower Saxony, Niedersachsen
+de:Niedersachsen
+xx:Niedersachsen
+
+<en:germany
+en:North Rhine-Westphalia, Nordrhein-Westfalen
+de:Nordrhein-Westfalen
+xx:Nordrhein-Westfalen
+
+<en:germany
+en:Rheinland-Pfalz
+de:Rheinland-Pfalz
+xx:Rheinland-Pfalz
+
+<en:germany
+en:Saarland
+de:Saarland
+xx:Saarland
+
+<en:germany
+en:Saxony, Sachsen
+de:Sachsen
+xx:Sachsen
+
+<en:germany
+en:Sachsen-Anhalt
+de:Sachsen-Anhalt
+xx:Sachsen-Anhalt
+
+<en:germany
 en:Schleswig-Holstein
 de:Schleswig-Holstein
+xx:Schleswig-Holstein
+
+<en:germany
+en:Thuringia, Thüringen
+de:Thüringen
+xx:Thüringen
 
 # Italy regions
 
@@ -307,6 +389,7 @@ fr:Navarre
 <en:united-states
 en:California
 ca:Califòrnia
+de:Kalifornien
 es:California
 fr:Californie
 hu:Kalifornia
@@ -329,6 +412,7 @@ fr:Bande de Gaza
 
 en:Pacific Ocean
 ca:Oceà Pacífic
+de:Pazifische Ozean
 es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
 hu:Csendes-óceán
@@ -365,6 +449,7 @@ en:Southeast Pacific Ocean
 fr:Océan Pacifique Sud-Est
 
 en:Atlantic Ocean, Atlantic
+de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 hu:Atlanti-óceán
 it:Oceano Atlantico, Atlantico
@@ -383,6 +468,7 @@ en:Northwest Atlantic Ocean
 fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 
 en:Indian Ocean
+de:Indischer Ozean
 fr:Océan Indien
 hu:Indiai-óceán
 

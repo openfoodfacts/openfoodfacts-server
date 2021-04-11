@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-03-24 05:32\n"
+"PO-Revision-Date: 2021-04-10 13:34\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2313,6 +2313,10 @@ msgstr "crwdns165978:0crwdne165978:0"
 msgctxt "site_name"
 msgid "Open Food Facts"
 msgstr "crwdns165980:0crwdne165980:0"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "crwdns180356:0crwdne180356:0"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -5237,4 +5241,226 @@ msgstr "crwdns180342:0crwdne180342:0"
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
 msgstr "crwdns180344:0crwdne180344:0"
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr "crwdns180346:0%scrwdnd180346:0%scrwdne180346:0"
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr "crwdns180348:0crwdne180348:0"
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr "crwdns180350:0%scrwdnd180350:0%scrwdne180350:0"
+
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr "crwdns180352:0crwdne180352:0"
+
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr "crwdns180354:0crwdne180354:0"
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "crwdns180734:0crwdne180734:0"
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "crwdns180736:0crwdne180736:0"
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr "crwdns180738:0crwdne180738:0"
+
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "crwdns180740:0crwdne180740:0"
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "crwdns180846:0crwdne180846:0"
+
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr "crwdns180744:0crwdne180744:0"
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr "crwdns180746:0crwdne180746:0"
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr "crwdns180748:0crwdne180748:0"
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr "crwdns180750:0crwdne180750:0"
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr "crwdns180752:0crwdne180752:0"
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr "crwdns180754:0crwdne180754:0"
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr "crwdns180848:0crwdne180848:0"
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr "crwdns180850:0crwdne180850:0"
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr "crwdns180760:0crwdne180760:0"
+
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr "crwdns180762:0crwdne180762:0"
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr "crwdns180764:0crwdne180764:0"
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr "crwdns180766:0crwdne180766:0"
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr "crwdns180768:0crwdne180768:0"
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "crwdns180770:0crwdne180770:0"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "crwdns180772:0crwdne180772:0"
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr "crwdns180774:0crwdne180774:0"
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr "crwdns180776:0crwdne180776:0"
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "crwdns180852:0crwdne180852:0"
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr "crwdns180780:0crwdne180780:0"
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr "crwdns180782:0crwdne180782:0"
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr "crwdns180784:0crwdne180784:0"
+
+msgctxt "ecoscore_production_mode"
+msgid "Production mode"
+msgstr "crwdns180786:0crwdne180786:0"
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr "crwdns180790:0crwdne180790:0"
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr "crwdns180792:0crwdne180792:0"
+
+msgctxt "ecoscore_origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "crwdns180794:0crwdne180794:0"
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr "crwdns180796:0crwdne180796:0"
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr "crwdns180798:0crwdne180798:0"
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr "crwdns180854:0crwdne180854:0"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "crwdns180856:0crwdne180856:0"
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr "crwdns180804:0crwdne180804:0"
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "crwdns180858:0crwdne180858:0"
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr "crwdns180810:0crwdne180810:0"
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr "crwdns180812:0crwdne180812:0"
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr "crwdns180814:0crwdne180814:0"
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "crwdns180816:0crwdne180816:0"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr "crwdns180860:0crwdne180860:0"
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr "crwdns180862:0crwdne180862:0"
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr "crwdns180864:0crwdne180864:0"
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr "crwdns180826:0crwdne180826:0"
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr "crwdns180828:0crwdne180828:0"
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr "crwdns180830:0crwdne180830:0"
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr "crwdns180832:0crwdne180832:0"
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr "crwdns180834:0crwdne180834:0"
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr "crwdns180836:0crwdne180836:0"
+
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "crwdns180838:0crwdne180838:0"
 

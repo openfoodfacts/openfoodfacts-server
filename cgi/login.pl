@@ -39,9 +39,7 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 $log->info('start') if $log->is_info();
 
@@ -84,7 +82,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 $template_data_ref->{errors} = \@errors;
 
 my $html;
-$tt->process('login.tt.html', $template_data_ref, \$html);
+process_template('login.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }

@@ -8,8 +8,12 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use JSON;
 use Getopt::Long;
+
+
+use JSON::PP;
+
+my $json = JSON::PP->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -116,10 +120,6 @@ my @tests = (
 	],
 );
 
-
-
-my $json = JSON->new->allow_nonref->canonical;
-
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
@@ -142,7 +142,7 @@ foreach my $test_ref (@tests) {
 	compute_ecoscore($product_ref);
 	compute_forest_footprint($product_ref);
 			
-	compute_attributes($product_ref, $product_ref->{lc}, $options_ref);
+	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
 	# Travis has a different $server_domain, so we need to change the resulting URLs
 	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'

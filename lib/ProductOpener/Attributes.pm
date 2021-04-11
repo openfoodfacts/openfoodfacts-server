@@ -550,7 +550,7 @@ sub compute_attribute_nutriscore($$) {
 }
 
 
-=head2 compute_attribute_ecoscore ( $product_ref, $target_lc )
+=head2 compute_attribute_ecoscore ( $product_ref, $target_lc, $target_cc )
 
 Computes an environmental impact attribute based on the Eco-Score.
 
@@ -564,6 +564,10 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =head3 Return value
 
@@ -579,10 +583,11 @@ that is used to define the Eco-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_ecoscore($$) {
+sub compute_attribute_ecoscore($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
+	my $target_cc = shift;
 
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
@@ -595,6 +600,11 @@ sub compute_attribute_ecoscore($$) {
 		
 		my $score = $product_ref->{ecoscore_data}{score};
 		my $grade = $product_ref->{ecoscore_data}{grade};
+		
+		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
+			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
+			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
+		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
 		
@@ -1439,7 +1449,7 @@ sub add_attribute_to_group($$$$) {
 }
 
 
-=head2 compute_attributes ( $product_ref, $target_lc )
+=head2 compute_attributes ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Compute all attributes for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of attribute groups.
@@ -1457,6 +1467,10 @@ This parameter sets the desired language for the user facing strings.
 
 If $target_lc is equal to "data", no strings are returned.
 
+=head4 country code $target_cc
+
+Needed for some country specific attributes like the Eco-Score.
+
 =head4 options $options_ref
 
 Defines how some attributes should be computed (or not computed)
@@ -1472,10 +1486,11 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$$) {
+sub compute_attributes($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
+	my $target_cc = shift;
 	my $options_ref = shift;	
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
@@ -1522,7 +1537,7 @@ sub compute_attributes($$$) {
 	# Environment
 	
 	if ((not defined $options_ref) or (not defined $options_ref->{skip_ecoscore}) or (not $options_ref->{skip_ecoscore})) {
-		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
+		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
 		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
 	}
 	

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-03-24 05:30\n"
+"PO-Revision-Date: 2021-04-10 14:10\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -656,7 +656,7 @@ msgstr "Le mot de passe et sa confirmation sont différents."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
+msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -1480,7 +1480,7 @@ msgstr "Comparaison avec les valeurs moyennes des produits de même catégorie :
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "A noter : pour chaque nutriment, la moyenne n'est pas celle de tous les produits de la catégorie, mais des produits pour lesquels la quantité du nutriment est connue."
+msgstr "À noter : pour chaque nutriment, la moyenne n'est pas celle de tous les produits de la catégorie, mais des produits pour lesquels la quantité du nutriment est connue."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1633,7 +1633,7 @@ msgstr "Les produits avec le conditionnement %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "conditionnement"
+msgstr "conditionnements"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -2283,7 +2283,7 @@ msgstr "Voir la fiche du produit"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Pays"
+msgstr "Pays de vente"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2348,6 +2348,10 @@ msgstr "Ingrédients, composition nutritionnelle et information sur les produits
 msgctxt "site_name"
 msgid "Open Food Facts"
 msgstr "Open Food Facts"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "Logo Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -3005,7 +3009,7 @@ msgstr "Volume"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -4142,7 +4146,7 @@ msgstr "Retirez tous vos produits de la plateforme pour les producteurs"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr "Vous pouvez supprimer tous vos produits de la plateforme pour les producteurs, par exemple pour commencer par une ardoise propre s'il y a eu des problèmes avec une importation. Cela n'affectera pas vos produits dans la base de données publique."
+msgstr "Vous pouvez supprimer tous vos produits de la plateforme pour les producteurs, par exemple pour repartir d'une page propre s'il y a eu des problèmes avec un import. Cela n'affectera pas vos produits dans la base de données publique."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4377,7 +4381,7 @@ msgstr "Si disponible, cette information sera affichée sur la page produit."
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction Importation de photos depuis votre plateforme producteur."
+msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \"Importer des photos de produits\" depuis votre plateforme producteur."
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
@@ -5184,7 +5188,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "Les données GS1 sont automatiquement associées à un identifiant d'organisation OFF qui correspond au champ GS1 partyName. Pour modifier l'identifiant de l'organisation OFF, vous pouvez attribuer directement un ou plusieurs identifiants GS1 GLN."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
@@ -5208,7 +5212,7 @@ msgstr "Activez les exports quotidiens automatisés de données produit et de ph
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr "Les exports automatisés doivent être activés uniquement pour les organisations qui ont des imports automatisés (par exemple via Equadis)."
+msgstr "Les exports automatisés ne être activés que pour les organisations qui ont des imports automatisés (par exemple via Equadis)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
@@ -5247,7 +5251,7 @@ msgstr "Mise à jour du statut d'import sur la plateforme des producteurs"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr "Votre export a été planifié. Cette page peut être fermée."
+msgstr "L'export a été planifié. Cette page peut être fermée."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
@@ -5293,4 +5297,206 @@ msgstr "Type de la photo du produit"
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr "Si vous utilisez la même colonne sur plusieurs lignes pour fournir les URLs des images d'un même produit, vous pouvez utiliser ce champ pour indiquer le type de l'image : front, ingredients, nutrition or packaging."
+msgstr "Si vous utilisez la même colonne sur plusieurs lignes pour fournir les URL des images d'un même produit, vous pouvez utiliser ce champ pour indiquer le type de l'image : face, ingrédients, nutrition ou emballage."
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation."
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise."
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr "Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise."
+
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous)."
+
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr "Vous pouvez modifier la fiche produit pour ajouter les informations manquantes."
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr "Score de référence de la catégorie du produit"
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr "Analyse de cycle de vie (ACV)"
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr "Catégorie Agribalyse"
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr "Correspondance approchée avec la catégorie du produit"
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr "Correspondance exacte avec la catégorie du produit"
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr "Score environnemental PEF"
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr "dont impact sur le changement climatique :"
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr "Détail des impacts par étapes du cycle de vie"
+
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr "Etape"
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr "Impact"
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr "Agriculture"
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr "Transformation"
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Conditionnement"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Transport"
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr "Distribution"
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr "Consommation"
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "Score ACV sur 100"
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr "Pas de correspondance entre les catégories du produit et les catégories Agribalyse."
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr "Vous pouvez modifier la fiche produit pour ajouter une catégorie plus fine."
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr "Bonus et malus complémentaires"
+
+msgctxt "ecoscore_production_mode"
+msgid "Production mode"
+msgstr "Mode de production"
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr "Pas de labels pris en compte pour le système de production."
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr "Si ce produit a un label caractérisant le système de production (bio, commerce équitable, Label Rouge, Bleu Blanc Coeur etc.), vous pouvez modifier la fiche produit pour l'ajouter."
+
+msgctxt "ecoscore_origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Origine des ingrédients"
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr "Les origines des ingrédients de ce produit ne sont pas renseignées."
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr "Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter."
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr "Politique environnementale"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Transport"
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr "Espèces menacées"
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ingrédients dont la culture menace des espèces"
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr "Aucun ingrédient dont la culture menace des espèces n'a été détecté."
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr "Les informations sur les ingrédients de ce produit ne sont pas renseignées."
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr "Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter."
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Conditionnement"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr "ratio"
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr "score"
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr "Score de tous les composants"
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr "Les informations sur l'emballage de ce produit ne sont pas renseignées."
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr "Les informations sur l'emballage de ce produit ne sont pas suffisamment précises (formes et matériaux exacts de tous les composants de l'emballage)."
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr "Pour un calcul plus précis de l'Eco-Score, vous pouvez modifier la fiche produit et les ajouter."
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr "Score final"
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr "(plus le score est bas, plus l'impact est faible)"
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr "kg CO2 eq/kg de produit"
+
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
+
