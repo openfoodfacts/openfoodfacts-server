@@ -44,9 +44,7 @@ use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $code = normalize_code(param('code'));
 my $id = param('id');
@@ -164,7 +162,7 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 
 my $html;
-$tt->process('product_image.tt.html', $template_data_ref, \$html);
+process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 display_new( {
