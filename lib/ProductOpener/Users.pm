@@ -98,6 +98,8 @@ use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
+use Data::Dumper;
+
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -557,7 +559,8 @@ sub check_user_form($$$) {
 	}
 
 	if (param('password') ne param('confirm_password')) {
-		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
+		push @{$errors_ref}, $Lang{error_different_passwords}{$lang} . "password: " . param('password') . " - confirm_password: " . param('confirm_password') ;
+		#push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
@@ -815,6 +818,7 @@ sub init_user()
 	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
                        ( ( (defined param('password')) and (param('password') ne ''))
                          ) ) {
+							print STDERR param('password');
 
 		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
 		# See the warning in "Fetching the value or values of a single named parameter"

@@ -161,7 +161,7 @@ if ($action eq 'display') {
 	}
 
 	$template_data_ref->{user_ref} = $user_ref;
-	$template_data_ref->{user_id} = $user_ref->{userid};
+	$template_data_ref->{user_id_field} = $user_ref->{userid};
 	
 	# Create the list of sections and fields
 	
@@ -179,7 +179,8 @@ if ($action eq 'display') {
 					type => "email",
 				},
 				{
-					field => "username"
+					field => "user_id",
+					label2 => "username"
 				},
 				{
 					field => "password",
@@ -229,7 +230,7 @@ if ($action eq 'display') {
 		push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
 	}	
 
-	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 	
 	# Add labels, types, descriptions, notes and existing values for all fields
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
@@ -276,6 +277,9 @@ if ($action eq 'display') {
 		# New user or existing user without an accepted organization
 
 		my $pro_checked = '';
+
+		$template_data_ref->{product_type} = $options{product_type};
+		
 
 		# Check the "pro account" checkbox for register screen on the producers platform
 

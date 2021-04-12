@@ -10,13 +10,13 @@
 		[% FOREACH section IN sections %]
 			[% IF user OR section.id == "user" %]
 				[% FOREACH field IN section.fields %]
-					[% IF field.field == 'username' %]
+					[% IF field.field == 'user_id' %]
                         [% IF type == 'edit' %]
-						    <label for="[% field.field %]">[% field.label %]</label>
-                            <p> [% user_id %] </p>
+						    <label for="[% field.field %]"> [% lang(field.label2) %] </label>
+                            <p> [% user_id_field %] </p>
                         [% ELSE %]
-                            <label for="[% field.field %]">[% field.label %] [% lang('username_info')  %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% user_id %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
+                            <label for="[% field.field %]"> [% lang(field.label2) %] [% lang('username_info')  %]</label>
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% user_id_field %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
                         [% END %]
 					[% ELSIF field.type == 'text' %]
                         <label for="[% field.field %]">[% field.label %]</label>
