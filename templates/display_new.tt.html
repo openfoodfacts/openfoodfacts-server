@@ -119,7 +119,29 @@
 			</div>
 		</aside>
 		<a class="exit-off-canvas"></a>
-		[% top_banner %]
+		
+		<!-- full width banner on mobile -->
+		
+		[% IF mobile %]
+			<a href="[% mobile.link %]" class="button large expand success">
+			<div class="row collapse">
+				<div class="small-6 columns">
+					[% mobile.text %]
+				</div>
+				<div class="small-6 columns">
+					[% IF mobile.system == "ios" %]
+							<img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]">
+					[% ELSIF mobile.system == "android" %]
+							<img src="[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]">
+					[% ELSIF mobile.system == "windows" %]
+							<img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]">
+					[% END %]
+				
+				</div>
+			</div>
+			</a>
+		[% END %]
+		
 		<!-- main row - comment used to remove left column and center content on some pages -->
 		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
 			<div class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
@@ -149,10 +171,15 @@
 				</div>
 			</div>
 			<div id="main_column" class="xxlarge-10 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
-        <!-- main column content - comment used to remove left column and center content on some pages -->
-        [% INCLUDE 'donate_banner.tt.html' %]
+				
+				<!-- main column content - comment used to remove left column and center content on some pages -->
+				
+				[% INCLUDE 'donate_banner.tt.html' %]
+				
 				[% h1_title %]
+				
 				[% content_ref %]
+				
 			</div>
         </div>
 	</div>

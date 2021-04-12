@@ -7271,8 +7271,6 @@ sub display_new($) {
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
 
-	my $top_banner = "";
-
 	my $image_banner = "";
 	my $link = lang("donate_link");
 	my $image;
@@ -7310,67 +7308,55 @@ else {
 }
 JS
 	}
-
-	if ($server_options{producers_platform}) {
-		$top_banner = "";
-	}
-
-	# Display a banner from users on Android or iOS
-
-	my $user_agent = $ENV{HTTP_USER_AGENT};
-
-	my $mobile;
-	my $system;
-
-	# windows phone must be first as its user agent includes the string android
-	if ($user_agent =~ /windows phone/i) {
-
-		$mobile = "windows";
-	}
-	elsif ($user_agent =~ /android/i) {
-
-		$mobile = "android";
-		$system = "android";
-	}
-	elsif ($user_agent =~ /iphone/i) {
-
-		$mobile = "iphone";
-		$system = "ios";
-	}
-	elsif ($user_agent =~ /ipad/i) {
-
-		$mobile = "ipad";
-		$system = "ios";
-	}
-
+	
 	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
 
 	if ($server_options{producers_platform}) {
 
 		$tagline = "";
+	}	
+
+	# Display a banner from users on Android or iOS
+
+	my $user_agent = $ENV{HTTP_USER_AGENT};
+	
+	# add a user_agent parameter so that we can test from desktop easily
+	if (defined param('user_agent')) {
+		$user_agent = param('user_agent');
 	}
 
-	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"}) and (not $server_options{producers_platform})) {
+	my $device;
+	my $system;
 
-		my $link = lang($system . "_app_link");
-		my $link_text = lang("get_the_app_$mobile");
+	# windows phone must be first as its user agent includes the string android
+	if ($user_agent =~ /windows phone/i) {
 
-		if ($system eq 'android') {
+		$device = "windows";
+	}
+	elsif ($user_agent =~ /android/i) {
 
-			$link_text = display_icon('brand-android-robot') . $link_text;
-		}
-		elsif ($system eq 'ios') {
+		$device = "android";
+		$system = "android";
+	}
+	elsif ($user_agent =~ /iphone/i) {
 
-			$link_text = display_icon('brand-apple')  . $link_text;
-		}
-		$template_data_ref->{banner_link} = $link;
-		$template_data_ref->{link_text} = $link_text;
- 		$top_banner = <<HTML
+		$device = "iphone";
+		$system = "ios";
+	}
+	elsif ($user_agent =~ /ipad/i) {
 
-<a href="$link" class="button expand">$link_text</a>
+		$device = "ipad";
+		$system = "ios";
+	}
 
-HTML
-;
+	if ((defined $device) and (defined $Lang{"get_the_app_$device"}) and (not $server_options{producers_platform})) {
+
+		$template_data_ref->{mobile} = {
+			device => $device,
+			system => $system,
+			link => lang($system . "_app_link"),
+			text => lang("app_banner_text"),
+		};
 	}
 	
 	# Extract initjs code from content
@@ -7380,7 +7366,6 @@ HTML
 		$initjs .= $1;
 	}	
 
-	$template_data_ref->{top_banner} = $top_banner;
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
 	$template_data_ref->{aside_blocks} = $aside_blocks;
