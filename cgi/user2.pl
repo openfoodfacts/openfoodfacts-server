@@ -162,6 +162,7 @@ if ($action eq 'display') {
 
 	$template_data_ref->{user_ref} = $user_ref;
 	$template_data_ref->{user_id_field} = $user_ref->{userid};
+	$template_data_ref->{user_password_field} = $user_ref->{password};
 	
 	# Create the list of sections and fields
 	
@@ -179,16 +180,18 @@ if ($action eq 'display') {
 					type => "email",
 				},
 				{
-					field => "user_id",
+					field => "userid",
 					label2 => "username"
 				},
 				{
 					field => "password",
 					type => "password",
+					label2 => "password"
 				},
 				{
-					field => "password_confirm",
+					field => "confirm_password",
 					type => "password",
+					label2 => "password_confirm"
 				},
 			]
 		};
@@ -198,11 +201,16 @@ if ($action eq 'display') {
 			id => "professional",
 			fields => [
 				{
-					field => "this_is_a_pro_account",
+					field => "pro",
 					type => "checkbox",
 				},
 				{
-					field => "producer_or_brand"
+					field => "pro_checkbox",
+					type => "hidden",
+					value => 1,
+				},
+				{
+					field => "requested_org",
 				}
 			]
 		};
@@ -263,7 +271,7 @@ if ($action eq 'display') {
 		};
 	};
 
-	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	
 
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
@@ -278,26 +286,25 @@ if ($action eq 'display') {
 
 		my $pro_checked = '';
 
-		$template_data_ref->{product_type} = $options{product_type};
-		
-
 		# Check the "pro account" checkbox for register screen on the producers platform
 
 		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
 			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
 			$pro_checked = "checked";
 		}
+
+		$template_data_ref->{product_type} = $options{product_type};
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-
-
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
 		$template_data_ref-> {org_name} = org_name($requested_org_ref);
-	}
+	
+	};
 	
 	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
 
-
+	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 }
+
 elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
@@ -306,6 +313,8 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
+
+	
 	
 	if ($type eq 'add') {
 
@@ -324,13 +333,13 @@ elsif ($action eq 'process') {
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
 		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 	}
+	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 
 }
 
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
-
 
 my $full_width = 1;
 if ($action ne 'display') {
