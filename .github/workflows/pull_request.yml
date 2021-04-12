@@ -27,7 +27,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - run: npm ci
+      - run: npm ci --prefer-offline --no-audit
 
       - run: npm run build
 
@@ -52,7 +52,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - run: npm ci
+      - run: npm ci --prefer-offline --no-audit
 
       - run: npm run lint
 
@@ -85,7 +85,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - run: npm ci
+      - run: npm ci --prefer-offline --no-audit
 
       # Use APT packages from cpanfile
       - name: Install dependencies from APT
