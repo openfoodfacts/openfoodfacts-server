@@ -42,7 +42,7 @@
         </a>
     </div>
     
-    <p>&rarr; <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+    <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
@@ -128,7 +128,7 @@
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
+        <p class="note">→ [% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
             [% IF lc != ingredients_text_lang %]
                 <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
@@ -229,6 +229,15 @@
 	<h4>Eco-score
 		<a href="/ecoscore" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
 	</h4>
+	
+	<p>[% lang("ecoscore_description") %]</p>
+	
+	[% IF cc == "fr" %]
+		<p class="note">→ [% lang("ecoscore_warning_fr") %]</p>
+	[% ELSE %]
+		<p class="note">→ [% lang("ecoscore_warning_international") %]</p>
+	[% END %]
+	
 	<a href="/ecoscore" title="[% lang('ecoscore_information') %]">
 		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
