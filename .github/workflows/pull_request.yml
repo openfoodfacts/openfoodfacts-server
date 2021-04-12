@@ -19,7 +19,15 @@ jobs:
         with:
           node-version: "12.x"
 
-      - run: npm install
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
 
       - run: npm run build
 
@@ -36,7 +44,15 @@ jobs:
         with:
           node-version: "12.x"
 
-      - run: npm install
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
 
       - run: npm run lint
 
@@ -53,6 +69,14 @@ jobs:
         with:
           node-version: "12.x"
 
+      - name: Find changed perl files
+        uses: futuratrepadeira/changed-files@v3.3.0
+        id: changed-perl
+        with:
+          repo-token: ${{ github.token }}
+          pattern: '^(cgi|scripts)/.*\.pl$|^lib/ProductOpener/.*\.pm$'
+          result-encoding: "string"
+
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -62,14 +86,6 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm ci
-
-      - name: Find changed perl files
-        uses: futuratrepadeira/changed-files@v3.3.0
-        id: changed-perl
-        with:
-          repo-token: ${{ github.token }}
-          pattern: '^(cgi|scripts)/.*\.pl$|^lib/ProductOpener/.*\.pm$'
-          result-encoding: "string"
 
       # Use APT packages from cpanfile
       - name: Install dependencies from APT
@@ -165,7 +181,15 @@ jobs:
           # libmodule-build-pluggable-perl
           #
 
-      - name: "Setup perl and install dependencies"
+      - name: Cache perl modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-perl-modules
+        with:
+          path: ~/.cpanm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Setup perl and install dependencies
         run: |
           sudo cpanm --quiet --installdeps --notest --skip-satisfied .
           export BUILD_DIR=`pwd`
