@@ -43,9 +43,7 @@ my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
@@ -86,8 +84,6 @@ $log->debug("user form - start", { type => $type, action => $action, userid => $
 my $html = '';
 my $js = '';
 
-my $i =3;
-
 my $user_ref = {};
 
 if ($type =~ /^edit/) {
@@ -105,7 +101,6 @@ if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
 }
 
 my $debug = 0;
-
 my @errors = ();
 
 if ($action eq 'process') {
@@ -140,15 +135,10 @@ if ($action eq 'process') {
 
 $template_data_ref->{action} = $action;
 $template_data_ref->{errors} = \@errors;
-my $i;
 
 $log->debug("user form - before display / process", { type => $type, action => $action, userid => $userid }) if $log->is_debug();
 
 if ($action eq 'display') {
-
-		$scripts .= <<SCRIPT
-SCRIPT
-;
 
     # We can pre-fill the form to create an account using the username and password
 	# passed in a form to open a session.
@@ -171,6 +161,7 @@ SCRIPT
 	}
 
 	$template_data_ref->{user_ref} = $user_ref;
+	$template_data_ref->{user_id} = $user_ref->{userid};
 	
 	# Create the list of sections and fields
 	
@@ -216,39 +207,33 @@ SCRIPT
 		};
 
 		my $team_section_ref = { id => "teams", fields => [] };
-		for ( $i = 1; $i <= 3; $i++) {
+		for (my $i = 1; $i <= 3; $i++) {
 			push @{$team_section_ref->{fields}}, { 
-				field => sprintf("Team %s", $i),
-				label2 => sprintf("Team %s", $i),
+				field => sprintf(lang("team_s"), $i),
+				label => sprintf(lang("team_s"), $i),
 			 };
 		};
 
 		push @{$template_data_ref->{sections}}, {%$team_section_ref};
 
-		#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
-
-
-
-
 		my $administrator_section_ref = { id => "administrator", fields => [] };
-
-
 		foreach my $group (@user_groups) {
 			push @{$administrator_section_ref->{fields}}, { 
 				field =>  "user_group_". $group,
 				label2 =>  "user_group_" . ${group} . "_description",
 				type => "checkbox",
+				value => $user_ref->{$group},
 			};
-		}
+		};
 
 		push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
-		
-	}
+	}	
+
+	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 	
 	# Add labels, types, descriptions, notes and existing values for all fields
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
-		
-		
+	
 		foreach my $field_ref (@{$section_ref->{fields}}) {
 		
 			my $field = $field_ref->{field};
@@ -260,21 +245,34 @@ SCRIPT
 			
 			# id to use for lang() strings
 			my $field_lang_id = $field;
-			
-			$field_ref->{value} = $user_ref->{$field};
+
+			if (not defined $field_ref->{value}) { 
+				$field_ref->{value} = $user_ref->{$field};
+			};
+
+			#$html .= "<pre>" . Dumper($user_ref->{$field}) . 
 			
 			# Label
-			$field_ref->{label} = lang($field_lang_id);		
+			if (not defined $field_ref->{label}) { 
+				$field_ref->{label} = lang($field_lang_id); 
+			}
+			else {	
+				$field_ref->{label} = $field_lang_id;	
+			}
+		};
+	};
 
-		
-		}
+	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+
+	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
+
+		# Existing user with an accepted organization
+		$template_data_ref->{accepted_organization} = $user_ref->{org};
 	}
-
-	$template_data_ref->{accepted_organization} = $user_ref->{org};
-
+	
 	# Pro platform is only for food right now
 
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		# New user or existing user without an accepted organization
 
 		my $pro_checked = '';
@@ -287,9 +285,12 @@ SCRIPT
 		}
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 
+
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
 		$template_data_ref-> {org_name} = org_name($requested_org_ref);
 	}
+	
+	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
 
 
 }
@@ -346,14 +347,10 @@ else {
 
 	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
-	$tt->process('user_form2.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
-	$tt->process('user_form2.tt.js', $template_data_ref, \$js);
-
-	
+	process_template('user_form2.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('user_form2.tt.js', $template_data_ref, \$js);
 
 	$initjs .= $js;
-
-
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>

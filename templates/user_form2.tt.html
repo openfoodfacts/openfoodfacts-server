@@ -6,14 +6,18 @@
 
     <!-- Start form -->
 
-    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data">
-        <!--starting the form for user form page, covering all the fields, except subscribe. using three sections, user name email, then professsional account and then teams-->
+    <form method="post" action="/cgi/user2.pl" enctype="multipart/form-data">
 		[% FOREACH section IN sections %]
 			[% IF user OR section.id == "user" %]
 				[% FOREACH field IN section.fields %]
 					[% IF field.field == 'username' %]
-						<label for="[% field.field %]">[% field.label %] [% lang('username_info')  %]</label>
-						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup= "normalize_string_value(this)"/>
+                        [% IF type == 'edit' %]
+						    <label for="[% field.field %]">[% field.label %]</label>
+                            <p> [% user_id %] </p>
+                        [% ELSE %]
+                            <label for="[% field.field %]">[% field.label %] [% lang('username_info')  %]</label>
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% user_id %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
+                        [% END %]
 					[% ELSIF field.type == 'text' %]
                         <label for="[% field.field %]">[% field.label %]</label>
                         <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"/>
@@ -32,10 +36,11 @@
 
 			[% IF professional OR section.id == "professional" %]
 
-				<h3>[% lang("pro_account") %]</h3>
+				<h5>[% lang("pro_account") %]</h5>
 
 				<p>[% lang("if_you_work_for_a_producer") %]</p>
 				<p>[% lang("producers_platform_description_long") %]</p>
+               
 
 				[% FOREACH field IN section.fields %]
 					[% IF field.type == 'checkbox' %]
@@ -46,7 +51,7 @@
                     [% ELSIF field.type == 'text' %]
                         <div id="pro_org" style="display:none;">
                             <label for="[% field.field %]">[% field.label %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% user_requested_org %]"/>
+                            <input type="text" id="requested_org" name="requested_org" value="[% user_requested_org %]" onkeyup="normalize_string_value(this)"/>
                     [% END %]
                 [% END %]
 
@@ -57,17 +62,17 @@
                             <p>[% lang("please_email_producers") %] </p>
                         </div>
                     [% ELSE %]
-                        [% lang("enter_name_of_org") %]
+                        <p>[% lang("enter_name_of_org") %]</p>
                     [% END %]
                 </div>
 
 			[% END %]
 
-			[% IF teams OR section.id == "teams" %]
+			[% IF (teams OR section.id == "teams") AND teams_flag %]
 
                 <div id="tr_teams" style="display:block">
 
-                    <h3>[% lang("teams") %] [% optional %]</h3>
+                    <h5>[% lang("teams") %] ([% lang("optional") %])</h5>
 
                     <p>[% lang("teams_description") %]</p>
                     <p>[% lang("teams_names_warning") %]</p>
@@ -75,7 +80,7 @@
                     <div>
                         [% FOREACH field IN section.fields %]
                             [% IF field.type == 'text' %]
-                                <label for="[% field.field %]">[% field.label2 %]</label>
+                                <label for="[% field.field %]">[% field.label %]:</label>
                                 <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)"/>
                             [% END %]
                         [% END %]
@@ -86,6 +91,10 @@
 
 
             [% IF administrator OR section.id == "administrator" %]
+                
+                [% IF !admin %]
+                    [% LAST %]
+                [% END %] 
                 [% IF type == 'add' || type == 'edit' %]
                     <h2 style = "background-color:#ffcccc">Administrator fields</h2>
                     <p>[% lang("organization") %]</p>
@@ -98,7 +107,7 @@
                         
                         [% ELSIF field.type == 'checkbox' %]
                             <label for="[% field.field %]">
-                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" />
+                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]"  [% IF field.value == 'on' %]checked="checked"[% END %] />
                             [% field.label %] [% lang(field.label2) %]
                             </label>
                         [% END %]
@@ -111,8 +120,6 @@
 
 		[% END %]
 
-        <!--ended sections here, form printed. -->
-
 
         <!--newsletter subscription-->
         [% IF type == 'add' %]
@@ -123,16 +130,11 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        <!-- starting the nw if and else if of checking organization-->
         [% IF accepted_organization %]
             <p>[% lang("this_is_a_pro_account_for_org") %]
                 <b>[% accepted_organization %]</b>
             </p>
         [% END %]
-
-      
-
-     
 
 
             [% IF admin %]
