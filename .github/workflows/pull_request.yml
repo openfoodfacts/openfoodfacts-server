@@ -63,12 +63,14 @@ jobs:
           pattern: '^(cgi|scripts)/.*\.pl$|^lib/ProductOpener/.*\.pm$'
           result-encoding: "string"
 
-      - name: Prepare, build, and test
+      # Use APT packages from cpanfile
+      - name: Install dependencies from APT
         run: >
           sudo apt-get update
 
-          # apt packages from cpanfile
-          sudo apt-get install -y --no-install-recommends cpanminus tesseract-ocr
+          sudo apt-get install -y --no-install-recommends
+          cpanminus
+          tesseract-ocr
           graphviz
           libtie-ixhash-perl
           libwww-perl
@@ -154,6 +156,7 @@ jobs:
           # libgeoip2-perl
           # libmodule-build-pluggable-perl
           #
+
       - name: "Setup perl and install dependencies"
         run: |
           sudo cpanm --quiet --installdeps --notest --skip-satisfied .
