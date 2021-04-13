@@ -602,15 +602,17 @@ sub compute_ecoscore($) {
 					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
 					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
 				}
-				
-				if (not defined $cc) {
-					$product_ref->{"ecoscore_score" . $suffix} = $product_ref->{ecoscore_data}{"score" . $suffix};
-					$product_ref->{"ecoscore_grade" . $suffix} = $product_ref->{ecoscore_data}{"grade" . $suffix};
-					$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
-				}
-				
-				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"ecoscore_score" . $suffix}, grade => $product_ref->{"ecoscore_grade" . $suffix}}) if $log->is_debug();				
+
+				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"score" . $suffix}, grade => $product_ref->{"grade" . $suffix}}) if $log->is_debug();				
 			}
+			
+			# The following values correspond to the Eco-Score without a transportation adjustment
+			# at run-time, they may be changed to the values for a specific country
+			# after localize_ecoscore() is called
+			
+			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];			
 			
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
@@ -1267,6 +1269,10 @@ sub localize_ecoscore ($$) {
 		
 		$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"score_" . $cc};
 		$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grade_" . $cc};
+
+		$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+		$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+		$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
 
 		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {
 	
