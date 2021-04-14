@@ -218,14 +218,18 @@ if ($action eq 'display') {
 		my $team_section_ref = { id => "teams", fields => [] };
 		for (my $i = 1; $i <= 3; $i++) {
 			push @{$team_section_ref->{fields}}, { 
-				field => sprintf(lang("team_s"), $i),
-				label => sprintf(lang("team_s"), $i),
+				field => "team_". $i,
+				label2 => sprintf(lang("team_s"), $i),
 			 };
 		};
 
 		push @{$template_data_ref->{sections}}, {%$team_section_ref};
 
 		my $administrator_section_ref = { id => "administrator", fields => [] };
+
+		push  @{$administrator_section_ref->{fields}}, { 
+			field => "org",
+		};
 		foreach my $group (@user_groups) {
 			push @{$administrator_section_ref->{fields}}, { 
 				field =>  "user_group_". $group,
@@ -276,7 +280,9 @@ if ($action eq 'display') {
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
 		# Existing user with an accepted organization
-		$template_data_ref->{accepted_organization} = $user_ref->{org};
+	$template_data_ref->{accepted_organization} = $user_ref->{org};
+	$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
+
 	}
 	
 	# Pro platform is only for food right now
@@ -290,19 +296,21 @@ if ($action eq 'display') {
 
 		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
 			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
-			$pro_checked = "checked";
+			$pro_checked = "on";
 		}
 
 		$template_data_ref->{product_type} = $options{product_type};
+		$template_data_ref->{pro_checked} = $pro_checked;
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
-		$template_data_ref-> {org_name} = org_name($requested_org_ref);
+		$template_data_ref-> {org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
 	
 	};
-	
-	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
 
-	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
+	$template_data_ref->{admin_flag} = $admin;
+
+	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 }
 
 elsif ($action eq 'process') {
@@ -333,7 +341,7 @@ elsif ($action eq 'process') {
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
 		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 	}
-	$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
+	#$html .= "<pre>" . Dumper($template_data_ref) . "</pre>";
 
 }
 

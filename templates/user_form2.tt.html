@@ -1,3 +1,28 @@
+<script>
+
+    function normalize_string_value(inputfield) {
+
+    var value = inputfield.value.toLowerCase();
+
+    value = value.replace(new RegExp(" ", 'g'),"-");
+    value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
+    value = value.replace(new RegExp("æ", 'g'),"ae");
+    value = value.replace(new RegExp("ç", 'g'),"c");
+    value = value.replace(new RegExp("[èéêë]", 'g'),"e");
+    value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
+    value = value.replace(new RegExp("ñ", 'g'),"n");
+    value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
+    value = value.replace(new RegExp("œ", 'g'),"oe");
+    value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
+    value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
+    value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
+    value = value.replace(new RegExp("-+", 'g'),"-");
+    value = value.replace(new RegExp("^-"),"");
+
+    inputfield.value = value;
+    }
+</script>
+
 [% IF action == 'display' || action == 'none' %]
 [% INCLUDE 'error_list.tt.html' %]
 [% END %]
@@ -36,20 +61,17 @@
 
 			[% IF professional OR section.id == "professional" %]
 
-				<h5>[% lang("pro_account") %]</h5>
+                <h5>[% lang("pro_account") %]</h5>
 
-				<p>[% lang("if_you_work_for_a_producer") %]</p>
-				<p>[% lang("producers_platform_description_long") %]</p>
-               
-                [% IF accepted_organization %]
-                    <p>[% lang("this_is_a_pro_account_for_org") %]
-                        <b>[% accepted_organization %]</b>
-                    </p>
-                
-                [% ELSIF product_type %]
+                <p>[% lang("if_you_work_for_a_producer") %]</p>
+                <p>[% lang("producers_platform_description_long") %]</p>
+            
+                [% IF accepted_organization.defined %]
+                    <p>[% pro_account_org %]</p>
+                [% ELSIF product_type.defined && product_type == "food" %] 
                     [% FOREACH field IN section.fields %]
                         [% IF field.type == 'checkbox' %]
-                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" />
+                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF pro_checked == 'on' %]checked="checked"[% END %] />
                         [% ELSIF field.type == 'hidden' %]
                             <label for="pro">[% lang("this_is_a_pro_account") %]
                                 <input type="hidden" name="[% field.field %]" value="[% field.value %]">
@@ -65,7 +87,7 @@
 
                     [% IF requested_org_ref.defined %]
                         <div id="existing_org_warning">
-                            <p>[% lang("add_user_existing_org") %] [% org_name %] </p>
+                            <p>[% org_name %] </p>
                             <p>[% lang("add_user_existing_org_pending") %] </p>
                             <p>[% lang("please_email_producers") %] </p>
                         </div>
@@ -75,7 +97,6 @@
 
                 [% END %]
                 </div>
-
 			[% END %]
 
 			[% IF (teams OR section.id == "teams") AND teams_flag %]
@@ -87,34 +108,34 @@
                     <p>[% lang("teams_description") %]</p>
                     <p>[% lang("teams_names_warning") %]</p>
 
-                    <div>
+                    
                         [% FOREACH field IN section.fields %]
                             [% IF field.type == 'text' %]
-                                <label for="[% field.field %]">[% field.label %]:</label>
+                                <label for="[% field.field %]">[% field.label2 %]:</label>
                                 <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)"/>
                             [% END %]
                         [% END %]
-                    </div>
+                    
                 </div>
 
 			[% END %]
 
 
             [% IF administrator OR section.id == "administrator" %]
-                
-                [% IF !admin %]
-                    [% LAST %]
-                [% END %] 
+
+                [% LAST IF !admin_flag %]
+              
                 [% IF type == 'add' || type == 'edit' %]
+
                     <h2 style = "background-color:#ffcccc">Administrator fields</h2>
                     <p>[% lang("organization") %]</p>
-                    <p>[% lang("user_groups") %]: </p>
+                   
 
                     [% FOREACH field IN section.fields %]
                         [% IF field.type == 'text' %]
                             <label for="[% field.field %]">[% field.label %]</label>
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"/>
-                        
+                            <p>[% lang("user_groups") %]: </p>
                         [% ELSIF field.type == 'checkbox' %]
                             <label for="[% field.field %]">
                             <input type="checkbox" id="[% field.field %]" name="[% field.field %]"  [% IF field.value == 'on' %]checked="checked"[% END %] />
@@ -127,9 +148,7 @@
                 [% END %]
             [% END %] 
 
-
 		[% END %]
-
 
         <!--newsletter subscription-->
         [% IF type == 'add' %]
@@ -138,12 +157,10 @@
                 [% lang("newsletter_description") %]
             </label>
             <p>[% lang("unsubscribe_info") %]</p>
+           
         [% END %]
 
-       
-
-
-            [% IF admin %]
+        [% IF admin_flag %]
 			<table>
 
                 <tr><td colspan="2">
@@ -152,7 +169,7 @@
 						[% lang("delete_user") %]
 					</label>
                 </td></tr>
-            [% END %]
+        [% END %]
             <tr>
                 <td>
                     <input type="hidden" name="action" value="process" />
@@ -170,7 +187,7 @@
 
     <!-- End form -->
 
-    [% ELSIF action == 'process' %]
+[% ELSIF action == 'process' %]
     <p>[% lang('${type}_user_result') %]</p>
 
     [% IF type == 'add' %]
