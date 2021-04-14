@@ -225,7 +225,6 @@ if ($action eq 'display') {
 		push @{$template_data_ref->{sections}}, {%$team_section_ref};
 
 		my $administrator_section_ref = { id => "administrator", fields => [] };
-
 		push  @{$administrator_section_ref->{fields}}, {
 			field => "org",
 		};
@@ -243,31 +242,29 @@ if ($action eq 'display') {
 
 	# Add labels, types, descriptions, notes and existing values for all fields
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
-	
+
 		foreach my $field_ref (@{$section_ref->{fields}}) {
-		
+
 			my $field = $field_ref->{field};
-			
+
 			# Default to text field
 			if (not defined $field_ref->{type}) {
 				$field_ref->{type} = "text";
 			}
-			
+
 			# id to use for lang() strings
 			my $field_lang_id = $field;
 
-			if (not defined $field_ref->{value}) { 
+			if (not defined $field_ref->{value}) {
 				$field_ref->{value} = $user_ref->{$field};
 			};
 
-			#$html .= "<pre>" . Dumper($user_ref->{$field}) . 
-			
 			# Label
-			if (not defined $field_ref->{label}) { 
-				$field_ref->{label} = lang($field_lang_id); 
+			if (not defined $field_ref->{label}) {
+				$field_ref->{label} = lang($field_lang_id);
 			}
-			else {	
-				$field_ref->{label} = $field_lang_id;	
+			else {
+				$field_ref->{label} = $field_lang_id;
 			}
 		};
 	};
@@ -289,7 +286,6 @@ if ($action eq 'display') {
 	my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 	$template_data_ref->{requested_org_ref} = $requested_org_ref;
 	$template_data_ref-> {org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
-
 	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
 	$template_data_ref->{admin_flag} = $admin;
 
