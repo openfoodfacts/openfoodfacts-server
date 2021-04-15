@@ -37,17 +37,17 @@
 				[% FOREACH field IN section.fields %]
 					[% IF field.field == 'userid' %]
                         [% IF type == 'edit' %]
-						    <label for="[% field.field %]"> [% lang(field.label2) %]</label>
+						    <label for="[% field.field %]"> [% lang(field.label) %]</label>
                             <p> [% user_id_field %] </p>
                         [% ELSE %]
-                            <label for="[% field.field %]">  [% lang(field.label2) %] [% lang('username_info')  %]</label>
+                            <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
                         [% END %]
 					[% ELSIF field.type == 'text' %]
                         <label for="[% field.field %]">[% field.label %]</label>
                         <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"/>
 					[% ELSIF field.type == 'password' %]
-						<label for="[% field.field %]">[% lang(field.label2) %]</label>
+						<label for="[% field.field %]">[% lang(field.label) %]</label>
 						<input type="password" id="[% field.field %]" name="[% field.field %]" value="[% user_password_field %]" autocomplete="new-password"/>
 					[% ELSIF field.type == 'textarea' %]
 						<label for="[% field.field %]">[% field.label %]</label>
@@ -107,7 +107,7 @@
                     <p>[% lang("teams_names_warning") %]</p>
                     [% FOREACH field IN section.fields %]
                         [% IF field.type == 'text' %]
-                            <label for="[% field.field %]">[% field.label2 %]:</label>
+                            <label for="[% field.field %]">[% field.label %]:</label>
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)"/>
                         [% END %]
                     [% END %]
@@ -132,7 +132,7 @@
                         [% ELSIF field.type == 'checkbox' %]
                             <label for="[% field.field %]">
                             <input type="checkbox" id="[% field.field %]" name="[% field.field %]"  [% IF field.value == 'on' %]checked="checked"[% END %] />
-                            [% field.label %] [% lang(field.label2) %]
+                            [% field.label %]
                             </label>
                         [% END %]
                     [% END %]

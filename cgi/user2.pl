@@ -180,17 +180,17 @@ if ($action eq 'display') {
 				},
 				{
 					field => "userid",
-					label2 => "username"
+					label => "username"
 				},
 				{
 					field => "password",
 					type => "password",
-					label2 => "password"
+					label => "password"
 				},
 				{
 					field => "confirm_password",
 					type => "password",
-					label2 => "password_confirm"
+					label => "password_confirm"
 				},
 			]
 		};
@@ -218,7 +218,7 @@ if ($action eq 'display') {
 		for (my $i = 1; $i <= 3; $i++) {
 			push @{$team_section_ref->{fields}}, {
 				field => "team_". $i,
-				label2 => sprintf(lang("team_s"), $i),
+				label => sprintf(lang("team_s"), $i),
 			 };
 		};
 
@@ -231,7 +231,7 @@ if ($action eq 'display') {
 		foreach my $group (@user_groups) {
 			push @{$administrator_section_ref->{fields}}, {
 				field =>  "user_group_". $group,
-				label2 =>  "user_group_" . ${group} . "_description",
+				label =>  lang("user_group_". $group) . " " . lang("user_group_" . ${group} . "_description"),
 				type => "checkbox",
 				value => $user_ref->{$group},
 			};
@@ -262,9 +262,6 @@ if ($action eq 'display') {
 			# Label
 			if (not defined $field_ref->{label}) {
 				$field_ref->{label} = lang($field_lang_id);
-			}
-			else {
-				$field_ref->{label} = $field_lang_id;
 			}
 		};
 	};
