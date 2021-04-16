@@ -23,6 +23,16 @@
     }
 </script>
 
+<style>
+    .tr_teams {
+        display: block;
+    }
+
+    .pro_org_display {
+        display: none;
+    }
+</style>
+
 [% IF action == 'display' || action == 'none' %]
 [% INCLUDE 'error_list.tt.html' %]
 [% END %]
@@ -33,110 +43,71 @@
 
     <form method="post" action="/cgi/user2.pl" enctype="multipart/form-data">
 		[% FOREACH section IN sections %]
-			[% IF user OR section.id == "user" %]
-				[% FOREACH field IN section.fields %]
-					[% IF field.field == 'userid' %]
-                        [% IF type == 'edit' %]
-						    <label for="[% field.field %]"> [% lang(field.label) %]</label>
-                            <p> [% user_id_field %] </p>
-                        [% ELSE %]
-                            <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
-                        [% END %]
-					[% ELSIF field.type == 'text' %]
-                        <label for="[% field.field %]">[% field.label %]</label>
-                        <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"/>
-					[% ELSIF field.type == 'password' %]
-						<label for="[% field.field %]">[% lang(field.label) %]</label>
-						<input type="password" id="[% field.field %]" name="[% field.field %]" value="[% user_password_field %]" autocomplete="new-password"/>
-					[% ELSIF field.type == 'textarea' %]
-						<label for="[% field.field %]">[% field.label %]</label>
-						<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;" autocomplete="[% field.field %]">[% field.value %]</textarea>
-					[% ELSIF field.type == 'email' %]
-						<label for="[% field.field %]">	[% field.label %]</label>
-						<input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="[% field.field %]"/>
-					[% END %]
-				[% END %]
-			[% END %]
 
-			[% IF professional OR section.id == "professional" %]
+            [% IF section.name %]
+                <fieldset [% IF section.id == "teams" && teams_flag %] class="tr_teams" [% ELSIF admin_flag && section.id == "administrator" %] style = "display:block" [% ELSIF !admin_flag && section.id == "administrator" %] style = "display:none"  [% END %]>
+                    <legend [% IF section.id == "administrator" %] style = "background-color:#ffcccc"[% END %]>[% section.name %]</legend>
+            [% END %]
 
-                <h5>[% lang("pro_account") %]</h5>
+            [% IF section.description %]
+                <p >[% section.description %]</p>
+            [% END %]
 
-                <p>[% lang("if_you_work_for_a_producer") %]</p>
-                <p>[% lang("producers_platform_description_long") %]</p>
+            [% IF section.note %]
+                <p >[% section.note %]</p>
+            [% END %]
 
-                [% IF accepted_organization.defined %]
-                    <p>[% pro_account_org %]</p>
-                [% ELSIF product_type.defined && product_type == "food" %]
-                    [% FOREACH field IN section.fields %]
-                        [% IF field.type == 'checkbox' %]
-                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF pro_checked == 'on' %]checked="checked"[% END %] />
-                        [% ELSIF field.type == 'hidden' %]
-                            <label for="pro">[% lang("this_is_a_pro_account") %]
-                                <input type="hidden" name="[% field.field %]" value="[% field.value %]">
-                            </label>
-                        [% ELSIF field.type == 'text' %]
-                            <div id="pro_org" style="display:none;">
-                                <p id="org-field"> [% lang("producer_or_brand") %]
-                                    <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" onkeyup="normalize_string_value(this)"/>
-                                </p>
-                        [% END %]
-                    [% END %]
-
-                    [% IF requested_org_ref.defined %]
-                        <div id="existing_org_warning">
-                            <p>[% org_name %] </p>
-                            <p>[% lang("add_user_existing_org_pending") %] </p>
-                            <p>[% lang("please_email_producers") %] </p>
-                        </div>
+            [% FOREACH field IN section.fields %]
+                [% IF field.field == 'userid' %]
+                    [% IF type == 'edit' %]
+                        <label for="[% field.field %]"> [% lang(field.label) %]</label>
+                        <p> [% user_id_field %] </p>
                     [% ELSE %]
-                        <p>[% lang("enter_name_of_org") %]</p>
+                        <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
+                        <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
                     [% END %]
-                    </div>
-                [% END %]
-			[% END %]
-
-			[% IF (teams OR section.id == "teams") AND teams_flag %]
-
-                <div id="tr_teams" style="display:block">
-
-                    <h5>[% lang("teams") %] ([% lang("optional") %])</h5>
-
-                    <p>[% lang("teams_description") %]</p>
-                    <p>[% lang("teams_names_warning") %]</p>
-                    [% FOREACH field IN section.fields %]
-                        [% IF field.type == 'text' %]
-                            <label for="[% field.field %]">[% field.label %]:</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)"/>
-                        [% END %]
-                    [% END %]
-                </div>
-
-			[% END %]
-
-            [% IF administrator OR section.id == "administrator" %]
-
-                [% LAST IF !admin_flag %]
-
-                [% IF type == 'add' || type == 'edit' %]
-
-                    <h2 style = "background-color:#ffcccc">Administrator fields</h2>
-                    <p>[% lang("organization") %]</p>
-
-                    [% FOREACH field IN section.fields %]
-                        [% IF field.type == 'text' %]
+                [% ELSIF field.type == 'text' %]
+                        <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
                             <label for="[% field.field %]">[% field.label %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"/>
-                            <p>[% lang("user_groups") %]: </p>
-                        [% ELSIF field.type == 'checkbox' %]
-                            <label for="[% field.field %]">
-                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]"  [% IF field.value == 'on' %]checked="checked"[% END %] />
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]"  [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
+                        </div>
+                [% ELSIF field.type == 'password' %]
+                    <label for="[% field.field %]">[% lang(field.label) %]</label>
+                    <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% user_password_field %]" autocomplete="new-password"/>
+                [% ELSIF field.type == 'email' %]
+                    <label for="[% field.field %]">	[% field.label %]</label>
+                    <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="[% field.field %]"/>
+                [% ELSIF field.type == 'checkbox' %]
+                    [% IF accepted_organization && section.id == "professional" %]
+                        <p>[% field.warning %]</p>
+                    [% ELSE %]
+                        <label for="[% field.field %]">
+                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
                             [% field.label %]
-                            </label>
-                        [% END %]
+                        </label>
                     [% END %]
+                [% ELSIF field.type == 'hidden' %]
+                    <label for="pro">
+                        <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                    </label>
                 [% END %]
+
+            [% END %]
+
+            <div class="pro_org_display">
+                [% IF requested_org_ref.defined && section.id == "professional" %]
+                    <div id="existing_org_warning">
+                        <p>[% org_name %] </p>
+                        <p>[% lang("add_user_existing_org_pending") %] </p>
+                        <p>[% lang("please_email_producers") %] </p>
+                    </div>
+                [% ELSIF section.id == "professional" && !requested_org_ref.defined %]
+                    <p>[% lang("enter_name_of_org") %]</p>
+                [% END %]
+            </div>
+
+            [% IF section.name %]
+                </fieldset>
             [% END %]
 
 		[% END %]

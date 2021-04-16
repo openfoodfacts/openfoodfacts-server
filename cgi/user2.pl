@@ -167,7 +167,7 @@ if ($action eq 'display') {
 
 	$template_data_ref->{sections} = [];
 
-	if ($user_ref) {
+		if ($user_ref) {
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
@@ -198,10 +198,16 @@ if ($action eq 'display') {
 		# Professional account
 		push @{$template_data_ref->{sections}}, {
 			id => "professional",
+			name => lang("pro_account"),
+			description => "if_you_work_for_a_producer",
+			note => "producers_platform_description_long",
 			fields => [
 				{
 					field => "pro",
 					type => "checkbox",
+					label => lang("this_is_a_pro_account"),
+					warning => sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>"),
+					value => "off",
 				},
 				{
 					field => "pro_checkbox",
@@ -210,11 +216,19 @@ if ($action eq 'display') {
 				},
 				{
 					field => "requested_org",
+					label => lang("producer_or_brand") . ":",
 				}
 			]
 		};
 
-		my $team_section_ref = { id => "teams", fields => [] };
+		# Teams section
+		my $team_section_ref = {
+			id => "teams",
+			name => lang("teams") . " (" . lang("optional") . ")",
+			description => "teams_description",
+			note => "teams_names_warning",
+			fields => []
+		};
 		for (my $i = 1; $i <= 3; $i++) {
 			push @{$team_section_ref->{fields}}, {
 				field => "team_". $i,
@@ -224,9 +238,15 @@ if ($action eq 'display') {
 
 		push @{$template_data_ref->{sections}}, {%$team_section_ref};
 
-		my $administrator_section_ref = { id => "administrator", fields => [] };
+		# Admin section
+		my $administrator_section_ref = {
+			id => "administrator",
+			name => "Administrator fields",
+			fields => []
+		};
 		push  @{$administrator_section_ref->{fields}}, {
 			field => "org",
+			label => lang("organization"),
 		};
 		foreach my $group (@user_groups) {
 			push @{$administrator_section_ref->{fields}}, {
@@ -240,8 +260,30 @@ if ($action eq 'display') {
 		push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
 	}
 
-	# Add labels, types, descriptions, notes and existing values for all fields
+	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
+
+		$template_data_ref->{accepted_organization} = $user_ref->{org};
+		$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
+	}
+	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{requested_org_ref} = $requested_org_ref;
+		$template_data_ref-> {org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+		$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
+	}
+
+		# Add labels, types, descriptions, notes and existing values for all fields
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
+
+		# Descriptions and notes for sections
+		if (defined $section_ref->{id}) {
+			if ($section_ref->{description}) {
+				$section_ref->{description} = lang($section_ref->{description});
+			}
+			if ($section_ref->{note}) {
+				$section_ref->{note} = lang($section_ref->{note});
+			}
+		}
 
 		foreach my $field_ref (@{$section_ref->{fields}}) {
 
@@ -250,7 +292,7 @@ if ($action eq 'display') {
 			# Default to text field
 			if (not defined $field_ref->{type}) {
 				$field_ref->{type} = "text";
-			}
+			};
 
 			# id to use for lang() strings
 			my $field_lang_id = $field;
@@ -262,28 +304,16 @@ if ($action eq 'display') {
 			# Label
 			if (not defined $field_ref->{label}) {
 				$field_ref->{label} = lang($field_lang_id);
-			}
+			};
+
+			if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
+			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
+				if (($section_ref->{id} eq "professional") and $field_ref->{type} eq "checkbox") {
+					$field_ref->{value} = "on";
+				}
+			};
 		};
 	};
-
-	$template_data_ref->{accepted_organization} = $user_ref->{org};
-	$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
-
-	my $pro_checked = '';
-
-	# Check the "pro account" checkbox for register screen on the producers platform
-
-	if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
-		or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
-		$pro_checked = "on";
-	}
-
-	$template_data_ref->{product_type} = $options{product_type};
-	$template_data_ref->{pro_checked} = $pro_checked;
-	my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-	$template_data_ref->{requested_org_ref} = $requested_org_ref;
-	$template_data_ref-> {org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
-	$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
 	$template_data_ref->{admin_flag} = $admin;
 
 }
