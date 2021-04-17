@@ -5521,6 +5521,8 @@ msgctxt "ecoscore_processing"
 msgid "Processing"
 msgstr "Processing"
 
+#Duplicate msgctxt were not designed to be used as id
+
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
 msgstr "Packaging"
@@ -5580,10 +5582,6 @@ msgstr "If they are indicated on the packaging, you can modify the product sheet
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Environmental policy"
-
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Transportation"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
