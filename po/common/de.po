@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-10 14:10\n"
+"PO-Revision-Date: 2021-04-17 08:10\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5493,7 +5493,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO₂-Äq/kg Produkt"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Wenn Sie der Hersteller dieses Produktes sind, können Sie uns die Informationen über unsere <a href=\"https://world.pro.openfoodfacts.org\">kostenlose Plattform für Hersteller</a> zukommen lassen."
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "Der <a href=\"/ecoscore\">Eco-Score</a> ist ein experimenteller Bewertungsfaktor, der die Umweltauswirkungen von Lebensmitteln zusammenfasst."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "Die Formel zur Ermittlung des Eco-Score kann sich ändern, da sie regelmäßig nachgebessert wird, um sie noch präziser zu machen."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Der Eco-Score wurde ursprünglich für Frankreich entwickelt und wird derzeit auf andere europäische Länder ausgeweitet. Die Formel zur Berechnung des Eco-Score kann sich ändern, da sie regelmäßig verfeinert wird, um sie präziser und besser für jedes Land geeignet zu machen."
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "Barcodes einlesen, um den Nutri-Score, den Eco-Score und mehr zu ermitteln!"
 
