@@ -314,7 +314,6 @@ if ($action eq 'display') {
 			};
 		};
 	};
-	$template_data_ref->{admin_flag} = $admin;
 
 }
 

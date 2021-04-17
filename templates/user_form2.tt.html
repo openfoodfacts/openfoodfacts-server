@@ -45,7 +45,7 @@
 		[% FOREACH section IN sections %]
 
             [% IF section.name %]
-                <fieldset [% IF section.id == "teams" && teams_flag %] class="tr_teams" [% ELSIF admin_flag && section.id == "administrator" %] style = "display:block" [% ELSIF !admin_flag && section.id == "administrator" %] style = "display:none"  [% END %]>
+                <fieldset [% IF section.id == "teams" && teams_flag %] class="tr_teams" [% ELSIF admin && section.id == "administrator" %] style = "display:block" [% ELSIF !admin && section.id == "administrator" %] style = "display:none"  [% END %]>
                     <legend [% IF section.id == "administrator" %] style = "background-color:#ffcccc"[% END %]>[% section.name %]</legend>
             [% END %]
 
@@ -121,7 +121,7 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF admin_flag %]
+        [% IF admin %]
             <label>
                 <input type="checkbox" name="delete" onchange="if (this.checked) { if (!confirm('This action cannot be undone, are you sure you want to delete the user?')) { this.checked = false }}" />
                 [% lang("delete_user") %]
