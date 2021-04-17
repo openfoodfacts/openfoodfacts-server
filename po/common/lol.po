@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-10 13:34\n"
+"PO-Revision-Date: 2021-04-17 08:12\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5460,7 +5460,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "crwdns180836:0crwdne180836:0"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "crwdns180838:0crwdne180838:0"
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "crwdns181400:0crwdne181400:0"
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "crwdns181402:0crwdne181402:0"
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "crwdns181404:0crwdne181404:0"
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "crwdns181406:0crwdne181406:0"
 

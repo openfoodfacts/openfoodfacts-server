@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-10 14:12\n"
+"PO-Revision-Date: 2021-04-17 08:12\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -201,7 +201,7 @@ msgstr "Todas as missões"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Produtos ou substâncias que provocam alergias ou intolerâncias"
+msgstr "Produtos ou substâncias que provocam alergias ou intolerâncias (assinalados a negrito)"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -5491,7 +5491,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 eq/kg de produto"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "O <a href=\"/ecoscore\">Eco-Score</a> é uma pontuação experimental que resume os impactos ambientais dos produtos alimentares."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "A fórmula Eco-Score está sujeita a alterações, pois é regularmente melhorada para torná-la mais precisa."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "O Eco-Score foi inicialmente desenvolvido para França e está a ser alargado a outros países europeus. A fórmula Eco-Score está sujeita a mudanças, uma vez que é regularmente melhorada para torná-la mais precisa e mais adequada a cada país."
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "Digitalize códigos de barras para obter o Nutri-Score, o Eco-Score e muito mais!"
 

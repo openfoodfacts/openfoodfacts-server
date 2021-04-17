@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-10 14:10\n"
+"PO-Revision-Date: 2021-04-17 08:09\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4664,7 +4664,7 @@ msgstr "Miljø"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
@@ -4673,7 +4673,7 @@ msgstr "Lav miljøpåvirkning (Eco-Score)"
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+msgstr "Øko-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4887,11 +4887,11 @@ msgstr "Manglende ernæringsfakta"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "ecoscore_s"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5492,7 +5492,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 ækv. / kg produkt"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Er du producent af dette produkt, kan du indsende oplysningerne via vores <a href=\"https://world.pro.openfoodfacts.org\">gratis producentplatform</a>."
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/ecoscore\">Øko-Score</a> er en eksperimentel score, der sammenfatter fødevareprodukters miljøpåvirkninger."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "Øko-Score formlen kan ændres, da den regelmæssigt optimeres mhp. øget præcision."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Øko-Score er oprindeligt udviklet til fransk brug, men udvides til at omfatte andre EU-lande. Øko-Score formlen kan ændres, da den løbende optimeres mhp. øget præcision og landeegnethed."
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "Skan stregkoder for at få Nutri-Score, Øko-Score og meget mere!"
 
