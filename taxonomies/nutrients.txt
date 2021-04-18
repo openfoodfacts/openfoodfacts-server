@@ -316,7 +316,7 @@ fi:Energia rasvasta
 fr:Énergie provenant des graisses
 hu:Energia zsírból
 ja:脂質からのエネルギー
-pt:Energia proveniente de gorduras, Energia das gorduras, Energia proveniente de lípidos
+pt:Energia proveniente de gorduras/lípidos, Energia das gorduras, Energia proveniente de lípidos
 ru:Энергетическая ценность жиров
 zh:来自脂肪的能量
 # zh_CN:来自脂肪的能量
@@ -1470,7 +1470,7 @@ nb:fett
 nl:vet
 nn:feitt
 pl:tłuszcz
-pt:Gordura, Lípidos
+pt:Gorduras/lípidos, Gordura, Lípidos
 qu:Wira
 ro:Grăsime
 ru:жиры
@@ -1501,6 +1501,8 @@ zh:脂肪
 # new:दाः
 # nrm:Matyire grasse
 # pam:Taba
+# pt-br:Gorduras
+# pt-pt:Lípidos
 # rue:Тукы
 # rup:Grâsimi
 # sco:fat
@@ -1556,9 +1558,9 @@ nb:Mettet fett
 nl:Verzadigde vetzuren
 nn:metta feitt
 pl:Kwasy tłuszczowe nasycone, tłuszcz nasycony
-pt:Gorduras saturadas, Gordura saturada, Ácidos gordos saturados, Lípidos saturados, dos quais saturados
+pt:Gorduras/límpidos saturados, Gordura saturada, Ácidos gordos saturados, Lípidos saturados, dos quais saturados, Gorduras saturadas
 # pt-br:Gordura saturada
-# pt_pt:Ácidos gordos saturados
+# pt_pt:Lípidos saturados
 ro:Acizi grași saturați
 # rs:Zasićene masne kiseline
 ru:Насыщенные жиры
@@ -2389,9 +2391,9 @@ nb:Enumettet fettsyre
 nl:Enkelvoudig onverzadigde vetzuren
 nn:einumetta feittsyre
 pl:Kwasy tłuszczowe jednonienasycone, jednonienasycony kwas tłuszczowy
-pt:Gorduras monoinsaturadas, Gordura monoinsaturada, Ácidos gordos monoinsaturados, Lípidos monoinsaturados
+pt:Gorduras/límpidos monoinsaturados, Gordura monoinsaturada, Ácidos gordos monoinsaturados, Lípidos monoinsaturados, Gorduras monoinsaturadas
 # pt-br:Gordura monoinsaturada
-# pt_pt:Ácidos gordos monoinsaturados
+# pt_pt:Lípidos monoinsaturados
 ro:Acizi grași mononesaturați
 ru:Мононенасыщенные жиры
 sh:Mononezasićena mast
@@ -2751,8 +2753,9 @@ nb:Flerumettet fettsyrer
 nl:Meervoudig onverzadigde vetzuren
 nn:fleirumetta
 pl:Kwasy tłuszczowe wielonienasycone
-pt:Gorduras poli-insaturadas, Ácidos gordos polinsaturados, Lípidos polinsaturados
-# pt_pt:Ácidos gordos polinsaturados
+pt:Gorduras/lípidos poli-insaturados, Ácidos gordos polinsaturados, Lípidos polinsaturados, Gorduras poli-insaturadas
+# pt_br:Gorduras poli-insaturadas
+# pt_pt:Lípidos polinsaturados
 ro:Acizi grași polinesaturați
 ru:Полиненасыщенные жиры
 sh:Polinezasićena mast
