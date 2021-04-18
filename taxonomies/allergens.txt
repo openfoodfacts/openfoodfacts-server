@@ -6,6 +6,7 @@ stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pi
 stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris,contiennent
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
+stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,contêm,possível,eventual,outros,produto,produtos,derivado,derivados,incluido,incluidos,incluida,incluidas,fonte,pode,elaborado,onde,se,processa,grãos,possível,possíveis,este,feito,manofaturado,fabricado,fábrica,também,usa,subproduto,subprodutos,mín,min,mínimo,refinado
 
 en:none, allergens-free, without allergens, without, n, no, no allergens, 0
 fr:aucun, aucune, sans allergènes, sans, pas, pas d'allergènes, aucun allergène, 0
@@ -35,7 +36,8 @@ mt:glutina, qamħ, segala, barli, ħafur, ispelt, kamut
 nb:gluten, hvete, durumhvete, hvetemel, spelt, rugmel, fullkornshvete, fullkornshvetemel, havre, havremel, havregryn, bygg, rug, rugklimel, hvetestivelse, hveteflak, havreflak, havrekli, rugflak, hvetekli, hvetegluten, byggmalt, byggmaltmel, byggmaltekstrakt, hvetemalt, hvetemaltmel kornslag som indeholder gluten, hvetekornet, paneringsmel, speltkli
 nl:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
 nl_be:gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel
-pl:gluten, gluten pszenny, jęczmień, jęczmienny , kamut, owies, orkisz, owsiane, pszenica, pszenna, pszenne, pszenny, żytnia, żytopt:glúten, trigo, centeio, cevada, aveia, espelta, kamut, farinha de trigo, farinha de trigo integral
+pl:gluten, gluten pszenny, jęczmień, jęczmienny , kamut, owies, orkisz, owsiane, pszenica, pszenna, pszenne, pszenny, żytnia, żyto
+pt:glúten, trigo, centeio, cevada, aveia, malte, extrato de malte, espelta, trigo-vermelho, farinha de espelta, farinha de trigo-vermelho, kamut, cereais com glúten, cereais, farinha de trigo, farinha de trigo integral, farinha de centeio, farinha de malte, cereais que contêm glúten, sêmola de trigo
 ro:gluten, grâu, secară, orz, ovăz, grâu spelt, grâu dur, griș de grău
 ru:глютен, пшеница, рожь, ячмень, овёс, полба (камут) (спельта) (двузернянка) (фарро), манная крупа
 sk:glutén, lepok, obyčajná, raž, jačmeň, ovos, špalda, cirok
@@ -49,6 +51,7 @@ wikidata:en:Q188251
 # Oats do not contain gluten, but can often be contaminated with gluten. They contain avenine, which some people are allergic to
 en:oats
 fr:avoine
+pt:aveia-comum
 
 en:crustaceans, crab, lobster, crayfish, prawn, shrimp
 ar:قشريات
@@ -71,7 +74,7 @@ mt:krustaċej
 nl:schaaldieren
 nl_be:schaaldieren
 pl:skorupiaki
-pt:crustáceos
+pt:crustáceos, caranguejo, lagosta, lagostim, gambas, gamba, camarão
 ro:crustacee
 ru:ракообразные
 sk:kôrovce
@@ -103,7 +106,7 @@ nb:egg, eggeplomme, eggeplommepulver, eggehviter, eggehvitepulver
 nl:eieren, ei, scharreleigeel, scharrelkipeigeel, scharrelkipeiwit, scharrelkipeiwitpoeder, scharrelkipheelei, scharrelei
 nl_be:eieren, ei
 pl:jaja, jajo, jajka, jajko
-pt:ovos, ovo
+pt:ovos, ovo, clara de ovo, claras de ovo, claras de ovos, gema de ovo, gemas de ovo, gemas de ovos, derivados de ovo, derivado de ovo
 ro:ouă, ou
 ru:яйца, яйцо
 sk:vajcia
@@ -137,7 +140,7 @@ nb:fisk, sild, ansjos, brisling, kryddersild, kryddersildefilèt, eddiksild, pol
 nl:vis
 nl_be:vis
 pl:ryba
-pt:peixe, peixes
+pt:peixe, peixes, bacalhau, cavalinha, linguado, halibute, pregado, eglefim, hadoque, arinca, salmão, solha, truta, atum, sardinha, sardinhas
 ro:pește
 ru:рыба
 sk:ryby
@@ -171,7 +174,7 @@ nb:peanøtt, peanøtter
 nl:pinda, aardnoten, pindas, arachis hypogaea
 nl_be:aardnoten, pinda, pindas, arachis hypogaea
 pl:orzeszki ziemne, arachidowe, arachis hypogaea
-pt:amendoins, arachis hypogaea
+pt:amendoins, amendoim, arachis hypogaea, manteiga de amendoim, óleo de amendoim
 ro:arahide, arachis hypogaea
 ru:арахис, arachis hypogaea
 sk:arašidy, arachis hypogaea
@@ -207,7 +210,7 @@ nb:soya, soyabønner, soyamel, soyalecitin, soyalecitiner
 nl:soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be:soja, sojalecithine, sojaeiwitten, sojabonen
 pl:soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, soję
-pt:soja
+pt:soja, sementes de soja, grão de soja, lecitina de soja
 ro:soia, lecitină din soia
 ru:соя, соевые бобы
 sk:sójové bôby, sójové
@@ -241,7 +244,7 @@ nb:melk, melkepulver, skummet melk, skummetmelkepulver, helmelk, helmelkpulver, 
 nl:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 nl_be:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 pl:mleko, laktozą, mleka, mleczny
-pt:leite, lactose, lactéos
+pt:leite, lactose, soro, lactéos, manteiga, iogurte, queijo, proteína de leite, leite e seus derivados, derivados de leite
 ro:lapte, lactoză
 ru:молоко, лактоза, сливки, молочная сыворотка, йогурт
 sk:mlieko, laktózy
@@ -275,7 +278,7 @@ nb:nøtter, andre nøtter, andre typer nøtter, mandel, mandler, hasselnøtt, ha
 nl:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 nl_be:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten,  paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy
-pt:nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, nozes de macadâmia, nozes do Queensland
+pt:nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, pistáchios, nozes de macadâmia, nozes do Queensland
 ro:fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan,  nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland
 ru:орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
 sk:orechy, mandle, lieskové oriešky, vlašské orechy, kešu oriešky, pekanové orechy,  brazílske orechy, pistáciové oriešky, makadamové orechy, queenslandské orechy
@@ -477,7 +480,7 @@ mt:molluski
 nl:weekdieren
 nl_be:weekdieren
 pl:mięczaki
-pt:moluscos
+pt:moluscos, molusco, lulas, lula, chocos, choco, ostras, ostra, mexilhões, mexilhão, amêijoas, amêijoa, vieiras, vieira
 ro:moluște
 ru:моллюск, моллюски, кальмар, каракатица, устрицы, устрица, ракушки, гребешок, улитка, улитки
 sk:mäkkýše

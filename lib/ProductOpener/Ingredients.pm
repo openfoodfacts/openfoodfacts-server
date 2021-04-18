@@ -1362,7 +1362,7 @@ sub parse_ingredients_text($) {
 									
 									#  Dutch: match before or after, do not require a space
 									or (
-										( ($product_lc eq 'de') or ($product_lc eq 'nl') )
+										( ($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu') )
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
 								) {
