@@ -160,8 +160,6 @@ if ($action eq 'display') {
 	}
 
 	$template_data_ref->{user_ref} = $user_ref;
-	$template_data_ref->{user_id_field} = $user_ref->{userid};
-	$template_data_ref->{user_password_field} = $user_ref->{password};
 
 	# Create the list of sections and fields
 
