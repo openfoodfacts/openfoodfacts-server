@@ -1779,27 +1779,28 @@ sub country_to_cc {
 # load all tags hierarchies
 
 # print STDERR "Tags.pm - loading tags hierarchies\n";
-opendir my $DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir($DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
-	# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
+if (-e "$data_root/lang") {
+	opendir my $DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
+	foreach my $langid (readdir($DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
+		# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-	if (-e "$www_root/images/lang/$langid") {
-		opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-		foreach my $tagtype (readdir($DH)) {
-			next if $tagtype =~ /\./;
-			# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-			# print "Tags: loading tagtype images $langid/$tagtype\n";
-			load_tags_images($langid, $tagtype)
+		if (-e "$www_root/images/lang/$langid") {
+			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
+			foreach my $tagtype (readdir($DH)) {
+				next if $tagtype =~ /\./;
+				# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
+				# print "Tags: loading tagtype images $langid/$tagtype\n";
+				load_tags_images($langid, $tagtype)
+			}
+			closedir($DH);
 		}
-		closedir($DH);
+
 	}
-
+	closedir($DH2);
 }
-closedir($DH2);
-
 
 # It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
