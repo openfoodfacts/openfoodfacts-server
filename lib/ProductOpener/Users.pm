@@ -210,7 +210,7 @@ sub display_user_form($$$) {
 	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
 	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"normalize_string_value(this)", -autocomplete=>'username'))) . "</td></tr>"
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"normalize_string_value(this)", -autocomplete=>'username' -oninput='this.value = this.value.replace(/[^a-zA-Z0-9 -]/, '')'))) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
 	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
