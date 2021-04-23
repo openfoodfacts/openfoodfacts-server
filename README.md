@@ -70,9 +70,11 @@ You can help translate the Open Food Facts web version and the app at :
 <https://translate.openfoodfacts.org/> (no technical knowledge required, takes a minute to signup)
 
 ## Helping with HTML and CSS
+
 We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates)] Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
 
 ### Who do I talk to?
+
 * Join our discussion room at <https://slack.openfoodfacts.org/> Make sure to join the #productopener and #productopener-alerts channels. Stéphane, Pierre, Charles or Hangy will be around to help you get started.
 
 ## Contributors
@@ -103,4 +105,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/8/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/9/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/9/avatar.svg"></a>
 
+<a href="https://nlnet.nl/"><img style="height:100px" src="https://static.openfoodfacts.org/images/misc/nlnet_logo.svg" alt="Logo NLnet: abstract logo of four people seen from above Logo NGI Zero: letterlogo shaped like a tag"></a>
 
+Open Food Facts Personal Search project was funded through the <a href="https://nlnet.nl/discovery/">NGI0 Discovery</a> Fund,
+a fund established by NLnet with financial support from the European Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.
