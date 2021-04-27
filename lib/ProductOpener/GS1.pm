@@ -874,8 +874,13 @@ sub gs1_to_off ($$$) {
 						# e.g. par portion : 14 g + 200 ml d'eau
 						my $extra_serving_size_description = "";
 						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
-							$serving_size_description =~ s/^(par portion|pour|portion de|pour une portion|pour 1 portion|portion|1 portion|1 part)\s*:?=?\s*//i;
+							# Par Portion de 30 g (2)
+							$serving_size_description =~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
 							$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
+							# Par Portion de 30 g (2) : remove number of portions
+							$serving_size_description =~ s/\(\d+\)//i;
+							$serving_size_description =~ s/^\s+//;
+							$serving_size_description =~ s/\s+$//;
 							# skip the extra description if it is equal to value + unit
 							# to avoid things like 43 g (43 g)
 							if (($serving_size_description !~ /^\s*$/)
