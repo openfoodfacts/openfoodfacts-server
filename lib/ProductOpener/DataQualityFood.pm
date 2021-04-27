@@ -553,6 +553,7 @@ sub check_nutrition_data($) {
 
 		my $nid_n = 0;
 		my $nid_zero = 0;
+		my $nid_non_zero = 0;
 
 		my $total = 0;
 
@@ -591,10 +592,15 @@ sub check_nutrition_data($) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid";
 			}
 
-			if ((defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} == 0)) {
-				$nid_zero++;
+			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
+				if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
+					$nid_zero++;
+				}
+				else {
+					$nid_non_zero++;
+				}
 			}
+
 			$nid_n++;
 
 			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
@@ -614,8 +620,8 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
-		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-all-values-zero";
+		if (($nid_non_zero == 0) and ($nid_zero == $nid_n)) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and
