@@ -188,6 +188,18 @@ foreach my $test_ref (@tests) {
 	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, Carrefour bio"},
 ],
 
+# Brand with dots or other characters instead of spaces / dashes
+
+[
+	{lc => "fr", product_name_fr => "Petit brie bons.mayennais", brands => "Bons mayennais"},
+	{lc => "fr", product_name_fr => "Petit brie", brands => "Bons mayennais"},
+],
+
+[
+	{lc => "fr", product_name_fr => "Petit brie bonsxmayennais", brands => "Bons mayennais"},
+	{lc => "fr", product_name_fr => "Petit brie bonsxmayennais", brands => "Bons mayennais"},
+],
+
 	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
 
 [

@@ -535,6 +535,8 @@ sub import_csv_file($) {
 						if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
 							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 						}
+						set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
+						$glns_ref = retrieve("$data_root/orgs_glns.sto");
 					}
 			
 					store_org($org_ref);

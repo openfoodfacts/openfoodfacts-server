@@ -865,6 +865,9 @@ sub clean_fields($) {
 				foreach my $brand (split(/,/, $product_ref->{brands})) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
+					# dashes/dots/spaces -> allow matching dashes/dot/spaces
+					# e.g. "bons.mayennais" matches "bons mayennais"
+					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
 			}
