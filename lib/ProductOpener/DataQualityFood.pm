@@ -580,20 +580,22 @@ sub check_nutrition_data($) {
 				$has_prepared_data = 1;
 			}
 
-			next if $nid =~ /_/;
+			if ($nid =~ /_100g/) {
+				
+				my $nid2 = $`;
+				$nid2 =~ s/_/-/g;
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
 
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid";
-			}
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+				}
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 1000)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
 
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid";
-			}
-
-			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-				if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+				}
+			
+				if ($product_ref->{nutriments}{$nid} == 0) {
 					$nid_zero++;
 				}
 				else {
