@@ -241,6 +241,18 @@ foreach my $test_ref (@tests) {
 	{ lc => "fr", packaging => "étui carton FSC, sachet individuel papier" },
 ],
 
+	# Ingredients without separators
+[
+	{ lc => "fr", ingredients_text_fr => "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"},
+	{ lc => "fr", ingredients_text_fr => "Pur cacao de Madagascar, Œufs frais, Huiles végétales, Gélifiant végétal, Sucre"},
+],
+
+	# Broken HTML code: just remove the field
+[
+	{ lc => "fr", ingredients_text_fr => "Ingrédients : -table\n\t{mso-displayed-decimal-separator:\"\\,\";\n\tmso-displayed-thousand-separator:\\00A0;}\n.font5\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;}\n.font6\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\tfont-weight:700;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;}\ntd\n\t{padding:0px;\n\tmso-ignore:padding;\n\tcolor:black;\n\tfont-size:11.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;\n\tmso-number-format:General;\n\ttext-align:general;\n\tvertical-align:bottom;\n\tborder:none;\n\tmso-background-source:auto;\n\tmso-pattern:auto;\n\tmso-protection:locked visible;\n\twhite-space:nowrap;\n\tmso-rotate:0;}\n.xl65\n\t{color:#713D39;\n\tfont-family:Calibri;\n\tmso-generic-font-family:auto;\n\tmso-font-charset:0;}\n.xl66\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\ttext-align:left;\n\tvertical-align:middle;\n\tbackground:white;\n\tmso-pattern:black none;\n\twhite-space:normal;}\n\n\n\n\n\n\n \n \n \n \n \n  \n  \n   \n         haché végétal de SOJA Cuit * 100%  ((SOJA* 97,1%(Eau, protéines de SOJA*),\n   \n  \n  \n \n \n       SOJA naturellement fermenté* 2,9% (eau, fèves de SOJA 24%, , extrait de\n  champignons)).", },
+	{ lc => "fr", ingredients_text_fr => ""}
+],
+
 );
 
 foreach my $test_ref (@tests) {
