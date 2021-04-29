@@ -1003,6 +1003,17 @@ sub clean_fields($) {
 			if ($product_ref->{$field} ne '-') {
 				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
 			}
+			
+			# Remove HTML comments
+			$product_ref->{$field} =~ s/<!--(.*?)-->//sg;
+			
+			# if there's some HTML code, making special cases to try to repair is probably more dangerous than just ignoring the fields
+			# e.g. <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}Some text # found in CodeOnline data
+			# "Ingrédients : \n\n\n\n\t\n\t\n\t\n\t\n\t\n\t\tbody,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:\"Calibri\"; font-size:x-small }\n\t\ta.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } \n\t\ta.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } \n\t\tcomment { display:none;  } \n\t\n\t\n\n\n\n\n\t\n\t\n\t\tpersil\n\t\n\t\n\t\tamandes\n\t\n\t\n\t\tail\n\t\n\t\n\t\tsel\n\t\n\t\n\t\tpoivre\n\t\n\t\n\t\thuile d'olive\n\t\n\t\n\t\thuile de tournesol\n\t\n\t\n\t\tcitron\n\t\n\t\n\t\tchapelure\n\t\n\n\n\n\n",
+			if ($product_ref->{$field} =~ /(mso-data|font-family|font-style|text-decoration|<!--|-->)/) {
+				$product_ref->{$field} = "";
+			}
+			
 		}
 		
 		# All fields
@@ -1045,6 +1056,13 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
 
 			$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			
+			# Ingredients without separators
+			# e.g. found in some CodeOnline data: "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"
+			
+			if ($product_ref->{$field} !~ /,|;| - /) {
+				$product_ref->{$field} =~ s/(\p{Lower}\p{Lower}+)(?=\p{Upper}\p{Lower}\p{Lower})/$1, /g;
+			}
 
 
 			if ($field eq "ingredients_text_fr") {
