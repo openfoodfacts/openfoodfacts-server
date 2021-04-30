@@ -45,3 +45,9 @@ fr:La note Nutri-Score du producteur ne correspond pas à la note calculée
 description:en:The difference may be due to different nutrition facts (for instance if fibers or fruits, vegetables and nuts are not specified).
 description:fr:La différence peut être due à des valeurs nutritionnelles différentes (par exemple si les fibres ou les fruits, légumes et noix ne sont pas indiqués).
 show_on_producers_platform:en:yes
+
+en:All nutrition values are set to 0
+fr:Toutes les valeurs nutritionnelles sont définies à 0
+description:en:If nutrition facts are unknown, they should not be specified.
+description:fr:Dans le cas où les informations nutritionnelles sont inconnues, elles ne doivent pas être renseignées.
+show_on_producers_platform:en:yes

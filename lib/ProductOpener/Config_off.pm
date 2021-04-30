@@ -649,6 +649,8 @@ periods_after_opening
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 

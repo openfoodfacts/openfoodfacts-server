@@ -64,7 +64,7 @@ en:Film
 de:Folie
 el:Μεμβράνη
 fr:Film
-hu:Film
+hu:Fólia, Film
 it:Film, Pellicola
 nl:Film
 
@@ -92,15 +92,14 @@ nl:Dop
 pt:Cortica
 
 fr:Puisette
-hu:Fa
 
 fr:Bâtonnet
 de:Stäbchen
-hu:Rúd
+hu:Pálcika, pálca
 
 en:Tube
 fr:Tube
-hu:Cső
+hu:Tubus
 
 en:Can
 de:Dose
@@ -115,13 +114,13 @@ hu:Kapszula
 
 en:Flask
 fr:Gourde
-hu:Kulacs
+hu:Kulacs, flaska, palack
 it:Borraccia
 
 <en:Flask
 en:Plastic flask
 fr:Gourde en plastique
-hu:Műanyag Kulacs
+hu:Műanyag palack
 it:Borraccia di plastica
 
 fr:Assiette
@@ -255,7 +254,7 @@ wikidata:en:Q146243
 en:All other plastics, 7 O, O 7, OTHER 7, 7 OTHER, ♹
 de:Andere Kunststoffe, other, 7 other, 7-other, 7-o, ♹
 fr:Autres plastiques
-hu:Minden más műanyag, 7 O, O 7, OTHER 7, 7 OTHER, ♹
+hu:Egyéb műanyag, minden más műanyag, 7 O, O 7, OTHER 7, 7 OTHER, ♹
 it:Altre plastiche, ♹
 nl:Andere plastics
 nl_be:Andere plastics
@@ -311,7 +310,7 @@ nl_be:zilveroxide batterij
 
 en:Zinc–carbon battery, 14 CZ
 de:Zink–Kohle-Batterie, 14 CZ, 14-CZ
-hu:Cink-szén akkumulátor, Szén-cink elem, 14 CZ
+hu:Cink-szén akkumulátor, Szén-cink akkumulátor, Szén-cink elem, 14 CZ
 nl:Zink-koolstofcel
 nl_be:Zink-koolstofcel
 
@@ -411,7 +410,7 @@ ru:Джутовое волокно
 en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 de:Andere Textilien, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
 fr:Autres textiles, autre textile
-hu:Egyéb textília, Más textilek, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
+hu:Egyéb textílek, egyéb textil, egyéb textília, más textilek, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 nl:Ander textiel
 
 en:Glass
@@ -578,6 +577,7 @@ nl:Pure-Pak Diamond vers
 <en:Pure-Cap
 en:Pure-Pak Diamond aseptic
 de:Pure-Pak Diamond aseptik
+hu:Pure-Pak Diamond steril
 nl:Pure-Pak Diamond aseptisch
 
 # Pfand - German recycling system
@@ -674,7 +674,7 @@ en:Modified atmosphere
 de:Unter Schutzatmosphäre, Unter Schutzatmosphäre verpackt
 es:Envasado en atmósfera protectora, Atmósfera protectora,envasado en atmosfera protectora
 fr:Sous atmosphère protectrice, Atmosphère protectrice, Conditionné sous atmosphère protectrice
-hu:Védőgázas csomagolás
+hu:Védőgázas csomagolás, védőgázban, védőgázas
 nl:Beschermende atmosfeer
 wikidata:en:Q1815645
 
@@ -682,7 +682,7 @@ en:Pasteurized
 de:Pasteurisiert
 es:Pasteurizado
 fr:Pasteurisé
-hu:Pasztőrözött
+hu:Pasztőrözött, pasztőrözés, pasztörizált
 it:Pastorizzato
 nl:Gepasteuriseerd
 pt:Pasteurizado
@@ -693,7 +693,7 @@ en:UHT, Ultra-high temperature processing, Ultra-heat treatment
 de:UHT, Ultrahocherhitzt
 es:Ultrapasteurizado, Ultrapasteurizada, uperisado, UHT, Ultrapasteurización, Uperización
 fr:UHT
-hu:UHT, Ultramagas hőmérsékletű feldolgozás
+hu:UHT, Ultramagas hőmérsékleten kezelt, Ultramagas hőmérsékletű feldolgozás, Ultra-hőkezelt
 it:UHT, a lunga conservazione
 wikidata:en:Q1562464
 
@@ -701,6 +701,7 @@ wikidata:en:Q1562464
 en:Flash pasteurization
 es:Pasteurizado suave, Flash-pasteurizado, Flash pasteurizado
 fr:Flash pasteurisé
+hu:Gyors pasztőrözés, Gyors pasztőrözött
 wikidata:en:Q3137001
 
 en:Sterilizated
@@ -717,7 +718,7 @@ en:Vacuum-packed
 de:Vakuumverpackt
 es:Envasado al vacío, Al vacío
 fr:Sac sous vide, Sac sous-vide, Sous-vide
-hu:Vákumcsomagolt
+hu:Vákuumcsomagolt, vákumcsomagolt, vákuumozott
 it:Sottovuoto
 nl:Vacuumverpakt
 wikidata:en:Q682829
@@ -775,5 +776,5 @@ ru:бумажный пакет
 en:Plastic bag
 de:Plastiktüte
 fr:Sac plastique
-hu:Műanyagzacskó
+hu:Műanyagzacskó, Nejlonzacskó
 pt:Saco de plástico

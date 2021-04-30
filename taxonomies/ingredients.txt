@@ -107,6 +107,7 @@ en:agente coagulante, agentes coagulantes,coagulante
 es:Agente coagulante, agentes coagulantes
 fi:hyydyte, koagulantti
 fr:agent de coagulation, coagulant
+hu:koagulálószer, koaguláló, koaguláns
 it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
@@ -124,6 +125,7 @@ es:agente de carbonatación
 # nova:en:colour
 # <en:additive_classes:en:colour for translations
 en:colour
+hu:színezék, színezékek, színezőanyagok, színező anyag
 
 <en:colour
 en:concentrated plant colour
@@ -138,7 +140,7 @@ de:natürliche Farbstoffe
 es:Color natural, colores naturales, colorante natural, colorantes naturales
 fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
-hu:természetes színezék
+hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
 it:coloranti naturali, colorante naturale
 nl:Natuurlijke kleurstoffen
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
@@ -513,7 +515,7 @@ it:lecitina di soia, lecitine di soia
 nb:soyalecitin, soyalecitiner
 nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
-pl:lecytyna sojowa
+pl:lecytyna sojowa, lecytyny sojowe
 pt:lecitina de soja
 ro:lecitină din soia, lecitina din soia, lecitină de soia, lecitina de soia, lecitine din soia
 ru:соевый лецитин, лецитин соевый, эмульгатор лецитин соевый, эмульгатор соевый лецитин
@@ -4848,7 +4850,7 @@ es:Cultivo microbiano
 fi:mikrobiviljelmä, viljelmä
 fr:culture bactérienne
 he:תרבית מיקרוביאלית
-hu:baktérium kultúra, baktériumkultúra, kultúrák, elő kultúrák
+hu:baktérium kultúra, baktériumkultúra, kultúra, kultúrák, elő kultúrák
 it:cultura microbiotica, cultura
 nl:Microbiële cultuur
 pl:Kultury bakterii
@@ -4873,7 +4875,7 @@ el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
-hu:tejsavbaktériumok, sajtkultúrák
+hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
 nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur, yoghurtculturen
@@ -4890,6 +4892,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
 <en:microbial culture
 en:probiotic cultures
 es:cultivos probióticos
+hu:probiotikus kultúrák, probiotikus kultúra, probiotikum kultúrák, probiotikum kultúra
 
 <en:lactic ferments
 en:skyr cultures
@@ -5733,7 +5736,7 @@ fr:lactase
 gl:lactase
 he:לקטאז
 hr:laktaza
-hu:laktáz, laktáz enzim
+hu:laktáz, laktáz enzim, laktázenzim
 io:laktazo
 is:laktasi
 it:lattasi, enzima lattasi
@@ -7558,7 +7561,7 @@ lt:nugriebto pieno milteliai
 lv:sausais vajpiena pulveris
 nb:skummetmelkepulver, skummetmelkpulver
 nl:magere melkpoeder, mageremelkpoeder, mager melkpoeder
-pl:chude mleko w proszku, odtłuszczone mleko w proszku
+pl:chude mleko w proszku, odtłuszczone mleko w proszku, mleko odtłuszczone w proszku
 pt:leite magro em pó, leite em pó magro,leite desnatado em po
 ro:lapte praf degresat
 ru:обезжиренный молоко-порошок, молоко сухое обезжиренное, сухое обезжиренное молоко
@@ -7590,7 +7593,7 @@ fi:täysmaitojauhe, kuivattu täysmaito, täysmaitojauhetta, rasvainen maitojauh
 fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
 he:אבקת חלב מלא, חלב מלא מיובש, חלב מלא יבש
 hr:punomasno mlijeko u prahu
-hu:zsiros tejpor, teljes tejpor
+hu:zsíros tejpor, teljes tejpor
 is:nýmjólkurduft
 it:latte intero in polvere
 ja:全粉乳
@@ -13049,7 +13052,7 @@ sl:Sol, Kuhinjska sol, jedilna sol
 sn:Munyu
 so:Milix, Cusbo
 sq:Kripa
-sr:Со
+sr:Со, so
 su:Uyah
 sv:salt, koksalt, bordssalt, bordssalt utan jod
 ta:உப்பு
@@ -17395,7 +17398,7 @@ sv:Palm
 # description:en:palm olein, the liquid fraction of palm oil
 
 <en:palm oil
-en:palm olein, palmoleil
+en:palm olein, palmolein
 de:Palmolein
 es:oleína de palma
 fi:palmuoleiini
@@ -17918,7 +17921,7 @@ en:organic olive oil
 de:Bio-Olivenöl
 fi:luomu oliiviöljy
 fr:Huile d'olive bio
-hu:bio olívaolaj
+hu:bio olívaolaj, bio olíva olaj
 it:Olio di oliva biologico
 nl:olie van biologische olijven
 # ingredient/nl:olie-van-biologische-olijven has 2 products @2019-05-24
@@ -17970,7 +17973,7 @@ fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de colza ou de navette
 he:שמן לפתית
 hr:repičino ulje
-hu:repceolaj, repcemagolaj, repcemagolajak, repcemagzsír
+hu:repceolaj, repcemagolaj, repcemagolajak, repcemagzsír, repce étolaj
 is:repjuolía
 ja:菜種油
 lt:rapsų aliejus
@@ -18509,7 +18512,7 @@ fi:karitevoi, sheavoi, shea, karite, sheaydin, shearasva
 fr:beurre de karité, matière grasse de karité, karité, graisses végétales de karité, huile de karité, huile végétale de karité, huiles végétales de karité
 he:חמאת שיאה
 hr:shea maslac, šea
-hu:sheavaj
+hu:sheavaj, shea, sheazsír
 it:Burro di karité, karité
 ja:シアバター
 ko:시어 버터
@@ -18715,7 +18718,7 @@ fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile vé
 gl:Aceite de xirasol
 he:שמן חמניות
 hr:suncokretovo ulje
-hu:napraforgóolaj
+hu:napraforgóolaj, napraforgó olaj, napraforgó étolaj
 id:Minyak biji bunga matahari
 is:Sólblómaolía
 it:olio di girasole, Olio di semi di girasole, olio vegetale di semi di girasole
@@ -18800,7 +18803,7 @@ de:Raffiniertes Sonnenblumenöl
 es:aceite refinado de girasol,aceite de girasol refinado
 fi:raffinoitu auringonkukkaöljy
 fr:huile de tournesol raffinée
-hu:finomított napraforgóolaj
+hu:finomított napraforgóolaj, finomított napraforgó étolaj
 it:oleo di girasole raffinato
 ru:масло подсолнечное рафинированное дезодорированное, масло подсолнечное рафинированное
 
@@ -21302,7 +21305,7 @@ nl:appelcider
 <en:alcohol
 en:whiskeys
 fr:whiskys
-hu:whiskey-k
+hu:whiskey-k, whiskey
 
 <en:whisky
 en:Scotch whisky, Scottish whisky, Scottish whiskey
@@ -21507,7 +21510,7 @@ sv:smakberedning
 
 <en:flavouring preparation
 de:Würze, Speisewürze, Suppenwürze
-hu:fűszerm fűszerek
+hu:fűszer, fűszerek
 # liquid, pasty or dry product found in 132 German products products @2019-09-15
 wikidata:en:Q2596994
 
@@ -21528,7 +21531,7 @@ it:aroma naturale, aromi naturali
 lv:dabīgs aromatizētājs
 nb:naturlig aroma
 nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
-pl:Naturalny aromat
+pl:Naturalny aromat, naturalne aromaty
 pt:aroma natural
 ro:aromă naturală, aroma naturala
 ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
@@ -21658,7 +21661,7 @@ hu:édes lime aroma
 en:natural sweet lime flavouring
 de:natürliches Limettenaroma, natürliches Limetten-Aroma
 fr:arôme naturel de limette
-hu:természetes édes lime aroma
+hu:természetes édes lime aroma, édes természetes lime aroma
 
 <en:flavouring
 # derivedFrom:en:lemon
@@ -21810,7 +21813,7 @@ de:Bananengeschmack, Bananenaroma, Bananen-Aroma
 es:aroma de plátano, aroma de banana
 fi:banaaniaromi
 fr:arôme de banane
-hu:banán aroma
+hu:banán aroma, banánaroma
 ro:aromă de banane
 
 <en:natural flavouring
@@ -23350,7 +23353,7 @@ nv:Tłʼoh naadą́ą́ʼ
 oc:Blat
 os:Мæнæу
 pa:ਕਣਕ
-pl:pszenica, pszenicy, pszenna, pszenne, pszenny
+pl:pszenica, pszenicy, pszenicę, pszenna, pszenne, pszenny
 ps:غنم
 pt:trigo
 ro:Grâu, grau
@@ -24976,6 +24979,7 @@ it:Fiocchi d'avena integrali
 lt:pilno grūdo avižiniai dribsniai
 lv:pilngraudu auzu pārslas
 nl:volkoren havervlokken
+sl:ovseni polnozrnati kosmiči
 
 <en:whole grain oat flakes
 en:british wholegrain oat flakes
@@ -27031,6 +27035,10 @@ nl:gemalen maïs
 pt:milho moído
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs-moulu 28 products in 3 languages @2018-09-24
 
+<en:corn
+en:popcorn
+
+
 #######################################################################################################################################
 #
 #                         Rice
@@ -27250,6 +27258,7 @@ de:Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
 fr:protéine de riz
+hu:rizsfehérje
 
 <en:rice protein
 en:whole rice protein
@@ -27315,7 +27324,7 @@ de:Vollkornreis
 es:arroz integral
 fi:tumma riisi, täysjyväriisi
 fr:riz complet, riz brun
-hu:barnarizs
+hu:barna rizs, barnarizs, teljes kiőrlésű rizs
 it:riso integrale
 ja:玄米
 nl:Volkorenrijst
@@ -27337,7 +27346,7 @@ nl:volkoren rijst
 en:organic brown rice, organic full grain rice
 fi:luomu tumma riisi, luomu täysjyväriisi
 fr:riz complet bio, riz complet biologique, riz complet issu de l'agriculture biologique
-hu:bio barnarizs
+hu:bio barna rizs
 nl:biozilvervliesrijst
 
 <en:brown rice
@@ -27358,7 +27367,7 @@ de:Weißer Reis
 es:Arroz blanco
 fi:valkoinen riisi
 fr:riz blanc
-hu:fehérrizs
+hu:fehér rizs, fehérrizs
 it:Riso bianco
 ja:白米
 nl:witte rijst
@@ -27369,7 +27378,7 @@ pt:Arroz branco
 en:organic white rice
 fi:luomu valkoinen riisi
 fr:riz blanc bio
-hu:bio fehérrizs
+hu:bio fehér rizs, bio fehérrizs
 # 2019-05-30
 
 <en:rice
@@ -27386,6 +27395,7 @@ pt:Arroz Integral Venere Parboiled
 en:extruded rice
 de:extrudierter Reis
 es:arroz extruido
+hu:extrudált rizs
 
 ########################### LONG GRAIN RICES #######################
 
@@ -28277,7 +28287,7 @@ sl:Sladkor
 sn:Shuga
 so:Sonkor
 sq:Sheqeri, sheqer
-sr:Шећер
+sr:Шећер, šećer
 su:Gula
 sv:Socker
 sw:Sukari
@@ -29581,6 +29591,7 @@ es:Oligofructosa
 fi:oligofruktoosi
 fr:oligofructose
 he:אוליגופרוקטוז
+hu:oligofruktóz
 it:oligofruttosio
 nb:oligofruktose
 nl:oligofructose
@@ -29633,7 +29644,7 @@ es:jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
 et:glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
 fi:glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi
 fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
-hu:glükóz-fruktózszörp, glükóz-fruktózszőrp, glükóz-fruktóz szirup, fruktóz-glükóz-szirup, fruktóz-glükózszörp
+hu:glükóz-fruktóz szirup, fruktóz-glükóz-szirup, glükóz-fruktózszirup, fruktóz-glükózszörp, glükóz-fruktózszörp
 it:sciroppo di glucosio-fruttosio, sciroppo di fruttosio-glucosio
 ja:果糖ぶどう糖液糖
 lt:gliukozės-fruktozės sirupas
@@ -29698,10 +29709,11 @@ de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
 fr:sirop de sucre inverti, sucre liquide inverti
-hu:invert cukorszirup, invertcukor-szirup, invertcukor szirup
+hu:invertcukor szirup, invertcukor-szirup, invertcukorszirup
 it:sciroppo di zucchero invertito
 lv:invertcukura sīrups
 nl:Invertsuikerstroop
+pl:syrop cukru inwertowanego
 pt:Xarope de açúcar invertido
 ro:sirop de zahăr invertit, sirop de zahar invertit
 ru:сироп инвертный
@@ -31055,6 +31067,7 @@ ru:масло какао, какао-масло
 sk:kakaové maslo
 sl:Kakavovo maslo
 sq:Gjalpa e kakaos, kakao gjalpë
+sr:kakao maslac
 sv:kakaosmör, kakaofett
 tg:равгани какао
 th:เนยโกโก้
@@ -33479,6 +33492,7 @@ de:Phosphat
 es:Fosfato
 fi:fosfaatti, fosfaatit
 fr:phosphates, phosphate
+hu:foszfát, foszfátok
 nl:fosfaat
 # ingredient/fr:phosphates has 57 products @2019-02-22
 # usage:fr:Séquestrant : phosphate
@@ -33496,10 +33510,11 @@ de:Kaliumphosphate
 es:Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
 fi:kaliumfosfaatit
 fr:phosphate de potassium, phosphates de potassium
-hu:Fosforany potasu, fosforan potasu
+hu:Kálium-foszfátok, kálium-foszfát
 it:fosfati di potassio
 ms:Kalium Fosfat
 nl:Kaliumorthofosfaten
+pl:Fosforany potasu, fosforan potasu
 sv:kaliumfosfat
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_phosphate
 # en:potassium phosphate has 260 products in 8 languages @2018-11-06
@@ -33622,6 +33637,7 @@ de:Calciumphosphate, Calciumorthophosphate
 es:Fosfatos de calcio
 fi:kalsiumfosfaatit, kalsiumfosfaatteja
 fr:phosphates de calcium, orthophosphates de calcium
+hu:kalcium-foszfátok
 it:fosfati di calcio
 nl:Calciumorthofosfaten
 ru:e341, Фосфат кальция, Фосфаты кальция
@@ -33636,6 +33652,7 @@ de:Calciumphosphat
 es:Fosfato de calcio, Fosfato cálcico
 fi:kalsiumfosfaatti
 fr:phosphate de calcium, orthophosphate de calcium
+hu:kalcium-foszfát
 it:fosfato di calcio
 nl:calciumfosfaat
 pt:Fosfato de cálcio
@@ -33777,6 +33794,7 @@ en:magnesium phosphates, E343, E 343, E-343
 de:Magnesiumphosphaten
 fi:magnesiumfosfaatit
 fr:phosphates de magnésium
+hu:magnézium-foszfátok
 it:fosfati di magnesio
 nl:Magnesiumorthofosfaten
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
@@ -34097,6 +34115,7 @@ de:Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
 es:difosfatos y carbonatos de sodio
 fi:difosfaatit ja natriumkarbonaatit
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium, e450 et e500
+hu:difoszfátok és nátrium-karbonátok
 it:difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
 nl:difosfaten en natriumcarbonaten
 # fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
@@ -47987,7 +48006,7 @@ nl:paprika's
 <en:bell pepper
 en:yellow bell pepper, yellow pepper
 ca:pebrot groc
-de:gelbe Paprika
+de:gelbe Paprika, Paprika gelb
 es:pimiento amarillo, pimientos amarillos
 fi:keltainen paprika
 fr:poivron jaune, poivrons jaunes
@@ -51170,7 +51189,7 @@ sv:mandelpulver
 en:almond paste
 de:Marzipan, Mandelmasse
 es:pasta de almendra
-fr:Pâte d'amandes
+fr:Pâte d'amandes, pâte d'amande
 pt:Pasta de amêndoa
 
 <en:almond
@@ -52391,7 +52410,7 @@ en:cumin seeds, cumin
 ar:كمون
 ca:llavors de comí
 da:Spidskommen
-de:Kümmelkörnen, Kreuzkümmel, cumin
+de:Kümmelkörner, Kreuzkümmel, Cumin, Kumin
 es:comino, semillas de comino,Granos de comino
 fi:roomankumina, juustokumina, jeera, juustokuminansiemen
 fr:graines de cumin, cumin
@@ -53353,7 +53372,7 @@ ru:пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
-en:herb
+en:herb, mixed herbs
 ca:Herbes, herbes aromàtiques
 cs:Bylina, byliny
 da:urt, krydderurter
@@ -69019,6 +69038,7 @@ es:glucuronolactona
 fa:گلوکورونولاکتون
 fi:glukuronolaktoni
 fr:glucuronolactone
+hu:glükuronolakton
 it:glucuronolattone
 ja:グルクロノラクトン
 nb:Glukoronolakton
@@ -70343,6 +70363,9 @@ fr:viande de poulet rôtie
 fr:produit à base de viande de poulet
 
 <en:chicken meat
+en:white chicken meat
+
+<en:chicken meat
 fr:viande de cuisse de poulet
 # ingredient/fr:viande-de-cuisse-de-poulet has 53 products in french @2019-04-16
 
@@ -70350,6 +70373,7 @@ fr:viande de cuisse de poulet
 fr:Viande de haut de cuisse de poulet sans peau
 
 <en:chicken meat
+en:roast chicken
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
 carbon_footprint_fr_foodges_value:fr:5.2
@@ -71424,7 +71448,7 @@ li:eiwit
 ms:putih telur
 nb:eggehvite
 nl:ei-eiwit, eiwit, albumine
-pl:bialka jaj
+pl:bialka jaj, białko jaja
 pt:clara do ovo, clara de ovos
 ru:белок
 sh:bjelance
@@ -71877,7 +71901,7 @@ he:תרכיז
 it:concentrato, da concentrato
 ko:농축물
 nl:concentraat, concentraten
-pl:koncentrat
+pl:koncentrat, koncentraty
 pt:concentratos
 sn:Mutape
 sr:Концентрат
@@ -74791,6 +74815,7 @@ en:persipan
 de:Persipan
 es:persipan
 fr:persipan
+pl:percepan
 wikidata:en:Q1929741
 wikipedia:en:https://en.wikipedia.org/wiki/Persipan
 

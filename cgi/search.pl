@@ -44,9 +44,7 @@ use JSON::PP;
 use Log::Any qw($log);
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $html;
 
@@ -435,8 +433,7 @@ var select2_options = {
 JS
 ;
 
-
-$tt->process('search_form.tt.html', $template_data_ref, \$html);
+process_template('search_form.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;

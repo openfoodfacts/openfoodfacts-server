@@ -167,7 +167,7 @@ my %may_contain_regexps = (
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb => "kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	pl => "może zawierać śladowe ilości|może zawierać",
+	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
 	ru => "Могут содержаться следы",
@@ -1362,7 +1362,7 @@ sub parse_ingredients_text($) {
 									
 									#  Dutch: match before or after, do not require a space
 									or (
-										( ($product_lc eq 'de') or ($product_lc eq 'nl') )
+										( ($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu') )
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
 								) {
