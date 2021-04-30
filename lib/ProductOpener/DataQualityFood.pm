@@ -622,7 +622,7 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
-		if (($nid_non_zero == 0) and ($nid_zero == $nid_n)) {
+		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
