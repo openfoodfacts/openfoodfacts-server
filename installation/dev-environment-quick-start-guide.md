@@ -41,6 +41,7 @@ $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-ser
 The fastest way is to use the ready-to-use scripts on the Open Food Facts GitHub repo.
 ```console
 $ cd ./openfoodfacts-server/docker/
+$ ./build_dev.sh
 $ ./start_dev.sh
 ```
 The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).

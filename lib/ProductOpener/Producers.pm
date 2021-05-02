@@ -285,8 +285,15 @@ sub load_csv_or_excel_file($) {
 				}
 				else {
 					# Skip empty lines or lines without a barcode (at least 8 digits)
-					next if (join(" ", @new_row) !~ /[0-9]{8}/);
-					push @{$rows_ref}, \@new_row;
+					my $line = join(",", @new_row);
+					# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
+					$line =~ s/ |_|-|\.//g;
+					if ($line !~ /[0-9]{8}/) {
+						$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
+					}
+					else {
+						push @{$rows_ref}, \@new_row;
+					}
 				}
 			}
 		}
@@ -431,6 +438,8 @@ sub convert_file($$$$) {
 	# Output CSV product data
 
 	foreach my $row_ref (@{$rows_ref}) {
+		
+		$log->debug("convert_file - row", { row_ref => $row_ref }) if $log->is_debug();
 
 		# Go through all fields to populate $product_ref with OFF field names
 		# so that we can run clean_fields() or other OFF functions
@@ -536,7 +545,7 @@ my %fields_synonyms = (
 
 en => {
 	lc => ["lang"],
-	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods","ean-barcode","ean-barcode-number","ean-code"],
+	code => ["code", "codes", "barcodes", "barcode", "ean", "ean-13", "ean13", "gtin", "eans", "gtins", "upc", "ean/gtin1", "gencod", "gencods", "gencode", "gencodes", "ean-barcode","ean-barcode-number","ean-code"],
 	producer_product_id => ["internal code"],
 	product_name_en => ["name", "name of the product", "name of product", "product name", "product", "commercial name"],
 	carbohydrates_100g_value_unit => ["carbohydronate", "carbohydronates"], # yuka bug, does not exist
@@ -545,24 +554,29 @@ en => {
 	traces => ["traces", "traces list", "trace list", "list of traces"],
 	nutriscore_grade_producer => ["nutri-score", "nutriscore"],
 	nova_group_producer => ["nova"],
-	obsolete => ["The product is no longer sold", "Product is no longer sold."],
+	obsolete => ["The product is no longer sold", "Product is no longer sold.", "Product no longer sold"],
+},
+
+de => {
+	code => ["Strichcode"],
 },
 
 es => {
+	code => ["Código de barras", "Códigos de barras"],
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
 	ingredients_text_es => ["ingredientes", "lista ingredientes", "lista de ingredientes"],
 	net_weight_value_unit => ["peso unitrario", "peso unitario"],   # Yuka
 	"energy-kcal_100g_value_unit" => ["calorias"],
+	"link" => ["Enlace a la página del producto en el sitio oficial del fabricante"],
 },
 
 fr => {
-
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
-	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "libellé", "désignation"],
-	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
+	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
+	abbreviated_product_name_fr => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
@@ -572,6 +586,7 @@ fr => {
 	countries => ["pays de vente"],
 	serving_size_value_unit => ["Taille d'une portion"],
 	volume_value_unit => ["volume net"],
+	net_weight_value_unit => ["poids"],
 	drained_weight_value_unit => ["poids net égoutté"],
 	recycling_instructions_to_recycle_fr => ["à recycler", "consigne à recycler"],
 	recycling_instructions_to_discard_fr => ["à jeter", "consigne à jeter"],
@@ -583,7 +598,7 @@ fr => {
 	nutriscore_score_producer => ["score nutri-score", "score nutritionnel"],
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
-	obsolete => ["Le produit n'est plus en vente."],
+	obsolete => ["Le produit n'est plus en vente.", "Produit retiré de la vente", "Produit obsolète", "Obsolète"],
 },
 
 );
@@ -591,13 +606,12 @@ fr => {
 my %prepared_synonyms = (
 	# "" is the default unprepared, it needs to have "" as the first synonym
 	"" => {
-	# code with i18n opportunity
 		en => ["", "unprepared"],
 		fr => ["", "non préparé"],
 	},
 	"_prepared" => {
-	# code with i18n opportunity
 		en => ["prepared"],
+		es => ["preparado"],
 		fr => ["préparé", "préparation"],
 	}
 );
@@ -606,7 +620,6 @@ my %per_synonyms = (
 	# per 100g includes an empty "" synonym
 	# may need to be changed for the US, CA etc.
 	"100g" => {
-	# code with i18n opportunity
 		en => ["", "for 100g", "per 100g", "100g"],
 		fr => ["", "pour 100g", "100g"],
 	},
@@ -735,7 +748,16 @@ sub init_nutrients_columns_names_for_lang($) {
 							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
 						}
 
-						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, lang("nutrition_data_per_" . $per)) {
+						foreach my $per_synonym (@{$per_synonyms{$per}{$l}}, $Lang{"nutrition_data_per_" . $per}{$l}, "nutrition_data_per_" . $per) {
+							
+							if ($per_synonym =~ /^nutrition_data_per/) {
+								# per 100 g / 100 ml -> per 100g
+								$per_synonym = $Lang{"nutrition_data_per_" . $per}{$l};
+								# remove the 100ml from "per 100g / 100ml";
+								$per_synonym =~ s/100 g/100g/i;
+								$per_synonym =~ s/100 ml/100ml/i;
+								$per_synonym =~ s/100ml//i; 
+							}
 
 							# field name without "unit" or "quantity"
 							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $prepared_synonym . " " . $per_synonym)} = {
@@ -1286,16 +1308,13 @@ JSON
 				my $nid = $nutriment;
 
 				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
-
-				if ($group_id eq "nutrition") {
-					if ($nid =~ /-$/) {
-						next;
-					}
+				# Keep the % of fruits/vegetables/nuts in the main nutrition group
+				
+				if (($nid =~ /-$/) and ($nid ne 'fruits-vegetables-nuts-') and ($nid ne 'fruits-vegetables-nuts-dried-')) {
+					next if ($group_id eq "nutrition");
 				}
 				else {
-					if ($nid !~ /-$/) {
-						next;
-					}
+					next if ($group_id eq "nutrition_other");
 				}
 
 				$nid =~ s/^(-|!)+//g;

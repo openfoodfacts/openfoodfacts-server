@@ -5,15 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-10 14:02\n"
+"PO-Revision-Date: 2021-04-17 08:14\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: tr\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1384\n"
+"X-Crowdin-File: openproductsfacts.pot\n"
+"X-Crowdin-File-ID: 1814\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -30,12 +30,12 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
 msgstr "openproductsfacts-logo-en-178x150.png"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
 msgstr "openproductsfacts-logo-en-356x300.png"
@@ -152,5 +152,5 @@ msgstr "AQUA/SU, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DIS
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-products-facts-mobile-app"
-msgstr ""
+msgstr "/open-products-facts-mobile-app"
 

@@ -95,6 +95,17 @@ $options{attribute_groups} = [
 	],
 [..]
 
+=cut
+
+# Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
+my %attribute_groups = ();
+
+if (defined $options{attribute_groups}) {
+	foreach my $attribute_group_ref (@{$options{attribute_groups}}) {
+		$attribute_groups{$attribute_group_ref->[0]} = $attribute_group_ref->[1];
+	}
+}
+
 
 =head1 FUNCTIONS
 
@@ -123,12 +134,12 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %attribute_groups hash.
+The return value is cached for each language in the %localized_attribute_groups hash.
 
 =cut
 
 # Global structure to cache the return structure for each language
-my %attribute_groups = ();
+my %localized_attribute_groups = ();
 
 sub list_attributes($) {
 
@@ -138,9 +149,9 @@ sub list_attributes($) {
 
 	# Construct the return structure only once for each language
 	
-	if (not defined $attribute_groups{$target_lc}) {
+	if (not defined $localized_attribute_groups{$target_lc}) {
 		
-		$attribute_groups{$target_lc} = [];
+		$localized_attribute_groups{$target_lc} = [];
 		
 		if (defined $options{attribute_groups}) {
 			
@@ -157,12 +168,12 @@ sub list_attributes($) {
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 				
-				push @{$attribute_groups{$target_lc}}, $group_ref;
+				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
 			}
 		}
 	}
 	
-	return $attribute_groups{$target_lc};
+	return $localized_attribute_groups{$target_lc};
 }
 
 
@@ -539,7 +550,7 @@ sub compute_attribute_nutriscore($$) {
 }
 
 
-=head2 compute_attribute_ecoscore ( $product_ref, $target_lc )
+=head2 compute_attribute_ecoscore ( $product_ref, $target_lc, $target_cc )
 
 Computes an environmental impact attribute based on the Eco-Score.
 
@@ -553,6 +564,10 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =head3 Return value
 
@@ -568,13 +583,11 @@ that is used to define the Eco-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_ecoscore($$) {
+sub compute_attribute_ecoscore($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-
-	# Compute the environmental score first, as it is currently not stored in the database
-	compute_ecoscore($product_ref);
+	my $target_cc = shift;
 
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
@@ -587,6 +600,11 @@ sub compute_attribute_ecoscore($$) {
 		
 		my $score = $product_ref->{ecoscore_data}{score};
 		my $grade = $product_ref->{ecoscore_data}{grade};
+		
+		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
+			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
+			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
+		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
 		
@@ -1126,7 +1144,7 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
 
-=head4 allergen_id $allergen_id
+=head4 attribute_allergen_id $attribute_allergen_id
 
 "en:gluten", "en:sulphur-dioxide-and-sulphites" : allergen ids from the allergens taxonomy
 
@@ -1146,15 +1164,15 @@ sub compute_attribute_allergen($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $allergen_id = shift;	
+	my $attribute_id = shift;	# e.g. "allergens_no_gluten",
+	
+	my $allergen = $attribute_id;
+	$allergen =~ s/^allergens_no_//;
+	$allergen =~ s/_/-/g;
+	
+	my $allergen_id = "en:" . $allergen;
 
-	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, allergen_id => $allergen_id }) if $log->is_debug();
-
-	my $allergen = $allergen_id;
-	$allergen =~ s/^en://;
-
-	my $attribute_id = "allergens_no_" . $allergen;
-	$attribute_id =~ s/-/_/g;
+	$log->debug("compute attribute allergen for product", { code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id }) if $log->is_debug();
 	
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 	
@@ -1285,10 +1303,10 @@ sub compute_attribute_ingredients_analysis($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
-	my $attribute_id = shift;
+	my $analysis = shift;
 	
-	my $analysis = $attribute_id;
-	$analysis =~ s/_/-/g;
+	my $attribute_id = $analysis;
+	$attribute_id =~ s/-/_/g;
 	
 	$log->debug("compute attributes ingredients analysis", { code => $product_ref->{code}, attribute_id => $attribute_id, analysis => $analysis }) if $log->is_debug();
 	
@@ -1431,7 +1449,7 @@ sub add_attribute_to_group($$$$) {
 }
 
 
-=head2 compute_attributes ( $product_ref, $target_lc )
+=head2 compute_attributes ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Compute all attributes for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of attribute groups.
@@ -1449,6 +1467,16 @@ This parameter sets the desired language for the user facing strings.
 
 If $target_lc is equal to "data", no strings are returned.
 
+=head4 country code $target_cc
+
+Needed for some country specific attributes like the Eco-Score.
+
+=head4 options $options_ref
+
+Defines how some attributes should be computed (or not computed)
+
+- skip_[attribute_id] : do not compute a specific attribute
+
 =head3 Return values
 
 Attributes are returned in the "attribute_groups_[$target_lc]" array of the product reference
@@ -1458,10 +1486,12 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$) {
+sub compute_attributes($$$$) {
 
 	my $product_ref = shift;
-	my $target_lc = shift;	
+	my $target_lc = shift;
+	my $target_cc = shift;
+	my $options_ref = shift;	
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 
@@ -1485,8 +1515,8 @@ sub compute_attributes($$) {
 	}
 	
 	# Allergens
-	foreach my $allergen (keys %{$translations_to{allergens}}) {
-		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen);
+	foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
+		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen_attribute_id);
 		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
 	}
 	
@@ -1506,11 +1536,15 @@ sub compute_attributes($$) {
 	
 	# Environment
 	
-	$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	if ((not defined $options_ref) or (not defined $options_ref->{skip_ecoscore}) or (not $options_ref->{skip_ecoscore})) {
+		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
+		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	}
 	
-	$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	if ((not defined $options_ref) or (not defined $options_ref->{skip_forest_footprint}) or (not $options_ref->{skip_forest_footprint})) {
+		$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);	
+		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	}
 		
 	# Labels groups
 	

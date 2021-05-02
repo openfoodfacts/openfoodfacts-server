@@ -15,21 +15,47 @@
                   "percent" : 30
                }
             ],
-            "epi_score" : 65.146453829679,
-            "epi_value" : 1.5146453829679,
+            "epi_score" : 80.1,
+            "epi_value" : 3,
             "origins_from_origins_field" : [
                "en:france"
             ],
-            "transportation_score" : 87.1286388820833,
-            "transportation_value" : 13.082378210523,
-            "value" : 14.5970235934909
+            "transportation_score_be" : 73.3,
+            "transportation_score_ch" : 55.5,
+            "transportation_score_de" : 56.5,
+            "transportation_score_es" : 40.3,
+            "transportation_score_fr" : 87.4,
+            "transportation_score_ie" : 43.7,
+            "transportation_score_it" : 42.5,
+            "transportation_score_lu" : 68.5,
+            "transportation_score_nl" : 67.4,
+            "transportation_value_be" : 11,
+            "transportation_value_ch" : 8,
+            "transportation_value_de" : 8,
+            "transportation_value_es" : 6,
+            "transportation_value_fr" : 13,
+            "transportation_value_ie" : 7,
+            "transportation_value_it" : 6,
+            "transportation_value_lu" : 10,
+            "transportation_value_nl" : 10,
+            "value_be" : 14,
+            "value_ch" : 11,
+            "value_de" : 11,
+            "value_es" : 9,
+            "value_fr" : 16,
+            "value_ie" : 10,
+            "value_it" : 9,
+            "value_lu" : 13,
+            "value_nl" : 13
          },
          "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
                   "shape" : "en:unknown"
                }
             ],
@@ -37,7 +63,9 @@
             "value" : -10,
             "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {}
       },
       "agribalyse" : {
@@ -58,22 +86,42 @@
          "ef_processing" : "0.041272627",
          "ef_total" : 0.55246032,
          "ef_transportation" : "0.02822842",
+         "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
-         "score" : 58.6020808480656
+         "score" : 50
       },
-      "grade" : "b",
+      "grade" : "c",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
       "missing" : {
+         "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 63.1991044415565,
+      "score" : 40,
+      "score_be" : 54,
+      "score_ch" : 51,
+      "score_de" : 51,
+      "score_es" : 49,
+      "score_fr" : 56,
+      "score_ie" : 50,
+      "score_it" : 49,
+      "score_lu" : 53,
+      "score_nl" : 53,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 63.1991044415565,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 40,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
@@ -82,7 +130,6 @@
          "percent_estimate" : 60,
          "percent_max" : 60,
          "percent_min" : 60,
-         "rank" : 1,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -94,7 +141,6 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "rank" : 2,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -104,7 +150,6 @@
          "percent_estimate" : 10,
          "percent_max" : 10,
          "percent_min" : 10,
-         "rank" : 3,
          "text" : "lemon juice",
          "vegan" : "yes",
          "vegetarian" : "yes"

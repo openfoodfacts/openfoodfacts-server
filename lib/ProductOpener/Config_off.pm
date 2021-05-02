@@ -495,6 +495,7 @@ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements origins packaging_shapes packaging_materials packaging_recycling
+periods_after_opening
 );
 
 
@@ -535,6 +536,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	data_sources
 	obsolete
 	obsolete_since_date
+	periods_after_opening
 );
 
 
@@ -566,6 +568,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	recipe_idea
 	warning
 	conservation_conditions
+	periods_after_opening
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
@@ -646,6 +649,8 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
@@ -663,7 +668,8 @@ $options{import_export_fields_groups} = [
 			"categories",                "categories_specific",
 			"labels",                    "labels_specific",
 			"countries",                 "stores",
-			"obsolete",                  "obsolete_since_date"
+			"obsolete",                  "obsolete_since_date",
+			"periods_after_opening"	# included for OBF imports via the producers platform
 		]
 	],
 	[   "origins",
@@ -690,7 +696,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
 		]
 	],
 ];
@@ -777,7 +783,7 @@ $options{import_export_fields_importance} = {
 	categories => "mandatory",
 	labels => "mandatory",
 	countries => "recommended",
-	obsolete => "mandatory",
+	obsolete => "recommended",
 	obsolete_since_date => "recommended",
 	
 	origins => "mandatory",

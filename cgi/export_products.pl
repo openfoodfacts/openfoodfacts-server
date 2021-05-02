@@ -61,6 +61,14 @@ if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
+# Require moderator status to launch the export / import process,
+# unless there is only one product specified through the ?query_code= parameter
+# or if the organization has the permission enable_manual_export_to_public_platform checked
+
+my $allow_submit = ($User{moderator}
+		or (defined param("query_code"))
+		or ((defined $Org{enable_manual_export_to_public_platform}) and ($Org{enable_manual_export_to_public_platform} eq "on")));
+
 if ($action eq "display") {
 	
 	my $template_data_ref = {
@@ -119,24 +127,19 @@ if ($action eq "display") {
 	$template_data_ref->{replace_selected_photos_value} = $replace_selected_photos_value;
 	$template_data_ref->{only_export_products_with_changes_value} = $only_export_products_with_changes_value;
 
-	# Require moderator status to launch the export / import process,
-	# unless there is only one product specified through the ?query_code= parameter
-	if (($User{moderator}) or (defined param("query_code"))) {
+	if ($allow_submit) {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	$tt->process('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
-
+	process_template('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
-# Require moderator status to launch the export / import process,
-# unless there is only one product specified through the ?query_code= parameter
-elsif (($action eq "process") and (($User{moderator}) or (defined param("query_code")))) {
+elsif (($action eq "process") and $allow_submit) {
 	
 	# First export CSV from the producers platform, then import on the public platform
 	
 	my $args_ref = {
-		query => { owners_tags => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
+		query => { owner => $Owner_id, "data_quality_errors_producers_tags.0" => { '$exists' => false }},
 	};
 	
 	# Add query filters
@@ -159,6 +162,12 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 	
+	if ($admin) {
+		if ((defined param("overwrite_owner")) and (param("overwrite_owner"))) {
+			$args_ref->{overwrite_owner} = 1;
+		}		
+	}
+	
 	# Create Minion tasks for export and import
 
 	my $results_ref = export_and_import_to_public_database($args_ref);
@@ -168,20 +177,20 @@ elsif (($action eq "process") and (($User{moderator}) or (defined param("query_c
 	my $local_export_status_job_id = $results_ref->{local_export_status_job_id};
 	my $export_id = $results_ref->{export_id};
 	
-
-	$html .= "<p>Local export job_id: " . $local_export_job_id . " - "
-	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_job_id\">Status</a>"
-	. " - <span id=\"result1\"></span></p>";
+	$html .= "<p>" . lang("export_in_progress") . "</p>";
 	
-	$html .= "<p>Remote import job_id: " . $remote_import_job_id . " - "
-	. "<a href=\"/cgi/minion_job_status.pl?job_id=$remote_import_job_id\">Status</a>"
-	. " - <span id=\"result2\"></span></p>";
-
-	$html .= "<p>Local export status update job_id: " . $local_export_status_job_id . " - "
-	. "<a href=\"/cgi/minion_job_status.pl?job_id=$local_export_status_job_id\">Status</a>"
-	. " - <span id=\"result3\"></span></p>";
+	$html .= "<p>" . lang("export_job_export") .  " - <span id=\"result1\"></span></p>";
+	$html .= "<p>" . lang("export_job_import") .  " - <span id=\"result2\"></span></p>";
+	$html .= "<p>" . lang("export_job_status_update") .  " - <span id=\"result3\"></span></p>";
 
 	$initjs .= <<JS
+	
+var minion_status = {
+	"inactive" : "$Lang{minion_status_inactive}{$lc}",
+	"active" : "$Lang{minion_status_active}{$lc}",
+	"finished" : "$Lang{minion_status_finished}{$lc}",
+	"failed" : "$Lang{minion_status_failed}{$lc}"
+};
 
 var poll_n1 = 0;
 var timeout1 = 5000;
@@ -199,7 +208,7 @@ var job_info_state3;
   \$.ajax({
     url: '/cgi/minion_job_status.pl?job_id=$local_export_job_id',
     success: function(data) {
-      \$('#result1').html(data.job_info.state);
+      \$('#result1').html(minion_status[data.job_info.state]);
 	  job_info_state1 = data.job_info.state;
     },
     complete: function() {
@@ -217,7 +226,7 @@ var job_info_state3;
   \$.ajax({
     url: '/cgi/minion_job_status.pl?job_id=$remote_import_job_id',
     success: function(data) {
-      \$('#result2').html(data.job_info.state);
+      \$('#result2').html(minion_status[data.job_info.state]);
 	  job_info_state2 = data.job_info.state;
     },
     complete: function() {
@@ -235,7 +244,7 @@ var job_info_state3;
   \$.ajax({
     url: '/cgi/minion_job_status.pl?job_id=$local_export_status_job_id',
     success: function(data) {
-      \$('#result3').html(data.job_info.state);
+      \$('#result3').html(minion_status[data.job_info.state]);
 	  job_info_state3 = data.job_info.state;
     },
     complete: function() {
@@ -252,6 +261,45 @@ JS
 ;
 
 }
+else {
+	
+	# The organization does not have the permission enable_manual_export_to_public_platform checked
+
+		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
+Bonjour,
+Vos produits ont été exportés vers la base publique. Voici la page publique avec vos produits : https://fr.openfoodfacts.org/editeur/org-$Org_id
+
+Merci beaucoup pour votre démarche de transparence,
+Bien cordialement,
+TEXT
+);
+
+my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
+Export de vos produits vers la base Open Food Facts publique
+TEXT
+);
+
+
+
+	my $admin_mail_body = <<EMAIL
+org_id: $Org_id
+user id: $User_id
+user name: $User{name}
+user email: $User{email}
+
+
+https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id
+<a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+
+EMAIL
+;
+	send_email_to_producers_admin(
+		"Export to public database requested: user: $User_id - org: $Org_id",
+		$admin_mail_body );
+		
+	$html .= "<p>" . lang('export_products_to_public_database_request_email') . "</p>";
+	
+}
 
 display_new( {
 	title=>$title,
@@ -259,4 +307,3 @@ display_new( {
 });
 
 exit(0);
-

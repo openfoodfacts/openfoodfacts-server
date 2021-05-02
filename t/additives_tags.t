@@ -45,6 +45,13 @@ my @tests = (
 [ { lc => "fr", ingredients_text => "colorant: caramel" }, ["en:e150"]],
 [ { lc => "fr", ingredients_text => "caramel" }, []],
 [ { lc => "fr", ingredients_text => "caramel aromatique" }, []],
+
+# Russian "е" character
+
+[ { lc => "ru", ingredients_text => "е322, Куркумины e100, е-1442, (е621)" }, ["en:e322", "en:e100", "en:e1442", "en:e621"]],
+
+[ { lc => "fr", ingredients_text => "acide citrique E-330, E-102 tartrazine" }, ["en:e330","en:e102"]],
+
 );
 
 foreach my $test_ref (@tests) {

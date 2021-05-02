@@ -465,15 +465,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
-
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("Food::special_process_product") if $log->is_debug();
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
@@ -509,6 +500,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
+	
+	# Food category rules for sweeetened/sugared beverages
+	# French PNNS groups from categories
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		$log->debug("Food::special_process_product") if $log->is_debug();
+		ProductOpener::Food::special_process_product($product_ref);
+	}	
 
 	# Nutrition data
 
@@ -2192,7 +2191,7 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small">
+		<button type="submit" name=".submit" class="button postfix small success">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
@@ -2211,7 +2210,7 @@ HTML
 <div class="small-12 medium-12 large-8 xlarge-10 columns">
 </div>
 <div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
 </div>
 </div>
 HTML

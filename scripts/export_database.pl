@@ -113,6 +113,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
+$fields_ref->{ecoscore_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
@@ -126,8 +127,14 @@ foreach my $l ("en", "fr") {
 	$lc = $l;
 	$lang = $l;
 
-	# 300000 ms timeout so that we can export the whole database
-	my $cursor = get_products_collection(300000)->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	# 300 000 ms timeout so that we can export the whole database
+	# 5mins is not enough, 50k docs were exported
+	my $cursor = get_products_collection(3 * 60 * 60 * 1000)
+		->query({'code' => { "\$ne" => "" },
+				'empty' => { "\$ne" => 1 }})
+		->fields($fields_ref)
+		->sort({code=>1});
+		
 	$cursor->immortal(1);
 
 	$langs{$l} = 0;
@@ -262,6 +269,11 @@ XML
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
+			}
+			
+			# Eco-Score
+			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
+				$field_value = $product_ref->{ecoscore_data}{$1 . "_" . $2};
 			}
 
 			if ($field_value ne '') {

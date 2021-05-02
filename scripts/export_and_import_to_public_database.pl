@@ -103,7 +103,7 @@ if (defined $days) {
 	$query_ref->{last_modified_t} = { '$gt' => time() - $days * 86400 };
 }
 
-$query_ref->{owners_tags} = $Owner_id;
+$query_ref->{owner} = $Owner_id;
 $query_ref->{"data_quality_errors_producers_tags.0"} = { '$exists' => false };
 
 my $args_ref = {

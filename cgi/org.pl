@@ -66,12 +66,18 @@ my $org_ref = retrieve_org($orgid);
 
 if (not defined $org_ref) {
 	$log->debug("org does not exist", { orgid => $orgid }) if $log->is_debug();
-	display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	
+	if ($admin) {
+		$template_data_ref->{org_does_not_exist} = 1;
+	}
+	else {
+		display_error($Lang{error_org_does_not_exist}{$lang}, 404);
+	}
 }
 
 # Does the user have permission to edit the org profile?
 
-if (not (is_user_in_org_group($org_ref, "admins", $User_id) or $admin)) {
+if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin)) {
 	$log->debug("user does not have permission to edit org", { orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id }) if $log->is_debug();
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
@@ -91,6 +97,25 @@ if ($action eq 'process') {
 		}
 		else {
 			
+			# Administrator fields
+			
+			if ($admin) {
+				
+				# If the org does not exist yet, create it
+				if (not defined $org_ref) {
+					$org_ref = create_org($User_id, $orgid);
+				}
+				
+				foreach my $field ("enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform", "do_not_import_codeonline") {
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
+				
+				# Set the list of org GLNs
+				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln")));
+			}
+			
+			# Other fields
+			
 			foreach my $field ("name", "link") {
 				$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 				if ($org_ref->{$field} eq "") {
@@ -101,6 +126,8 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lang};
 			}
+			
+			# Contact sections
 			
 			foreach my $contact ("customer_service", "commercial_service") {
 				
@@ -138,23 +165,52 @@ if ($action eq 'display') {
 	
 	# Create the list of sections and fields
 	
-	$template_data_ref->{sections} = [
-		{
+	$template_data_ref->{sections} = [];
+	
+	# Admin
+	
+	if ($admin) {
+		push @{$template_data_ref->{sections}}, {
+			id => "admin",
 			fields => [
 				{
-					field => "name",
+					field => "enable_manual_export_to_public_platform",
+					type => "checkbox",
 				},
 				{
-					field => "link",
+					field => "activate_automated_daily_export_to_public_platform",
+					type => "checkbox",
 				},
+				{
+					field => "list_of_gs1_gln",
+				},
+				{
+					field => "do_not_import_codeonline",
+					type => "checkbox",
+				},				
 			]
-		}
-	];
+		};		
+	}
+	
+	# Name and information of the organization
+	
+	push @{$template_data_ref->{sections}}, {
+		fields => [
+			{
+				field => "name",
+			},
+			{
+				field => "link",
+			},
+		]
+	};
+	
+	# Contact information
 	
 	foreach my $contact ("customer_service", "commercial_service") {
 		
 		push @{$template_data_ref->{sections}}, {
-			section => $contact,
+			id => $contact,
 			fields => [
 				{ field => $contact . "_name" },
 				{ field => $contact . "_address", type => "textarea" },
@@ -171,15 +227,15 @@ if ($action eq 'display') {
 	foreach my $section_ref (@{$template_data_ref->{sections}}) {
 		
 		# Descriptions and notes for sections
-		if (defined $section_ref->{section}) {
-			if (lang("org_" . $section_ref->{section})) {
-				$section_ref->{name} = lang("org_" . $section_ref->{section});
+		if (defined $section_ref->{id}) {
+			if (lang("org_" . $section_ref->{id})) {
+				$section_ref->{name} = lang("org_" . $section_ref->{id});
 			}			
-			if (lang("org_" . $section_ref->{section} . "_description")) {
-				$section_ref->{description} = lang("org_" . $section_ref->{section} . "_description");
+			if (lang("org_" . $section_ref->{id} . "_description")) {
+				$section_ref->{description} = lang("org_" . $section_ref->{id} . "_description");
 			}
-			if (lang("org_" . $section_ref->{section} . "_note")) {
-				$section_ref->{note} = lang("org_" . $section_ref->{section} . "_note");
+			if (lang("org_" . $section_ref->{id} . "_note")) {
+				$section_ref->{note} = lang("org_" . $section_ref->{id} . "_note");
 			}
 		}
 		
@@ -232,7 +288,7 @@ elsif ($action eq 'process') {
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 		
-		$template_data_ref->{profile_url} = canonicalize_tag_link("users", "org-" . $orgid);
+		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 	}
 	elsif ($type eq 'delete') {

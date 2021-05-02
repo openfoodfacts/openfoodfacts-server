@@ -59,10 +59,24 @@ if (($type eq "add") and (defined param('prdct_mult'))) {
 
 ProductOpener::Display::init();
 
+# $userid will contain the user to be edited, possibly different than $User_id
+# if an administrator edits another user
+
 my $userid = $User_id;
 
 if (defined param('userid')) {
-	$userid = get_fileid(param('userid'), 1);
+	
+	$userid = param('userid');
+	
+	# The userid looks like an e-mail
+	if ($admin and ($userid =~ /\@/)) {
+		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		if (defined $emails_ref->{$userid}) {
+			$userid = $emails_ref->{$userid}[0];
+		}
+	}
+	
+	$userid = get_fileid($userid, 1);
 }
 
 $log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
@@ -105,7 +119,7 @@ if ($action eq 'process') {
 	if ($type eq 'edit_owner') {
 		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 	}
-	else {
+	elsif ($type ne 'delete') {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 

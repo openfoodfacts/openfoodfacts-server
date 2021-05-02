@@ -37,9 +37,12 @@
 [% IF server_options_producers_platform %]
     <div class="delete_button">
         <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+			[% display_icon('publish') %]
             <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
         </a>
     </div>
+    
+    <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
@@ -52,7 +55,7 @@
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc_code == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]
@@ -81,7 +84,7 @@
     </div>
 [% END %]
 
-<!-- photos and data sources -->
+<!-- owner -->
 [% IF owner %]
 	<p>
 		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
@@ -111,7 +114,7 @@
 	
 
 <!-- product_characteristics -->
-<h2>[% lang('product_characteristics') %]</h2>
+<h2 id="product_characteristics">[% lang('product_characteristics') %]</h2>
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
@@ -121,11 +124,11 @@
 </div>
 
 <!-- ingredients -->
-<h2>[% lang('ingredients') %]</h2>
+<h2 id="ingredients">[% lang('ingredients') %]</h2>
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <p class="note">&rarr;[% lang("ingredients_text_display_note") %]</p>
+        <p class="note">→ [% lang("ingredients_text_display_note") %]</p>
         <div><span class="field">[% lang("ingredients_text") %]:</span>
             [% IF lc != ingredients_text_lang %]
                 <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
@@ -188,7 +191,7 @@
 
 <!-- nutrition table -->
 [% IF nutrition_table == 'defined' %]
-    <h2>[% lang("nutrition_data") %]</h2>
+    <h2 id="nutrition_data">[% lang("nutrition_data") %]</h2>
     <div class="row">
         <div class="hide-for-large-up medium-12 columns">
             [% nutrition_image %]
@@ -219,32 +222,46 @@
 
 <!-- ecoscore -->
 [% IF ecoscore_grade || forest_footprint_data %]
-	<h2>[% lang('environmental_impact') %]</h2>
+	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
 [% END %]
 
 [% IF ecoscore_grade %]
 	<h4>Eco-score
 		<a href="/ecoscore" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
 	</h4>
+	
+	<p>[% lang("ecoscore_description") %]</p>
+	
+	[% IF cc == "fr" %]
+		<p class="note">→ [% lang("ecoscore_warning_fr") %]</p>
+	[% ELSE %]
+		<p class="note">→ [% lang("ecoscore_warning_international") %]</p>
+	[% END %]
+	
 	<a href="/ecoscore" title="[% lang('ecoscore_information') %]">
 		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
-
+  
 	[% IF ecoscore_data.missing_agribalyse_match_warning %]
 		<div class="panel warning">
-			<strong>L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise.</strong><br><br>
-			Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise.<br><br>
-			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+      <strong>
+      [% lang('ecoscore_agribalyse_match_warning') %]
+      </strong><br><br>
+      [% lang('ecoscore_add_more_precise_category') %]
+      <br><br>
+      [% lang('ecoscore_platform_promo') %]
 		</div>
 	[% ELSIF ecoscore_data.missing_data_warning %]
 		<div class="panel warning">
-			<strong>Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous).</strong><br><br>
-			Vous pouvez modifier la fiche produit pour ajouter les informations manquantes.<br><br>
-			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+      <strong>
+      [% lang('ecoscore_warning_missing_information') %]
+      </strong><br><br>
+      [% lang('ecoscore_add_missing_information') %]
+      <br><br>
+      [% lang('ecoscore_platform_promo') %]
 		</div>
 	[% END %]	
-
 	[% ecoscore_calculation_details %]
 [% END %]
 
@@ -270,7 +287,7 @@
 
 	<h3>[% lang("ingredients_requiring_soy") %]</h3>
 	
-	<p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>
+	<p>[% lang("forest_footprint_one_line_explanation") %]</p>
 	
 	[% IF forest_footprint_data.ingredients && forest_footprint_data.ingredients %]
 
@@ -322,7 +339,7 @@
 [% END %]
 
 <!-- packaging -->
-<h2>[% lang('packaging') %]</h2>
+<h2 id="packaging">[% lang('packaging') %]</h2>
 <div class="row">
     <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
     <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
@@ -354,7 +371,7 @@
 
 <!-- other fields -->
 [% IF other_fields != "" %]
-    <h2>[% lang('product_other_information') %]</h2>
+    <h2 id="product_other_information">[% lang('product_other_information') %]</h2>
     <div class="row">
         <div class="small-12 columns">
             [% other_fields %]
@@ -395,6 +412,19 @@
 	[% END %]
 	</ul>
 [% END %]
+
+<!-- databases data sources -->
+<h2 id="data_sources">[% lang('data_sources_p') FILTER ucfirst %]</h2>
+
+[% IF data_source_database_equadis %]
+	<p>[% data_source_database_equadis %]</p>
+[% ELSIF data_source_database_codeonline %]
+	<p>[% data_source_database_codeonline %]</p>
+	<p>[% data_source_database_note_about_the_producers_platform %]</p>
+[% ELSE %]
+<p>_</p>
+[% END %]
+
 
 <p class="details">
     [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
