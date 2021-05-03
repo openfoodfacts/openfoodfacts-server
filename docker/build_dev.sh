@@ -1,5 +1,6 @@
 #!/bin/sh
 #if mac:
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew cask install docker
 #else:
   curl -fsSL https://get.docker.com -o get-docker.sh
