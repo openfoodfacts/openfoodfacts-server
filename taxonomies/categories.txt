@@ -29245,18 +29245,6 @@ ciqual_food_name:en:Amaranth, raw
 ciqual_food_name:fr:Amarante, crue
 
 <en:Cereal grains
-en:Avena
-de:Haferarten
-es:Avena
-fi:Kaurat
-fr:Avena
-it:Avena
-la:Avena
-nl:Haverfamilie, Avena
-zh:燕麦属
-wikidata:en:Q146760
-
-<en:Avena
 en:Oat
 de:Hafer, Echter Hafer
 es:Avena sativa
@@ -30626,6 +30614,10 @@ en:Crisps of red potatoes, red potato crisps, red potatoes crisps
 de:Rote Kartoffelchips, Chips aus roten Kartoffeln
 fr:Chips de pommes de terre rouge
 nl:Rode aardappelchips
+
+<en:Crisps
+en:Crisps made from reconstituted potato
+fr:Chips de pomme de terre reconstituée
 
 <en:Crisps
 en:Salty snacks made from potato
@@ -78656,8 +78648,6 @@ fr:Poudre de tomate séchée
 nl:Tomatenpoeders
 
 
-
-
 <en:Ground dried vegetables
 <en:Garlic and their products
 en:Garlic powder, Granulated garlic, Dried garlic powder
@@ -79003,14 +78993,6 @@ agribalyse_food_code:en:20126
 ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
-
-<en:Pulses
-en:Whole soybean grain
-fr:Soja graine entière
-agribalyse_food_code:en:20901
-ciqual_food_code:en:20901
-ciqual_food_name:en:Soybean, whole grain
-ciqual_food_name:fr:Soja, graine entière
 
 <en:Pulses
 en:Chickpeas
@@ -79493,13 +79475,6 @@ ciqual_food_code:en:20183
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, raw
 ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 
-en:Soy sprouts
-fr:Pousses de soja
-agribalyse_food_code:en:20183
-ciqual_food_code:en:20183
-ciqual_food_name:en:Mung bean, sprouted or soy spouts, raw
-ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
-
 <en:Vegetables
 en:Broad beans
 fr:Fèves
@@ -79641,16 +79616,34 @@ ciqual_food_name:en:Snow pea, cooked
 ciqual_food_name:fr:Pois mange-tout ou pois gourmands, cuits
 
 <en:Legume seeds
-en:Soy, Soya
+en:Soy beans, Soy, Soya, Whole soybean grain
 de:Soja
 es:Soja
 fi:soija
-fr:Soja
+fr:Fèves de soja, Soja, Soja graine entière
 ja:大豆, ダイズ
 la:Glycine max
 nl:Soja
 ru:Соя, Семена сои
 wikidata:en:Q11006
+agribalyse_food_code:en:20901
+ciqual_food_code:en:20901
+ciqual_food_name:en:Soybean, whole grain
+ciqual_food_name:fr:Soja, graine entière
+
+<en:Soy
+en:Edamame
+fr:Edamame
+
+<en:Edamame
+<en:Canned legumes
+en:Canned edamame
+fr:Edamame en conserve
+
+<en:Edamame
+<en:Frozen legumes
+en:Frozen edamame
+fr:Edamame surgelés
 
 <en:Canned plant-based foods
 <en:Legumes
@@ -79861,20 +79854,12 @@ nl:Peulvruchtenkiemen in blik
 
 <en:Canned legume sprouts
 <en:Mung bean sprouts
-en:Canned mung bean sprouts, Canned sprouted mung beans
+en:Canned mung bean sprouts, Canned sprouted mung beans, Canned soy sprouts
 es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
 fi:Purkitetut mungpavun idut
-fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés
+fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés, Pousses de soja en conserve, Pousses de soja appertisées
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
 nl:Mungoboonkiemen in blik
-agribalyse_food_code:en:20029
-ciqual_food_code:en:20029
-ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
-ciqual_food_name:fr:Haricot mungo germé ou pousse de soja, appertisé, égoutté
-
-<en:Canned sprouts
-en:Canned soy sprouts
-fr:Pousses de soja en conserve, Pousses de soja appertisées
 agribalyse_food_code:en:20029
 ciqual_food_code:en:20029
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
