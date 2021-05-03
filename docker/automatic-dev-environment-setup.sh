@@ -20,4 +20,5 @@ echo "This phase is going to be very long, up to an hour. Look for the increasin
 ./start_dev.sh
 echo "Populating database…"
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
-  
+echo "You should be able to access your local install of Open Food Facts at http://0.0.0.0…"
+echo "You have around 200 test products. Please run ./install-full-database.sh if you want a full dump."
