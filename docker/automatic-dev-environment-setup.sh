@@ -1,5 +1,6 @@
 #if mac:
 # check if git is installed on mac
+echo "🥫 Welcome to the Open Food Facts dev environment setup"
 echo "🥫 Checking git is installed…"
 git --version
 echo "🥫 Cloning Open Food Facts web server - product-opener…"
