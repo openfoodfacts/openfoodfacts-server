@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - deploy-with-rsync
-
 jobs:
   gulp:
     runs-on: ubuntu-latest
@@ -20,27 +19,18 @@ jobs:
   test-node:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    
+    - name: checkout
+      uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.1.5
+        
+    - name: setup node
+      uses: actions/setup-node@v2.1.5
       with:
         node-version: '12.x'
     - run: npm install
     - run: npm run lint
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 50
-    
-    - uses: actions/setup-node@v2.1.5
-      with:
-        node-version: '12.x'
-    
-    - run: npm install
     
     - name: find changed perl files
       uses: futuratrepadeira/changed-files@v3.3.0
@@ -168,7 +158,6 @@ jobs:
         # Run unit tests
         # prove -l --jobs 2
 
-
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
@@ -178,5 +167,5 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy with rsync
-        run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
+    - name: Deploy with rsync
+      run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/off/
