@@ -1,4 +1,4 @@
-name: deploy
+name: Automated RSYNC deploy to Proxmox
 on:
   push:
     branches:
