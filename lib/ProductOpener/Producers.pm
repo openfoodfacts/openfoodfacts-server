@@ -219,7 +219,9 @@ sub load_csv_or_excel_file($) {
 		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
 
 		system("ssconvert", $file, $file . ".csv");
-
+		
+		$log->debug("converting Excel file with gnumeric's ssconvert - output", { file => $file, extension => $extension, command => $0, error => $? }) if $log->is_debug();
+		
 		my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
 
 		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
@@ -599,6 +601,7 @@ fr => {
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
 	obsolete => ["Le produit n'est plus en vente.", "Produit retiré de la vente", "Produit obsolète", "Obsolète"],
+	packaging_text_fr => ["Instruction de recyclage et/ou information d'emballage"],
 },
 
 );
