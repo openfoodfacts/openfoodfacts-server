@@ -13,6 +13,10 @@
 
 Product Opener is the server software for Open Food Facts and Open Beauty Facts. It is [free and open-source software](https://en.wikipedia.org/wiki/Free_and_open-source_software) created in Perl, HTML and JavaScript.
 
+## 1 command to get started on your machine
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/e7e1f9a6536c62fc51f71f6a6adace032d713815/docker/automatic-dev-environment-setup.sh)"```
+Note: this is experimental, and has only been tested on an osx laptop so far. Help to expand to Windows and *nix welcome :-)
+
 ## What is Open Food Facts?
 
 ### A food products database
