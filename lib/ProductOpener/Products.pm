@@ -126,6 +126,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -1100,6 +1101,8 @@ sub store_product($$) {
 	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
+	
+	compute_main_countries($product_ref);
 
 	compute_sort_keys($product_ref);
 

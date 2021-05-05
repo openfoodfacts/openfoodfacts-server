@@ -152,6 +152,7 @@ sub compute_main_countries($) {
 					# Check if the product has data in one of the languages of the country
 					my $data_in_country_language = 0;
 					my $product_name_in_country_language = 0;
+					my $ingredients_text_in_country_language = 0;
 					
 					foreach my $country_language (@{$country_languages{$cc}}) {
 						foreach my $field ("product_name", "generic_name", "ingredients_text") {
@@ -160,6 +161,9 @@ sub compute_main_countries($) {
 								$data_in_country_language++;
 								if ($field eq "product_name") {
 									$product_name_in_country_language++;
+								}
+								if ($field eq "ingredients_text") {
+									$ingredients_text_in_country_language++;
 								}
 							}
 						}
@@ -212,7 +216,12 @@ sub compute_main_countries($) {
 					if ($product_name_in_country_language < 1) {
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-product-name-not-in-country-language";
-					}					
+					}
+					
+					if ($ingredients_text_in_country_language < 1) {
+						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-ingredients-not-in-country-language";
+					}						
 					
 					if ($data_in_country_language < 1) {
 						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
