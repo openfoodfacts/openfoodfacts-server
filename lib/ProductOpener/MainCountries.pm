@@ -125,14 +125,14 @@ sub compute_main_countries($) {
 	my $path = product_path($product_ref);
 	my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
 	
-	if (defined $scans_ref) {
+	if ((defined $all_products_scans_ref) and (defined $scans_ref)) {
 	
 		# Use the latest available year
 		my $year = 2030;
 		while (not exists $scans_ref->{$year}) {
 			$year--;
 		}
-		if (exists $scans_ref->{$year}) {
+		if ((exists $scans_ref->{$year}) and (exists $all_products_scans_ref->{$year})) {
 		
 			# Check if some of the countries in countries_tags should be removed based on scan data
 			if (defined $product_ref->{countries_tags}) {
@@ -145,9 +145,9 @@ sub compute_main_countries($) {
 					# with the average ratio across all products
 					
 					my $average_cc_to_world_scans_ratio = $all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc}
-						/ $all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"};
+						/ ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 					my $cc_to_world_scans_ratio = ($scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
-						/ $scans_ref->{$year}{unique_scans_n_by_country}{"world"};
+						/ ($scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 						
 					# Check if the product has data in one of the languages of the country
 					my $data_in_country_language = 0;
@@ -181,7 +181,7 @@ sub compute_main_countries($) {
 							data_in_country_language => $data_in_country_language,
 							  } ) if $log->is_debug();						
 					
-					# More than 10 scans, and a scan ratio for the country < 10% of the average scan ratio
+					# More than 10 scans, and a scan ratio for the country < 30% of the average scan ratio
 					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 10)
 						and ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio)) {
 						
