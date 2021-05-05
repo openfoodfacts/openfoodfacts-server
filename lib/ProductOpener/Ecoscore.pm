@@ -232,7 +232,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 				epi_score => $row_ref->[1],
 			};
 			
-			for (my $i = 2; $i <= (scalar @{$row_ref}); $i++) {
+			for (my $i = 2; $i < (scalar @{$row_ref}); $i++) {
 				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
 			}
 			
@@ -602,15 +602,17 @@ sub compute_ecoscore($) {
 					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
 					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
 				}
-				
-				if (not defined $cc) {
-					$product_ref->{"ecoscore_score" . $suffix} = $product_ref->{ecoscore_data}{"score" . $suffix};
-					$product_ref->{"ecoscore_grade" . $suffix} = $product_ref->{ecoscore_data}{"grade" . $suffix};
-					$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
-				}
-				
-				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"ecoscore_score" . $suffix}, grade => $product_ref->{"ecoscore_grade" . $suffix}}) if $log->is_debug();				
+
+				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"score" . $suffix}, grade => $product_ref->{"grade" . $suffix}}) if $log->is_debug();				
 			}
+			
+			# The following values correspond to the Eco-Score without a transportation adjustment
+			# at run-time, they may be changed to the values for a specific country
+			# after localize_ecoscore() is called
+			
+			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];			
 			
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
@@ -950,6 +952,8 @@ sub aggregate_origins_of_ingredients($$$) {
 Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
 according to the countries of origin of the ingredients.
 
+The transportation bonus or malus is computed for all the countries where the Eco-Score is enabled.
+
 =head3 Arguments
 
 =head4 Product reference $product_ref
@@ -1265,6 +1269,10 @@ sub localize_ecoscore ($$) {
 		
 		$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"score_" . $cc};
 		$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grade_" . $cc};
+
+		$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+		$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+		$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
 
 		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {
 	

@@ -14,66 +14,96 @@
 stopwords:en:agriculture
 stopwords:fr:agriculture
 stopwords:es:agricultura
+stopwords:hu:mezőgazdaság
 
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en:Unknown
 ca:Desconegut
 es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
+hu:Ismeretlen
 
 en:Unspecified, not specified, non specified, nonspecified, not available, n/a
 ca:No especificat
 es:No especificado
 fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
+hu:Nincs megadva, kitöltetlen, nem elérhető
 
 # World regions
 
 en:Africa
+da:Afrika
+de:Afrika
 ca:Àfrica
 es:África
 fr:Afrique
+hu:Afrika
 
 <en:Africa
 en:West Africa
+da:Vestafrika
+de:Westafrika
 fr:Afrique de l'Ouest
+hu:Nyugat-Afrika
 
 en:Latin America
 ca:Amèrica Llatina
+de:Lateinamerika
 es:America latina
 fr:Amérique Latine
+hu:Latin-Amerika
 
 en:Central America
+de:Zentralamerika
 fr:Amérique centrale
+hu:Közép-Amerika
 
 en:North-America
+da:Nordamerika
+de:Nordamerika
 fr:Amérique du Nord
+hu:Észak-Amerika
 
 en:South-America
 ca:Sud Amèrica
 es:Sudamerica
 fr:Amérique du Sud
+hu:Dél-Amerika
 
 en:Asia
 ca:Àsia
+da:Asien
+de:Asien
 es:Asia
 fr:Asie
+hu:Ázsia
 
 en:Europe
 ca:Europa
+da:Europa
+de:Europa
 es:Europa
 fr:Europe
+hu:Európa
 
 en:European Union, EU
+da:Den Europæiske Union, EU
+de:Europäische Union, EU
 es:Unión Europea, UE
 fr:Union Européenne, UE
+hu:Európai Unió, EU
 
 en:Non European Union, Non EU
 ca:No Unió Europea, No UE
+da:Ikke-EU
+de:Nicht-Europäische Union, Nicht-EU
 fr:Non Union Européenne, Non UE
+hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
 
 en:European Union and Non European Union, EU and non EU, EU non EU
 ca:Unió Europea i no Unió Europea, UE i no UE
 fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+hu:EU és Nem-EU, Európai Unió és nem Európai Unió
 
 
 # Country regions
@@ -95,6 +125,7 @@ fr:Aquitaine
 <en:france
 en:Burgundy
 fr:Bourgogne
+hu:Burgundia
 
 <en:france
 en:Brittany
@@ -109,6 +140,7 @@ fr:Camargue
 <en:france
 en:Corsica
 fr:Corse
+hu:Korzika
 
 <en:france
 en:Morbihan
@@ -135,6 +167,7 @@ en:Normandy
 ca:Normandia
 es:Normandía
 fr:Normandie
+hu:Normandia
 
 <en:france
 en:Provence
@@ -147,10 +180,12 @@ fr:Savoie
 <en:france
 en:South-western France, South-west of France
 fr:Sud-ouest de la France, Sud-ouest français
+hu:Délnyugat-Franciaország
 
 <en:france
 en:Loire valley
 fr:Val de Loire
+hu:Loire-völgy
 
 <en:France
 en:Gers
@@ -244,16 +279,84 @@ de:Baden-Württemberg
 <en:germany
 en:Bayern
 de:Bayern
+hu:Bajorország
+
+<en:germany
+en:Berlin
+de:Berlin
+xx:Berlin
+
+<en:germany
+en:Brandenburg
+de:Brandenburg
+xx:Brandenburg
+
+<en:germany
+en:Bremen
+de:Bremen
+xx:Bremen
+
+<en:germany
+en:Hamburg
+de:Hamburg
+xx:Hamburg
+
+<en:germany
+en:Hesse, Hessen
+de:Hessen
+xx:Hessen
+
+<en:germany
+en:Mecklenburg-Vorpommern
+de:Mecklenburg-Vorpommern
+xx:Mecklenburg-Vorpommern
+
+<en:germany
+en:Lower Saxony, Niedersachsen
+de:Niedersachsen
+xx:Niedersachsen
+
+<en:germany
+en:North Rhine-Westphalia, Nordrhein-Westfalen
+de:Nordrhein-Westfalen
+xx:Nordrhein-Westfalen
+
+<en:germany
+en:Rheinland-Pfalz
+de:Rheinland-Pfalz
+xx:Rheinland-Pfalz
+
+<en:germany
+en:Saarland
+de:Saarland
+xx:Saarland
+
+<en:germany
+en:Saxony, Sachsen
+de:Sachsen
+xx:Sachsen
+
+<en:germany
+en:Sachsen-Anhalt
+de:Sachsen-Anhalt
+xx:Sachsen-Anhalt
 
 <en:germany
 en:Schleswig-Holstein
 de:Schleswig-Holstein
+xx:Schleswig-Holstein
+
+<en:germany
+en:Thuringia, Thüringen
+de:Thüringen
+xx:Thüringen
 
 # Italy regions
 
 <en:italy
 en:Sicily
 fr:Sicile
+hu:Szicília
 it:Sicilia
 
 # Spanish regions
@@ -262,6 +365,7 @@ it:Sicilia
 en:Andalusia
 es:Andalucía
 fr:Andalousie
+hu:Andalúzia
 
 <en:spain
 en:Castilla-La Mancha
@@ -285,8 +389,10 @@ fr:Navarre
 <en:united-states
 en:California
 ca:Califòrnia
+de:Kalifornien
 es:California
 fr:Californie
+hu:Kalifornia
 
 <en:united-states
 en:Florida
@@ -306,18 +412,22 @@ fr:Bande de Gaza
 
 en:Pacific Ocean
 ca:Oceà Pacífic
+de:Pazifische Ozean
 es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
+hu:Csendes-óceán
 it:Oceano Pacifico
 
 <en:Pacific Ocean
 en:Northeast Pacific Ocean
 de:Nordostpazifik
 fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
+hu:Északkelet-Csendes-óceán
 
 <en:Pacific Ocean
 en:Northwest Pacific Ocean
 fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
+hu:Északnyugat-Csendes-óceán
 
 <en:Pacific Ocean
 en:North Pacific Ocean
@@ -339,7 +449,9 @@ en:Southeast Pacific Ocean
 fr:Océan Pacifique Sud-Est
 
 en:Atlantic Ocean, Atlantic
+de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
+hu:Atlanti-óceán
 it:Oceano Atlantico, Atlantico
 
 <en:Atlantic Ocean
@@ -356,7 +468,9 @@ en:Northwest Atlantic Ocean
 fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 
 en:Indian Ocean
+de:Indischer Ozean
 fr:Océan Indien
+hu:Indiai-óceán
 
 <en:Indian Ocean
 en:Western Indian Ocean
@@ -369,10 +483,13 @@ fr:Océan Indien Est
 en:North Sea
 de:Nordsee
 fr:Mer du Nord
+hu:Északi-tenger
 
 en:Norwegian Sea
 fr:Mer de Norvège
+hu:Norvég tenger
 
 en:Barents sea
 fr:Mer de Barents
+hu:Barents-tenger
 

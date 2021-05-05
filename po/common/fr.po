@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-06 08:00\n"
+"PO-Revision-Date: 2021-04-17 08:10\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -92,7 +92,7 @@ msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Merci d'envoyer un courriel à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
+msgstr "Merci d'envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -656,7 +656,7 @@ msgstr "Le mot de passe et sa confirmation sont différents."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "L'adresse courriel est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
+msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -664,7 +664,7 @@ msgstr "Adresse invalide."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "L'adresse courriel est invalide"
+msgstr "L'adresse e-mail est invalide"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -704,7 +704,7 @@ msgstr "Le lien de réinitialisation de mot de passe est invalide ou a expiré."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Il n'existe pas de compte avec cette adresse courriel"
+msgstr "Il n'existe pas de compte avec cette adresse e-mail"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -1375,7 +1375,7 @@ msgstr "Pour les produits sans code-barres, un code interne est attribué automa
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "S'inscrire à la lettre d'information (2 courriels par mois maximum)"
+msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
 msgctxt "next"
 msgid "Next"
@@ -1997,7 +1997,7 @@ msgstr "Un e-mail avec un lien pour vous permettre de changer le mot de passe a 
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "Si vous avez oublié votre mot de passe, indiquez votre nom d'utilisateur ou votre courriel pour recevoir les instructions pour le réinitialiser."
+msgstr "Si vous avez oublié votre mot de passe, indiquez votre nom d'utilisateur ou votre e-mail pour recevoir les instructions pour le réinitialiser."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2127,7 +2127,7 @@ msgstr "Choisissez ce que vous voulez représenter sur l'axe horizontal du graph
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "Lien permanent vers ce graphique, partageable par courriel et les réseaux sociaux"
+msgstr "Lien permanent vers ce graphique, partageable par e-mail et les réseaux sociaux"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
@@ -2151,7 +2151,7 @@ msgstr "Ingrédients"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr "Lien permanent vers ces résultats, partageable par courriel et les réseaux sociaux"
+msgstr "Lien permanent vers ces résultats, partageable par e-mail et les réseaux sociaux"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2167,7 +2167,7 @@ msgstr "Résultats sur une carte"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr "Lien permanent vers cette carte, partageable par courriel et les réseaux sociaux"
+msgstr "Lien permanent vers cette carte, partageable par e-mail et les réseaux sociaux"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
@@ -2503,7 +2503,7 @@ msgstr "(lettres non accentuées, chiffres et/ou tirets)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "Nom d'utilisateur ou adresse courriel"
+msgstr "Nom d'utilisateur ou adresse e-mail : "
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2985,7 +2985,7 @@ msgstr "Dernière vérification de la fiche produit le"
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
@@ -3009,7 +3009,7 @@ msgstr "Volume"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
@@ -3345,7 +3345,7 @@ msgstr "Informations nutritionnelles facultatives"
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
@@ -3683,7 +3683,7 @@ msgstr "Vos produits"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Votre compte n'est associé à aucune entreprise. Vous pouvez envoyer un courriel à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
+msgstr "Votre compte n'est associé à aucune entreprise. Vous pouvez envoyer un e-mail à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -4785,7 +4785,7 @@ msgstr "Lien vers le formulaire de contact"
 
 msgctxt "contact_info"
 msgid "Other information"
-msgstr "Informations complémentaires"
+msgstr "Autres informations"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
@@ -5188,7 +5188,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr "Food"
+msgstr "Les données GS1 sont automatiquement associées à un identifiant d'organisation OFF qui correspond au champ GS1 partyName. Pour modifier l'identifiant de l'organisation OFF, vous pouvez attribuer directement un ou plusieurs identifiants GS1 GLN."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
@@ -5316,7 +5316,7 @@ msgid "If you are the manufacturer of this product, you can send us the informat
 msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
 
 msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
 msgstr "Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous)."
 
 msgctxt "ecoscore_add_missing_information"
@@ -5331,6 +5331,7 @@ msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Analyse de cycle de vie (ACV)"
 
+# do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Catégorie Agribalyse"
@@ -5344,12 +5345,12 @@ msgid "Exact match with the product category"
 msgstr "Correspondance exacte avec la catégorie du produit"
 
 msgctxt "ecoscore_pef_environmental_score"
-msgid "PEF environmental score:"
-msgstr "Score environnemental PEF :"
+msgid "PEF environmental score"
+msgstr "Score environnemental PEF"
 
 msgctxt "ecoscore_incl_climate_change_impact"
-msgid "- including impact on climate change:"
-msgstr "- dont impact sur le changement climatique :"
+msgid "including impact on climate change"
+msgstr "dont impact sur le changement climatique :"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
@@ -5387,9 +5388,9 @@ msgctxt "ecoscore_consumption"
 msgid "Consumption"
 msgstr "Consommation"
 
-msgctxt "ecoscore_lca_score_on_100"
-msgid "LCA score out of 100:"
-msgstr "Score ACV sur 100 :"
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "Score ACV sur 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5406,10 +5407,6 @@ msgstr "Bonus et malus complémentaires"
 msgctxt "ecoscore_production_mode"
 msgid "Production mode"
 msgstr "Mode de production"
-
-msgctxt "ecoscore_label"
-msgid "Label"
-msgstr "Etiquette"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5432,24 +5429,20 @@ msgid "If they are indicated on the packaging, you can modify the product sheet 
 msgstr "Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter."
 
 msgctxt "ecoscore_environmental_policy"
-msgid "Environmental policy :"
-msgstr "Politique environnementale :"
+msgid "Environmental policy"
+msgstr "Politique environnementale"
 
 msgctxt "ecoscore_transportation"
-msgid "Transportation :"
-msgstr "Transport :"
+msgid "Transportation"
+msgstr "Transport"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Espèces menacées"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species:"
-msgstr "Ingrédients dont la culture menace des espèces :"
-
-msgctxt "ecoscore_threatened_species"
-msgid "Threatened species :"
-msgstr "Espèces menacées :"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ingrédients dont la culture menace des espèces"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredient which cultivation threatens species has been detected."
@@ -5467,23 +5460,17 @@ msgctxt "ecoscore_packaging"
 msgid "Packaging"
 msgstr "Conditionnement"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_shape_ratio 
 msgctxt "ecoscore_packaging_ratio"
-msgid "(ratio : %s)"
-msgstr "(ratio : %s)"
+msgid "ratio"
+msgstr "ratio"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_material_score
 msgctxt "ecoscore_packaging_score"
-msgid "(score : %s)"
-msgstr "(score : %s)"
+msgid "score"
+msgstr "score"
 
 msgctxt "ecoscore_score_of_all_components"
-msgid "Score of all components:"
-msgstr "Score de tous les composants :"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging :"
-msgstr "Emballage :"
+msgid "Score of all components"
+msgstr "Score de tous les composants"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5509,6 +5496,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 eq/kg de produit"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "L'<a href=\"/ecoscore\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "La formule de l'Eco-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "L'Eco-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule de l'Eco-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays."
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "Scannez les codes-barres pour obtenir le Nutri-Score, l'Eco-Score et plus !"
+

@@ -40,7 +40,7 @@
   ],
   "dependencies": {
     "@webcomponents/webcomponentsjs": "2.5.0",
-    "@yaireo/tagify": "^3.21.0",
+    "@yaireo/tagify": "^3.25.0",
     "blueimp-file-upload": "^10.31.0",
     "cropperjs": "^1.5.11",
     "foundation-sites": "5.5.3",
@@ -54,11 +54,11 @@
     "leaflet.markercluster": "1.5.0",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.3.0",
-    "snyk": "^1.522.0",
+    "snyk": "^1.582.0",
     "xml2json": "^0.12.0"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
+    "eslint": "^7.25.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
@@ -66,7 +66,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgmin": "^3.0.0",
     "gulp-terser-js": "^5.2.2",
-    "stylelint": "^13.12.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^4.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.19.0"

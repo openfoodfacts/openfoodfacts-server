@@ -108,6 +108,8 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use DateTime::Format::ISO8601;
+use URI;
+use Digest::MD5 qw(md5_hex);
 
 =head1 FUNCTIONS
 
@@ -535,6 +537,8 @@ sub import_csv_file($) {
 						if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
 							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 						}
+						set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
+						$glns_ref = retrieve("$data_root/orgs_glns.sto");
 					}
 			
 					store_org($org_ref);
@@ -1700,6 +1704,10 @@ EMAIL
 
 							$filename = $code . "_" . $filename;
 						}
+						
+						# Add a hash of the URL
+						my $md5 = md5_hex($image_url);
+						$filename = $md5 . "_" . $filename;
 
 						my $images_download_dir = $args_ref->{images_download_dir};
 
@@ -1750,54 +1758,81 @@ EMAIL
 							# Download the image
 							if (! -e $file) {
 
+								# We can try to transform some URLs to get the full size image instead of preview thumbs
+								
+								my @image_urls = ($image_url);
+
 								# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
 								# -> remove thumb=true to get the full image
 
 								$image_url =~ s/thumb=true&//;
-
-								$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
-
-								require LWP::UserAgent;
-
-								my $ua = LWP::UserAgent->new(timeout => 10);
-
-								my $response = $ua->get($image_url);
-
-								if ($response->is_success) {
-									$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
-									open (my $out, ">", $file);
-									print $out $response->decoded_content;
-									close($out);
+								
+								# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
+								$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
+								
+								if ($image_url ne $image_urls[0]) {
+									unshift @image_urls, $image_url;
+								}
+								
+								my $downloaded_image = 0;
+								
+								while ((not $downloaded_image) and ($#image_urls >= 0)) {
 									
-									# Is the image readable?
-									my $magick = Image::Magick->new();
-									my $x = $magick->Read($file);
-									# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
-									# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-									if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-										$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
-										unlink($file);
+									$image_url = shift(@image_urls);
+								
+									# http://www.Kimagesvc.com/03159470204634_A1N1.jpg
+									# -> lowercase subdomain / domain
+									
+									my $uri = URI->new($image_url);
+									$image_url = $uri->canonical;
+									
+
+									$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
+
+									require LWP::UserAgent;
+
+									my $ua = LWP::UserAgent->new(timeout => 10);
+
+									my $response = $ua->get($image_url);
+
+									if ($response->is_success) {
+										$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
+										open (my $out, ">", $file);
+										print $out $response->decoded_content;
+										close($out);
+										
+										# Is the image readable?
+										my $magick = Image::Magick->new();
+										my $x = $magick->Read($file);
+										# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
+										# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
+										if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
+											$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+											unlink($file);
+										}
+										else {
+											# Assign the download image to the field
+											
+											# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
+											my $new_imagefield = $imagefield;
+											if (defined $images_ref->{$code}{$new_imagefield}) {
+												my $image_number = 2;
+												while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
+													$image_number++;
+												}
+												$new_imagefield = $imagefield . '.' . $image_number;
+											}	
+										
+											$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
+											(defined $images_ref->{$code}) or $images_ref->{$code} = {};
+											$images_ref->{$code}{$new_imagefield} = $file;
+											
+											$downloaded_image = 1;
+										}
 									}
 									else {
-										# Assign the download image to the field
-										
-										# We may have multiple images for the other field, in that case give them an imagefield of other.2, other.3 etc.
-										my $new_imagefield = $imagefield;
-										if (defined $images_ref->{$code}{$new_imagefield}) {
-											my $image_number = 2;
-											while (defined $images_ref->{$code}{$imagefield . '.' . $image_number}) {
-												$image_number++;
-											}
-											$new_imagefield = $imagefield . '.' . $image_number;
-										}	
-									
-										$log->debug("assigning image file", { new_imagefield => $new_imagefield, file => $file }) if $log->is_debug();
-										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-										$images_ref->{$code}{$new_imagefield} = $file;
+										$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
 									}
-								}
-								else {
-									$log->debug("could not download image file", { file => $file, response => $response }) if $log->is_debug();
 								}
 							}
 						}

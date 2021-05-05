@@ -161,7 +161,6 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
-use JSON;
 use JSON::PP;
 use Text::CSV;
 use XML::Simple;
@@ -4624,12 +4623,12 @@ sub customize_response_for_product($$) {
 		# Product attributes requested in a specific language (or data only)
 		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $attributes_options_ref);
+			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
 		}
 		# Product attributes in the $lc language
 		elsif ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $attributes_options_ref);
+			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 		}
 		
@@ -7272,8 +7271,6 @@ sub display_new($) {
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
 
-	my $top_banner = "";
-
 	my $image_banner = "";
 	my $link = lang("donate_link");
 	my $image;
@@ -7311,67 +7308,55 @@ else {
 }
 JS
 	}
-
-	if ($server_options{producers_platform}) {
-		$top_banner = "";
-	}
-
-	# Display a banner from users on Android or iOS
-
-	my $user_agent = $ENV{HTTP_USER_AGENT};
-
-	my $mobile;
-	my $system;
-
-	# windows phone must be first as its user agent includes the string android
-	if ($user_agent =~ /windows phone/i) {
-
-		$mobile = "windows";
-	}
-	elsif ($user_agent =~ /android/i) {
-
-		$mobile = "android";
-		$system = "android";
-	}
-	elsif ($user_agent =~ /iphone/i) {
-
-		$mobile = "iphone";
-		$system = "ios";
-	}
-	elsif ($user_agent =~ /ipad/i) {
-
-		$mobile = "ipad";
-		$system = "ios";
-	}
-
+	
 	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
 
 	if ($server_options{producers_platform}) {
 
 		$tagline = "";
+	}	
+
+	# Display a banner from users on Android or iOS
+
+	my $user_agent = $ENV{HTTP_USER_AGENT};
+	
+	# add a user_agent parameter so that we can test from desktop easily
+	if (defined param('user_agent')) {
+		$user_agent = param('user_agent');
 	}
 
-	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"}) and (not $server_options{producers_platform})) {
+	my $device;
+	my $system;
 
-		my $link = lang($system . "_app_link");
-		my $link_text = lang("get_the_app_$mobile");
+	# windows phone must be first as its user agent includes the string android
+	if ($user_agent =~ /windows phone/i) {
 
-		if ($system eq 'android') {
+		$device = "windows";
+	}
+	elsif ($user_agent =~ /android/i) {
 
-			$link_text = display_icon('brand-android-robot') . $link_text;
-		}
-		elsif ($system eq 'ios') {
+		$device = "android";
+		$system = "android";
+	}
+	elsif ($user_agent =~ /iphone/i) {
 
-			$link_text = display_icon('brand-apple')  . $link_text;
-		}
-		$template_data_ref->{banner_link} = $link;
-		$template_data_ref->{link_text} = $link_text;
- 		$top_banner = <<HTML
+		$device = "iphone";
+		$system = "ios";
+	}
+	elsif ($user_agent =~ /ipad/i) {
 
-<a href="$link" class="button expand">$link_text</a>
+		$device = "ipad";
+		$system = "ios";
+	}
 
-HTML
-;
+	if ((defined $device) and (defined $Lang{"get_the_app_$device"}) and (not $server_options{producers_platform})) {
+
+		$template_data_ref->{mobile} = {
+			device => $device,
+			system => $system,
+			link => lang($system . "_app_link"),
+			text => lang("app_banner_text"),
+		};
 	}
 	
 	# Extract initjs code from content
@@ -7381,7 +7366,6 @@ HTML
 		$initjs .= $1;
 	}	
 
-	$template_data_ref->{top_banner} = $top_banner;
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
 	$template_data_ref->{aside_blocks} = $aside_blocks;
@@ -7886,6 +7870,9 @@ SCRIPTS
 	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
 \$('.f-dropdown').on('opened.fndtn.dropdown', function() {
+   \$(document).foundation('equalizer', 'reflow');
+});
+\$('.f-dropdown').on('closed.fndtn.dropdown', function() {
    \$(document).foundation('equalizer', 'reflow');
 });
 JS
@@ -8667,7 +8654,7 @@ HTML
 	
 		# A result summary will be computed according to user preferences on the client side
 
-		compute_attributes($product_ref, $lc, $attributes_options_ref);
+		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 		
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
 		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
@@ -10692,8 +10679,8 @@ sub display_structured_response($)
 	else {
 		# my $data =  encode_json($request_ref->{structured_response});
 		# Sort keys of the JSON output
-		my $json = JSON->new->allow_nonref->canonical;
-		my $data = $json->encode($request_ref->{structured_response});
+		my $json = JSON::PP->new->allow_nonref->canonical;
+		my $data = $json->utf8->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 

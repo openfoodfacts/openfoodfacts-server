@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-05 19:54\n"
+"PO-Revision-Date: 2021-04-17 08:12\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5280,8 +5280,8 @@ msgid "If you are the manufacturer of this product, you can send us the informat
 msgstr "crwdns180740:0crwdne180740:0"
 
 msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)"
-msgstr "crwdns180742:0crwdne180742:0"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "crwdns180846:0crwdne180846:0"
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5295,6 +5295,7 @@ msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "crwdns180748:0crwdne180748:0"
 
+# do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "crwdns180750:0crwdne180750:0"
@@ -5308,12 +5309,12 @@ msgid "Exact match with the product category"
 msgstr "crwdns180754:0crwdne180754:0"
 
 msgctxt "ecoscore_pef_environmental_score"
-msgid "PEF environmental score:"
-msgstr "crwdns180756:0crwdne180756:0"
+msgid "PEF environmental score"
+msgstr "crwdns180848:0crwdne180848:0"
 
 msgctxt "ecoscore_incl_climate_change_impact"
-msgid "- including impact on climate change:"
-msgstr "crwdns180758:0crwdne180758:0"
+msgid "including impact on climate change"
+msgstr "crwdns180850:0crwdne180850:0"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
@@ -5351,9 +5352,9 @@ msgctxt "ecoscore_consumption"
 msgid "Consumption"
 msgstr "crwdns180776:0crwdne180776:0"
 
-msgctxt "ecoscore_lca_score_on_100"
-msgid "LCA score out of 100:"
-msgstr "crwdns180778:0crwdne180778:0"
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "crwdns180852:0crwdne180852:0"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5370,10 +5371,6 @@ msgstr "crwdns180784:0crwdne180784:0"
 msgctxt "ecoscore_production_mode"
 msgid "Production mode"
 msgstr "crwdns180786:0crwdne180786:0"
-
-msgctxt "ecoscore_label"
-msgid "Label"
-msgstr "crwdns180788:0crwdne180788:0"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5396,24 +5393,20 @@ msgid "If they are indicated on the packaging, you can modify the product sheet 
 msgstr "crwdns180798:0crwdne180798:0"
 
 msgctxt "ecoscore_environmental_policy"
-msgid "Environmental policy :"
-msgstr "crwdns180800:0crwdne180800:0"
+msgid "Environmental policy"
+msgstr "crwdns180854:0crwdne180854:0"
 
 msgctxt "ecoscore_transportation"
-msgid "Transportation :"
-msgstr "crwdns180802:0crwdne180802:0"
+msgid "Transportation"
+msgstr "crwdns180856:0crwdne180856:0"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "crwdns180804:0crwdne180804:0"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species:"
-msgstr "crwdns180806:0crwdne180806:0"
-
-msgctxt "ecoscore_threatened_species"
-msgid "Threatened species :"
-msgstr "crwdns180808:0crwdne180808:0"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "crwdns180858:0crwdne180858:0"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredient which cultivation threatens species has been detected."
@@ -5431,23 +5424,17 @@ msgctxt "ecoscore_packaging"
 msgid "Packaging"
 msgstr "crwdns180816:0crwdne180816:0"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_shape_ratio 
 msgctxt "ecoscore_packaging_ratio"
-msgid "(ratio : %s)"
-msgstr "crwdns180818:0%scrwdne180818:0"
+msgid "ratio"
+msgstr "crwdns180860:0crwdne180860:0"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_material_score
 msgctxt "ecoscore_packaging_score"
-msgid "(score : %s)"
-msgstr "crwdns180820:0%scrwdne180820:0"
+msgid "score"
+msgstr "crwdns180862:0crwdne180862:0"
 
 msgctxt "ecoscore_score_of_all_components"
-msgid "Score of all components:"
-msgstr "crwdns180822:0crwdne180822:0"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging :"
-msgstr "crwdns180824:0crwdne180824:0"
+msgid "Score of all components"
+msgstr "crwdns180864:0crwdne180864:0"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5473,7 +5460,27 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "crwdns180836:0crwdne180836:0"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "crwdns180838:0crwdne180838:0"
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "crwdns181400:0crwdne181400:0"
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "crwdns181402:0crwdne181402:0"
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "crwdns181404:0crwdne181404:0"
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "crwdns181406:0crwdne181406:0"
 

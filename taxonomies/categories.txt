@@ -2706,8 +2706,7 @@ de:Weißer Armagnac
 nl:Witte Armagnac
 country:en:France
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:French Eaux-de-vie
 en:Calvados
 de:Calvados
 fr:Calvados
@@ -2719,15 +2718,13 @@ wikidata:en:Q3268
 wikipedia:en:https://en.wikipedia.org/wiki/Calvados
 origins:en: en:France, fr:Calvados
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:Calvados
 fr:Calvados Domfrontais
 protected_name_file_number:en: PGI-FR-01837
 protected_name_type:en: gi
 origins:en: en:France
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:Calvados
 fr:Calvados Pays d'Auge
 protected_name_file_number:en: PGI-FR-02034
 protected_name_type:en: gi
@@ -24765,16 +24762,6 @@ it:Piadina
 wikidata:en:Q926532
 
 <en:Breads
-en:Rusk, rusks
-fr:Biscotte
-it:Fette biscottate
-wikidata:en:Q5477096
-agribalyse_food_code:en:7300
-ciqual_food_code:en:7300
-ciqual_food_name:en:Rusk
-ciqual_food_name:fr:Biscotte classique
-
-<en:Breads
 en:Rye breads, Wheat rye breads
 de:Roggenbrote
 es:Panes de centeno, Pan de centeno
@@ -25014,42 +25001,6 @@ ciqual_food_name:en:Rusk with eggs, sliced, prepacked
 ciqual_food_name:fr:Pain grillé brioché, tranché, préemballé
 
 <en:Toasts
-en:Rusk with eggs
-fr:Biscottes briochées
-agribalyse_food_code:en:7301
-ciqual_food_code:en:7301
-ciqual_food_name:en:Rusk, w eggs
-ciqual_food_name:fr:Biscotte briochée
-
-<en:Toasts
-en:Unsalted rusk
-fr:Biscotte sans adjonction de sel
-agribalyse_food_code:en:7310
-ciqual_food_code:en:7310
-ciqual_food_name:en:Rusk, unsalted
-ciqual_food_name:fr:Biscotte sans adjonction de sel
-
-<en:Toasts
-en:Multigrain rusk
-de:Mehrkorn Zwieback
-fr:Biscottes multicéréales
-nl:Meergranen beschuiten, Meergranen beschuit
-agribalyse_food_code:en:7330
-ciqual_food_code:en:7330
-ciqual_food_name:en:Rusk, multigrain
-ciqual_food_name:fr:Biscotte multicéréale
-
-
-<en:Toasts
-en:Wholemeal rusk, High-fiber rusk
-fr:Biscottes complètes, Biscottes riches en fibres
-it:Fetta biscottata integrale
-agribalyse_food_code:en:7340
-ciqual_food_code:en:7340
-ciqual_food_name:en:Rusk, wholemeal or rich in fibre
-ciqual_food_name:fr:Biscotte complète ou riche en fibres
-
-<en:Toasts
 en:Wheat swedish toast
 fr:Pain grillé suédois au froment
 agribalyse_food_code:en:7407
@@ -25229,44 +25180,77 @@ agribalyse_food_code:en:38500
 ciqual_food_code:en:38500
 ciqual_food_name:en:Crouton with garlic, herbs or onions, prepacked
 
+
 <en:Breads
-en:Zwieback
+en:Rusks, rusk, Zwieback
 de:Zwiebäcke, Zwiebacke, Zwieback
 es:Biscotes
-fr:Biscottes
-it:Pane abbrustolito
+fr:Biscottes, Biscotte
+it:Fette biscottate, Pane abbrustolito
 nl:Beschuiten, Beschuit
 ru:Сухари
-wikidata:en:Q4122049
-agribalyse_proxy_food_code:en:7330
-agribalyse_proxy_food_name:en:Rusk, multigrain
-agribalyse_proxy_food_name:fr:Biscotte multicéréale
+wikidata:en:Q5477096
+agribalyse_food_code:en:7300
+ciqual_food_code:en:7300
+ciqual_food_name:en:Rusk
+ciqual_food_name:fr:Biscotte classique
 
-<en:Zwieback
-fr:Biscottes à la farine d'épeautre, Biscottes d’épeautre
+<en:Rusks
+en:Spelt rusks
+fr:Biscottes d'épeautre, Biscottes à la farine d'épeautre, Biscottes d’épeautre
 de:Dinkelzwieback
+it:Fette biscottate di farro
 nl:Speltbeschuiten, Speltbeschuit
 
-<en:Zwieback
-fr:Biscottes au froment
+<en:Rusks
+fr:Biscottes de froment, Biscottes au froment
 de:Weizenzwieback
 nl:Tarwebeschuiten, Tarwebeschuit
 
-<en:Zwieback
-fr:Biscottes aux céréales
-de:Getreide Zwieback
-nl:Granenbeschuiten, Granenbeschuit
+<en:Rusks
+en:Multigrain rusks, Multigrain rusk
+de:Mehrkorn Zwieback, Getreide Zwieback
+fr:Biscottes multicéréales, Biscottes aux céréales
+it:Fette biscottate multicereali
+nl:Meergranen beschuiten, Meergranen beschuit, Granenbeschuiten, Granenbeschuit
+agribalyse_food_code:en:7330
+ciqual_food_code:en:7330
+ciqual_food_name:en:Rusk, multigrain
+ciqual_food_name:fr:Biscotte multicéréale
 
-<en:Zwieback
-fr:Biscottes complètes
+<en:Rusks
+en:Wholemeal rusks, Wholemeal rusk, High-fiber rusk
 de:Vollkorn Zwieback
+fr:Biscottes complètes, Biscottes riches en fibres
+it:Fette biscottate integrali, Fetta biscottata integrale
 nl:Volkorenbeschuiten, Volkorenbeschuit
+agribalyse_food_code:en:7340
+ciqual_food_code:en:7340
+ciqual_food_name:en:Rusk, wholemeal or rich in fibre
+ciqual_food_name:fr:Biscotte complète ou riche en fibres
 
 <en:Products with reduced salt
-<en:Zwieback
+<en:Rusks
 fr:Biscottes pauvres en sel
 de:Salzarmer Zwieback
 nl:Zoutarme beschuiten, Zoutarme beschuit
+
+<en:Rusks
+en:Rusk with eggs
+fr:Biscottes briochées
+agribalyse_food_code:en:7301
+ciqual_food_code:en:7301
+ciqual_food_name:en:Rusk, w eggs
+ciqual_food_name:fr:Biscotte briochée
+
+<en:Rusks
+en:Unsalted rusk
+fr:Biscotte sans adjonction de sel
+agribalyse_food_code:en:7310
+ciqual_food_code:en:7310
+ciqual_food_name:en:Rusk, unsalted
+ciqual_food_name:fr:Biscotte sans adjonction de sel
+
 
 <en:Breads
 fr:Pains croustillants, Pain croustillant
@@ -27669,7 +27653,7 @@ ciqual_food_name:fr:Bonbons, tout type
 en:French candies
 fr:Bonbons français
 
-en:Candies
+<en:Candies
 en:Liquorice candies, Licorice candies
 fr:Bonbons au réglisse, Bonbons à la réglisse
 
@@ -29261,18 +29245,6 @@ ciqual_food_name:en:Amaranth, raw
 ciqual_food_name:fr:Amarante, crue
 
 <en:Cereal grains
-en:Avena
-de:Haferarten
-es:Avena
-fi:Kaurat
-fr:Avena
-it:Avena
-la:Avena
-nl:Haverfamilie, Avena
-zh:燕麦属
-wikidata:en:Q146760
-
-<en:Avena
 en:Oat
 de:Hafer, Echter Hafer
 es:Avena sativa
@@ -29692,6 +29664,7 @@ de:Gekochter Reis
 es:Arroces vaporizados, Arroces sancochados, Arroces parboiled
 fi:Parboiled-riisit
 fr:Riz étuvé
+it:Riso parboiled
 nl:Parboiled rijst, Inkaf gekookte rijst
 wikidata:en:Q732925
 agribalyse_proxy_food_code:en:9101
@@ -29831,12 +29804,18 @@ ciqual_food_name:en:Rice, red, cooked, unsalted
 ciqual_food_name:fr:Riz rouge, cuit, non salé
 
 <en:Rices
-en:red rice
+en:Red rices, red rice
 fr:Riz rouge
+it:Risso rosso
 agribalyse_food_code:en:9109
 ciqual_food_code:en:9109
 ciqual_food_name:en:Rice, red, raw
 ciqual_food_name:fr:Riz rouge, cru
+
+<en:Rices
+en:Black rices
+fr:Riz noir
+it:Riso venere
 
 <en:Short grain rices
 <en:Japonica rices
@@ -29909,6 +29888,7 @@ en:Bomba rices
 de:Bomba Reis
 es:Arroces Bomba
 fr:Riz Bomba
+it:Riso Bomba
 nl:Bombarijsten, Bombarijst
 wikidata:en:Q5706296
 
@@ -29930,7 +29910,7 @@ en:Carnaroli rices
 de:Carnaroli Reis
 es:Arroces Carnaroli
 fr:Riz Carnaroli
-it:Risi carnaroli
+it:Riso Carnaroli, Risi carnaroli
 nl:Carnarolirijsten, Carnarolirijst
 wikidata:en:Q1043890
 
@@ -30001,8 +29981,19 @@ en:Vialone Nano rices
 de:Vialone Reis
 es:Arroces Vialone Nano
 fr:Riz Vialone Nano
+it:Riso Vialone Nano
 nl:Vialone Nanorijsten, Vialone Nanorijst, Vialone Nano rijst
 wikidata:en:Q3937029
+
+<en:Rices
+en:Roma rices
+fr:Riz Roma
+it:Riso Roma
+
+<en:Rices
+en:Ribe rices
+fr:Riz Ribe
+it:Riso Ribe
 
 <en:Rices
 en:Mixed rices, Mix of rice species
@@ -30623,6 +30614,10 @@ en:Crisps of red potatoes, red potato crisps, red potatoes crisps
 de:Rote Kartoffelchips, Chips aus roten Kartoffeln
 fr:Chips de pommes de terre rouge
 nl:Rode aardappelchips
+
+<en:Crisps
+en:Crisps made from reconstituted potato
+fr:Chips de pomme de terre reconstituée
 
 <en:Crisps
 en:Salty snacks made from potato
@@ -78653,8 +78648,6 @@ fr:Poudre de tomate séchée
 nl:Tomatenpoeders
 
 
-
-
 <en:Ground dried vegetables
 <en:Garlic and their products
 en:Garlic powder, Granulated garlic, Dried garlic powder
@@ -79000,14 +78993,6 @@ agribalyse_food_code:en:20126
 ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
-
-<en:Pulses
-en:Whole soybean grain
-fr:Soja graine entière
-agribalyse_food_code:en:20901
-ciqual_food_code:en:20901
-ciqual_food_name:en:Soybean, whole grain
-ciqual_food_name:fr:Soja, graine entière
 
 <en:Pulses
 en:Chickpeas
@@ -79490,13 +79475,6 @@ ciqual_food_code:en:20183
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, raw
 ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 
-en:Soy sprouts
-fr:Pousses de soja
-agribalyse_food_code:en:20183
-ciqual_food_code:en:20183
-ciqual_food_name:en:Mung bean, sprouted or soy spouts, raw
-ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
-
 <en:Vegetables
 en:Broad beans
 fr:Fèves
@@ -79638,16 +79616,34 @@ ciqual_food_name:en:Snow pea, cooked
 ciqual_food_name:fr:Pois mange-tout ou pois gourmands, cuits
 
 <en:Legume seeds
-en:Soy, Soya
+en:Soy beans, Soy, Soya, Whole soybean grain
 de:Soja
 es:Soja
 fi:soija
-fr:Soja
+fr:Fèves de soja, Soja, Soja graine entière
 ja:大豆, ダイズ
 la:Glycine max
 nl:Soja
 ru:Соя, Семена сои
 wikidata:en:Q11006
+agribalyse_food_code:en:20901
+ciqual_food_code:en:20901
+ciqual_food_name:en:Soybean, whole grain
+ciqual_food_name:fr:Soja, graine entière
+
+<en:Soy
+en:Edamame
+fr:Edamame
+
+<en:Edamame
+<en:Canned legumes
+en:Canned edamame
+fr:Edamame en conserve
+
+<en:Edamame
+<en:Frozen legumes
+en:Frozen edamame
+fr:Edamame surgelés
 
 <en:Canned plant-based foods
 <en:Legumes
@@ -79858,20 +79854,12 @@ nl:Peulvruchtenkiemen in blik
 
 <en:Canned legume sprouts
 <en:Mung bean sprouts
-en:Canned mung bean sprouts, Canned sprouted mung beans
+en:Canned mung bean sprouts, Canned sprouted mung beans, Canned soy sprouts
 es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
 fi:Purkitetut mungpavun idut
-fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés
+fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés, Pousses de soja en conserve, Pousses de soja appertisées
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
 nl:Mungoboonkiemen in blik
-agribalyse_food_code:en:20029
-ciqual_food_code:en:20029
-ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained
-ciqual_food_name:fr:Haricot mungo germé ou pousse de soja, appertisé, égoutté
-
-<en:Canned sprouts
-en:Canned soy sprouts
-fr:Pousses de soja en conserve, Pousses de soja appertisées
 agribalyse_food_code:en:20029
 ciqual_food_code:en:20029
 ciqual_food_name:en:Mung bean, sprouted or soy spouts, canned, drained

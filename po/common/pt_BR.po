@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-06 08:01\n"
+"PO-Revision-Date: 2021-04-17 08:12\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5311,8 +5311,8 @@ msgid "If you are the manufacturer of this product, you can send us the informat
 msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
 msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)"
-msgstr "Atenção: algumas informações necessárias para calcular o Eco-Score com precisão não são fornecidas (veja os detalhes do cálculo abaixo)"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Atenção: algumas informações necessárias para calcular o Eco-Score com precisão não foram fornecidas (veja os detalhes do cálculo abaixo)."
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5326,6 +5326,7 @@ msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Análise do Ciclo de Vida (ACV)"
 
+# do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Categoria Agribalyse"
@@ -5339,12 +5340,12 @@ msgid "Exact match with the product category"
 msgstr "Correspondência exata com a categoria do produto"
 
 msgctxt "ecoscore_pef_environmental_score"
-msgid "PEF environmental score:"
-msgstr "Pontuação ambiental PEF:"
+msgid "PEF environmental score"
+msgstr "Pontuação ambiental PEF"
 
 msgctxt "ecoscore_incl_climate_change_impact"
-msgid "- including impact on climate change:"
-msgstr "- incluindo impacto nas alterações climáticas:"
+msgid "including impact on climate change"
+msgstr "incluindo o impacto nas alterações climáticas"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
@@ -5382,9 +5383,9 @@ msgctxt "ecoscore_consumption"
 msgid "Consumption"
 msgstr "Consumo"
 
-msgctxt "ecoscore_lca_score_on_100"
-msgid "LCA score out of 100:"
-msgstr "Pontuação ACV de 100:"
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "Pontuação LCA em 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5401,10 +5402,6 @@ msgstr "Bónus e malus adicionais"
 msgctxt "ecoscore_production_mode"
 msgid "Production mode"
 msgstr "Modo de produção"
-
-msgctxt "ecoscore_label"
-msgid "Label"
-msgstr "Etiqueta"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5427,24 +5424,20 @@ msgid "If they are indicated on the packaging, you can modify the product sheet 
 msgstr "Se for indicado na embalagem, pode editar a página do produto e adicionar."
 
 msgctxt "ecoscore_environmental_policy"
-msgid "Environmental policy :"
-msgstr "Política ambiental:"
+msgid "Environmental policy"
+msgstr "Política ambiental"
 
 msgctxt "ecoscore_transportation"
-msgid "Transportation :"
-msgstr "Transporte:"
+msgid "Transportation"
+msgstr "Transporte"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Espécies ameaçadas"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species:"
-msgstr "Ingredientes cujo cultivo ameaça espécies:"
-
-msgctxt "ecoscore_threatened_species"
-msgid "Threatened species :"
-msgstr "Espécies ameaçadas:"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ingredientes cujo cultivo ameaça espécies"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredient which cultivation threatens species has been detected."
@@ -5462,23 +5455,17 @@ msgctxt "ecoscore_packaging"
 msgid "Packaging"
 msgstr "Embalagem"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_shape_ratio 
 msgctxt "ecoscore_packaging_ratio"
-msgid "(ratio : %s)"
-msgstr "(proporção: %s)"
+msgid "ratio"
+msgstr "proporção"
 
-# TODO INJECT FROM THE TEMPLATE - packaging.ecoscore_material_score
 msgctxt "ecoscore_packaging_score"
-msgid "(score : %s)"
-msgstr "(pontuação : %s)"
+msgid "score"
+msgstr "pontuação"
 
 msgctxt "ecoscore_score_of_all_components"
-msgid "Score of all components:"
-msgstr "Pontuação de todos os componentes:"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging :"
-msgstr "Embalagem:"
+msgid "Score of all components"
+msgstr "Pontuação de todos os componentes"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5504,7 +5491,26 @@ msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 eq/kg de produto"
 
+# do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "O <a href=\"/ecoscore\">Eco-Score</a> é uma pontuação experimental que resume os impactos ambientais dos produtos alimentares."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "A fórmula Eco-Score está sujeita a alterações, pois é regularmente melhorada para torná-la mais precisa."
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "O Eco-Score foi inicialmente desenvolvido para França e está a ser alargado a outros países europeus. A fórmula Eco-Score está sujeita a mudanças, uma vez que é regularmente melhorada para torná-la mais precisa e mais adequada a cada país."
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr "Digitalize códigos de barras para obter o Nutri-Score, o Eco-Score e muito mais!"
