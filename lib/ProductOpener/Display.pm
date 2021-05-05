@@ -5421,7 +5421,8 @@ sub search_and_export_products($$$) {
 			$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 		}
 
-		my @products = $cursor->all;
+		$cursor->immortal(1);
+
 		$request_ref->{count} = $count;
 
 		# Send the CSV file line by line
@@ -5549,7 +5550,7 @@ sub search_and_export_products($$$) {
 
 		my $j = 0;    # Row number
 
-		foreach my $product_ref (@products) {
+		while (my $product_ref = $cursor->next) {
 
 			$j++;
 
