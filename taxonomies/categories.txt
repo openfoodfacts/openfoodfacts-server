@@ -23902,6 +23902,17 @@ ciqual_food_name:en:Butter biscuit (cookie), with chocolate
 es:Galletas maría, galletas de tipo maria
 nl:Mariakaakjes, Mariakaakje
 
+#There is two type of rosquillas in Spain. Some have the consistancy of doughuts and the others are biscuits. This category regroups the biscuits
+<en:Biscuits
+en:Rousquilles
+es:Galletas rosquillas
+fr:Rousquilles
+wikidata:en:Q3443429
+
+#There is two type of rosquillas in Spain. Some have the consistancy of doughuts and the others are biscuits. This category regroups the doughnuts
+<en:Cakes
+es:Rosquillas fritas
+
 <en:Biscuits and cakes
 en:Gingerbreads, gingerbread
 ca:Pa de gingebre
@@ -24763,6 +24774,9 @@ en:Piadina
 fr:Piadina
 it:Piadina
 wikidata:en:Q926532
+
+<en:Piadina
+it:Piadina Romagnola
 
 <en:Breads
 en:Rye breads, Wheat rye breads
@@ -25818,6 +25832,16 @@ agribalyse_food_code:en:23939
 ciqual_food_code:en:23939
 ciqual_food_name:en:Soft cake filled with chocolate or chocolate drops or milk
 ciqual_food_name:fr:Gâteau moelleux fourré au chocolat ou aux pépites de chocolat ou au lait
+
+# Panforte is a traditional chewy Italian dessert containing fruits and nuts. 
+<en:Desserts
+<en:Christmas sweets
+en:Panforte
+it:Panforte
+wikidata:en:Q1278788
+
+<en:Panforte
+it:Panforte di Siena
 
 <en:Cakes
 en:Marble cakes, Marble cake
@@ -31132,6 +31156,10 @@ wikidata:en:Q209044
 agribalyse_food_code:en:12524
 ciqual_food_code:en:12524
 ciqual_food_name:en:Gorgonzola cheese, from cow's milk
+
+
+<en:Cheeses
+it:Robiolino
 
 <en:Italian cheeses
 fr:gorgonzola et mascarpone
@@ -44474,7 +44502,7 @@ nl:Gepofte gerst
 <en:Puffed cereals
 en:Puffed buckwheat
 es:Trigo sarraceno inflado, Trigo sarraceno hinchado
-fr:Sarrasin de Tartarie soufflé
+fr:Sarrasin soufflé
 nl:Gepofte boekweit
 
 <en:Puffed cereals
@@ -64208,6 +64236,15 @@ ro:Pateu de rață
 
 <fr:Pâté
 fr:Pâtés de Taureau
+
+<en:Prepared meats
+<en:Salted spreads
+en:Nduja
+de:Nduja
+es:Nduja
+fr:Nduja
+it:Nduja
+wikidata:en:Q1505085
 
 <en:Prepared meats
 <en:Salted spreads
