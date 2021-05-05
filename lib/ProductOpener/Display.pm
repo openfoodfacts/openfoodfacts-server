@@ -5383,7 +5383,7 @@ sub search_and_export_products($$$) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if ($count > $export_limit) {
+	if ((not defined $request_ref->{batch}) and ($count > $export_limit)) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
 	}
 
@@ -5393,7 +5393,7 @@ sub search_and_export_products($$$) {
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if (($count <= 0) or ($count > $export_limit)) {
+	if ((not defined $request_ref->{batch}) and (($count <= 0) or ($count > $export_limit))) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
 		$request_ref->{content_ref} = \$html;
