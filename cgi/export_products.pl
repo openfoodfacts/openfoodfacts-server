@@ -296,6 +296,8 @@ TODO:<br>
 <br>
 2. Validate the export. <br>
 <br>
+2b. Or, email to the producer if there are too many issues with their data.<br>
+<br>
 3. <a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">Email to tell the producer its products have been exported</a>. <br>
 <br>
 
