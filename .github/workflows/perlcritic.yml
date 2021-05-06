@@ -2,18 +2,21 @@ name: Perl Critic
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   perlcritic:
+    name: "Run Perl::Critic"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Perl Critic
-      uses: Difegue/action-perlcritic@2.0.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: cgi/*.pl scripts/*.pl lib/ProductOpener/*.pm lib/*.pl t/*.t
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: "Run Perl::Critic"
+        uses: Difegue/action-perlcritic@2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: cgi/*.pl scripts/*.pl lib/ProductOpener/*.pm lib/*.pl t/*.t
