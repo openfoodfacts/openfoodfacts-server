@@ -282,14 +282,21 @@ TEXT
 
 
 	my $admin_mail_body = <<EMAIL
-org_id: $Org_id
-user id: $User_id
-user name: $User{name}
-user email: $User{email}
+org_id: $Org_id <br>
 
+user id: $User_id <br>
 
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id
-<a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+user name: $User{name} <br>
+
+user email: $User{email} <br>
+
+TODO:
+
+1. <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id">Control products on pro platform</a>.
+
+2. Validate the export.
+
+3. <a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">Email to tell the producer its products have been exported</a>.
 
 EMAIL
 ;
