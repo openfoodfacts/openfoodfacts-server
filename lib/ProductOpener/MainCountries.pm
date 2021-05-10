@@ -179,7 +179,9 @@ sub compute_main_countries($) {
 							cc_to_world_scans_ratio => $cc_to_world_scans_ratio,
 							average_cc_to_world_scans_ratio => $average_cc_to_world_scans_ratio,
 							data_in_country_language => $data_in_country_language,
-							  } ) if $log->is_debug();						
+							  } ) if $log->is_debug();
+							  
+					defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];			
 					
 					# More than 10 scans, and a scan ratio for the country < 30% of the average scan ratio
 					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 10)
@@ -192,7 +194,6 @@ sub compute_main_countries($) {
 							data_in_country_language => $data_in_country_language,
 							  } ) if $log->is_debug();
 							  
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans";
 						
 						if ($cc_to_world_scans_ratio <= 0.1 * $average_cc_to_world_scans_ratio) {
@@ -214,21 +215,17 @@ sub compute_main_countries($) {
 					}
 					
 					if ($product_name_in_country_language < 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-product-name-not-in-country-language";
 					}
 					
 					if ($ingredients_text_in_country_language < 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-ingredients-not-in-country-language";
 					}						
 					
 					if ($data_in_country_language < 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-no-data-in-country-language";
 					}
 					elsif ($data_in_country_language == 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-only-1-field-in-country-language";
 					}
 				}
