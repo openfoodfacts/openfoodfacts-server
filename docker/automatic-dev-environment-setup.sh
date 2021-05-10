@@ -11,11 +11,11 @@ brew cask install docker
 # opening docker for the first time in GUI mode to grant it priviledges
 open docker
 cd ./openfoodfacts-server/docker/
-echo "🥫 Building visual assets…"
-./build_npm.sh
 echo "🥫 Building Product Opener…"
 echo "🥫 Your ventilator is probably going to start"
 ./build_dev.sh
+echo "🥫 Building visual assets…"
+./build_npm.sh
 echo "🥫 TODO: describe me…"
 echo "🥫 This phase is going to be very long, up to an hour. Look for the increasing number snapshot min"
 ./start_dev.sh
