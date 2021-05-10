@@ -177,6 +177,13 @@ foreach my $test_ref (@tests) {
 	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
 ],
 
+# Uppercase all lowercase fields
+
+[
+	{lc => "es", product_name_es => "natillas de soja sabor vainilla"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
 # Remove brand at end of product name
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
