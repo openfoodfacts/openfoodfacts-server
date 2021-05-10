@@ -883,8 +883,9 @@ sub gs1_to_off ($$$) {
 							$serving_size_description =~ s/\s+$//;
 							# skip the extra description if it is equal to value + unit
 							# to avoid things like 43 g (43 g)
+							# "Pour 45g ?²?" --> ignore bogus characters at the end
 							if (($serving_size_description !~ /^\s*$/)
-								and ($serving_size_description !~ /^$serving_size_value\s*$serving_size_unit$/i)) {
+								and ($serving_size_description !~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)) {
 								$extra_serving_size_description = ' (' . $serving_size_description . ')';
 							}
 						}
