@@ -16,7 +16,7 @@ Product Opener is the server software for Open Food Facts and Open Beauty Facts.
 ## 1 command to get started on your machine
 ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/e7e1f9a6536c62fc51f71f6a6adace032d713815/docker/automatic-dev-environment-setup.sh)"```
 Note: this is experimental, and has only been tested on an osx laptop so far. Help to expand to Windows and *nix welcome :-)
-
+Note2: On Mac devices, you need to manually set 4GB of RAM in Docker preferences >> Ressources >> Memory
 ## What is Open Food Facts?
 
 ### A food products database
