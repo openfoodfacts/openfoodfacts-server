@@ -32569,7 +32569,7 @@ de:Maasdamer
 fi:maasdam
 fr:Maasdam
 it:Maasdam
-nl:Maasdam
+nl:Maasdam, Maasdammer
 wikidata:en:Q3273732
 oqali_family:en: fr:Fromages - Maasdam
 agribalyse_food_code:en:12705
@@ -32588,8 +32588,9 @@ ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
 ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
 # description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
-
-<en:Cheeses of the Netherlands
+# comment: Gouda is NOT a protected name. It can be made anywhere.
+<en:Uncooked pressed cheeses
+<en:Cow cheeses
 en:Gouda
 de:Goudas
 es:Gouda
@@ -32614,9 +32615,6 @@ fr:Goudas au cumin
 it:Gouda con cumino
 nl:Goudse Komijnenkazen
 
-<en:Gouda
-fr:Goudas fermiers
-nl:Stolwijker, Boerengouda
 
 # comment:en: ripings process < 4 weeks
 <en:Gouda
@@ -32669,6 +32667,7 @@ oqali_family:en: fr:Fromages - Edam
 agribalyse_food_code:en:12729
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
+
 
 <en:Cheeses of the Netherlands
 en:Leerdammer
@@ -34558,10 +34557,6 @@ nl:Boeren-Leidse kazen
 country:en:The Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Edamse kazen
-country:en:The Netherlands
-
-<en:Cheeses of the Netherlands
 nl:Nagelkazen
 country:en:The Netherlands
 
@@ -34572,13 +34567,16 @@ protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Edam
 nl:Edam Holland
 protected_name_file_number:en: PGI-NL-0329
 protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Gouda Holland
+<en:Gouda
+en:Gouda Holland
+xx:Gouda Holland
 protected_name_file_number:en: PGI-NL-0328
 protected_name_type:en: pgi
 origins:en: en:Netherlands
@@ -34602,6 +34600,7 @@ protected_name_type:en: pdo
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Gouda
 nl:Noord-Hollandse Gouda
 protected_name_file_number:en: PDO-NL-0314
 protected_name_type:en: pdo
