@@ -32678,7 +32678,7 @@ es:Maasdam, Queso Maasdam
 fi:maasdam
 fr:Maasdam
 it:Maasdam
-nl:Maasdam
+nl:Maasdam, Maasdammer
 wikidata:en:Q3273732
 oqali_family:en: fr:Fromages - Maasdam
 agribalyse_food_code:en:12705
@@ -32696,14 +32696,17 @@ ciqual_food_code:en:12741
 ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
 ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
-<en:Cheeses of the Netherlands
+# description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
+# comment: Gouda is NOT a protected name. It can be made anywhere.
+<en:Uncooked pressed cheeses
+<en:Cow cheeses
 en:Gouda
 de:Goudas
 es:Gouda
 fi:Gouda
 fr:Goudas
 it:Gouda
-nl:Goudse Kazen
+nl:Gouda, Goudse Kazen
 pl:Gouda
 ru:Сыр Гауда
 wikidata:en:Q593675
@@ -32722,24 +32725,8 @@ fr:Goudas au cumin
 it:Gouda con cumino
 nl:Goudse Komijnenkazen
 
-<en:Gouda
-en:White gouda
-de:Weiße Goudas
-fr:Goudas blancs
 
-<en:Gouda
-fr:Goudas extra-vieux, Goudas de Noël
-de:Extra alte Goudas
-nl:Goudas extra oud, Overjarige Gouda
-
-<en:Gouda
-fr:Goudas fermiers
-
-<en:Gouda
-en:Yellow gouda
-de:Gelbe Goudas
-fr:Goudas jaunes
-
+# comment:en: ripings process < 4 weeks
 <en:Gouda
 en:Young gouda, Young goudas
 de:Junge Goudas, Junger Gouda
@@ -32748,21 +32735,25 @@ fr:Goudas jeunes, Gouda jeune
 it:Gouda giovane
 nl:Jonge Gouda
 
+# comment:en: ripings process 8 <-> 10 weeks
 <en:Gouda
+en:Young matured Gouda
+nl:Jong belegen Gouda
+
+# comment:en: ripings process 16 <-> 18 weeks
+<en:Gouda
+en:Matured Gouda
 fr:Goudas mi-vieux
 de:Mittelalter Gouda
 fi:Kypsytetyt Goudat
+nl:Belegen Gouda 
 
+# comment:en: ripings process 7 <-> 9 months
 <en:Gouda
-en:Orange goudas
-de:Orangene Goudas
-fr:Goudas oranges
+en:Extra matured Gouda
+nl:Extra belegen Gouda
 
-<en:Gouda
-en:Red goudas
-de:Rote Goudas
-fr:Goudas rouges
-
+# comment:en: ripings process 10 <-> 12 months
 <en:Gouda
 en:Old Goudas
 de:Alter Gouda
@@ -32770,19 +32761,27 @@ fi:kypsytetyt goudat
 fr:Goudas vieux
 nl:Oude Gouda
 
+# comment:en: ripings process > 12 months
+<en:Gouda
+fr:Goudas extra-vieux, Goudas de Noël
+de:Extra alte Goudas
+nl:Goudas extra oud, Overjarige Gouda
+
 <en:Cheeses of the Netherlands
 en:Edam
 de:Edamer
-es:Edam
-fi:Edam
-fr:Edam
+xx:Edam
 hu:Edámi sajt
-nl:Edam
 wikidata:en:Q597473
 oqali_family:en: fr:Fromages - Edam
 agribalyse_food_code:en:12729
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
+
+
+<en:Cheeses of the Netherlands
+en:Leerdammer
+xx:Leerdammer
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -34683,10 +34682,6 @@ nl:Boeren-Leidse kazen
 country:en:The Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Edamse kazen
-country:en:The Netherlands
-
-<en:Cheeses of the Netherlands
 nl:Nagelkazen
 country:en:The Netherlands
 
@@ -34697,13 +34692,16 @@ protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Edam
 nl:Edam Holland
 protected_name_file_number:en: PGI-NL-0329
 protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Gouda Holland
+<en:Gouda
+en:Gouda Holland
+xx:Gouda Holland
 protected_name_file_number:en: PGI-NL-0328
 protected_name_type:en: pgi
 origins:en: en:Netherlands
@@ -34727,6 +34725,7 @@ protected_name_type:en: pdo
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Gouda
 nl:Noord-Hollandse Gouda
 protected_name_file_number:en: PDO-NL-0314
 protected_name_type:en: pdo
