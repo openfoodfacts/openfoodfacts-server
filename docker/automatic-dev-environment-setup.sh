@@ -16,9 +16,6 @@ echo "🥫 Your ventilator is probably going to start"
 ./build_dev.sh
 echo "🥫 Building visual assets…"
 ./build_npm.sh
-echo "🥫 TODO: describe me…"
-echo "🥫 This phase is going to be very long, up to an hour. Look for the increasing number snapshot min"
-./start_dev.sh
 echo "🥫 Populating database…"
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
 echo "🥫 You should be able to access your local install of Open Food Facts at http://0.0.0.0…"
