@@ -32587,6 +32587,8 @@ ciqual_food_code:en:12741
 ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
 ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
+# description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
+
 <en:Cheeses of the Netherlands
 en:Gouda
 de:Goudas
@@ -32594,7 +32596,7 @@ es:Gouda
 fi:Gouda
 fr:Goudas
 it:Gouda
-nl:Goudse Kazen
+nl:Gouda, Goudse Kazen
 pl:Gouda
 wikidata:en:Q593675
 oqali_family:en: fr:Fromages - Gouda
@@ -32613,23 +32615,10 @@ it:Gouda con cumino
 nl:Goudse Komijnenkazen
 
 <en:Gouda
-en:White gouda
-de:Weiße Goudas
-fr:Goudas blancs
-
-<en:Gouda
-fr:Goudas extra-vieux, Goudas de Noël
-de:Extra alte Goudas
-nl:Goudas extra oud, Overjarige Gouda
-
-<en:Gouda
 fr:Goudas fermiers
+nl:Stolwijker, Boerengouda
 
-<en:Gouda
-en:Yellow gouda
-de:Gelbe Goudas
-fr:Goudas jaunes
-
+# comment:en: ripings process < 4 weeks
 <en:Gouda
 en:Young gouda, Young goudas
 de:Junge Goudas, Junger Gouda
@@ -32638,21 +32627,25 @@ fr:Goudas jeunes, Gouda jeune
 it:Gouda giovane
 nl:Jonge Gouda
 
+# comment:en: ripings process 8 <-> 10 weeks
 <en:Gouda
+en:Young matured Gouda
+nl:Jong belegen Gouda
+
+# comment:en: ripings process 16 <-> 18 weeks
+<en:Gouda
+en:Matured Gouda
 fr:Goudas mi-vieux
 de:Mittelalter Gouda
 fi:Kypsytetyt Goudat
+nl:Belegen Gouda 
 
+# comment:en: ripings process 7 <-> 9 months
 <en:Gouda
-en:Orange goudas
-de:Orangene Goudas
-fr:Goudas oranges
+en:Extra matured Gouda
+nl:Extra belegen Gouda
 
-<en:Gouda
-en:Red goudas
-de:Rote Goudas
-fr:Goudas rouges
-
+# comment:en: ripings process 10 <-> 12 months
 <en:Gouda
 en:Old Goudas
 de:Alter Gouda
@@ -32660,19 +32653,26 @@ fi:kypsytetyt goudat
 fr:Goudas vieux
 nl:Oude Gouda
 
+# comment:en: ripings process > 12 months
+<en:Gouda
+fr:Goudas extra-vieux, Goudas de Noël
+de:Extra alte Goudas
+nl:Goudas extra oud, Overjarige Gouda
+
 <en:Cheeses of the Netherlands
 en:Edam
 de:Edamer
-es:Edam
-fi:Edam
-fr:Edam
+xx:Edam
 hu:Edámi sajt
-nl:Edam
 wikidata:en:Q597473
 oqali_family:en: fr:Fromages - Edam
 agribalyse_food_code:en:12729
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
+
+<en:Cheeses of the Netherlands
+en:Leerdammer
+xx:Leerdammer
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
