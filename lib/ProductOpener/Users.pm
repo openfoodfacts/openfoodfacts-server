@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -604,7 +604,7 @@ Nous disposons également d’une intégration automatisée via plusieurs systè
 
 Vous trouverez une présentation complète de la plateforme dans cette présentation :
 
-Guide plateforme - https://docs.google.com/presentation/d/e/2PACX-1vQiPrVqyVFxie7embgOIeCAWkfPALWOjfMOBQBvFBiNqxyUJUrgr_rt48WnWuvvJKo-UPtLx52xuV6M/pub?start=false&loop=false&delayms=3000&slide=id.g76aba96933_2_51
+Guide plateforme - https://docs.google.com/presentation/d/1222_dW0st0bPjwV0ViaeQqtqNp3ZozOpsqTs14yrL0Q/
 
 Je suis à votre disposition si vous avez des questions ou besoin d'aide sur ces divers points.
 
@@ -645,7 +645,10 @@ cc: $user_ref->{initial_cc}<br>
 
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
 
+Il semble que mailto_body et mailto_subject tapent l'email de rattachement au lieu de l'email de relance. Il faudrait les 2 en vrai
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+<br>
+<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de rattachement</a>
 
 EMAIL
 ;
@@ -670,6 +673,7 @@ cc: $user_ref->{initial_cc}<br>
 
 <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
 TODO: Add a specific mail telling that the account was linked
+# Curieusement l'email de rattachement est la ?
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
 
 EMAIL
