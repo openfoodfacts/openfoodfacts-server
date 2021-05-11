@@ -651,6 +651,7 @@ Il semble que mailto_body et mailto_subject tapent l'email de rattachement au li
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de rattachement</a>
 <br>
 Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
+<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
 <br>
 <table>
 <thead>
@@ -708,6 +709,7 @@ TODO: Add a specific mail telling that the account was linked
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
 <br>
 Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
+<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
 <br>
 <table>
 <thead>
