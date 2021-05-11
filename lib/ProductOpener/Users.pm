@@ -649,6 +649,37 @@ Il semble que mailto_body et mailto_subject tapent l'email de rattachement au li
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
 <br>
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de rattachement</a>
+<br>
+Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
+<br>
+<table>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Countries</th>
+    <th>OFF public user</th>
+    <th>-</th>
+    <th>Organization name</th>
+    <th>-</th>
+    <th>Converted</th>
+    <th>Email</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>$Org_id</td>
+    <td>Signed up to the platform on XX/XX/XXXX</td>
+    <td>$cc</td>
+    <td>$User{name}</td>
+    <td></td>
+    <td>$Org_id</td>
+    <td></td>
+    <td>Yes</td>
+    <td>$User{email}</td>
+  </tr>
+</tbody>
+</table>
 
 EMAIL
 ;
@@ -675,6 +706,37 @@ cc: $user_ref->{initial_cc}<br>
 TODO: Add a specific mail telling that the account was linked
 # Curieusement l'email de rattachement est la ?
 <a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
+<br>
+Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
+<br>
+<table>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Countries</th>
+    <th>OFF public user</th>
+    <th>-</th>
+    <th>Organization name</th>
+    <th>-</th>
+    <th>Converted</th>
+    <th>Email</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>$Org_id</td>
+    <td>Signed up to the platform on XX/XX/XXXX</td>
+    <td>$cc</td>
+    <td>$User{name}</td>
+    <td></td>
+    <td>$Org_id</td>
+    <td></td>
+    <td>Yes</td>
+    <td>$User{email}</td>
+  </tr>
+</tbody>
+</table>
 
 EMAIL
 ;
