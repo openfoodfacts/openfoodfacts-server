@@ -35,6 +35,10 @@ my @tests = (
 	ingredients_text=>"Fresh milk 80%, sugar"}, 14, "d"],
 [{ lc=>"en", categories=>"dairy drinks", nutriments=>{energy_100g=>3378, fat_100g=>10, "saturated-fat_100g"=>5, sugars_100g=>10, sodium_100g=>0, fiber_100g=>2, proteins_100g=>5},
 	ingredients_text=>"Milk, sugar"}, 19, "e"],
+	
+# mushrooms are counted as fruits/vegetables
+[{ lc=>"fr", categories=>"meals", nutriments=>{energy_100g=>667, fat_100g=>8.4, "saturated-fat_100g"=>1.2, sugars_100g=>1.1, sodium_100g=>0.4, fiber_100g=>10.9, proteins_100g=>2.4},
+	ingredients_text=>"Pleurotes* 69% (Origine UE), chapelure de mais"}, -2, "a"],
 
 );
 
