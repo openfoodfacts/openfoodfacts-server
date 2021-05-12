@@ -54,6 +54,7 @@ BEGIN
 		&add_user_to_org
 		&remove_user_from_org
 		&is_user_in_org_group
+		&set_org_gs1_gln
 
 		&org_name
 		&org_url
@@ -230,6 +231,57 @@ sub retrieve_or_create_org($$) {
 	}
 
 	return $org_ref;
+}
+
+
+=head2 set_org_gs1_gln ( $org_ref, $list_of_gs1_gln )
+
+If the org exists, the function returns the org object. Otherwise it creates a new org.
+
+=head3 Arguments
+
+=head4 $creator
+
+User id of the user creating the org (it can be the first user of the org,
+or an admin that creates an org by assigning an user to it).
+
+=head4 $org_id / $org_name
+
+Identifier for the org (without the "org-" prefix), or org name.
+
+=head3 Return values
+
+This function returns a hash ref for the org.
+
+=cut
+
+sub set_org_gs1_gln($$) {
+	
+	my $org_ref = shift;
+	my $list_of_gs1_gln = shift,
+	
+	# Remove existing GLNs
+	my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+	not defined $glns_ref and $glns_ref = {};
+	if (defined $org_ref->{list_of_gs1_gln}) {
+		foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
+			$gln =~ s/\s//g;
+			if ($gln =~ /[0-9]+/) {
+				delete $glns_ref->{$gln};
+			}
+		}
+	}
+	# Add new GLNs
+	$org_ref->{list_of_gs1_gln} = $list_of_gs1_gln;
+	if (defined $org_ref->{list_of_gs1_gln}) {
+		foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
+			$gln =~ s/\s//g;
+			if ($gln =~ /[0-9]+/) {
+				$glns_ref->{$gln} = $org_ref->{org_id};
+			}
+		}
+	}
+	store("$data_root/orgs_glns.sto", $glns_ref);
 }
 
 

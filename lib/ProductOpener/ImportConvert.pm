@@ -800,6 +800,33 @@ e.g. if the ingredients field is of the form "something Ingredients: list of ing
 
 =cut
 
+# Unspecified entries will be turned into a single dash -,
+# and the corresponding field will be deleted during the import if a value exists
+
+my %unspecified = (
+	'en' => [
+		'unspecified',
+		'(not|non)( |-|_)specified',
+		'not( |-|_)applicable',
+		'na',
+		'n\/a',
+		'unknown',
+		'not( |-|_)known',
+	],
+	'es' => [
+		'no aplica',
+	],
+	'fr' => [
+		'non( |-|_)(d(é|e)clar|indiqu|sp(é|e)cifi|renseign)(é|e)(e?)(s?)',
+		'ras|rien (à|a) signaler',
+		'rien,n(é|e)ant',
+		'n\/r',
+		'nr',
+		'inconnu(e?)(s?)',
+		'non( |-|_)connu(e?)(s?)',
+	],
+);
+
 sub clean_fields($) {
 
 	my $product_ref = shift;
@@ -838,6 +865,9 @@ sub clean_fields($) {
 				foreach my $brand (split(/,/, $product_ref->{brands})) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
+					# dashes/dots/spaces -> allow matching dashes/dot/spaces
+					# e.g. "bons.mayennais" matches "bons mayennais"
+					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
 			}
@@ -879,8 +909,29 @@ sub clean_fields($) {
 		$product_ref->{$field} =~ s/^\s*//;
 		$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
 
-		if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
+		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
+		if (($product_ref->{$field} =~ /^(\s|-|\.|_)$/) and ($product_ref->{$field} ne '-')) {
 			$product_ref->{$field} = "";
+		}
+		
+		# Remove "unspecified" values
+		my @unspecified_lcs = ("en");
+		if (($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
+			push @unspecified_lcs, $product_ref->{lc};
+		}
+		
+		foreach my $l (@unspecified_lcs) {
+			
+			foreach my $regexp (@{$unspecified{$l}}) {
+				if ($product_ref->{$field} =~ /^\s*($regexp)\s*$/i) {
+					if (defined $tags_fields{$field}) {
+						$product_ref->{$field} = "";
+					}
+					else {
+						$product_ref->{$field} = '-';
+					}
+				}
+			}
 		}
 
 		# bad EMB codes (followed by a city) (e.g. Sainte-Lucie)
@@ -916,14 +967,16 @@ sub clean_fields($) {
 
 		# tag fields: turn separators to commas
 		# Sans conservateur / Sans huile de palme
+		# étui carton FSC + sachet individuel papier
 		# ! packaging codes can have / :  ES 12.06648/C CE
 		if (exists $tags_fields{$field}) {
-			$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
+			$product_ref->{$field} =~ s/\s?(;|( \/ )|( \+ )|\n)+\s?/, /g;
 		}
 
 		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
 			
 			# Lowercase fields in ALL CAPS
+			# Capitalize all lowercase fields
 			
 			# do not count x4 as a lowercase letter
 			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
@@ -932,10 +985,8 @@ sub clean_fields($) {
 			$value =~ s/x(\d)/X$1/;
 			$value =~ s/(\d)x/$1X/;
 			
-			if (($value =~ /[A-Z]{4}/)
-				and ($value !~ /[a-z]/)
-				) {
-					
+			if ((($value =~ /[A-Z]{4}/) and ($value !~ /[a-z]/))
+				or (($value =~ /[a-z]{4}/) and ($value !~ /[A-Z]/))	) {
 					
 				# Tag field: uppercase the first letter (e.g. brands)
 				if (defined $tags_fields{$field}) {
@@ -948,12 +999,23 @@ sub clean_fields($) {
 			}
 			
 			# Remove fields with "0"
-			$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
+			if ($product_ref->{$field} ne '-') {
+				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
+			}
+			
+			# Remove HTML comments
+			$product_ref->{$field} =~ s/<!--(.*?)-->//sg;
+			
+			# if there's some HTML code, making special cases to try to repair is probably more dangerous than just ignoring the fields
+			# e.g. <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}Some text # found in CodeOnline data
+			# "Ingrédients : \n\n\n\n\t\n\t\n\t\n\t\n\t\n\t\tbody,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:\"Calibri\"; font-size:x-small }\n\t\ta.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } \n\t\ta.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } \n\t\tcomment { display:none;  } \n\t\n\t\n\n\n\n\n\t\n\t\n\t\tpersil\n\t\n\t\n\t\tamandes\n\t\n\t\n\t\tail\n\t\n\t\n\t\tsel\n\t\n\t\n\t\tpoivre\n\t\n\t\n\t\thuile d'olive\n\t\n\t\n\t\thuile de tournesol\n\t\n\t\n\t\tcitron\n\t\n\t\n\t\tchapelure\n\t\n\n\n\n\n",
+			if ($product_ref->{$field} =~ /(mso-data|font-family|font-style|text-decoration|<!--|-->)/) {
+				$product_ref->{$field} = "";
+			}
+			
 		}
 		
 		# All fields
-		# Remove fields with "-" or "X"
-		$product_ref->{$field} =~ s/^(\s|x|X|-|_|\.|\/)+$//;
 
 		# Ingredients
 
@@ -993,6 +1055,13 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
 
 			$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			
+			# Ingredients without separators
+			# e.g. found in some CodeOnline data: "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"
+			
+			if ($product_ref->{$field} !~ /,|;| - /) {
+				$product_ref->{$field} =~ s/(\p{Lower}\p{Lower}+)(?=\p{Upper}\p{Lower}\p{Lower})/$1, /g;
+			}
 
 
 			if ($field eq "ingredients_text_fr") {
@@ -1058,12 +1127,21 @@ sub clean_fields($) {
 		$product_ref->{$field} =~ s/ +/ /g;
 		$product_ref->{$field} =~ s/,(\s*),/,/g;
 		$product_ref->{$field} =~ s/\.(\.+)$/\./;
-		$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
-		# be careful not to turn -5 to 5: remove dashes only if they are not followed by a number
-		$product_ref->{$field} =~ s/^(\s|-(?![0-9])|;|,|\.)+//;
-		$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
+		
+		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
+		if ($product_ref->{$field} ne '-') {
+			
+			# Remove trailing dashes and commas
+			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
+			# Remove leading dashes, commas and dots
+			# be careful not to turn -5 to 5: remove dashes only if they are not followed by a number
+			$product_ref->{$field} =~ s/^(\s|-(?![0-9])|;|,|\.)+//;
+			
+			# Remove entries made entirely of punctuation characters, or x or X
+			$product_ref->{$field} =~ s/^(x|X|,|;|-|_|\/|\\|#|:|\.|\s)+$//;
+		}
 
-		# remove empty values for tag fields
+		# remove empty values for tag fields, including a single dash -
 		if (exists $tags_fields{$field}) {
 			$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\.|\s)+$//;
 		}

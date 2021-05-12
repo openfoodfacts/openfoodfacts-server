@@ -283,9 +283,9 @@ JS
 				\$('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
 			}
 
-			\$('#select_field_option_input_' + col)
+			\$('#select_field_option_tag_' + col)
 			.on("change", function(e) {
-				var id = e.params.data.id;
+				var id = e.target.id;
 				var col = this.id.replace(/select_field_option_tag_/, '');
 				var column = columns[col];
 				columns_fields[column]["tag"] = \$(this).val();

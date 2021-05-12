@@ -355,7 +355,7 @@ nl: Kleuren, Kleurstof, kleurstoffen, kleurend levensmiddel
 pl: Barwnik, Barwniki
 pt: Corante, corantes
 ro: Colorant
-ru: Краситель, красители, краситель пищевой, пищевые красители
+ru: Краситель, красители, краситель пищевой, пищевые красители, пищевой краситель
 sl: Barvilo
 sk: Farbivo
 sv: Färg, Färgämne, Färgämnen, färgande livsmedel
@@ -396,7 +396,7 @@ fr:colorant naturel, colorants naturels
 hu:természetes színezék
 it:coloranti naturali, colorante naturale
 nl:Natuurlijke kleurstoffen
-ru:краситель натуральный, натуральный краситель
+ru:краситель натуральный, натуральный краситель, натуральные красители
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
 <en:colour
@@ -501,6 +501,7 @@ nl: Smeltzout, Smeltzouten
 pl: Sole emulgujące
 pt: Sais de fusão
 ro: Săruri de topire
+ru: эмульгирующая соль
 sk: Emulgujúce soli
 sl: Emulgirne soli
 sv: Smältsalt, Smältsalter
@@ -601,7 +602,7 @@ nl: Smaakversterker, Smaakversterkers
 pl: Wzmacniacz smaku, Wzmacniacze smaku
 pt: Intensificador de sabor
 ro: Potențiator de aromă, potenţiatori de aromă
-ru: Ароматизатор, ароматизаторы, усилители вкуса и аромата, вкусоароматические-вещества, усилитель вкуса
+ru: Ароматизатор, ароматизаторы, усилители вкуса и аромата, усилитель вкуса и аромата, вкусоароматические-вещества, усилитель вкуса, aроматизаторы
 sk: Stimulátor, zvýrazňovač chuti
 sl: Ojačevalec arome
 sv: Smakförstärkare
@@ -643,7 +644,7 @@ fi: Jauhonparanne, Jauhoparannetta, Jauhonparanteet, Jauhonparanteita
 fr: Agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga: Oibreán plúrchóireála
 hu: Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
-it: Agente di trattamento della farina, agenti di trattamento della farina
+it: Agente di trattamento della farina, agenti di trattamento della farina, agente di trattamento delle farine
 lv: Miltu apstrādes līdzeklis
 lt: Miltų apdorojimo medžiaga
 mt: Aġent għat-trattament tad-dqiq
@@ -746,7 +747,7 @@ nl:Geleermiddel, Geleermiddelen
 pl:Substancja żelująca, Substancje żelujące
 pt:Gelificante
 ro:Agent gelatinizant
-ru:загустители, агент желирующий
+ru:загустители, агент желирующий, желирующий агент
 sk:Želírujúca látka
 sl:Želirno sredstvo
 sv:Geleringsmedel, Geleringmedel
@@ -833,7 +834,7 @@ et: Niiskusesäilitaja
 fr: Humectant, agent de rétention d'eau, agent de rétention d'humidité, mouillant, agent mouillant
 ga: Taisleán
 hu: Nedvesítőszer
-it: Umidificante, umidificanti, agente umidificante, agenti umidificanti
+it: Umidificante, umidificanti, agente umidificante, agenti umidificanti, umettante, umettanti
 lt: Drėgmę išlaikanti medžiaga
 lv: Mitrumuzturētājs
 nb: Fuktighetsbevarer
@@ -841,7 +842,7 @@ nl: Bevochtigingsmiddel
 pt: Humidificante, humidificantes
 pl: Substancja utrzymująca wilgoć, Substancje utrzymujące wilgoć
 ro: Agent de umezire
-ru: влагоудерживающий агент
+ru: влагоудерживающий агент, влагоудерживающие агенты, агент влагоудерживающий, агент-влагоудерживающий
 sk: Zvlhčovadlo
 sv: Fuktighetsbevarande medel
 zh: 水分保持劑
@@ -1448,3 +1449,6 @@ it:esaltatore di cottura
 fr:additifs alimentaires
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
 # usage:fr: additif alimentaire (acide citrique)
+
+# roughly translates to "complex food supplement"
+ru:комплексная пищевая добавка

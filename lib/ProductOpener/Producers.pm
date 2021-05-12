@@ -219,7 +219,9 @@ sub load_csv_or_excel_file($) {
 		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
 
 		system("ssconvert", $file, $file . ".csv");
-
+		
+		$log->debug("converting Excel file with gnumeric's ssconvert - output", { file => $file, extension => $extension, command => $0, error => $? }) if $log->is_debug();
+		
 		my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
 
 		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
@@ -557,6 +559,10 @@ en => {
 	obsolete => ["The product is no longer sold", "Product is no longer sold.", "Product no longer sold"],
 },
 
+de => {
+	code => ["Strichcode"],
+},
+
 es => {
 	code => ["Código de barras", "Códigos de barras"],
 	product_name_es => ["nombre", "nombre producto", "nombre del producto"],
@@ -567,12 +573,12 @@ es => {
 },
 
 fr => {
-	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN"],
+	code => ["code barre", "codebarre", "codes barres", "code barre EAN/GTIN", "code barre EAN", "code barre GTIN", "code-barres"],
 	producer_product_id => ["code interne", "code int"],
 	categories => ["Catégorie(s)"],
 	brands => ["Marque(s)", "libellé marque"],
 	product_name_fr => ["nom", "nom produit", "nom du produit", "produit", "nom commercial", "dénomination", "dénomination commerciale", "dénomination marketing", "nom marketing", "libellé marketing", "libellé", "désignation"],
-	abbreviated_product_name_fr => ["nom abrégé", "nom du produit abrégé", "nom du produit avec abbréviations"],
+	abbreviated_product_name_fr => ["nom abrégé", "nom abrégé du produit", "nom du produit abrégé", "nom du produit avec abbréviations"],
 	generic_name_fr => ["dénomination légale", "déno légale", "dénomination légale de vente"],
 	ingredients_text_fr => ["ingrédients", "ingredient", "liste des ingrédients", "liste d'ingrédients", "liste ingrédients", "listes d'ingrédients"],
 	allergens => ["Substances ou produits provoquant des allergies ou intolérances", "Allergènes et Traces Potentielles", "allergènes et traces"],
@@ -595,6 +601,7 @@ fr => {
 	emb_codes => ["estampilles sanitaires / localisation", "codes emballeurs / localisation"],
 	lc => ["langue", "langue du produit"],
 	obsolete => ["Le produit n'est plus en vente.", "Produit retiré de la vente", "Produit obsolète", "Obsolète"],
+	packaging_text_fr => ["Instruction de recyclage et/ou information d'emballage"],
 },
 
 );
@@ -1304,16 +1311,13 @@ JSON
 				my $nid = $nutriment;
 
 				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
-
-				if ($group_id eq "nutrition") {
-					if ($nid =~ /-$/) {
-						next;
-					}
+				# Keep the % of fruits/vegetables/nuts in the main nutrition group
+				
+				if (($nid =~ /-$/) and ($nid ne 'fruits-vegetables-nuts-') and ($nid ne 'fruits-vegetables-nuts-dried-')) {
+					next if ($group_id eq "nutrition");
 				}
 				else {
-					if ($nid !~ /-$/) {
-						next;
-					}
+					next if ($group_id eq "nutrition_other");
 				}
 
 				$nid =~ s/^(-|!)+//g;

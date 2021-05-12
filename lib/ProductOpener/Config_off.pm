@@ -649,6 +649,8 @@ periods_after_opening
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
@@ -694,7 +696,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
 		]
 	],
 ];
@@ -781,7 +783,7 @@ $options{import_export_fields_importance} = {
 	categories => "mandatory",
 	labels => "mandatory",
 	countries => "recommended",
-	obsolete => "mandatory",
+	obsolete => "recommended",
 	obsolete_since_date => "recommended",
 	
 	origins => "mandatory",
