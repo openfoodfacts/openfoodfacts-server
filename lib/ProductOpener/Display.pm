@@ -320,6 +320,9 @@ sub process_template($$$) {
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} = $cc;
 	$template_data_ref->{display_icon} = \&display_icon;
+	$template_data_ref->{time_t} = time();
+	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
+	$template_data_ref->{display_date_ymd} = \&display_date_ymd;	
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
@@ -1145,6 +1148,18 @@ sub display_date_without_time($) {
 	}
 
 }
+
+sub display_date_ymd() {
+	my $t = shift;
+	my $dt = _get_date($t);
+	if (defined $dt) {
+		return $dt->ymd;
+	}
+	else {
+		return;
+	}	
+}
+
 
 sub display_date_tag($) {
 

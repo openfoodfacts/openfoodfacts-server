@@ -577,114 +577,44 @@ sub process_user_form($$) {
     my $error = 0;
 
 	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+	
+	my $template_data_ref = {
+		userid => $user_ref->{userid},
+		user => $user_ref,
+		$user_ref->{requested_org_id},
+	};
 
-    # Professional account with requested org?
+	
+    # Professional account with a requested org (existing or new)
 
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
 		
-		my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
-Aide pour importer vos produits sur Open Food Facts
-TEXT
-);
-
-		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
-Bonjour,
-
-J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
-
-Cette plateforme totalement gratuite soutenue par Santé publique France vous permet d'importer vos produits dans Open Food Facts ainsi que les plus de 100 applications et services qui utilisent nos données.
-
-- Elle vous permet également de trouver des opportunités de reformulation pour améliorer le Nutri-Score de vos produits.
-- Il vous suffit d'importer tout tableau Excel dont vous disposez déjà, de vérifier et d’éventuellement ajuster la correspondance des colonnes pour importer l'ensemble de votre gamme.
-- Vous pouvez également glisser-déposer des images de vos produits (face avant, ingrédients, nutrition et éventuellement pack à plat, instruction de recyclage…)
-
-Nous disposons également d’une intégration automatisée via plusieurs systèmes de gestion de données.
-
-Vous trouverez une présentation complète de la plateforme dans cette présentation :
-
-Guide plateforme - https://docs.google.com/presentation/d/1222_dW0st0bPjwV0ViaeQqtqNp3ZozOpsqTs14yrL0Q/
-
-Je suis à votre disposition si vous avez des questions ou besoin d'aide sur ces divers points.
-
-Bien cordialement,
-
-
-TEXT
-);		
-
-		my $mailto_body_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
-Bonjour,
-Nous venons de mettre à jour votre compte pour le rattacher à l'organisation $user_ref->{requested_org_id}. 
-Vous pouvez accéder à votre espace producteur depuis votre compte $user_ref->{userid} (avec votre mot de passe habituel) sur https://fr.pro.openfoodfacts.org
-
-Merci beaucoup pour votre démarche de transparence,
-Bien cordialement,
-TEXT
-);
-
-
-
-my $mailto_subject_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
-Vous avez été rattaché à l'organisation $user_ref->{requested_org_id}
-TEXT
-);
-
+		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
+				
+		my $mail = '';
+		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
+			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+		}
 
 		if (defined $requested_org_ref) {
 			# The requested org already exists
-
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}<br>
-userid: $user_ref->{userid}<br>
-name: $user_ref->{name}<br>
-email: $user_ref->{email}<br>
-lc: $user_ref->{initial_lc}<br>
-cc: $user_ref->{initial_cc}<br>
-
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
-
-Il semble que mailto_body et mailto_subject tapent l'email de rattachement au lieu de l'email de relance. Il faudrait les 2 en vrai
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
-<br>
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de rattachement</a>
-<br>
-Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
-<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
-<br>
-<table>
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Countries</th>
-    <th>OFF public user</th>
-    <th>-</th>
-    <th>Organization name</th>
-    <th>-</th>
-    <th>Converted</th>
-    <th>Email</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>$Org_id</td>
-    <td>Signed up to the platform on XX/XX/XXXX</td>
-    <td>$cc</td>
-    <td>$User{name}</td>
-    <td></td>
-    <td>$Org_id</td>
-    <td></td>
-    <td>Yes</td>
-    <td>$User{email}</td>
-  </tr>
-</tbody>
-</table>
-
-EMAIL
-;
-			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+			
+			$mail = '';
+			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+			if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+				my $subject = $1;
+				my $body = $';
+				$body =~ s/^\n+//;
+				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
+				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
+			}		
 		}
 		else {
 			# The requested org does not exist, create it
@@ -695,61 +625,20 @@ EMAIL
 			$user_ref->{org} = $user_ref->{requested_org_id};
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}<br>
-userid: $user_ref->{userid}<br>
-name: $user_ref->{name}<br>
-email: $user_ref->{email}<br>
-lc: $user_ref->{initial_lc}<br>
-cc: $user_ref->{initial_cc}<br>
-
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
-TODO: Add a specific mail telling that the account was linked
-# Curieusement l'email de rattachement est la ?
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
-<br>
-Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
-<br>Tracking spreadsheet: https://docs.google.com/spreadsheets/d/1Smx74TevmNlPyEqrcCtvN9uJIdUh-mC1cznLCQaV0V8/edit#gid=0
-<br>
-<table>
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Countries</th>
-    <th>OFF public user</th>
-    <th>-</th>
-    <th>Organization name</th>
-    <th>-</th>
-    <th>Converted</th>
-    <th>Email</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>$Org_id</td>
-    <td>Signed up to the platform on XX/XX/XXXX</td>
-    <td>$cc</td>
-    <td>$User{name}</td>
-    <td></td>
-    <td>$Org_id</td>
-    <td></td>
-    <td>Yes</td>
-    <td>$User{email}</td>
-  </tr>
-</tbody>
-</table>
-
-EMAIL
-;
-			send_email_to_producers_admin(
-				"Org created by user: $userid - org: "
-					. $user_ref->{requested_org_id},
-				$admin_mail_body
-			);
-
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id}
+		}
+		
+		# Send an e-mail notification to admins, with links to the organization
+		
+		$mail = '';
+		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			
+			send_email_to_producers_admin($subject, $body);
 		}
 	}
 
