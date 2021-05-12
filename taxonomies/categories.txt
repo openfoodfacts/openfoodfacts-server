@@ -1082,9 +1082,45 @@ pnns_group_2:en:Alcoholic beverages
 nova:en:3
 
 <en:Alcoholic beverages
+en:Premixed alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Beer-based alcoholic beverages
+
+<en:Beer-based alcoholic beverages
+en:Shandy, Beer with lemonade
+fr:Panaché, Limonade et bière, Bières à la limonade
+it:Birra al limone
+agribalyse_food_code:en:5004
+ciqual_food_code:en:5004
+ciqual_food_name:en:Shandy (beer + lemonade)
+ciqual_food_name:fr:Panaché (limonade et bière)
+
+<en:Shandy
+en:Shandy with less than 1° of alcohol
+fr:Panaché à moins de 1° d'alcool
+agribalyse_food_code:en:5005
+ciqual_food_code:en:5005
+ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
+ciqual_food_name:fr:Panaché préemballé (<1° alc.)
+
+<en:Premixed alcoholic beverages
+en:Rum-based alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Vodka-based alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Wine-based alcoholic beverages
+
+
+
+# description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
+
+<en:Wine-based alcoholic beverages
 en:Sangria
-es:Sangría
-fr:Sangria
+xx:Sangria
+wikipedia:en:https://en.wikipedia.org/wiki/Sangria
 agribalyse_food_code:en:1017
 ciqual_food_code:en:1017
 ciqual_food_name:en:Sangria
@@ -1117,22 +1153,6 @@ agribalyse_food_code:en:1026
 ciqual_food_code:en:1026
 ciqual_food_name:en:Sake or rice wine
 
-<en:Alcoholic beverages
-en:Shandy, Beer with lemonade
-fr:Panaché, Limonade et bière, Bières à la limonade
-it:Birra al limone
-agribalyse_food_code:en:5004
-ciqual_food_code:en:5004
-ciqual_food_name:en:Shandy (beer + lemonade)
-ciqual_food_name:fr:Panaché (limonade et bière)
-
-<en:Alcoholic beverages
-en:Shandy with less than 1° of alcohol
-fr:Panaché à moins de 1° d'alcool
-agribalyse_food_code:en:5005
-ciqual_food_code:en:5005
-ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
-ciqual_food_name:fr:Panaché préemballé (<1° alc.)
 
 <en:Alcoholic beverages
 en:Beers
