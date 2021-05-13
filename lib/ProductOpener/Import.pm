@@ -520,6 +520,34 @@ sub import_csv_file($) {
 						$log->debug("skipping codeonline import for org with do_not_import_codeonline", { org_ref => $org_ref }) if $log->is_debug();
 						next;
 					}
+					
+					# If it is a GS1 import (Equadis, CodeOnline), check if the org is associated with known issues
+					
+					# Abbreviated product name
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+						and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
+							
+						if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
+							$imported_product_ref->{abbreviated_product_name_fr} = $imported_product_ref->{product_name_fr};
+							delete $imported_product_ref->{product_name_fr};
+						}
+					}
+					
+					# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+						and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
+						
+						foreach my $field (sort keys %$imported_product_ref) {
+							if ($field =~ /_prepared/) {
+								my $unprepared_field = $` . $';
+								if (((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
+									and not ((defined $imported_product_ref->{$unprepared_field}) and ($imported_product_ref->{$unprepared_field} ne "")) ) {
+									$imported_product_ref->{$unprepared_field} = $imported_product_ref->{$field};
+									delete $imported_product_ref->{$field};
+								}
+							}
+						}
+					}	
 				}
 				else {
 					# The org does not exist yet, create it

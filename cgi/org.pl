@@ -106,7 +106,12 @@ if ($action eq 'process') {
 					$org_ref = create_org($User_id, $orgid);
 				}
 				
-				foreach my $field ("enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform", "do_not_import_codeonline") {
+				foreach my $field ("enable_manual_export_to_public_platform",
+					"activate_automated_daily_export_to_public_platform",
+					"do_not_import_codeonline",
+					"gs1_product_name_is_abbreviated",
+					"gs1_nutrients_are_unprepared",
+					) {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 				}
 				
@@ -187,7 +192,15 @@ if ($action eq 'display') {
 				{
 					field => "do_not_import_codeonline",
 					type => "checkbox",
-				},				
+				},
+				{
+					field => "gs1_product_name_is_abbreviated",
+					type => "checkbox",
+				},
+				{
+					field => "gs1_nutrients_are_unprepared",
+					type => "checkbox",
+				},	
 			]
 		};		
 	}
