@@ -77,8 +77,18 @@ use ProductOpener::Tags qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 
-
 use Log::Any qw($log);
+
+=head1 DATA
+
+Organization profile data is kept in files in the $data_root/orgs directory.
+If it does not exist yet, the directory is created when the module is initialized.
+
+=cut
+
+if (! -e "$data_root/orgs") {
+	mkdir("$data_root/orgs", 0755) or $log->warn("Could not create orgs dir", { dir => "$data_root/orgs", error=> $!}) if $log->is_warn();
+}
 
 
 =head1 FUNCTIONS
