@@ -594,12 +594,14 @@ sub check_nutrition_data($) {
 
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
 				}
-			
-				if ($product_ref->{nutriments}{$nid} == 0) {
-					$nid_zero++;
-				}
-				else {
-					$nid_non_zero++;
+		# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
+				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {	
+					if ($product_ref->{nutriments}{$nid} == 0) {
+						$nid_zero++;
+					}
+					else {
+						$nid_non_zero++;
+					}
 				}
 			}
 
