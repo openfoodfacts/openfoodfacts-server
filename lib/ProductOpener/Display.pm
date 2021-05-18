@@ -4843,6 +4843,10 @@ sub search_and_display_products($$$$$) {
 		"code" => 1,
 		"product_name" => 1,
 		"product_name_$lc" => 1,
+		"generic_name" => 1,
+		"generic_name_$lc" => 1,
+		"abbreviated_product_name" => 1,
+		"abbreviated_product_name_$lc" => 1,		
 		"brands" => 1,
 		"images" => 1,
 		"quantity" => 1

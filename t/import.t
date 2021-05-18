@@ -233,8 +233,7 @@ foreach my $test_ref (@tests) {
 	# Test unspecified values
 [
 	{ lc => "en", generic_name_en => "unspecified", labels => "non-specified", origins => "unknown", warning_en => "not specified" },
-	{ lc => "en", product_name_en => '-', generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
-	# product_name_en is missing, so it is copied from generic_name_en
+	{ lc => "en", generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
 ],
 
 [
