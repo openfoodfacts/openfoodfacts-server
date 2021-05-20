@@ -220,42 +220,48 @@ if ($action eq 'display') {
 		};
 
 		# Teams section
-		my $team_section_ref = {
-			id => "teams",
-			name => lang("teams") . " (" . lang("optional") . ")",
-			description => "teams_description",
-			note => "teams_names_warning",
-			fields => []
-		};
-		for (my $i = 1; $i <= 3; $i++) {
-			push @{$team_section_ref->{fields}}, {
-				field => "team_". $i,
-				label => sprintf(lang("team_s"), $i),
-			 };
-		};
+		# Do not display teams if it is a professional account
+		# Do not display teams on pro platform
+		if (not ((defined $server_options{producers_platform})
+			or (defined $user_ref->{org}) or (defined $user_ref->{requested_org}))) {
+			my $team_section_ref = {
+				id => "teams",
+				name => lang("teams") . " (" . lang("optional") . ")",
+				description => "teams_description",
+				note => "teams_names_warning",
+				fields => []
+			};
+			for (my $i = 1; $i <= 3; $i++) {
+				push @{$team_section_ref->{fields}}, {
+					field => "team_". $i,
+					label => sprintf(lang("team_s"), $i),
+				 };
+			};
 
-		push @{$template_data_ref->{sections}}, {%$team_section_ref};
+			push @{$template_data_ref->{sections}}, {%$team_section_ref};
+		}
 
 		# Admin section
-		my $administrator_section_ref = {
-			id => "administrator",
-			name => "Administrator fields",
-			fields => []
-		};
-		push  @{$administrator_section_ref->{fields}}, {
-			field => "org",
-			label => lang("organization"),
-		};
-		foreach my $group (@user_groups) {
-			push @{$administrator_section_ref->{fields}}, {
-				field =>  "user_group_". $group,
-				label =>  lang("user_group_". $group) . " " . lang("user_group_" . ${group} . "_description"),
-				type => "checkbox",
-				value => $user_ref->{$group},
+		if ($admin) {
+			my $administrator_section_ref = {
+				id => "administrator",
+				name => "Administrator fields",
+				fields => []
 			};
-		};
-
-		push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
+			push  @{$administrator_section_ref->{fields}}, {
+				field => "org",
+				label => lang("organization"),
+			};
+			foreach my $group (@user_groups) {
+				push @{$administrator_section_ref->{fields}}, {
+					field =>  "user_group_". $group,
+					label =>  lang("user_group_". $group) . " " . lang("user_group_" . ${group} . "_description"),
+					type => "checkbox",
+					value => $user_ref->{$group},
+				};
+			};
+			push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
+		}
 	}
 
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {

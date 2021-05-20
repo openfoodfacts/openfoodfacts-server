@@ -45,7 +45,7 @@
 		[% FOREACH section IN sections %]
 
             [% IF section.name %]
-                <fieldset [% IF section.id == "teams" && teams_flag %] class="tr_teams" [% ELSIF admin && section.id == "administrator" %] style = "display:block" [% ELSIF !admin && section.id == "administrator" %] style = "display:none"  [% END %]>
+                <fieldset id="[% section.id %]_section">
                     <legend [% IF section.id == "administrator" %] style = "background-color:#ffcccc"[% END %]>[% section.name %]</legend>
             [% END %]
 
@@ -94,17 +94,19 @@
 
             [% END %]
 
+			[% IF section.id == "professional" %]
             <div class="pro_org_display">
-                [% IF requested_org_ref.defined && section.id == "professional" %]
+                [% IF requested_org_ref.defined %]
                     <div id="existing_org_warning">
                         <p>[% org_name %] </p>
                         <p>[% lang("add_user_existing_org_pending") %] </p>
                         <p>[% lang("please_email_producers") %] </p>
                     </div>
-                [% ELSIF section.id == "professional" && !requested_org_ref.defined %]
+                [% ELSE %]
                     <p>[% lang("enter_name_of_org") %]</p>
                 [% END %]
             </div>
+            [% END %]
 
             [% IF section.name %]
                 </fieldset>
