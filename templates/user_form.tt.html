@@ -61,7 +61,7 @@
                 [% IF field.field == 'userid' %]
                     [% IF type == 'edit' %]
                         <label for="[% field.field %]"> [% lang(field.label) %]</label>
-                        <p> [% field.value %] </p>
+                        <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
                     [% ELSE %]
                         <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
                         <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="[% field.field %]" onkeyup="normalize_string_value(this)" />
