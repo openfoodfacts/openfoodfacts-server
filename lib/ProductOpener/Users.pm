@@ -700,6 +700,16 @@ sub check_edit_owner($$) {
 	my $errors_ref = shift;
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	
+	# If the owner id looks like a GLN, see if we have a corresponding org
+	
+	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+		my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+		not defined $glns_ref and $glns_ref = {};
+		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
+			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		}
+	}
 
 	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 
@@ -1018,6 +1028,7 @@ sub init_user()
 		# Producers platform moderators can set the owner to any user or organization
 		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
 			$Owner_id = $User{pro_moderator_owner};
+			
 			if ($Owner_id =~ /^org-/) {
 				$Org_id = $';
 				%Org = ( org => $Org_id, org_id => $Org_id );
