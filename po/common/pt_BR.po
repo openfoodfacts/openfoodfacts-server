@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-17 08:12\n"
+"PO-Revision-Date: 2021-05-22 10:58\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -201,7 +201,7 @@ msgstr "Todas as missões"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Produtos ou substâncias que provocam alergias ou intolerâncias"
+msgstr "Produtos ou substâncias que provocam alergias ou intolerâncias (assinalados a negrito)"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -598,11 +598,11 @@ msgstr "Códigos de rastreabilidade"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Código do embalador"
+msgstr "Código de rastreabilidade"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Código do embalador"
+msgstr "Código de rastreabilidade"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -1076,7 +1076,7 @@ msgstr "Cereais 85,5% (farinha de _trigo_, farinha de _centeio_ 11%), extrato de
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Mantenha a ordem dos ingredientes, indicar a % quando apresentada, separar com uma , (vírgula) ou - (hífen), usar parênteses para ingredientes de outros ingredientes, rodear os ingredientes alergénios (normalmente apresentados na embalagem a negrito/bold) com um traço inferior antes e depois deste, por exemplo: _leite_, farinha de _trigo_"
+msgstr "Manter a ordem dos ingredientes, indicar a % quando apresentada, separar com uma , (vírgula) ou - (hífen) os ingredientes, usar parênteses para ingredientes de outros ingredientes, rodear os ingredientes alergénios (normalmente mostrados a negrito/bold) com um traço inferior antes e depois deste, por exemplo: _leite_, farinha de _trigo_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1117,7 +1117,7 @@ msgstr "Etiquetas, certificações, prémios"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr "Biológico, Ponto Verde, Sem glúten, Sem lactose, Rico em fibras, Rico em Ómega 3, Sem corantes, Sem conservantes, Sem aromas artificiais, Vegetariano, Vegano, Kosher, Feito em Portugal, Rainforest Alliance, Sem OGM, Baixo teor de sal, 100% vegetal, Dolphin Safe, Sem açúcares adicionados, Baixo teor de gordura, FSC Mix, Comércio justo, Fonte de vitamina D"
+msgstr "Biológico, Ponto Verde, Sem glúten, Rico em Ómega 3, Sem corantes, Vegetariano..."
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -1821,7 +1821,7 @@ msgstr "Rodar para a direita"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Validar imagem"
+msgstr "Validar e/ou redimensionar a imagem"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -2218,7 +2218,7 @@ msgstr "Usar cores das classificações nutricionais"
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr "Biológico, Ponto Verde, Sem glúten, Sem lactose, Rico em fibras, Rico em Ómega 3, Sem corantes, Sem conservantes, Sem aromas artificiais, Vegetariano, Vegano, Kosher, Feito em Portugal, Rainforest Alliance, Sem OGM, Baixo teor de sal, 100% vegetal, Dolphin Safe, Sem açúcares adicionados, Baixo teor de gordura, FSC Mix, Comércio justo, Fonte de vitamina D"
+msgstr "Biológico, Ponto Verde, Sem glúten, Rico em Ómega 3, Sem corantes, Vegetariano..."
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -5514,3 +5514,20 @@ msgstr "O Eco-Score foi inicialmente desenvolvido para França e está a ser ala
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Digitalize códigos de barras para obter o Nutri-Score, o Eco-Score e muito mais!"
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr "Os nomes de produtos GS1 para este fabricante são abreviados."
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr "Os nutrientes preparados com GS1 para este fabricante são, na verdade, para o produto como vendido."
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr "Verifique se o fabricante não fabrica produtos que realmente contenham nutrientes para o produto preparado."
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr "Alguns fabricantes têm valores incorretos para alguns campos do GS1. Os recursos abaixo podem ser usados para corrigir alguns deles."
+

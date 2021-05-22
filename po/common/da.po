@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-17 08:09\n"
+"PO-Revision-Date: 2021-05-22 10:54\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4664,7 +4664,7 @@ msgstr "Miljø"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
@@ -4673,7 +4673,7 @@ msgstr "Lav miljøpåvirkning (Eco-Score)"
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+msgstr "Øko-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4887,11 +4887,11 @@ msgstr "Manglende ernæringsfakta"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "ecoscore_s"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Øko-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5495,7 +5495,7 @@ msgstr "kg CO2 ækv./ kg produkt"
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Er du producent af dette produkt, kan du indsende oplysningerne via vores <a href=\"https://dk.pro.openfoodfacts.org\">gratis producentplatform</a>."
+msgstr "Er du producent af dette produkt, kan du indsende oplysningerne via vores <a href=\"https://world.pro.openfoodfacts.org\">gratis producentplatform</a>."
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
@@ -5515,4 +5515,20 @@ msgstr "Eco-Score er oprindeligt udviklet til fransk brug, men udvides til at om
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Skan stregkoder for at få Nutri-Score, Eco-Score og meget mere!"
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr "GS1-produktnavne forkortes for denne producent."
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr "GS1-klargjorte næringsstoffer for denne producent er for det faktisk solgte produkt."
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr "Tjek, at producenten ikke fremstiller produkter, som reelt har næringsstoffer til det tilberedte produkt."
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr "Nogle producenter har forkerte værdier i visse felter i GS1. Funktionerne nedenfor kan bruges til at rette nogle af dem."
 

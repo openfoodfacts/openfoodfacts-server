@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-04-17 08:10\n"
+"PO-Revision-Date: 2021-05-22 10:55\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5516,4 +5516,20 @@ msgstr "Der Eco-Score wurde ursprünglich für Frankreich entwickelt und wird de
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Barcodes einlesen, um den Nutri-Score, den Eco-Score und mehr zu ermitteln!"
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr "GS1-Produktnamen für diesen Hersteller werden gekürzt."
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr "GS1-Nährstoffe für diesen Hersteller entsprechen tatsächlich dem Produkt."
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr "Stellen Sie sicher, dass der Hersteller keine Produkte herstellt, die wirklich Nährstoffe für das vorbereitete Produkt haben."
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr "Die Werte einiger Hersteller in den GS1-Feldern sind fehlerhaft. Die folgenden Funktionen können verwendet werden, um einige von ihnen zu korrigieren."
 
