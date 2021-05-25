@@ -84,7 +84,8 @@ function copyJs() {
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
       "./node_modules/jvectormap-next/jquery-jvectormap.js",
-      "./node_modules/jvectormap-content/world-mill.js"
+      "./node_modules/jvectormap-content/world-mill.js",
+      "./node_modules/select2/dist/js/select2.min.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -140,7 +141,8 @@ function copyCss() {
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
       "./node_modules/cropperjs/dist/cropper.css",
-      "./node_modules/jvectormap-next/jquery-jvectormap.css"
+      "./node_modules/jvectormap-next/jquery-jvectormap.css",
+      "./node_modules/select2/dist/css/select2.min.css"
     ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
