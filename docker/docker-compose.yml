@@ -42,6 +42,9 @@ services:
         source: ./backend-dev/conf/log.conf
         target: /mnt/podata/log.conf
       - type: bind
+        source: ./backend-dev/conf/minion_log.conf
+        target: /mnt/podata/minion_log.conf
+      - type: bind
         source: ./backend-dev/conf/apache.conf
         target: /etc/apache2/sites-enabled/product-opener.conf
       - type: bind
