@@ -91,6 +91,7 @@ BEGIN
 		&count_products
 		&add_params_to_query
 		
+		&url_for_text
 		&process_template
 
 		@search_series
@@ -297,7 +298,43 @@ $world_subdomain = format_subdomain('world');
 
 my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
+
 =head1 FUNCTIONS
+
+
+=head2 url_for_text ( $textid )
+
+Return the localized URL for a text. (e.g. "data" points to /data in English and /donnees in French)
+
+=cut
+
+# Note: the following urls are currently hardcoded, but the idea is to build the mapping table
+# at startup from the available translated texts in the repository. (TODO)
+my %urls_for_texts = (
+	"ecoscore" => {
+		en => "eco-score-the-environmental-impact-of-food-products",
+		fr => "eco-score-l-impact-environnemental-des-produits-alimentaires",
+	},
+);
+
+sub url_for_text($) {
+	
+	my $textid = shift;
+	
+	if (not defined $urls_for_texts{$textid}) {
+		return "/" . $textid;
+	}
+	elsif (defined $urls_for_texts{$textid}{$lc}) {
+		return "/" . $urls_for_texts{$textid}{$lc};
+	}
+	elsif ($urls_for_texts{$textid}{en}) {
+		return "/" . $urls_for_texts{$textid}{en};
+	}
+	else {
+		return "/" . $textid;
+	}
+}
+
 
 =head2 process_template ( $template_filename , $template_data_ref , $result_content_ref )
 
@@ -324,6 +361,7 @@ sub process_template($$$) {
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
 	$template_data_ref->{display_date_ymd} = \&display_date_ymd;	
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
+	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
 	};
