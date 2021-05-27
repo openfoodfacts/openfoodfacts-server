@@ -313,7 +313,12 @@ Return the localized URL for a text. (e.g. "data" points to /data in English and
 my %urls_for_texts = (
 	"ecoscore" => {
 		en => "eco-score-the-environmental-impact-of-food-products",
+		de => "eco-score-die-umweltauswirkungen-von-lebensmitteln",
+		es => "eco-score-el-impacto-medioambiental-de-los-productos-alimenticios",
 		fr => "eco-score-l-impact-environnemental-des-produits-alimentaires",
+		it => "eco-score-impatto-ambientale-dei-prodotti-alimentari",
+		nl => "eco-score-de-milieu-impact-van-voedingsproducten",
+		pt => "eco-score-o-impacto-ambiental-dos-produtos-alimentares",
 	},
 );
 
