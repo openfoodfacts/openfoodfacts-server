@@ -47,7 +47,7 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 # server constants
-$server_domain = "productopener.localhost";
+$server_domain = "productopener.pro.localhost";
 
 @ssl_subdomains = qw();
 
@@ -57,7 +57,7 @@ $data_root = "/mnt/podata";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
-$mongodb = "off";
+$mongodb = "off-pro";
 $mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
