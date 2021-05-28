@@ -3231,7 +3231,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots
 it:Fagioli bianchi
 nb:hvite bønner
 nl:witte bonen
@@ -13742,6 +13742,10 @@ fr:cumin moulu
 de:gemahlener Kümmel, Kreuzkümmelpulver
 fi:jauhettu kumina
 it:cumino macinato
+
+< en:Cured sausage
+en:Smoked cured sausage
+fr:Saucisson fumé, saucissons fumés
 
 en:curing salt, curing salts
 ar:ملح معالج
@@ -48814,7 +48818,7 @@ wikidata:en: Q3246973
 wikipedia:en: https://en.wikipedia.org/wiki/Black-eyed_pea
 
 < en:Legume
-en:broad bean
+en:broad bean, fava bean, faba bean
 am:ባቄላ
 ar:فول
 ay:Jawasa
@@ -49218,6 +49222,9 @@ vi:Đậu Hà Lan
 za:Duhlanhdouq
 zh:豌豆
 wikipedia:en: https://en.wikipedia.org/wiki/Pea
+
+< en:Legume
+fr:féverole, féverolle
 
 < en:Legume
 nl:veldbonen
@@ -51093,6 +51100,11 @@ wikidata:en: Q23374
 wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
 
 < en:Meat
+en:Cured sausage
+es:Embutido curado
+fr:Saucisson
+
+< en:Meat
 en:liver
 de:Leber
 es:hígado
@@ -51180,12 +51192,20 @@ carbon_footprint_fr_foodges_ingredient:fr: Saucisse de porc
 carbon_footprint_fr_foodges_value:fr: 5.5
 
 < en:Meat
+en:prepared meat, processed meat, cured meat
+fr:charcuterie
+
+< en:Meat
 en:salami
 de:Salami
 es:salami
 fr:Salami
 it:Salame
 wikipedia:en: https://en.wikipedia.org/wiki/Salami
+
+< en:Meat
+en:smoked sausages
+fr:saucisses fumées
 
 < en:Meat
 es:chistorra
@@ -51201,9 +51221,6 @@ fi:ruokamakkara
 
 < en:Meat
 fr:saucisse de strasbourg
-
-< en:Meat
-fr:saucisses fumées
 
 < en:Meat
 fr:saucisson de porc
@@ -62199,7 +62216,7 @@ fr:jarret avant de porc
 es:pierna de cerdo
 
 < en:Pork meat
-fr:jarret de porc
+fr:jarret de porc, jarrets de porc
 
 < en:Pork meat
 fr:Maigre de porc
@@ -84516,6 +84533,9 @@ fr:intérieur cône
 
 < fr:Jambon cuit choix
 fr:jambon cuit choix fumé
+
+< fr:Jarret de porc
+fr:jarret de porc désossé, jarrets de porc désossés
 
 fr:jus cuisiné
 
