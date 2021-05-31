@@ -67,6 +67,9 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
 	[ { lc => "en", ingredients_text => "salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:eggs'], ['en:nuts'] ],
 	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:soybeans'], ['en:gluten', 'en:nuts' ] ],
+	
+	# Use the ingredients taxonomy to add allergens
+	[ { lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja" }, [], ["en:gluten"] ],	
 
 );
 
@@ -79,6 +82,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
 	compute_languages($product_ref);
+	extract_ingredients_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
 	is_deeply ($product_ref->{allergens_tags},

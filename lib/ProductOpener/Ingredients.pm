@@ -5216,6 +5216,38 @@ sub replace_allergen_between_separators($$$$$$) {
 }
 
 
+sub detect_allergens_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	# Check the allergens:en property of each ingredient
+	
+	$log->debug("detect_allergens_from_ingredients -- start", { ingredients => $product_ref->{ingredients} }) if $log->is_debug();
+	
+	if (not defined $product_ref->{ingredients}) {
+		return;
+	}
+	
+	my @ingredients = (@{$product_ref->{ingredients}});
+	
+	while (@ingredients) {
+		my $ingredient_ref = pop(@ingredients);
+		if (defined $ingredient_ref->{ingredients}) {
+			foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+				push @ingredients, $sub_ingredient_ref;
+			}
+		}
+		my $allergens = get_inherited_property("ingredients", $ingredient_ref->{id}, "allergens:en");
+		$log->debug("detect_allergens_from_ingredients -- ingredient", { id => $ingredient_ref->{id}, allergens => $allergens }) if $log->is_debug();
+		
+		if (defined $allergens) {
+			$product_ref->{"allergens_from_ingredients"} = $allergens . ', ';
+			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
+		}
+	}	
+}
+
+
 sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
@@ -5234,6 +5266,9 @@ sub detect_allergens_from_text($) {
 
 		$product_ref->{$field . "_from_ingredients"} = "";
 	}
+	
+	# Add allergens from the ingredients analysis
+	detect_allergens_from_ingredients($product_ref);
 
 	# Remove ingredients_text_with_allergens_* fields
 	# they will be recomputed for existing ingredients languages
