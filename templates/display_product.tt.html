@@ -227,7 +227,7 @@
 
 [% IF ecoscore_grade %]
 	<h4>Eco-score
-		<a href="/ecoscore" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
+		<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
 	</h4>
 	
 	<p>[% lang("ecoscore_description") %]</p>
@@ -238,7 +238,7 @@
 		<p class="note">→ [% lang("ecoscore_warning_international") %]</p>
 	[% END %]
 	
-	<a href="/ecoscore" title="[% lang('ecoscore_information') %]">
+	<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">
 		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
