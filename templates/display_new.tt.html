@@ -239,8 +239,20 @@
 <script>
 \$(function() {
 [% initjs %]
+[% IF server_options_producers_platform %]
+  new ZammadChat({
+    background: 'rgb(0, 102, 255)',
+    fontSize: '12px',
+    show: true,
+    chatId: 1
+  });
+[% END %]
 });
 </script>
+
+[% IF server_options_producers_platform %]
+<script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
+[% END %]
 
 <script src="[% static_subdomain %]/js/dist/foundation.js"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
@@ -257,6 +269,7 @@
 		}
 	}
 });
+
 </script>
 <script type="application/ld+json">
 {
