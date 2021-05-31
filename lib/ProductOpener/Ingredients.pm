@@ -5216,6 +5216,20 @@ sub replace_allergen_between_separators($$$$$$) {
 }
 
 
+
+=head2 detect_allergens_from_ingredients ( $product_ref )
+
+Detects allergens from the ingredients extracted from the ingredients text.
+
+This functions needs to be run after the $product_ref->{ingredients} array
+is populated from the ingredients text.
+
+It is called by detect_allergens_from_text().
+Allergens are added to $product_ref->{"allergens_from_ingredients"} which
+is then used by detect_allergens_from_text() to populate the allergens_tags field.
+
+=cut
+
 sub detect_allergens_from_ingredients($) {
 
 	my $product_ref = shift;
