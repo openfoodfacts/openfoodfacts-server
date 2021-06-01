@@ -96,7 +96,7 @@ if ($action ne 'display') {
 
 process_template('test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
 
-display_new( {
+display_page( {
 	title=>"Ingredient Analysis Test",
 	content_ref=>\$html,
 	full_width=>$full_width,

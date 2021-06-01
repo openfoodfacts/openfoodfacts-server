@@ -146,7 +146,7 @@ else {
 HTML
 ;
 
-	display_new( {
+	display_page( {
 		title=>$title,
 		content_ref=>\$html,
 	});

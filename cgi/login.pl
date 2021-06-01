@@ -87,7 +87,7 @@ if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_new( {
+display_page( {
 	title => lang('login_register_title'),
 	content_ref => \$html,
 });

@@ -99,7 +99,7 @@ my $html;
 process_template('top_translators.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>lang('translators_title'),
 	content_ref=>\$html
 });

@@ -94,7 +94,7 @@ if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_new( {
+display_page( {
 	title => lang('change_password'),
 	content_ref => \$html,
 });
