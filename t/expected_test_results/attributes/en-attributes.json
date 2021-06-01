@@ -14,10 +14,14 @@
       "en:e120"
    ],
    "allergens" : "",
-   "allergens_from_ingredients" : "",
+   "allergens_from_ingredients" : "en:gluten",
    "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
-   "allergens_tags" : [],
+   "allergens_hierarchy" : [
+      "en:gluten"
+   ],
+   "allergens_tags" : [
+      "en:gluten"
+   ],
    "amino_acids_tags" : [],
    "attribute_groups_en" : [
       {
@@ -75,13 +79,13 @@
       {
          "attributes" : [
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
+               "debug" : "en:gluten in allergens",
+               "icon_url" : "https://server_domain/images/attributes/contains-gluten.svg",
                "id" : "allergens_no_gluten",
-               "match" : 100,
+               "match" : 0,
                "name" : "Gluten",
                "status" : "known",
-               "title" : "Does not contain: Gluten"
+               "title" : "Contains: Gluten"
             },
             {
                "debug" : "11 ingredients (0 unknown)",

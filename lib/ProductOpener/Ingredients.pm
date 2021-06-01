@@ -5216,6 +5216,76 @@ sub replace_allergen_between_separators($$$$$$) {
 }
 
 
+=head2 detect_allergens_from_ingredients ( $product_ref )
+
+Detects allergens from the ingredients extracted from the ingredients text,
+using the "allergens:en" property associated to some ingredients in the
+ingredients taxonomy.
+
+This functions needs to be run after the $product_ref->{ingredients} array
+is populated from the ingredients text.
+
+It is called by detect_allergens_from_text().
+Allergens are added to $product_ref->{"allergens_from_ingredients"} which
+is then used by detect_allergens_from_text() to populate the allergens_tags field.
+
+=cut
+
+sub detect_allergens_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	# Check the allergens:en property of each ingredient
+	
+	$log->debug("detect_allergens_from_ingredients -- start", { ingredients => $product_ref->{ingredients} }) if $log->is_debug();
+	
+	if (not defined $product_ref->{ingredients}) {
+		return;
+	}
+	
+	my @ingredients = (@{$product_ref->{ingredients}});
+	
+	while (@ingredients) {
+		my $ingredient_ref = pop(@ingredients);
+		if (defined $ingredient_ref->{ingredients}) {
+			foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+				push @ingredients, $sub_ingredient_ref;
+			}
+		}
+		my $allergens = get_inherited_property("ingredients", $ingredient_ref->{id}, "allergens:en");
+		$log->debug("detect_allergens_from_ingredients -- ingredient", { id => $ingredient_ref->{id}, allergens => $allergens }) if $log->is_debug();
+		
+		if (defined $allergens) {
+			$product_ref->{"allergens_from_ingredients"} = $allergens . ', ';
+			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
+		}
+	}	
+}
+
+
+=head2 detect_allergens_from_text ( $product_ref )
+
+This function:
+- combines all the ways we have to detect allergens in order to populate
+the allergens_tags and traces_tags fields.
+- creates the ingredients_text_with_allergens_[lc] fields with added
+HTML <span class="allergen"> tags
+
+Allergens are recognized in the following ways:
+
+1. using the list of ingredients that have been recognized through
+ingredients analysis, by looking at the allergens:en property in the
+ingredients taxonomy.
+This is done with the function detect_allergens_from_ingredients()
+
+2. when entered in ALL CAPS, or between underscores
+
+3. when matching exact entries o synonyms of the allergens taxonomy
+
+Allergens detected using 2. or 3. are marked with <span class="allergen">
+
+=cut
+
 sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
@@ -5234,6 +5304,9 @@ sub detect_allergens_from_text($) {
 
 		$product_ref->{$field . "_from_ingredients"} = "";
 	}
+	
+	# Add allergens from the ingredients analysis
+	detect_allergens_from_ingredients($product_ref);
 
 	# Remove ingredients_text_with_allergens_* fields
 	# they will be recomputed for existing ingredients languages
@@ -5269,9 +5342,6 @@ sub detect_allergens_from_text($) {
 			$text =~ s/\&quot;/"/g;
 
 			# allergens between underscores
-
-			#print STDERR "current text 1: $text\n";
-
 			# _allergen_ + __allergen__ + ___allergen___
 
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
@@ -5288,9 +5358,6 @@ sub detect_allergens_from_text($) {
 			}
 
 			# allergens between separators
-
-			# print STDERR "current text 2: $text\n";
-			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
