@@ -1,10 +1,10 @@
 ﻿version: "3.7"
 services:
-  backend:
+  backend-pro:
     image: productopener-backend-pro-dev
     build:
       context: ../
-      dockerfile: ./docker/backend/Dockerfile
+      dockerfile: ./docker/backend-pro/Dockerfile
       target: runnable
     volumes:
       - type: bind
@@ -40,3 +40,4 @@ services:
       - type: bind
         source: ../
         target: /opt/product-opener/
+      - ./logs/nginx:/var/log/nginx

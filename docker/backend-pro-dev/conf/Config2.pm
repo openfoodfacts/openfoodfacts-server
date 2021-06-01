@@ -47,7 +47,7 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 # server constants
-$server_domain = "productopener.pro.localhost";
+$server_domain = "pro.productopener.localhost";
 
 @ssl_subdomains = qw();
 
