@@ -24143,7 +24143,7 @@ allergens:en: en:gluten
 
 # <en:compound
 fr:préparation pain d'épices
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
 
 ##################################################################################
@@ -33352,7 +33352,7 @@ zh:老麵
 # nap:Criscito
 wikidata:en:Q904889
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 
 <en:sourdough
 fr:levain lactique
@@ -33380,6 +33380,7 @@ it:lievito madre di frumento
 nb:surdeig av hvete
 nl:tarwe zuurdesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
+allergens:en: en:gluten
 
 <en:wheat sourdough
 fr:levain de blé déshydraté
@@ -33398,6 +33399,7 @@ fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
 sv:rågsurdeg, surdeg av råg
+allergens:en: en:gluten
 # ingredient/en:rye-sourdough has 47 products in 3 languages @2020-06-12
 
 <en:rye sourdough
@@ -74124,7 +74126,7 @@ fr:spéculoos
 it:speculoos
 nl:speculoos
 ru:Спекулос
-allergens:en: en:gluten:maybe
+likely_allergens:en: en:gluten
 # ingredient/fr:spéculoos has 67 products in 3 languages @2019-03-01
 # speculoos (corn flour, corn starch, rapeseed oil, water, cane sugar, sugar, candy sugar syrup, cinnamon, salt , baking powder, emulsifier: rapeseed lecithin)
 # spéculoos 12% (farine de blé complet, sucre de canne brut, beurre, lait entier en poudre, sirop de sucre caramélisé, épices, poudre à lever: carbonate acide d'ammonium, sel marin)
@@ -74158,7 +74160,7 @@ zh:斯派庫魯斯
 # en-gb:speculaas
 # ksh:Spekulatius
 # pcd:Spéculaas
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikidata:en:Q6591
 wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
 
@@ -74502,7 +74504,7 @@ tr:Petibör
 zh:不的波
 description:en:The "PETIT BEURRE", or "Véritable Petit Beurre", also known under the initials "VPB", is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
 # yue:不的波
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikipedia:en:https://en.wikipedia.org/wiki/Petit-Beurre
 wikidata:en:Q19573669
 # ingredient/fr:petit-beurre has 20 products in french @2018-02-08
@@ -74544,7 +74546,7 @@ sv:krutong, krutonger
 tr:kruton
 uk:грінки
 zh:麵包丁
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikidata:en:Q1197400
 wikipedia:en:https://en.wikipedia.org/wiki/Crouton
 # ingredient/fr:croûtons has 107 products in 5 languages @2019-04-21
@@ -77287,7 +77289,7 @@ fi:pizzapohja
 fr:fond de pizza
 nl:pizzabodem
 sv:pizzabotten
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 # ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
 # usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
 # mainIngredient:en:wheat flour
