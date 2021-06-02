@@ -52,7 +52,9 @@ use Text::CSV();
 ProductOpener::Display::init();
 
 my $title = lang("import_file_status_title");
-my $html = "<p>" . lang("import_file_status_description") . "</p>";
+my $html = '';
+my $js = '';
+my $template_data_ref;
 
 if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
@@ -191,48 +193,19 @@ $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 
-$html .= "<p>" . lang("import_file_status") . lang("sep"). ': <span id="result">' . lang("job_status_inactive") . '</span>';
+$template_data_ref->{job_status_inactive} = lang("job_status_inactive");
+$template_data_ref->{admin} = $admin;
+$template_data_ref->{link} = "/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id";
 
-if ($admin) {
-	$html .= " (shown to admins only: <a href=\"/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id\">status</a>) - poll: <div id=\"span\"></span>";
-}
+process_template('import_file_process.tt.html', $template_data_ref, \$html);
+process_template('import_file_process.tt.js', $template_data_ref, \$js);
 
-$html .= "</p>";
+$initjs .= $js;
 
-$initjs .= <<JS
-
-var poll_n = 0;
-var timeout = 5000;
-var job_info_state;
-
-var statuses = {
-	"inactive" : "$Lang{job_status_inactive}{$lc}",
-	"active" : "$Lang{job_status_active}{$lc}",
-	"finished" : "$Lang{job_status_finished}{$lc}",
-	"failed" : "$Lang{job_status_failed}{$lc}"
-};
-
-(function poll() {
-  \$.ajax({
-    url: '/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id',
-    success: function(data) {
-      \$('#result').html(statuses[data.job_info.state]);
-	  job_info_state = data.job_info.state;
-    },
-    complete: function() {
-      // Schedule the next request when the current one's complete
-	  if ((job_info_state == "inactive") || (job_info_state == "active")) {
-		setTimeout(poll, timeout);
-		timeout += 1000;
-	}
-	if (job_info_state == "finished") {
-	}
-	  poll_n++;
-	  \$('#poll').html(poll_n);
-    }
-  });
-})();
-JS
+$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+HTML
 ;
 
 display_new( {
@@ -240,8 +213,4 @@ display_new( {
 	content_ref=>\$html,
 });
 
-
-
-
 exit(0);
-
