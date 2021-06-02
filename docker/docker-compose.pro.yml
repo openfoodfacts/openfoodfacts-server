@@ -20,7 +20,7 @@ services:
       - POSTGRES_PASSWORD=productopener
       - POSTGRES_USER=productopener
       - POSTGRES_DB=minion
-  backend:
+  backend-pro:
     image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/backend:latest
     depends_on:
       - mongodb
@@ -33,22 +33,22 @@ services:
       - product_images:/opt/product-opener/html/images/products
       - html_data:/opt/product-opener/html/data
       - type: bind
-        source: ./backend-dev/conf/Config.pm
+        source: ./backend-pro-dev/conf/Config.pm
         target: /opt/product-opener/lib/ProductOpener/Config.pm
       - type: bind
-        source: ./backend-dev/conf/Config2.pm
+        source: ./backend-pro-dev/conf/Config2.pm
         target: /opt/product-opener/lib/ProductOpener/Config2.pm
       - type: bind
-        source: ./backend-dev/conf/log.conf
+        source: ./backend-pro-dev/conf/log.conf
         target: /mnt/podata/log.conf
       - type: bind
-        source: ./backend-dev/conf/minion_log.conf
+        source: ./backend-pro-dev/conf/minion_log.conf
         target: /mnt/podata/minion_log.conf
       - type: bind
-        source: ./backend-dev/conf/apache.conf
+        source: ./backend-pro-dev/conf/apache.conf
         target: /etc/apache2/sites-enabled/product-opener.conf
       - type: bind
-        source: ./backend-dev/conf/po-foreground.sh
+        source: ./backend-pro-dev/conf/po-foreground.sh
         target: /usr/local/bin/po-foreground.sh
     command: ["/bin/sh", "/usr/local/bin/po-foreground.sh"]
     networks:
@@ -56,7 +56,7 @@ services:
   frontend:
     image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/frontend:latest
     depends_on:
-      - backend
+      - backend-pro
     volumes:
       - product_images:/opt/product-opener/html/images/products
       - html_data:/opt/product-opener/html/data
