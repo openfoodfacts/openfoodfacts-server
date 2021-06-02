@@ -325,6 +325,9 @@ my %urls_for_texts = (
 sub url_for_text($) {
 	
 	my $textid = shift;
+
+	# remove starting / if passed
+	$textid =~ s/^\///;
 	
 	if (not defined $urls_for_texts{$textid}) {
 		return "/" . $textid;
@@ -7475,6 +7478,9 @@ HTML
 	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static_subdomain\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
+
+	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
+	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
