@@ -9,9 +9,9 @@ from urllib.request import urlopen
 import click
 
 
-logging.basicConfig()
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+#logging.basicConfig()
+#logger = logging.getLogger()
+#logger.setLevel(logging.INFO)
 
 JSONObject = Mapping[str, Any]
 
