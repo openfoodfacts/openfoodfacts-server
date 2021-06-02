@@ -100,7 +100,7 @@ if (param('jqm')) {
 
 }
 else {
-	display_new( {
+	display_page( {
 		title => lang('session_title'),
 		content_ref => \$html
 	});

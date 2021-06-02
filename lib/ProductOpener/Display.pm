@@ -59,7 +59,7 @@ BEGIN
 		&display_icon
 
 		&display_structured_response
-		&display_new
+		&display_page
 		&display_text
 		&display_points
 		&display_mission
@@ -1224,7 +1224,7 @@ sub display_error($$)
 	my $error_message = shift;
 	my $status = shift;
 	my $html = "<p>$error_message</p>";
-	display_new( {
+	display_page( {
 		title => lang('error'),
 		content_ref => \$html,
 		status => $status,
@@ -1508,7 +1508,7 @@ sub display_text($)
 		$request_ref->{full_width} = 1;
 	}
 
-	display_new($request_ref);
+	display_page($request_ref);
 	exit();
 }
 
@@ -1530,7 +1530,7 @@ sub display_mission($)
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
 
-	display_new($request_ref);
+	display_page($request_ref);
 	exit();
 }
 
@@ -3012,7 +3012,7 @@ SCRIPTS
 HEADER
 ;
 
-	display_new($request_ref);
+	display_page($request_ref);
 
 	return;
 }
@@ -3816,7 +3816,7 @@ HTML
 			wikidata => \@wikidata_objects,
 			pointers => \@markers
 		};
-		$tt->process('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+		process_template('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
 	}
 
 	if ($map_html) {
@@ -4114,7 +4114,7 @@ HTML
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
-	display_new($request_ref);
+	display_page($request_ref);
 
 	return;
 }
@@ -4206,7 +4206,7 @@ JS
 			display_pagination => \&display_pagination,
 		};
 
-		if (not $tt->process('search_results.tt.html', $template_data_ref, \$html)) {
+		if (not process_template('search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
 		}		
 	}
@@ -4224,7 +4224,7 @@ JS
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "list_of_products";
 
-	display_new($request_ref);
+	display_page($request_ref);
 
 	return;
 }
@@ -5459,7 +5459,7 @@ sub search_and_export_products($$$) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
 		$request_ref->{content_ref} = \$html;
-		display_new($request_ref);
+		display_page($request_ref);
 		return;
 	}
 	else {
@@ -6850,7 +6850,7 @@ sub search_and_map_products($$$) {
 		pointers => \@pointers,
 		current_link_query => $request_ref->{current_link_query},
 	};
-	$tt->process('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
+	process_template('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
 }
@@ -7080,11 +7080,11 @@ $block_ref->{content}
 
 
 
-sub display_new($) {
+sub display_page($) {
 
 	my $request_ref = shift;
-	#$log->trace("Start of display_new " . Dumper($request_ref)) if $log->is_trace();
-	$log->trace("Start of display_new") if $log->is_trace();
+	#$log->trace("Start of display_page " . Dumper($request_ref)) if $log->is_trace();
+	$log->trace("Start of display_page") if $log->is_trace();
 
 	my $template_data_ref = {};
 
@@ -7445,7 +7445,7 @@ JS
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
 
-	process_template('display_new.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
+	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -8742,7 +8742,7 @@ JS
 	}
 
 	my $html_display_product;
-	process_template('display_product.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
+	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product) || ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
 
 	$request_ref->{content_ref} = \$html;
@@ -8753,7 +8753,7 @@ JS
 
 	$log->trace("displayed product") if $log->is_trace();
 
-	display_new($request_ref);
+	display_page($request_ref);
 
 	return;
 }
@@ -9280,7 +9280,7 @@ sub display_nutriscore_calculation_details($) {
 	# Nutrition Score Calculation Template
 
 	my $html;
-	$tt->process('nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -9416,7 +9416,7 @@ HTML
 
 	# Nutrient Levels Template
 	my $nutrient_levels_html;
-	$tt->process('nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 
 	# 2 columns?
 	$html .= "<div class='row'>";
@@ -10245,7 +10245,7 @@ JS
 		pop @{$template_data_ref->{tables}};
 	}
 
-	$tt->process('nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -10572,7 +10572,7 @@ sub display_rev_info {
 	};
 
 	my $html;
-	$tt->process('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -10629,7 +10629,7 @@ sub display_product_history($$) {
 	};
 
 	my $html;
-	$tt->process('display_product_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -10957,7 +10957,7 @@ sub display_recent_changes {
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
 	$request_ref->{page_type} = "recent_changes";
-	display_new($request_ref);
+	display_page($request_ref);
 
 	return;
 }
@@ -11126,7 +11126,7 @@ CSS
 
 	my $html;
 
-	$tt->process('ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -11229,7 +11229,7 @@ sub display_ingredients_analysis($) {
 			};
 		}
 
-		$tt->process('ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+		process_template('web/pages/product/includes/ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
 
 	return $html;
@@ -11275,7 +11275,7 @@ sub display_ecoscore_calculation_details($$) {
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -11299,7 +11299,7 @@ sub display_ecoscore_calculation_details_simple_html($$) {
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

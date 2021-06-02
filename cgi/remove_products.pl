@@ -106,7 +106,7 @@ elsif ($action eq "process") {
 	$html .= "<p>" . lang("remove_products_done") . "</p>";
 }
 
-display_new( {
+display_page( {
 	title=>$title,
 	content_ref=>\$html,
 });

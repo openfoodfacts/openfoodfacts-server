@@ -195,7 +195,7 @@ elsif ($action eq 'process') {
 
 process_template('reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 
 	title=> $Lang{'reset_password'}{$lang},
 	content_ref=>\$html,

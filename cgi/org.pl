@@ -322,7 +322,7 @@ $log->debug("org form - template data", { template_data_ref => $template_data_re
 
 $tt->process('org_form.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>$title,
 	content_ref=>\$html,
 	full_width=>$full_width,

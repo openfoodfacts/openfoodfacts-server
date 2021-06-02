@@ -121,7 +121,7 @@ if ($action ne 'display') {
 process_template('spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>"Spellcheck Test",
 	content_ref=>\$html,
 	full_width=>$full_width,

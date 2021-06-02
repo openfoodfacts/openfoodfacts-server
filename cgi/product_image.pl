@@ -165,7 +165,7 @@ my $html;
 process_template('product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>$alt,
 	content_ref=>\$html,
 	full_width=>0,
