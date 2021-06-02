@@ -7445,7 +7445,7 @@ JS
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
 
-	process_template('web/site_layout.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
+	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
 	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
@@ -9280,7 +9280,7 @@ sub display_nutriscore_calculation_details($) {
 	# Nutrition Score Calculation Template
 
 	my $html;
-	process_template('web/pages/product/nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutriscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -9416,7 +9416,7 @@ HTML
 
 	# Nutrient Levels Template
 	my $nutrient_levels_html;
-	process_template('web/pages/product/nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutrient_levels.tt.html', $template_data_ref, \$nutrient_levels_html) || return "template error: " . $tt->error();
 
 	# 2 columns?
 	$html .= "<div class='row'>";
@@ -10245,7 +10245,7 @@ JS
 		pop @{$template_data_ref->{tables}};
 	}
 
-	process_template('web/pages/product/nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/nutrition_facts_table.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -10629,7 +10629,7 @@ sub display_product_history($$) {
 	};
 
 	my $html;
-	process_template('web/pages/product/edit_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
@@ -11126,7 +11126,7 @@ CSS
 
 	my $html;
 
-	process_template('web/pages/product/ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ingredients_analysis_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -11229,7 +11229,7 @@ sub display_ingredients_analysis($) {
 			};
 		}
 
-		process_template('web/pages/product/ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+		process_template('web/pages/product/includes/ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
 
 	return $html;
@@ -11275,7 +11275,7 @@ sub display_ecoscore_calculation_details($$) {
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('web/pages/product/ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ecoscore_details.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -11299,7 +11299,7 @@ sub display_ecoscore_calculation_details_simple_html($$) {
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('web/pages/product/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/pages/product/includes/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
