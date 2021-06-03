@@ -1,0 +1,10 @@
+<p> [% lang("import_file_status_description") %] </p>
+
+<p>
+    [% lang("import_file_status") %]: <span id="result"> [% lang("job_status_inactive") %] </span>
+
+    [% IF admin %]
+        (shown to admins only: <a href="[% link %]">status</a>) - poll: <div id="span"></span>
+    [% END %]
+
+</p>
