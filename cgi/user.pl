@@ -373,15 +373,10 @@ else {
 
 	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
-	process_template('user_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
-	process_template('user_form.tt.js', $template_data_ref, \$js);
+	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/user_form/user_form.tt.js', $template_data_ref, \$js);
 
 	$initjs .= $js;
-	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-HTML
-;
 
 	display_page( {
 		title=>$title,
