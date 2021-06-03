@@ -12,7 +12,7 @@ var statuses = {
 
 (function poll() {
   \$.ajax({
-    url: '/cgi/import_file_job_status.pl?file_id=process_file_id&import_id=process_import_id',
+    url: '/cgi/import_file_job_status.pl?file_id=[% process_file_id %]&import_id=[% process_import_id %]',
     success: function(data) {
       \$('#result').html(statuses[data.job_info.state]);
 	  job_info_state = data.job_info.state;
