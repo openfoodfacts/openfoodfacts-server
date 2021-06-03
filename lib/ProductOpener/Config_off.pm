@@ -424,22 +424,20 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
 	en:tea-bags
 	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
@@ -457,7 +455,6 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:coffees
 	en:food-additives
 	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -465,7 +462,6 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
 
 # exceptions
