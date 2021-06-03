@@ -193,8 +193,8 @@ $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
 
-$template_data_ref->{job_status_inactive} = lang("job_status_inactive");
-$template_data_ref->{admin} = $admin;
+$template_data_ref->{process_file_id} = $file_id;
+$template_data_ref->{process_import_id} = $import_id;
 $template_data_ref->{link} = "/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id";
 
 process_template('import_file_process.tt.html', $template_data_ref, \$html);
