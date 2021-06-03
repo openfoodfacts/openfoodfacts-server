@@ -376,6 +376,9 @@ wikidata:en: Q16976
 wikipedia:en: https://en.wikipedia.org/wiki/Pastis
 
 < en:Alcoholic beverages
+en:Premixed alcoholic beverages
+
+< en:Alcoholic beverages
 en:Punchs
 fr:Punchs
 agribalyse_proxy_food_code:en: 1022
@@ -413,15 +416,6 @@ ciqual_food_name:en: Sake or rice wine
 wikidata:en: Q170219
 
 < en:Alcoholic beverages
-en:Sangria
-es:Sangría
-fr:Sangria
-agribalyse_food_code:en: 1017
-ciqual_food_code:en: 1017
-ciqual_food_name:en: Sangria
-ciqual_food_name:fr: Sangria
-
-< en:Alcoholic beverages
 en:Schnapps
 de:Schnäppse, Schnäpse, Schnapps, Schnaps
 fi:Snapsit
@@ -429,23 +423,6 @@ fr:schnaps
 it:Schnapps, Schnaps
 nl:Schapps
 wikidata:en: Q1815494
-
-< en:Alcoholic beverages
-en:Shandy, Beer with lemonade
-fr:Panaché, Limonade et bière, Bières à la limonade
-it:Birra al limone
-agribalyse_food_code:en: 5004
-ciqual_food_code:en: 5004
-ciqual_food_name:en: Shandy -beer + lemonade-
-ciqual_food_name:fr: Panaché -limonade et bière-
-
-< en:Alcoholic beverages
-en:Shandy with less than 1° of alcohol
-fr:Panaché à moins de 1° d'alcool
-agribalyse_food_code:en: 5005
-ciqual_food_code:en: 5005
-ciqual_food_name:en: Shandy, prepacked -<1° alcohol-
-ciqual_food_name:fr: Panaché préemballé -<1° alc.-
 
 < en:Alcoholic beverages
 en:Spirit drinks
@@ -2003,23 +1980,6 @@ origins:en: en:Austria
 protected_name_file_number:en: PGI-AT-0249
 protected_name_type:en: pgi
 
-< en:Avena
-en:Oat
-de:Hafer, Echter Hafer
-es:Avena sativa
-fi:kaura
-fr:Avoines
-he:שיבולת שועל
-it:Avena
-la:Avena sativa
-nl:Havers
-zh:燕麦
-agribalyse_food_code:en: 9310
-ciqual_food_code:en: 9310
-ciqual_food_name:en: Oat, raw
-ciqual_food_name:fr: Avoine, crue
-wikidata:en: Q12104
-
 < en:Avocados
 en:Avocado pulp
 fr:Pulpe d'avocat
@@ -3457,6 +3417,15 @@ agribalyse_food_code:en: 6162
 ciqual_food_code:en: 6162
 ciqual_food_name:en: Beef, topside, roasted/baked
 ciqual_food_name:fr: Boeuf, tende de tranche, rôtie/cuite au four
+
+< en:Beer-based alcoholic beverages
+en:Shandy, Beer with lemonade
+fr:Panaché, Limonade et bière, Bières à la limonade
+it:Birra al limone
+agribalyse_food_code:en: 5004
+ciqual_food_code:en: 5004
+ciqual_food_name:en: Shandy -beer + lemonade-
+ciqual_food_name:fr: Panaché -limonade et bière-
 
 < en:Beers
 en:5% beer, Beer with 5° alcohol, Beer with 4° alcohol
@@ -4912,6 +4881,12 @@ ciqual_food_name:en: Butter biscuit -cookie-
 ciqual_food_name:fr: Biscuit sec petit beurre
 wikidata:en: Q19573669
 wikipedia:en: https://en.wikipedia.org/wiki/Petit-Beurre
+
+< en:Biscuits
+en:Rousquilles
+es:Galletas rosquillas
+fr:Rousquilles
+wikidata:en: Q3443429
 
 < en:Biscuits
 en:Shortbread biscuit with butter
@@ -8197,6 +8172,9 @@ ciqual_food_code:en: 23937
 ciqual_food_name:en: Fruit soft cake
 ciqual_food_name:fr: Gâteau moelleux aux fruits
 
+< en:Cakes
+es:Rosquillas fritas
+
 < en:Calamari
 en:Squid
 fr:Calmar, Calamar, Encornet
@@ -9002,14 +8980,6 @@ fr:Pousses de légumineuses en conserve
 it:Germogli di legumi in scatola
 nl:Peulvruchtenkiemen in blik
 
-< en:Canned sprouts
-en:Canned soy sprouts
-fr:Pousses de soja en conserve, Pousses de soja appertisées
-agribalyse_food_code:en: 20029
-ciqual_food_code:en: 20029
-ciqual_food_name:en: Mung bean, sprouted or soy spouts, canned, drained
-ciqual_food_name:fr: Haricot mungo germé ou pousse de soja, appertisé, égoutté
-
 < en:Canned tomatoes
 en:Peeled tomatoes
 de:Geschälte Tomaten
@@ -9801,6 +9771,7 @@ fi:Kauraleseet, Kauralese
 fr:Sons d'avoine, Son d'avoine
 it:Crusche di avena
 nl:Haverzemelen
+pt:Farelo de aveia
 agribalyse_food_code:en: 9640
 ciqual_food_code:en: 9640
 ciqual_food_name:en: Oat bran
@@ -9831,6 +9802,7 @@ fi:Vehnäleseet, Vehnälese
 fr:Sons de blé, Son des blé, Son de blé
 it:Crusche di grano
 nl:Tarwezemelen
+pt:Farelo de trigo
 agribalyse_food_code:en: 9621
 ciqual_food_code:en: 9621
 ciqual_food_name:en: Wheat bran
@@ -9918,6 +9890,7 @@ fi:Maissijauhot
 fr:Farines de maïs, farine de maïs
 it:Farine di mais
 nl:Maïsmeel, Maïsmelen
+pt:Farinhas de milho, farinha de milho
 agribalyse_food_code:en: 9545
 ciqual_food_code:en: 9545
 ciqual_food_name:en: Maize/corn flour
@@ -9930,6 +9903,7 @@ es:Harinas de lino, Harinas de linaza
 fr:Farines de lin
 it:Farine di lino
 nl:Lijnzaadmelen
+pt:Farinhas de linhaça, farinha de linhaça
 
 < en:Cereal flours
 en:Gluten flours
@@ -9967,6 +9941,7 @@ es:Harinas de mijo
 fr:Farines de millet
 it:Farine di miglio
 nl:Gierstmelen
+pt:Farinhas de milheto, farinha de milheto
 agribalyse_food_code:en: 9555
 ciqual_food_code:en: 9555
 ciqual_food_name:en: Millet flour
@@ -9980,6 +9955,7 @@ fi:Kaurajauhot
 fr:Farines d'avoine, Farines d'avoines, Farine d'avoine Farines de avoines
 it:Farine di avena
 nl:Havermelen
+pt:Farinhas de aveia, farinha de aveia
 
 < en:Cereal flours
 en:Quinoa flours
@@ -9988,6 +9964,7 @@ es:Harinas de quinoa
 fr:Farines de quinoa
 it:Farine di quinoa
 nl:Quinoamelen
+pt:Farinhas de quinoa, farinha de quinoa
 
 < en:Cereal flours
 en:Rice flours, Rice flour
@@ -9997,6 +9974,7 @@ fi:riisijauhot
 fr:Farines de riz, farine de riz
 it:Farine di riso
 nl:Rijstmelen
+pt:Farinhas de arroz, farinha de arroz
 agribalyse_food_code:en: 9520
 ciqual_food_code:en: 9520
 ciqual_food_name:en: Rice flour
@@ -10012,6 +9990,7 @@ fr:Farines de seigle
 it:Farine di segale
 nl:Roggemelen
 pl:Mąki żytnie, mąka żytnia
+pt:Farinha de centeio
 agribalyse_proxy_food_code:en: 9532
 agribalyse_proxy_food_name:en: Rye flour, type 85
 agribalyse_proxy_food_name:fr: Farine de seigle T85
@@ -10039,7 +10018,7 @@ fr:Farines de blé
 it:Farine di grano
 nl:Tarwemelen
 pl:Mąki pszenne, mąka pszenna
-pt:Farinhas de trigo
+pt:Farinhas de trigo, farinha de trigo
 ru:Мука пшеничная, Пшеничная мука
 agribalyse_proxy_food_code:en: 9440
 agribalyse_proxy_food_name:en: Wheat flour, type 45 -for pastry-
@@ -10074,18 +10053,6 @@ ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
 wikidata:en: Q156344
-
-< en:Cereal grains
-en:Avena
-de:Haferarten
-es:Avena
-fi:Kaurat
-fr:Avena
-it:Avena
-la:Avena
-nl:Haverfamilie, Avena
-zh:燕麦属
-wikidata:en: Q146760
 
 < en:Cereal grains
 en:Barley
@@ -10187,6 +10154,7 @@ fr:Lins, Lin cultivé, Graines de lin
 it:Lino
 la:Linum usitatissimum
 nl:Lijnzaad, Zaad van vlas
+pt:Linhaça
 agribalyse_food_code:en: 15034
 ciqual_food_code:en: 15034
 ciqual_food_name:en: Flaxseed
@@ -10208,6 +10176,23 @@ fr:Millet
 it:Miglio
 nl:Gierstfamilie
 wikidata:en: Q259438
+
+< en:Cereal grains
+en:Oat
+de:Hafer, Echter Hafer
+es:Avena sativa
+fi:kaura
+fr:Avoines
+he:שיבולת שועל
+it:Avena
+la:Avena sativa
+nl:Havers
+zh:燕麦
+agribalyse_food_code:en: 9310
+ciqual_food_code:en: 9310
+ciqual_food_name:en: Oat, raw
+ciqual_food_name:fr: Avoine, crue
+wikidata:en: Q12104
 
 < en:Cereal grains
 en:Quinoa
@@ -10408,6 +10393,7 @@ de:Quinoamilch, Quinoamilche, Quinoamilchen, Quinoa-Drinks, Quinoa-Drink, Quinoa
 es:Bebidas de quinoa, Leches de quinoa
 fr:Boissons au quinoa, Boissons végétales de quinoa, Laits de quinoa
 nl:Quinoamelken, Quinoadranken
+pt:Bebidas de quinoa
 
 < en:Cereal milks
 en:Rice milks, Rice drinks
@@ -10420,6 +10406,7 @@ he:משקאות אורז, חלב אורז
 hu:Rizstejek
 it:Bevanda di riso
 nl:Rijstdranken
+pt:Bebidas de arroz
 agribalyse_food_code:en: 18904
 ciqual_food_code:en: 18904
 ciqual_food_name:en: Rice-based drink, plain
@@ -10448,6 +10435,7 @@ fi:Viljajuomat, Viljamaidot
 fr:Boissons végétales de blé, Laits de blé
 it:Latti di grano
 nl:Tarwedranken
+pt:Bebidas de trigo
 
 < en:Cereal oils
 en:Amaranth oils
@@ -10562,6 +10550,7 @@ fi:Maissitärkkelys
 fr:Amidon de maïs, Fécule de maïs
 it:Amido di mais
 nl:Maïszetmelen
+pt:Amido de milho
 agribalyse_food_code:en: 9510
 ciqual_food_code:en: 9510
 ciqual_food_name:en: Maize/corn starch
@@ -12253,6 +12242,9 @@ nl:Rauwmelkse kazen
 wikidata:en: Q3088297
 
 < en:Cheeses
+it:Robiolino
+
+< en:Cheeses
 < en:Meals
 fr:Fondues, fondue, fondues de fromage, fondue de fromage
 nl:Fondus, Kaasfondus
@@ -12559,7 +12551,7 @@ wikidata:en: Q620951
 en:Swiss Gruyères
 de:Greyerzer
 fi:sveitsiläiset Gruyèret
-fr:Gruyères suisses, Gruyères suisses AOP, Gruyères AOP
+fr:Gruyères de Suisse, Gruyères suisses, Gruyères suisses AOP, Gruyères AOP
 it:Formaggi Gruviera svizzeri
 nl:Zwitserse Gruyère
 wikidata:en: Q2376488
@@ -12666,11 +12658,8 @@ wikidata:en: Q3058285
 < en:Cheeses of the Netherlands
 en:Edam
 de:Edamer
-es:Edam
-fi:Edam
-fr:Edam
 hu:Edámi sajt
-nl:Edam
+xx:Edam
 agribalyse_food_code:en: 12729
 ciqual_food_code:en: 12729
 ciqual_food_name:en: Edam cheese, from cow's milk
@@ -12678,21 +12667,8 @@ oqali_family:en: fr:Fromages - Edam
 wikidata:en: Q597473
 
 < en:Cheeses of the Netherlands
-en:Gouda
-de:Goudas
-es:Gouda
-fi:Gouda
-fr:Goudas
-it:Gouda
-nl:Goudse Kazen
-pl:Gouda
-ru:Сыр Гауда
-agribalyse_food_code:en: 12736
-ciqual_food_code:en: 12736
-ciqual_food_name:en: Gouda cheese, from cow's milk
-country:en: The Netherlands
-oqali_family:en: fr:Fromages - Gouda
-wikidata:en: Q593675
+en:Leerdammer
+xx:Leerdammer
 
 < en:Cheeses of the Netherlands
 nl:Boeren-Leidse kazen
@@ -12709,22 +12685,6 @@ nl:Boerenkaas
 origins:en: en:Netherlands
 protected_name_file_number:en: TSG-NL-0023
 protected_name_type:en: tsg
-
-< en:Cheeses of the Netherlands
-nl:Edam Holland
-origins:en: en:Netherlands
-protected_name_file_number:en: PGI-NL-0329
-protected_name_type:en: pgi
-
-< en:Cheeses of the Netherlands
-nl:Edamse kazen
-country:en: The Netherlands
-
-< en:Cheeses of the Netherlands
-nl:Gouda Holland
-origins:en: en:Netherlands
-protected_name_file_number:en: PGI-NL-0328
-protected_name_type:en: pgi
 
 < en:Cheeses of the Netherlands
 nl:Hollandse geitenkaas
@@ -12749,12 +12709,6 @@ protected_name_file_number:en: PDO-NL-0315
 protected_name_type:en: pdo
 
 < en:Cheeses of the Netherlands
-nl:Noord-Hollandse Gouda
-origins:en: en:Netherlands
-protected_name_file_number:en: PDO-NL-0314
-protected_name_type:en: pdo
-
-< en:Cheeses of the Netherlands
 < en:Cow cheeses
 < en:Uncooked pressed cheeses
 en:Firm cheese around 27% fat Maasdam-type cheese
@@ -12773,7 +12727,7 @@ es:Maasdam, Queso Maasdam
 fi:maasdam
 fr:Maasdam
 it:Maasdam
-nl:Maasdam
+nl:Maasdam, Maasdammer
 agribalyse_food_code:en: 12705
 ciqual_food_code:en: 12705
 ciqual_food_name:en: Firm cheese, around 14% fat, Maasdam-type cheese, reduced fat
@@ -13830,6 +13784,7 @@ de:Mandeln mit Schokoladenüberzug
 es:Almendras recubiertas de chocolate
 fr:Amandes enrobées de chocolat
 nl:Amandelen in chocolade
+pt:Amêndoas cobertas com chocolate
 
 < en:Chocolate covered nuts
 en:Chocolate covered peanuts, Sugar and chocolate coated peanuts
@@ -14394,6 +14349,12 @@ fr:Bûches de Noël, Bûches de Noël pâtissières
 agribalyse_food_code:en: 23030
 ciqual_food_code:en: 23030
 ciqual_food_name:en: Christmas log cake
+
+< en:Christmas sweets
+< en:Desserts
+en:Panforte
+it:Panforte
+wikidata:en: Q1278788
 
 < en:Christmas sweets
 en:Alfajores, Alfajor
@@ -16438,6 +16399,10 @@ agribalyse_food_code:en: 27006
 ciqual_food_code:en: 27006
 ciqual_food_name:en: Trout, roasted/baked
 
+< en:Cooked turkey breast slices
+en:Reconstituted turkey breast slices
+fr:Blancs de dinde reconstitués
+
 < en:Cooked veal knuckle
 en:Boiled veal knuckle, Boiled veal shank
 fr:Jarret de veau bouilli
@@ -16887,6 +16852,12 @@ it:Burrata di Andria
 origins:en: en:Italy
 protected_name_file_number:en: PGI-IT-01393
 protected_name_type:en: pgi
+
+< en:Cow cheeses
+en:Fontal
+fr:Fontal
+it:Fontal
+wikidata:en: Q3076339
 
 < en:Cow cheeses
 en:Provolone
@@ -17500,6 +17471,10 @@ ciqual_food_code:en: 38105
 ciqual_food_name:en: Corn chips or tortilla chips
 ciqual_food_name:fr: Chips de maïs ou tortilla chips
 oqali_family:en: fr:Aperitifs a croquer - Tortillas
+
+< en:Crisps
+en:Crisps made from reconstituted potato
+fr:Chips de pomme de terre reconstituée
 
 < en:Crisps
 en:Parsnip Crisps
@@ -19861,7 +19836,7 @@ nl:Gedroogde kokoschips
 en:Dried coconut flour
 de:Kokosmehl
 es:Harina de coco
-fr:Farine de noix de coco séchée
+fr:Farines de noix de coco, farine de coco, Farine de noix de coco séchée
 nl:Gedroogde kokosmelen
 
 < en:Dried fruits
@@ -21319,6 +21294,23 @@ nl:Chocolade-eclairs
 en:Coffee eclairs
 fr:Éclairs au café
 nl:Koffie-eclairs
+
+< en:Cheeses of the Netherlands
+< en:Edam
+nl:Edam Holland
+origins:en: en:Netherlands
+protected_name_file_number:en: PGI-NL-0329
+protected_name_type:en: pgi
+
+< en:Canned legumes
+< en:Edamame
+en:Canned edamame
+fr:Edamame en conserve
+
+< en:Edamame
+< en:Frozen legumes
+en:Frozen edamame
+fr:Edamame surgelés
 
 en:edible tableware
 de:essbares Geschirr
@@ -24271,6 +24263,7 @@ de:braune Leinsamen, braune Leinsaaten, braune Leinsaat
 es:Lino marrón, Linaza marrón, Semillas de lino marrón
 fr:Graines de lin brun, Graines de lin brunes
 nl:Bruin lijnzaad
+pt:Linhaça marrom, sementes de linhaça marrom
 agribalyse_food_code:en: 15052
 ciqual_food_code:en: 15052
 ciqual_food_name:en: Flaxseed, brown
@@ -24282,6 +24275,7 @@ de:Goldleinsamen
 es:Lino dorado, Linaza dorada, Semillas de lino dorado
 fr:Graine de lin doré, Graines de lin dorées
 nl:Geel lijnzaad
+pt:Linhaça dourada, sementes de linhaça dourada
 
 < en:Flax seeds
 en:Ground flax seeds
@@ -24979,13 +24973,14 @@ wikidata:en: Q2304082
 < en:Cooked pressed cheeses
 < en:Cow cheeses
 < en:French cheeses
-en:French Gruyères
+en:French Gruyères, Gruyere cheese France Protected Geographical Indication from cow's milk
 de:Gruyères français, Gruyère français
-fr:Gruyères français, Gruyère français, Gruyères de France
+fr:Gruyères de France, Gruyères français, Gruyère français, Gruyère IGP France, Gruyères IGP
 nl:Gruyère uit Frankrijk, Franse Gruyère
-agribalyse_food_code:en: 12114
-ciqual_food_code:en: 12114
-ciqual_food_name:en: Gruyere cheese, from cow's milk
+agribalyse_food_code:en: 12113
+ciqual_food_code:en: 12113
+ciqual_food_name:en: Gruyere cheese, France, Protected Geographical Indication, from cow's milk
+ciqual_food_name:fr: Gruyère IGP France
 country:en: France
 wikidata:en: Q3118260
 
@@ -25409,17 +25404,6 @@ fr:Marc du Languedoc
 origins:en: en:France, fr:Languedoc
 protected_name_file_number:en: PGI-FR-02074
 protected_name_type:en: gi
-
-< en:Cooked pressed cheeses
-< en:Cow cheeses
-< en:French cheeses
-< en:French Gruyères
-en:Gruyere cheese France Protected Geographical Indication from cow's milk
-fr:Gruyère IGP France, Gruyères IGP
-agribalyse_food_code:en: 12113
-ciqual_food_code:en: 12113
-ciqual_food_name:en: Gruyere cheese, France, Protected Geographical Indication, from cow's milk
-ciqual_food_name:fr: Gruyère IGP France
 
 < en:French hams
 fr:Jambon d'Auvergne
@@ -31001,6 +30985,25 @@ de:geschrotete Goldleinsamen, geschrotete Goldleinsaaten, geschrotete Goldleinsa
 es:Lino dorado molido
 nl:Gemalen geel lijnzaad
 
+< en:Cheeses of the Netherlands
+< en:Gouda
+en:Gouda Holland
+xx:Gouda Holland
+origins:en: en:Netherlands
+protected_name_file_number:en: PGI-NL-0328
+protected_name_type:en: pgi
+
+< en:Cheeses of the Netherlands
+< en:Gouda
+nl:Noord-Hollandse Gouda
+origins:en: en:Netherlands
+protected_name_file_number:en: PDO-NL-0314
+protected_name_type:en: pdo
+
+< en:Gouda
+en:Extra matured Gouda
+nl:Extra belegen Gouda
+
 < en:Gouda
 en:Goudas with cumin
 de:Goudas mit Kreuzkümmel
@@ -31011,31 +31014,18 @@ it:Gouda con cumino
 nl:Goudse Komijnenkazen
 
 < en:Gouda
+en:Matured Gouda
+de:Mittelalter Gouda
+fi:Kypsytetyt Goudat
+fr:Goudas mi-vieux
+nl:Belegen Gouda
+
+< en:Gouda
 en:Old Goudas
 de:Alter Gouda
 fi:Kypsytetyt Goudat
 fr:Goudas vieux
 nl:Oude Gouda
-
-< en:Gouda
-en:Orange goudas
-de:Orangene Goudas
-fr:Goudas oranges
-
-< en:Gouda
-en:Red goudas
-de:Rote Goudas
-fr:Goudas rouges
-
-< en:Gouda
-en:White gouda
-de:Weiße Goudas
-fr:Goudas blancs
-
-< en:Gouda
-en:Yellow gouda
-de:Gelbe Goudas
-fr:Goudas jaunes
 
 < en:Gouda
 en:Young gouda, Young goudas
@@ -31046,17 +31036,13 @@ it:Gouda giovane
 nl:Jonge Gouda
 
 < en:Gouda
+en:Young matured Gouda
+nl:Jong belegen Gouda
+
+< en:Gouda
 fr:Goudas extra-vieux, Goudas de Noël
 de:Extra alte Goudas
 nl:Goudas extra oud, Overjarige Gouda
-
-< en:Gouda
-fr:Goudas fermiers
-
-< en:Gouda
-fr:Goudas mi-vieux
-de:Mittelalter Gouda
-fi:Kypsytetyt Goudat
 
 < en:Gracilaria seaweeds
 en:Dried gracilaria seaweeds, Dehydrated gracilaria seaweeds
@@ -33328,6 +33314,7 @@ fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 he:דבש פרחים
 it:Miele millefiori
 nl:Bloemenhoningen
+pt:Meles de flores, méis de flores, mel de flores
 ru:Цветочный мед
 sv:Blomster honung
 
@@ -34410,6 +34397,7 @@ ciqual_food_name:en: Mix of chicory and coffee, instant, without sugar, ready-to
 < en:Plant-based beverages
 fr:Orge soluble
 it:Orzo solubile
+pt:Cevada solúvel
 
 < en:Instant chicory
 en:Sugar free ready-to-drink instant chicory with artificial sweeteners reconstituted with standard semi-skimmed milk
@@ -34741,15 +34729,6 @@ country:en: Italy
 wikidata:en: Q176236
 
 < en:Italian cheeses
-it:Fontina
-en:Fontina cheese from cow's milk
-fr:Fontina
-agribalyse_food_code:en: 12121
-ciqual_food_code:en: 12121
-ciqual_food_name:en: Fontina cheese, from cow's milk
-country:en: Italy
-
-< en:Italian cheeses
 it:Formaggella del Luinese
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-0524
@@ -34883,6 +34862,17 @@ it:Vastedda della valle del Belìce
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-0661
 protected_name_type:en: pdo
+
+< en:Cow cheeses
+< en:Italian cheeses
+en:Fontina, Fontina cheese from cow's milk
+fr:Fontina
+it:Fontina
+agribalyse_food_code:en: 12121
+ciqual_food_code:en: 12121
+ciqual_food_name:en: Fontina cheese, from cow's milk
+country:en: Italy
+wikidata:en: Q534043
 
 < en:Cow cheeses
 < en:Italian cheeses
@@ -36690,6 +36680,7 @@ hu:Szójatejek
 it:Bevanda di soia
 nl:Sojadranken
 pl:Napoje sojowe, napój sojowy
+pt:Bebidas de soja
 ru:Соевое молоко
 sv:Sojadrycker, sojadryck
 agribalyse_food_code:en: 18900
@@ -36761,15 +36752,19 @@ ru:Зернобобовые
 wikidata:en: Q2727662
 
 < en:Legume seeds
-en:Soy, Soya
+en:Soy beans, Soy, Soya, Whole soybean grain
 de:Soja
 es:Soja
 fi:soija
-fr:Soja
+fr:Fèves de soja, Soja, Soja graine entière
 ja:大豆, ダイズ
 la:Glycine max
 nl:Soja
 ru:Соя, Семена сои
+agribalyse_food_code:en: 20901
+ciqual_food_code:en: 20901
+ciqual_food_name:en: Soybean, whole grain
+ciqual_food_name:fr: Soja, graine entière
 wikidata:en: Q11006
 
 < en:Legumes
@@ -37055,7 +37050,7 @@ fi:vihreät linssit
 fr:Lentilles vertes
 it:Lenticchie verdi
 nl:Groenlinzen
-pt:Lentilhas verde
+pt:Lentilhas verdes, Lentilhas verde
 agribalyse_proxy_food_code:en: 20585
 agribalyse_proxy_food_name:en: Lentil, green, dried
 agribalyse_proxy_food_name:fr: Lentille verte, sèche
@@ -42606,6 +42601,7 @@ fi:mantelijauho
 fr:Amandes en poudre, poudres d'amande, poudre d'amande, Amande en poudre
 it:Pasto di Mandorle
 nl:Gemalen amandels
+pt:Farinha de amêndoa
 wikidata:en: Q4733897
 
 < en:Nut flours
@@ -42629,6 +42625,7 @@ hu:Mandulatej
 it:Latte di mandorla
 nl:Amandeldranken
 pl:Napoje migdałowe, napój migdałowy
+pt:Bebidas de amêndoa
 ru:Миндальное молоко
 sv:Mandeldrycker, mandeldryck
 agribalyse_food_code:en: 18107
@@ -44887,6 +44884,9 @@ fr:Panettone aux cerises
 < en:Panettone
 fr:Panettone sans gluten
 
+< en:Panforte
+it:Panforte di Siena
+
 < en:Panna cottas
 en:Panna cottas with fruit coulis
 fi:Pannacottat hedelmäcoulis-kastikkeella
@@ -46655,6 +46655,9 @@ ciqual_food_code:en: 36403
 ciqual_food_name:en: Pheasant, meat and skin, raw
 ciqual_food_name:fr: Faisan, viande et peau, cru
 
+< en:Piadina
+it:Piadina Romagnola
+
 < en:Pickled cucumbers
 en:Gherkins
 de:Essiggurken
@@ -48287,6 +48290,7 @@ he:חלב קוקוס, חלבי קוקוס, משקאות קוקוס, קרם קו�
 hu:Kókusz tej
 it:Latte di cocco
 nl:Kokosnootdranken
+pt:Bebidas de coco
 ru:Кокосовое молоко
 agribalyse_food_code:en: 18041
 ciqual_food_code:en: 18041
@@ -50895,6 +50899,18 @@ ciqual_food_code:en: 25185
 ciqual_food_name:en: White rice, cooked, with vegetables and meat
 ciqual_food_name:fr: Riz blanc, cuit, avec légumes et viande
 
+< en:Premixed alcoholic beverages
+en:Beer-based alcoholic beverages
+
+< en:Premixed alcoholic beverages
+en:Rum-based alcoholic beverages
+
+< en:Premixed alcoholic beverages
+en:Vodka-based alcoholic beverages
+
+< en:Premixed alcoholic beverages
+en:Wine-based alcoholic beverages
+
 < en:Preparations made from crabs
 en:Decorticated crab leg
 fr:Pattes de crabe décortiquées
@@ -51711,6 +51727,11 @@ fr:Mélanges de céréales soufflés
 nl:Gepofte granenmelanges
 
 < en:Puffed cereals
+en:Puffed amaranth
+fr:Amaranthe soufflée
+it:Amaranto soffiato
+
+< en:Puffed cereals
 en:Puffed barley
 es:Cebada inflada, Cebada hinchada
 fr:Orge soufflé
@@ -51719,7 +51740,7 @@ nl:Gepofte gerst
 < en:Puffed cereals
 en:Puffed buckwheat
 es:Trigo sarraceno inflado, Trigo sarraceno hinchado
-fr:Sarrasin de Tartarie soufflé
+fr:Sarrasin soufflé
 nl:Gepofte boekweit
 
 < en:Puffed cereals
@@ -51738,6 +51759,7 @@ nl:Gepofte haver
 en:Puffed quinoa
 es:Quinoa inflada, Quinoa hinchada
 fr:Quinoa soufflé
+it:Quinoa soffiata
 nl:Gepofte quinoa
 
 < en:Puffed cereals
@@ -52168,14 +52190,6 @@ nl:Fluweelbonen
 wikidata:en: Q953611
 
 < en:Pulses
-en:Whole soybean grain
-fr:Soja graine entière
-agribalyse_food_code:en: 20901
-ciqual_food_code:en: 20901
-ciqual_food_name:en: Soybean, whole grain
-ciqual_food_name:fr: Soja, graine entière
-
-< en:Pulses
 en:Winged beans, Goa beans, Asparagus peas
 fr:Haricots ailé, Pois carré
 la:Psophocarpus tetragonolobus
@@ -52314,7 +52328,7 @@ en:Pumpkin seeds, Squash seeds, raw pumpkin seeds
 de:Kürbiskerne
 es:Semillas de calabaza, Pepitas de calabaza, Pipas de calabaza
 fi:kurpitsan siemenet
-fr:Graines de courge
+fr:Graines de courge, graines de citrouille
 it:Semi di zucca
 nl:Pompoenpitten
 wikidata:en: Q3056521
@@ -53316,6 +53330,7 @@ en:Cocoa rice milks, Chocolate rice milks, Cocoa rice drinks, Chocolate rice dri
 es:Bebidas de arroz con cacao, Bebidas de arroz con chocolate, Leches de arroz con cacao, Leches de arroz con chocolate
 fr:Boissons végétales de riz au cacao, Boissons végétales de riz au chocolat, Laits de riz au cacao, Laits de riz au chocolat
 nl:Chocoladerijstdranken
+pt:Bebidas de arroz com cacau
 
 < en:Rice milks
 en:Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks, Plain rice-based drinks
@@ -53335,6 +53350,7 @@ en:Vanilla rice milks, Vanilla rice drinks
 es:Bebidas de arroz con vainilla, Leches de arroz con vainilla
 fr:Boissons végétales de riz à la vanille, Laits de riz à la vanille
 nl:Vanillerijstdranken
+pt:Bebidas de arroz com baunilha
 
 < en:Rice pudding with caramel sauce
 en:Refrigerated rice pudding with caramel sauce
@@ -55153,6 +55169,15 @@ fr:Cake salé aux légumes
 agribalyse_food_code:en: 7814
 ciqual_food_code:en: 7814
 ciqual_food_name:en: Savoury cake -with cheese, vegetables, meat, fish, poultry,etc.-
+
+< en:Prepared meats
+< en:Salted spreads
+en:Nduja
+de:Nduja
+es:Nduja
+fr:Nduja
+it:Nduja
+wikidata:en: Q1505085
 
 < en:Prepared meats
 < en:Salted spreads
@@ -57678,6 +57703,14 @@ en:Fresh shallots
 fr:Échalotes fraîches
 season_in_country_fr:en: 10‚11‚12
 
+< en:Shandy
+en:Shandy with less than 1° of alcohol
+fr:Panaché à moins de 1° d'alcool
+agribalyse_food_code:en: 5005
+ciqual_food_code:en: 5005
+ciqual_food_name:en: Shandy, prepacked -<1° alcohol-
+ciqual_food_name:fr: Panaché préemballé -<1° alc.-
+
 < en:Sheep dishes
 en:Tripoux, Tripous
 fr:Tripoux, Tripous
@@ -59630,6 +59663,10 @@ ru:Сметана
 sv:Smetana
 wikidata:ru: Q326061
 
+< en:Soy beans
+en:Edamame
+fr:Edamame
+
 < en:Soy desserts
 en:Flavoured soy dessert
 fr:Dessert au soja aromatisé
@@ -59674,12 +59711,14 @@ fi:Soijakaakaot
 fr:Boissons végétales de soja au chocolat, Boissons végétales de soja au cacao, Laits de soja au cacao, Laits de soja au chocolat
 it:Latte di soia al cioccolato
 nl:Chocosojadranken
+pt:Bebidas de soja com cacau
 
 < en:Soy milks
 en:Coffee soy milks, Coffee soy drinks
 es:Bebidas de soja con café, Leches de soja con café
 fr:Boissons végétales de soja avec du café, Laits de soja avec du café
 nl:Koffiesojadranken
+pt:Bebidas de soja com café
 
 < en:Soy milks
 en:Flavoured soy drinks enriched in calcium with sugar, Flavoured soy drinks enriched in calcium with fruit concentrate
@@ -59737,6 +59776,7 @@ fi:Vaniljan makuiset soijajuomat
 fr:Boissons végétales de soja à la vanille, Laits de soja à la vanille
 it:Latti di soia alla vaniglia
 nl:Vanillesojadranken
+pt:Bebidas de soja com baunilha
 
 < en:Soy sauces
 en:Tamaris, Tamari sauces
@@ -59752,13 +59792,6 @@ nl:Zoute sojasauzen
 < en:Soy sauces
 fr:Sauces au soja sucrées, Sauces soja sucrées, Sauces de soja sucrée, Sauce au soja sucrée, Sauce soja sucrée, Sauce de soja sucrée
 nl:Zoete sojasauzen
-
-en:Soy sprouts
-fr:Pousses de soja
-agribalyse_food_code:en: 20183
-ciqual_food_code:en: 20183
-ciqual_food_name:en: Mung bean, sprouted or soy spouts, raw
-ciqual_food_name:fr: Haricot mungo germé ou pousse de ""soja"", cru
 
 < en:Soy vermicelli
 en:Dried soy vermicelli, Dried soy noodles
@@ -61662,10 +61695,10 @@ fr:Biscuits sprits au chocolat
 
 < en:Canned legume sprouts
 < en:Sprouted mung beans
-en:Canned mung bean sprouts, Canned sprouted mung beans
+en:Canned mung bean sprouts, Canned sprouted mung beans, Canned soy sprouts
 es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
 fi:Purkitetut mungpavun idut
-fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés
+fr:Pousses de haricot mungo en conserve, Haricots mungo germés en conserve, Haricots mungo germés appertisés, Pousses de soja en conserve, Pousses de soja appertisées
 it:Germogli di fagiolo mungo in scatola, Germogli di soia in scatola
 nl:Mungoboonkiemen in blik
 agribalyse_food_code:en: 20029
@@ -62347,6 +62380,7 @@ fi:kookossokeri
 fr:Sucres de coco, sucres de fleur de coco
 it:Zucchero di coco
 nl:Kokossuiker
+pt:Açúcar de coco
 
 < en:Sugars
 en:Cotton candy sugars
@@ -63555,6 +63589,11 @@ nl:Chocolade taartjes
 agribalyse_food_code:en: 23497
 ciqual_food_code:en: 23497
 ciqual_food_name:en: Chocolate tart from bakery
+
+< en:Tartlets
+en:Crostatina
+fr:Crostatina
+it:Crostatina
 
 < en:Tartlets
 en:Fruit tartlets
@@ -65464,6 +65503,24 @@ agribalyse_food_code:en: 19049
 ciqual_food_code:en: 19049
 ciqual_food_name:en: Milk, semi-skimmed, vitamin fortified, UHT
 ciqual_food_name:fr: Lait demi-écrémé, UHT, enrichi en vitamines
+
+< en:Cow cheeses
+< en:Uncooked pressed cheeses
+en:Gouda
+de:Goudas
+es:Gouda
+fi:Gouda
+fr:Goudas
+it:Gouda
+nl:Gouda, Goudse Kazen
+pl:Gouda
+ru:Сыр Гауда
+agribalyse_food_code:en: 12736
+ciqual_food_code:en: 12736
+ciqual_food_name:en: Gouda cheese, from cow's milk
+country:en: The Netherlands
+oqali_family:en: fr:Fromages - Gouda
+wikidata:en: Q593675
 
 < en:Cow cheeses
 < en:French cheeses
@@ -68517,6 +68574,7 @@ fi:Spelttijuomat, Spelttimaidot
 fr:Boissons végétales d'épeautre, Laits d'épeautre, Boissons à l'épeautre, Boissons d'épeautre
 it:Bevanda di farro
 nl:Speltdranken
+pt:Bebidas de espelta
 
 < en:Wheat semolinas
 en:Durum wheat semolinas, durum wheat semolina
@@ -69697,6 +69755,15 @@ fi:savustetut villilohet
 fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés, saumon sauvage fumé
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
+
+< en:Wine-based alcoholic beverages
+en:Sangria
+xx:Sangria
+agribalyse_food_code:en: 1017
+ciqual_food_code:en: 1017
+ciqual_food_name:en: Sangria
+ciqual_food_name:fr: Sangria
+wikipedia:en: https://en.wikipedia.org/wiki/Sangria
 
 < en:Wine-based drinks
 en:Spritz cocktails
