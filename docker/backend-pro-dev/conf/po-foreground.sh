@@ -1,5 +1,5 @@
 #!/bin/sh
-mkdir -p /mnt/podata/products /mnt/podata/logs /mnt/podata/users /mnt/podata/po
+mkdir -p /mnt/podata/products /mnt/podata/logs /mnt/podata/users /mnt/podata/po /mnt/podata/orgs
 
 if [ ! -e /mnt/podata/lang ]
 then
