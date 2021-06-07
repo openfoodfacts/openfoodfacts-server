@@ -1,4 +1,6 @@
 
+<!-- start templates/[% template.name %] -->
+
 <p>[% error %]</p>
 [% IF (current_link_query.defined) && !(jqm.defined) %]
     [% IF country != 'en:world' %]
@@ -106,3 +108,5 @@
 	[% pagination %]
 
 [% END %]
+
+<!-- end templates/[% template.name %] -->

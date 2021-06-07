@@ -1,3 +1,5 @@
+<!-- start templates/[% template.name %] -->
+
 [% IF action == 'display' || action == 'none' %]
 [% INCLUDE 'web/common/includes/error_list.tt.html' %]
 [% END %]
@@ -89,3 +91,4 @@
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
 
+<!-- end templates/[% template.name %] -->

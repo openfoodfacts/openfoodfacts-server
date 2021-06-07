@@ -1,3 +1,5 @@
+<!-- start templates/[% template.name %] -->
+
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
 <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
 <script src="[% static_subdomain %]/js/dist/osmtogeojson.js"></script>
@@ -8,3 +10,5 @@
     displayMap([% encode_json(pointers) %], [% encode_json(wikidata) %]);
   });
 </script>
+
+<!-- end templates/[% template.name %] -->

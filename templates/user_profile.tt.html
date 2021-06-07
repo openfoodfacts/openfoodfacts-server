@@ -1,3 +1,5 @@
+<!-- start templates/[% template.name %] -->
+
 [% IF edit_profile %]
 	<!-- Edit product page -->
 	<div class="edit_button">
@@ -17,3 +19,5 @@
 [% FOREACH link IN links %]
 	&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
 [% END %]
+
+<!-- end templates/[% template.name %] -->

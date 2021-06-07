@@ -1,3 +1,5 @@
+<!-- start templates/[% template.name %] -->
+
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css">
 <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/MarkerCluster.css">
@@ -16,3 +18,5 @@
 <script>
   displayMap('container', [% encode_json(pointers) %]);
 </script>
+
+<!-- end templates/[% template.name %] -->
