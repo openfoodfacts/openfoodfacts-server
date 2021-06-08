@@ -118,7 +118,7 @@ if ($action ne 'display') {
 	$full_width = 0;
 }
 
-process_template('spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/spellcheck/spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 display_page( {

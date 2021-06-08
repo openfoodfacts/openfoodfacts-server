@@ -193,7 +193,7 @@ elsif ($action eq 'process') {
 	}
 }
 
-process_template('reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 display_page( {
 

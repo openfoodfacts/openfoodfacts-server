@@ -3891,7 +3891,7 @@ HTML
 					$template_data_ref->{orgid} = $orgid;
 				}					
 				
-				process_template('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/org_profile/org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 			else {
 				
@@ -3917,7 +3917,7 @@ HTML
 					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
 				}					
 				
-				process_template('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/user_profile/user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 				
 			$description .= $profile_html;
