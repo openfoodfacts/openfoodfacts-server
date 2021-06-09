@@ -10578,7 +10578,7 @@ sub display_rev_info {
 	};
 
 	my $html;
-	process_template('web/pages/rev_info/display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('web/pages/product/includes/display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
