@@ -131,7 +131,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	process_template('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
+	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
 elsif (($action eq "process") and $allow_submit) {

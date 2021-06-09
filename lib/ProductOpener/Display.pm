@@ -5267,7 +5267,7 @@ JS
 
 	}
 
-	process_template('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
@@ -10578,7 +10578,7 @@ sub display_rev_info {
 	};
 
 	my $html;
-	process_template('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('web/pages/rev_info/display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }
