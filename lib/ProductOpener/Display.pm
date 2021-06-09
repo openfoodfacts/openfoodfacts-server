@@ -3819,7 +3819,7 @@ HTML
 			wikidata => \@wikidata_objects,
 			pointers => \@markers
 		};
-		process_template('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+		process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
 	}
 
 	if ($map_html) {
@@ -4209,7 +4209,7 @@ JS
 			display_pagination => \&display_pagination,
 		};
 
-		if (not process_template('search_results.tt.html', $template_data_ref, \$html)) {
+		if (not process_template('web/pages/search_results/search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
 		}		
 	}
@@ -6853,7 +6853,7 @@ sub search_and_map_products($$$) {
 		pointers => \@pointers,
 		current_link_query => $request_ref->{current_link_query},
 	};
-	process_template('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
+	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
 }
