@@ -70,6 +70,19 @@ You’re done! Check http://localhost/
 
 Note: it’s possible that you don’t see immediately the test product database: create an account and login, it should appear.
 
+### Setting up producers platform
+
+The process for setting up the producer’s platform is almost the same. The scripts to run it on a local machine are different. 
+
+```console
+$ cd ./openfoodfacts-server/docker/
+$ ./build_pro_dev.sh
+$ ./start_pro_dev.sh
+```
+Note: You will have to build front-end assets for the producer’s platform as well.  
+
+The link for the producer’s platform is http://world.pro.productopener.localhost/ 
+
 
 ## 4. Starting and stopping environment
 
