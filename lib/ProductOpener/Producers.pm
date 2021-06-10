@@ -394,7 +394,15 @@ sub convert_file($$$$) {
 			}
 			# Source specific fields
 			elsif ($field eq "sources_fields_specific") {
-				$field = "sources_fields:" . $Owner_id . ":";
+				my $source_id;
+				if (defined $default_values_ref->{source_id}) {
+					# e.g. org-database-usda
+					$source_id = "org-" . $default_values_ref->{source_id};
+				}
+				elsif (defined $Owner_id) {
+					$source_id = $Owner_id;
+				}
+				$field = "sources_fields:" . $source_id . ":";
 				if (defined $columns_fields_ref->{$column}{tag}) {
 					$field .= $columns_fields_ref->{$column}{tag};
 				}

@@ -298,7 +298,7 @@ sub import_csv_file($) {
 	'products_without_info' => {},
 	'products_without_nutrition' => {},
 	'products_updated' => {},
-
+	'orgs_without_source_authorization' => {},
 	);
 
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
@@ -457,6 +457,8 @@ sub import_csv_file($) {
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
 
+	# Keep track of the number of products that are not imported because the source does not have authorization for the org
+
 	while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 		$i++;
@@ -467,6 +469,13 @@ sub import_csv_file($) {
 		my @modified_fields;
 
 		my @images_ids;
+
+		# The option -use_brand_owner_as_org_name can be used to set the org name
+		# e.g. for the USDA branded food database import
+
+		if (($args_ref->{use_brand_owner_as_org_name}) and (defined $imported_product_ref->{brand_owner})) {
+			$imported_product_ref->{org_name} = $imported_product_ref->{brand_owner};
+		}
 				
 		# If the CSV includes an org_name (e.g. from GS1 partyName field)
 		# set the owner of the product to the org_name
@@ -514,6 +523,21 @@ sub import_csv_file($) {
 				my $org_ref = retrieve_org($org_id);
 		
 				if (defined $org_ref) {
+
+					# Make sure the source as the authorization to load data to the org
+					# e.g. if an org has loaded fresh data manually or through Equadis,
+					# don't overwrite it with potentially stale CodeOnline or USDA data
+
+					if (defined $args_ref->{source_id}) {
+						if ((not defined $org_ref->{sources}) or (not $org_ref->{sources}{$args_ref->{source_id}})) {
+							$log->debug("skipping import for org with authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
+							$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
+							$stats{orgs_without_source_authorization}{$org_id}++;
+						};
+					}
+
+					# The do_not_import_codeonline checkbox will be replaced by the new system above that will work for all sources
+
 					# Check if it is a CodeOnline import for an org with do_not_import_codeonline
 					if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} eq "codeonline")
 						and (defined $org_ref->{do_not_import_codeonline}) and ($org_ref->{do_not_import_codeonline})) {
@@ -553,8 +577,18 @@ sub import_csv_file($) {
 					# The org does not exist yet, create it
 					
 					$org_ref = create_org($User_id, $org_id);
-					
 					$org_ref->{name} = $imported_product_ref->{org_name};
+
+					# Set the sources field to authorize imports from the source that created the org
+					# e.g. if the org was created by an import of Codeonline or the USDA,
+					# then that source will be able to load new imports automatically
+					# (unless the authorization is revoked by an admin or the org owner)
+
+					if (defined $args_ref->{source_id}) {
+						$org_ref->{sources} = {
+							$args_ref->{source_id} => "on",
+						};
+					}
 					
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
 						$org_ref->{sources_field} = {
