@@ -55,6 +55,7 @@ TXT
 my $csv_file;
 my $converted_csv_file;
 my $columns_fields_file;
+my $source_id;
 my %global_values = ();
 
 GetOptions (
@@ -62,14 +63,19 @@ GetOptions (
     "converted_csv_file=s" => \$converted_csv_file,
     "columns_fields_file=s" => \$columns_fields_file,
 	"define=s%" => \%global_values,
-
+	"source_id=s" => \$source_id,
 		)
   or die("Error in command line arguments:\n$\nusage");
+
+if (defined $source_id) {
+	$global_values{source_id} = $source_id;
+}
 
 print STDERR "convert_csv_file.pl
 - csv_file: $csv_file
 - converted_csv_file: $converted_csv_file
 - columns_fields_file: $columns_fields_file
+- source_id: $source_id
 - global fields values:
 ";
 
