@@ -14,6 +14,8 @@ Alternatively, run `docker-compose -f ./docker-compose.yml -f ./docker-compose.d
 
 Note: You can also build the frontend assets inside docker. See `build_npm.bat` or `build_npm.sh` for more information about this. If you want to use geolocation, you need to update `docker-compose.geolite2.yml` with your [MaxMind Account](https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/) and license information, and include it in the call to `docker-compose`.
 
+The step by step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/installation/dev-environment-quick-start-guide.md).
+
 ### Accessing Product Opener
 
 In this Docker image, Product Opener is configured to run on [localhost](http://world.productopener.localhost/). You may need to add this and other subdomains to your `hosts` file (see your operating system's documentation) to access it.
