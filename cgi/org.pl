@@ -105,15 +105,19 @@ if ($action eq 'process') {
 				if (not defined $org_ref) {
 					$org_ref = create_org($User_id, $orgid);
 				}
+
+				my @admin_fields = ();
 				
-				foreach my $field ("enable_manual_export_to_public_platform",
+				push (@admin_fields, ("enable_manual_export_to_public_platform",
 					"activate_automated_daily_export_to_public_platform",
 					"do_not_import_codeonline",
 					"gs1_product_name_is_abbreviated",
 					"gs1_nutrients_are_unprepared",
-					) {
+				));
+				
+				foreach my $field (@admin_fields) {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-				}
+				}			
 				
 				# Set the list of org GLNs
 				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln")));
@@ -175,33 +179,49 @@ if ($action eq 'display') {
 	# Admin
 	
 	if ($admin) {
+
+		my $admin_fields_ref = [];
+
+		push (@$admin_fields_ref, (
+			{
+				field => "enable_manual_export_to_public_platform",
+				type => "checkbox",
+			},
+			{
+				field => "activate_automated_daily_export_to_public_platform",
+				type => "checkbox",
+			},
+		));
+
+		if (defined $options{import_sources}) {
+			foreach my $source_id (sort keys %{$options{import_sources}}) {
+				push (@$admin_fields_ref, 
+					{
+						field => "import_source_" . $source_id,
+						type => "checkbox",
+						label => sprintf(lang("import_source_string"), $options{import_sources}{$source_id}),
+					},
+				);
+			}
+		}
+
+		push (@$admin_fields_ref, (
+			{
+				field => "list_of_gs1_gln",
+			},
+			{
+				field => "gs1_product_name_is_abbreviated",
+				type => "checkbox",
+			},
+			{
+				field => "gs1_nutrients_are_unprepared",
+				type => "checkbox",
+			},	
+		));
+
 		push @{$template_data_ref->{sections}}, {
 			id => "admin",
-			fields => [
-				{
-					field => "enable_manual_export_to_public_platform",
-					type => "checkbox",
-				},
-				{
-					field => "activate_automated_daily_export_to_public_platform",
-					type => "checkbox",
-				},
-				{
-					field => "list_of_gs1_gln",
-				},
-				{
-					field => "do_not_import_codeonline",
-					type => "checkbox",
-				},
-				{
-					field => "gs1_product_name_is_abbreviated",
-					type => "checkbox",
-				},
-				{
-					field => "gs1_nutrients_are_unprepared",
-					type => "checkbox",
-				},	
-			]
+			fields => $admin_fields_ref,
 		};		
 	}
 	
@@ -281,8 +301,10 @@ if ($action eq 'display') {
 				$field_lang_id = "org_" . $field;
 			}
 			
-			# Label
-			$field_ref->{label} = lang($field_lang_id);
+			# Label if it has not been set already
+			if (not defined $field_ref->{label}) {
+				$field_ref->{label} = lang($field_lang_id);
+			}
 			
 			# Descriptions and notes for fields
 			if (lang($field_lang_id . "_description")) {

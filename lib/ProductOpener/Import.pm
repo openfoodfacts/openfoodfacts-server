@@ -463,6 +463,10 @@ sub import_csv_file($) {
 
 		$i++;
 
+		my $code = $imported_product_ref->{code};
+		$code = normalize_code($code);
+		my $product_id = product_id_for_owner($Owner_id, $code);
+
 		my $modified = 0;
 
 		# Keep track of fields that have been modified, so that we don't import products that have not been modified
@@ -529,10 +533,13 @@ sub import_csv_file($) {
 					# don't overwrite it with potentially stale CodeOnline or USDA data
 
 					if (defined $args_ref->{source_id}) {
-						if ((not defined $org_ref->{sources}) or (not $org_ref->{sources}{$args_ref->{source_id}})) {
-							$log->debug("skipping import for org with authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
+						if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
+							$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
 							$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
+							$stats{orgs_without_source_authorization_products} or $stats{orgs_without_source_authorization_products} = {};
 							$stats{orgs_without_source_authorization}{$org_id}++;
+							$stats{orgs_without_source_authorization_products}{$code} = 1;
+							next;
 						};
 					}
 
@@ -585,9 +592,7 @@ sub import_csv_file($) {
 					# (unless the authorization is revoked by an admin or the org owner)
 
 					if (defined $args_ref->{source_id}) {
-						$org_ref->{sources} = {
-							$args_ref->{source_id} => "on",
-						};
+						$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
 					}
 					
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
@@ -615,11 +620,7 @@ EMAIL
 				}
 			}
 		}
-		
 
-		my $code = $imported_product_ref->{code};
-		$code = normalize_code($code);
-		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;
