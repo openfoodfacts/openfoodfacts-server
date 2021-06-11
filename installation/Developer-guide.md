@@ -1,3 +1,7 @@
+"Developer's Guide" is for developers and newcomers to help them in debugging and exploring docker.
+This page describes how to test and debug your changes once you have set up the project, Product Opener with Docker using [dev environment quick start guide](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/installation/dev-environment-quick-start-guide.md).
+
+
 ## Logging Bugs
 
 Go to `~/openfoodfacts-server/docker/logs/apache2` and run
