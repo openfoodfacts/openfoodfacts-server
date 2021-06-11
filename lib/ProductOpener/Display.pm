@@ -3819,7 +3819,7 @@ HTML
 			wikidata => \@wikidata_objects,
 			pointers => \@markers
 		};
-		process_template('display_tag_map.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
+		process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html) || ($html .= 'template error: ' . $tt->error());
 	}
 
 	if ($map_html) {
@@ -3891,7 +3891,7 @@ HTML
 					$template_data_ref->{orgid} = $orgid;
 				}					
 				
-				process_template('org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>org_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/org_profile/org_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 			else {
 				
@@ -3917,7 +3917,7 @@ HTML
 					$template_data_ref->{registered_t} = $user_or_org_ref->{registered_t};
 				}					
 				
-				process_template('user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
+				process_template('web/pages/user_profile/user_profile.tt.html', $template_data_ref, \$profile_html) or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 			}
 				
 			$description .= $profile_html;
@@ -4209,7 +4209,7 @@ JS
 			display_pagination => \&display_pagination,
 		};
 
-		if (not process_template('search_results.tt.html', $template_data_ref, \$html)) {
+		if (not process_template('web/pages/search_results/search_results.tt.html', $template_data_ref, \$html)) {
 			$html = $tt->error();
 		}		
 	}
@@ -5267,7 +5267,7 @@ JS
 
 	}
 
-	process_template('search_and_display_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
@@ -6853,7 +6853,7 @@ sub search_and_map_products($$$) {
 		pointers => \@pointers,
 		current_link_query => $request_ref->{current_link_query},
 	};
-	process_template('display_map.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
+	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
 }
@@ -10578,7 +10578,7 @@ sub display_rev_info {
 	};
 
 	my $html;
-	process_template('display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
+	process_template('web/pages/product/includes/display_rev_info.tt.html', $template_data_ref, \$html) || return 'template error: ' . $tt->error();
 	return $html;
 
 }

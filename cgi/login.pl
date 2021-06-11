@@ -82,7 +82,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 $template_data_ref->{errors} = \@errors;
 
 my $html;
-process_template('login.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/login_form/login.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
