@@ -366,8 +366,21 @@ sub convert_file($$$$) {
 
 	foreach my $column (@{$headers_ref}) {
 
+		my $field;
+
+		# columns_fields_ref may contain unnormalized or normalized column names
+		# we will try to match both
+		my $columnid = get_string_id_for_lang("no_language", normalize_column_name($column));
+
 		if ((defined $columns_fields_ref->{$column}) and (defined $columns_fields_ref->{$column}{field})) {
-			my $field = $columns_fields_ref->{$column}{field};
+			$field = $columns_fields_ref->{$column}{field};
+		}
+		elsif ((defined $columns_fields_ref->{$columnid}) and (defined $columns_fields_ref->{$columnid}{field})) {
+			$field = $columns_fields_ref->{$columnid}{field};
+			$column = $columnid;
+		}
+
+		if (defined $field) {
 
 			# For columns mapped to a specific label, output labels:Label name as the column name
 			if ($field =~ /^(labels|categories)_specific$/) {
@@ -381,7 +394,15 @@ sub convert_file($$$$) {
 			}
 			# Source specific fields
 			elsif ($field eq "sources_fields_specific") {
-				$field = "sources_fields:" . $Owner_id . ":";
+				my $source_id;
+				if (defined $default_values_ref->{source_id}) {
+					# e.g. org-database-usda
+					$source_id = "org-" . $default_values_ref->{source_id};
+				}
+				elsif (defined $Owner_id) {
+					$source_id = $Owner_id;
+				}
+				$field = "sources_fields:" . $source_id . ":";
 				if (defined $columns_fields_ref->{$column}{tag}) {
 					$field .= $columns_fields_ref->{$column}{tag};
 				}
@@ -399,7 +420,7 @@ sub convert_file($$$$) {
 				}
 			}
 
-			$log->debug("convert_file", { column => $column, field => $field, col => $col }) if $log->is_debug();
+			$log->debug("convert_file - found matching column", { column => $column, field => $field, col => $col }) if $log->is_debug();
 
 			if (defined $seen_fields{$field}) {
 				$seen_fields{$field}++;
@@ -413,6 +434,9 @@ sub convert_file($$$$) {
 				push @headers, $field;
 				$headers_cols{$field} = $col;
 			}
+		}
+		else {
+			$log->debug("convert_file - no matching column", { column => $column }) if $log->is_debug();
 		}
 
 		$col++;
