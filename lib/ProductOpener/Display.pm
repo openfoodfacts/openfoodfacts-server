@@ -358,6 +358,11 @@ sub process_template($$$) {
 	
 	# Add functions and values that are passed to all templates
 
+	$template_data_ref->{producers_platform_url} = $producers_platform_url;
+	$template_data_ref->{server_domain} = $server_domain;
+	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
+	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
+
 	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{sep} = separator_before_colon($lc);
