@@ -189,16 +189,6 @@ sub create_org($$) {
 	};
 
 	store_org($org_ref);
-	
-	my $admin_mail_body = <<EMAIL
-creator: $creator
-org_id: $org_id
-name: $org_id_or_name
-EMAIL
-;
-	send_email_to_producers_admin(
-		"Org created - creator: $creator - org: $org_id",
-		$admin_mail_body );
 
 	return $org_ref;
 }
