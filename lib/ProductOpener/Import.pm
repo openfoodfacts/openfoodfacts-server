@@ -299,6 +299,9 @@ sub import_csv_file($) {
 	'products_without_nutrition' => {},
 	'products_updated' => {},
 	'orgs_without_source_authorization' => {},
+	'orgs_created' => {},
+	'orgs_existing' => {},
+	'orgs_in_file' => {},
 	);
 
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
@@ -463,9 +466,12 @@ sub import_csv_file($) {
 
 		$i++;
 
+		# By default, use the orgid passed in the arguments
+		# it may be overriden later on a per product basis
+		my $org_id = $args_ref->{org_id};
+
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
-		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		my $modified = 0;
 
@@ -485,7 +491,7 @@ sub import_csv_file($) {
 		# set the owner of the product to the org_name
 		
 		if ((defined $imported_product_ref->{org_name}) and ($imported_product_ref->{org_name} ne "")) {
-			my $org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
+			$org_id = get_string_id_for_lang("no_language", $imported_product_ref->{org_name});
 			if ($org_id ne "") {
 				
 				# Re-assign some organizations
@@ -519,14 +525,17 @@ sub import_csv_file($) {
 					}
 				}
 				
-				$Org_id = $org_id;
-				$Owner_id = "org-" . $org_id;
-				
 				$log->debug("org", { org_name => $imported_product_ref->{org_name}, org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"} }) if $log->is_debug();
+
+				defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
+				$stats{orgs_in_file}{$org_id}++;
 				
 				my $org_ref = retrieve_org($org_id);
 		
 				if (defined $org_ref) {
+
+					defined $stats{orgs_existing}{$org_id} or $stats{orgs_existing}{$org_id} = 0;
+					$stats{orgs_existing}{$org_id}++;
 
 					# Make sure the source as the authorization to load data to the org
 					# e.g. if an org has loaded fresh data manually or through Equadis,
@@ -536,9 +545,7 @@ sub import_csv_file($) {
 						if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
 							$log->debug("skipping import for org without authorization for the source", { org_ref => $org_ref, source_id => $args_ref->{source_id} }) if $log->is_debug();
 							$stats{orgs_without_source_authorization}{$org_id} or $stats{orgs_without_source_authorization}{$org_id} = 0;
-							$stats{orgs_without_source_authorization_products} or $stats{orgs_without_source_authorization_products} = {};
 							$stats{orgs_without_source_authorization}{$org_id}++;
-							$stats{orgs_without_source_authorization_products}{$code} = 1;
 							next;
 						};
 					}
@@ -582,6 +589,9 @@ sub import_csv_file($) {
 				}
 				else {
 					# The org does not exist yet, create it
+
+					defined $stats{orgs_created}{$org_id} or $stats{orgs_created}{$org_id} = 0;
+					$stats{orgs_created}{$org_id}++;
 					
 					$org_ref = create_org($User_id, $org_id);
 					$org_ref->{name} = $imported_product_ref->{org_name};
@@ -609,18 +619,13 @@ sub import_csv_file($) {
 					}
 			
 					store_org($org_ref);
-					
-					my $admin_mail_body = <<EMAIL
-user_id: $User_id
-org_id: $org_id
-org_name: $imported_product_ref->{org_name}
-EMAIL
-;
-					send_email_to_admin("Import - Created org - user: $User_id - org: " . $Org_id, $admin_mail_body);
 				}
 			}
 		}
 
+		$Org_id = $org_id;
+		$Owner_id = "org-" . $org_id;
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;
@@ -774,7 +779,7 @@ EMAIL
 
 				$stats{products_created}{$code} = 1;
 
-				$product_ref = init_product($args_ref->{user_id}, $args_ref->{org_id}, $code, undef);
+				$product_ref = init_product($args_ref->{user_id}, $org_id, $code, undef);
 				$product_ref->{interface_version_created} = "import_csv_file - version 2019/09/17";
 
 				$product_ref->{lc} = $imported_product_ref->{lc};
@@ -1119,8 +1124,8 @@ EMAIL
 						push @modified_fields, $field;
 						$modified++;
 						$stats{products_info_added}{$code} = 1;
-						defined $stats{"products_info_added_" . $current_field } or $stats{"products_info_added_" . $current_field } = {};
-						$stats{"products_info_added_field_" . $current_field }{$code} = 1;
+						defined $stats{"products_info_added_" . $field } or $stats{"products_info_added_" . $field } = {};
+						$stats{"products_info_added_field_" . $field }{$code} = 1;
 					}
 					elsif ($current_field ne $product_ref->{$field}) {
 						$log->debug("changed value for field", { field => $field, value => $product_ref->{$field}, old_value => $current_field }) if $log->is_debug();
@@ -1694,7 +1699,7 @@ EMAIL
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 
-				$log->debug("storing product", { code => $code, product_id => $product_id }) if $log->is_debug();
+				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
 				store_product($product_ref, "Editing product (import) - " . $product_comment );
 
