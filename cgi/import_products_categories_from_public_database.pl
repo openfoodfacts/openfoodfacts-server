@@ -55,23 +55,15 @@ my $action = param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
+my $js = '';
+my $template_data_ref = {};
 
 if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "display") {
-
-	$html .= "<p>" . lang("import_products_categories_from_public_database_description") . "</p>";
-
-	$html .= start_multipart_form(-id=>"import_products_categories_form") ;
-
-	$html .= <<HTML
-<input type="submit" class="button small" value="$Lang{import_products_categories}{$lc}">
-<input type="hidden" name="action" value="process">
-HTML
-;
-	$html .= end_form();
+	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 }
 
 elsif ($action eq "process") {
