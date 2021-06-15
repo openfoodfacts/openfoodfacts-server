@@ -1422,6 +1422,9 @@ sub compute_completeness_and_missing_tags($$$) {
 		}
 		else {
 			push @states_tags, "en:to-be-exported";
+			if ($product_ref->{to_be_automatically_exported}) {
+				push @states_tags, "en:to-be-automatically-exported";
+			}
 		}
 	}
 

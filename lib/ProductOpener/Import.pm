@@ -469,6 +469,7 @@ sub import_csv_file($) {
 		# By default, use the orgid passed in the arguments
 		# it may be overriden later on a per product basis
 		my $org_id = $args_ref->{org_id};
+		my $org_ref;
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
@@ -530,7 +531,7 @@ sub import_csv_file($) {
 				defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
 				$stats{orgs_in_file}{$org_id}++;
 				
-				my $org_ref = retrieve_org($org_id);
+				$org_ref = retrieve_org($org_id);
 		
 				if (defined $org_ref) {
 
@@ -603,6 +604,9 @@ sub import_csv_file($) {
 
 					if (defined $args_ref->{source_id}) {
 						$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
+
+						# Check the checkbox for automated exports to the public database
+						$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
 					}
 					
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
@@ -1527,7 +1531,7 @@ sub import_csv_file($) {
 					$stats{products_data_updated}{$code} = 1;
 				}
 			}
-		}		
+		}	
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1698,6 +1702,15 @@ sub import_csv_file($) {
 				}				
 
 				ProductOpener::DataQuality::check_quality($product_ref);
+
+				# set the autoexport field if the org is auto exported to the public platform
+				if ((defined $server_options{private_products}) and ($server_options{private_products})
+					and (defined $org_ref) and ($org_ref->{"activate_automated_daily_export_to_public_platform"})) {
+					$product_ref->{to_be_automatically_exported} = 1;
+				}
+				else {
+					delete $product_ref->{to_be_automatically_exported};
+				}
 
 				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
@@ -2183,6 +2196,7 @@ sub update_export_status_for_csv_file($) {
 			if ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}) {
 				add_tag($product_ref, "states", "en:exported");
 				remove_tag($product_ref, "states", "en:to-be-exported");
+				remove_tag($product_ref, "states", "en:to-be-auto-exported");
 			}
 			else {
 				add_tag($product_ref, "states", "en:to-be-exported");
