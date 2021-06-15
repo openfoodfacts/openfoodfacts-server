@@ -73,9 +73,8 @@ Go to `/opt/product-opener/scripts` and run
 ```
 ./minion_producers.pl minion job
 ```
-The above command will show the status of minion jobs.
+The above command will show the status of minion jobs. Run the following command to launch the minion jobs.
 
-Run the following command to launch the minion jobs.
 ```
 ./minion_producers.pl minion worker -m production -q pro.openfoodfacts.org
 ```
