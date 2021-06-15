@@ -66,6 +66,20 @@ Navigate to your specific directory using `cd` command and run
 mkdir directory-name
 ```
 
+### Running minion jobs
+
+Go to `/opt/product-opener/scripts` and run
+
+```
+./minion_producers.pl minion job
+```
+The above command will show the status of minion jobs.
+
+Run the following command to launch the minion jobs.
+```
+./minion_producers.pl minion worker -m production -q pro.openfoodfacts.org
+```
+
 ### Exiting from bash terminal
 
 Use `exit` to exit from the bash terminal.
