@@ -33,7 +33,7 @@ database and file system.
 
 	$product_ref->{product_name_en} = "Chocolate cookies";
 
-	store_product($product_ref, 'helpful comment');
+	store_product("my-user", $product_ref, 'helpful comment');
 
 
 =head1 DESCRIPTION
@@ -916,8 +916,9 @@ sub compute_sort_keys($) {
 }
 
 
-sub store_product($$) {
+sub store_product($$$) {
 
+	my $user_id = shift;
 	my $product_ref = shift;
 	my $comment = shift;
 
@@ -1027,7 +1028,7 @@ sub store_product($$) {
 			(-e "$new_www_root/products/$path") and $log->error("cannot move product images data, because the destination already exists", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" });
 		}
 
-		$comment .= " - barcode changed from $old_code to $code by $User_id";
+		$comment .= " - barcode changed from $old_code to $code by $user_id";
 	}
 
 
@@ -1065,11 +1066,11 @@ sub store_product($$) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
-	$product_ref->{last_modified_by} = $User_id;
+	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
-		my $creator = $User_id;
-		if ((not defined $User_id) or ($User_id eq '')) {
+		my $creator = $user_id;
+		if ((not defined $user_id) or ($user_id eq '')) {
 			$creator = "openfoodfacts-contributors";
 		}
 		$product_ref->{creator} = $creator;
@@ -1083,7 +1084,7 @@ sub store_product($$) {
 	}
 
 	push @{$changes_ref}, {
-		userid => $User_id,
+		userid => $user_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
