@@ -114,25 +114,8 @@ if ($action eq "display") {
 
 	# Upload a file
 
-	$html .= "<h1>" . lang("import_data_file_select_format_title") . "</h1>\n";
-	$html .= "<p>" . lang("import_data_file_select_format_description") . "</p>\n";
-
-	$html .= "<p>" . sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0) . "</p>";
-
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
-
-	$html .= start_multipart_form(-id=>"select_format_form", -action=>"/cgi/import_file_process.pl") ;
-
 	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
-
-	$html .= <<HTML
-<input type="submit" class="button small" value="$Lang{import_data}{$lc}">
-$selected_columns_count
-
-<table id="select_fields">
-<tr><th>$Lang{column_in_file}{$lc}</th><th colspan="2">$field_on_site</th></tr>
-HTML
-;
 
 	my @table_data_rows;
 	my $col = 0;
@@ -171,47 +154,12 @@ HTML
 			instructions => $instructions,
 			column_without_tags => $column_without_tags,
 		});
-
-		$html .= <<HTML
-<tr id="column_$col" class="column_row"><td>$column_without_tags</td>
-<td>
-<select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
-<option></option>
-</select>
-</td>
-<td id="select_field_option_$col">
-</td>
-</tr>
-<tr id="column_info_$col" class="column_info_row" style="display:none">
-<td>
-$examples
-</td>
-<td colspan="2" id="column_instructions_$col">
-$instructions
-</td>
-</tr>
-HTML
-;
 		$col++;
 	}
 
 
 	 
-	 #$html .= "<p>" . Dumper($template_data_ref) . "</p>";
-
-	$html .= <<HTML
-</table>
-<input type="hidden" name="columns_fields_json" id="columns_fields_json">
-<input type="hidden" name="file_id" id="file_id" value="$file_id">
-
-<input type="submit" class="button small" value="$Lang{import_data}{$lc}">
-$selected_columns_count
-HTML
-;
-
-	$html .= end_form();
-
-
+	#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 	$scripts .= <<JS
 
 JS

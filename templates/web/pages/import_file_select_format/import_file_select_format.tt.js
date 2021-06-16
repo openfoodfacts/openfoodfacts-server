@@ -1,10 +1,10 @@
 var selected_columns = 0;
 
-var columns = $columns_json;
+var columns = [% columns_json %];
 
-var columns_fields = $columns_fields_json ;
+var columns_fields = [% columns_fields_json %];
 
-var select2_options = $select2_options_json ;
+var select2_options = [% $select2_options_json %];
 
 \$( '#select_format_form' ).submit(function( event ) {
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
