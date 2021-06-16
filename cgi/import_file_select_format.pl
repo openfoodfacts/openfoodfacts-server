@@ -48,6 +48,7 @@ use JSON;
 use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
+use Data::Dumper;
 
 my $action = param('action') || 'display';
 
@@ -55,6 +56,7 @@ ProductOpener::Display::init();
 
 my $title = '';
 my $html = '';
+my $template_data_ref = {};
 
 if (not defined $Owner_id) {
 	display_error(lang("no_owner_defined"), 200);
@@ -132,6 +134,7 @@ $selected_columns_count
 HTML
 ;
 
+	my @table_data_rows;
 	my $col = 0;
 
 	foreach my $column (@$headers_ref) {
@@ -162,6 +165,13 @@ HTML
 		my $column_without_tags = $column;
 		$column_without_tags =~ s/<(([^>]|\n)*)>//g;
 
+		push (@table_data_rows, {
+			col => $col,
+			examples => $examples,
+			instructions => $instructions,
+			column_without_tags => $column_without_tags,
+		});
+
 		$html .= <<HTML
 <tr id="column_$col" class="column_row"><td>$column_without_tags</td>
 <td>
@@ -184,6 +194,10 @@ HTML
 ;
 		$col++;
 	}
+
+
+	 
+	 #$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 
 	$html .= <<HTML
 </table>
@@ -222,6 +236,10 @@ CSS
 	my $columns_fields_json = to_json($columns_fields_ref);
 
 	my $select2_options_json = to_json($select2_options_ref);
+
+	$template_data_ref->{columns_json} = $columns_json;
+	$template_data_ref->{columns_fields_json} = $columns_fields_json;
+	$template_data_ref->{select2_options_json} = $select2_options_json;
 
 	$initjs .= <<JS
 var selected_columns = 0;
@@ -412,6 +430,16 @@ function init_select_field() {
 
 JS
 ;
+
+	$template_data_ref->{import_file_rows_columns} = sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0);
+	$template_data_ref->{selected_columns_count} = $selected_columns_count;
+	$template_data_ref->{field_on_site} = $field_on_site;
+	$template_data_ref->{table_data_rows} = \@table_data_rows;
+	$template_data_ref->{file_id} = $file_id;
+
+
+
+	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html', $template_data_ref, \$html);
 
 	display_page( {
 		title=>$title,
