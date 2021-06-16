@@ -900,7 +900,7 @@ sub import_csv_file($) {
 				$product_ref->{owner} = $Owner_id;
 				$product_ref->{owners_tags} = [$product_ref->{owner}];
 				$modified++;
-				my $field eq "owner";
+				my $field = "owner";
 				defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
 				$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
 			}
@@ -1009,6 +1009,13 @@ sub import_csv_file($) {
 								}
 							}
 						}
+					}
+
+					# We may have multiple columns for the same tag field. e.g. brands, brands.2, brands.3 etc.
+					# Concatenate them with a comma
+
+					if ($subfield =~ /^${field}\.(\d+)$/) {
+						$imported_product_ref->{$field} .= ',' . $imported_product_ref->{$subfield};
 					}
 				}
 			}
