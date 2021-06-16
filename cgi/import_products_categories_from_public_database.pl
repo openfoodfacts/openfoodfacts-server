@@ -55,7 +55,6 @@ my $action = param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
-my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
