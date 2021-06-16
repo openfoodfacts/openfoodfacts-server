@@ -2017,7 +2017,7 @@ sub import_csv_file($) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+								eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
@@ -2041,7 +2041,7 @@ sub import_csv_file($) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
 										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+									eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -2055,7 +2055,7 @@ sub import_csv_file($) {
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+							eval { process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {
@@ -2187,6 +2187,17 @@ sub update_export_status_for_csv_file($) {
 
 		$i++;
 
+		# By default, use the orgid passed in the arguments
+		# it may be overriden later on a per product basis
+		my $org_id = $args_ref->{org_id};		
+
+		# The option import_owner is used when exporting from the producers database to the public database
+		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
+			$org_id = $1;
+			$Owner_id = "org-" . $org_id;
+		}
+
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
 		my $product_id = product_id_for_owner($Owner_id, $code);
@@ -2210,7 +2221,7 @@ sub update_export_status_for_csv_file($) {
 			if ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}) {
 				add_tag($product_ref, "states", "en:exported");
 				remove_tag($product_ref, "states", "en:to-be-exported");
-				remove_tag($product_ref, "states", "en:to-be-auto-exported");
+				remove_tag($product_ref, "states", "en:to-be-automatically-exported");
 			}
 			else {
 				add_tag($product_ref, "states", "en:to-be-exported");

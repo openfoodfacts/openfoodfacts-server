@@ -574,7 +574,7 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	if (store_product($product_ref, $comment)) {
+	if (store_product($User_id, $product_ref, $comment)) {
 		# Notify robotoff
 		send_notification_for_product_change($product_ref, "updated");
 

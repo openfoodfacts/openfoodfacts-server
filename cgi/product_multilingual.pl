@@ -129,7 +129,7 @@ if ($type eq 'search_or_add') {
 			$log->info("product does not exist, creating product", { code => $code, product_id => $product_id }) if $log->is_info();
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
-			store_product($product_ref, 'product_created');
+			store_product($User_id, $product_ref, 'product_created');
 
 			$type = 'add';
 			$action = 'display';
@@ -2265,7 +2265,7 @@ elsif ($action eq 'process') {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	store_product($product_ref, $comment);
+	store_product($User_id, $product_ref, $comment);
 
 	my $product_url = product_url($product_ref);
 

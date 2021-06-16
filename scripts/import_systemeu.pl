@@ -477,7 +477,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
 					delete $product_ref->{countries_hierarchy};
-					store_product($product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
+					store_product($User_id, $product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
 				}
 
 			}
@@ -534,7 +534,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+								eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -547,7 +547,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+									eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 
@@ -1697,7 +1697,7 @@ TXT
 				$product_ref->{owner} = "org-systeme-u";
 				$product_ref->{owners_tags} = ["org-systeme-u"];
 
-				store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
 
 				push @edited, $code;
 				$edited{$code}++;

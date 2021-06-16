@@ -913,7 +913,7 @@ sub process_image_upload($$$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
 	my $user_id = shift;
 	my $code = shift;
@@ -995,7 +995,7 @@ sub process_image_move($$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$$) {
 
 	my $user_id = shift;
 	my $product_id = shift;
