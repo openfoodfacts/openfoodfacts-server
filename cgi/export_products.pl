@@ -262,7 +262,9 @@ JS
 
 }
 else {
-	
+
+	my $template_data_ref2 = {};
+
 	# The organization does not have the permission enable_manual_export_to_public_platform checked
 
 		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
@@ -306,8 +308,8 @@ EMAIL
 	send_email_to_producers_admin(
 		"Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body );
-		
-	$html .= "<p>" . lang('export_products_to_public_database_request_email') . "</p>";
+
+	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html) || ($html .= 'template error: ' . $tt->error());
 	
 }
 
