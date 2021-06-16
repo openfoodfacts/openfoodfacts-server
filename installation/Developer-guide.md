@@ -68,11 +68,14 @@ mkdir directory-name
 
 ### Running minion jobs
 
+[Minion](https://docs.mojolicious.org/Minion) is a high-performance job queue for Perl. [Minion](https://docs.mojolicious.org/Minion) is used in [openfoodfacts-server](https://github.com/openfoodfacts/openfoodfacts-server) for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, are called minion jobs.
+
 Go to `/opt/product-opener/scripts` and run
 
 ```
 ./minion_producers.pl minion job
 ```
+
 The above command will show the status of minion jobs. Run the following command to launch the minion jobs.
 
 ```
