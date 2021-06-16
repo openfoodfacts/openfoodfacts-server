@@ -197,7 +197,7 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_forest_footprint_data();
 }
 
-my $stats_ref = import_csv_file( {
+my $args_ref = {
 	user_id => $user_id,
 	org_id => $org_id,
 	owner_id => $owner_id,
@@ -221,7 +221,9 @@ my $stats_ref = import_csv_file( {
 	skip_existing_values => $skip_existing_values,
 	only_select_not_existing_images => $only_select_not_existing_images,
 	use_brand_owner_as_org_name => $use_brand_owner_as_org_name,
-});
+};
+
+my $stats_ref = import_csv_file( $args_ref );
 
 print STDERR "\n\nstats:\n\n";
 
@@ -236,3 +238,25 @@ foreach my $stat (sort keys %{$stats_ref}) {
 	}
 	close($out);
 }
+
+# Send an e-mail notification to admins
+
+my $template_data_ref = {
+	args => $args_ref,
+	stats => $stats_ref,
+};
+
+my $mail = '';
+process_template("emails/import_csv_file_admin_notification.tt.html", $template_data_ref, \$mail)
+	or print STDERR "emails/import_csv_file_admin_notification.tt.html template error: " .  $tt->error();
+if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+	my $subject = $1;
+	my $body = $';
+	$body =~ s/^\n+//;
+	
+	send_email_to_producers_admin($subject, $body);
+
+	print "email subject: $subject\n\n";
+	print "email body:\n$body\n\n";
+}
+
