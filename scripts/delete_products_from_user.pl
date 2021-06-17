@@ -149,7 +149,7 @@ while (my $product_ref = $cursor->next) {
 
 	
 	my $comment = "delete";
-	store_product($product_ref, $comment);
+	store_product($User_id, $product_ref, $comment);
 		
 		
 		$n++;

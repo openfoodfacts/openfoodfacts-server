@@ -127,6 +127,9 @@ Arguments are passed through a single hash reference with the following keys:
 User id to which the changes (new products, added or changed values, new images)
 will be attributed.
 
+If the user_id is 'all', the change will be attributed to the org of the product.
+(e.g. when importing products from the producers database to the public database)
+
 =head4 org_id - optional
 
 Organisation id to which the changes (new products, added or changed values, new images)
@@ -469,6 +472,7 @@ sub import_csv_file($) {
 		# By default, use the orgid passed in the arguments
 		# it may be overriden later on a per product basis
 		my $org_id = $args_ref->{org_id};
+		my $org_ref;
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
@@ -480,10 +484,16 @@ sub import_csv_file($) {
 
 		my @images_ids;
 
+		# The option import_owner is used when exporting from the producers database to the public database
+		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
+			$org_id = $1;
+		}
+
 		# The option -use_brand_owner_as_org_name can be used to set the org name
 		# e.g. for the USDA branded food database import
 
-		if (($args_ref->{use_brand_owner_as_org_name}) and (defined $imported_product_ref->{brand_owner})) {
+		elsif (($args_ref->{use_brand_owner_as_org_name}) and (defined $imported_product_ref->{brand_owner})) {
 			$imported_product_ref->{org_name} = $imported_product_ref->{brand_owner};
 		}
 				
@@ -530,7 +540,7 @@ sub import_csv_file($) {
 				defined $stats{orgs_in_file}{$org_id} or $stats{orgs_in_file}{$org_id} = 0;
 				$stats{orgs_in_file}{$org_id}++;
 				
-				my $org_ref = retrieve_org($org_id);
+				$org_ref = retrieve_org($org_id);
 		
 				if (defined $org_ref) {
 
@@ -603,6 +613,9 @@ sub import_csv_file($) {
 
 					if (defined $args_ref->{source_id}) {
 						$org_ref->{"import_source_" . $args_ref->{source_id}} = "on";
+
+						# Check the checkbox for automated exports to the public database
+						$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
 					}
 					
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
@@ -626,6 +639,14 @@ sub import_csv_file($) {
 		$Org_id = $org_id;
 		$Owner_id = "org-" . $org_id;
 		my $product_id = product_id_for_owner($Owner_id, $code);
+
+		# The userid can be overriden on a per product basis
+		# when we import data from the producers platform to the public platform
+		# we use the orgid as the userid
+		my $user_id = $args_ref->{user_id};
+		if ($user_id eq 'all') {
+			$user_id = "org-" . $org_id;
+		}
 
 		if ((defined $args_ref->{skip_if_not_code}) and ($code ne $args_ref->{skip_if_not_code})) {
 			next;
@@ -779,7 +800,7 @@ sub import_csv_file($) {
 
 				$stats{products_created}{$code} = 1;
 
-				$product_ref = init_product($args_ref->{user_id}, $org_id, $code, undef);
+				$product_ref = init_product($user_id, $org_id, $code, undef);
 				$product_ref->{interface_version_created} = "import_csv_file - version 2019/09/17";
 
 				$product_ref->{lc} = $imported_product_ref->{lc};
@@ -788,9 +809,6 @@ sub import_csv_file($) {
 				delete $product_ref->{countries};
 				delete $product_ref->{countries_tags};
 				delete $product_ref->{countries_hierarchy};
-				if (not $args_ref->{test}) {
-					# store_product($product_ref, "Creating product - " . $product_comment );
-				}
 			}
 		}
 		else {
@@ -882,7 +900,7 @@ sub import_csv_file($) {
 				$product_ref->{owner} = $Owner_id;
 				$product_ref->{owners_tags} = [$product_ref->{owner}];
 				$modified++;
-				my $field eq "owner";
+				my $field = "owner";
 				defined $stats{"products_sources_field_" . $field . "_updated"} or $stats{"products_sources_field_" . $field . "_updated"} = {};
 				$stats{"products_sources_field_" . $field . "_updated"}{$code} = 1;
 			}
@@ -991,6 +1009,13 @@ sub import_csv_file($) {
 								}
 							}
 						}
+					}
+
+					# We may have multiple columns for the same tag field. e.g. brands, brands.2, brands.3 etc.
+					# Concatenate them with a comma
+
+					if ($subfield =~ /^${field}\.(\d+)$/) {
+						$imported_product_ref->{$field} .= ',' . $imported_product_ref->{$subfield};
 					}
 				}
 			}
@@ -1527,7 +1552,7 @@ sub import_csv_file($) {
 					$stats{products_data_updated}{$code} = 1;
 				}
 			}
-		}		
+		}	
 
 		if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
 			$stats{products_info_updated}{$code} = 1;
@@ -1699,9 +1724,18 @@ sub import_csv_file($) {
 
 				ProductOpener::DataQuality::check_quality($product_ref);
 
+				# set the autoexport field if the org is auto exported to the public platform
+				if ((defined $server_options{private_products}) and ($server_options{private_products})
+					and (defined $org_ref) and ($org_ref->{"activate_automated_daily_export_to_public_platform"})) {
+					$product_ref->{to_be_automatically_exported} = 1;
+				}
+				else {
+					delete $product_ref->{to_be_automatically_exported};
+				}
+
 				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
-				store_product($product_ref, "Editing product (import) - " . $product_comment );
+				store_product($user_id, $product_ref, "Editing product (import) - " . $product_comment );
 
 				push @edited, $code;
 				$edited{$code}++;
@@ -1963,7 +1997,7 @@ sub import_csv_file($) {
 						# upload a photo
 						my $imgid;
 						my $debug;
-						my $return_code = process_image_upload($product_id, "$file", $args_ref->{user_id}, undef, $product_comment, \$imgid, \$debug);
+						my $return_code = process_image_upload($product_id, "$file", $user_id, undef, $product_comment, \$imgid, \$debug);
 						$log->debug("process_image_upload", { file => $file, imagefield => $imagefield, code => $code, return_code => $return_code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, debug => $debug }) if $log->is_debug();
 
 						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
@@ -1990,7 +2024,7 @@ sub import_csv_file($) {
 
 								$log->debug("assigning image imgid to imagefield_with_lc", { code => $code, current_max_imgid => $current_max_imgid, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 								$selected_images{$imagefield_with_lc} = 1;
-								eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+								eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 								# $modified++;
 
 							}
@@ -2014,7 +2048,7 @@ sub import_csv_file($) {
 									$log->debug("re-assigning image imgid to imagefield_with_lc", { code => $code, imgid => $imgid, imagefield_with_lc => $imagefield_with_lc, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
 										 coordinates_image_size => $coordinates_image_size, angle => $angle, normalize => $normalize, white_magic => $white_magic }) if $log->is_debug();
 									$selected_images{$imagefield_with_lc} = 1;
-									eval { process_image_crop($product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+									eval { process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 									# $modified++;
 								}
 
@@ -2028,7 +2062,7 @@ sub import_csv_file($) {
 							# Keep track that we have selected an image, so that we don't select another one after,
 							# as we don't reload the product_ref after calling process_image_crop()
 							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval { process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
+							eval { process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc}, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size); };
 						}
 					}
 					else {
@@ -2160,6 +2194,17 @@ sub update_export_status_for_csv_file($) {
 
 		$i++;
 
+		# By default, use the orgid passed in the arguments
+		# it may be overriden later on a per product basis
+		my $org_id = $args_ref->{org_id};		
+
+		# The option import_owner is used when exporting from the producers database to the public database
+		if (($args_ref->{import_owner}) and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} =~ /^org-(.+)$/)) {
+			$org_id = $1;
+			$Owner_id = "org-" . $org_id;
+		}
+
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
 		my $product_id = product_id_for_owner($Owner_id, $code);
@@ -2183,6 +2228,7 @@ sub update_export_status_for_csv_file($) {
 			if ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}) {
 				add_tag($product_ref, "states", "en:exported");
 				remove_tag($product_ref, "states", "en:to-be-exported");
+				remove_tag($product_ref, "states", "en:to-be-automatically-exported");
 			}
 			else {
 				add_tag($product_ref, "states", "en:to-be-exported");
@@ -2238,7 +2284,7 @@ sub import_products_categories_from_public_database($) {
 
 	my $args_ref = shift;
 
-	$User_id = $args_ref->{user_id};
+	my $user_id = $args_ref->{user_id};
 	$Org_id = $args_ref->{org_id};
 	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
@@ -2339,7 +2385,7 @@ sub import_products_categories_from_public_database($) {
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);
 					ProductOpener::DataQuality::check_quality($product_ref);
-					store_product($product_ref, "imported categories from public database");
+					store_product($user_id, $product_ref, "imported categories from public database");
 				}
 
 			}

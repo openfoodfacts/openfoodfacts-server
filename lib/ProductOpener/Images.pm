@@ -568,7 +568,7 @@ sub process_image_upload($$$$$$$) {
 
 	my $product_id = shift;
 	my $imagefield = shift;
-	my $userid     = shift;
+	my $user_id     = shift;
 	my $time       = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment   = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
@@ -582,7 +582,7 @@ sub process_image_upload($$$$$$$) {
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - userid: $userid - imagefield: $imagefield";
+	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
 
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
@@ -625,7 +625,7 @@ sub process_image_upload($$$$$$$) {
 	}
 	
 	local $log->context->{imagefield} = $imagefield;
-	local $log->context->{uploader}   = $userid;
+	local $log->context->{uploader}   = $user_id;
 	local $log->context->{file}       = $file;
 	local $log->context->{time}       = $time;
 
@@ -779,7 +779,7 @@ sub process_image_upload($$$$$$$) {
 			# Check the image is big enough so that we do not get thumbnails from other sites
 			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
 				and ((not defined $options{users_who_can_upload_small_images})
-					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
+					or (not defined $options{users_who_can_upload_small_images}{$user_id}))){
 				unlink "$product_www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$product_www_root/images/products/$path/$imgid.lock");
 				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
@@ -838,7 +838,7 @@ sub process_image_upload($$$$$$$) {
 				
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
-					uploader => $userid,
+					uploader => $user_id,
 					uploaded_t => $time,
 					sizes => {
 						full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
@@ -860,7 +860,7 @@ sub process_image_upload($$$$$$$) {
 				}
 				
 				$log->debug("storing product", {product_id => $product_id }) if $log->is_debug();
-				store_product($product_ref, $store_comment);
+				store_product($user_id, $product_ref, $store_comment);
 
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
 				# and computer vision algorithms
@@ -913,8 +913,9 @@ sub process_image_upload($$$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
+	my $user_id = shift;
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
@@ -951,16 +952,16 @@ sub process_image_move($$$$) {
 			my $debug;
 
 			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
 			}
 			else {
-				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
@@ -986,7 +987,7 @@ sub process_image_move($$$$) {
 
 	}
 
-	store_product($product_ref, "Moved images $imgids to $move_to");
+	store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
 	
 	$log->debug("process_image_move - end", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
@@ -994,8 +995,9 @@ sub process_image_move($$$$) {
 }
 
 
-sub process_image_crop($$$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
@@ -1343,14 +1345,15 @@ sub process_image_crop($$$$$$$$$$$) {
 			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}};
 	}
 
-	store_product($product_ref, "new image $id : $imgid.$rev");
+	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 
 	$log->trace("image crop done") if $log->is_trace();
 	return $product_ref;
 }
 
-sub process_image_unselect($$) {
+sub process_image_unselect($$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 
@@ -1382,7 +1385,7 @@ sub process_image_unselect($$) {
 	}
 
 
-	store_product($product_ref, "unselected image $id");
+	store_product($user_id, $product_ref, "unselected image $id");
 
 	$log->debug("unselected image") if $log->is_debug();
 	return $product_ref;

@@ -1441,6 +1441,9 @@ sub export_and_import_to_public_database($) {
 	elsif ($Owner_id =~ /^(org)-/) {
 		$user_id = $Owner_id;
 	}
+	elsif ($Owner_id eq 'all') {
+		$user_id = 'all';
+	}
 
 	# First export the data locally
 

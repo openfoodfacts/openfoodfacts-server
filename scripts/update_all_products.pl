@@ -738,8 +738,6 @@ while (my $product_ref = $cursor->next) {
 						and ((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
 						) {
 						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
-						my $User_id_copy = $User_id;
-						$User_id = "autorotate-bot";
 
 						# Save product so that OCR results now:
 						# autorotate may call image_process_crop which will read the product file on disk and
@@ -749,9 +747,8 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
+							$product_ref = process_image_crop("autorotate-bot", $code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
-						$User_id = $User_id_copy;
 					}
 				}
 			}
@@ -1094,7 +1091,7 @@ while (my $product_ref = $cursor->next) {
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
-				store_product($product_ref, "update_all_products.pl - " . $comment );
+				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment );
 				$m++;
 			}
 

@@ -354,6 +354,10 @@ sub export_csv($) {
 		@sorted_populated_fields = (@sorted_populated_fields, @{$extra_fields_ref});
 	}
 
+	if ($args_ref->{export_owner}) {
+		push @sorted_populated_fields, "owner";
+	}
+
 	# Second pass - output CSV data
 
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
