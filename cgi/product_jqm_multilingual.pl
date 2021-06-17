@@ -275,10 +275,18 @@ else {
 		}
 	}
 
+	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+	# when the corresponding organization has the protect_data checkbox checked
+	my $protected_data = 0;
+	if ((defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-(.+)$/)) {
+		my $org_id = $1;
+		my $org_ref = retrieve_org($org_id);
+		if ((defined $org_ref) and ($org_ref->{protect_data})) {
+			$protected_data = 1;
+		}
+	}
+
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
-
-
-
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -303,7 +311,7 @@ else {
 		elsif (defined param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
 				$log->debug("producer data already exists for field, skip empty value", { field => $field, code => $code, existing_value => $product_ref->{$field} }) if $log->is_debug();
 
 			}
@@ -342,7 +350,7 @@ else {
 				if (defined param($field_lc)) {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
+					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
 						$log->debug("producer data already exists for field, skip empty value", { field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc} }) if $log->is_debug();
 					}
 					else {
@@ -390,7 +398,7 @@ else {
 	# Nutrition data
 
 	# Do not allow nutrition edits through API for data provided by producers
-	if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{"nutriments"})) {
+	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
 		print STDERR "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {

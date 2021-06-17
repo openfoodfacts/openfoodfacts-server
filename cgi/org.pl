@@ -67,7 +67,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", { orgid => $orgid }) if $log->is_debug();
 	
-	if ($admin) {
+	if ($admin or $User{pro_moderator}) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
@@ -77,7 +77,7 @@ if (not defined $org_ref) {
 
 # Does the user have permission to edit the org profile?
 
-if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin)) {
+if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
 	$log->debug("user does not have permission to edit org", { orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id }) if $log->is_debug();
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
@@ -99,7 +99,7 @@ if ($action eq 'process') {
 			
 			# Administrator fields
 			
-			if ($admin) {
+			if ($admin or $User{pro_moderator}) {
 				
 				# If the org does not exist yet, create it
 				if (not defined $org_ref) {
@@ -110,6 +110,7 @@ if ($action eq 'process') {
 				
 				push (@admin_fields, ("enable_manual_export_to_public_platform",
 					"activate_automated_daily_export_to_public_platform",
+					"protect_data",
 					"do_not_import_codeonline",
 					"gs1_product_name_is_abbreviated",
 					"gs1_nutrients_are_unprepared",
@@ -178,7 +179,7 @@ if ($action eq 'display') {
 	
 	# Admin
 	
-	if ($admin) {
+	if ($admin or $User{pro_moderator}) {
 
 		my $admin_fields_ref = [];
 
@@ -191,6 +192,10 @@ if ($action eq 'display') {
 				field => "activate_automated_daily_export_to_public_platform",
 				type => "checkbox",
 			},
+			{
+				field => "protect_data",
+				type => "checkbox",
+			},			
 		));
 
 		if (defined $options{import_sources}) {
