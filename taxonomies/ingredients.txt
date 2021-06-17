@@ -22507,7 +22507,7 @@ en:bran flour
 es:harina de salvado
 
 en:cereal, cereal grains
-ca:Cereal,cereals
+ca:Cereal, cereals
 cs:Cereálie
 da:Korn
 de:Getreide
@@ -22608,6 +22608,12 @@ sv:fullkornsflingor
 <en:seed
 en:cereal and seed mixture
 es:mezcla de cereales y semillas,mix de cereales y semillas
+
+
+<en:cereals
+en:hydrolysed cereal, hydrolysed cereals
+fr:céréales hydrolysées
+nova:en:4
 
 ##################################################################################
 #
@@ -26280,13 +26286,14 @@ nl:gemalen maïs
 pt:milho moído
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs-moulu 28 products in 3 languages @2018-09-24
 
-#######################################################################################################################################
+################################################################################################################
 #
-#                         Rice
+#                                                 R I C E
 #
-#######################################################################################################################################
+#################################################################################################################
 # Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 
+#<en:cereal
 en:rice
 af:Rys
 am:ሩዝ
