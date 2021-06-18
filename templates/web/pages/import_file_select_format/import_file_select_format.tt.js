@@ -42,9 +42,9 @@ function init_select_field_option(col) {
 		["sources_fields", "categories", "labels"].forEach((tagtype) => {
 
 			var tagtype_specific = tagtype + "_specific";
-			var placeholder = "[% lang('tagtype + "_s"') %]";
-			var specific_tag = "[% lang('tagtype + "_specific_tag"') %]";
-			var specific_tag_value = "[% lang('tagtype + "_specific_tag_value"') %]";
+			var placeholder = '[% lang(tagtype + "_s") %]';
+			var specific_tag = '[% lang(tagtype + "_specific_tag") %]';
+			var specific_tag_value = '[% lang(tagtype + "_specific_tag_value") %]';
 
 
 			if (field == tagtype_specific) {
