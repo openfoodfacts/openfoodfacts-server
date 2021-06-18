@@ -10,7 +10,7 @@ var select2_options = [% select2_options_json %];
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-console.log("Started  js file");
+console.log("Started  js file try 03");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -39,17 +39,13 @@ function init_select_field_option(col) {
 
 	if (field) {
 
-		["sources_fields", "categories", "labels"].forEach((tagtype) => {
+		//var tag_types = ["sources_fields", "categories", "labels"];
 
-			var tagtype_specific = tagtype + "_specific";
-			var placeholder = '[% lang(tagtype + "_s") %]';
-			var specific_tag = '[% lang(tagtype + "_specific_tag") %]';
-			var specific_tag_value = '[% lang(tagtype + "_specific_tag_value") %]';
+		[% FOREACH tagtype IN ["sources_fields", "categories", "labels"] %] 
 
+			if (field ==  "[% tagtype %]_specific") {
 
-			if (field == tagtype_specific) {
-
-				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="placeholder" style="width:150px;margin-bottom:0;height:28px;">';
+				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + ' placeholder= ' + [% lang("${tagtype}_s") %] + 'style="width:150px;margin-bottom:0;height:28px;">';
 
 				\$("#select_field_option_" + col).html(input);
 
@@ -65,11 +61,13 @@ function init_select_field_option(col) {
 					columns_fields[column]["tag"] = \$(this).val();
 				});
 
-				instructions += "<p>specific_tag</p>"
-				+ "<p>specific_tag_value</p>";
+				instructions += "<p>" + [% lang("[% tagtype %]" + "_specific_tag") %]+ "</p>"
+				+ "<p>" + [%  lang(tagtype + "_specific_tag_value") %]+ "</p>";
+		
 			}
+		[% END %]
 
-		});
+
 
 		if (field.match(/_value_unit/)) {
 

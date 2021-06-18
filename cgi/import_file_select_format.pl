@@ -169,6 +169,8 @@ if ($action eq "display") {
 
 	# JSON structures to pass to the javascript
 
+
+
 	my $columns_json = to_json($headers_ref);
 
 	my $columns_fields_json = to_json($columns_fields_ref);
