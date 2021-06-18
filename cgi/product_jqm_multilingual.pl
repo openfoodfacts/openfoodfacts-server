@@ -277,14 +277,7 @@ else {
 
 	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 	# when the corresponding organization has the protect_data checkbox checked
-	my $protected_data = 0;
-	if ((defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-(.+)$/)) {
-		my $org_id = $1;
-		my $org_ref = retrieve_org($org_id);
-		if ((defined $org_ref) and ($org_ref->{protect_data})) {
-			$protected_data = 1;
-		}
-	}
+	my $protected_data = product_data_is_protected($product_ref);
 
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
 
