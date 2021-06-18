@@ -1,6 +1,6 @@
 <!-- start templates/[% template.name %] -->
 <script>
-
+    console.log("started");
     function show_column_info(col) {
 
     $('.column_info_row').hide();
@@ -23,7 +23,11 @@
 
             ["sources_fields", "categories", "labels"].forEach((tagtype) => {
 
+                console.log(tagtype);
+
                 var tagtype_specific = tagtype.concat("_specific");
+
+                console.log(tagtype_specific);
                 var str2 = "_s";
                 var str3 = tagtype.concat(str2);
                 var placeholder = [% lang("str3") %];
@@ -31,6 +35,9 @@
                 var specific_tag_value = [% lang('tagtype.concat("_specific_tag_value")') %];
 
                 //checking the value
+               
+                console.log(str3);
+                console.log(lang("str3"));
                 console.log(tagtype_specific);
                 console.log(placeholder);
                 console.log(specific_tag);
