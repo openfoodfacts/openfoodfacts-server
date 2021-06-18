@@ -3,8 +3,8 @@
 
     function show_column_info(col) {
 
-    \$('.column_info_row').hide();
-    \$('#column_info_' + col).show();
+    $('.column_info_row').hide();
+    $('#column_info_' + col).show();
     }
 
     function init_select_field_option(col) {
@@ -17,34 +17,41 @@
 
         var instructions = "";
 
-        \$("#select_field_option_" + col).empty();
+        $("#select_field_option_" + col).empty();
 
         if (field) {
 
             ["sources_fields", "categories", "labels"].forEach((tagtype) => {
 
-                var tagtype_specific = tagtype + "_specific";
-                var placeholder = [% lang('tagtype.concat("_s")') %];
+                var tagtype_specific = tagtype.concat("_specific");
+                var str2 = "_s";
+                var str3 = tagtype.concat(str2);
+                var placeholder = [% lang("str3") %];
                 var specific_tag = [% lang('tagtype.concat("_specific_tag")') %];
                 var specific_tag_value = [% lang('tagtype.concat("_specific_tag_value")') %];
+
+                //checking the value
+                console.log(tagtype_specific);
+                console.log(placeholder);
+                console.log(specific_tag);
 
 
                 if (field == "tagtype_specific") {
 
                     var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
-                    \$("#select_field_option_" + col).html(input);
+                    $("#select_field_option_" + col).html(input);
 
                     if (columns_fields[column]["tag"]) {
-                        \$('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
+                        $('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
                     }
 
-                    \$('#select_field_option_tag_' + col)
+                    $('#select_field_option_tag_' + col)
                     .on("change", function(e) {
                         var id = e.target.id;
                         var col = this.id.replace(/select_field_option_tag_/, '');
                         var column = columns[col];
-                        columns_fields[column]["tag"] = \$(this).val();
+                        columns_fields[column]["tag"] = $(this).val();
                     });
 
                     instructions += "<p>specific_tag</p>"
@@ -91,19 +98,19 @@
                 + '<option value="unit">$Lang{unit}{$lc}</option>'
                 + '</select>';
 
-                \$("#select_field_option_" + col).html(select);
+                $("#select_field_option_" + col).html(select);
 
                 if (columns_fields[column]["value_unit"]) {
-                    \$('#select_field_option_value_unit_' + col).val(columns_fields[column]["value_unit"]);
+                    $('#select_field_option_value_unit_' + col).val(columns_fields[column]["value_unit"]);
                 }
 
-                \$('#select_field_option_value_unit_' + col).select2({
+                $('#select_field_option_value_unit_' + col).select2({
                     placeholder: "$Lang{specify}{$lc}"
                 }).on("select2:select", function(e) {
                     var id = e.params.data.id;
                     var col = this.id.replace(/select_field_option_value_unit_/, '');
                     var column = columns[col];
-                    columns_fields[column]["value_unit"] = \$(this).val();
+                    columns_fields[column]["value_unit"] = $(this).val();
                 }).on("select2:unselect", function(e) {
                 });
 
