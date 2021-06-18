@@ -310,7 +310,7 @@ JS
 
 
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html', $template_data_ref, \$html);
-	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$html);
+	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
 
 
 	$initjs .= $js;
