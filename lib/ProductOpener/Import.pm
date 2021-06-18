@@ -673,6 +673,16 @@ sub import_csv_file($) {
 			}
 		}
 
+		# add data_source "Producers"
+		if (($Org_id !~ /^app-/) and ( $Org_id !~ /^database-/ ) and ($Org_id !~ /^label-/)) {
+			if (defined $imported_product_ref->{data_sources}) {
+				$imported_product_ref->{data_sources} .= ", Producers, Producer - " . $Org_id;
+			}
+			else {
+				$imported_product_ref->{data_sources} = "Producers, Producer - " . $Org_id;
+			}
+		}
+
 		if (not defined $imported_product_ref->{lc})  {
 			$log->error("Error - missing language code lc in csv file or global field values", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
 			next;
