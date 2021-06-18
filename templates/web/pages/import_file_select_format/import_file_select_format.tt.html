@@ -21,7 +21,9 @@
 
         if (field) {
 
-            ["sources_fields", "categories", "labels"].forEach((tagtype) => {
+            var array = ["sources_fields", "categories", "labels"];
+
+            array.forEach((tagtype) => {
 
                 console.log(tagtype);
 
@@ -30,9 +32,9 @@
                 console.log(tagtype_specific);
                 var str2 = "_s";
                 var str3 = tagtype.concat(str2);
-                var placeholder = [% lang("str3") %];
-                var specific_tag = [% lang('tagtype.concat("_specific_tag")') %];
-                var specific_tag_value = [% lang('tagtype.concat("_specific_tag_value")') %];
+                var placeholder = lang("str3");
+                var specific_tag = lang('tagtype.concat("_specific_tag")');
+                var specific_tag_value = lang('tagtype.concat("_specific_tag_value")');
 
                 //checking the value
                
@@ -65,9 +67,9 @@
                     + "<p>specific_tag_value</p>";
                 }
 
-            },
+            });
 
-            else if (field.match(/_value_unit/)) {
+            if (field.match(/_value_unit/)) {
 
                 var select = '<select id="select_field_option_value_unit_' + col + '" name="select_field_option_value_unit_' + col + '" style="width:150px">'
                 + '<option></option>';

@@ -10,6 +10,8 @@ var select2_options = [% select2_options_json %];
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
+
+alert("Started n js file00");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -68,9 +70,9 @@ function init_select_field_option(col) {
 				+ "<p>specific_tag_value</p>";
 			}
 
-		},
+		}
 
-		else if (field.match(/_value_unit/)) {
+		if (field.match(/_value_unit/)) {
 
 			var select = '<select id="select_field_option_value_unit_' + col + '" name="select_field_option_value_unit_' + col + '" style="width:150px">'
 			+ '<option></option>';
