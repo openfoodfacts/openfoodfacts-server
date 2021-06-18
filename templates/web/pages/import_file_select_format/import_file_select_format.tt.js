@@ -10,8 +10,7 @@ var select2_options = [% select2_options_json %];
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-
-alert("Started n js file00");
+console.log("Started  js file");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -43,12 +42,12 @@ function init_select_field_option(col) {
 		["sources_fields", "categories", "labels"].forEach((tagtype) => {
 
 			var tagtype_specific = tagtype + "_specific";
-			var placeholder = [% lang(tagtype + "_s") %];
-			var specific_tag = [% lang(tagtype + "_specific_tag") %];
-			var specific_tag_value = [% lang(tagtype + "_specific_tag_value") %];
+			var placeholder = "[% lang('tagtype + "_s"') %]";
+			var specific_tag = "[% lang('tagtype + "_specific_tag"') %]";
+			var specific_tag_value = "[% lang('tagtype + "_specific_tag_value"') %]";
 
 
-			if (field == "tagtype_specific") {
+			if (field == tagtype_specific) {
 
 				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + '" placeholder="placeholder" style="width:150px;margin-bottom:0;height:28px;">';
 
@@ -70,7 +69,7 @@ function init_select_field_option(col) {
 				+ "<p>specific_tag_value</p>";
 			}
 
-		}
+		});
 
 		if (field.match(/_value_unit/)) {
 
@@ -137,3 +136,38 @@ function init_select_field_option(col) {
 	}
 
 }
+
+
+
+function init_select_field() {
+	var options = {
+		placeholder: "$Lang{select_a_field}{$lc}",
+		data:select2_options,
+		allowClear: true
+	};
+	var col = this.id.replace(/select_field_/, '');
+	var column = columns[col];
+	\$(this).select2(options).on("select2:select", function(e) {
+		var id = e.params.data.id;
+		var col = this.id.replace(/select_field_/, '');
+		var column = columns[col];
+		if (! columns_fields[column]["field"]) {
+			selected_columns++;
+		}
+		columns_fields[column]["field"] = \$(this).val();
+		init_select_field_option(col);
+		\$('.selected_columns').text(selected_columns);
+	}).on("select2:unselect", function(e) {
+		delete columns_fields[column]["field"];
+		selected_columns--;
+		\$('.selected_columns').text(selected_columns);
+	});
+	if (columns_fields[column]["field"]) {
+		\$(this).val(columns_fields[column]["field"]);
+		\$(this).trigger('change');
+		selected_columns++;
+	}
+	init_select_field_option(col);
+}
+\$('.select2_field').each(init_select_field);
+\$('.selected_columns').text(selected_columns);
