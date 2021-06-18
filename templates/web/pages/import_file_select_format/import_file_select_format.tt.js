@@ -1,16 +1,12 @@
 var selected_columns = 0;
-
 var columns = [% columns_json %];
-
 var columns_fields = [% columns_fields_json %];
-
 var select2_options = [% select2_options_json %];
 
 \$( '#select_format_form' ).submit(function( event ) {
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-console.log("Started  js file try 02");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -21,9 +17,7 @@ function show_column_info(col) {
 	var col = this.id.replace(/column_/, '');
 	show_column_info(col);
 	\$(document).foundation('equalizer', 'reflow');
-}
-);
-
+});
 
 function init_select_field_option(col) {
 
@@ -39,13 +33,11 @@ function init_select_field_option(col) {
 
 	if (field) {
 
-		//var tag_types = ["sources_fields", "categories", "labels"];
-
 		[% FOREACH tagtype IN ["sources_fields", "categories", "labels"] %] 
 
 			if (field ==  "[% tagtype %]_specific") {
 
-				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col + ' placeholder= ' + [% lang("${tagtype}_s") %] + 'style="width:150px;margin-bottom:0;height:28px;">';
+				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= [% lang("${tagtype}_s") %] style="width:150px;margin-bottom:0;height:28px;">';
 
 				\$("#select_field_option_" + col).html(input);
 
@@ -61,13 +53,10 @@ function init_select_field_option(col) {
 					columns_fields[column]["tag"] = \$(this).val();
 				});
 
-				instructions += "<p>" + [% lang(tagtype + "_specific_tag") %]+ "</p>"
-				+ "<p>" + [%  lang(tagtype + "_specific_tag_value") %]+ "</p>";
+				instructions += '<p>[% lang("${tagtype}_specific_tag") %]</p>' + '<p>[% lang("${tagtype}_specific_tag_value") %]</p>';
 		
 			}
 		[% END %]
-
-
 
 		if (field.match(/_value_unit/)) {
 
@@ -75,36 +64,36 @@ function init_select_field_option(col) {
 			+ '<option></option>';
 
 			if (field.match(/^energy/)) {
-				select += '<option value="value_in_kj">$Lang{value_in_kj}{$lc}</option>'
-				+ '<option value="value_in_kcal">$Lang{value_in_kcal}{$lc}</option>';
+				select += '<option value="value_in_kj">[% lang("value_in_kj") %]"</option>'
+				+ '<option value="value_in_kcal">[% lang("value_in_kcal") %]</option>';
 			}
 			else if (field.match(/weight/)) {
-				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>';
+				select += '<option value="value_in_g">[% lang("value_in_g") %]</option>';
 			}
 			else if (field.match(/volume/)) {
-				select += '<option value="value_in_l">$Lang{value_in_l}{$lc}</option>'
-				+ '<option value="value_in_dl">$Lang{value_in_dl}{$lc}</option>'
-				+ '<option value="value_in_cl">$Lang{value_in_cl}{$lc}</option>'
-				+ '<option value="value_in_ml">$Lang{value_in_ml}{$lc}</option>';
+				select += '<option value="value_in_l">[% lang("value_in_l") %]</option>'
+				+ '<option value="value_in_dl">[% lang("value_in_dl") %]</option>'
+				+ '<option value="value_in_cl">[% lang("value_in_cl") %]</option>'
+				+ '<option value="value_in_ml">[% lang("value_in_ml") %]</option>';
 			}
 			else if (field.match(/quantity/)) {
-				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
-				+ '<option value="value_in_l">$Lang{value_in_l}{$lc}</option>'
-				+ '<option value="value_in_dl">$Lang{value_in_dl}{$lc}</option>'
-				+ '<option value="value_in_cl">$Lang{value_in_cl}{$lc}</option>'
-				+ '<option value="value_in_ml">$Lang{value_in_ml}{$lc}</option>';
+				select += '<option value="value_in_g">[% lang("value_in_g") %]</option>'
+				+ '<option value="value_in_l">[% lang("value_in_l") %]</option>'
+				+ '<option value="value_in_dl">[% lang("value_in_dl") %]</option>'
+				+ '<option value="value_in_cl">[% lang("value_in_cl") %]</option>'
+				+ '<option value="value_in_ml">[% lang("value_in_ml") %]</option>';
 			}
 			else {
-				select += '<option value="value_in_g">$Lang{value_in_g}{$lc}</option>'
-				+ '<option value="value_in_mg">$Lang{value_in_mg}{$lc}</option>'
-				+ '<option value="value_in_mcg">$Lang{value_in_mcg}{$lc}</option>'
-				+ '<option value="value_in_iu">$Lang{value_in_iu}{$lc}</option>'
-				+ '<option value="value_in_percent">$Lang{value_in_percent}{$lc}</option>';
+				select += '<option value="value_in_g">[% lang("value_in_g") %]</option>'
+				+ '<option value="value_in_mg">[% lang("value_in_mg") %]</option>'
+				+ '<option value="value_in_mcg">[% lang("value_in_mcg") %]</option>'
+				+ '<option value="value_in_iu">[% lang("value_in_iu") %]</option>'
+				+ '<option value="value_in_percent">[% lang("value_in_percent") %]</option>';
 			}
 
-			select += '<option value="value_unit">$Lang{value_unit}{$lc}</option>'
-			+ '<option value="value">$Lang{value}{$lc}</option>'
-			+ '<option value="unit">$Lang{unit}{$lc}</option>'
+			select += '<option value="value_unit">[% lang("value_unit") %]</option>'
+			+ '<option value="value">[% lang("value") %]</option>'
+			+ '<option value="unit">[% lang("unit") %]</option>'
 			+ '</select>';
 
 			\$("#select_field_option_" + col).html(select);
@@ -114,7 +103,7 @@ function init_select_field_option(col) {
 			}
 
 			\$('#select_field_option_value_unit_' + col).select2({
-				placeholder: "$Lang{specify}{$lc}"
+				placeholder: '[% lang("specify") %]'
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
 				var col = this.id.replace(/select_field_option_value_unit_/, '');
@@ -123,23 +112,21 @@ function init_select_field_option(col) {
 			}).on("select2:unselect", function(e) {
 			});
 
-			instructions += "<p>$Lang{value_unit_dropdown}{$lc}</p>"
+			instructions += "<p>[% lang('value_unit_dropdown') %]'</p>"
 			+ "<ul>"
-			+ "<li>$Lang{value_unit_dropdown_value_specific_unit}{$lc}</li>"
-			+ "<li>$Lang{value_unit_dropdown_value_unit}{$lc}</li>"
-			+ "<li>$Lang{value_unit_dropdown_value}{$lc}</li>"
-			+ "<li>$Lang{value_unit_dropdown_unit}{$lc}</li>"
+			+ "<li>[% lang('value_unit_dropdown_value_specific_unit') %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_value_unit') %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_value') %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_unit') %]</li>"
 			+ "</ul>";
 		}
 	}
 
 }
 
-
-
 function init_select_field() {
 	var options = {
-		placeholder: "$Lang{select_a_field}{$lc}",
+		placeholder: '[% lang("select_a_field") %]',
 		data:select2_options,
 		allowClear: true
 	};

@@ -48,7 +48,6 @@ use JSON;
 use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
-use Data::Dumper;
 
 my $action = param('action') || 'display';
 
@@ -117,7 +116,6 @@ if ($action eq "display") {
 
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 	my $field_on_site = sprintf(lang("field_on_site"), lang("site_name"));
-	$template_data_ref->{selected_columns_count} = $selected_columns_count;
 
 	my $selected_columns_count = sprintf(lang("import_file_selected_columns"), '<span class="selected_columns"></span>', @$headers_ref + 0);
 
@@ -163,44 +161,22 @@ if ($action eq "display") {
 		$col++;
 	}
 
-	$template_data_ref->{table_data_rows} = \@table_data_rows;
-
-	#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
-
-	# JSON structures to pass to the javascript
-
-
-
 	my $columns_json = to_json($headers_ref);
-
 	my $columns_fields_json = to_json($columns_fields_ref);
-
 	my $select2_options_json = to_json($select2_options_ref);
 
 	$template_data_ref->{columns_json} = $columns_json;
 	$template_data_ref->{columns_fields_json} = $columns_fields_json;
 	$template_data_ref->{select2_options_json} = $select2_options_json;
 	$template_data_ref->{import_file_rows_columns} = sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0);
-
+	$template_data_ref->{table_data_rows} = \@table_data_rows;
+	$template_data_ref->{selected_columns_count} = $selected_columns_count;
 	$template_data_ref->{field_on_site} = $field_on_site;
-
 	$template_data_ref->{file_id} = $file_id;
 
-
-	
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html', $template_data_ref, \$html);
-
-
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
-
-
 	$initjs .= $js;
-
-
-
-
-	# JSON structures to pass to the javascript
-	
 
 	display_page( {
 		title=>$title,
@@ -208,6 +184,4 @@ if ($action eq "display") {
 	});
 }
 
-
 exit(0);
-
