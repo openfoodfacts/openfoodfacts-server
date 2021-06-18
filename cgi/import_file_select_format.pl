@@ -56,6 +56,7 @@ ProductOpener::Display::init();
 
 my $title = '';
 my $html = '';
+my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
