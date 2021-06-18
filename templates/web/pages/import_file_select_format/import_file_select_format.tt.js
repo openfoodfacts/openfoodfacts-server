@@ -10,7 +10,7 @@ var select2_options = [% select2_options_json %];
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-console.log("Started  js file try 03");
+console.log("Started  js file try 02");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();
@@ -61,7 +61,7 @@ function init_select_field_option(col) {
 					columns_fields[column]["tag"] = \$(this).val();
 				});
 
-				instructions += "<p>" + [% lang("[% tagtype %]" + "_specific_tag") %]+ "</p>"
+				instructions += "<p>" + [% lang(tagtype + "_specific_tag") %]+ "</p>"
 				+ "<p>" + [%  lang(tagtype + "_specific_tag_value") %]+ "</p>";
 		
 			}
