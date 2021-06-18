@@ -160,22 +160,7 @@ if ($action eq "display") {
 
 	 
 	#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
-	$scripts .= <<JS
 
-JS
-;
-
-	$styles .= <<CSS
-.select2-container--default .select2-results > .select2-results__options {
-    max-height: 400px
-}
-
-pre {
-	max-width:16em;
-	overflow-x:auto;
-}
-CSS
-;
 
 	# JSON structures to pass to the javascript
 
@@ -188,32 +173,10 @@ CSS
 	$template_data_ref->{columns_json} = $columns_json;
 	$template_data_ref->{columns_fields_json} = $columns_fields_json;
 	$template_data_ref->{select2_options_json} = $select2_options_json;
-
+	
+=pod
 	$initjs .= <<JS
-var selected_columns = 0;
 
-var columns = $columns_json;
-
-var columns_fields = $columns_fields_json ;
-
-var select2_options = $select2_options_json ;
-
-\$( '#select_format_form' ).submit(function( event ) {
-  \$('#columns_fields_json').val(JSON.stringify(columns_fields));
-});
-
-function show_column_info(col) {
-
-	\$('.column_info_row').hide();
-	\$('#column_info_' + col).show();
-}
-
-\$('.column_row').click( function() {
-	var col = this.id.replace(/column_/, '');
-	show_column_info(col);
-	\$(document).foundation('equalizer', 'reflow');
-}
-);
 
 function init_select_field_option(col) {
 
@@ -333,51 +296,9 @@ JS
 }
 
 
-function init_select_field() {
-
-	var options = {
-		placeholder: "$Lang{select_a_field}{$lc}",
-		data:select2_options,
-		allowClear: true
-	};
-
-	var col = this.id.replace(/select_field_/, '');
-	var column = columns[col];
-
-	\$(this).select2(options).on("select2:select", function(e) {
-		var id = e.params.data.id;
-		var col = this.id.replace(/select_field_/, '');
-		var column = columns[col];
-		if (! columns_fields[column]["field"]) {
-			selected_columns++;
-		}
-		columns_fields[column]["field"] = \$(this).val();
-		init_select_field_option(col);
-		\$('.selected_columns').text(selected_columns);
-	}).on("select2:unselect", function(e) {
-		delete columns_fields[column]["field"];
-		selected_columns--;
-		\$('.selected_columns').text(selected_columns);
-	});
-
-	if (columns_fields[column]["field"]) {
-		\$(this).val(columns_fields[column]["field"]);
-		\$(this).trigger('change');
-		selected_columns++;
-	}
-
-	init_select_field_option(col);
-
-}
-
-
-
-\$('.select2_field').each(init_select_field);
-
-\$('.selected_columns').text(selected_columns);
-
 JS
 ;
+=cut
 
 	$template_data_ref->{import_file_rows_columns} = sprintf(lang("import_file_rows_columns"), @$rows_ref + 0, @$headers_ref + 0);
 	$template_data_ref->{selected_columns_count} = $selected_columns_count;
