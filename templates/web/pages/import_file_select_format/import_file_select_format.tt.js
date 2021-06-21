@@ -37,7 +37,7 @@ function init_select_field_option(col) {
 
 			if (field ==  "[% tagtype %]_specific") {
 
-				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= [% lang("${tagtype}_s") %] style="width:150px;margin-bottom:0;height:28px;">';
+				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= "[% lang("${tagtype}_s") %]" style="width:150px;margin-bottom:0;height:28px;">';
 
 				\$("#select_field_option_" + col).html(input);
 
