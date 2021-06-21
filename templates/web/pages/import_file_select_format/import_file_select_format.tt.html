@@ -21,26 +21,30 @@
     [% selected_columns_count %]
 
     <table id="select_fields">
-        <tr>
-            <th>[% lang("column_in_file") %]</th>
-            <th colspan="2">[% field_on_site %]</th>
-        </tr>
-
-        [% FOREACH data_row IN table_data_rows %]                          
-            <tr id="column_[% data_row.col %]" class="column_row">
-                <td>[% data_row.column_without_tags %]</td>
-                <td>
-                    <select class="select2_field" name="select_field_[% data_row.col %]" id="select_field_[% data_row.col %]" style="width:420px">
-                        <option></option>
-                    </select>
-                </td>
-                <td id="select_field_option_[% data_row.col %]"></td>
+        <thead>
+            <tr>
+                <th>[% lang("column_in_file") %]</th>
+                <th colspan="2">[% field_on_site %]</th>
             </tr>
+        </thead>
 
-            <tr id="column_info_[% data_row.col %]" class="column_info_row" style="display:none">
-                <td>[% data_row.examples %]</td>
-                <td colspan="2" id="column_instructions_[% data_row.col %]">[% data_row.instructions %]</td>
-            </tr>
+        [% FOREACH data_row IN table_data_rows %]
+            <tbody>
+                <tr id="column_[% data_row.col %]" class="column_row">
+                    <td>[% data_row.column_without_tags %]</td>
+                    <td>
+                        <select class="select2_field" name="select_field_[% data_row.col %]" id="select_field_[% data_row.col %]" style="width:420px">
+                            <option></option>
+                        </select>
+                    </td>
+                    <td id="select_field_option_[% data_row.col %]"></td>
+                </tr>
+
+                <tr id="column_info_[% data_row.col %]" class="column_info_row" style="display:none">
+                    <td>[% data_row.examples %]</td>
+                    <td colspan="2" id="column_instructions_[% data_row.col %]">[% data_row.instructions %]</td>
+                </tr>
+            </tbody>
         [% END %]
 
     </table>
