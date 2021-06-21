@@ -7,7 +7,6 @@ var select2_options = [% select2_options_json %];
   \$('#columns_fields_json').val(JSON.stringify(columns_fields));
 });
 
-console.log("French try 03");
 function show_column_info(col) {
 
 	\$('.column_info_row').hide();

@@ -20,31 +20,27 @@
     <input type="submit" class="button small" value="[% lang('import_data') %]">
     [% selected_columns_count %]
 
-    <table id="select_fields">
-        <thead>
-            <tr>
-                <th>[% lang("column_in_file") %]</th>
-                <th colspan="2">[% field_on_site %]</th>
-            </tr>
-        </thead>
+    <table id="select_fields" aria-label="data table">
+        <tr>
+            <th id="column_in_file">[% lang("column_in_file") %]</th>
+            <th id="field_on_site"  colspan="2">[% field_on_site %]</th>
+        </tr>
 
         [% FOREACH data_row IN table_data_rows %]
-            <tbody>
-                <tr id="column_[% data_row.col %]" class="column_row">
-                    <td>[% data_row.column_without_tags %]</td>
-                    <td>
-                        <select class="select2_field" name="select_field_[% data_row.col %]" id="select_field_[% data_row.col %]" style="width:420px">
-                            <option></option>
-                        </select>
-                    </td>
-                    <td id="select_field_option_[% data_row.col %]"></td>
-                </tr>
+            <tr id="column_[% data_row.col %]" class="column_row">
+                <td>[% data_row.column_without_tags %]</td>
+                <td>
+                    <select class="select2_field" name="select_field_[% data_row.col %]" id="select_field_[% data_row.col %]" style="width:420px">
+                        <option></option>
+                    </select>
+                </td>
+                <td id="select_field_option_[% data_row.col %]"></td>
+            </tr>
 
-                <tr id="column_info_[% data_row.col %]" class="column_info_row" style="display:none">
-                    <td>[% data_row.examples %]</td>
-                    <td colspan="2" id="column_instructions_[% data_row.col %]">[% data_row.instructions %]</td>
-                </tr>
-            </tbody>
+            <tr id="column_info_[% data_row.col %]" class="column_info_row" style="display:none">
+                <td>[% data_row.examples %]</td>
+                <td colspan="2" id="column_instructions_[% data_row.col %]">[% data_row.instructions %]</td>
+            </tr>
         [% END %]
 
     </table>
