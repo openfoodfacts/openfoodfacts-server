@@ -6,7 +6,7 @@
     <p>[% lang("this_action_cannot_be_undone") %]</p>
 
     <!--Start the form-->
-    <form id="remove_products_form" method="post" onsubmit="return confirm('[% confirm_alert %]')" enctype="multipart/form-data">
+    <form id="remove_products_form" method="post" onsubmit="return confirm('[% confirm_alert.squote %]')" enctype="multipart/form-data">
         <input type="submit" class="button small" value="[% lang('remove_products') %] ">
         <input type="hidden" name="action" value="process">
     </form>
