@@ -42,15 +42,14 @@ ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
 my $html = '';
+my $template_data_ref = {};
+
+$template_data_ref->{user_id} =  $User_id;
 
 if (defined $User_id) {
-	$html = "<p>" . $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!" . "</p>";
 
-	# Do not display donate link on producers platform
-	if (not $server_options{producers_platform}) {
-		$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-		$html .= "<p>" . lang("bottom_content") . "</p>\n";
-	}
+	$template_data_ref->{user_name} =  $User{name};
+	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
 	my $next_action = param('next_action');
 	my $code = param('code');
@@ -80,9 +79,8 @@ if (defined $User_id) {
 		return 301;
 	}
 }
-else {
-	$html = $Lang{goodbye}{$lang};
-}
+
+process_template('web/pages/session/session.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 if (param('jqm')) {
 
