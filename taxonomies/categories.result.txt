@@ -3130,10 +3130,6 @@ ciqual_food_name:en: Beef carpaccio, w marinade
 ciqual_food_name:fr: Carpaccio de bœuf, avec marinade
 
 < en:Beef dishes
-en:Beef pastrami
-fr:Pastrami de bœuf
-
-< en:Beef dishes
 en:Beef stews
 fr:Ragoûts de boeuf
 
@@ -4723,12 +4719,21 @@ ciqual_food_name:en: Biscuit -cookie-, assortment of miniature sweets and biscui
 ciqual_food_name:fr: Biscuit sec, petits fours en assortiment
 
 < en:Biscuits
+en:Baci di Dama
+it:Baci di Dama
+
+< en:Biscuits
 en:Biscuit with milk
 fr:Biscuit sec au lait
 agribalyse_food_code:en: 24030
 ciqual_food_code:en: 24030
 ciqual_food_name:en: Biscuit -cookie-, with milk
 ciqual_food_name:fr: Biscuit sec au lait
+
+< en:Biscuits
+en:Canestrelli
+fr:Canestrelli
+it:Canestrelli
 
 < en:Biscuits
 en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
@@ -4851,6 +4856,12 @@ it:Biscotti senza glutine
 nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
 pl:Ciasteczka bezglutenowe
 ro:Biscuiți fără gluten
+
+< en:Biscuits
+en:Krumiri
+fr:Krumiri
+it:Krumiri
+wikidata:en: Q5473695
 
 < en:Biscuits
 en:Oatmeal cookies
@@ -4978,6 +4989,11 @@ fr:Grillardises
 nl:Pop tarts
 ro:Produse de patiserie, Produs de patiserie
 wikidata:en: Q7811427
+
+< en:Biscuits
+en:Torcetti
+fr:Torcetti
+it:Torcetti
 
 < en:Biscuits
 en:Wafers, waffers, wafer biscuit
@@ -5612,6 +5628,7 @@ ciqual_food_name:fr: Boeuf, à bourguignon ou pot-au-feu, cuit
 
 < en:Bolognese-style pasta
 en:Bolognese spaghetti
+es:Spaghetti bolognesa
 fr:spaghetti à la bolognaise
 
 < en:Bolognese-style pasta
@@ -5658,6 +5675,12 @@ it:Tartufi al cioccolato, tartufo al cioccolato
 nl:Chocolade truffels
 sv:Chokladtryffel
 wikidata:en: Q1063560
+
+< en:Bonbons
+en:Gianduiotti, Gianduiotto
+fr:Gianduiotti
+it:Gianduiotti
+wikidata:en: Q1363042
 
 < en:Bonbons
 en:Liqueur bonbons
@@ -6193,7 +6216,6 @@ de:Knäckebrote, Knäckebrot
 es:Tostadas ligeras crujientes
 fi:näkkileivät
 fr:Tartines craquantes, tartine craquante, tartines croustillantes, tartine croustillante
-it:Fette biscottate, Pane abbrustolito
 nl:Crackers, Cracker
 agribalyse_proxy_food_code:en: 7410
 agribalyse_proxy_food_name:en: Crispbread, extruded and grilled
@@ -6563,6 +6585,7 @@ fr:Céréales pour petit déjeuner équilibre
 < en:Breakfast cereals
 en:Extruded cereals
 fr:Céréales extrudées
+it:Cereali estrusi
 
 < en:Breakfast cereals
 en:Honey cereal balls, Breakfast cereals puffed corn with honey
@@ -8053,7 +8076,7 @@ de:Donuts, Donutringe
 es:Berlinas
 fi:donitsit
 fr:Donuts
-it:Ciambelle
+it:Ciambelle donut, donut
 nl:Donuts, Donut
 pl:Pączki, Pączek
 ru:Пончики
@@ -8136,6 +8159,10 @@ zh:松饼
 wikidata:en: Q207220
 
 < en:Cakes
+en:Plum cake
+it:Plum cake
+
+< en:Cakes
 en:Pound Cake
 de:Rührkuchen
 es:Bizcocho
@@ -8174,6 +8201,9 @@ ciqual_food_name:fr: Gâteau moelleux aux fruits
 
 < en:Cakes
 es:Rosquillas fritas
+
+< en:Cakes
+it:Ciambelle e ciambelloni, ciambelle, ciambellone, ciambella
 
 < en:Calamari
 en:Squid
@@ -12242,6 +12272,9 @@ nl:Rauwmelkse kazen
 wikidata:en: Q3088297
 
 < en:Cheeses
+it:Caciotta
+
+< en:Cheeses
 it:Robiolino
 
 < en:Cheeses
@@ -13622,15 +13655,16 @@ ru:Конфеты
 wikidata:en: Q3272827
 
 < en:Chocolate candies
+en:Marshmallows coated with chocolate
+fr:Guimauves enrobées de chocolat
+
+< en:Chocolate candies
 en:Sugar coated chocolate confectioneries
 fr:Confiseries au chocolat dragéifiées
 agribalyse_food_code:en: 31041
 ciqual_food_code:en: 31041
 ciqual_food_name:en: Chocolate confectionery, sugar coated
 ciqual_food_name:fr: Confiserie au chocolat dragéifiée
-
-< en:Chocolate candies
-fr:Guimauves enrobées de chocolat
 
 < en:Chocolate cereal bars
 en:Cereal bar with chocolate fortified with vitamins and minerals
@@ -16502,15 +16536,6 @@ ciqual_food_name:en: French bean, cooked
 ciqual_food_name:fr: Haricot vert, cuit
 
 < en:Cooked vegetables
-< en:Green peas
-en:Cooked garden peas
-fr:Petits pois cuits
-agribalyse_food_code:en: 20037
-ciqual_food_code:en: 20037
-ciqual_food_name:en: Garden peas, cooked
-ciqual_food_name:fr: Petits pois, cuits
-
-< en:Cooked vegetables
 < en:Lentils
 en:Cooked lentils
 es:Lentejas cocidas
@@ -19129,6 +19154,19 @@ fr:Préparations pour entremets
 
 < en:Dessert mixes
 fr:Préparations pour flans, Préparations pour flans pâtissiers
+
+< en:Cakes
+< en:Dessert mixes
+< en:Pastry helpers
+en:Cake mixes, Cake Mix, Preparations for cakes
+de:Backmischungen für Kuchen, Kuchenbackmischungen
+es:Mezcla para tartas
+fi:kakkujauhosekoitukset
+fr:Préparations pour gâteaux, préparation pour gâteau
+he:תערובות לעוגה
+it:Preparati per torte
+nl:Cake mix
+pl:Mieszanka do ciasta, Mieszanka do ciast
 
 < en:Dairies
 < en:Dessert sauces
@@ -24593,14 +24631,6 @@ it:Decorazioni alimentari
 nl:Levensmiddeldecoraties, Levensmiddeldecoratie
 zh:食品装饰品
 
-< en:Food decorations
-< en:Pastry helpers
-en:Sprinkles, Multi-coloured vermicelli
-fr:Vermicelles multicolores
-ciqual_food_code:en: 11510
-ciqual_food_name:en: Multi-coloured vermicelli
-ciqual_food_name:fr: Vermicelles multicolores
-
 < en:Fortified wines
 fr:mistelle, vins mutés de types mistelle, vins de liqueur, vin de liqueur
 
@@ -27177,7 +27207,12 @@ en:Frozen chopped green beans
 es:Judías verdes troceadas congeladas, Judías verdes congeladas troceadas
 
 < en:Frozen green beans
-en:Frozen cooked French bean
+en:Frozen flat green beans
+es:Judías verdes planas congeladas
+fr:Haricots verts plats surgelés
+
+< en:Frozen green beans
+en:Frozen precooked green beans, Frozen cooked French bean
 fr:Haricots verts surgelés précuits, Haricots verts cuits surgelés
 agribalyse_food_code:en: 20071
 ciqual_food_code:en: 20071
@@ -27185,40 +27220,16 @@ ciqual_food_name:en: French bean, frozen, cooked
 ciqual_food_name:fr: Haricot vert, surgelé, cuit
 
 < en:Frozen green beans
-en:Frozen flat green beans
-es:Judías verdes planas congeladas
-fr:Haricots verts plats surgelés
-
-< en:Frozen green beans
-en:Frozen French beans
-fr:Haricots verts surgelés
-agribalyse_food_code:en: 20070
-ciqual_food_code:en: 20070
-ciqual_food_name:en: French bean, frozen, raw
-ciqual_food_name:fr: Haricot vert, surgelé, cru
-
-< en:Frozen green beans
 en:Frozen whole green beans
 es:Judías verdes enteras congeladas, Judías verdes congeladas enteras
 
 < en:Frozen green peas
-en:Frozen cooked garden peas
-fr:Petits pois surgelés cuits
+en:Frozen precooked green peas, Frozen cooked garden peas
+fr:Petits pois surgelés précuits, Petits pois surgelés cuits
 agribalyse_food_code:en: 20124
 ciqual_food_code:en: 20124
 ciqual_food_name:en: Garden peas, frozen, cooked
 ciqual_food_name:fr: Petits pois, surgelés, cuits
-
-< en:Frozen green peas
-en:Frozen garden peas
-fr:Petits pois surgelés, Pois frais surgelés
-agribalyse_food_code:en: 20084
-ciqual_food_code:en: 20084
-ciqual_food_name:en: Garden peas, frozen, raw
-ciqual_food_name:fr: Petits pois, surgelés, crus
-
-< en:Frozen green peas
-fr:Petits pois surgelés précuits
 
 < en:Frozen ground steaks
 < en:Ground beef steaks
@@ -27406,7 +27417,7 @@ en:Frozen cereals
 es:Cereales congelados
 fr:Céréales surgelés
 nl:Diepvriesgranen
-pnns_group_2:en: cereals
+pnns_group_2:en: Cereals
 
 < en:Frozen plant-based foods
 < en:Legumes and their products
@@ -27418,7 +27429,7 @@ fr:Légumineuses surgelées, légumineuses surgelés
 it:Legumi surgelati, Legumi congelati
 nl:Diepvriespeulvruchten
 pl:Rośliny strączkowe głęboko mrożone
-pnns_group_2:en: legumes
+pnns_group_2:en: Legumes
 who_id:en: 15
 
 < en:Frozen plant-based foods
@@ -27429,7 +27440,7 @@ fi:pakastetut kasvipohjaiset ruokasekoitukset
 fr:Mélanges d'aliments à base de plantes surgelés
 it:Misti di alimenti a base di verdure congelati
 nl:Diepvries plantenmengsels
-pnns_group_2:en: vegetables
+pnns_group_2:en: Vegetables
 
 < en:Frozen plant-based foods
 < en:Nuts and their products
@@ -27438,7 +27449,7 @@ de:Gefröhrene Nüsse
 es:Frutos de cáscara congelados
 fr:Fruits à coques surgelés
 nl:Diepvriesnoten
-pnns_group_2:en: nuts
+pnns_group_2:en: Nuts
 
 < en:Frozen plant-based foods
 < en:Vegetables based foods
@@ -27458,7 +27469,7 @@ pl:Mrożone warzywa
 pt:Legumes congelados
 ru:Замороженные овощи
 zh:冷藏蔬菜
-pnns_group_2:en: vegetables
+pnns_group_2:en: Vegetables
 who_id:en: 15
 
 < en:Frozen plant-based foods mixes
@@ -27513,7 +27524,7 @@ fi:Pakastevihannessekoitukset
 fr:Mélanges de légumes surgelés
 it:Misti di verdure congelati
 nl:Diepvriesgroentemelanges
-pnns_group_2:en: vegetables
+pnns_group_2:en: Vegetables
 
 < en:Frozen porcini mushrooms
 en:Frozen chopped porcini mushrooms, Frozen chopped porcini, Frozen chopped penny bun, Frozen chopped porcino, Frozen chopped Boletus edulis
@@ -28296,7 +28307,7 @@ fi:appelsiinimehut
 fr:Jus d'orange, jus d'oranges
 he:מיצי תפוזים
 hu:Narancslék
-it:Succo di arancia
+it:Succo di arancia, Succo d'arancia
 nl:Sinaasappelsappen, Jus d'Oranges, Sinaasappelsap, Jus d'Orange, Sinasappelsap
 pl:Soki pomarańczowe
 pt:Sumos de laranja
@@ -28413,15 +28424,15 @@ ro:Suc de mandarine, Suc cu mandarine
 zh:橘子汁, 柑橘汁
 wikidata:en: Q40866122
 
-< en:Fruit Muffins
-en:Banana Muffins
+< en:Fruit muffins
+en:Banana muffins
 de:Bananenmuffins
 fr:Muffins à la banane
 nl:Bananenmuffins, Bananenmuffin
 zh:草莓松饼
 
-< en:Fruit Muffins
-en:Blueberry Muffins
+< en:Fruit muffins
+en:Blueberry muffins
 de:Heidelbeermuffins, Blaubeermuffins
 fi:Mustikkamuffinit
 fr:Muffins aux myrtilles, Muffins à la myrtille, Muffins aux bleuets
@@ -29298,7 +29309,7 @@ fr:Fruits surgelés
 it:Frutta surgelata, Frutta congelata
 nl:Bevroren fruit
 pl:Owoce mrożone
-pnns_group_2:en: fruits
+pnns_group_2:en: Fruits
 who_id:en: 15
 
 < en:Fruits
@@ -31721,16 +31732,29 @@ ciqual_food_name:en: Garden peas, canned, drained
 ciqual_food_name:fr: Petits pois, appertisés, égouttés
 wikidata:en: Q4145855
 
+< en:Cooked vegetables
+< en:Green peas
+en:Cooked garden peas
+fr:Petits pois cuits
+agribalyse_food_code:en: 20037
+ciqual_food_code:en: 20037
+ciqual_food_name:en: Garden peas, cooked
+ciqual_food_name:fr: Petits pois, cuits
+
 < en:Fresh vegetables
 < en:Green peas
 en:Fresh green peas
 fr:Petits pois frais, petit pois frais
+agribalyse_food_code:en: 20072
+ciqual_food_code:en: 20072
+ciqual_food_name:en: Garden peas, raw
+ciqual_food_name:fr: Petits pois, crus
 season_in_country_fr:en: 5‚6,7
 
 < en:Frozen legumes
 < en:Frozen vegetables
 < en:Green peas
-en:Frozen green peas, Frozen fresh peas, Frozen immature peas
+en:Frozen green peas, Frozen fresh peas, Frozen immature peas, Frozen garden peas
 de:Gefrorene grüne Erbsen
 es:Guisantes verdes congelados, Guisantes congelados
 fr:Petits pois surgelés, Pois frais surgelés
@@ -31739,14 +31763,6 @@ nl:Diepvries doperwten
 agribalyse_proxy_food_code:en: 20084
 agribalyse_proxy_food_name:en: Garden peas, frozen, raw
 agribalyse_proxy_food_name:fr: Petits pois, surgelés, crus
-
-< en:Green peas
-en:garden peas
-fr:Petits pois
-agribalyse_food_code:en: 20072
-ciqual_food_code:en: 20072
-ciqual_food_name:en: Garden peas, raw
-ciqual_food_name:fr: Petits pois, crus
 
 < en:Freeze-dried plant-based foods
 < en:Green peppercorns
@@ -34652,6 +34668,13 @@ ciqual_food_name:en: Ricotta cheese
 wikidata:en: Q216781
 
 < en:Italian cheeses
+en:Robiola
+es:Robiola
+fr:Robiola
+it:Robiola
+wikidata:en: Q15631263
+
+< en:Italian cheeses
 en:Scamorza
 de:Scamorza
 fi:Scamorza
@@ -34806,10 +34829,6 @@ country:en: Italy
 
 < en:Italian cheeses
 it:Raschera
-country:en: Italy
-
-< en:Italian cheeses
-it:Robiola di Roccaverano
 country:en: Italy
 
 < en:Italian cheeses
@@ -38982,7 +39001,7 @@ fr:Pizzas tartes salées et quiches
 it:Pizze e torte salate
 nl:Pizzas hartige taarten en quiches
 ru:Пицца и солёные открытые пироги
-pnns_group_2:en: Pizza pies and quiche
+pnns_group_2:en: Pizza pies and quiches
 
 < en:Meals
 < en:Plant-based foods
@@ -41440,7 +41459,7 @@ agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, for
 agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
 < en:Muffins
-en:Fruit Muffins
+en:Fruit muffins
 de:Muffins mit Früchten, Früchtemuffins
 fi:hedelmämuffinit
 fr:Muffins aux fruits
@@ -41456,9 +41475,6 @@ zh:香草松饼
 < en:Muffins
 fr:Muffins aux pépites de chocolat
 it:Muffin con gocce di cioccolato
-
-< en:Muffins mix
-en:Blueberry muffins mix
 
 < en:Concentrated fruit juices
 < en:Multifruit juices
@@ -44623,6 +44639,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 < en:Plant-based spreads
 en:Onion chutneys
 de:Zwiebelchutneys
+es:Cebolla caramelizada, Cebolla confitada
 fr:Confits d'oignons, Chutneys d'oignons
 it:Chutney di cipolle
 nl:Uienchutney
@@ -44740,6 +44757,7 @@ ciqual_food_name:fr: Jus d'orange, à base de concentré
 en:Blood orange juices
 de:Blutorangensäfte
 fr:Jus d'orange sanguine, jus d'oranges sanguines
+it:Succo di arancia rossa, succo di arance rosse, Spremuta di arance rosse
 nl:Bloedsinaasappelsappen, Bloedsinaasappelsap
 
 < en:Orange juices
@@ -46016,18 +46034,13 @@ wikidata:en: Q548319
 < en:Pastry helpers
 fr:Pâtes à sucre
 
-< en:Cakes
-< en:Dessert mixes
+< en:Food decorations
 < en:Pastry helpers
-en:Cake mixes, Cake Mix, Preparations for cakes
-de:Backmischungen für Kuchen, Kuchenbackmischungen
-es:Mezcla para tartas
-fi:kakkujauhosekoitukset
-fr:Préparations pour gâteaux, préparation pour gâteau
-he:תערובות לעוגה
-it:Preparati per torte
-nl:Cake mix
-pl:Mieszanka do ciasta, Mieszanka do ciast
+en:Sprinkles, Multi-coloured vermicelli
+fr:Vermicelles multicolores
+ciqual_food_code:en: 11510
+ciqual_food_name:en: Multi-coloured vermicelli
+ciqual_food_name:fr: Vermicelles multicolores
 
 < en:Pâté
 en:Breton pâté
@@ -46786,7 +46799,7 @@ fr:Tartes
 it:Torte dolci e salate
 nl:Taarten
 zh:馅饼
-pnns_group_2:en: Pizza pies and quiche
+pnns_group_2:en: Pizza pies and quiches
 wikidata:en: Q1142483
 
 < en:Pies
@@ -51009,6 +51022,10 @@ it:Lasagne vegetariane
 nl:Vegetarische lasagna
 
 < en:Prepared meats
+en:Beef pastrami
+fr:Pastrami de bœuf
+
+< en:Prepared meats
 en:Capicola, coppa
 fr:Coppa
 it:Capocollo
@@ -53832,6 +53849,11 @@ agribalyse_food_code:en: 15045
 ciqual_food_code:en: 15045
 ciqual_food_name:en: Sunflower seed, grilled, salted
 ciqual_food_name:fr: Tournesol, graine, grillé, salé
+
+< en:Robiola
+it:Robiola di Roccaverano
+country:en: Italy
+wikidata:en: Q775943
 
 < en:Coffee beans
 < en:Robusta coffees
@@ -61816,7 +61838,6 @@ de:Orangendirektsäfte
 es:Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
 fi:puristetut appelsiinimehut
 fr:Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
-it:Succo d'arancia
 nl:Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
 ciqual_food_code:en: 2070
 ciqual_food_name:en: Orange juice, pure juice
@@ -63120,7 +63141,7 @@ ru:Изделия из слоёного теста
 ciqual_food_code:en: 7600
 ciqual_food_name:en: Pastry, average food
 ciqual_food_name:fr: Viennoiserie -aliment moyen-
-pnns_group_2:en: pastries
+pnns_group_2:en: Pastries
 
 < en:Sweet spreads
 en:Flower preserves, flower jams
@@ -63606,6 +63627,12 @@ ciqual_food_name:fr: Tarte ou tartelette aux fruits
 
 < en:Tartlets
 fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
+
+< en:Tartufo
+it:Tartufo bianco
+
+< en:Tartufo
+it:Tartufo nero
 
 < en:Tea-based beverages
 en:Kombuchas
@@ -67227,7 +67254,7 @@ hu:Gombák és belőle készült termékek
 it:Funghi e prodotti derivati
 nl:Paddestoel- en afgeleide producten
 ru:Грибы
-pnns_group_2:en: vegetables
+pnns_group_2:en: Vegetables
 
 < en:Vegetables based foods
 en:Onions and their products
@@ -67571,7 +67598,7 @@ wikidata:en: Q2987371
 
 < en:Legumes
 < en:Vegetables based foods
-en:Green peas
+en:Green peas, garden peas
 de:Grüne Erbsen
 es:Guisantes verdes
 fi:herneet
@@ -67935,11 +67962,11 @@ wikidata:en: Q4922497
 < en:Vinegars
 en:Cider vinegars, apple cider vinegars, Apple cider vinegar
 de:Apfelessige
-es:Vinagres de sidra y manzana, Vinagres de manzana, Vinagres de sidra
+es:Vinagres de manzana, Vinagres de sidra y manzana, Vinagres de sidra
 fi:Siiderietikat, Omenasiiderietikat, Omenasiiderietikka
 fr:Vinaigres de cidre, vinaigre de cidre, vinaigres de cidre de pomme, Vinaigre de cidre de pomme, Vinaigres de pomme, Vinaigre de pomme
 hu:Almaecet
-it:Aceto di sidro, Aceto di sidro di mele, Aceti di sidro, Aceti di sidro di mele
+it:Aceto di mele, Aceto di sidro, Aceto di sidro di mele, Aceti di sidro, Aceti di sidro di mele
 nl:Ciderazijnen
 agribalyse_food_code:en: 11090
 ciqual_food_code:en: 11090
