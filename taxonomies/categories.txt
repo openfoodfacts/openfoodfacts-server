@@ -35053,6 +35053,7 @@ fr:Crèmes fleurettes, Crème fleurette
 #Cream that haven't been fermented
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+it:Panne da cucina, panna da cucina
 
 #Cream with at least 30% fat according to French regulation. This mention is not mandatory as all non light creams are whole.
 <en:Creams
@@ -44739,7 +44740,7 @@ de:Gerstenmehl
 es:Harinas de cebada
 fr:Farines d’orge, Farine d'orge
 hu:Árpa lisztek
-it:Farina d'orzo
+it:Farine di orzo, farine d'orzo, Farine d'orzo, Farina d'orzo
 ka:ქერის ფქვილი
 nb:byggmel
 nl:Gerstemeel
@@ -70727,21 +70728,32 @@ ciqual_food_code:en:26029
 ciqual_food_name:en:Fish, breaded, frozen, raw
 ciqual_food_name:fr:Poisson pané, surgelé, cru
 
+#Gadus morhua
 <en:Breaded fish
 en:Breaded cod fish
 fr:Poissons panés de cabillaud, Poisson pané de cabillaud
-it:Merluzzo allevato
+it:Merluzzo comune impanato
 nl:Gepaneerde kabeljauw
 
+#Gadus chalcogrammus
 <en:Breaded fish
-en:Breaded Hake fish
-fr:Poissons panés de colin, Poisson pané de colin
+en:Breaded Alaska pollock
+fr:Poissons panés de colin d'Alaska, Poissons panés de colin, Poisson pané de colin
+it:Merluzzo d'Alaska impanato
+nl:Gepaneerde Alaskakoolvis
+
+#Merluccius merluccius
+<en:Breaded fish
+en:Breaded hake fish
+fr:Poissons panés de merlu blanc, Poissons panés de merlu, Poisson pané de merlu
 it:Nasello impanato
 nl:Gepaneerde heek
 
+#Merlangius merlangus
 <en:Breaded fish
 en:Breaded whiting
 fr:Poissons panés de merlan, Poisson pané de merlan, Merlans panés, Merlan pané
+it:Merlano impanato
 nl:Gepaneerde wijting
 agribalyse_food_code:en:26124
 ciqual_food_code:en:26124
@@ -70771,9 +70783,6 @@ agribalyse_food_code:en:26022
 ciqual_food_code:en:26022
 ciqual_food_name:en:Whiting, steamed
 ciqual_food_name:fr:Merlan, cuit à la vapeur
-
-<en:Breaded fish
-fr:Poissons panés de merlu, Poisson pané de merlu
 
 <en:Canned foods
 <en:Fishes
