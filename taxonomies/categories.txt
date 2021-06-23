@@ -25781,8 +25781,8 @@ ru:Баумкухен
 wikidata:en:Q3665589
 
 <en:Cakes
-en:Plum cake
-it:Plum cake
+en:Plum cakes, Plum cake
+it:Plum cakes, Plum cake
 
 <en:Cakes
 <en:Desserts
@@ -53757,6 +53757,7 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Coppa
 it:Coppa di Parma
 protected_name_file_number:en: PGI-IT-0602
 protected_name_type:en: pgi
@@ -53841,13 +53842,6 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
-it:Mortadella Bologna
-fr:Mortadelle de Bologne
-protected_name_file_number:en: PGI-IT-0325
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian meat products
 <en:Pancetta
 it:Pancetta di Calabria
 protected_name_file_number:en: PDO-IT-1567
@@ -53910,6 +53904,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Coppa
 it:Coppa Piacentina
 protected_name_file_number:en: PDO-IT-1498
 protected_name_type:en: pdo
@@ -53922,6 +53917,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Bresaola
 it:Bresaola della Valtellina
 protected_name_file_number:en: PGI-IT-1525
 protected_name_type:en: pgi
@@ -62707,22 +62703,22 @@ en:Beef pastrami
 fr:Pastrami de bœuf
 
 <en:Prepared meats
-en:Capicola, coppa
+en:Coppa, Capicola, Capocollo
 fr:Coppa
-it:Capocollo
+it:Coppa, Capocollo
 nl:Capocollo
 agribalyse_food_code:en:28850
 ciqual_food_code:en:28850
 ciqual_food_name:en:Coppa
 ciqual_food_name:fr:Coppa
 
-<en:Capicola
+<en:Coppa
 fr:Coppa de l'Ile de Beauté
 protected_name_file_number:en: PGI-FR-02430
 protected_name_type:en: pgi
 origins:en: en:France, fr:Corse
 
-<en:Capicola
+<en:Coppa
 fr:Coppa de Corse, Coppa de Corse - Coppa di Corsica
 protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
@@ -64100,6 +64096,7 @@ ciqual_food_name:en:Mortadella
 <fr:Charcuteries cuites
 en:Mortadella pure pork
 fr:Mortadelle pur porc
+it:Mortadella puro suino
 agribalyse_food_code:en:30790
 ciqual_food_code:en:30790
 ciqual_food_name:en:Mortadella, pure pork
@@ -64117,6 +64114,14 @@ fr:Mortadelle pistachée pur porc
 agribalyse_food_code:en:30797
 ciqual_food_code:en:30797
 ciqual_food_name:en:Mortadella with pistachios, pure pork
+
+<en:Italian meat products
+<en:Mortadella pure pork
+it:Mortadella Bologna
+fr:Mortadelle de Bologne
+protected_name_file_number:en: PGI-IT-0325
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Italian meat products
 <en:Mortadella
