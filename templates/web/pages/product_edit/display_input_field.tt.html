@@ -1,0 +1,12 @@
+<!-- start templates/[% template.name %] -->
+
+<label> [% lang("fieldtype") %]</label>
+
+[% IF field == /infocard/ || field == /^packaging_text/ %]
+    <textarea name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
+[% ELSE %]
+    <input type="text" name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="${display_lc}" data-autocomplete="${autocomplete}" />
+[% END %]
+
+
+<!-- end templates/[% template.name %] -->

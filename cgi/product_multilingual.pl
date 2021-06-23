@@ -80,7 +80,14 @@ my $interface_version = '20190830';
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
+my $template_data_ref = {};
+$template_data_ref->{type} = $type;
+$template_data_ref->{action} = $action;
+$template_data_ref->{user_id} =  $User_id;
+
+
 # Search or add product
+#rosheen comment, ends on line 174. 
 if ($type eq 'search_or_add') {
 
 	# barcode in image?
@@ -169,6 +176,8 @@ if ($type eq 'search_or_add') {
 		exit();
 	}
 
+	$template_data_ref->{param_imgupload_search} = param("imgupload_search");
+
 }
 
 else {
@@ -203,6 +212,7 @@ if ($User_id eq 'unwanted-bot-id') {
 	return 500;
 }
 
+#rosheen comment, ends on line 257, a form starts and ends within this condition
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
@@ -242,12 +252,11 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 HTML
 ;
-			$action = 'login';
+		$action = 'login';
+		$template_data_ref->{code} =  $code;
 
 	}
 }
-
-
 
 
 my @fields = @ProductOpener::Config::product_fields;
@@ -262,6 +271,7 @@ if ($admin) {
 
 }
 
+#rosheen comment. ends on line 779. no html. 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
@@ -769,13 +779,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 }
 
 
+
 # Display the product edit form
 
 my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 
 # Display each field
 
-sub display_field($$) {
+#rosheen comment, ends on line 902, lots of html. seperate functions
+sub display_input_field($$) {
 
 	my $product_ref = shift;
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
@@ -809,6 +821,10 @@ sub display_field($$) {
 	if (not defined $value) {
 		$value = "";
 	}
+
+	$template_data_ref->{field} =  $field;
+	$template_data_ref->{class} =  $class;
+	$template_data_ref->{value} =  $value;
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
@@ -857,7 +873,7 @@ HTML
 
 
 
-
+#rosheen comment, finding end line
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
@@ -970,7 +986,7 @@ HTML
 HTML
 ;
 
-		$html .= display_field($product_ref, "obsolete_since_date");
+		$html .= display_input_field($product_ref, "obsolete_since_date");
 
 	}
 
@@ -1289,7 +1305,7 @@ HTML
 
 
 
-sub display_tabs($$$$$$) {
+sub display_input_tabs($$$$$$) {
 
 	my $product_ref = shift;
 	my $select_add_language = shift;
@@ -1379,7 +1395,7 @@ HTML
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
+					$html_content_tab .= display_input_field($product_ref, $field . "_" . $display_lc);
 				}
 			}
 
@@ -1448,7 +1464,7 @@ HTML
 }
 
 
-	$html .= display_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+	$html .= display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 
 	$html .= "</div><!-- fieldset -->";
 
@@ -1459,13 +1475,13 @@ HTML
 HTML
 ;
 
-	$html .= display_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
+	$html .= display_input_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 
 
 	foreach my $field (@fields) {
 		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-		$html .= display_field($product_ref, $field);
+		$html .= display_input_field($product_ref, $field);
 	}
 
 
@@ -1477,13 +1493,13 @@ HTML
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
-	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
+	$html .= display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
-	$html .= display_field($product_ref, "allergens");
+	$html .= display_input_field($product_ref, "allergens");
 
-	$html .= display_field($product_ref, "traces");
+	$html .= display_input_field($product_ref, "traces");
 
-	$html .= display_field($product_ref, "origins");
+	$html .= display_input_field($product_ref, "origins");
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
@@ -1526,7 +1542,7 @@ JAVASCRIPT
 
 
 
-	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+	$html .= display_input_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 
 	$initjs .= display_select_crop_init($product_ref);
 
@@ -1535,7 +1551,7 @@ JAVASCRIPT
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 
-	$html .= display_field($product_ref, "serving_size");
+	$html .= display_input_field($product_ref, "serving_size");
 
 
 	# Display 2 checkbox to indicate the nutrition values present on the product
@@ -2100,7 +2116,7 @@ HTML
 HTML
 ;	
 	
-	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	$html .= display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 	
 
 
@@ -2320,6 +2336,10 @@ MAIL
 $html = "<p id=\"barcode_paragraph\">" . lang("barcode")
 	. separator_before_colon($lc)
 	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
+
+
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+
 
 display_page( {
 	blog_ref=>undef,
