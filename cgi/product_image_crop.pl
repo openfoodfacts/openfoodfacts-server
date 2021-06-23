@@ -73,7 +73,12 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
-if ((defined $product_ref) and (has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+
+# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+# when the corresponding organization has the protect_data checkbox checked
+my $protected_data = product_data_is_protected($product_ref);
+
+if ((defined $product_ref) and ($protected_data) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 	and (referer() !~ /\/cgi\/product.pl/)) {
 	$log->debug("do not select image: data_sources contains producers and referer is not the web product edit form", { code => $code, id => $id, referer => referer() }) if $log->is_debug();;
 }

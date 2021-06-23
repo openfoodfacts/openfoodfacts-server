@@ -104,6 +104,7 @@ BEGIN
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
@@ -120,6 +121,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -2819,6 +2821,41 @@ sub add_user_teams ($) {
 	}
 
 	return;
+}
+
+
+=head2 product_data_is_protected ( $product_ref )
+
+Checks if the product data should be protected from edits.
+e.g. official producer data that should not be changed by anonymous users through the API
+
+Product data is protected if it has an owner and if the corresponding organization has
+the "protect data" checkbox checked.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head3 Return values
+
+- 1 if the data is protected
+- 0 if the data is not protected
+
+=cut
+
+sub product_data_is_protected($) {
+
+	my $product_ref = shift;
+
+	my $protected_data = 0;
+	if ((defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-(.+)$/)) {
+		my $org_id = $1;
+		my $org_ref = retrieve_org($org_id);
+		if ((defined $org_ref) and ($org_ref->{protect_data})) {
+			$protected_data = 1;
+		}
+	}
+	return $protected_data;
 }
 
 1;
