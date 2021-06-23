@@ -122,8 +122,11 @@ my %unknown_entries_in_gs1_maps = ();
 		"NR" => "Rye",
 		"SA" => "Almond",
 		"SH" => "Hazelnut",
+		"SC" => "Cashew",
 		"SM" => "Macadamia nut",
 		"SP" => "Pecan nut",
+		"SQ" => "Queensland nut",
+		"SR" => "Brazil nut",
 		"ST" => "Pistachio",
 		"SW" => "Walnut",
 		"UM" => "Molluscs",
@@ -150,21 +153,35 @@ my %unknown_entries_in_gs1_maps = ();
 	nutrientTypeCode => {
 		"BIOT" => "biotin",
 		"CA" => "calcium",
+		"CASN" => "casein",
 		"CHOAVL" => "carbohydrates",
+		"CHOCAL" => "vitamin-d",	# cholecalciferol
+		"CHOLN" => "choline",
 		"CLD" => "chloride",
 		"CR" => "chromium",
 		"CU" => "copper",
 		"ENER-" => "energy",
 		"ENERSF" => "calories-from-saturated-fat",
+		"F18D2CN6" => "linoleic-acid",
+		"F18D3N3" => "alpha-linolenic-acid",
+		"F20D4" => "arachidonic-acid",
+		"F20D5N3" => "eicosapentaenoic-acid",
+		"F22D6N3" => "docosahexaenoic-acid",
 		"FAT" => "fat",
 		"FASAT" => "saturated-fat",
 		"FAMSCIS" => "monounsaturated-fat",
 		"FAPUCIS" => "polyunsaturated-fat",
+		"FAPUN3" => "omega-3-fat",
+		"FAPUN6" => "omega-6-fat",
 		"FD" => "fluoride",
 		"FE" => "iron",
+		"FIBSOL" => "soluble-fiber",
 		"FIBTG" => "fiber",
+		"FIB-" => "fiber",
 		"FOL" => "folates",
 		"FOLDFE" => "vitamin-b9",
+		"FRUFB" => "fructo-oligosaccharide",
+		"GALFB" => "galacto-oligosaccharide",
 		# G_ entries: cigarettes?
 		#"G_CMO" => "carbon-monoxide",
 		#"G_HC" => "bicarbonate",
@@ -174,9 +191,12 @@ my %unknown_entries_in_gs1_maps = ();
 		"GINSENG" => "ginseng",
 		"HMB" => "beta-hydroxy-beta-methylburate",
 		"ID" => "iodine",
+		"INOTL" => "inositol",
 		"IODIZED_SALT" => "iodized_salt",
 		"K" => "potassium",
 		"L_CARNITINE" => "carnitine",
+		"LACS" => "lactose",
+		"MALTDEX" => "maltodextrins",
 		"MG" => "magnesium",
 		"MN" => "manganese",
 		"MO" => "molybdenum",
@@ -186,14 +206,17 @@ my %unknown_entries_in_gs1_maps = ();
 		"NUCLEOTIDE" => "nucleotide",
 		"P" => "phosphorus",
 		"PANTAC" => "pantothenic-acid",
+		"POLYL" => "polyols",	
 		"POLYLS" => "polyols",	
 		"PRO-" => "proteins",
 		"RIBF" => "vitamin-b2",
 		"SALTEQ" => "salt",
 		"SE" => "selenium",
 		"STARCH" => "starch",
+		"SUCS" => "sucrose",
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
+		"TAU" => "taurine",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
@@ -204,6 +227,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"VITE-" => "vitamin-e",
 		"VITK-" => "vitamin-k",
 		"VITK" => "vitamin-k",
+		"WHEY" => "serum-proteins",
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
 	},
@@ -245,25 +269,56 @@ my %unknown_entries_in_gs1_maps = ();
 	
 	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode
 	packagingMarkedLabelAccreditationCode => {
+		"ADCCPA" => "fr:produit-certifie",
+		"AGENCE_BIO" => "fr:ab-agriculture-biologique",
+		"AB_FRANCE" => "fr:ab-agriculture-biologique",
 		"AGRICULTURE_BIOLOGIQUE" => "en:organic",
 		# mispelling present in many files
 		"AGRICULTURE_BIOLIGIQUE" => "en:organic",
+		"AGRI_CONFIANCE" => "fr:agri-confiance",
+		"APPELLATION_ORIGINE_CONTROLEE" => "fr:aoc",
+		"AQUACULTURE_STEWARDSHIP_COUNCIL" => "en:responsible-aquaculture-asc",
+		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
+		"BIO_PARTENAIRE" => "fr:biopartenaire",
+		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
+		"DEMETER_LABEL" => "en:demeter",
+		"ECOCERT_CERTIFICATE" => "en:certified-by-ecocert",
+		"ETP" => "en:Ethical Tea Partnership",
+		"EU_ECO_LABEL" => "en:eu-ecolabel",
 		"EU_ORGANIC_FARMING" => "en:eu-organic",
 		"EUROPEAN_VEGETARIAN_UNION" => "en:european-vegetarian-union",
 		"EUROPEAN_V_LABEL_VEGAN" => "en:european-vegetarian-union-vegan",
+		"EUROPEAN_V_LABEL_VEGETARIAN" => "en:european-vegetarian-union-vegetarian",
 		"FAIR_TRADE_MARK" => "en:fairtrade-international",
 		"FAIRTRADE_COCOA" => "en:fair-trade",
+		"FAIR_TRADE_USA" => "en:fairtrade-usa",
 		"FOREST_STEWARDSHIP_COUNCIL_LABEL" => "en:fsc",		
 		"FOREST_STEWARDSHIP_COUNCIL_MIX" => "en:fsc-mix",
+		"FOREST_STEWARDSHIP_COUNCIL_RECYCLED" => "en:fsc-recycled",
 		"GREEN_DOT" => "en:green-dot",
+		"HAUTE_VALEUR_ENVIRONNEMENTALE" => "fr:haute-valeur-environnementale",
 		"IGP" => "en:pgi",
+		"LABEL_ROUGE" => "fr:label-rouge",
+		"LE_PORC_FRANCAIS" => "en:french-pork",
 		"MAX_HAVELAAR" => "en:max-havelaar",
+		"MARINE_STEWARDSHIP_COUNCIL_LABEL" => "en:sustainable-seafood-msc",
+		"ŒUFS_DE_FRANCE" => "en:french-eggs",
+		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
+		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
+		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
+		"PEFC" => "en:pefc",
 		"PEFC_CERTIFIED" => "en:pefc",
 		"RAINFOREST_ALLIANCE" => "en:rainforest-alliance",
+		"SUSTAINABLE_PALM_OIL_RSPO" => "en:roundtable-on-sustainable-palm-oil",
+		"TRADITIONAL_SPECIALTY_GUARANTEED" => "en:tsg",
 		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
+		"UTZ_CERTIFIED_COCOA" => "en:utz-certified-cocoa",
+		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
+		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 	
 	targetMarketCountryCode => {
@@ -286,6 +341,18 @@ foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
 	else {
 		$log->error("gs1_maps - entry not in taxonomy",
 			{ tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag} }) if $log->is_error();
+			die;
+	}
+}
+
+foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
+	my $canon_tag = canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
+	if (exists_taxonomy_tag("labels", $canon_tag)) {
+		$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+	}
+	else {
+		$log->error("gs1_maps - entry not in taxonomy",
+			{ tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} }) if $log->is_error();
 			die;
 	}
 }
@@ -327,6 +394,7 @@ my %gs1_to_off = (
 			},
 		],		
 			
+		# will override brandOwner values if present
 		["informationProviderOfTradeItem", {
 				fields => [
 					["gln", "sources_fields:org-gs1:gln"],
@@ -665,6 +733,12 @@ sub gs1_to_off ($$$) {
 	my $json_ref = shift;
 	my $results_ref = shift;
 	
+	# We should have a hash
+	if (ref($json_ref) ne "HASH") {
+		$log->error("gs1_to_off - json_ref is not a hash", { gs1_to_off_ref => $gs1_to_off_ref, json_ref => $json_ref, results_ref => $results_ref }) if $log->is_error();
+		return;
+	}
+	
 	$log->debug("gs1_to_off", { json_ref_keys => [sort keys %$json_ref] }) if $log->is_debug();
 	
 	# Check the matching conditions if any
@@ -800,10 +874,18 @@ sub gs1_to_off ($$$) {
 						# e.g. par portion : 14 g + 200 ml d'eau
 						my $extra_serving_size_description = "";
 						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
-							$serving_size_description =~ s/^par portion\s*:\s*//;
+							# Par Portion de 30 g (2)
+							$serving_size_description =~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
+							$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
+							# Par Portion de 30 g (2) : remove number of portions
+							$serving_size_description =~ s/\(\d+\)//i;
+							$serving_size_description =~ s/^\s+//;
+							$serving_size_description =~ s/\s+$//;
 							# skip the extra description if it is equal to value + unit
 							# to avoid things like 43 g (43 g)
-							if (lc($serving_size_description) ne lc($serving_size_value . " " . $serving_size_unit)) {
+							# "Pour 45g ?²?" --> ignore bogus characters at the end
+							if (($serving_size_description !~ /^\s*$/)
+								and ($serving_size_description !~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)) {
 								$extra_serving_size_description = ' (' . $serving_size_description . ')';
 							}
 						}
@@ -812,6 +894,14 @@ sub gs1_to_off ($$$) {
 					}
 					
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
+						
+						# If there's only one nutrient, we may not get an array
+						
+						if (ref($nutrient_header_ref->{nutrientDetail}) ne 'ARRAY') {
+							$log->error("gs1_to_off - nutrient_header is not an array ", { results_ref => $results_ref  }) if $log->is_error();
+							next;
+						}
+						
 						foreach my $nutrient_detail_ref (@{$nutrient_header_ref->{nutrientDetail}}) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 							
@@ -860,7 +950,7 @@ sub gs1_to_off ($$$) {
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
-									{ nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
+									{ code => $results_ref->{code}, nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
 								my $map = "nutrientTypeCode";
 								my $source_value = $nutrient_detail_ref->{nutrientTypeCode};
 								defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
@@ -977,7 +1067,11 @@ sub gs1_to_off ($$$) {
 							}
 						}
 						
-						if ((defined $source_value) and ($source_value ne "")) {
+						if ((defined $source_value) and ($source_value ne "")
+							# CodeOnline sometimes has empty values '.' or '0' for partyName for one of the fields brandOwner or informationProviderOfTradeItem
+							# ignore them in order to keep the partyName value from the other fields
+							and not (($source_field eq "partyName") and (length($source_value) < 2))
+						) {
 							
 							# allergenTypeCode => '+traces%allergens',
 							# % sign means we will use a map to transform the source value
@@ -989,7 +1083,7 @@ sub gs1_to_off ($$$) {
 								}
 								else {
 									$log->error("gs1_to_off - unknown source value for map",
-										{ source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
+										{ code => $results_ref->{code}, source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
 									defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
 									defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
 									$unknown_entries_in_gs1_maps{$map}{$source_value}++;

@@ -5,15 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-10-09 16:35\n"
+"PO-Revision-Date: 2021-05-22 10:56\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1384\n"
+"X-Crowdin-File: openproductsfacts.pot\n"
+"X-Crowdin-File-ID: 1814\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -30,12 +30,12 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
 msgstr "openproductsfacts-logo-en-178x150.png"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
+#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
 msgstr "openproductsfacts-logo-en-356x300.png"
@@ -47,7 +47,7 @@ msgstr "Open Products Facts"
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/ko-kr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."

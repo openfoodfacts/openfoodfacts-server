@@ -1,17 +1,17 @@
 ﻿version: "3.7"
 services:
   mongodb:
-    image: mongo:4.2.3
+    image: mongo:4.4
     volumes:
       - dbdata:/var/lib/mongodb
     networks:
       - webnet
   memcached:
-    image: memcached:1.5.16-alpine
+    image: memcached:1.6-alpine
     networks:
       - webnet
   postgres:
-    image: postgres:12.2-alpine
+    image: postgres:12-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -41,6 +41,9 @@ services:
       - type: bind
         source: ./backend-dev/conf/log.conf
         target: /mnt/podata/log.conf
+      - type: bind
+        source: ./backend-dev/conf/minion_log.conf
+        target: /mnt/podata/minion_log.conf
       - type: bind
         source: ./backend-dev/conf/apache.conf
         target: /etc/apache2/sites-enabled/product-opener.conf

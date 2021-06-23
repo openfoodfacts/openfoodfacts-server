@@ -150,7 +150,7 @@ fields will be exported.
 		fields => [qw(code ingredients_text_en additives_tags)] });
 
 
-=head4 include_images_files - optional - Export local file paths to images
+=head4 include_images_paths - optional - Export local file paths to images
 
 If defined and not null, specifies to export local file paths for selected images
 for front, ingredients and nutrition in all languages.
@@ -330,7 +330,7 @@ sub export_csv($) {
 			if (defined $product_ref->{sources_fields}) {
 				foreach my $source_id (sort keys %{$product_ref->{sources_fields}}) {
 					foreach my $field (sort keys %{$product_ref->{sources_fields}{$source_id}}) {
-						$populated_fields{"sources_fields:${source_id}:$field"} = sprintf("%08d", 10 * 1000 . "${source_id}:$field");
+						$populated_fields{"sources_fields:${source_id}:$field"} = sprintf("%08d", 10 * 1000) . "_${source_id}:$field";
 					}
 				}
 			}
@@ -339,6 +339,10 @@ sub export_csv($) {
 		@sorted_populated_fields = sort ({ $populated_fields{$a} cmp $populated_fields{$b} } keys %populated_fields);
 
 		push @sorted_populated_fields, "data_sources";
+		if (not defined $populated_fields{"obsolete"}) {
+			# Always output the "obsolete" field so that obsolete products can be unobsoleted
+			push @sorted_populated_fields, "obsolete";
+		}
 	}
 	else {
 		# The fields to export are specified by the fields parameter
@@ -348,6 +352,10 @@ sub export_csv($) {
 	# Extra fields such as Nova or Nutri-Score that do not originate from users or producers but are computed
 	if (defined $extra_fields_ref) {
 		@sorted_populated_fields = (@sorted_populated_fields, @{$extra_fields_ref});
+	}
+
+	if ($args_ref->{export_owner}) {
+		push @sorted_populated_fields, "owner";
 	}
 
 	# Second pass - output CSV data
@@ -367,15 +375,37 @@ sub export_csv($) {
 
 		my $added_images_urls = 0;
 		my $product_path = product_path($product_ref);
+		
+		my $scans_ref;
 
 		foreach my $field (@sorted_populated_fields) {
 
 			my $nutriment_field = 0;
 
 			my $value;
-
+			
+			# Scans must be loaded separately
+			if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
+				
+				my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
+				
+				if (not defined $scans_ref) {
+					# Load the scan data
+					$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+				}
+				if (not defined $scans_ref) {
+					$scans_ref = {};
+				}
+				if ((defined $scans_ref->{$scan_year}) and (defined $scans_ref->{$scan_year}{$scan_field})
+					and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc})) {
+					$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
+				}
+				else {
+					$value =  "";
+				}
+			}
 			# Source specific fields
-			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
+			elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 				my $source_id = $1;
 				my $source_field = $';
 				if ((defined $product_ref->{sources_fields}) and (defined $product_ref->{sources_fields}{$source_id})
@@ -463,6 +493,15 @@ sub export_csv($) {
 					elsif ($field =~ /^([^\.]+)\.([^\.]+)$/) {
 						if (defined $product_ref->{$1}) {
 							$value = $product_ref->{$1}{$2};
+						}
+					}
+					# Fields like "obsolete" : output 1 for true values or 0
+					elsif ($field eq "obsolete") {
+						if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
+							$value = 1;
+						}
+						else {
+							$value = 0;
 						}
 					}
 					else {

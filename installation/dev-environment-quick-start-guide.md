@@ -41,6 +41,7 @@ $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-ser
 The fastest way is to use the ready-to-use scripts on the Open Food Facts GitHub repo.
 ```console
 $ cd ./openfoodfacts-server/docker/
+$ ./build_dev.sh
 $ ./start_dev.sh
 ```
 The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
@@ -68,6 +69,19 @@ If you are running Docker on Windows, you should edit your hosts file (C:\Window
 You’re done! Check http://localhost/
 
 Note: it’s possible that you don’t see immediately the test product database: create an account and login, it should appear.
+
+### Setting up producers platform
+
+The process for setting up the producer’s platform is almost the same. The scripts to run it on a local machine are different. 
+
+```console
+$ cd ./openfoodfacts-server/docker/
+$ ./build_pro_dev.sh
+$ ./start_pro_dev.sh
+```
+Note: You will have to build front-end assets for the producer’s platform as well.  
+
+The link for the producer’s platform is http://world.pro.productopener.localhost/ 
 
 
 ## 4. Starting and stopping environment

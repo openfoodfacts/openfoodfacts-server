@@ -33,7 +33,7 @@ database and file system.
 
 	$product_ref->{product_name_en} = "Chocolate cookies";
 
-	store_product($product_ref, 'helpful comment');
+	store_product("my-user", $product_ref, 'helpful comment');
 
 
 =head1 DESCRIPTION
@@ -126,6 +126,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -915,8 +916,9 @@ sub compute_sort_keys($) {
 }
 
 
-sub store_product($$) {
+sub store_product($$$) {
 
+	my $user_id = shift;
 	my $product_ref = shift;
 	my $comment = shift;
 
@@ -1026,7 +1028,7 @@ sub store_product($$) {
 			(-e "$new_www_root/products/$path") and $log->error("cannot move product images data, because the destination already exists", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" });
 		}
 
-		$comment .= " - barcode changed from $old_code to $code by $User_id";
+		$comment .= " - barcode changed from $old_code to $code by $user_id";
 	}
 
 
@@ -1064,11 +1066,11 @@ sub store_product($$) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
-	$product_ref->{last_modified_by} = $User_id;
+	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
-		my $creator = $User_id;
-		if ((not defined $User_id) or ($User_id eq '')) {
+		my $creator = $user_id;
+		if ((not defined $user_id) or ($user_id eq '')) {
 			$creator = "openfoodfacts-contributors";
 		}
 		$product_ref->{creator} = $creator;
@@ -1082,7 +1084,7 @@ sub store_product($$) {
 	}
 
 	push @{$changes_ref}, {
-		userid => $User_id,
+		userid => $user_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
@@ -1100,6 +1102,8 @@ sub store_product($$) {
 	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref);
+	
+	compute_main_countries($product_ref);
 
 	compute_sort_keys($product_ref);
 
@@ -1216,13 +1220,21 @@ sub compute_data_sources($) {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
 			}
+			if ($source_ref->{id} eq 'codeonline') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - CodeOnline"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
+			if ($source_ref->{id} eq 'equadis') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Equadis"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}				
 		}
 	}
 
 
-	# Add a data source forapps
-
-	%data_sources = ();
+	# Add a data source for apps
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {
@@ -1411,6 +1423,9 @@ sub compute_completeness_and_missing_tags($$$) {
 		}
 		else {
 			push @states_tags, "en:to-be-exported";
+			if ($product_ref->{to_be_automatically_exported}) {
+				push @states_tags, "en:to-be-automatically-exported";
+			}
 		}
 	}
 
@@ -2166,6 +2181,12 @@ sub product_name_brand($) {
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
 	}
+	elsif ((defined $ref->{"generic_name_$lc"}) and ($ref->{"generic_name_$lc"} ne '')) {
+		$full_name = $ref->{"generic_name_$lc"};
+	}
+	elsif ((defined $ref->{generic_name}) and ($ref->{generic_name} ne '')) {
+		$full_name = $ref->{generic_name};
+	}	
 	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
 		$full_name = $ref->{"abbreviated_product_name_$lc"};
 	}

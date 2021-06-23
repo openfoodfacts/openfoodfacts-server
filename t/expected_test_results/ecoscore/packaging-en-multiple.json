@@ -17,9 +17,33 @@
             "origins_from_origins_field" : [
                "en:unknown"
             ],
-            "transportation_score" : 0,
-            "transportation_value" : 0,
-            "value" : -5,
+            "transportation_score_be" : 0,
+            "transportation_score_ch" : 0,
+            "transportation_score_de" : 0,
+            "transportation_score_es" : 0,
+            "transportation_score_fr" : 0,
+            "transportation_score_ie" : 0,
+            "transportation_score_it" : 0,
+            "transportation_score_lu" : 0,
+            "transportation_score_nl" : 0,
+            "transportation_value_be" : 0,
+            "transportation_value_ch" : 0,
+            "transportation_value_de" : 0,
+            "transportation_value_es" : 0,
+            "transportation_value_fr" : 0,
+            "transportation_value_ie" : 0,
+            "transportation_value_it" : 0,
+            "transportation_value_lu" : 0,
+            "transportation_value_nl" : 0,
+            "value_be" : -5,
+            "value_ch" : -5,
+            "value_de" : -5,
+            "value_es" : -5,
+            "value_fr" : -5,
+            "value_ie" : -5,
+            "value_it" : -5,
+            "value_lu" : -5,
+            "value_nl" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
@@ -54,8 +78,12 @@
             "score" : 58,
             "value" : -4
          },
-         "production_system" : {},
-         "threatened_species" : {}
+         "production_system" : {
+            "warning" : "no_label"
+         },
+         "threatened_species" : {
+            "warning" : "ingredients_missing"
+         }
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "2011",
@@ -81,15 +109,35 @@
          "score" : 51
       },
       "grade" : "c",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
       "missing" : {
+         "ingredients" : 1,
+         "labels" : 1,
          "origins" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 42,
+      "score" : 47,
+      "score_be" : 42,
+      "score_ch" : 42,
+      "score_de" : 42,
+      "score_es" : 42,
+      "score_fr" : 42,
+      "score_ie" : 42,
+      "score_it" : 42,
+      "score_lu" : 42,
+      "score_nl" : 42,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 42,
+   "ecoscore_score" : 47,
    "ecoscore_tags" : [
       "c"
    ],

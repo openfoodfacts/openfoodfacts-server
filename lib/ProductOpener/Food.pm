@@ -241,7 +241,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	}
 	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 	$product_ref->{nutriments}{$nid . "_value"} = $value;
-
+	
 	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 		$value = $value * $Nutriments{$nid}{iu} ;
 		$unit = $Nutriments{$nid}{unit};
@@ -261,7 +261,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	else {
 		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
 	}
-
+	
 	return;
 }
 
@@ -309,8 +309,6 @@ sub kcal_to_unit($$) {
 
 	(not defined $value) and return $value;
 	
-	print STDERR "value: $value - unit: $unit\n";
-
 	($unit eq 'kj') and return int($value * 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal
@@ -2537,6 +2535,16 @@ sub mmoll_to_unit {
 		zh_HK => "不可溶性纖維",
 		zh_TW => "不可溶性纖維",
 	},
+	"fructo-oligosaccharide" => {
+		en => "Fructo-oligosaccharide",
+		en_synonyms => ["Fructooligosaccharide", "Fructo-oligo-saccharide", "FOS", "oligofructose", "oligofructan"],
+		fr => "Fructo-oligosaccharide",
+	},
+	"galacto-oligosaccharides" => {
+		en => "Galacto-oligosaccharide",
+		en_synonyms => ["Galactooligosaccharides", "GOS", "oligogalactosyllactose", "oligogalactose", "oligolactose", "transgalactooligosaccharides", "TOS"],
+		fr => "Galacto-oligosaccharide",
+	},	
 	sodium => {
 		ar    => "الصوديوم",
 		cs    => "Sodík",
@@ -3760,6 +3768,7 @@ sub mmoll_to_unit {
 		nl    => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
 		de    => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+		it    => "Frutta, verdura, noci e olio di colza, noci e oliva (stima manuale dalla lista degli ingredienti)",
 		unit  => "%",
 	},
 
@@ -3772,6 +3781,8 @@ sub mmoll_to_unit {
 			"Früchte, Gemüse, Nüsse und Raps, Walnuss- und Olivenöl (Schätzung aus der Analyse der Zutatenliste)",
 		es =>
 			"Frutas, verduras, nueces y aceites de canola, nueces y oliva (estimado del análisis en la lista de ingredientes)",
+		it => 
+			"Frutta, verdura, noci e olio di colza, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)",
 		unit => "%",
 	},
 	"collagen-meat-protein-ratio" => {
@@ -3816,6 +3827,7 @@ sub mmoll_to_unit {
 		en   => "NOVA group",
 		fi   => "NOVA-ryhmä",
 		fr   => "Groupe NOVA",
+		it   => "Gruppo NOVA",
 		unit => "",
 	},
 	"beta-carotene" => {
@@ -3853,6 +3865,7 @@ sub mmoll_to_unit {
 		en   => "Alcohol units",
 		de   => "Alkoholeinheiten",
 		fr   => "Unités d'alcool",
+		it   => "Unità di alcol",
 		unit => "",
 	},
 	"choline" => {
@@ -4268,18 +4281,11 @@ sub is_beverage_for_nutrition_score($) {
 		}
 		
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		if (has_tag($product_ref, "categories", "en:dairy-drinks")) {
+		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
 			
-			my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
-			
-			if ($milk_percent < 80) {
-				$log->debug("in en:dairy-drinks category but milk < 80%", { milk_percent => $milk_percent }) if $log->is_debug();
-				$is_beverage = 1;
-			}
-			else {
-				$log->debug("in en:dairy-drinks category but milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
-				$is_beverage = 0;
-			}
+		if ($milk_percent >= 80) {
+			$log->debug("milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+			$is_beverage = 0;
 		}
 	}
 
@@ -5664,7 +5670,7 @@ sub compute_nova_group($) {
 
 	if (defined $options{nova_groups_tags}) {
 
-		foreach my $tag (sort {$options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}} keys %{$options{nova_groups_tags}}) {
+		foreach my $tag (sort {($options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}) || ($a cmp $b)} keys %{$options{nova_groups_tags}}) {			
 
 			if ($tag =~ /\//) {
 
@@ -5704,7 +5710,7 @@ sub compute_nova_group($) {
 					# don't move group 2 to group 3
 					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
 					) {
-					$product_ref->{nova_group_debug} .= " -- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
+					$product_ref->{nova_group_debug} .= " --- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
 					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
 				}
 			}

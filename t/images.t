@@ -19,6 +19,13 @@ my @tests = (
 ["en", "12345678_photo.jpg", "12345678", "front"],
 ["en", "12345678_photo-3510.jpg", "12345678", "front"],
 ["en", "12345678_2.jpg", "12345678", "other"],
+["en", "12345678901234.jpg", "12345678901234", "front"],
+["en", "12345678901234.ingredients_fr.jpg", "12345678901234", "ingredients_fr"],
+
+# regexps
+["es", "12345678-Valores_Nutricionales-423.jpg", "12345678", "nutrition"],
+["fr", "12345678.informations nutritionnelles.jpg", "12345678", "nutrition"],
+["fr", "liste-des-ingrédients-12345678jpg", "12345678", "ingredients"],
 
 # date
 ["en", "20200201131743_2.jpg", undef, "other"],

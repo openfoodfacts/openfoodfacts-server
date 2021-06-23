@@ -14,3 +14,13 @@ updates:
     directory: "/"
     schedule:
         interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/docker/backend"
+    schedule:
+        interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/docker/frontend"
+    schedule:
+        interval: "weekly"

@@ -71,7 +71,7 @@ if ($action eq "process") {
 
 	my %data = ();
 
-	if ($filename =~ /\.(xlsx|csv|tsv)$/i) {
+	if ($filename =~ /\.(xlsx|ods|csv|tsv)$/i) {
 
 
 		my $extension = lc($1) ;
@@ -134,8 +134,8 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 	
-	$tt->process('import_file_upload.tt.html', $template_data_ref, \$html);
-	$tt->process('import_file_upload.tt.js', $template_data_ref, \$js);
+	$tt->process('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
+	$tt->process('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
 	
 	$initjs .= $js;
 
@@ -146,7 +146,7 @@ else {
 HTML
 ;
 
-	display_new( {
+	display_page( {
 		title=>$title,
 		content_ref=>\$html,
 	});

@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -577,26 +577,44 @@ sub process_user_form($$) {
     my $error = 0;
 
 	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+	
+	my $template_data_ref = {
+		userid => $user_ref->{userid},
+		user => $user_ref,
+		$user_ref->{requested_org_id},
+	};
 
-    # Professional account with requested org?
+	
+    # Professional account with a requested org (existing or new)
 
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+		
+		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
+				
+		my $mail = '';
+		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
+			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+		}
 
 		if (defined $requested_org_ref) {
 			# The requested org already exists
-
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-EMAIL
-;
-			send_email_to_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+			
+			$mail = '';
+			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+			if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+				my $subject = $1;
+				my $body = $';
+				$body =~ s/^\n+//;
+				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
+				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
+			}		
 		}
 		else {
 			# The requested org does not exist, create it
@@ -607,23 +625,20 @@ EMAIL
 			$user_ref->{org} = $user_ref->{requested_org_id};
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}
-userid: $user_ref->{userid}
-name: $user_ref->{name}
-email: $user_ref->{email}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-EMAIL
-;
-			send_email_to_admin(
-				"Org created by user: $userid - org: "
-					. $user_ref->{requested_org_id},
-				$admin_mail_body
-			);
-
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id}
+		}
+		
+		# Send an e-mail notification to admins, with links to the organization
+		
+		$mail = '';
+		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			
+			send_email_to_producers_admin($subject, $body);
 		}
 	}
 
@@ -685,6 +700,16 @@ sub check_edit_owner($$) {
 	my $errors_ref = shift;
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	
+	# If the owner id looks like a GLN, see if we have a corresponding org
+	
+	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+		my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+		not defined $glns_ref and $glns_ref = {};
+		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
+			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		}
+	}
 
 	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 
@@ -692,11 +717,6 @@ sub check_edit_owner($$) {
 		delete $user_ref->{pro_moderator_owner};
 		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
-	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
-		my $orgid = $';
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
 		my $userid = $';
@@ -715,13 +735,22 @@ sub check_edit_owner($$) {
 		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
 		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
 	else {
-		push @{$errors_ref},$Lang{error_malformed_owner}{$lang};
-		$log->debug("error - malformed pro_moderator_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		# if there is no user- or org- prefix, assume it is an org
+		my $orgid = $user_ref->{pro_moderator_owner};
+		$User{pro_moderator_owner} = "org-" . $orgid;
+		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 	}
 
 	return;
 }
+
 
 sub init_user()
 {
@@ -979,13 +1008,11 @@ sub init_user()
 		%User = ();
 	}
 
-	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
-	# Populate $Org_id and %org_ref from the user profile.
-	# TODO: create org profiles with customer service info etc.
+	# Load the user org profile
 
 	if (defined $user_ref->{org_id}) {
 		$Org_id = $user_ref->{org_id};
-		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+		$org_ref = retrieve_or_create_org($User_id, $Org_id);
 	}
 
 	if (defined $Org_id) {
@@ -1001,6 +1028,7 @@ sub init_user()
 		# Producers platform moderators can set the owner to any user or organization
 		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
 			$Owner_id = $User{pro_moderator_owner};
+			
 			if ($Owner_id =~ /^org-/) {
 				$Org_id = $';
 				%Org = ( org => $Org_id, org_id => $Org_id );

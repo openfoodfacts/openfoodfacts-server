@@ -72,6 +72,7 @@ import_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_co
 --skip_products_without_info
 --skip_existing_values
 --only_select_not_existing_images
+--use_brand_owner_as_org_name
 TXT
 ;
 
@@ -98,6 +99,7 @@ my $skip_if_not_code;
 my $skip_products_without_info = 0;
 my $skip_existing_values = 0;
 my $only_select_not_existing_images = 0;
+my $use_brand_owner_as_org_name = 0;
 my $user_id;
 my $org_id;
 my $owner_id;
@@ -126,6 +128,7 @@ GetOptions (
 	"skip_products_without_info" => \$skip_products_without_info,
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
+	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
 		)
   or die("Error in command line arguments:\n$\nusage");
 
@@ -136,6 +139,7 @@ print STDERR "import_csv_file.pl
 - csv_file: $csv_file
 - images_dir: $images_dir
 - skip_products_without_images: $skip_products_without_images
+- use_brand_owner_as_org_name: $use_brand_owner_as_org_name
 - comment: $comment
 - source_id: $source_id
 - source_name: $source_name
@@ -193,7 +197,7 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_forest_footprint_data();
 }
 
-my $stats_ref = import_csv_file( {
+my $args_ref = {
 	user_id => $user_id,
 	org_id => $org_id,
 	owner_id => $owner_id,
@@ -216,7 +220,10 @@ my $stats_ref = import_csv_file( {
 	skip_products_without_info => $skip_products_without_info,
 	skip_existing_values => $skip_existing_values,
 	only_select_not_existing_images => $only_select_not_existing_images,
-});
+	use_brand_owner_as_org_name => $use_brand_owner_as_org_name,
+};
+
+my $stats_ref = import_csv_file( $args_ref );
 
 print STDERR "\n\nstats:\n\n";
 
@@ -231,3 +238,25 @@ foreach my $stat (sort keys %{$stats_ref}) {
 	}
 	close($out);
 }
+
+# Send an e-mail notification to admins
+
+my $template_data_ref = {
+	args => $args_ref,
+	stats => $stats_ref,
+};
+
+my $mail = '';
+process_template("emails/import_csv_file_admin_notification.tt.html", $template_data_ref, \$mail)
+	or print STDERR "emails/import_csv_file_admin_notification.tt.html template error: " .  $tt->error();
+if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+	my $subject = $1;
+	my $body = $';
+	$body =~ s/^\n+//;
+	
+	send_email_to_producers_admin($subject, $body);
+
+	print "email subject: $subject\n\n";
+	print "email body:\n$body\n\n";
+}
+
