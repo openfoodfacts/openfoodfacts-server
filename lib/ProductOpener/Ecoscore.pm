@@ -606,12 +606,17 @@ sub compute_ecoscore($) {
 				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"score" . $suffix}, grade => $product_ref->{"grade" . $suffix}}) if $log->is_debug();				
 			}
 			
-			# The following values correspond to the Eco-Score without a transportation adjustment
+			# The following values correspond to the Eco-Score for France.
 			# at run-time, they may be changed to the values for a specific country
 			# after localize_ecoscore() is called
+
+			# The ecoscore_tags used for the /ecoscore facet and the ecoscore_score used for sorting by Eco-Score
+			# can only have 1 value. 
+			# Unfortunately there is a MongoDB index limit and we cannot create a different set of field
+			# for each country.
 			
-			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
-			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score_fr"};
+			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade_fr"};
 			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];			
 			
 			if ($missing_data_warning) {
