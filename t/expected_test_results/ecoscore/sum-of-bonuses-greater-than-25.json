@@ -49,7 +49,7 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 0,
+                  "ecoscore_shape_ratio" : "0",
                   "material" : "en:unknown",
                   "shape" : "en:bulk"
                }
@@ -80,7 +80,7 @@
          "ef_distribution" : "0.011840366",
          "ef_packaging" : "0.023412096",
          "ef_processing" : "0.10705326",
-         "ef_total" : 1.1111394,
+         "ef_total" : "1.1111394",
          "ef_transportation" : "0.02444929",
          "is_beverage" : 0,
          "name_en" : "Chicken, breast, without skin, cooked",
@@ -114,7 +114,7 @@
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 48,
+   "ecoscore_score" : 53,
    "ecoscore_tags" : [
       "c"
    ],

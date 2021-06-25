@@ -51,7 +51,7 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
+                  "ecoscore_shape_ratio" : "1",
                   "material" : "en:unknown",
                   "shape" : "en:can"
                }
@@ -83,7 +83,7 @@
          "ef_distribution" : "0.0088128735",
          "ef_packaging" : "0.014792145999999999",
          "ef_processing" : "0.0056288216",
-         "ef_total" : 0.14687612,
+         "ef_total" : "0.14687612",
          "ef_transportation" : "0.029304117999999997",
          "is_beverage" : 1,
          "name_en" : "Mixed fruits juice, orange based, multivitamin",
@@ -119,10 +119,10 @@
       "score_nl" : 36,
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 41,
+   "ecoscore_grade" : "d",
+   "ecoscore_score" : 36,
    "ecoscore_tags" : [
-      "c"
+      "d"
    ],
    "lc" : "en",
    "misc_tags" : [
