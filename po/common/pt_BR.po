@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-05-22 10:58\n"
+"PO-Revision-Date: 2021-06-25 17:47\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5530,4 +5530,17 @@ msgstr "Verifique se o fabricante não fabrica produtos que realmente contenham 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
 msgstr "Alguns fabricantes têm valores incorretos para alguns campos do GS1. Os recursos abaixo podem ser usados para corrigir alguns deles."
+
+# do not remove %s, it will be replaced with the source name
+msgctxt "import_source_string"
+msgid "Import data from %s"
+msgstr "Importar dados de %s"
+
+msgctxt "org_protect_data"
+msgid "Protect the data that is provided by the organization."
+msgstr "Proteja os dados fornecidos pela organização."
+
+msgctxt "org_protect_data_note"
+msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+msgstr "A eliminação ou alteração dos dados fornecidos só será possível por colaboradores experientes no site."
 
