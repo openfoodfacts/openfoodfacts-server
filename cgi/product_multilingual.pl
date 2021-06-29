@@ -54,6 +54,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 use File::Copy qw(move);
+use Data::Dumper;
 
 ProductOpener::Display::init();
 
@@ -783,6 +784,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 # Display the product edit form
 
 my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
+my @field_notes;
+my $examples = '';
 
 # Display each field
 
@@ -825,42 +828,66 @@ sub display_input_field($$) {
 	$template_data_ref->{field} =  $field;
 	$template_data_ref->{class} =  $class;
 	$template_data_ref->{value} =  $value;
+	$template_data_ref->{display_lc} =  $display_lc;
+	$template_data_ref->{autocomplete} =  $autocomplete;
+	$template_data_ref->{fieldtype} = $Lang{$fieldtype}{$lang};
 
-	my $html = <<HTML
+
+	my $html = '';
+
+	$html .= <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
 HTML
 ;
 
 	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
+
+
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
 ;
+
+
 	}
 	else {
 		# Line feeds will be removed in text inputs, convert them to spaces
 		$value =~ s/\n/ /g;
+
+
 		$html .= <<HTML
 <input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
 HTML
 ;
+
 	}
 
 	foreach my $note ("_note", "_note_2") {
 		if (defined $Lang{$fieldtype . $note }{$lang}) {
+
+			@field_notes = [];
+			push (@field_notes, {
+				note => $Lang{$fieldtype . $note }{$lang},
+			});
+
 			$html .= <<HTML
 <p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
 HTML
 ;
+
+
 		}
 	}
 
+		$template_data_ref->{field_notes} = \@field_notes;
+
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
 
-		my $examples = $Lang{example}{$lang};
+		$examples = $Lang{example}{$lang};
 		if ($Lang{$fieldtype . "_example"}{$lang} =~ /,/) {
 			$examples = $Lang{examples}{$lang};
 		}
+
 
 		$html .= <<HTML
 <p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>
@@ -868,10 +895,15 @@ HTML
 ;
 	}
 
+	$template_data_ref->{examples} = $examples;
+	$template_data_ref->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
+
+	#process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+
 	return $html;
 }
 
-
+	#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 
 #rosheen comment, finding end line
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -1304,7 +1336,7 @@ HTML
 
 
 
-
+#rosheen comment, lots of html. ends on line 1497
 sub display_input_tabs($$$$$$) {
 
 	my $product_ref = shift;
@@ -1316,6 +1348,9 @@ sub display_input_tabs($$$$$$) {
 
 	my $html_header = "";
 	my $html_content = "";
+
+
+	$template_data_ref->{tabsid} = $tabsid;
 
 	$html_header .= <<HTML
 <ul id="tabs_$tabsid" class="tabs" data-tab>
