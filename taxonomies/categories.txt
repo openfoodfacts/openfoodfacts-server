@@ -25798,8 +25798,8 @@ ru:Баумкухен
 wikidata:en:Q3665589
 
 <en:Cakes
-en:Plum cake
-it:Plum cake
+en:Plum cakes, Plum cake
+it:Plum cakes, Plum cake
 
 <en:Cakes
 <en:Desserts
@@ -34208,6 +34208,11 @@ protected_name_file_number:en: PDO-IT-0661
 protected_name_type:en: pdo
 origins:en: en:Italy
 
+<en:Italian cheeses
+en:Tomino
+it:Tomino
+wikidata:en:Q104537070
+
 <en:Cheeses
 en:Hungarian cheeses, Cheeses from Hungary
 fr:Fromages hongrois
@@ -35069,6 +35074,7 @@ fr:Crèmes fleurettes, Crème fleurette
 #Cream that haven't been fermented
 <en:Creams
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+it:Panne da cucina, panna da cucina
 
 #Cream with at least 30% fat according to French regulation. This mention is not mandatory as all non light creams are whole.
 <en:Creams
@@ -38827,7 +38833,7 @@ en:Flans
 de:Puddingkuchen
 es:Flanes
 fr:Flans gélifiés, Flans
-it:Flan
+it:Budini, Budino, Flan
 nl:Flans
 wikidata:en:Q16636380
 
@@ -44755,7 +44761,7 @@ de:Gerstenmehl
 es:Harinas de cebada
 fr:Farines d’orge, Farine d'orge
 hu:Árpa lisztek
-it:Farina d'orzo
+it:Farine di orzo, farine d'orzo, Farine d'orzo, Farina d'orzo
 ka:ქერის ფქვილი
 nb:byggmel
 nl:Gerstemeel
@@ -44977,6 +44983,13 @@ en:Stone ground flours
 es:Harinas molidas a piedra
 fr:Farines de meule
 nl:Steengemalen melen
+
+<en:Cereal flours
+en:Sorghum flours
+es:Harinas de sorgo
+fr:Farines de sorgho
+it:Farine di sorgo, farina di sorgo
+nl:Sorghummelen, sorghummeel
 
 <en:Cereal flours
 en:Teff flours
@@ -52664,9 +52677,6 @@ ciqual_food_name:en:Burgundy-style sauce, prepacked
 ciqual_food_name:fr:Sauce bourguignonne, préemballée
 
 <en:Sauces
-fr:Sauces caesar
-
-<en:Sauces
 en:Cream sauce with shallots
 fr:Sauce à l'échalote à la crème
 agribalyse_food_code:en:11122
@@ -52708,6 +52718,7 @@ fr:Sauces chien
 <en:Sauces
 en:Cocktail sauces
 fr:Sauces cocktail
+it:Salse cocktail
 
 <en:Sauces
 en:Hollandaise sauce
@@ -52761,6 +52772,11 @@ ciqual_food_name:fr:Sauce crudités ou Sauce salade, préemballée
 
 <en:Salad dressings
 en:Thousand island dressing
+
+<en:Sauces
+en:Caesar sauces
+fr:Sauces caesar, sauces césar
+it:Salse caesar, salsa caesar
 
 <en:Sauces
 en:Mustard sauce
@@ -53773,6 +53789,7 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Coppa
 it:Coppa di Parma
 protected_name_file_number:en: PGI-IT-0602
 protected_name_type:en: pgi
@@ -53857,13 +53874,6 @@ protected_name_type:en: pgi
 origins:en: en:Italy
 
 <en:Italian meat products
-it:Mortadella Bologna
-fr:Mortadelle de Bologne
-protected_name_file_number:en: PGI-IT-0325
-protected_name_type:en: pgi
-origins:en: en:Italy
-
-<en:Italian meat products
 <en:Pancetta
 it:Pancetta di Calabria
 protected_name_file_number:en: PDO-IT-1567
@@ -53926,6 +53936,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Coppa
 it:Coppa Piacentina
 protected_name_file_number:en: PDO-IT-1498
 protected_name_type:en: pdo
@@ -53938,6 +53949,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian meat products
+<en:Bresaola
 it:Bresaola della Valtellina
 protected_name_file_number:en: PGI-IT-1525
 protected_name_type:en: pgi
@@ -62723,22 +62735,22 @@ en:Beef pastrami
 fr:Pastrami de bœuf
 
 <en:Prepared meats
-en:Capicola, coppa
+en:Coppa, Capicola, Capocollo
 fr:Coppa
-it:Capocollo
+it:Coppa, Capocollo
 nl:Capocollo
 agribalyse_food_code:en:28850
 ciqual_food_code:en:28850
 ciqual_food_name:en:Coppa
 ciqual_food_name:fr:Coppa
 
-<en:Capicola
+<en:Coppa
 fr:Coppa de l'Ile de Beauté
 protected_name_file_number:en: PGI-FR-02430
 protected_name_type:en: pgi
 origins:en: en:France, fr:Corse
 
-<en:Capicola
+<en:Coppa
 fr:Coppa de Corse, Coppa de Corse - Coppa di Corsica
 protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
@@ -64116,6 +64128,7 @@ ciqual_food_name:en:Mortadella
 <fr:Charcuteries cuites
 en:Mortadella pure pork
 fr:Mortadelle pur porc
+it:Mortadella puro suino
 agribalyse_food_code:en:30790
 ciqual_food_code:en:30790
 ciqual_food_name:en:Mortadella, pure pork
@@ -64133,6 +64146,14 @@ fr:Mortadelle pistachée pur porc
 agribalyse_food_code:en:30797
 ciqual_food_code:en:30797
 ciqual_food_name:en:Mortadella with pistachios, pure pork
+
+<en:Italian meat products
+<en:Mortadella pure pork
+it:Mortadella Bologna
+fr:Mortadelle de Bologne
+protected_name_file_number:en: PGI-IT-0325
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Italian meat products
 <en:Mortadella
@@ -64387,6 +64408,11 @@ es:Embutidos curados
 fi:Suolatut makkarat
 fr:Saucissons, Saucisson
 nl:Worstjes
+
+<en:Cured sausages
+en:Strolghino
+it:Strolghino
+wikidata:en:Q3976099
 
 <fr:Saucissons
 fr:Saucisson d'Ardenne, Collier d'Ardenne, Pipe d'Ardenne
@@ -70641,6 +70667,12 @@ pt:Preparados de peixe
 ro:Preparate din pește
 
 <en:Fish preparations
+en:Anchovy paste
+fr:Pâte d'anchois
+it:Pasta di acciughe, pasta d'acciughe
+wikidata:en:Q3897482
+
+<en:Fish preparations
 en:Surimi, crab stick, crab sticks, mock crab, seafood sticks, seafood stick, fish stick, fish sticks, imitation crab, seafood extender, seafood extenders
 de:Surimi, Krebsfleischimitat
 es:Surimi
@@ -70738,21 +70770,32 @@ ciqual_food_code:en:26029
 ciqual_food_name:en:Fish, breaded, frozen, raw
 ciqual_food_name:fr:Poisson pané, surgelé, cru
 
+#Gadus morhua
 <en:Breaded fish
 en:Breaded cod fish
 fr:Poissons panés de cabillaud, Poisson pané de cabillaud
-it:Merluzzo allevato
+it:Merluzzo comune impanato
 nl:Gepaneerde kabeljauw
 
+#Gadus chalcogrammus
 <en:Breaded fish
-en:Breaded Hake fish
-fr:Poissons panés de colin, Poisson pané de colin
+en:Breaded Alaska pollock
+fr:Poissons panés de colin d'Alaska, Poissons panés de colin, Poisson pané de colin
+it:Merluzzo d'Alaska impanato
+nl:Gepaneerde Alaskakoolvis
+
+#Merluccius merluccius
+<en:Breaded fish
+en:Breaded hake fish
+fr:Poissons panés de merlu blanc, Poissons panés de merlu, Poisson pané de merlu
 it:Nasello impanato
 nl:Gepaneerde heek
 
+#Merlangius merlangus
 <en:Breaded fish
 en:Breaded whiting
 fr:Poissons panés de merlan, Poisson pané de merlan, Merlans panés, Merlan pané
+it:Merlano impanato
 nl:Gepaneerde wijting
 agribalyse_food_code:en:26124
 ciqual_food_code:en:26124
@@ -70782,9 +70825,6 @@ agribalyse_food_code:en:26022
 ciqual_food_code:en:26022
 ciqual_food_name:en:Whiting, steamed
 ciqual_food_name:fr:Merlan, cuit à la vapeur
-
-<en:Breaded fish
-fr:Poissons panés de merlu, Poisson pané de merlu
 
 <en:Canned foods
 <en:Fishes
@@ -74090,9 +74130,6 @@ nl:Choco-hazelnootpastas
 agribalyse_food_code:en:31032
 ciqual_food_code:en:31032
 ciqual_food_name:en:Chocolate spread with hazelnuts
-
-<en:Hazelnut spreads
-fr:Nocciolata
 
 <fr:Pâtes à tartiner
 en:Carob spreads
