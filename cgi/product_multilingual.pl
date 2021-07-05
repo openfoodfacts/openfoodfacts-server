@@ -1327,6 +1327,8 @@ sub display_input_tabs($$$$$$) {
 
 
 	$template_data_ref_tab->{tabsid} = $tabsid;
+	$template_data_ref_tab->{select_add_language}= $select_add_language;
+		
 
 	$html_header .= <<HTML
 <ul id="tabs_$tabsid" class="tabs" data-tab>
@@ -1340,6 +1342,10 @@ HTML
 
 
 	my $active = " active";
+
+
+	$template_data_ref_tab->{user_moderator} = $User{moderator};
+
 
 
 	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
@@ -1381,14 +1387,8 @@ HTML
 			language => $language,
 			new_lc => $new_lc,
 			tabid => $tabid,
+			active => $active,
 		});
-
-		$template_data_ref_tab->{active} = $active;
-		$template_data_ref_tab->{select_add_language}= $select_add_language;
-		$template_data_ref_tab->{display_tabs} = \@display_tabs;
-		$template_data_ref_tab->{user_moderator} = $User{moderator};
-
-		
 
 
 		my $html_content_tab = "";
@@ -1503,6 +1503,8 @@ HTML
 		$active = "";
 
 	}
+
+	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 	$html_header .= <<HTML
 </ul>

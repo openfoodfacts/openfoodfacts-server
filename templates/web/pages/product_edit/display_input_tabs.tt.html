@@ -1,25 +1,21 @@
 <!-- start templates/[% template.name %] -->
 
 <ul id="tabs_[% tabsid %]" class="tabs" data-tab>
+<div id="tabs_content_[% tabsid %]" class="tabs-content">
+    [% FOREACH tab IN display_tabs %]
+        [% IF tabid == 'new' %]
+            <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_new">
+                [% select_add_language %]
 
+            </li>
+        [% ELSE %]
+            <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]_tab" data-language="[% tab.tabid %]"><a href="#tabs_[% tabsid %]_[% tab.tabid %]" class="tab_language">[% tab.language %]</a></li>
+        [% END %]
 
-
-        [% FOREACH tab IN display_tabs %]
-            [% IF tabid == 'new' %]
-                <li class="tabs tab-title[% active %][% tab.new_lc %] tabs_new">
-                    <select class="select_add_language" style="width:100%">
-                    <option></option>
-                    </select>ok
-
-                </li>
-            [% ELSE %]
-                <li class="tabs tab-title[% active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]_tab" data-language="[% tab.tabid %]"><a href="#tabs_[% tabsid %]_[% tab.tabid %]" class="tab_language">[% tab.language %]</a></li>
-            [% END %]
-
+        
+        <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
             [% IF tabid != "new" %]
-
                 [% FOREACH field IN fields_arr %]
-
                     [% IF field == 'ingredients_text' %]
                         <div id="[% field.ingredients_image_full_id %]"></div>
                         <label for="[% field.tab_content_id %]">[% field.ingredients_text %]</label>
@@ -28,10 +24,6 @@
                         <p class="example">[% field.examples %] [% field.ingredients_text_example %]</p>
                     [% END %]
                 [% END %]
-
-
-                <label> <span class="tab_language">[% language %]</span></label>
-
             [% END %]
 
 
@@ -43,13 +35,17 @@
                     <input type="radio" id="[% moveid %]_replace" value="replace" name="[% moveid %]_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
                     <label for="[% moveid %]_replace" style="margin-top:0">[% move_data_and_photos_to_main_language_replace %]</label>
                     <input type="radio" id="[% moveid %]_ignore" value="ignore" name="[% moveid %]_mode" />
-                    <label for="[% moveid %]_ignore" style="margin-top:0">$[% move_data_and_photos_to_main_language_ignore %]</label><br/>
+                    <label for="[% moveid %]_ignore" style="margin-top:0">[% move_data_and_photos_to_main_language_ignore %]</label><br/>
                 </div>
             </div>
-            [% END %]  
 
-        [% END %]
+            <label><span class="tab_language">[% language %]</span></label>
+            
+            [% END %] 
 
+        </div>
+    [% END %]
+</div>
 </ul>
 
 <!-- end templates/[% template.name %] -->
