@@ -1,31 +1,39 @@
 <!-- start templates/[% template.name %] -->
 
+<!--Html tab header starts-->
 <ul id="tabs_[% tabsid %]" class="tabs" data-tab>
-<div id="tabs_content_[% tabsid %]" class="tabs-content">
     [% FOREACH tab IN display_tabs %]
-        [% IF tabid == 'new' %]
+        [% IF tab.tabid == 'new' %]
             <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_new">
-                [% select_add_language %]
-
+                <select class="select_add_language" style="width:100%">
+                    <option></option>
+                </select>
             </li>
         [% ELSE %]
             <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]_tab" data-language="[% tab.tabid %]"><a href="#tabs_[% tabsid %]_[% tab.tabid %]" class="tab_language">[% tab.language %]</a></li>
         [% END %]
+    [% END %]
+</ul>
+<!--Html tab header ends-->
 
-        
+<div id="tabs_content_[% tabsid %]" class="tabs-content">
+    [% FOREACH tab IN display_tabs %]
         <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
-            [% IF tabid != "new" %]
+            [% IF tab.tabid != "new" %]
                 [% FOREACH field IN fields_arr %]
-                    [% IF field == 'ingredients_text' %]
+                    [% IF field.field_status.match('^(.*)_image') %]
+                        [% field.display_div %]
+                    [% ELSIF field.field_status == 'ingredients_text' %]
                         <div id="[% field.ingredients_image_full_id %]"></div>
                         <label for="[% field.tab_content_id %]">[% field.ingredients_text %]</label>
                         <textarea id="[% field.tab_content_id %]" name="[% field.tab_content_id %]" lang="[% display_lc %]">[% field.value %]</textarea>
                         <p class="note">&rarr; [% field.ingredients_text_note %]</p>
                         <p class="example">[% field.examples %] [% field.ingredients_text_example %]</p>
+                    [% ELSE %]
+                        [% field.display_div %]
                     [% END %]
                 [% END %]
             [% END %]
-
 
             [% IF user_moderator && tabsid == "front_image" %]
             <div class="move_data_and_images_to_main_language" id="[% moveid %]_div" style="display:hidden">
@@ -38,14 +46,12 @@
                     <label for="[% moveid %]_ignore" style="margin-top:0">[% move_data_and_photos_to_main_language_ignore %]</label><br/>
                 </div>
             </div>
-
-            <label><span class="tab_language">[% language %]</span></label>
-            
+            <label><span class="tab_language">[% tab.language %]</span></label>
             [% END %] 
 
         </div>
     [% END %]
 </div>
-</ul>
+
 
 <!-- end templates/[% template.name %] -->

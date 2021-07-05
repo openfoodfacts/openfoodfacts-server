@@ -1141,7 +1141,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	var i = 0;
 	\$( "#manage .ui-selected"  ).each(function() {
 		var imgid = \$( this ).attr('id');
-		imgid = imgid.replace("manage_","");
+		imgid = imgid.replace("manage_","");#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 		imgids += imgid + ',';
 		i++;
 });
@@ -1321,14 +1321,19 @@ sub display_input_tabs($$$$$$) {
 
 	my $html_header = "";
 	my $html_content = "";
+	my $html_tab = '';
 
 	my $template_data_ref_tab = {};
 	my @display_tabs;
+	my @fields_arr;
+	my $display_div = '';
+	my $ingredients_image_full_id;
+	my $id;
+	my $value;
 
 
 	$template_data_ref_tab->{tabsid} = $tabsid;
-	$template_data_ref_tab->{select_add_language}= $select_add_language;
-		
+	$template_data_ref_tab->{user_moderator} = $User{moderator};
 
 	$html_header .= <<HTML
 <ul id="tabs_$tabsid" class="tabs" data-tab>
@@ -1340,13 +1345,7 @@ HTML
 HTML
 ;
 
-
 	my $active = " active";
-
-
-	$template_data_ref_tab->{user_moderator} = $User{moderator};
-
-
 
 	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
 
@@ -1383,6 +1382,7 @@ HTML
 
 		}
 
+
 		push(@display_tabs, {
 			language => $language,
 			new_lc => $new_lc,
@@ -1396,10 +1396,7 @@ HTML
 		if ($tabid ne 'new') {
 
 			my $display_lc = $tabid;
-
 			$template_data_ref_tab->{display_lc} = $display_lc;
-
-			my @fields_arr;
 
 			foreach my $field (@{$fields_array_ref}) {
 
@@ -1407,26 +1404,16 @@ HTML
 
 					my $image_field = $1 . "_" . $display_lc;
 					$html_content_tab .= display_select_crop($product_ref, $image_field);
+					#$display_div = display_select_crop($product_ref, $image_field);
 
 				}
 				elsif ($field eq 'ingredients_text') {
 
-					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					$value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
-					my $id = "ingredients_text_" . ${display_lc};
-					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
+					$id = "ingredients_text_" . ${display_lc};
+					$ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
-
-					push(@fields_arr, {
-						ingredients_image_full_id => $ingredients_image_full_id,
-						tab_content_id => $id,
-						ingredients_text_note => $Lang{ingredients_text_note}{$lang},
-						examples =>  $Lang{example}{$lang},
-						value => $value,
-						ingredients_text_example => $Lang{ingredients_text_example}{$lang},
-						ingredients_text => $Lang{ingredients_text}{$lang},
-
-					});
 
 					$html_content_tab .= <<HTML
 <div id="$ingredients_image_full_id"></div>
@@ -1440,17 +1427,33 @@ HTML
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-					$html_content_tab .= display_input_field($product_ref, $field . "_" . $display_lc);
+					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
+					#$display_div = display_input_field($product_ref, $field . "_" . $display_lc);
+
 				}
+
+				@fields_arr = ();
+
+				push(@fields_arr, {
+					ingredients_image_full_id => $ingredients_image_full_id,
+					tab_content_id => $id,
+					ingredients_text_note => $Lang{ingredients_text_note}{$lang},
+					examples =>  $Lang{example}{$lang},
+					value => $value,
+					ingredients_text_example => $Lang{ingredients_text_example}{$lang},
+					ingredients_text => $Lang{ingredients_text}{$lang},
+					field_status => $field,
+					display_div => $display_div,
+
+				});
+
+				$template_data_ref_tab->{fields_arr} = \@fields_arr;
+
 			}
-
-			$template_data_ref_tab->{fields_arr} = \@fields_arr;
-
 
 			# add (language name) in all field labels
 
 			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
-
 
 		}
 		else {
@@ -1473,8 +1476,6 @@ HTML
 			$template_data_ref_tab->{move_data_and_photos_to_main_language_ignore} = $Lang{move_data_and_photos_to_main_language_ignore}{$lc};
 			$template_data_ref_tab->{move_data_and_photos_to_main_language_replace}= $Lang{move_data_and_photos_to_main_language_replace}{$lc};
 
-
-			
 			$html_content_tab = <<HTML
 <div class="move_data_and_images_to_main_language" id="${moveid}_div" style="display:hidden">
 <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="$moveid" name="$moveid" />
@@ -1506,6 +1507,8 @@ HTML
 
 	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
+	#$html .= "<p>" . Dumper($template_data_ref_tab) . "</p>";
+
 	$html_header .= <<HTML
 </ul>
 HTML
@@ -1516,7 +1519,7 @@ HTML
 HTML
 ;
 
-	process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_header) or $html_header = "<p>" . $tt->error() . "</p>";
+	#process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
 
 
 	return $html_header . $html_content;
