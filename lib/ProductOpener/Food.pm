@@ -4217,7 +4217,7 @@ my %pnns = (
 	"Fats" => "Fat and sauces",
 	"Dressings and sauces" => "Fat and sauces",
 
-	"Pizza pies and quiche" => "Composite foods",
+	"Pizza pies and quiches" => "Composite foods",
 	"One-dish meals" => "Composite foods",
 	"Sandwiches" => "Composite foods",
 
@@ -4229,6 +4229,8 @@ my %pnns = (
 	"Waters and flavored waters" => "Beverages",
 	"Teas and herbal teas and coffees" => "Beverages",
 	"Plant-based milk substitutes" => "Beverages",
+
+	"Alcoholic beverages" => "Alcoholic beverages",
 
 	"unknown" => "unknown",
 
