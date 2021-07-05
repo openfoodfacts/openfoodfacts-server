@@ -795,7 +795,6 @@ sub display_input_field($$) {
 
 	my $fieldtype = $field;
 	my $display_lc = $lc;
-
 	my @field_notes;
 	my $examples = '';
 
@@ -850,7 +849,6 @@ sub display_input_field($$) {
 	foreach my $note ("_note", "_note_2") {
 		if (defined $Lang{$fieldtype . $note }{$lang}) {
 
-			#@field_notes = [];
 			push (@field_notes, {
 				note => $Lang{$fieldtype . $note }{$lang},
 			});
@@ -1319,31 +1317,18 @@ sub display_input_tabs($$$$$$) {
 	my $tabsids_hash_ref = shift;
 	my $fields_array_ref = shift;
 
-	my $html_header = "";
-	my $html_content = "";
 	my $html_tab = '';
 
 	my $template_data_ref_tab = {};
 	my @display_tabs;
-	my @fields_arr;
-	my $display_div = '';
+	my @fields_arr = ();
+	my $display_div;
 	my $ingredients_image_full_id;
 	my $id;
 	my $value;
 
-
 	$template_data_ref_tab->{tabsid} = $tabsid;
 	$template_data_ref_tab->{user_moderator} = $User{moderator};
-
-	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="tabs" data-tab>
-HTML
-;
-
-	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="tabs-content">
-HTML
-;
 
 	my $active = " active";
 
@@ -1359,41 +1344,11 @@ HTML
 
 		my $language = "";
 
-		if ($tabid eq 'new') {
-
-		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_new">$select_add_language</li>
-HTML
-;
-
-		}
-		else {
+		if ($tabid ne 'new') {
 
 			if ($tabid ne "new_lc") {
 				$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
 			}
-
-	
-
-			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
-HTML
-;
-
-		}
-
-
-		push(@display_tabs, {
-			language => $language,
-			new_lc => $new_lc,
-			tabid => $tabid,
-			active => $active,
-		});
-
-
-		my $html_content_tab = "";
-
-		if ($tabid ne 'new') {
 
 			my $display_lc = $tabid;
 			$template_data_ref_tab->{display_lc} = $display_lc;
@@ -1403,8 +1358,7 @@ HTML
 				if ($field =~ /^(.*)_image/) {
 
 					my $image_field = $1 . "_" . $display_lc;
-					$html_content_tab .= display_select_crop($product_ref, $image_field);
-					#$display_div = display_select_crop($product_ref, $image_field);
+					$display_div = display_select_crop($product_ref, $image_field);
 
 				}
 				elsif ($field eq 'ingredients_text') {
@@ -1414,52 +1368,43 @@ HTML
 					$id = "ingredients_text_" . ${display_lc};
 					$ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
-
-					$html_content_tab .= <<HTML
-<div id="$ingredients_image_full_id"></div>
-<label for="$id">$Lang{ingredients_text}{$lang}</label>
-<textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
-<p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>
-<p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>
-HTML
-;
-
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
-					#$display_div = display_input_field($product_ref, $field . "_" . $display_lc);
-
+					$display_div = display_input_field($product_ref, $field . "_" . $display_lc);
 				}
 
-				@fields_arr = ();
+				if ($tabid ne "new_lc") {
+					push(@fields_arr, {
+						ingredients_image_full_id => $ingredients_image_full_id,
+						tab_content_id => $id,
+						ingredients_text_note => $Lang{ingredients_text_note}{$lang},
+						examples =>  $Lang{example}{$lang},
+						value => $value,
+						ingredients_text_example => $Lang{ingredients_text_example}{$lang},
+						ingredients_text => $Lang{ingredients_text}{$lang},
+						field_status => $field,
+						display_div => $display_div,
+					});
 
-				push(@fields_arr, {
-					ingredients_image_full_id => $ingredients_image_full_id,
-					tab_content_id => $id,
-					ingredients_text_note => $Lang{ingredients_text_note}{$lang},
-					examples =>  $Lang{example}{$lang},
-					value => $value,
-					ingredients_text_example => $Lang{ingredients_text_example}{$lang},
-					ingredients_text => $Lang{ingredients_text}{$lang},
-					field_status => $field,
-					display_div => $display_div,
-
-				});
-
-				$template_data_ref_tab->{fields_arr} = \@fields_arr;
+				}
 
 			}
 
 			# add (language name) in all field labels
-
-			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
+			$html_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
 
 		}
 		else {
 
-
 		}
+
+		push(@display_tabs, {
+			language => $language,
+			new_lc => $new_lc,
+			tabid => $tabid,
+			active => $active,
+		});
 
 		# For moderators, add a checkbox to move all data and photos to the main language
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
@@ -1476,53 +1421,18 @@ HTML
 			$template_data_ref_tab->{move_data_and_photos_to_main_language_ignore} = $Lang{move_data_and_photos_to_main_language_ignore}{$lc};
 			$template_data_ref_tab->{move_data_and_photos_to_main_language_replace}= $Lang{move_data_and_photos_to_main_language_replace}{$lc};
 
-			$html_content_tab = <<HTML
-<div class="move_data_and_images_to_main_language" id="${moveid}_div" style="display:hidden">
-<input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="$moveid" name="$moveid" />
-<label for="$moveid" class="checkbox_label">$msg</label><br/>
-<div id="${moveid}_radio" style="display:hidden">
-<input type="radio" id="${moveid}_replace" value="replace" name="${moveid}_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
-<label for="${moveid}_replace" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_replace}{$lc}</label>
-<input type="radio" id="${moveid}_ignore" value="ignore" name="${moveid}_mode" />
-<label for="${moveid}_ignore" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_ignore}{$lc}</label><br/>
-</div>
-</div>
-HTML
-. $html_content_tab;
-
 		}
-
-		$html_content .= <<HTML
-<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
-HTML
-. $html_content_tab
-. <<HTML
-</div>
-HTML
-;
 
 		$active = "";
 
 	}
 
+	$template_data_ref_tab->{fields_arr} = \@fields_arr;
 	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
-	#$html .= "<p>" . Dumper($template_data_ref_tab) . "</p>";
+	process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
 
-	$html_header .= <<HTML
-</ul>
-HTML
-;
-
-	$html_content .= <<HTML
-</div>
-HTML
-;
-
-	#process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
-
-
-	return $html_header . $html_content;
+	return $html_tab;
 }
 
 
