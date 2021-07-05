@@ -3475,6 +3475,7 @@ fi:punajuurimehu
 fr:jus de betterave
 it:succo di barbabietola
 nl:bietensap
+no:rødbetsaft
 
 < en:Beetroot
 en:beetroot powder
@@ -6783,6 +6784,11 @@ de:Emmer
 fr:blé amidonnier, amidonnier
 ru:двузернянка
 allergens:en: en:gluten
+
+< en:Cereal
+en:hydrolysed cereal, hydrolysed cereals
+fr:céréales hydrolysées
+nova:en: 4
 
 < en:Cereal
 en:khorasan wheat, kamut
@@ -13385,7 +13391,7 @@ sv:krutong, krutonger
 tr:kruton
 uk:грінки
 zh:麵包丁
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikidata:en: Q1197400
 wikipedia:en: https://en.wikipedia.org/wiki/Crouton
 
@@ -15296,7 +15302,7 @@ sk:Kvások
 sr:Кисело тесто
 sv:Surdeg
 zh:老麵
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikidata:en: Q904889
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
 
@@ -37745,6 +37751,7 @@ ms:Kuning telur
 nb:eggeplomme
 nl:eigeel
 nn:eggeplomme
+no:eggeplomme
 pl:źółtko z jaja kurzego
 pt:gema de ovo
 ru:желток, яичный желток
@@ -43031,6 +43038,7 @@ kg:Nanasi
 la:Ananas comosus
 lo:ໝາກນັດ
 nl:ananas
+no:ananas
 nv:Bilasáana diwozhí
 pl:ananas
 pt:ananas
@@ -51707,6 +51715,10 @@ nl:magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pt:leite magro
 
 < en:Milk
+en:milk enriched with cream
+fr:lait enrichi de crème
+
+< en:Milk
 en:milk from France
 de:Milch aus Frankreich
 fr:lait origine france
@@ -55458,6 +55470,7 @@ it:Semi di senape
 ja:カラシナ, シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
+no:sennepsfrø
 pl:ziarno gorczyca
 pt:Semente de mostarda
 ro:boabe de muștar
@@ -59911,6 +59924,10 @@ de:Grauer Pfeffer
 fr:poivre gris
 
 < en:Pepper
+en:long pepper
+wikipedia:en: https://en.wikipedia.org/wiki/Long_pepper
+
+< en:Pepper
 en:pepper extract
 de:Pfefferextrakt
 es:extracto de pimienta
@@ -60093,8 +60110,8 @@ nl:Petit Beurre
 sr:Пти-бер
 tr:Petibör
 zh:不的波
-allergens:en: en:gluten
 description:en: The "PETIT BEURRE", or "Véritable Petit Beurre", also known under the initials "VPB", is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
+likely_allergens:en: en:gluten
 wikidata:en: Q19573669
 wikipedia:en: https://en.wikipedia.org/wiki/Petit-Beurre
 
@@ -60245,7 +60262,7 @@ fi:pizzapohja
 fr:fond de pizza
 nl:pizzabodem
 sv:pizzabotten
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 
 en:pizza dough
 da:pizzadej
@@ -64864,6 +64881,7 @@ hu:cékla
 it:barbabietola
 ja:ビーツ
 nl:biet, bieten
+no:rødbete
 pl:Burak
 ru:Свёкла
 sk:cvikly
@@ -67059,6 +67077,7 @@ my:ဆား
 nb:salt
 ne:नून
 nl:zout, Keukenzout, bakkerszout
+no:salt
 nv:Áshįįh
 oc:Sal alimentària
 or:ଲୁଣ
@@ -67109,6 +67128,11 @@ de:Siedesalz
 < en:Salt
 de:Steinsalz
 hu:Kősó
+
+< en:Salt
+en:black salt
+ur:کالا نمک
+wikipedia:en: https://en.wikipedia.org/wiki/Kala_namak
 
 < en:Salt
 en:finegrained salt
@@ -70467,6 +70491,7 @@ fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
 nl:roggezuurdesem
 sv:rågsurdeg, surdeg av råg
+allergens:en: en:gluten
 
 < en:Sourdough
 en:wheat sourdough
@@ -70478,6 +70503,7 @@ it:lievito madre di frumento
 nb:surdeig av hvete
 nl:tarwe zuurdesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
+allergens:en: en:gluten
 
 < en:Sourdough
 es:masa madre inactiva
@@ -70943,7 +70969,7 @@ pl:Speculaas
 pt:spekulaas
 sv:Spekulatius
 zh:斯派庫魯斯
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 wikidata:en: Q6591
 wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 
@@ -70953,7 +70979,7 @@ fr:spéculoos
 it:speculoos
 nl:speculoos
 ru:Спекулос
-allergens:en: en:gluten:maybe
+likely_allergens:en: en:gluten
 
 < en:Spelt
 en:inflated spelt
@@ -79214,6 +79240,7 @@ lt:rapsų aliejus
 lv:rapšu eļļa, rapšu ella
 nb:rapsolje
 nl:raapolie, raapzaad, raap, raapzaadolie
+no:rapsolje
 pl:olej roślinny rzepakowy
 ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
@@ -79506,6 +79533,7 @@ nb:eddik
 ne:भिनेगर
 nl:azijn
 nn:eddik
+no:eddik
 oc:Vinagre
 pa:ਸਿਰਕਾ
 pl:Ocet
@@ -84699,7 +84727,7 @@ fr:viande de poulet traitée en salaison
 fr:préparation de viande de boeuf cuite
 
 fr:préparation pain d'épices
-allergens:en: en:gluten
+likely_allergens:en: en:gluten
 
 < fr:Purée de fruits
 fr:purées de fruits à base de concentrés
