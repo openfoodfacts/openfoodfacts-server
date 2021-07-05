@@ -100,7 +100,7 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : 0.55246032,
+         "ef_total" : "0.55246032",
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
@@ -135,7 +135,7 @@
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 40,
+   "ecoscore_score" : 52,
    "ecoscore_tags" : [
       "c"
    ],
@@ -143,10 +143,10 @@
       {
          "id" : "en:apricot",
          "origins" : "en:france,en:spain",
-         "percent" : 60,
-         "percent_estimate" : 60,
-         "percent_max" : 60,
-         "percent_min" : 60,
+         "percent" : "60",
+         "percent_estimate" : "60",
+         "percent_max" : "60",
+         "percent_min" : "60",
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -154,10 +154,10 @@
       {
          "id" : "en:cane-sugar",
          "origins" : "en:martinique,en:guadeloupe,en:dominican-republic",
-         "percent" : 30,
-         "percent_estimate" : 30,
-         "percent_max" : 30,
-         "percent_min" : 30,
+         "percent" : "30",
+         "percent_estimate" : "30",
+         "percent_max" : "30",
+         "percent_min" : "30",
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
