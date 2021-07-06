@@ -1,6 +1,6 @@
 <!-- start templates/[% template.name %] -->
 
-<!--Html tab header starts-->
+<!--html tab header starts-->
 <ul id="tabs_[% tabsid %]" class="tabs" data-tab>
     [% FOREACH tab IN display_tabs %]
         [% IF tab.tabid == 'new' %]
@@ -14,14 +14,15 @@
         [% END %]
     [% END %]
 </ul>
-<!--Html tab header ends-->
+<!--html tab header ends-->
 
+<!--The content tab starts-->
 <div id="tabs_content_[% tabsid %]" class="tabs-content">
     [% FOREACH tab IN display_tabs %]
         <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
 
             [% IF tab.tabid != "new" %]
-                [% FOREACH field IN fields_arr %]
+                [% FOREACH field IN tab.fields %]
                     [% IF field.field_status.match('^(.*)_image') %]
                         [% field.display_div %]
                     [% ELSIF field.field_status == 'ingredients_text' %]
@@ -52,6 +53,6 @@
         </div>
     [% END %]
 </div>
-
+<!--The content tab ends-->
 
 <!-- end templates/[% template.name %] -->

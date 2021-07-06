@@ -1,6 +1,11 @@
 <!-- start templates/[% template.name %] -->
 
-<label for="[% field %]"> [% fieldtype %] </label>
+<label for="[% field %]">
+    [% fieldtype %]
+    [% IF language.defined %]
+        <span>([% language %])</span>
+    [% END %]
+</label>
 
 [% IF field.match('infocard') || field.match('^packaging_text') %]
     <textarea name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>

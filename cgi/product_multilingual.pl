@@ -788,10 +788,11 @@ my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 # Display each field
 
 #rosheen comment, ends on line 902, lots of html. seperate functions
-sub display_input_field($$) {
+sub display_input_field($$$) {
 
 	my $product_ref = shift;
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
+	my $language = shift;
 
 	my $fieldtype = $field;
 	my $display_lc = $lc;
@@ -827,6 +828,7 @@ sub display_input_field($$) {
 		$value = "";
 	}
 
+	$template_data_ref_field->{language} =  $language;
 	$template_data_ref_field->{field} =  $field;
 	$template_data_ref_field->{class} =  $class;
 	$template_data_ref_field->{value} =  $value;
@@ -834,8 +836,7 @@ sub display_input_field($$) {
 	$template_data_ref_field->{autocomplete} =  $autocomplete;
 	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lang};
 
-
-	my $html = '';
+	my $html_field = '';
 
 	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
 
@@ -843,7 +844,6 @@ sub display_input_field($$) {
 	else {
 		# Line feeds will be removed in text inputs, convert them to spaces
 		$value =~ s/\n/ /g;
-
 	}
 
 	foreach my $note ("_note", "_note_2") {
@@ -869,12 +869,10 @@ sub display_input_field($$) {
 	$template_data_ref_field->{examples} = $examples;
 	$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
 
-	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field) or $html_field = "<p>" . $tt->error() . "</p>";
 
-	return $html;
+	return $html_field;
 }
-
-	#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 
 #rosheen comment, finding end line
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -989,7 +987,7 @@ HTML
 HTML
 ;
 
-		$html .= display_input_field($product_ref, "obsolete_since_date");
+		$html .= display_input_field($product_ref, "obsolete_since_date", undef);
 
 	}
 
@@ -1321,7 +1319,6 @@ sub display_input_tabs($$$$$$) {
 
 	my $template_data_ref_tab = {};
 	my @display_tabs;
-	my @fields_arr = ();
 	my $display_div;
 	my $ingredients_image_full_id;
 	my $id;
@@ -1342,13 +1339,24 @@ sub display_input_tabs($$$$$$) {
 			$new_lc = ' new';
 		}
 
-		my $language = "";
+		# We will create an array of fields for each language
+		my @fields_arr = ();
 
+		my $display_tab_ref = {
+			tabid => $tabid,
+			active => $active,
+			new_lc => $new_lc,
+		};
+
+		my $language;
+
+		
 		if ($tabid ne 'new') {
 
-			if ($tabid ne "new_lc") {
-				$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
-			}
+			
+			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			$display_tab_ref->{language} = $language;
+		
 
 			my $display_lc = $tabid;
 			$template_data_ref_tab->{display_lc} = $display_lc;
@@ -1371,40 +1379,26 @@ sub display_input_tabs($$$$$$) {
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-					$display_div = display_input_field($product_ref, $field . "_" . $display_lc);
+					$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
 				}
 
-				if ($tabid ne "new_lc") {
-					push(@fields_arr, {
-						ingredients_image_full_id => $ingredients_image_full_id,
-						tab_content_id => $id,
-						ingredients_text_note => $Lang{ingredients_text_note}{$lang},
-						examples =>  $Lang{example}{$lang},
-						value => $value,
-						ingredients_text_example => $Lang{ingredients_text_example}{$lang},
-						ingredients_text => $Lang{ingredients_text}{$lang},
-						field_status => $field,
-						display_div => $display_div,
-					});
-
-				}
-
+				push(@fields_arr, {
+					ingredients_image_full_id => $ingredients_image_full_id,
+					tab_content_id => $id,
+					ingredients_text_note => $Lang{ingredients_text_note}{$lang},
+					examples =>  $Lang{example}{$lang},
+					value => $value,
+					ingredients_text_example => $Lang{ingredients_text_example}{$lang},
+					ingredients_text => $Lang{ingredients_text}{$lang},
+					field_status => $field,
+					display_div => $display_div,
+				});
 			}
 
-			# add (language name) in all field labels
-			$html_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
-
-		}
-		else {
-
+			$display_tab_ref->{fields} = \@fields_arr;
 		}
 
-		push(@display_tabs, {
-			language => $language,
-			new_lc => $new_lc,
-			tabid => $tabid,
-			active => $active,
-		});
+		push(@display_tabs, $display_tab_ref);
 
 		# For moderators, add a checkbox to move all data and photos to the main language
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
@@ -1423,18 +1417,17 @@ sub display_input_tabs($$$$$$) {
 
 		}
 
+		# Only the first tab is active
 		$active = "";
 
 	}
 
-	$template_data_ref_tab->{fields_arr} = \@fields_arr;
 	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 	process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
 
 	return $html_tab;
 }
-
 
 	$html .= display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 
@@ -1453,7 +1446,7 @@ HTML
 	foreach my $field (@fields) {
 		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-		$html .= display_input_field($product_ref, $field);
+		$html .= display_input_field($product_ref, $field, undef);
 	}
 
 
@@ -1467,11 +1460,11 @@ HTML
 
 	$html .= display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
-	$html .= display_input_field($product_ref, "allergens");
+	$html .= display_input_field($product_ref, "allergens", undef);
 
-	$html .= display_input_field($product_ref, "traces");
+	$html .= display_input_field($product_ref, "traces", undef);
 
-	$html .= display_input_field($product_ref, "origins");
+	$html .= display_input_field($product_ref, "origins", undef);
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
@@ -1523,7 +1516,7 @@ JAVASCRIPT
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 
-	$html .= display_input_field($product_ref, "serving_size");
+	$html .= display_input_field($product_ref, "serving_size", undef);
 
 
 	# Display 2 checkbox to indicate the nutrition values present on the product
