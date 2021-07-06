@@ -1366,7 +1366,7 @@ sub display_input_tabs($$$$$$) {
 				if ($field =~ /^(.*)_image/) {
 
 					my $image_field = $1 . "_" . $display_lc;
-					$display_div = display_select_crop($product_ref, $image_field);
+					$display_div = display_select_crop($product_ref, $image_field, $language);
 
 				}
 				elsif ($field eq 'ingredients_text') {
