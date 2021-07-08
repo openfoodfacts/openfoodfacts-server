@@ -1453,6 +1453,7 @@ sub display_image_thumb($$) {
 	push @display_ids, $imagetype;
 
 	my $images_subdomain = format_subdomain('images');
+	my $static_subdomain = format_subdomain('static');
 	foreach my $id (@display_ids) {
 
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
@@ -1475,7 +1476,7 @@ HTML
 	if ($html eq '') {
 
 		$html = <<HTML
-<img src="$images_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
 </img>
 HTML
 ;
