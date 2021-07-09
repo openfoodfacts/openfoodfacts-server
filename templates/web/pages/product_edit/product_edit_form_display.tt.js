@@ -1,4 +1,8 @@
 'use strict';
+
+console.log("here");
+
+
 \$(function() {
   var alerts = \$('.alert-box.store-state');
   \$.each(alerts, function( index, value ) {
@@ -15,6 +19,14 @@
 });
 
 
+function toggle_manage_images_buttons() {
+  \$("#delete_images").addClass("disabled");
+  \$("#move_images").addClass("disabled");
+  \$( "#manage .ui-selected"  ).first().each(function() {
+    \$("#delete_images").removeClass("disabled");
+    \$("#move_images").removeClass("disabled");
+  });
+}
 
 \$('#manage_images_accordion').on('toggled', function (event, accordion) {
 

@@ -1,8 +1,58 @@
 <!-- start templates/[% template.name %] -->
-
+<!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
+    <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
+    <script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="text/javascript" src="/js/dist/cropper.js"></script>
+    <script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
+    <script type="text/javascript" src="/js/dist/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/dist/tagify.min.js"></script>
+    <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+    <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+    <script type="text/javascript">
+        var admin = $moderator;
+    </script>
 
+    <style>
+        label, input { display: block;  }
+        input[type="checkbox"] { 
+            padding-top:10px;
+            display: inline; 
+        }
+
+        .checkbox_label { display: inline; }
+        input.text { width:98% }
+
+        .show_for_manage_images {
+            line-height:normal;
+            font-weight:normal;
+            font-size:0.8rem;
+        }
+
+        .select_manage .ui-selectable li { height: 180px }
+
+
+        .ui-selectable li { 
+            margin: 3px; 
+            padding: 0px; 
+            float: left; 
+            width: [% thumb_selectable_size %]px; 
+            height: [% thumb_selectable_size %]px; 
+            line-height: [% thumb_selectable_size %]px; 
+            text-align: center; 
+        }
+
+
+
+    </style>
+
+</head>
 <body>
+
 
     [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
         <div class="panel callout">
@@ -14,13 +64,29 @@
 		</div>
     [% END %]
 
+    [% IF errors_index >=0 %]
+        <p>Merci de corriger les erreurs suivantes :</p>
+        [% FOREACH error IN errors %]
+            <p class="error">[% error %]</p><br/>
+        [% END %]
+    [% END %]
+
+
+    [% IF user_moderator %]
+        <label for="new_code" id="label_new_code">[% label_new_code %]</label>
+        <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
+    [% END %]
+
+
     <form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
         <label for="new_code" id="label_new_code">[% label_new_code %]</label>
         <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
 
+
         [% IF user_moderator || owner_id %]
-            <input type="checkbox" id="obsolete" name="obsolete" $checked/>
+            <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
             <label for="obsolete" class="checkbox_label">[% obsolete %]</label>
+            [% display_field_obsolete %]
         [% END %]
 
 
@@ -34,14 +100,14 @@
              <a href="#" class="close">&times;</a>
         </div>
 
-        <label for="lang"> [% lang %]</label>
+        <label for="lang">[% lang %]</label>
 
         [% IF user_moderator %]
-
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
                     <a href="#manage_images_drop">[% display_icon('collections') %] [% manage_images %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
+                        [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
                         <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% delete_the_images %]</a><br/>
                         <div class="row">
@@ -59,15 +125,18 @@
                         <div id="moveimagesmsg"></div>
                     </div>
                 </li>
-            </ul>
-          
+            </ul> 
         [% END %]
+
+
 
 
         <div id="product_image" class="fieldset"><legend>[% product_image %]</legend>
             <input type="hidden" id="sorted_langs" name="sorted_langs" value=""/><br/>
             [% display_tab_product_picture %]
         </div>
+
+        <p>here</p>
 
         <!-- fieldset -->
         <div id="product_characteristics" class="fieldset">
@@ -95,7 +164,6 @@
             [% display_field_serving_size %]
         </div>
 
-<!--
         [% FOREACH nutrient IN nutrition_products %]
             <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" $checked />
             <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
@@ -105,9 +173,7 @@
             <p id="[% nutrient.nutrition_data_instructions %]" $hidden>[% nutrient.nutrition_data_instructions %]</p>
         [% END %]
 
--->
         <div style="position:relative">
-
 
             <table id="nutrition_data_table" class="data_table" style = "[% tablestyle %]">
                 <thead class="nutriment_header">
@@ -132,9 +198,7 @@
                 <tbody>
 
                     [% FOREACH nutriment IN nutriments %]
-
                         [%  IF nutriment.nid == 'carbon-footprint' %]
-
 
                         [% ELSIF nutriment.shown %]
                             <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
@@ -160,14 +224,12 @@
                                             </select>
                                 [% END %]
                                         </td>
-                            </tr>
+                                </tr>
 
                         [% END %]
-
                      
                     [% END %]
 
-               
                 </tbody>
             </table>
 
@@ -189,6 +251,8 @@
     </form>
 
 </body>
+
+
 
 </html>
 <!-- end templates/[% template.name %] -->

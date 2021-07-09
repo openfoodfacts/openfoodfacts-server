@@ -881,6 +881,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_serving_size_data($product_ref);
 
 	my $template_data_ref_display = {};
+	my $js;
 
 	$log->debug("displaying product", { code => $code }) if $log->is_debug();
 
@@ -891,31 +892,23 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 
+	$template_data_ref_display->{file_timestamps} = $file_timestamps;
+
+
+
+	
+
+	$header .= <<HTML
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
 HTML
 ;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
-<script type="text/javascript">
-var admin = $moderator;
-</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
-
+	
 	
 	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
 	 and (defined $Org_id)) {
@@ -926,24 +919,22 @@ HTML
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 
 		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
-		
-		$html .= '<div class="panel callout">'
-		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
-		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
-		. "<p>" . lang("product_edits_by_producers_import") . "</p>"
-		. "<p>" . lang("product_edits_by_producers_analysis") . " " . lang("product_edits_by_producers_indicators"). "</p>"
-		. '<p><a href="' . $producers_platform_url . '" class="button">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>"
-		. "</div>";
 	}
 
+	$template_data_ref_display->{errors_index} = $#errors;
+
+	my @errors_arr;
+
 	if ($#errors >= 0) {
-		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
-			$html .= "<p class=\"error\">$error</p>\n";
+			push(@errors_arr, $error);
 		}
 	}
 
-	$html .= start_multipart_form(-id=>"product_form") ;
+	$template_data_ref_display->{errors} = \@errors;
+
+
+	$html .= start_multipart_form(-id=>"product_form") ; #yet to remove
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
@@ -951,29 +942,23 @@ HTML
 	my $old = <<CSS
 label, input { display: block;  }
 input[type="checkbox"] { padding-top:10px; display: inline; }
-
 .checkbox_label { display: inline; }
 input.text { width:98% }
 CSS
 ;
 
 	$styles .= <<CSS
-
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-
 CSS
 ;
+
+	$template_data_ref_display->{thumb_selectable_size} = $thumb_selectable_size;
 
 	my $label_new_code = $Lang{new_code}{$lang};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($User{moderator}) {
-		$html .= <<HTML
-<label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text" value="" /><br />
-HTML
-;
 	}
 
 	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
@@ -981,10 +966,7 @@ HTML
 	$template_data_ref_display->{user_moderator} = $User{moderator};
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
-	$template_data_ref_display->{obsolete} = $Lang{obsolete}{$lang};
-	$template_data_ref_display->{warning_3rd_party_content} = $Lang{warning_3rd_party_content}{$lang};
-	$template_data_ref_display->{licence_accept} = $Lang{licence_accept}{$lang};
-	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
+
  
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
@@ -996,33 +978,15 @@ HTML
 		}
 
 		$template_data_ref_display->{obsolete_checked} = $checked;
-
-		$html .= <<HTML
-<input type="checkbox" id="obsolete" name="obsolete" $checked />
-<label for="obsolete" class="checkbox_label">$Lang{obsolete}{$lang}</label>
-HTML
-;
-
-		$html .= display_input_field($product_ref, "obsolete_since_date", undef);
+		$template_data_ref_display->{display_field_obsolete} = display_input_field($product_ref, "obsolete_since_date", undef);
 
 	}
 
+	$template_data_ref_display->{obsolete} = $Lang{obsolete}{$lang};
+	$template_data_ref_display->{warning_3rd_party_content} = $Lang{warning_3rd_party_content}{$lang};
+	$template_data_ref_display->{licence_accept} = $Lang{licence_accept}{$lang};
 
-	$html .= <<HTML
-<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-	<span>$Lang{warning_3rd_party_content}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
-</div>
-
-<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-	<span>$Lang{licence_accept}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
-</div>
-HTML
-;
-
-	
-	$scripts .= <<HTML
+$scripts .= <<HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
@@ -1060,12 +1024,9 @@ HTML
 	}
 
 	$html .= popup_menu(-name=>'lang', -id=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
-
-
-
+	
 	$scripts .= <<JS
 <script type="text/javascript">
-
 function toggle_manage_images_buttons() {
 		\$("#delete_images").addClass("disabled");
 		\$("#move_images").addClass("disabled");
@@ -1074,27 +1035,26 @@ function toggle_manage_images_buttons() {
 			\$("#move_images").removeClass("disabled");
 		});
 }
-
 </script>
 JS
 ;
+
+	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
+	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 
 
 #ends on line 1250 i guess.
 	if ($User{moderator}) {
+
 		$html .= <<HTML
 <ul id="manage_images_accordion" class="accordion" data-accordion>
   <li class="accordion-navigation">
 <a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
-
-
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
-
 HTML
 . display_select_manage($product_ref) .
 <<HTML
-
 	<p>$Lang{manage_images_info}{$lc}</p>
 	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
@@ -1113,7 +1073,6 @@ HTML
 </div>
 </li>
 </ul>
-
 HTML
 ;
 
@@ -1124,20 +1083,16 @@ HTML
 	$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
 	$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
 
-	
+
 	$styles .= <<CSS
 .show_for_manage_images {
 line-height:normal;
 font-weight:normal;
 font-size:0.8rem;
 }
-
 .select_manage .ui-selectable li { height: 180px }
-
 CSS
 ;
-
-
 	$initjs .= <<JS
 
 \$('#manage_images_accordion').on('toggled', function (event, accordion) {
@@ -1335,7 +1290,7 @@ HTML
 
 
 
-#rosheen comment, lots of html. ends on line 1497
+#rosheen comment, lots of html. ends on line 1460
 sub display_input_tabs($$$$$$) {
 
 	my $product_ref = shift;
@@ -2357,6 +2312,8 @@ HTML
 	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
+	$initjs .= $js;
 
 
 	$html .= display_product_history($code, $product_ref);
