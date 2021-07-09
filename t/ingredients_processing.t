@@ -787,7 +787,7 @@ my @tests = (
 	# Test for de:getrocknet and synonyms
 	[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
 			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet,
-			 Holunder gefriergetrocknet, gefriergetrocknete Papaye, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
+			 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
 			 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
 			 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" },
 		[
@@ -834,7 +834,7 @@ my @tests = (
 			{
 				'id' => 'en:papaya',
 				'processing' => 'en:freeze-dried',
-				'text' => 'Papaye'
+				'text' => 'Papaya'
 			},
 			{
 				'id' => 'en:kiwi',
