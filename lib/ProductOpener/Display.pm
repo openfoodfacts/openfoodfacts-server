@@ -109,6 +109,7 @@ BEGIN
 		$original_subdomain
 		$subdomain
 		$formatted_subdomain
+		$images_subdomain
 		$static_subdomain
 		$world_subdomain
 		$producers_platform_url
@@ -294,6 +295,7 @@ $default_request_ref = {
 use vars qw();
 
 $static_subdomain = format_subdomain('static');
+$images_subdomain = format_subdomain('images');
 $world_subdomain = format_subdomain('world');
 
 my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
@@ -7222,7 +7224,7 @@ sub display_page($) {
 	if (${$content_ref} =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
-		if ($img_url !~ /^http:/) {
+		if ($img_url !~ /^(http|https):/) {
 			$img_url = $static_subdomain . $img_url;
 		}
 		$og_images .= '<meta property="og:image" content="' . $img_url . '">' . "\n";
@@ -7230,8 +7232,6 @@ sub display_page($) {
 			$og_images2 = '';
 		}
 	}
-
-
 
 	my $main_margin_right = "margin-right:301px;";
 	if ((defined $request_ref->{full_width}) and ($request_ref->{full_width} == 1)) {
@@ -7255,6 +7255,7 @@ sub display_page($) {
 	$template_data_ref->{og_images2} = $og_images2;
 	$template_data_ref->{options_favicons} = $options{favicons};
 	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
@@ -7479,10 +7480,6 @@ HTML
 
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
-
-	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|css)\//$static_subdomain\/$1\//g;
-	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
-	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
@@ -10673,9 +10670,9 @@ sub add_images_urls_to_product($) {
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-				$product_ref->{"image_" . $imagetype . "_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_url"} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 
 				if ($imagetype eq 'front') {
 					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
@@ -10693,9 +10690,9 @@ sub add_images_urls_to_product($) {
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 
-					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$static_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$images_subdomain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 				}
 			}
 		}

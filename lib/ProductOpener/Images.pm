@@ -1452,7 +1452,8 @@ sub display_image_thumb($$) {
 	# last try the field without a language (for old products without updated images)
 	push @display_ids, $imagetype;
 
-	my $static = format_subdomain('static');
+	my $images_subdomain = format_subdomain('images');
+	my $static_subdomain = format_subdomain('static');
 	foreach my $id (@display_ids) {
 
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
@@ -1463,7 +1464,7 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
+<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1475,7 +1476,7 @@ HTML
 	if ($html eq '') {
 
 		$html = <<HTML
-<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
 </img>
 HTML
 ;
