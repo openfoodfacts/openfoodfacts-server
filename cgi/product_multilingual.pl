@@ -892,17 +892,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-
-	$template_data_ref_display->{file_timestamps} = $file_timestamps;
-
-
-
-	
-
-	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
-HTML
-;
+	$template_data_ref_display->{file_timestamps_css} = $file_timestamps{"css/dist/product-multilingual.css"};
+	$template_data_ref_display->{file_timestamps_js} = $file_timestamps{"js/dist/product-multilingual.js"};
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
@@ -934,7 +925,7 @@ HTML
 	$template_data_ref_display->{errors} = \@errors;
 
 
-	$html .= start_multipart_form(-id=>"product_form") ; #yet to remove
+	$html .= start_multipart_form(-id=>"product_form") ; # yet to remove
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
@@ -1008,23 +999,27 @@ HTML
 ;
 
 	# Main language
-
-	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
-
+	my @lang_options;
 	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
 
 	my %lang_labels = ();
 	foreach my $l (@lang_values) {
 		next if (length($l) > 2);
 		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
+		push(@lang_options, {
+			value => $l,
+			label => $lang_labels{$l},
+		});
 	}
+
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
-	$html .= popup_menu(-name=>'lang', -id=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
-	
+	$template_data_ref_display->{lang_value} = $lang_value;
+	$template_data_ref_display->{lang_options} = \@lang_options;
+
 	$scripts .= <<JS
 <script type="text/javascript">
 function toggle_manage_images_buttons() {
@@ -1042,46 +1037,14 @@ JS
 	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
-
-
-#ends on line 1250 i guess.
+	#ends on line 1250 i guess.
 	if ($User{moderator}) {
-
-		$html .= <<HTML
-<ul id="manage_images_accordion" class="accordion" data-accordion>
-  <li class="accordion-navigation">
-<a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
-<div id="manage_images_drop" class="content" style="background:#eeeeee">
-HTML
-. display_select_manage($product_ref) .
-<<HTML
-	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
-	<div class="row">
-		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled">@{[ display_icon('arrow_right_alt') ]} $Lang{move_images_to_another_product}{$lc}</a>
-		</div>
-		<div class="small-4 medium-2 columns">
-			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
-		</div>
-		<div class="small-8 medium-5 columns">
-			<input type="text" id="move_to" name="move_to" />
-		</div>
-	</div>
-	<input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">$Lang{copy_data}{$lc}</label>
-	<div id="moveimagesmsg"></div>
-</div>
-</li>
-</ul>
-HTML
-;
-
-	$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
-	$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
-	$template_data_ref_display->{delete_the_images} = $Lang{delete_the_images}{$lc};
-	$template_data_ref_display->{move_images_to_another_product} = $Lang{move_images_to_another_product}{$lc};
-	$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
-	$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
+		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
+		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
+		$template_data_ref_display->{delete_the_images} = $Lang{delete_the_images}{$lc};
+		$template_data_ref_display->{move_images_to_another_product} = $Lang{move_images_to_another_product}{$lc};
+		$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
+		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
 
 
 	$styles .= <<CSS
@@ -1255,11 +1218,6 @@ JS
 JAVASCRIPT
 ;
 
-
-
-	$html .= "<div id=\"product_image\" class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
-
-
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1276,8 +1234,7 @@ JAVASCRIPT
 	}
 
 	$template_data_ref_display->{product_image} = $Lang{product_image}{$lang};
-
-	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
+	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
 	my $select_add_language = <<HTML
 <select class="select_add_language" style="width:100%">
@@ -1413,20 +1370,6 @@ sub display_input_tabs($$$$$$) {
 
 	return $html_tab;
 }
-
-	$html .= display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
-
-	$html .= "</div><!-- fieldset -->";
-
-	$html .= <<HTML
-
-<div id="product_characteristics" class="fieldset">
-<legend>$Lang{product_characteristics}{$lang}</legend>
-HTML
-;
-
-	$html .= display_input_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
-
 	$template_data_ref_display->{ingredients} = $Lang{ingredients}{$lang};
 	$template_data_ref_display->{product_characteristics} = $Lang{product_characteristics}{$lang};
 	$template_data_ref_display->{nutrition_data} = $Lang{nutrition_data}{$lang};
@@ -1439,35 +1382,15 @@ HTML
 	foreach my $field (@fields) {
 		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-		$html .= display_input_field($product_ref, $field, undef);
 		my $display_field = display_input_field($product_ref, $field, undef);
 		push(@display_fields_arr, $display_field);
 	}
 
 	$template_data_ref_display->{display_fields_arr} = \@display_fields_arr;
-
-	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
-
-
-
-
-	$html .= "</div><!-- fieldset -->\n";
-
-
-	$html .= "<div id=\"ingredients\" class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
-
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
-	$html .= display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
-	$html .= display_input_field($product_ref, "allergens", undef);
-
-	$html .= display_input_field($product_ref, "traces", undef);
-
-	$html .= display_input_field($product_ref, "origins", undef);
-
-$html .= "</div><!-- fieldset -->
-<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
+$html .= "<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
 	my $tablestyle = 'display: table;';
@@ -1478,11 +1401,7 @@ $html .= "</div><!-- fieldset -->
 		$disabled = 'disabled="disabled"';
 	}
 
-	$html .= <<HTML
-<input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" $checked />
-<label for="no_nutrition_data" class="checkbox_label">$Lang{no_nutrition_data}{$lang}</label><br/>
-HTML
-;
+	$template_data_ref_display->{nutrition_checked} = $checked;
 
 	$initjs .= <<JAVASCRIPT
 \$('#no_nutrition_data').change(function() {
@@ -1513,9 +1432,6 @@ JAVASCRIPT
 	$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	$template_data_ref_display->{display_field_serving_size} =   display_input_field($product_ref, "serving_size", undef);
 
-
-	$html .= display_input_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
-
 	$initjs .= display_select_crop_init($product_ref);
 
 
@@ -1523,9 +1439,6 @@ JAVASCRIPT
 	my $hidden_inputs = '';
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
-
-	$html .= display_input_field($product_ref, "serving_size", undef);
-
 
 	# Display 2 checkbox to indicate the nutrition values present on the product
 
@@ -1562,13 +1475,6 @@ JAVASCRIPT
 			$hidden = 'style="display:none"';
 		}
 
-	
-
-		$html .= <<HTML
-<input type="checkbox" id="$nutrition_data" name="$nutrition_data" $checked />
-<label for="$nutrition_data" class="checkbox_label">$Lang{$nutrition_data_exists}{$lang}</label> &nbsp;
-HTML
-;
 		my $checked_per_serving = '';
 		my $checked_per_100g = 'checked="checked"';
 		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
@@ -1586,11 +1492,6 @@ HTML
 			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
 		}
 
-		$html .= <<HTML
-<input type="radio" id="${nutrition_data_per}_100g" value="100g" name="${nutrition_data_per}" $checked_per_100g /><label for="${nutrition_data_per}_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
-<input type="radio" id="${nutrition_data_per}_serving" value="serving" name="${nutrition_data_per}" $checked_per_serving /><label for="${nutrition_data_per}_serving">$Lang{nutrition_data_per_serving}{$lang}</label><br/>
-HTML
-;
 
 		if ((exists $Lang{$nutrition_data_instructions}) and ($Lang{$nutrition_data_instructions} ne '')) {
 			$html .= <<HTML
@@ -1608,8 +1509,10 @@ HTML
 			checked_per_serving => $checked_per_serving,
 			nutrition_data_per_100g => $Lang{nutrition_data_per_100g}{$lang},
 			nutrition_data_per_serving => $Lang{nutrition_data_per_serving}{$lang},
-			nutrition_data_instructions => $Lang{$nutrition_data_instructions}{$lang},
-
+			nutrition_data_instructions => $nutrition_data_instructions,
+			nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
+			nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lang},
+			hidden => $hidden,
 
 		});
 
@@ -1648,13 +1551,9 @@ HTML
 JS
 ;
 
-
-
 	}
 
 	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
-
-
 
 	$html .= <<HTML
 <div style="position:relative">
@@ -2312,8 +2211,8 @@ HTML
 	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
-	$initjs .= $js;
+	#process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
+	#$initjs .= $js;
 
 
 	$html .= display_product_history($code, $product_ref);
