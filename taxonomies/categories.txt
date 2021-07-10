@@ -43811,7 +43811,7 @@ ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines 
 # Chocapic-type cereals
 <en:Extruded cereals
 <en:Chocolate cereals
-en:Breakfast chocolate cereals with wheat grain flakes
+en:Chocolate wheat flakes, Breakfast chocolate cereals with wheat grain flakes
 fr:Pétales de blé chocolatés
 it:Petali di Frumento al cacao
 
@@ -44004,6 +44004,10 @@ fr:Céréales pour petit déjeuner très riches en fibres enrichies en vitamines
 agribalyse_food_code:en:32116
 ciqual_food_code:en:32116
 ciqual_food_name:en:Breakfast cereals, very rich in fibre, fortified with vitamins and chemical elements
+
+<en:Chocolate cereals
+en:Chocolate cereal balls
+fr:Boules de céréales au chocolat
 
 # Miel Pops style cereals. Is originally made with corn flour, but wheat flour is often added
 <en:Breakfast cereals
@@ -55148,6 +55152,10 @@ pnns_group_2:en:One-dish meals
 wikidata:en:Q3391775
 nova:en:3
 
+<en:Meals
+en:Pad thai
+fr:Pad Thaï
+
 <en:meals
 en:Meal replacements, meal substitutes
 de:Ersatzmahlzeiten
@@ -58063,14 +58071,6 @@ es:Lasaña de atún
 fr:Lasagnes au thon
 nl:Tonijnlasagna
 
-<en:Prepared lasagne
-en:Lasagna with goat cheese and spinach
-fr:Lasagnes au fromage de chèvre et aux épinards, Lasagnes chèvre épinards, Lasagnes au fromage et aux épinards
-agribalyse_food_code:en:25635
-ciqual_food_code:en:25635
-ciqual_food_name:en:Lasagna or cannelloni with goat cheese and spinach
-ciqual_food_name:fr:Lasagnes ou cannelloni au fromage et aux épinards
-
 <en:Fish dishes
 en:Braised European hake
 fr:Merlu cuit à l'étouffée
@@ -58176,11 +58176,15 @@ ciqual_food_name:en:Lasagna or cannelloni with vegetables, cooked
 ciqual_food_name:fr:Lasagnes ou cannelloni aux légumes, cuits
 
 <en:Vegetarian lasagne
-en:Lasagne with goat cheese and spinach
-fr:Lasagne Chèvre Épinards
+en:Lasagne with goat cheese and spinach, Lasagna with goat cheese and spinach
+fr:Lasagnes au fromage de chèvre et épinards, Lasagne Chèvre Épinards, Lasagnes au fromage de chèvre et aux épinards, Lasagnes chèvre épinards, Lasagnes au fromage et aux épinards
 it:Lasagne al formaggio di capra e spinaci
 nl:Lasagna met geitenkaas en spinazie
 #wikidata:en:
+agribalyse_food_code:en:25635
+ciqual_food_code:en:25635
+ciqual_food_name:en:Lasagna or cannelloni with goat cheese and spinach
+ciqual_food_name:fr:Lasagnes ou cannelloni au fromage et aux épinards
 
 <en:Vegetarian lasagne
 en:Lasagna with cooked vegetables and goat cheese
