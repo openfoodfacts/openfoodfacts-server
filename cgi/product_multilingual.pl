@@ -1622,6 +1622,7 @@ HTML
 
 	my @nutriments;	
 	my $nutriments_hash = {};
+	my @checks;
 
 #this foreach ends on line 2067
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
@@ -1640,6 +1641,8 @@ HTML
 		my $prefix = '';
 
 		my $shown = 0;
+
+	
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
@@ -1683,6 +1686,12 @@ HTML
 <label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{en}</label>
 HTML
 ;
+
+		push(@checks, {
+			nutriment_nid_en => $Nutriments{$nid}{en},
+			nutiment_lang => $Nutriments{$nid}{$lang},
+		});
+		#$template_data_ref_display->{nutriment_nid_en} = $Nutriments{$nid}{en};
 		#rosheen comment, have not added it yet it was throwing error of en global symbol require explicit package name
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
@@ -1920,7 +1929,10 @@ HTML
 
 	}
 
-	#$html .= "<p>" . Dumper(@nutriments) . "</p>";
+	
+	$template_data_ref_display->{checks} =\@checks;
+
+
 	$template_data_ref_display->{nutriments} = \@nutriments;
 	$html .= <<HTML
 </tbody>
