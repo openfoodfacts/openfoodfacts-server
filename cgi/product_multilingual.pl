@@ -2024,7 +2024,8 @@ HTML
 HTML
 ;
 
-
+	# Don't display $html as the nutrition facts table is in the template
+	$html = '<!-- commented out' . "\n" . $html . '-->';
 
 	$template_data_ref_display->{nutrition_data_table_note} = $Lang{nutrition_data_table_note}{$lang};
 	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
