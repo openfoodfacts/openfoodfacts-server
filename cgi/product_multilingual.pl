@@ -892,10 +892,27 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$template_data_ref_display->{file_timestamps_css} = $file_timestamps{"css/dist/product-multilingual.css"};
-	$template_data_ref_display->{file_timestamps_js} = $file_timestamps{"js/dist/product-multilingual.js"};
+	$header .= <<HTML
+<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
+
+HTML
+;
 
 	$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="/js/dist/cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript">
+var admin = $moderator;
+</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
@@ -1402,28 +1419,6 @@ $html .= "<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}
 	}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
-
-	$initjs .= <<JAVASCRIPT
-\$('#no_nutrition_data').change(function() {
-	if (\$(this).prop('checked')) {
-		\$('#nutrition_data_table input').prop('disabled', true);
-		\$('#nutrition_data_table select').prop('disabled', true);
-		\$('#multiple_nutrition_data').prop('disabled', true);
-		\$('#multiple_nutrition_data').prop('checked', false);
-		\$('#nutrition_data_table input.nutriment_value').val('');
-		\$('#nutrition_data_table').hide();
-	} else {
-		\$('#nutrition_data_table input').prop('disabled', false);
-		\$('#nutrition_data_table select').prop('disabled', false);
-		\$('#multiple_nutrition_data').prop('disabled', false);
-		\$('#nutrition_data_table').show();
-	}
-	update_nutrition_image_copy();
-	\$(document).foundation('equalizer', 'reflow');
-});
-JAVASCRIPT
-;
-
 
 	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 	$template_data_ref_display->{display_field_allergens} =  display_input_field($product_ref, "allergens", undef);
@@ -1988,62 +1983,6 @@ $other_nutriments
 ];
 </script>
 HTML
-;
-
-	$initjs .= <<JAVASCRIPT
-
-\$( ".nutriment_label" ).autocomplete({
-	source: otherNutriments,
-	select: select_nutriment,
-	//change: add_line
-});
-
-\$("#nutriment_sodium").change( function () {
-	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.5);
-}
-);
-
-\$("#nutriment_salt").change( function () {
-	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.5);
-}
-);
-
-\$("#nutriment_sodium_prepared").change( function () {
-	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.5);
-}
-);
-
-\$("#nutriment_salt_prepared").change( function () {
-	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.5);
-}
-);
-
-function swapSalt(from, to, multiplier) {
-	var source = from.val().replace(",", ".");
-	var regex = /^(.*?)([\\d]+(?:\\.[\\d]+)?)(.*?)\$/g;
-	var match = regex.exec(source);
-	if (match) {
-		var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
-		to.val(target);
-	} else {
-		to.val(from.val());
-	}
-}
-
-\$("#nutriment_sodium_unit").change( function () {
-	\$("#nutriment_salt_unit").val( \$("#nutriment_sodium_unit").val());
-}
-);
-
-\$("#nutriment_salt_unit").change( function () {
-	\$("#nutriment_sodium_unit").val( \$("#nutriment_salt_unit").val());
-}
-);
-
-\$("#nutriment_new_0_label").change(add_line);
-\$("#nutriment_new_1_label").change(add_line);
-
-JAVASCRIPT
 ;
 
 	if ($User{moderator}) {
