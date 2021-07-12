@@ -1066,4 +1066,4 @@ $(function() {
 	$("#nutriment_new_0_label").change(add_line);
 	$("#nutriment_new_1_label").change(add_line);
 
-}
+});
