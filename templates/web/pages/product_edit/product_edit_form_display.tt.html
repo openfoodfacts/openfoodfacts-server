@@ -136,6 +136,7 @@
             [% display_field_origins %]
         </div>
 
+        <!--nutrient fieldset-->
         <div class="fieldset" id="nutrition"><legend>[% nutrition_data %]</legend>
             <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
             <label for="no_nutrition_data" class="checkbox_label">[% no_nutrition_data %]</label><br/>
@@ -172,7 +173,7 @@
                             <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% nutrition_data_per_serving %]</span>
                         </th>
                         <th>
-                            [% unit %]
+                            [% nutriments_unit %]
                         </th>
                     </thead>
                     
@@ -200,7 +201,7 @@
                                             <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
                                             <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
                                                 [% FOREACH unit IN nutriment.units_arr %]
-                                                    <option value="[% unir.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                                    <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
                                                 [% END %]
                                                 </select>
                                     [% END %]
@@ -213,6 +214,9 @@
 
                     </tbody>
                 </table>
+
+                <input type="hidden" name="new_max" id="new_max" value="1" />
+                <div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
 
 
                 <!--
@@ -231,7 +235,101 @@
                 -->
 
             </div>
+
+            <!--div style position relative ends-->
+
+
+            <p class="note">&rarr; [% nutrition_data_table_note %]</p>
+
+            <table>
+                <thead class="nutriment_header">
+                    <tr>
+                        <th>[% ecological_data_table %]</th>
+                        <th class="nutriment_col" [% column_display_style_nutrition_data %]>
+                            [% product_as_sold %]
+                        </th>
+                        <th class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                            [% prepared_product %]
+                        </th>
+                        <th>
+                            [% nutriments_unit %]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+
+            </table>
+
+            <p class="note">&rarr; [% ecological_data_table_note %]</p>
         </div>
+
+        <!--packaging field-->
+
+        <div id="packaging" class="fieldset">
+            <legend>[% packaging %]</legend>
+            [% display_tab_packaging %]
+        </div>
+
+
+        [% IF user_moderator %]
+            <div class="fieldset" id="check"><legend>[% photos_and_data_check %]</legend>
+            <p>[% photos_and_data_check_description %]</p>
+
+            <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
+            <label for="photos_and_data_checked" class="checkbox_label">[% product_check_label %]</label><br/>
+
+            [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
+                <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
+                <label for="photos_and_data_rechecked" class="checkbox_label">[% i_checked_the_photos_and_data_again %]</label><br/>
+            [% END %]
+        [% END %]
+
+        [% IF admin %]
+                [% IF param_fields %]
+                    <input type="hidden"  name="fields" value="[% param_fields %]">
+                [% END %]
+        [% END %]
+
+        <input type="hidden"  name="type" value="[% type %]">
+        <input type="hidden"  name="code" value="[% code %]">
+        <input type="hidden"  name="action" value="process">
+
+
+        <div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
+            [% IF type == 'edit' %]
+
+                <div class="row">
+                    <div class="small-12 medium-12 large-8 xlarge-8 columns">
+                        <input id="comment" name="comment" placeholder="[% edit_comment %]" value="" type="text" class="text" />
+                    </div>
+                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                        <button type="submit" name=".submit" class="button postfix small success">
+                            [% display_icon('check') %] [% save %]
+                        </button>
+                    </div>
+                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                        <button type="button" id="back-btn" class="button postfix small secondary">
+                            [% display_icon('cancel') %][% cancel %]
+                        </button>
+                    </div>
+                </div>
+
+            [% ELSE %]
+
+                <div class="row">
+                    <div class="small-12 medium-12 large-8 xlarge-10 columns">
+                    </div>
+                    <div class="small-12 medium-12 large-4 xlarge-2 columns">
+                    <input type="submit" name=".submit" value="[% save %]" class="button small success">
+                    </div>
+                </div>
+
+            [% END %]
+        </div>
+
+
     </form>
 
 
@@ -241,4 +339,3 @@
 
 </html>
 <!-- end templates/[% template.name %] -->
-

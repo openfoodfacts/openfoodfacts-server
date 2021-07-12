@@ -1593,7 +1593,7 @@ HTML
 	$template_data_ref_display->{nutrition_data_table} = $Lang{nutrition_data_table}{$lang};
 	$template_data_ref_display->{product_as_sold} = $Lang{product_as_sold}{$lang};
 	$template_data_ref_display->{prepared_product} = $Lang{prepared_product}{$lang};
-	$template_data_ref_display->{unit} = $Lang{unit}{$lang};
+	$template_data_ref_display->{nutriments_unit} = $Lang{unit}{$lang};
 	$template_data_ref_display->{tablestyle} = $tablestyle;
 	$template_data_ref_display->{nutrition_data_per_100g} = $Lang{nutrition_data_per_100g}{$lang};
 	$template_data_ref_display->{nutrition_data_per_serving} = $Lang{nutrition_data_per_serving}{$lang};
@@ -2044,6 +2044,8 @@ JAVASCRIPT
 HTML
 ;
 
+	#$html .= "<p>" . Dumper($html2) . "</p>";
+
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
 <thead class="nutriment_header">
@@ -2071,37 +2073,25 @@ HTML
 HTML
 ;
 
-	$html .= "</div><!-- fieldset -->";
-	
+
+
+	$template_data_ref_display->{nutrition_data_table_note} = $Lang{nutrition_data_table_note}{$lang};
+	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
+	$template_data_ref_display->{ecological_data_table} = $Lang{ecological_data_table}{$lang};
+
 	
 	# Packaging photo and data
 
 	my @packaging_fields = ("packaging_image", "packaging_text");
-	
-	$html .= <<HTML
 
-<div id="packaging" class="fieldset">
-<legend>$Lang{packaging}{$lang}</legend>
-HTML
-;	
+	$template_data_ref_display->{packaging} = $Lang{packaging}{$lang};
+	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 	
-	$html .= display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
-	
-
-
-	$html .= "</div><!-- fieldset -->";	
 
 
 	# Product check
 
 	if ($User{moderator}) {
-
-		$html .= <<HTML
-<div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
-<p>$Lang{photos_and_data_check_description}{$lang}</p>
-HTML
-;
-
 		my $checked = '';
 		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
 		my $recheck_html = "";
@@ -2109,23 +2099,14 @@ HTML
 		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 			$checked = 'checked="checked"';
 			$label = $Lang{photos_and_data_checked}{$lang};
-
-			$recheck_html .= <<HTML
-<input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
-<label for="photos_and_data_rechecked" class="checkbox_label">$Lang{i_checked_the_photos_and_data_again}{$lang}</label><br/>
-HTML
-;
 		}
 
-		$html .= <<HTML
-<input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" $checked />
-<label for="photos_and_data_checked" class="checkbox_label">$label</label><br/>
-HTML
-;
-
-		$html .= $recheck_html;
-
-		$html .= "</div><!-- fieldset -->";
+		$template_data_ref_display->{photos_and_data_check_description} = $Lang{photos_and_data_check_description}{$lang};
+		$template_data_ref_display->{photos_and_data_check} = $Lang{photos_and_data_check}{$lang};
+		$template_data_ref_display->{i_checked_the_photos_and_data_again} = $Lang{i_checked_the_photos_and_data_again}{$lang};
+		$template_data_ref_display->{product_ref_checked} = $product_ref->{checked};
+		$template_data_ref_display->{product_check_label} = $label;
+		$template_data_ref_display->{product_check_checked} = $checked;
 
 	}
 
@@ -2137,15 +2118,12 @@ HTML
 		}
 	}
 
-	$html .= ''
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'code', -value=>$code, -override=>1)
-	. hidden(-name=>'action', -value=>'process', -override=>1);
+	$template_data_ref_display->{param_fields} = param("fields");
+	$template_data_ref_display->{type} = $type;
+	$template_data_ref_display->{code} = $code;
 
-	$html .= <<HTML
-<div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
-HTML
-;
+
+
 	# As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
 	# Using javascript to set the width of the fixed bar at startup, and when the window is resized.
 
@@ -2169,41 +2147,13 @@ JS
 JS
 ;
 
-	if ($type eq 'edit') {
-		$html .= <<"HTML"
-<div class="row">
-	<div class="small-12 medium-12 large-8 xlarge-8 columns">
-		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
-	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small success">
-			@{[ display_icon('check') ]} $Lang{save}{$lc}
-		</button>
-	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="button" id="back-btn" class="button postfix small secondary">
-			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
-		</button>
-	</div>
-</div>
-HTML
-;
-	}
-	else {
-		$html .= <<HTML
-<div class="row">
-<div class="small-12 medium-12 large-8 xlarge-10 columns">
-</div>
-<div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
-</div>
-</div>
-HTML
-;
-	}
+	$template_data_ref_display->{save} = $Lang{save}{$lang};
+	$template_data_ref_display->{cancel} = $Lang{cancel}{$lang};
+	$template_data_ref_display->{edit_comment} = $Lang{edit_comment}{$lang};
+	
 
 	$html .= <<HTML
-</div>
+
 </form>
 HTML
 ;
