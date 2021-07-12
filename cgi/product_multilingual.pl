@@ -54,6 +54,7 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 use File::Copy qw(move);
+use Data::Dumper;
 
 ProductOpener::Display::init();
 
@@ -80,7 +81,14 @@ my $interface_version = '20190830';
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
+my $template_data_ref = {};
+$template_data_ref->{type} = $type;
+$template_data_ref->{action} = $action;
+$template_data_ref->{user_id} =  $User_id;
+
+
 # Search or add product
+#rosheen comment, ends on line 174. 
 if ($type eq 'search_or_add') {
 
 	# barcode in image?
@@ -169,6 +177,8 @@ if ($type eq 'search_or_add') {
 		exit();
 	}
 
+	$template_data_ref->{param_imgupload_search} = param("imgupload_search");
+
 }
 
 else {
@@ -203,6 +213,7 @@ if ($User_id eq 'unwanted-bot-id') {
 	return 500;
 }
 
+#rosheen comment, ends on line 257, a form starts and ends within this condition
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
@@ -242,12 +253,11 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 HTML
 ;
-			$action = 'login';
+		$action = 'login';
+		$template_data_ref->{code} =  $code;
 
 	}
 }
-
-
 
 
 my @fields = @ProductOpener::Config::product_fields;
@@ -262,6 +272,7 @@ if ($admin) {
 
 }
 
+#rosheen comment. ends on line 779. no html. 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
@@ -769,19 +780,26 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 }
 
 
+
 # Display the product edit form
 
 my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 
 # Display each field
 
-sub display_field($$) {
+#rosheen comment, ends on line 902, lots of html. seperate functions
+sub display_input_field($$$) {
 
 	my $product_ref = shift;
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
+	my $language = shift;
 
 	my $fieldtype = $field;
 	my $display_lc = $lc;
+	my @field_notes;
+	my $examples = '';
+
+	my $template_data_ref_field = {};
 
 	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
@@ -810,58 +828,60 @@ sub display_field($$) {
 		$value = "";
 	}
 
-	my $html = <<HTML
-<label for="$field">$Lang{$fieldtype}{$lang}</label>
-HTML
-;
+	$template_data_ref_field->{language} =  $language;
+	$template_data_ref_field->{field} =  $field;
+	$template_data_ref_field->{class} =  $class;
+	$template_data_ref_field->{value} =  $value;
+	$template_data_ref_field->{display_lc} =  $display_lc;
+	$template_data_ref_field->{autocomplete} =  $autocomplete;
+	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lang};
+
+	my $html_field = '';
 
 	if (($field =~ /infocard/) or ($field =~ /^packaging_text/)) {
-		$html .= <<HTML
-<textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
-HTML
-;
+
 	}
 	else {
 		# Line feeds will be removed in text inputs, convert them to spaces
 		$value =~ s/\n/ /g;
-		$html .= <<HTML
-<input type="text" name="$field" id="$field" class="text $class" value="$value" lang="${display_lc}" data-autocomplete="${autocomplete}" />
-HTML
-;
 	}
 
 	foreach my $note ("_note", "_note_2") {
 		if (defined $Lang{$fieldtype . $note }{$lang}) {
-			$html .= <<HTML
-<p class="note">&rarr; $Lang{$fieldtype . $note }{$lang}</p>
-HTML
-;
+
+			push (@field_notes, {
+				note => $Lang{$fieldtype . $note }{$lang},
+			});
+
 		}
 	}
+
+	$template_data_ref_field->{field_notes} = \@field_notes;
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
 
-		my $examples = $Lang{example}{$lang};
+		$examples = $Lang{example}{$lang};
 		if ($Lang{$fieldtype . "_example"}{$lang} =~ /,/) {
 			$examples = $Lang{examples}{$lang};
 		}
-
-		$html .= <<HTML
-<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>
-HTML
-;
 	}
 
-	return $html;
+	$template_data_ref_field->{examples} = $examples;
+	$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
+
+	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field) or $html_field = "<p>" . $tt->error() . "</p>";
+
+	return $html_field;
 }
 
-
-
-
+#rosheen comment, finding end line 2210 i guess. after it else if starts
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
 	compute_serving_size_data($product_ref);
+
+	my $template_data_ref_display = {};
+	my $js;
 
 	$log->debug("displaying product", { code => $code }) if $log->is_debug();
 
@@ -872,32 +892,15 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
-
-HTML
-;
+	$template_data_ref_display->{file_timestamps_css} = $file_timestamps{"css/dist/product-multilingual.css"};
+	$template_data_ref_display->{file_timestamps_js} = $file_timestamps{"js/dist/product-multilingual.js"};
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
-<script type="text/javascript">
-var admin = $moderator;
-</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
-
-
+	
+	
 	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
 	 and (defined $Org_id)) {
 
@@ -905,24 +908,24 @@ HTML
 		
 		my $producers_platform_url = $formatted_subdomain . '/';
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
-		
-		$html .= '<div class="panel callout">'
-		. "<p><strong>" . lang("product_edits_by_producers") . "</strong></p>"
-		. "<p>" . lang("product_edits_by_producers_platform") . "</p>"
-		. "<p>" . lang("product_edits_by_producers_import") . "</p>"
-		. "<p>" . lang("product_edits_by_producers_analysis") . " " . lang("product_edits_by_producers_indicators"). "</p>"
-		. '<p><a href="' . $producers_platform_url . '" class="button">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>"
-		. "</div>";
+
+		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
 	}
 
+	$template_data_ref_display->{errors_index} = $#errors;
+
+	my @errors_arr;
+
 	if ($#errors >= 0) {
-		$html .= "<p>Merci de corriger les erreurs suivantes :</p>"; # TODO: Make this translatable
 		foreach my $error (@errors) {
-			$html .= "<p class=\"error\">$error</p>\n";
+			push(@errors_arr, $error);
 		}
 	}
 
-	$html .= start_multipart_form(-id=>"product_form") ;
+	$template_data_ref_display->{errors} = \@errors;
+
+
+	$html .= start_multipart_form(-id=>"product_form") ; # yet to remove
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
@@ -930,31 +933,32 @@ HTML
 	my $old = <<CSS
 label, input { display: block;  }
 input[type="checkbox"] { padding-top:10px; display: inline; }
-
 .checkbox_label { display: inline; }
 input.text { width:98% }
 CSS
 ;
 
 	$styles .= <<CSS
-
 .ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
 line-height: ${thumb_selectable_size}px; text-align: center; }
-
 CSS
 ;
+
+	$template_data_ref_display->{thumb_selectable_size} = $thumb_selectable_size;
 
 	my $label_new_code = $Lang{new_code}{$lang};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($User{moderator}) {
-		$html .= <<HTML
-<label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text" value="" /><br />
-HTML
-;
 	}
 
+	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
+	$template_data_ref_display->{org_id} = $Org_id;
+	$template_data_ref_display->{user_moderator} = $User{moderator};
+	$template_data_ref_display->{label_new_code} = $label_new_code;
+	$template_data_ref_display->{owner_id} = $Owner_id;
+
+ 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
 	if ($User{moderator} or $Owner_id) {
@@ -964,31 +968,16 @@ HTML
 			$checked = 'checked="checked"';
 		}
 
-		$html .= <<HTML
-<input type="checkbox" id="obsolete" name="obsolete" $checked />
-<label for="obsolete" class="checkbox_label">$Lang{obsolete}{$lang}</label>
-HTML
-;
-
-		$html .= display_field($product_ref, "obsolete_since_date");
+		$template_data_ref_display->{obsolete_checked} = $checked;
+		$template_data_ref_display->{display_field_obsolete} = display_input_field($product_ref, "obsolete_since_date", undef);
 
 	}
 
+	$template_data_ref_display->{obsolete} = $Lang{obsolete}{$lang};
+	$template_data_ref_display->{warning_3rd_party_content} = $Lang{warning_3rd_party_content}{$lang};
+	$template_data_ref_display->{licence_accept} = $Lang{licence_accept}{$lang};
 
-	$html .= <<HTML
-<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-	<span>$Lang{warning_3rd_party_content}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
-</div>
-
-<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-	<span>$Lang{licence_accept}{$lang}</span>
- 	<a href="#" class="close">&times;</a>
-</div>
-HTML
-;
-
-	$scripts .= <<HTML
+$scripts .= <<HTML
 <script type="text/javascript">
 'use strict';
 \$(function() {
@@ -1010,28 +999,29 @@ HTML
 ;
 
 	# Main language
-
-	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
-
+	my @lang_options;
 	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
 
 	my %lang_labels = ();
 	foreach my $l (@lang_values) {
 		next if (length($l) > 2);
 		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
+		push(@lang_options, {
+			value => $l,
+			label => $lang_labels{$l},
+		});
 	}
+
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
-	$html .= popup_menu(-name=>'lang', -id=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
-
-
+	$template_data_ref_display->{lang_value} = $lang_value;
+	$template_data_ref_display->{lang_options} = \@lang_options;
 
 	$scripts .= <<JS
 <script type="text/javascript">
-
 function toggle_manage_images_buttons() {
 		\$("#delete_images").addClass("disabled");
 		\$("#move_images").addClass("disabled");
@@ -1040,45 +1030,22 @@ function toggle_manage_images_buttons() {
 			\$("#move_images").removeClass("disabled");
 		});
 }
-
 </script>
 JS
 ;
 
+	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
+	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
+
+	#ends on line 1250 i guess.
 	if ($User{moderator}) {
-		$html .= <<HTML
-<ul id="manage_images_accordion" class="accordion" data-accordion>
-  <li class="accordion-navigation">
-<a href="#manage_images_drop">@{[ display_icon('collections') ]} $Lang{manage_images}{$lc}</a>
+		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
+		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
+		$template_data_ref_display->{delete_the_images} = $Lang{delete_the_images}{$lc};
+		$template_data_ref_display->{move_images_to_another_product} = $Lang{move_images_to_another_product}{$lc};
+		$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
+		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
 
-
-<div id="manage_images_drop" class="content" style="background:#eeeeee">
-
-HTML
-. display_select_manage($product_ref) .
-<<HTML
-
-	<p>$Lang{manage_images_info}{$lc}</p>
-	<a id="delete_images" class="button small disabled">@{[ display_icon('delete') ]} $Lang{delete_the_images}{$lc}</a><br/>
-	<div class="row">
-		<div class="small-12 medium-5 columns">
-			<button id="move_images" class="button small disabled">@{[ display_icon('arrow_right_alt') ]} $Lang{move_images_to_another_product}{$lc}</a>
-		</div>
-		<div class="small-4 medium-2 columns">
-			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
-		</div>
-		<div class="small-8 medium-5 columns">
-			<input type="text" id="move_to" name="move_to" />
-		</div>
-	</div>
-	<input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">$Lang{copy_data}{$lc}</label>
-	<div id="moveimagesmsg"></div>
-</div>
-</li>
-</ul>
-
-HTML
-;
 
 	$styles .= <<CSS
 .show_for_manage_images {
@@ -1086,13 +1053,9 @@ line-height:normal;
 font-weight:normal;
 font-size:0.8rem;
 }
-
 .select_manage .ui-selectable li { height: 180px }
-
 CSS
 ;
-
-
 	$initjs .= <<JS
 
 \$('#manage_images_accordion').on('toggled', function (event, accordion) {
@@ -1120,7 +1083,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	var i = 0;
 	\$( "#manage .ui-selected"  ).each(function() {
 		var imgid = \$( this ).attr('id');
-		imgid = imgid.replace("manage_","");
+		imgid = imgid.replace("manage_","");#$html .= "<p>" . Dumper($template_data_ref) . "</p>";
 		imgids += imgid + ',';
 		i++;
 });
@@ -1255,11 +1218,6 @@ JS
 JAVASCRIPT
 ;
 
-
-
-	$html .= "<div id=\"product_image\" class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
-
-
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1275,7 +1233,8 @@ JAVASCRIPT
 		}
 	}
 
-	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
+	$template_data_ref_display->{product_image} = $Lang{product_image}{$lang};
+	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
 	my $select_add_language = <<HTML
 <select class="select_add_language" style="width:100%">
@@ -1288,8 +1247,8 @@ HTML
 
 
 
-
-sub display_tabs($$$$$$) {
+#rosheen comment, lots of html. ends on line 1460
+sub display_input_tabs($$$$$$) {
 
 	my $product_ref = shift;
 	my $select_add_language = shift;
@@ -1298,21 +1257,20 @@ sub display_tabs($$$$$$) {
 	my $tabsids_hash_ref = shift;
 	my $fields_array_ref = shift;
 
-	my $html_header = "";
-	my $html_content = "";
+	my $html_tab = '';
 
-	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="tabs" data-tab>
-HTML
-;
+	my $template_data_ref_tab = {};
+	my @display_tabs;
+	my $display_div;
+	my $ingredients_image_full_id;
+	my $id;
+	my $value;
 
-	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="tabs-content">
-HTML
-;
-
+	$template_data_ref_tab->{tabsid} = $tabsid;
+	$template_data_ref_tab->{user_moderator} = $User{moderator};
 
 	my $active = " active";
+
 	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
 
 		my $new_lc = '';
@@ -1323,77 +1281,66 @@ HTML
 			$new_lc = ' new';
 		}
 
-		my $language = "";
+		# We will create an array of fields for each language
+		my @fields_arr = ();
 
-		if ($tabid eq 'new') {
+		my $display_tab_ref = {
+			tabid => $tabid,
+			active => $active,
+			new_lc => $new_lc,
+		};
 
-		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_new">$select_add_language</li>
-HTML
-;
+		my $language;
 
-		}
-		else {
-
-			if ($tabid ne "new_lc") {
-				$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
-			}
-
-			$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}_tab" data-language="$tabid"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
-HTML
-;
-
-		}
-
-		my $html_content_tab = "";
-
+		
 		if ($tabid ne 'new') {
 
+			
+			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			$display_tab_ref->{language} = $language;
+		
+
 			my $display_lc = $tabid;
+			$template_data_ref_tab->{display_lc} = $display_lc;
 
 			foreach my $field (@{$fields_array_ref}) {
 
 				if ($field =~ /^(.*)_image/) {
 
 					my $image_field = $1 . "_" . $display_lc;
-					$html_content_tab .= display_select_crop($product_ref, $image_field);
+					$display_div = display_select_crop($product_ref, $image_field, $language);
 
 				}
 				elsif ($field eq 'ingredients_text') {
 
-					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					$value = $product_ref->{"ingredients_text_" . ${display_lc}};
 					not defined $value and $value = "";
-					my $id = "ingredients_text_" . ${display_lc};
-					my $ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-
-					$html_content_tab .= <<HTML
-<div id="$ingredients_image_full_id"></div>
-<label for="$id">$Lang{ingredients_text}{$lang}</label>
-<textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
-<p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>
-<p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>
-HTML
-;
+					$id = "ingredients_text_" . ${display_lc};
+					$ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
+					$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
 				}
+
+				push(@fields_arr, {
+					ingredients_image_full_id => $ingredients_image_full_id,
+					tab_content_id => $id,
+					ingredients_text_note => $Lang{ingredients_text_note}{$lang},
+					examples =>  $Lang{example}{$lang},
+					value => $value,
+					ingredients_text_example => $Lang{ingredients_text_example}{$lang},
+					ingredients_text => $Lang{ingredients_text}{$lang},
+					field_status => $field,
+					display_div => $display_div,
+				});
 			}
 
-
-			# add (language name) in all field labels
-
-			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
-
-
+			$display_tab_ref->{fields} = \@fields_arr;
 		}
-		else {
 
-
-		}
+		push(@display_tabs, $display_tab_ref);
 
 		# For moderators, add a checkbox to move all data and photos to the main language
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
@@ -1405,88 +1352,45 @@ HTML
 
 			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
-			$html_content_tab = <<HTML
-<div class="move_data_and_images_to_main_language" id="${moveid}_div" style="display:hidden">
-<input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="$moveid" name="$moveid" />
-<label for="$moveid" class="checkbox_label">$msg</label><br/>
-<div id="${moveid}_radio" style="display:hidden">
-<input type="radio" id="${moveid}_replace" value="replace" name="${moveid}_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
-<label for="${moveid}_replace" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_replace}{$lc}</label>
-<input type="radio" id="${moveid}_ignore" value="ignore" name="${moveid}_mode" />
-<label for="${moveid}_ignore" style="margin-top:0">$Lang{move_data_and_photos_to_main_language_ignore}{$lc}</label><br/>
-</div>
-</div>
-HTML
-. $html_content_tab;
+			$template_data_ref_tab->{moveid} = $moveid;
+			$template_data_ref_tab->{msg} = $msg;
+			$template_data_ref_tab->{move_data_and_photos_to_main_language_ignore} = $Lang{move_data_and_photos_to_main_language_ignore}{$lc};
+			$template_data_ref_tab->{move_data_and_photos_to_main_language_replace}= $Lang{move_data_and_photos_to_main_language_replace}{$lc};
 
 		}
 
-		$html_content .= <<HTML
-<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
-HTML
-. $html_content_tab
-. <<HTML
-</div>
-HTML
-;
-
+		# Only the first tab is active
 		$active = "";
 
 	}
 
-	$html_header .= <<HTML
-</ul>
-HTML
-;
+	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
-	$html_content .= <<HTML
-</div>
-HTML
-;
+	process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
 
-	return $html_header . $html_content;
+	return $html_tab;
 }
+	$template_data_ref_display->{ingredients} = $Lang{ingredients}{$lang};
+	$template_data_ref_display->{product_characteristics} = $Lang{product_characteristics}{$lang};
+	$template_data_ref_display->{nutrition_data} = $Lang{nutrition_data}{$lang};
+	$template_data_ref_display->{no_nutrition_data} = $Lang{no_nutrition_data}{$lang};
 
+	$template_data_ref_display->{display_tab_product_picture} = display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+	$template_data_ref_display->{display_tab_product_characteristics} = display_input_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 
-	$html .= display_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
-
-	$html .= "</div><!-- fieldset -->";
-
-	$html .= <<HTML
-
-<div id="product_characteristics" class="fieldset">
-<legend>$Lang{product_characteristics}{$lang}</legend>
-HTML
-;
-
-	$html .= display_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
-
-
+	my @display_fields_arr;
 	foreach my $field (@fields) {
 		next if $field eq "origins"; # now displayed below allergens and traces in the ingredients section
 		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
-		$html .= display_field($product_ref, $field);
+		my $display_field = display_input_field($product_ref, $field, undef);
+		push(@display_fields_arr, $display_field);
 	}
 
-
-
-	$html .= "</div><!-- fieldset -->\n";
-
-
-	$html .= "<div id=\"ingredients\" class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
-
+	$template_data_ref_display->{display_fields_arr} = \@display_fields_arr;
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
-	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
-	$html .= display_field($product_ref, "allergens");
-
-	$html .= display_field($product_ref, "traces");
-
-	$html .= display_field($product_ref, "origins");
-
-$html .= "</div><!-- fieldset -->
-<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
+$html .= "<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
 	my $tablestyle = 'display: table;';
@@ -1497,11 +1401,7 @@ $html .= "</div><!-- fieldset -->
 		$disabled = 'disabled="disabled"';
 	}
 
-	$html .= <<HTML
-<input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" $checked />
-<label for="no_nutrition_data" class="checkbox_label">$Lang{no_nutrition_data}{$lang}</label><br/>
-HTML
-;
+	$template_data_ref_display->{nutrition_checked} = $checked;
 
 	$initjs .= <<JAVASCRIPT
 \$('#no_nutrition_data').change(function() {
@@ -1525,18 +1425,20 @@ JAVASCRIPT
 ;
 
 
-
-	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
+	$template_data_ref_display->{display_field_allergens} =  display_input_field($product_ref, "allergens", undef);
+	$template_data_ref_display->{display_field_traces} =  display_input_field($product_ref, "traces", undef);
+	$template_data_ref_display->{display_field_origins} =  display_input_field($product_ref, "origins", undef);
+	$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+	$template_data_ref_display->{display_field_serving_size} =   display_input_field($product_ref, "serving_size", undef);
 
 	$initjs .= display_select_crop_init($product_ref);
 
 
+	
 	my $hidden_inputs = '';
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
-
-	$html .= display_field($product_ref, "serving_size");
-
 
 	# Display 2 checkbox to indicate the nutrition values present on the product
 
@@ -1552,6 +1454,9 @@ JAVASCRIPT
 	my %column_display_style = ();
 	my %nutrition_data_per_display_style = ();
 
+	my @nutrition_products;
+
+#rosheen comment this foreach ends on line 1680
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
 
@@ -1570,11 +1475,6 @@ JAVASCRIPT
 			$hidden = 'style="display:none"';
 		}
 
-		$html .= <<HTML
-<input type="checkbox" id="$nutrition_data" name="$nutrition_data" $checked />
-<label for="$nutrition_data" class="checkbox_label">$Lang{$nutrition_data_exists}{$lang}</label> &nbsp;
-HTML
-;
 		my $checked_per_serving = '';
 		my $checked_per_100g = 'checked="checked"';
 		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
@@ -1592,11 +1492,6 @@ HTML
 			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
 		}
 
-		$html .= <<HTML
-<input type="radio" id="${nutrition_data_per}_100g" value="100g" name="${nutrition_data_per}" $checked_per_100g /><label for="${nutrition_data_per}_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
-<input type="radio" id="${nutrition_data_per}_serving" value="serving" name="${nutrition_data_per}" $checked_per_serving /><label for="${nutrition_data_per}_serving">$Lang{nutrition_data_per_serving}{$lang}</label><br/>
-HTML
-;
 
 		if ((exists $Lang{$nutrition_data_instructions}) and ($Lang{$nutrition_data_instructions} ne '')) {
 			$html .= <<HTML
@@ -1604,6 +1499,22 @@ HTML
 HTML
 ;
 		}
+
+		push(@nutrition_products, {
+			checked => $checked,
+			nutrition_data => $nutrition_data,
+			nutrition_data_exists => $Lang{$nutrition_data_exists}{$lang},
+			nutrition_data_per => $nutrition_data_per,
+			checked_per_100g => $checked_per_100g,
+			checked_per_serving => $checked_per_serving,
+			nutrition_data_per_100g => $Lang{nutrition_data_per_100g}{$lang},
+			nutrition_data_per_serving => $Lang{nutrition_data_per_serving}{$lang},
+			nutrition_data_instructions => $nutrition_data_instructions,
+			nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
+			nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lang},
+			hidden => $hidden,
+
+		});
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
 		
@@ -1640,11 +1551,9 @@ HTML
 JS
 ;
 
-
-
 	}
 
-
+	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
 
 	$html .= <<HTML
 <div style="position:relative">
@@ -1674,6 +1583,22 @@ $Lang{unit}{$lang}
 HTML
 ;
 
+	$template_data_ref_display->{column_display_style_nutrition_data} =$column_display_style{"nutrition_data"};
+	$template_data_ref_display->{column_display_style_nutrition_data_prepared} =$column_display_style{"nutrition_data_prepared"};
+	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
+	$template_data_ref_display->{nutrition_data_serving_style} = $nutrition_data_per_display_style{"nutrition_data_serving_100g"};
+	$template_data_ref_display->{nutrition_data_prepared_100g_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
+	$template_data_ref_display->{nutrition_data_prepared_serving_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
+	
+	$template_data_ref_display->{nutrition_data_table} = $Lang{nutrition_data_table}{$lang};
+	$template_data_ref_display->{product_as_sold} = $Lang{product_as_sold}{$lang};
+	$template_data_ref_display->{prepared_product} = $Lang{prepared_product}{$lang};
+	$template_data_ref_display->{nutriments_unit} = $Lang{unit}{$lang};
+	$template_data_ref_display->{tablestyle} = $tablestyle;
+	$template_data_ref_display->{nutrition_data_per_100g} = $Lang{nutrition_data_per_100g}{$lang};
+	$template_data_ref_display->{nutrition_data_per_serving} = $Lang{nutrition_data_per_serving}{$lang};
+	
+	
 	my $html2 = ''; # for ecological footprint
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
@@ -1695,7 +1620,11 @@ HTML
 		}
 	}
 
+	my @nutriments;	
+	my $nutriments_hash = {};
+	my @checks;
 
+#this foreach ends on line 2067
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 
 		next if $nutriment =~ /^\#/;
@@ -1712,6 +1641,8 @@ HTML
 		my $prefix = '';
 
 		my $shown = 0;
+
+	
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
@@ -1742,16 +1673,26 @@ HTML
 
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
+
 			$label = <<HTML
 <label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{$lang}</label>
 HTML
 ;
+
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
+			
 			$label = <<HTML
 <label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{en}</label>
 HTML
 ;
+
+		push(@checks, {
+			nutriment_nid_en => $Nutriments{$nid}{en},
+			nutiment_lang => $Nutriments{$nid}{$lang},
+		});
+		#$template_data_ref_display->{nutriment_nid_en} = $Nutriments{$nid}{en};
+		#rosheen comment, have not added it yet it was throwing error of en global symbol require explicit package name
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
@@ -1759,13 +1700,20 @@ HTML
 <input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" value="$label_value" />
 HTML
 ;
+
 		}
 		else {	# add a nutriment
+
 			$label = <<HTML
 <input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
 HTML
 ;
 		}
+
+
+		
+
+		#$html .= "<p>" . Dumper() . "</p>";
 
 		my $unit = 'g';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
@@ -1830,6 +1778,8 @@ HTML
 		my $input = '';
 
 
+
+
 		$input .= <<HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
@@ -1849,6 +1799,8 @@ HTML
 			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
 			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
+			$nutriments_hash->{unit} =$unit;
+
 			$input .= <<"HTML"
 <td>
 <span class="nutriment_unit">$unit</span>
@@ -1858,6 +1810,7 @@ HTML
 		else {
 
 			my @units = ('g','mg','µg');
+			my @units_arr;
 
 			if ($nid =~ /^energy/) {
 				@units = ('kJ','kcal');
@@ -1893,6 +1846,10 @@ HTML
 				$hide_percent = ' style="display:none"';
 			}
 
+			$nutriments_hash->{hide_select} = $hide_select;
+			$nutriments_hash->{hide_percent} = $hide_percent;
+			
+
 			$input .= <<HTML
 <td>
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
@@ -1900,6 +1857,9 @@ HTML
 HTML
 ;
 			$disabled = $disabled_backup;
+
+			
+
 
 			foreach my $u (@units) {
 				my $selected = '';
@@ -1915,12 +1875,25 @@ HTML
 <option value="$u" $selected>$label</option>
 HTML
 ;
+				push(@units_arr, {
+					u => $u,
+					label => $label,
+					selected => $selected,
+				});
 			}
+
+
+			$nutriments_hash->{units_arr} = \@units_arr;
+
+
+			
 
 			$input .= <<HTML
 </select>
 HTML
 ;
+
+			
 		}
 
 		$input .= <<HTML
@@ -1936,7 +1909,31 @@ HTML
 			$html .= $input;
 		}
 
+		
+
+		$nutriments_hash = {
+			shown => $shown,
+			enid => $enid,
+			enidp => $enidp,
+			prefix => $prefix,
+			nid => $nid,
+			label => $label,
+			class => $class,
+			value => $value,
+			valuep => $valuep,
+			display => $display,
+			disabled => $disabled,
+		};
+
+		push(@nutriments, $nutriments_hash);
+
 	}
+
+	
+	$template_data_ref_display->{checks} =\@checks;
+
+
+	$template_data_ref_display->{nutriments} = \@nutriments;
 	$html .= <<HTML
 </tbody>
 </table>
@@ -2059,6 +2056,8 @@ JAVASCRIPT
 HTML
 ;
 
+	#$html .= "<p>" . Dumper($html2) . "</p>";
+
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
 <thead class="nutriment_header">
@@ -2086,37 +2085,25 @@ HTML
 HTML
 ;
 
-	$html .= "</div><!-- fieldset -->";
-	
+
+
+	$template_data_ref_display->{nutrition_data_table_note} = $Lang{nutrition_data_table_note}{$lang};
+	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
+	$template_data_ref_display->{ecological_data_table} = $Lang{ecological_data_table}{$lang};
+
 	
 	# Packaging photo and data
 
 	my @packaging_fields = ("packaging_image", "packaging_text");
-	
-	$html .= <<HTML
 
-<div id="packaging" class="fieldset">
-<legend>$Lang{packaging}{$lang}</legend>
-HTML
-;	
+	$template_data_ref_display->{packaging} = $Lang{packaging}{$lang};
+	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 	
-	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
-	
-
-
-	$html .= "</div><!-- fieldset -->";	
 
 
 	# Product check
 
 	if ($User{moderator}) {
-
-		$html .= <<HTML
-<div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
-<p>$Lang{photos_and_data_check_description}{$lang}</p>
-HTML
-;
-
 		my $checked = '';
 		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
 		my $recheck_html = "";
@@ -2124,23 +2111,14 @@ HTML
 		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 			$checked = 'checked="checked"';
 			$label = $Lang{photos_and_data_checked}{$lang};
-
-			$recheck_html .= <<HTML
-<input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
-<label for="photos_and_data_rechecked" class="checkbox_label">$Lang{i_checked_the_photos_and_data_again}{$lang}</label><br/>
-HTML
-;
 		}
 
-		$html .= <<HTML
-<input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" $checked />
-<label for="photos_and_data_checked" class="checkbox_label">$label</label><br/>
-HTML
-;
-
-		$html .= $recheck_html;
-
-		$html .= "</div><!-- fieldset -->";
+		$template_data_ref_display->{photos_and_data_check_description} = $Lang{photos_and_data_check_description}{$lang};
+		$template_data_ref_display->{photos_and_data_check} = $Lang{photos_and_data_check}{$lang};
+		$template_data_ref_display->{i_checked_the_photos_and_data_again} = $Lang{i_checked_the_photos_and_data_again}{$lang};
+		$template_data_ref_display->{product_ref_checked} = $product_ref->{checked};
+		$template_data_ref_display->{product_check_label} = $label;
+		$template_data_ref_display->{product_check_checked} = $checked;
 
 	}
 
@@ -2152,15 +2130,12 @@ HTML
 		}
 	}
 
-	$html .= ''
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'code', -value=>$code, -override=>1)
-	. hidden(-name=>'action', -value=>'process', -override=>1);
+	$template_data_ref_display->{param_fields} = param("fields");
+	$template_data_ref_display->{type} = $type;
+	$template_data_ref_display->{code} = $code;
 
-	$html .= <<HTML
-<div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
-HTML
-;
+
+
 	# As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
 	# Using javascript to set the width of the fixed bar at startup, and when the window is resized.
 
@@ -2184,47 +2159,27 @@ JS
 JS
 ;
 
-	if ($type eq 'edit') {
-		$html .= <<"HTML"
-<div class="row">
-	<div class="small-12 medium-12 large-8 xlarge-8 columns">
-		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
-	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small success">
-			@{[ display_icon('check') ]} $Lang{save}{$lc}
-		</button>
-	</div>
-	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="button" id="back-btn" class="button postfix small secondary">
-			@{[ display_icon('cancel') ]} $Lang{cancel}{$lc}
-		</button>
-	</div>
-</div>
-HTML
-;
-	}
-	else {
-		$html .= <<HTML
-<div class="row">
-<div class="small-12 medium-12 large-8 xlarge-10 columns">
-</div>
-<div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
-</div>
-</div>
-HTML
-;
-	}
+	$template_data_ref_display->{save} = $Lang{save}{$lang};
+	$template_data_ref_display->{cancel} = $Lang{cancel}{$lang};
+	$template_data_ref_display->{edit_comment} = $Lang{edit_comment}{$lang};
+	
 
 	$html .= <<HTML
-</div>
+
 </form>
 HTML
 ;
 
+	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
+
+	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	#process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
+	#$initjs .= $js;
+
+
 	$html .= display_product_history($code, $product_ref);
 }
+#rosheen comment
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
@@ -2248,7 +2203,10 @@ HTML
 	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
+
+
 }
+#rosheen comment, ends on line 2303
 elsif ($action eq 'process') {
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
@@ -2320,6 +2278,10 @@ MAIL
 $html = "<p id=\"barcode_paragraph\">" . lang("barcode")
 	. separator_before_colon($lc)
 	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
+
+
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+
 
 display_page( {
 	blog_ref=>undef,
