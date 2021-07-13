@@ -88,7 +88,6 @@ $template_data_ref->{user_id} =  $User_id;
 
 
 # Search or add product
-#rosheen comment, ends on line 174. 
 if ($type eq 'search_or_add') {
 
 	# barcode in image?
@@ -213,7 +212,6 @@ if ($User_id eq 'unwanted-bot-id') {
 	return 500;
 }
 
-#rosheen comment, ends on line 257, a form starts and ends within this condition
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
@@ -272,7 +270,6 @@ if ($admin) {
 
 }
 
-#rosheen comment. ends on line 779. no html. 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
@@ -779,15 +776,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 }
 
-
-
 # Display the product edit form
 
 my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 
 # Display each field
 
-#rosheen comment, ends on line 902, lots of html. seperate functions
 sub display_input_field($$$) {
 
 	my $product_ref = shift;
@@ -874,7 +868,6 @@ sub display_input_field($$$) {
 	return $html_field;
 }
 
-#rosheen comment, finding end line 2210 i guess. after it else if starts
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
@@ -891,7 +884,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	if ($User{moderator}) {
 		$moderator = 1;
 	}
-
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
@@ -916,8 +908,7 @@ var admin = $moderator;
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
-	
-	
+
 	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
 	 and (defined $Org_id)) {
 
@@ -972,7 +963,6 @@ CSS
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
 
- 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
 	if ($User{moderator} or $Owner_id) {
@@ -1187,10 +1177,6 @@ JS
 
 			}
 
-
-
-
-
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1218,9 +1204,6 @@ JS
 HTML
 ;
 
-
-
-#rosheen comment, lots of html. ends on line 1460
 sub display_input_tabs($$$$$$) {
 
 	my $product_ref = shift;
@@ -1265,14 +1248,11 @@ sub display_input_tabs($$$$$$) {
 
 		my $language;
 
-		
 		if ($tabid ne 'new') {
-
 			
 			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
 			$display_tab_ref->{language} = $language;
 		
-
 			my $display_lc = $tabid;
 			$template_data_ref_tab->{display_lc} = $display_lc;
 
@@ -1347,7 +1327,6 @@ sub display_input_tabs($$$$$$) {
 	$template_data_ref_display->{product_characteristics} = $Lang{product_characteristics}{$lang};
 	$template_data_ref_display->{nutrition_data} = $Lang{nutrition_data}{$lang};
 	$template_data_ref_display->{no_nutrition_data} = $Lang{no_nutrition_data}{$lang};
-
 	$template_data_ref_display->{display_tab_product_picture} = display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 	$template_data_ref_display->{display_tab_product_characteristics} = display_input_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 
@@ -1372,9 +1351,6 @@ sub display_input_tabs($$$$$$) {
 	}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
-
-
-
 	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 	$template_data_ref_display->{display_field_allergens} =  display_input_field($product_ref, "allergens", undef);
 	$template_data_ref_display->{display_field_traces} =  display_input_field($product_ref, "traces", undef);
@@ -1384,8 +1360,6 @@ sub display_input_tabs($$$$$$) {
 
 	$initjs .= display_select_crop_init($product_ref);
 
-
-	
 	my $hidden_inputs = '';
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
@@ -1403,10 +1377,8 @@ sub display_input_tabs($$$$$$) {
 
 	my %column_display_style = ();
 	my %nutrition_data_per_display_style = ();
-
 	my @nutrition_products;
 
-#rosheen comment this foreach ends on line 1680
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
 
@@ -1425,13 +1397,10 @@ sub display_input_tabs($$$$$$) {
 			$hidden = 'style="display:none"';
 		}
 
-
-
 		my $checked_per_serving = '';
 		my $checked_per_100g = 'checked="checked"';
 		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
 		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
-
 
 		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
 
@@ -1469,12 +1438,9 @@ sub display_input_tabs($$$$$$) {
 			checkmate => $product_ref->{$nutrition_data_per},
 		});
 
-	
-
 	}
 
 	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
-
 
 	$template_data_ref_display->{column_display_style_nutrition_data} =$column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared} =$column_display_style{"nutrition_data_prepared"};
@@ -1482,11 +1448,7 @@ sub display_input_tabs($$$$$$) {
 	$template_data_ref_display->{nutrition_data_serving_style} = $nutrition_data_per_display_style{"nutrition_data_serving"};
 	$template_data_ref_display->{nutrition_data_prepared_100g_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
 	$template_data_ref_display->{nutrition_data_prepared_serving_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
-	
 
-
-	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
-	
 	$template_data_ref_display->{nutrition_data_table} = $Lang{nutrition_data_table}{$lang};
 	$template_data_ref_display->{product_as_sold} = $Lang{product_as_sold}{$lang};
 	$template_data_ref_display->{prepared_product} = $Lang{prepared_product}{$lang};
@@ -1515,9 +1477,6 @@ sub display_input_tabs($$$$$$) {
 	}
 
 	my @nutriments;	
-	
-
-#this foreach ends on line 2067
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 
 		my $nutriment_ref = {};
@@ -1551,7 +1510,6 @@ sub display_input_tabs($$$$$$) {
 			}
 		}
 
-
 		my $display = '';
 		if ($nid eq 'new_0') {
 			$display = ' style="display:none"';
@@ -1562,7 +1520,6 @@ sub display_input_tabs($$$$$$) {
 		# for prepared product
 		my $nidp = $nid . "_prepared";
 		my $enidp = encodeURIComponent($nidp);
-
 
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
@@ -1579,7 +1536,6 @@ HTML
 <label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{en}</label>
 HTML
 ;
-		#rosheen comment, have not added it yet it was throwing error of en global symbol require explicit package name
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
@@ -1596,11 +1552,6 @@ HTML
 HTML
 ;
 		}
-
-
-		
-
-		#$html .= "<p>" . Dumper() . "</p>";
 
 		my $unit = 'g';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
@@ -1662,23 +1613,6 @@ HTML
 			$disabled = '';
 		}
 
-		my $input = '';
-
-
-
-
-		$input .= <<HTML
-<tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
-<td>$label</td>
-<td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value nutriment_value_as_sold" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
-</td>
-<td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value nutriment_value_prepared" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
-</td>
-HTML
-;
-
 		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
 			my $unit = '';
 
@@ -1686,15 +1620,7 @@ HTML
 			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
 			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
-
 			$nutriment_ref->{nutriment_unit}  = $unit;
-		
-
-			$input .= <<"HTML"
-<td>
-<span class="nutriment_unit">$unit</span>
-HTML
-;
 
 		}
 		else {
@@ -1736,23 +1662,11 @@ HTML
 				$hide_percent = ' style="display:none"';
 			}
 
-
 			$nutriment_ref->{hide_select}  = $hide_select;
 			$nutriment_ref->{hide_percent}  = $hide_percent;
 			$nutriment_ref->{nutriment_unit_disabled}  = $disabled;
 
-			
-
-			$input .= <<HTML
-<td>
-<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
-HTML
-;
 			$disabled = $disabled_backup;
-
-			
-
 
 			foreach my $u (@units) {
 				my $selected = '';
@@ -1764,10 +1678,7 @@ HTML
 				if ($u eq 'µg') {
 					$label = "mcg/µg";
 				}
-				$input .= <<HTML
-<option value="$u" $selected>$label</option>
-HTML
-;
+
 				push(@units_arr, {
 					u => $u,
 					label => $label,
@@ -1775,29 +1686,9 @@ HTML
 				});
 			}
 
-
 			$nutriment_ref->{units_arr} = \@units_arr;
-
-			$input .= <<HTML
-</select>
-HTML
-;
-
-			
-		}
-
 	
-
-		
-
-		$input .= <<HTML
-</td>
-</tr>
-HTML
-;
-
-
-
+		}
 		
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
@@ -1812,12 +1703,9 @@ HTML
 		$nutriment_ref->{disabled} = $disabled;
 
 		push(@nutriments, $nutriment_ref);
-		
-
 	}
 	
 	$template_data_ref_display->{nutriments} = \@nutriments;
-
 
 	my $other_nutriments = '';
 	my $nutriments = '';
@@ -1866,27 +1754,15 @@ $other_nutriments
 HTML
 ;
 
+	# Packaging photo and data
+	my @packaging_fields = ("packaging_image", "packaging_text");
 
-	if ($User{moderator}) {
-		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
-	}
-
-
-
-
+	$template_data_ref_display->{remove_all_nutrient_values} = $Lang{remove_all_nutrient_values}{$lang};
 	$template_data_ref_display->{nutrition_data_table_note} = $Lang{nutrition_data_table_note}{$lang};
 	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
 	$template_data_ref_display->{ecological_data_table} = $Lang{ecological_data_table}{$lang};
-
-	
-	# Packaging photo and data
-
-	my @packaging_fields = ("packaging_image", "packaging_text");
-
 	$template_data_ref_display->{packaging} = $Lang{packaging}{$lang};
 	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
-	
-
 
 	# Product check
 
@@ -1912,26 +1788,9 @@ HTML
 	$template_data_ref_display->{param_fields} = param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
-
-
-
-	# As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
-	# Using javascript to set the width of the fixed bar at startup, and when the window is resized.
-
-
-	$scripts .= <<JS
-
-)
-JS
-;
-
 	$template_data_ref_display->{save} = $Lang{save}{$lang};
 	$template_data_ref_display->{cancel} = $Lang{cancel}{$lang};
 	$template_data_ref_display->{edit_comment} = $Lang{edit_comment}{$lang};
-	
-
-	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
-
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
@@ -1939,7 +1798,6 @@ JS
 	$initjs .= $js;
 
 }
-#rosheen comment
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
@@ -1966,7 +1824,6 @@ HTML
 
 
 }
-#rosheen comment, ends on line 2303
 elsif ($action eq 'process') {
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
@@ -2041,7 +1898,6 @@ $html = "<p id=\"barcode_paragraph\">" . lang("barcode")
 
 
 process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
-
 
 display_page( {
 	blog_ref=>undef,

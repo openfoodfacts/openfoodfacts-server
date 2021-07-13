@@ -1,245 +1,150 @@
 <!-- start templates/[% template.name %] -->
-<!DOCTYPE html>
-<html>
 
-<head></head>
-<body>
+[% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
+    <div class="panel callout">
+        <p><strong>[% lang("product_edits_by_producers") %] </strong></p>
+        <p>[% lang("product_edits_by_producers_platform") %]</p>
+        <p>[% lang("product_edits_by_producers_import") %]</p>
+        <p>[% lang("product_edits_by_producers_analysis") %] [% lang("product_edits_by_producers_indicators") %]</p>
+        <p><a href="' . [% producers_platform_url %] . '" class="button">[% lang("manage_your_products_on_the_producers_platform") %]</a></p>
+    </div>
+[% END %]
 
-  
-    [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
-        <div class="panel callout">
-            <p><strong>[% lang("product_edits_by_producers") %] </strong></p>
-            <p>[% lang("product_edits_by_producers_platform") %]</p>
-            <p>[% lang("product_edits_by_producers_import") %]</p>
-            <p>[% lang("product_edits_by_producers_analysis") %] [% lang("product_edits_by_producers_indicators") %]</p>
-            <p><a href="' . [% producers_platform_url %] . '" class="button">[% lang("manage_your_products_on_the_producers_platform") %]</a></p>
-		</div>
+[% IF errors_index >=0 %]
+    <p>Merci de corriger les erreurs suivantes :</p>
+    [% FOREACH error IN errors %]
+        <p class="error">[% error %]</p><br/>
     [% END %]
+[% END %]
 
-    
-    [% IF errors_index >=0 %]
-        <p>Merci de corriger les erreurs suivantes :</p>
-        [% FOREACH error IN errors %]
-            <p class="error">[% error %]</p><br/>
-        [% END %]
-    [% END %]
+[% IF user_moderator %]
+    <label for="new_code" id="label_new_code">[% label_new_code %]</label>
+    <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
+[% END %]
 
+<form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
 
     [% IF user_moderator %]
         <label for="new_code" id="label_new_code">[% label_new_code %]</label>
-        <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
+        <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
     [% END %]
 
+    [% IF user_moderator || owner_id %]
+        <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
+        <label for="obsolete" class="checkbox_label">[% obsolete %]</label>
+        [% display_field_obsolete %]
+    [% END %]
 
-    <form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
+    <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
+        <span>[% warning_3rd_party_content %]</span>
+            <a href="#" class="close">&times;</a>
+    </div>
+    
+    <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
+        <span>[% licence_accept %]</span>
+            <a href="#" class="close">&times;</a>
+    </div>
 
-        [% IF user_moderator %]
-            <label for="new_code" id="label_new_code">[% label_new_code %]</label>
-            <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
+    <label for="lang"> [% lang('lang') %] </label>
+    <select name="lang" id="lang">
+        [% FOREACH lang IN lang_options %]
+            <option value="[% lang.value %]" [% IF lang.value== lang_value %] selected="selected" [% END %]>[% lang.label %]</option>
         [% END %]
+    </select>
 
-        [% IF user_moderator || owner_id %]
-            <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
-            <label for="obsolete" class="checkbox_label">[% obsolete %]</label>
-            [% display_field_obsolete %]
-        [% END %]
-
-
-        <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-            <span>[% warning_3rd_party_content %]</span>
-             <a href="#" class="close">&times;</a>
-        </div>
-        
-        <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-            <span>[% licence_accept %]</span>
-             <a href="#" class="close">&times;</a>
-        </div>
-
-        <label for="lang"> [% lang('lang') %] </label>
-        <select name="lang" id="lang">
-            [% FOREACH lang IN lang_options %]
-                <option value="[% lang.value %]" [% IF lang.value== lang_value %] selected="selected" [% END %]>[% lang.label %]</option>
-            [% END %]
-        </select>
-
-        [% IF user_moderator %]
-            <ul id="manage_images_accordion" class="accordion" data-accordion>
-                <li class="accordion-navigation">
-                    <a href="#manage_images_drop">[% display_icon('collections') %] [% manage_images %]</a>
-                    <div id="manage_images_drop" class="content" style="background:#eeeeee">
-                        [% display_select_manage %]
-                        <p>[% manage_images_info %]</p>
-                        <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% delete_the_images %]</a><br/>
-                        <div class="row">
-                            <div class="small-12 medium-5 columns">
-                                <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% move_images_to_another_product %]</a>
-                            </div>
-                            <div class="small-4 medium-2 columns">
-                                <label for="move_to" class="right inline">[% barcode %]</label>
-                            </div>
-                            <div class="small-8 medium-5 columns">
-                                <input type="text" id="move_to" name="move_to" />
-                            </div>
+    [% IF user_moderator %]
+        <ul id="manage_images_accordion" class="accordion" data-accordion>
+            <li class="accordion-navigation">
+                <a href="#manage_images_drop">[% display_icon('collections') %] [% manage_images %]</a>
+                <div id="manage_images_drop" class="content" style="background:#eeeeee">
+                    [% display_select_manage %]
+                    <p>[% manage_images_info %]</p>
+                    <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% delete_the_images %]</a><br/>
+                    <div class="row">
+                        <div class="small-12 medium-5 columns">
+                            <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% move_images_to_another_product %]</a>
                         </div>
-                        <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% copy_data %]</label>
-                        <div id="moveimagesmsg"></div>
+                        <div class="small-4 medium-2 columns">
+                            <label for="move_to" class="right inline">[% barcode %]</label>
+                        </div>
+                        <div class="small-8 medium-5 columns">
+                            <input type="text" id="move_to" name="move_to" />
+                        </div>
                     </div>
-                </li>
-            </ul> 
+                    <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% copy_data %]</label>
+                    <div id="moveimagesmsg"></div>
+                </div>
+            </li>
+        </ul> 
+    [% END %]
+
+    <div id="product_image" class="fieldset"><legend>[% product_image %]</legend>
+        <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/><br/>
+        [% display_tab_product_picture %]
+    </div>
+
+    <div id="product_characteristics" class="fieldset">
+        <legend>[% product_characteristics %]</legend>
+        [% display_tab_product_characteristics %]
+
+        [% FOREACH field IN display_fields_arr %]
+            [% field %]
+        [% END %]
+    </div>
+
+    <div id="ingredients" class="fieldset"><legend>[% ingredients %]</legend>
+        [% display_tab_ingredients_image %]
+        [% display_field_allergens %]
+        [% display_field_traces %]
+        [% display_field_origins %]
+    </div>
+
+    <!--nutrient fieldset-->
+    <div class="fieldset" id="nutrition"><legend>[% nutrition_data %]</legend>
+        <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
+        <label for="no_nutrition_data" class="checkbox_label">[% no_nutrition_data %]</label><br/>
+        [% display_tab_nutrition_image %]
+        [% display_field_serving_size %]
+
+        [% FOREACH nutrient IN nutrition_products %]
+            <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
+            <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
+            <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] /><label for="[% nutrient.nutrition_data_per %]_100g">[% nutrient.nutrition_data_per_100g %]</label>
+            <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] /><label for="[%nutrient. nutrition_data_per %]_serving">[% nutrient.nutrition_data_per_serving %]</label><br/>
+
+            [% IF nutrition_data_instructions_check.exists && nutrition_data_instructions_check != '' %]
+                <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang('nutrient.nutrition_data_instructions') %]</p>
+            [% END %]
         [% END %]
 
+        <div style="position:relative">
 
-
-
-        <div id="product_image" class="fieldset"><legend>[% product_image %]</legend>
-            <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/><br/>
-            [% display_tab_product_picture %]
-        </div>
-
-   
-      
-        <div id="product_characteristics" class="fieldset">
-            <legend>[% product_characteristics %]</legend>
-            [% display_tab_product_characteristics %]
-
-            [% FOREACH field IN display_fields_arr %]
-                [% field %]
-            [% END %]
-        </div>
-     
-
-
-        <div id="ingredients" class="fieldset"><legend>[% ingredients %]</legend>
-            [% display_tab_ingredients_image %]
-            [% display_field_allergens %]
-            [% display_field_traces %]
-            [% display_field_origins %]
-        </div>
-
-        <!--nutrient fieldset-->
-        <div class="fieldset" id="nutrition"><legend>[% nutrition_data %]</legend>
-            <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
-            <label for="no_nutrition_data" class="checkbox_label">[% no_nutrition_data %]</label><br/>
-            [% display_tab_nutrition_image %]
-            [% display_field_serving_size %]
-        
-
-            [% FOREACH nutrient IN nutrition_products %]
-                <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
-                <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] /><label for="[% nutrient.nutrition_data_per %]_100g">[% nutrient.nutrition_data_per_100g %]</label>
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] /><label for="[%nutrient. nutrition_data_per %]_serving">[% nutrient.nutrition_data_per_serving %]</label><br/>
-
-                [% IF nutrition_data_instructions_check.exists && nutrition_data_instructions_check != '' %]
-                    <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang('nutrient.nutrition_data_instructions') %]</p>
-                [% END %]
-            [% END %]
-
-            <div style="position:relative">
-
-                <table id="nutrition_data_table" class="data_table" style = "[% tablestyle %]">
-                    <thead class="nutriment_header">
-                        <th>
-                            [% nutrition_data_table %]
-                        </th>
-                        <th class="nutriment_col" [% column_display_style_nutrition_data %]>
-                            [% product_as_sold %]<br/>
-                            <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% nutrition_data_per_100g %]</span>
-                            <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% nutrition_data_per_serving %]</span>
-                        </th>
-                        <th class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                            [% prepared_product %]<br/>
-                            <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% nutrition_data_per_100g %]</span>
-                            <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% nutrition_data_per_serving %]</span>
-                        </th>
-                        <th>
-                            [% nutriments_unit %]
-                        </th>
-                    </thead>
-                    
-                    <tbody>
-
-                        [% FOREACH nutriment IN nutriments %]
-                            [%  IF nutriment.nid == 'carbon-footprint' %]
-
-                            [% ELSIF nutriment.shown %]
-                                <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
-                                    <td>[% nutriment.label %]</td>
-                                    <td class="nutriment_col" [% column_display_style_nutrition_data %]>
-                                        <input class="nutriment_value nutriment_value_as_sold" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
-                                    </td>
-                                    <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                                        <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
-                                    </td>
-                                    
-                                    [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
-                                        <td>
-                                            <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
-                                        
-                                    [% ELSE %]
-                                        <td>
-                                            <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
-                                            <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
-                                                [% FOREACH unit IN nutriment.units_arr %]
-                                                    <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
-                                                [% END %]
-                                                </select>
-                                    [% END %]
-                                            </td>
-                                    </tr>
-
-                            [% END %]
-                        
-                        [% END %]
-
-                    </tbody>
-                </table>
-
-                <input type="hidden" name="new_max" id="new_max" value="1" />
-                <div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
-
-
-                <!--
-                [% FOREACH nutriment IN nutriments %]
-
-                    [% IF nutriment.nutriments_nid.exists && nutriment.nutriments_nid_lang.exists %]
-                        <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% prefix %]</label>
-                    
-                    <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">second</label>
-                    [% ELSIF nutriment.label_value.exists %]
-                        <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" value="[% nutriment.label_value %]" />
-                    [% ELSE %]
-                        <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" placeholder="[% nutriment.product_add_nutrient %]"/>
-                    [% END %]
-                [% END %]
-                -->
-
-            
-            <p class="note">&rarr; [% nutrition_data_table_note %]</p>
-
-            <table>
+            <table id="nutrition_data_table" class="data_table" style = "[% tablestyle %]">
                 <thead class="nutriment_header">
-                    <tr>
-                        <th>[% ecological_data_table %]</th>
-                        <th class="nutriment_col" [% column_display_style_nutrition_data %]>
-                            [% product_as_sold %]
-                        </th>
-                        <th class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                            [% prepared_product %]
-                        </th>
-                        <th>
-                            [% nutriments_unit %]
-                        </th>
-                    </tr>
+                    <th>
+                        [% nutrition_data_table %]
+                    </th>
+                    <th class="nutriment_col" [% column_display_style_nutrition_data %]>
+                        [% product_as_sold %]<br/>
+                        <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% nutrition_data_per_100g %]</span>
+                        <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% nutrition_data_per_serving %]</span>
+                    </th>
+                    <th class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                        [% prepared_product %]<br/>
+                        <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% nutrition_data_per_100g %]</span>
+                        <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% nutrition_data_per_serving %]</span>
+                    </th>
+                    <th>
+                        [% nutriments_unit %]
+                    </th>
                 </thead>
+                
                 <tbody>
 
                     [% FOREACH nutriment IN nutriments %]
-
-                        <!--  [% nutriment.nid %] -->
-
                         [%  IF nutriment.nid == 'carbon-footprint' %]
 
+                        [% ELSIF nutriment.shown %]
                             <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
                                 <td>[% nutriment.label %]</td>
                                 <td class="nutriment_col" [% column_display_style_nutrition_data %]>
@@ -249,106 +154,159 @@
                                     <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
                                 </td>
                                 
-                                <td>
-                                    <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
-                                    <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
-                                        [% FOREACH unit IN nutriment.units_arr %]
-                                            <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
-                                        [% END %]
-                                        </select>
-                                </td>
-                            </tr>
+                                [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
+                                    <td>
+                                        <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
+                                    
+                                [% ELSE %]
+                                    <td>
+                                        <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
+                                        <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
+                                            [% FOREACH unit IN nutriment.units_arr %]
+                                                <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                            [% END %]
+                                            </select>
+                                [% END %]
+                                        </td>
+                                </tr>
 
                         [% END %]
                     
                     [% END %]
-                
-                </tbody>
 
+                </tbody>
             </table>
 
+            <input type="hidden" name="new_max" id="new_max" value="1" />
+            <div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
         </div>
-
-        <!--div style position relative ends-->
-
-
-
-            <p class="note">&rarr; [% ecological_data_table_note %]</p>
-        </div>
-
-        <!--packaging field-->
-
-        <div id="packaging" class="fieldset">
-            <legend>[% packaging %]</legend>
-            [% display_tab_packaging %]
-        </div>
-
 
         [% IF user_moderator %]
-            <div class="fieldset" id="check"><legend>[% photos_and_data_check %]</legend>
-            <p>[% photos_and_data_check_description %]</p>
-
-            <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
-            <label for="photos_and_data_checked" class="checkbox_label">[% product_check_label %]</label><br/>
-
-            [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
-                <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
-                <label for="photos_and_data_rechecked" class="checkbox_label">[% i_checked_the_photos_and_data_again %]</label><br/>
-            [% END %]
+            <div><a class="small button" onclick="$('.nutriment_value').val('')">[% remove_all_nutrient_values %]</a></div>
         [% END %]
 
-        [% IF admin %]
-                [% IF param_fields %]
-                    <input type="hidden"  name="fields" value="[% param_fields %]">
+        <p class="note">&rarr; [% nutrition_data_table_note %]</p>
+
+        <table>
+            <thead class="nutriment_header">
+                <tr>
+                    <th>[% ecological_data_table %]</th>
+                    <th class="nutriment_col" [% column_display_style_nutrition_data %]>
+                        [% product_as_sold %]
+                    </th>
+                    <th class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                        [% prepared_product %]
+                    </th>
+                    <th>
+                        [% nutriments_unit %]
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                [% FOREACH nutriment IN nutriments %]
+
+                    <!--  [% nutriment.nid %] -->
+
+                    [%  IF nutriment.nid == 'carbon-footprint' %]
+
+                        <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
+                            <td>[% nutriment.label %]</td>
+                            <td class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                <input class="nutriment_value nutriment_value_as_sold" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                            </td>
+                            <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
+                            </td>
+                            
+                            <td>
+                                <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
+                                <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
+                                    [% FOREACH unit IN nutriment.units_arr %]
+                                        <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                    [% END %]
+                                    </select>
+                            </td>
+                        </tr>
+
+                    [% END %]
+                
                 [% END %]
+            
+            </tbody>
+
+        </table>
+
+        <p class="note">&rarr; [% ecological_data_table_note %]</p>
+
+    </div><!--nutrient field set ends-->
+
+    <!--packaging field-->
+
+    <div id="packaging" class="fieldset">
+        <legend>[% packaging %]</legend>
+        [% display_tab_packaging %]
+    </div>
+
+
+    [% IF user_moderator %]
+        <div class="fieldset" id="check"><legend>[% photos_and_data_check %]</legend>
+        <p>[% photos_and_data_check_description %]</p>
+
+        <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
+        <label for="photos_and_data_checked" class="checkbox_label">[% product_check_label %]</label><br/>
+
+        [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
+            <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
+            <label for="photos_and_data_rechecked" class="checkbox_label">[% i_checked_the_photos_and_data_again %]</label><br/>
         [% END %]
+    [% END %]
 
-        <input type="hidden"  name="type" value="[% type %]">
-        <input type="hidden"  name="code" value="[% code %]">
-        <input type="hidden"  name="action" value="process">
-
-
-        <div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
-            [% IF type == 'edit' %]
-
-                <div class="row">
-                    <div class="small-12 medium-12 large-8 xlarge-8 columns">
-                        <input id="comment" name="comment" placeholder="[% edit_comment %]" value="" type="text" class="text" />
-                    </div>
-                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="submit" name=".submit" class="button postfix small success">
-                            [% display_icon('check') %] [% save %]
-                        </button>
-                    </div>
-                    <div class="small-6 medium-6 large-2 xlarge-2 columns">
-                        <button type="button" id="back-btn" class="button postfix small secondary">
-                            [% display_icon('cancel') %][% cancel %]
-                        </button>
-                    </div>
-                </div>
-
-            [% ELSE %]
-
-                <div class="row">
-                    <div class="small-12 medium-12 large-8 xlarge-10 columns">
-                    </div>
-                    <div class="small-12 medium-12 large-4 xlarge-2 columns">
-                    <input type="submit" name=".submit" value="[% save %]" class="button small success">
-                    </div>
-                </div>
-
+    [% IF admin %]
+            [% IF param_fields %]
+                <input type="hidden"  name="fields" value="[% param_fields %]">
             [% END %]
-        </div>
+    [% END %]
+
+    <input type="hidden"  name="type" value="[% type %]">
+    <input type="hidden"  name="code" value="[% code %]">
+    <input type="hidden"  name="action" value="process">
 
 
-    </form>
+    <div id="fixed_bar" style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">
+        [% IF type == 'edit' %]
 
-    [% display_product_history %]
+            <div class="row">
+                <div class="small-12 medium-12 large-8 xlarge-8 columns">
+                    <input id="comment" name="comment" placeholder="[% edit_comment %]" value="" type="text" class="text" />
+                </div>
+                <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                    <button type="submit" name=".submit" class="button postfix small success">
+                        [% display_icon('check') %] [% save %]
+                    </button>
+                </div>
+                <div class="small-6 medium-6 large-2 xlarge-2 columns">
+                    <button type="button" id="back-btn" class="button postfix small secondary">
+                        [% display_icon('cancel') %][% cancel %]
+                    </button>
+                </div>
+            </div>
 
+        [% ELSE %]
 
-</body>
+            <div class="row">
+                <div class="small-12 medium-12 large-8 xlarge-10 columns">
+                </div>
+                <div class="small-12 medium-12 large-4 xlarge-2 columns">
+                <input type="submit" name=".submit" value="[% save %]" class="button small success">
+                </div>
+            </div>
 
+        [% END %]
+    </div>
 
+</form>
 
-</html>
+[% display_product_history %]
+
 <!-- end templates/[% template.name %] -->

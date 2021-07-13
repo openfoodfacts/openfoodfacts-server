@@ -992,13 +992,7 @@ function convertTranslationToLanguage(Lang, translation) {
   }
 }
 
-var nutriments = {
-	$nutriments
-};
 
-var otherNutriments = [
-	$other_nutriments
-];
  
 $(function() {
 
@@ -1107,6 +1101,9 @@ $(document).foundation({
     }
 });
 
+
+// As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
+// Using javascript to set the width of the fixed bar at startup, and when the window is resized.
 
 var parent_width = $("#fixed_bar").parent().width();
 $("#fixed_bar").width(parent_width);
