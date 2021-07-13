@@ -1,6 +1,3 @@
-
-console.log("Try 07");
-
 [% FOREACH nutrition IN nutrition_products %]
 
 	\$('#[% nutrition.nutrition_data %]').change(function() {
