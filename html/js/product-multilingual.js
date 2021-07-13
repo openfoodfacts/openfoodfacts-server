@@ -1043,7 +1043,7 @@ $(function() {
 	
 	function swapSalt(from, to, multiplier) {
 		var source = from.val().replace(",", ".");
-		var regex = /^(.*?)([\\d]+(?:\\.[\\d]+)?)(.*?)$/g;
+		var regex = /^(.*?)([\d]+(?:\.[\d]+)?)(.*?)$/g;
 		var match = regex.exec(source);
 		if (match) {
 			var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
