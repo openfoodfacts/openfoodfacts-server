@@ -941,9 +941,6 @@ HTML
 
 	$template_data_ref_display->{errors} = \@errors;
 
-
-	$html .= start_multipart_form(-id=>"product_form") ; # yet to remove
-
 	my $thumb_selectable_size = $thumb_size + 20;
 
 
@@ -1385,9 +1382,6 @@ sub display_input_tabs($$$$$$) {
 	$template_data_ref_display->{display_fields_arr} = \@display_fields_arr;
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
-
-$html .= "<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
-
 	my $checked = '';
 	my $tablestyle = 'display: table;';
 	my $disabled = '';
@@ -1399,26 +1393,6 @@ $html .= "<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
 
-	$initjs .= <<JAVASCRIPT
-\$('#no_nutrition_data').change(function() {
-	if (\$(this).prop('checked')) {
-		\$('#nutrition_data_table input').prop('disabled', true);
-		\$('#nutrition_data_table select').prop('disabled', true);
-		\$('#multiple_nutrition_data').prop('disabled', true);
-		\$('#multiple_nutrition_data').prop('checked', false);
-		\$('#nutrition_data_table input.nutriment_value').val('');
-		\$('#nutrition_data_table').hide();
-	} else {
-		\$('#nutrition_data_table input').prop('disabled', false);
-		\$('#nutrition_data_table select').prop('disabled', false);
-		\$('#multiple_nutrition_data').prop('disabled', false);
-		\$('#nutrition_data_table').show();
-	}
-	update_nutrition_image_copy();
-	\$(document).foundation('equalizer', 'reflow');
-});
-JAVASCRIPT
-;
 
 
 	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
@@ -1471,6 +1445,8 @@ JAVASCRIPT
 			$hidden = 'style="display:none"';
 		}
 
+
+
 		my $checked_per_serving = '';
 		my $checked_per_100g = 'checked="checked"';
 		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
@@ -1487,8 +1463,6 @@ JAVASCRIPT
 			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
 			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
 		}
-
-	
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
 		
@@ -1512,74 +1486,26 @@ JAVASCRIPT
 			hidden => $hidden,
 			nutriment_col_class => $nutriment_col_class,
 			product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
+			checkmate => $product_ref->{$nutrition_data_per},
 		});
 
-		$initjs .= <<JS
-\$('#$nutrition_data').change(function() {
-	if (\$(this).prop('checked')) {
-		\$('#$nutrition_data_instructions').show();
-		\$('.$nutriment_col_class').show();
-	} else {
-		\$('#$nutrition_data_instructions').hide();
-		\$('.$nutriment_col_class').hide();
-		\$('.nutriment_value_$product_type_as_sold_or_prepared').val('');
-	}
-	update_nutrition_image_copy();
-	\$(document).foundation('equalizer', 'reflow');
-});
-
-\$('input[name=$nutrition_data_per]').change(function() {
-	if (\$('input[name=$nutrition_data_per]:checked').val() == '100g') {
-		\$('#${nutrition_data}_100g').show();
-		\$('#${nutrition_data}_serving').hide();
-	} else {
-		\$('#${nutrition_data}_100g').hide();
-		\$('#${nutrition_data}_serving').show();
-	}
-	update_nutrition_image_copy();
-	\$(document).foundation('equalizer', 'reflow');
-});
-JS
-;
+	
 
 	}
 
 	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
 
-	$html .= <<HTML
-<div style="position:relative">
-
-
-<table id="nutrition_data_table" class="data_table" style="$tablestyle">
-<thead class="nutriment_header">
-<th>
-$Lang{nutrition_data_table}{$lang}
-</th>
-<th class="nutriment_col" $column_display_style{"nutrition_data"}>
-$Lang{product_as_sold}{$lang}<br/>
-<span id="nutrition_data_100g" $nutrition_data_per_display_style{"nutrition_data_100g"}>$Lang{nutrition_data_per_100g}{$lang}</span>
-<span id="nutrition_data_serving" $nutrition_data_per_display_style{"nutrition_data_serving"}>$Lang{nutrition_data_per_serving}{$lang}</span>
-</th>
-<th class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-$Lang{prepared_product}{$lang}<br/>
-<span id="nutrition_data_prepared_100g" $nutrition_data_per_display_style{"nutrition_data_prepared_100g"}>$Lang{nutrition_data_per_100g}{$lang}</span>
-<span id="nutrition_data_prepared_serving" $nutrition_data_per_display_style{"nutrition_data_prepared_serving"}>$Lang{nutrition_data_per_serving}{$lang}</span>
-</th>
-<th>
-$Lang{unit}{$lang}
-</th>
-</thead>
-
-<tbody>
-HTML
-;
 
 	$template_data_ref_display->{column_display_style_nutrition_data} =$column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared} =$column_display_style{"nutrition_data_prepared"};
 	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
-	$template_data_ref_display->{nutrition_data_serving_style} = $nutrition_data_per_display_style{"nutrition_data_serving_100g"};
+	$template_data_ref_display->{nutrition_data_serving_style} = $nutrition_data_per_display_style{"nutrition_data_serving"};
 	$template_data_ref_display->{nutrition_data_prepared_100g_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
 	$template_data_ref_display->{nutrition_data_prepared_serving_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
+	
+
+
+	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
 	
 	$template_data_ref_display->{nutrition_data_table} = $Lang{nutrition_data_table}{$lang};
 	$template_data_ref_display->{product_as_sold} = $Lang{product_as_sold}{$lang};
@@ -1588,9 +1514,6 @@ HTML
 	$template_data_ref_display->{tablestyle} = $tablestyle;
 	$template_data_ref_display->{nutrition_data_per_100g} = $Lang{nutrition_data_per_100g}{$lang};
 	$template_data_ref_display->{nutrition_data_per_serving} = $Lang{nutrition_data_per_serving}{$lang};
-	
-	
-	my $html2 = ''; # for ecological footprint
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -1893,14 +1816,7 @@ HTML
 HTML
 ;
 
-		if ($nid eq 'carbon-footprint') {
-			$html2 .= $input;
-		}
-		elsif ($shown) {
-			$html .= $input;
-		}
 
-		
 
 		
 		$nutriment_ref->{shown} = $shown;
@@ -1921,14 +1837,7 @@ HTML
 	}
 	
 	$template_data_ref_display->{nutriments} = \@nutriments;
-	$html .= <<HTML
-</tbody>
-</table>
-<input type="hidden" name="new_max" id="new_max" value="1" />
-<div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
-</div>
-HTML
-;
+
 
 	my $other_nutriments = '';
 	my $nutriments = '';
@@ -2053,12 +1962,6 @@ JS
 	$template_data_ref_display->{cancel} = $Lang{cancel}{$lang};
 	$template_data_ref_display->{edit_comment} = $Lang{edit_comment}{$lang};
 	
-
-	$html .= <<HTML
-
-</form>
-HTML
-;
 
 	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
 

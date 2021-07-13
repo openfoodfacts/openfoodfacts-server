@@ -1081,6 +1081,3 @@ $(function() {
 	  $.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
 	});
 });
-
-
-console.log("here in js");
