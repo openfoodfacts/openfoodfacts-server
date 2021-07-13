@@ -934,21 +934,6 @@ HTML
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
-
-	my $old = <<CSS
-label, input { display: block;  }
-input[type="checkbox"] { padding-top:10px; display: inline; }
-.checkbox_label { display: inline; }
-input.text { width:98% }
-CSS
-;
-
-	$styles .= <<CSS
-.ui-selectable li { margin: 3px; padding: 0px; float: left; width: ${thumb_selectable_size}px; height: ${thumb_selectable_size}px;
-line-height: ${thumb_selectable_size}px; text-align: center; }
-CSS
-;
-
 	$template_data_ref_display->{thumb_selectable_size} = $thumb_selectable_size;
 
 	my $label_new_code = $Lang{new_code}{$lang};
@@ -1020,7 +1005,6 @@ JS
 	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
-	#ends on line 1250 i guess.
 	if ($User{moderator}) {
 		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
 		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
@@ -1030,15 +1014,6 @@ JS
 		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
 
 
-	$styles .= <<CSS
-.show_for_manage_images {
-line-height:normal;
-font-weight:normal;
-font-size:0.8rem;
-}
-.select_manage .ui-selectable li { height: 180px }
-CSS
-;
 	$initjs .= <<JS
 
 \$('#manage_images_accordion').on('toggled', function (event, accordion) {
