@@ -1195,19 +1195,9 @@ JS
 	$template_data_ref_display->{product_image} = $Lang{product_image}{$lang};
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-	my $select_add_language = <<HTML
-<select class="select_add_language" style="width:100%">
-<option></option>
-</select>
-		</li>
-
-HTML
-;
-
-sub display_input_tabs($$$$$$) {
+sub display_input_tabs($$$$$) {
 
 	my $product_ref = shift;
-	my $select_add_language = shift;
 	my $tabsid = shift;
 	my $tabsids_array_ref = shift;
 	my $tabsids_hash_ref = shift;
@@ -1327,8 +1317,8 @@ sub display_input_tabs($$$$$$) {
 	$template_data_ref_display->{product_characteristics} = $Lang{product_characteristics}{$lang};
 	$template_data_ref_display->{nutrition_data} = $Lang{nutrition_data}{$lang};
 	$template_data_ref_display->{no_nutrition_data} = $Lang{no_nutrition_data}{$lang};
-	$template_data_ref_display->{display_tab_product_picture} = display_input_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
-	$template_data_ref_display->{display_tab_product_characteristics} = display_input_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
+	$template_data_ref_display->{display_tab_product_picture} = display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+	$template_data_ref_display->{display_tab_product_characteristics} = display_input_tabs($product_ref, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
@@ -1351,11 +1341,11 @@ sub display_input_tabs($$$$$$) {
 	}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
-	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
+	$template_data_ref_display->{display_tab_ingredients_image} = display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 	$template_data_ref_display->{display_field_allergens} =  display_input_field($product_ref, "allergens", undef);
 	$template_data_ref_display->{display_field_traces} =  display_input_field($product_ref, "traces", undef);
 	$template_data_ref_display->{display_field_origins} =  display_input_field($product_ref, "origins", undef);
-	$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+	$template_data_ref_display->{display_tab_nutrition_image} = display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	$template_data_ref_display->{display_field_serving_size} =   display_input_field($product_ref, "serving_size", undef);
 
 	$initjs .= display_select_crop_init($product_ref);
@@ -1762,7 +1752,7 @@ HTML
 	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
 	$template_data_ref_display->{ecological_data_table} = $Lang{ecological_data_table}{$lang};
 	$template_data_ref_display->{packaging} = $Lang{packaging}{$lang};
-	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 
 	# Product check
 
