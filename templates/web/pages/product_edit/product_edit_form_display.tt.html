@@ -1,28 +1,6 @@
 <!-- start templates/[% template.name %] -->
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-    <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-    <link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=[% file_timestamps_css %]" />
- 
- 
-    <script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-    <script type="text/javascript" src="/js/dist/cropper.js"></script>
-    <script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-    <script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-    <script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-    <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-    <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-    <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-    <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
-    <script type="text/javascript">
-        var admin = $moderator;
-    </script>
-  
-
-
-</head>
 <body>
 
   
@@ -194,12 +172,12 @@
                                     
                                     [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
                                         <td>
-                                            <span class="nutriment_unit">[% nutriment.unit %]</span>
+                                            <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
                                         
                                     [% ELSE %]
                                         <td>
                                             <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
-                                            <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
+                                            <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
                                                 [% FOREACH unit IN nutriment.units_arr %]
                                                     <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
                                                 [% END %]
@@ -234,11 +212,7 @@
                 [% END %]
                 -->
 
-            </div>
-
-            <!--div style position relative ends-->
-
-
+            
             <p class="note">&rarr; [% nutrition_data_table_note %]</p>
 
             <table>
@@ -257,10 +231,45 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    [% FOREACH nutriment IN nutriments %]
+
+                        <!--  [% nutriment.nid %] -->
+
+                        [%  IF nutriment.nid == 'carbon-footprint' %]
+
+                            <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
+                                <td>[% nutriment.label %]</td>
+                                <td class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                    <input class="nutriment_value nutriment_value_as_sold" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                                </td>
+                                <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                    <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
+                                </td>
+                                
+                                <td>
+                                    <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
+                                    <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
+                                        [% FOREACH unit IN nutriment.units_arr %]
+                                            <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                        [% END %]
+                                        </select>
+                                </td>
+                            </tr>
+
+                        [% END %]
+                    
+                    [% END %]
                 
                 </tbody>
 
             </table>
+
+        </div>
+
+        <!--div style position relative ends-->
+
+
 
             <p class="note">&rarr; [% ecological_data_table_note %]</p>
         </div>
@@ -331,6 +340,8 @@
 
 
     </form>
+
+    [% display_product_history %]
 
 
 </body>

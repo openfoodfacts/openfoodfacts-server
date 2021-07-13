@@ -892,10 +892,27 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$template_data_ref_display->{file_timestamps_css} = $file_timestamps{"css/dist/product-multilingual.css"};
-	$template_data_ref_display->{file_timestamps_js} = $file_timestamps{"js/dist/product-multilingual.js"};
+
+	$header .= <<HTML
+<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
+HTML
+;
 
 	$scripts .= <<HTML
+<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="/js/dist/cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript">
+var admin = $moderator;
+</script>
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
 HTML
 ;
@@ -976,27 +993,6 @@ CSS
 	$template_data_ref_display->{obsolete} = $Lang{obsolete}{$lang};
 	$template_data_ref_display->{warning_3rd_party_content} = $Lang{warning_3rd_party_content}{$lang};
 	$template_data_ref_display->{licence_accept} = $Lang{licence_accept}{$lang};
-
-$scripts .= <<HTML
-<script type="text/javascript">
-'use strict';
-\$(function() {
-  var alerts = \$('.alert-box.store-state');
-  \$.each(alerts, function( index, value ) {
-    var display = \$.cookie('state_' + value.id);
-    if (display !== undefined) {
-      value.style.display = display;
-    } else {
-      value.style.display = 'block';
-    }
-  });
-  alerts.on('close.fndtn.alert', function(event) {
-    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
-  });
-});
-</script>
-HTML
-;
 
 	# Main language
 	my @lang_options;
@@ -1492,12 +1488,13 @@ JAVASCRIPT
 			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
 		}
 
+	
 
-		if ((exists $Lang{$nutrition_data_instructions}) and ($Lang{$nutrition_data_instructions} ne '')) {
-			$html .= <<HTML
-<p id="$nutrition_data_instructions" $hidden>$Lang{$nutrition_data_instructions}{$lang}</p>
-HTML
-;
+		my $nutriment_col_class = "nutriment_col" . $product_type;
+		
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
 		}
 
 		push(@nutrition_products, {
@@ -1513,15 +1510,9 @@ HTML
 			nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
 			nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lang},
 			hidden => $hidden,
-
+			nutriment_col_class => $nutriment_col_class,
+			product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
 		});
-
-		my $nutriment_col_class = "nutriment_col" . $product_type;
-		
-		my $product_type_as_sold_or_prepared = "as_sold";
-		if ($product_type eq "_prepared") {
-			$product_type_as_sold_or_prepared = "prepared";
-		}
 
 		$initjs .= <<JS
 \$('#$nutrition_data').change(function() {
@@ -1621,10 +1612,12 @@ HTML
 	}
 
 	my @nutriments;	
-	my $nutriments_hash = {};
+	
 
 #this foreach ends on line 2067
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
+
+		my $nutriment_ref = {};
 
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -1790,13 +1783,16 @@ HTML
 			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
 			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
-			$nutriments_hash->{unit} =$unit;
+
+			$nutriment_ref->{nutriment_unit}  = $unit;
+		
 
 			$input .= <<"HTML"
 <td>
 <span class="nutriment_unit">$unit</span>
 HTML
 ;
+
 		}
 		else {
 
@@ -1837,8 +1833,11 @@ HTML
 				$hide_percent = ' style="display:none"';
 			}
 
-			$nutriments_hash->{hide_select} = $hide_select;
-			$nutriments_hash->{hide_percent} = $hide_percent;
+
+			$nutriment_ref->{hide_select}  = $hide_select;
+			$nutriment_ref->{hide_percent}  = $hide_percent;
+			$nutriment_ref->{nutriment_unit_disabled}  = $disabled;
+
 			
 
 			$input .= <<HTML
@@ -1874,10 +1873,7 @@ HTML
 			}
 
 
-			$nutriments_hash->{units_arr} = \@units_arr;
-
-
-			
+			$nutriment_ref->{units_arr} = \@units_arr;
 
 			$input .= <<HTML
 </select>
@@ -1886,6 +1882,10 @@ HTML
 
 			
 		}
+
+	
+
+		
 
 		$input .= <<HTML
 </td>
@@ -1902,25 +1902,24 @@ HTML
 
 		
 
-		$nutriments_hash = {
-			shown => $shown,
-			enid => $enid,
-			enidp => $enidp,
-			prefix => $prefix,
-			nid => $nid,
-			label => $label,
-			class => $class,
-			value => $value,
-			valuep => $valuep,
-			display => $display,
-			disabled => $disabled,
-		};
+		
+		$nutriment_ref->{shown} = $shown;
+		$nutriment_ref->{enid} = $enid;
+		$nutriment_ref->{enidp} = $enidp;
+		$nutriment_ref->{prefix} = $prefix;
+		$nutriment_ref->{nid} = $nid;
+		$nutriment_ref->{label} = $label;
+		$nutriment_ref->{class} = $class;
+		$nutriment_ref->{value} = $value;
+		$nutriment_ref->{valuep} = $valuep;
+		$nutriment_ref->{display} = $display;
+		$nutriment_ref->{disabled} = $disabled;
 
-		push(@nutriments, $nutriments_hash);
+		push(@nutriments, $nutriment_ref);
+		
 
 	}
-
-	#$html .= "<p>" . Dumper(@nutriments) . "</p>";
+	
 	$template_data_ref_display->{nutriments} = \@nutriments;
 	$html .= <<HTML
 </tbody>
@@ -1978,100 +1977,11 @@ $other_nutriments
 HTML
 ;
 
-	$initjs .= <<JAVASCRIPT
-
-\$( ".nutriment_label" ).autocomplete({
-	source: otherNutriments,
-	select: select_nutriment,
-	//change: add_line
-});
-
-\$("#nutriment_sodium").change( function () {
-	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.5);
-}
-);
-
-\$("#nutriment_salt").change( function () {
-	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.5);
-}
-);
-
-\$("#nutriment_sodium_prepared").change( function () {
-	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.5);
-}
-);
-
-\$("#nutriment_salt_prepared").change( function () {
-	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.5);
-}
-);
-
-function swapSalt(from, to, multiplier) {
-	var source = from.val().replace(",", ".");
-	var regex = /^(.*?)([\\d]+(?:\\.[\\d]+)?)(.*?)\$/g;
-	var match = regex.exec(source);
-	if (match) {
-		var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
-		to.val(target);
-	} else {
-		to.val(from.val());
-	}
-}
-
-\$("#nutriment_sodium_unit").change( function () {
-	\$("#nutriment_salt_unit").val( \$("#nutriment_sodium_unit").val());
-}
-);
-
-\$("#nutriment_salt_unit").change( function () {
-	\$("#nutriment_sodium_unit").val( \$("#nutriment_salt_unit").val());
-}
-);
-
-\$("#nutriment_new_0_label").change(add_line);
-\$("#nutriment_new_1_label").change(add_line);
-
-JAVASCRIPT
-;
 
 	if ($User{moderator}) {
 		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
 	}
 
-
-	$html .= <<HTML
-<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
-HTML
-;
-
-	#$html .= "<p>" . Dumper($html2) . "</p>";
-
-	$html .= <<HTML
-<table id="ecological_data_table" class="data_table">
-<thead class="nutriment_header">
-<tr><th>$Lang{ecological_data_table}{$lang}</th>
-<th class="nutriment_col" $column_display_style{"nutrition_data"}>
-$Lang{product_as_sold}{$lang}
-</th>
-<th class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-$Lang{prepared_product}{$lang}
-</th>
-<th>
-$Lang{unit}{$lang}
-</th>
-</tr>
-</thead>
-<tbody>
-$html2
-</tbody>
-</table>
-HTML
-;
-
-	$html .= <<HTML
-<p class="note">&rarr; $Lang{ecological_data_table_note}{$lang}</p>
-HTML
-;
 
 
 
@@ -2108,14 +2018,6 @@ HTML
 		$template_data_ref_display->{product_check_label} = $label;
 		$template_data_ref_display->{product_check_checked} = $checked;
 
-	}
-
-	if ($admin) {
-
-		# Let admins edit any other fields
-		if (defined param("fields")) {
-			$html .= hidden(-name=>'fields', -value=>param("fields"), -override=>1);
-		}
 	}
 
 	$template_data_ref_display->{param_fields} = param("fields");
@@ -2160,12 +2062,12 @@ HTML
 
 	#$html .= "<p>" . Dumper($template_data_ref_display) . "</p>";
 
+	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
-	#process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
-	#$initjs .= $js;
+	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
+	$initjs .= $js;
 
-
-	$html .= display_product_history($code, $product_ref);
 }
 #rosheen comment
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
