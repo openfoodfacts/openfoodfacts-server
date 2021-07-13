@@ -1109,7 +1109,7 @@ $("#fixed_bar").width(parent_width);
 
 $(window).resize(
 	function() {
-		var parent_width = $("#fixed_bar").parent().width();
+		parent_width = $("#fixed_bar").parent().width();
 		$("#fixed_bar").width(parent_width);
 	}
 )
