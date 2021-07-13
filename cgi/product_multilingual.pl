@@ -1616,7 +1616,6 @@ HTML
 	}
 
 	my @nutriments;	
-	my $nutriments_hash = {};
 	my @checks;
 
 #this foreach ends on line 2067
@@ -1637,7 +1636,8 @@ HTML
 
 		my $shown = 0;
 
-	
+		# hash table ref to store all the elements related to the nutrient that we are going to pass to the template
+		my $nutriment_ref = {};
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
@@ -1794,7 +1794,7 @@ HTML
 			elsif (($nid eq 'energy-kj')) { $unit = 'kJ'; }
 			elsif (($nid eq 'energy-kcal')) { $unit = 'kcal'; }
 
-			$nutriments_hash->{unit} =$unit;
+			$nutriment_ref->{unit} =$unit;
 
 			$input .= <<"HTML"
 <td>
@@ -1841,8 +1841,8 @@ HTML
 				$hide_percent = ' style="display:none"';
 			}
 
-			$nutriments_hash->{hide_select} = $hide_select;
-			$nutriments_hash->{hide_percent} = $hide_percent;
+			$nutriment_ref->{hide_select} = $hide_select;
+			$nutriment_ref->{hide_percent} = $hide_percent;
 			
 
 			$input .= <<HTML
@@ -1878,7 +1878,7 @@ HTML
 			}
 
 
-			$nutriments_hash->{units_arr} = \@units_arr;
+			$nutriment_ref->{units_arr} = \@units_arr;
 
 
 			
@@ -1906,21 +1906,19 @@ HTML
 
 		
 
-		$nutriments_hash = {
-			shown => $shown,
-			enid => $enid,
-			enidp => $enidp,
-			prefix => $prefix,
-			nid => $nid,
-			label => $label,
-			class => $class,
-			value => $value,
-			valuep => $valuep,
-			display => $display,
-			disabled => $disabled,
-		};
+		$nutriment_ref->{shown} = $shown;
+		$nutriment_ref->{enid} = $enid;
+		$nutriment_ref->{enidp} = $enidp;
+		$nutriment_ref->{prefix} = $prefix;
+		$nutriment_ref->{nid} = $nid;
+		$nutriment_ref->{label} = $label;
+		$nutriment_ref->{class} = $class;
+		$nutriment_ref->{value} = $value;
+		$nutriment_ref->{valuep} = $valuep;
+		$nutriment_ref->{display} = $display;
+		$nutriment_ref->{disabled} = $disabled;
 
-		push(@nutriments, $nutriments_hash);
+		push(@nutriments, $nutriment_ref);
 
 	}
 
