@@ -1189,27 +1189,7 @@ JS
 
 
 
-	$initjs .= <<JAVASCRIPT
-\$(document).foundation({
-    tab: {
-      callback : function (tab) {
 
-\$('.tabs').each(function(i, obj) {
-	\$(this).removeClass('active');
-});
-
-        var id = tab[0].id;	 // e.g. tabs_front_image_en_tab
-		var lc = id.replace(/.*(..)_tab/, "\$1");
-		\$(".tabs_" + lc).addClass('active');
-
-\$(document).foundation('tab', 'reflow');
-
-      }
-    }
-  });
-
-JAVASCRIPT
-;
 
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
@@ -1938,19 +1918,6 @@ HTML
 	# As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
 	# Using javascript to set the width of the fixed bar at startup, and when the window is resized.
 
-	$initjs .= <<JS
-
-var parent_width = \$("#fixed_bar").parent().width();
-\$("#fixed_bar").width(parent_width);
-
-\$(window).resize(
-	function() {
-		var parent_width = \$("#fixed_bar").parent().width();
-		\$("#fixed_bar").width(parent_width);
-	}
-)
-JS
-;
 
 	$scripts .= <<JS
 

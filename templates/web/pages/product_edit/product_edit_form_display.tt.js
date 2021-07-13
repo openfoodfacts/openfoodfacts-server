@@ -1,7 +1,6 @@
 
 console.log("Try 07");
 
-
 [% FOREACH nutrition IN nutrition_products %]
 
 	\$('#[% nutrition.nutrition_data %]').change(function() {
@@ -18,17 +17,10 @@ console.log("Try 07");
 	});
 
 	\$('input[name=[% nutrition.nutrition_data_per %]]').change(function() {
-
-		var x = \$('input[name=[% nutrition.nutrition_data_per %]]:checked').val();
-		console.log(x);
 		if (\$('input[name=[% nutrition.nutrition_data_per %]]:checked').val() == '100g') {
-			console.log('yes');
 			\$('#[% nutrition.nutrition_data %]_100g').show();
 			\$('#[% nutrition.nutrition_data %]_serving').hide();
 		} else {
-			console.log("no");
-			console.log('[% nutrition.nutrition_data %]_100g');
-			console.log('[% nutrition.nutrition_data %]_serving');
 			\$('#[% nutrition.nutrition_data %]_100g').hide();
 			\$('#[% nutrition.nutrition_data %]_serving').show();
 		}

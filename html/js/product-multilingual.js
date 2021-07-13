@@ -992,6 +992,13 @@ function convertTranslationToLanguage(Lang, translation) {
   }
 }
 
+var nutriments = {
+	$nutriments
+};
+
+var otherNutriments = [
+	$other_nutriments
+];
  
 $(function() {
 
@@ -1081,3 +1088,32 @@ $(function() {
 	  $.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
 	});
 });
+
+
+$(document).foundation({
+    tab: {
+      callback : function (tab) {
+
+		$('.tabs').each(function(i, obj) {
+			$(this).removeClass('active');
+		});
+
+        var id = tab[0].id;	 // e.g. tabs_front_image_en_tab
+		var lc = id.replace(/.*(..)_tab/, "\$1");
+		$(".tabs_" + lc).addClass('active');
+
+		$(document).foundation('tab', 'reflow');
+      }
+    }
+});
+
+
+var parent_width = $("#fixed_bar").parent().width();
+$("#fixed_bar").width(parent_width);
+
+$(window).resize(
+	function() {
+		var parent_width = $("#fixed_bar").parent().width();
+		$("#fixed_bar").width(parent_width);
+	}
+)
