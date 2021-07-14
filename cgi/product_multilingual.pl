@@ -82,9 +82,6 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 my $template_data_ref = {};
-$template_data_ref->{type} = $type;
-$template_data_ref->{action} = $action;
-$template_data_ref->{user_id} =  $User_id;
 
 # Search or add product
 if ($type eq 'search_or_add') {
@@ -211,48 +208,15 @@ if ($User_id eq 'unwanted-bot-id') {
 	return 500;
 }
 
+$template_data_ref->{user_id} =  $User_id;
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
 		my $submit_label = "login_and_" .$type . "_product";
-
-		$html = <<HTML
-<p>$Lang{login_to_add_products}{$lang}</p>
-
-<div style="display: inline;">
-<form method="post" action="/cgi/session.pl">
-<div class="row">
-<div class="small-12 columns">
-	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username" />
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password" />
-	</label>
-</div>
-<div class="small-12 columns">
-	<label>
-		<input type="checkbox" name="remember_me" value="on" />
-		$Lang{remember_me}{$lc}
-	</label>
-</div>
-</div>
-<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
-<input type="hidden" name="code" value="$code" />
-<input type="hidden" name="next_action" value="product_$type" />
-<button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">$Lang{login_create_your_account}{$lc}</button>
-<input type="hidden" name="prdct_mult" value="True" />
-</form>
-</div>
-
-HTML
-;
 		$action = 'login';
+		$template_data_ref->{type} = $type;
 		$template_data_ref->{code} =  $code;
-
 	}
 }
 
