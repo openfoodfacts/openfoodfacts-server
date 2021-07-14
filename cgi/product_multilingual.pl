@@ -86,7 +86,6 @@ $template_data_ref->{type} = $type;
 $template_data_ref->{action} = $action;
 $template_data_ref->{user_id} =  $User_id;
 
-
 # Search or add product
 if ($type eq 'search_or_add') {
 
@@ -1612,31 +1611,24 @@ HTML
 }
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
+	my $template_data_ref_moderator = {};
+
 	$log->debug("display product", { code => $code }) if $log->is_debug();
 
-	$html .= start_multipart_form(-id=>"product_form") ;
+	$template_data_ref_moderator->{delete_comment} = $Lang{delete_comment}{$lang};
+	$template_data_ref_moderator->{delete_product_confirm} = $Lang{delete_product_confirm}{$lang};
+	$template_data_ref_moderator->{product_name} = $Lang{product_name}{$lang};
+	$template_data_ref_moderator->{product_ref_product_name} = $product_ref->{product_name};
+	$template_data_ref_moderator->{barcode} = $Lang{barcode}{$lang};
+	$template_data_ref_moderator->{type} = $type;
+	$template_data_ref_moderator->{code} = $code;
 
-	$html .= <<HTML
-<p>$Lang{delete_product_confirm}{$lc} ? ($Lang{product_name}{$lc} : $product_ref->{product_name}, $Lang{barcode}{$lc} : $code)</p>
-
-HTML
-;
-
-	$html .= ''
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'code', -value=>$code, -override=>1)
-	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. <<HTML
-<label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
-<input type="text" id="comment" name="comment" value="" />
-HTML
-	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
-	. end_form();
-
-
+	process_template('web/pages/product_edit/product_edit_form_display_user-moderator.tt.html', $template_data_ref_moderator, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 }
 elsif ($action eq 'process') {
+
+	my $template_data_ref_process = {};
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
 
@@ -1655,6 +1647,9 @@ elsif ($action eq 'process') {
 	store_product($User_id, $product_ref, $comment);
 
 	my $product_url = product_url($product_ref);
+
+	$template_data_ref_process->{product_url} = $product_url;
+	$template_data_ref_process->{product_ref_server} = $product_ref->{server};
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
