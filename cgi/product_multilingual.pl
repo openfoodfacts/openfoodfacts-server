@@ -105,6 +105,8 @@ if ($type eq 'search_or_add') {
 	my %data = ();
 	my $location;
 
+	$template_data_ref->{code} = $code;
+
 	if (defined $code) {
 		$data{code} = $code;
 		$product_id = product_id_for_owner($Owner_id, $code);
@@ -150,11 +152,9 @@ if ($type eq 'search_or_add') {
 		if (defined param("imgupload_search")) {
 			$log->info("no code found in image") if $log->is_info();
 			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
-			$html .= lang("image_upload_error_no_barcode_found_in_image_long");
 		}
 		else {
 			$log->info("no code found in text") if $log->is_info();
-			$html .= lang("image_upload_error_no_barcode_found_in_text");
 		}
 	}
 
@@ -216,10 +216,10 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		my $submit_label = "login_and_" .$type . "_product";
 		$action = 'login';
 		$template_data_ref->{type} = $type;
-		$template_data_ref->{code} =  $code;
 	}
 }
 
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
 
@@ -872,6 +872,11 @@ var admin = $moderator;
 HTML
 ;
 
+$html .= <<HTML
+<span></span>
+HTML
+;
+
 	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
 	 and (defined $Org_id)) {
 
@@ -1298,35 +1303,20 @@ sub display_input_tabs($$$$$) {
 
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-
-			$label = <<HTML
-<label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{$lang}</label>
-HTML
-;
-
+			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
+			$nutriment_ref->{nutriments_nid_lang} =  $Nutriments{$nid}{$lang};
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			
-			$label = <<HTML
-<label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{en}</label>
-HTML
-;
+			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
+			$nutriment_ref->{nutriments_nid_en} =  $Nutriments{$nid}{en};
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" value="$label_value" />
-HTML
-;
-
 		}
-		else {	# add a nutriment
 
-			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
-HTML
-;
-		}
+		$nutriment_ref->{label_value} =  $product_ref->{nutriments}{$nid . "_label"};
+		$nutriment_ref->{product_add_nutrient} =  $Lang{product_add_nutrient}{$lang};
+		$nutriment_ref->{prefix} = $prefix;
 
 		my $unit = 'g';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
@@ -1468,7 +1458,6 @@ HTML
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
-		$nutriment_ref->{prefix} = $prefix;
 		$nutriment_ref->{nid} = $nid;
 		$nutriment_ref->{label} = $label;
 		$nutriment_ref->{class} = $class;
@@ -1662,13 +1651,6 @@ MAIL
 	}
 
 }
-
-$html = "<p id=\"barcode_paragraph\">" . lang("barcode")
-	. separator_before_colon($lc)
-	. ": <span id=\"barcode\" property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span></p>\n" . $html;
-
-
-process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 display_page( {
 	blog_ref=>undef,
