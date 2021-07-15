@@ -105,7 +105,7 @@ if ($type eq 'search_or_add') {
 	my %data = ();
 	my $location;
 
-	$template_data_ref->{code} = $code;
+
 
 	if (defined $code) {
 		$data{code} = $code;
@@ -208,7 +208,6 @@ if ($User_id eq 'unwanted-bot-id') {
 	return 500;
 }
 
-$template_data_ref->{user_id} =  $User_id;
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
@@ -219,6 +218,8 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 	}
 }
 
+$template_data_ref->{user_id} =  $User_id;
+$template_data_ref->{code} = $code;
 process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
@@ -1518,6 +1519,11 @@ $other_nutriments
 HTML
 ;
 
+$html .= <<HTML
+<span></span>
+HTML
+;
+
 	# Packaging photo and data
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
@@ -1601,14 +1607,12 @@ elsif ($action eq 'process') {
 
 	my $product_url = product_url($product_ref);
 
-	$template_data_ref_process->{product_url} = $product_url;
+
 	$template_data_ref_process->{product_ref_server} = $product_ref->{server};
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
-		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
-			. lang("see_product_page") . "</a></p>";
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
 	}
 	elsif ($type eq 'delete') {
 
@@ -1629,6 +1633,8 @@ MAIL
 		# Notify robotoff
 		send_notification_for_product_change($product_ref, "updated");
 
+		$template_data_ref_process->{display_random_sample_of_products_after_edits_options} = $options{display_random_sample_of_products_after_edits};
+
 		# warning: this option is very slow
 		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
 
@@ -1644,11 +1650,10 @@ MAIL
 			display_product(\%request);
 
 		}
-		else {
-			$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
-                . lang("see_product_page") . "</a></p>";
-		}
 	}
+
+	$template_data_ref_process->{product_url} = $product_url;
+	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 }
 
@@ -1660,6 +1665,5 @@ display_page( {
 	content_ref=>\$html,
 	full_width=>1,
 });
-
 
 exit(0);
