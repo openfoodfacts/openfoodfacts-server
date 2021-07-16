@@ -1325,6 +1325,7 @@ $options{nova_groups_tags} = {
 
 $options{import_sources} = {
 	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
 };
 
