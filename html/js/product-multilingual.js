@@ -1114,6 +1114,18 @@ $(window).resize(
 	}
 )
 
+/*
+function manage_ui_selected(i, list_of_imgids) {
+	$( "#manage .ui-selected"  ).each(function() {
+		var imgid = $( this ).attr('id');
+		imgid = imgid.replace("manage_","");
+		list_of_imgids += imgid + ',';
+		i++;
+	});
+}
+*/
+
+
 function toggle_manage_images_buttons() {
 	$("#delete_images").addClass("disabled");
 	$("#move_images").addClass("disabled");
@@ -1140,26 +1152,26 @@ event.preventDefault();
 		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
 		$('div[id="moveimagesmsg"]').show();
 
-		let imgids = '';
+		let list_of_imgids = '';
 		var i = 0;
+
 		$( "#manage .ui-selected"  ).each(function() {
 			var imgid = $( this ).attr('id');
 			imgid = imgid.replace("manage_","");
-			imgids += imgid + ',';
+			list_of_imgids += imgid + ',';
 			i++;
 		});
+		
 		if (i) {
 			// remove trailing comma
-			imgids = imgids.substring(0, imgids.length - 1);
+			list_of_imgids = list_of_imgids.substring(0, list_of_imgids.length - 1);
 		}
 
 		$("#product_form").ajaxSubmit({
 
 		url: "/cgi/product_image_move.pl",
-		data: { code: code, move_to_override: "trash", imgids : imgids },
+		data: { code: code, move_to_override: "trash", list_of_imgids : list_of_imgids },
 		dataType: 'json',
-		beforeSubmit: function(a,f,o) {
-		},
 		success: function(data) {
 
 			if (data.error) {
@@ -1175,9 +1187,6 @@ event.preventDefault();
 		error : function(jqXHR, textStatus, errorThrown) {
 			$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
 		},
-		complete: function(XMLHttpRequest, textStatus) {
-
-			}
 		});
 
 	}
@@ -1200,26 +1209,24 @@ if (! $("#move_images").hasClass("disabled")) {
 	$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
 	$('div[id="moveimagesmsg"]').show();
 
-	let imgids = '';
+	let list_of_imgids = '';
 	var i = 0;
 	$( "#manage .ui-selected"  ).each(function() {
 		var imgid = $( this ).attr('id');
 		imgid = imgid.replace("manage_","");
-		imgids += imgid + ',';
+		list_of_imgids += imgid + ',';
 		i++;
 	});
 	if (i) {
 		// remove trailing comma
-		imgids = imgids.substring(0, imgids.length - 1);
+		list_of_imgids = list_of_imgids.substring(0, list_of_imgids.length - 1);
 	}
 
 $("#product_form").ajaxSubmit({
 
   url: "/cgi/product_image_move.pl",
-  data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop( "checked" ), imgids : imgids },
+  data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop( "checked" ), list_of_imgids : list_of_imgids },
   dataType: 'json',
-  beforeSubmit: function(a,f,o) {
-  },
   success: function(data) {
 
 	if (data.error) {

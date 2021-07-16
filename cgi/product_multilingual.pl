@@ -957,7 +957,7 @@ HTML
 	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
-	if ($User{moderator}) {
+	
 
 		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
 		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
@@ -966,7 +966,7 @@ HTML
 		$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
 		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
 	
-	}
+	
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
