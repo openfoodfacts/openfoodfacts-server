@@ -1140,7 +1140,7 @@ event.preventDefault();
 		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
 		$('div[id="moveimagesmsg"]').show();
 
-		var imgids = '';
+		let imgids = '';
 		var i = 0;
 		$( "#manage .ui-selected"  ).each(function() {
 			var imgid = $( this ).attr('id');
@@ -1200,7 +1200,7 @@ if (! $("#move_images").hasClass("disabled")) {
 	$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
 	$('div[id="moveimagesmsg"]').show();
 
-	var imgids = '';
+	let imgids = '';
 	var i = 0;
 	$( "#manage .ui-selected"  ).each(function() {
 		var imgid = $( this ).attr('id');
