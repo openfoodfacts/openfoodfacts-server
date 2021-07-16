@@ -11,6 +11,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 Install docker:
 - [Docker CE](https://docs.docker.com/install/#supported-platforms)
+  - If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Command-line completion](https://docs.docker.com/compose/completion/)
 
