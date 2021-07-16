@@ -1317,6 +1317,15 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'codeonline' => "CodeOnline Food",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
 
 1;
