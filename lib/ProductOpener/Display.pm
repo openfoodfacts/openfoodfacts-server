@@ -7243,6 +7243,13 @@ sub display_page($) {
 		$og_type = $request_ref->{og_type};
 	}
 
+# We need to find where to put this. I have rebased, but Display.pm has been since templatized.
+#<script type="text/javascript">
+#  var _jipt = [];
+#  _jipt.push(['project', 'openfoodfacts']);
+#</script>
+#<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
+
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{language} = $lang;
 	$template_data_ref->{title} = $title;
