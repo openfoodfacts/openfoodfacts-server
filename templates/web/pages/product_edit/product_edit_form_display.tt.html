@@ -77,6 +77,7 @@
             [% END %]
         </select>
 
+        [% IF user_moderator %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
                     <a href="#manage_images_drop">[% display_icon('collections') %] [% manage_images %]</a>
@@ -100,7 +101,7 @@
                     </div>
                 </li>
             </ul> 
-  
+        [% END %]
 
         <div id="product_image" class="fieldset"><legend>[% product_image %]</legend>
             <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>

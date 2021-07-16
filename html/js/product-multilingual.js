@@ -1114,17 +1114,22 @@ $(window).resize(
 	}
 )
 
-/*
-function manage_ui_selected(i, list_of_imgids) {
-	$( "#manage .ui-selected"  ).each(function() {
-		var imgid = $( this ).attr('id');
-		imgid = imgid.replace("manage_","");
-		list_of_imgids += imgid + ',';
-		i++;
-	});
+// This function returns a comma separated list of the imgids of images selected in the manage images section
+function get_list_of_imgids() {
+    var list_of_imgids = '';
+    var i = 0;
+    $( "#manage .ui-selected"  ).each(function() {
+        var imgid = $( this ).attr('id');
+        imgid = imgid.replace("manage_","");
+        list_of_imgids += imgid + ',';
+        i++;
+    });
+    if (i) {
+        // remove trailing comma
+        list_of_imgids = list_of_imgids.slice(0, -1);
+    }
+    return list_of_imgids;
 }
-*/
-
 
 function toggle_manage_images_buttons() {
 	$("#delete_images").addClass("disabled");
@@ -1141,8 +1146,8 @@ $('#manage_images_accordion').on('toggled', function (event, accordion) {
 
 $("#delete_images").click({},function(event) {
 
-event.stopPropagation();
-event.preventDefault();
+	event.stopPropagation();
+	event.preventDefault();
 
 	if (! $("#delete_images").hasClass("disabled")) {
 
@@ -1152,106 +1157,79 @@ event.preventDefault();
 		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
 		$('div[id="moveimagesmsg"]').show();
 
-		let list_of_imgids = '';
-		var i = 0;
-
-		$( "#manage .ui-selected"  ).each(function() {
-			var imgid = $( this ).attr('id');
-			imgid = imgid.replace("manage_","");
-			list_of_imgids += imgid + ',';
-			i++;
-		});
-		
-		if (i) {
-			// remove trailing comma
-			list_of_imgids = list_of_imgids.substring(0, list_of_imgids.length - 1);
-		}
+		get_list_of_imgids();
 
 		$("#product_form").ajaxSubmit({
 
-		url: "/cgi/product_image_move.pl",
-		data: { code: code, move_to_override: "trash", list_of_imgids : list_of_imgids },
-		dataType: 'json',
-		success: function(data) {
+			url: "/cgi/product_image_move.pl",
+			data: { code: code, move_to_override: "trash", imgids : get_list_of_imgids() },
+			dataType: 'json',
+			success: function(data) {
 
-			if (data.error) {
-				$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
-			}
-			else {
-				$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
-			}
-			$([]).selectcrop('init_images',data.images);
-			$(".select_crop").selectcrop('show');
+				if (data.error) {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
+				}
+				else {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
+				}
+				$([]).selectcrop('init_images',data.images);
+				$(".select_crop").selectcrop('show');
 
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
-		},
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
+			},
 		});
 
 	}
 
 });
 
-
-
 $("#move_images").click({},function(event) {
 
-event.stopPropagation();
-event.preventDefault();
+	event.stopPropagation();
+	event.preventDefault();
 
+	if (! $("#move_images").hasClass("disabled")) {
 
-if (! $("#move_images").hasClass("disabled")) {
-
-	$("#delete_images").addClass("disabled");
-	$("#move_images").addClass("disabled");
-
-	$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
-	$('div[id="moveimagesmsg"]').show();
-
-	let list_of_imgids = '';
-	var i = 0;
-	$( "#manage .ui-selected"  ).each(function() {
-		var imgid = $( this ).attr('id');
-		imgid = imgid.replace("manage_","");
-		list_of_imgids += imgid + ',';
-		i++;
-	});
-	if (i) {
-		// remove trailing comma
-		list_of_imgids = list_of_imgids.substring(0, list_of_imgids.length - 1);
-	}
-
-$("#product_form").ajaxSubmit({
-
-  url: "/cgi/product_image_move.pl",
-  data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop( "checked" ), list_of_imgids : list_of_imgids },
-  dataType: 'json',
-  success: function(data) {
-
-	if (data.error) {
-		$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
-	}
-	else {
-		$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
-	}
-	$([]).selectcrop('init_images',data.images);
-	$(".select_crop").selectcrop('show');
-
-  },
-  error : function(jqXHR, textStatus, errorThrown) {
-	$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
-  },
-  complete: function(XMLHttpRequest, textStatus) {
+		$("#delete_images").addClass("disabled");
 		$("#move_images").addClass("disabled");
-		$("#move_images").addClass("disabled");
-		$( "#manage .ui-selected"  ).first().each(function() {
-			$("#move_images").removeClass("disabled");
-			$("#move_images").removeClass("disabled");
+
+		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
+		$('div[id="moveimagesmsg"]').show();
+
+		get_list_of_imgids();
+
+		$("#product_form").ajaxSubmit({
+
+			url: "/cgi/product_image_move.pl",
+			data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop( "checked" ), imgids : get_list_of_imgids() },
+			dataType: 'json',
+			success: function(data) {
+
+				if (data.error) {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
+				}
+				else {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
+				}
+				$([]).selectcrop('init_images',data.images);
+				$(".select_crop").selectcrop('show');
+
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+					$("#move_images").addClass("disabled");
+					$("#move_images").addClass("disabled");
+					$( "#manage .ui-selected"  ).first().each(function() {
+						$("#move_images").removeClass("disabled");
+						$("#move_images").removeClass("disabled");
+					});
+				}
 		});
-	}
- });
 
-}
+	}
 
 });

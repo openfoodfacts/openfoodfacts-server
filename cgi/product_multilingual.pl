@@ -951,22 +951,19 @@ HTML
 		$lang_value = $product_ref->{lc};
 	}
 
-
 	$template_data_ref_display->{lang_value} = $lang_value;
 	$template_data_ref_display->{lang_options} = \@lang_options;
 	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
-	
-
+	if ($User{moderator}) {
 		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
 		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
 		$template_data_ref_display->{delete_the_images} = $Lang{delete_the_images}{$lc};
 		$template_data_ref_display->{move_images_to_another_product} = $Lang{move_images_to_another_product}{$lc};
 		$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
 		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
-	
-	
+	}
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
