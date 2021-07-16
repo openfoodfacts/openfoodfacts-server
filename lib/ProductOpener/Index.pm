@@ -79,33 +79,34 @@ $memd = Cache::Memcached::Fast->new(
 
 %texts = ();
 
+if (-e "$data_root/lang") {
+	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
+	foreach my $langid (readdir(DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
+		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir(DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
-	#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
+		if (-e "$data_root/lang/$langid/texts") {
+			opendir DH, "$data_root/lang/$langid/texts" or die "Couldn't open the current directory: $!";
+			foreach my $textid (readdir(DH)) {
+				next if $textid eq '.';
+				next if $textid eq '..';
+				my $file = $textid;
+				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
+				defined $texts{$textid} or $texts{$textid} = {};
+				# prefer the .foundation version
+				if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+					$texts{$textid}{$langid} = $file;
+				}
 
-	if (-e "$data_root/lang/$langid/texts") {
-		opendir DH, "$data_root/lang/$langid/texts" or die "Couldn't open the current directory: $!";
-		foreach my $textid (readdir(DH)) {
-			next if $textid eq '.';
-			next if $textid eq '..';
-			my $file = $textid;
-			$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-			defined $texts{$textid} or $texts{$textid} = {};
-			# prefer the .foundation version
-			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-				$texts{$textid}{$langid} = $file;
+				#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 			}
-
-			#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+			closedir(DH);
 		}
-		closedir(DH);
 	}
+	closedir(DH2);
 }
-closedir(DH2);
 
 # Initialize internal variables
 # - using my $variable; is causing problems with mod_perl, it looks
