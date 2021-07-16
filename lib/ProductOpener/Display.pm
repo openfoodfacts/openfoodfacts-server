@@ -636,6 +636,14 @@ CSS
 CSS
 ;
 	}
+
+# Power User Script
+	if ($admin) {
+		$scripts .= <<HTML
+<script type="text/javascript" src="/js/power.user.js"></script>
+HTML
+;
+	}
 	
 	# Enable or disable user preferences
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
@@ -7450,6 +7458,10 @@ JS
 	my $html;
 
 	# init javascript code
+  # Kept those 3 lines during the rebase. Not evident if needed @CharlesNepote
+#<script src="$static_subdomain/js/dist/foundation.js"></script>
+#<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
+#<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 
 	$html =~ s/<initjs>/$initjs/;
 	$template_data_ref->{initjs} = $initjs;
