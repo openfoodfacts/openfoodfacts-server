@@ -92,7 +92,7 @@ Use `exit` to exit from the bash terminal.
 If you have made any changes to docker backend files and just want to restart the docker backend, instead of stopping and restarting the complete environment. Open a new terminal and run this script
 
 ```
-docker-compose -f docker-compose.yml -f docker-compose-dev.yml -f restart backend
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml restart backend
 ```
 
 It will restart the backend and take less time than using `Ctrl+C` and `./start-dev.sh`.
