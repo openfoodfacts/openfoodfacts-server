@@ -462,6 +462,25 @@ sub init_labels_regexps() {
 
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
+
+				# In Spanish, when preparsing ingredients text, we will replace " e " by " y ".
+				# also replace and / or by and to match labels
+
+				my $synonym2 = $synonym;
+				# replace "and / or" by "and"
+			        # except if followed by a separator, a digit, or "and", to avoid false positives
+			        my $and_or = ' - ';
+				my $and = $and{$label_lc} || " and ";
+			        my $and_without_spaces = $and;
+			        $and_without_spaces =~ s/^ //;
+			        $and_without_spaces =~ s/ $//;
+			        if (defined $and_or{$label_lc}) {
+                			$and_or = $and_or{$label_lc};
+			                $synonym2 =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
+					if ($synonym2 ne $synonym) {
+						push @synonyms, $synonym2;
+					}
+        			}
 			}
 			
 			# also add the xx: entries and synonyms
