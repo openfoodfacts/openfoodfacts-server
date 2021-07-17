@@ -127,6 +127,7 @@ nl:100% natuurlijk
 pt:100% natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
 th:ธรรมชาติ 100%
+tr:%100 doğal
 
 en:100% vegetable
 ca:100% vegetal
@@ -141,6 +142,7 @@ nl:100% plantaardig
 pt:100% vegetal
 ru:100% овощной
 th:ใช้น้ำมันพืช 100%
+tr:%100 sebze
 
 en:Not hardened
 ca:Sense endurir
@@ -318,6 +320,7 @@ es:Producto carbono neutro
 fi:hiilihyvitetty tuote, hiilikompensoitu tuote, hiilineutraali
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 hu:szénsemleges termék, szénsemleges, Szén-kompenzált termék
+it:Prodotto compensato al carbonio, carbon neutral
 nl:Kooldioxide neutraal
 pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
 ru:углерод компенсирующий продукт, углерод нейтральный
@@ -337,6 +340,7 @@ fr:Empreinte carbone, émissions de carbone
 he:טביעת רגל פחמנית
 hu:Szénlábnyom, szén-dioxid-kibocsátás, karbonlábnyom, szén lábnyom, karbon lábnyom
 it:Emissioni di CO2, impronta climatica
+lt:Anglies dioksido pėdsakas, anglies dioksido išmetimas, produktas nurodantis anglies pėdsaką
 nl:Koolstofvoetafdruk
 pl:Ślad węglowy produktu
 pt:Pegada de carbono, Emissões de CO2
@@ -522,6 +526,7 @@ fr:ISO 9001, Certifie iso 9001, La certification qualite iso 9001
 hu:ISO 9001, ISO 9001 tanúsítvány
 it:ISO 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
 pl:ISO 9001
+pt:ISO 9001
 ru:ISO 9001, ИСО 9001
 xx:ISO 9001
 wikidata:en:Q1060682
@@ -547,6 +552,7 @@ ru:ГОСТ Р ИСО 9001-2015
 en:ISO 22000
 it:ISO 22000
 pl:ISO 22000
+pt:ISO 22000
 ru:ИСО 22000, ISO 22000
 xx:ISO 22000
 wikidata:en:Q524143
@@ -596,6 +602,7 @@ hu:Méltányos kereskedelem, Fair trade, becsületes kereskedelem
 it:Commercio equo
 nl:Rechtvaardige handel, fair trade
 pl:Fair trade
+pt:Comércio justo
 xx:Fair trade
 wikidata:en:Q188485
 label_categories:en: en:Social responsibility
@@ -623,6 +630,7 @@ fi:Fairtrade International, FLO
 fr:Fairtrade International, Fairtrade, FLO international, FLO
 it:Commercio Equo Internazionale
 nl:Fairtrade International, Eerlijke handel
+pt:Comércio justo
 ru:Честная торговля, FLO
 wikipedia:en:https://en.wikipedia.org/wiki/Fairtrade_certification
 
@@ -695,6 +703,7 @@ hu:FSC, Forest Stewardship Council
 it:FSC, Forest Stewardship Council
 nl:FSC, Forest Stewardship Council
 pl:FSC, Odpowiedzialna gospodarka leśna
+pt:FSC
 ru:FSC, Forest Stewardship Council, Лесной попечительский совет
 zh:FSC(森林管理委员会)
 wikidata:en:Q748367
@@ -711,6 +720,7 @@ hu:FSC Mix
 it:FSC Misto
 nl:FSC Mix
 pl:FSC Mix
+pt:FSC Misto
 
 <en:FSC
 en:FSC Recycling, FSC Recycled
@@ -848,6 +858,7 @@ pl:Halal
 pt:Halal
 ru:Халяль
 th:ฮาลาล
+tr:Helal
 wikidata:en:Q177823
 label_categories:en: en:Religious diets, en:Specific diets
 
@@ -925,29 +936,17 @@ en:First grade TIS 3-1983, Thai Industrial Standard Institute
 ca:Primer grau TIS 3-1983, Institut d'Estandaritzacions Industrials Thai
 wikidata:en:Q15613582
 
-en:source of fibre
-da:Fiberkilde
-de:Ballaststoffquelle
-es:Fuente de fibra alimentaria
-fi:Kuidun lähde
-fr:Source de fibres alimentaires, Source de fibres, Source naturelle de fibres
-it:Fonte di fibre
-nl:Bron van vezels
-pl:Źródlo blonnika
-se:Fiberkälla
-
-<en:source of fibre
 en:High fibres, high fibers, Rich in fiber
 ca:Alt en fibra, ric en fibra
 de:ballaststoffreich
-es:Rico en fibra, Rico en fibras, Alto en Fibra
+es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
-fr:Riche en fibres, Naturellement riches en fibres
+fr:Riche en fibres, Source naturelle de fibres, Source de fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
-nl:Vezelrijk, Rijk aan vezels
+nl:Vezelrijk, Rijk aan vezels, Bron van vezels
 pl:wysoka zawartość błonnika
 pt:Rico em fibras
 ru:Обогащено клетчаткой
@@ -964,6 +963,7 @@ hu:Omega-3
 it:Omega-3
 nl:Omega 3
 pl:Omega-3
+pt:Ómega-3
 ru:омега-3 жиры, омега-3
 th:โอเมกา 3
 wikidata:en:Q191756
@@ -1039,6 +1039,7 @@ es:Fuente de fósforo
 fi:fosforin lähde
 fr:Source de phosphore
 hu:Foszforforrás
+it:Fonte di fosforo
 nl:Bron van fosfor
 pt:Fonte de fosforo
 
@@ -1054,6 +1055,7 @@ it:Fonte di vitamina A
 nl:bron van Vitamine A
 pt:Fonte de vitamina A
 ru:Источник витамина A
+tr:A Vitamini kaynağı
 
 en:Vitamin B source, Source of vitamin B
 de:Vitamin B-Quelle
@@ -1126,6 +1128,7 @@ it:Fonte di Vitamina C, fonte di acido ascorbico, fonte di principio antiscorbut
 nl:Bron van Vitamine C
 pt:Fonte de vitamina C
 ru:Источник витамина C
+tr:C Vitamini kaynağı
 
 en:Vitamin D source, Source of vitamin D
 ca:Font de Vitamina D
@@ -1166,6 +1169,7 @@ hu:Vasforrás
 it:Fonte di ferro
 nl:Bron van IJzer
 pt:Fonte de ferro
+tr:Demir Kaynağı
 
 en:Natural source of calcium, Natural calcium source
 ca:Font natural de calci
@@ -1283,8 +1287,10 @@ hu:Kóser
 it:Kosher
 nl:Kosjer
 pl:Koszerny
+pt:Kosher
 ru:Кошерное
 th:โคเชอร์
+tr:Koşer
 wikidata:en:Q1076110
 
 <en:Kosher
@@ -1627,6 +1633,7 @@ he:ללא שומן, נטול שומן, 0% שומן
 hu:Zsír nélkül, 0% zsír, zsírtalan, zsírmentes
 it:Senza grassi
 nl:Vetvrij, Zonder vet
+pt:Sem gordura
 ru:Обезжиренный, 0% жира
 th:ไม่มีไขมัน
 
@@ -2021,6 +2028,7 @@ pl:bez cukru
 pt:Sem açúcar
 ru:Без сахара
 th:ไม่มีน้ำตาล
+tr:Şekersiz
 
 en:Lowers cholesterol
 de:Cholesterinsenkend
@@ -2087,6 +2095,7 @@ hu:Belgiumban készült
 it:Fatto in Belgio
 nl:Geproduceerd in België
 pl:Wyprodukowano w Belgii
+pt:Fabricado na Bélgica
 country:en:Belgium
 label_categories:en: en:Geographic label
 
@@ -2139,6 +2148,7 @@ he:נארז בצרפת
 hu:Franciaországban csomagolva
 it:Confezionato in Francia
 nl:Verpakt in Frankrijk
+pt:Embalado em França
 packaging_places:en: en:france
 label_categories:en: en:Geographic label
 
@@ -2212,6 +2222,7 @@ hu:Spanyolországban készült
 it:Prodotto in Spagna
 nl:Geproduceerd in Spanje
 pl:Wyprodukowano w Hiszpanii
+pt:Fabricado em Espanha
 country:en:Spain
 label_categories:en: en:Geographic label
 
@@ -2429,6 +2440,7 @@ en:Without modified starches, without modified starch
 fi:ilman muunneltuja tärkkelyksiä, ilman muunneltua tärkkelystä
 fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 hu:Módosított keményítők nélkül
+it:Senza amidi modificati
 
 en:No gelatin, Without gelatin, Gelatinfree, Gelatin-free
 ca:Sense gelatina
@@ -2454,6 +2466,7 @@ nl:Zonder toevoegingen
 pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos
 th:ไม่มีสารเติมแต่ง
+tr:Katkı Maddesi yok
 label_categories:en: en:Health, en:Additives
 
 en:No artificial additives
@@ -2486,6 +2499,7 @@ opposite:en: en:contains alcohol
 en:Contains alcohol
 de:Enthält Alkohol
 hu:Alkoholt tartalmaz
+it:Contiene alcol
 opposite:en: en:no-alcohol
 
 en:No artificial colors, free of artificial color, no artificial colours
@@ -2556,6 +2570,7 @@ label_categories:en: en:Health, en:Additives
 <en:No artificial preservatives
 <en:No artificial colors
 en:No artificial colours and preservatives
+it:Senza coloranti e conservanti artificiali
 
 <en:No artificial flavors
 <en:No artificial colors
@@ -2583,7 +2598,9 @@ es:Sin potenciador artificial del sabor
 fi:ei keinotekoisia arominvahventeita, ilman keinotekoisia arominvahventeita
 fr:Sans exhausteurs de goût artificiels
 hu:Mesterséges ízfokozó nélkül, mesterséges ízfokozót nem tartalmaz
+it:Nessun esaltatore di sapidità artificiale
 nl:Zonder smaakversterkers
+pt:Sem aromatizantes
 label_categories:en: en:Health, en:Additives
 
 en:No aspartame, aspartame free, without aspartame
@@ -2652,6 +2669,7 @@ pl:Bez barwników, bez dodatku barwników
 pt:Sem corantes, sem corantes adicionados
 ru:без красителей
 th:ไม่เติมสี
+tr:Renklendirici yok, Renklendiricisiz
 zh:无色素
 label_categories:en: en:Health, en:Additives
 
@@ -2860,6 +2878,7 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+tr:Laktozsuz
 
 en:No lecithine, lecithine-free
 ca:Sense lecitina, Lliure de lecitina
@@ -2897,6 +2916,7 @@ it:Senza latte
 nb:Uten melk, Fri fro melk
 nl:Melkvrij
 pl:Bez mleka, Bez zawartości mleka
+pt:Sem leite
 ru:Без молока
 sv:Mjölkfri, Fri från mjölk, Fri från mjölkprodukter
 th:ไม่มีส่วนผสมของนม
@@ -2910,6 +2930,7 @@ fi:ei lisättyjä maitotuotteita
 fr:Sans ajout de produit laitiers
 it:Senza aggiunta di latticini
 nl:Zonder toevoeging van zuivel
+pt:Sem adição de produtos lácteos
 ru:Без добавления молочных продуктов
 
 en:Contains milk
@@ -2938,6 +2959,7 @@ fr:Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
 he:ללא משמרים, ללא חומרים משמרים, ללא חומרים משמרים מלאכותיים
 hu:Tartósítószermentes, hozzáadott tartósítószer nélkül, tartósítószert nem tartalmaz
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
+lt:Be konservantų, be pridėtų konservantų
 nl:Conserveermiddelvrij
 pl:Bez konserwantów, bez dodatku konserwantów, bez sztucznych dodatków
 pt:Sem conservantes, sem conservantes adicionados
@@ -2945,6 +2967,7 @@ ro:Fără conservanți
 ru:Без консервантов
 sv:Utan konserveringsmedel
 th:ไม่ใช้วัตถุกันเสีย
+tr:Koruyucu yok, Koruyucu madde içermez
 zh:无防腐剂
 
 <en: No colorings
@@ -3168,17 +3191,19 @@ ca:Orgànic,de cultiu ecologic
 cs:Bio
 da:Økologisk, Økologiske
 de:Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
-es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica, Procedente e agricultura ecológica
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
+lt:Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
 pt:Orgânico
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
+tr:Organik
 zh:有机
 wikidata:en:Q380778
 label_categories:en: en:Environnement
@@ -3261,6 +3286,7 @@ fr:Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feu
 he:אורגני בתקן אירופאי
 hu:EU Organic, EU bio, EU öko
 it:Biologico UE
+lt:ES ekologiškas, Europos ekologiškas, europinis lapas, Europos ekologiškas lapas, ES ekologinis ūkininkavimas
 nl:EU Organic
 pt:Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 sv:EU-ekologisk
@@ -3280,6 +3306,7 @@ he:חקלאות מחוץ לאיחוד האירופי
 hu:nem-EU mezőgazdaság
 it:Agricoltura non-UE
 nl:Non EU landbouw, niet-EU landbouw
+pt:Agricultura não-UE
 ru:не-EU агрокультура
 sv:icke EU-jordbruk
 
@@ -3293,7 +3320,9 @@ fr:Agriculture UE, Agriculture Union Européeenne
 he:חקלאות האיחוד האירופי
 hu:EU mezőgazdaság
 it:Agricoltura dell'Unione Europea
+lt:ES žemės ūkis, Europos Sąjungos žemės ūkis
 nl:EU landbouw
+pt:Agricultura UE
 ru:EU агрокультура, агрокультура Европейского Союза
 
 <en:non-EU Agriculture
@@ -3307,6 +3336,7 @@ fi:Tuotettu EU:ssa ja EU:n ulkopuolella
 fr:Agriculture UE/Non UE
 hu:EU/nem-EU mezőgazdaság
 it:Agricoltura EU/non-EU
+lt:ES / ne ES žemės ūkis, ES ir ne ES žemės ūkis
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
 
@@ -3405,6 +3435,7 @@ en:AT-BIO-402
 ca:AT-BIO-402
 es:AT-BIO-402
 it:AT-BIO-402
+pt:AT-BIO-402
 xx:AT-BIO-402
 country:en:Austria
 
@@ -3423,6 +3454,7 @@ en:AT-BIO-901
 ca:AT-BIO-901
 de:AT-BIO-901
 es:AT-BIO-901
+pt:AT-BIO-901
 xx:AT-BIO-901
 
 <en:EU Organic
@@ -3439,7 +3471,9 @@ en:BE-BIO-01, Certisys BE-BIO-01
 ca:BE-BIO-01
 es:BE-BIO-01
 it:BE-BIO-01, Certisys BE-BIO-01
+nl:BE-BIO-01, Certisys BE-BIO-01
 pl:BE-BIO-01
+pt:BE-BIO-01
 xx:BE-BIO-01, Certisys BE-BIO-01
 country:en:Belgium
 
@@ -3449,6 +3483,7 @@ ca:BE-BIO-02
 es:BE-BIO-02
 it:BE-BIO-02
 nl:BE-BIO-02
+pt:BE-BIO-02
 xx:BE-BIO-02
 country:en:Belgium
 
@@ -3584,6 +3619,7 @@ ca:CZ-BIO-001
 cs:CZ-BIO-001
 es:CZ-BIO-001
 it:CZ-BIO-001
+pt:CZ-BIO-001
 xx:CZ-BIO-001
 country:en:Czech Republic
 
@@ -3613,6 +3649,7 @@ en:DE-ÖKO-001
 ca:DE-ÖKO-001
 es:DE-ÖKO-001
 it:DE-ÖKO-001
+pt:DE-ÖKO-001
 xx:DE-ÖKO-001
 country:en:Germany
 
@@ -3621,6 +3658,7 @@ en:DE-ÖKO-003
 ca:DE-ÖKO-003
 es:DE-ÖKO-003
 it:DE-ÖKO-003
+pt:DE-ÖKO-003
 xx:DE-ÖKO-003
 country:en:Germany
 
@@ -3629,6 +3667,7 @@ en:DE-ÖKO-005
 ca:DE-ÖKO-005
 es:DE-ÖKO-005
 it:DE-ÖKO-005
+pt:DE-ÖKO-005
 xx:DE-ÖKO-005
 country:en:Germany
 
@@ -3637,6 +3676,7 @@ en:DE-ÖKO-006
 ca:DE-ÖKO-006
 es:DE-ÖKO-006
 it:DE-ÖKO-006
+pt:DE-ÖKO-006
 xx:DE-ÖKO-006
 country:en:Germany
 
@@ -3665,6 +3705,7 @@ ca:DE-ÖKO-013
 cs:DE-ÖKO-13
 es:DE-ÖKO-013
 it:DE-ÖKO-13
+pt:DE-ÖKO-013
 xx:DE-ÖKO-013, DE-ÖKO-13
 country:en:Germany
 
@@ -3874,6 +3915,7 @@ en:ES-ECO-006-AR
 ca:ES-ECO-006-AR
 es:ES-ECO-006-AR
 it:ES-ECO-006-AR
+pt:ES-ECO-006-AR
 xx:ES-ECO-006-AR
 country:en:Spain
 
@@ -3950,6 +3992,7 @@ en:ES-ECO-016-CL
 ca:ES-ECO-016-CL
 es:ES-ECO-016-CL
 it:ES-ECO-016-CL
+pt:ES-ECO-016-CL
 xx:ES-ECO-016-CL
 country:en:Spain
 
@@ -3976,6 +4019,7 @@ es:ES-ECO-019-CT
 it:ES-ECO-019-CT
 nl:ES-ECI-019-CT
 pl:ES-ECO-019-CT
+pt:ES-ECO-019-CT
 xx:ES-ECO-019-CT
 country:en:Spain
 
@@ -3985,6 +4029,7 @@ ca:ES-ECO-020-CV
 es:ES-ECO-020-CV
 it:ES-ECO-020-CV
 nl:ES-ECO-020-CV
+pt:ES-ECO-020-CV
 xx:ES-ECO-020-CV
 country:en:Spain
 
@@ -4009,6 +4054,7 @@ en:ES-ECO-023-MA
 ca:ES-ECO-023-MA
 es:ES-ECO-023-MA
 it:ES-ECO-023-MA
+pt:ES-ECO-023-MA
 xx:ES-ECO-023-MA
 country:en:Spain
 
@@ -4017,6 +4063,7 @@ en:ES-ECO-024-MU
 ca:ES-ECO-024-MU
 es:ES-ECO-024-MU
 it:ES-ECO-024-MU
+pt:ES-ECO-024-MU
 xx:ES-ECO-024-MU
 country:en:Spain
 
@@ -4025,6 +4072,7 @@ en:ES-ECO-025-NA
 ca:ES-ECO-025-NA
 es:ES-ECO-025-NA
 it:ES-ECO-025-NA
+pt:ES-ECO-025-NA
 xx:ES-ECO-025-NA
 country:en:Spain
 
@@ -4186,6 +4234,8 @@ ca:FR-BIO-01
 es:FR-BIO-01
 fr:FR-BIO-01, Ecocert-FR-BIO-01
 it:FR-BIO-01
+nl:FR-BIO-01
+pt:FR-BIO-01
 xx:FR-BIO-01
 country:en:france
 
@@ -4281,6 +4331,7 @@ ca:GB-ORG-05
 es:GB-ORG-05
 it:GB-ORG-05
 pl:GB-ORG-05
+pt:GB-ORG-05
 xx:GB-ORG-05
 country:en:United Kingdom
 
@@ -4318,6 +4369,7 @@ country:en:United Kingdom
 en:GR-BIO-01
 es:GR-BIO-01
 it:GR-BIO-01
+pt:GR-BIO-01
 xx:GR-BIO-01
 country:en:Greece
 
@@ -4513,6 +4565,7 @@ xx:IT-BIO-003-BZ
 en:IT-BIO-004
 ca:IT-BIO-004
 es:IT-BIO-004
+it:IT-BIO-004
 nl:IT-BIO-004
 pl:IT-BIO-004
 xx:IT-BIO-004
@@ -4532,6 +4585,7 @@ en:IT-BIO-006
 ca:IT-BIO-006
 es:IT-BIO-006
 it:IT-BIO-006
+pt:IT-BIO-006
 xx:IT-BIO-006
 country:en:Italy
 
@@ -4581,6 +4635,7 @@ country:en:Italy
 <en:EU Organic
 en:IT-BIO-013
 es:IT-BIO-013
+it:IT-BIO-013
 xx:IT-BIO-013
 country:en:Italy
 
@@ -4599,6 +4654,7 @@ en:IT-BIO-015
 ca:IT-BIO-015
 de:IT-BIO-015
 es:IT-BIO-015
+it:IT-BIO-015
 xx:IT-BIO-015
 country:en:Italy
 
@@ -4609,6 +4665,7 @@ xx:li-bio-969
 <en:EU Organic
 en:LT-EKO-001
 de:LT-EKO-001
+pt:LT-EKO-001
 xx:LT-EKO-001
 
 <en:EU Organic
@@ -4649,6 +4706,7 @@ de:LK-BIO-149
 es:LK-BIO-149
 it:LK-BIO-149
 nl:LK-BIO-149
+pt:LK-BIO-149
 xx:LK-BIO-149
 
 <en:EU Organic
@@ -4734,6 +4792,7 @@ ca:PT-BIO-02
 de:PT-BIO-02
 es:PT-BIO-02
 nl:PT-BIO-02
+pt:PT-BIO-02
 xx:PT-BIO-02
 country:en:Portugal
 
@@ -4742,6 +4801,7 @@ en:PT-BIO-03
 ca:PT-BIO-03
 de:PT-BIO-03
 es:PT-BIO-03
+pt:PT-BIO-03
 xx:PT-BIO-03
 country:en:Portugal
 
@@ -4750,6 +4810,7 @@ en:PT-BIO-04
 ca:PT-BIO-04
 es:PT-BIO-04
 it:PT-BIO-04
+pt:PT-BIO-04
 xx:PT-BIO-04
 country:en:Portugal
 
@@ -4757,6 +4818,7 @@ country:en:Portugal
 en:PT-BIO-05
 de:PT-BIO-05
 es:PT-BIO-05
+pt:PT-BIO-05
 xx:PT-BIO-05
 country:en:Portugal
 
@@ -9566,6 +9628,7 @@ de:LK-BIO-149
 es:LK-BIO-149
 it:LK-BIO-149
 nl:LK-BIO-149
+pt:LK-BIO-149
 country:en:Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group C: unprocessed aquaculture products and algae,en:EU Group D: processed agricultural products for use as food (*),en:EU Group E: processed agricultural products for use as feed (*),en:EU Group F: vegetative propagating material and seeds for cultivation
 auth_name:en:Control Union Certifications
@@ -16096,6 +16159,7 @@ opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
 fr:Contient de l'huile de palme
+it:Contiene olio di palma
 opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
@@ -16226,6 +16290,7 @@ he:חמאת קקאו טהורה
 hu:100% kakaóvaj, tiszta kakaóvaj
 it:Burro di cacao puro
 nl:Pure cacaoboter
+pt:Manteiga de coco puro
 
 en:Pure juice
 ca:Pur suc
@@ -16369,6 +16434,7 @@ fr:Huile de palme durable,  Huile de palme certifiée durable, Huile de palme is
 hu:Fenntartható pálmaolaj
 it:Olio di palma sostenibile
 nl:Duurzame palmolie
+pt:Óleo de palma sustentável
 wikidata:en:Q686421
 ingredients:en: en:palm-oil
 
@@ -16837,6 +16903,7 @@ hu:Fenntartható halászat
 it:Pesca sostenibile
 nl:Duurzame visserij
 pl:Zrównoważone rybołówstwo
+pt:Pesca sustentável
 label_categories:en: en:Fishing labels
 
 <en:Sustainable fishery
@@ -16949,8 +17016,8 @@ ca:Cafè amb certificat UTZ
 de:UTZ Certified Kaffee
 es:Café certificado UTZ
 fi:UTZ-sertifioitua kahvia
-hu:UTZ Certified Coffee, UTZ tanúsított kávé
 fr:Café certifié UTZ
+hu:UTZ Certified Coffee, UTZ tanúsított kávé
 it:Caffè certificato UTZ, Caffe certificato UTZ
 pl:UTZ Certified Coffee
 
@@ -16966,6 +17033,7 @@ he:צמחוני, מתאים לצמחונים
 hr:Vegetarijanski
 hu:Vegetáriánus
 it:Vegetariano
+lt:Vegetariškas, Tinkamas vegetarams
 nb:Vegetarisk, Egnet for vegetarianere
 nl:Vegetarisch
 pl:Wegetariańskie, przyjazne wegetarianom
@@ -16973,6 +17041,7 @@ pt:Vegetariano
 ro:Vegetarian
 sv:Vegetarisk, Passar för vegetarianer, Lämplig för vegetarianer
 th:มังสวิรัติ
+tr:Vejetaryen
 zh:素食
 wikidata:en:Q638022
 description:en:Vegetarianism is the practice of abstaining from the consumption of meat, and may also include abstention from by-products of animal slaughter.
@@ -17001,6 +17070,7 @@ gl:vegano
 he:טבעוני, מתאים לטבעונים
 hu:Vegán
 it:Vegano, Vegan
+lt:Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb:Vegan, Vegansk
 nl:Veganistisch, plantaardig
 pl:Wegańskie, przyjazne weganom
@@ -17008,6 +17078,7 @@ pt:Vegano, Producto vegano, Vegan
 sq:vegan
 sv:Vegansk, Passar för veganer
 th:สูตรเจ
+tr:Vegan
 zh:纯素
 opposite:en: en:non-vegan
 description:en:Veganism is the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals.
@@ -17201,6 +17272,7 @@ he:איחוד הצמחונות האירופי
 hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
+pt:União Vegetariana Europeia
 sv:Europeiska Vegetariska Unionen
 wikidata:en:Q443112
 
@@ -17226,6 +17298,7 @@ fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen, EVU Vegan
 fr:Union Végétarienne Européenne Végétalien, Union Végétarienne Européenne Vegan, Union Végétarienne Européenne - Végétalien, Union Végétarienne Européenne - Vegan, EVU Vegan
 it:Unione Vegetariana Europea Vegano, Unione Vegetariana Europea - Vegano, EVU Vegan
 nl:Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Vegan
+pt:FSC Misto
 sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 
 <en:European Vegetarian Union
@@ -17368,6 +17441,7 @@ protected_name_type:en: aoc
 en:with Guérande salt
 ca:Amb sal de Guérande
 fr:Au sel de Guérande
+it:con sale di Guérande
 
 en:Grown in France
 ca:Cultivat a França
@@ -17602,6 +17676,7 @@ ingredients:en: en:pork
 <fr:Viande Française
 en:French beef
 fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+it:Manzo francese
 origins:en: en:france
 ingredients:en: en:beef
 
@@ -17616,6 +17691,7 @@ origins:en: en:france
 <fr:Viande Française
 en:French poultry
 fr:Volaille Française, volaille Origine France
+it:Pollame francese
 origins:en: en:france
 ingredients:en: en:poultry
 
@@ -18335,6 +18411,7 @@ en:2020 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2020
 fi:Saksan maatalousyhdistyksen kultamitali 2020
 fr:Médaille d'or 2020 de la Société Allemande d'Agriculture
+it:Medaglia d'oro 2020 della Società agricola tedesca
 
 <en:German Agricultural Society
 de:DLG Jährlich Prämiert
@@ -18455,6 +18532,7 @@ en:Tooth-health related labels
 de:Labels zur Zahngesundheit
 fi:Hammasterveyttä koskevat merkit
 fr:Labels liés à la santé des dents
+it:Etichette relative alla salute dei denti
 nl:Gebitsgezondheidslabels
 
 <en:Tooth-health related labels
@@ -18479,8 +18557,10 @@ hu:Új
 it:Nuovo
 nl:Nieuw
 pl:Nowość, Nowy, Nowe
+pt:Novo
 ru:Новинка
 th:สินค้าใหม่
+tr:Yeni
 
 en:New recipe
 ca:Nova recepta
@@ -18572,6 +18652,7 @@ he:Nutriscore
 it:Nutriscore
 nl:Nutriscore
 pl:Nutriscore
+pt:Nutri-Score
 xx:Nutriscore
 wikidata:en:Q46577569
 label_categories:en: en:Nutrition Grades, en:Health
@@ -18587,6 +18668,7 @@ fr:Nutriscore A
 he:דירוג A ב־Nutriscore
 it:Nutriscore A
 nl:Nutriscore A
+pt:Nutri-Score grau A
 xx:Nutriscore A
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -18601,6 +18683,7 @@ fr:Nutriscore B
 he:דירוג B ב־Nutriscore
 it:Nutriscore B
 nl:Nutriscore B
+pt:Nutri-Score grau B
 xx:Nutriscore B
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -18615,6 +18698,7 @@ fr:Nutriscore C
 he:דירוג C ב־Nutriscore
 it:Nutriscore C
 nl:Nutriscore C
+pt:Nutri-Score grau C
 xx:Nutriscore C
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -18629,6 +18713,7 @@ fr:Nutriscore D
 he:דירוג D ב־Nutriscore
 it:Nutriscore D
 nl:Nutriscore D
+pt:Nutri-Score grau D
 xx:Nutriscore D
 label_categories:en: en:Nutrition Grades, en:Health
 
@@ -18744,6 +18829,7 @@ de:Ungarisches Produkt
 fi:Unkarilainen tuote
 he:מוצר הונגרי
 hu:Magyar termék
+it:Prodotto ungherese
 
 en:Milkheart
 ca:Cor de llet
@@ -18782,11 +18868,13 @@ de:Ohne Antibiotika seit der Geburt, keine Antibiotika jemals
 es:Sin antibióticos desde el nacimiento
 fi:Ei antibiootteja syntymän jälkeen
 fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
+it:Senza antibiotici dalla nascita, mai antibiotici
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 <en:Without antibiotics
 en:Without antibiotics after weaning
 fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
+it:Senza antibiotici dopo lo svezzamento
 
 <en:Without antibiotics
 en:Without antibiotics after first age, Without antibiotics after 1st age
@@ -18810,6 +18898,7 @@ fr:Porcs élevés sans antibiotique dès la naissance
 <en:Porks raised without antibiotics
 en:Porks raised without antibiotics after weaning
 fr:Porcs élevés sans antibiotique après sevrage, Porcs élevés sans antibiotique dès la fin du sevrage, Cochons élevés sans antibiotique dès la fin du sevrage
+it:Maiale allevato senza antibiotici dopo lo svezzamento
 
 <en:Without antibiotics after first age
 <en:Porks raised without antibiotics
@@ -18932,6 +19021,7 @@ hu:fenilalanin-forrást tartalmaz
 it:Contiene una fonte di fenilalanina
 nb:Inneholder en fenylalaninkilde
 nl:Bevat een bron van phenylalanine
+pt:Contém uma fonte de fenilalanina
 sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
 en:Excessive consumption can have laxative effects
