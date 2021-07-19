@@ -102,10 +102,11 @@ HTML
 
 
 
-sub display_select_crop($$) {
+sub display_select_crop($$$) {
 
 	my $object_ref = shift;
 	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
+	my $language = shift;
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -124,7 +125,7 @@ sub display_select_crop($$) {
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
 	my $html = <<HTML
-<label for="$id">$label</label>
+<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
