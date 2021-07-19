@@ -70,8 +70,6 @@ my $comment = 'Modification : ';
 
 my @errors = ();
 
-$admin = 1;
-
 my $html = '';
 my $code = normalize_code(param('code'));
 my $product_id;

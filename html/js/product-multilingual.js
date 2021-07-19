@@ -21,7 +21,6 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
-/*global toggle_manage_images_buttons */ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -417,7 +416,7 @@ function update_display(imagefield, first_display) {
 	var display_url = imagefield_url[imagefield];
 
 	if (display_url) {
-		
+
 		var imagetype = imagefield.replace(/_\w\w$/, '');
 
 		var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
@@ -440,7 +439,6 @@ function update_display(imagefield, first_display) {
 
 			var full_url = display_url.replace(/\.400\./, ".full.");
 			$('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
-			
 
 			$('div[id="display_' + imagefield +'"]').html(html);
 
@@ -478,9 +476,8 @@ function update_display(imagefield, first_display) {
 			});
 
 		} else {
-			
+
 			$('div[id="display_' + imagefield +'"]').html(html);
-			
 		}
 
 		$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
@@ -491,7 +488,7 @@ function update_display(imagefield, first_display) {
 			$.post(
 				'/cgi/product_image_unselect.pl',
 				{code: code, id: imagefield },
-				null, 
+				null,
 				'json'
 			)
 				.done(function(data) {
@@ -1070,15 +1067,15 @@ $(function() {
 $(function() {
 	var alerts = $('.alert-box.store-state');
 	$.each(alerts, function( index, value ) {
-	  var display = $.cookie('state_' + value.id);
-	  if (display !== undefined) {
-		value.style.display = display;
-	  } else {
-		value.style.display = 'block';
-	  }
+		var display = $.cookie('state_' + value.id);
+		if (display) {
+			value.style.display = display;
+		} else {
+			value.style.display = 'block';
+		}
 	});
-	alerts.on('close.fndtn.alert', function(event) {
-	  $.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+	alerts.on('close.fndtn.alert', function() {
+		$.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
 	});
 });
 
@@ -1087,7 +1084,7 @@ $(document).foundation({
     tab: {
       callback : function (tab) {
 
-		$('.tabs').each(function(i, obj) {
+		$('.tabs').each(function() {
 			$(this).removeClass('active');
 		});
 
