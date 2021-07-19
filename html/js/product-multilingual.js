@@ -1089,7 +1089,7 @@ $(document).foundation({
 		});
 
         var id = tab[0].id;	 // e.g. tabs_front_image_en_tab
-		var lc = id.replace(/.*(..)_tab/, "\$1");
+		var lc = id.replace(/.*(..)_tab/, "$1");
 		$(".tabs_" + lc).addClass('active');
 
 		$(document).foundation('tab', 'reflow');
