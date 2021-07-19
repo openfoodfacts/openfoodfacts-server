@@ -261,6 +261,15 @@ my @tests = (
 			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
 		}
 	],
+
+	[
+		'packaging-en-multiple-over-maximum-malus',
+		{
+			lc => "en",
+			categories_tags=>["en:biscuits"],
+			packaging_text=>"1 plastic box, 1 plastic film wrap, 12 individual plastic bags"
+		}
+	],	
 	
 	[
 		'packaging-en-unspecified-material-bottle',

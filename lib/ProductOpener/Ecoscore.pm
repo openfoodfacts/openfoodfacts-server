@@ -1217,8 +1217,8 @@ sub compute_ecoscore_packaging_adjustment($) {
 	$packaging_score = 100 - $packaging_score;
 	
 	my $value = round($packaging_score / 10 - 10);
-	if ($value < -10) {
-		$value = -10;
+	if ($value < -15) {
+		$value = -15;
 	}
 
 	$product_ref->{ecoscore_data}{adjustments}{packaging} = {
