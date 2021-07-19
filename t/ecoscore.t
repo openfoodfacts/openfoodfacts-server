@@ -416,6 +416,28 @@ my @tests = (
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
 			ingredients_text => "Water",
 		},
+	],
+
+	# Fresh fruits and vegetables should not have an Eco-Score (at least until we handle seasonality)
+
+	[
+		'fresh-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:fresh-vegetables", "en:fresh-tomatoes", "en:tomatoes"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Tomatoes",
+		},
+	],
+
+	[
+		'frozen-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:frozen-vegetables", "en:frozen-carrots", "en:carrots"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Carrots",
+		},
 	],	
 
 );
