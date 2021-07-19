@@ -1109,7 +1109,7 @@ $(window).resize(
 		parent_width = $("#fixed_bar").parent().width();
 		$("#fixed_bar").width(parent_width);
 	}
-)
+);
 
 // This function returns a comma separated list of the imgids of images selected in the manage images section
 function get_list_of_imgids() {
@@ -1119,12 +1119,13 @@ function get_list_of_imgids() {
         var imgid = $( this ).attr('id');
         imgid = imgid.replace("manage_","");
         list_of_imgids += imgid + ',';
-        i++;
+        i += 1;
     });
     if (i) {
         // remove trailing comma
         list_of_imgids = list_of_imgids.slice(0, -1);
     }
+
     return list_of_imgids;
 }
 
@@ -1137,7 +1138,7 @@ function toggle_manage_images_buttons() {
 	});
 }
 
-$('#manage_images_accordion').on('toggled', function (event, accordion) {
+$('#manage_images_accordion').on('toggled', function () {
 	toggle_manage_images_buttons();
 });
 
@@ -1173,7 +1174,7 @@ $("#delete_images").click({},function(event) {
 				$(".select_crop").selectcrop('show');
 
 			},
-			error : function(jqXHR, textStatus, errorThrown) {
+			error : function(textStatus) {
 				$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
 			},
 		});
@@ -1214,10 +1215,10 @@ $("#move_images").click({},function(event) {
 				$(".select_crop").selectcrop('show');
 
 			},
-			error : function(jqXHR, textStatus, errorThrown) {
+			error : function( textStatus) {
 				$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
 			},
-			complete: function(XMLHttpRequest, textStatus) {
+			complete: function() {
 					$("#move_images").addClass("disabled");
 					$("#move_images").addClass("disabled");
 					$( "#manage .ui-selected"  ).first().each(function() {
