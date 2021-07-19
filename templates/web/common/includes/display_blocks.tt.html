@@ -1,0 +1,19 @@
+<!-- start templates/[% template.name %] -->
+
+[% FOREACH block IN blocks %]
+
+    <div class="block">
+        <h3 class="block_title">[% block.block_ref_title %]</h3>
+        <div class="block_content">
+            [% block.block_ref_content %]
+        </div>
+    </div>
+
+    [% IF block.block_ref_id.defined && block.block_ref_id == 'my_block' %]
+        <!-- end off canvas blocks for small screens -->
+    [% END %]
+
+   <div class="block_title"></div>
+
+[% END %]
+<!-- end templates/[% template.name %] -->
