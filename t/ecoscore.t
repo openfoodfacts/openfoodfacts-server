@@ -288,6 +288,24 @@ my @tests = (
 			packaging_text=>"can"
 		}
 	],
+
+	[
+		'packaging-unspecified',
+		{
+			lc => "en",
+			categories_tags=>["en:milks"],
+		}
+	],
+
+	[
+		'packaging-unspecified-no-a-eco-score',
+		{
+			lc => "en",
+			categories_tags=>["en:speculoos"],
+			ingredients_text=>"Wheat (France)",
+			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],		
 	
 	# Sodas: no Eco-Score
 	

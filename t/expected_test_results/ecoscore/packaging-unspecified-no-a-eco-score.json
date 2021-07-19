@@ -1,0 +1,176 @@
+{
+   "categories_tags" : [
+      "en:speculoos"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:france",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 93,
+            "epi_value" : 4,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score_be" : 85,
+            "transportation_score_ch" : 69,
+            "transportation_score_de" : 61,
+            "transportation_score_es" : 37,
+            "transportation_score_fr" : 100,
+            "transportation_score_ie" : 47,
+            "transportation_score_it" : 47,
+            "transportation_score_lu" : 82,
+            "transportation_score_nl" : 77,
+            "transportation_value_be" : 13,
+            "transportation_value_ch" : 10,
+            "transportation_value_de" : 9,
+            "transportation_value_es" : 6,
+            "transportation_value_fr" : 15,
+            "transportation_value_ie" : 7,
+            "transportation_value_it" : 7,
+            "transportation_value_lu" : 12,
+            "transportation_value_nl" : 12,
+            "value_be" : 17,
+            "value_ch" : 14,
+            "value_de" : 13,
+            "value_es" : 10,
+            "value_fr" : 19,
+            "value_ie" : 11,
+            "value_it" : 11,
+            "value_lu" : 16,
+            "value_nl" : 16
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "label" : "fr:ab-agriculture-biologique",
+            "value" : 15
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_food_code" : "24009",
+         "co2_agriculture" : "4.5649571",
+         "co2_consumption" : "0",
+         "co2_distribution" : "0.029120657",
+         "co2_packaging" : "0.10868914",
+         "co2_processing" : "0.30914227",
+         "co2_total" : "5.1404703",
+         "co2_transportation" : "0.12860414",
+         "code" : "24009",
+         "dqr" : "2.14",
+         "ef_agriculture" : "0.42279176",
+         "ef_consumption" : "0",
+         "ef_distribution" : "0.0098990521",
+         "ef_packaging" : "0.016470524",
+         "ef_processing" : "0.050097131",
+         "ef_total" : "0.50926159",
+         "ef_transportation" : "0.010007618999999999",
+         "is_beverage" : 0,
+         "name_en" : "Speculoos biscuit",
+         "name_fr" : "Spéculoos",
+         "score" : 53
+      },
+      "grade" : "c",
+      "grade_be" : "b",
+      "grade_ch" : "b",
+      "grade_de" : "b",
+      "grade_es" : "b",
+      "grade_fr" : "b",
+      "grade_ie" : "b",
+      "grade_it" : "b",
+      "grade_lu" : "b",
+      "grade_nl" : "b",
+      "missing" : {
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 58,
+      "score_be" : 75,
+      "score_ch" : 72,
+      "score_de" : 71,
+      "score_es" : 68,
+      "score_fr" : 77,
+      "score_ie" : 69,
+      "score_it" : 69,
+      "score_lu" : 74,
+      "score_nl" : 74,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 77,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:wheat",
+         "origins" : "en:france",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Wheat",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:wheat",
+      "en:cereal"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:wheat",
+      "en:cereal"
+   ],
+   "ingredients_text" : "Wheat (France)",
+   "known_ingredients_n" : 2,
+   "labels_tags" : [
+      "fr:ab-agriculture-biologique"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}
