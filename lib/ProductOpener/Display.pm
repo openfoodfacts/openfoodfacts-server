@@ -7063,24 +7063,12 @@ sub display_bottom_block($)
 sub display_blocks($)
 {
 	my $request_ref = shift;
-	my $blocks_ref = $request_ref->{blocks_ref};
 
 	my $html = '';
-	my $template_data_ref_blocks = {};
-	my @blocks;
-
-	foreach my $block_ref (@{$blocks_ref}) {
-		push(@blocks, {
-			block_ref_content => $block_ref->{content},
-			block_ref_title => $block_ref->{title},
-			block_ref_id =>  $block_ref->{id},
-		});
-	}
+	my $template_data_ref_blocks->{blocks} = $request_ref->{blocks_ref};
 
 	# Remove empty titles
 	$html =~ s/<div class=\"block_title\"><\/div>//g;
-
-	$template_data_ref_blocks->{blocks} = \@blocks;
 
 	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html) || return "template error: " . $tt->error();
 	return $html;

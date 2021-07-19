@@ -3,17 +3,17 @@
 [% FOREACH block IN blocks %]
 
     <div class="block">
-        <h3 class="block_title">[% block.block_ref_title %]</h3>
+        [% IF block.title.defined && block.title != ''  %]
+            <h3 class="block_title">[% block.title %]</h3>
+        [% END %]
         <div class="block_content">
-            [% block.block_ref_content %]
+            [% block.content %]
         </div>
     </div>
 
-    [% IF block.block_ref_id.defined && block.block_ref_id == 'my_block' %]
+    [% IF block.id.defined && block.id == 'my_block' %]
         <!-- end off canvas blocks for small screens -->
     [% END %]
-
-   <div class="block_title"></div>
 
 [% END %]
 <!-- end templates/[% template.name %] -->
