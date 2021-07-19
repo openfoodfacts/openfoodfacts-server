@@ -1,7 +1,8 @@
 {
    "categories_tags" : [
-      "en:speculoos"
+      "en:baguettes"
    ],
+   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -46,17 +47,7 @@
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -66,29 +57,29 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_food_code" : "24009",
-         "co2_agriculture" : "4.5649571",
+         "agribalyse_food_code" : "7001",
+         "co2_agriculture" : "0.27683119",
          "co2_consumption" : "0",
-         "co2_distribution" : "0.029120657",
-         "co2_packaging" : "0.10868914",
-         "co2_processing" : "0.30914227",
-         "co2_total" : "5.1404703",
-         "co2_transportation" : "0.12860414",
-         "code" : "24009",
-         "dqr" : "2.14",
-         "ef_agriculture" : "0.42279176",
+         "co2_distribution" : "0.0064852108",
+         "co2_packaging" : "0.096327546",
+         "co2_processing" : "0.15668205",
+         "co2_total" : "0.66956768",
+         "co2_transportation" : "0.13323488",
+         "code" : "7001",
+         "dqr" : "1.95",
+         "ef_agriculture" : "0.060092513",
          "ef_consumption" : "0",
-         "ef_distribution" : "0.0098990521",
-         "ef_packaging" : "0.016470524",
-         "ef_processing" : "0.050097131",
-         "ef_total" : "0.50926159",
-         "ef_transportation" : "0.010007618999999999",
+         "ef_distribution" : "0.0014414118",
+         "ef_packaging" : "0.020603751",
+         "ef_processing" : "0.035781102999999995",
+         "ef_total" : "0.12836245",
+         "ef_transportation" : "0.010443509",
          "is_beverage" : 0,
-         "name_en" : "Speculoos biscuit",
-         "name_fr" : "Spéculoos",
-         "score" : 53
+         "name_en" : "Bread, French bread, baguette",
+         "name_fr" : "Pain, baguette, courante",
+         "score" : 95
       },
-      "grade" : "c",
+      "grade" : "b",
       "grade_be" : "b",
       "grade_ch" : "b",
       "grade_de" : "b",
@@ -102,20 +93,20 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 58,
-      "score_be" : 75,
-      "score_ch" : 72,
-      "score_de" : 71,
-      "score_es" : 68,
-      "score_fr" : 77,
-      "score_ie" : 69,
-      "score_it" : 69,
-      "score_lu" : 74,
-      "score_nl" : 74,
+      "score" : 95,
+      "score_be" : 112,
+      "score_ch" : 109,
+      "score_de" : 108,
+      "score_es" : 105,
+      "score_fr" : 114,
+      "score_ie" : 106,
+      "score_it" : 106,
+      "score_lu" : 111,
+      "score_nl" : 111,
       "status" : "known"
    },
    "ecoscore_grade" : "b",
-   "ecoscore_score" : 77,
+   "ecoscore_score" : 114,
    "ecoscore_tags" : [
       "b"
    ],
@@ -166,11 +157,6 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

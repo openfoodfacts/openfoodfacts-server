@@ -301,7 +301,7 @@ my @tests = (
 		'packaging-unspecified-no-a-eco-score',
 		{
 			lc => "en",
-			categories_tags=>["en:speculoos"],
+			categories_tags=>["en:baguettes"],
 			ingredients_text=>"Wheat (France)",
 			labels_tags=>["fr:ab-agriculture-biologique"],
 		}
