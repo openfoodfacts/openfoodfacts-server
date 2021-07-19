@@ -492,7 +492,7 @@ sub compute_ecoscore($) {
 	
 	# Special case for waters and sodas: disable the Eco-Score
 	
-	my @categories_without_ecoscore = ("en:waters", "en:sodas", "en:energy-drinks");
+	my @categories_without_ecoscore = ("en:waters", "en:sodas", "en:energy-drinks", "en:fresh-vegetables", "en:fresh-fruits");
 	my $category_without_ecoscore;
 	
 	foreach my $category (@categories_without_ecoscore) {
