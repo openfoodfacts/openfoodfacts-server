@@ -5081,6 +5081,16 @@ ru:бифидобактерии-actiregularis, бифидобактерии acti
 es:bifidobacterias y otros fermentos lácticos
 fr:ferments lactiques dont bifidobacterium
 
+<en:ferments
+en:kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
+es:fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
+fr:ferments du kéfir, culture de kéfir, cultures de kéfir
+<en:lactic ferments
+<en:kefir ferments
+en:kefir lactic ferments
+es:fermentos lácticos de kéfir, fermentos lácticos de gránulos de kéfir
+fr:ferments lactiques du kéfir
+
 # description:en:LACTOBACILLUS is a genus of Gram-positive, facultative anaerobic or microaerophilic, rod-shaped, non-spore-forming bacteria. Lactobacillus is the most common probiotic found in food such as yogurt, and it is diverse in its application to maintain human well-being. Some Lactobacillus species are used as starter cultures in industry for controlled fermentation in the production of wine, yogurt, cheese, sauerkraut, pickles, beer, cider, kimchi, cocoa, kefir, and other fermented foods.
 
 <en:lactic ferments
@@ -17349,13 +17359,13 @@ from_palm_oil:en:yes
 
 <en:vegetable fat
 en:milk fat substitute
-de:de:Milchfett-Ersatz
+de:Milchfett-Ersatz
 ru:заменитель молочного жира
 # in Russia manufacturers often use milk-fat-substitute as cheap substitute of milk fat
 
 <en:vegetable oil and fat
 en:cocoa butter substitute
-de:de:Kakaobutter-Ersatz
+de:Kakaobutter-Ersatz
 ru:заменитель масла какао, заменитель какао масла, эквивалент масла какао, заменитель какао масла лауринового типа
 
 # <en:palm
@@ -22480,7 +22490,7 @@ sv:naturlig pepparmintsarom
 <en:natural peppermint flavouring
 <en:natural flavouring
 en:natural peppermint flavouring with other natural flavourings
-de:de:natürliches Pfefferminz Aroma mit andeten natürlichen Aromen
+de:natürliches Pfefferminz Aroma mit andeten natürlichen Aromen
 fi:luontainen piparminttuaromi ja muita luontaisia aromeja
 sv:naturlig pepparmintsarom med andra naturliga aromer
 # ingredient/sv:naturlig-pepparmintsarom-med-andra-naturliga-aromer has 1 product in 1 language @2020-05-25
@@ -23060,7 +23070,7 @@ sv:räkarom
 
 <en:natural flavouring
 en:natural asparagus flavouring
-de:de:natürliches Spargel-Aroma
+de:natürliches Spargel-Aroma
 fi:luontainen parsa-aromi
 sv:naturlig sparrisarom
 # ingredient/sv:naturlig-sparrisarom has 1 product in 1 language @2020-06-10
@@ -23633,7 +23643,7 @@ zh:全麥小麥
 
 <en:wholegrain wheat
 en:british wholegrain wheat
-de:de:britisches Weizenvollkorn
+de:britisches Weizenvollkorn
 
 <en:wheat
 en:wheat flakes
@@ -23768,7 +23778,7 @@ de:Einkornvollkornmehl, Einkorn-Vollkornmehl
 
 <en:wheat
 en:wheat groats
-de:de:Weizengraupen
+de:Weizengraupen
 fi:vehnärouhe
 fr:gruau de blé
 ru:крупа пшеничная
@@ -24101,7 +24111,7 @@ de:Grießmehl
 es:harina de sémola
 fr:Semoule de blé
 
-# Question
+# TODO Question: should we split ?
 
 <en:wheat
 <en:semolina
@@ -25140,7 +25150,7 @@ sl:ovseni polnozrnati kosmiči
 
 <en:whole grain oat flakes
 en:british wholegrain oat flakes
-de:de:britische Hafervollkornflocken
+de:britische Hafervollkornflocken
 
 <en:oat
 en:oat bran, oatbran
@@ -31095,7 +31105,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
 <en:vegetable protein
 en:rapeseed protein
-de:de:Rapseiweiß
+de:Rapseiweiß
 fi:rapsiproteiini
 fr:protéine de colza, protéines de colza
 sv:rapsprotein
@@ -36042,7 +36052,7 @@ vegetarian:en:yes
 
 <en:peach
 en:peach paste
-de:de:Pfirsichpaste Pfirsichteig
+de:Pfirsichpaste Pfirsichteig
 fi:persikkatahna
 sv:persikopasta
 # ingredient/en:peach-paste has 1 product in 1 language @2020-12-21
@@ -36731,7 +36741,7 @@ it:mela Granny
 
 <en:apple
 en:cinnamon apple
-de:de:Zimtapfel
+de:Zimtapfel
 es:manzana canela
 fr:pomme cannelle
 it:cannella di mele
@@ -41177,7 +41187,7 @@ sv:frystorkade hallon
 <en:raspberry
 en:raspberry powder
 de:Himbeerpulver, Himbeerfruchtpulver
-es:fresas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
+es:frambuesas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
 fi:vadelmajauhe
 fr:Poudre de framboise
 sv:hallonpulver
@@ -41189,7 +41199,7 @@ wikidata:en:Q11962286
 
 <en:sauce
 en:raspberry sauce
-de:de:Himbeersauce de:Himbeersoße
+de:Himbeersauce de:Himbeersoße
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
 
 #TODO delete
@@ -41617,7 +41627,7 @@ wikidata:Q68192318
 
 <en:fruit
 en:nectarine
-de:de:Nektarine
+de:Nektarine
 es:nectarina
 fr:nectarine
 it:nettarina
@@ -43232,7 +43242,7 @@ fr:légumes et jus de cuisson de légumes
 
 <en:vegetable
 en:dried vegetables
-de:de:getrocknetes Gemüse
+de:getrocknetes Gemüse
 ru:сушеные овощи и зелень, сушеные овощи
 
 <en:vegetable
@@ -45680,7 +45690,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot
 
 <en:carrot
 en:dried carrot
-de:de:getrocknete Möhre
+de:getrocknete Möhre
 ru:морковь сушёная
 
 <en:carrot
@@ -48331,7 +48341,7 @@ sv:röd paprika
 
 <en:sweet pepper
 en:italian pepper
-de:de:italienischer Pfeffer
+de:italienischer Pfeffer
 es:pimiento italiano
 
 <en:bell pepper
@@ -48503,7 +48513,7 @@ fr:Flocons de piment
 
 <en:chili pepper
 en:chili in vinegar
-de:de:Chilli in Essig
+de:Chilli in Essig
 es:guindillas en vinagre
 
 <en:chili pepper
@@ -48760,7 +48770,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Guajillo_chili
 # ingredient/en:guajillo-chili has 11 products in 1 language @2020-12-22
 
 en:spicy red pepper
-de:de:scharfer roter Pfeffer
+de:scharfer roter Pfeffer
 es:ñora,ñoras
 
 <en:chili pepper
@@ -54537,7 +54547,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
 # the pod contains the seeds
 <en:cardamom
 en:cardamom pod
-de:de:Kardamon-Schote
+de:Kardamon-Schote
 
 <en:seed
 <en:cardamom
@@ -70940,7 +70950,7 @@ es:proteina de pollo
 
 <en:chicken
 en:chicken wing
-de:de:Hähnchenflügel
+de:Hähnchenflügel
 fr:aile de poulet
 
 
@@ -71285,12 +71295,12 @@ fr:oie
 
 <en:goose
 en:goose meat
-de:de:Gänsefleisch
+de:Gänsefleisch
 fr:viande d'oie
 
 <en:goose
 en:goose liver
-de:de:Gänseleber
+de:Gänseleber
 fr:foie d'oie
 
 <en:goose liver
@@ -76243,7 +76253,7 @@ fi:mustaherukkahillo
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
 en:jam
-de:de:Marmelade de:Konfitüre
+de:Marmelade de:Konfitüre
 ru:джем, повидло, варенье
 
 ###################################################################################################
