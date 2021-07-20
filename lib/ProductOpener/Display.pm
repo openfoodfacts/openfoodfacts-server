@@ -7535,6 +7535,7 @@ sub display_product_search_or_add($)
 
 	my $html = '';
 	my $template_data_ref_content = {};
+	my $template_data_ref_content_producer = {};
 	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref_content->{or} = $or;
 
@@ -7542,14 +7543,8 @@ sub display_product_search_or_add($)
 
 	if ($server_options{producers_platform}) {
 
-		$html = <<HTML
-&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
-&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/remove_products.pl">$Lang{remove_products_from_producers_platform}{$lc}</a><br>
-</p>
-HTML
-;
+		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html) || ($html = "template error: " . $tt->error());
+
 		push @{$blocks_ref}, {
 			'title'=>lang("import_products"),
 			'content'=>$html,
@@ -7557,35 +7552,12 @@ HTML
 
 	}
 
-	$html = start_multipart_form(-action=>"/cgi/product.pl");
-
-	if (not $server_options{producers_platform}) {
-		# Do not display image upload button on producers platform
-		# causes issues with the import_photos_upload.pl
-		$html .= display_search_image_form("block_side");
-	}
-
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-
-	$html .= <<HTML
-
-      <div class="row collapse">
-        <div class="small-9 columns">
-          <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
-        </div>
-        <div class="small-3 columns">
-           <input type="submit" value="$Lang{add}{$lc}" class="button postfix">
-        </div>
-      </div>
-
-	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
-</form>
-HTML
-;
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
 
 	push @{$blocks_ref}, {
 			'title'=>$title,
-			'content'=>	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error()),
+			'content'=> $html,
 	};
 
 
