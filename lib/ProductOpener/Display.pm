@@ -7530,9 +7530,6 @@ sub display_product_search_or_add($)
 
 	my $title = lang("add_product");
 
-	my $or = $Lang{or}{$lc};
-	$or =~ s/( |\&nbsp;)?://;
-
 	my $html = '';
 	my $template_data_ref_content = {};
 	my $template_data_ref_content_producer = {};

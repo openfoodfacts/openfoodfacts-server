@@ -8,7 +8,7 @@
 
     <div class="row collapse">
         <div class="small-9 columns">
-          <input type="text" name="code" placeholder="[% lang('or') %] [% lang('barcode') %]">
+          <input type="text" name="code" placeholder="[% lang('or').remove('|\W?:') %] [% lang('barcode') %]">
         </div>
         <div class="small-3 columns">
            <input type="submit" value="[% lang('add') %]" class="button postfix">
