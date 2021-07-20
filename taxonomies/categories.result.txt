@@ -6689,23 +6689,6 @@ agribalyse_food_code:en: 32002
 ciqual_food_code:en: 32002
 ciqual_food_name:en: Breakfast cereals, rich in fibre, with or without fruits, fortified with vitamins and chemical elements
 
-< en:Breakfast chocolate cereals with wheat grain flakes
-en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
-fr:Pétales de blé chocolatés non enrichis en vitamines et minéraux
-agribalyse_food_code:en: 32011
-ciqual_food_code:en: 32011
-ciqual_food_name:en: Breakfast cereals, chocolate wheat grain flakes -not fortified with vitamins and chemical elements-
-ciqual_food_name:fr: Pétales de blé chocolatés -non enrichis en vitamines et minéraux-
-
-< en:Breakfast cereals fortified with vitamins and chemical elements
-< en:Breakfast chocolate cereals with wheat grain flakes
-en:Chocolate wheat grain flakes fortified with vitamins and chemical elements
-fr:Pétales de blé chocolatés enrichis en vitamines et minéraux
-agribalyse_food_code:en: 32009
-ciqual_food_code:en: 32009
-ciqual_food_name:en: Breakfast cereals, chocolate wheat grain flakes, fortified with vitamins and chemical elements
-ciqual_food_name:fr: Pétales de blé chocolatés, enrichis en vitamines et minéraux
-
 en:Breakfasts
 ca:Esmorzars
 da:Morgenmad, Morgenmadsprodukter
@@ -13714,6 +13697,10 @@ ciqual_food_name:en: Breakfast cereals, with chocolate, not filled -not fortifie
 ciqual_food_name:fr: Céréales chocolatées pour petit déjeuner, non fourrées, -non enrichies en vitamines et minéraux-
 
 < en:Chocolate cereals
+en:Chocolate cereal balls
+fr:Boules de céréales au chocolat
+
+< en:Chocolate cereals
 en:Diet chocolate breakfast cereals
 fr:Céréales au chocolat pour petit-déjeuner équilibré
 
@@ -13734,18 +13721,6 @@ agribalyse_food_code:en: 32001
 ciqual_food_code:en: 32001
 ciqual_food_name:en: Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
 ciqual_food_name:fr: Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
-
-< en:Chocolate cereals
-< en:Extruded cereals
-en:Breakfast chocolate cereals with wheat grain flakes
-fr:Pétales de blé chocolatés
-it:Petali di Frumento al cacao
-
-< en:Chocolate cereals
-< en:Extruded cereals
-en:Cereal flakes with chocolate
-es:Copos de cereales con chocolate, Cereales con chocolate
-fr:Pétales de céréales au chocolat
 
 < en:Chocolate chip cookies
 en:Chocolate and hazelnut cookies
@@ -13975,6 +13950,23 @@ en:Chocolate turrón with puffed rice, black chocolate turrón with puffed rice
 de:Schokoturrón mit Puffreis, Schwarzer Schokoturrón mit Puffreis
 es:Turrones de chocolate con arroz inflado, Turrones de chocolate negro con arroz inflado
 fr:Turrón au chocolat avec riz soufflé, turrón au chocolat noir avec riz soufflé
+
+< en:Chocolate wheat flakes
+en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
+fr:Pétales de blé chocolatés non enrichis en vitamines et minéraux
+agribalyse_food_code:en: 32011
+ciqual_food_code:en: 32011
+ciqual_food_name:en: Breakfast cereals, chocolate wheat grain flakes -not fortified with vitamins and chemical elements-
+ciqual_food_name:fr: Pétales de blé chocolatés -non enrichis en vitamines et minéraux-
+
+< en:Breakfast cereals fortified with vitamins and chemical elements
+< en:Chocolate wheat flakes
+en:Chocolate wheat grain flakes fortified with vitamins and chemical elements
+fr:Pétales de blé chocolatés enrichis en vitamines et minéraux
+agribalyse_food_code:en: 32009
+ciqual_food_code:en: 32009
+ciqual_food_name:en: Breakfast cereals, chocolate wheat grain flakes, fortified with vitamins and chemical elements
+ciqual_food_name:fr: Pétales de blé chocolatés, enrichis en vitamines et minéraux
 
 < en:Chocolates
 en:Assorted chocolates
@@ -21716,6 +21708,18 @@ nl:Gevulde ontbijtgranen
 en:Cereal flakes with fruits
 fr:Pétales de céréales aux fruits
 
+< en:Chocolate cereals
+< en:Extruded cereals
+en:Cereal flakes with chocolate
+es:Copos de cereales con chocolate, Cereales con chocolate
+fr:Pétales de céréales au chocolat
+
+< en:Chocolate cereals
+< en:Extruded cereals
+en:Chocolate wheat flakes, Breakfast chocolate cereals with wheat grain flakes
+fr:Pétales de blé chocolatés
+it:Petali di Frumento al cacao
+
 < en:Cereal flakes
 < en:Extruded cereals
 < en:Extruded flakes
@@ -26301,32 +26305,7 @@ fr:Germes de légumes frais, Pousses de légumes frais
 nl:Kiemgroentes
 
 < en:Fresh vegetable mixes
-< en:Frozen foods
-en:Frozen mixed vegetables for soups
-fr:Légumes surgelés pour potage
-agribalyse_food_code:en: 20263
-ciqual_food_code:en: 20263
-ciqual_food_name:en: Mixed vegetables for soups, frozen, raw
-ciqual_food_name:fr: Légumes pour potages, surgelés, crus
-
-< en:Fresh vegetable mixes
-en:Mixtures of vegetables for broth
-de:Suppengemüse
-es:Mezclas de verduras y hortalizas para caldo
-fr:Mélanges de légumes pour bouillon
-
-< en:Fresh vegetable mixes
-es:Mezclas de verduras y hortalizas para cocido, Mezclas de vegetales para cocido
-
-< en:Fresh vegetable mixes
-es:Mezclas de verduras y hortalizas para gazpacho
-
-< en:Fresh vegetable mixes
 es:Mezclas de verduras y hortalizas para puré, Mezclas de vegetales para puré
-
-< en:Fresh vegetable mixes
-es:Mezclas de verduras y hortalizas para sopa, Mezclas de vegetales para sopa
-fr:Mélanges de légumes pour soupes
 
 < en:Artichokes
 < en:Fresh vegetables
@@ -26393,13 +26372,6 @@ en:Fresh Asparagus
 es:Espárragos frescos
 fr:Asperges fraîches
 season_in_country_fr:en: 4‚5,6
-
-< en:Fresh vegetables
-en:Fresh vegetable mixes
-de:Frische Gemüse Mischung
-es:Mezclas de verduras y hortalizas frescas
-fr:Mélanges de légumes frais
-nl:Verse groentemengsels
 
 < en:Fresh vegetables
 < en:Mushrooms
@@ -27564,17 +27536,6 @@ es:Pistos congelados
 < en:Frozen plant-based foods mixes
 es:Salteados de vegetales congelados
 
-< en:Frozen plant-based foods mixes
-< en:Frozen vegetables
-en:Frozen vegetable mixes
-de:Gefrorene Gemüsemischungen
-es:Mezclas de verduras y hortalizas congeladas
-fi:Pakastevihannessekoitukset
-fr:Mélanges de légumes surgelés
-it:Misti di verdure congelati
-nl:Diepvriesgroentemelanges
-pnns_group_2:en: Vegetables
-
 < en:Frozen porcini mushrooms
 en:Frozen chopped porcini mushrooms, Frozen chopped porcini, Frozen chopped penny bun, Frozen chopped porcino, Frozen chopped Boletus edulis
 es:Boletos comestibles troceados congelados, Boletus comestible troceado congelado, Setas de calabaza troceadas congeladas, Boletus edulis troceados congelados, Setas Boletus edulis troceadas congeladas, Boletus edulis troceados congeladas
@@ -27741,6 +27702,15 @@ agribalyse_food_code:en: 20101
 ciqual_food_code:en: 20101
 ciqual_food_name:en: Mixed vegetables, frozen, raw
 ciqual_food_name:fr: Légumes, mélange surgelé, crus
+
+< en:Frozen foods
+< en:Frozen vegetable mixes
+en:Frozen mixed vegetables for soups
+fr:Légumes surgelés pour potage
+agribalyse_food_code:en: 20263
+ciqual_food_code:en: 20263
+ciqual_food_name:en: Mixed vegetables for soups, frozen, raw
+ciqual_food_name:fr: Légumes pour potages, surgelés, crus
 
 < en:Frozen vegetable mixes
 en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
@@ -28937,7 +28907,7 @@ it:Tortini di mirtilli
 en:Lemon tartlets
 de:Zitronentörtchen
 fr:Tartelettes au citron
-it:Crostatina al limone
+it:Tortini al limone, Crostatina al limone
 nl:Citroentaartjes
 
 < en:Fruit tartlets
@@ -38999,6 +38969,10 @@ ciqual_food_code:en: 25420
 ciqual_food_name:en: Egg roll or Nem
 ciqual_food_name:fr: Nem ou Pâté impérial
 pnns_group_2:en: Appetizers
+
+< en:Meals
+en:Pad thai
+fr:Pad Thaï
 
 < en:Meals
 en:Pasta dishes
@@ -51031,14 +51005,6 @@ nl:Diepvrieslasagna
 sv:Fryst lasagne
 
 < en:Prepared lasagne
-en:Lasagna with goat cheese and spinach
-fr:Lasagnes au fromage de chèvre et aux épinards, Lasagnes chèvre épinards, Lasagnes au fromage et aux épinards
-agribalyse_food_code:en: 25635
-ciqual_food_code:en: 25635
-ciqual_food_name:en: Lasagna or cannelloni with goat cheese and spinach
-ciqual_food_name:fr: Lasagnes ou cannelloni au fromage et aux épinards
-
-< en:Prepared lasagne
 en:Lasagne with fish, Lasagna with fish
 fr:Lasagnes au poisson
 agribalyse_food_code:en: 25139
@@ -53480,6 +53446,12 @@ fr:Riz parfumés, Riz parfumé
 it:Riso aromatico
 nl:Geparfumeerde rijst
 wikidata:en: Q4795514
+
+< en:Rices
+en:Baldo rices
+fr:Riz baldo
+it:Riso baldo
+wikidata:en: Q18416333
 
 < en:Rices
 en:Black rices
@@ -66318,6 +66290,42 @@ ru:Томатный сок, Томатные соки
 zh:番茄汁
 wikidata:en: Q787325
 
+< en:Fresh vegetables
+< en:Vegetable mixes
+en:Fresh vegetable mixes
+de:Frische Gemüse Mischung
+es:Mezclas de verduras y hortalizas frescas
+fr:Mélanges de légumes frais
+nl:Verse groentemengsels
+
+< en:Frozen plant-based foods mixes
+< en:Frozen vegetables
+< en:Vegetable mixes
+en:Frozen vegetable mixes
+de:Gefrorene Gemüsemischungen
+es:Mezclas de verduras y hortalizas congeladas
+fi:Pakastevihannessekoitukset
+fr:Mélanges de légumes surgelés
+it:Misti di verdure congelati
+nl:Diepvriesgroentemelanges
+pnns_group_2:en: Vegetables
+
+< en:Vegetable mixes
+en:Mixtures of vegetables for broth
+de:Suppengemüse
+es:Mezclas de verduras y hortalizas para caldo
+fr:Mélanges de légumes pour bouillon
+
+< en:Vegetable mixes
+es:Mezclas de verduras y hortalizas para cocido, Mezclas de vegetales para cocido
+
+< en:Vegetable mixes
+es:Mezclas de verduras y hortalizas para gazpacho
+
+< en:Vegetable mixes
+es:Mezclas de verduras y hortalizas para sopa, Mezclas de vegetales para sopa
+fr:Mélanges de légumes pour soupes
+
 < en:Olive tree products
 < en:Vegetable oil sprays
 en:Olive oil sprays
@@ -67573,6 +67581,14 @@ ciqual_food_name:en: Vegetable flan
 ciqual_food_name:fr: Flan de légumes
 
 < en:Vegetables based foods
+en:Vegetable mixes
+de:Gemüse Mischung
+es:Mezclas de verduras y hortalizas
+fr:Mélanges de légumes
+it:Misti di verdure
+nl:Groentemengsels
+
+< en:Vegetables based foods
 en:Vegetable rods
 ca:Verdures allargades
 de:Stangengemüse
@@ -67669,10 +67685,14 @@ ciqual_food_name:en: Lasagna or cannelloni with vegetables and goat cheese, cook
 ciqual_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
 < en:Vegetarian lasagne
-en:Lasagne with goat cheese and spinach
-fr:Lasagne Chèvre Épinards
+en:Lasagne with goat cheese and spinach, Lasagna with goat cheese and spinach
+fr:Lasagnes au fromage de chèvre et épinards, Lasagne Chèvre Épinards, Lasagnes au fromage de chèvre et aux épinards, Lasagnes chèvre épinards, Lasagnes au fromage et aux épinards
 it:Lasagne al formaggio di capra e spinaci
 nl:Lasagna met geitenkaas en spinazie
+agribalyse_food_code:en: 25635
+ciqual_food_code:en: 25635
+ciqual_food_name:en: Lasagna or cannelloni with goat cheese and spinach
+ciqual_food_name:fr: Lasagnes ou cannelloni au fromage et aux épinards
 
 < en:Vegetarian lasagne
 en:Vegetable lasagne, Lasagna with vegetables
