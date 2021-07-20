@@ -7063,28 +7063,11 @@ sub display_bottom_block($)
 sub display_blocks($)
 {
 	my $request_ref = shift;
-	my $blocks_ref = $request_ref->{blocks_ref};
 
 	my $html = '';
+	my $template_data_ref_blocks->{blocks} = $request_ref->{blocks_ref};
 
-	foreach my $block_ref (@{$blocks_ref}) {
-		$html .= "
-<div class=\"block\">
-<h3 class=\"block_title\">$block_ref->{title}</h3>
-<div class=\"block_content\">
-$block_ref->{content}
-</div>
-</div>
-";
-		if ((defined $block_ref->{id}) and ($block_ref->{id} eq 'my_block')) {
-			$html .= "<!-- end off canvas blocks for small screens -->\n";
-		}
-
-	}
-
-	# Remove empty titles
-	$html =~ s/<div class=\"block_title\"><\/div>//g;
-
+	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
