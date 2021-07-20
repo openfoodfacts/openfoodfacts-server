@@ -7534,6 +7534,9 @@ sub display_product_search_or_add($)
 	$or =~ s/( |\&nbsp;)?://;
 
 	my $html = '';
+	my $template_data_ref_content = {};
+	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
+	$template_data_ref_content->{or} = $or;
 
 	# Producers platform: display an addition import products block
 
@@ -7554,13 +7557,15 @@ HTML
 
 	}
 
-	$html = start_multipart_form(-action=>"/cgi/product.pl") ;
+	$html = start_multipart_form(-action=>"/cgi/product.pl");
 
 	if (not $server_options{producers_platform}) {
 		# Do not display image upload button on producers platform
 		# causes issues with the import_photos_upload.pl
 		$html .= display_search_image_form("block_side");
 	}
+
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
 
 	$html .= <<HTML
 
@@ -7580,8 +7585,9 @@ HTML
 
 	push @{$blocks_ref}, {
 			'title'=>$title,
-			'content'=>$html,
+			'content'=>	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error()),
 	};
+
 
 	return;
 }

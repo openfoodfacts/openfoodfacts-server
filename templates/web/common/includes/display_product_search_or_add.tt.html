@@ -1,0 +1,32 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF server_options_producers_platform %]
+
+[% END %]
+
+<p>
+&rarr; <a href="/cgi/import_file_upload.pl">[% lang('import_product_data') %]</a><br>
+&rarr; <a href="/cgi/import_photos_upload.pl">[% lang('import_product_photos') %]</a><br>
+&rarr; <a href="/cgi/export_products.pl">[% lang('export_product_data_photos') %]</a><br>
+&rarr; <a href="/cgi/remove_products.pl">[% lang('remove_products_from_producers_platform') %]</a><br>
+</p>
+
+<form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
+
+    <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" name="code" placeholder="[% lang('or') %] [% lang('barcode') %]">
+        </div>
+        <div class="small-3 columns">
+           <input type="submit" value="[% lang('add') %]" class="button postfix">
+        </div>
+    </div>
+
+	<input type="submit" value="[% lang('no_barcode') %]" class="button tiny">
+
+</form>
+
+
+
+
+<!-- end templates/[% template.name %] -->
