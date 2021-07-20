@@ -7067,9 +7067,6 @@ sub display_blocks($)
 	my $html = '';
 	my $template_data_ref_blocks->{blocks} = $request_ref->{blocks_ref};
 
-	# Remove empty titles
-	$html =~ s/<div class=\"block_title\"><\/div>//g;
-
 	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
