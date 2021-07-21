@@ -852,7 +852,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{"css/dist/product-multilingual.css"}" />
+<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{'css/dist/product-multilingual.css'}" />
 HTML
 ;
 
@@ -869,9 +869,35 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
+<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+
 HTML
 ;
+
+
+	my $thumb_selectable_size = $thumb_size + 20;
+
+	$styles .= <<CSS
+.ui-selectable li {
+	margin: 3px;
+	padding: 0px;
+	float: left;
+	width: ${thumb_selectable_size}px;
+	height: ${thumb_selectable_size}px;
+	line-height: ${thumb_selectable_size}px;
+	text-align: center;
+}
+.show_for_manage_images {
+	line-height:normal;
+	font-weight:normal;
+	font-size:0.8rem;
+}
+.select_manage .ui-selectable li { 
+	height: 180px
+}
+CSS
+;
+
 
 	if ((not ((defined $server_options{private_products}) and ($server_options{private_products})))
 	 and (defined $Org_id)) {
@@ -896,10 +922,6 @@ HTML
 
 	$template_data_ref_display->{errors} = \@errors;
 
-	my $thumb_selectable_size = $thumb_size + 20;
-
-	$template_data_ref_display->{thumb_selectable_size} = $thumb_selectable_size;
-
 	my $label_new_code = $Lang{new_code}{$lang};
 
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
@@ -908,7 +930,6 @@ HTML
 
 	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref_display->{org_id} = $Org_id;
-	$template_data_ref_display->{user_moderator} = $User{moderator};
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
 
@@ -925,10 +946,6 @@ HTML
 		$template_data_ref_display->{display_field_obsolete} = display_input_field($product_ref, "obsolete_since_date", undef);
 
 	}
-
-	$template_data_ref_display->{obsolete} = $Lang{obsolete}{$lang};
-	$template_data_ref_display->{warning_3rd_party_content} = $Lang{warning_3rd_party_content}{$lang};
-	$template_data_ref_display->{licence_accept} = $Lang{licence_accept}{$lang};
 
 	# Main language
 	my @lang_options;
@@ -949,20 +966,10 @@ HTML
 		$lang_value = $product_ref->{lc};
 	}
 
-	$template_data_ref_display->{lang_value} = $lang_value;
+	$template_data_ref_display->{product_lang_value} = $lang_value;
 	$template_data_ref_display->{lang_options} = \@lang_options;
-	$template_data_ref_display->{lang} = $Lang{lang}{$lang};
+	#$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
-
-	if ($User{moderator}) {
-		$template_data_ref_display->{copy_data} = $Lang{copy_data}{$lc};
-		$template_data_ref_display->{manage_images_info} = $Lang{manage_images_info}{$lc};
-		$template_data_ref_display->{delete_the_images} = $Lang{delete_the_images}{$lc};
-		$template_data_ref_display->{move_images_to_another_product} = $Lang{move_images_to_another_product}{$lc};
-		$template_data_ref_display->{barcode} = $Lang{barcode}{$lc};
-		$template_data_ref_display->{manage_images} = $Lang{manage_images}{$lc};
-	}
-	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
 
@@ -977,7 +984,6 @@ HTML
 		}
 	}
 
-	$template_data_ref_display->{product_image} = $Lang{product_image}{$lang};
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
 sub display_input_tabs($$$$$) {
@@ -998,7 +1004,6 @@ sub display_input_tabs($$$$$) {
 	my $value;
 
 	$template_data_ref_tab->{tabsid} = $tabsid;
-	$template_data_ref_tab->{user_moderator} = $User{moderator};
 
 	my $active = " active";
 

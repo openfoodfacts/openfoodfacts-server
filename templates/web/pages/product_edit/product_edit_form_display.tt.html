@@ -1,29 +1,4 @@
 <!-- start templates/[% template.name %] -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-    <style>
-        .ui-selectable li {
-            margin: 3px;
-            padding: 0px;
-            float: left;
-            width: [% thumb_selectable_size %]px;
-            height: [% thumb_selectable_size %]px;
-            line-height: [% thumb_selectable_size %]px;
-            text-align: center;
-        }
-        .show_for_manage_images {
-            line-height:normal;
-            font-weight:normal;
-            font-size:0.8rem;
-        }
-        .select_manage .ui-selectable li { 
-            height: 180px
-        }
-    </style>
-</head>
-<body>
 
     [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
         <div class="panel callout">
@@ -42,68 +17,63 @@
         [% END %]
     [% END %]
 
-    [% IF user_moderator %]
-        <label for="new_code" id="label_new_code">[% label_new_code %]</label>
-        <input type="text" name="new_code" id="new_code" class="text" value="" /><br />
-    [% END %]
-
     <form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
 
-        [% IF user_moderator %]
+        [% IF moderator %]
             <label for="new_code" id="label_new_code">[% label_new_code %]</label>
             <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
         [% END %]
 
-        [% IF user_moderator || owner_id %]
+        [% IF moderator || owner_id %]
             <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
-            <label for="obsolete" class="checkbox_label">[% obsolete %]</label>
+            <label for="obsolete" class="checkbox_label">[% lang("obsolete") %]</label>
             [% display_field_obsolete %]
         [% END %]
 
         <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
-            <span>[% warning_3rd_party_content %]</span>
+            <span>[% lang("warning_3rd_party_content") %]</span>
              <a href="#" class="close">&times;</a>
         </div>
         
         <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
-            <span>[% licence_accept %]</span>
+            <span>[% lang("licence_accept") %]</span>
              <a href="#" class="close">&times;</a>
         </div>
 
         <label for="lang"> [% lang('lang') %] </label>
         <select name="lang" id="lang">
-            [% FOREACH lang IN lang_options %]
-                <option value="[% lang.value %]" [% IF lang.value== lang_value %] selected="selected" [% END %]>[% lang.label %]</option>
+            [% FOREACH language IN lang_options %]
+                <option value="[% language.value %]" [% IF language.value== product_lang_value %] selected="selected" [% END %]>[% language.label %]</option>
             [% END %]
         </select>
 
-        [% IF user_moderator %]
+        [% IF moderator %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
-                    <a href="#manage_images_drop">[% display_icon('collections') %] [% manage_images %]</a>
+                    <a href="#manage_images_drop">[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
-                        <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% delete_the_images %]</a><br/>
+                        <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% lang("delete_the_images") %]</a><br/>
                         <div class="row">
                             <div class="small-12 medium-5 columns">
-                                <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% move_images_to_another_product %]</a>
+                                <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% lang("move_images_to_another_product") %]</a>
                             </div>
                             <div class="small-4 medium-2 columns">
-                                <label for="move_to" class="right inline">[% barcode %]</label>
+                                <label for="move_to" class="right inline">[% lang("barcode") %]</label>
                             </div>
                             <div class="small-8 medium-5 columns">
                                 <input type="text" id="move_to" name="move_to" />
                             </div>
                         </div>
-                        <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% copy_data %]</label>
+                        <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% lang("copy_data") %]</label>
                         <div id="moveimagesmsg"></div>
                     </div>
                 </li>
             </ul> 
         [% END %]
 
-        <div id="product_image" class="fieldset"><legend>[% product_image %]</legend>
+        <div id="product_image" class="fieldset"><legend>[% lang("product_image") %]</legend>
             <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
             [% display_tab_product_picture %]
         </div>
@@ -220,7 +190,7 @@
                 <div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
             </div>
 
-            [% IF user_moderator %]
+            [% IF moderator %]
                 <div><a class="small button" onclick="$('.nutriment_value').val('')">[% remove_all_nutrient_values %]</a></div>
             [% END %]
 
@@ -296,7 +266,7 @@
             [% display_tab_packaging %]
         </div>
 
-        [% IF user_moderator %]
+        [% IF moderator %]
             <div class="fieldset" id="check"><legend>[% photos_and_data_check %]</legend>
             <p>[% photos_and_data_check_description %]</p>
 
