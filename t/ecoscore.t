@@ -261,6 +261,15 @@ my @tests = (
 			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
 		}
 	],
+
+	[
+		'packaging-en-multiple-over-maximum-malus',
+		{
+			lc => "en",
+			categories_tags=>["en:biscuits"],
+			packaging_text=>"1 plastic box, 1 plastic film wrap, 12 individual plastic bags"
+		}
+	],	
 	
 	[
 		'packaging-en-unspecified-material-bottle',
@@ -279,6 +288,24 @@ my @tests = (
 			packaging_text=>"can"
 		}
 	],
+
+	[
+		'packaging-unspecified',
+		{
+			lc => "en",
+			categories_tags=>["en:milks"],
+		}
+	],
+
+	[
+		'packaging-unspecified-no-a-eco-score',
+		{
+			lc => "en",
+			categories_tags=>["en:baguettes"],
+			ingredients_text=>"Wheat (France)",
+			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],		
 	
 	# Sodas: no Eco-Score
 	
@@ -388,6 +415,28 @@ my @tests = (
 			categories_tags=>["en:energy-drinks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
 			ingredients_text => "Water",
+		},
+	],
+
+	# Fresh fruits and vegetables should not have an Eco-Score (at least until we handle seasonality)
+
+	[
+		'fresh-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:fresh-vegetables", "en:fresh-tomatoes", "en:tomatoes"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Tomatoes",
+		},
+	],
+
+	[
+		'frozen-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:frozen-vegetables", "en:frozen-carrots", "en:carrots"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Carrots",
 		},
 	],	
 

@@ -1,20 +1,20 @@
 {
    "categories_tags" : [
-      "en:cheeses"
+      "en:milks"
    ],
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
                {
-                  "origin" : "en:unspecified",
+                  "origin" : "en:unknown",
                   "percent" : 100
                }
             ],
             "epi_score" : 0,
             "epi_value" : -5,
             "origins_from_origins_field" : [
-               "en:unspecified"
+               "en:unknown"
             ],
             "transportation_score_be" : 0,
             "transportation_score_ch" : 0,
@@ -42,7 +42,8 @@
             "value_ie" : -5,
             "value_it" : -5,
             "value_lu" : -5,
-            "value_nl" : -5
+            "value_nl" : -5,
+            "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
@@ -52,29 +53,31 @@
          "production_system" : {
             "warning" : "no_label"
          },
-         "threatened_species" : {}
+         "threatened_species" : {
+            "warning" : "ingredients_missing"
+         }
       },
       "agribalyse" : {
-         "agribalyse_proxy_food_code" : "12001",
-         "co2_agriculture" : "4.7126103",
-         "co2_consumption" : "0.0047993021",
-         "co2_distribution" : "0.029050683",
-         "co2_packaging" : "0.26662691",
-         "co2_processing" : "0.22452742",
-         "co2_total" : "5.4920327",
-         "co2_transportation" : "0.25844052",
-         "code" : "12001",
-         "dqr" : "1.81",
-         "ef_agriculture" : "0.41632178999999997",
-         "ef_consumption" : "0.0024293397",
-         "ef_distribution" : "0.0088270864",
-         "ef_packaging" : "0.019721226",
-         "ef_processing" : "0.028839787",
-         "ef_total" : "0.49584621999999995",
-         "ef_transportation" : "0.020064567000000002",
-         "is_beverage" : 0,
-         "name_en" : "Camembert cheese, from cow's milk",
-         "name_fr" : "Camembert, sans précision",
+         "agribalyse_proxy_food_code" : "19041",
+         "co2_agriculture" : "1.1888463",
+         "co2_consumption" : "0",
+         "co2_distribution" : "0.012078628",
+         "co2_packaging" : "0.17188731",
+         "co2_processing" : "0.01061493",
+         "co2_total" : "1.4865868",
+         "co2_transportation" : "0.10315961",
+         "code" : "19041",
+         "dqr" : "2.47",
+         "ef_agriculture" : "0.10502456",
+         "ef_consumption" : "0",
+         "ef_distribution" : "0.004287772",
+         "ef_packaging" : "0.014723027999999999",
+         "ef_processing" : "0.0014905525",
+         "ef_total" : "0.13351659",
+         "ef_transportation" : "0.0079906595",
+         "is_beverage" : 1,
+         "name_en" : "Milk, semi-skimmed, UHT",
+         "name_fr" : "Lait demi-écrémé, UHT",
          "score" : 54
       },
       "grade" : "d",
@@ -88,7 +91,9 @@
       "grade_lu" : "d",
       "grade_nl" : "d",
       "missing" : {
+         "ingredients" : 1,
          "labels" : 1,
+         "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
@@ -109,52 +114,10 @@
    "ecoscore_tags" : [
       "d"
    ],
-   "ingredients" : [
-      {
-         "id" : "en:milk",
-         "percent_estimate" : 100,
-         "percent_max" : 100,
-         "percent_min" : 100,
-         "text" : "Milk",
-         "vegan" : "no",
-         "vegetarian" : "yes"
-      }
-   ],
-   "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
-      "en:non-vegan",
-      "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:milk",
-      "en:dairy"
-   ],
-   "ingredients_n" : 1,
-   "ingredients_n_tags" : [
-      "1",
-      "1-10"
-   ],
-   "ingredients_original_tags" : [
-      "en:milk"
-   ],
-   "ingredients_percent_analysis" : 1,
-   "ingredients_tags" : [
-      "en:milk",
-      "en:dairy"
-   ],
-   "ingredients_text" : "Milk",
-   "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
-   },
-   "origins_tags" : [
-      "en:unspecified"
-   ],
-   "packagings" : [],
-   "unknown_ingredients_n" : 0
+   "packagings" : []
 }
