@@ -7534,7 +7534,6 @@ sub display_product_search_or_add($)
 	my $template_data_ref_content = {};
 	my $template_data_ref_content_producer = {};
 	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
-	$template_data_ref_content->{or} = $or;
 
 	# Producers platform: display an addition import products block
 
