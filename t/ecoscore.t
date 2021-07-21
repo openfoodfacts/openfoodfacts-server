@@ -438,6 +438,17 @@ my @tests = (
 			packaging_text => "1 plastic film",
 			ingredients_text => "Carrots",
 		},
+	],
+
+	# Foie gras should not use the "Duck, liver, raw" Agribalyse category which has a very small impact (modeled after chicken liver)
+	[
+		'foie-gras',
+		{
+			lc => "fr",
+			categories_tags=>["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+		},
 	],	
 
 );
