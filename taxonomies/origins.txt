@@ -22,22 +22,25 @@ ca:Desconegut
 es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
+tr:Bilinmiyor
 
 en:Unspecified, not specified, non specified, nonspecified, not available, n/a
 ca:No especificat
 es:No especificado
 fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 hu:Nincs megadva, kitöltetlen, nem elérhető
+pt:Não especificado
 
 # World regions
 
 en:Africa
+ca:Àfrica
 da:Afrika
 de:Afrika
-ca:Àfrica
 es:África
 fr:Afrique
 hu:Afrika
+tr:Afrika
 
 <en:Africa
 en:West Africa
@@ -66,6 +69,7 @@ hu:Észak-Amerika
 
 en:South-America
 ca:Sud Amèrica
+de:Südamerika
 es:Sudamerica
 fr:Amérique du Sud
 hu:Dél-Amerika
@@ -77,6 +81,8 @@ de:Asien
 es:Asia
 fr:Asie
 hu:Ázsia
+pt:Ásia
+tr:Asya
 
 en:Europe
 ca:Europa
@@ -85,6 +91,7 @@ de:Europa
 es:Europa
 fr:Europe
 hu:Európa
+pt:Europa
 
 en:European Union, EU
 da:Den Europæiske Union, EU
@@ -99,6 +106,7 @@ da:Ikke-EU
 de:Nicht-Europäische Union, Nicht-EU
 fr:Non Union Européenne, Non UE
 hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
+pt:Fora da União Europeia
 
 en:European Union and Non European Union, EU and non EU, EU non EU
 ca:Unió Europea i no Unió Europea, UE i no UE
@@ -130,12 +138,15 @@ hu:Burgundia
 <en:france
 en:Brittany
 ca:Bretanya
+de:Bretagne
 es:Bretaña
 fr:Bretagne
+hu:Bretagne
 
 <en:france
 en:Camargue
 fr:Camargue
+pt:Camarga
 
 <en:france
 en:Corsica
@@ -168,10 +179,12 @@ ca:Normandia
 es:Normandía
 fr:Normandie
 hu:Normandia
+pt:Normandia
 
 <en:france
 en:Provence
 fr:Provence
+hu:Provance
 
 <en:france
 en:Savoy
@@ -179,6 +192,7 @@ fr:Savoie
 
 <en:france
 en:South-western France, South-west of France
+de:Südwestfrankreich
 fr:Sud-ouest de la France, Sud-ouest français
 hu:Délnyugat-Franciaország
 
@@ -358,6 +372,7 @@ en:Sicily
 fr:Sicile
 hu:Szicília
 it:Sicilia
+tr:Sicilya
 
 # Spanish regions
 
@@ -393,10 +408,12 @@ de:Kalifornien
 es:California
 fr:Californie
 hu:Kalifornia
+tr:Kaliforniya
 
 <en:united-states
 en:Florida
 fr:Floride
+hu:Florida
 
 <en:United States	
 en:South Carolina	
@@ -473,6 +490,7 @@ fr:Océan Atlantique Sud-Est, FAO 47, FAO N°47
 
 en:Indian Ocean
 de:Indischer Ozean
+es:Océano Indio, Océano Índico
 fr:Océan Indien
 hu:Indiai-óceán
 
@@ -482,6 +500,7 @@ fr:Océan Indien Ouest
 
 <en:Indian Ocean
 en:Eastern Indian Ocean
+es:Océano Índico Oriental, Este del Océano Índico
 fr:Océan Indien Est
 
 en:North Sea
