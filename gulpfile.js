@@ -2,7 +2,7 @@
 
 const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
