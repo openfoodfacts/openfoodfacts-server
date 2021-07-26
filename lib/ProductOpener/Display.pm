@@ -152,6 +152,7 @@ use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::Orgs qw(:all);
+use ProductOpener::Web qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -7057,18 +7058,6 @@ sub display_bottom_block($)
 	}
 
 	return;
-}
-
-
-sub display_blocks($)
-{
-	my $request_ref = shift;
-
-	my $html = '';
-	my $template_data_ref_blocks->{blocks} = $request_ref->{blocks_ref};
-
-	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html) || return "template error: " . $tt->error();
-	return $html;
 }
 
 
