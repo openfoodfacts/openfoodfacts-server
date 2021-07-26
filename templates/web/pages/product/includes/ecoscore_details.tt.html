@@ -196,22 +196,6 @@
 	
 	<h4>[% display_icon('packaging') %] [% lang('ecoscore_packaging') %]</h4>
 	
-	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
-		<ul>
-			[% FOREACH packaging IN adjustments.packaging.packagings %]
-				<li>
-					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
-					([% lang('ecoscore_packaging_ratio') %][% sep %]: [% packaging.ecoscore_shape_ratio %])
-					-
-					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
-					([% lang('ecoscore_packaging_score') %][% sep %]: [% packaging.ecoscore_material_score %])
-				</li>
-			[% END %]
-		</ul>
-		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>
-		<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
-	[% END %]
-	
 	[% IF adjustments.packaging.warning %]
 		<div class="panel warning">
 			<strong>
@@ -227,6 +211,23 @@
 		</div>
 	[% END %]
 
+	[% IF adjustments.packaging.packagings && adjustments.packaging.packagings.size %]
+		<ul>
+			[% FOREACH packaging IN adjustments.packaging.packagings %]
+				<li>
+					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
+					([% lang('ecoscore_packaging_ratio') %][% sep %]: [% packaging.ecoscore_shape_ratio %])
+					-
+					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
+					([% lang('ecoscore_packaging_score') %][% sep %]: [% packaging.ecoscore_material_score %])
+				</li>
+			[% END %]
+		</ul>
+		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>	
+	[% END %]
+
+	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+	
 	</div>
 	</div>
 	</div>
