@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2021 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -104,8 +104,6 @@ if ($type eq 'search_or_add') {
 
 	my %data = ();
 	my $location;
-
-
 
 	if (defined $code) {
 		$data{code} = $code;
@@ -740,6 +738,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 }
 
+
 # Display the product edit form
 
 my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
@@ -832,6 +831,7 @@ sub display_input_field($$$) {
 	return $html_field;
 }
 
+
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
@@ -911,15 +911,6 @@ CSS
 	}
 
 	$template_data_ref_display->{errors_index} = $#errors;
-
-	my @errors_arr;
-
-	if ($#errors >= 0) {
-		foreach my $error (@errors) {
-			push(@errors_arr, $error);
-		}
-	}
-
 	$template_data_ref_display->{errors} = \@errors;
 
 	my $label_new_code = $Lang{new_code}{$lang};
@@ -968,7 +959,6 @@ CSS
 
 	$template_data_ref_display->{product_lang_value} = $lang_value;
 	$template_data_ref_display->{lang_options} = \@lang_options;
-	#$template_data_ref_display->{lang} = $Lang{lang}{$lang};
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1100,10 +1090,8 @@ sub display_input_tabs($$$$$) {
 
 	return $html_tab;
 }
-	$template_data_ref_display->{ingredients} = $Lang{ingredients}{$lang};
-	$template_data_ref_display->{product_characteristics} = $Lang{product_characteristics}{$lang};
-	$template_data_ref_display->{nutrition_data} = $Lang{nutrition_data}{$lang};
-	$template_data_ref_display->{no_nutrition_data} = $Lang{no_nutrition_data}{$lang};
+
+
 	$template_data_ref_display->{display_tab_product_picture} = display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 	$template_data_ref_display->{display_tab_product_characteristics} = display_input_tabs($product_ref, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 
@@ -1204,8 +1192,6 @@ sub display_input_tabs($$$$$) {
 			nutrition_data_per => $nutrition_data_per,
 			checked_per_100g => $checked_per_100g,
 			checked_per_serving => $checked_per_serving,
-			nutrition_data_per_100g => $Lang{nutrition_data_per_100g}{$lang},
-			nutrition_data_per_serving => $Lang{nutrition_data_per_serving}{$lang},
 			nutrition_data_instructions => $nutrition_data_instructions,
 			nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
 			nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lang},
@@ -1226,13 +1212,7 @@ sub display_input_tabs($$$$$) {
 	$template_data_ref_display->{nutrition_data_prepared_100g_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
 	$template_data_ref_display->{nutrition_data_prepared_serving_style} = $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
 
-	$template_data_ref_display->{nutrition_data_table} = $Lang{nutrition_data_table}{$lang};
-	$template_data_ref_display->{product_as_sold} = $Lang{product_as_sold}{$lang};
-	$template_data_ref_display->{prepared_product} = $Lang{prepared_product}{$lang};
-	$template_data_ref_display->{nutriments_unit} = $Lang{unit}{$lang};
 	$template_data_ref_display->{tablestyle} = $tablestyle;
-	$template_data_ref_display->{nutrition_data_per_100g} = $Lang{nutrition_data_per_100g}{$lang};
-	$template_data_ref_display->{nutrition_data_per_serving} = $Lang{nutrition_data_per_serving}{$lang};
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -1512,17 +1492,13 @@ var otherNutriments = [
 $other_nutriments
 ];
 </script>
+
 HTML
 ;
 
 	# Packaging photo and data
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
-	$template_data_ref_display->{remove_all_nutrient_values} = $Lang{remove_all_nutrient_values}{$lang};
-	$template_data_ref_display->{nutrition_data_table_note} = $Lang{nutrition_data_table_note}{$lang};
-	$template_data_ref_display->{ecological_data_table_note} = $Lang{ecological_data_table_note}{$lang};
-	$template_data_ref_display->{ecological_data_table} = $Lang{ecological_data_table}{$lang};
-	$template_data_ref_display->{packaging} = $Lang{packaging}{$lang};
 	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 
 	# Product check
@@ -1537,9 +1513,6 @@ HTML
 			$label = $Lang{photos_and_data_checked}{$lang};
 		}
 
-		$template_data_ref_display->{photos_and_data_check_description} = $Lang{photos_and_data_check_description}{$lang};
-		$template_data_ref_display->{photos_and_data_check} = $Lang{photos_and_data_check}{$lang};
-		$template_data_ref_display->{i_checked_the_photos_and_data_again} = $Lang{i_checked_the_photos_and_data_again}{$lang};
 		$template_data_ref_display->{product_ref_checked} = $product_ref->{checked};
 		$template_data_ref_display->{product_check_label} = $label;
 		$template_data_ref_display->{product_check_checked} = $checked;
@@ -1549,9 +1522,6 @@ HTML
 	$template_data_ref_display->{param_fields} = param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
-	$template_data_ref_display->{save} = $Lang{save}{$lang};
-	$template_data_ref_display->{cancel} = $Lang{cancel}{$lang};
-	$template_data_ref_display->{edit_comment} = $Lang{edit_comment}{$lang};
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html) or $html = "<p>" . $tt->error() . "</p>";
@@ -1565,11 +1535,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
 
-	$template_data_ref_moderator->{delete_comment} = $Lang{delete_comment}{$lang};
-	$template_data_ref_moderator->{delete_product_confirm} = $Lang{delete_product_confirm}{$lang};
-	$template_data_ref_moderator->{product_name} = $Lang{product_name}{$lang};
-	$template_data_ref_moderator->{product_ref_product_name} = $product_ref->{product_name};
-	$template_data_ref_moderator->{barcode} = $Lang{barcode}{$lang};
+	$template_data_ref_moderator->{product_name} = $product_ref->{product_name};
 	$template_data_ref_moderator->{type} = $type;
 	$template_data_ref_moderator->{code} = $code;
 

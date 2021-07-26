@@ -79,7 +79,7 @@
         </div>
 
         <div id="product_characteristics" class="fieldset">
-            <legend>[% product_characteristics %]</legend>
+            <legend>[% lang('product_characteristics') %]</legend>
             [% display_tab_product_characteristics %]
 
             [% FOREACH field IN display_fields_arr %]
@@ -87,7 +87,7 @@
             [% END %]
         </div>
 
-        <div id="ingredients" class="fieldset"><legend>[% ingredients %]</legend>
+        <div id="ingredients" class="fieldset"><legend>[% lang('ingredients') %]</legend>
             [% display_tab_ingredients_image %]
             [% display_field_allergens %]
             [% display_field_traces %]
@@ -95,20 +95,22 @@
         </div>
 
         <!--nutrient fieldset-->
-        <div class="fieldset" id="nutrition"><legend>[% nutrition_data %]</legend>
+        <div class="fieldset" id="nutrition"><legend>[% lang('nutrition_data') %]</legend>
             <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
-            <label for="no_nutrition_data" class="checkbox_label">[% no_nutrition_data %]</label><br/>
+            <label for="no_nutrition_data" class="checkbox_label">[% lang('no_nutrition_data') %]</label><br/>
             [% display_tab_nutrition_image %]
             [% display_field_serving_size %]
 
             [% FOREACH nutrient IN nutrition_products %]
                 <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
                 <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] /><label for="[% nutrient.nutrition_data_per %]_100g">[% nutrient.nutrition_data_per_100g %]</label>
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] /><label for="[%nutrient. nutrition_data_per %]_serving">[% nutrient.nutrition_data_per_serving %]</label><br/>
+                <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
+                <label for="[% nutrient.nutrition_data_per %]_100g">[% lang('nutrition_data_per_100g') %]</label>
+                <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] />
+                <label for="[%nutrient. nutrition_data_per %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
 
                 [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
-                    <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang('nutrient.nutrition_data_instructions') %]</p>
+                    <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang(nutrient.nutrition_data_instructions) %]</p>
                 [% END %]
             [% END %]
 
@@ -117,20 +119,20 @@
                 <table id="nutrition_data_table" class="data_table" style = "[% tablestyle %]" aria-label="nutrition table">
                     <thead class="nutriment_header">
                         <th id="col_1">
-                            [% nutrition_data_table %]
+                            [% lang('nutrition_data_table') %]
                         </th>
                         <th id="col_2" class="nutriment_col" [% column_display_style_nutrition_data %]>
-                            [% product_as_sold %]<br/>
-                            <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% nutrition_data_per_100g %]</span>
-                            <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% nutrition_data_per_serving %]</span>
+                            [% lang('product_as_sold') %]<br/>
+                            <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                            <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
                         </th>
                         <th id="col_3" class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                            [% prepared_product %]<br/>
-                            <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% nutrition_data_per_100g %]</span>
-                            <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% nutrition_data_per_serving %]</span>
+                            [% lang('prepared_product') %]<br/>
+                            <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                            <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
                         </th>
                         <th id="col_4">
-                            [% nutriments_unit %]
+                            [% lang('unit') %]
                         </th>
                     </thead>
                     
@@ -191,23 +193,23 @@
             </div>
 
             [% IF moderator %]
-                <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% remove_all_nutrient_values %]</a></div>
+                <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
             [% END %]
 
-            <p class="note">&rarr; [% nutrition_data_table_note %]</p>
+            <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
 
             <table aria-label="nutrition table">
                 <thead class="nutriment_header">
                     <tr>
-                        <th id="col_1">[% ecological_data_table %]</th>
+                        <th id="col_1">[% lang('ecological_data_table') %]</th>
                         <th id="col_2" class="nutriment_col" [% column_display_style_nutrition_data %]>
-                            [% product_as_sold %]
+                            [% lang('product_as_sold') %]
                         </th>
                         <th id="col_3" class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                            [% prepared_product %]
+                            [% lang('prepared_product') %]
                         </th>
                         <th id="col_4">
-                            [% nutriments_unit %]
+                            [% lang('unit') %]
                         </th>
                     </tr>
                 </thead>
@@ -256,26 +258,26 @@
 
             </table>
 
-            <p class="note">&rarr; [% ecological_data_table_note %]</p>
+            <p class="note">&rarr; [% lang('ecological_data_table_note') %]</p>
 
         </div><!--nutrient field set-->
 
         <!--packaging field-->
         <div id="packaging" class="fieldset">
-            <legend>[% packaging %]</legend>
+            <legend>[% lang('packaging') %]</legend>
             [% display_tab_packaging %]
         </div>
 
         [% IF moderator %]
-            <div class="fieldset" id="check"><legend>[% photos_and_data_check %]</legend>
-            <p>[% photos_and_data_check_description %]</p>
+            <div class="fieldset" id="check"><legend>[% lang('photos_and_data_check') %]</legend>
+            <p>[% lang('photos_and_data_check_description') %]</p>
 
             <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
-            <label for="photos_and_data_checked" class="checkbox_label">[% product_check_label %]</label><br/>
+            <label for="photos_and_data_checked" class="checkbox_label">[% lang('photos_and_data_checked') %]</label><br/>
 
             [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
                 <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
-                <label for="photos_and_data_rechecked" class="checkbox_label">[% i_checked_the_photos_and_data_again %]</label><br/>
+                <label for="photos_and_data_rechecked" class="checkbox_label">[% lang('i_checked_the_photos_and_data_again') %]</label><br/>
             [% END %]
         [% END %]
 
@@ -294,16 +296,16 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-8 xlarge-8 columns">
-                        <input id="comment" name="comment" placeholder="[% edit_comment %]" value="" type="text" class="text" />
+                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" />
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
                         <button type="submit" name=".submit" class="button postfix small success">
-                            [% display_icon('check') %] [% save %]
+                            [% display_icon('check') %] [% lang('save') %]
                         </button>
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
                         <button type="button" id="back-btn" class="button postfix small secondary">
-                            [% display_icon('cancel') %][% cancel %]
+                            [% display_icon('cancel') %][% lang('cancel') %]
                         </button>
                     </div>
                 </div>
