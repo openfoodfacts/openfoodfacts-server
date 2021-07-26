@@ -28,6 +28,10 @@ use Exporter qw(import);
 
 use ProductOpener::Display qw/:all/;
 
+
+use Template;
+
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -49,3 +53,5 @@ sub display_blocks($)
 	process_template('web/common/includes/display_blocks.tt.html', $template_data_ref_blocks, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
+
+1;
