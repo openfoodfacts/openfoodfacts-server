@@ -1072,9 +1072,7 @@ sub display_input_tabs($$$$$) {
 
 			$display_tab_ref->{fields} = \@fields_arr;
 		}
-
-		push(@display_tabs, $display_tab_ref);
-
+		
 		# For moderators, add a checkbox to move all data and photos to the main language
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
 		if (($User{moderator}) and ($tabsid eq "front_image")) {
@@ -1085,12 +1083,11 @@ sub display_input_tabs($$$$$) {
 
 			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
-			$template_data_ref_tab->{moveid} = $moveid;
-			$template_data_ref_tab->{msg} = $msg;
-			$template_data_ref_tab->{move_data_and_photos_to_main_language_ignore} = $Lang{move_data_and_photos_to_main_language_ignore}{$lc};
-			$template_data_ref_tab->{move_data_and_photos_to_main_language_replace}= $Lang{move_data_and_photos_to_main_language_replace}{$lc};
-
+			$display_tab_ref->{moveid} = $moveid;
+			$display_tab_ref->{msg} = $msg;
 		}
+
+		push(@display_tabs, $display_tab_ref);
 
 		# Only the first tab is active
 		$active = "";

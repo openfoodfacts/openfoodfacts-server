@@ -19,9 +19,22 @@
 <!--The content tab starts-->
 <div id="tabs_content_[% tabsid %]" class="tabs-content">
     [% FOREACH tab IN display_tabs %]
-        <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
+        [% IF tab.tabid != "new" %]
+            <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
+                
+                [% IF moderator && tabsid == "front_image" %]
+                    <div class="move_data_and_images_to_main_language" id="[% tab.moveid %]_div" style="display:hidden">
+                        <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="[% tab.moveid %]" name="[% tab.moveid %]" />
+                        <label for="[% tab.moveid %]" class="checkbox_label">[% tab.msg %]</label><br/>
+                        <div id="[% tab.moveid %]_radio" style="display:hidden">
+                            <input type="radio" id="[% tab.moveid %]_replace" value="replace" name="[% tab.moveid %]_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
+                            <label for="[% tab.moveid %]_replace" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_replace") %]</label>
+                            <input type="radio" id="[% tab.moveid %]_ignore" value="ignore" name="[% tab.moveid %]_mode" />
+                            <label for="[% tab.moveid %]_ignore" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_ignore") %]</label><br/>
+                        </div>
+                    </div>
+                [% END %]                 
 
-            [% IF tab.tabid != "new" %]
                 [% FOREACH field IN tab.fields %]
                     [% IF field.field_status.match('^(.*)_image') %]
                         [% field.display_div %]
@@ -35,22 +48,9 @@
                         [% field.display_div %]
                     [% END %]
                 [% END %]
-            [% END %]
 
-            [% IF user_moderator && tabsid == "front_image" %]
-                <div class="move_data_and_images_to_main_language" id="[% moveid %]_div" style="display:hidden">
-                    <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="[% moveid %]" name="[% moveid %]" />
-                    <label for="[% moveid %]" class="checkbox_label">[% msg %]</label><br/>
-                    <div id="[% moveid %]_radio" style="display:hidden">
-                        <input type="radio" id="[% moveid %]_replace" value="replace" name="[% moveid %]_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
-                        <label for="[% moveid %]_replace" style="margin-top:0">[% move_data_and_photos_to_main_language_replace %]</label>
-                        <input type="radio" id="[% moveid %]_ignore" value="ignore" name="[% moveid %]_mode" />
-                        <label for="[% moveid %]_ignore" style="margin-top:0">[% move_data_and_photos_to_main_language_ignore %]</label><br/>
-                    </div>
-                </div>
-            [% END %] 
-
-        </div>
+            </div>
+        [% END %]
     [% END %]
 </div>
 <!--The content tab ends-->
