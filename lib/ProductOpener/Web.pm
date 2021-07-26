@@ -28,6 +28,17 @@ use Exporter qw(import);
 
 use ProductOpener::Display qw/:all/;
 
+BEGIN
+{
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	@EXPORT_OK = qw(
+		&display_blocks
+		);
+	%EXPORT_TAGS = (all => [@EXPORT_OK]);
+}
+
+use vars @EXPORT_OK;
+
 sub display_blocks($)
 {
 	my $request_ref = shift;
