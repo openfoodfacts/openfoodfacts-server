@@ -273,7 +273,7 @@ $tt = Template->new(
 
 # Initialize exported variables
 $memd = Cache::Memcached::Fast->new(
-	{   
+	{
 		'servers' => $memd_servers,
 		'utf8'    => 1,
 		compress_threshold => 10000,
@@ -6873,37 +6873,10 @@ sub display_login_register($)
 
 	if (not defined $User_id) {
 
-		my $content = <<HTML
-<p>$Lang{login_to_add_and_edit_products}{$lc}</p>
+		my $content = '';
+		my $template_data_ref_login = {};
 
-<form method="post" action="/cgi/session.pl">
-	<div class="row">
-		<div class="small-12 columns">
-			<label>$Lang{login_username_email}{$lc}
-				<input type="text" name="user_id" autocomplete="username" required>
-			</label>
-		</div>
-		<div class="small-12 columns">
-			<label>$Lang{password}{$lc}
-				<input type="password" name="password" autocomplete="current-password" required>
-			</label>
-		</div>
-		<div class="small-12 columns">
-			<label>
-				<input type="checkbox" name="remember_me" checked>
-				$Lang{remember_me}{$lc}
-			</label>
-		</div>
-	</div>
-	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
-</form>
-<p>$Lang{login_not_registered_yet}{$lc}
-<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a><br>
-<a href="/cgi/reset_password.pl">$Lang{forgotten_password}{$lc}</a>
-</p>
-
-HTML
-;
+		process_template('web/common/includes/display_login_register.tt.html', $template_data_ref_login, \$content) || ($content .= 'template error: ' . $tt->error());
 
 		push @{$blocks_ref}, {
 			'title'=>lang("login_register_title"),
