@@ -27,15 +27,16 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-        { removeDimensions: true },
-          { addClassesToSVGElement: { className: "icon" } },
-          {
-            addAttributesToSVGElement: {
-              attributes: [{ "aria-hidden": "true", focusable: "false" }]
-            }
-          }
+        {
+          name: "addClassesToSVGElement",
+          active: true,
+          params: { className: "icon" }
+        },
+        {
+          name: "addAttributesToSVGElement",
+          active: true,
+          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
+        }
       ]
       })
     ).
@@ -45,12 +46,7 @@ function icons() {
 function attributesIcons() {
   return src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(
-      svgmin({
-      plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-      ]
-      })
+      svgmin()
     ).
     pipe(dest("./html/images/attributes"));
 }
