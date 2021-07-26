@@ -122,7 +122,7 @@ BEGIN
 		$nutriment_table
 
 		%file_timestamps
-		
+
 		$show_ecoscore
 		$attributes_options_ref
 

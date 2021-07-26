@@ -27,10 +27,7 @@ use utf8;
 use Exporter qw(import);
 
 use ProductOpener::Display qw/:all/;
-
-
 use Template;
-
 
 BEGIN
 {
