@@ -18,6 +18,20 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Web - contains display functions for the website.
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Web> consists of functions used only in OpenFoodFacts website for different tasks.
+
+=head1 DESCRIPTION
+
+The module implements the functions that are being used by the OpenFoodFacts website.
+This module consists of different fucntions for displaying the different parts of home page, creating and saving products, etc
+
+=cut
 
 package ProductOpener::Web;
 
@@ -39,6 +53,15 @@ BEGIN
 }
 
 use vars @EXPORT_OK;
+
+
+=head1 FUNCTIONS
+
+=head2 display_blocks( $request_ref )
+
+The sidebar of home page consists of blocks. It displays some of those blocks in the sidebar.
+
+=cut
 
 sub display_blocks($)
 {
