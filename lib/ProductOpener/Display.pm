@@ -6891,24 +6891,16 @@ sub display_my_block($)
 {
 	my $blocks_ref = shift;
 
-
 	if (defined $User_id) {
 
-		my $links = "";
-
 		my $content = '';
+		my $template_data_ref_block = {};
 
-
-		my $signout = lang("signout");
-		$content = "<p><strong>" . lang("username") . separator_before_colon($lc) . ":</strong> "
-		. "<a href=\"/editor/$User_id\" id=\"logged_in_user_id\">". $User_id . "</a><br>"
-		. '&rarr; <a href="/cgi/user.pl?type=edit&userid=' . $User_id . '">' . lang("edit_settings") . "</a></p>";
-		
-		if (defined $Org_id) {
-			$content .= "<p><strong>" . lang("organization") . separator_before_colon($lc) . ":</strong> "
-			. '<a id="logged_in_org_id" href="/editor/org-' . $Org_id . '">' . $Org{name} . "</a><br>"
-			. '&rarr; <a href="/cgi/org.pl?type=edit&orgid=' . $Org_id . '">' . lang("edit_org_profile") . "</a></p>";
-		}		
+		$template_data_ref_block->{user_id} = $User_id;
+		$template_data_ref_block->{org_id} = $Org_id;
+		$template_data_ref_block->{org_name} = $Org{name};
+		$template_data_ref_block->{producers_platform_url} = $producers_platform_url;
+		$template_data_ref_block->{server_options_private_products} = $server_options{private_products};
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -6921,52 +6913,15 @@ sub display_my_block($)
 				$pro_moderator_message = lang("pro_moderator_owner_not_set");
 			}
 
-			if ($User{pro_moderator}) {
-				$content .= <<HTML
-<div class="panel">
-<h4>$Lang{producers_platform_moderation_title}{$lc}</h4>
-<p>$pro_moderator_message</p>
-<p>$Lang{pro_moderator_edit_owner_description}{$lc}</p>
-
-	<form method="post" action="/cgi/user.pl">
-	<input type="hidden" name="type" value="edit_owner">
-	<input type="hidden" name="action" value="process">
-	<input type="hidden" name="userid" value="$User_id">
-	<input type="text" name="pro_moderator_owner" value="" placeholder="$Lang{pro_moderator_edit_owner_placeholder}{$lc}">
-	<input type="submit" name=".submit" value="$Lang{pro_moderator_edit_owner}{$lc}" class="button small">
-	</form>
-</div>
-HTML
-;
-			}
-			if (not defined $Org_id) {
-				$content .= "<p>" . lang("account_without_org") . "</p>";
-			}
+			$template_data_ref_block->{pro_moderator_message} = $pro_moderator_message;
+			$template_data_ref_block->{user_pro_moderator} = $User{pro_moderator}; #can be removed after changes in Display.pm get merged
 		}
 		else {
-			
-			if (defined $Org_id) {
-				# Display a link to the producers platform
-				
-				$content .= "<p>" . lang("you_are_on_the_public_database") . "<br>"
-				. '<a href="' . $producers_platform_url . '">' . lang("manage_your_products_on_the_producers_platform") . "</a></p>";
-			}
-			
-			$links = '<ul class="side-nav" style="padding-top:0">';
-			$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-			$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
-			$links .= "</ul>";
+			$template_data_ref_block->{canonicalize_tag_link_editors} = canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id));
+			$template_data_ref_block->{canonicalize_tag_link_users} = canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id));
 		}
 
-		$content .= <<HTML
-<form method="post" action="/cgi/session.pl">
-<input type="hidden" name="length" value="logout">
-<input type="submit" name=".submit" value="$signout" class="button small">
-</form>
-
-$links
-HTML
-;
+		process_template('web/common/includes/display_my_block.tt.html', $template_data_ref_block, \$content) || ($content .= 'template error: ' . $tt->error());
 
 		push @{$blocks_ref}, {
 			'title'=> lang("hello") . ' ' . $User{name},
