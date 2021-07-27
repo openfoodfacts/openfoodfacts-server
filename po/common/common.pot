@@ -105,9 +105,11 @@ msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
 msgstr "This is a producer or brand account."
 
+# "Name of" is repeated on purpose to make sure producers actually put their name of the name of their brand,
+# and do not put "Manufacturer" or "Brand name" in the field. It happened multiple times.
 msgctxt "producer_or_brand"
-msgid "Manufacturer or brand name"
-msgstr "Manufacturer or brand name"
+msgid "Producer name or brand name"
+msgstr "Producer name or brand name"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
