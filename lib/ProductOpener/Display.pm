@@ -367,6 +367,8 @@ sub process_template($$$) {
 
 	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{moderator} = $User{moderator};
+	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
 	$template_data_ref->{lc} = $lc;
