@@ -1040,7 +1040,7 @@ sub display_input_tabs($$$$$) {
 					not defined $value and $value = "";
 					$id = "ingredients_text_" . ${display_lc};
 					$ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-
+					$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
 				}
 				else {
 					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();

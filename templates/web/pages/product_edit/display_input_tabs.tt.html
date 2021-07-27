@@ -36,17 +36,7 @@
                 [% END %]                 
 
                 [% FOREACH field IN tab.fields %]
-                    [% IF field.field_status.match('^(.*)_image') %]
                         [% field.display_div %]
-                    [% ELSIF field.field_status == 'ingredients_text' %]
-                        <div id="[% field.ingredients_image_full_id %]"></div>
-                        <label for="[% field.tab_content_id %]">[% field.ingredients_text %]</label>
-                        <textarea id="[% field.tab_content_id %]" name="[% field.tab_content_id %]" lang="[% display_lc %]">[% field.value %]</textarea>
-                        <p class="note">&rarr; [% field.ingredients_text_note %]</p>
-                        <p class="example">[% field.examples %] [% field.ingredients_text_example %]</p>
-                    [% ELSE %]
-                        [% field.display_div %]
-                    [% END %]
                 [% END %]
 
             </div>

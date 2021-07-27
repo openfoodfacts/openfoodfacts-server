@@ -7,7 +7,7 @@
     [% END %]
 </label>
 
-[% IF field.match('infocard') || field.match('^packaging_text') %]
+[% IF field.match('infocard') || field.match('^packaging_text') || field.match('^ingredients_text')  %]
     <textarea name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
 [% ELSE %]
     <input type="text" name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="[% display_lc %]" data-autocomplete="[% autocomplete %]" />
@@ -21,7 +21,6 @@
 [% END %]
 
 <p class="example">[% examples %][% field_type_examples %]</p>
-
 
 <!-- end templates/[% template.name %] -->
 
