@@ -984,14 +984,8 @@ sub display_input_tabs($$$$$) {
 	my $tabsids_hash_ref = shift;
 	my $fields_array_ref = shift;
 
-	my $html_tab = '';
-
 	my $template_data_ref_tab = {};
 	my @display_tabs;
-	my $display_div;
-	my $ingredients_image_full_id;
-	my $id;
-	my $value;
 
 	$template_data_ref_tab->{tabsid} = $tabsid;
 
@@ -1028,18 +1022,17 @@ sub display_input_tabs($$$$$) {
 
 			foreach my $field (@{$fields_array_ref}) {
 
+				# For the ingredient_text field, we will output a div above to display the image of the ingredients
+				my $image_full_id;
+				my $display_div;
+
 				if ($field =~ /^(.*)_image/) {
 
 					my $image_field = $1 . "_" . $display_lc;
 					$display_div = display_select_crop($product_ref, $image_field, $language);
-
 				}
 				elsif ($field eq 'ingredients_text') {
-
-					$value = $product_ref->{"ingredients_text_" . ${display_lc}};
-					not defined $value and $value = "";
-					$id = "ingredients_text_" . ${display_lc};
-					$ingredients_image_full_id = "ingredients_" . ${display_lc} . "_image_full";
+					$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
 					$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
 				}
 				else {
@@ -1048,14 +1041,8 @@ sub display_input_tabs($$$$$) {
 				}
 
 				push(@fields_arr, {
-					ingredients_image_full_id => $ingredients_image_full_id,
-					tab_content_id => $id,
-					ingredients_text_note => $Lang{ingredients_text_note}{$lang},
-					examples =>  $Lang{example}{$lang},
-					value => $value,
-					ingredients_text_example => $Lang{ingredients_text_example}{$lang},
-					ingredients_text => $Lang{ingredients_text}{$lang},
-					field_status => $field,
+					image_full_id => $image_full_id,
+					field => $field,
 					display_div => $display_div,
 				});
 			}
@@ -1086,6 +1073,7 @@ sub display_input_tabs($$$$$) {
 
 	$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
+	my $html_tab = '';
 	process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab) or $html_tab = "<p>" . $tt->error() . "</p>";
 
 	return $html_tab;

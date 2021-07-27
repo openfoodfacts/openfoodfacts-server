@@ -36,7 +36,10 @@
                 [% END %]                 
 
                 [% FOREACH field IN tab.fields %]
-                        [% field.display_div %]
+                    [% IF field.image_full_id.defined %]
+                        <div id="[% field.image_full_id %]"></div>
+                    [% END %]
+                    [% field.display_div %]
                 [% END %]
 
             </div>
