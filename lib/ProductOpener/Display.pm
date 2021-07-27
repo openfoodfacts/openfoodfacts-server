@@ -7612,9 +7612,12 @@ sub display_field($$) {
 	my $field = shift;
 
 	my $html = '';
+	my $template_data_ref_field = {};
+
+	$template_data_ref_field->{field} = $field;
 
 	if ($field eq 'br') {
-		$html .= '<hr class="floatleft">' . "\n";
+		process_template('web/common/includes/display_field_br.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
 		return $html;
 	}
 
@@ -7651,6 +7654,10 @@ sub display_field($$) {
 		if ($done_status ne ""){
 				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
 		}
+
+		$template_data_ref_field->{to_do_status} = $to_do_status;
+		$template_data_ref_field->{done_status} = $done_status;
+
 	}
 	elsif (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
@@ -7709,6 +7716,9 @@ sub display_field($$) {
 			$product_ref->{category} = $category;
 		}
 	}
+
+	process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+
 	return $html;
 }
 

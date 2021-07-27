@@ -1,0 +1,13 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF field == 'states' %]
+    [% IF to_do_status != "" %]
+        <p><span class="field">[% lang("to_do_status") %]: </span>[% to_do_status %]</p>
+    [% END %]
+    [% IF done_status != "" %]
+    <p><span class="field">[% lang("done_status") %]:</span>[% done_status %]</p>
+    [% END %]
+[% END %]
+
+
+<!-- end templates/[% template.name %] -->
