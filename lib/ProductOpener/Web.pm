@@ -29,7 +29,7 @@ C<ProductOpener::Web> consists of functions used only in OpenFoodFacts website f
 =head1 DESCRIPTION
 
 The module implements the functions that are being used by the OpenFoodFacts website.
-This module consists of different fucntions for displaying the different parts of home page, creating and saving products, etc
+This module consists of different functions for displaying the different parts of home page, creating and saving products, etc
 
 =cut
 
