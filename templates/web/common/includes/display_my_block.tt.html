@@ -39,22 +39,19 @@
 
     [% IF org_id.defined %]
         <p>[% lang("you_are_on_the_public_database") %]<br>
-        <a href="[% producers_platform_url %]">[% lang("manage_your_products_on_the_producers_platform") %]</a>
-    </p>
+         <a href="[% producers_platform_url %]">[% lang("manage_your_products_on_the_producers_platform") %]</a>
+        </p>
     [% END %]
+
+    <ul class="side-nav" style="padding-top:0">
+        <li><a href="[% edited_products_url %]">[% lang("products_you_edited") %]</a></li>
+        <li><a href="[% created_products_to_be_completed_url %]">[% lang("incomplete_products_you_added") %]</a></li>
+    </ul>    
 [% END %]
 
 <form method="post" action="/cgi/session.pl">
     <input type="hidden" name="length" value="logout">
     <input type="submit" name=".submit" value="[% lang('signout') %]" class="button small">
 </form>
-
-[% IF server_options_private_products.defined && server_options_private_products %]
-[% ELSE %]
-<ul class="side-nav" style="padding-top:0">
-    <li><a href="">[% lang("products_you_edited") %]</a></li>
-    <li><a href="">[% lang("incomplete_products_you_added") %]</a></li>
-</ul>
-[% END %]
 
 <!-- end templates/[% template.name %] -->
