@@ -233,13 +233,7 @@
                "name" : "Groupe NOVA",
                "status" : "unknown",
                "title" : "NOVA non calculé"
-            }
-         ],
-         "id" : "processing",
-         "name" : "Transformation des aliments"
-      },
-      {
-         "attributes" : [
+            },
             {
                "icon_url" : "https://server_domain/images/attributes/0-additives.svg",
                "id" : "additives",
@@ -249,8 +243,8 @@
                "title" : "Sans additives"
             }
          ],
-         "id" : "ingredients",
-         "name" : ""
+         "id" : "processing",
+         "name" : "Transformation des aliments"
       },
       {
          "attributes" : [

@@ -250,13 +250,7 @@
                "name" : "NOVA group",
                "status" : "known",
                "title" : "NOVA 4"
-            }
-         ],
-         "id" : "processing",
-         "name" : "Food processing"
-      },
-      {
-         "attributes" : [
+            },
             {
                "icon_url" : "https://server_domain/images/attributes/2-additives.svg",
                "id" : "additives",
@@ -266,8 +260,8 @@
                "title" : "2 additives"
             }
          ],
-         "id" : "ingredients",
-         "name" : ""
+         "id" : "processing",
+         "name" : "Food processing"
       },
       {
          "attributes" : [
