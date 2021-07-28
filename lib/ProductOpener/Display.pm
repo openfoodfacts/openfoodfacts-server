@@ -6898,10 +6898,7 @@ sub display_my_block($)
 		my $content = '';
 		my $template_data_ref_block = {};
 
-		$template_data_ref_block->{user_id} = $User_id;
-		$template_data_ref_block->{org_id} = $Org_id;
 		$template_data_ref_block->{org_name} = $Org{name};
-		$template_data_ref_block->{producers_platform_url} = $producers_platform_url;
 		$template_data_ref_block->{server_options_private_products} = $server_options{private_products};
 
 		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -6919,8 +6916,8 @@ sub display_my_block($)
 			$template_data_ref_block->{user_pro_moderator} = $User{pro_moderator}; #can be removed after changes in Display.pm get merged
 		}
 		else {
-			$template_data_ref_block->{canonicalize_tag_link_editors} = canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id));
-			$template_data_ref_block->{canonicalize_tag_link_users} = canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id));
+			$template_data_ref_block->{edited_products_url} = canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id));
+			$template_data_ref_block->{created_products_to_be_completed_url} = canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed")
 		}
 
 		process_template('web/common/includes/display_my_block.tt.html', $template_data_ref_block, \$content) || ($content .= 'template error: ' . $tt->error());
