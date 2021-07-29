@@ -7696,6 +7696,9 @@ sub display_field($$) {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
 
+		$template_data_ref_field->{lang_field} = $lang_field;
+		$template_data_ref_field->{value} = $value;
+
 		if ($field ne 'states') {
 			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		}

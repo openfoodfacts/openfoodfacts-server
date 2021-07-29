@@ -9,5 +9,11 @@
     [% END %]
 [% END %]
 
+[% IF field != 'states' %]
+    <p>
+        <span class="field">[% lang_field %]:</span>
+        [% value %]
+    </p>
+[% END %]
 
 <!-- end templates/[% template.name %] -->
