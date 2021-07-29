@@ -7733,15 +7733,6 @@ sub display_data_quality_description($$) {
 
 	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
 
-	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
-	}
-	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
-	}
-
 	return $html;
 }
 
