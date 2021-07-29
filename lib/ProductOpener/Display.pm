@@ -7663,6 +7663,8 @@ sub display_field($$) {
 		$value = display_tags_list($field, $value);
 	}
 
+	$template_data_ref_field->{value_check} = $value;
+
 	if ((defined $value) and ($value ne '')) {
 		# See https://stackoverflow.com/a/3809435
 		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
