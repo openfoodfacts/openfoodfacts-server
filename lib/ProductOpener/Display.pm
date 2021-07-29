@@ -7648,12 +7648,6 @@ sub display_field($$) {
 		}
 		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
 		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
-		if ($to_do_status ne ""){
-				$html .= '<p><span class="field">' . lang("to_do_status") . separator_before_colon($lc)  . ":</span>" . $to_do_status . "</p>";
-		}
-		if ($done_status ne ""){
-				$html .= '<p><span class="field">' . lang("done_status") . separator_before_colon($lc)  . ":</span>" . $done_status . "</p>";
-		}
 
 		$template_data_ref_field->{to_do_status} = $to_do_status;
 		$template_data_ref_field->{done_status} = $done_status;
@@ -7698,10 +7692,6 @@ sub display_field($$) {
 
 		$template_data_ref_field->{lang_field} = $lang_field;
 		$template_data_ref_field->{value} = $value;
-
-		if ($field ne 'states') {
-			$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
-		}
 
 		if ($field eq 'brands') {
 			my $brand = $value;
