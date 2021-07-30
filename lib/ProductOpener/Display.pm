@@ -7532,18 +7532,19 @@ sub display_product_search_or_add($)
 
 	my $html = '';
 	my $template_data_ref_content = {};
-	my $template_data_ref_content_producer = {};
 	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 
 	# Producers platform: display an addition import products block
 
 	if ($server_options{producers_platform}) {
+		my $html_producer = '';
+		my $template_data_ref_content_producer = {};
 
-		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html) || ($html = "template error: " . $tt->error());
+		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
 
 		push @{$blocks_ref}, {
 			'title'=>lang("import_products"),
-			'content'=>$html,
+			'content'=>$html_producer,
 		};
 
 	}
