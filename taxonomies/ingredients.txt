@@ -13477,7 +13477,7 @@ id:Garam beryodium
 it:Sale iodato
 nb:jodisert salt, salt med jod
 nl:gejodeerd zout
-pl:Jodowanie soli
+pl:sól jodowana
 pt:Sal iodado
 ro:sare iodată, sare iodata
 ru:Йодированная поваренная соль, соль йодированная
@@ -13532,6 +13532,7 @@ fi:jodioitu merisuola
 fr:sel marin iodé
 hu:jódozott tengeri só
 it:sale marino iodato
+pl:sól morska jodowana, jodowana sól morska
 sv:joderat havssalt, joderad havssalt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:jodioitu-merisuola
 # 1 entry @ 2019-11-02
@@ -13550,6 +13551,10 @@ de:Selleriesalz
 es:sal de apio
 fr:Sel de céleri, sel au céleri
 allergens:en: en:celery
+
+<en:salt
+en:potassium salt, potassium chloride
+pl:sól potasowa, mineralna sól potasowa
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -15278,7 +15283,7 @@ es:costillas de cerdo
 sv:sida av gris
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
 
-# description:en:BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States. 
+# description:en:BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States.
 
 <en:pork meat
 en:boston butt
@@ -24006,6 +24011,7 @@ vegetarian:en:yes
 en:semolina flour
 de:Grießmehl
 es:harina de sémola
+pl:mąka pszenna semolina
 
 # Question
 
@@ -35607,7 +35613,7 @@ wikidata:en:Q26897677
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sokeroitu-karpalo
 # 1 entry @ 2019-10-31
 
-# Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium. 
+# Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 <en:cranberry
 la:Vaccinium macrocarpon
 wikidata:en:Q149397
@@ -45690,6 +45696,10 @@ ru:Концентрированный морковный сок
 sv:morotjuicekoncentrat
 # fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
 
+<en:carrot juice
+en:carrot juice powder
+pl:sok z marchwi w proszku
+
 <en:vegetable
 en:celery
 af:Seldery
@@ -48114,7 +48124,7 @@ it:peperoni rossi
 lv:sarkanā paprika
 nb:rød paprika
 nl:rode paprika
-pl:Papryka czerwona
+pl:papryka czerwona, czerwona papryka
 pt:pimento vermelho
 ru:Красный перец, перец красный, перец красный молотый, паприка красная
 sv:röd paprika
@@ -56161,7 +56171,7 @@ nl:peterselie
 nn:persille
 oc:Jolverd
 os:Басгæрдæг
-pl:pietruszka zwyczajna
+pl:pietruszka
 pt:salsa
 ro:Pătrunjel
 ru:Петрушка кудрявая, петрушка, зелень петрушки
@@ -56222,6 +56232,7 @@ en:parsley leaf, parsley leaves
 de:Petersilienblatt, Petersilienblätter
 es:hojas de perejil
 hr:peršinov list
+pl:natka pietruszki
 ro:frunze de pătrunjel
 
 <en:parsley
@@ -56229,6 +56240,7 @@ en:parsley root
 de:Petersilienwurzel
 fr:racine de persil
 nl:peterseliewortel
+pl:korzeń pietruszki
 
 ###################################################################################################
 #
@@ -72803,7 +72815,7 @@ nn:pasta
 oc:pasta
 or:ପାସ୍ତା
 pa:ਪਾਸਤਾ
-pl:Makarony
+pl:makaron
 pt:massa alimentícia
 ro:paste făinoase
 ru:Макаронные изделия
