@@ -41116,7 +41116,6 @@ ciqual_food_name:fr:Beurre de cacao
 
 <en:Vegetable fats
 <en:Plant-based spreads
-<en:Salted spreads
 <en:Spreadable fats
 en:Margarines
 bg:Маргарина
@@ -58968,6 +58967,11 @@ fr:Concombres au fromage blanc
 fr:Concombres à la crème
 
 <en:Prepared salads
+<en:Bulgur dishes
+en:Bulgur salads
+fr:Salades de boulgour
+
+<en:Prepared salads
 en:Lentil salads
 fr:Salades de lentilles
 nl:Linzensalade
@@ -68143,14 +68147,6 @@ ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
 #ciqual_food_code:en:24360
 #ciqual_food_name:en:Wafer cookie
 
-<en:wafer biscuit
-en:Vanilla flavoured wafer biscuit
-fr:Gaufrette fourrée vanille
-agribalyse_food_code:en:24313
-ciqual_food_code:en:24313
-ciqual_food_name:en:Wafer biscuit, plain or vanilla flavoured, prepacked
-ciqual_food_name:fr:Gaufrette, fourrée vanille, préemballée
-
 <en:Biscuits and cakes
 en:Cone wafer for ice cream
 fr:Cône pour glace, Cornet pour glace
@@ -74239,6 +74235,16 @@ fr:Baba ganousch, Baba Ghanouge
 nl:Baba ghanoush, Baba ganush
 wikidata:en:Q1072192
 
+# Don't put under houmous
+<en:Plant-based spreads
+<en:Salted spreads
+en:Lentil spreads, Lentil dips
+fr:Houmous de lentilles
+
+<en:Plant-based spreads
+<en:Salted spreads
+fr:Houmous de haricots
+
 <en:Plant-based spreads
 <en:Salted spreads
 en:Hummus, Houmous
@@ -74257,9 +74263,13 @@ ciqual_food_code:en:25621
 ciqual_food_name:en:Hummus
 ciqual_food_name:fr:Houmous
 
-<en:Plant-based spreads
-<en:Salted spreads
-fr:Houmous de haricots
+<en:Hummus
+en:Classic hummus, traditional hummus
+fr:Houmous classiques, Houmous natures
+
+<en:Hummus
+en:Red pepper hummus
+fr:Houmous aux poivrons
 
 <en:Salted spreads
 en:Ktipiti, tirokafteri
@@ -80674,46 +80684,27 @@ ciqual_food_code:en:24311
 ciqual_food_name:en:Wafer biscuit, filled with chocolate, prepacked
 
 <en:Stuffed wafers
-en:Vanilla stuffed wafers
+en:Vanilla stuffed wafers, Vanilla flavoured wafer biscuit
 de:Knusprige Waffeln mit Vanillefüllung, Vanille-gefüllte Knusprige Waffeln
 fi:vaniljalla täytetyt vohvelit
-fr:Gaufrettes fourrées à la vanille
+fr:Gaufrettes fourrés vanille, Gaufrettes fourrées à la vanille, Gaufrette fourrée vanille
 hu:Vaníliával töltött ostyák
 it:Wafer ripieni di vaniglia, Wafer alla vaniglia
 nl:Wafeltjes met vanille
 ro:Napolitane umplute cu vanilie, Napolitane cu vanilie
+agribalyse_food_code:en:24313
+ciqual_food_code:en:24313
+ciqual_food_name:en:Wafer biscuit, plain or vanilla flavoured, prepacked
+ciqual_food_name:fr:Gaufrette, fourrée vanille, préemballée
 
-<en:Biscuits and cakes
-en:Nut stuffed wafers
-fr:Gaufrettes fourrées aux fruits à coques
+<en:Stuffed wafers
+en:Hazelnut cream stuffed wafers, Nut stuffed wafers
+de:Knusprige Waffeln mit Haselnusscremefüllung
+fr:Gaufrettes fourrées chocolat noisettes, Gaufrettes fourrées noisette, Gaufrettes fourrées aux fruits à coques
 agribalyse_food_code:en:24312
 ciqual_food_code:en:24312
 ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
 ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with hazelnut
-fr:Gaufrette fourrée aux noisettes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with almonds
-fr:Gaufrette fourrée aux amandes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with praline
-fr:Gaufrette fourrée à la praline
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with hazelnut
-fr:Gaufrette chocolatée fourrée aux noisettes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with almonds
-fr:Gaufrette chocolatée fourrée aux amandes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with praline
-fr:Gaufrette chocolatée fourrée à la praline
 
 <en:Biscuits and cakes
 en:Fruits stuffed wafers
