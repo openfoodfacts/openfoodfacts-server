@@ -7783,6 +7783,8 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 
 	my $html = "";
 
+	my $template_data_ref_quality_issues = {};
+
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
 
@@ -7804,6 +7806,8 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 			}
 		}
 	}
+
+	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
