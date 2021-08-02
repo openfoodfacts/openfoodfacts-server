@@ -7741,6 +7741,7 @@ sub display_possible_improvement_description($$) {
 	my $html = "";
 	my $template_data_ref_improvement = {};
 
+	$template_data_ref_improvement->{tagid} = $tagid;
 	$template_data_ref_improvement->{product_ref_improvements_data} = $product_ref->{improvements_data};
 	$template_data_ref_improvement->{product_ref_improvements_data_tagid} = $product_ref->{improvements_data}{$tagid};
 	$template_data_ref_improvement->{product_ref_improvements_data_tagid_product_100g} = $product_ref->{improvements_data}{$tagid}{product_100g};
