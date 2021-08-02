@@ -34,7 +34,7 @@
             <span>[% lang("warning_3rd_party_content") %]</span>
              <a href="#" class="close">&times;</a>
         </div>
-        
+
         <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
             <span>[% lang("licence_accept") %]</span>
              <a href="#" class="close">&times;</a>
@@ -70,7 +70,7 @@
                         <div id="moveimagesmsg"></div>
                     </div>
                 </li>
-            </ul> 
+            </ul>
         [% END %]
 
         <div id="product_image" class="fieldset"><legend>[% lang("product_image") %]</legend>
@@ -135,7 +135,7 @@
                             [% lang('unit') %]
                         </th>
                     </thead>
-                    
+
                     <tbody>
 
                         [% FOREACH nutriment IN nutriments %]
@@ -164,11 +164,11 @@
                                     <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
                                         <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
                                     </td>
-                                    
+
                                     [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
                                         <td>
                                             <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
-                                        
+
                                     [% ELSE %]
                                         <td>
                                             <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
@@ -182,7 +182,7 @@
                                     </tr>
 
                             [% END %]
-                        
+
                         [% END %]
 
                     </tbody>
@@ -239,7 +239,7 @@
                                 <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
                                     <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
                                 </td>
-                                
+
                                 <td>
                                     <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
                                     <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.disabled %]>
@@ -251,9 +251,9 @@
                             </tr>
 
                         [% END %]
-     
+
                     [% END %]
-      
+
                 </tbody>
 
             </table>
@@ -270,15 +270,16 @@
 
         [% IF moderator %]
             <div class="fieldset" id="check"><legend>[% lang('photos_and_data_check') %]</legend>
-            <p>[% lang('photos_and_data_check_description') %]</p>
+                <p>[% lang('photos_and_data_check_description') %]</p>
 
-            <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
-            <label for="photos_and_data_checked" class="checkbox_label">[% lang('photos_and_data_checked') %]</label><br/>
+                <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
+                <label for="photos_and_data_checked" class="checkbox_label">[% lang('photos_and_data_checked') %]</label><br/>
 
-            [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
-                <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
-                <label for="photos_and_data_rechecked" class="checkbox_label">[% lang('i_checked_the_photos_and_data_again') %]</label><br/>
-            [% END %]
+                [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
+                    <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />
+                    <label for="photos_and_data_rechecked" class="checkbox_label">[% lang('i_checked_the_photos_and_data_again') %]</label><br/>
+                [% END %]
+            </div>
         [% END %]
 
         [% IF admin %]
@@ -316,7 +317,7 @@
                     <div class="small-12 medium-12 large-8 xlarge-10 columns">
                     </div>
                     <div class="small-12 medium-12 large-4 xlarge-2 columns">
-                    <input type="submit" name=".submit" value="[% save %]" class="button small success">
+                        <input type="submit" name=".submit" value="[% save %]" class="button small success">
                     </div>
                 </div>
 
