@@ -7757,20 +7757,6 @@ sub display_possible_improvement_description($$) {
 		sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent}));
 
 
-	$html .= "<p>" . lang("value_for_the_product") . separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{product_100g}
-		. "<br>" . sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}))
-		. separator_before_colon($lc) . ": " . $product_ref->{improvements_data}{$tagid}{category_100g}
-		. "</p>\n";
-
-	$html .= "<p>" . sprintf(lang("better_nutriscore"),
-			uc($product_ref->{improvements_data}{$tagid}{current_nutriscore_grade}),
-			uc($product_ref->{improvements_data}{$tagid}{new_nutriscore_grade}),
-			lc(lang("nutriscore_points_for_" . $product_ref->{improvements_data}{$tagid}{nutrient})),
-			$product_ref->{improvements_data}{$tagid}{current_value},
-			$product_ref->{improvements_data}{$tagid}{new_value},
-			sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent})) . "</p>";
-
-
 	if ((defined $product_ref->{improvements_data}) and (defined $product_ref->{improvements_data}{$tagid})) {
 
 		# Comparison of product nutrition facts to other products of the same category
@@ -7798,7 +7784,6 @@ sub display_possible_improvement_description($$) {
 
 	process_template('web/common/includes/display_possible_improvement_description.tt.html', $template_data_ref_improvement, \$html) || return "template error: " . $tt->error();
 
-
 	return $html;
 }
 
@@ -7816,7 +7801,6 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 	my $product_ref = shift;
 
 	my $html = "";
-	$html .= "<p>display_data_quality_issues_and_improvement_opportunities</p>";
 
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
