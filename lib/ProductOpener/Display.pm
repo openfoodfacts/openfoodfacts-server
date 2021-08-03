@@ -90,7 +90,7 @@ BEGIN
 
 		&count_products
 		&add_params_to_query
-		
+
 		&url_for_text
 		&process_template
 
@@ -6866,28 +6866,6 @@ sub search_and_map_products($$$) {
 	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	return $html;
-}
-
-
-
-sub display_login_register($)
-{
-	my $blocks_ref = shift;
-
-	if (not defined $User_id) {
-
-		my $content = '';
-		my $template_data_ref_login = {};
-
-		process_template('web/common/includes/display_login_register.tt.html', $template_data_ref_login, \$content) || ($content .= 'template error: ' . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title'=>lang("login_register_title"),
-			'content'=>$content,
-		};
-	}
-
-	return;
 }
 
 sub display_my_block($)
