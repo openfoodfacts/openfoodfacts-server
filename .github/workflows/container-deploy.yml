@@ -6,7 +6,7 @@ on:
       - deploy-*
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     # TODO: Uncomment when changing from deploy-* to main branch
