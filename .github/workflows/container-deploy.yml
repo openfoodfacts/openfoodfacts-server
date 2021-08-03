@@ -1,0 +1,53 @@
+name: Deploy to pre-prod Proxmox VM (Docker)
+
+on:
+  push:
+    branches:
+      - deploy-*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # TODO: Uncomment when changing from deploy-* to main branch
+    # - name: Wait container CI build
+    #   uses: tomchv/wait-my-workflow@v1.1.0
+    #   id: wait-build
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     checkName: build
+    #     ref: ${{ github.event.pull_request.head.sha || github.sha }}
+    #     intervalSeconds: 10
+    #     timeoutSeconds: 100
+    # - name: Do something if build success
+    #   if: steps.wait-build.outputs.conclusion == 'success'
+    #   run: echo success && true # You can also just continue with
+
+    # - name: Do something if build isn't launch
+    #   if: steps.wait-build.outputs.conclusion == 'does not exist'
+    #   run: echo job does not exist && true
+
+    # - name: Do something if build fail
+    #   if: steps.wait-build.outputs.conclusion == 'failure'
+    #   run: echo fail && false # fail if build fail
+
+    # - name: Do something if build timeout
+    #   if: steps.wait-build.outputs.conclusion == 'timed_out'
+    #   run: echo Timeout && false # fail if build time out
+    - name: Deploy image to pre-prod Proxmox VM
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          git clone https://github.com/openfoodfacts/openfoodfacts-server/
+          git checkout ${{ github.sha }}
+          cd docker/
+          ./build_dev.sh
+          nohup sh start_dev.sh 2>&1 > /var/log/docker_compose.log &
+          build_npm.sh
+          docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
