@@ -49,8 +49,7 @@ jobs:
         script: |
           git clone https://github.com/openfoodfacts/openfoodfacts-server/
           git checkout ${{ github.sha }}
-          cd docker/
-          ./build_dev.sh
-          nohup sh start_dev.sh 2>&1 > /var/log/docker_compose.log &
-          build_npm.sh
+          cd ${{github.repository}}/docker/
+          sudo docker-compose up -d
+          sudo sh build_npm.sh
           docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
