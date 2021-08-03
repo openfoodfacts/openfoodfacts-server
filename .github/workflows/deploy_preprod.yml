@@ -1,0 +1,27 @@
+name: Deploy to pre-prod Proxmox VM (Docker)
+
+on:
+  push:
+    branches:
+      - deploy-*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy image to pre-prod Proxmox VM
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        script: |
+          git clone https://github.com/openfoodfacts/openfoodfacts-server/
+          git checkout ${{ github.sha }}
+          cd docker/
+          ./build_dev.sh
+          nohup sh start_dev.sh 2>&1 > /var/log/docker_compose.log &
+          build_npm.sh
+          docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
