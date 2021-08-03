@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - deploy-*
+      - main
 
 jobs:
   deploy:
+    environment: off-net
+    concurrency: off-net
     runs-on: ubuntu-latest
     steps:
     # TODO: Uncomment when changing from deploy-* to main branch
