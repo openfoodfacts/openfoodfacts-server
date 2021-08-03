@@ -97,7 +97,7 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml restart backend
 
 It will restart the backend and take less time than using `Ctrl+C` and `./start-dev.sh`.
 
-### Resrating producer's platform docker backend
+### Restarting producer's platform docker backend
 
 For restarting the docker_backend-pro_1, run the following script:
 
