@@ -12,7 +12,9 @@ jobs:
     concurrency: off-net
     runs-on: ubuntu-latest
     steps:
-    # TODO: Uncomment when changing from deploy-* to main branch
+    # TODO: Uncomment when changing from deploy-* to main branch - this will 
+    # wait for container-build.yml build action to run before deploying the 
+    # container
     # - name: Wait container CI build
     #   uses: tomchv/wait-my-workflow@v1.1.0
     #   id: wait-build
@@ -47,8 +49,33 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # Clone Git repository and checkout current commit
           git clone https://github.com/openfoodfacts/openfoodfacts-server/
           git checkout ${{ github.sha }}
+
+          # Update docker-compose
+          sudo apt-get remove docker-compose
+          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+          # Go to docker/ directory
           cd openfoodfacts-server/docker/
-          sudo docker-compose up -d
-          docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
+
+          # Pull latest container images
+          sudo docker-compose pull
+
+          # Recreate containers that have a new image
+          sudo docker-compose up -d --remove-orphans
+
+          # Remove obsolete images
+          sudo docker image prune
+
+          # Import latest dump of mongodb production db
+          wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+          sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+          sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+
+          # TODO: On PR branches, we could simply import this sample data instead of importing the whole prod db
+          # Import sample data into docker-compose db
+          # sudo docker exec -it docker_backend_1 -c "bash /opt/scripts/import_sample_data.sh"
