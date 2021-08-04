@@ -50,7 +50,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Clone Git repository and checkout current commit
-          git clone https://github.com/openfoodfacts/openfoodfacts-server/
+          git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/
           git checkout ${{ github.sha }}
 
           # Update docker-compose
