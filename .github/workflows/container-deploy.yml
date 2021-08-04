@@ -56,7 +56,12 @@ jobs:
             echo "TAG=${{ github.sha }}" > .env
 
             # Pull latest container images
+            sudo docker pull node:lts
+            sudo docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
             sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml pull
+
+            # Rebuild npm
+            sudo bash ./build_npm.sh
 
             # Rebuild local images
             sudo docker build --cache-from ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest -f backend/Dockerfile ..
