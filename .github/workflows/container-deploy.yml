@@ -39,6 +39,7 @@ jobs:
     # - name: Do something if build timeout
     #   if: steps.wait-build.outputs.conclusion == 'timed_out'
     #   run: echo Timeout && false # fail if build time out
+
     - name: Deploy image to pre-prod Proxmox VM
       uses: appleboy/ssh-action@master
       with:
@@ -49,15 +50,11 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          # Clone Git repository and checkout current commit
-          git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/
-          git checkout ${{ github.sha }}
+          # Clone Git repository if not already there
+          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch
 
-          # Update docker-compose
-          sudo apt-get remove docker-compose
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+          # Checkout current commit SHA
+          git checkout ${{ github.sha }}
 
           # Go to docker/ directory
           cd openfoodfacts-server/docker/
