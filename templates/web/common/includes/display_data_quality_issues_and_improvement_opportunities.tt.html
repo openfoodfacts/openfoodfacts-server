@@ -5,7 +5,7 @@
         <h2>[% tagtype.tagtype_heading %]</h2>
 
         [% FOREACH tagid IN tagtype.tagids %]
-            <b>[% tagid.display_taxonomy_tag %]</b><br>
+            <strong>[% tagid.display_taxonomy_tag %]</strong><br>
 
             [% IF tagid.properties.defined %]
                 <p>[% tagid.properties %]</p>
