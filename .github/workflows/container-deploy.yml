@@ -12,8 +12,8 @@ jobs:
     concurrency: off-net
     runs-on: ubuntu-latest
     steps:
-    # TODO: Uncomment when changing from deploy-* to main branch - this will 
-    # wait for container-build.yml build action to run before deploying the 
+    # TODO: Uncomment when changing from deploy-* to main branch - this will
+    # wait for container-build.yml build action to run before deploying the
     # container
     # - name: Wait container CI build
     #   uses: tomchv/wait-my-workflow@v1.1.0
@@ -53,11 +53,14 @@ jobs:
           # Clone Git repository if not already there
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch
 
-          # Checkout current commit SHA
-          git checkout ${{ github.sha }}
-
           # Go to docker/ directory
           cd openfoodfacts-server/docker/
+
+          # Fetch newest commits (in case it wasn't freshly cloned)
+          git fetch --depth 1
+
+          # Checkout current commit SHA
+          git checkout ${{ github.sha }}
 
           # Pull latest container images
           sudo docker-compose pull
