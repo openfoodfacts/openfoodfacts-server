@@ -1,0 +1,25 @@
+<!-- start templates/[% template.name %] -->
+
+[% FOREACH tagtype IN tagtypes %]
+    [% IF tagtype.product_ref_tagtype.defined && tagtype.scalar_product_ref_tagtype > 0 %]
+        <h2>[% tagtype.tagtype_heading %]</h2>
+
+        [% FOREACH tagid IN tagtype.tagids %]
+            <b>[% tagid.display_taxonomy_tag %]</b><br>
+
+            [% IF tagid.properties.defined %]
+                <p>[% tagid.properties %]</p>
+            [% END %]
+
+            [% IF tagtype.match('^data_quality') %]
+                [% tagid.display_data_quality_description %]
+            [% ELSIF tagtype == 'improvements' %]
+                [% tagid.display_possible_improvement_description %]
+            [%END %]
+
+        [% END %]
+
+    [% END %]
+[% END %]
+
+<!-- end templates/[% template.name %] -->

@@ -7782,30 +7782,36 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 	my $product_ref = shift;
 
 	my $html = "";
-
 	my $template_data_ref_quality_issues = {};
+	my @tagtypes;
 
 	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+
+		my $tagtype_ref = {};
+		$tagtype_ref->{product_ref_tagtype} = $product_ref->{$tagtype . "_tags"};
+		$tagtype_ref->{scalar_product_ref_tagtype} = scalar @{$product_ref->{$tagtype . "_tags"}};
+
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
 
-			$html .= "<h2>" . ucfirst(lang($tagtype . "_p")) . "</h2>";
+			$tagtype_ref->{tagtype_heading} = ucfirst(lang($tagtype . "_p"));
+			my @tagids;
 
 			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-				$html .= "<b>" . display_taxonomy_tag($lc, $tagtype, $tagid) . "</b><br>";
 
-				if (defined $properties{$tagtype}{$tagid}{"description:$lc"})  {
-					$html .= "<p>" . $properties{$tagtype}{$tagid}{"description:$lc"} . "</p>";
-				}
-
-				if ($tagtype =~ /^data_quality/) {
-					$html .= display_data_quality_description($product_ref, $tagid);
-				}
-				elsif ($tagtype eq "improvements") {
-					$html .= display_possible_improvement_description($product_ref, $tagid);
-				}
+				push(@tagids, {
+					display_taxonomy_tag => display_taxonomy_tag($lc, $tagtype, $tagid),
+					properties => $properties{$tagtype}{$tagid}{"description:$lc"},
+					display_data_quality_description => display_data_quality_description($product_ref, $tagid),
+                    display_possible_improvement_description => display_possible_improvement_description($product_ref, $tagid),
+				});
 			}
+
+			$tagtype_ref->{tagids} = \@tagids;
+			push(@tagtypes, $tagtype_ref);
 		}
 	}
+
+	$template_data_ref_quality_issues->{tagtypes} = \@tagtypes;
 
 	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
 
