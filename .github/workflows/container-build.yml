@@ -3,6 +3,7 @@ name: Container Image CI
 on:
   push:
     branches:
+      - deploy-*
       - main
 
 jobs:
@@ -21,6 +22,7 @@ jobs:
         registry: ghcr.io
         dockerfile: docker/frontend/Dockerfile
         snapshot: true
+        tags: "latest,${{ github.sha }}"
       id: publish_frontend
     - name: Copy frontend output for backend container
       run: |
@@ -42,3 +44,4 @@ jobs:
         registry: ghcr.io
         dockerfile: docker/backend/Dockerfile
         snapshot: true
+        tags: "latest,${{ github.sha }}"

@@ -21,7 +21,7 @@ services:
       - POSTGRES_USER=productopener
       - POSTGRES_DB=minion
   backend:
-    image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
+    image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
     depends_on:
       - mongodb
       - memcached
@@ -54,7 +54,7 @@ services:
     networks:
       - webnet
   frontend:
-    image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:latest
+    image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
       - backend
     volumes:
