@@ -7739,25 +7739,30 @@ sub display_possible_improvement_description($$) {
 	my $tagid = shift;
 
 	my $html = "";
-	my $template_data_ref_improvement = {};
 
-	$template_data_ref_improvement->{tagid} = $tagid;
-	$template_data_ref_improvement->{product_ref_improvements_data} = $product_ref->{improvements_data};
-	$template_data_ref_improvement->{product_ref_improvements_data_tagid} = $product_ref->{improvements_data}{$tagid};
-	$template_data_ref_improvement->{product_ref_improvements_data_tagid_product_100g} = $product_ref->{improvements_data}{$tagid}{product_100g};
-	$template_data_ref_improvement->{product_ref_improvements_data_tagid_category_100g} = $product_ref->{improvements_data}{$tagid}{category_100g};
-	$template_data_ref_improvement->{display_taxonomy_tag_improvements_data_category} = sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}));
+	if ((defined $product_ref->{improvements_data}) and (defined $product_ref->{improvements_data}{$tagid})) {
 
-	# msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-	$template_data_ref_improvement->{nutriscore_sprintf_data} = sprintf(lang("better_nutriscore"),
-		uc($product_ref->{improvements_data}{$tagid}{current_nutriscore_grade}),
-		uc($product_ref->{improvements_data}{$tagid}{new_nutriscore_grade}),
-		lc(lang("nutriscore_points_for_" . $product_ref->{improvements_data}{$tagid}{nutrient})),
-		$product_ref->{improvements_data}{$tagid}{current_value},
-		$product_ref->{improvements_data}{$tagid}{new_value},
-		sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent}));
+		my $template_data_ref_improvement = {};
 
-	process_template('web/common/includes/display_possible_improvement_description.tt.html', $template_data_ref_improvement, \$html) || return "template error: " . $tt->error();
+		$template_data_ref_improvement->{tagid} = $tagid;
+		$template_data_ref_improvement->{product_ref_improvements_data} = $product_ref->{improvements_data};
+		$template_data_ref_improvement->{product_ref_improvements_data_tagid} = $product_ref->{improvements_data}{$tagid};
+		$template_data_ref_improvement->{product_ref_improvements_data_tagid_product_100g} = $product_ref->{improvements_data}{$tagid}{product_100g};
+		$template_data_ref_improvement->{product_ref_improvements_data_tagid_category_100g} = $product_ref->{improvements_data}{$tagid}{category_100g};
+		$template_data_ref_improvement->{display_taxonomy_tag_improvements_data_category} = sprintf(lang("value_for_the_category"), display_taxonomy_tag($lc, "categories", $product_ref->{improvements_data}{$tagid}{category}));
+
+		# msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
+		$template_data_ref_improvement->{nutriscore_sprintf_data} = sprintf(lang("better_nutriscore"),
+			uc($product_ref->{improvements_data}{$tagid}{current_nutriscore_grade}),
+			uc($product_ref->{improvements_data}{$tagid}{new_nutriscore_grade}),
+			lc(lang("nutriscore_points_for_" . $product_ref->{improvements_data}{$tagid}{nutrient})),
+			$product_ref->{improvements_data}{$tagid}{current_value},
+			$product_ref->{improvements_data}{$tagid}{new_value},
+			sprintf("%d", $product_ref->{improvements_data}{$tagid}{difference_percent}));
+
+		process_template('web/common/includes/display_possible_improvement_description.tt.html', $template_data_ref_improvement, \$html) || return "template error: " . $tt->error();
+
+	}
 
 	return $html;
 }
