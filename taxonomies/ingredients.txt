@@ -18733,7 +18733,7 @@ nl:zonnebloemolie
 nn:solsikkeolje
 pl:Olej słonecznikowy
 pt:óleo de girassol, óleo vegetal de girassol
-ro:ulei de floarea soarelui, Ulei de floarea-soarelui
+ro:ulei de floarea soarelui, Ulei de floarea-soarelui, ulei vegetal de floarea-soarelui
 ru:подсолнечное масло, масло подсолнечное, масло растительное подсолнечное
 sa:सूर्यकान्तितैलम्
 sh:Suncokretovo ulje
@@ -21533,7 +21533,7 @@ nb:naturlig aroma
 nl:Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
 pl:Naturalny aromat
 pt:aroma natural
-ro:aromă naturală, aroma naturala
+ro:aromă naturală, aroma naturala, arome naturale
 ru:Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
 sv:naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
 zh:天然调味剂
@@ -26598,6 +26598,7 @@ fr:farine de pois
 hu:borsóliszt
 it:farina di piselli
 nl:erwtenmeel
+ro:făină de mazăre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
 
@@ -30373,8 +30374,10 @@ it:proteine di piselli
 nl:boneneiwit, erwteiwit, erwteneiwit
 pl:Białko grochu
 pt:Proteína de ervilha
+ro:proteină de mazăre
 ru:Гороховый протеин
 sv:Ärtprotein, protein från ärtor
+wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
 
 <en:pea protein
 en:hydrolised pea protein
@@ -30388,7 +30391,10 @@ es:aislado de proteina de guisante
 fi:herneproteiini-isolaatti
 fr:isolat de proteines de pois
 hu:borsófehérje izolátum
-wikipedia:en:https://en.wikipedia.org/wiki/Pea_protein
+ro:izolat proteic de mazăre
+
+<en:pea protein
+ro:texturat proteic de mazăre
 
 <en:pea protein
 en:rehydrated pea protein
@@ -30403,7 +30409,12 @@ de:Bohnenprotein
 fi:härkäpapuproteiini
 fr:protéine de fèves, protéines de fèves
 sv:protein från bondböna
+ro:proteină de bob
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
+
+<en:vegetable protein
+en:sunflower protein
+ro:proteină de floarea-soarelui
 
 <en:vegetable protein
 en:potato protein
@@ -30411,6 +30422,7 @@ de:kartoffelprotein
 fi:perunaproteiini
 fr:protéine de pomme de terre, protéines de pomme de terre
 nl:aardappeleiwit
+ro:proteină de cartofi
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
@@ -36849,9 +36861,10 @@ en:citrus fibre, citrus fibres
 da:citrusfibre
 de:citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern
 fi:sitruskuitu
-fr:fibre d'agrume, fibre végétale d'agrumes
+fr:fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
 it:Fibra di limone
 nl:citrusvezel
+ro:fibră de citrice
 sv:citrusfiber
 
 <en:fruit
@@ -69804,7 +69817,7 @@ nn:agurk
 nv:Taʼneeskʼání áłtsʼóózígíí
 pl:Ogórek, ogórki
 pt:pepino
-ro:Castravete
+ro:Castravete, castraveți
 ru:огурец, огурцы
 sd:کيرو
 sk:uhorka
@@ -69836,6 +69849,7 @@ fi:cocktailkurkku, pikkukurkku
 fr:cornichon, cornichons
 it:cetriolini
 nl:augurken, augurk
+ro:castraveți murați
 sv:inläggningsgurka
 wikidata:en:Q23425
 wikidata:en:Q1365891
@@ -72173,6 +72187,7 @@ nl:plantaardige vezel, plantaardige vezels
 nn:plantefiber
 pl:Błonnik roślinny
 pt:fibra vegetal
+ro:fibre vegetale
 ru:растительное волокно
 sv:vegetabilisk fiber, vegetabilisk fibrer, växtfiber, växtfibrer
 # pt-br:fibra vegetal
