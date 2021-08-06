@@ -101,7 +101,7 @@ sub display_blocks($)
 
 =head2 display_my_block ( $request_ref )
 
-The sidebar of home page consists of blocks. This function is used to to display one block.
+The sidebar of home page consists of blocks. This function is used to to display one block with information and links related to the logged in user.
 
 =cut
 
