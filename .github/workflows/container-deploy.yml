@@ -12,71 +12,71 @@ jobs:
     concurrency: off-net
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for container build workflow
-        uses: tomchv/wait-my-workflow@v1.1.0
-        id: wait-build
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          intervalSeconds: 10
-          timeoutSeconds: 600 # 10m
+    - name: Wait for container build workflow
+      uses: tomchv/wait-my-workflow@v1.1.0
+      id: wait-build
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkName: build
+        ref: ${{ github.event.pull_request.head.sha || github.sha }}
+        intervalSeconds: 10
+        timeoutSeconds: 600 # 10m
 
-      - name: Do something if build fail
-        if: steps.wait-build.outputs.conclusion == 'failure'
-        run: echo fail && false # fail if build fail
+    - name: Do something if build fail
+      if: steps.wait-build.outputs.conclusion == 'failure'
+      run: echo fail && false # fail if build fail
 
-      - name: Do something if build timeout
-        if: steps.wait-build.outputs.conclusion == 'timed_out'
-        run: echo Timeout && false # fail if build time out
+    - name: Do something if build timeout
+      if: steps.wait-build.outputs.conclusion == 'timed_out'
+      run: echo Timeout && false # fail if build time out
 
-      - name: Deploy image to pre-prod Proxmox VM
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          proxy_host: ${{ secrets.PROXY_HOST }}
-          proxy_username: ${{ secrets.USERNAME }}
-          proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # Clone Git repository if not already there
-            [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch
+    - name: Deploy image to pre-prod Proxmox VM
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          # Clone Git repository if not already there
+          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch
 
-            # Go to docker/ directory
-            cd openfoodfacts-server/docker/
+          # Go to docker/ directory
+          cd openfoodfacts-server/docker/
 
-            # Fetch newest commits (in case it wasn't freshly cloned)
-            git fetch --depth 1
+          # Fetch newest commits (in case it wasn't freshly cloned)
+          git fetch --depth 1
 
-            # Checkout current commit SHA
-            git checkout ${{ github.sha }}
+          # Checkout current commit SHA
+          git checkout ${{ github.sha }}
 
-            # Set docker-compose environment
-            echo "TAG=${{ github.sha }}" > .env
+          # Set docker-compose environment
+          echo "TAG=${{ github.sha }}" > .env
 
-            # Pull latest container images
-            sudo docker pull node:lts
-            sudo docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
-            sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml pull
+          # Pull latest container images
+          sudo docker pull node:lts
+          sudo docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml pull
 
-            # Rebuild npm
-            sudo bash ./build_npm.sh
+          # Rebuild npm
+          sudo bash ./build_npm.sh
 
-            # Rebuild local images
-            sudo docker build --cache-from ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest -f backend/Dockerfile ..
-            sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml build
+          # Rebuild local images
+          sudo docker build --cache-from ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest -f backend/Dockerfile ..
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml build
 
-            # Recreate containers that have a new image
-            sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml up -d --remove-orphans
+          # Recreate containers that have a new image
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml up -d --remove-orphans
 
-            # Remove obsolete images
-            sudo docker image prune
+          # Remove obsolete images
+          sudo docker image prune
 
-            # Import latest dump of mongodb production db
-            # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-            # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
-            # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+          # Import latest dump of mongodb production db
+          # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+          # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+          # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
 
-            # Import sample data into docker-compose db
-            sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml exec backend bash /opt/scripts/import_sample_data.sh
+          # Import sample data into docker-compose db
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml exec backend bash /opt/scripts/import_sample_data.sh
