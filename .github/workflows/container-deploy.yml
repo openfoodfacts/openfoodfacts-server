@@ -2,7 +2,7 @@ name: Container Deployment CI
 
 on:
   push:
-    branches: master
+    branches: main
     tags: v*.*.*
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
 
     - name: Deploy image to pre-prod Proxmox VM
       uses: appleboy/ssh-action@master
-      if: github.ref == 'master'
+      if: github.ref == 'main'
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
