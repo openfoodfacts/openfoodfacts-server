@@ -1,21 +1,20 @@
 <!-- start templates/[% template.name %] -->
 
 [% FOREACH tagtype IN tagtypes %]
-    [% IF tagtype.product_ref_tagtype.defined && tagtype.scalar_product_ref_tagtype > 0 %]
-        <h2>[% tagtype.tagtype_heading %]</h2>
 
-        [% FOREACH tagid IN tagtype.tagids %]
-            <strong>[% tagid.display_taxonomy_tag %]</strong><br>
+    <h2>[% tagtype.tagtype_heading %]</h2>
 
-            [% IF tagid.properties.defined %]
-                <p>[% tagid.properties %]</p>
-            [% END %]
+    [% FOREACH tagid IN tagtype.tagids %]
+        <strong>[% tagid.display_taxonomy_tag %]</strong><br>
 
-                [% tagid.desccription %]
-
+        [% IF tagid.properties.defined %]
+            <p>[% tagid.properties %]</p>
         [% END %]
 
+            [% tagid.desccription %]
+
     [% END %]
+
 [% END %]
 
 <!-- end templates/[% template.name %] -->
