@@ -90,7 +90,7 @@ BEGIN
 
 		&count_products
 		&add_params_to_query
-		
+
 		&url_for_text
 		&process_template
 
@@ -6868,33 +6868,6 @@ sub search_and_map_products($$$) {
 	return $html;
 }
 
-
-
-sub display_login_register($)
-{
-	my $blocks_ref = shift;
-
-	if (not defined $User_id) {
-
-		my $content = '';
-		my $template_data_ref_login = {};
-
-		process_template('web/common/includes/display_login_register.tt.html', $template_data_ref_login, \$content) || ($content .= 'template error: ' . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title'=>lang("login_register_title"),
-			'content'=>$content,
-		};
-	}
-
-	return;
-}
-
-
-
-
-
-
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
@@ -7388,58 +7361,33 @@ sub display_product_search_or_add($)
 
 	my $title = lang("add_product");
 
-	my $or = $Lang{or}{$lc};
-	$or =~ s/( |\&nbsp;)?://;
-
 	my $html = '';
+	my $template_data_ref_content = {};
+	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
 
 	# Producers platform: display an addition import products block
 
 	if ($server_options{producers_platform}) {
+		my $html_producer = '';
+		my $template_data_ref_content_producer = {};
 
-		$html = <<HTML
-&rarr; <a href="/cgi/import_file_upload.pl">$Lang{import_product_data}{$lc}</a><br>
-&rarr; <a href="/cgi/import_photos_upload.pl">$Lang{import_product_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/export_products.pl">$Lang{export_product_data_photos}{$lc}</a><br>
-&rarr; <a href="/cgi/remove_products.pl">$Lang{remove_products_from_producers_platform}{$lc}</a><br>
-</p>
-HTML
-;
+		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
+
 		push @{$blocks_ref}, {
 			'title'=>lang("import_products"),
-			'content'=>$html,
+			'content'=>$html_producer,
 		};
 
 	}
 
-	$html = start_multipart_form(-action=>"/cgi/product.pl") ;
-
-	if (not $server_options{producers_platform}) {
-		# Do not display image upload button on producers platform
-		# causes issues with the import_photos_upload.pl
-		$html .= display_search_image_form("block_side");
-	}
-
-	$html .= <<HTML
-
-      <div class="row collapse">
-        <div class="small-9 columns">
-          <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
-        </div>
-        <div class="small-3 columns">
-           <input type="submit" value="$Lang{add}{$lc}" class="button postfix">
-        </div>
-      </div>
-
-	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
-</form>
-HTML
-;
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
 
 	push @{$blocks_ref}, {
 			'title'=>$title,
-			'content'=>$html,
+			'content'=> $html,
 	};
+
 
 	return;
 }
@@ -7671,15 +7619,15 @@ sub display_data_quality_description($$) {
 	my $tagid = shift;
 
 	my $html = "";
+	my $template_data_ref_quality = {};
 
-	if ($tagid =~ /^en:nutri-score-score/) {
-		$html .= "<p>" . lang("nutri_score_score_from_producer") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score_producer} . "<br>"
-			. lang("nutri_score_score_calculated") . separator_before_colon($lc) . ": " . $product_ref->{nutriscore_score} . "</p>";
-	}
-	elsif ($tagid =~ /^en:nutri-score-grade/) {
-		$html .= "<p>" . lang("nutri_score_grade_from_producer") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade_producer}) . "<br>"
-			. lang("nutri_score_grade_calculated") . separator_before_colon($lc) . ": " . uc($product_ref->{nutriscore_grade}) . "</p>";
-	}
+	$template_data_ref_quality->{tagid} = $tagid;
+	$template_data_ref_quality->{product_ref_nutriscore_score} = $product_ref->{nutriscore_score};
+	$template_data_ref_quality->{product_ref_nutriscore_score_producer} = $product_ref->{nutriscore_score_producer};
+	$template_data_ref_quality->{product_ref_nutriscore_grade_producer} = uc($product_ref->{nutriscore_grade_producer});
+	$template_data_ref_quality->{product_ref_nutriscore_grade} = uc($product_ref->{nutriscore_grade});
+
+	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

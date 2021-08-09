@@ -41,7 +41,7 @@ use utf8;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw(:all);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
@@ -56,6 +56,7 @@ BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&display_login_register
 		&display_blocks
 		&display_my_block
 		); #the fucntions which are called outside this file
@@ -129,6 +130,35 @@ sub display_my_block($)
 			'title'=> lang("hello") . ' ' . $User{name},
 			'content'=>$content,
 			'id'=>'my_block',
+		};
+	}
+
+	return;
+}
+
+=head1 FUNCTIONS
+
+=head2 display_login_register( $blocks_ref )
+
+This function displays the sign in block in the sidebar.
+
+=cut
+
+sub display_login_register($)
+{
+	my $blocks_ref = shift;
+
+	if (not defined $User_id) {
+
+		my $content = '';
+		my $template_data_ref_login = {};
+
+		process_template('web/common/includes/display_login_register.tt.html', $template_data_ref_login, \$content) || ($content .= 'template error: ' . $tt->error());
+
+		push @{$blocks_ref}, {
+			'title'=>lang("login_register_title"),
+			'content'=>$content,
+
 		};
 	}
 
