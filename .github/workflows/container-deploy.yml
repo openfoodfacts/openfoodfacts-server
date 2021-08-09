@@ -56,7 +56,7 @@ jobs:
           echo "TAG=${{ github.sha }}" > .env
 
           # Recreate containers that have a new image
-          sudo docker-compose up -d --remove-orphans
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml up -d --remove-orphans
 
           # Remove obsolete images
           sudo docker image prune
@@ -67,4 +67,4 @@ jobs:
           # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
 
           # Import sample data into docker-compose db
-          sudo docker exec -it docker_backend_1 -c "bash /opt/scripts/import_sample_data.sh"
+          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml exec backend bash /opt/scripts/import_sample_data.sh
