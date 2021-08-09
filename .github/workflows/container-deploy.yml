@@ -11,7 +11,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/head/main' && 'off-net' || 'off-prod'}}
+    environment: off-net
+    # environment: ${{ github.ref == 'refs/head/main' && 'off-net' || 'off-prod'}}
     steps:
     - name: Wait for container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
