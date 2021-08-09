@@ -4,5 +4,5 @@ services:
     image: productopener-backend-dev
     volumes:
       - type: bind
-        source: ./backend-dev/conf/Config2-deploy-test.pm
+        source: ./backend-dev/conf/Config2.pm
         target: /opt/product-opener/lib/ProductOpener/Config2.pm

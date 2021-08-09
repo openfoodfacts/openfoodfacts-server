@@ -2,15 +2,13 @@ name: Container Deployment CI
 
 on:
   push:
-    branches:
-      - deploy-*
-      - main
+    branches: master
+    tags: v*.*.*
 
 jobs:
   deploy:
-    environment: off-net
-    concurrency: off-net
     runs-on: ubuntu-latest
+    environment: off-org
     steps:
     - name: Wait for container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
@@ -32,6 +30,7 @@ jobs:
 
     - name: Deploy image to pre-prod Proxmox VM
       uses: appleboy/ssh-action@master
+      if: github.ref == 'master'
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -56,15 +55,48 @@ jobs:
           echo "TAG=${{ github.sha }}" > .env
 
           # Recreate containers that have a new image
-          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml up -d --remove-orphans
+          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
 
           # Remove obsolete images
           sudo docker image prune -f
 
-          # Import latest dump of mongodb production db
-          # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-          # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
-          # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
-
           # Import sample data into docker-compose db
-          sudo docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml -f ./docker-compose.deploy-test.yml exec backend bash /opt/scripts/import_sample_data.sh
+          sudo docker-compose exec backend bash /opt/scripts/import_sample_data.sh
+
+    # TODO: Uncomment when ready for prod deployment
+    # - name: Deploy image to prod Proxmox VM
+    #   uses: appleboy/ssh-action@master
+    #   if: startsWith(github.ref, 'refs/tags/v')
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     proxy_host: ${{ secrets.PROXY_HOST }}
+    #     proxy_username: ${{ secrets.USERNAME }}
+    #     proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     script: |
+    #       # Clone Git repository if not already there
+    #       [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch
+
+    #       # Go to docker/ directory
+    #       cd openfoodfacts-server/docker/
+
+    #       # Fetch newest commits (in case it wasn't freshly cloned)
+    #       git fetch --depth 1
+
+    #       # Checkout current commit SHA
+    #       git checkout ${{ github.sha }}
+
+    #       # Set docker-compose environment
+    #       echo "TAG=${{ github.sha }}" > .env
+
+    #       # Recreate containers that have a new image
+    #       sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
+
+    #       # Remove obsolete images
+    #       sudo docker image prune -f
+
+    #       # Import latest dump of mongodb production db
+    #       wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+    #       sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+    #       sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
