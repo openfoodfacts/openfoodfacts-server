@@ -10,7 +10,7 @@ Just run `docker-compose up` in this directory to run a pre-built image and star
 
 ### Local development
 
-Alternatively, run `docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml build backend` once, and then you can run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `npm install && npm run build`, or you will experience missing assets.
+Alternatively, run `docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml build backend` once, and then you can run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local development directory, so be sure to build JavaScript etc. by running `npm install && npm run build`, or you will experience missing assets.
 
 Note: You can also build the frontend assets inside docker. See `build_npm.bat` or `build_npm.sh` for more information about this. If you want to use geolocation, you need to update `docker-compose.geolite2.yml` with your [MaxMind Account](https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/) and license information, and include it in the call to `docker-compose`.
 
