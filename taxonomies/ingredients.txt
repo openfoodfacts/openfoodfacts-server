@@ -13487,6 +13487,9 @@ uk:Йодована сіль
 vi:Muối iốt
 zh:碘盐
 wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
+ciqual_food_code:en:11058
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 
 <en:salt
 en:black salt
@@ -13550,6 +13553,9 @@ de:Selleriesalz
 es:sal de apio
 fr:Sel de céleri, sel au céleri
 allergens:en: en:celery
+ciqual_food_code:en:11044
+ciqual_food_name:en:Celery salt
+ciqual_food_name:fr:Sel au céleri
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -13827,6 +13833,16 @@ fi:naudan kieli, härän kieli
 fr:langue de bœuf, langue de boeuf
 hu:marhanyelv
 pt:Língua de vaca
+ciqual_food_code:en:40203
+ciqual_food_name:en:Tongue, beef, cooked
+ciqual_food_name:fr:Langue, boeuf, cuite
+
+<en:beef meat
+en:beef kidney
+fr:Rognon de boeuf
+ciqual_food_code:en:40403
+ciqual_food_name:en:Kidney, beef, cooked
+ciqual_food_name:fr:Rognon, boeuf, cuit
 
 <en:beef meat
 de:rindergehacktes
@@ -13845,6 +13861,9 @@ wikidata:en:Q63327617
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-syd%C3%A4n
 # 1 entry @ 2019-11-02
 # ingredient/fr:cœur-de-bœuf has 17 products in french @2019–02-12
+ciqual_food_code:en:40053
+ciqual_food_name:en:Heart, beef, cooked
+ciqual_food_name:fr:Coeur, boeuf, cuit
 
 <en:beef meat
 en:beef meat extract
@@ -15362,6 +15381,27 @@ pl:Szynka, szynka wieprzowa
 ru:Ветчина
 sv:skinka, skinka av gris, svinskinka
 zh:火腿
+
+<en:ham
+en:dry-cured ham
+fr:jambon sec
+ciqual_food_code:en:28812
+ciqual_food_name:en:Dry-cured ham
+ciqual_food_name:fr:Jambon sec
+
+<en:dry-cured ham
+en:dry-cured Parma ham
+fr:jambon sec de Parme
+ciqual_food_code:en:28844
+ciqual_food_name:en:Parma dry-cured ham
+ciqual_food_name:fr:Jambon sec de Parme
+
+<en:dry-cured ham
+en:dry-cured Serrano ham
+fr:jambon sec Serrano
+ciqual_food_code:en:28845
+ciqual_food_name:en:Serrano dry-cured ham
+ciqual_food_name:fr:Jambon sec Serrano
 
 <en:ham
 fr:jambon de porc issu d'animaux nourris sans ogm
@@ -17369,6 +17409,8 @@ zh:棕榈油
 # yue:棕櫚油
 wikidata:en:Q231458
 wikipedia:en:https://en.wikipedia.org/wiki/Palm_oil
+ciqual_food_code:en:16129
+ciqual_food_name:en:Palm oil
 
 <en:palm oil
 en:refined palm oil
@@ -17377,6 +17419,8 @@ es:Aceite de palma refinado
 fr:huile de palme raffinée
 it:Olio di palma raffinato
 nl:Verfijnde palmolie
+ciqual_food_code:en:16150
+ciqual_food_name:en:Palm oil, refined
 
 <en:palm oil
 en:modified palm oil
@@ -18740,6 +18784,8 @@ zh:亞麻子油
 # yue:亞麻籽油
 wikidata:en:Q818405
 from_palm_oil:en:no
+ciqual_food_code:en:17180
+ciqual_food_name:en:Linseed oil
 
 <en:linseed oil
 en:Organic linseed oil
@@ -23806,6 +23852,9 @@ sl:pšenični zdrob durum
 sv:durumvetegryn
 tr:durum buğdayı ırmığı
 zh:硬质粗粒小麦粉
+ciqual_food_code:en:9683
+ciqual_food_name:en:Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
+ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
 
 <en:durum wheat semolina
 <en:Durum wheat flour
@@ -24103,6 +24152,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Couscous
 # ingredient/fr:couscous has 57 products @2019-02-21
 vegan:en:yes
 vegetarian:en:yes
+ciqual_food_code:en:9683
+ciqual_food_name:en:Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
+ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
 # cous cous (semola di grano duro)
 # Couscous * (durum wheat semolina)
 
@@ -26121,6 +26173,16 @@ de:Weichweizenmehl
 fi:hieno vehnäjauho
 fr:farine de blé tendre
 it:farina di grano tenero
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
+
+<en:wheat flour
+en:Wheat flour type 150
+fr:Farine de blé tendre T150
+ciqual_food_code:en:9415
+ciqual_food_name:en:Wheat flour, type 150
+ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:wheat flour
 de:Weissmehl
@@ -26480,6 +26542,13 @@ sr:sojino brašno
 sv:sojamjöl, sojabönsmjöl, mjöl av sojabönor
 tr:soya unu
 allergens:en: en:soybeans
+
+<en:corn
+en:Maize bran, Corn bran
+fr:Son de maïs
+ciqual_food_code:en:9641
+ciqual_food_name:en:Maize/corn bran
+ciqual_food_name:fr:Son de maïs
 
 <en:flour
 <en:corn
@@ -26976,6 +27045,9 @@ sv:majsgryn
 wikipedia:en:https://en.wikipedia.org/wiki/Cornmeal
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
 # 281 products in 1 language @201809-23
+ciqual_food_code:en:9615
+ciqual_food_name:en:Polenta or maize semolina, cooked, unsalted
+ciqual_food_name:fr:Polenta ou semoule de maïs, cuite, non salée
 
 <en:cornmeal
 fr:semoule de maïs précuite
@@ -36119,6 +36191,9 @@ wa:pronne
 wikidata:en:Q12372598
 wikipedia:en:https://en.wikipedia.org/wiki/Plum
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:prune
+ciqual_food_code:en:13100
+ciqual_food_name:en:Plum, raw
+ciqual_food_name:fr:Prune, crue
 # 35 products in 1 language @2018-09-30
 
 <en:plum
@@ -36264,6 +36339,9 @@ sv:Grön Reine Claude
 # pcd:Rainne-gleude
 wikidata:en:Q1283218
 wikipedia:en:https://en.wikipedia.org/wiki/Greengage
+ciqual_food_code:en:13041
+ciqual_food_name:en:Greengage plum, raw
+ciqual_food_name:fr:Prune Reine-Claude, crue
 # ingredient/fr:reines-claudes has 37 products in 3 languages @2019-02-16
 
 
@@ -36669,6 +36747,9 @@ it:polpa di mele
 nl:appelmoes, appelpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-pomme
 # 46 products @2018-10-04
+ciqual_food_code:en:13050
+ciqual_food_name:en:Apple, pulp, raw
+ciqual_food_name:fr:Pomme, pulpe, crue
 
 # This can be a compound ingredient
 
@@ -38928,6 +39009,9 @@ it:amarene
 nl:morellen, kriek, krieken, zure kers
 pl:wiśnie
 pt:ginjas
+ciqual_food_code:en:13110
+ciqual_food_name:en:Morello cherry, raw
+ciqual_food_name:fr:Griotte, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
 
@@ -39658,6 +39742,9 @@ sv:fikon
 # scn:Ficu
 wikidata:en:Q2746643
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fig
+ciqual_food_code:en:13012
+ciqual_food_name:en:Fig, raw
+ciqual_food_name:fr:Figue, crue
 # 570 products @2018-09-29
 
 <en:fig
@@ -43854,6 +43941,9 @@ zh:蒜
 wikidata:en:Q21546392
 wikipedia:en:https://en.wikipedia.org/wiki/Garlic
 # en:garlic has 22470 products in 18 languages @2018-10-23
+ciqual_food_code:en:11000
+ciqual_food_name:en:Garlic, fresh
+ciqual_food_name:fr:Ail, cru
 
 <en:garlic
 en:tender garlic
@@ -45479,6 +45569,9 @@ carbon_footprint_fr_foodges_value:fr:0.3
 wikidata:en:Q81
 wikipedia:en:https://en.wikipedia.org/wiki/Carrot
 # en:carot has 8224 products in 15 languages @2018-10-21
+ciqual_food_code:en:20009
+ciqual_food_name:en:Carrot, raw
+ciqual_food_name:fr:Carotte, crue
 
 <en:carrot
 en:dried carrot
@@ -45897,6 +45990,9 @@ sv:Rotselleri
 allergens:en: en:celery
 wikidata:en:Q575174
 wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
+ciqual_food_code:en:20055
+ciqual_food_name:en:Celeriac, raw
+ciqual_food_name:fr:Céleri-rave, cru
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
 
 <en:celeriac
@@ -46367,6 +46463,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Onion
 # category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Oignons
 carbon_footprint_fr_foodges_value:fr:0.6
+ciqual_food_code:en:20034
+ciqual_food_name:en:Onion, raw
+ciqual_food_name:fr:Oignon, cru
 
 <en:onion
 fr:oignon semoule
@@ -46849,6 +46948,9 @@ zh:欧防风
 # zh-tw:歐防風
 wikidata:en:Q188614
 wikipedia:en:https://en.wikipedia.org/wiki/Parsnip
+ciqual_food_code:en:20181
+ciqual_food_name:en:Parsnip, raw
+ciqual_food_name:fr:Panais, cru
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
 
 <en:parsnip
@@ -47310,7 +47412,17 @@ zh:黑婆罗门参
 # vls:Schosneere
 wikidata:en:Q385259
 wikipedia:en:https://en.wikipedia.org/wiki/Scorzonera_hispanica
+ciqual_food_code:en:20197
+ciqual_food_name:en:Salsify, black, raw
+ciqual_food_name:fr:Salsifis noir, cru
 # ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
+
+<en:salsify
+en:Raw black salsify
+fr:Salsifis noirs crus
+ciqual_food_code:en:20197
+ciqual_food_name:en:Salsify, black, raw
+ciqual_food_name:fr:Salsifis noir, cru
 
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
@@ -47378,6 +47490,9 @@ zh:火葱
 # zh-tw:分蔥
 wikidata:en:Q193498
 wikipedia:en:https://en.wikipedia.org/wiki/Shallot
+ciqual_food_code:en:20097
+ciqual_food_name:en:Shallot, raw
+ciqual_food_name:fr:Échalote, crue
 # fr:échalote 2126 products in 9 languages @2018-10-03
 
 <en:shallot
@@ -47506,6 +47621,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Spinach
 carbon_footprint_fr_foodges_ingredient:fr:Epinard
 carbon_footprint_fr_foodges_value:fr:0.5
 # fr:épinard 1204 in 9 languages products @2018-10-14
+ciqual_food_code:en:20059
+ciqual_food_name:en:Spinach, raw
+ciqual_food_name:fr:Épinard, cru
 
 <en:spinach
 en:baby spinach
@@ -48739,6 +48857,9 @@ carbon_footprint_fr_foodges_value:fr:0.5
 # zh-tw:番茄
 wikidata:en:Q20638126
 # ingredient/tomato has 6812 products in 21 languages @2018-12-26
+ciqual_food_code:en:20047
+ciqual_food_name:en:Tomato, raw
+ciqual_food_name:fr:Tomate, crue
 
 <en:tomato
 en:organic tomato
@@ -49130,6 +49251,9 @@ fi:lanttu
 fr:rutabaga
 nb:kålrot
 sv:kålrot
+ciqual_food_code:en:20201
+ciqual_food_name:en:Rutabaga or Swede, raw
+ciqual_food_name:fr:Rutabaga, cru
 
 <en:root vegetable
 en:turnip, turnips
@@ -49220,6 +49344,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
 carbon_footprint_fr_foodges_ingredient:fr:Navet
 carbon_footprint_fr_foodges_value:fr:0.9
+ciqual_food_code:en:20064
+ciqual_food_name:en:Turnip, peeled, raw
+ciqual_food_name:fr:Navet, pelé, cru
 
 # Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -50716,6 +50843,12 @@ wikidata:en:Q2265406
 wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
 # ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
+en:Cooked split peas
+fr:Pois cassés cuits
+ciqual_food_code:en:20506
+ciqual_food_name:en:Split pea, cooked
+ciqual_food_name:fr:Pois cassé, cuit
+
 <en:split pea
 en:green split pea
 de:grüne Schälerbsen, grüne Trockenerbsen
@@ -51181,6 +51314,8 @@ wikidata:en:Q184357
 # ingredient/almonds has 9611 products @2018-10-06
 carbon_footprint_fr_foodges_ingredient:fr:Amandes
 carbon_footprint_fr_foodges_value:fr:5.9
+ciqual_food_code:en:15000
+ciqual_food_name:en:Almond, (with peel)
 
 <en:almond
 en:raw almonds
@@ -52063,6 +52198,12 @@ sv:pistaschmandel, pistaschnöt, pistaschnötter, pistagenöt
 zh:开心果, 阿月浑子
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
+
+<en:pistachio nuts
+en:Grilled pistachio nut
+fr:Pistache grillée
+ciqual_food_code:en:15044
+ciqual_food_name:en:Pistachio nut, grilled
 
 <en:pistachio nuts
 fr:pistaches en coques
@@ -63329,6 +63470,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cod
 # ingredient/cod has 401 products in 5 languages @2018-12-29
 
 <en:cod
+en:salted dried cod
+fr:morue salée sèche
+ciqual_food_code:en:26098
+ciqual_food_name:en:Cod, salted, dried
+ciqual_food_name:fr:Morue, salée, sèche
+
+<en:cod
 fr:chair de morue
 
 <en:cod
@@ -63527,6 +63675,9 @@ zh:歐洲康吉鰻
 wikidata:en:Q212552
 wikipedia:en:https://en.wikipedia.org/wiki/European_conger
 # ingredient/fr:congre has 9 products @2018-12-31
+ciqual_food_code:en:26127
+ciqual_food_name:en:Conger, raw
+ciqual_food_name:fr:Congre, cru
 
 ###################################################################################################
 #
@@ -63734,6 +63885,9 @@ zh:黑線鱈
 wikidata:en:Q202406
 wikipedia:en:https://en.wikipedia.org/wiki/Haddock
 # ingredient/fr:Melanogrammus-aeglefinus has 16 products @2019-01-14
+ciqual_food_code:en:26122
+ciqual_food_name:en:Haddock, raw
+ciqual_food_name:fr:Églefin, cru
 
 
 # en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
@@ -64277,6 +64431,8 @@ nl:gerookte zalm
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
 carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
 carbon_footprint_fr_foodges_value:fr:5.5
+ciqual_food_code:en:26037
+ciqual_food_name:en:Salmon, smoked
 
 <en:smoked salmon
 fr:chutes de saumon fumé
@@ -64948,7 +65104,7 @@ zh:鲣
 # zh-hk:鰹
 # zh-tw:正鰹
 wikidata:en:Q633957
-wikipedia:en:https://en.wikipedia.org/wiki/Skipjack_tuna
+wikipedia:en:https://en.wikipedia.org/wiki/Skipjack_tuna 
 ciqual_food_code:en:26101
 ciqual_food_name:en:Bonito, raw
 ciqual_food_name:fr:Bonite, crue
@@ -65049,6 +65205,13 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Grenadier_patagonien
 # ingredient/fr:Macruronus-magellanicus has 1 product @2018-12-31
 # structure:inner:role:synonym, eg Hoku argentin (Macruronus magellanicus)
 
+# Perhaps a synonym
+
+en:Raw roundnose grenadier
+fr:Grenadier cru, Grenadier de roche cru
+ciqual_food_code:en:26128
+ciqual_food_name:en:Roundnose grenadier, raw
+ciqual_food_name:fr:Grenadier (de roche), cru
 
 # en:description:Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
 
@@ -65170,9 +65333,13 @@ fr:filets de maquereaux cuits au court-bouillon
 # Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 
 <en:fish
-fr:lingue
+en:ling
+fr:lingue, julienne
 la:Molva
 # ingredient/fr:lingue has 1 product @2019-01-16
+ciqual_food_code:en:26130
+ciqual_food_name:en:Ling, raw
+ciqual_food_name:fr:Julienne ou Lingue, crue
 
 
 # The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
@@ -65684,6 +65851,9 @@ zh:牙鱈
 # ingredient/fr:merlan has 11 products @2019-01-15
 wikidata:en:Q273083
 wikipedia:en:https://en.wikipedia.org/wiki/Merlangius
+ciqual_food_code:en:26095
+ciqual_food_name:en:Whiting, raw
+ciqual_food_name:fr:Merlan, cru
 
 
 # description:en:The GREATER ARGENTINE (Argentina silus ; synonymous with Salmo silus), also known as the Atlantic argentine, great silver smelt, herring smelt or simply smelt, is a northern Atlantic herring smelt and can be found at depths from 140 to 1,440 metres (460 to 4,720 ft).
@@ -65724,12 +65894,17 @@ fr:chair de brochet
 
 
 <en:fish
-fr:lieu
+en:Pollack
+fr:lieu, Lieu jaune
+ciqual_food_code:en:26129
+ciqual_food_name:en:Pollack, raw
+ciqual_food_name:fr:Lieu jaune ou colin, cru
 # ingredient/fr:lieu has 40 products @2018-01-02
 # colin (lieu) de l'Alaska (Theragra chalcogramma)
 # Colin (lieu) (Pollachius virens)
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
 # ... Crabe, lieu, crème liquide, échalotes
+
 
 # Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
@@ -66170,6 +66345,9 @@ zh:淡菜類
 wikidata:en:Q15735642
 wikipedia:en:https://en.wikipedia.org/wiki/Mussel
 # ingredient/fr:moule has 207 products @2019-01-04
+ciqual_food_code:en:10014
+ciqual_food_name:en:Mussel, common, raw
+ciqual_food_name:fr:Moule commune, crue
 
 <en:mussel
 fr:moules glazurées
@@ -66184,6 +66362,13 @@ fr:moules cuites
 
 <fr:moules cuites
 fr:moules du Pacifique décoquillées cuites
+
+<en:mussel
+en:Mediterranean mussels
+fr:Moules de Méditerranée
+ciqual_food_code:en:10026
+ciqual_food_name:en:Mediterranean mussel, raw
+ciqual_food_name:fr:Moule de Méditerranée, crue
 
 
 # en:description:The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae.
@@ -66468,6 +66653,9 @@ zh:牡蠣
 # zh-tw:牡蠣
 wikipedia:en:https://en.wikipedia.org/wiki/Oyster
 # ingredient/fr:huitre has 11 products @2018-01-14
+ciqual_food_code:en:10011
+ciqual_food_name:en:Oyster, raw
+ciqual_food_name:fr:Huître, sans précision, crue
 
 <en:oyster
 fr:extrait d'huître
@@ -66511,6 +66699,16 @@ zh:长牡蛎, Crassostrea gigas
 # zh-tw:長牡蠣, Crassostrea gigas
 wikidata:en:Q20857
 wikipedia:en:https://en.wikipedia.org/wiki/Pacific_oyster
+ciqual_food_code:en:10035
+ciqual_food_name:en:Pacific oyster, raw
+ciqual_food_name:fr:Huître creuse, crue
+
+<en:oyster
+en:European oysters
+fr:Huîtres plates
+ciqual_food_code:en:10036
+ciqual_food_name:en:European oyster, raw
+ciqual_food_name:fr:Huître plate, crue
 
 ###################################################################################################
 #
@@ -74780,6 +74978,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 # usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
 vegan:en:yes
 vegetarian:en:yes
+ciqual_food_code:en:20904
+ciqual_food_name:en:Tofu, plain
+ciqual_food_name:fr:Tofu, nature
 
 # mainIngredient:en:sugar
 fr:Décor orange
