@@ -14333,6 +14333,27 @@ hu:nyúlhús
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
 
+<en:rabbit meat
+en:Braised rabbit meat
+fr:Viande braisée de lapin
+ciqual_food_code:en:34000
+ciqual_food_name:en:Rabbit, meat, braised
+ciqual_food_name:fr:Lapin, viande braisée
+
+<en:rabbit meat
+en:Cooked rabbit meat
+fr:Viande de lapin cuite
+ciqual_food_code:en:34002
+ciqual_food_name:en:Rabbit, meat, cooked
+ciqual_food_name:fr:Lapin, viande cuite
+
+<en:rabbit meat
+en:Cooked wild rabbit meat
+fr:Viande de lapin de garenne cuite
+ciqual_food_code:en:34004
+ciqual_food_name:en:Rabbit, wild, meat, cooked
+ciqual_food_name:fr:Lapin de garenne, viande, cuite
+
 
 ###################################################################################################
 #
@@ -15490,10 +15511,17 @@ ciqual_food_code:en:28100
 ciqual_food_name:en:Pork, chop, raw
 ciqual_food_name:fr:Porc, côte, crue
 
+<en:pork meat
+en:Pork spare-ribs
+fr:Travers de porc
+ciqual_food_code:en:28400
+ciqual_food_name:en:Pork, spare-ribs, raw
+ciqual_food_name:fr:Porc, travers, cru
+
 # description:en:BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States. 
 
 <en:pork meat
-en:boston butt
+en:boston butt, pork rack
 de:schweinekamm
 fi:sianniska
 fr:carré de porc, carré
@@ -15508,6 +15536,9 @@ zh:上肩肉
 wikidata:en:Q1420447
 wikipedia:en:https://en.wikipedia.org/wiki/Boston_butt
 # ingredient/fr:carre-de-porc has 79 products in 2 languages @2020-12-22
+ciqual_food_code:en:28104
+ciqual_food_name:en:Pork, rack, raw
+ciqual_food_name:fr:Porc, carré, cru
 
 <en:pork meat
 fr:poitrine de porc fumée
@@ -15536,7 +15567,11 @@ ca:porc curat i precuit
 es:cerdo curado y precocido
 
 <en:pork meat
+en:chipolata slim sausage
 fr:chipolatas
+ciqual_food_code:en:30115
+ciqual_food_name:en:Chipolata slim sausage, raw
+ciqual_food_name:fr:Chipolata, crue
 
 <en:pork meat
 fr:chipolatas aux herbes
@@ -16199,6 +16234,13 @@ de:Wurst aus Schweinefleisch, Wurst vom Schwein
 fr:saucisse de porc
 carbon_footprint_fr_foodges_ingredient:fr:Saucisse de porc
 carbon_footprint_fr_foodges_value:fr:5.5
+
+<en:pork sausage
+en:Ham sausages
+fr:Saucisses de jambon pur porc
+ciqual_food_code:en:30764
+ciqual_food_name:en:Ham sausage
+ciqual_food_name:fr:Saucisse de jambon pur porc
 
 <fr:saucisse de porc
 fr:saucisses pur porc fumées
