@@ -3,8 +3,8 @@ name: Container Image CI
 on:
   push:
     branches:
-      - deploy-*
       - main
+      - deploy-*
 
 jobs:
   build:

@@ -4,13 +4,13 @@ on:
   push:
     branches: 
       - main
+      - deploy-*
     tags: 
       - v*.*.*
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: off-org
     steps:
     - name: Wait for container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
@@ -32,7 +32,8 @@ jobs:
 
     - name: Deploy image to pre-prod Proxmox VM
       uses: appleboy/ssh-action@master
-      if: github.ref == 'main'
+      # if: github.ref == 'main'
+      environment: off-net
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -69,6 +70,7 @@ jobs:
     # - name: Deploy image to prod Proxmox VM
     #   uses: appleboy/ssh-action@master
     #   if: startsWith(github.ref, 'refs/tags/v')
+    #   environment: off-org
     #   with:
     #     host: ${{ secrets.HOST }}
     #     username: ${{ secrets.USERNAME }}
