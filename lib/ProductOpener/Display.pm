@@ -7795,15 +7795,23 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 
 			$tagtype_ref->{tagtype_heading} = ucfirst(lang($tagtype . "_p"));
 			my @tagids;
+			my $description = '';
 
 			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+
+				if ($tagtype =~ /^data_quality/) {
+					$description = display_data_quality_description($product_ref, $tagid);
+				}
+				elsif ($tagtype eq "improvements") {
+					$description = display_possible_improvement_description($product_ref, $tagid);
+				}
 
 				push(@tagids, {
 					display_taxonomy_tag => display_taxonomy_tag($lc, $tagtype, $tagid),
 					properties => $properties{$tagtype}{$tagid}{"description:$lc"},
-					display_data_quality_description => display_data_quality_description($product_ref, $tagid),
-                    display_possible_improvement_description => display_possible_improvement_description($product_ref, $tagid),
+					description => $description,
 				});
+
 			}
 
 			$tagtype_ref->{tagids} = \@tagids;
