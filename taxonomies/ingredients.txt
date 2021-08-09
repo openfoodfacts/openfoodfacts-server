@@ -18851,6 +18851,8 @@ zh:葵花籽植物油
 wikipedia:en:https://en.wikipedia.org/wiki/Sunflower_oil
 wikidata:en:Q94787
 from_palm_oil:en:no
+ciqual_food_code:en:17440
+ciqual_food_name:en:Sunflower oil
 
 <en:sunflower oil
 en:organic sunflower oil
@@ -20217,6 +20219,9 @@ zh:香槟酒
 wikidata:en:Q134862
 wikipedia:en:https://en.wikipedia.org/wiki/Champagne
 # ingredient/champagne has 74 products in 2 languages @2018-12-14
+ciqual_food_code:en:5207
+ciqual_food_name:en:Champagne
+ciqual_food_name:fr:Champagne
 
 <en:champagne
 fr:champagne brut
@@ -25104,6 +25109,9 @@ fr:son d'avoine
 hu:zabkorpa
 it:crusca d'avena
 nl:Haverzemelen
+ciqual_food_code:en:9640
+ciqual_food_name:en:Oat bran
+ciqual_food_name:fr:Son d'avoine
 
 <en:oat bran
 nl:Haverzemelen met kiem
@@ -35460,6 +35468,12 @@ carbon_footprint_fr_foodges_ingredient:fr:Banane
 carbon_footprint_fr_foodges_value:fr:1.2
 # 1538 products in 10 languages @2018-09-26
 
+en:Plantain bananas
+fr:Bananes plantain
+ciqual_food_code:en:53100
+ciqual_food_name:en:Plantain banana, raw
+ciqual_food_name:fr:Banane plantain, crue
+
 <en:banana
 en:dried banana, dried bananas
 de:Bananen getrocknet
@@ -38511,6 +38525,13 @@ zh:黑莓
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
 # 404 products in 7 languages @21018-10-01
 
+en:Black mulberry
+fr:Mûres noires
+ciqual_food_code:en:13071
+ciqual_food_name:en:Black mulberry, raw
+ciqual_food_name:fr:Mûre noire (du mûrier), crue
+
+
 <en:blackberry
 <en:juice
 fr:jus de mûre à base de jus concentré
@@ -38971,6 +38992,13 @@ wikidata:en:Q196
 carbon_footprint_fr_foodges_ingredient:fr:Cerise
 carbon_footprint_fr_foodges_value:fr:1.3
 # 969 products in 7 languages @2018-09-29
+
+<en:cherry
+en:Pitted cherry 
+fr:Cerise dénoyautée
+ciqual_food_code:en:13008
+ciqual_food_name:en:Cherry, pitted, raw
+ciqual_food_name:fr:Cerise, dénoyautée, crue
 
 <en:cherry
 en:cherry juice
@@ -39628,6 +39656,9 @@ fr:baie de sureau, baies de sureau
 it:sambuco
 nl:vlierbes
 sv:fläderbär
+ciqual_food_code:en:13126
+ciqual_food_name:en:Elderberry, berries, raw
+ciqual_food_name:fr:Sureau, baie, crue
 
 <en:elderberry
 <en:fruit juice
@@ -40207,6 +40238,13 @@ zh:荔枝
 # wikidata:en:Q13182 refers to the plant
 wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 # ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
+
+<en:lychee
+en:Lychee pulp
+fr:Pulpe de litchi
+ciqual_food_code:en:13023
+ciqual_food_name:en:Lychee, pulp, raw
+ciqual_food_name:fr:Litchi, pulpe, cru
 
 <en:lychee
 es:Lichis deshuesados
@@ -40879,6 +40917,13 @@ en:persimmon juice
 de:Kaki Saft
 es:zumo de caqui, jugo de caqui
 
+<en:persimmon
+en:Persimmon pulp
+fr:Pulpe de kaki
+ciqual_food_code:en:13066
+ciqual_food_name:en:Persimmon, pulp, raw
+ciqual_food_name:fr:Kaki, pulpe, cru
+
 
 ###################################################################################################
 #
@@ -40955,6 +41000,9 @@ zh:樹莓
 # yue:勒士啤梨
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
 # 2014 in 12 languages @2018-09-27
+ciqual_food_code:en:13015
+ciqual_food_name:en:Raspberry, raw
+ciqual_food_name:fr:Framboise, crue
 
 <en:raspberry
 en:red raspberries
@@ -41738,6 +41786,9 @@ de:dunkle Trauben
 fr:raisin noir, raisins noirs
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-noirs
 # 51 products in 1 language @2018-10-02
+ciqual_food_code:en:13045
+ciqual_food_name:en:Grape, red, raw
+ciqual_food_name:fr:Raisin noir, cru
 
 <en:black grape
 en:Concord grape, Concord black grape
@@ -43645,6 +43696,9 @@ wikidata:en:Q178547
 # ingredient/endive has 125 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_food_code:en:20026
+ciqual_food_name:en:Chicory, raw
+ciqual_food_name:fr:Endive, crue
 
 # RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 
@@ -44115,6 +44169,13 @@ nn:tørket hvitløk
 sv:torkad vitlök, torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
 
+<fr:ail séché
+en:Dried garlic powder
+fr:Ail séché en poudre
+ciqual_food_code:en:11023
+ciqual_food_name:en:Garlic, powder, dried
+ciqual_food_name:fr:Ail séché, poudre
+
 <fr:ail déshydraté
 <en:garlic
 en:rehydrated garlic
@@ -44423,6 +44484,8 @@ carbon_footprint_fr_foodges_value:fr:1.2
 carbon_footprint_fr_foodges_ingredient:fr:Aubergine serre chauffée
 carbon_footprint_fr_foodges_value:fr:6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
+ciqual_food_code:en:20053
+ciqual_food_name:en:Eggplant, raw
 
 # This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
 
@@ -45624,6 +45687,9 @@ fr:purée de carotte
 it:puré di carote
 # In process de:Karottenpüree
 # fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
+ciqual_food_code:en:20261
+ciqual_food_name:en:Carrots, puree
+ciqual_food_name:fr:Carotte, purée
 
 # fr:concentré de carotte usage as a colour is not always mentioned
 
@@ -46308,6 +46374,9 @@ zh:洋姜
 wikidata:en:Q32979618
 wikipedia:en:https://en.wikipedia.org/wiki/Jerusalem_artichoke
 # ingredient/jerusalem-artichoke has 37 products @2019-02-03
+ciqual_food_code:en:20196
+ciqual_food_name:en:Jerusalem artichoke, raw
+ciqual_food_name:fr:Topinambour, cru
 
 
 # description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
@@ -46953,6 +47022,12 @@ ciqual_food_name:en:Parsnip, raw
 ciqual_food_name:fr:Panais, cru
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
 
+en:Cooked parsnip
+fr:Panais cuit
+ciqual_food_code:en:20133
+ciqual_food_name:en:Parsnip, cooked
+ciqual_food_name:fr:Panais, cuit
+
 <en:parsnip
 de:Pastinakenpulver
 
@@ -47424,6 +47499,11 @@ ciqual_food_code:en:20197
 ciqual_food_name:en:Salsify, black, raw
 ciqual_food_name:fr:Salsifis noir, cru
 
+en:Cooked salsify
+fr:Salsifis cuits
+ciqual_food_code:en:20046
+ciqual_food_name:en:Salsify, cooked
+ciqual_food_name:fr:Salsifis, cuit
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
 
@@ -49255,6 +49335,12 @@ ciqual_food_code:en:20201
 ciqual_food_name:en:Rutabaga or Swede, raw
 ciqual_food_name:fr:Rutabaga, cru
 
+en:Cooked rutabaga, Cooked swede
+fr:Rutabaga cuit
+ciqual_food_code:en:20165
+ciqual_food_name:en:Rutabaga or Swede, cooked
+ciqual_food_name:fr:Rutabaga, cuit
+
 <en:root vegetable
 en:turnip, turnips
 af:Raap
@@ -49441,6 +49527,9 @@ wikidata:en:Q150452
 wikipedia:en:https://en.wikipedia.org/wiki/Watercress
 # ingredient/watercress has 107 products in 4 languages @2019-04-13
 # ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
+ciqual_food_code:en:20022
+ciqual_food_name:en:Watercress, raw
+ciqual_food_name:fr:Cresson de fontaine, cru
 
 # description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
@@ -50447,6 +50536,15 @@ zh:蚕豆
 # zh-tw:蠶豆
 wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 # ingredient/fr:feve has 54 products in french @2019-02-17
+ciqual_food_code:en:20518
+ciqual_food_name:en:Broad bean, dried
+ciqual_food_name:fr:Fève, sèche
+
+en:Fresh broad bean to shell
+fr:Fèves fraîches à écosser
+ciqual_food_code:en:20517
+ciqual_food_name:en:Broad bean, to shell, fresh
+ciqual_food_name:fr:Fève à écosser, fraîche
 
 <en:legume
 fr:féverole, féverolle
@@ -50732,6 +50830,9 @@ pt:Grão-de-bico cozido
 sv:kokta kikärter
 # ingredient/fr:pois-chiches-cuits has 80 products @2019-02-14
 # garbanzos cocidos (agua, garbanzos)
+ciqual_food_code:en:20507
+ciqual_food_name:en:Chick pea, cooked
+ciqual_food_name:fr:Pois chiche, cuit
 
 <en:chickpea
 fr:pois chiche secs
@@ -52025,6 +52126,8 @@ allergens:en: en:peanuts
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
+ciqual_food_code:en:15001
+ciqual_food_name:en:Peanut
 
 <en:peanut
 en:peanut paste
@@ -53533,6 +53636,9 @@ description:en:MISO is a traditional Japanese seasoning produced by fermenting s
 wikidata:en:Q235169
 wikipedia:en:https://en.wikipedia.org/wiki/Miso
 # ingredient/fr:miso has 46 products in 2 languages @2020-06-13
+ciqual_food_code:en:20916
+ciqual_food_name:en:Miso
+ciqual_food_name:fr:Miso
 
 <en:miso
 en:red miso paste
@@ -56486,6 +56592,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Basil
 # 3605 products in 14 languages @2108-10-10
 
 <en:basil
+en:Fresh basil
+fr:Basilic frais
+ciqual_food_code:en:11033
+ciqual_food_name:en:Basil, fresh
+ciqual_food_name:fr:Basilic, frais
+
+<en:basil
 en:basil leaf, basil leaves
 de:Basilikumblätter
 
@@ -56499,6 +56612,9 @@ it:basilico essiccato
 nl:gedroogde basilicum
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-basil
 # 64 products in 4 languages @2018-10-10
+ciqual_food_code:en:11032
+ciqual_food_name:en:Basil, dried
+ciqual_food_name:fr:Basilic, séché
 
 <en:basil
 en:basil extract
@@ -61356,6 +61472,12 @@ en:forest mushroom
 de:Waldpilze
 fr:champignon forestier, champignons forestiers, champignon des bois, champignons des bois
 nl:bospaddenstoel
+
+en:Greek-style marinated mushrooms
+fr:Champignons à la grecque
+ciqual_food_code:en:25605
+ciqual_food_name:en:Greek-style marinated mushrooms
+ciqual_food_name:fr:Champignon à la grecque
 
 <en:mushroom
 en:concentrated mushroom juice
@@ -71779,6 +71901,8 @@ pl:Sproszkowane białka jajek
 pt:clara de ovo em pó
 sv:äggvitepulver, äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
+ciqual_food_code:en:22004
+ciqual_food_name:en:Egg white, powder
 
 <en:egg white
 en:free range egg white
@@ -76860,6 +76984,9 @@ wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
 # 449 products in 5 languages @2018-09-25
+ciqual_food_code:en:11104
+ciqual_food_name:en:Soy sauce, prepacked
+ciqual_food_name:fr:Sauce soja, préemballée
 
 <en:soy sauce
 en:light soy sauce
