@@ -18530,6 +18530,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
+ciqual_food_code:en:17220
+ciqual_food_name:en:Walnut oil
+ciqual_food_name:fr:Huile de noix
 
 <en:walnut oil
 fr:huile vierge de noix
@@ -18570,6 +18573,9 @@ zh:棉籽油
 wikipedia:en:https://en.wikipedia.org/wiki/Cottonseed_oil
 wikidata:en:Q811663
 from_palm_oil:en:no
+ciqual_food_code:en:17170
+ciqual_food_name:en:Cottonseed oil
+ciqual_food_name:fr:Huile de coton
 
 <en:Cottonseed oil
 en:hydrogenated cottonseed oil
@@ -18671,6 +18677,9 @@ wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
 from_palm_oil:en:no
+ciqual_food_code:en:17040
+ciqual_food_name:en:Peanut oil
+ciqual_food_name:fr:Huile d'arachide
 
 # description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
 
@@ -18729,6 +18738,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
 from_palm_oil:en:no
 allergens:en: en:sesame
+ciqual_food_code:en:17400
+ciqual_food_name:en:Sesame oil
+ciqual_food_name:fr:Huile de sésame
 
 <en:sesame oil
 en:organic sesame oil
@@ -18842,6 +18854,9 @@ description:en:GRAPE SEED OIL (also called grapeseed oil or grape oil) is presse
 wikipedia:en:https://en.wikipedia.org/wiki/Grape_seed_oil
 wikidata:en:Q898982
 from_palm_oil:en:no
+ciqual_food_code:en:17350
+ciqual_food_name:en:Grapeseed oil
+ciqual_food_name:fr:Huile de pépins de raisin
 
 <en:vegetable oil
 # producedFrom:en:rice
@@ -19002,6 +19017,9 @@ it:Olio di nocciole
 nl:hazelnotenolie, hazelnootolie
 wikidata:en:Q1112606
 from_palm_oil:en:no
+ciqual_food_code:en:17210
+ciqual_food_name:en:Hazelnut oil
+ciqual_food_name:fr:Huile de noisette
 
 <en:hazelnut oil
 en:virgin hazelnut oil
@@ -26843,6 +26861,9 @@ sr:sojino brašno
 sv:sojamjöl, sojabönsmjöl, mjöl av sojabönor
 tr:soya unu
 allergens:en: en:soybeans
+ciqual_food_code:en:20900
+ciqual_food_name:en:Soya flour
+ciqual_food_name:fr:Farine de soja
 
 <en:corn
 en:Maize bran, Corn bran
@@ -42237,6 +42258,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raisin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 carbon_footprint_fr_foodges_ingredient:fr:Raisin
 carbon_footprint_fr_foodges_value:fr:0.8
+ciqual_food_code:en:13046
+ciqual_food_name:en:Raisin
+ciqual_food_name:fr:Raisin, sec
 
 <en:raisin
 fr:raisins secs réhydratés
@@ -43686,6 +43710,9 @@ wikidata:en:Q23041430
 wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
 carbon_footprint_fr_foodges_ingredient:fr:Artichauts
 carbon_footprint_fr_foodges_value:fr:2.5
+ciqual_food_code:en:20052
+ciqual_food_name:en:Artichoke, globe, raw
+ciqual_food_name:fr:Artichaut, cru
 
 # description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
 
@@ -52076,6 +52103,13 @@ nl:kastanje, kastanjes
 # ingredient/fr:châtaignes has 164 products in 4 languages @2018-10-07
 
 <en:chestnut
+en:Grilled chestnut
+fr:Châtaigne grillée
+ciqual_food_code:en:15021
+ciqual_food_name:en:Chestnut, grilled
+ciqual_food_name:fr:Châtaigne, grillée
+
+<en:chestnut
 en:chestnut from the EU
 nl:kastanjes EU
 
@@ -52238,6 +52272,9 @@ wikidata:en:Q578307
 wikipedia:en:https://en.wikipedia.org/wiki/Hazelnut
 openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnuts
 # 4124 products @2018-10-07
+ciqual_food_code:en:15004
+ciqual_food_name:en:Hazelnut
+ciqual_food_name:fr:Noisette
 
 <en:hazelnut
 fr:noisettes avec peau
@@ -52800,6 +52837,9 @@ fr:cerneaux de noix
 nl:Gepelde walnoot
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux-de-noix
 # 78 products in 4 languages @2018-10-05
+ciqual_food_code:en:15005
+ciqual_food_name:en:Walnut, dried, husked
+ciqual_food_name:fr:Noix, séchée, cerneaux
 
 <en:walnut
 fr:noix sèches
@@ -71998,6 +72038,9 @@ zh:水煮蛋
 # yue:烚蛋
 wikidata:en:Q1062531
 # ingredient/fr:oeuf-dur has 149 products @2018-12-18
+ciqual_food_code:en:22014
+ciqual_food_name:en:Egg, soft-boiled
+ciqual_food_name:fr:Oeuf, à la coque
 
 <en:boiled egg
 fr:quartiers d'œufs durs
@@ -72008,6 +72051,13 @@ fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
 de:Eier pasteurisiert
 it:uova pastorizzate
 # ingredient/fr:oeuf-pasteurisé has 57 products in 4 languages @2018-12-18
+
+<en:egg
+en:poached egg
+fr:Oeuf poché
+ciqual_food_code:en:22011
+ciqual_food_name:en:Egg, poached
+ciqual_food_name:fr:Oeuf, poché
 
 <en:egg
 en:chicken egg
@@ -72317,6 +72367,15 @@ zh:蛋白
 wikidata:en:Q796758
 wikipedia:en:https://en.wikipedia.org/wiki/Egg_white
 # ingredient/fr:blanc-d-oeuf has 2748 products in 13 languages @2018-12-18
+ciqual_food_code:en:22001
+ciqual_food_name:en:Egg white, raw
+ciqual_food_name:fr:Oeuf, blanc (blanc d'oeuf), cru
+
+en:Egg white cooked
+fr:blanc d'oeuf cuit
+ciqual_food_code:en:22008
+ciqual_food_name:en:Egg white, cooked
+ciqual_food_name:fr:Oeuf, blanc (blanc d'oeuf), cuit
 
 <en:egg white
 en:chicken egg white
@@ -72345,6 +72404,7 @@ sv:äggvitepulver, äggvita i pulver
 # ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
 ciqual_food_code:en:22004
 ciqual_food_name:en:Egg white, powder
+ciqual_food_name:fr:Oeuf, blanc (blanc d'oeuf), en poudre
 
 <en:egg white
 en:free range egg white
@@ -72503,6 +72563,15 @@ zh:蛋黃
 # zh-tw:蛋黃
 wikidata:en:Q1302994
 # ingredient/egg-yolk has 6004 products in 13 languages @2018-12-17
+ciqual_food_code:en:22002
+ciqual_food_name:en:Egg yolk, raw
+ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), cru
+
+en:Cooked egg yolk
+fr:jaune d'oeuf cuit
+ciqual_food_code:en:22009
+ciqual_food_name:en:Egg yolk, cooked
+ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), cuit
 
 <en:egg
 en:liquid egg
@@ -72565,6 +72634,10 @@ pt:gemas de ovo em pó
 sv:äggulepulver
 # ingredient/fr:poudre-de-jaunes-d’oeufs has 17 products in 3 languages @2018-12-17
 # ingredient/fr:jaunes-d’oeufs-en-poudre has 541 products in 7 languages @2018-12-17
+ciqual_food_code:en:22003
+ciqual_food_name:en:Egg yolk, powder
+ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), en poudre
+
 
 <en:egg yolk powder
 en:eggs yolk powder from free range hens
@@ -75741,6 +75814,9 @@ wikidata:en:Q208729
 wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 # ingredient/nougat has 52 products in 5 languages @2019-02-08
 # nougat (cane sugar , hazelnuts 33%, cocoa mass, cocoa butter)
+ciqual_food_code:en:31033
+ciqual_food_name:en:Nougat
+ciqual_food_name:fr:Nougat ou touron
 
 <en:nougat
 fr:morceaux de nougat
