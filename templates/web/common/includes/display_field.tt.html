@@ -7,15 +7,16 @@
     [% IF done_status != "" %]
     <p><span class="field">[% lang("done_status") %]: </span>[% done_status %]</p>
     [% END %]
-[% END %]
 
-[% IF value_check.defined && value_check!= '' %]
-    [% IF field != 'states' %]
+[% ELSE %]
+
+    [% IF value_check.defined && value_check!= '' %]
         <p>
             <span class="field">[% lang_field %]: </span>
             [% value %]
         </p>
     [% END %]
+
 [% END %]
 
 <!-- end templates/[% template.name %] -->
