@@ -40,27 +40,14 @@ use Modern::Perl '2017';
 use utf8;
 use Exporter qw(import);
 
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Store qw(:all);
+use ProductOpener::Display qw/:all/;
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::TagsEntries qw(:all);
 use ProductOpener::Users qw(:all);
-use ProductOpener::Index qw(:all);
-use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(:all);
-use ProductOpener::Food qw(:all);
-use ProductOpener::Ingredients qw(:all);
-use ProductOpener::Products qw(:all);
-use ProductOpener::Missions qw(:all);
-use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(:all);
-use ProductOpener::Data qw(:all);
-use ProductOpener::Text qw(:all);
-use ProductOpener::Nutriscore qw(:all);
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::Attributes qw(:all);
 use ProductOpener::Orgs qw(:all);
+use ProductOpener::Lang qw(:all);
+
 
 use Template;
 use Log::Log4perl;
