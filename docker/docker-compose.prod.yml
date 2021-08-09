@@ -1,7 +1,6 @@
 ﻿version: "3.7"
 services:
   backend:
-    image: productopener-backend-dev
     volumes:
       - type: bind
         source: ./backend-dev/conf/Config2.pm
