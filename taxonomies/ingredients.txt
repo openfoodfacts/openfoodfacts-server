@@ -13838,6 +13838,20 @@ ciqual_food_name:en:Tongue, beef, cooked
 ciqual_food_name:fr:Langue, boeuf, cuite
 
 <en:beef meat
+en:Boiled beef knuckle, Beef knuckle cooked in water
+fr:Jarret de boeuf bouilli, Jarret de boeuf cuit à l'eau
+ciqual_food_code:en:6151
+ciqual_food_name:en:Beef, knuckle, boiled/cooked in water
+ciqual_food_name:fr:Boeuf, jarret, bouilli/cuit à l'eau
+
+<en:beef meat
+en:Boiled beef oxtail, Beef oxtail cooked in water
+fr:Queue de boeuf bouillie, Queue de boeuf cuite à l'eau
+ciqual_food_code:en:6310
+ciqual_food_name:en:Beef, oxtail, boiled/cooked in water
+ciqual_food_name:fr:Boeuf, queue, bouillie/cuite à l'eau
+
+<en:beef meat
 en:beef kidney
 fr:Rognon de boeuf
 ciqual_food_code:en:40403
@@ -14023,6 +14037,12 @@ carbon_footprint_fr_foodges_value:fr:55
 # fr:cotelettes d'agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
+en:Grilled lamb cutlet
+fr:Côtelette d'agneau grillée
+ciqual_food_code:en:21501
+ciqual_food_name:en:Lamb cutlet, grilled
+ciqual_food_name:fr:Agneau, côtelette, grillée
+
 <en:lamb meat
 en:british lamb
 de:britisches Lamm
@@ -14030,6 +14050,136 @@ de:britisches Lamm
 <en:lamb
 en:lamb gut
 es:tripa nayural de cordero
+
+<en:lamb
+en:Cooked lamb brains
+fr:Cervelles d'agneau cuites
+ciqual_food_code:en:40003
+ciqual_food_name:en:Brain, lamb, cooked
+ciqual_food_name:fr:Cervelle, agneau, cuite
+
+<en:lamb
+en:Cooked lamb hearts
+fr:Coeurs d'agneau cuits
+ciqual_food_code:en:40059
+ciqual_food_name:en:Heart, lamb, cooked
+ciqual_food_name:fr:Coeur, agneau, cuit
+
+<en:lamb
+en:Cooked lamb livers
+fr:Foies d'agneau cuits
+ciqual_food_code:en:40103
+ciqual_food_name:en:Liver, lamb, cooked
+ciqual_food_name:fr:Foie, agneau, cuit
+
+<en:lamb
+en:Braised kidney lambs
+fr:Rognons d'agneau braisés
+ciqual_food_code:en:40406
+ciqual_food_name:en:Kidney, lamb, braised
+ciqual_food_name:fr:Rognon, agneau, braisé
+
+<en:lamb
+en:Cooked lamb sweetbread
+fr:Ris d'agneau cuit
+ciqual_food_code:en:40303
+ciqual_food_name:en:Sweetbread, lamb, cooked
+ciqual_food_name:fr:Ris, agneau, cuit
+
+<en:lamb
+en:Raw lamb leg
+fr:Gigot d'agneau cru
+ciqual_food_code:en:21502
+ciqual_food_name:en:Lamb, leg, raw
+ciqual_food_name:fr:Agneau, gigot, cru
+
+<en:lamb
+en:Pan-fried lamb leg
+fr:Gigot d'agneau poêlé
+ciqual_food_code:en:21518
+ciqual_food_name:en:Lamb, leg, grilled/pan-fried
+ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
+
+<en:lamb
+en:Grilled lamb leg
+fr:Gigot d'agneau grillé
+ciqual_food_code:en:21518
+ciqual_food_name:en:Lamb, leg, grilled/pan-fried
+ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
+
+<en:lamb
+en:Braised lamb leg
+fr:Gigot d'agneau braisé
+ciqual_food_code:en:21519
+ciqual_food_name:en:Lamb, leg, braised
+ciqual_food_name:fr:Agneau, gigot, braisé
+
+<en:lamb
+en:Roasted lamb leg, Baked lamb leg
+fr:Gigot d'agneau rôti au four, Gigot d'agneau cuit au four
+ciqual_food_code:en:21503
+ciqual_food_name:en:Lamb, leg, roasted/baked
+ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
+
+en:Braised lamb neck
+fr:Collier d'agneau braisé
+ciqual_food_code:en:21508
+ciqual_food_name:en:Lamb, neck, braised or boiled
+ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
+
+en:Boiled lamb neck
+fr:Collier d'agneau bouilli
+ciqual_food_code:en:21508
+ciqual_food_name:en:Lamb, neck, braised or boiled
+ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
+
+en:Chop grilled lamb rib
+fr:Côte première d'agneau grillée
+ciqual_food_code:en:21512
+ciqual_food_name:en:Lamb, rib chop, grilled/pan-fried
+ciqual_food_name:fr:Agneau, côte première, grillée/poêlée
+
+en:Pan-fried lamb rib
+fr:Côte première d'agneau poêlée
+ciqual_food_code:en:21512
+ciqual_food_name:en:Lamb, rib chop, grilled/pan-fried
+ciqual_food_name:fr:Agneau, côte première, grillée/poêlée
+
+en:Pan-fried lamb chop fillet
+fr:Côte de filet d'agneau poêlée
+ciqual_food_code:en:21509
+ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
+ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
+
+en:Grilled lamb chop fillet, 
+fr:Côte de filet d'agneau grillée
+ciqual_food_code:en:21509
+ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
+ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
+
+en:Grilled lamb saddle
+fr:Selle d'agneau partie maigre grillée
+ciqual_food_code:en:21520
+ciqual_food_name:en:Lamb, saddle, grilled/pan-fried
+ciqual_food_name:fr:Agneau, selle, partie maigre, grillée/poêlée
+
+en:Pan-fried lamb saddle
+fr:Selle d'agneau partie maigre poêlée
+ciqual_food_code:en:21520
+ciqual_food_name:en:Lamb, saddle, grilled/pan-fried
+ciqual_food_name:fr:Agneau, selle, partie maigre, grillée/poêlée
+
+en:Baked lean lamb saddle
+fr:Selle d'agneau partie maigre cuite au four
+ciqual_food_code:en:21513
+ciqual_food_name:en:Lamb, saddle, lean, roasted/baked
+ciqual_food_name:fr:Agneau, selle, partie maigre, rôtie/cuite au four
+
+en:Roasted lean lamb saddle
+fr:Selle d'agneau partie maigre rôtie
+ciqual_food_code:en:21513
+ciqual_food_name:en:Lamb, saddle, lean, roasted/baked
+ciqual_food_name:fr:Agneau, selle, partie maigre, rôtie/cuite au four
 
 # description:en:RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
 
@@ -14384,7 +14534,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 fr:viande et gras de mouton
 # ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
 
-
 <en:meat
 <en:sheep
 en:mutton, sheeps meat
@@ -14427,6 +14576,13 @@ en:natural sheep casing
 fr:boyau naturel de mouton
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
+<en:meat
+<en:sheep
+en:Mutton leg
+fr:Gigot de mouton
+ciqual_food_code:en:21006
+ciqual_food_name:en:Mutton, leg, raw
+ciqual_food_name:fr:Mouton, gigot, cru
 
 ###################################################################################################
 #
@@ -14844,6 +15000,30 @@ fi:naudan jauhelihapihvi
 sv:pannbiff
 # ingredient/fr:steak-hache-pur-boeuf has 12 in french products @2019-05-24
 
+en:Cooked minced beef steak with 5% fat 
+fr:Steak haché de bœuf cuit à 5% de matières grasses
+ciqual_food_code:en:6251
+ciqual_food_name:en:Beef, minced steak, 5% fat, cooked
+ciqual_food_name:fr:Bœuf, steak haché 5% MG, cuit
+
+en:Cooked minced beef steak with 10% fat 
+fr:Steak haché de bœuf cuit à 10% de matières grasses
+ciqual_food_code:en:6253
+ciqual_food_name:en:Beef, minced steak, 10% fat, cooked
+ciqual_food_name:fr:Bœuf, steak haché 10% MG, cuit
+
+en:Cooked minced beef steak with 15% fat 
+fr:Steak haché de bœuf cuit à 15% de matières grasses
+ciqual_food_code:en:6255
+ciqual_food_name:en:Beef, minced steak, 15% fat, cooked
+ciqual_food_name:fr:Bœuf, steak haché 15% MG, cuit
+
+en:Cooked minced beef steak with 20% fat 
+fr:Steak haché de bœuf cuit à 20% de matières grasses
+ciqual_food_code:en:6257
+ciqual_food_name:en:Beef, minced steak, 20% fat, cooked
+ciqual_food_name:fr:Bœuf, steak haché 20% MG, cuit
+
 ###################################################################################################
 #
 #                                Goat
@@ -14958,7 +15138,16 @@ fr:Viande de porc hachée
 en:pork shoulder
 de:Schweineschulter
 es:paleta de cerdo
-fr:Épaule de porc
+fr:épaule de porc
+fi:porsaan lapa
+sv:grisbog
+
+<en:pork shoulder
+en:Cooked pork shoulder
+fr:Epaule de porc cuite
+ciqual_food_code:en:28010
+ciqual_food_name:en:Pork, shoulder, cooked
+ciqual_food_name:fr:Porc, épaule, cuite
 
 <en:pork meat
 en:pig cheek
@@ -15291,11 +15480,15 @@ es:lomo de cerdo
 fr:palette de porc
 
 <en:pork meat
+en:Pork chops
 fr:Côtes de porc
 ca:costelles de porc
 es:costillas de cerdo
 sv:sida av gris
 # ingredient/fr:cotes-de-porc has 8 products @2019-05-29
+ciqual_food_code:en:28100
+ciqual_food_name:en:Pork, chop, raw
+ciqual_food_name:fr:Porc, côte, crue
 
 # description:en:BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States. 
 
@@ -15425,6 +15618,9 @@ fi:raakakinkku
 fr:jambon cru
 it:prosciutto crudo
 nl:rauwe ham
+ciqual_food_code:en:28800
+ciqual_food_name:en:Cured ham, raw
+ciqual_food_name:fr:Jambon cru
 
 <en:raw ham
 en:Serrano raw ham
@@ -15441,7 +15637,11 @@ it:prosciutto crudo italiano
 nl:Italiaanse rauwe ham
 
 <en:raw ham
+en:smoked cured ham
 fr:jambon cru fumé
+ciqual_food_code:en:28801
+ciqual_food_name:en:Cured ham, raw, smoked
+ciqual_food_name:fr:Jambon cru, fumé
 
 <en:ham
 en:cooked ham
@@ -15531,7 +15731,11 @@ fr:longe de porc traitée en salaison
 fr:viande séparée mécaniquement de porc
 
 <en:pork meat
+en:Pork knuckle, Pork shank
 fr:jarret de porc, jarrets de porc
+ciqual_food_code:en:28004
+ciqual_food_name:en:Pork, knuckle or shank, raw
+ciqual_food_name:fr:Porc, jarret, cru
 
 <fr:jarret de porc
 fr:jarret de porc désossé, jarrets de porc désossés
@@ -15631,11 +15835,6 @@ fr:couenne et gras de porc
 
 <en:pork meat
 fr:barde de porc
-
-<en:pork meat
-fr:épaule de porc
-fi:porsaan lapa
-sv:grisbog
 
 <en:pork meat
 en:pork fillet
@@ -16018,6 +16217,12 @@ carbon_footprint_fr_foodges_value:fr:5.1
 
 <en:meat
 fr:saucisse de strasbourg
+
+en:Bresaola
+fr:Bresaola
+ciqual_food_code:en:28503
+ciqual_food_name:en:Bresaola
+ciqual_food_name:fr:Bresaola
 
 fr:plasma déshydraté
 # ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
@@ -23344,6 +23549,9 @@ hu:cirok
 it:Sorgo
 sk:cirok
 wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
+ciqual_food_code:en:9360
+ciqual_food_name:en:Sorghum, whole, raw
+ciqual_food_name:fr:Sorgho entier, cru
 
 <en:Sorghum
 de:Goldhirse, geschälte Hirse
@@ -31220,6 +31428,9 @@ uz:Kakao moyi, kakao yogi
 wikidata:en:Q251106
 wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_butter
 # ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
+ciqual_food_code:en:16030
+ciqual_food_name:en:Cocoa butter
+ciqual_food_name:fr:Beurre de cacao
 
 <en:cocoa butter
 en:raw cacao butter
@@ -35834,6 +36045,9 @@ sv:mangopuré
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-mangue
 # 393 products @2018-09-27
 # ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
+ciqual_food_code:en:13025
+ciqual_food_name:en:Mango, pulp, raw
+ciqual_food_name:fr:Mangue, pulpe, crue
 
 ##########################################
 #              Flavourings
@@ -37209,6 +37423,13 @@ fi:klementiinimehu
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
 # 75 products in 2 languages @2018-10-01
 
+<en:clementine
+en:clementine pulp
+fr:pulpe de clémentine
+ciqual_food_code:en:13082
+ciqual_food_name:en:Clementine, pulp, raw
+ciqual_food_name:fr:Clémentine, pulpe, crue
+
 ###################################################################################################
 #
 #                                Grapefruit
@@ -37727,6 +37948,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
 # 251 products @2018-10-01
 carbon_footprint_fr_foodges_ingredient:fr:Citron
 carbon_footprint_fr_foodges_value:fr:0.9
+
+<en:lime
+en:Raw lime pulp
+fr:Pulpe de citron vert cru
+ciqual_food_code:en:13067
+ciqual_food_name:en:Lime, pulp, raw
+ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
 
 # <en:lime
 <en:fruit juice
@@ -40543,6 +40771,13 @@ wikidata:en:Q38645
 openfoodfacts:https://world.openfoodfacts.org/ingredient/watermelon
 # 172 products in 2 languages @ 2018-09-29
 
+<en:watermelon
+en:watermelon pulp
+fr:Pulpe de pastèque
+ciqual_food_code:en:13036
+ciqual_food_name:en:Watermelon, pulp, raw
+ciqual_food_name:fr:Pastèque, pulpe, crue
+
 ###################################################################################################
 #
 #                                Papaya
@@ -41381,6 +41616,9 @@ wikidata:en:Q14458220
 wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
 # 2504 products in 15 languages @2018-10-01
+ciqual_food_code:en:13014
+ciqual_food_name:en:Strawberry, raw
+ciqual_food_name:fr:Fraise, crue
 
 <en:strawberry
 en:strawberry pieces
@@ -44962,6 +45200,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
 carbon_footprint_fr_foodges_value:fr:0.4
 # ingredient/broccoli has 1167 products in 10 languages @2018-10-16
 # category/broccoli has 150 products @2019-05-24
+ciqual_food_code:en:20057
+ciqual_food_name:en:Broccoli, raw
+ciqual_food_name:fr:Brocoli, cru
 
 <en:vegetable
 en:Broccoli floret
@@ -47734,6 +47975,13 @@ fr:épinards déshydratés
 fi:kuivattu pinaatti
 
 <en:spinach
+en:Cooked spinach
+fr:Épinards cuits
+ciqual_food_code:en:20027
+ciqual_food_name:en:Spinach, cooked
+ciqual_food_name:fr:Épinard, cuit
+
+<en:spinach
 fr:épinards en branches, épinards branches
 de:Blattspinat
 it:foglie di spinaci
@@ -47745,6 +47993,12 @@ fr:Épinards hachés
 nl:gehakte spinazie
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
 
+<en:spinach
+en:spinach puree
+fr:purée d'épinards
+ciqual_food_code:en:20285
+ciqual_food_name:en:Spinach, puree
+ciqual_food_name:fr:Épinard, purée
 
 # description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
@@ -48990,6 +49244,9 @@ nn:cocktailtomater
 pt:tomates cerejas, tomates cereja
 sv:körsbärstomater, cherrytomater, cocktailtomater
 # ingredient/fr:tomates-cerise has 432 products in 10 languages @2018-12-26
+ciqual_food_code:en:20172
+ciqual_food_name:en:Tomato, cherry, raw
+ciqual_food_name:fr:Tomate cerise, crue
 
 <en:tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -64931,6 +65188,13 @@ zh:鮋科
 wikidata:en:Q386535
 wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
 
+<en:scorpion fish
+en:Steamed spiny scorpionfish
+fr:Rascasse cuite à la vapeur
+ciqual_food_code:en:26148
+ciqual_food_name:en:Spiny scorpionfish, steamed
+ciqual_food_name:fr:Rascasse, cuite à la vapeur
+
 # description:en:SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family.
 
 <en:fish
@@ -65881,6 +66145,15 @@ en:turbot
 fi:piikkikampela
 fr:turbot
 wikipedia:en:https://en.wikipedia.org/wiki/Turbot
+ciqual_food_code:en:26174
+ciqual_food_name:en:Turbot, raw
+ciqual_food_name:fr:Turbot, cru
+
+en:Farmed turbot
+fr:Turbot d'élevage
+ciqual_food_code:en:26201
+ciqual_food_name:en:Turbot, raw, farmed
+ciqual_food_name:fr:Turbot d'élevage, cru
 
 # Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
 
@@ -66602,11 +66875,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Octopus
 # ingredient/fr:poulpes has 51 products @2019-01-02
 
 <en:octopus
+en:Common cooked octopus
 fr:poulpe cuit
 nl:gekookte inktvis
 # ingredient/fr:poulpe-cuit has 5 products in french @2019-01-03
 # Poulpe cuit (Octopus Vulgaris)
-
+ciqual_food_code:en:10079
+ciqual_food_name:en:Octopus, common, cooked
+ciqual_food_name:fr:Poulpe, cuit
 
 <en:octopus
 zh:砂蛸
@@ -66871,6 +67147,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 
 <en:scallop
 fr:Noix de Saint-Jacques sans corail
+
+<en:scallop
+en:Raw scallop with coral
+fr:Coquilles Saint-Jacques crues avec noix et corail
+ciqual_food_code:en:10003
+ciqual_food_name:en:Scallop, with coral, raw
+ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
+
+<en:scallop
+en:Raw scallop without coral
+fr:Coquilles Saint-Jacques crues avec noix
+ciqual_food_code:en:10045
+ciqual_food_name:en:Scallop, without coral, raw
+ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
 
 # en:description:Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
 
@@ -76415,6 +76705,13 @@ fr:sauce au vinaigre balsamique
 
 <en:sauce
 fr:sauce aux fruits rouges
+
+<en:sauce
+en:Curry sauce
+fr:Sauce au curry
+ciqual_food_code:en:11132
+ciqual_food_name:en:Curry sauce, prepacked
+ciqual_food_name:fr:Sauce au curry, préemballée
 
 <en:sauce
 fr:sauce au café
