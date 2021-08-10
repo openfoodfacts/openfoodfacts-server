@@ -6868,52 +6868,6 @@ sub search_and_map_products($$$) {
 	return $html;
 }
 
-sub display_my_block($)
-{
-	my $blocks_ref = shift;
-
-	if (defined $User_id) {
-
-		my $content = '';
-		my $template_data_ref_block = {};
-
-		$template_data_ref_block->{org_name} = $Org{name};
-		$template_data_ref_block->{server_options_private_products} = $server_options{private_products};
-
-		if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-
-			my $pro_moderator_message;
-
-			if (defined $User{pro_moderator_owner}) {
-				$pro_moderator_message = sprintf(lang("pro_moderator_owner_set"), $User{pro_moderator_owner});
-			}
-			else {
-				$pro_moderator_message = lang("pro_moderator_owner_not_set");
-			}
-
-			$template_data_ref_block->{pro_moderator_message} = $pro_moderator_message;
-			$template_data_ref_block->{user_pro_moderator} = $User{pro_moderator}; #can be removed after changes in Display.pm get merged
-		}
-		else {
-			$template_data_ref_block->{edited_products_url} = canonicalize_tag_link("editors", get_string_id_for_lang("no_language",$User_id));
-			$template_data_ref_block->{created_products_to_be_completed_url} = canonicalize_tag_link("users", get_string_id_for_lang("no_language",$User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed")
-		}
-
-		process_template('web/common/includes/display_my_block.tt.html', $template_data_ref_block, \$content) || ($content .= 'template error: ' . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title'=> lang("hello") . ' ' . $User{name},
-			'content'=>$content,
-			'id'=>'my_block',
-		};
-	}
-
-	return;
-}
-
-
-
-
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
