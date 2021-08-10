@@ -529,6 +529,9 @@ allergens:en: en:soybeans
 # en:soya-lecithin has 27949 products in 29 languages @2018-11-10
 vegan:en:yes
 vegetarian:en:yes
+ciqual_food_code:en:42200
+ciqual_food_name:en:Soy lecithin
+ciqual_food_name:fr:Lécithine de soja
 
 <en:soya lecithin
 en:GMO-free soy lecithin, non-gmo soy lecithin
@@ -20378,6 +20381,9 @@ wikidata:en:Q178780
 wikipedia:en:https://en.wikipedia.org/wiki/Liqueur
 # ingredient/fr:liqueur has 30 products in 5 languages @2019-02-15
 # Likör (Glucosesirup, Wasser, Alkohol, Zucker, Aromen)
+ciqual_food_code:en:1003
+ciqual_food_name:en:Liqueur
+ciqual_food_name:fr:Liqueur
 
 <en:liqueur
 en:chocolate liqueur
@@ -20515,6 +20521,9 @@ zh:琴酒
 # yue:氈酒
 wikidata:en:Q959362
 wikipedia:en:https://en.wikipedia.org/wiki/Gin
+ciqual_food_code:en:1002
+ciqual_food_name:en:Gin
+ciqual_food_name:fr:Gin
 
 # Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
 
@@ -21709,6 +21718,9 @@ de:Obstbrand
 es:eau de vie
 fr:eau-de-vie, eau de vie
 nl:eau de vie
+ciqual_food_code:en:1001
+ciqual_food_name:en:Clear fruit brandy or eau-de-vie
+ciqual_food_name:fr:Eau de vie
 
 <en:eau de vie
 fr:eau de vie de vin
@@ -21734,6 +21746,9 @@ hu:whisky
 nl:whisky
 wikidata:en:Q281
 wikipedia:en:https://en.wikipedia.org/wiki/Whisky
+ciqual_food_code:en:1005
+ciqual_food_name:en:Whisky
+ciqual_food_name:fr:Whisky
 
 <en:alcohol
 en:whiskey
@@ -21839,6 +21854,9 @@ pl:rum
 pt:Rum
 ru:Ром
 sv:rom
+ciqual_food_code:en:1004
+ciqual_food_name:en:Rum
+ciqual_food_name:fr:Rhum
 
 <en:rum
 en:white rum
@@ -21927,6 +21945,16 @@ fr:Saké
 ja:日本酒
 wikidata:en:Q170219
 wikipedia:en:https://en.wikipedia.org/wiki/Sake
+ciqual_food_code:en:1026
+ciqual_food_name:en:Sake or rice wine
+ciqual_food_name:fr:Saké ou Alcool de riz
+
+<en:alcohol
+en:rice wine
+fr:Alcool de riz
+ciqual_food_code:en:1026
+ciqual_food_name:en:Sake or rice wine
+ciqual_food_name:fr:Saké ou Alcool de riz
 
 <en:alcohol
 en:vodka
@@ -21936,6 +21964,9 @@ fr:vodka
 nl:vodka
 wikidata:en:Q374
 wikipedia:en:https://en.wikipedia.org/wiki/Vodka
+ciqual_food_code:en:1008
+ciqual_food_name:en:Vodka
+ciqual_food_name:fr:Vodka
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -47613,6 +47644,21 @@ carbon_footprint_fr_foodges_value:fr:8.4
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
+ciqual_food_code:en:20045
+ciqual_food_name:en:Radish, raw
+ciqual_food_name:fr:Radis rouge, cru
+
+en:Black radish
+fr:Radis noir
+ciqual_food_code:en:20089
+ciqual_food_name:en:Radish, black, raw
+ciqual_food_name:fr:Radis noir, cru
+
+en:Red radish
+fr:Radis rouge
+ciqual_food_code:en:20045
+ciqual_food_name:en:Radish, raw
+ciqual_food_name:fr:Radis rouge, cru
 
 # <en:radish
 # fr:Radis de saison
@@ -52623,6 +52669,9 @@ nl:geroosterde pinda's, geroosterde pindanoten
 ru:арахис обжаренный
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées
 # 66 products in 6 languages @2018-10-06
+ciqual_food_code:en:15037
+ciqual_food_name:en:Peanut, grilled
+ciqual_food_name:fr:Cacahuète, grillée
 
 <en:roasted peanuts
 en:organic roasted peanuts
@@ -65055,6 +65104,20 @@ fr:saumon cuit
 de:Lachs gekocht
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
 
+<fr:saumon cuit
+en:Steamed salmon
+fr:Saumon cuit à la vapeur
+ciqual_food_code:en:26038
+ciqual_food_name:en:Salmon, steamed
+ciqual_food_name:fr:Saumon, cuit à la vapeur
+
+<fr:saumon cuit
+en:Microwaved farmed salmon
+fr:Saumon d'élevage cuit au micro-ondes
+ciqual_food_code:en:26211
+ciqual_food_name:en:Salmon, microwaved, farmed
+ciqual_food_name:fr:Saumon, cuit au micro-ondes, élevage
+
 <en:salmon
 fr:pulpe de saumon fumé
 
@@ -71349,6 +71412,9 @@ zh:鸡肉
 # ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
+ciqual_food_code:en:36001
+ciqual_food_name:en:Hen, meat only, raw
+ciqual_food_name:fr:Poule, viande ,crue
 
 <en:chicken meat
 en:british chicken
