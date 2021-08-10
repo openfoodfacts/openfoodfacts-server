@@ -7025,7 +7025,7 @@ sub display_page($) {
 		$canon_description = lang("site_description");
 	}
 	my $canon_image_url = "";
-	my $canon_url = $formatted_subdomain;
+	my $canon_url = 'http://world.productopener.localhost';
 
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^http:/) {
@@ -7107,7 +7107,7 @@ sub display_page($) {
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
-	
+
 	if (defined $request_ref->{page_type}) {
 		$template_data_ref->{page_type} = $request_ref->{page_type};
 	}
@@ -7200,7 +7200,7 @@ if ($.cookie('hide_image_banner_2020') == '1') {
 	$('#donate_banner').remove();
 }
 else {
-	$('#hide_image_banner').prop('checked', false);	
+	$('#hide_image_banner').prop('checked', false);
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
@@ -7211,18 +7211,18 @@ else {
 }
 JS
 	}
-	
+
 	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
 
 	if ($server_options{producers_platform}) {
 
 		$tagline = "";
-	}	
+	}
 
 	# Display a banner from users on Android or iOS
 
 	my $user_agent = $ENV{HTTP_USER_AGENT};
-	
+
 	# add a user_agent parameter so that we can test from desktop easily
 	if (defined param('user_agent')) {
 		$user_agent = param('user_agent');
@@ -7261,13 +7261,13 @@ JS
 			text => lang("app_banner_text"),
 		};
 	}
-	
+
 	# Extract initjs code from content
-	
+
 	if ($$content_ref =~ /<initjs>(.*)<\/initjs>/s) {
 		$$content_ref = $` . $';
 		$initjs .= $1;
-	}	
+	}
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
