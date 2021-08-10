@@ -12,6 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: off-net
+    concurrency: off-net
     # environment: ${{ github.ref == 'refs/head/main' && 'off-net' || 'off-prod'}}
     steps:
     - name: Wait for container build workflow
@@ -55,10 +56,10 @@ jobs:
           git checkout ${{ github.sha }}
 
           # Set docker-compose environment
-          echo "TAG=${{ github.sha }}" > .env
+          # echo "TAG=${{ github.sha }}" > .env
 
           # Recreate containers that have a new image
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
+          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>/dev/null
 
           # Remove obsolete images
           sudo docker image prune -f
