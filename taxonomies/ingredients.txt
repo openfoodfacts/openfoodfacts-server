@@ -10570,6 +10570,12 @@ wikidata:en:Q734978
 wikipedia:en:https://en.wikipedia.org/wiki/Maroilles_cheese
 # ingredient/fr:maroilles has 41 products in french @2018-12-28
 
+<en:cheese
+en:Chaource cheese
+fr:Chaource
+ciqual_food_code:en:12028
+ciqual_food_name:en:Chaource cheese, from cow's milk
+ciqual_food_name:fr:Chaource
 
 # MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
 
@@ -10634,6 +10640,9 @@ zh:马斯卡邦尼奶酪
 wikidata:en:Q209889
 wikipedia:en:https://en.wikipedia.org/wiki/Mascarpone
 # fr:mascarpone has 254 products @2018-10-27
+ciqual_food_code:en:19584
+ciqual_food_name:en:Mascarpone cheese, from cow's milk
+ciqual_food_name:fr:Mascarpone
 
 <en:cheese
 fr:mimolette
@@ -11112,6 +11121,9 @@ zh:里考塔
 wikidata:en:Q216781
 wikipedia:en:https://en.wikipedia.org/wiki/Ricotta
 # fr:ricotta has 532 products in 6 languages @2018-10-27
+ciqual_food_code:en:19585
+ciqual_food_name:en:Ricotta cheese
+ciqual_food_name:fr:Ricotta
 
 <en:ricotta
 fr:ricotta de brebis
@@ -13750,6 +13762,27 @@ vegetarian:en:no
 # usage:fr:gélatine (bœuf)
 
 <en:beef
+en:Grilled lean beef rib steak
+fr:Entrecôte de boeuf partie maigre grillée
+ciqual_food_code:en:6100
+ciqual_food_name:en:Beef, rib steak, lean, grilled/pan-fried
+ciqual_food_name:fr:Boeuf, entrecôte, partie maigre, grillée/poêlée
+
+<en:beef
+en:Pan-fried lean beef rib steak
+fr:Entrecôte de boeuf partie maigre poêlée
+ciqual_food_code:en:6100
+ciqual_food_name:en:Beef, rib steak, lean, grilled/pan-fried
+ciqual_food_name:fr:Boeuf, entrecôte, partie maigre, grillée/poêlée
+
+<en:beef
+en:Braised beef short ribs 
+fr:côtes de boeuf braisées
+ciqual_food_code:en:6123
+ciqual_food_name:en:Beef, short ribs, braised
+ciqual_food_name:fr:Boeuf, plat de côtes, braisé
+
+<en:beef
 en:grass-fed beef
 ca:res alimentat amb herba
 de:Weidefleisch
@@ -14066,11 +14099,34 @@ carbon_footprint_fr_foodges_value:fr:55
 # fr:cotelettes d'agneau
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
+<en:meat
+<en:lamb
+en:Lamb on skewer
+fr:Brochette d'agneau
+ciqual_food_code:en:25541
+ciqual_food_name:en:Lamb on skewer
+ciqual_food_name:fr:Brochette d'agneau
+
+<en:lamb meat
 en:Grilled lamb cutlet
 fr:Côtelette d'agneau grillée
 ciqual_food_code:en:21501
 ciqual_food_name:en:Lamb cutlet, grilled
 ciqual_food_name:fr:Agneau, côtelette, grillée
+
+<en:lamb meat
+en:Roasted lamb shoulders, baked lamb shoulders
+fr:Epaule rôtie d'agneau, Epaule d'agneau cuite au four
+ciqual_food_code:en:21506
+ciqual_food_name:en:Lamb, shoulder, roasted/baked
+ciqual_food_name:fr:Agneau, épaule, rôtie/cuite au four
+
+<en:lamb meat
+en:Roasted lean lamb shoulder, Baked lean lamb shoulder
+fr:Epaule d'agneau maigre rôtie, Epaule d'agneau maigre cuite au four
+ciqual_food_code:en:21507
+ciqual_food_name:en:Lamb, shoulder, lean, roasted/baked
+ciqual_food_name:fr:Agneau, épaule, maigre, rôtie/cuite au four
 
 <en:lamb meat
 en:british lamb
@@ -14109,6 +14165,13 @@ ciqual_food_name:en:Kidney, lamb, braised
 ciqual_food_name:fr:Rognon, agneau, braisé
 
 <en:lamb
+en:lamb sweetbread
+fr:Ris d'agneau
+ciqual_food_code:en:40302
+ciqual_food_name:en:Sweetbread, lamb, raw
+ciqual_food_name:fr:Ris, agneau, cru
+
+<en:lamb sweetbread
 en:Cooked lamb sweetbread
 fr:Ris d'agneau cuit
 ciqual_food_code:en:40303
@@ -14150,24 +14213,37 @@ ciqual_food_code:en:21503
 ciqual_food_name:en:Lamb, leg, roasted/baked
 ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
 
+en:lamb neck
+fr:Collier d'agneau
+ciqual_food_code:en:21514
+ciqual_food_name:en:Lamb, neck, raw
+ciqual_food_name:fr:Agneau, collier, cru
+
+<en:lamb neck
 en:Braised lamb neck
 fr:Collier d'agneau braisé
 ciqual_food_code:en:21508
 ciqual_food_name:en:Lamb, neck, braised or boiled
 ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
 
+<en:lamb neck
 en:Boiled lamb neck
 fr:Collier d'agneau bouilli
 ciqual_food_code:en:21508
 ciqual_food_name:en:Lamb, neck, braised or boiled
 ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
 
+<en:lamb
+en:lamb rib
+
+<en:lamb rib
 en:Chop grilled lamb rib
 fr:Côte première d'agneau grillée
 ciqual_food_code:en:21512
 ciqual_food_name:en:Lamb, rib chop, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte première, grillée/poêlée
 
+<en:lamb rib
 en:Pan-fried lamb rib
 fr:Côte première d'agneau poêlée
 ciqual_food_code:en:21512
@@ -14185,6 +14261,12 @@ fr:Côte de filet d'agneau grillée
 ciqual_food_code:en:21509
 ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
+
+en:lamb saddle
+fr:Selle d'agneau
+ciqual_food_code:en:21515
+ciqual_food_name:en:Lamb, saddle, raw
+ciqual_food_name:fr:Agneau, selle, crue
 
 en:Grilled lamb saddle
 fr:Selle d'agneau partie maigre grillée
@@ -15118,6 +15200,14 @@ zh:山羊肉
 wikidata:en:Q449506
 wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
 # ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
+
+<en:meat
+<en:goat
+en:Cooked young goat
+fr:Chevreau cuit
+ciqual_food_code:en:21801
+ciqual_food_name:en:Young goat, cooked
+ciqual_food_name:fr:Chevreau, cuit
 
 
 ###################################################################################################
@@ -26471,8 +26561,28 @@ fr:farine de blé type 55
 # ingredient/fr:farine-de-ble-type-55 has 12 products @2019-06-02
 
 <en:wheat flour
+en:Wheat flour type 55 for bread
+fr:Farine de blé tendre T55 pour pains
+ciqual_food_code:en:9436
+ciqual_food_name:en:Wheat flour, type 55 (for bread)
+ciqual_food_name:fr:Farine de blé tendre ou froment T55 (pour pains)
+
+<en:wheat flour
+fr:Farine de froment T55 pour pains
+
+<en:wheat flour
 fr:farine de blé type 65, farine de blé t65
 nl:tarwemeel T65
+
+<fr:farine de blé type 65
+en:Wheat flour type 65
+fr:Farine de blé tendre T65
+ciqual_food_code:en:9435
+ciqual_food_name:en:Wheat flour, type 65
+ciqual_food_name:fr:Farine de blé tendre ou froment T65
+
+<en:wheat flour
+fr:farine de froment T65
 
 <en:wheat flour
 fr:farine de blé t80
@@ -26609,6 +26719,18 @@ ciqual_food_name:en:Wheat flour, type 150
 ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:wheat flour
+en:Wheat flour type 110
+fr:Farine de blé tendre T110
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
+
+fr:Farine de froment T110
+ciqual_food_code:en:9410
+ciqual_food_name:en:Wheat flour, type 110
+ciqual_food_name:fr:Farine de blé tendre ou froment T110
+
+<en:wheat flour
 de:Weissmehl
 fi:valkoinen vehnäjauho
 fr:farine blanche
@@ -26638,6 +26760,9 @@ pt:farinha de cevada
 ro:făină de orz
 ru:Ячменная мука
 sv:kornmjöl
+ciqual_food_code:en:9550
+ciqual_food_name:en:Barley flour
+ciqual_food_name:fr:Farine d'orge
 
 # Question
 
@@ -26812,6 +26937,27 @@ sv:rågmjöl
 # Question
 
 <en:rye flour
+en:Rye flour type 170
+fr:Farine de seigle T170
+ciqual_food_code:en:9530
+ciqual_food_name:en:Rye flour, type 170
+ciqual_food_name:fr:Farine de seigle T170
+
+<en:rye flour
+en:Rye flour type 85
+fr:Farine de seigle T85
+ciqual_food_code:en:9532
+ciqual_food_name:en:Rye flour, type 85
+ciqual_food_name:fr:Farine de seigle T85
+
+<en:rye flour
+en:Rye flour type 130
+fr:Farine de seigle T130
+ciqual_food_code:en:9533
+ciqual_food_name:en:Rye flour, type 130
+ciqual_food_name:fr:Farine de seigle T130
+
+<en:rye flour
 <en:wholemeal flour
 en:wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 da:fuldkornsrugmel, fullkornsrugmel
@@ -26865,6 +27011,9 @@ fr:farine de millet
 hu:kölesliszt
 it:farina di miglio
 # ingredient/fr:farine-de-millet has 40 products in 4 languages @2018-09-22
+ciqual_food_code:en:9555
+ciqual_food_name:en:Millet flour
+ciqual_food_name:fr:Farine de millet
 
 <en:millet flour
 <en:wholemeal flour
@@ -27010,6 +27159,9 @@ zh:玉米淀粉
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-mais
 # 1291 products in 19 languages @2018-09-23
 nutriscore_fruits_vegetables_nuts:en:no
+ciqual_food_code:en:9545
+ciqual_food_name:en:Maize/corn flour
+ciqual_food_name:fr:Farine de maïs
 
 <en:corn flour
 en:organic corn flour
@@ -28958,6 +29110,10 @@ zh:紅糖
 wikidata:en:Q11190742
 wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
 # ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
+ciqual_food_code:en:31017
+ciqual_food_name:en:Sugar, brown
+ciqual_food_name:fr:Sucre roux
+
 
 <en:sugar
 en:candy sugar
@@ -29035,6 +29191,9 @@ hu:fehér cukor
 it:Zucchero bianco
 nl:witte suiker
 ru:сахар белый
+ciqual_food_code:en:31016
+ciqual_food_name:en:Sugar, white
+ciqual_food_name:fr:Sucre blanc
 
 <en:brown sugar
 en:organic brown sugar
@@ -29112,6 +29271,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanilla_sugar
 # mainIngredient:en:sugar
 # <category:en:Vanilla sugars
 # ingredient/fr:sucre-vanille has 77 products in 2 languages @2020-06-08
+ciqual_food_code:en:31044
+ciqual_food_name:en:Sugar, vanilla flavoured
+ciqual_food_name:fr:Sucre vanillé
 
 <en:sugar
 en:nib sugar, pearl sugar
@@ -35911,6 +36073,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Banane
 carbon_footprint_fr_foodges_value:fr:1.2
 # 1538 products in 10 languages @2018-09-26
 
+<en:banana
+en:Dried banana pulp
+fr:Pulpe de banane sèche
+ciqual_food_code:en:13089
+ciqual_food_name:en:Banana, pulp, dried
+ciqual_food_name:fr:Banane, pulpe, sèche
+
 en:Plantain bananas
 fr:Bananes plantain
 ciqual_food_code:en:53100
@@ -39804,6 +39973,9 @@ se:Kokosgrädde
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
 # 33 products @2018-10-03
 nutriscore_fruits_vegetables_nuts:en:no
+ciqual_food_code:en:18041
+ciqual_food_name:en:Coconut milk or coconut cream
+ciqual_food_name:fr:Lait de coco ou Crème de coco
 
 # Is this a compound product? coconut cream + water?
 
@@ -39827,6 +39999,9 @@ wikidata:en:Q841779
 wikipedia:en:https://en.wikipedia.org/wiki/Coconut_milk
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco
 # 87 products @2018-10-03
+ciqual_food_code:en:18041
+ciqual_food_name:en:Coconut milk or coconut cream
+ciqual_food_name:fr:Lait de coco ou Crème de coco
 
 <en:coconut milk
 en:coconut milk drink
@@ -44046,7 +44221,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
 
 # <en:Vegetable rods
 <en:vegetable
-en:chard, Chards
+en:chard, Chards, Swiss chard
 ar:سلق 
 bg:Манголд
 bs:Blitva
@@ -44109,6 +44284,9 @@ wikidata:en:Q157954
 wikipedia:en:https://en.wikipedia.org/wiki/Chard
 # ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
 # category/chards has 16 products @2019-05-22
+ciqual_food_code:en:20004
+ciqual_food_name:en:Swiss chard, raw
+ciqual_food_name:fr:Bette ou blette, crue
 
 <en:chard
 en:chard concentrate
@@ -46549,6 +46727,13 @@ fr:céleri rave râpé
 
 <en:celeriac
 fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
+
+en:taro tuber
+fr:Tubercule de taro
+ciqual_food_code:en:53200
+ciqual_food_name:en:Taro, tuber, raw
+ciqual_food_name:fr:Taro, tubercule, cru
+
 
 <en:carrot
 <en:pumpkin
@@ -50172,6 +50357,16 @@ carbon_footprint_fr_foodges_ingredient:fr:Citrouille - Courges -Potiron
 carbon_footprint_fr_foodges_value:fr:1.2
 # fr:courge has 88 products in 4 languages @2018-10-26
 # ingredient/fr:potiron has 439 products in 6 languages @2019-04-08
+ciqual_food_code:en:20139
+ciqual_food_name:en:Squash, all types, raw
+ciqual_food_name:fr:Courge, crue
+
+<en:pumpkin
+en:pumpkin pulp
+fr:Pulpe de citrouille
+ciqual_food_code:en:20166
+ciqual_food_name:en:Pumpkin, pulp, raw
+ciqual_food_name:fr:Citrouille, pulpe, crue
 
 <en:pumpkin
 fr:concentré de citrouille
@@ -50201,6 +50396,17 @@ es:calabaza moscada
 fi:myskikurpitsa
 fr:courge butternut
 it:Zucca Butternut
+
+<en:vegetable
+en:spaghetti squash
+fr:courge spaghetti
+
+<en:spaghetti squash
+en:spaghetti squash pulp
+fr:pulpe de courge spaghetti
+ciqual_food_code:en:20145
+ciqual_food_name:en:Squash, spaghetti, pulp, raw
+ciqual_food_name:fr:Courge spaghetti, pulpe, crue
 
 # Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 
@@ -51375,6 +51581,9 @@ nl:kikkererwtenmeel
 sv:kikärtsmjöl
 wikidata:en:Q651829
 wikipedia:en:https://en.wikipedia.org/wiki/Gram_flour
+ciqual_food_code:en:9580
+ciqual_food_name:en:Chick pea flour
+ciqual_food_name:fr:Farine de pois chiche
 
 <en:pea
 en:garden peas
@@ -53355,6 +53564,9 @@ zh:松子
 wikipedia:en:https://en.wikipedia.org/wiki/Pine_nut
 # ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
 nutriscore_fruits_vegetables_nuts:en:no
+ciqual_food_code:en:15025
+ciqual_food_name:en:Pine nuts
+ciqual_food_name:fr:Pignon de pin
 
 <en:pine nuts
 la:Pinus sibirica
@@ -55611,6 +55823,9 @@ zh:薑
 # zh-tw:薑
 wikipedia:en:https://en.wikipedia.org/wiki/Ginger
 # en:gingembre has 1506 products in 8 languages @2018-10-25
+ciqual_food_code:en:11074
+ciqual_food_name:en:Ginger, raw
+ciqual_food_name:fr:Gingembre, racine crue
 
 <en:ginger
 en:organic ginger
@@ -61372,6 +61587,9 @@ fi:kuivattu spirulina
 fr:spiruline déshydratée
 nl:gedehydrateerde spirulina
 # ingredient/fr:spiruline-deshydratee has 10 products in french @2019-05-28
+ciqual_food_code:en:11086
+ciqual_food_name:en:Spirulina, (spirulina sp.), dried
+ciqual_food_name:fr:Spiruline (Spirulina sp.), séchée ou déshydratée
 
 <en:spirulina
 en:spirulina powder
@@ -61741,7 +61959,9 @@ zh:石莼
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 # ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
 # algues:laitue de mer
-
+ciqual_food_code:en:20985
+ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated)
+ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
 
 # en:description:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
@@ -61787,7 +62007,9 @@ zh:海帶芽
 wikidata:en:Q864682
 wikipedia:en:https://en.wikipedia.org/wiki/Wakame
 # ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
-
+ciqual_food_code:en:20984
+ciqual_food_name:en:Wakame (Undaria pinnatifida), dried or dehydrated
+ciqual_food_name:fr:Wakamé (Undaria pinnatifida), séchée ou déshydratée
 
 # en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
@@ -62006,6 +62228,9 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 carbon_footprint_fr_foodges_value:fr:1.9
 nutriscore_fruits_vegetables_nuts:en:yes
+ciqual_food_code:en:20010
+ciqual_food_name:en:Mushroom, all types, raw
+ciqual_food_name:fr:Champignon, tout type, cru
 
 <en:mushroom
 en:mixed mushrooms
@@ -62825,7 +63050,7 @@ et:Austerservik
 eu:Belarri landu
 fa:قارچ چروک
 fi:Osterivinokas
-fr:pleurotes, pleurote en huitre, Pleurote en huître
+fr:pleurotes, pleurote en huitre, Pleurote en huître, Champignons pleurote
 ga:Arc oisreach
 gl:Pleuroto
 hu:Késői laskagomba
@@ -62877,6 +63102,9 @@ zh:平菇
 # zh-tw:糙皮側耳:
 wikidata:en:Q186451
 # fr:pleurotes has 119 products @2018-11-01
+ciqual_food_code:en:20114
+ciqual_food_name:en:Oyster mushroom, raw
+ciqual_food_name:fr:Champignon, pleurote, crue
 
 <en:oyster mushroom
 en:Pleurotus ostreatus
@@ -63544,6 +63772,13 @@ de:Rogen
 fi:mäti
 wikidata:en:Q219426
 wikipedia:en:https://en.wikipedia.org/wiki/Roe
+
+<en:fish
+en:Salema
+fr:Saupe
+ciqual_food_code:en:26111
+ciqual_food_name:en:Salema, raw
+ciqual_food_name:fr:Saupe, crue
 
 <en:fish
 en:rockfish
@@ -65560,6 +65795,13 @@ it:Sogliola
 ja:ウシノシタ
 ms:Ikan sebelah
 zh:龍脷
+
+<en:fish
+en:Tonguesole
+fr:sole tropicale, sole langue
+ciqual_food_code:en:26200
+ciqual_food_name:en:Tonguesole, raw
+ciqual_food_name:fr:Sole tropicale ou Sole langue, crue
 
 # description:en:Surimi refers to a paste made from fish or other meat.
 
