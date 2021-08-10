@@ -47,6 +47,7 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Lang qw(:all);
+use ProductOpener::Images qw(:all);
 
 
 use Template;
@@ -59,6 +60,7 @@ BEGIN
 		&display_login_register
 		&display_blocks
 		&display_my_block
+		&display_product_search_or_add
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -87,7 +89,7 @@ sub display_blocks($)
 
 =head1 FUNCTIONS
 
-=head2 display_my_block ( $request_ref )
+=head2 display_my_block ( $blocks_ref )
 
 The sidebar of home page consists of blocks. This function is used to to display one block with information and links related to the logged in user.
 
@@ -161,6 +163,58 @@ sub display_login_register($)
 
 		};
 	}
+
+	return;
+}
+
+=head1 FUNCTIONS
+
+=head2 display_product_search_or_add ( $blocks_ref )
+
+The sidebar of home page consists of blocks. This function is used to to display the product block to add a new product or search an existing product. Product can be added with or without barcode.
+
+=cut
+
+sub display_product_search_or_add($)
+{
+	my $blocks_ref = shift;
+
+	# Producer platform and no org or not admin: do not offer to add products
+
+	if (($server_options{producers_platform})
+		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
+		return "";
+	}
+
+	my $title = lang("add_product");
+
+	my $html = '';
+	my $template_data_ref_content = {};
+	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
+
+	# Producers platform: display an addition import products block
+
+	if ($server_options{producers_platform}) {
+		my $html_producer = '';
+		my $template_data_ref_content_producer = {};
+
+		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
+
+		push @{$blocks_ref}, {
+			'title'=>lang("import_products"),
+			'content'=>$html_producer,
+		};
+
+	}
+
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
+
+	push @{$blocks_ref}, {
+			'title'=>$title,
+			'content'=> $html,
+	};
+
 
 	return;
 }
