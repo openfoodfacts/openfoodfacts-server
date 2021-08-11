@@ -7,7 +7,9 @@ on:
     tags: 
       - v*.*.*
     pull_request:
-      types: [ labeled ]
+      branches:
+      - main
+      types: [ labeled, opened, edited, synchronize, reopened ]
 jobs:
   build:
     runs-on: ubuntu-latest
