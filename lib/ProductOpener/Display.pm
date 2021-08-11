@@ -7028,12 +7028,12 @@ sub display_page($) {
 	my $canon_url = $formatted_subdomain;
 
 	if (defined $request_ref->{canon_url}) {
-		if ($request_ref->{canon_url} =~ /^http:/) {
-			$canon_url = $request_ref->{canon_url};
-		}
-		else {
-			$canon_url .= $request_ref->{canon_url};
-		}
+		if ($request_ref->{canon_url} =~ /^(http|https):/) {
+            $canon_url = $request_ref->{canon_url};
+        }
+        else {
+            $canon_url .= $request_ref->{canon_url};
+        }
 	}
 	elsif (defined $request_ref->{canon_rel_url}) {
 		$canon_url .= $request_ref->{canon_rel_url};
@@ -7871,9 +7871,7 @@ CSS
 	$request_ref->{canon_url} = product_url($product_ref);
 
 	if ($lc eq 'en') {
-		my $subdomain = 'https://world.openfoodfacts.org';
-		$request_ref->{canon_url} = $subdomain;
-		$request_ref->{canon_url} .= product_url($product_ref);
+		$request_ref->{canon_url} = $world_subdomain . product_url($product_ref);
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url
