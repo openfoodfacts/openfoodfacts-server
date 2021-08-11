@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - main
-      - deploy-*
-
+    tags: 
+      - v*.*.*
+    pull_request:
+      types: [ labeled ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'ref/tags/v') || github.ref == 'ref/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy-dev')
     steps:
     - uses: actions/checkout@v2
       with:
@@ -22,6 +25,7 @@ jobs:
         registry: ghcr.io
         dockerfile: docker/frontend/Dockerfile
         snapshot: true
+        tag_semver: true
         tags: "latest,${{ github.sha }}"
       id: publish_frontend
     - name: Copy frontend output for backend container
@@ -44,4 +48,5 @@ jobs:
         registry: ghcr.io
         dockerfile: docker/backend/Dockerfile
         snapshot: true
+        tag_semver: true
         tags: "latest,${{ github.sha }}"
