@@ -5,6 +5,6 @@ services:
       - type: bind
         source: ./backend-dev/conf/Config2.pm
         target: /opt/product-opener/lib/ProductOpener/Config2.pm
-  frontend:
-    ports:
-      - 8080:80
+      - type: bind
+        source: ./backend-dev/scripts/
+        target: /opt/scripts/
