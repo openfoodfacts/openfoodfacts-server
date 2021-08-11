@@ -7,10 +7,8 @@ on:
       # - deploy-*
     tags: 
       - v*.*.*
-    pull_request:
-      branches:
-      - main
-      types: [ labeled, opened, synchronize, reopened ]
+    label:
+      types: [created]
 
 jobs:
   deploy:
