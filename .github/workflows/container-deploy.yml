@@ -1,4 +1,4 @@
-name: Container Deployment CI
+name: Container Image Deployment CI
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     steps:
     - name: Check pull request labels
       run: |
-        array = ${{ github.event.pull_request.labels.*.name }}
+        array=${{ github.event.pull_request.labels.*.name }}
         echo "${array[*]}"
   deploy:
     runs-on: ubuntu-latest
