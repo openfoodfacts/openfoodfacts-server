@@ -9,12 +9,12 @@ on:
     pull_request:
       branches:
       - main
-      types: [ labeled, opened, edited, synchronize, reopened ]
+      types: [ labeled, opened, synchronize, reopened ]
 
 jobs:
   check-labels:
     steps:
-    - name: Check pull request labels.
+    - name: Check pull request labels
       run: |
         array = ${{ github.event.pull_request.labels.*.name }}
         echo "${array[*]}"

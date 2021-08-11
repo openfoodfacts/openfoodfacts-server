@@ -9,7 +9,7 @@ on:
     pull_request:
       branches:
       - main
-      types: [ labeled, opened, edited, synchronize, reopened ]
+      types: [ labeled, opened, synchronize, reopened ]
 jobs:
   build:
     runs-on: ubuntu-latest
