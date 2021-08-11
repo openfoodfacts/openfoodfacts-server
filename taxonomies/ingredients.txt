@@ -4879,7 +4879,7 @@ nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
 nl:melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur, yoghurtculturen
 pl:żywe kultury bakterii jogurtowych
 pt:fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos, fermentos lácticos
-ro:culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt
+ro:culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt, fermenți lactici, fermenti lactici
 ru:Молочные ферменты, пробиотические микроорганизм
 sv:syrningskultur, syrakultur, syrakulturer, mjölksyrakultur, yoghurtkultur, startkultur, filkultur, filmjölkskultur, starterkultur, levande mjölksyrakultur, mjölksyrakulturer
 # fr:ferments-lactique has 10437 products in 23 languages @2019-07-09
@@ -19372,7 +19372,7 @@ ja:ワインビネガー
 nl:wijnazijn
 pl:Ocet winny
 pt:vinagre de vinho
-ro:oțet din vin
+ro:oțet din vin, otet din vin
 ru:Винный уксус
 sv:vinsvinäger, vinättika, vinäger av vin
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
@@ -21808,6 +21808,11 @@ fr:arôme naturel de gingembre
 hu:természetes gyömbér aroma
 
 <en:flavouring
+en:ananas flavouring
+fr:arôme d'ananas
+ro:aromă de ananas
+
+<en:flavouring
 en:banana flavouring
 de:Bananengeschmack, Bananenaroma, Bananen-Aroma
 es:aroma de plátano, aroma de banana
@@ -23202,6 +23207,7 @@ de:Getreideflocken
 fi:viljahiutaleet
 fr:flocons de céréales
 it:fiocchi di cereali
+ro:fulgi de cereale
 sv:spannmålsflingor
 
 <en:wholemeal cereal
@@ -23210,6 +23216,7 @@ en:wholemeal cereal flakes
 de:Getreidevollkornflocken, Vollkornflocken
 fi:täysjyvähiutaleet, täysjyvähiutale
 fr:flocons de céréales complètes
+ro:fulgi de cereale integrale
 sv:fullkornsflingor
 # ingredient/fr:flocons-de-cereales-completes has 26 products in 6 languages @2020-06-08
 
@@ -24770,7 +24777,7 @@ pa:ਜਵੀ
 pl:owsiana, Owies zwyczajny, owies, owsiane
 pt:aveia
 qu:Tarpuy awina
-ro:Ovăz
+ro:Ovăz, ovaz
 ru:Овёс посевной, овёс
 sc:Avena
 sh:Zob
@@ -43843,7 +43850,7 @@ nl:knoflookpoeder
 nn:hvitløkspulver
 pl:czosnek sproszkowany, czosnek w proszku
 pt:alho em pó
-ro:pudră de usturoi, usturoi pudră
+ro:pudră de usturoi, usturoi pudră, usturoi granulat
 ru:Чесночный порошок, чеснок сушёный, чеснок сушеный
 sk:sušený cesnak
 sl:česen v prahu
@@ -47813,6 +47820,7 @@ es:patata cocida
 fi:kypsennetty peruna
 fr:pomme de terre cuite, pommes de terre cuites
 nl:gegaarde aardappel
+ro:cartofi fierți
 sv:kokt potatis
 # en:cooked-potato has 62 productsin 1 language @2018-10-15
 
@@ -48619,7 +48627,7 @@ oc:Tomata
 pl:Pomidor, pomidory
 pt:tomate, tomates
 rn:Tomati
-ro:tomată
+ro:roșie, roșii, tomată, tomate
 ru:помидор, помидоры, томаты
 rw:Inyanya
 sa:वार्तकी
@@ -48747,6 +48755,7 @@ it:pomodoro secco
 ja:ドライトマト
 nl:gedroogde tomaat
 nn:tørket tomat
+ro:roșii uscate
 sv:torkad tomat
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
@@ -48979,6 +48988,7 @@ fr:purée de tomates triple concentrée, triple concentré de tomate
 
 <en:tomato
 en:tomato powder, powdered tomato
+cs:rajčatový prášek
 da:tomatpulver
 de:Tomatenpulver
 es:tomate en polvo
@@ -50535,6 +50545,7 @@ fi:keitetty kikherne
 fr:pois chiches cuits
 nl:gekookte kikkererwten
 pt:Grão-de-bico cozido
+ro:năut fiert
 sv:kokta kikärter
 # ingredient/fr:pois-chiches-cuits has 80 products @2019-02-14
 # garbanzos cocidos (agua, garbanzos)
@@ -52789,7 +52800,7 @@ ru:перец белый
 <en:pepper
 en:white pepper
 ca:pebre blanc
-cs:Bílý pepř
+cs:pepř bílý, Bílý pepř
 da:Hvid peber
 de:weißer Pfeffer, weisser Pfeffer, Pfeffer weiß
 es:Pimienta blanca
@@ -52806,6 +52817,7 @@ sv:vitpeppar
 
 <fr:poivre blanc
 en:ground white pepper
+cs:pepř bílý mletý
 de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
 es:pimienta blanca molida
 fi:valkopippurijauhe, jauhettu valkopippuri
@@ -52855,7 +52867,7 @@ fr:poivre gris
 <en:pepper
 en:black pepper
 ca:Pebre negre
-cs:černý pepř
+cs:pepř černý, černý pepř
 da:sort peber
 de:schwarzer Pfeffer, Pfeffer schwarz
 el:μαύρο πιπέρι
@@ -53640,6 +53652,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 en:caraway seeds
 de:Kümmelsamen
 fr:graines de carvi
+ro:semințe de chimen, seminte de chimen
 
 ###################################################################################################
 #
@@ -56783,7 +56796,7 @@ nl:provençaalse kruiden
 <en:herb
 en:oregano
 ca:orenga, herba musca, roca morera
-cs:oregáno
+cs:oregano
 da:oregano
 de:Oregano
 el:ρίξανη
@@ -56854,6 +56867,7 @@ my:ကရဝေးပင်
 nl:laurier, laurierblad
 or:ତେଜପତ୍ର
 pl:liść laurowy
+ro:dafin, foi de dafin
 ru:Лавровый лист, лист лавровый
 sv:lagerblad
 te:మాసాల ఆకు
@@ -58511,6 +58525,7 @@ oc:Oliva
 pl:Oliwki
 pt:axeitonas, azeitona, azeitonas
 qu:Asitunas
+ro:măslină, măsline
 ru:маслины, оливка
 sk:Oliva
 sv:Oliv, oliver
