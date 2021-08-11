@@ -10,6 +10,7 @@ on:
       branches:
       - main
       types: [ labeled, opened, synchronize, reopened ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
