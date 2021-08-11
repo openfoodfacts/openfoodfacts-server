@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
     concurrency: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
-    if: ${{ startsWith(github.ref, 'ref/tags/v') || github.ref == 'ref/heads/main' || github.event.label.name, 'deploy-dev') }}
+    if: ${{ startsWith(github.ref, 'ref/tags/v') || github.ref == 'ref/heads/main' || github.event.label.name == 'deploy-dev') }}
     steps:
     - name: Wait for container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0

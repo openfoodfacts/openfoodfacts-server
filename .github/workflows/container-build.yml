@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'ref/tags/v') || github.ref == 'ref/heads/main' || github.event.label.name, 'deploy-dev') }}
+    if: ${{ startsWith(github.ref, 'ref/tags/v') || github.ref == 'ref/heads/main' || github.event.label.name == 'deploy-dev') }}
     steps:
     - uses: actions/checkout@v2
       with:
