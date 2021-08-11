@@ -18,8 +18,7 @@ jobs:
     steps:
     - name: Check pull request labels
       run: |
-        array=${{ contains(github.event.pull_request.labels.*.name, 'deploy-dev') }}
-        echo "${array[*]}"
+        echo "${{ github.event.pull_request.labels }}"
   deploy:
     runs-on: ubuntu-latest
     environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
