@@ -7347,52 +7347,6 @@ HTML
 	return;
 }
 
-
-sub display_product_search_or_add($)
-{
-	my $blocks_ref = shift;
-
-	# Producer platform and no org or not admin: do not offer to add products
-
-	if (($server_options{producers_platform})
-		and not ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator}))) {
-		return "";
-	}
-
-	my $title = lang("add_product");
-
-	my $html = '';
-	my $template_data_ref_content = {};
-	$template_data_ref_content->{server_options_producers_platform} = $server_options{producers_platform};
-
-	# Producers platform: display an addition import products block
-
-	if ($server_options{producers_platform}) {
-		my $html_producer = '';
-		my $template_data_ref_content_producer = {};
-
-		process_template('web/common/includes/display_product_search_or_add_producer.tt.html', $template_data_ref_content_producer, \$html_producer) || ($html_producer = "template error: " . $tt->error());
-
-		push @{$blocks_ref}, {
-			'title'=>lang("import_products"),
-			'content'=>$html_producer,
-		};
-
-	}
-
-	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html) || ($html = "template error: " . $tt->error());
-
-	push @{$blocks_ref}, {
-			'title'=>$title,
-			'content'=> $html,
-	};
-
-
-	return;
-}
-
-
 sub display_image_box($$$) {
 
 	my $product_ref = shift;
