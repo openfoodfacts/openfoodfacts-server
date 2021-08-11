@@ -14,7 +14,7 @@ on:
 
 jobs:
   check-labels:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Check pull request labels
       run: |
