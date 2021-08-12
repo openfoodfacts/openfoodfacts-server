@@ -2488,7 +2488,6 @@ HEADER
 
 	$log->debug("end", {}) if $log->is_debug();
 
-
 	return $html;
 }
 
@@ -2503,6 +2502,12 @@ sub display_list_of_tags_translate($$) {
 
 	my $html = '';
 	my $html_pages = '';
+
+	my $template_data_ref_tags_translate = {};
+
+	$template_data_ref_tags_translate->{results} = $results;
+	$template_data_ref_tags_translate->{ref_results} = ref($results);
+	$template_data_ref_tags_translate->{results_zero} = $results->[0];
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
@@ -2532,6 +2537,9 @@ sub display_list_of_tags_translate($$) {
 
 		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang})
 		. "</th><th>" . $Lang{save}{$lang} . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . "</tr></thead>\n<tbody>\n";
+
+		$template_data_ref_tags_translate->{tagtype_s} =  ucfirst($Lang{$tagtype . "_s"}{$lang});
+		$template_data_ref_tags_translate->{translate_taxonomy} = sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en});
 
 #var availableTags = [
 #      "ActionScript",
@@ -2574,6 +2582,8 @@ sub display_list_of_tags_translate($$) {
 		my $translated = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
+
+		my @tagcounts;
 
 		foreach my $tagcount_ref (@tags) {
 
@@ -2660,7 +2670,7 @@ sub display_list_of_tags_translate($$) {
 			my $lc_tagid = get_string_id_for_lang($display_lc, $display_without_lc); # "yule-log"
 
 			if (
-				(defined $synonyms_for{$tagtype}{$display_lc}) 
+				(defined $synonyms_for{$tagtype}{$display_lc})
 				and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})
 			) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -2688,9 +2698,22 @@ $new_translation
 <td style="text-align:right">$products</td></tr>
 HTML
 ;
+			push(@tagcounts, {
+				link => $link,
+				display => $display,
+				nofollow => $nofollow,
+				synonyms => $synonyms,
+				j => $j,
+				tagid => $tagid,
+				google_translate_link => $google_translate_link,
+				new_translation => $new_translation,
+			});
 
 
 		}
+
+		$template_data_ref_tags_translate->{tagcounts} = @tagcounts;
+		$template_data_ref_tags_translate->{tagtype} = $tagtype;
 
 		$html .= "</tbody></table></div>";
 
@@ -2781,6 +2804,9 @@ HEADER
 	$request_ref->{full_width} = 1;
 
 	$log->debug("end", {}) if $log->is_debug();
+
+	process_template('web/common/includes/display_list_of_tags_translate.tt.html', $template_data_ref_tags_translate, \$html) || return "template error: " . $tt->error();
+
 
 	return $html;
 }
