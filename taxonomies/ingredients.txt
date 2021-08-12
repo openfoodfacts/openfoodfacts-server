@@ -13889,17 +13889,30 @@ nl:gehakt rundvlees
 sv:nötfärs
 
 <en:beef meat
-en:beef tongue
+en:beef tongue, Raw beef tongue
 ca:llengua de vedella
 de:Kalbszunge, Kalbzunge
 es:lengua de ternera
 fi:naudan kieli, härän kieli
-fr:langue de bœuf, langue de boeuf
+fr:langue de bœuf, langue de boeuf, Langue de boeuf crue
 hu:marhanyelv
 pt:Língua de vaca
+ciqual_food_code:en:40202
+ciqual_food_name:en:Tongue, beef, raw
+ciqual_food_name:fr:Langue, boeuf, crue
+
+<en:beef tongue
+en:cooked beef tongue
 ciqual_food_code:en:40203
 ciqual_food_name:en:Tongue, beef, cooked
 ciqual_food_name:fr:Langue, boeuf, cuite
+
+<en:cooked beef tongue
+en:Cooked calf tongue
+fr:Langue de veau cuite
+ciqual_food_code:en:40201
+ciqual_food_name:en:Tongue, calf, cooked
+ciqual_food_name:fr:Langue, veau, cuite
 
 <en:beef meat
 en:Boiled beef knuckle, Beef knuckle cooked in water
@@ -13916,8 +13929,14 @@ ciqual_food_name:en:Beef, oxtail, boiled/cooked in water
 ciqual_food_name:fr:Boeuf, queue, bouillie/cuite à l'eau
 
 <en:beef meat
-en:beef kidney
-fr:Rognon de boeuf
+en:beef kidney, Raw beef kidney
+fr:Rognon de boeuf, Rognon de boeuf cru
+ciqual_food_code:en:40402
+ciqual_food_name:en:Kidney, beef, raw
+ciqual_food_name:fr:Rognon, boeuf, cru
+
+<en:beef kidney
+en:cooked beef kidney
 ciqual_food_code:en:40403
 ciqual_food_name:en:Kidney, beef, cooked
 ciqual_food_name:fr:Rognon, boeuf, cuit
@@ -13983,20 +14002,31 @@ sv:nötlever
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
 
 <en:beef liver
-en:calf's liver
+en:calf liver, calf's liver, Raw young cow liver
 ca:fetge de vedella, foie de vedella
 de:kalbsleber
 es:higado de ternera, foie de ternera
 fi:vasikanmaksa
-fr:foie de veau
+fr:foie de veau, Foie de génisse cru
 hu:borjúmáj
 it:fegato di vitello
+ciqual_food_code:en:40104
+ciqual_food_name:en:Liver, young cow, raw
+ciqual_food_name:fr:Foie, génisse, cru
+
+<en:calf liver
+en:Cooked calf liver
+fr:Foie de veau cuit
+ciqual_food_code:en:40107
+ciqual_food_name:en:Liver, calf, cooked
+ciqual_food_name:fr:Foie, veau, cuit
 
 en:cow
 ca:vaca
 de:Kuh
 es:vaca
 fr:Vache
+nl:rund, koe
 pt:Vaca
 
 <en:bone
@@ -32445,7 +32475,7 @@ de:Halbbitterschokolade
 # <en:category:en:Milk chocolates
 <en:chocolate
 # <en:dairy
-en:milk chocolate
+en:milk chocolate, Milk chocolate bar
 ca:xocolata amb llet
 cs:Mléčná čokoláda
 da:mælkechokolade
@@ -32455,7 +32485,7 @@ eo:laktoĉokolado
 es:chocolate con leche,chocolate con leche extrafino
 eu:Esnedun txokolate
 fi:maitosuklaa
-fr:chocolat au lait, Chocolat au lait extra fin
+fr:chocolat au lait, Chocolat au lait extra fin, Chocolat au lait en tablette
 gl:Chocolate con leite
 he:שוקולד חלב
 hu:tejcsokoládé
@@ -32477,6 +32507,9 @@ wikidata:en:Q2164820
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
 carbon_footprint_fr_foodges_value:fr:5.9
 allergens:en: en:milk
+ciqual_food_code:en:31004
+ciqual_food_name:en:Milk chocolate bar
+ciqual_food_name:fr:Chocolat au lait, tablette
 # ingredient/milk-chocolate has 4843 products in 20 languages @2019-05-25
 # category/milk-chocolates has 2071 products @2019-05-25
 # usage:fr:Chocolat au lait [sucre, beurre de cacao, pâte de cacao, poudre de lait écrémé, lactose, matière grasse de lait anhydre, émulsifiant:lécithines (tournesol), arôme]
@@ -32528,7 +32561,7 @@ fr:barre de chocolat au lait
 # <en:category:en:White chocolates
 # <en:contains:en:cocoa butter
 <en:chocolate
-en:white chocolate
+en:white chocolate, White chocolate bar
 ar:شوكولاتة بيضاء
 be:Белы шакалад
 bn:সাদা চকোলেট
@@ -32542,7 +32575,7 @@ et:valge šokolaad
 eu:Txokolate zuri
 fa:شکلات سفید
 fi:valkoinen suklaa, valkosuklaa
-fr:chocolat blanc
+fr:chocolat blanc, Chocolat blanc en tablette, Tablette de chocolat blanc
 gl:Chcolate branco
 he:שוקולד לבן
 hi:सफेद चॉकलेट
@@ -32582,6 +32615,9 @@ wikidata:en:Q742385
 allergens:en: en:milk
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
 carbon_footprint_fr_foodges_value:fr:6.5
+ciqual_food_code:en:31010
+ciqual_food_name:en:White chocolate bar
+ciqual_food_name:fr:Chocolat blanc, tablette
 # ingredient/white-chocolate has 1212 products in 8 languages @2019-05-25
 # category/white-chocolates has 444 products @2018-05-25
 # usage:fr:Chocolat blanc (beurre de cacao, sucre, lait écrémé en poudre, beurre concentré, émulsifiants:lécithines [soja], arômes)
@@ -66787,11 +66823,19 @@ ciqual_food_code:en:26174
 ciqual_food_name:en:Turbot, raw
 ciqual_food_name:fr:Turbot, cru
 
+<en:turbot
 en:Farmed turbot
 fr:Turbot d'élevage
 ciqual_food_code:en:26201
 ciqual_food_name:en:Turbot, raw, farmed
 ciqual_food_name:fr:Turbot d'élevage, cru
+
+<en:turbot
+en:Raw wild turbot
+fr:Turbot sauvage cru
+ciqual_food_code:en:26042
+ciqual_food_name:en:Turbot, raw, wild
+ciqual_food_name:fr:Turbot sauvage, cru
 
 # Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
 
@@ -67491,14 +67535,14 @@ wikidata:en:Q384733
 # en:description: The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda.
 
 <en:mollusc
-en:octopus
+en:octopus, Raw common octopus
 ak:Posena
 bg:Octopus
 de:Krake
 eo:Polpo
 es:pulpo
 fi:tursas
-fr:poulpe, poulpes
+fr:poulpe, poulpes, Poulpe cru
 hi:ऑक्टोपस
 it:polpo
 ja:マダコ属, タコ
@@ -67514,6 +67558,9 @@ zh:章鱼属, 章魚丁
 wikidata:en:Q611843
 wikipedia:en:https://en.wikipedia.org/wiki/Octopus
 # ingredient/fr:poulpes has 51 products @2019-01-02
+ciqual_food_code:en:10018
+ciqual_food_name:en:Octopus, common, raw
+ciqual_food_name:fr:Poulpe, cru
 
 <en:octopus
 en:Common cooked octopus
