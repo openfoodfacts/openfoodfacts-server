@@ -66,7 +66,7 @@ jobs:
           sed -i.bak 's/productopener.localhost/openfoodfacts.net/g' ./frontend-git/conf/nginx.conf
 
           # Recreate containers that have a new image
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>/dev/null
+          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>&1
 
           # Import sample data into docker-compose db
           sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml exec backend bash /opt/scripts/import_sample_data.sh
