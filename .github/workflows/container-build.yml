@@ -7,8 +7,6 @@ on:
       - deploy-*
     tags: 
       - v*.*.*
-    label:
-      types: [created]
 
 jobs:
   build:
