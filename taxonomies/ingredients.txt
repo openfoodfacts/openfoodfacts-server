@@ -11133,7 +11133,7 @@ fr:ricotta de brebis
 # description:en:  ROQUEFORT  is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 
 <en:cheese
-en:roquefort, roquefort cheese
+en:roquefort, roquefort cheese, Roquefort cheese from ewe's milk
 af:Roquefort
 ar:روكفور
 az:Rokfor pendiri
@@ -11190,7 +11190,9 @@ zh:罗克福干酪
 wikidata:en:Q189221
 wikipedia:en:https://en.wikipedia.org/wiki/Roquefort
 # ingredient/fr:roquefort has 74 products in 4 languages @2019-04-03
-
+ciqual_food_code:en:12500
+ciqual_food_name:en:Roquefort cheese, from ewe's milk
+ciqual_food_name:fr:Roquefort
 
 # description:en:Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
 
@@ -31511,7 +31513,7 @@ wikidata:en:Q6858051
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:maitoproteiinitiiviste
 # 1 entry @ 2019-10-31
 
-# WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
+#description:en:WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 
 # nova:en:whey-proteins
 <en:milk proteins
@@ -63989,6 +63991,13 @@ wikidata:en:Q846231
 wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
 
 <en:alaska pollock
+en:Raw Alaska pollock
+fr:Lieu d'Alaska cru, Colin d'Alaska cru
+ciqual_food_code:en:26006
+ciqual_food_name:en:Alaska pollock, raw
+ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
+
+<en:alaska pollock
 en:Alaskan Pollock fillet
 de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
 es:abadejo de Alaska
@@ -64203,6 +64212,13 @@ lij:Budego
 wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
 # ingredient/en:angler-fish has 2 products @2019-01-12
 
+<en:Anglerfish
+en:Raw anglerfish
+fr:Lotte crue, Baudroie crue
+ciqual_food_code:en:26018
+ciqual_food_name:en:Anglerfish, raw
+ciqual_food_name:fr:Lotte ou baudroie, crue
+
 <en:fish
 fr:loup
 description:fr:Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
@@ -64238,7 +64254,23 @@ wikidata:en:Q934761
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_wolffish
 # ingredient/fr:loup-d’atlantique has 1 product @2019-01-15
 
+<en:Atlantic wolffish
+en:Raw Atlantic bass
+fr:Bar cru, Loup de l'Atlantique
+ciqual_food_code:en:26075
+ciqual_food_name:en:Atlantic bass, raw
+ciqual_food_name:fr:Bar ou loup de l'Atlantique, cru
 
+<en:fish
+en:Spotted wolffish
+fr:Loup tacheté
+
+<en:Spotted wolffish
+en:Raw Spotted wolffish
+fr:Loup tacheté cru
+ciqual_food_code:en:26172
+ciqual_food_name:en:Spotted wolffish
+ciqual_food_name:fr:Loup tacheté, cru
 
 <en:fish
 <en:white fish
@@ -64600,6 +64632,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
 carbon_footprint_fr_foodges_value:fr:12
 
+<en:deepwater redfish
+en:Raw golden redfish
+fr:Grand sébaste cru, Dorade sébaste cru, Daurade sébaste cru
+ciqual_food_code:en:26132
+ciqual_food_name:en:Golden redfish, raw
+ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
+
+<en:fish
+en:Raw golden redfish
+fr:Sébaste du nord crue, Dorade sébaste crue, Daurade sébaste crue
+ciqual_food_code:en:26210
+ciqual_food_name:en:Golden redfish, raw
+ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
+
+
 ###################################################################################################
 #
 #                                Conger/European conger
@@ -64703,11 +64750,11 @@ ciqual_food_name:fr:Perche du Nil, crue
 #                                Plaice
 #
 ###################################################################################################
-# The European plaice (Pleuronectes platessa) is a commercially important flatfish
+#description:en: The European plaice (Pleuronectes platessa) is a commercially important flatfish
 
 <en:fish
 <en:white fish
-en:European plaice,plaice
+en:European plaice, plaice
 ar:سمك موسى
 az:Dəniz kambalası
 bg:европейска камбала
@@ -64752,6 +64799,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_plaice
 # ingredient/fr:carrelet has 2 products in 3 languages @2018-12-31
 # ingredient/fr:Pleuronectes-platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
+
+#<en:European plaice
+#en:Raw European plaice
+#fr:Plie commune crue
+#ciqual_food_code:en:26204
+#ciqual_food_name:en:European plaice, raw
+#ciqual_food_name:fr:Plie commune, crue
+
+<en:European plaice
+en:Raw European plaice
+fr:Carrelet crue, Plie cru
+ciqual_food_code:en:26055
+ciqual_food_name:en:European plaice, raw
+ciqual_food_name:fr:Carrelet ou plie, cru
 
 # description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
 
@@ -64816,6 +64877,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 ciqual_food_code:en:26106
 ciqual_food_name:en:Red gurnard, raw
 ciqual_food_name:fr:Grondin, cru
+
 
 # en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
 
@@ -65020,6 +65082,13 @@ da:helleflynder
 de:Heilbutt
 fr:flétan
 wikipedia:en:https://en.wikipedia.org/wiki/Halibut
+
+<en:halibut
+en:Raw Greenland halibut
+fr:Flétan du Groënland cru, Flétan noir cru, Flétan commun cru
+ciqual_food_code:en:26154
+ciqual_food_name:en:Greenland halibut, raw
+ciqual_food_name:fr:Flétan du Groënland ou flétan noir ou flétan commun cru
 
 # en:description:Herring are forage fish, mostly belonging to the family Clupeidae.
 
@@ -66212,6 +66281,15 @@ fr:thon au naturel
 # ingredient/fr:thon-au-naturel has 30 products in french @2019-01-02
 # thon au naturel (thon albacore, eau, sel)
 
+<en:fish
+en:grenadier
+
+<en:grenadier
+en:Raw grenadier
+fr:Hoki cru
+ciqual_food_code:en:26213
+ciqual_food_name:en:Grenadier, from any fishing spot, raw
+ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
 
 # en:description:The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand
 
@@ -66384,7 +66462,7 @@ fr:filets de maquereaux cuits au court-bouillon
 # structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
 
 
-# Molva est un genre de poissons appelés lingues, élingues ou juliennes.
+#description:en:Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 
 <en:fish
 en:ling
@@ -66395,8 +66473,18 @@ ciqual_food_code:en:26130
 ciqual_food_name:en:Ling, raw
 ciqual_food_name:fr:Julienne ou Lingue, crue
 
+<en:ling
+en:blue ling
+fr:Lingue bleue
 
-# The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
+<en:blue ling
+en:Raw blue ling
+fr:Lingue bleue crue, Lingue crue
+ciqual_food_code:en:26194
+ciqual_food_name:en:Blue ling, raw
+ciqual_food_name:fr:Lingue bleue ou Lingue, crue
+
+#description:en:The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
 
 <en:fish
 <en:white fish
@@ -66498,7 +66586,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Black_seabream
 # structure:inner:role:synonym,  eg:dorade (Spondyliosoma cantharus)
 
 
-# Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
+#description:fr:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
 
 <en:sea bream
 en:porgies
@@ -66514,7 +66602,43 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Pagellus
 # ingredient/fr:pageot has 1 product in french @2019-01-01
 
 
-# Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
+<en:sea bream
+en:gilthead sea bream
+fr:Dorade royale
+
+<en:gilthead sea bream
+en:Raw wild gilthead seabream
+fr:Dorade royale sauvage crue, Daurade sauvage crue, Vraie daurade sauvage crue
+ciqual_food_code:en:26080
+ciqual_food_name:en:Gilthead seabream, raw, wild
+ciqual_food_name:fr:Dorade royale, ou daurade ou vraie daurade, crue, sauvage
+
+<en:gilthead sea bream
+en:Farmed wild gilthead seabream
+fr:Dorade royale d'élevage crue, Daurade d'élevage crue, Vraie daurade d'élevage crue
+ciqual_food_code:en:26088
+ciqual_food_name:en:Gilthead seabream, raw, farmed
+ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
+
+<en:sea bream
+en:Mediterranean bass
+fr:Loup de Méditerranée
+
+<en:Mediterranean bass
+en:Raw wild mediterranean bass
+fr:Bar commun cru sauvage, Loup de Méditerranée cru sauvage
+ciqual_food_code:en:26205
+ciqual_food_name:en:Mediterranean bass, raw, wild
+ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
+
+<Mediterranean bass
+en:Raw farmed Mediterranean bass
+fr:Bar commun cru d'élevage, Loup de Méditerranée cru d'élevage
+ciqual_food_code:en:26206
+ciqual_food_name:en:Mediterranean bass, raw, farmed
+ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
+
+#description:en:Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
 
 <en:fish
 <en:oily fish
@@ -66782,11 +66906,11 @@ fr:Filethe de truite arc-en-ciel
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kirjolohifilee
 # 1 entry @ 2019-10-31
 
-# The tub gurnard, Chelidonichthys lucerna (also C. lucernus, Trigla lucerna, T. corax) is a species of bottom-dwelling coastal fish with a spiny armored head and fingerlike pectoral fins used for crawling along the sea bottom.
+#description:en:The tub gurnard, Chelidonichthys lucerna (also C. lucernus, Trigla lucerna, T. corax) is a species of bottom-dwelling coastal fish with a spiny armored head and fingerlike pectoral fins used for crawling along the sea bottom.
 
 <en:fish
 <en:white fish
-en:tub gurnard,Surmullet, red mullet
+en:tub gurnard, Surmullet, red mullet
 br:Talgorn
 ca:lluerna rossa
 cs:štítník červený
@@ -66810,6 +66934,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tub_gurnard
 ciqual_food_code:en:26085
 ciqual_food_name:en:Surmullet or red mullet, raw
 ciqual_food_name:fr:Rouget-barbet de roche, cru
+
+<en:tub gurnard
+en:Raw tub gurnard
+fr:Grondin perlon cru
+ciqual_food_code:en:26219
+ciqual_food_name:en:Tub gurnard, raw
+ciqual_food_name:fr:Grondin perlon, cru
 
 # description:en:The TURBOT (Scophthalmus maximus) is a species of flatfish in the family Scophthalmidae. It is a valuable commercial species, acquired through aquaculture and trawling. Turbot is highly prized as a food fish for its delicate flavour.
 
@@ -66992,13 +67123,26 @@ wikidata:en:Q756996
 wikipedia:fr:https://fr.wikipedia.org/wiki/Mulet_(poisson)
 # ingredient/fr:mulet has 2 products in french @2019-01-01
 
+<fr:mulet
+en:Raw mullet
+fr:Mulet cru
+ciqual_food_code:en:26091
+ciqual_food_name:en:Mullet, raw
+ciqual_food_name:fr:Mulet, cru
 
-# Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
+#description:fr:Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
 
 <en:rockfish
 fr:rascasse
 wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
+
+<fr:rascasse
+en:Raw spiny scorpionfish
+fr:Rascasse crue
+ciqual_food_code:en:26063
+ciqual_food_name:en:Spiny scorpionfish, raw
+ciqual_food_name:fr:Rascasse, crue
 
 <en:fish
 fr:poisson blanc, poissons blancs
@@ -68266,6 +68410,13 @@ zh:十腕总目
 wikidata:en:Q81900
 wikipedia:en:https://en.wikipedia.org/wiki/Squid
 # ingredient/fr:calmar has 25 products in 2 languages @2019-01-04
+
+<en:squid
+en:Raw squid
+fr:Calmar cru, Calamar cru, Encornet cru
+ciqual_food_code:en:10001
+ciqual_food_name:en:Squid, raw
+ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
 
 <en:squid
 en:Teuthida
