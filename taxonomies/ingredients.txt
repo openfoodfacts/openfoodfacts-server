@@ -14237,7 +14237,11 @@ ciqual_food_name:en:Lamb, neck, braised or boiled
 ciqual_food_name:fr:Agneau, collier, braisé ou bouilli
 
 <en:lamb
-en:lamb rib
+en:lamb rib, Raw lamb rib chop
+fr:Côte d'agneau première crue
+ciqual_food_code:en:21517
+ciqual_food_name:en:Lamb, rib chop, raw
+ciqual_food_name:fr:Agneau, côte première, crue
 
 <en:lamb rib
 en:Chop grilled lamb rib
@@ -15206,6 +15210,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
 
 <en:meat
 <en:goat
+en:young goat, Raw young goat
+fr:Chevreau cru
+ciqual_food_code:en:21800
+ciqual_food_name:en:Young goat, raw
+ciqual_food_name:fr:Chevreau, cru
+
+"
+<en:young goat
 en:Cooked young goat
 fr:Chevreau cuit
 ciqual_food_code:en:21801
@@ -31708,20 +31720,6 @@ es:Cacao procesado con álcali
 fr:Cacao alcalinisé
 it:Cacao trattato con agenti alcalinizzanti
 
-<en:cocoa-powder
-en:cocoa powder processed with alkali, alkalized cocoa powder
-de:Kakaopulver mit Alkalisalzen versetzt
-es:Cacao en polvo procesado con álcali
-fr:Cacao en poudre alcalinisé
-it:Polvere di cacao processata con alcalinizzanti
-
-<en:cocoa-powder
-en:skimmed cocoa powder
-de:Magerkakaopulver, mageres Kakaopulver, entrahmtes Kakaopulver
-it:Polvere di cacao magra
-ja:脱脂ココアパウダー
-ru:обезжиренный какаопорошок, сухой обезжиренный остаток какао
-
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
 da:fedtfattig kakao
@@ -31935,9 +31933,12 @@ wikidata:en:Q1062396
 fr:poudre de cacao cru
 
 <en:cocoa powder
-en:raw cacao powder
+en:raw cacao powder, Instant cocoa powder without sugar
 de:Rohes Kakaopulver
-fr:Poudre de cacao brute
+fr:Poudre de cacao brute, Cacao non sucré en poudre soluble
+ciqual_food_code:en:18100
+ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
+ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
@@ -31970,6 +31971,20 @@ fr:cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
 de:stark entöltes Kakaopulver
 it:cacao fortemente sgrassato ed cacao in polvere
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
+
+<en:cocoa-powder
+en:cocoa powder processed with alkali, alkalized cocoa powder
+de:Kakaopulver mit Alkalisalzen versetzt
+es:Cacao en polvo procesado con álcali
+fr:Cacao en poudre alcalinisé
+it:Polvere di cacao processata con alcalinizzanti
+
+<en:cocoa-powder
+en:skimmed cocoa powder
+de:Magerkakaopulver, mageres Kakaopulver, entrahmtes Kakaopulver
+it:Polvere di cacao magra
+ja:脱脂ココアパウダー
+ru:обезжиренный какаопорошок, сухой обезжиренный остаток какао
 
 <en:cocoa
 en:cocoa solids
