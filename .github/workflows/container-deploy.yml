@@ -59,7 +59,7 @@ jobs:
           git fetch --depth 1
 
           # Checkout current commit SHA
-          git checkout ${{ github.sha }}
+          git checkout ${{ github.sha }} 2>&1
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
@@ -71,7 +71,7 @@ jobs:
           sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>&1
 
           # Import sample data into docker-compose db
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml exec backend bash /opt/scripts/import_sample_data.sh
+          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml exec -T backend bash /opt/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
