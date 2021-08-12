@@ -46,11 +46,11 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
-        script_stop: true
+        # script_stop: true
         debug: true
         script: |
           # Clone Git repository if not already there
-          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>/dev/null
+          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
 
           # Go to docker/ directory
           cd openfoodfacts-server/docker/
