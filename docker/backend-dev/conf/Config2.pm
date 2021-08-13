@@ -67,7 +67,10 @@ $facebook_app_id = "";
 $facebook_app_secret = "";
 
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY} || '';
-
+$crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER} || '';
+$crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY} || '';
+$csrf_secret = $ENV{CSRF_SECRET} || '';
+#$geolite2_path = $ENV{GEOLITE2_PATH} || '';
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
