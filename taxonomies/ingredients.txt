@@ -9627,6 +9627,13 @@ wikidata:en:Q27972032
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Specific named cheeses start here
 
+<en:cheese
+en:Abondance,Abondance cheese from cow's milk
+nl:abondance
+ciqual_food_code:en:12112
+ciqual_food_name:en:Abondance cheese, from cow's milk
+ciqual_food_name:fr:Abondance
+
 
 # description:en:Asiago is an Italian cow's milk cheese that can assume different textures, according to its aging, from smooth for the fresh Asiago (called Asiago Pressato, which means 'Pressed Asiago') to a crumbly texture for the aged cheese (Asiago d'allevo, which means 'Breeding farm Asiago').
 
@@ -9647,13 +9654,17 @@ de:Asiago-Käse Medium, Asiago jung
 # description:en:Beaufort is a firm, raw cow's milk cheese associated with the gruyère family.
 
 <en:cheese
-en:Beaufort
+en:Beaufort, Beaufort cheese from cow's milk
 ca:formatge Beaufort DOP
 de:Beaufort
 es:queso Beaufort DOP
 fr:beaufort, beaufort aop, Beaufort Appellation d'Origine Protégée, Beaufort ROP/BOB, Beaufort au lait cru Appellation d'Origine Protégée
 hu:Beaufort, Beaufort sajt
 wikipedia:en:https://en.wikipedia.org/wiki/Beaufort_cheese
+ciqual_food_code:en:12105
+ciqual_food_name:en:Beaufort cheese, from cow's milk
+ciqual_food_name:fr:Beaufort
+# ingredient/en:beaufort has 50 products in 2 languages @2021-08-14
 
 
 # description:en:Brie is a soft cow's-milk cheese named after Brie, the French region from which it originated (roughly corresponding to the modern département of Seine-et-Marne). It is pale in color with a slight grayish tinge under a rind of white mould.
@@ -14483,6 +14494,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
 
 <en:rabbit meat
+en:Rabbit meat raw
+fr:viande de lapin crue
+ciqual_food_code:en:34001
+ciqual_food_name:en:Rabbit, meat, raw
+ciqual_food_name:fr:Lapin, viande crue
+
+<en:rabbit meat
 en:Braised rabbit meat
 fr:Viande braisée de lapin
 ciqual_food_code:en:34000
@@ -14875,6 +14893,14 @@ sv:merguez
 uk:Мергези
 wikipedia:en:https://en.wikipedia.org/wiki/Merguez
 # ingredient/fr:merguez has 63 products in french @2019-03–22
+
+<en:merguez
+en:Merguez sausage raw
+fr:Merguez crue
+ciqual_food_code:en:30150
+ciqual_food_name:en:Merguez sausage, raw
+ciqual_food_name:fr:Merguez, crue
+
 
 ###################################################################################################
 #
@@ -19843,7 +19869,7 @@ it:grasso d'oca
 
 
 
-# VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings.
+#description:en:VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings.
 
 en:vinegar
 af:Asyn
@@ -20276,12 +20302,12 @@ nl:natuurazijn
 
 
 
-en:alcohol
+en:alcohol, Pure alcohol
 ca:Alcohol
 de:Alkohol
 es:alcohol
 fi:alkoholi
-fr:alcool
+fr:alcool, Alcool pur
 he:אלכוהול
 hu:alkohol
 it:Alcol, alcool
@@ -20294,6 +20320,9 @@ sv:alkohol
 vegan:en:maybe
 vegetarian:en:yes
 #ja:酒
+ciqual_food_code:en:1014
+ciqual_food_name:en:Pure alcohol
+ciqual_food_name:fr:Alcool pur
 
 
 # ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
@@ -20796,7 +20825,7 @@ it:Marc de Champagne
 # ingredient/fr:marc-de-champagne has 30 products in 4 languages @2018-12-14
 
 
-# A kirschwasser or kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry.
+#description:en:A kirschwasser or kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry.
 
 <en:alcohol
 en:kirsch
@@ -20832,7 +20861,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 # ingredient/fr:kirsch has 184 products in 5 languages @2018-12-29
 
 
-# TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
+#description:en:TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
 
 <en:alcohol
 en:tequila
@@ -20926,7 +20955,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tequila
 # ingredient/tequila in 7 languages @2019-02-14
 
 
-# WINE is an alcoholic beverage made from fermented grapes.
+#description:en:WINE is an alcoholic beverage made from fermented grapes.
 
 <en:alcohol
 en:wine
@@ -21099,6 +21128,7 @@ carbon_footprint_fr_foodges_value:fr:1.4
 <en:wine
 en:pedro ximenez wine
 es:vino Pedro Ximenez
+# en:pedro ximenez wine has 3 products in spanish @2021-08-14
 
 <en:wine
 fr:vin doux naturel
@@ -21182,7 +21212,7 @@ fr:vin cremant de Loire aop
 
 
 
-# WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
+#description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
 
 <en:wine
 en:white wine
@@ -21416,7 +21446,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sauternes_(wine)
 # ingredient/fr:sauternes has 74 products in 4 languages @2019-02-14
 
 
-# A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
+#description:en:A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
 
 <en:wine
 en:rosé wine, rosé
@@ -52996,18 +53026,24 @@ allergens:en: en:peanuts
 #en:compound
 #en:category:en:Peanut butters
 <en:peanut
-en:peanut butter
+en:peanut butter, peanut paste, Peanut butter or peanut paste
 de:Erdnussbutter
 es:crema de cacahuete
-fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète
+fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète, pâte d'arachide
 it:Burro di arachidi
 ja:ピーナッツバーター
+nb:peanøttssmör
 nl:pindakaas
 pl:Masło z orzeszków ziemnych
 pt:Manteiga de amendoim
+sv:jordnöttssmör
 vegan:en:yes
 vegetarian:en:yes
 from_palm_oil:en:no
+ciqual_food_code:en:15202
+ciqual_food_name:en:Peanut butter or peanut paste
+ciqual_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
+# ingredient/en:peanut-butter has 2899 products in 13 languages @2021-07-12
 
 <en:peanut butter
 en:crunchy peanut butter
@@ -61851,6 +61887,7 @@ ar:فوقس
 be:Фукус
 da:Blæretang-slægten
 de:Tang
+es:fucus
 fr:fucus
 io:Fuko
 ja:ヒバマタ属
@@ -61865,8 +61902,14 @@ description:en:Fucus is a genus of brown algae found in the intertidal zones of 
 # sco:Tang
 wikidata:en:Q180597
 wikipedia:en:https://en.wikipedia.org/wiki/Fucus
-# ingredient/fr:fucus has 27 products in french @2019-02-22
+# ingredient/fr:fucus has 32 products in 2 languages @2021-08-13
 
+#<en:Fucus
+#en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus) dried or dehydrated
+#fr:Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus) séché, Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus) déshydraté
+#ciqual_food_code:en:20994
+#ciqual_food_name:en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus), dried or dehydrated
+#ciqual_food_name:fr:Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus), séché ou déshydraté
 
 # KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 
@@ -61995,7 +62038,7 @@ ciqual_food_code:en:20987
 ciqual_food_name:en:Laver (Porphyra sp.), dried or dehydrated
 ciqual_food_name:fr:Nori (Porphyra sp.), séchée ou déshydratée
 
-# The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
+#description:en:The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
 
 <en:seaweed
 en:sea lettuce, green laver
@@ -62085,7 +62128,7 @@ zh:海帶芽
 # yue:裙帶菜
 wikidata:en:Q864682
 wikipedia:en:https://en.wikipedia.org/wiki/Wakame
-# ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
+# ingredient/fr:wakamé has 152 products in 9 languages @2021-08-14
 ciqual_food_code:en:20984
 ciqual_food_name:en:Wakame (Undaria pinnatifida), dried or dehydrated
 ciqual_food_name:fr:Wakamé (Undaria pinnatifida), séchée ou déshydratée
@@ -64433,6 +64476,12 @@ wikidata:en:Q143359
 wikipedia:en:https://en.wikipedia.org/wiki/Capelin
 # ingredient/fr:capelan has 2 products in french @2019-01-01
 
+<en:capelin
+en:Capelin raw
+fr:Capelan cru
+ciqual_food_code:en:26108
+ciqual_food_name:en:Capelin, raw
+ciqual_food_name:fr:Capelan, cru
 
 ###################################################################################################
 #
@@ -65485,12 +65534,13 @@ fr:saumon cuit
 de:Lachs gekocht
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
 
-<fr:saumon cuit
-en:Steamed salmon
-fr:Saumon cuit à la vapeur
-ciqual_food_code:en:26038
-ciqual_food_name:en:Salmon, steamed
-ciqual_food_name:fr:Saumon, cuit à la vapeur
+#<fr:saumon cuit
+#en:Steamed salmon
+#fr:Saumon cuit à la vapeur
+#ciqual_food_code:en:26038
+#ciqual_food_name:en:Salmon, steamed
+#ciqual_food_name:fr:Saumon, cuit à la vapeur
+# No products @2021-08-13
 
 <fr:saumon cuit
 en:Microwaved farmed salmon
@@ -66127,7 +66177,7 @@ fr:Ventrèches de thon
 it:ventresca di tonno
 # ingredient/fr:Ventrèches-de-thon has 1 product @2019-01-02
 
-# The albacore (Thunnus alalunga), known also as the longfin tuna, is a species of tuna of the order Perciformes.
+#description:en:The albacore (Thunnus alalunga), known also as the longfin tuna, is a species of tuna of the order Perciformes.
 
 <en:tuna
 en:albacore
@@ -66171,6 +66221,13 @@ zh:长鳍金枪鱼
 wikipedia:en:https://en.wikipedia.org/wiki/Albacore
 # ingredient/fr:thon-0blanc has 47 products in 3 languages @2019-02-02
 # ingredient/fr:thon-blanc-germon has 64 products in french @2019-01-02
+
+<en:albacore
+en:Albacore raw
+fr:Thon germon, thon blanc cru
+ciqual_food_code:en:26076
+ciqual_food_name:en:Albacore, raw
+ciqual_food_name:fr:Thon germon ou thon blanc, cru
 
 
 # en:description:The skipjack tuna (Katsuwonus pelamis) is a medium-sized perciform fish in the tuna family, Scombridae
@@ -66232,6 +66289,13 @@ ciqual_food_code:en:26101
 ciqual_food_name:en:Bonito, raw
 ciqual_food_name:fr:Bonite, crue
 # ingredient/fr:thon-listao has 138 products @2019-01-02
+
+<en:skipjack tuna
+en:Bonito raw
+fr:Bonite crue
+ciqual_food_code:en:26101
+ciqual_food_name:en:Bonito, raw
+ciqual_food_name:fr:Bonite, crue
 
 # en:description:The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
 
@@ -72486,6 +72550,13 @@ fr:oie
 <en:goose
 en:goose meat
 fr:viande d'oie
+
+<en:goose meat
+en:Goose meat and skin raw
+fr:viande et peau d'oie crue
+ciqual_food_code:en:36501
+ciqual_food_name:en:Goose, meat and skin, raw
+ciqual_food_name:fr:Oie, viande et peau, crue
 
 <en:goose
 en:goose liver
