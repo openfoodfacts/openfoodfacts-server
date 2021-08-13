@@ -46,7 +46,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
+        envs: PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
         # script_stop: true
         debug: true
         script: |
@@ -64,6 +64,9 @@ jobs:
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
+          echo "PRODUCT_OPENER_DOMAIN=${PRODUCT_OPENER_DOMAIN}" > .env
+          echo "ROBOTOFF_URL=${ROBOTOFF_URL}" > .env
+          echo "GOOGLE_CLOUD_VISION_API_KEY=${GOOGLE_CLOUD_VISION_API_KEY}" > .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${PRODUCT_OPENER_DOMAIN}/g" ./frontend-git/conf/nginx.conf

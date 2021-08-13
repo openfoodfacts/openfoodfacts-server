@@ -66,6 +66,9 @@ $memd_servers = [ "memcached:11211" ];
 $facebook_app_id = "";
 $facebook_app_secret = "";
 
+$google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY} || '';
+
+
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ENV{ROBOTOFF_URL} || '';
