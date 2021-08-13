@@ -24,6 +24,8 @@ services:
       - POSTGRES_DB=minion
   backend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
+    environment:
+      - PRODUCT_OPENER_DOMAIN
     depends_on:
       - mongodb
       - memcached

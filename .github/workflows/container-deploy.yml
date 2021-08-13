@@ -36,6 +36,7 @@ jobs:
       env:
         DOCKER_CLIENT_TIMEOUT: 120
         COMPOSE_HTTP_TIMEOUT: 120
+        PRODUCT_OPENER_DOMAIN: ${{ secrets.PRODUCT_OPENER_DOMAIN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -43,10 +44,13 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
+        envs: PRODUCT_OPENER_DOMAIN, DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
         # script_stop: true
         debug: true
         script: |
+          # Echo current environment info
+          echo "Deploying domain '${PRODUCT_OPENER_DOMAIN}' from git ref '{{ github.sha }}' ..."
+
           # Clone Git repository if not already there
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
 
@@ -63,7 +67,7 @@ jobs:
           echo "TAG=${{ github.sha }}" > .env
 
           # Override domain name in nginx.conf
-          sed -i.bak 's/productopener.localhost/openfoodfacts.net/g' ./frontend-git/conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${PRODUCT_OPENER_DOMAIN}/g" ./frontend-git/conf/nginx.conf
 
           # Recreate containers that have a new image
           sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>&1
