@@ -10226,7 +10226,6 @@ fr:Fromage blanc
 hu:cottage sajt, cottage cheese
 wikidata:en:Q15080546
 
-# FETA is a brined curd white cheese made in Greece from sheep's milk or from a mixture of sheep and goat's milk.
 
 <en:cheese
 en:feta, feta cheese
@@ -10284,6 +10283,15 @@ zh:菲達芝士
 wikidata:en:Q182760
 wikipedia:en:https://en.wikipedia.org/wiki/Feta
 # fr:feta has 49 products in 3 languages @2018-10-28
+description:en:FETA is a brined curd white cheese made in Greece from sheep's milk or from a mixture of sheep and goat's milk.
+
+<en:feta
+en:Feta cheese from ewe's milk
+fr:Feta de brebis
+nl:schapemelkfeta
+ciqual_food_code:en:12061
+ciqual_food_name:en:Feta cheese, from ewe's milk
+ciqual_food_name:fr:Feta de brebis
 
 <en:cheese
 en:fontina, fontina cheese
@@ -19135,6 +19143,9 @@ allergens:en: en:soybeans
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
 from_palm_oil:en:no
+ciqual_food_code:en:17420
+ciqual_food_name:en:Soy oil
+ciqual_food_name:fr:Huile de soja
 
 <en:soya oil
 en:hydrogenated soy oil
@@ -37090,7 +37101,7 @@ fr:purée de pruneaux
 #                                Quince
 #
 ###################################################################################################
-# The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
+#description:en:The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 # comment:en:Greek uses the same word for cockles and quinces.
 
 <en:fruit
@@ -40959,7 +40970,7 @@ fr:lucuma en poudre
 #
 ###################################################################################################
 
-# LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
+#description:en:LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
 
 <en:fruit
 en:lychee, Litchi, Litchis
@@ -45330,7 +45341,7 @@ carbon_footprint_fr_foodges_value:fr:6.2
 ciqual_food_code:en:20053
 ciqual_food_name:en:Eggplant, raw
 
-# This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
+#comment:en:This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
 
 <en:aubergine
 en:grilled aubergines
@@ -52525,6 +52536,7 @@ fr:pâte de praliné
 #                                Brazil nut
 #
 ###################################################################################################
+
 <en:tree nut
 en:brazil nut, brazil nuts
 bg:бразилски орехи
@@ -52535,7 +52547,7 @@ el:καρύδια Βραζιλίας
 es:nueces de Brasil, nuez de Brasil, nueces del Amazonas
 et:brasiilia pähklid, parapähklid, parapähkleid
 fi:parapähkinä, parapähkinät
-fr:noix du brésil, noix d'Amazonie
+fr:noix du Brésil, noix d'Amazonie
 ga:cnónna peagáin, cnónna Brasaíleacha
 hu:pekándió, brazil dió
 it:noci del Brasile
@@ -52552,8 +52564,13 @@ sk:brazílske orechy
 sl:brazilski oreščki
 sv:paranöt, paranötter
 wikidata:en:Q22810770
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-du-brésil
-# 87 products in 4 languages @2018-10-05
+ciqual_food_code:en:15008
+ciqual_food_name:en:Brazil nut
+ciqual_food_name:fr:Noix du Brésil
+description:en:The Brazil nut (Bertholletia excelsa) is a South American tree in the family Lecythidaceae, and it is also the name of the tree's commercially harvested edible seeds.
+description:fr:Le Noyer du Brésil ou Noyer d’Amazonie (Bertholletia excelsa) produit la noix du Brésil, formée d’une coque épaisse et dure, d’une dizaine de centimètres de diamètre, contenant une vingtaine de graines, elles-mêmes enfermées dans un tégument lignifié. À l’intérieur, l’amande blanche, comestible, riche en lipide, est commercialisée dans le monde entier.
+description:nl:De paranoot wordt geleverd door een boom (Bertholletia excelsa) uit de familie Lecythidaceae. De vrucht van de paranoot is hard, kegelvormig, weegt zo'n 2 kg en heeft een diameter van 10 tot 15 cm. In deze vrucht bevinden zich 10 - 25 paranoten. De boom wordt nauwelijks geteeld. De gehele productie komt bijna alleen van in het wild verzamelde noten uit Brazilië, Peru en Bolivia.
+# ingredient/brazil-nut has 892 products in 15 languages @2021-08-14
 
 
 ###################################################################################################
@@ -52561,6 +52578,7 @@ wikidata:en:Q22810770
 #                                Cashew nuts
 #
 ###################################################################################################
+
 <en:tree nut
 en:cashew nuts, cashews, cashew, cashewnut
 ar:كاجو
@@ -64584,6 +64602,21 @@ ciqual_food_code:en:26108
 ciqual_food_name:en:Capelin, raw
 ciqual_food_name:fr:Capelan, cru
 
+<en:fish
+en:carp
+fr:carpe
+nl:karper
+
+<en:carp
+en:Carp raw farmed
+fr:Carpe crue élevage
+ciqual_food_code:en:27003
+ciqual_food_name:en:Carp, raw, farmed
+ciqual_food_name:fr:Carpe, crue, élevage
+
+<en:carp
+fr:carpe de Dombes
+
 ###################################################################################################
 #
 #                                Cod
@@ -65620,15 +65653,27 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 carbon_footprint_fr_foodges_value:fr:6.6
 
-# "raw salmon" is often used for sushis
-# it could be useful to keep a "raw salmon" entry to find products
-# where salmon is raw (and not intended to be cooked)
 <en:salmon
 en:raw salmon
 de:Roher Lachs
 fr:saumon cru
 nl:rauwe zalm
 pt:Salmão cru
+# ingredient/raw-salmon has 100 products in 3 languages @2021-08-15
+
+<en:raw salmon
+en:Salmon raw farmed
+fr:Saumon cru élevage
+ciqual_food_code:en:26036
+ciqual_food_name:en:Salmon, raw, farmed
+ciqual_food_name:fr:Saumon, cru, élevage
+
+<en:raw salmon
+en:Salmon raw wild
+fr:Saumon cru sauvage
+ciqual_food_code:en:26161
+ciqual_food_name:en:Salmon, raw, wild
+ciqual_food_name:fr:Saumon, cru, sauvage
 
 <en:salmon
 fr:saumon cuit
@@ -66960,10 +67005,22 @@ zh:鱒魚
 wikidata:en:Q2258881
 wikipedia:en:https://en.wikipedia.org/wiki/Trout
 # ingredient/fr:truite has 53 products in 3 languages @2018-12-30
-# structure:outer:role:synonym,  eg Truite (Oncorhynchus mykiss)
 
+<en:trout
+en:raw farmed trout
+fr:truite d'élevage crue
+ciqual_food_code:en:27008
+ciqual_food_name:en:Trout, farmed, raw
+ciqual_food_name:fr:Truite d'élevage, crue
 
-# The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
+<en:trout
+en:Sea trout raw
+fr:Truite de mer crue
+ciqual_food_code:en:26092
+ciqual_food_name:en:Sea trout, raw
+ciqual_food_name:fr:Truite de mer, crue
+
+#description:en:The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
 
 <en:trout
 en:rainbow trout
@@ -67033,13 +67090,15 @@ zh:虹鱒
 wikidata:en:Q187986
 wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
 # ingredient/fr:truite-arc-en-ciel has 81 products in 3 languages @2018-12-30
-# structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
 carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 carbon_footprint_fr_foodges_value:fr:4.9
-# structure:inner:role:synonym,  eg:Truite (Oncorhynchus mykiss)
-ciqual_food_code:en:27008
-ciqual_food_name:en:Trout, farmed, raw
-ciqual_food_name:fr:Truite d'élevage, crue
+
+<en:rainbow trout
+en:Rainbow trout raw farmed
+fr:Truite arc en ciel crue élevage
+ciqual_food_code:en:27009
+ciqual_food_name:en:Rainbow trout, raw, farmed
+ciqual_food_name:fr:Truite arc en ciel, crue, élevage
 
 <en:rainbow trout
 en:smoked rainbow trout
