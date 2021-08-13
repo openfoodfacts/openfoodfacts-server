@@ -26,30 +26,45 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	require Exporter;
+	@ISA = qw(Exporter);
+	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		$server_domain
-		@ssl_subdomains
 		$data_root
 		$www_root
-		$geolite2_path
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
 		$facebook_app_id
-	    $facebook_app_secret
-		$robotoff_url
+		$facebook_app_secret
+		@ssl_subdomains
+		$csrf_secret
+		$google_cloud_vision_api_key
+		$crowdin_project_identifier
+                $crowdin_project_key
+		$geolite2_path
+		$robotoff_url		
+
 		%server_options
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
+use strict;
+use utf8;
 
 # server constants
+#$server_domain = "openfoodfacts.eu";
+#$server_domain = "openfoodfacts.org";
 $server_domain = "productopener.localhost";
 
-@ssl_subdomains = qw();
+@ssl_subdomains = qw(
+*
+);
+
 
 # server paths
 $www_root = "/opt/product-opener/html";
@@ -61,18 +76,29 @@ $mongodb = "off";
 $mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
-$memd_servers = [ "memcached:11211" ];
+$memd_servers = [ "127.0.0.1:11211" ];
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
 
-# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
-# enable an in-site robotoff-asker in the product page
-$robotoff_url = '';
+$csrf_secret = "";
+
+$google_cloud_vision_api_key = "";
+
+$crowdin_project_identifier = 'openfoodfacts';
+$crowdin_project_key = '';
+
+$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+
+$robotoff_url = 'https://robotoff.openfoodfacts.org';
 
 %server_options = (
-        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
-        export_servers => { public => "off", experiment => "off-exp" },
-		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+
+        cookie_domain => "openfoodfacts.org",   # if not set, default to $server_domain
+        minion_backend => {'Pg' => ''},
+        minion_local_queue => "openfoodfacts.org",
+	ip_whitelist_session_cookie => [ "", "" ],
 );
+
+
 1;
