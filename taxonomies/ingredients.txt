@@ -9640,16 +9640,19 @@ ciqual_food_name:fr:Abondance
 <en:cheese
 en:asiago, Asiago cheese
 de:Asiago
-es:queso asiago
+es:queso asiago, queso asiago
 fr:Asiago, Asiago AOP, fromage asiago, fromage Asiago AOP
 it:Asiago, formaggio Asiago, formaggio Asiago DOP
 wikidata:en:Q727210
 wikipedia:en:https://en.wikipedia.org/wiki/Asiago_cheese
+# ingredient/asiago has 1014 products in 5 languages @2021-08-14
 
 <en:asiago
 en:asiago medium cheese
 de:Asiago-Käse Medium, Asiago jung
 
+<en:asiago
+es:queso asiago fresco
 
 # description:en:Beaufort is a firm, raw cow's milk cheese associated with the gruyère family.
 
@@ -9754,11 +9757,28 @@ ca:camembert de llet pasteuritzada
 es:camembert de leche pasteurizada
 # ingredient/fr:camembert-au-lait-pasteurisé has 15 products in 4 languages @2019-02-17
 
+<en:cheese
+en:cantal
+fr:cantal
 
-# CHEDDAR cheese is a relatively hard, off-white (or orange if spices such as annatto are added), sometimes sharp-tasting, natural cheese.
+<en:cantal
+en:Cantal cheese half matured from cow's milk
+fr:Cantal entre-deux
+ciqual_food_code:en:12722
+ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
+ciqual_food_name:fr:Cantal entre-deux
+
+<en:cantal
+en:Cantal Salers or Laguiole cheese from cow's milk
+fr:Cantal Salers, Laguiole
+ciqual_food_code:en:12723
+ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
+ciqual_food_name:fr:Cantal, Salers ou Laguiole
+
+#description:en:CHEDDAR cheese is a relatively hard, off-white (or orange if spices such as annatto are added), sometimes sharp-tasting, natural cheese.
 
 <en:cheese
-en:cheddar, cheddar cheese
+en:cheddar, cheddar cheese, Cheddar cheese from cow's milk
 af:Cheddarkaas
 ar:جبنة تشيدر
 ca:Cheddar
@@ -9818,8 +9838,10 @@ zh:車打芝士
 # zh-tw:切達起司
 wikidata:en:Q217525
 wikipedia:en:https://en.wikipedia.org/wiki/Cheddar_cheese
-# fr:fromage-cheddar has 39 products @2018-10-27
-# en:cheddar has 366 products @2018-10-27
+# en:cheddar has 10196 products @2021-08-14
+ciqual_food_code:en:12726
+ciqual_food_name:en:Cheddar cheese, from cow's milk
+ciqual_food_name:fr:Cheddar
 
 <en:cheddar
 en:mild cheddar, mild cheddar cheese
@@ -9850,20 +9872,23 @@ es:cheddar blanco, queso cheddar blanco
 
 <en:cheddar
 fr:cheddar orange
-
-<fr:cheddar orange
-fr:cheddar orange fondu
+# ingredient/fr:cheddar-orange has 52 products in 2 languages @2021-08-14
 
 <en:cheddar
+en:melted cheddar
 fr:cheddar fondu
 ca:cheddar fos
 es:queso cheddar fundido
-# fr:cheddar-fondu has 75 products in 1 language @2018-10-27
+# fr:cheddar-fondu has 97 products in 3 languages @2021-08-14
 
-# COMTÉ (or Gruyère de Comté) is a French cheese made from unpasteurized cow's milk in the Franche-Comté region of eastern France.
+<fr:cheddar orange
+<en:melted cheddar
+fr:cheddar orange fondu
+
+#description:en:COMTÉ (or Gruyère de Comté) is a French cheese made from unpasteurized cow's milk in the Franche-Comté region of eastern France.
 
 <en:cheese
-en:Comté cheese
+en:Comté cheese, Comté cheese from cow's milk
 ca:comté
 cs:Comté
 de:Comtéeo:Komte
@@ -9887,7 +9912,10 @@ uk:Конте
 zh:孔泰奶酪
 wikidata:en:Q249310
 wikipedia:en:https://en.wikipedia.org/wiki/Comté_cheese
-# fr:comté has 201 products in 1 language @2018-10-27
+ciqual_food_code:en:12110
+ciqual_food_name:en:Comté cheese, from cow's milk
+ciqual_food_name:fr:Comté
+# ingredient/comte-cheese has 356 products in 6 languages @2021-08-14
 
 <en:Comté cheese
 fr:comté aop
@@ -9907,10 +9935,10 @@ wikidata:en:Q174539
 wikipedia:en:https://en.wikipedia.org/wiki/Gloucester_cheese
 
 
-# EDAM (Dutch:Edammer) is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
+#description:en:EDAM (Dutch:Edammer) is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
 
 <en:cheese
-en:edam, edam cheese
+en:edam, edam cheese, Edam cheese from cow's milk
 af:Edam
 bg:Едамер
 ca:Formatge edam
@@ -9959,12 +9987,15 @@ zh:埃德姆芝士
 wikidata:en:Q597473
 wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
 # fr:edam has 206 products in 11 languages @2018-10-28
+ciqual_food_code:en:12729
+ciqual_food_name:en:Edam cheese, from cow's milk
+ciqual_food_name:fr:Edam
 
 
-# EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
+#descripton:en:EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
 
 <en:cheese
-en:emmental, emmental cheese, emmentaler cheese
+en:emmental, emmental cheese, emmentaler cheese, Emmental cheese from cow's milk
 af:Emmentaler
 ar:إمنتال
 bg:Ементал
@@ -9979,7 +10010,7 @@ es:emmenthal, emmental, queso emmental
 eu:Emmental
 fa:پنیر امنتال
 fi:emmental, emmentaljuusto, emmentaljuustoa
-fr:emmental, fromage emmental
+fr:emmental, fromage emmental, emmenthal
 gl:Emmental
 he:אמנטל
 hr:Ementaler
@@ -10021,7 +10052,10 @@ wikidata:en:Q932214
 wikipedia:en:https://en.wikipedia.org/wiki/Emmental_cheese
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
 carbon_footprint_fr_foodges_value:fr:5.6
-# fr:emmental has 1931 products in 9 languages @2018-10-27
+# fr:emmental has 3349 products in 20 languages @2021-08-14
+ciqual_food_code:en:12115
+ciqual_food_name:en:Emmental cheese, from cow's milk
+ciqual_food_name:fr:Emmental ou emmenthal
 
 <en:emmental
 en:Emmental from France
@@ -10049,17 +10083,21 @@ nl:gesmolten Emmental
 # fr:emmental-fondu has 92 products in 3 languages @2018-10-27
 
 <en:cheese
-en:grated emmental cheese
+en:grated emmental cheese, Emmental cheese grated from cow's milk
 ca:formatge emmental rallat, emmental ratllat
 da:revet emmentalerost
 de:geriebener Emmentaler, geriebener Emmentaler-Käse
 es:queso emmental rallado, queso emmenthal rallado
 fi:emmentalraaste
-fr:emmental râpé, fromage emmental râpé
+fr:emmental râpé, fromage emmental râpé, emmenthal râpé
 hu:reszelt ementáli
 it:Formaggio emmental grattugiato
 nl:geraspte emmentaler
-# fr:emmental-râpé has 340 products in 4 languages @2018-10-27
+sv:riven emmentalerost
+ciqual_food_code:en:12118
+ciqual_food_name:en:Emmental cheese, grated, from cow's milk
+ciqual_food_name:fr:Emmental ou emmenthal râpé
+# ingredient/grated-emmental-cheese has 589 products in 7 languages @2021-08-14
 
 <fr:emmental râpé
 <fr:emmental français
@@ -10329,7 +10367,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gorgonzola
 # ingredient/fr:gorgonzola has 108 products in french @2018-12-13
 
 
-# GOUDA (Dutch:Goudse kaas, "cheese from Gouda") is a mild, yellow cheese made from cow's milk.
+#description:en:GOUDA (Dutch:Goudse kaas, "cheese from Gouda") is a mild, yellow cheese made from cow's milk.
 
 <en:cheese
 en:gouda, gouda cheese, Gouda cheese from cow's milk
@@ -10396,10 +10434,10 @@ ciqual_food_name:fr:Gouda
 # fr:gouda has 92 products @2018-10-28
 
 
-# GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
+#description:en:GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
 
 <en:cheese
-en:Grana Padano, Grana Padano cheese
+en:Grana Padano, Grana Padano cheese, Grana Padano cheese from cow's milk
 bg:Грана Падано
 ca:grana padano
 cs:Grana Padano
@@ -10407,7 +10445,7 @@ cv:Грана Падано
 da:Grana Padano, Grana Padano ost
 de:Grana Padano
 eo:Грана Падано
-es:Grana Padano,queso Grana Padano,queso DOP Grana Padano
+es:Grana Padano,queso Grana Padano
 et:Grana Padano
 fi:Grana Padano, Grana Padano -juusto
 fr:grana padano, fromage grana padano
@@ -10435,13 +10473,17 @@ zh:格拉娜·帕達諾芝士
 # zh-tw:格拉娜·帕達諾起司
 wikidata:en:Q940319
 wikipedia:en:https://en.wikipedia.org/wiki/Grana_Padano
-# fr:grana-padano has 159 products in 4 languages @2018-10-27
+# fr:grana-padano has 753 products in 4 languages @2021-08-14
+ciqual_food_code:en:12123
+ciqual_food_name:en:Grana Padano cheese, from cow's milk
+ciqual_food_name:fr:Grana Padano
 
+"
 <en:Grana Padano
 en:Grana Padano PDO cheese, grana padano cheese pdo
 ca:formatge grana padano DOP
 de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
-es:queso grana padano DOP
+es:queso grana padano DOP, queso DOP Grana Padano
 fi:Grana Padano SAN, Grana Padano -juusto SAN
 fr:fromage grana padano aop, grana padano dop, Grana Padano AOP
 it:grana padano dop, formaggio grana padano dop
@@ -10450,10 +10492,10 @@ sv:Grana Padano-ost D O P
 # fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
 
 
-# GRUYÈRE is a hard yellow cheese that originated in the cantons of Fribourg, Vaud, Neuchâtel, Jura, and Bern in Switzerland.
+#description:en:GRUYÈRE is a hard yellow cheese that originated in the cantons of Fribourg, Vaud, Neuchâtel, Jura, and Bern in Switzerland.
 
 <en:cheese
-en:gruyère
+en:gruyère, Gruyere cheese from cow's milk
 af:Gruyère
 az:Qruyer
 bg:Грюер
@@ -10496,15 +10538,26 @@ uk:Грюєр
 # zh:格呂耶爾芝士
 wikidata:en:Q2376488
 wikipedia:en:https://en.wikipedia.org/wiki/Gruyère_cheese
-# fr:gruyere has 30 products in 4 languages @2018-10-27
+ciqual_food_code:en:12114
+ciqual_food_name:en:Gruyere cheese, from cow's milk
+ciqual_food_name:fr:Gruyère
+# fr:gruyere has 104 products in 7 languages @2021-08-14
 
-<fr:gruyère
-fr:gruyère aop
+<en:gruyère
+en:gruyère AOP
+fr:gruyere aop
 ca:gruyère DOP
 de:Gruyère AOP
 es:gruyer DOP
 it:Gruyère AOP
-# fr:gruyère-aop has 16 products in 3 languages @2018-10-27
+
+<en:gruyère
+en:gruyere pgi, Gruyere cheese France Protected Geographical Indication from cow's milk
+fr:Gruyère IGP France
+ciqual_food_code:en:12113
+ciqual_food_name:en:Gruyere cheese, France, Protected Geographical Indication, from cow's milk
+ciqual_food_name:fr:Gruyère IGP France
+# ingredient/fr:gruyere-aop has 5 products in 4 languages @2021-08-14
 
 
 <en:cheese
@@ -10547,7 +10600,21 @@ ru:Маасдам
 uk:Маасдам
 wikidata:en:Q3273732
 wikipedia:en:https://en.wikipedia.org/wiki/Maasdam_cheese
-# fr:Maasdam has 29 products in 2 languages @2018-10-28
+# fr:Maasdam has 71 products in 6 languages @2021-08-14
+
+<en:maasdam
+en:Firm cheese around 14% fat Maasdam-type cheese reduced fat
+fr:fromage type Maasdam 14% MG
+ciqual_food_code:en:12705
+ciqual_food_name:en:Firm cheese, around 14% fat, Maasdam-type cheese, reduced fat
+ciqual_food_name:fr:Fromage à pâte ferme environ 14% MG type Masdaam à teneur réduite en MG
+
+<en:maasdam
+en:Firm cheese around 27% fat Maasdam-type cheese
+fr:fromage type Maasdam 27% MG
+ciqual_food_code:en:12741
+ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
+ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
 <en:maasdam
 fr:Maasdam râpé
@@ -10658,12 +10725,43 @@ ciqual_food_name:en:Mascarpone cheese, from cow's milk
 ciqual_food_name:fr:Mascarpone
 
 <en:cheese
-fr:mimolette
+en:mimolette, Mimolette cheese from cow's milk
+fr:mimolette, Mimolette sans précision
 ca:formatge mimolette
 es:queso mimolette
+ciqual_food_code:en:12740
+ciqual_food_name:en:Mimolette cheese, from cow's milk
+ciqual_food_name:fr:Mimolette, sans précision
 
+<en:mimolette
+en:Mimolette cheese young from cow's milk
+fr:Mimolette jeune
+ciqual_food_code:en:12735
+ciqual_food_name:en:Mimolette cheese, young, from cow's milk
+ciqual_food_name:fr:Mimolette jeune
 
-# MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
+<en:mimolette
+en:Mimolette cheese half-old from cow's milk
+fr:Mimolette demi-vieille
+ciqual_food_code:en:12737
+ciqual_food_name:en:Mimolette cheese, half-old, from cow's milk
+ciqual_food_name:fr:Mimolette demi-vieille
+
+<en:mimolette
+en:Mimolette cheese old from cow's milk
+fr:Mimolette vieille
+ciqual_food_code:en:12738
+ciqual_food_name:en:Mimolette cheese, old, from cow's milk
+ciqual_food_name:fr:Mimolette vieille
+
+<en:mimolette
+en:Mimolette cheese extra old from cow's milk
+fr:Mimolette extra-vieille
+ciqual_food_code:en:12742
+ciqual_food_name:en:Mimolette cheese, extra old, from cow's milk
+ciqual_food_name:fr:Mimolette extra-vieille
+
+#description:en:MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
 
 <en:cheese
 en:Monterey Jack, Monterey Jack Cheese
@@ -10796,7 +10894,7 @@ es:mozzarella rallada
 # This is a compound product, i.e.:Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
 
 <en:cheese
-en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese
+en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese, Parmesan cheese from cow's milk
 af:Parmesaan
 ar:بارميجيانو ريجيانو
 az:Parmesan pendiri
@@ -10866,8 +10964,11 @@ zh:帕馬森乾酪
 # zh-tw:帕馬森乾酪
 wikidata:en:Q155922
 wikipedia:en:https://en.wikipedia.org/wiki/Parmigiano-Reggiano
+ciqual_food_code:en:12120
+ciqual_food_name:en:Parmesan cheese, from cow's milk
+ciqual_food_name:fr:Parmesan
 # en:parmigiano-reggiano has 121 products @2018-10-27
-# fr:parmesan has 251 products @2018-10-27
+# ingredient/parmesan has 6922 products in 15 languages @2021-08-15
 
 <en:parmigiano reggiano
 fr:Parmigiano Reggiano AOP
@@ -11053,7 +11154,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 fr:Reblochon AOP, Reblochon de Savoie AOP
 
 
-# Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
+#description:en:Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
 
 <en:cheese
 en:red leicester, red leicester cheese
@@ -41049,7 +41150,7 @@ fi:kandeerattu meloni
 it:meloni canditi
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons-confits 59 products in 3 languages @2018-09-29
 
-# Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
+#description:en:Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 
 <en:melon
 en:cantaloupe, cantaloupe melon
