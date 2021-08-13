@@ -68,7 +68,7 @@ $facebook_app_secret = "";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
-$robotoff_url = '';
+$robotoff_url = $ENV{ROBOTOFF_URL} || '';
 
 %server_options = (
         private_products => 0,  # 1 to make products visible only to the owner (producer platform)

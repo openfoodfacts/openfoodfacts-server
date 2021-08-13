@@ -26,6 +26,7 @@ services:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - ROBOTOFF_URL
     depends_on:
       - mongodb
       - memcached

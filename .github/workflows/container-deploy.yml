@@ -38,6 +38,7 @@ jobs:
         DOCKER_CLIENT_TIMEOUT: 120
         COMPOSE_HTTP_TIMEOUT: 120
         PRODUCT_OPENER_DOMAIN: ${{ secrets.PRODUCT_OPENER_DOMAIN }}
+        ROBOTOFF_URL: ${{ secrets.ROBOTOFF_URL }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -45,13 +46,10 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: PRODUCT_OPENER_DOMAIN, DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
+        envs: PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
         # script_stop: true
         debug: true
         script: |
-          # Echo current environment info
-          echo "Deploying domain '${PRODUCT_OPENER_DOMAIN}' from git ref '{{ github.sha }}' ..."
-
           # Clone Git repository if not already there
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
 
