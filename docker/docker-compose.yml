@@ -27,6 +27,11 @@ services:
     environment:
       - PRODUCT_OPENER_DOMAIN
       - ROBOTOFF_URL
+      - GOOGLE_CLOUD_VISION_API_KEY
+      - CROWDIN_PROJECT_IDENTIFIER
+      - CROWDIN_PROJECT_KEY
+      - CSRF_SECRET
+      - GEOLITE2_PATH
     depends_on:
       - mongodb
       - memcached
