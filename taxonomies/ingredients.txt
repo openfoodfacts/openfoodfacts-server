@@ -61703,7 +61703,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
-# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
+#descrption:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 
 <en:algae
 en:chlorella
@@ -61963,7 +61963,7 @@ nl:Lithothamnium calcareum
 # ingredient/fr:Lithothamnium-calcareum has 71 products @2020-05-12
 
 
-# Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
+#descrption:en:Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
 
 <en:algae
 en:dulse
@@ -62038,7 +62038,31 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fucus
 #ciqual_food_name:en:Toothed wrack or bladder wrack (Fucus serratus et vesiculosus), dried or dehydrated
 #ciqual_food_name:fr:Fucus vésiculeux (Fucus serratus ou Fucus vesiculosus), séché ou déshydraté
 
-# KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
+<en:seaweed
+en:glasswort, marsh samphire
+cy:senpeder
+de:Queller
+es:Salicornia
+fr:salicorne
+ga:Lus na gloine
+la:salicornia europaea
+nl:zeekraal
+wikidata:en:Q6975220
+wikipedia:en:https://en.wikipedia.org/wiki/Salicornia
+description:en:Salicornia is a genus of succulent, halophyte (salt tolerant) flowering plants in the family Amaranthaceae that grow in salt marshes, on beaches, and among mangroves. The main European species is often eaten and the main North American species is occasionally sold in grocery stores or appears on restaurant menus, usually as 'sea beans' or samphire greens or sea asparagus.
+description:de:Queller (Salicornia) ist eine Pflanzengattung in der Familie der Fuchsschwanzgewächse (Amaranthaceae). Insbesondere Europäischer Queller und Salicornia bigelovii sind essbar und wohlschmeckend, wenn auch recht salzig. Sie sind eher im gastronomischen Bereich oder im Großhandel erhältlich.
+description:fr:Le genre Salicornia regroupe une trentaine d'espèces de plantes halophytes appartenant à la famille des Amaranthaceae. En France, la majorité de la salicorne produite est ramassée en bords de mer et plus particulièrement dans les zones de marais salés. 
+description:nl:Zeekraal (Salicornia) is een geslacht van zoutverdragende succulenten uit de amarantenfamilie. Zeekraal kan tegen onderdompeling in zout water. Gekookt of rauw is het eetbaar. Na het koken lijkt het qua kleur op zeewier. De smaak en structuur lijken op jonge spinaziestengels.
+
+<en:glasswort
+en:Fresh glasswort, Fresh salicornia
+fr:Salicorne fraîche, Salicornia fraîche
+nl:verse zeekraal
+ciqual_food_code:en:20283
+ciqual_food_name:en:Glasswort (Salicornia sp.), fresh
+ciqual_food_name:fr:Salicorne (Salicornia sp.), fraîche
+
+#description:en:KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 
 <en:seaweed
 en:kombu
@@ -62209,7 +62233,8 @@ ciqual_food_code:en:20985
 ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated)
 ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
 
-# en:description:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
+
+#description:en:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
 <en:seaweed
 en:thongweed, sea spaghetti
@@ -65487,8 +65512,27 @@ wikidata:en:Q1078201
 wikipedia:en:https://en.wikipedia.org/wiki/Oarfish
 # ingredient/fr:ruban has 1 product in french @2019-01-01
 
+<en:fish
+en:pangas, pangasius
+de:pangasius
+fr:pangasius, pangas
+it:pangasio
+la:Pangasius hypophtalmus
 
-# Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
+<en:pangas
+en:Raw brown bullhead
+fr:Pangasius cru, Poisson-chat cru
+ciqual_food_code:en:27017
+ciqual_food_name:en:Brown bullhead, raw
+ciqual_food_name:fr:Pangasius ou Poisson-chat, cru
+
+<en:pangasius
+en:pangas fillet
+de:Pangasiusfilets
+fr:filets de pangas
+it:filetti di pangasio
+
+#description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 
 <en:fish
 en:pouting, bib, pout
@@ -65589,7 +65633,7 @@ nl:koolvisfilet
 fi:seitifilee
 
 
-# en:description:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
+#description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 
 <en:fish
 <en:oily fish
@@ -65749,7 +65793,7 @@ en:scottish salmon
 de:schottischer Lachs
 fr:saumon d'écosse
 
-# The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
+#description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 
 <en:salmon
 en:atlantic salmon, salmo salar salmon
