@@ -47,7 +47,7 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,CSRF_SECRET,GEOLITE2_PATH
-        script_stop: true
+        script_stop: false
         debug: true
         script: |
           # Clone Git repository if not already there
