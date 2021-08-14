@@ -9332,6 +9332,25 @@ fr:fromage de vache
 hu:tehénsajt
 nl:koekaas
 
+<en:cow cheese
+fr:fromage au lait de vache bio thermisé
+ca:formatge de llet de vaca ecológic
+es:queso de leche de vaca ecológica
+
+<en:cow cheese
+# <en:cow's milk
+# <en:pasteurized
+fr:fromage au lait de vache pasteurisé
+ca:formatge de llet de vaca pasteuritzada
+es:queso de leche de vaca pasteurizada
+# fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
+
+<en:cow cheese
+fr:Fromage au lait cru de vache
+ca:formatge de llet de vaca crua
+es:queso de leche de vaca cruda
+# ingredient/fr:fromage-au-lait-cru-de-vache has 15 products in french @2019-05-24
+
 # GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
 <en:cheese
@@ -9406,11 +9425,23 @@ ciqual_food_name:en:Crottin cheese, from goat's milk
 ciqual_food_name:fr:Crottin de chèvre, sans précision
 
 <en:Crottin cheese
-en:Crottin de Chavignol, Crottin de Chavignol cheese from goat's milk
+en:Crottin de Chavignol cheese, Crottin de Chavignol cheese from goat's milk
 fr:Crottin de Chavignol, Crottin de Chavignol fromage de chèvre
+he:קרוטן דה שביניול
+ja:クロタン・ドゥ・シャヴィニョール
+ru:Кротен-де-Шавиньоль
+xx:Crottin de Chavignol
+uk:Кротен-де-Шавіньоль
+zh:沙维尼奥勒圆形山羊奶酪
+wikidata:en:Q249873
 ciqual_food_code:en:12834
 ciqual_food_name:en:Crottin de Chavignol cheese, from goat's milk
 ciqual_food_name:fr:Crottin de Chavignol (fromage de chèvre)
+description:de:Der Crottin de Chavignol oder auch nur Chavignol ist ein französischer Weichkäse aus Ziegenmilch, der mindestens 10 Tage lagern muss, um seine charakteristische kompakt-feste und bröckelige Konsistenz und sein dezentes, aber charakteristisches Ziegenaroma von Nussigkeit und leichter Säuerlichkeit zu erreichen.
+description:en:Crottin de Chavignol is a goat cheese produced in the Loire Valley.
+description:es:El Crottin de Chavignol, es un queso de cabra francés de la región Centro (antigua provincia de Berry), que se beneficia de una AOC desde 1976, y DOP a nivel europeo.
+description:fr:Le crottin de Chavignol est un fromage de chèvre français originaire du village berrichon de Chavignol situé dans le département du Cher, la région Centre-Val de Loire et la région naturelle du Sancerrois. Il bénéficie d'une appellation d'origine contrôlée (AOC) depuis 1976 et de l'appellation d'origine protégée (AOP) depuis 1996.
+description:nl:De Crottin de Chavignol is een Franse kaas, een van de vele Franse geitenkazen uit de vallei van de Loire.
 
 <en:goat cheese
 en:Picodon cheese from goat's milk
@@ -9432,26 +9463,6 @@ fr:Rocamadour fromage de chèvre, fromage Rocamadour
 ciqual_food_code:en:12847
 ciqual_food_name:en:Rocamadour cheese, from goat's milk
 ciqual_food_name:fr:Rocamadour (fromage de chèvre)
-
-<en:cheese
-fr:fromage au lait de vache bio thermisé
-ca:formatge de llet de vaca ecológic
-es:queso de leche de vaca ecológica
-
-<en:cheese
-# <en:cow's milk
-# <en:pasteurized
-fr:fromage au lait de vache pasteurisé
-ca:formatge de llet de vaca pasteuritzada
-es:queso de leche de vaca pasteurizada
-# fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
-
-<en:cheese
-fr:Fromage au lait cru de vache
-ca:formatge de llet de vaca crua
-es:queso de leche de vaca cruda
-# ingredient/fr:fromage-au-lait-cru-de-vache has 15 products in french @2019-05-24
-
 
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 
