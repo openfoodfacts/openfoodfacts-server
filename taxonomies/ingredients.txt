@@ -788,8 +788,14 @@ de:Stabilisator E407
 es:estabilizante E407
 fr:stabilisant e407
 
+<en:agar
+en:Seaweed agar raw
+fr:agar cru
+ciqual_food_code:en:11084
+ciqual_food_name:en:Seaweed, agar, raw
+ciqual_food_name:fr:Agar (algue), cru
 
-#   TRAGACANTH   is a natural gum obtained from the dried sap of several species of Middle Eastern legumes of the genus Astragalus
+#description:en:TRAGACANTH is a natural gum obtained from the dried sap of several species of Middle Eastern legumes of the genus Astragalus
 
 en:Tragacanth, E413, E-413, E 413
 ar:صمغ الكثيراء
@@ -9392,6 +9398,41 @@ ca:formatge de llet de cabra pasteuritzada
 es:queso de leche de cabra pasteurizada
 # fr:fromage-de-chèvre-au-lait-pasteurisé has 44 products in 1 language @2018-10-27
 
+<en:goat cheese
+en:Crottin cheese, Crottin cheese from goat's milk
+fr:crottin, Crottin de chèvre sans précision
+ciqual_food_code:en:12833
+ciqual_food_name:en:Crottin cheese, from goat's milk
+ciqual_food_name:fr:Crottin de chèvre, sans précision
+
+<en:Crottin cheese
+en:Crottin de Chavignol, Crottin de Chavignol cheese from goat's milk
+fr:Crottin de Chavignol, Crottin de Chavignol fromage de chèvre
+ciqual_food_code:en:12834
+ciqual_food_name:en:Crottin de Chavignol cheese, from goat's milk
+ciqual_food_name:fr:Crottin de Chavignol (fromage de chèvre)
+
+<en:goat cheese
+en:Picodon cheese from goat's milk
+fr:Picodon, Picodon fromage de chèvre
+ciqual_food_code:en:12836
+ciqual_food_name:en:Picodon cheese, from goat's milk
+ciqual_food_name:fr:Picodon (fromage de chèvre)
+
+<en:goat cheese
+en:Sainte Maure cheese, Sainte Maure cheese from goat's milk
+fr:Sainte-Maure fromage de chèvre, fromage chèvre Sainte Maure
+ciqual_food_code:en:12842
+ciqual_food_name:en:Sainte Maure cheese, from goat's milk
+ciqual_food_name:fr:Sainte-Maure (fromage de chèvre)
+
+<en:goat cheese
+en:Rocamadour cheese, Rocamadour cheese from goat's milk
+fr:Rocamadour fromage de chèvre, fromage Rocamadour
+ciqual_food_code:en:12847
+ciqual_food_name:en:Rocamadour cheese, from goat's milk
+ciqual_food_name:fr:Rocamadour (fromage de chèvre)
+
 <en:cheese
 fr:fromage au lait de vache bio thermisé
 ca:formatge de llet de vaca ecológic
@@ -9410,6 +9451,7 @@ fr:Fromage au lait cru de vache
 ca:formatge de llet de vaca crua
 es:queso de leche de vaca cruda
 # ingredient/fr:fromage-au-lait-cru-de-vache has 15 products in french @2019-05-24
+
 
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 
@@ -61703,7 +61745,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
-#descrption:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
+#description:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 
 <en:algae
 en:chlorella
@@ -61963,7 +62005,7 @@ nl:Lithothamnium calcareum
 # ingredient/fr:Lithothamnium-calcareum has 71 products @2020-05-12
 
 
-#descrption:en:Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
+#description:en:Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
 
 <en:algae
 en:dulse
@@ -62746,7 +62788,7 @@ fr:Bolet pinicole
 it:Porcino rosso
 la:Boletus pinophilus, Boletus pinicola, pinicola
 
-# description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
+#description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 
 <en:mushroom
 en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, white mushroom, cup mushroom
