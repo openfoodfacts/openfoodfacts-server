@@ -47,7 +47,7 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,CSRF_SECRET,GEOLITE2_PATH
-        # script_stop: true
+        script_stop: true
         debug: true
         script: |
           # Clone Git repository if not already there
@@ -64,13 +64,13 @@ jobs:
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
-          echo "PRODUCT_OPENER_DOMAIN=${PRODUCT_OPENER_DOMAIN}" > .env
-          echo "ROBOTOFF_URL=${ROBOTOFF_URL}" > .env
-          echo "GOOGLE_CLOUD_VISION_API_KEY=${GOOGLE_CLOUD_VISION_API_KEY}" > .env
-          echo "CROWDIN_PROJECT_IDENTIFIER=${CROWDIN_PROJECT_IDENTIFIER}" > .env
-          echo "CROWDIN_PROJECT_KEY=${CROWDIN_PROJECT_KEY}" > .env
-          echo "CSRF_SECRET=${CSRF_SECRET}" > .env
-          echo "GEOLITE2_PATH=${GEOLITE2_PATH}" > .env
+          echo "PRODUCT_OPENER_DOMAIN=${PRODUCT_OPENER_DOMAIN}" >> .env
+          echo "ROBOTOFF_URL=${ROBOTOFF_URL}" >> .env
+          echo "GOOGLE_CLOUD_VISION_API_KEY=${GOOGLE_CLOUD_VISION_API_KEY}" >> .env
+          echo "CROWDIN_PROJECT_IDENTIFIER=${CROWDIN_PROJECT_IDENTIFIER}" >> .env
+          echo "CROWDIN_PROJECT_KEY=${CROWDIN_PROJECT_KEY}" >> .env
+          echo "CSRF_SECRET=${CSRF_SECRET}" >> .env
+          echo "GEOLITE2_PATH=${GEOLITE2_PATH}" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${PRODUCT_OPENER_DOMAIN}/g" ./frontend-git/conf/nginx.conf
