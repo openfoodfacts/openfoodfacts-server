@@ -9354,7 +9354,6 @@ es:queso de leche de vaca cruda
 # GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
 <en:cheese
-# <en:goat's milk
 en:goat cheese, chèvre cheese
 ar:جبن الماعز
 bn:ছাগল পনির
@@ -9500,7 +9499,6 @@ ciqual_food_name:fr:Rocamadour (fromage de chèvre)
 # description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 
 <en:cheese
-# <en:sheeps milk
 # <en:category:en:Cheeses
 en:sheep's-milk cheese, Sheep Cheeses, Cheeses from sheep milk
 ca:formatge de llet d'ovella, formatges d'ovella, formatges de llet d'ovella, formatge d'ovella
@@ -9713,22 +9711,37 @@ wikidata:en:Q27972032
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Specific named cheeses start here
 
-<en:cheese
+<en:cow cheese
 en:Abondance,Abondance cheese from cow's milk
-nl:abondance
+ar:أبوندانس
+eo:fromaĝo de Abundeco
+hy:Աբոնդանս
+ja:アボンダンス
+ko:아봉당스
+ru:Абонданс
+uk:Абонданс
+xx:abondance
+wikidata:en:Q322899
+wikipedia:en:https://en.wikipedia.org/wiki/Abondance_cheese
 ciqual_food_code:en:12112
 ciqual_food_name:en:Abondance cheese, from cow's milk
 ciqual_food_name:fr:Abondance
+description:de:Der Abondance ist ein französischer halbfester Schnittkäse aus Rohmilch. Abondance ist seit 1996 eine geschützte Ursprungsbezeichnung, die Herstellung darf nur in ausgewählten Gemeinden des Département Haute-Savoie erfolgen.
+description:en:Abondance is a semi-hard, fragrant, raw-milk cheese made in the Haute-Savoie department of France.
+description:es:El Abondance o tomme d'Abondance es un queso francés con denominación de origen, elaborado en el departamento de Alta Saboya, cerca de la frontera con Suiza. Se trata de una región montañosa, entre el lago Lemán y el país del Mont Blanc.
+description:fr:L'Abondance est un fromage au lait cru français fabriqué en Haute-Savoie, qui bénéficie d'une appellation d'origine protégée.
+description:it:L'Abondance è un formaggio francese a pasta pressata e cotta prodotto in Savoia.
+description:nl:De Abondance is een kaas afkomstig uit de vallei van de Abondance, de Chablaisvallei, ten zuiden van het Meer van Genève. Hij is een van de 44 Franse kazen die het roodgele Europese AOP-keurmerk mag voeren.
 
 
 # description:en:Asiago is an Italian cow's milk cheese that can assume different textures, according to its aging, from smooth for the fresh Asiago (called Asiago Pressato, which means 'Pressed Asiago') to a crumbly texture for the aged cheese (Asiago d'allevo, which means 'Breeding farm Asiago').
 
-<en:cheese
+<en:cow cheese
 en:asiago, Asiago cheese
-de:Asiago
 es:queso asiago, queso asiago
 fr:Asiago, Asiago AOP, fromage asiago, fromage Asiago AOP
 it:Asiago, formaggio Asiago, formaggio Asiago DOP
+xx:Asiago, Asiago AOP
 wikidata:en:Q727210
 wikipedia:en:https://en.wikipedia.org/wiki/Asiago_cheese
 # ingredient/asiago has 1014 products in 5 languages @2021-08-14
