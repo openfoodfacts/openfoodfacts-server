@@ -9840,6 +9840,7 @@ ca:camembert de llet pasteuritzada
 es:camembert de leche pasteurizada
 # ingredient/fr:camembert-au-lait-pasteurisé has 15 products in 4 languages @2019-02-17
 
+#category:en: en:cantal
 <en:cow cheese
 en:cantal
 ar:كانتال
@@ -10035,17 +10036,14 @@ wikidata:en:Q174539
 wikipedia:en:https://en.wikipedia.org/wiki/Gloucester_cheese
 
 
-#description:en:EDAM (Dutch:Edammer) is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
 
 <en:cheese
 en:edam, edam cheese, Edam cheese from cow's milk
-af:Edam
 bg:Едамер
 ca:Formatge edam
 cs:Eidam
 cv:Эдам
 cy:Edammer
-da:edam
 de:Edamer, Edamer-Käse
 eo:edama fromaĝo
 es:edam, queso edam
@@ -10066,7 +10064,6 @@ mk:Едамер
 ms:Keju Edam
 nb:Edamerost
 nl:edam, edammer, Edammer kaas
-pl:Edam
 pt:Edam, queijo edam
 ru:Эдам
 sk:Eidamský syr
@@ -10076,6 +10073,7 @@ sv:edamer, Edamerost
 tl:Keso de bola
 tr:Edam peyniri
 uk:Едам
+xx:Edam
 zh:埃德姆芝士
 # ast:Quesu edam
 # de-ch:Edamer
@@ -10090,6 +10088,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
 ciqual_food_name:fr:Edam
+description:de:Edamer ist ein Käse mit dem Ursprungsort Edam. Als „Edam Holland“ ist er seit 2010 ein Produkt mit geschützter geografischer Angabe.
+description:en:EDAM is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
+description:es:El queso edam es un queso neerlandés que se ha elaborado tradicionalmente en forma de bolas o esferas recubiertas de parafina de color rojo o amarillo. El nombre del queso proviene de la ciudad de Edam.
+description:it:L’édam est un fromage des Pays-Bas, traditionnellement vendu sous forme d'une boule de fromage jaune pâle enveloppée dans une pellicule épaisse de paraffine jaune ou rouge.
+description:it:L'edam è un formaggio a base di latte vaccino con l'aggiunta di caglio animale tipico dei Paesi Bassi, venduto in forme dalla pasta giallo tenue e con una sottile protezione di cera rossastra.
+description:nl:Edammer kaas of kortweg edammer is een bolvormige Nederlandse harde kaassoort, die van oorsprong verhandeld werd vanuit de stad Edam. De bekende kleur van de kaas is rood.
+description:pt:O queijo Edam é um queijo semi-duro típico da cidade de Edam, na província da Holanda do Norte, nos Países Baixos.
 
 
 #description:en:EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern.
