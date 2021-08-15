@@ -9792,7 +9792,6 @@ wikidata:en:Q193411
 wikipedia:en:https://en.wikipedia.org/wiki/Brie
 
 
-# CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese.
 
 <en:cheese
 en:camembert, camembert cheese
@@ -9800,55 +9799,27 @@ ar:كامامبير
 az:Kamamber
 be:Камамбер
 bg:Камамбер
-ca:camembert
-cs:camembert
 cv:Камамбер
-cy:Camembert
-da:camembert
-de:Camembert
 el:Καμαμπέρ
 eo:kamemberto
-es:camembert
 et:Kamambäär
-eu:Camembert
 fa:کامامبر
-fi:camembert
-fr:camembert
-gl:Camembert
 he:קממבר
 hu:camembert, camembert sajt
-id:Camembert
-it:camembert
 ja:カマンベールチーズ
-jv:Camembert
 kk:Камамбер
 ko:카망베르
-la:Camembert
-lb:Camembert
 lv:kamambērs
 mk:Камамбер
-ms:Camembert
-nb:camembert
-nl:camembert
-pl:camembert
-pt:camembert
-ro:camembert
 ru:Камамбер
-sk:camembert
 sl:Kamamber
 sr:kamamber
-sv:camembert
-sw:Camembert
-tr:Camembert
 uk:Камамбер
-vi:Camembert
 yi:קאמעמבערט
+xx:camembert
 zh:卡芒贝尔奶酪
-# bar:Camembert
 # be-tarask:Камамбэр
-# en-gb:Camembert
 # gsw:Dr Kamamber-Chees
-# sco:camembert
 # yue:金文拔芝士
 # zh-cn:卡芒贝尔奶酪
 # zh-hans:卡芒贝尔奶酪
@@ -9861,6 +9832,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Camembert
 # ingredient/fr:camembert has 23 products @2019-02-17
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
 carbon_footprint_fr_foodges_value:fr:4.3
+description:en:CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese.
 
 <en:camembert
 fr:camembert au lait pasteurisé
@@ -9868,9 +9840,26 @@ ca:camembert de llet pasteuritzada
 es:camembert de leche pasteurizada
 # ingredient/fr:camembert-au-lait-pasteurisé has 15 products in 4 languages @2019-02-17
 
-<en:cheese
+<en:cow cheese
 en:cantal
-fr:cantal
+ar:كانتال
+fa:کانتال
+hy:Կանտալ
+ja:カンタル
+jv:Kèju cantal
+ko:캉탈
+ru:Канталь
+uk:Канталь
+xx:cantal
+zh:康塔爾芝士
+wikidata:en:Q681539
+wikipedia:en:https://en.wikipedia.org/wiki/Cantal_cheese
+description:de:Cantal, auch Fourme de Cantal oder Cantalet genannt, ist eine alte französische Rohmilchkäsesorte aus der Auvergne, die aus der Milch der Salers-Rinder hergestellt wird. 
+description:en:Cantal cheese is an uncooked firm cheese produced in the Auvergne region of central France.
+description:es:El Cantal es un queso francés de pasta prensada cruda, en forma de cilindro, originario del Macizo Central fabricado a partir de leche de vaca cruda o pasteurizada.
+description:fr:Le cantal (ou fourme de cantal) est un fromage français AOP à pâte pressée non cuite, originaire du Massif central et fabriqué à partir de lait cru de vache ou pasteurisé.
+description:it:Cantal è un formaggio francese DOP a pasta pressata non cotta, originario del Massiccio Centrale e fabbricato a partire da latte crudo o pastorizzato di vacca
+description:nl:Cantal is een Franse AOP-kaas van het type harde kaas, geproduceerd in het departement Cantal, in Auvergne.
 
 <en:cantal
 en:Cantal cheese half matured from cow's milk
