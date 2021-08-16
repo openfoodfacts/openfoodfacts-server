@@ -104,4 +104,4 @@ jobs:
         script_stop: false
         debug: true
         script: |
-          sudo docker system prune -a
+          sudo docker system prune -a -f
