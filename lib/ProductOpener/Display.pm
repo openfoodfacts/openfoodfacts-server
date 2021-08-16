@@ -2528,15 +2528,6 @@ sub display_list_of_tags_translate($$) {
 		# $html .= "<h3>" . sprintf(lang("translate_taxonomy_to"), $Lang{$tagtype . "_p"}{$lang}, $Languages{$lc}{$lc}) . "</h3>";
 		# Display the message in English until we have translated the translate_taxonomy_to message in many languages,
 		# to avoid mixing local words with English words
-		$html .= "<h3>" . sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en}) . "</h3>";
-
-		$html .= "<p>" . lang("translate_taxonomy_description") . "</p>";
-
-		$html .= '<p id="counts"><COUNTS></p>';
-
-
-		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang})
-		. "</th><th>" . $Lang{save}{$lang} . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . "</tr></thead>\n<tbody>\n";
 
 		$template_data_ref_tags_translate->{tagtype_s} =  ucfirst($Lang{$tagtype . "_s"}{$lang});
 		$template_data_ref_tags_translate->{translate_taxonomy} = sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en});
@@ -2684,20 +2675,6 @@ sub display_list_of_tags_translate($$) {
 
 			my $google_translate_link = "https://translate.google.com/#view=home&op=translate&sl=en&tl=$lc&text=$escaped_synonyms";
 
-			$html .= <<HTML
-<tr><td>
-<a href="$link"$nofollow target="_blank">$display</a> $synonyms<br />
-<input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
-<div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
-$new_translation
-<span style="font-size: 80%;">&rarr; <a href="$google_translate_link" target="_blank">Google Translate</a></span>
-</td>
-<td>
-<div id="save_${j}_div"><button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button></div>
-</td>
-<td style="text-align:right">$products</td></tr>
-HTML
-;
 			push(@tagcounts, {
 				link => $link,
 				display => $display,
@@ -2707,26 +2684,20 @@ HTML
 				tagid => $tagid,
 				google_translate_link => $google_translate_link,
 				new_translation => $new_translation,
+				products => $products
 			});
 
 
 		}
 
-		$template_data_ref_tags_translate->{tagcounts} = @tagcounts;
+		$template_data_ref_tags_translate->{tagcounts} = \@tagcounts;
 		$template_data_ref_tags_translate->{tagtype} = $tagtype;
-
-		$html .= "</tbody></table></div>";
 
 
 		my $counts = ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang}
 		. " (" . lang("translated") . " : $translated, " . lang("to_be_translated") . " : $to_be_translated)";
 
 		$html =~ s/<COUNTS>/$counts/;
-
-		$html .= <<HTML
-<input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />
-HTML
-;
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
