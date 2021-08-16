@@ -65,7 +65,7 @@ jobs:
           git fetch --depth 1
 
           # Checkout current commit SHA
-          git checkout -q ${{ github.sha }}
+          git checkout -qf ${{ github.sha }}
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
