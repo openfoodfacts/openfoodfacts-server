@@ -49,11 +49,15 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
+use strict;
+use utf8;
 
 # server constants
 $server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
-@ssl_subdomains = qw();
+@ssl_subdomains = qw(
+*
+);
 
 # server paths
 $www_root = "/opt/product-opener/html";
