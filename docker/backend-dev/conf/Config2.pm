@@ -39,6 +39,10 @@ BEGIN
 		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
+		$google_cloud_vision_api_key
+		$crowdin_project_identifier
+		$crowdin_project_key
+		$csrf_secret
 		$robotoff_url
 		%server_options
 	);
