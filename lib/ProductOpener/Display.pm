@@ -7028,12 +7028,12 @@ sub display_page($) {
 	my $canon_url = $formatted_subdomain;
 
 	if (defined $request_ref->{canon_url}) {
-		if ($request_ref->{canon_url} =~ /^http:/) {
-			$canon_url = $request_ref->{canon_url};
-		}
-		else {
-			$canon_url .= $request_ref->{canon_url};
-		}
+		if ($request_ref->{canon_url} =~ /^(http|https):/) {
+            $canon_url = $request_ref->{canon_url};
+        }
+        else {
+            $canon_url .= $request_ref->{canon_url};
+        }
 	}
 	elsif (defined $request_ref->{canon_rel_url}) {
 		$canon_url .= $request_ref->{canon_rel_url};
@@ -7107,7 +7107,7 @@ sub display_page($) {
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
-	
+
 	if (defined $request_ref->{page_type}) {
 		$template_data_ref->{page_type} = $request_ref->{page_type};
 	}
@@ -7200,7 +7200,7 @@ if ($.cookie('hide_image_banner_2020') == '1') {
 	$('#donate_banner').remove();
 }
 else {
-	$('#hide_image_banner').prop('checked', false);	
+	$('#hide_image_banner').prop('checked', false);
 	$('#donate_banner').show();
 	$('#hide_image_banner').change(function () {
 		if ($('#hide_image_banner').prop('checked')) {
@@ -7211,18 +7211,18 @@ else {
 }
 JS
 	}
-	
+
 	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
 
 	if ($server_options{producers_platform}) {
 
 		$tagline = "";
-	}	
+	}
 
 	# Display a banner from users on Android or iOS
 
 	my $user_agent = $ENV{HTTP_USER_AGENT};
-	
+
 	# add a user_agent parameter so that we can test from desktop easily
 	if (defined param('user_agent')) {
 		$user_agent = param('user_agent');
@@ -7261,13 +7261,13 @@ JS
 			text => lang("app_banner_text"),
 		};
 	}
-	
+
 	# Extract initjs code from content
-	
+
 	if ($$content_ref =~ /<initjs>(.*)<\/initjs>/s) {
 		$$content_ref = $` . $';
 		$initjs .= $1;
-	}	
+	}
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
@@ -7829,6 +7829,10 @@ CSS
 
 	$request_ref->{canon_url} = product_url($product_ref);
 
+	if ($lc eq 'en') {
+		$request_ref->{canon_url} = $world_subdomain . product_url($product_ref);
+	}
+
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
@@ -7845,7 +7849,7 @@ CSS
 		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
 		return 301;
 	}
-	
+
 	# On the producers platform, show a link to the public platform
 	if ($server_options{producers_platform}) {
 		my $public_product_url = "https:\/\/$cc.${server_domain}" . $request_ref->{canon_url};
@@ -7936,18 +7940,18 @@ CSS
 		}
 		foreach my $source_id (sort keys %unique_sources) {
 			my $source_ref = $unique_sources{$source_id};
-			
+
 			if (not defined $source_ref->{name}) {
 				$source_ref->{name} = $source_id;
 			}
-			
+
 			push @{$template_data_ref->{unique_sources}}, $source_ref;
 		}
 	}
 
 	# If the product has an owner, identify it as the source
 	if ((not $server_options{producers_platform}) and (defined $product_ref->{owner}) and ($product_ref->{owner} =~ /^org-/)) {
-			
+
 		# Organization
 		my $orgid = $';
 		my $org_ref = retrieve_org($orgid);
@@ -7955,29 +7959,29 @@ CSS
 			$template_data_ref->{owner} = $product_ref->{owner};
 			$template_data_ref->{owner_org} = $org_ref;
 		}
-		
+
 		# Indicate data sources
-		
+
 		if (defined $product_ref->{data_sources_tags}) {
 			foreach my $data_source_tagid (@{$product_ref->{data_sources_tags}}) {
 				if ($data_source_tagid =~ /^database/) {
 					$data_source_tagid =~ s/-/_/g;
-					
+
 					if ($data_source_tagid eq "database_equadis") {
 						$template_data_ref->{"data_source_database_equadis"}
-							= sprintf(lang("data_source_database_equadis"), 
-							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>', 
+							= sprintf(lang("data_source_database_equadis"),
+							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
 							'<a href="/data-source/database-equadis">Equadis</a>');
 					}
 					elsif ($data_source_tagid eq "database_codeonline") {
 						$template_data_ref->{"data_source_database_codeonline"}
-							= sprintf(lang("data_source_database"), 
-							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>', 
+							= sprintf(lang("data_source_database"),
+							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
 							'<a href="/data-source/database-codeonline">CodeOnline Food</a>');
-							
+
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} = lang("data_source_database_note_about_the_producers_platform");
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} =~ s/<producers_platform_url>/$producers_platform_url/g;
-					}					
+					}
 				}
 			}
 		}
@@ -8025,7 +8029,7 @@ CSS
 	if (not defined $ingredients_text) {
 		$ingredients_text = "";
 	}
-	
+
 	$ingredients_text =~ s/\n/<br>/g;
 
 	# Indicate if we are displaying ingredients in another language than the language of the interface
@@ -8344,13 +8348,13 @@ HTML
 
 
 	# Packaging
-	
+
 	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight);
 
 	# try to display packaging in the local language if available
 
 	my $packaging_text = $product_ref->{packaging_text};
-	
+
 	my $packaging_text_lang = $product_ref->{lc};
 
 	if ((defined $product_ref->{"packaging_text" . "_" . $lc}) and ($product_ref->{"packaging_text" . "_" . $lc} ne '')) {
@@ -8363,30 +8367,30 @@ HTML
 	}
 
 	$packaging_text =~ s/\n/<br>/g;
-	
+
 	$template_data_ref->{packaging_text} = $packaging_text;
 	$template_data_ref->{packaging_text_lang} = $packaging_text_lang;
 
 	# packagings data structure
 	$template_data_ref->{packagings} = $product_ref->{packagings};
-	
+
 	# Environmental impact and Eco-Score
 	# Limit to the countries for which we have computed the Eco-Score
 	# for alpha test to moderators, display eco-score for all countries
-	
+
 	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-		
+
 		localize_ecoscore($cc, $product_ref);
-		
+
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
 	}
-	
+
 	# Forest footprint
-	# 2020-12-07 - We currently display the forest footprint in France 
+	# 2020-12-07 - We currently display the forest footprint in France
 	# and for moderators so that we can extend it to other countries
 	if (($cc eq "fr") or ($User{moderator})) {
 		# Forest footprint data structure
@@ -8508,13 +8512,13 @@ HTML
 
 	# Compute attributes and embed them as JSON
 	# enable feature for moderators
-	
+
 	if ($user_preferences) {
-	
+
 		# A result summary will be computed according to user preferences on the client side
 
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
-		
+
 		my $product_attribute_groups_json = decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
 		my $preferences_text = lang("choose_which_information_you_prefer_to_see_first");
 
@@ -8532,9 +8536,9 @@ JS
 
 		$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
-display_product_summary("#product_summary", product); 
+display_product_summary("#product_summary", product);
 JS
-;	
+;
 	}
 
 	my $html_display_product;
