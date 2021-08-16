@@ -32,7 +32,6 @@ BEGIN
 		@ssl_subdomains
 		$data_root
 		$www_root
-		$geolite2_path
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
@@ -59,7 +58,7 @@ $server_domain = $ENV{PRODUCT_OPENER_DOMAIN} || "productopener.localhost";
 $www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
 
-$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+# $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
 $mongodb = "off";
 $mongodb_host = "mongodb://mongodb:27017";
@@ -74,7 +73,7 @@ $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY} || '';
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER} || '';
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY} || '';
 $csrf_secret = $ENV{CSRF_SECRET} || '';
-#$geolite2_path = $ENV{GEOLITE2_PATH} || '';
+$geolite2_path = $ENV{GEOLITE2_PATH} || '';
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
@@ -82,7 +81,9 @@ $robotoff_url = $ENV{ROBOTOFF_URL} || '';
 
 %server_options = (
         private_products => 0,  # 1 to make products visible only to the owner (producer platform)
-        export_servers => { public => "off", experiment => "off-exp" },
-		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+		minion_backend => { Pg => '' },
+		minion_local_queue => $server_domain,
+		cookie_domain => $server_domain,
+		ip_whitelist_session_cookie => ["", ""]
 );
 1;
