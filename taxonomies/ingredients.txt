@@ -6196,6 +6196,9 @@ hu:köpült vaj
 nl:gekarnde boter
 # ingredient/churned-butter has 71 products in 3 languages @2019-07-10
 
+<en:churned butter
+fr:beurre de baratte demi-sel
+
 # description:en:PASTEURIZED BUTTER is butter created from pasteurized milk
 
 <en:butter
@@ -6234,6 +6237,10 @@ de:Deutsche Markenbutter mildgesäuert
 <en:butter
 fr:beurre d'isigny AOP
 # ingredient/fr:beurre-d'isigny-AOP has 60 products in 4 languages @2019-07-10
+
+<en:salted butter
+<fr:beurre d'isigny AOP
+fr:beurre salé d'Isigny
 
 <en:butter
 en:Charentes butter PDO
@@ -45606,7 +45613,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bamboo
 # vegetable fiber (bamboo, chicory, potato)
 # Légumes (pousses d'haricots mungo, oignons, haricots verts, chou blanc, bambou, carottes, pommes de terre)
 
-# Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
+# description:en:Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
 
 <en:bamboo
 en:bamboo shoot, bamboo sprouts
@@ -45720,7 +45727,7 @@ de:Galactooligosaccharide aus Lactose
 fr:Galacto-oligosaccharides - issus du lactose
 it:Galatto-oligosaccaridi di lattosio
 
-# BEETROOT is the taproot portion of the beet plant
+# description:en:BEETROOT is the taproot portion of the beet plant
 
 <en:root vegetable
 en:beetroot, beet
@@ -45962,7 +45969,7 @@ nl:broccoli cress
 # en:broccoli-cress has 1 product in 1 language @2018-10-16
 
 
-# CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
+# description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 
 <en:vegetable
 en:cauliflower
@@ -45992,7 +45999,7 @@ fr:Choux-fleurs en fleurettes
 nl:Bloemkoolroosjes
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
 
-# CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
+# description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 
 <en:vegetable
 en:cabbage
@@ -46026,7 +46033,7 @@ fr:Chou pommé, Chou cabus
 carbon_footprint_fr_foodges_ingredient:fr:Chou pommé
 carbon_footprint_fr_foodges_value:fr:0.8
 
-# Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
+# description:en:Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 # There is an issue with the wikidata item, it mixes white cabbage and cabbage.
 
 <en:cabbage
@@ -46356,7 +46363,7 @@ wikidata:en:Q1677369
 wikipedia:en:https://en.wikipedia.org/wiki/Gai_lan
 # ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
 
-# SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
+# description:en:SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
 
 # en:sauerkraut can be a compound ingredient, i.e. Sauerkraut (Weißkohl, Salz)
 
@@ -46450,7 +46457,7 @@ fr:jus de choucroute
 nl:zuurkoolsap
 # en:sauerkraut-juice has 8 products in 3 languages @2018-10-19
 
-# The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
+# description:en:The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
 
 <en:root vegetable
 en:carrot
@@ -65169,7 +65176,7 @@ tl:Tatampal
 tr:Bayağı pisi balığı
 wikipedia:en:https://en.wikipedia.org/wiki/Flounder
 
-# The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish.
+# description:en:The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish.
 
 <en:fish
 <en:rockfish
@@ -65386,7 +65393,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/North_Pacific_hake
 # structure:inner:role:synonym, eg nasello del Pacifico (Merluccius productus)
 
 
-# The Argentine hake (Merluccius hubbsi) is a merluccid hake of the genus Merluccius, found in the southwestern Atlantic Ocean
+# description:en:The Argentine hake (Merluccius hubbsi) is a merluccid hake of the genus Merluccius, found in the southwestern Atlantic Ocean
 
 <en:hake
 en:Argentine hake
@@ -65576,7 +65583,7 @@ vi:Cá sòng
 wikidata:en:Q982933
 wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
 # ingredient/fr:chinchard has 1 product in french @2019-01-01
-# Oarfish are large, greatly elongated, pelagic lampriform fish belonging to the small family Regalecidae
+# description:en:Oarfish are large, greatly elongated, pelagic lampriform fish belonging to the small family Regalecidae
 
 <en:fish
 en:Common dab
@@ -65998,7 +66005,7 @@ en:smoked atlantic salmon
 de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
 
-# The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family.
+# description:en:The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family.
 
 <en:salmon
 en:chum salmon
@@ -67365,7 +67372,7 @@ ciqual_food_code:en:26042
 ciqual_food_name:en:Turbot, raw, wild
 ciqual_food_name:fr:Turbot sauvage, cru
 
-# Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
+# description:en:Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
 
 <en:fish
 en:weever
@@ -67398,7 +67405,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Weever
 # ingredient/fr:vive has 1 product in french @2019-01-01
 
 
-# Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
+# description:en:Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
 
 <en:fish
 <en:white fish
@@ -67511,7 +67518,7 @@ ciqual_food_name:fr:Lieu jaune ou colin, cru
 # ... Crabe, lieu, crème liquide, échalotes
 
 
-# Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
+# description:fr:Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 <en:fish
 fr:mulet
@@ -67744,7 +67751,7 @@ ja:アワビ
 pl:Mięczak
 wikipedia:en:https://en.wikipedia.org/wiki/Abalone
 
-# A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
+# description:en:A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
 # comment:en:Greek uses the same word for cockles and quinces.
 
 <en:mollusc
@@ -68180,7 +68187,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Common_octopus
 # poulpes (Octopus vulgaris)
 
 
-# Eledone moschata, the musky octopus, is a species of octopus belonging to the family Octopodidae
+# description:en:Eledone moschata, the musky octopus, is a species of octopus belonging to the family Octopodidae
 
 <en:octopus
 en:musky octopus, Eledone moschata
@@ -68426,7 +68433,7 @@ wikidata:en:Q13444410
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=394391
 
 
-# Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae.
+# description:en:Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae.
 
 <en:scallop
 en:great scallop, king scallop, St James shell, escallop, Pecten maximus
@@ -68727,7 +68734,7 @@ fr:chairs d'escargots
 #                                Squid
 #
 ###################################################################################################
-# Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
+# description:en:Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
 <en:mollusc
 en:squid
@@ -68840,7 +68847,7 @@ en:baby squid
 de:Baby-Kalmare
 es:Chipirones
 
-# Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
+# description:en:Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
 
 <en:squid
 en:argentine shortfin squid, Illex Argentinus
@@ -68857,7 +68864,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
 # ingredient/fr:Illex-Argentinus has 7 products @2019-01-07
 
 
-# The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
+# description:en:The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
 
 <en:squid
 en:Humboldt squid, Giant Squid, Chuka Ika, Dosidicus Gigas
@@ -68950,7 +68957,7 @@ es:sucedáneo de tinta de calamar
 #                                Clam
 #
 ###################################################################################################
-# Clam is a common name for several kinds of bivalve molluscs.
+# description:en:Clam is a common name for several kinds of bivalve molluscs.
 
 <en:mollusc
 en:clam, clams
@@ -69026,7 +69033,7 @@ zh:波纹巴非蛤, 波紋橫簾蛤, Paratapes undulatus
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
+# description:en:Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
 
 <en:shellfish
 en:crustacean, crustaceans
@@ -69811,7 +69818,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Aristeidae
 
 <en:deep-sea shrimp
 fr:Gambas cuites
-# Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
+# description:en:Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
 
 <en:shrimp
 en:scarlet shrimp, Plesiopenaeus Edwardsianus
