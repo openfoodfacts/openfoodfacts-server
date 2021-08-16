@@ -24801,6 +24801,11 @@ ciqual_food_name:en:Bread, gluten free
 ciqual_food_name:fr:Pain, sans gluten
 
 <en:Breads
+en:Pane carasau
+it:Pane carasau
+wikidata:en:Q1922854
+
+<en:Breads
 en:Flatbreads, Flatbread
 de:Fladenbrote, Fladenbrot
 es:Panes planos
@@ -29880,7 +29885,7 @@ en:Sushi rice, Rices for sushi
 de:Sushi Reis
 es:Arroces para sushi
 fr:Riz pour sushi
-it:Riso da sushi
+it:Riso per sushi, riso da sushi
 nl:Sushirijsten
 zh:寿司米
 
@@ -44628,6 +44633,7 @@ nl:Gepofte boekweit
 en:Puffed millet
 es:Mijo inflado, Mijo hinchado
 fr:Millet soufflé
+it:Miglio soffiato
 nl:Gepofte gierst
 
 <en:Puffed cereals
@@ -53073,7 +53079,8 @@ ciqual_food_code:en:11191
 ciqual_food_name:en:Roquefort (blue cheese) sauce, prepacked
 ciqual_food_name:fr:Sauce au roquefort, préemballée
 
-<en:Sauces
+<en:Dips
+<en:Plant-based spreads
 en:Guacamoles
 de:Guacamoles
 es:Guacamoles
@@ -53088,7 +53095,7 @@ ciqual_food_name:en:Guacamole, prepacked
 ciqual_food_name:fr:Guacamole, préemballé
 
 <en:Guacamoles
-en:Spicy guacamole
+en:Spicy guacamoles
 
 <en:Sauces
 en:Green sauces
@@ -74265,18 +74272,26 @@ fr:Baba ganousch, Baba Ghanouge
 nl:Baba ghanoush, Baba ganush
 wikidata:en:Q1072192
 
+<en:Salted spreads
+en:Sweet potato spreads
+de:Süßkartoffel-Aufstriche, Süßkartoffel-Aufstrich
+fr:Tartinades de patates douces
+
 # Don't put under houmous
 <en:Plant-based spreads
 <en:Salted spreads
 en:Lentil spreads, Lentil dips
-fr:Houmous de lentilles
+de:Linsen-Aufstriche, Linsen-Aufstrich
+fr:Tartinades de lentilles, houmous de lentilles
 
 <en:Plant-based spreads
 <en:Salted spreads
-fr:Houmous de haricots
+en:Bean spreads, bean dips
+fr:Tartinades de haricots, Houmous de haricots
 
 <en:Plant-based spreads
 <en:Salted spreads
+<en:Dips
 en:Hummus, Houmous
 bg:Хумус
 de:Hummus
@@ -74302,6 +74317,7 @@ en:Red pepper hummus
 fr:Houmous aux poivrons
 
 <en:Salted spreads
+<en:Dips
 en:Ktipiti, tirokafteri
 fr:Ktipiti
 wikidata:en:Q7809258
