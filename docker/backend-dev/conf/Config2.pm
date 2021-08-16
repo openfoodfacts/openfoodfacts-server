@@ -51,7 +51,7 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 # server constants
-$server_domain = $ENV{PRODUCT_OPENER_DOMAIN} || "productopener.localhost";
+$server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
 @ssl_subdomains = qw();
 
