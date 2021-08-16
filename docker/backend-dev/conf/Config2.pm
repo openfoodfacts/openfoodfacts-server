@@ -57,8 +57,7 @@ $server_domain = $ENV{PRODUCT_OPENER_DOMAIN} || "productopener.localhost";
 # server paths
 $www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
-
-# $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+# $geolite2_path = $ENV{GEOLITE2_PATH} || '';
 
 $mongodb = "off";
 $mongodb_host = "mongodb://mongodb:27017";
@@ -73,7 +72,6 @@ $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY} || '';
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER} || '';
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY} || '';
 $csrf_secret = $ENV{CSRF_SECRET} || '';
-$geolite2_path = $ENV{GEOLITE2_PATH} || '';
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
