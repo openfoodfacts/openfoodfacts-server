@@ -67,6 +67,8 @@ services:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
       - backend
+    environment:
+      - PRODUCT_OPENER_DOMAIN
     volumes:
       - product_images:/opt/product-opener/html/images/products
       - html_data:/opt/product-opener/html/data
