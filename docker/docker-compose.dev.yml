@@ -22,3 +22,4 @@ services:
       - type: bind
         source: ../
         target: /opt/product-opener/
+      - ./logs/nginx:/var/log/nginx

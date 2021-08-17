@@ -27,6 +27,9 @@ use Exporter    qw< import >;
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	require Exporter;
+	@ISA = qw(Exporter);
+	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		$server_domain
 		@ssl_subdomains
