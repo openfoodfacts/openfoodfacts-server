@@ -82,14 +82,6 @@ jobs:
           # Recreate containers that have a new image
           sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans 2>&1
 
-          # Import sample data into docker-compose db
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml exec -T backend bash /opt/scripts/import_sample_data.sh
-
-          # Import latest dump of mongodb production db
-          # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-          # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
-          # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
-
     - name: Check services are up
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
@@ -113,6 +105,26 @@ jobs:
             fi
           done;
           exit $exit_code;
+
+    - name: Import data into MongoDB database
+      uses: appleboy/ssh-action@master
+      if: ${{ success() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/docker/
+          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml exec -T backend bash /opt/scripts/import_sample_data.sh
+
+          # Import latest dump of mongodb production db
+          # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+          # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+          # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
