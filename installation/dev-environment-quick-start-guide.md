@@ -136,7 +136,7 @@ Once you are done building your environment, go to http://localhost:8080/
 
 
 ### 7. Optional - Import full mongodb dump
-The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB).
+The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB). Note that this doesn't contain full product details.
 ```console
 $ wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 $ docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
