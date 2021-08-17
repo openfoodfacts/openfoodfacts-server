@@ -26,7 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	require Exporter;
 	@ISA = qw(Exporter);
 	@EXPORT = qw();

@@ -53,7 +53,6 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,CSRF_SECRET,GEOLITE2_PATH
         script_stop: false
-        debug: true
         script: |
           # Clone Git repository if not already there
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
@@ -90,6 +89,30 @@ jobs:
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
           # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
           # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+
+    - name: Check services are up
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: true
+      script: |
+        cd openfoodfacts-server/docker/
+        exit_code=0
+        for service in backend frontend mongodb memcached postgres; do 
+          if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
+            echo "$service: DOWN"
+            exit_code=1
+          else
+            echo "$service: UP"
+          fi
+        done;
+        exit $exit_code;
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
