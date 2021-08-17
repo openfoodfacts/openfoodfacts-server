@@ -101,18 +101,18 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: true
-      script: |
-        cd openfoodfacts-server/docker/
-        exit_code=0
-        for service in backend frontend mongodb memcached postgres; do 
-          if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
-            echo "$service: DOWN"
-            exit_code=1
-          else
-            echo "$service: UP"
-          fi
-        done;
-        exit $exit_code;
+        script: |
+          cd openfoodfacts-server/docker/
+          exit_code=0
+          for service in backend frontend mongodb memcached postgres; do 
+            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
+              echo "$service: DOWN"
+              exit_code=1
+            else
+              echo "$service: UP"
+            fi
+          done;
+          exit $exit_code;
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
@@ -126,5 +126,5 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         debug: true
-      script: |
-        sudo docker system prune -a -f
+        script: |
+          sudo docker system prune -a -f
