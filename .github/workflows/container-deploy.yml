@@ -100,7 +100,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: true
+        script_stop: false
         script: |
           cd openfoodfacts-server/docker/
           exit_code=0
@@ -125,6 +125,5 @@ jobs:
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
-        debug: true
         script: |
           sudo docker system prune -a -f
