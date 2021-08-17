@@ -32,7 +32,7 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
-    - name: Deploy image to Proxmox VM
+    - name: Deploy Docker image to Proxmox VM
       uses: appleboy/ssh-action@master
       env:
         DOCKER_CLIENT_TIMEOUT: 120
