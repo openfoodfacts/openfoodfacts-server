@@ -2512,7 +2512,6 @@ sub display_list_of_tags_translate($$) {
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
 		$log->debug("results for aggregate MongoDB query key", { "results" => $results}) if $log->is_debug();
-		$html .= "<p>" . lang("no_products") . "</p>";
 		$request_ref->{structured_response}{count} = 0;
 
 	}
@@ -2690,14 +2689,12 @@ sub display_list_of_tags_translate($$) {
 
 		}
 
-		$template_data_ref_tags_translate->{tagcounts} = \@tagcounts;
-		$template_data_ref_tags_translate->{tagtype} = $tagtype;
-
-
 		my $counts = ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang}
 		. " (" . lang("translated") . " : $translated, " . lang("to_be_translated") . " : $to_be_translated)";
 
-		$html =~ s/<COUNTS>/$counts/;
+		$template_data_ref_tags_translate->{tagcounts} = \@tagcounts;
+		$template_data_ref_tags_translate->{tagtype} = $tagtype;
+		$template_data_ref_tags_translate->{counts} = $counts;
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
