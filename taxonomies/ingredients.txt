@@ -16221,9 +16221,30 @@ fr:plasma de porc
 
 <en:pork meat
 en:pork loin
+ca:Llom de porc
 de:Schweinelende
+es:Lomo de cerdo
+eu:Txerri-solomo
 fr:longe de porc
+gl:lombo de porco
+it:Lonza di maiale
+ko:등심
+pt:Lombo
+# pt-br:Lombo de porco
+ru:Корейка
+zh:猪里脊
 wikidata:en:Q7230136
+wikipedia:en:https://en.wikipedia.org/wiki/Pork_loin
+description:en:Pork loin is a cut of meat from a pig, created from the tissue along the dorsal side of the rib cage.
+description:es:El lomo de cerdo es cada una de las dos piezas de la carne del cerdo que están junto al espinazo y bajo las costillas del animal.
+# ingredient/pork-loin 93 products in 5 languages @2019-08-17
+
+<en:pork loin
+en:raw pork loin
+fr:longue de porc crue
+ciqual_food_code:en:28003
+ciqual_food_name:en:Pork loin, raw
+ciqual_food_name:fr:Porc, longe, crue
 
 <en:pork loin
 en:Cooked pork loin
@@ -16373,12 +16394,29 @@ fr:couenne et gras de porc
 <en:pork meat
 fr:barde de porc
 
-<en:pork meat
-en:pork fillet
-fi:porsaanfilee
+<en:pork loin
+en:pork fillet, pork tenderloin
+da:svinemørbrad
+fi:porsaanfilee, porsaan sisäfilee
 fr:filet de porc
-sv:ytterfilé av gris
-# ingredient/fr:filet-de-porc has 239 products in 4 languages @2020-12-21
+id:Babi has dalam
+jv:Babi has jero
+pl:Polędwiczka
+sv:ytterfilé av gris, fläskfilé
+vi:Nạc thăn
+zh:豬柳
+wikidata:en:Q17045135
+wikipedia:en:https://en.wikipedia.org/wiki/Pork_tenderloin
+description:en:Pork tenderloin, also called pork fillet, pork steak[1] or Gentleman's Cut, is a long thin cut of pork.
+description:nl:Varkenshaas is de meest malse spier van het varken, die zich in de rug van een varken bevindt. Het is een schuin toelopend stukje vlees.
+# ingredient/fr:filet-de-porc has 248 products in 6 languages @2021-08-17
+
+<en:pork fillet
+en:raw lean pork tenderloin
+fr:filet de porc cru
+ciqual_food_code:en:28201
+ciqual_food_name:en:Pork tenderloin, lean, raw
+ciqual_food_name:fr:Porc, filet, maigre, cru
 
 <en:pork meat
 en:pork cutlet
@@ -19279,7 +19317,14 @@ ru:Соевое масло, масло соевое, масло растител
 sv:Sojaolja, sojaböns olja
 uk:Соєва олія
 zh:大豆油
+description:de:Sojaöl (auch Sojabohnenöl, Oleum sojae) ist ein aus der Sojabohne (Glycine max) gewonnenes pflanzliches Öl, das hauptsächlich als Nahrungsmittel Verwendung findet.
 description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+description:es:El aceite de soja, a veces denominado también aceite de soya, es un aceite vegetal que procede del prensado de la soja (Glycine max). Este aceite es abundante en ácidos grasos poliinsaturados.
+description:fr:L'huile de soja est une huile végétale extraite du soja par trituration, et utilisée dans l'alimentation.
+description:it:L'olio di semi di soia, o più brevemente olio di soia, si ottiene mediante estrazione dai semi della soia attraverso una lavorazione particolare chiamata crush con l'utilizzo di solventi chimici.
+description:nl:Sojaolie is uit sojazaad gewonnen spijsolie. Sojaolie is de meest geconsumeerde plantaardige olie wereldwijd.
+description:pt:O óleo de soja é extraído da semente de soja e é utilizado como fonte de alimento.
+description:sv:Sojaolja är en fet olja, som kan utvinnas genom pressning eller extraktion av sojabönor.
 # zh-min-nan:Toā-tāu-iû
 # yue:豆油
 allergens:en: en:soybeans
@@ -19289,6 +19334,7 @@ from_palm_oil:en:no
 ciqual_food_code:en:17420
 ciqual_food_name:en:Soy oil
 ciqual_food_name:fr:Huile de soja
+# ingredient/soya-oil has 41836 products 1in 28 languages @2021-08-16
 
 <en:soya oil
 en:hydrogenated soy oil
