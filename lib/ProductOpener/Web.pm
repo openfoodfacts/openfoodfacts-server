@@ -61,6 +61,7 @@ BEGIN
 		&display_blocks
 		&display_my_block
 		&display_product_search_or_add
+		&display_field
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -217,6 +218,132 @@ sub display_product_search_or_add($)
 
 
 	return;
+}
+
+=head1 FUNCTIONS
+
+=head2 display_product_search_or_add ( $product_ref, $field )
+
+This function is used to display the one characteristic in the product's characteristics section on the product page.
+
+=cut
+
+
+# itemprop="description"
+my %itemprops = (
+"generic_name"=>"description",
+"brands"=>"brand",
+);
+
+sub display_field($$) {
+
+	my $product_ref = shift;
+	my $field = shift;
+
+	my $html = '';
+	my $template_data_ref_field = {};
+
+	$template_data_ref_field->{field} = $field;
+
+	if ($field eq 'br') {
+		process_template('web/common/includes/display_field_br.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+		return $html;
+	}
+
+	my $value = $product_ref->{$field};
+
+	# fields in %language_fields can have different values by language
+
+	if (defined $language_fields{$field}) {
+		if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
+			$value = $product_ref->{$field . "_" . $lc};
+			$value =~ s/\n/<br>/g;
+		}
+	}
+
+	if ($field eq 'states'){
+		my $to_do_status = '';
+		my $done_status = '';
+		my @to_do_status;
+		my @done_status;
+		my $state_items = $product_ref->{$field . "_hierarchy"};
+		foreach my $val (@{$state_items}){
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
+				push(@to_do_status, $val);
+			}
+			else {
+				push(@done_status, $val);
+			}
+		}
+		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
+		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
+
+		$template_data_ref_field->{to_do_status} = $to_do_status;
+		$template_data_ref_field->{done_status} = $done_status;
+
+	}
+	elsif (defined $taxonomy_fields{$field}) {
+		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+	}
+	elsif (defined $hierarchy_fields{$field}) {
+		$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
+	}
+	elsif ((defined $tags_fields{$field}) and (defined $value)) {
+		$value = display_tags_list($field, $value);
+	}
+
+	$template_data_ref_field->{value_check} = $value;
+
+	if ((defined $value) and ($value ne '')) {
+		# See https://stackoverflow.com/a/3809435
+		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
+			if ($value !~ /https?:\/\//) {
+				$value = 'http://' . $value;
+			}
+			my $link = $value;
+			$link =~ s/"|<|>|'//g;
+			my $link2 = $link;
+			$link2 =~ s/^(.{40}).*$/$1\.\.\./;
+			$value = "<a href=\"$link\">$link2</a>";
+		}
+		my $itemprop = '';
+		if (defined $itemprops{$field}) {
+			$itemprop = " itemprop=\"$itemprops{$field}\"";
+			if ($value =~ /<a /) {
+				$value =~ s/<a /<a$itemprop /g;
+			}
+			else {
+				$value = "<span$itemprop>$value</span>";
+			}
+		}
+		my $lang_field = lang($field);
+		if ($lang_field eq '') {
+			$lang_field = ucfirst(lang($field . "_p"));
+		}
+
+		$template_data_ref_field->{lang_field} = $lang_field;
+		$template_data_ref_field->{value} = $value;
+
+		if ($field eq 'brands') {
+			my $brand = $value;
+			# Keep the first one
+			$brand =~ s/,(.*)//;
+			$brand =~ s/<([^>]+)>//g;
+			$product_ref->{brand} = $brand;
+		}
+
+		if ($field eq 'categories') {
+			my $category = $value;
+			# Keep the last one
+			$category =~ s/.*,( )?//;
+			$category =~ s/<([^>]+)>//g;
+			$product_ref->{category} = $category;
+		}
+	}
+
+	process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+
+	return $html;
 }
 
 1;
