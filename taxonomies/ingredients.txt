@@ -6143,22 +6143,38 @@ wikidata:en:Q57312618
 wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_doux
 # ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
+<en:unsalted butter
+en:82% fat unsalted Butter 
+fr:Beurre à 82% MG doux
+ciqual_food_code:en:16400
+ciqual_food_name:en:Butter, 82% fat, unsalted
+ciqual_food_name:fr:Beurre à 82% MG, doux
+
+<en:unsalted butter
 en:82% fat unsalted butter
 fr:Beurre à 82% MG doux
 ciqual_food_code:en:16404
 ciqual_food_name:en:Butter, 82% fat, unsalted, easy-to-spread
 ciqual_food_name:fr:Beurre à 82% MG, doux, tendre
 
-# description:en:BEURRE DEMI-SEL is a butter with a salt percentage between 0,5 % and 3 %
-# description:fr:BEURRE DEMI-SEL - beurre avec une salinité moyenne de 0,5 % à 3 %
-
 <en:butter
+en:lightly salted butter
 fr:beurre demi-sel
 fi:vähäsuolainen voi
 hu:félig sózott vaj, félsós vaj
 nl:halfgezouten boter
 wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_demi-sel
+description:en:BEURRE DEMI-SEL is a butter with a salt percentage between 0,5 % and 3 %
+description:fr:BEURRE DEMI-SEL - beurre avec une salinité moyenne de 0,5 % à 3 %
 # ingredient/fr:beurre-demi-sel has 115 products in french @2019-07-10
+
+<en:lightly salted butter
+en:Butter 80% fat lightly salted
+fr:Beurre à 80% MG demi-sel
+ciqual_food_code:en:16402
+ciqual_food_name:en:Butter, 80% fat, lightly salted
+ciqual_food_name:fr:Beurre à 80% MG, demi-sel
+
 
 # description:fr:BEURRE SALÉ a un taux de sel supérieur à 3%
 
@@ -17899,7 +17915,7 @@ en:clarified butter
 ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
-de:Butterschmalz
+de:Butterschmalz, , geklärte Butter
 es:mantequilla clarificada
 fi:kirkastettu voi
 fr:beurre clarifié
@@ -17927,7 +17943,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
 <en:clarified butter
 en:clarified cow's butter
-de:geklärte Kuhmilchbutter, geklärte Butter
+de:geklärte Kuhmilchbutter
 
 # description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
 
