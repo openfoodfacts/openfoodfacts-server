@@ -16456,10 +16456,19 @@ en:pork cutlet
 de:schweineschnitzel
 fi:porsaanleike
 fr:escalope de porc
+ko:포크 커틀릿
+ru:свиная вырезка
 sv:grisschnitzel
 wikidata:en:Q22971811
 wikipedia:en:https://en.wikipedia.org/wiki/Pork_cutlet
 # ingredient/fr:escalope-de-porc has 5 products in 1 language @2020-12-22
+
+<en:pork cutlet
+en:raw pork ham escalope
+fr:escalope de porc crue
+ciqual_food_code:en:28460
+ciqual_food_name:en:Pork, ham escalope, raw
+ciqual_food_name:fr:Porc, escalope de jambon, crue
 
 <en:pork meat
 fr:maigre de tête de porc
@@ -52521,7 +52530,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 # Almonds
 
 <en:tree nut
-en:almond, almonds
+en:almond, almonds, Almond peeled unpeeled or blanched
 am:አልመንድ
 ar:لوز
 bg:бадеми
@@ -52535,7 +52544,7 @@ es:almendra, almendras
 et:Mandel, mandlid, mandleid
 eu:Arbendol
 fi:manteli, mantelit, mantelia
-fr:amande, amandes
+fr:amande, amandes, Amande mondée émondée blanchie
 fy:Mangel
 ga:almóinní
 gl:Améndoa
@@ -52573,8 +52582,15 @@ wikidata:en:Q184357
 # ingredient/almonds has 9611 products @2018-10-06
 carbon_footprint_fr_foodges_ingredient:fr:Amandes
 carbon_footprint_fr_foodges_value:fr:5.9
-ciqual_food_code:en:15000
-ciqual_food_name:en:Almond, (with peel)
+ciqual_food_code:en:15041
+ciqual_food_name:en:Almond, peeled, unpeeled or blanched
+ciqual_food_name:fr:Amande, mondée, émondée ou blanchie
+description:de:Der Mandelbaum (Prunus dulcis) ist eine Pflanzenart der Gattung Prunus in der Familie der Rosengewächse (Rosaceae). Seine Samen, die Mandeln, auch Mandelkerne genannt, werden als Nahrungsmittel und Kosmetikum genutzt.
+description:en:The almond (Prunus amygdalus, syn. Prunus dulcis) is a species of tree native to Iran and surrounding countries, but widely cultivated elsewhere. The almond is also the name of the edible and widely cultivated seed of this tree.
+description:es:Prunus dulcis, el almendro,1 es un árbol de la familia de las rosáceas. Prunus dulcis var. dulcis se cultiva desde hace milenios para aprovechar sus semillas, las almendras, como alimento y como materia prima para obtener su aceite.
+description:fr:L'amandier (Prunus dulcis) est une espèce d'arbres de la famille des Rosaceae. Il produit un fruit charnu à noyau (ou drupe) dont la chair devient sèche à maturité et s’ouvre en deux valves, libérant un noyau contenant une amande comestible.
+description:nl:De amandelboom (Prunus dulcis) komt van de rozenfamilie en is een kleine loofboom met als vrucht de amandel.
+description:pt:Prunus dulcis, popularmente conhecida como amendoeira é uma espécie de árvores de folhas caducas da família Rosaceae. A semente do seu fruto é geralmente considerada como um fruto seco: a amêndoa.
 
 <en:almond
 en:raw almonds
@@ -52593,6 +52609,8 @@ es:almendra con piel
 fi:kuorellinen manteli
 fr:amande brute, amandes mondées, amandes brunes
 nl:amandel met vlies
+ciqual_food_code:en:15000
+ciqual_food_name:en:Almond, (with peel)
 # ingredient/almond-with-skin has 4 products in 2 languages @2018-10-06
 
 <en:almond
@@ -67321,21 +67339,21 @@ ca:truita arc de Sant Martí
 cs:pstruh duhový
 cy:Brithyll Seithliw
 da:Regnbueørred
-de:Regenbogenforelle
+de:Regenbogenforelle, Lachsforellen
 eo:Ĉielarka truto
 es:Trucha arcoiris
 et:Vikerforell
 eu:Ortzadar-amuarrain
 fa:قزل‌آلای رنگین‌کمان
 fi:kirjolohi
-fr:truite arc-en-ciel
+fr:truite arc-en-ciel, truite saumonée
 gl:Troita arco da vella
 he:טרוטת עין-הקשת
 hr:Kalifornijska pastrva
 hu:Szivárványos pisztráng
 hy:ծիածանախայտ
 is:Regnbogasilungur
-it:rota iridea
+it:rota iridea, trota salmonata
 ja:ニジマス
 kk:Құбылмалы бахтах
 ko:무지개송어
@@ -67379,12 +67397,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
 carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
 carbon_footprint_fr_foodges_value:fr:4.9
 
+#comment:en:
 <en:rainbow trout
 en:farmed raw Rainbow trout
 fr:Truite arc en ciel crue élevage
 ciqual_food_code:en:27009
 ciqual_food_name:en:Rainbow trout, raw, farmed
 ciqual_food_name:fr:Truite arc en ciel, crue, élevage
+
+<en:rainbow trout
+en:raw salmon trout
+fr:Truite saumonée crue
+ciqual_food_code:en:27021
+ciqual_food_name:en:Salmon trout, raw
+ciqual_food_name:fr:Truite saumonée, crue
+description:fr:La truite saumonée est une appellation de truites le plus souvent de truite arc-en-ciel d'élevage, ayant la chair couleur saumon du fait de leur alimentation.
 
 <en:rainbow trout
 en:smoked rainbow trout
