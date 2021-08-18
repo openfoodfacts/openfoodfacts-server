@@ -14703,46 +14703,65 @@ zh:兔
 wikidata:en:Q9394
 wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
 
+# category:en en:rabbit-meat
 <en:rabbit
 <en:meat
 en:rabbit meat
 ca:carn de conill
-de:Hasenfleisch
+cs:králičí maso
+de:Hasenfleisch, Kaninchenfleisch
+eo:kuniklaĵo
 es:Carne de conejo
 fi:kaninliha
 fr:viande de lapin
 hu:nyúlhús
+id:Daging kelinci
+it:carne di coniglio
+ko:토끼고기
+nl:konijnenvlees
+ru:крольчатина
+uk:Кролятина
+vi:Thịt thỏ
+zh:兔肉
+wikidata:en:Q3556748
 # ingredient/rabbit-meat has 109 products in french @2019-04-19
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
 
 <en:rabbit meat
-en:Rabbit meat raw
+en:raw rabbit meat
 fr:viande de lapin crue
 ciqual_food_code:en:34001
 ciqual_food_name:en:Rabbit, meat, raw
 ciqual_food_name:fr:Lapin, viande crue
 
-<en:rabbit meat
-en:Braised rabbit meat
-fr:Viande braisée de lapin
-ciqual_food_code:en:34000
-ciqual_food_name:en:Rabbit, meat, braised
-ciqual_food_name:fr:Lapin, viande braisée
+<en:raw rabbit meat
+en:raw wild rabbit  meat 
+fr:viande de lapin de garenne crue
+ciqual_food_code:en:34003
+ciqual_food_name:en:Rabbit, wild, meat, raw
+ciqual_food_name:fr:Lapin de garenne, viande, crue
 
-<en:rabbit meat
-en:Cooked rabbit meat
-fr:Viande de lapin cuite
-ciqual_food_code:en:34002
-ciqual_food_name:en:Rabbit, meat, cooked
-ciqual_food_name:fr:Lapin, viande cuite
+#<en:rabbit meat
+#en:Braised rabbit meat
+#fr:Viande braisée de lapin
+#ciqual_food_code:en:34000
+#ciqual_food_name:en:Rabbit, meat, braised
+#ciqual_food_name:fr:Lapin, viande braisée
 
-<en:rabbit meat
-en:Cooked wild rabbit meat
-fr:Viande de lapin de garenne cuite
-ciqual_food_code:en:34004
-ciqual_food_name:en:Rabbit, wild, meat, cooked
-ciqual_food_name:fr:Lapin de garenne, viande, cuite
+#<en:rabbit meat
+#en:Cooked rabbit meat
+#fr:Viande de lapin cuite
+#ciqual_food_code:en:34002
+#ciqual_food_name:en:Rabbit, meat, cooked
+#ciqual_food_name:fr:Lapin, viande cuite
+
+#<en:rabbit meat
+#en:Cooked wild rabbit meat
+#fr:Viande de lapin de garenne cuite
+#ciqual_food_code:en:34004
+#ciqual_food_name:en:Rabbit, wild, meat, cooked
+#ciqual_food_name:fr:Lapin de garenne, viande, cuite
 
 
 ###################################################################################################
@@ -15580,6 +15599,9 @@ sv:grisbog
 wikidata:en:Q2255700
 wikipedia:de:https://de.wikipedia.org/wiki/Schweinebug
 description:de:Als Schweinebug (auch Schweineschulter) wird das Vorderbein vom Schwein bezeichnet. Es befindet sich direkt neben dem Schweinenacken.
+
+<en:pork shoulder
+fr:Epaule séchée de porc
 
 <en:pork shoulder
 en:raw Pork shoulder
