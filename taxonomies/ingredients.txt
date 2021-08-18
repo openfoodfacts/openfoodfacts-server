@@ -15569,20 +15569,31 @@ de:Schweinehackfleisch, Schweinegehacktes
 es:carne picada de cerdo
 fr:Viande de porc hachée
 
+#category:en:pork-shoulders
 <en:pork meat
 en:pork shoulder
-de:Schweineschulter
+de:Schweineschulter, Schweinebug
 es:paleta de cerdo
 fr:épaule de porc
 fi:porsaan lapa
 sv:grisbog
+wikidata:en:Q2255700
+wikipedia:de:https://de.wikipedia.org/wiki/Schweinebug
+description:de:Als Schweinebug (auch Schweineschulter) wird das Vorderbein vom Schwein bezeichnet. Es befindet sich direkt neben dem Schweinenacken.
 
 <en:pork shoulder
-en:Cooked pork shoulder
-fr:Epaule de porc cuite
-ciqual_food_code:en:28010
-ciqual_food_name:en:Pork, shoulder, cooked
-ciqual_food_name:fr:Porc, épaule, cuite
+en:raw Pork shoulder
+fr:Porc épaule crue
+ciqual_food_code:en:28001
+ciqual_food_name:en:Pork, shoulder, raw
+ciqual_food_name:fr:Porc, épaule, crue
+
+#<en:pork shoulder
+#en:Cooked pork shoulder
+#fr:Epaule de porc cuite
+#ciqual_food_code:en:28010
+#ciqual_food_name:en:Pork, shoulder, cooked
+#ciqual_food_name:fr:Porc, épaule, cuite
 
 <en:pork meat
 en:pig cheek
