@@ -62,6 +62,7 @@ BEGIN
 		&display_my_block
 		&display_product_search_or_add
 		&display_field
+		&display_data_quality_issues_and_improvement_opportunities
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -342,6 +343,61 @@ sub display_field($$) {
 	}
 
 	process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+
+	return $html;
+}
+
+=head1 FUNCTIONS
+
+=head2 display_data_quality_issues_and_improvement_opportunities( $product_ref )
+
+Display on the product page a list of data quality issues, and of improvement opportunities.
+This is for the platform for producers.
+
+=cut
+
+sub display_data_quality_issues_and_improvement_opportunities($) {
+
+	my $product_ref = shift;
+
+	my $html = "";
+	my $template_data_ref_quality_issues = {};
+	my @tagtypes;
+
+	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+
+		my $tagtype_ref = {};
+
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
+
+			$tagtype_ref->{tagtype_heading} = ucfirst(lang($tagtype . "_p"));
+			my @tagids;
+			my $description = '';
+
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+
+				if ($tagtype =~ /^data_quality/) {
+					$description = display_data_quality_description($product_ref, $tagid);
+				}
+				elsif ($tagtype eq "improvements") {
+					$description = display_possible_improvement_description($product_ref, $tagid);
+				}
+
+				push(@tagids, {
+					display_taxonomy_tag => display_taxonomy_tag($lc, $tagtype, $tagid),
+					properties => $properties{$tagtype}{$tagid}{"description:$lc"},
+					description => $description,
+				});
+
+			}
+
+			$tagtype_ref->{tagids} = \@tagids;
+			push(@tagtypes, $tagtype_ref);
+		}
+	}
+
+	$template_data_ref_quality_issues->{tagtypes} = \@tagtypes;
+	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
