@@ -8,6 +8,8 @@ services:
       - type: bind
         source: ./backend-dev/scripts/
         target: /opt/scripts/
+  frontend:
+    volumes:
       # Data mount for Robotoff static data dumps:
       # - openfoodfacts-products.jsonl.gz
       # - categories.full.json
