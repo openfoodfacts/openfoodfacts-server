@@ -280,6 +280,8 @@ sub display_field($$) {
 
 		$template_data_ref_field->{to_do_status} = $to_do_status;
 		$template_data_ref_field->{done_status} = $done_status;
+		process_template('web/common/includes/display_field_states.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+
 
 	}
 	elsif (defined $taxonomy_fields{$field}) {
@@ -323,6 +325,7 @@ sub display_field($$) {
 
 		$template_data_ref_field->{lang_field} = $lang_field;
 		$template_data_ref_field->{value} = $value;
+		process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
 
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -341,7 +344,6 @@ sub display_field($$) {
 		}
 	}
 
-	process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
