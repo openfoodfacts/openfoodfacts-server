@@ -65871,7 +65871,7 @@ ciqual_food_name:fr:Tacaud, cru
 
 # en:description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 
-<en:fish
+#<en:fish
 <en:white fish
 en:saithe, pollock
 bg:сайда
@@ -66497,9 +66497,86 @@ zh:龍脷
 <en:fish
 en:Tonguesole
 fr:sole tropicale, sole langue
+la:Cynoglossus spp
 ciqual_food_code:en:26200
 ciqual_food_name:en:Tonguesole, raw
 ciqual_food_name:fr:Sole tropicale ou Sole langue, crue
+
+<en:Tonguesole
+fr:Filet de sole tropicale
+
+<fr:Filet de sole tropicale
+fr:Filet reconstitué de SOLE tropicale
+
+<en:Tonguesole
+la:cynoglossus bilineatus
+
+<en:Tonguesole
+la:cynoglossus itinus
+
+<en:Tonguesole
+la:cynoglossus oligolepis
+
+<en:Tonguesole
+la:cynoglossus robustus
+
+
+<en:sole
+fr:Sole entière vidée
+
+<en:sole
+fr:filets de sole
+
+#category:en:common sole
+<en:sole
+en:common sole
+ar:سمكة موسى
+az:Dəniz dili
+bg:Обикновен морски език
+br:Garlizenn
+ca:llenguado
+cs:jazyk obecný
+cy:Lleden Chwithig
+da:Søtunge
+de:Seezunge
+es:Lenguado común
+eu:Mihi-arrain
+fa:حلوای دوور
+fi:Meriantura
+fr:Sole commune
+ga:Sól coiteann
+gl:linguado
+io:Soleo
+it:Sogliola comune
+la:Solea Solea
+nb:tunge
+nl:Tong
+nn:tunge
+pl:sola zwyczajna
+ru:Европейская солея
+sr:лист
+sv:Sjötunga
+tr:Bayağı dil balığı
+uk:Солія звичайна
+vi:Cá bơn thông thường
+zh:鰨
+wikidata:en:Q27773
+wikipedia:en:https://en.wikipedia.org/wiki/Common_sole
+description:de:Die Seezunge (Solea solea) gehört zur Ordnung der Plattfische (Pleuronectiformes) und ist einer der begehrtesten und teuersten Speisefische.
+description:en:The common sole, Dover sole, or black sole (Solea solea) is a species of flatfish in the family Soleidae.It is a largest fish in solea (fish) genus. Chefs prize Dover sole for its mild, buttery, sweet flavour and versatility, and for its ease of filleting.
+description:es:El lenguado común (Solea solea) es un pez plano que puede ser encontrado en los mares de aguas templadas, o en agua dulce.
+description:fr:La sole commune ou sole franche (Solea solea) est une espèce de poissons plats marins de la famille des soléidés (Soleidae). La sole est un poisson hautement commercial, très prisé des consommateurs et dont le prix est très élevé. Sa chair excellente a peu d'arêtes.
+description:it:La sogliola comune, nota anche commercialmente come sogliola, è un pesce d'acqua salata appartenente alla famiglia Soleidae. Culinariamente è uno dei pesci più apprezzati e più versatili: innumerevoli sono le ricette per la cottura delle sue carni, tra cui famosa è la sogliola alla mugnaia.
+description:nl:De tong (Solea solea) is een bruin gevlekte platvis uit de familie Soleidae (tongen).
+description:pt:O linguado comum (Solea solea) é um peixe plano que pode ser encontrado nos mares de águas temperadas, ou em água doce. 
+description:sv:Tunga (Solea solea) är en plattfisk som ingår i släktet Solea, och familjen tungefiskar.
+
+<en:common sole
+en:raw common sole
+fr:Sole crue
+ciqual_food_code:en:26058
+ciqual_food_name:en:Common sole, raw
+ciqual_food_name:fr:Sole, crue
 
 # description:en:Surimi refers to a paste made from fish or other meat.
 
@@ -72482,9 +72559,27 @@ zh:鸡肉
 # ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
-ciqual_food_code:en:36001
-ciqual_food_name:en:Hen, meat only, raw
-ciqual_food_name:fr:Poule, viande ,crue
+
+<en:chicken meat
+en:raw Chicken meat
+fr:viande de poulet sans peau crue
+ciqual_food_code:en:36003
+ciqual_food_name:en:Chicken, meat, raw
+ciqual_food_name:fr:Poulet, viande, crue
+
+
+#<en:chicken meat
+#en:raw hen meat
+#ciqual_food_code:en:36001
+#ciqual_food_name:en:Hen, meat only, raw
+#ciqual_food_name:fr:Poule, viande ,crue
+
+#<en:chicken meat
+#en:Chicken meat and skin raw
+#fr:viande de poulet et sa peau crue
+#ciqual_food_code:en:36016
+#ciqual_food_name:en:Chicken, meat and skin, raw
+#ciqual_food_name:fr:Poulet, viande et peau, cru
 
 <en:chicken meat
 en:british chicken
