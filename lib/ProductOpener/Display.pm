@@ -10536,7 +10536,7 @@ XML
 sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
-	
+
 	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -10589,6 +10589,8 @@ sub display_recent_changes {
 	my $html = "<ul>\n";
 	my $last_change_ref = undef;
 	my @cumulate_changes = ();
+	my $template_data_ref_changes = {};
+
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
 		my $change_hash = {
@@ -10636,6 +10638,9 @@ sub display_recent_changes {
 
 	$html .= "</ul>";
 	$html .= "\n<hr>" . display_pagination($request_ref, $count, $limit, $page);
+
+	$template_data_ref_changes->{display_pagination} =  display_pagination($request_ref, $count, $limit, $page);
+	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");
