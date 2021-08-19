@@ -67127,7 +67127,6 @@ ciqual_food_code:en:26194
 ciqual_food_name:en:Blue ling, raw
 ciqual_food_name:fr:Lingue bleue ou Lingue, crue
 
-#description:en:The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
 
 <en:fish
 <en:white fish
@@ -67191,13 +67190,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sparidae
 # ingredient/fr:dorade has 3 products @2018-12-30
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
 carbon_footprint_fr_foodges_value:fr:12
-# structure:outer:role:synonym,  eg:dorade (Spondyliosoma cantharus)
+description:en:The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
 
 
-# The black seabream (Spondyliosoma cantharus) is a species of Sparidae fishes.
 
+# category:en:black-seabream
 <en:seabream
-en:black sea bream
+en:black seabream
 ar:دنيس أسود
 bg:кантар
 br:Glazenn
@@ -67205,6 +67204,7 @@ ca:càntera
 cy:Merfog Du
 de:Streifenbrasse
 el:Σκαθάρι
+es:chopa
 eu:Txopa
 fi:tummasargi
 fr:Dorade grise, Canthère, Griset, Tanude
@@ -67212,7 +67212,7 @@ hr:Kantar
 la:Spondyliosoma cantharus
 lt:Kantarai
 nb:Havkaruss
-nl:Zeekarper
+nl:Zeekarper, grijze dorade
 pl:Kantar
 sh:Kantar
 sl:Kantar
@@ -67226,7 +67226,20 @@ zh:黑椎鯛
 # zh-hk:黑椎鯛
 wikidata:en:Q1135606
 wikipedia:en:https://en.wikipedia.org/wiki/Black_seabream
-# structure:inner:role:synonym,  eg:dorade (Spondyliosoma cantharus)
+description:de:Die Streifenbrasse (Spondyliosoma cantharus), ist ein Fisch aus der Familie der Meerbrassen (Sparidae), der im Ostatlantik und im Mittelmeer beheimatet ist.
+description:en:The black seabream (Spondyliosoma cantharus) is a species of Sparidae fishes. They live in northern Europe and in the Mediterranean.
+description:es:La chopa (Spondyliosoma cantharus) es un pez de la familia de los espáridos, común en la costa este del océano Atlántico y en el mar Mediterráneo.
+description:fr:La dorade grise (Spondyliosoma cantharus) est une espèce de poissons de la famille des Sparidae, également appelé canthère, griset ou tanude.
+description:it:La tanuta (Spondyliosoma cantharus), noto anche come cantaro, è un pesce di mare della famiglia Sparidae. È uno degli sparidi a distribuzione più settentrionale, si trova infatti a nord fino alla Scandinavia mentre a sud raggiunge l'Angola.
+description:nl:De zeekarper (Spondyliosoma cantharus) is een vis uit het geslacht Spondyliosoma uit de familie van Sparidae (Zeebrasems). De zeekarper wordt ook wel grijze dorade (Frans: dorade grise) genoemd. Deze vis komt voor aan de oostelijke kusten van de Atlantische Oceaan van Scandinavië tot Noord-Namibië.
+description:sv:Havsruda (Spondyliosoma cantharus) är en stimfisk från familjen havsrudefiskar (Sparidae) som lever i östra Atlanten från Skandinavien till södra Afrika.
+
+<en:black sea bream
+en:raw Black seabream
+fr:dorade grise crue, daurade grise crue, griset crue
+ciqual_food_code:en:26099
+ciqual_food_name:en:Black seabream, raw
+ciqual_food_name:fr:Dorade grise, ou daurade grise, ou griset, crue
 
 
 #description:fr:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
