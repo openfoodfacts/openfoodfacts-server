@@ -9505,6 +9505,9 @@ uk:Сент-Мор-де-Турен
 xx:Sainte-Maure de Touraine
 wikidata:en:Q652628
 wikipedia:en:https://en.wikipedia.org/wiki/Sainte-Maure_de_Touraine
+ciqual_food_code:en:12807
+ciqual_food_name:en:Goat cheese from raw milk
+ciqual_food_name:fr:Sainte-Maure de Touraine (fromage de chèvre)
 description:en:Le Sainte-maure-de-touraine est un fromage de chèvre1 de la région Centre-Val de Loire, en France. Cette appellation d'origine doit son existence à la commune homonyme Sainte-Maure-de-Touraine. L'appellation Sainte-maure-de-touraine est protégée par un label régional depuis 1978, puis depuis le 29 juin 1990, par une appellation d'origine protégée.
 
 <en:goat cheese
@@ -16614,6 +16617,7 @@ fr:fond de veau déshydraté, Fond de veau pour sauces et cuisson déshydraté
 ciqual_food_code:en:11169
 ciqual_food_name:en:Veal stock for sauce and cooking, dehydrated
 ciqual_food_name:fr:Fond de veau pour sauces et cuisson, déshydraté
+# ingredient/dehydrated-veal-fond has no products @2021-08-17
 
 en:casing
 de:Hülle
@@ -77636,7 +77640,21 @@ fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
 
 <en:poultry broth
+en:dehydrated poultry stock, dehydrated poultry bouillon
 fr:bouillon de volaille déshydraté
+fr:Bouillon de volaille déshydraté
+ciqual_food_code:en:11174
+ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
+ciqual_food_name:fr:Bouillon de volaille, déshydraté
+
+#comment:en:a fond has 2/3 less water than a stock
+<en:dehydrated poultry stock
+<en:fond
+en:dehydrated poultry fond, Poultry stock for sauce and cooking dehydrated
+fr:fond de volaille déshydraté, Fond de volaille pour sauces et cuisson déshydraté
+ciqual_food_code:en:11171
+ciqual_food_name:en:Poultry stock for sauce and cooking, dehydrated
+ciqual_food_name:fr:Fond de volaille pour sauces et cuisson, déshydraté
 
 # description:en:Chicken broth is broth made from chicken.
 
