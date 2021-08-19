@@ -67130,7 +67130,7 @@ ciqual_food_name:fr:Lingue bleue ou Lingue, crue
 
 <en:fish
 <en:white fish
-en:sea breams, seabream
+en:seabream, seabreams
 af:Sparidae
 ar:فصيلة الأسبور
 be:Марскія карасі
@@ -67234,17 +67234,61 @@ description:it:La tanuta (Spondyliosoma cantharus), noto anche come cantaro, è 
 description:nl:De zeekarper (Spondyliosoma cantharus) is een vis uit het geslacht Spondyliosoma uit de familie van Sparidae (Zeebrasems). De zeekarper wordt ook wel grijze dorade (Frans: dorade grise) genoemd. Deze vis komt voor aan de oostelijke kusten van de Atlantische Oceaan van Scandinavië tot Noord-Namibië.
 description:sv:Havsruda (Spondyliosoma cantharus) är en stimfisk från familjen havsrudefiskar (Sparidae) som lever i östra Atlanten från Skandinavien till södra Afrika.
 
-<en:black sea bream
+<en:black seabream
 en:raw Black seabream
 fr:dorade grise crue, daurade grise crue, griset crue
 ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
 ciqual_food_name:fr:Dorade grise, ou daurade grise, ou griset, crue
 
+# comment:en:a product gives dorade rose gv as french translation. Is this correct?
+<en:seabream
+en:common dentex
+ar:عضاض شائع
+bg:зубан
+ca:déntol
+cs:zubatec obecný
+cy:Merfog Ysgithrog
+da:Tandbrasen
+de:Zahnbrasse
+el:συναγρίδα
+eu:Txelba hortzandi
+fi:kalalaji
+fr:Denté commun, dorade rose gv
+gl:Dentón
+hr:Zubatac
+it:dentice
+ja:ヨーロッパキダイ
+kk:Зубан
+la:Dentex dentex
+nl:Tandbrasem
+pl:kielec
+ro:Dințat
+ru:Зубан
+sl:Zobatec
+sr:Зубатац
+sv:Tandbraxen
+tr:Sinarit
+uk:Зубань звичайний
+zh:細點牙鯛
+wikidata:en:Q143503
+wikipedia:https://en.wikipedia.org/wiki/Common_dentex
+description:de:Die Zahnbrasse (Dentex dentex) ist ein Fisch aus der Familie der Meerbrassen (Sparidae). Ein gut schmeckender Speisefisch mit festem weißen Fleisch.
+description:en:The common dentex (Dentex dentex) is a species of fish in the family Sparidae. Dentex is common in the Mediterranean Sea, but also seen in the Black Sea and the Eastern Atlantic Ocean from the British Isles to Mauritania.
+description:es:El dentón común (Dentex dentex) es una especie de pez de la familia de los espáridos, común en el mar Mediterráneo, habita también el Cantábrico, Atlántico Norte y costa noroccidental africana. Es el espárido más cotizado en el mercado, por esta razón su precio es bastante elevado con respecto a otras especies de la familia.
+description:fr:Le denti ou denté commun (Dentex dentex) est une espèce de poissons de la famille des Sparidae.
+description:it:Il dentice (Dentex dentex) è un pesce d'acqua salata appartenente alla famiglia degli Sparidae. Comune nel mar Mediterraneo. Avvistato anche nell'oceano Atlantico orientale, dalle isole britanniche alla Mauritania. Considerato eccellente per le sue carni, viene comunemente cucinato alla griglia, ma è buono anche in forno e, se di dimensioni ampie, anche farcito.
+description:nl:De tandbrasem (Dentex dentex) is een straalvinnige vis uit de familie van zeebrasems (Sparidae). Dentex dentex is voor de visserij van aanzienlijk commercieel belang.
+# ingredient/common-dentex has 1 product @2021-08-19
+
+<en:seabream
+en:blackspot seabream
+fr:dorade rose
+description:fr:La Dorade rose ou Pageot rose (Pagellus bogaraveo) est un poisson de la famille des Sparidae. Elle vit en Méditerranée occidentale et dans l'Atlantique oriental, des côtes de la Mauritanie à celles de la Norvège.
 
 #description:fr:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
 
-<en:sea bream
+<en:seabream
 en:porgies
 ar:فريدي
 de:Meerbrassen
@@ -67258,25 +67302,25 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Pagellus
 # ingredient/fr:pageot has 1 product in french @2019-01-01
 
 
-<en:sea bream
-en:gilthead sea bream
+<en:seabream
+en:gilthead seabream
 fr:Dorade royale
 
-<en:gilthead sea bream
+<en:gilthead seabream
 en:Raw wild gilthead seabream
 fr:Dorade royale sauvage crue, Daurade sauvage crue, Vraie daurade sauvage crue
 ciqual_food_code:en:26080
 ciqual_food_name:en:Gilthead seabream, raw, wild
 ciqual_food_name:fr:Dorade royale, ou daurade ou vraie daurade, crue, sauvage
 
-<en:gilthead sea bream
+<en:gilthead seabream
 en:Farmed wild gilthead seabream, wild gilthead seabream from farming
 fr:Dorade royale d'élevage crue, Daurade d'élevage crue, Vraie daurade d'élevage crue
 ciqual_food_code:en:26088
 ciqual_food_name:en:Gilthead seabream, raw, farmed
 ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
 
-<en:sea bream
+<en:seabream
 en:Mediterranean bass
 fr:Loup de Méditerranée
 
