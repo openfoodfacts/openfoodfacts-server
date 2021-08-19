@@ -37019,77 +37019,144 @@ comment:en:The wikipedia entry mixes the name of the tree and the name of the fr
 # zh-min-nan:Thô-á
 wikipedia:en:https://en.wikipedia.org/wiki/Peach
 wikidata:en:Q13411121
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
-# 1065 products in 7 languages @2018-09-26
+# ingredient/peach 6059 products in 7 languages @2021-08-19
 carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1
 carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
 carbon_footprint_fr_foodges_value:fr:0.7
+description:de:Der Pfirsich (Prunus persica) ist eine Pflanzenart aus der Gattung Prunus innerhalb der Familie der Rosengewächse. Seine Früchte werden Pfirsiche genannt und zählen zum Steinobst.
+description:en:The peach (Prunus persica) is a deciduous tree native to the region of Northwest China. It bears edible juicy fruits with various characteristics, most called peaches and others (the glossy-skinned varieties), nectarines.
+description:es:Prunus persica es una especie de árbol del género Prunus de la familia Rosaceae. También se suele denominar duraznero y a su fruto, durazno en países latinoamericanos y en castellano antiguo albérchigo.
+description:fr:La pêche est un fruit comestible produit par le pêcher (Prunus persica) originaire de Chine.
+description:it:Il pesco (Prunus persica) è una specie della famiglia Rosaceae che produce un frutto commestibile chiamato pèsca.
+description:nl:De perzik (Prunus persica) is een boomsoort en een vrucht. De vrucht bevat een harde houtachtige pit.
 
 <en:peach
+en:halved peaches
 fr:demi-pêches
+# ingredient/fr:demi-pêches 13 products in 1 language @2021-08-19
 
 <en:peach
+en:cubed peaches
 fr:pêches en cubes
+nl:perzikblokjes
+# ingredient/fr:pêches-en-cubes 54 products in 2 language @2021-08-19
 
 <en:peach
-en:saturn peach, donut peach, paraguayo
-de:Plattpfirsich, Plattpfirsiche
-es:paraguaya,chato
-wikipedia:en:https://en.wikipedia.org/wiki/Saturn_Peach
-
+en:flat peach, saturn peach, donut peach, paraguayo
+ar:دراق مبلط
+ca:préssec pla
+de:Plattpfirsich
+es:paraguaya, chato
+et:Lamevirsik
+fa:هلو انجیری
+fr:pêche plate, pëches plates
+gl:Pexego chato
+he:אפרסק פיתה
+it:pesca tabacchiera
+ja:バントウ
+nl:platte perzik
+ru:инжирный персик
+sr:Пљосната бресква
+vi:bàn đào
+tg:Анҷиршафтолу
+zh:蟠桃
+wikidata:en:Q2702783
+wikipedia:en:https://en.wikipedia.org/wiki/Flat_peach
+description:de:Der Plattpfirsich (Prunus persica var. platycarpa) ist eine Varietät des Pfirsichs mit gelbem Fruchtfleisch und in der Form einem Spindeltorus ähnlich.
+description:en:The flat peach (Prunus persica var. platycarpa), also known as the doughnut peach or Saturn peach, is a variety of peach with pale yellow fruit that is oblate in shape.
+description:it:La pesca tabacchiera detta anche platicarpa o piatta (Prunus persica var. platycarpa), è una cultivar di pesca diffusa in vari continenti.
+description:sv:Paraguayo (Prunus persica var. platycarpa) är en varietet av persika. Paraguayo har gult och rött skal, och vanligen vitt eller gult fruktkött
+# ingredient/fr:pêche-plate 31 products  @2021-08-19
 
 <en:peach
 en:white peach, white peaches
 de:Weißer Pfirsich, weiße Pfirsiche
 fr:pêche blanche
+# ingredient/white-peach 48 products in 6 languages @2021-08-19
 
-<en:peach
-en:pitted peach
-es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, melocotónes sin hueso
+<en:white peach
+fr:purée de pêches blanches
+nl:witte perzikenpuree
+
+#<en:peach
+#en:pitted peach
+#es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, melocotónes sin hueso
+#no products @2021-08-19
 
 <en:peach
 <en:purée
 en:peach puree
+da:ferskenpuré
 de:Pfirsichpurée
 es:Pure de melocotón
 fi:persikkasose, persikkapyree
 fr:purée de pêches, purée de pêche
 it:purea di pesche
 nl:Perzikkenpuree
+pt:Puré de pêssego
 sv:persikopuré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pêches
-# 147 products in 4 languages @2018-09-26
+# ingredient/peach-puree 801 products in 13 languages @2021-08-19
+
+<en:peach puree
+da:koncentreret ferskenpuré
+pt:puré de melocotón concentrado
 
 <en:peach
 en:peach juice
+cs:čistá broskovová šťáva
 da:ferskenjuice
 de:Pfirsichsaft
-es:Jugo de melocotón
+es:Jugo de melocotón, Zumo de melocotón
 fi:persikkamehu
 fr:jus de pêche
 it:Succo di pesca
 nl:perzikkensap
+pt:sumo de pêssego
+ro:suc de piersici
 ru:Персиковый сок
+# ingredient/en:peach-juice has 736 products in 18 languages @2021-08-19
 
 <en:peach juice
+en:peach juice from concentrate
 fr:jus de pêche à base de concentré
 de:pfirsichsaft aus pfirsichsaftkonzentrat
+nl:perziksap van concentraat
+ro:suc de piersici din concentrat
+
+<en:peach juice from concentrate
+<en:white peach
+fr:jus de pêche blanche à base de concentré
 
 <en:peach
 en:peach syrup
 de:Pfirsichsirup
 fi:persikkasiirappi
 fr:sirop de pêche
+it:sciroppo di pesca
+nl:perzikkensiroop
 vegan:en:yes
 vegetarian:en:yes
+# ingredient/en:peach-syrup has 7 product in 4 languages @2021-08-19
+
+<en:peach
+en:dried peach
+fr:Pêche sèche
+nl:gedroogde perzik
+ciqual_food_code:en:13118
+ciqual_food_name:en:Peach, dried
+ciqual_food_name:fr:Pêche, sèche
 
 <en:peach
 en:peach paste
 fi:persikkatahna
 sv:persikopasta
-# ingredient/en:peach-paste has 1 product in 1 language @2020-12-21
+# ingredient/en:peach-paste has 2 product in 2 language @2021-08-19
 
+#compound
+<en:peach
+fr:pêche au sirop
+nl:perzikken op siroop
 
 ###################################################################################################
 #
