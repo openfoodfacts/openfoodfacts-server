@@ -54086,41 +54086,57 @@ fi:luomu fenkolinsiemen
 nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
-#en:description: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 en:chia
-ca:Chia
-da:Chia
-de:chia
-es:chia, chía negra
-fi:chia
-fr:chia
-it:chia
+es:chía negra
 ja:チアシード
 la:Salvia hispanica
-nb:chia
-nl:chia
-pt:chia
-wikidata:en:Q1071585
-# ingredient/chia has 44 products @2018-10-07
+xx:chia
+wikidata:en:Q27688832
+# ingredient/chia has 430 products @2021-08-20
 vegan:en:yes
 vegetarian:en:yes
+en:description: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
+
 
 <en:seed
 <en:chia
 en:chia seed, chia seeds
+ar:بذرة الشيا
+bg:семена от чиа
+bn:চিয়া বীজ
+cs:chia semínka
 da:chiafrø
 de:Chiasamen
 es:semillas de chia
+et:Õlisalvei seemned
 fi:chia-siemen, chia-siemenet, chiansiemen
 fr:graine de chia, graines de chia
+he:זרעי צ'יה
+hi:चिया सीड्ज़
+is:Chiafræ
 it:semi di chia
 ja:チアシード
+jv:Wiji chia
+lv:čia sēklas
 nb:Chiafrø
 nl:chiazaad
+pl:nasiona chia
 pt:sementes de chia
+sr:Семенке чиа
 sv:chiafrö, chiafrön
-# ingredient/chia-seed has 611 products in 6 languages @2018-10-07
+th:เมล็ดชีอา
+zh:奇亞籽
+description:en:Chia is grown commercially for its seed, a food rich in omega-3 fatty acids since the seeds yield 25–30% extractable oil, including α-linolenic acid. 
+description:it:I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
+# ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en:no
+
+<en:chia seed
+en:dried chia seeds
+fr:Graines de chia séchées
+ciqual_food_code:en:15047
+ciqual_food_name:en:Seeds, chia, dried
+ciqual_food_name:fr:Chia, graine, séchée
 
 # Cumin is a flowering plant in the family Apiaceae, native to a territory including Middle East and stretching east to India.[2] Its seeds – each one contained within a fruit, which is dried – are used in the cuisines of many cultures in both whole and ground form.
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -54397,7 +54413,11 @@ description:en:Flax, also known as common flax or linseed, is a flowering plant,
 description:es:El lino o linaza (Linum usitatissimum) es una planta herbácea de la familia de las lináceas. Su tallo se utiliza para confeccionar tejidos y su semilla, llamada linaza.
 description:fr:Le lin cultivé (Linum usitatissimum) est une espèce de la famille des Linaceae. C'est une plante, largement cultivée pour ses fibres textiles et ses graines oléagineuses.
 description:it:Il lino comune (Linum usitatissimum) è una pianta della famiglia delle Linaceae. 
-description:nl:Vlas (Linum usitatissimum) is een plant uit de vlasfamilie (Linaceae). Er zijn rassen met bruine zaden en rassen met gele zaden. 
+description:nl:Vlas (Linum usitatissimum) is een plant uit de vlasfamilie (Linaceae). Er zijn rassen met bruine zaden en rassen met gele zaden.
+ciqual_food_code:en:15034
+ciqual_food_name:en:Flaxseed
+ciqual_food_name:fr:Lin, graine
+
 <en:flax seed
 de:Leinsaat geschrotet
 
@@ -54406,7 +54426,10 @@ en:golden flax seeds, golden linseed, yellow flax seeds
 de:goldgelbe Leinsaat
 es:semillas de lino dorado, lino dorado
 fr:graines de lin doré, graines de lin jaune
+it:semi di lino giallo
+pt:sementes de linho amarelo
 wikidata:en:none
+#ingredient/golden-flax-seeds 407 in 7 @2021-08-20
 
 <en:flax seed
 en:brown flax seeds, brown linseed, Brown flaxseed
