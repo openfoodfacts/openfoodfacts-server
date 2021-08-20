@@ -18792,7 +18792,6 @@ nl:geheel gehard kokosvet
 sv:fullhärdat kokosfett
 # ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
-# description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
 <en:vegetable oil
 en:olive oil
@@ -18880,6 +18879,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Huile d'olive
 carbon_footprint_fr_foodges_value:fr:2.6
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
+description:de:Olivenöl, auch Baumöl (von mittelhochdeutsch boumöl), ist ein Pflanzenöl aus dem Fruchtfleisch und aus dem Kern von Oliven, den Früchten des Ölbaums gewonnen wird.
+description:en:OLIVE OIL is a liquid fat obtained from olives (the fruit of Olea europaea).
+description:es:El aceite de oliva es un aceite vegetal de uso principalmente culinario. Se obtiene del fruto del olivo (Olea europaea), denominado oliva o aceituna.
+description:fr:L’huile d'olive est une variété d'huile alimentaire, à base de matière grasse végétale extraite des olives lors de la trituration dans un moulin à huile.
+description:nl:Olijfolie is een plantaardige olie die door persing uit olijven, de vruchten van de olijfboom, wordt gewonnen.
+description:pt:Azeite é um produto alimentar extraído da azeitona, o fruto da oliveira.
+#ingredient/olive-oil 26977 in 33 @2021-08-20
 
 <en:olive oil
 en:black olives oil, black olive oil
@@ -18930,6 +18936,9 @@ no:extra virgin olivenolje, ekstra virgin olivenolje, ekstra jomfru olivenolje
 pl:Oliwa z oliwek extra virgin
 pt:Azeite extra virgem
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
+ciqual_food_code:en:17270
+ciqual_food_name:en:Olive oil, extra virgin
+ciqual_food_name:fr:Huile d'olive vierge extra
 
 <en:extra virgin olive oil
 es:aceite de oliva virgen extra de Lubrín
