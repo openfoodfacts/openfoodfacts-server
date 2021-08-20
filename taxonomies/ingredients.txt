@@ -19230,7 +19230,6 @@ it:olio di avocado
 pl:olej z awokado
 from_palm_oil:en:no
 
-# description:en:CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
 
 <en:vegetable oil
 en:corn oil, maize oil
@@ -19262,11 +19261,23 @@ pt:Óleo de milho
 ro:ulei de porumb
 ru:Кукурузное масло
 uk:Кукурудзяна олія
+tr:mısırözü yağı
 zh:粟米油
 # yue:粟米油
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
 wikidata:en:Q856775
 from_palm_oil:en:no
+ciqual_food_code:en:17190
+ciqual_food_name:en:Maize/corn oil
+ciqual_food_name:fr:Huile de maïs
+description:de:Maiskeimöl (Maisöl) ist ein Speiseöl, das aus dem fetthaltigen Keim des Maiskorns gewonnen wird. 
+description:en:Corn oil (maize oil) is oil extracted from the germ of corn (maize).
+description:es:El aceite de maíz es un aceite extraído del germen de maíz.
+description:fr:L'huile de maïs est une huile végétale extraite du grain de maïs.
+description:it:L'olio di semi di mais è un olio estratto dai germi dei semi di Zea mays.
+description:nl:Olie uit de zaden van Zea mays.
+description:pt:O óleo de milho é um óleo vegetal extraído a partir da prensagem de grãos de milho.
+# ingredient/corn-oil 5402 in 18 @2021-0-20
 
 <en:vegetable oil
 en:peanut oil
@@ -66858,7 +66869,6 @@ en:nile tilapia
 la:Oreochromis niloticus
 
 
-# A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
 
 <en:fish
 en:tuna
@@ -66911,6 +66921,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuna
 # ingredient/tuna has 1347 products in 10 languages @2019-01-02
 carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
 carbon_footprint_fr_foodges_value:fr:4
+description:en:A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
 
 <en:tuna
 fr:filets de thon
