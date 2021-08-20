@@ -54364,8 +54364,6 @@ fr:lin
 it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
-<en:flax
-fr:lin jaune
 
 # It is possible to derive oil from flax seed
 
@@ -54394,19 +54392,24 @@ tr:keten
 wikidata:en:Q911332
 # ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
 nutriscore_fruits_vegetables_nuts:en:no
-
+description:de:Gemeiner Lein (Linum usitatissimum), auch Saat-Lein oder Flachs genannt, ist eine alte Kulturpflanze, die zur Faser- (Faserlein) und zur Ölgewinnung (Öllein, Leinsamen, Leinöl) angebaut wird.
+description:en:Flax, also known as common flax or linseed, is a flowering plant, Linum usitatissimum, in the family Linaceae. Flax seeds occur in two basic varieties/colors: brown or yellow (golden linseeds).
+description:es:El lino o linaza (Linum usitatissimum) es una planta herbácea de la familia de las lináceas. Su tallo se utiliza para confeccionar tejidos y su semilla, llamada linaza.
+description:fr:Le lin cultivé (Linum usitatissimum) est une espèce de la famille des Linaceae. C'est une plante, largement cultivée pour ses fibres textiles et ses graines oléagineuses.
+description:it:Il lino comune (Linum usitatissimum) è una pianta della famiglia delle Linaceae. 
+description:nl:Vlas (Linum usitatissimum) is een plant uit de vlasfamilie (Linaceae). Er zijn rassen met bruine zaden en rassen met gele zaden. 
 <en:flax seed
 de:Leinsaat geschrotet
 
 <en:flax seed
-en:golden flax seeds, golden linseed
+en:golden flax seeds, golden linseed, yellow flax seeds
 de:goldgelbe Leinsaat
 es:semillas de lino dorado, lino dorado
 fr:graines de lin doré, graines de lin jaune
-# ingredient/fr:graines-de-lin-doré has 40 products in 1 language @2018-10-08
+wikidata:en:none
 
 <en:flax seed
-en:brown flax seeds, brown linseed
+en:brown flax seeds, brown linseed, Brown flaxseed
 de:brauner Leinsamen
 es:linaza marron,lino marron
 fi:ruskeat pellavansiemenet
@@ -54414,10 +54417,14 @@ fr:graines de lin brun, lin brun
 it:semi di lino scuro
 nl:bruin lijnzaad
 nn:brune linfrø
-# ingredient/fr:graines-de-lin-brun has 181 products in 3 languages @2018-10-08
+wikidata:en:none
+ciqual_food_code:en:15052
+ciqual_food_name:en:Flaxseed, brown
+ciqual_food_name:fr:Lin, brun, graine
+# ingredient/brown-flax-seeds 873 in 11 @2021-08-20
 
 <en:brown flax seeds
-<fr:lin jaune
+<en:golden flax seeds
 fr:lin brun et lin jaune
 
 ###################################################################################################
