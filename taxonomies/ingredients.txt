@@ -79772,8 +79772,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pesto
 #                                Margarine
 #
 ###################################################################################################
-# description:en:MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
 
+#compound
 en:Margarine
 ar:سمن نباتي
 be:Маргарын
@@ -79798,22 +79798,17 @@ gl:Margarina
 gu:માર્જરિન
 he:מרגרינה
 hi:मार्जरीन
-hr:Margarin
-hu:Margarin
 hy:Մարգարին
-id:Margarin
 io:Margarino
 is:Smjörlíki
 it:margarina
 ja:マーガリン
-jv:Margarin
 kk:Маргарин
 kn:ಮಾರ್ಗರೀನ್‌
 ko:마가린
 lt:Margarinas
 mk:Маргарин
 ms:Marjerinnb:margarin
-nb:margarin
 ne:मार्गरिन
 nl:margarine
 oc:margarine
@@ -79821,18 +79816,15 @@ pl:Margaryna
 pt:margarina
 ro:Margarină
 ru:маргарин
-sh:Margarin
 sk:Margarín
 sl:Margarina
 sr:маргарин
-sv:margarin
 tg:Маргарин
 th:เนยเทียม
-tr:Margarin
 tt:маргарин
 uk:маргарин
-uz:Margarin
 vi:Bơ thực vật
+xx:margarin
 zh:植物牛油
 # ast:Margarina
 # be-tarask:Маргарын
@@ -79847,25 +79839,58 @@ wikidata:en:Q4287
 wikipedia:en:https://en.wikipedia.org/wiki/Margarine
 carbon_footprint_fr_foodges_ingredient:fr:Margarine
 carbon_footprint_fr_foodges_value:fr:2.7
+description:de:Margarine, Kunstbutter oder Oleomargarin ist ein industriell hergestelltes Streichfett. Sie dient als Ersatz für Butter und Schmalz. 
+description:en:MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
+description:es:Margarina es un término genérico para denominar distintos tipos de grasas usadas en sustitución de la mantequilla.
+description:fr:La margarine est une émulsion d'eau et d'huile végétale stabilisée par l’addition d’émulsifiants et dont la teneur en lipides peut varier de 10 à 90 % en poids.
+description:it:La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
+description:nl:Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
+description:pt:Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
+# ingredient/margarine 5892 in 34 @2021-08-21
 
 <en:Margarine
 en:vegetable margarine, vegetal margarine
+cs:rostlinný margarín
+da:vegetabiliskt margarin
 de:Pflanzliche Margarine, Pflanzenmargarine
 es:Margarina vegetal
 fi:kasvismargariini, kasvimargariini
 fr:margarine végétale
 it:margarina vegetale
 nl:plantaardige margarine
+nn:vegetabiliskt margarin
+pl:margaryna roślinna
 pt:margarina vegetal
+sk:rastlinný margarín
+sv:vegetabiliskt margarin
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:none
+# ingredient/vegetable-margarine 786 in 17 @2021-08-21
 
 <en:vegetable margarine
-fr:margarine végétale non hydrogénée
+en:Solid vegetable fat for frying
+fr:Matière grasse ou graisse végétale solide pour friture
+# (margarine type)
+ciqual_food_code:en:16080
+ciqual_food_name:en:Solid vegetable fat (margarine type), for frying
+ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
+
+#process:en:non-hydrogenated
+#<en:vegetable margarine
+#en:non-hydrogenated vegetable margarine
+#de:pflanzliche Margarine ungehärtet
+#es:margarina vegetal no hidrogenada
+#fr:margarine végétale non hydrogénée
+#it:margarina vegetale non idrogenato
+#nl:niet gehydrogeneerde plantaardige margarine
+#pt:margarina vegetais nâo hidrogenada
+# ingredient/vegetable-margarine 786 in 7 @2021-08-21
 
 <en:margarine
 <en:dairy
 es:oleomargarina bovina
+# ingredient/oleomargarina-bovina 3 in 1 @2021-08-21
 
 ###################################################################################################
 #
