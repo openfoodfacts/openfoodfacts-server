@@ -75109,41 +75109,30 @@ nb:karamellfyll
 sv:karamellfyllning
 # usage:en:caramel filling (15%) [glucose syrup, palm fat, sugar, sweetened skimmed, emulsifier (soy lecithin), rapeseed oil (fully hydrogenated), salt, natural flavouring]
 # mainIngredient:en:glucose syrup
-# ingredient/en:caramel-filling has 94 products in 3 languages @2020-12-19
+# ingredient/en:caramel-filling 94 in 3  @2020-12-19
 
-# description:en:BRIOCHE is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 
-# <en:Viennoiseries
+#category/brioches
 en:brioche, Brioches
 ar:بريوش
 az:Brioş
 ca:Brioix
-cy:Brioche
-de:Brioche
 el:Τσουρέκι
 eo:brioĉo
-es:brioche
 fi:Briossi
-fr:brioche, Brioches
-gl:Brioche
+fr:Brioches
 he:בריוש
 hy:Բրիոշ
-id:Brioche
 io:Briocho
-it:brioche
 ja:ブリオッシュ
 ka:ბრიოში
 ko:브리오슈
 mk:Бриош
-nb:brioche
-nl:brioche, Brioches
-pl:brioche
-pt:brioche
+nl:Brioches
 ru:Бриошь
 sr:Бриош
-sv:brioche
-tr:Brioche
 uk:Бріош
+xx:brioche
 zh:布里歐
 # be-tarask:Брыёш
 # sr-ec:Бриош
@@ -75152,8 +75141,18 @@ wikidata:en:Q917574
 wikipedia:en:https://en.wikipedia.org/wiki/Brioche
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries Brioche industrielle préemballée
 carbon_footprint_fr_foodges_value:fr:2.9
-# ingredient/fr:brioche has 35 products @2019-01-28
-# category/brioches has 1483 products @2019-05-20
+ciqual_food_code:en:7741
+ciqual_food_name:en:Brioche
+ciqual_food_name:fr:Brioche, sans précision
+description:brioche:de:Die Brioche (Apostelkuchen) werden aus mittelschweren Hefefeinteigen hergestellt.
+description:en:Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content give it a rich and tender crumb.
+brioche:es:Brioche, pan de yema, bollo, bollo de leche o suizo, es un tipo de dulce de origen francés, hecho a base de una pasta con huevos, levadura, leche, mantequilla y azúcar.
+description:fr:La brioche est une pâtisserie, à pâte levée et assez aérée, contenant du beurre et des œufs.
+description:it:La brioche o brioscia è un dolce lievitato, cotto al forno e a volte farcito, di origine francese.
+description:nl:Een brioche of melkbrood is een zacht, zoet wittebrood, dat oorspronkelijk uit Frankrijk komt.
+description:pt:Brioche é um pão de origem francesa, feito com alto teor de manteiga e ovo. É "leve e ligeiramente inchado, mais ou menos bem, de acordo com a proporção de manteiga e de ovos".
+description:sv:ljust långjäst bröd från Frankrike som innehåller ägg och smör.
+# ingredient/fr:brioche 47 in 3 @2019-01-28
 
 
 # description:en:DOUGH is a thick, malleable, sometimes elastic, paste made out of any grains, leguminous or chestnut crops. Dough is typically made by mixing flour with a small amount of water and/or other liquid, and sometimes includes flour yeast or other leavening agents as well as other ingredients such as various fats or flavorings.
@@ -79774,6 +79773,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pesto
 ###################################################################################################
 
 #compound
+# category/margarines
 en:Margarine
 ar:سمن نباتي
 be:Маргарын
@@ -79876,6 +79876,52 @@ ciqual_food_code:en:16080
 ciqual_food_name:en:Solid vegetable fat (margarine type), for frying
 ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine) pour friture
 
+<en:vegetable margarine
+en:50-63% unsalted vegetable fat high in omega 3
+#(margarine type) 
+fr:Matière grasse végétale allégée à 50-63% riche en oméga 3 
+#(type margarine doux)
+ciqual_food_code:en:16737
+ciqual_food_name:en:Vegetable fat, spreadable, 50-63% fat, light, unsalted, rich in omega 3 (margarine type)
+ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+
+<en:vegetable margarine
+en:50-63% unsalted vegetable fat with plant sterols esters 
+#(margarine type)
+fr:Matière grasse végétale allégée à 50-63% aux esters de stérol végétal 
+#(type margarine doux) 
+ciqual_food_code:en:16739
+ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, with plant sterols esters
+ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, aux esters de stérol végétal
+
+<en:vegetable margarine
+en:50-63% unsalted vegetable fat 
+#(margarine type)
+fr:Matière grasse végétale allégée à 50-63% 
+#(type margarine doux)
+ciqual_food_code:en:16741
+ciqual_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted
+ciqual_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux
+
+<en:vegetable margarine
+en:70% unsalted vegetable fat 
+#(margarine type)
+fr:Matière grasse végétale à 70% 
+#(type margarine doux)
+ciqual_food_code:en:16616
+ciqual_food_name:en:Vegetable fat (margarine type), 70% fat, unsalted
+ciqual_food_name:fr:Matière grasse végétale (type margarine) à 70% MG, doux
+
+<en:vegetable margarine
+en:80% unsalted vegetable fat 
+#(margarine type)
+fr:Matière grasse végétale à 80% 
+#(type margarine doux)
+ciqual_food_code:en:16615
+ciqual_food_name:en:Vegetable fat (margarine type), 80% fat, unsalted
+ciqual_food_name:fr:Matière grasse végétale ou margarine, 80% MG, doux
+
+
 #process:en:non-hydrogenated
 #<en:vegetable margarine
 #en:non-hydrogenated vegetable margarine
@@ -79887,9 +79933,13 @@ ciqual_food_name:fr:Matière grasse ou graisse végétale solide (type margarine
 #pt:margarina vegetais nâo hidrogenada
 # ingredient/vegetable-margarine 786 in 7 @2021-08-21
 
+#comment:en:should this be a part of en:margarine ?
 <en:margarine
 <en:dairy
 es:oleomargarina bovina
+vegan:en:no
+vegetarian:en:no
+
 # ingredient/oleomargarina-bovina 3 in 1 @2021-08-21
 
 ###################################################################################################
