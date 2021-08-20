@@ -79796,54 +79796,26 @@ wikidata:en:Q58265
 wikipedia:en:https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
 # ingredient/fr:sauce-bearnaise has 6 products in 1 language @2020-05-24
 
-# description:en:PESTO, or to refer to the original dish pesto alla genovese, is a sauce originating in Genoa, the capital city of Liguria, Italy. It traditionally consists of crushed garlic, European pine nuts, coarse salt, basil leaves, hard cheese such as Parmigiano-Reggiano (also known as Parmesan cheese) or Pecorino Sardo (cheese made from sheep's milk), all blended with olive oil.
 
+#category:en:Pestos
 <en:sauce
 en:pesto, pesto sauce
-af:pesto
 ar:البيستو
-az:pesto
 ba:песто
 be:песта
 bg:песто
-bs:pesto
-ca:pesto
-cs:pesto
-da:pesto
-de:pesto
 el:πέστο
-eo:pesto
-es:pesto
-et:pesto
-eu:pesto
 fa:پستو
-fi:pesto
-fr:pesto, sauce pesto
-fy:pesto
-gl:pesto
+fr:sauce pesto
 he:פסטו
-hu:pesto
 hy:պեստո
-id:pesto
 is:pestó
-it:pesto
 ja:ペスト・ジェノヴェーゼ
 ko:페스토
-ms:pesto
-nb:pesto
-nl:pesto
-oc:pesto
-pl:pesto
-pt:pesto
 ru:песто
-sk:pesto
-sl:pesto
-sv:pesto
 th:เปสโต
-tl:pesto
-tr:pesto
 uk:песто
-vi:pesto
+xx:pesto
 zh:香蒜醬
 # ast:pesto
 # lij:pesto
@@ -79853,10 +79825,21 @@ zh:香蒜醬
 # zh_yue:羅勒醬
 wikidata:en:Q9896
 wikipedia:en:https://en.wikipedia.org/wiki/Pesto
-# ingredient/fr:pesto has 40 products in 1 language @2020-05-25
-# <category:en:Pestos
+description:de:Pesto ist eine ungekochte pastöse Sauce. Die bekannteste Version davon ist der Pesto genovese.
+description:en:PESTO is a sauce originating in Genoa, Italy. It traditionally consists of crushed garlic, European pine nuts, coarse salt, basil leaves, hard cheese, all blended with olive oil.
+description:es:El pesto es un condimento o salsa típica originaria de la Liguria (Italia).
+description:fr:Le pesto est une préparation culinaire de Ligurie à base de basilic, de pignons de pin, de fromage, de marjolaine ou de persil, d'huile d'olive, d'ail et d'un bouillon.
+description:nl:Pesto of pesto alla genovese is een Italiaanse saus, gemaakt door olijfolie, basilicumblaadjes, knoflook, zeezout, pecorino en/of Parmezaanse kaas, en pijnboompitten fijn te malen. 
+description:pt:Pesto é um molho italiano composto tradicionalmente de folhas de manjericão moídas com pinhões, alho e sal, queijo parmesão ou pecorino ralados e no fim misturados com azeite extra virgem e temperado com pimenta preta.
+# ingredient/pesto 153 in 11 @2021-08-20
 # usage:en:pesto 19% (olive oil, parmesan, basil, butter, walnut kernel, garlic)
 
+<en:pesto
+en:Prepacked pesto sauce
+fr:Sauce pesto préemballée
+ciqual_food_code:en:11179
+ciqual_food_name:en:Sauce, pesto, prepacked
+ciqual_food_name:fr:Sauce pesto, préemballée
 
 ###################################################################################################
 #
