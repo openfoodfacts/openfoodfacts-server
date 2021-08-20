@@ -37031,15 +37031,17 @@ description:fr:La pêche est un fruit comestible produit par le pêcher (Prunus 
 description:it:Il pesco (Prunus persica) è una specie della famiglia Rosaceae che produce un frutto commestibile chiamato pèsca.
 description:nl:De perzik (Prunus persica) is een boomsoort en een vrucht. De vrucht bevat een harde houtachtige pit.
 
-<en:peach
-en:halved peaches
-fr:demi-pêches
+#process:en:halved
+#<en:peach
+#en:halved peaches
+#fr:demi-pêches
 # ingredient/fr:demi-pêches 13 products in 1 language @2021-08-19
 
-<en:peach
-en:cubed peaches
-fr:pêches en cubes
-nl:perzikblokjes
+#process:en:cubes
+#<en:peach
+#en:cubed peaches
+#fr:pêches en cubes
+#nl:perzikblokjes
 # ingredient/fr:pêches-en-cubes 54 products in 2 language @2021-08-19
 
 <en:peach
@@ -37075,59 +37077,67 @@ de:Weißer Pfirsich, weiße Pfirsiche
 fr:pêche blanche
 # ingredient/white-peach 48 products in 6 languages @2021-08-19
 
-<en:white peach
-fr:purée de pêches blanches
-nl:witte perzikenpuree
+#process:en:pureed
+#<en:white peach
+#fr:purée de pêches blanches
+#nl:witte perzikenpuree
 
 #<en:peach
 #en:pitted peach
 #es:melocotón deshuesado, melocotón sin hueso, melocotónes deshuesados, melocotónes sin hueso
 #no products @2021-08-19
 
-<en:peach
-<en:purée
-en:peach puree
-da:ferskenpuré
-de:Pfirsichpurée
-es:Pure de melocotón
-fi:persikkasose, persikkapyree
-fr:purée de pêches, purée de pêche
-it:purea di pesche
-nl:Perzikkenpuree
-pt:Puré de pêssego
-sv:persikopuré
+#process:en:pureed
+#<en:peach
+#<en:purée
+#en:peach puree
+#da:ferskenpuré
+#de:Pfirsichpurée
+#es:Pure de melocotón
+#fi:persikkasose, persikkapyree
+#fr:purée de pêches, purée de pêche
+#it:purea di pesche
+#nl:Perzikkenpuree
+#pt:Puré de pêssego
+#sv:persikopuré
 # ingredient/peach-puree 801 products in 13 languages @2021-08-19
 
-<en:peach puree
-da:koncentreret ferskenpuré
-pt:puré de melocotón concentrado
+#process:en:pureed
+#process:en:concentrated
+#<en:peach puree
+#da:koncentreret ferskenpuré
+#pt:puré de melocotón concentrado
 
+#process:en:juice
 <en:peach
 en:peach juice
-cs:čistá broskovová šťáva
-da:ferskenjuice
-de:Pfirsichsaft
-es:Jugo de melocotón, Zumo de melocotón
-fi:persikkamehu
-fr:jus de pêche
-it:Succo di pesca
-nl:perzikkensap
-pt:sumo de pêssego
-ro:suc de piersici
-ru:Персиковый сок
+#cs:čistá broskovová šťáva
+#da:ferskenjuice
+#de:Pfirsichsaft
+#es:Jugo de melocotón, Zumo de melocotón
+#fi:persikkamehu
+#fr:jus de pêche
+#it:Succo di pesca
+#nl:perzikkensap
+#pt:sumo de pêssego
+#ro:suc de piersici
+#ru:Персиковый сок
 # ingredient/en:peach-juice has 736 products in 18 languages @2021-08-19
 
+#process:en:juice
+#process:en:from-concentrate
 <en:peach juice
-en:peach juice from concentrate
-fr:jus de pêche à base de concentré
+#en:peach juice from concentrate
+#fr:jus de pêche à base de concentré
 de:pfirsichsaft aus pfirsichsaftkonzentrat
-nl:perziksap van concentraat
-ro:suc de piersici din concentrat
+#nl:perziksap van concentraat
+#ro:suc de piersici din concentrat
 
 <en:peach juice from concentrate
 <en:white peach
 fr:jus de pêche blanche à base de concentré
 
+#compound?
 <en:peach
 en:peach syrup
 de:Pfirsichsirup
@@ -37139,6 +37149,7 @@ vegan:en:yes
 vegetarian:en:yes
 # ingredient/en:peach-syrup has 7 product in 4 languages @2021-08-19
 
+#process:en:dried
 <en:peach
 en:dried peach
 fr:Pêche sèche
@@ -37147,10 +37158,11 @@ ciqual_food_code:en:13118
 ciqual_food_name:en:Peach, dried
 ciqual_food_name:fr:Pêche, sèche
 
-<en:peach
-en:peach paste
-fi:persikkatahna
-sv:persikopasta
+#process:en:paste
+#<en:peach
+#en:peach paste
+#fi:persikkatahna
+#sv:persikopasta
 # ingredient/en:peach-paste has 2 product in 2 language @2021-08-19
 
 #compound
