@@ -53156,10 +53156,11 @@ nl:kastanjes EU
 #nl:kastanjepuree
 # ingredient/fr:purée-de-châtaignes has 33 products in 2 languages @2018-10-07
 
-<en:chestnut
-en:cooked chestnuts
-de:gekochte Kastanien, gekochte Maronen
-fi:kypsennetty kastanja, kypsennetyt kastanjat
+#process:en:cooked
+#<en:chestnut
+#en:cooked chestnuts
+#de:gekochte Kastanien, gekochte Maronen
+#fi:kypsennetty kastanja, kypsennetyt kastanjat
 
 # comment:en:It seems that only in french there is a difference between chataigne and marron
 
@@ -53459,6 +53460,8 @@ ru:ядро ореха фундука дробленое
 #                                Macadamia nut
 #
 ###################################################################################################
+
+#category/macadamia-nuts
 <en:tree nut
 en:macadamia nut, macadamia, Queensland nuts
 ar:المكاداميا
@@ -53489,8 +53492,14 @@ sl:makadamija, orehi Queensland
 sv:makadamianöt, Queenslandsnöt, macadamianöt
 zh:夏威夷果
 wikidata:en:Q11027461
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-macadamia
-# 84 products in 4 languages @2018-10-05
+ciqual_food_code:en:15027
+ciqual_food_name:en:Macadamia nut
+ciqual_food_name:fr:Noix de macadamia
+description:fr:La noix de macadamia, ou noix du Queensland est le fruit du noyer du Queensland.
+description:it:La Noce macadamia è il frutto dell'albero tropicale chiamato Macadamia o Noce del Queensland
+description:nl:De macadamianoot is een van oorsprong Australische noot van planten uit het geslacht Macadamia.
+description:pt:Macadâmia, noz-macadâmia ou, ainda, noz-de-Queensland, são designações dada à noz conhecida pelo nome comercial de macadâmia, a semente comestível de duas espécies de árvores do género Macadamia
+#ingredient/macadamia-nut 84 in 12 @2021-08-21
 
 ###################################################################################################
 #
