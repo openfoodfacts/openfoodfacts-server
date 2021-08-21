@@ -54024,6 +54024,16 @@ ciqual_food_code:en:15032
 ciqual_food_name:en:Alphalfa seeds, raw
 ciqual_food_name:fr:Luzerne, graine
 
+<en:alfalfa
+en:sprouted alfalfa seeds, germinated alfalfa
+fr:Graines de Luzerne germées
+
+<en:sprouted alfalfa
+en:Raw sprouted alfalfa seeds
+ciqual_food_code:en:15029
+ciqual_food_name:en:Alfalfa seeds, sprouted, raw
+ciqual_food_name:fr:Luzerne, graine germée
+
 # description:en:Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
 # comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
@@ -78874,50 +78884,46 @@ allergens:en: en:milk
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
 
 
-# en:description:HARISSA is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
-
+#<en:compound
 <en:sauce
 en:harissa, harissa paste
 ar:هريسة
 bg:Хариса
 bn:হরিষ্যা
-ca:Harissa
-cs:harissa
-da:harissa
-de:Harissa
 eo:Hariso
-es:harissa
-et:harissa
 fa:هریسه
-fi:harissa
-fr:harissa
 he:אריסה
 hi:हरीसा
 hy:հարիսա
-id:Harissa
-it:Harissa
 ja:ハリッサ
 ka:ჰარისა
 ko:하리사
 la:Erise
-nb:harissa
-nl:harissa
-nn:harissa
 pa:ਹਰੀਸਾ
-pl:harissa
-pt:harissa
 ru:харисса
-sl:harissa
 sr:Harisa
-sv:harissa
-tr:Harissa
 ur:ھریسا
+xx:harissa
 zh:哈里薩辣醬
 # pnb:ھریسا
 wikidata:en:Q966327
 wikipedia:en:https://en.wikipedia.org/wiki/Harissa
-# ingredient/fr:harissa has 66 products in 5 languages @2019-04-05
+description:de:Harissa ist eine aus dem Maghreb stammende scharfe Gewürzpaste aus frischen Chilis, Kreuzkümmel, Koriandersamen, Knoblauch, Salz und Olivenöl.
+description:en:HARISSA is a Tunisian hot chili pepper paste, the main ingredients of which are roasted red peppers, Baklouti pepper, serrano peppers, and other hot chili peppers, spices and herbs such as garlic paste, coriander seed, saffron, rose, or caraway, as well as some vegetable or olive oil to carry the oil-soluble flavors.
+description:es:La harissa es una salsa picante y constituye uno de los ingredientes más comunes en la gastronomía magrebí.
+description:fr:La harissa Écouter ou l'harissa est une purée de piments rouges originaire de Tunisie.
+description:it:La harissa è una salsa tipica del Maghreb, È base di peperoncino rosso fresco e aglio, con l'aggiunta di olio d'oliva.
+description:nl:Harissa is een hete rode saus, die gemaakt is van onder meer pepers, tomaten, komijn, koriander en knoflook.
+description:pt:A harissa é uma mistura de temperos típica do Magrebe.
+# ingredient/harissa 100 in 7 @2021-08-21
 # usage:fr:harissa (piment, ail, coriandre, sel, carvi)
+
+<en:harissa
+en:Prepacked harissa
+fr:Sauce condimentaire harissa
+ciqual_food_code:en:11112
+ciqual_food_name:en:Harissa (hot spicy sauce), prepacked
+ciqual_food_name:fr:Harissa (sauce condimentaire)
 
 # description:en:ESPAGNOLE SAUCE is a basic brown sauce, and is one of Auguste Escoffier's five mother sauces of classic French cooking.
 
