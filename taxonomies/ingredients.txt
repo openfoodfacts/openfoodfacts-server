@@ -53682,6 +53682,8 @@ es:crema de cacahuete crujiente, crema de cacahuete con trozos
 #                                Pecan nut
 #
 ###################################################################################################
+
+#category/pecan-nuts
 <en:tree nut
 en:pecan nut, pecan nuts, pecan, pecans
 bg:пеканови ядки
@@ -53689,15 +53691,17 @@ cs:pekanové ořechy
 da:pekannødder
 de:Pekannuss, Pekannüsse, Pecannüsse
 el:καρύδια πεκάν
-es:Nueces de pecán,pacanas,nueces pacanas
+es:Nueces de pecán, pacanas, nueces pacanas
 et:pekaanipähkel, pekanipähklid, pekaanipähkleid
+eu:pecan intxaurrak
 fi:pekaanipähkinä, pekaanipähkinät
 fr:noix de pécan
-it:noci del pekan, noci di pecan
+it:noci del pekan, noci di pecan, noce pecan
 ja:ペカン
 lv:pekanrieksti
 mt:ġewż Amerikan
 nl:pecannoot, pecannoten
+nn:pekannøtter
 pl:orzeszki pekan
 pt:nozes pécan
 ro:nuci Pecan
@@ -53707,16 +53711,25 @@ sl:ameriški orehi
 sv:pekannöt, pekannötter
 zh:碧根果
 wikidata:en:Q1119911
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-pécan
-# 323 products in 5 languages 2018-10-05
+ciqual_food_code:en:15026
+ciqual_food_name:en:Pecan nut
+ciqual_food_name:fr:Noix de pécan
+description:fr:La noix de pécan ou pacane est le fruit du pacanier (Carya illinoinensis), arbre de la famille des Juglandacées.
+description:it:La noce pecan è il frutto del pecan, albero originario dell'America del Nord appartenente alla famiglia delle Juglandaceae.
+description:sv:Pekanträd (Carya illinoiensis) är en valnötsväxtart.
+# ingredient/pecan-nut 4644 in 21 2021-08-21
 
+#<en:compound
 <en:pecan nut
 en:caramelized pecan nuts
+da:karameliserede pekannødder
 de:karamellisierte Pekannüsse
 es:pecanas caramelizadas
+fi:karamellisoidut pekaanipähkinät
 fr:noix de pécan caramélisées
+nl:gekaramelliseerde pecannoten, gekaramelliseerde stukjes pecannoten
 sv:karamelliserade pekannötter
-# ingredient/fr:noix-de-pecan-caramelisees has 34 products in 5 languages @2020-06-11
+# ingredient/caramelized-pecan-nuts 48 in 8 @2021-08-21
 
 ###################################################################################################
 #
