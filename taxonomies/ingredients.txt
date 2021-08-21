@@ -53089,17 +53089,48 @@ es:pasta de anacardos
 #                                Chestnut
 #
 ###################################################################################################
+
 <en:tree nut
 en:chestnut, chestnuts
+ar:كستنة؛أبو فروة
+ca:castanya
+co:Castagna
+cs:kaštan
 da:Kastanje, kastanjer
 de:Kastanie, Kastanien
+eo:kaŝtano
 es:castañas, castaña
+eu:Gaztaina
 fi:kastanja
 fr:châtaigne, châtaignes
-it:castagne
+gl:Castaña
+hu:Castagna
+it:castagne, castagna
+ja:栗
+ko:밤
+nb:kastanje
 nl:kastanje, kastanjes
-# ingredient/fr:châtaigne has 87 products in 3 languages @2018-10-07
-# ingredient/fr:châtaignes has 164 products in 4 languages @2018-10-07
+oc:Castanha
+pt:castanhas
+ro:Castană
+ru:каштан
+uk:каштан
+#kab:Idernen
+#pam:Kastanyas
+#pcd:Catin·nhe
+wikidata:en:Q773987
+wikipedia:en:https://en.wikipedia.org/wiki/Chestnut
+description:en:The chestnuts are a group of eight or nine species of deciduous trees and shrubs in the genus Castanea. The name also refers to the edible nuts they produce. The sweet chestnut produces an edible seed, the chestnut, which has been used in cooking since ancient times.
+description:fr:Le châtaignier commun (Castanea sativa) est un arbre à feuillage caduc, qui produit des fruits largement consommés par l'homme : les châtaignes. 
+description:nl:Kastanje (Castanea) is een geslacht van loofbomen dat in België en Nederland niet autochtoon is. De vruchten van de tamme kastanje kunnen gegeten worden. Men kan de kastanjes rauw eten, poffen, roosteren of koken. Ook kan men gedroogde kastanjes verwerken in meel.
+# ingredient/chestnut 1019 in 9 @2021-08-21
+
+<en:chestnut
+en:raw chestnut
+fr:Châtaigne crue
+ciqual_food_code:en:15024
+ciqual_food_name:en:Chestnut, raw
+ciqual_food_name:fr:Châtaigne, crue
 
 <en:chestnut
 en:Grilled chestnut
@@ -53109,16 +53140,20 @@ ciqual_food_name:en:Chestnut, grilled
 ciqual_food_name:fr:Châtaigne, grillée
 
 <en:chestnut
+fr:châtaignes d'Ardéche AOP
+
+<en:chestnut
 en:chestnut from the EU
 nl:kastanjes EU
 
-<en:chestnut
-en:puréed chestnuts
-de:pürierte Kastanien
-fi:kastanjapyree, kastanjasose
-fr:purée de châtaignes
-it:purea di castagne
-nl:kastanjepuree
+#procerss:en:pureed
+#<en:chestnut
+#en:puréed chestnuts
+#de:pürierte Kastanien
+#fi:kastanjapyree, kastanjasose
+#fr:purée de châtaignes
+#it:purea di castagne
+#nl:kastanjepuree
 # ingredient/fr:purée-de-châtaignes has 33 products in 2 languages @2018-10-07
 
 <en:chestnut
@@ -53139,19 +53174,21 @@ wikidata:en:Q3177204
 <fr:marron
 fr:Marrons UE
 
-<fr:marron
-de:Gekochte Maronen
-fr:marrons cuits
-nl:gekookte kastanjes
+#process:en:cooked
+#<fr:marron
+#de:Gekochte Maronen
+#fr:marrons cuits
+#nl:gekookte kastanjes
 
-<fr:marron
-fr:Marrons entiers
-it:Castagne intere
-pt:Castanhas inteiras
+#process:en:whole
+#<fr:marron
+#fr:Marrons entiers
+#it:Castagne intere
+#pt:Castanhas inteiras
 # ingredient/fr:marrons-entiers has 23 products @2019-05-24
 
-<fr:Marrons entiers
-fr:Marrons entiers bio
+#<fr:Marrons entiers
+#fr:Marrons entiers bio
 
 # <en:compound
 <fr:marron
@@ -53160,8 +53197,9 @@ fr:crème de marrons
 # 53 products in 1 language @2018-10-07
 # usage:fr:(sucre, châtaignes, eau, extrait pur de vanille)
 
-<fr:marron
-fr:purée de marrons
+#process:en:pureed
+#<fr:marron
+#fr:purée de marrons
 # In process de:Marronipüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-marrons
 # 41 products in 3 languages @2018-10-07
