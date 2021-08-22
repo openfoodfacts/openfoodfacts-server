@@ -18996,10 +18996,6 @@ sv:Rapsolja, Rapsfett
 from_palm_oil:en:no
 # Polish does not differentiate between colza and canola oil TODO
 
-#fr:Huile de colza
-#it:Olio di colza
-#ca:Oli de colza
-
 <en:rapeseed oil
 en:canola oil
 ca:Oli de canola
@@ -19036,6 +19032,10 @@ carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
+ciqual_food_code:en:17130
+ciqual_food_name:en:Rapeseed oil
+ciqual_food_name:fr:Huile de colza
+
 
 <en:rapeseed oil
 en:low erucic acid rapeseed oil
@@ -37166,7 +37166,7 @@ en:peach juice
 #process:en:juice
 #process:en:from-concentrate
 <en:peach juice
-#en:peach juice from concentrate
+en:peach juice from concentrate
 #fr:jus de pêche à base de concentré
 de:pfirsichsaft aus pfirsichsaftkonzentrat
 #nl:perziksap van concentraat
