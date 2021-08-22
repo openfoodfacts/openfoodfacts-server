@@ -50342,32 +50342,46 @@ it:pomodori semiseccchi
 <fr:tomates semi-séchées
 fr:tomates semi-séchées marinées, tomates semi-déshydratées et marinées
 
-
+#process:en: en:dried
+#process:en: en:dehydrated
 <en:tomato
 en:dried tomatoes
-da:tørret tomat
-de:getrocknete Tomaten
-es:tomate deshidratado
-fi:kuivatut tomaatit
-fr:tomate séchée, tomates déshydratées, tomates séchées
-it:pomodoro secco
+#da:tørret tomat
+#de:getrocknete Tomaten
+#es:tomate deshidratado
+#fi:kuivatut tomaatit
+#fr:tomate séchée, tomates déshydratées, tomates séchées
+#it:pomodoro secco
 ja:ドライトマト
-nl:gedroogde tomaat
-nn:tørket tomat
-ro:roșii uscate
-sv:torkad tomat
+#nl:gedroogde tomaat
+#nn:tørket tomat
+#ro:roșii uscate
+#sv:torkad tomat
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
+#process:en: en:sundried
 <en:dried tomatoes
 en:sundried tomatoes, sun-dried tomato
-de:an der Sonne getrocknete Tomaten
-es:Tomates secados al sol
-fi:aurinkokuivattu tomaatti, aurinkokuivatut tomaatit
-fr:tomates séchées au soleil
-it:Pomodori essiccati al sole
-nl:zongedroogde tomaten
-sv:soltorkad tomat, soltorkade tomater
+#de:an der Sonne getrocknete Tomaten
+#es:Tomates secados al sol
+#fi:aurinkokuivattu tomaatti, aurinkokuivatut tomaatit
+#fr:tomates séchées au soleil
+#it:Pomodori essiccati al sole
+#nl:zongedroogde tomaten
+#sv:soltorkad tomat, soltorkade tomater
+wikidata:en:Q978399
+wikipedia:en:https://en.wikipedia.org/wiki/Sun-dried_tomato
+description:en:Sun-dried tomatoes are ripe tomatoes that lose most of their water content after spending a majority of their drying time in the sun. 
+description:es:El tomate seco consiste en un proceso de secado al sol realizado a tomates maduros.
+description:fr:Les tomates séchées sont un aliment déshydraté traditionnel, à base de tomates déshydratées par séchage au soleil.
 # ingredient/fr:tomates-sechees-au-soleil has 281 products in 1 language @2020-05-21
+
+<en:sundried tomatoes
+en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil
+fr:Tomate séchée à l'huile, Tomates séchées à l'huile
+ciqual_food_code:en:20256
+ciqual_food_name:en:Tomato, dried, in oil
+ciqual_food_name:fr:Tomate, séchée, à l'huile
 
 <en:dried tomatoes
 fr:tomates séchées réhydratées
