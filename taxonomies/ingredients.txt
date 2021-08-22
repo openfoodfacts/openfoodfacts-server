@@ -51,10 +51,6 @@ stopwords:zh::配料
 # viande bovine d'origine française, L. bulgaricus
 # 100% pur arabica d'Amérique centrale, d'Amérique du Sud, d'Afrique et d'Asie
 
-#  non-ingredients
-#
-# fr:Roquefort au lait cru de Brebis
-# comment:en:Words that should be integrated in the ingredients
 
 #fr:ingrédient agricole issu de, produit de l'agriculture biologique, issue de l'agriculture biologique, produit issu de l'agriculture biologique, produits issus de l'agriculture biologique, ingrédients biologiques, biologiques
 
@@ -11389,51 +11385,32 @@ fr:ricotta de brebis
 
 <en:cheese
 en:roquefort, roquefort cheese, Roquefort cheese from ewe's milk
-af:Roquefort
 ar:روكفور
 az:Rokfor pendiri
 bg:Рокфор
 bo:རོ་ཀ་ཧྥོར།
-br:Roquefort
 ca:rocafort
-cs:Roquefort
 cv:Рокфор
-cy:Roquefort
-da:roquefort
-de:Roquefort
 el:τυρί Pοκφόρ, Ροκφόρ
 eo:Rokforto
-es:roquefort, queso roquefort
-et:Roquefort, Roqueforti juust
-eu:Roquefort
+es:queso roquefort
+et:Roqueforti juust
 fa:روکفور
-fi:Roquefort
-fr:roquefort
-hr:Roquefort
+fr:Roquefort au lait cru de Brebis
 hu:Rokfort, Rokfort sajt
 hy:Ռոկֆոր
-ia:Roquefort
-id:Roquefort
-it:roquefort
 ja:ロックフォール
 ko:로크포르
-la:Roquefort
 lo:ເນີຍແຂງລົກຟອກ
 lv:rokfors
-ms:Roquefort
-nb:Roquefort
-nl:roquefort kaas, roquefort
-nn:Roquefort
+nl:roquefort kaas
 oc:Ròcafòrt
-pl:roquefort
-pt:roquefort
-ro:Roquefort
 ru:Рокфор
 sl:Rokfor
 sv:Roquefortost
 tr:Rokfor peyniri
 uk:Рокфор
-vi:Roquefort
+xx:roquefort
 zh:罗克福干酪
 # be-tarask:Ракфор
 # zh-cn:罗克福奶酪
@@ -11448,6 +11425,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Roquefort
 ciqual_food_code:en:12500
 ciqual_food_name:en:Roquefort cheese, from ewe's milk
 ciqual_food_name:fr:Roquefort
+
 
 # description:en:Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
 
@@ -40814,10 +40792,9 @@ es:manteca de coco
 #
 ###################################################################################################
 
-# description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 
+# category/dates
 <en:fruit
-# <en:category:en:Dried fruits
 en:date, dates
 ar:تمر
 be:Фінікі
@@ -40859,10 +40836,16 @@ zh:椰枣
 # zh-cn:椰枣
 wikidata:en:Q1652093
 wikipedia:en:https://en.wikipedia.org/wiki/Date_palm#Fruits
-# ingredient/dates has 827 products in 11 languages @2018-09-29
-# category/dates has 311 products @2019-05-24
+description:de:Die Echte Dattelpalme (Phoenix dactylifera) ist eine Pflanzenart der Gattung Dattelpalmen. Ihre Früchte werden Datteln genannt.
+description:en:DATE, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
+description:es:Phoenix dactylifera, de nombre común palma (o palmera) datilera/datilero, palma común, es una palmera cuyo fruto comestible es el dátil.
+description:fr:Le dattier ou palmier-dattier (Phoenix dactylifera) est une espèce de plantes de la famille des Arécacées (Palmiers), largement cultivé d'abord pour ses fruits : les dattes. 
+description:it:La palma da datteri (Phoenix dactylifera) è una pianta appartenente alla famiglia Arecaceae. Fu nota sin dall'antichità per i suoi frutti eduli chiamati datteri.
+description:nl:De dadelpalm (Phoenix dactylifera) behoort tot de palmenfamilie. Ze wordt op grote schaal aangeplant omwille van de eetbare vruchten, de dadels.
+# ingredient/dates 3455 in 24 @2021-08-22
 
 <en:date
+en:organic dates
 fr:dattes bio
 de:Bio Datteln
 fi:luomutaateli, luomu taateli
@@ -40882,29 +40865,42 @@ fr:dattes Medjool
 it:Datteri Medjool
 # 9in3@2019-06-04
 
-<en:date
-en:date paste
-de:pürierte Datteln
-fr:pâte de datte
-nl:dadelpuree
-sv:dadelpuré
+#process:en: en:paste
+#process:en: en:pureed
+#<en:date
+#en:date paste
+#de:pürierte Datteln
+#fr:pâte de datte
+#nl:dadelpuree
+#sv:dadelpuré
 
 <en:date
-en:date syrup, date honey, date molasses
-de:Dattelsirup
-fr:sirop de datte
-pt:Xarope de tâmaras
-wikidata:en:Q2916133
-wikipedia:en:https://en.wikipedia.org/wiki/Date_honey
+en:Dried date pulp and peel
+fr:Datte pulpe et peau sèche
+ciqual_food_code:en:13011
+ciqual_food_name:en:Date, pulp and peel, dried
+ciqual_food_name:fr:Datte, pulpe et peau, sèche
 
+#process:en:en:syrup
+#<en:date
+#en:date syrup, date honey, date molasses
+#bg:сироп от фурми
+#de:Dattelsirup
+#fr:sirop de datte
+#pt:Xarope de tâmaras
+#wikidata:en:Q2916133
+#wikipedia:en:https://en.wikipedia.org/wiki/Date_honey
+
+#process:en: en:juice
 <en:date
 en:date juice
-de:Dattelsaft
+#de:Dattelsaft
 
-<en:date
-en:date juice concentrate
-de:Dattelsaftkonzentrat
-fr:jus de dattes concentré
+#process:en: en:concentrated
+<en:date juice
+en:concentrated date juice
+#de:Dattelsaftkonzentrat
+#fr:jus de dattes concentré
 
 # The context on an ingredient list determines whether this referes to the berries (probable) or the flowers.
 ###################################################################################################
