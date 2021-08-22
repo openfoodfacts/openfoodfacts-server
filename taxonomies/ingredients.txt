@@ -79127,8 +79127,8 @@ fr:marinade barbecue
 <en:marinade
 fr:marinade tex mex
 
-# description:en:MAYONNAISE, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
 
+#<en:compound
 <en:sauce
 en:mayonnaise
 af:Mayonnaise
@@ -79242,8 +79242,25 @@ zu:mayonezi
 # zh-tw:美乃滋
 wikidata:en:Q167893
 wikipedia:en:https://en.wikipedia.org/wiki/Mayonnaise
-# ingredient/fr:mayonnaise has 207 products in 5 languages @2019-04-11
+description:de:Mayonnaise, auch als Mayo bzw. Majo bezeichnet, ist eine dickflüssige, kalt hergestellte Sauce auf der Basis von Eigelb und Öl.
+description:en:MAYONNAISE, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
+description:es:La mayonesa o mahonesa es una salsa emulsionada fría elaborada principalmente a base de huevo entero y aceite vegetal batidos.
+description:fr:La mayonnaise est une sauce froide à base d'huile émulsionnée dans un mélange de jaune d'œuf et de vinaigre, ou de jus de citron, additionnée de moutarde dans certaines régions.
+description:it:La maionese è una salsa cremosa e omogenea, generalmente di colore bianco o giallo pallido, che viene consumata fredda.
+description:nl:Mayonaise is een koude, witte saus op basis van olie, eidooiers, azijn of citroensap, mosterd en eventuele smaakmakers.
+description:pt:Maionese é um molho à base de óleo e ovo, com a forma de uma emulsão, preparado a frio e condimentado com vários temperos.
+description:sv:Majonnäs är en kall sås och emulsion mellan äggula och matolja. Den smaksätts vanligtvis med senap och en syra i form av vinäger eller citron.
+# ingredient/mayonnaise 2291  in 19 @2021-08-22
 # usage:de:Mayonnaise (Rapsöl, Wasser, Eier*, Tafelessig, Kochsalz jodiert, Zucker)
+
+
+<en:mayonnaise
+en:70% fat mayonnaise
+fr:Mayonnaise à 70% de matière grasse
+ciqual_food_code:en:11054
+ciqual_food_name:en:Mayonnaise (70% fat and more)
+ciqual_food_name:fr:Mayonnaise (70% MG min.)
+
 
 <en:mayonnaise
 en:Reduced fat mayonnaise, Low fat mayonnaise, Light mayonnaise
