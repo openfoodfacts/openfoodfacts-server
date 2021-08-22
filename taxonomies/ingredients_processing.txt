@@ -311,10 +311,21 @@ pt:descadado, descamada
 
 en:flakes
 de:Flocken
+es:escamas de
+fi:hiutaleet
+fr:flocons de
+it:fiocchi di
+nl:vlokken
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
 
 #de:comment:result of grating
 de:raspel, raspeln
+
+en:grits
+de:schrot, grieß
+fi:rouhe
+nl:gries
+sv:färs
 
 en:powdered, powder
 ca:en pols
@@ -364,15 +375,20 @@ pt:desossado, sem osso
 en:shelled
 es:sin cascara, pelada, pelado, peladas, pelados
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées
+it:decorticati
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
 
 # en:description:With the outermost layer or skin removed
-en:peeled
-es:sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas
-fr:pelé, pelée, pelés, pelées
+en:peeled, hulled
+da:afskallede
+de:geschälte
+es:sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas, descascarilladas
+fi:kuoritut
+fr:pelé, pelée, pelés, pelées, dépelliculé, dépelliculées
 hu:hámozott
 nl:gepeld, gepelde
 pt:pelado, pelada, pelados, peladas, sem pele, sem peles
+sv:skalade
 # en:wiktionary:peeled
 
 de:entspeltzt
@@ -523,7 +539,7 @@ da:koncentreret
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado,concentrada,concentrados,concentradas, procedente de concentrado, procedente de concentrada
+es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
 fi:tiivistetty
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
@@ -548,6 +564,7 @@ de:200fach konzentriertes
 #en:not from concentrate
 
 en:paste
+de:paste
 fi:tahna
 sv:pasta
 
