@@ -79246,8 +79246,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mayonnaise
 # usage:de:Mayonnaise (Rapsöl, Wasser, Eier*, Tafelessig, Kochsalz jodiert, Zucker)
 
 <en:mayonnaise
-fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses
-# ingredient/fr:mayonnaise-allégée-en-matière-grasse has 266 products in french @2019-04-11
+en:Reduced fat mayonnaise, Low fat mayonnaise, Light mayonnaise
+fr:mayonnaise allégée en matière grasse, mayonnaise allégée en matières grasses, Mayonnaise à teneur réduite en matière grasse, Mayonnaise allégée
+ciqual_food_code:en:11079
+ciqual_food_name:en:Mayonnaise, reduced fat or light mayonnaise
+ciqual_food_name:fr:Mayonnaise à teneur réduite en matière grasse ou Mayonnaise allégée
+# ingredient/fr:mayonnaise-allégée-en-matière-grasse 313 in 2 @2021-08-22
 
 <en:mayonnaise
 en:harissa mayonnaise
@@ -79787,9 +79791,19 @@ fr:Vinaigrette au citron
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:sitruunavinegretti
 # 1 entry @ 2019-10-31
 
+#<en:compound
 <en:sauce
+en:burger sauce
 fr:sauce hamburger
+wikidata:en:none
+# ingredient/fr:sauce-hamburger 9 in fr @2021-08-21
 
+<en:burger sauce
+en:Prepacked burger sauce, Prepackaged burger sauce 
+fr:Sauce burger préemballée
+ciqual_food_code:en:11196
+ciqual_food_name:en:Burger sauce, prepacked
+ciqual_food_name:fr:Sauce burger, préemballée
 
 <en:sauce
 fr:sauce blanche
