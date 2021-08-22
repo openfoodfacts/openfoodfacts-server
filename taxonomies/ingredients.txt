@@ -25256,7 +25256,6 @@ likely_allergens:en: en:gluten
 ##################################################################################
 
 <en:cereal
-<en:barley
 en:barley
 am:ገብስ
 an:hordio
@@ -54150,7 +54149,7 @@ wikidata:en:Q104245598
 
 <en:alfalfa seeds
 en:raw alfalfa seeds
-fr:Graines de Luzerne
+fr:Graines de Luzerne cru
 ciqual_food_code:en:15032
 ciqual_food_name:en:Alphalfa seeds, raw
 ciqual_food_name:fr:Luzerne, graine
@@ -54334,11 +54333,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 #fr:cumin en poudre
 #es:comino en polvo
 
-<en:seed
-en:linseed seeds, linseeds
-de:Leinsamen
-es:semillas de linaza, linaza
-fr:Graines de lin
 
 <en:seed
 <en:melon
@@ -54541,15 +54535,13 @@ it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
 
-# It is possible to derive oil from flax seed
-
 <en:seed
-en:flax seed, flax seeds, flaxseed, linseed
+en:flax seed, flax seeds, flaxseed, linseed, linseed seeds
 bg:Ленено семе
 cs:Len setý
 da:Hørfrø
 de:Leinsamen, Leinsaat
-es:semillas de lino
+es:semillas de lino, semillas de linaza, linaza
 et:Linaseemned, linaseeme
 fa:تخم کتان
 fi:pellavansiemen, pellavansiemenet, pellavansiemeniä
@@ -54631,7 +54623,7 @@ et:Pipar
 fi:pippuri
 fr:poivre, poivres
 gl:Pementa
-he:פלפל
+# he:פלפל overlap with bell pepper
 ht:Pwav
 hu:Bors
 is:pipar
@@ -54839,18 +54831,6 @@ sv:svartpepparextrakt
 en:black and green pepper,green and black pepper
 fi:musta- ja viherpippuri
 
-###################################################################################################
-#
-#                                Pink pepper
-#
-###################################################################################################
-
-<en:pepper
-en:pink pepper,rose pepper
-de:Rosa Pfeffer, Rosa Beeren, rosa Pfefferbeeren
-es:pimienta rosa
-fr:poivre rose
-pt:pimenta rosa
 
 
 ###################################################################################################
@@ -55537,7 +55517,7 @@ ml:കരിഞ്ചീരകം
 mr:शहाजिरे
 ms:Jintan
 my:ကရဝေး
-nb:spisskum, spisskummen, karve
+nb:karve
 nl:karwij, karwijzaad
 nn:Karve
 pa:زيره
@@ -56952,19 +56932,26 @@ fr:moutarde forte
 <en:mustard
 fr:moutarde à l'ancienne
 
+###################################################################################################
+#
+#                                Pink pepper
+#
+###################################################################################################
 
-<en:spice
-en:pink peppercorn, pink berries
+<en:pepper
+en:pink peppercorn, pink berries, pink pepper, rose pepper
 da:rosépeber
-de:Rosa Beeren
+de:Rosa Pfeffer, Rosa Beeren, rosa Pfefferbeeren
+es:pimienta rosa
 fa:فلفل صورتی
 fi:roseepippuri, rosépippuri, perunroseepippuri, ruusupippuri
-fr:baies roses, baies
+fr:baies roses, baies, poivre rose
 it:pepe rosa
 ja:ピンクペッパー
 la:Granum piperis roseum
 ml:പിങ്ക് പെപ്പർകോൺ
 nl:roze bessen
+pt:pimenta rosa
 ru:Розовый перец
 sv:Rosépeppar
 uk:Рожевий перець
@@ -60021,7 +60008,8 @@ sv:panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
+# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
+# comment:en:This refers to the root not the candy
 
 <en:plant
 en:liquorice, licorice
@@ -60036,7 +60024,7 @@ ca:regalèssia
 cs:lékořice lysá
 cy:Gwylys
 da:lakrids, Glat Lakrids
-de:Lakritz, Sussholz, Süßholz, Echtes Süßholz, Süßholzwurzel, Süßholzwurzeln
+de:Lakritz, Sussholz, Süßholz, Echtes Süßholz
 dv:ވޭމުއި
 el:Γλυκόριζα
 eo:Vera glicirizo
@@ -60824,14 +60812,6 @@ fr:Plantain lancéolé
 la:Plantago lanceolata
 wikipedia:en:https://en.wikipedia.org/wiki/Plantago_lanceolata
 
-<en:plant
-en:hibiscus
-de:Hibiskus
-es:hibisco
-fr:Hibiscus
-it:Ibisco
-nl:hibiscus
-wikipedia:en:https://en.wikipedia.org/wiki/Hibiscus
 
 ###################################################################################################
 #
@@ -60931,7 +60911,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rose_water
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
 
 <en:plant
-en:roselle flower, hibiscus flower, hibiscus flowers
+en:roselle flower, hibiscus flower, hibiscus flowers, hibiscus
 ar:كركديه
 as:টেঙামৰা
 az:Məkkə çayı
@@ -60941,14 +60921,14 @@ cs:ibišek súdánský
 da:hibiskusblomst
 de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüten
 eo:Sabdarifo
-es:Flor Roselle
+es:Flor Roselle, hibisco
 fa:روزل
 fi:teehibiskus, hibiskus, hibiskuksen kukka
 fr:fleurs de carcadé, fleurs d'hibiscus, hibiscus
 gu:અંબાડી
 hu:rozella
 id:Rosela
-it:flori di carcadè
+it:flori di carcadè, Ibisco
 ja:ローゼル
 jv:Rosela
 ko:로젤
@@ -60959,7 +60939,7 @@ mr:अंबाडी
 ms:Asam belanda
 my:ချဉ်ပေါင်
 nb:hibiskusblomst
-nl:hibiscusbloem, roselle
+nl:hibiscusbloem, roselle, hibiscus
 pl:Ketmia szczawiowa
 pt:Vinagreira
 ru:Розелла
@@ -61167,7 +61147,7 @@ es:azafrán
 et:Safran
 eu:Azafrai
 fa:زعفران
-fi:Sahrami
+# fi:Sahrami part of E164
 fr:safran
 ga:Cróch
 gl:Azafrán
@@ -61198,7 +61178,7 @@ pa:ਕੇਸਰ
 pl:Zastosowanie szafranu
 ps:ګنګو
 pt:açafrão
-ro:șofran
+# ro:șofran part of E164
 ru:шафран
 sa:केसरम्
 sc:Zafferano
@@ -61767,7 +61747,7 @@ wikidata:en:Q11587820
 
 <en:green tea
 en:green tea leaf, green tea leaves
-de:Grüntee
+de:Grüntee blätter
 es:hojas de té verde
 
 <en:green tea
@@ -62531,7 +62511,7 @@ eu:Itsas belar
 fa:جلبک دریایی
 fi:Merilevä
 fo:Tari
-fr:algue marine, varech
+fr:algue marine
 ga:Feamainn
 gd:Feamainn ghropach
 he:אצה
@@ -62677,16 +62657,16 @@ es:Palmaria palmata, duse, dillisk
 fr:Palmaria palmata
 la:Palmaria palmata
 
-
-<en:seaweed
+# is part of e407a in additives taxonomy
+#<en:seaweed
 #<en:e407a
-en:processed euchema algae
-de:verarbeitete euchema algae
-fr:algues euchema transformées
-it:alghe euchema lavorate
-nl:Verwerkt Eucheuma-wier
-description:en:Eucheuma, commonly known as gusô, is a seaweed algae that may be brown, red, or green in color.
-wikipedia:en:https://en.wikipedia.org/wiki/Eucheuma
+#en:processed euchema algae
+#de:verarbeitete euchema algae
+#fr:algues euchema transformées
+#it:alghe euchema lavorate
+#nl:Verwerkt Eucheuma-wier
+#description:en:Eucheuma, commonly known as gusô, is a seaweed algae that may be brown, red, or green in color.
+#wikipedia:en:https://en.wikipedia.org/wiki/Eucheuma
 # ingredient/fr:algues-euchema-transformées has 147 products in 4 languages @2019-02-22
 
 
@@ -63304,7 +63284,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 <en:golden chanterelle
 en:cantharellus cibarius
 de:Echter Pfifferling (cantharellus cibarius)
-es:Cantharellus cibarius, rebozuelo, anacate, chantarela
+es:Cantharellus cibarius, rebozuelo, anacate
 fr:Cantharellus cibarius, Girolle, Girole, Chanterelle
 la:cantharellus cibarius
 
@@ -68370,7 +68350,7 @@ fr:chair de brochet
 
 <en:fish
 en:Pollack
-fr:lieu, Lieu jaune
+fr:Lieu jaune
 ciqual_food_code:en:26129
 ciqual_food_name:en:Pollack, raw
 ciqual_food_name:fr:Lieu jaune ou colin, cru
@@ -68501,7 +68481,7 @@ fi:äyriäisuute
 en:mollusc, molluscs, mollusks, mollusk
 af:Weekdiere
 am:ዛጎል ለበስ
-ar:رخويات ,محار, بلح البحر
+ar:رخويات , بلح البحر
 az:Molyusklar
 ba:Моллюскылар
 be:малюскі
@@ -69824,7 +69804,7 @@ es:sucedáneo de tinta de calamar
 
 <en:mollusc
 en:clam, clams
-ar:محار ملزمي
+ar: ملزمي
 ca:cloïssa
 de:Venusmuscheln
 el:Αχιβάδα
