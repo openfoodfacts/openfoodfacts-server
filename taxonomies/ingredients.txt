@@ -49687,8 +49687,7 @@ fr:poivrons rouges et jaunes, poivrons jaunes et rouges
 it:peperoni rossi e gialli
 # fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
 
-# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
-
+# category/chili-peppers
 <en:vegetable
 en:chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
 ar:فلفل حار
@@ -49794,34 +49793,52 @@ wikidata:en:Q165199
 wikipedia:en:https://en.wikipedia.org/wiki/Chili_pepper
 carbon_footprint_fr_foodges_ingredient:fr:Piment et poivre sec
 carbon_footprint_fr_foodges_value:fr:3.4
+# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
+description:es:El chile, ají o guindilla, es una variedad de pimiento picante. Es el fruto (baya) de diversas especies de plantas del género Capsicum.
+description:fr:Le terme piment (vert, jaune, orange, rouge, brun, pêche ou violet) est un nom vernaculaire désignant le fruit de cinq espèces de plantes du genre Capsicum de la famille des Solanacées.
+description:it:Il peperoncino è il nome comune dato alla bacca ottenuta da alcune varietà piccanti del genere di piante Capsicum utilizzata principalmente come condimento.
+description:nl:Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
+description:pt:A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
+# ingredient/chili-pepper 29007 in 39 @2021-08-22
+
+<en:chili pepper
+en:raw chili pepper
+fr:Piment cru
+ciqual_food_code:en:20151
+ciqual_food_name:en:Chili pepper, raw
+ciqual_food_name:fr:Piment, cru
 
 <en:chili pepper
 en:tabasco chile
 es:chiles tabasco
 
-<en:chili pepper
-en:chili extract, chilli extract
-de:Chiliextrakt
-es:extracto de chili
-fi:chiliuute
-fr:extrait de piment
-it:estratto di peperoncino
-nl:pimentextract
-sv:chilipepparextrakt
+#process:en: en:extract
+#<en:chili pepper
+#en:chili extract, chilli extract
+#de:Chiliextrakt
+#es:extracto de chili
+#fi:chiliuute
+#fr:extrait de piment
+#it:estratto di peperoncino
+#nl:pimentextract
+#sv:chilipepparextrakt
 # ingredient/fr:extrait-de-piment has 72 products in 6 languages @2019-04-15
 
-<en:chili pepper
-en:chili puree, chilli puree
-de:Chilipaste, Chilipüree
-fi:chilipyree, chilisose
-fr:purée de piments
-it:purea di peperoncino
+#process:en: en:pureed
+#process:en: en:paste
+#<en:chili pepper
+#en:chili puree, chilli puree
+#de:Chilipaste, Chilipüree
+#fi:chilipyree, chilisose
+#fr:purée de piments
+#it:purea di peperoncino
 # ingredient/fr:purée-de-piments has 136 products in 4 languages @2019-04-15
 # usage:fr:purée de piments (piments, sel)
 
-<en:chili pepper
-en:chilli flakes
-de:Chiliflocken, Chili-Flocken
+#process:en: en:flakes
+#<en:chili pepper
+#en:chilli flakes
+#de:Chiliflocken, Chili-Flocken
 
 <en:chili pepper
 en:chili in vinegar
@@ -50377,11 +50394,18 @@ description:fr:Les tomates séchées sont un aliment déshydraté traditionnel, 
 # ingredient/fr:tomates-sechees-au-soleil has 281 products in 1 language @2020-05-21
 
 <en:sundried tomatoes
-en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil
-fr:Tomate séchée à l'huile, Tomates séchées à l'huile
-ciqual_food_code:en:20256
-ciqual_food_name:en:Tomato, dried, in oil
-ciqual_food_name:fr:Tomate, séchée, à l'huile
+en:Dried tomato, Dried tomatoes, Sun-Dried tomato, Sun-Dried tomatoes
+fr:Tomate séchée, Tomates séchées
+ciqual_food_code:en:20189
+ciqual_food_name:en:Tomato, dried
+ciqual_food_name:fr:Tomate, séchée
+
+#<en:sundried tomatoes
+#en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil
+#fr:Tomate séchée à l'huile, Tomates séchées à l'huile
+#ciqual_food_code:en:20256
+#ciqual_food_name:en:Tomato, dried, in oil
+#ciqual_food_name:fr:Tomate, séchée, à l'huile
 
 <en:dried tomatoes
 fr:tomates séchées réhydratées
