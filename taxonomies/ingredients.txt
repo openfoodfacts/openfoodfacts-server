@@ -53867,6 +53867,8 @@ allergens:en: en:nuts
 #                                Walnut
 #
 ###################################################################################################
+
+# category/walnuts
 <en:tree nut
 en:walnut, walnuts
 af:Okkerneut
@@ -53932,15 +53934,29 @@ carbon_footprint_fr_foodges_ingredient:fr:Noix entières
 carbon_footprint_fr_foodges_value:fr:1.3
 wikidata:en:Q208021
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
-# 894 products in 7 languages @2018-10-05
+description:en:A walnut is the nut of any tree of the genus Juglans. After full ripening for its edible seed when the shell has been discarded, it is used as a garnish or a snack.
+description:es:Una nuez es el fruto de cualquier árbol del género Juglans. Después de la maduración completa de su semilla comestible cuando se ha desechado la cáscara, se usa como guarnición o snack.
+description:fr:La noix est un fruit comestible à coque. Elle est produite par les noyers, arbres du genre Juglans L.
+description:it:La noce è il frutto degli alberi del genere Juglans.
+description:nl:Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van de gewone walnoten- of okkernotenboom (Juglans regia).
+# ingredient/walnut 5074 in 27 @2021-08-22
+
+<en:walnut
+en:Fresh walnut
+fr:Noix fraîche
+ciqual_food_code:en:15023
+ciqual_food_name:en:Walnut, fresh
+ciqual_food_name:fr:Noix, fraîche
 
 <en:walnut
 en:walnut kernel, walnuts shelled
 de:Walnusskerne
+es:nuez mondada
 fi:kuoreton saksanpähkinä, kuorettomat saksanpähkinät
 fr:cerneaux de noix
-nl:Gepelde walnoot
+it:gherigli di noci, noci comuni
+nb:Valnøttkjerner
+nl:Gepelde walnoot, walnootpitten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux-de-noix
 # 78 products in 4 languages @2018-10-05
 ciqual_food_code:en:15005
@@ -53948,28 +53964,34 @@ ciqual_food_name:en:Walnut, dried, husked
 ciqual_food_name:fr:Noix, séchée, cerneaux
 
 <en:walnut
+en:dried walnuts
 fr:noix sèches
 
 <en:walnut
+en:walnuts from Grenoble
 fr:noix de Grenoble
 
-<fr:noix de Grenoble
+<en:walnuts from Grenoble
+en:dried walnuts rom Grenoble
 fr:noix de Grenoble sèche, noix sèche de Grenoble
 
 <en:walnut
+en:whole walnuts
 fr:noix en coques
 
-<fr:noix en coques
+<en:whole walnuts
+en:dried whole walnuts
 fr:noix en coques séchées
 
-<fr:cerneaux de noix
+<en:walnut kernel
 fr:cerneaux de noix AOP
 
-<fr:cerneaux de noix
+<en:walnut kernel
 fr:cerneaux de noix du Dauphiné
 
-<fr:cerneaux de noix
+<en:walnut kernel
 fr:cerneaux de noix invalides
+it:Nocciole pelate
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
