@@ -73946,7 +73946,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Egg_as_food
 vegetarian:en:yes
 vegan:en:no
 allergens:en: en:eggs
-# ingredient/egg has 15441 products in 24 languages @2018-12-19
+# ingredient/egg 71.383 in 41 @2021-08-22
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
 description:en:EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
@@ -74007,7 +74007,9 @@ ja:スイス産卵
 nl:eieren uit Zwitserland, zwitserse eieren
 # 2@2109-05-31
 
-# category:en:en:Boiled eggs
+#comment:en:this should be split in boiled as process and the result hard/soft
+# category:en: en:Boiled eggs
+#process:en: en:cooked
 <en:egg
 en:boiled egg
 ar:بيض مسلوق
@@ -74038,19 +74040,30 @@ vi:Trứng luộc
 zh:水煮蛋
 # yue:烚蛋
 wikidata:en:Q1062531
-# ingredient/fr:oeuf-dur has 149 products @2018-12-18
+wikipedia:en:https://en.wikipedia.org/wiki/Boiled_egg
+description:de:Als gekochtes Ei, teils auch als Frühstücksei, wird ein Ei (üblicherweise ein Hühnerei) bezeichnet, das in seiner Schale in kochendem Wasser oder unter Dampf, etwa in einem Eierkocher, gegart wurde.
+description:en:Boiled eggs are eggs, typically from a chicken, cooked with their shells unbroken, usually by immersion in boiling water.
+description:es:El huevo duro, también llamado huevo cocido o huevo sancochado, es un huevo —por lo general de gallina— hervido, usualmente en una salmuera o agua hirviendo.
+description:fr:Un œuf dur est une préparation de l'œuf qui permet de consommer sous forme solide le jaune et le blanc.
+# ingredient/boiled-egg 255 in 5 @2021-08-22
+
+<en:boiled egg
+en:soft-boiled egg
+fr:oeuf à la coque
 ciqual_food_code:en:22014
 ciqual_food_name:en:Egg, soft-boiled
 ciqual_food_name:fr:Oeuf, à la coque
+description:fr:Un œuf à la coque est un œuf entier cuit dans sa coquille, de telle sorte que le blanc soit peu coagulé encore souple et le jaune coulant.
 
 <en:boiled egg
 fr:quartiers d'œufs durs
 nl:gekookt ei kwarten
 
-<en:egg
-fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
-de:Eier pasteurisiert
-it:uova pastorizzate
+#process:en: en:pasteurised
+#<en:egg
+#fr:œuf pasteurisé, œufs pasteurisés, oeuf pasteurisé, oeufs pasteurisés
+#de:Eier pasteurisiert
+#it:uova pastorizzate
 # ingredient/fr:oeuf-pasteurisé has 57 products in 4 languages @2018-12-18
 
 <en:egg
@@ -74157,14 +74170,16 @@ nl:scharreleieren, scharrelei, scharrel-ei
 <en:barn eggs
 nl:scharrel ei poeder
 
-<en:egg
-en:pasteurized liquid egg
-de:pasteurisiertes Flüssigei
-es:huevo líquido pasteurizado
-fr:œuf liquide pasteurisé, oeuf liquide pasteurisé
-nl:gepasteuriseerd vloeibaar ei
+#process:en: en:pasteurised
+#<en:egg
+#en:pasteurized liquid egg
+#de:pasteurisiertes Flüssigei
+#es:huevo líquido pasteurizado
+#fr:œuf liquide pasteurisé, oeuf liquide pasteurisé
+#nl:gepasteuriseerd vloeibaar ei
 # ingredient/fr:oeuf-liquide-pasteurisé has 50 products in 2 languages @2018-12-18
 
+#process:en: en:powdered
 <en:egg
 en:egg powder, powdered egg
 da:æggepulver
