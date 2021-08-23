@@ -36,8 +36,8 @@ prod: clean
 # Build #
 #-------#
 build_npm:
-	docker run --rm -it -v node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm install
-	docker run --rm -it -v node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm run build
+	docker run --rm -it -v node_modules:/mnt/node_modules -v $(realpath ./):/mnt -w /mnt node:lts npm install
+	docker run --rm -it -v node_modules:/mnt/node_modules -v $(realpath ./):/mnt -w /mnt node:lts npm run build
 
 #-----------#
 # Utilities #
