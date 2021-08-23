@@ -43,6 +43,7 @@ jobs:
         CROWDIN_PROJECT_IDENTIFIER: ${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}
         CROWDIN_PROJECT_KEY: ${{ secrets.CROWDIN_PROJECT_KEY }}
         GEOLITE2_PATH: ${{ secrets.GEOLITE2_PATH }}
+        GEOLITE2_LICENSE_KEY: ${{ secrets.GEOLITE2_LICENSE_KEY }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -50,7 +51,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,GEOLITE2_PATH
+        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,GEOLITE2_PATH,GEOLITE2_LICENSE_KEY
         script_stop: false
         script: |
           # Clone Git repository if not already there
@@ -73,6 +74,7 @@ jobs:
           echo "CROWDIN_PROJECT_IDENTIFIER=${CROWDIN_PROJECT_IDENTIFIER}" >> .env
           echo "CROWDIN_PROJECT_KEY=${CROWDIN_PROJECT_KEY}" >> .env
           echo "GEOLITE2_PATH=${GEOLITE2_PATH}" >> .env
+          echo "GEOLITE2_LICENSE_KEY=${GEOLITE2_LICENSE_KEY}" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${PRODUCT_OPENER_DOMAIN}/g" ./frontend-git/conf/nginx.conf
