@@ -51,7 +51,7 @@ jobs:
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
 
           # Go to docker/ directory
-          cd openfoodfacts-server/docker/
+          cd openfoodfacts-server/
 
           # Fetch newest commits (in case it wasn't freshly cloned)
           git fetch --depth 1
@@ -73,7 +73,7 @@ jobs:
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
           # Recreate containers that have a new image
           sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml up -d --remove-orphans 2>&1
@@ -90,7 +90,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/docker/
+          cd openfoodfacts-server/
           exit_code=0
           for service in backend frontend mongodb memcached postgres geoipupdate; do 
             if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
@@ -114,7 +114,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/docker/
+          cd openfoodfacts-server/
           sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml exec -T backend bash /opt/product-opener/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
