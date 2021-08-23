@@ -37,16 +37,6 @@ jobs:
       env:
         DOCKER_CLIENT_TIMEOUT: 120
         COMPOSE_HTTP_TIMEOUT: 120
-        SSL_SUBDOMAINS: '*'
-        PRODUCT_OPENER_DOMAIN: ${{ secrets.PRODUCT_OPENER_DOMAIN }}
-        ROBOTOFF_URL: ${{ secrets.ROBOTOFF_URL }}
-        GOOGLE_CLOUD_VISION_API_KEY: ${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}
-        CROWDIN_PROJECT_IDENTIFIER: ${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}
-        CROWDIN_PROJECT_KEY: ${{ secrets.CROWDIN_PROJECT_KEY }}
-        GEOLITE2_PATH: ${{ secrets.GEOLITE2_PATH }}
-        GEOLITE2_LICENSE_KEY: ${{ secrets.GEOLITE2_LICENSE_KEY }}
-        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -54,7 +44,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT,PRODUCT_OPENER_DOMAIN,ROBOTOFF_URL,GOOGLE_CLOUD_VISION_API_KEY,CROWDIN_PROJECT_IDENTIFIER,CROWDIN_PROJECT_KEY,GEOLITE2_PATH,GEOLITE2_LICENSE_KEY,POSTGRES_USER,POSTGRES_PASSWORD
+        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
         script_stop: false
         script: |
           # Clone Git repository if not already there
@@ -71,17 +61,19 @@ jobs:
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
-          echo "PRODUCT_OPENER_DOMAIN=${PRODUCT_OPENER_DOMAIN}" >> .env
-          echo "ROBOTOFF_URL=${ROBOTOFF_URL}" >> .env
-          echo "GOOGLE_CLOUD_VISION_API_KEY=${GOOGLE_CLOUD_VISION_API_KEY}" >> .env
-          echo "CROWDIN_PROJECT_IDENTIFIER=${CROWDIN_PROJECT_IDENTIFIER}" >> .env
-          echo "CROWDIN_PROJECT_KEY=${CROWDIN_PROJECT_KEY}" >> .env
-          echo "GEOLITE2_PATH=${GEOLITE2_PATH}" >> .env
-          echo "GEOLITE2_LICENSE_KEY=${GEOLITE2_LICENSE_KEY}" >> .env
-          echo "SSL_SUBDOMAINS=${SSL_SUBDOMAINS}" >> .env
+          echo "SSL_SUBDOMAINS=*" >> .env
+          echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
+          echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> .env
+          echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
+          echo "CROWDIN_PROJECT_IDENTIFIER=${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
+          echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
+          echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
+          echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
+          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${PRODUCT_OPENER_DOMAIN}/g" ./frontend-git/conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./frontend-git/conf/nginx.conf
 
           # Recreate containers that have a new image
           sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml up -d --remove-orphans 2>&1

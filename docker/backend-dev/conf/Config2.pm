@@ -44,8 +44,6 @@ BEGIN
 		$google_cloud_vision_api_key
 		$crowdin_project_identifier
 		$crowdin_project_key
-		$postgres_user
-		$postgres_password
 		$robotoff_url
 		%server_options
 	);
@@ -76,8 +74,10 @@ $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
-$postgres_user = $ENV{POSTGRES_USER};
-$postgres_password = $ENV{POSTGRES_PASSWORD};
+my $postgres_db = "postgres";
+my $postgres_user = $ENV{POSTGRES_USER};
+my $postgres_password = $ENV{POSTGRES_PASSWORD};
+my $postgres_url = "postgresql://${postgres_user}:${postgres_password}@${postgres_db}/minion"
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
@@ -86,7 +86,7 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 %server_options = (
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
 		producers_platform => $producers_platform,
-		minion_backend => { Pg => "posgresql://${postgres_user}:${postgres_password}@postgres/minion" },
+		minion_backend => { Pg => $postgres_url},
 		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" ? $server_domain,
 		minion_export_queue => $server_domain,
 		cookie_domain => $server_domain,
