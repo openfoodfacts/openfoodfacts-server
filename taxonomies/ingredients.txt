@@ -44648,21 +44648,33 @@ wikidata:en:Q23041430
 wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
 carbon_footprint_fr_foodges_ingredient:fr:Artichauts
 carbon_footprint_fr_foodges_value:fr:2.5
+
+<en:artichoke
+en:raw globe artichoke
+fr:artichaut cru
 ciqual_food_code:en:20052
 ciqual_food_name:en:Artichoke, globe, raw
 ciqual_food_name:fr:Artichaut, cru
 
-# description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
 
 <en:artichoke
-en:Artichoke hearts
+en:Artichoke heart, artichoke bottom
 de:Artischockenherzen
 es:Corazones de alcachofa
 fi:artisokansydämet
 fr:cœurs d'artichauts, coeurs d'artichauts, Fonds d'artichaut
 it:Cuori di carciofo
 nl:artisjokharten
-# ingredient/fr:coeurs-d’artichauts has 52 products in 6 languages @2019-04-03
+description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
+#wikidata:en:none
+# ingredient/Artichoke-heart 448 in 6 languages @2021-08-22
+
+<en:Artichoke heart
+en:Frozen raw artichoke bottom
+fr:Fond d'artichaut cru surgelé
+ciqual_food_code:en:20232
+ciqual_food_name:en:Artichoke base, frozen, raw
+ciqual_food_name:fr:Artichaut, fond, surgelé, cru
 
 
 # Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
