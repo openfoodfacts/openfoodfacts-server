@@ -5,7 +5,7 @@ NAME = "ProductOpener"
 #-----#
 # Dev #
 #-----#
-dev: clean build start load log
+dev: build start
 
 start:
 	docker-compose -f docker-compose.yml -f docker/dev.yml -f docker/vscode.yml up -d --remove-orphans
@@ -28,7 +28,7 @@ status:
 #------------#
 # Production #
 #------------#
-prod:
+prod: clean
 	docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml up -d --remove-orphans
 
 #-------#
