@@ -40,8 +40,6 @@ BEGIN
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-	    $facebook_app_secret
 		$google_cloud_vision_api_key
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -57,37 +55,39 @@ use utf8;
 # server constants
 $server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
-@ssl_subdomains = qw(
-*
-);
+@ssl_subdomains = split / /, $ENV{SSL_SUBDOMAINS};
+$producers_platform = $ENV{PRODUCERS_PLATFORM};
 
 # server paths
 $www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
-$mongodb = "off";
+$mongodb = $producers_platform == "1" ? "off-pro" : "off";
 $mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "memcached:11211" ];
 
-$facebook_app_id = "";
-$facebook_app_secret = "";
-
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
+
+$postgres_username = $ENV{POSTGRES_USER};
+$postgres_password = $ENV{POSTGRES_PASSWORD};
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ENV{ROBOTOFF_URL};
 
 %server_options = (
-        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
-		minion_backend => { Pg => '' },
-		minion_local_queue => $server_domain,
+        private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
+		producers_platform => $producers_platform,
+		minion_backend => { Pg => "posgresql://${postgres_username}:${postgres_password}@postgres/minion" },
+		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" ? $server_domain,
+		minion_export_queue => $server_domain,
 		cookie_domain => $server_domain,
+		export_servers => { public => "off", experiment => "off-exp"},
 		ip_whitelist_session_cookie => ["", ""]
 );
 1;
