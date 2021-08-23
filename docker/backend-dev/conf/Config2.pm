@@ -45,7 +45,6 @@ BEGIN
 		$google_cloud_vision_api_key
 		$crowdin_project_identifier
 		$crowdin_project_key
-		$csrf_secret
 		$robotoff_url
 		%server_options
 	);
@@ -79,7 +78,6 @@ $facebook_app_secret = "";
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
-$csrf_secret = $ENV{CSRF_SECRET};
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
