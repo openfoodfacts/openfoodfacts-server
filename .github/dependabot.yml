@@ -9,18 +9,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-  
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-        interval: "weekly"
+      interval: "weekly"
 
   - package-ecosystem: "docker"
-    directory: "/docker/backend"
+    directory: "/"
     schedule:
-        interval: "weekly"
-
-  - package-ecosystem: "docker"
-    directory: "/docker/frontend"
-    schedule:
-        interval: "weekly"
+      interval: "weekly"
