@@ -37,8 +37,6 @@ BEGIN
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-	    $facebook_app_secret
 		$robotoff_url
 		%server_options
 	);
@@ -62,9 +60,6 @@ $mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "memcached:11211" ];
-
-$facebook_app_id = "";
-$facebook_app_secret = "";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
