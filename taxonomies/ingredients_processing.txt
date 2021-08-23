@@ -525,6 +525,10 @@ es:solidos de jugo
 
 en:juice crystals
 
+# e.g. soaked beans
+en:soaked
+fr:trempé, trempée, trempés, trempées
+
 #######################################################################
 #
 #                H U M I D I T Y   P R O C E S S E S
@@ -1356,12 +1360,14 @@ hu:termesztett
 #we would need corresponding code changes so that NOVA 4 ingredient processing are used when computing NOVA groups.
 
 en:non-hydrogenated
-de:ungehärtet
+de:ungehärtet, ungehärtetes
 es:no hidrogenada
+fi:kovettamaton
 fr:non hydrogénée
 it:non idrogenato
 nl:niet gehydrogeneerde
 pt:nâo hidrogenada
+sv:ohärdad
 
 #en:hydrolysed, hydrolized
 #fr:Hydrolisé, hydrolisée
@@ -1370,8 +1376,11 @@ pt:nâo hidrogenada
 en:hydrogenated
 de:Gehärtetes
 es:hidrogenado
-fi:kovetettu
+fi:kovetettu, hydrogenoitu
 fr:hydrogénée
+hu:hidrogénezett
+it:idrogenato
+nl:Gehydrogeneerde
 sv:hårdat
 
 #<en:hydrogenated
@@ -1381,7 +1390,3 @@ fr:totalement hydrogénée
 fi:kokonaan kovetettu
 nb:fullherdet
 sv:fullhärdad
-
-# e.g. soaked beans
-en:soaked
-fr:trempé, trempée, trempés, trempées

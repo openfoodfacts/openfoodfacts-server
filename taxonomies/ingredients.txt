@@ -17568,6 +17568,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cooking_oil
 
 
 # nova:en:hydrogenated-oil
+# process:en en:hydrogenated
 <en:oil
 en:hydrogenated oil
 de:gehärtetes öl
@@ -17588,10 +17589,13 @@ da:stegeolie
 de:Frittieröl
 es:aceite para freír
 fi:paistoöljy, friteerausöljy
-fr:Huile de friture
+fr:Huile de friture, Huile pour friture
 hu:sütőolaj
 nl:bakvet
-
+ciqual_food_code:en:16128
+ciqual_food_name:en:Frying oil
+ciqual_food_name:fr:Huile pour friture, sans précision
+# 69 in 4 @2021-08-22
 
 # description:en:FAT is one of the three main macronutrients, along with the other two:carbohydrate and protein. Fats molecules consist of primarily carbon and hydrogen atoms, thus they are all hydrocarbon molecules.
 
