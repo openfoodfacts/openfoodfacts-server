@@ -15,3 +15,7 @@
 # Template::Toolkit
 # =================
 *.tt linguist-language=HTML
+
+# Scripts
+# =======
+scripts/po-foreground.sh text=auto eol=lf

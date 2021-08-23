@@ -1,13 +1,5 @@
 ﻿version: "3.7"
 services:
-  backend:
-    volumes:
-      - type: bind
-        source: ./backend-dev/conf/Config2.pm
-        target: /opt/product-opener/lib/ProductOpener/Config2.pm
-      - type: bind
-        source: ./backend-dev/scripts/
-        target: /opt/scripts/
   frontend:
     volumes:
       # Data mount for Robotoff static data dumps:

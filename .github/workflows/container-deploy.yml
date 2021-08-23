@@ -73,10 +73,10 @@ jobs:
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./frontend-git/conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" conf/nginx.conf
 
           # Recreate containers that have a new image
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml up -d --remove-orphans 2>&1
+          sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml up -d --remove-orphans 2>&1
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -115,7 +115,7 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/docker/
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml exec -T backend bash /opt/scripts/import_sample_data.sh
+          sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml exec -T backend bash /opt/product-opener/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
