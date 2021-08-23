@@ -10586,10 +10586,12 @@ sub display_recent_changes {
 	});
 	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
-	my $html = "<ul>\n";
+	my $html = '';
 	my $last_change_ref = undef;
 	my @cumulate_changes = ();
 	my $template_data_ref_changes = {};
+	my @changes;
+
 
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
@@ -10604,6 +10606,8 @@ sub display_recent_changes {
 			diffs => $change_ref->{diffs}
 		};
 
+		my $changes_ref = {};
+
 		# security: Do not expose IP addresses to non-admin or anonymous users.
 		delete $change_hash->{ip} unless $admin;
 
@@ -10611,6 +10615,7 @@ sub display_recent_changes {
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
 
+		$changes_ref->{cumulate_changes} = @cumulate_changes;
 		if (defined $last_change_ref and $last_change_ref->{code} == $change_ref->{code}
 			and $change_ref->{userid} == $last_change_ref->{userid} and $change_ref->{userid} ne 'kiliweb') {
 
@@ -10620,25 +10625,27 @@ sub display_recent_changes {
 		}
 		elsif (@cumulate_changes > 0) {
 
-			$html.= "<details class='recent'><summary>" . lang('collapsed_changes') . "</summary>";
-			foreach (@cumulate_changes) {
-				$html.= display_change($_, compute_changes_diff_text($_));
-			}
-			$html.= "</details>";
+			my @cumulate_changes_display;
 
+			foreach (@cumulate_changes) {
+				push(@cumulate_changes_display, {
+					display_change => display_change($_, compute_changes_diff_text($_)),
+				});
+			}
+
+			$changes_ref->{cumulate_changes_display} = \@cumulate_changes_display;
 			@cumulate_changes = ();
 
 		}
-		$html.= display_change($change_ref, $diffs);
+
+		$changes_ref->{display_change} = display_change($change_ref, $diffs);
+		push(@changes, $changes_ref);
 
 		$last_change_ref = $change_ref;
 	}
 
-	# Display...
 
-	$html .= "</ul>";
-	$html .= "\n<hr>" . display_pagination($request_ref, $count, $limit, $page);
-
+	$template_data_ref_changes->{changes} = \@changes;
 	$template_data_ref_changes->{display_pagination} =  display_pagination($request_ref, $count, $limit, $page);
 	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html) || ($html .= 'template error: ' . $tt->error());
 
