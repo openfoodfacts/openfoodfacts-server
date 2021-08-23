@@ -73831,6 +73831,7 @@ es:fumé de perdiz
 
 # description:en:EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish, and have been eaten by humans for thousands of years.
 
+#category/eggs
 en:egg, eggs
 af:eier
 ak:Kosua
@@ -73948,6 +73949,15 @@ allergens:en: en:eggs
 # ingredient/egg has 15441 products in 24 languages @2018-12-19
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
+description:en:EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
+
+<en:egg
+en:Raw egg
+fr:Oeuf cru
+ciqual_food_code:en:22000
+ciqual_food_name:en:Egg, raw
+ciqual_food_name:fr:Oeuf, cru
+
 
 <en:flavour
 en:egg flavour
@@ -74721,6 +74731,7 @@ en:egg derivatives
 de:aus Ei, enthält Hühnerei
 es:derivado del huevo,derivado de huevo
 
+#category/duck-eggs
 <en:egg
 en:duck egg
 de:Enteneier
@@ -74733,7 +74744,15 @@ ru:яйцо утки
 zh:鴨蛋
 # yue:鴨蛋
 wikidata:en:Q11173928
-# ingredient/duck-egg has 7 products @2018-12-17
+# ingredient/duck-egg 9 products @2021-08-22
+
+<en:duck egg
+en:Raw duck egg
+fr:Oeuf de cane cru
+ciqual_food_code:en:22060
+ciqual_food_name:en:Duck egg, raw
+ciqual_food_name:fr:Oeuf de cane, cru
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
