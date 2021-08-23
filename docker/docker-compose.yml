@@ -19,8 +19,8 @@ services:
     networks:
       - webnet
     environment:
-      - POSTGRES_PASSWORD=productopener
-      - POSTGRES_USER=productopener
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
   backend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
