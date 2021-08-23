@@ -5,9 +5,10 @@ NAME = "ProductOpener"
 #-----#
 # Dev #
 #-----#
-dev: build start
+dev: build_npm start load_dev
 
 start:
+	docker-compose -f docker-compose.yml -f docker/dev.yml -f docker/vscode.yml up -d --remove-orphans --build backend
 	docker-compose -f docker-compose.yml -f docker/dev.yml -f docker/vscode.yml up -d --remove-orphans
 
 stop:
@@ -16,11 +17,11 @@ stop:
 restart:
 	docker-compose restart
 
-load:
-	docker-compose exec backend bash /opt/product-opener/scripts/import_sample_data.sh
-
 log:
-	docker-compose -f docker-compose.yml -f docker/dev.yml logs -f
+	docker-compose logs -f
+
+load_dev:
+	docker-compose exec backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 status:
 	docker ps
@@ -34,15 +35,9 @@ prod: clean
 #-------#
 # Build #
 #-------#
-build: build_backend build_npm
-	docker-compose -f docker-compose.yml -f docker/dev.yml -f docker/vscode.yml up -d --remove-orphans --build backend
-
 build_npm:
 	docker run --rm -it -v node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm install
 	docker run --rm -it -v node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm run build
-
-build_backend:
-	docker-compose -f docker-compose.yml -f docker/dev.yml -f docker/vscode.yml up -d --remove-orphans --build backend
 
 #-----------#
 # Utilities #
