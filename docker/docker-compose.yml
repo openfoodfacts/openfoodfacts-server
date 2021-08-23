@@ -31,6 +31,8 @@ services:
       - CROWDIN_PROJECT_IDENTIFIER
       - CROWDIN_PROJECT_KEY
       - GEOLITE2_PATH
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
     depends_on:
       - mongodb
       - memcached
