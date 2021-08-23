@@ -1,10 +1,10 @@
 {
   "name": "Perl",
   "dockerComposeFile": [
-    "../docker/docker-compose.yml",
-    "../docker/docker-compose.dev.yml",
-    "../docker/docker-compose.admin-uis.yml",
-    "../docker/docker-compose.vscode.yml"
+    "../docker-compose.yml",
+    "../docker/dev.yml",
+    "../docker/admin-uis.yml",
+    "../docker/vscode.yml"
   ],
   "service": "backend",
   "workspaceFolder": "/opt/product-opener",
