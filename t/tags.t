@@ -727,4 +727,7 @@ is_deeply ($product_ref->{test_tags},
 # Double synonym: zumo/jugo and soja/soya
 is( canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base' );
 
+# check that properties are taxonomized if their name match a previously loaded taxonomy
+is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+
 done_testing();
