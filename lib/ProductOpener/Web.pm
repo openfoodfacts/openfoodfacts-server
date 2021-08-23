@@ -63,6 +63,7 @@ BEGIN
 		&display_product_search_or_add
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
+		&display_data_quality_description
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -398,6 +399,32 @@ sub display_data_quality_issues_and_improvement_opportunities($) {
 
 	$template_data_ref_quality_issues->{tagtypes} = \@tagtypes;
 	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
+  
+  return $html;
+}
+
+
+=head2 display_data_quality_description( $product_ref, $tagid )
+
+Display an explanation of the data quality warning or error, using specific product data related to the warning.
+
+=cut
+
+sub display_data_quality_description($$) {
+
+	my $product_ref = shift;
+	my $tagid = shift;
+
+	my $html = "";
+	my $template_data_ref_quality = {};
+
+	$template_data_ref_quality->{tagid} = $tagid;
+	$template_data_ref_quality->{product_ref_nutriscore_score} = $product_ref->{nutriscore_score};
+	$template_data_ref_quality->{product_ref_nutriscore_score_producer} = $product_ref->{nutriscore_score_producer};
+	$template_data_ref_quality->{product_ref_nutriscore_grade_producer} = uc($product_ref->{nutriscore_grade_producer});
+	$template_data_ref_quality->{product_ref_nutriscore_grade} = uc($product_ref->{nutriscore_grade});
+
+	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }

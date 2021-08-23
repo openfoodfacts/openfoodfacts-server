@@ -3701,6 +3701,31 @@ agribalyse_food_code:en:1003
 ciqual_food_code:en:1003
 ciqual_food_name:en:Liqueur
 
+<en:liqueur
+ca:Limoncello
+cs:Limoncello
+de:Limoncello
+en:Limoncello
+es:Limoncello
+fi:Limoncello
+fr:Limoncello
+hu:Limoncello
+it:Limoncello
+ja:リモンチェッロ
+ko:리몬첼로
+lt:Limončelas
+nl:Limoncello
+no:Limoncello
+pl:Limoncello
+pt:Limoncello
+ru:Лимончелло
+sv:Limoncello
+zh:檸檬酒
+wikipedia:en:https://en.wikipedia.org/wiki/Limoncello
+wikidata:en:Q736208
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
+# 226 "Limoncello" via OFF search on 2021-01-11
+
 <en:Liqueurs
 en:Italian liqueurs
 
@@ -28727,6 +28752,20 @@ fr:Œufs de poisson
 it:Uova di pesce
 nl:Visseneieren
 zh:鱼卵, 鱼子
+
+<en:Fish eggs
+en:Bottarga
+ca:Botàriga
+de:Bottarga
+es:Botarga
+fr:Boutargue, Poutargue
+it:Bottarga
+nl:Bottarga
+pt:Butarga
+wikidata:en:Q894875
+wikipedia:en:https://en.wikipedia.org/wiki/Bottarga
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=Bottarga&search_simple=1&action=process
+# 52 "bottarga" in OFF on 2021-08-16 and 32 "poutargue" 
 
 <en:Fish eggs
 <en:Semi-preserved foods
@@ -56015,6 +56054,10 @@ agribalyse_proxy_food_code:en:25154
 agribalyse_proxy_food_name:en:Fish brandade or fish shepherd's pie
 
 <en:Meals
+en:Meals with falafels
+fr:Plats préparés aux falafels
+
+<en:Meals
 <en:Meat-based products
 en:Meals with meat
 bg:Ястия с месо
@@ -59236,43 +59279,12 @@ hu:Növényi alapú ételek
 it:Piatti a base vegetale
 nl:Plantaardige kant-en-klaarmaaltijden
 
-<en:Plant-based meals
-en:Falafels, Falafel
-de:Falafel
-es:Falafel
-fi:falafelit
-fr:Falafels, falafel, Boulettes aux pois-chiche et aux fèves frites
-it:Falafel
-nl:Falafel
-wikidata:en:Q188788
-agribalyse_food_code:en:25571
-ciqual_food_code:en:25571
-ciqual_food_name:en:Falafel
-ciqual_food_name:fr:Falafel ou Boulette de pois-chiche et/ou fève, frite
-
-<en:Falafel
-<en:Refrigerated meals
-en:Refrigerated falafel
-es:Falafel refrigerado
-fr:Falafels réfrigérés, Falafel réfrigérés, Falafel réfrigéré
-it:Falafel congelato
-nl:Gekoelde falafel
-
-<en:Falafel
-<en:Frozen ready-made meals
-en:Frozen falafel
-es:Falafel congelado
-fr:Falafels surgelés, Falafel surgelé
-nl:Diepvriesfalafel
-
-<en:Falafel
 <en:Sandwiches
 en:Falafel sandwiches
 es:Sándwiches de falafel
 fr:Sandwichs aux falafels, Sandwiches de falafel
 nl:Falafelsandwiches
 
-<en:Falafel
 <en:Dried products to be rehydrated
 en:Falafel mixes
 de:Mischung für Falafel
@@ -59534,6 +59546,39 @@ wikidata:en:Q3807565
 
 <en:Meat preparations
 de:Fleischkäse
+
+<en:Plant-based foods
+en:Vegetarian balls
+fr:Boulettes végétariennes
+
+<en:Vegetarian balls
+en:Falafels, Falafel
+de:Falafel
+es:Falafel
+fi:falafelit
+fr:Falafels, falafel, Boulettes aux pois-chiche et aux fèves frites
+it:Falafel
+nl:Falafel
+wikidata:en:Q188788
+agribalyse_food_code:en:25571
+ciqual_food_code:en:25571
+ciqual_food_name:en:Falafel
+ciqual_food_name:fr:Falafel ou Boulette de pois-chiche et/ou fève, frite
+
+<en:Falafel
+<en:Refrigerated meals
+en:Refrigerated falafel
+es:Falafel refrigerado
+fr:Falafels réfrigérés, Falafel réfrigérés, Falafel réfrigéré
+it:Falafel congelato
+nl:Gekoelde falafel
+
+<en:Falafel
+<en:Frozen ready-made meals
+en:Frozen falafel
+es:Falafel congelado
+fr:Falafels surgelés, Falafel surgelé
+nl:Diepvriesfalafel
 
 <en:Meat preparations
 en:Meat balls
