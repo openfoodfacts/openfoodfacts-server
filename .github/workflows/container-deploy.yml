@@ -100,7 +100,7 @@ jobs:
         script: |
           cd openfoodfacts-server/docker/
           exit_code=0
-          for service in backend frontend mongodb memcached postgres; do 
+          for service in backend frontend mongodb memcached postgres geoipupdate; do 
             if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
               echo "$service: DOWN"
               exit_code=1
