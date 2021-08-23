@@ -44589,6 +44589,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crudités
 
 # description:en:The globe  ARTICHOKE  (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
 
+#category/artichokes
 <en:vegetable
 en:artichoke
 ar:خرشوف
@@ -44648,6 +44649,13 @@ wikidata:en:Q23041430
 wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
 carbon_footprint_fr_foodges_ingredient:fr:Artichauts
 carbon_footprint_fr_foodges_value:fr:2.5
+description:de:Die Artischocke (Cynara cardunculus subsp. scolymus (L.) Hegi, Syn.: Cynara scolymus L.) ist eine distelartige, kräftige Kulturpflanze aus der Familie der Korbblütler. Die Sortengruppe der Artischocken wird wegen ihrer essbaren knospigen Blütenstände angebaut und als Blütengemüse verzehrt.
+description:en:The globe ARTICHOKE (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
+description:es:Cynara scolymus, la alcachofera, alcachofa, alcacil o alcaucil,1​ entre otros numerosos nombres vernáculos, es una planta herbácea del género Cynara en la familia Asteraceae; es cultivada desde la antigüedad como alimento en climas templados.
+description:fr:L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est une plante de la famille des Astéracées. On désigne sous le nom d'artichaut à la fois la plante entière et sa partie comestible. Les têtes d'artichaut sont consommées soit crues soit cuites.
+description:it:Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
+description:nl:De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
+description:pt:Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
 
 <en:artichoke
 en:raw globe artichoke
@@ -44656,7 +44664,7 @@ ciqual_food_code:en:20052
 ciqual_food_name:en:Artichoke, globe, raw
 ciqual_food_name:fr:Artichaut, cru
 
-
+#category/artichoke-hearts
 <en:artichoke
 en:Artichoke heart, artichoke bottom
 de:Artischockenherzen
@@ -44669,6 +44677,7 @@ description:en:The heart is eaten when the inedible choke has been peeled away f
 #wikidata:en:none
 # ingredient/Artichoke-heart 448 in 6 languages @2021-08-22
 
+#category/frozen-artichoke-bottom
 <en:Artichoke heart
 en:Frozen raw artichoke bottom
 fr:Fond d'artichaut cru surgelé
