@@ -69429,30 +69429,48 @@ ciqual_food_code:en:10045
 ciqual_food_name:en:Scallop, without coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
 
+
 # en:description:Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
 
 <en:scallop
-en:Atlantic bay scallop, bay scallop, Argopecten irradians
-de:Jakobsmuscheln der atlantischen Küste, Argopecten irradians
-fa:گوش‌ماهی خلیج, Argopecten irradians
-fr:Pétoncle, pétoncles, Argopecten irradians
-is:Flóaskel, Argopecten irradians
+en:Atlantic bay scallop, bay scallop
+de:Jakobsmuscheln der atlantischen Küste
+fa:گوش‌ماهی خلیج
+fr:Pétoncle, pétoncles
+is:Flóaskel
 la:Argopecten irradians
-zh:海湾扇贝, Argopecten irradians
+zh:海湾扇贝
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_irradians
 wikidata:en:Q3018372
 # ingredient/fr:Argopecten-irradians has 10 products @2019-01-13
 
 
 <en:scallop
-en:Atlantic calico scallop, Argopecten Gibbus
-de:Atlantische Kattunmuschel, Argopecten Gibbus
-fr:Pétoncle calicot, Argopecten Gibbus
+en:Atlantic calico scallop
+de:Atlantische Kattunmuschels
+fr:Pétoncle calicot
 la:Argopecten Gibbus
-sr:Ostrea gibba, Argopecten Gibbus
+sr:Ostrea gibba
 wikidata:en:Q3017111
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
 # ingredient/fr:Argopecten-Gibbus has 1 product @2019-01-12
+
+<en:scallop
+en:American sea scallop, Canadian sea scallop
+fr:Pecten d'Amérique, Peigne du Canada, pétoncle géant, peigne hauturier
+la:Placopecten magellanicus
+description:en:Placopecten magellanicus, common names Atlantic deep-sea scallop, deep sea scallop, North Atlantic sea scallop, American sea scallop, Atlantic sea scallop, or sea scallop, is a commercially important pectinid bivalve mollusk native to the northwest Atlantic Ocean.
+wikipedia:en:https://en.wikipedia.org/wiki/Placopecten_magellanicus
+description:fr:Le pétoncle géant1 (ou peigne hauturier) est un pectinidé comestible, qui vit dans l'Atlantique Nord-Ouest, de Terre-Neuve à la Caroline du Nord.
+description:nl:Placopecten magellanicus is een tweekleppigensoort uit de familie van de Pectinidae.
+description:sv:Placopecten magellanicus är en musselart.
+
+<en:American sea scallop
+en:Raw American sea scallop without coral, Raw Canadian sea scallop without coral
+fr:Pecten d'Amérique avec noix cru, Peigne du Canada avec noix cru
+ciqual_food_code:en:10048
+ciqual_food_name:en:American or Canadian sea scallop, without coral, raw
+ciqual_food_name:fr:Pecten d'Amérique ou Peigne du canada, noix, crue
 
 
 <en:scallop
@@ -69467,67 +69485,65 @@ wikidata:en:Q13444410
 # description:en:Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae.
 
 <en:scallop
-en:great scallop, king scallop, St James shell, escallop, Pecten maximus
-ar:أسقلوب, Pecten maximus
-br:Krogenn-Sant-Jakez, Pecten maximus
-ca:petxina de pelegrí de l'Atlàntic, Pecten maximus
-da:stor kammusling, Pecten maximus
-de:Große Pilgermuschel, Pecten maximus
-es:Venera, Pecten maximus
-eu:Erromes-maskor handi, Pecten maximus
-fa:گوش‌ماهی شاه, Pecten maximus
-fi:isokampasimpukka, Pecten maximus
-fr:Pecten maximus
-ga:Muirín, Pecten maximus
-gd:Slige-chreachainn, Pecten maximus
-gl:Vieira, Pecten maximus
-id:Simping, Pecten maximus
-io:Petonklo, Pecten maximus
-is:Risadiskur, Pecten maximus
+en:great scallop, king scallop, St James shell, escallop
+ar:أسقلوب
+br:Krogenn-Sant-Jakez
+ca:petxina de pelegrí de l'Atlàntic
+da:stor kammusling
+de:Große Pilgermuschel
+es:Venera
+eu:Erromes-maskor handi
+fa:گوش‌ماهی شاه
+fi:isokampasimpukka
+ga:Muirín
+gd:Slige-chreachainn
+gl:Vieira
+id:Simping
+io:Petonklo
+is:Risadiskur
 la:Pecten maximus
-nl:grote mantel, Pecten maximus
-pl:Przegrzebek zwyczajny, Pecten maximus
-pt:Vieira, Pecten maximus
-sv:Pilgrimsmussla, Pecten maximus
-# de-ch:Jakobsmuschel, Pecten maximus
-# el:Χτένι, Pecten maximus
-# pt-br:Vieira, Pecten maximus
+nl:grote mantel
+pl:Przegrzebek zwyczajny
+pt:Vieira
+sv:Pilgrimsmussla
+# de-ch:Jakobsmuschel
+# el:Χτένι
+# pt-br:Vieira
 wikidata:en:Q1249634
 wikipedia:en:https://en.wikipedia.org/wiki/Pecten_maximus
 # ingredient/fr:noix-de-Saint-Jacques has 216 products @2019-01-12
 # ingredient/fr:Pecten-maximus has 25 products @2019-01-12
 
 <en:scallop
-en:Patagonian scallop, Zygochlamys patagonica
-de:Kammmuschel, Zygochlamys patagonica
-fi:patagoniankampasimpukka, Zygochlamys patagonica
-fr:Pétoncle de Patagonie, Zygochlamys patagonica
+en:Patagonian scallop
+de:Kammmuschel
+fi:patagoniankampasimpukka
+fr:Pétoncle de Patagonie
 la:Zygochlamys patagonica, Chlamys zygopatagonica
 # ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
 
 
 <en:scallop
-en:noble scallop, Chlamys nobilis
-de:Feine Kammmuschel, Chlamys nobilis
-fr:Chlamys nobilis
-ja:ヒオウギガイ, Chlamys nobilis
+en:noble scallop
+de:Feine Kammmuschel
+ja:ヒオウギガイ
 la:Chlamys nobilis, Mimachlamys nobilis
-vi:Sò điệp, Chlamys nobilis
-zh:华贵栉孔扇贝, Chlamys nobilis
-# zh-hans:华贵栉孔扇贝, Chlamys nobilis
-# zh-hant:高貴海扇蛤, Chlamys nobilis
-# zh-hk:高貴海扇蛤, Chlamys nobilis
-# zh-tw:高貴海扇蛤, Chlamys nobilis
+vi:Sò điệp
+zh:华贵栉孔扇贝
+# zh-hans:华贵栉孔扇贝
+# zh-hant:高貴海扇蛤
+# zh-hk:高貴海扇蛤
+# zh-tw:高貴海扇蛤
 # ingredient/fr:Chlamys-nobilis has 20 products in french @2019-01-13
 
 
 # Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop
 
 <en:scallop
-en:Peruvian scallop, Argopecten purpuratus
-de:Peruanische Jakobsmuscheln, Argopecten purpuratus
-es:ostión del norte, concha de abanico, Argopecten purpuratus
-fr:Pétoncle chilien, Argopecten purpuratus
+en:Peruvian scallop
+de:Peruanische Jakobsmuscheln
+es:ostión del norte, concha de abanico
+fr:Pétoncle chilien
 la:Argopecten purpuratus
 wikidata:en:Q3412062
 wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_purpuratus
@@ -69537,19 +69553,19 @@ wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_purpuratus
 # en:description:The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops.
 
 <en:scallop
-en:queen scallop, Chlamys opercularis
-ca:xelet, Chlamys opercularis
-de:Kleine Pilgermuschel, Chlamys opercularis
+en:queen scallop
+ca:xelet
+de:Kleine Pilgermuschel
 es:volandeira
-fi:kuningatarkampasimpukka, Chlamys opercularis
-fr:Pétoncle blanc, Vanneau, peigne, Chlamys opercularis
-gl:Volandeira, Chlamys opercularis
-it:Canestrello, Chlamys opercularis
-ja:クイーンホタテ, Chlamys opercularis
+fi:kuningatarkampasimpukka
+fr:Pétoncle blanc, Vanneau, peigne
+gl:Volandeira
+it:Canestrello
+ja:クイーンホタテ
 la:Chlamys opercularis, Aequipecten opercularis
-nl:Wijde mantel, Chlamys opercularis
-sr:Ostrea elegans, Chlamys opercularis
-zh:女王扇貝, Chlamys opercularis
+nl:Wijde mantel
+sr:Ostrea elegans
+zh:女王扇貝
 wikidata:en:Q1746507
 wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
 # ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
@@ -69557,18 +69573,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
 # en:description:Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
 
 <en:scallop
-en:speckled Scallop, Argopecten irradians concentricus
-de:Gefleckte Jakobsmuschel, Argopecten irradians concentricus
-fr:Pétoncle moucheté, Argopecten irradians concentricus
+en:speckled Scallop
+de:Gefleckte Jakobsmuschel
+fr:Pétoncle moucheté
 la:Argopecten irradians concentricus, Argopecten circularis
 wikidata:en:Q30749478
 # ingredient/fr:Argopecten-circularis has 10 products in french @2019-01-13
 
 
 <en:scallop
-en:white scallop, Chlamys albida
-de:Weiße Jakobsmuschel, Chlamys albida
-fr:Pétoncle blanc, Chlamys albida
+en:white scallop
+de:Weiße Jakobsmuschel
+fr:Pétoncle blanc
 la:Chlamys albida, Chlamys albidus
 wikipedia:nl:https://nl.wikipedia.org/wiki/Chlamys_albida
 wikidata:en:Q3802698
