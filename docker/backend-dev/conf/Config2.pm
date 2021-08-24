@@ -87,7 +87,7 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
 		producers_platform => $producers_platform,
 		minion_backend => { Pg => $postgres_url},
-		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" ? $server_domain,
+		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" : $server_domain,
 		minion_export_queue => $server_domain,
 		cookie_domain => $server_domain,
 		export_servers => { public => "off", experiment => "off-exp"},
