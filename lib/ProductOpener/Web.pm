@@ -90,7 +90,6 @@ sub display_blocks($)
 	return $html;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_my_block ( $blocks_ref )
 
@@ -141,7 +140,6 @@ sub display_my_block($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_login_register( $blocks_ref )
 
@@ -170,7 +168,6 @@ sub display_login_register($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_product_search_or_add ( $blocks_ref )
 
@@ -222,7 +219,6 @@ sub display_product_search_or_add($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_product_search_or_add ( $product_ref, $field )
 
@@ -348,7 +344,6 @@ sub display_field($$) {
 	return $html;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_data_quality_issues_and_improvement_opportunities( $product_ref )
 
