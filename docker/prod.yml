@@ -2,12 +2,22 @@
 services:
   frontend:
     volumes:
-      # Data mount for Robotoff static data dumps:
-      # - openfoodfacts-products.jsonl.gz
-      # - categories.full.json
-      # - ingredients.full.json
-      # - labels.full.json
-      # - brands.full.json
-      - type: bind
-        source: /mnt/data/
-        target: /opt/product-opener/html/data
+      - /mnt/data/:/opt/product-opener/html/data # Data mount for Robotoff static dumps
+      - product_images:/opt/product-opener/html/images/products
+      - html_data:/opt/product-opener/html/data
+
+  backend:
+    volumes:
+      - podata:/mnt/podata
+      - product_images:/opt/product-opener/html/images/products
+      - html_data:/opt/product-opener/html/data
+
+  postgres:
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  podata:
+  product_images:
+  html_data:

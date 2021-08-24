@@ -7,19 +7,18 @@ This directory contains some experimental files for running Product Opener on [D
 ### Makefile commands
 
 #### Main commands
-* `make dev` build Docker dev environment, binding local code files to the container.
-* `make prod` build Docker prod environment, removing most binds.
+* `make dev`: prepare and run Docker dev environment (build NPM assets, build frontend / backend containers, bind code folder).
+* `make prod`: prepare and runs Docker prod environment using pre-built images.
 
 #### Subcommands
-* `make build` builds the NPM frontend assets and the backend container.
-  * `make build_npm` builds the NPM frontend assets.
-  * `make build_backend` builds the backend container.
-* `make load_dev` execute the `import_sample_data.sh` script that loads some data into the MongoDB database.
+* `make build_npm`: build the NPM frontend assets (`npm install`, `npm run build`).
+* `make import_sample_data`: execute the `import_sample_data.sh` script that loads some data into the MongoDB database.
 
-#### Run commands [dev only]
-* `make start` starts the Docker containers.
-* `make stop` stops the Docker containers.
-* `make restart` restarts the Docker containers.
+#### Docker-compose commands [dev only]
+* `make up`: build the backend container, and start the Docker containers (`docker-compose up -d --build backend`).
+* `make down`: stop the Docker containers (`docker-compose down`).
+* `make restart`: restart the Docker containers (`docker-compose restart`).
+* `make log`: get the logs output (`docker-compose logs -f`).
 
 The step by step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/installation/dev-environment-quick-start-guide.md).
 

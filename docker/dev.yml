@@ -1,26 +1,20 @@
 ﻿version: "3.7"
 services:
   backend:
-    image: productopener-backend-dev
+    image: openfoodfacts-server/backend:dev
     build:
       context: .
       dockerfile: Dockerfile
       target: runnable
     volumes:
-      - type: bind
-        source: .
-        target: /opt/product-opener/
+      - ./:/opt/product-opener/
+    depends_on:
+      - mongodb
   frontend:
     image: nginx:stable-alpine
     volumes:
-      - type: bind
-        source: .
-        target: /opt/product-opener/
+      - ./:/opt/product-opener/
   mongodb:
-    image: mongo:4.4
-    volumes:
-      - dbdata:/var/lib/mongodb
-    networks:
-      - webnet
-    ports:
-      - 27017:27017
+    extends:
+      file: docker/mongodb.yml
+      service: mongodb

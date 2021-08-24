@@ -8,3 +8,5 @@ services:
       - webnet
     ports:
       - 27017:27017
+volumes:
+  dbdata:

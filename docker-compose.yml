@@ -1,21 +1,11 @@
 ﻿version: "3.7"
 services:
-  mongodb:
-    image: mongo:4.4
-    volumes:
-      - dbdata:/var/lib/mongodb
-    networks:
-      - webnet
-    ports:
-      - 27017:27017
   memcached:
     image: memcached:1.6-alpine
     networks:
       - webnet
   postgres:
     image: postgres:12-alpine
-    volumes:
-      - pgdata:/var/lib/postgresql/data
     networks:
       - webnet
     environment:
@@ -35,25 +25,16 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     depends_on:
-      - mongodb
       - memcached
       - postgres
     volumes:
-      - podata:/mnt/podata
-      - product_images:/opt/product-opener/html/images/products
-      - html_data:/opt/product-opener/html/data
       - ./logs/apache2:/var/log/apache2
       - ./logs/apache2:/mnt/podata/logs
       - ./logs/apache2:/var/log/httpd
-      - type: bind
-        source: ./conf/apache.conf
-        target: /etc/apache2/sites-enabled/product-opener.conf
-      - type: bind
-        source: ./scripts/po-foreground.sh
-        target: /usr/local/bin/po-foreground.sh
+      - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
       - type: tmpfs
         target: /mnt/podata/mnt
-    command: ["/bin/sh", "/usr/local/bin/po-foreground.sh"]
+    command: ["/bin/sh", "/opt/product-opener/scripts/po-foreground.sh"]
     networks:
       - webnet
   frontend:
@@ -63,12 +44,8 @@ services:
     environment:
       - PRODUCT_OPENER_DOMAIN
     volumes:
-      - product_images:/opt/product-opener/html/images/products
-      - html_data:/opt/product-opener/html/data
-      - type: bind
-        source: ./conf/nginx.conf
-        target: /etc/nginx/conf.d/default.conf
-      - ./logs/nginx:/var/log/nginx
+      - ./logs/nginx/:/var/log/nginx/
+      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
     networks:

@@ -38,104 +38,61 @@ If you are running Docker on Windows, please use the following git clone option 
 $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
-## 3. Build your environment
-The fastest way is to use the ready-to-use scripts on the Open Food Facts GitHub repo.
-```console
-$ cd ./openfoodfacts-server/docker/
-$ ./build_dev.sh
-$ ./start_dev.sh
-```
-The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
-This will build a new backend image from your local source files. Note that this binds the docker container to your local development directory. Therefore, it is not required to rebuild the container image after changing the source files.
+## 3. Setup the environment
 
-To be complete, you also to have to build some front-end assets:
+The `.env` file contains ProductOpener default settings:
+* `PRODUCERS_PLATFORM` can be set to 1 to build / run the producer platform.
+* `ROBOTOFF_URL` can be set to connect with a Robotoff instance.
+* `GOOGLE_CLOUD_VISION_API_KEY` can be set to enable OCR using Google Cloud Vision.
+* `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY` can be set to run translations.
+* `GEOLITE2_PATH` and `GEOLITE2_LICENSE_KEY` can be set to enable Geolite2.
 
-Open a new terminal and
+## 4. Build your dev environment
 
-```console
-$ ./build_npm.sh # just once
-```
-
-Optionally — recommended —, also install a test product base with product pictures (328 MB):
+From the repository root, run:
 
 ```console
-$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend bash /opt/scripts/import_sample_data.sh
+$ make dev
 ```
 
-If you are running Docker on Windows, you should edit your hosts file (C:\Windows\System32\drivers\etc\hosts) and add the following line :
+The command will:
+* **Build the backend container** from local directory and bind local code files, so that you do not have to rebuild everytime.
+* **Build NPM assets** and bind them to your local directory `node_modules/` and `html/`.
+* **Load some data** into the `mongodb`.
+
+***Note:*** The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
+
+
+Since the default domain is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
 ```text
 127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost 
 ```
 
-You’re done! Check http://localhost/
+You’re done! Check http://productopener.localhost/
 
-Note: it’s possible that you don’t see immediately the test product database: create an account and login, it should appear.
+***Note:*** it is possible that you will not immediately see the test product database: create an account, login, and it should appear.
 
-### Setting up producers platform
-
-The process for setting up the producer’s platform is almost the same. The scripts to run it on a local machine are different. 
+## 5. Starting, stopping, restarting Docker containers
 
 ```console
-$ cd ./openfoodfacts-server/docker/
-$ ./build_pro_dev.sh
-$ ./start_pro_dev.sh
+$ make up      # start the containers
+$ make down    # stop the containers
+$ make restart # restart the containers
+$ make prune   # prune unused Docker artifacts
 ```
-Note: You will have to build front-end assets for the producer’s platform as well.  
-
-The link for the producer’s platform is http://world.pro.productopener.localhost/ 
-
-
-## 4. Starting and stopping environment
-
-**Stopping**
-
-To stop the environment, you just have to type [Ctrl+c] in the terminal where you launched start_dev.
-
-**Restarting**
-
-```console
-$ ./start_dev.sh
-```
-
-## 5. Going further
-
-Deleting all that stuff:
-```console
-$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
-$ docker container prune
-$ docker volume prune
-$ docker rmi $(docker images -q)
-```
-More documentation: https://github.com/openfoodfacts/openfoodfacts-server/tree/master/docker
 
 ### 6. Appendix
+
 #### Changing ports
 
-By default, the containers run using port 80. If you need to change this to ie. 8080, update the port of the `frontend` service in `docker/docker-compose.yml`:
+By default, the containers run using port 80. If you need to change this to ie. 8080, override the existing port of the `frontend` service in `docker/dev.yml`:
 ```
     ports:
       - 8080:80
 ```
-
-and `/docker/backend-dev/conf/Config2.pm`:
-```perl
-# server constants
-$server_domain = "productopener.localhost:8080";
-```
-
-Also, you need to add a `cookie_domain` to the `%server_options` the same file, so that the software does not try to use the port for the cookie host.
-```perl
-%server_options = (
-        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
-        export_servers => { public => "off", experiment => "off-exp" },
-        minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
-        cookie_domain => 'productopener.localhost'
-);
-```
 Once you are done building your environment, go to http://localhost:8080/
 
-
-### 7. Optional - Import full mongodb dump
+#### Import full mongodb dump
 The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB).
 ```console
 $ wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz

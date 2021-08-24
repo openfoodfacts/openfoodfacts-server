@@ -6,11 +6,13 @@ cd /tmp
 
 echo "\033[32m------------------ 1/ Retrieve products -----------------\033[0m";
 wget https://static.openfoodfacts.org/exports/39-.tar.gz 2>&1
+mkdir -p /mnt/podata/products
 tar -xzvf 39-.tar.gz -C /mnt/podata/products
 rm 39-.tar.gz
 
 echo "\033[32m------------------ 2/ Retrieve images -------------------\033[0m";
 wget https://static.openfoodfacts.org/exports/39-.images.tar.gz 2>&1
+mkdir -p /opt/product-opener/html/images/products
 tar -xzvf 39-.images.tar.gz -C /opt/product-opener/html/images/products
 rm 39-.images.tar.gz
 
