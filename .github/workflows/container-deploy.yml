@@ -69,6 +69,7 @@ jobs:
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
           echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
           echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
+          echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env
           echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
 
