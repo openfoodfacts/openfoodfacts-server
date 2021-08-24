@@ -65744,6 +65744,119 @@ ciqual_food_name:en:European perch, raw
 ciqual_food_name:fr:Perche, crue
 
 
+<en:fish
+en:European seabass
+ar:شبص أوروبي
+az:Lavrak
+bg:морски вълк
+br:Draeneg
+bs:Lubin
+ca:llobarro
+co:Ragnola
+cs:mořčák evropský
+cy:Draenogyn Mor
+da:Havbars
+de:Europäischer Wolfsbarsch
+el:Λαβράκι
+eo:Labrako
+es:Llobarro
+eu:Lupi
+fa:ماهی خاردار اروپایی
+fi:Meribassi
+fr:bar commun
+ga:Doingean mara
+gl:Robaliza
+he:לברק
+hr:Lubin
+hu:farkassügér
+io:Barsho
+is:Evrópskur hafbarri
+it:spigola
+ja:ヨーロピアンシーバス
+ka:ლავრაკი
+kg:Kilondo
+ky:Лаврак
+la:Dicentrarchus Labrax
+lt:Paprastasis vilkešeris
+nl:Europese zeebaars
+nn:havabbor
+pl:Labraks
+pt:robalo
+ro:biban de mare european
+ru:Лаврак
+sk:Okúň branzino
+sl:Brancin
+sv:Havsabborre
+tr:Bayağı levrek
+uk:Лаврак
+zh:	歐洲鱸
+wikidata:en:Q217129
+wikipedia:en:https://en.wikipedia.org/wiki/European_bass
+description:de:Der Europäische Wolfsbarsch oder auch Seebarsch (Dicentrarchus labrax) ist ein Fisch aus der Familie der Wolfsbarsche.
+description:en:The European bass (Dicentrarchus labrax) is a primarily ocean-going fish native to the waters off Europe's western and southern and Africa's northern coasts.
+description:es:La lubina, lobina, róbalo, robalo5 o robaliza (Dicentrarchus labrax) es una especie de pez perciforme de la familia Moronidae.
+description:fr:Le bar commun ou bar européen (Dicentrarchus labrax), surnommé loup ou perche de mer, est une espèce de poissons principalement marins qui entrent parfois en eau saumâtre et en eau douce, appartenant à la famille des moronidés.
+description:it:Dicentrarchus labrax nota comunemente come spigola (nell'Italia peninsulare e insulare) o branzino (prevalentemente nell'Italia settentrionale), è un pesce osseo marino e d'acqua salmastra della famiglia Moronidae.
+description:nl:De Europese zeebaars of zeebaars (Dicentrarchus labrax) is een straalvinnige vis uit de familie van Moronidae.
+description:pt:Dicentrarchus labrax é uma espécie de peixe da família Moronidae de tons acinzentados. Vulgarmente conhecido em Portugal por robalo e robalete, é muito apreciado na culinária portuguesa e de outros países europeus.
+
+<en:European seabass
+en:Raw wild European seabass
+fr:Bar commun cru sauvage
+ciqual_food_code:en:26205
+ciqual_food_name:en:Mediterranean bass, raw, wild
+ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
+
+<en:European seabass
+en:Raw farmed Mediterranean bass
+fr:Bar commun cru d'élevage
+ciqual_food_code:en:26206
+ciqual_food_name:en:Mediterranean bass, raw, farmed
+ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
+
+<en:fish
+en:striped bass
+az:Zolaqlı lavrak
+bg:раиран костур
+ca:llobarro atlàntic ratllat
+cs:mořčák pruhovaný
+de:Felsenbarsch
+fa:خارماهی نواری
+fi:Juovabassi
+fr:Bar rayé
+he:בס מנומר
+hu:csíkos sügér
+it:v
+ja:ストライプドバス
+ko:줄농어
+ky:Таргыл лаврак
+nl:Gestreepte zeebaars
+nn:Stripet havabbor
+pl:Skalnik prążkowany
+pt:robalo riscado
+ru:Полосатый лаврак
+sv:Strimmig havsabborre
+uk:Окунь смугастий
+vi:Cá vược sọc
+zh:銀花鱸魚
+wikidata:en:Q842647
+wikipedia:en:https://en.wikipedia.org/wiki/Striped_bass
+description:de:Morone saxatilis, gelegentlich als Felsenbarsch bezeichnet, ist ein Fisch aus der Familie der Wolfsbarsche.
+description:en:The striped bass (Morone saxatilis), also called the Atlantic striped bass, striper, linesider, rock or rockfish, is an anadromous perciform fish of the family Moronidae found primarily along the Atlantic coast of North America.
+description:es:La lubina rayada atlántica (Morone saxatilis) es un pez anádromo que se encuentra a lo largo de la costa atlántica de América del Norte.
+description:fr:Le bar rayé ou bar d'Amérique (Morone saxatilis) est une espèce de poissons anadromes de la famille des Moronidés.
+description:it:Morone saxatilis, comunemente noto come persico spigola, è un pesce osseo marino e d'acqua dolce della famiglia dei Moronidae.
+description:nl:De gestreepte zeebaars (Morone saxatilis) is een straalvinnige vis uit de familie van Moronidae.
+description:pt:O robalo riscado (Morone saxatilis) é um peixe anádromo encontrado ao longo da Costa Atlântica da América do Norte
+
+<en:striped bass
+en:Raw striped bass
+fr:Bar rayé cru, Bar d'Amérique cru
+ciqual_food_code:en:26001
+ciqual_food_name:en:American bass, raw
+ciqual_food_name:fr:Bar rayé ou bar d'Amérique cru
+
+
 ###################################################################################################
 #
 #                                Plaice
@@ -66236,7 +66349,6 @@ fr:clupea harengus pêché en Atlantique Nord
 
 # en:description:Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
 
-<en:fish
 <en:oily fish
 en:jack mackerels
 ar:طرخورة
@@ -67857,15 +67969,15 @@ en:Mediterranean bass
 fr:Loup de Méditerranée
 
 <en:Mediterranean bass
-en:Raw wild mediterranean bass
-fr:Bar commun cru sauvage, Loup de Méditerranée cru sauvage
+en:Raw wild Mediterranean bass
+fr:Loup de Méditerranée cru sauvage
 ciqual_food_code:en:26205
 ciqual_food_name:en:Mediterranean bass, raw, wild
 ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
 
-<Mediterranean bass
+<en:Mediterranean bass
 en:Raw farmed Mediterranean bass
-fr:Bar commun cru d'élevage, Loup de Méditerranée cru d'élevage
+fr:Loup de Méditerranée cru d'élevage
 ciqual_food_code:en:26206
 ciqual_food_name:en:Mediterranean bass, raw, farmed
 ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
@@ -70171,21 +70283,21 @@ sv:krabbextrakt
 # Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean
 
 <en:crab
-en:edible crab, brown crab, Cancer pagurus
-bg:ядивни раци, Cancer pagurus
-cs:krab německý, Cancer pagurus
-de:Taschenkrebs, Cancer pagurus
-es:Buey de mar, Cancer pagurus
-fi:Isotaskurapu, Cancer pagurus
-fr:Crabe dormeur, Dormeur, Poupard, Poupart, Tourteau, Crabe-de-lune, Poing-clos, Clos-poing, Ouvet, Cancer pagurus
-hu:Nagy tarisznyarák, Cancer pagurus
+en:edible crab, brown crab
+bg:ядивни раци
+cs:krab německý
+de:Taschenkrebs
+es:Buey de mar
+fi:Isotaskurapu
+fr:Crabe dormeur, Dormeur, Poupard, Poupart, Tourteau, Crabe-de-lune, Poing-clos, Clos-poing, Ouvet
+hu:Nagy tarisznyarák
 la:Cancer pagurus
-nl:Noordzeekrab, Cancer pagurus
-nn:taskekrabbe, Cancer pagurus
-pt:Caranguejola, Cancer pagurus
-ru:Большой сухопутный краб, Cancer pagurus
-sk:Krab piesočný, Cancer pagurus
-sv:Krabbtaska, Cancer pagurus
+nl:Noordzeekrab
+nn:taskekrabbe
+pt:Caranguejola
+ru:Большой сухопутный краб
+sk:Krab piesočný
+sv:Krabbtaska
 # ingredient/fr:tourteau has 13 products @2019-01-14
 wikidata:en:Q752188
 wikipedia:en:https://en.wikipedia.org/wiki/Cancer_pagurus
