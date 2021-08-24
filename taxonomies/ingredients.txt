@@ -11027,6 +11027,32 @@ ca:mozzarella ratllada
 es:mozzarella rallada
 
 <en:cheese
+en:Ossau-Iraty
+ar:اوساو يراتى
+ca:Ossau-Irati
+el:Οσό-Ιρατί
+eu:Ossau-Irati
+ja:オッソー・イラティ
+ko:오소이라티
+oc:Aussau-Irati
+ru:Оссо-Ирати
+uk:Оссо-Іраті
+xx:Ossau-Iraty
+zh:伊拉堤芝士
+wikidata:en:Q520598
+wikipedia:en:https://en.wikipedia.org/wiki/Ossau-Iraty
+ciqual_food_code:en:12119
+ciqual_food_name:en:Ossau-Iraty cheese, from ewe's milk
+ciqual_food_name:fr:Ossau-Iraty
+description:de:Ossau-Iraty ist ein französischer Schnittkäse aus Schafmilch mit geschützter Ursprungsbezeichnung.
+description:en:Ossau-Iraty is an Occitan-Basque cheese made from sheep milk.
+description:es:El Ossau-Iraty es un queso francés del País Vasco francés y del Bearne, que se produce en un territorio bien delimitado, en el departamento de los Pirineos Atlánticos y en una pequeña parte del departamento de los Altos Pirineos.
+description:fr:Ossau-iraty est l'appellation d'origine d'un fromage français de lait de brebis à pâte pressée non cuite fabriqué dans le Pays basque français et le Béarn.
+description:it:L'ossau-iraty è un formaggio francese prodotto dal latte di pecora a pasta semidura non cotta, nel dipartimento dei Pirenei Atlantici e in qualche comune degli Alti Pirenei.
+description:nl:De Ossau-Iraty is een Franse kaas, een halfharde kaas afkomstig uit Frans-Baskenland en het hogergelegen deel van Béarn.
+description:oc:L'Aussau-Irati es un fromatge de Bearn e de Bascoat. 
+
+<en:cheese
 en:parmesan, parmigiano reggiano, Parmesan cheese, parmigiano reggiano cheese, Parmesan cheese from cow's milk
 af:Parmesaan
 ar:بارميجيانو ريجيانو
@@ -70780,17 +70806,21 @@ comment:en:The term shrimp is used to refer to some decapod crustaceans, althoug
 wikidata:en:Q1517781
 wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 # ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
+
+<en:shrimp
+en:raw shrimp
 ciqual_food_code:en:10021
 ciqual_food_name:en:Shrimp or prawn, raw
 ciqual_food_name:fr:Crevette, crue
 
+<en:shrimp
 en:cooked shrimp, cooked prawn
 fr:Crevette cuite
 ciqual_food_code:en:10007
 ciqual_food_name:en:Shrimp or prawn, cooked
 ciqual_food_name:fr:Crevette, cuite
 
-<en:prawn
+<en:shrimp
 en:red prawn
 de:Blassrote Tiefseegarnele, Gamba Roja
 es:gamba roja
