@@ -77,7 +77,7 @@ $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 my $postgres_db = "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
-my $postgres_url = "postgresql://${postgres_user}:${postgres_password}@${postgres_db}/minion";
+my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_db}/minion";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
