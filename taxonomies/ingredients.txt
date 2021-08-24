@@ -66072,9 +66072,35 @@ wikipedia:en:https://en.wikipedia.org/wiki/Argentine_hake
 # ingredient/fr:Merluccius-hubbsi has 3 products in french @2018-12-31
 # structure:inner:role:synonym, eg Filet de merlu blanc (Merluccius hubbsi)
 
+<en:fish
+en:grouper
+ca:Epinefelí
+de:Zackenbarsche
+fi:meriahvenet
+fr:mérou
+ga:Garúpach
+nl:tandbaars
+ru:Груперы
+wikipedia:en:Q5559352
+wikipedia:en:https://en.wikipedia.org/wiki/Grouper
+description:de:Die Zackenbarsche (Epinephelidae) sind eine Familie kleiner bis sehr großer Meeresfische aus der Ordnung der Barschartigen.
+description:en:Groupers are fish of any of a number of genera in the subfamily Epinephelinae of the family Serranidae, in the order Perciformes.
+description:es:Los meros o chernas son un grupo de unos veinte géneros de la subfamilia Epinephelinae de peces perciformes.
+description:fr:Le terme de mérou est un nom vernaculaire qui désigne en français plusieurs espèces de poissons de la famille des Serranidae, voire celle des Polyprionidae.
+description:it:La sottofamiglia Epinephelinae (famiglia Serranidae) comprende numerose specie di pesci d'acqua salata, comunemente indicati come cernie.
+description:nl:Tandbaarzen (Epinephelinae) vormen een onderfamilie van de familie van zaagbaarzen (Serranidae), in de orde van baarsachtigen.
+description:pt:Garoupa, cherne, mero, marelaço, galinha-do-mar ou piracuca são nomes vulgares de várias espécies de peixes da subfamília Epinephelinae, família Serranidae, ordem dos Perciformes.
+
+<en:grouper
+en:Raw grouper
+fr:Mérou cru
+ciqual_food_code:en:26178
+ciqual_food_name:en:Grouper, raw
+ciqual_food_name:fr:Mérou, cru
+
+
 # description:en:HALIBUT is a common name principally applied to the two flatfish in the genus Hippoglossus from the family of right-eye flounders. Halibut are often boiled, deep-fried or grilled while fresh.
 
-<en:fish
 <en:white fish
 en:halibut
 da:helleflynder
@@ -74332,6 +74358,12 @@ it:Uovo fresco pastorizzato
 fr:œufs frais de poules élevées en plein air, oeufs frais de poules élevées en plein air
 # ingredient/fr:œufs-frais-de-poules-élevées-en-plein-air has 44 products in french @2018-12-18
 
+<en:egg
+en:liquid egg
+de:Flüssigei, flüssiges Ei
+es:huevo liquido
+fr:Œuf liquide
+
 # description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 
 <en:egg
@@ -74584,17 +74616,12 @@ ciqual_food_code:en:22002
 ciqual_food_name:en:Egg yolk, raw
 ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), cru
 
+<en:egg yolk
 en:Cooked egg yolk
 fr:jaune d'oeuf cuit
 ciqual_food_code:en:22009
 ciqual_food_name:en:Egg yolk, cooked
 ciqual_food_name:fr:Oeuf, jaune (jaune d'oeuf), cuit
-
-<en:egg
-en:liquid egg
-de:Flüssigei, flüssiges Ei
-es:huevo liquido
-fr:Œuf liquide
 
 <en:egg yolk
 en:free range egg yolk
