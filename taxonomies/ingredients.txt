@@ -65800,19 +65800,20 @@ description:it:Dicentrarchus labrax nota comunemente come spigola (nell'Italia p
 description:nl:De Europese zeebaars of zeebaars (Dicentrarchus labrax) is een straalvinnige vis uit de familie van Moronidae.
 description:pt:Dicentrarchus labrax é uma espécie de peixe da família Moronidae de tons acinzentados. Vulgarmente conhecido em Portugal por robalo e robalete, é muito apreciado na culinária portuguesa e de outros países europeus.
 
+
 <en:European seabass
+en:Raw European seabass
+fr:Bar commun cru, Loup cru
+ciqual_food_code:en:26072
+ciqual_food_name:en:European bass, raw
+ciqual_food_name:fr:Bar commun ou loup, cru, sans précision
+
+<en:Raw European seabass
 en:Raw wild European seabass
 fr:Bar commun cru sauvage
 ciqual_food_code:en:26205
 ciqual_food_name:en:Mediterranean bass, raw, wild
 ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
-
-<en:European seabass
-en:Raw farmed Mediterranean bass
-fr:Bar commun cru d'élevage
-ciqual_food_code:en:26206
-ciqual_food_name:en:Mediterranean bass, raw, farmed
-ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
 
 <en:fish
 en:striped bass
@@ -67720,6 +67721,23 @@ it:Filetti di sgombro occhione
 fr:filets de maquereaux cuits au court-bouillon
 # ingredient/fr:filets-de-maquereaux-cuits-au-court-bouillon has 33 products in french @2018-12-30
 # structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
+
+#comment:en:We need more products to figure out how the generic name bream is divided over specific species.
+<en:fish
+en:freshwater bream, bream
+de:brasse
+fr:brème
+wikidata:en:Q17767599
+wikipedia:en:https://en.wikipedia.org/wiki/Bream
+description:en:Bream are species of freshwater and marine fish belonging to a variety of genera.
+description:fr:Brème est un nom vernaculaire féminin, ambigu en français car il peut désigner différentes espèces de poissons d'eau douce
+
+<en:freshwater bream
+en:Raw freshwater bream
+fr:Brème cru
+ciqual_food_code:en:26170
+ciqual_food_name:en:Freshwater bream, raw
+ciqual_food_name:fr:Brème, cru
 
 
 #description:en:Molva est un genre de poissons appelés lingues, élingues ou juliennes.
