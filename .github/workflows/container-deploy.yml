@@ -34,7 +34,7 @@ jobs:
 
     - name: Set docker-compose overrides to GitHub env
       run: |
-        echo 'compose_args="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"' >> $GITHUB_ENV
+        echo "compose_args=-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml" >> $GITHUB_ENV
 
     - name: Deploy Docker image to Proxmox VM
       uses: appleboy/ssh-action@master
