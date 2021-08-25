@@ -76,8 +76,11 @@ jobs:
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./frontend-git/conf/nginx.conf
 
+          # Set docker-compose args overrides
+          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
+
           # Recreate containers that have a new image
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml up -d --remove-orphans 2>&1
+          sudo docker-compose ${COMPOSE_ARGS} up -d --remove-orphans 2>&1
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -93,8 +96,9 @@ jobs:
         script: |
           cd openfoodfacts-server/docker/
           exit_code=0
+          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
           for service in backend frontend mongodb memcached postgres geoipupdate; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
+            if [ -z `docker-compose ${COMPOSE_ARGS} ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${COMPOSE_ARGS} ps -q $service)` ]; then
               echo "$service: DOWN"
               exit_code=1
             else
@@ -116,7 +120,8 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/docker/
-          sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml exec -T backend bash /opt/scripts/import_sample_data.sh
+          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
+          sudo docker-compose ${COMPOSE_ARGS} exec -T backend bash /opt/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
