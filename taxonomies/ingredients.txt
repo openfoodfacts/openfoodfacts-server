@@ -7103,11 +7103,54 @@ es:leche de vaca desnatada pasterizada
 
 ################################# GOAT MILKS ###################################
 
-# description:en:RAW GOAT MILK - milk produced by female goats before any treatment
+#category/goat-milks
+<en:milk
+en:goat milk, goat's milk, goats milk, goats' milk
+ca:llet de cabra
+cs:kozí mléko
+da:Gedemælk
+de:Ziegenmilch
+el:κατσικίσιο γάλα
+eo:kaprina lakto
+es:leche de cabra
+et:Kitsepiim
+eu:ahuntz esne
+fi:vuohenmaito
+fr:lait de chèvre
+he:חלב עיזים
+hu:kecsketej
+hy:այծի կաթ
+id:Susu kambing
+it:latte di capra, latte caprino
+ja:ヤギ乳
+jv:Susu wedhus
+kk:Ешкі сүті
+ko:염소젖
+lt:Ožkos pienas
+mk:козјо млеко
+nb:geitemelk
+nl:geitenmelk
+pl:Kozie mleko, mleko kozie
+pt:leite de cabra
+ro:lapte de capră, lapte de capra
+ru:Козье молоко
+sk:kozie mlieko
+sr:козје млеко
+sv:getmjölk
+vi:sữa dê
+wikidata:en:Q1418287
+description:de:Ziegenmilch ist die Milch von Hausziegen.
+description:en:Goat milk is the milk of domestic goats.
+description:es:La leche de cabra es el subproducto de la operación de ordeñe que se hace los mamíferos del género Capra.
+description:fr:Le lait de chèvre est le lait que produit la femelle de la Chèvre domestique.
+description:it:Il latte caprino è il tipo di latte generato dalle capre.
+description:nb:Geitemelk er melk fra geit (Capra aegagrus hircus).
+description:pl:Geitenmelk is de melk die gevormd wordt in de uier van een geit. 
+# 1.797 in 16 @2021-08-25
 
-<en:goat's milk
-<en:raw milk
-en:raw goat's milk
+
+<en:goat milk
+en:raw goat milk
 ca:llet crua de cabra, llet de cabra crua
 de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
 es:leche cruda de cabra, leche de cabra cruda
@@ -7115,27 +7158,8 @@ fi:vuohen raakamaito, raaka vuohenmaito
 fr:lait cru de chèvre, lait de chèvre cru
 hu:nyers kecsketej
 
-# description:en:GOATS MILK - goat milk that probably has been treated (pasteurisation)
-
-<en:milk
-en:goat's milk, goat milk, goats milk, goats' milk
-ca:llet de cabra
-da:Gedemælk
-de:Ziegenmilch
-es:leche de cabra
-fi:vuohenmaito
-fr:lait de chèvre
-hu:kecsketej
-it:latte di capra, latte caprino
-nl:geitenmelk
-pl:Kozie mleko
-ro:lapte de capră, lapte de capra
-ru:Козье молоко
-sv:getmjölk
-wikidata:en:Q1418287
-
-<en:goat's milk
-en:whole goat's milk, whole goat milk
+<en:goat milk
+en:whole goat milk, whole goat milk
 ca:llet sencera de cabra, llet de cabra sencera
 de:Ziegenvollmilch, Ziegen-Vollmilch
 es:leche entera de cabra, leche de cabra entera
@@ -7143,9 +7167,17 @@ fi:vuohen täysmaito
 fr:lait entier de chèvre
 hu:teljes kecsketej
 nl:volle geitemelk
+# 95 in 3 @2021-08-25
+
+<en:whole goat milk
+en:plain yogurt goat's milk around 5% fat
+fr:Yaourt au lait de chèvre nature 5% MG environ
+ciqual_food_code:en:19556
+ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
+ciqual_food_name:fr:Yaourt au lait de chèvre, nature, 5% MG environ
 
 <en:goat's milk
-en:semi-skimmed goat's milk
+en:semi-skimmed goat milk
 ca:llet de cabra parcialment desnatada, llet de cabra semidestada, llet parcialment desnatada de cabra, llet semidesnatada de cabra
 de:teilentrahmte Ziegenmilch
 es:leche de cabra parcialmente desnatada, leche de cabra semidesnatada, leche parcialmente desnatada de cabra, leche semidesnatada de cabra
@@ -7153,8 +7185,8 @@ fi:vuohen kevytmaito
 fr:lait de chevre demi-écrémé
 hu:zsírszegény kecsketej
 
-<en:goat's milk
-en:skimmed goat's milk, skimmed goat milk
+<en:goat milk
+en:skimmed goat milk, skimmed goat milk
 ca:llet de cabra descremada, llet de cabra desnatada, llet desnatada de cabra, llet descremada de cabra
 de:entrahmte Ziegenmilch
 es:leche de cabra descremada, leche de cabra desnatada, leche desnatada de cabra, leche descremada de cabra
@@ -7164,7 +7196,7 @@ hu:sovány kecsketej
 
 # description:en:GOATS MILK - raw goat milk that has been treated (pasteurisation)
 
-<en:goat's milk
+<en:goat milk
 en:pasteurised goat milk, pasteurized goat milk, pasteurised goatmilk
 ca:llet de cabra pasteuritzada, llet pasteuritzada de cabra
 de:pasteurisierte Ziegenmilch
@@ -73895,6 +73927,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turkey_as_food
 # ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
 carbon_footprint_fr_foodges_value:fr:6.6
+
+<en:turkey meat
+en:raw turkey meat 
+fr:viande de dinde sans peau crue
+ciqual_food_code:en:36301
+ciqual_food_name:en:Turkey, meat, raw
+ciqual_food_name:fr:Dinde, viande, crue
+
 
 <en:turkey meat
 de:Putenfleisch
