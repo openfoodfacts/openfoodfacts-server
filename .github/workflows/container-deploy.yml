@@ -32,6 +32,10 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
+    - name: Set docker-compose overrides to GitHub env
+      run: |
+        echo 'compose_args="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"' >> $GITHUB_ENV
+
     - name: Deploy Docker image to Proxmox VM
       uses: appleboy/ssh-action@master
       env:
@@ -76,11 +80,8 @@ jobs:
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./frontend-git/conf/nginx.conf
 
-          # Set docker-compose args overrides
-          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
-
           # Recreate containers that have a new image
-          sudo docker-compose ${COMPOSE_ARGS} up -d --remove-orphans 2>&1
+          sudo docker-compose ${{ env.compose_args }} up -d --remove-orphans 2>&1
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -96,9 +97,8 @@ jobs:
         script: |
           cd openfoodfacts-server/docker/
           exit_code=0
-          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
           for service in backend frontend mongodb memcached postgres geoipupdate; do 
-            if [ -z `docker-compose ${COMPOSE_ARGS} ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${COMPOSE_ARGS} ps -q $service)` ]; then
+            if [ -z `docker-compose ${{ env.compose_args }} ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
               echo "$service: DOWN"
               exit_code=1
             else
@@ -120,8 +120,7 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/docker/
-          COMPOSE_ARGS="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"
-          sudo docker-compose ${COMPOSE_ARGS} exec -T backend bash /opt/scripts/import_sample_data.sh
+          sudo docker-compose ${{ env.compose_args }} exec -T backend bash /opt/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
