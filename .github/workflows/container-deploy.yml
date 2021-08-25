@@ -65,7 +65,6 @@ jobs:
 
           # Set docker-compose environment
           echo "TAG=${{ github.sha }}" > .env
-          echo "SSL_SUBDOMAINS=*" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
           echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
