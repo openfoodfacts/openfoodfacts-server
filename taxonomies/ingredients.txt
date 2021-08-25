@@ -5196,19 +5196,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
 <en:Lactobacillus
 en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
-cs:Lactobacillus bulgaricus, L. bulgaricus
-da:Lactobacillus bulgaricus, L. bulgaricus
-de:Lactobacillus bulgaricus, L. bulgaricus
-es:Lactobacillus bulgaricus, L. bulgaricus, lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
-fi:lactobacillus bulgaricus, l. bulgaricus
-fr:Lactobacillus bulgaricus, l. bulgaricus, L bulgaricus, bulgaricus
-hu:Lactobacillus bulgaricus, L. bulgaricus
-it:Lactobacillus bulgaricus, L. bulgaricus
-nb:Lactobacillus bulgaricus, L. bulgaricus
-nl:Lactobacillus bulgaricus, L. bulgaricus
-pl:Lactobacillus bulgaricus, L. bulgaricus
-pt:Lactobacillus bulgaricus, L. bulgaricus
-sv:Lactobacillus bulgaricus, L. bulgaricus
+es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
+fr:L bulgaricus, bulgaricus
+xx:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
 # ingredient/Lactobacillus-bulgaricus has 157 products in 13 languages @2019-07-08
@@ -5330,52 +5320,25 @@ wikidata:en:Q597078
 
 <en:Lactobacillus
 en:Lactobacillus rhamnosus
-bg:Lactobacillus rhamnosus
-ca:Lactobacillus rhamnosus
-da:Lactobacillus rhamnosus
-de:Lactobacillus rhamnosus
-es:Lactobacillus rhamnosus
-fi:Lactobacillus rhamnosus
-fr:Lactobacillus rhamnosus
-hu:Lactobacillus rhamnosus
-it:Lactobacillus rhamnosus
 ja:ラクトバチルスラムノーザス
 ko:락토바실러스
-nl:Lactobacillus rhamnosus
-pl:Lactobacillus rhamnosus
-ro:Lactobacillus rhamnosus
-ru:Lactobacillus Rhamnosus
-uk:Lactobacillus rhamnosus
-# ast:Lactobacillus rhamnosus
+xx:Lactobacillus rhamnosus
 wikidata:en:Q1607640
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
 
 <en:Lactobacillus rhamnosus
 en:Lactobacillus rhamnosus GG
-de:Lactobacillus rhamnosus GG
-fi:Lactobacillus rhamnosus GG
+xx:Lactobacillus rhamnosus GG
 # ingredient/fi:Lactobacillus-rhamnosus-GG has 1 product in 2 languages @2020-06-08
 
 # description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
 
 <en:lactic ferments
 en:Bacillus coagulans
-bg:Bacillus coagulans
-ca:Bacillus coagulans
-de:Bacillus coagulans, Lactobacillus sporogenes
-es:Bacillus coagulans
-eu:Bacillus coagulans
-fi:bacillus coagulans, lactobacillus sporogenes
-fr:Bacillus coagulans
-hu:Bacillus coagulans
-it:Bacillus coagulans
-la:Bacillus coagulans
-nl:Bacillus coagulans
-pt:Bacillus coagulans
-ro:Bacillus coagulans
-uk:Bacillus coagulans
+de:Lactobacillus sporogenes
+fi:lactobacillus sporogenes
+xx:Bacillus coagulans
 zh:芽孢乳酸菌
-# ast:Bacillus coagulans
 # zh-tw:凝結桿菌
 wikidata:en:Q2603895
 wikipedia:en:https://en.wikipedia.org/wiki/Bacillus_coagulans
@@ -8104,11 +8067,23 @@ fr:yaourt britannique
 <en:low fat yogurt
 fr:yaourt britannique à faible teneur en matières grasses
 
+#comment:en:There is a lot of discussion on this subject https://en.wikipedia.org/wiki/Talk:Strained_yogurt. Many marketing issues, so lets just follow what is found as ingredients and not merge them.
 <en:yogurt
 en:greek yogurt
 de:griechischer Joghurt
 es:yogur griego, yogurt griego
 fr:yaourt grec
+nl:Griekse yoghurt
+sk:Grécky jogurt
+wikidate:en:none
+# 395 in 5 @2021-08-25
+
+<en:greek yogurt
+en:Yogurt Greek-style from ewe's milk
+fr:Yaourt à la grecque au lait de brebis
+ciqual_food_code:en:19550
+ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
+ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
 
 
 # no products in OFF
