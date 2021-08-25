@@ -56,7 +56,7 @@ use utf8;
 # server constants
 $server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
-@ssl_subdomains = split / /, $ENV{SSL_SUBDOMAINS};
+@ssl_subdomains = split(' ', $ENV{SSL_SUBDOMAINS});
 $producers_platform = $ENV{PRODUCERS_PLATFORM};
 
 # server paths

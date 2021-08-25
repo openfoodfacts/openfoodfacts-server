@@ -26,6 +26,7 @@ services:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - SSL_SUBDOMAINS
       - ROBOTOFF_URL
       - GOOGLE_CLOUD_VISION_API_KEY
       - CROWDIN_PROJECT_IDENTIFIER
@@ -33,7 +34,6 @@ services:
       - GEOLITE2_PATH
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-      - SSL_SUBDOMAINS
     depends_on:
       - mongodb
       - memcached
