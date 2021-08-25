@@ -32,6 +32,10 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
+    - name: Set docker-compose overrides to GitHub env
+      run: |
+        echo 'compose_args="-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml"' >> $GITHUB_ENV
+
     - name: Deploy Docker image to Proxmox VM
       uses: appleboy/ssh-action@master
       env:
@@ -69,6 +73,7 @@ jobs:
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
           echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
           echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
+          echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env
           echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
 
@@ -76,7 +81,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
           # Recreate containers that have a new image
-          sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml up -d --remove-orphans 2>&1
+          sudo docker-compose ${{ env.compose_args }} up -d --remove-orphans 2>&1
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -93,7 +98,7 @@ jobs:
           cd openfoodfacts-server/
           exit_code=0
           for service in backend frontend mongodb memcached postgres geoipupdate; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
+            if [ -z `docker-compose ${{ env.compose_args }} ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
               echo "$service: DOWN"
               exit_code=1
             else
@@ -114,8 +119,8 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          sudo docker-compose -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml exec -T backend bash /opt/product-opener/scripts/import_sample_data.sh
+          cd openfoodfacts-server/docker/
+          sudo docker-compose ${{ env.compose_args }} exec -T backend bash /opt/scripts/import_sample_data.sh
 
           # Import latest dump of mongodb production db
           # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
