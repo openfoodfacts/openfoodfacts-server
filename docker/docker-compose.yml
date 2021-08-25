@@ -33,6 +33,7 @@ services:
       - GEOLITE2_PATH
       - POSTGRES_USER
       - POSTGRES_PASSWORD
+      - SSL_SUBDOMAINS
     depends_on:
       - mongodb
       - memcached
