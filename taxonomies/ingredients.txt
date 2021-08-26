@@ -9825,17 +9825,91 @@ description:nl:De Beaufort AOP is een Franse kaas die in Savoie geproduceerd wor
 # ingredient/en:beaufort has 50 products in 2 languages @2021-08-14
 
 
-# description:en:Brie is a soft cow's-milk cheese named after Brie, the French region from which it originated (roughly corresponding to the modern département of Seine-et-Marne). It is pale in color with a slight grayish tinge under a rind of white mould.
-
+#category/bries
 <en:cheese
 en:Brie, brie cheese
-de:Brie
+ar:بري
+be:Бры
+bg:бри
+bn:ব্রাই
+ca:formatge Brie
+cv:Бри
+el:Μπρι
+eo:Brio
 es:queso brie
-fr:Brie
+et:Brie juust
+fa:پنیر بری
+he:ברי
+hi:ब्राई
+hy:բրի
+ka:ბრი
+ko:브리
+lt:Bri
+ro:Brânză de Brie
+ru:бри
+th:บรี
+uk:Брі
+xx:Brie
+zh:布利乾酪
 wikidata:en:Q193411
 wikipedia:en:https://en.wikipedia.org/wiki/Brie
+description:de:Brie ist die Bezeichnung für einen ursprünglich aus der gleichnamigen Region in Frankreich stammenden Weichkäse mit weißem Edelschimmel.
+description:en:Brie is a soft cow's-milk cheese named after Brie, the French region from which it originated. It is pale in color with a slight grayish tinge under a rind of white mould.
+description:es:El brie es un queso de pasta blanda elaborado con leche cruda de vaca.
+description:fr:Les bries sont une famille de fromages à pâte molle à croûte fleurie, originaire de la région française de Brie.
+description:it:Il Brie è un formaggio francese vaccino a pasta molle e crosta fiorita che prende il nome da Brie, la regione della Francia in cui è prodotto.
+description:nl:Brie is een Franse witschimmelkaas.
+description:nn:Brie er en fransk ost fra Brie-regionen sør for Paris.
+description:pt:Os chamados brie são uma família de queijos de pasta mole e crosta branca, originários da região de Brie, na França.
+# 85 in 3 @ 2021-08-25
 
+<en:Brie
+en:Brie cheese from cow's milk
+fr:Brie sans précision
+ciqual_food_code:en:12020
+ciqual_food_name:en:Brie cheese, from cow's milk
+ciqual_food_name:fr:Brie, sans précision
 
+#category/brie-de-meaux-cheeses
+<en:Brie
+en:Brie de Meaux
+fr:Brie de Meaux AOP
+ja:ブリー・ド・モー
+ko:브리 드 모
+th:บรีเดอโม
+xx:Brie de Meaux
+zh:莫城布里
+wikidata:en:Q749378
+wikipedia:en:https://en.wikipedia.org/wiki/Brie_de_Meaux
+description:en:Brie de Meaux is an unpasteurized brie, manufactured in the town of Meaux in the Brie region of northern France since the 8th century.
+description:es:Brie de Meaux es un queso francés con denominación de origen protegida elaborado alrededor de la ciudad de Meaux, en la región de Brie.
+description:fr:Le brie de Meaux est un fromage au lait cru avec une AOC depuis 1980. Son appellation vient de la région de la Brie et de la commune de Meaux en France.
+description:nl:Brie de Meaux AOP is een Franse traditionele, rauwmelkse witte korstkaas van koemelk met het AOC- en AOP-keur.
+
+<en:Brie de Meaux
+en:Brie de Meaux cheese from cow's milk
+fr:Brie de Meaux
+ciqual_food_code:en:12021
+ciqual_food_name:en:Brie de Meaux cheese, from cow's milk
+ciqual_food_name:fr:Brie de Meaux
+
+#category/brie-de-melun
+<en:Brie
+en:Brie de Melun
+xx:Brie de Melun
+zh:默倫布里
+wikidata:en:Q545994
+description:en:Brie de Melun is a brie made with unpasteurized milk.
+description:es:Brie de Melun es un queso francés con denominación de origen protegida. Se trata de un queso brie elaborado alrededor de la ciudad de Melun en la región de la Brie.
+description:fr:Brie de Melun est une appellation d'origine désignant un fromage au lait cru de la plaine de Melun.
+description:nl:Brie de Melun AOP is een Franse traditionele, rauwmelkse witte korstkaas van koemelk met het AOC- en AOP-keur.
+
+<en:Brie de Melun
+en:Brie de Melun cheese from cow's milk
+fr:Brie de Melun
+ciqual_food_code:en:12022
+ciqual_food_name:en:Brie de Melun cheese, from cow's milk
+ciqual_food_name:fr:Brie de Melun
 
 <en:cheese
 en:camembert, camembert cheese
