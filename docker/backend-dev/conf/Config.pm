@@ -225,6 +225,7 @@ $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 %server_options = %ProductOpener::Config2::server_options;
