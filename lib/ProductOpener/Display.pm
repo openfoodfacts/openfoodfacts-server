@@ -7208,7 +7208,7 @@ else {
 JS
 	}
 
-	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
+	my $tagline = "$Lang{tagline}{$lc}";
 
 	if ($server_options{producers_platform}) {
 
