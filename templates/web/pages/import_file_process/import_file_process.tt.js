@@ -4,10 +4,10 @@ var timeout = 5000;
 var job_info_state;
 
 var statuses = {
-	"inactive" : [% lang("job_status_inactive") %],
-	"active" : [% lang("job_status_active") %],
-	"finished" : [% lang("job_status_finished") %],
-	"failed" : [% lang("job_status_failed") %],
+	"inactive" : "[% lang("job_status_inactive") %]",
+	"active" : "[% lang("job_status_active") %]",
+	"finished" : "[% lang("job_status_finished") %]",
+	"failed" : "[% lang("job_status_failed") %]",
 };
 
 (function poll() {

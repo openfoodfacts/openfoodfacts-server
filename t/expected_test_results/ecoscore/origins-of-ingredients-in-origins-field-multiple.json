@@ -55,17 +55,7 @@
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -96,7 +86,7 @@
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 50
       },
-      "grade" : "c",
+      "grade" : "d",
       "grade_be" : "c",
       "grade_ch" : "c",
       "grade_de" : "c",
@@ -111,20 +101,20 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 40,
-      "score_be" : 54,
-      "score_ch" : 50,
-      "score_de" : 51,
-      "score_es" : 47,
-      "score_fr" : 54,
-      "score_ie" : 49,
-      "score_it" : 48,
-      "score_lu" : 53,
-      "score_nl" : 53,
+      "score" : 35,
+      "score_be" : 49,
+      "score_ch" : 45,
+      "score_de" : 46,
+      "score_es" : 42,
+      "score_fr" : 49,
+      "score_ie" : 44,
+      "score_it" : 43,
+      "score_lu" : 48,
+      "score_nl" : 48,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 54,
+   "ecoscore_score" : 49,
    "ecoscore_tags" : [
       "c"
    ],
@@ -207,11 +197,6 @@
       "en:dordogne",
       "en:belgium"
    ],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

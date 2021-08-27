@@ -3701,6 +3701,31 @@ agribalyse_food_code:en:1003
 ciqual_food_code:en:1003
 ciqual_food_name:en:Liqueur
 
+<en:liqueur
+ca:Limoncello
+cs:Limoncello
+de:Limoncello
+en:Limoncello
+es:Limoncello
+fi:Limoncello
+fr:Limoncello
+hu:Limoncello
+it:Limoncello
+ja:リモンチェッロ
+ko:리몬첼로
+lt:Limončelas
+nl:Limoncello
+no:Limoncello
+pl:Limoncello
+pt:Limoncello
+ru:Лимончелло
+sv:Limoncello
+zh:檸檬酒
+wikipedia:en:https://en.wikipedia.org/wiki/Limoncello
+wikidata:en:Q736208
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
+# 226 "Limoncello" via OFF search on 2021-01-11
+
 <en:Liqueurs
 en:Italian liqueurs
 
@@ -23984,6 +24009,9 @@ fr:Torcetti
 it:Torcetti
 
 <en:Biscuits
+it:Paste di meliga
+
+<en:Biscuits
 en:Baci di Dama
 it:Baci di Dama
 
@@ -24796,6 +24824,11 @@ agribalyse_food_code:en:7130
 ciqual_food_code:en:7130
 ciqual_food_name:en:Bread, gluten free
 ciqual_food_name:fr:Pain, sans gluten
+
+<en:Breads
+en:Pane carasau
+it:Pane carasau
+wikidata:en:Q1922854
 
 <en:Breads
 en:Flatbreads, Flatbread
@@ -28721,6 +28754,20 @@ nl:Visseneieren
 zh:鱼卵, 鱼子
 
 <en:Fish eggs
+en:Bottarga
+ca:Botàriga
+de:Bottarga
+es:Botarga
+fr:Boutargue, Poutargue
+it:Bottarga
+nl:Bottarga
+pt:Butarga
+wikidata:en:Q894875
+wikipedia:en:https://en.wikipedia.org/wiki/Bottarga
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=Bottarga&search_simple=1&action=process
+# 52 "bottarga" in OFF on 2021-08-16 and 32 "poutargue" 
+
+<en:Fish eggs
 <en:Semi-preserved foods
 en:Salmon roe, Semi-preserved salmon roe
 fr:Oeufs de saumon, Oeufs de saumon en semi-conserve
@@ -29877,7 +29924,7 @@ en:Sushi rice, Rices for sushi
 de:Sushi Reis
 es:Arroces para sushi
 fr:Riz pour sushi
-it:Riso da sushi
+it:Riso per sushi, riso da sushi
 nl:Sushirijsten
 zh:寿司米
 
@@ -34079,17 +34126,18 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Italian cheeses
-it:Provola dei Nebrodi
-protected_name_file_number:en: PDO-IT-02394
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Italian cheeses
+<en:Provolone
 it:Provolone Valpadana
 protected_name_file_number:en: PDO-IT-0021
 protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
+
+<en:Italian cheeses
+it:Provola dei Nebrodi
+protected_name_file_number:en: PDO-IT-02394
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Italian cheeses
 it:Puzzone di Moena, Spretz Tzaorì
@@ -35307,6 +35355,14 @@ fr:Produits laitiers à tartiner
 he:ממרח חלבי
 it:Latticini spalmabili
 nl:Zuivelsmeersels
+
+<en:Dairy spread
+en:Sheep butters
+fr:Beurres au lait de brebis
+
+<en:Dairy spread
+en:Goat butters
+fr:Beurres au lait de chèvre
 
 <en:Dairy spread
 en:Butters
@@ -41129,7 +41185,6 @@ ciqual_food_name:fr:Beurre de cacao
 
 <en:Vegetable fats
 <en:Plant-based spreads
-<en:Salted spreads
 <en:Spreadable fats
 en:Margarines
 bg:Маргарина
@@ -43731,6 +43786,11 @@ ciqual_proxy_food_name:en:Breakfast cereals, mix of puffed or extruded cereals, 
 who_id:en:6
 
 <en:Breakfast cereals
+en:Wheat bran sticks
+fr:Bâtonnets de son de blé
+it:Bastoncini di crusca di frumento
+
+<en:Breakfast cereals
 en:Extruded cereals
 fr:Céréales extrudées
 it:Cereali estrusi 
@@ -44612,6 +44672,7 @@ nl:Gepofte boekweit
 en:Puffed millet
 es:Mijo inflado, Mijo hinchado
 fr:Millet soufflé
+it:Miglio soffiato
 nl:Gepofte gierst
 
 <en:Puffed cereals
@@ -53057,7 +53118,8 @@ ciqual_food_code:en:11191
 ciqual_food_name:en:Roquefort (blue cheese) sauce, prepacked
 ciqual_food_name:fr:Sauce au roquefort, préemballée
 
-<en:Sauces
+<en:Dips
+<en:Plant-based spreads
 en:Guacamoles
 de:Guacamoles
 es:Guacamoles
@@ -53072,7 +53134,7 @@ ciqual_food_name:en:Guacamole, prepacked
 ciqual_food_name:fr:Guacamole, préemballé
 
 <en:Guacamoles
-en:Spicy guacamole
+en:Spicy guacamoles
 
 <en:Sauces
 en:Green sauces
@@ -55992,6 +56054,10 @@ agribalyse_proxy_food_code:en:25154
 agribalyse_proxy_food_name:en:Fish brandade or fish shepherd's pie
 
 <en:Meals
+en:Meals with falafels
+fr:Plats préparés aux falafels
+
+<en:Meals
 <en:Meat-based products
 en:Meals with meat
 bg:Ястия с месо
@@ -58886,7 +58952,6 @@ ciqual_food_name:fr:Tarte ou Tourte aux poireaux
 fr:Quiches aux épinards, Quiche à l'épinard, Tartes aux épinards
 
 <en:Meals
-<en:Salads
 en:Prepared salads
 bg:Готови салати
 ca:Amanides preparades
@@ -58899,6 +58964,11 @@ hu:Előkészített saláták
 it:Insalate pronte
 nl:Opgemaakte salades
 ru:Готовые салаты
+
+<en:Prepared salads
+es:Ensalada rusa
+it:Insalata russa
+wikidata:en:Q281278
 
 <en:Prepared salads
 en:Buddha Bowl
@@ -58975,6 +59045,11 @@ fr:Concombres au fromage blanc
 
 <en:Cucumber salads
 fr:Concombres à la crème
+
+<en:Prepared salads
+<en:Bulgur dishes
+en:Bulgur salads
+fr:Salades de boulgour
 
 <en:Prepared salads
 en:Lentil salads
@@ -59204,43 +59279,12 @@ hu:Növényi alapú ételek
 it:Piatti a base vegetale
 nl:Plantaardige kant-en-klaarmaaltijden
 
-<en:Plant-based meals
-en:Falafels, Falafel
-de:Falafel
-es:Falafel
-fi:falafelit
-fr:Falafels, falafel, Boulettes aux pois-chiche et aux fèves frites
-it:Falafel
-nl:Falafel
-wikidata:en:Q188788
-agribalyse_food_code:en:25571
-ciqual_food_code:en:25571
-ciqual_food_name:en:Falafel
-ciqual_food_name:fr:Falafel ou Boulette de pois-chiche et/ou fève, frite
-
-<en:Falafel
-<en:Refrigerated meals
-en:Refrigerated falafel
-es:Falafel refrigerado
-fr:Falafels réfrigérés, Falafel réfrigérés, Falafel réfrigéré
-it:Falafel congelato
-nl:Gekoelde falafel
-
-<en:Falafel
-<en:Frozen ready-made meals
-en:Frozen falafel
-es:Falafel congelado
-fr:Falafels surgelés, Falafel surgelé
-nl:Diepvriesfalafel
-
-<en:Falafel
 <en:Sandwiches
 en:Falafel sandwiches
 es:Sándwiches de falafel
 fr:Sandwichs aux falafels, Sandwiches de falafel
 nl:Falafelsandwiches
 
-<en:Falafel
 <en:Dried products to be rehydrated
 en:Falafel mixes
 de:Mischung für Falafel
@@ -59502,6 +59546,39 @@ wikidata:en:Q3807565
 
 <en:Meat preparations
 de:Fleischkäse
+
+<en:Plant-based foods
+en:Vegetarian balls
+fr:Boulettes végétariennes
+
+<en:Vegetarian balls
+en:Falafels, Falafel
+de:Falafel
+es:Falafel
+fi:falafelit
+fr:Falafels, falafel, Boulettes aux pois-chiche et aux fèves frites
+it:Falafel
+nl:Falafel
+wikidata:en:Q188788
+agribalyse_food_code:en:25571
+ciqual_food_code:en:25571
+ciqual_food_name:en:Falafel
+ciqual_food_name:fr:Falafel ou Boulette de pois-chiche et/ou fève, frite
+
+<en:Falafel
+<en:Refrigerated meals
+en:Refrigerated falafel
+es:Falafel refrigerado
+fr:Falafels réfrigérés, Falafel réfrigérés, Falafel réfrigéré
+it:Falafel congelato
+nl:Gekoelde falafel
+
+<en:Falafel
+<en:Frozen ready-made meals
+en:Frozen falafel
+es:Falafel congelado
+fr:Falafels surgelés, Falafel surgelé
+nl:Diepvriesfalafel
 
 <en:Meat preparations
 en:Meat balls
@@ -68152,14 +68229,6 @@ ciqual_food_name:en:Crispy biscuit (cookie), with chocolate, reduced fat
 #ciqual_food_code:en:24360
 #ciqual_food_name:en:Wafer cookie
 
-<en:wafer biscuit
-en:Vanilla flavoured wafer biscuit
-fr:Gaufrette fourrée vanille
-agribalyse_food_code:en:24313
-ciqual_food_code:en:24313
-ciqual_food_name:en:Wafer biscuit, plain or vanilla flavoured, prepacked
-ciqual_food_name:fr:Gaufrette, fourrée vanille, préemballée
-
 <en:Biscuits and cakes
 en:Cone wafer for ice cream
 fr:Cône pour glace, Cornet pour glace
@@ -74248,8 +74317,26 @@ fr:Baba ganousch, Baba Ghanouge
 nl:Baba ghanoush, Baba ganush
 wikidata:en:Q1072192
 
+<en:Salted spreads
+en:Sweet potato spreads
+de:Süßkartoffel-Aufstriche, Süßkartoffel-Aufstrich
+fr:Tartinades de patates douces
+
+# Don't put under houmous
 <en:Plant-based spreads
 <en:Salted spreads
+en:Lentil spreads, Lentil dips
+de:Linsen-Aufstriche, Linsen-Aufstrich
+fr:Tartinades de lentilles, houmous de lentilles
+
+<en:Plant-based spreads
+<en:Salted spreads
+en:Bean spreads, bean dips
+fr:Tartinades de haricots, Houmous de haricots
+
+<en:Plant-based spreads
+<en:Salted spreads
+<en:Dips
 en:Hummus, Houmous
 bg:Хумус
 de:Hummus
@@ -74266,11 +74353,16 @@ ciqual_food_code:en:25621
 ciqual_food_name:en:Hummus
 ciqual_food_name:fr:Houmous
 
-<en:Plant-based spreads
-<en:Salted spreads
-fr:Houmous de haricots
+<en:Hummus
+en:Classic hummus, traditional hummus
+fr:Houmous classiques, Houmous natures
+
+<en:Hummus
+en:Red pepper hummus
+fr:Houmous aux poivrons
 
 <en:Salted spreads
+<en:Dips
 en:Ktipiti, tirokafteri
 fr:Ktipiti
 wikidata:en:Q7809258
@@ -76584,7 +76676,7 @@ ciqual_food_name:fr:Céleri-rave, cuit
 # <en:Vegetable rods
 <en:vegetable
 en:Chards, Chard, Swiss chard
-ar:سلق 
+ar:سلق
 bg:Манголд
 bs:Blitva
 ca:bleda
@@ -76629,7 +76721,7 @@ zh:莙薘菜
 # kk-cn:جاپىراقتى قىزىلشا
 # kk-cyrl:Жапырақты қызылша
 # kk-kz:Жапырақты қызылша
-# kk-latn:Japıraqtı qızılşa # kk-tr:Japıraqtı qızılşa
+# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
 # ku-arab:دیو
 # ku-latn:Dîw
 # pcd:Biéte
@@ -78583,30 +78675,41 @@ ciqual_food_code:en:20230
 ciqual_food_name:en:Courgette or zucchini, pulp and peel, frozen, raw
 ciqual_food_name:fr:Courgette, pulpe et peau, surgelée, crue
 
+# Note: mixed vegetables / vegetable mixes refer to an assortment of different vegetables,
+# not vegetables that have been turned to puree with a mixer or blender
+<en:Vegetables
+en:Mixed vegetables, vegetable mixes
+de:Gemüse Mischung
+es:Mezclas de verduras y hortalizas
+fr:Mélanges de légumes
+it:Misti di verdure
+nl:Groentemengsels
+
 <en:Fresh vegetables
-en:Fresh vegetable mixes
+<en:Mixed vegetables
+en:Fresh mixed vegetables, Mixed fresh vegetables, fresh vegetable mixes
 de:Frische Gemüse Mischung
 es:Mezclas de verduras y hortalizas frescas
 fr:Mélanges de légumes frais
 nl:Verse groentemengsels
 
-<en:Fresh vegetable mixes
+<en:Fresh mixed vegetables
 es:Mezclas de verduras y hortalizas para puré, Mezclas de vegetales para puré
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 en:Mixtures of vegetables for broth
 de:Suppengemüse
 es:Mezclas de verduras y hortalizas para caldo
 fr:Mélanges de légumes pour bouillon
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para cocido, Mezclas de vegetales para cocido
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para sopa, Mezclas de vegetales para sopa
 fr:Mélanges de légumes pour soupes
 
-<en:Fresh vegetable mixes
+<en:Frozen mixed vegetables
 <en:Frozen foods
 en:Frozen mixed vegetables for soups
 fr:Légumes surgelés pour potage
@@ -78615,30 +78718,9 @@ ciqual_food_code:en:20263
 ciqual_food_name:en:Mixed vegetables for soups, frozen, raw
 ciqual_food_name:fr:Légumes pour potages, surgelés, crus
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para gazpacho
 
-en:Salads
-bg:Салати
-ca:Amanides
-cs:Saláty
-da:Salat
-de:Salate, Salat
-es:Ensaladas
-fi:salaatit
-fr:Salades, Salade
-he:סלטים
-hu:Saláták
-it:Insalate
-nl:Sla, Salades
-pl:Sałatki
-pt:Saladas
-ru:Салаты
-sv:Sallader
-th:สลัด
-zh:沙拉
-
-<en:Salads
 <en:Leaf vegetables
 en:Leaf salads, Green salads
 de:Blattsalate
@@ -78652,7 +78734,7 @@ ciqual_food_code:en:25604
 ciqual_food_name:en:Green salad, raw, without seasoning
 ciqual_food_name:fr:Salade verte, crue, sans assaisonnement
 
-<en:Salads
+<en:Vegetables
 en:Salads without dressing
 fr:Crudités sans assaisonnement
 ciqual_food_code:en:25616
@@ -80683,46 +80765,27 @@ ciqual_food_code:en:24311
 ciqual_food_name:en:Wafer biscuit, filled with chocolate, prepacked
 
 <en:Stuffed wafers
-en:Vanilla stuffed wafers
+en:Vanilla stuffed wafers, Vanilla flavoured wafer biscuit
 de:Knusprige Waffeln mit Vanillefüllung, Vanille-gefüllte Knusprige Waffeln
 fi:vaniljalla täytetyt vohvelit
-fr:Gaufrettes fourrées à la vanille
+fr:Gaufrettes fourrés vanille, Gaufrettes fourrées à la vanille, Gaufrette fourrée vanille
 hu:Vaníliával töltött ostyák
 it:Wafer ripieni di vaniglia, Wafer alla vaniglia
 nl:Wafeltjes met vanille
 ro:Napolitane umplute cu vanilie, Napolitane cu vanilie
+agribalyse_food_code:en:24313
+ciqual_food_code:en:24313
+ciqual_food_name:en:Wafer biscuit, plain or vanilla flavoured, prepacked
+ciqual_food_name:fr:Gaufrette, fourrée vanille, préemballée
 
-<en:Biscuits and cakes
-en:Nut stuffed wafers
-fr:Gaufrettes fourrées aux fruits à coques
+<en:Stuffed wafers
+en:Hazelnut cream stuffed wafers, Nut stuffed wafers
+de:Knusprige Waffeln mit Haselnusscremefüllung
+fr:Gaufrettes fourrées chocolat noisettes, Gaufrettes fourrées noisette, Gaufrettes fourrées aux fruits à coques
 agribalyse_food_code:en:24312
 ciqual_food_code:en:24312
 ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
 ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with hazelnut
-fr:Gaufrette fourrée aux noisettes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with almonds
-fr:Gaufrette fourrée aux amandes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit filled with praline
-fr:Gaufrette fourrée à la praline
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with hazelnut
-fr:Gaufrette chocolatée fourrée aux noisettes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with almonds
-fr:Gaufrette chocolatée fourrée aux amandes
-
-<en:Nut stuffed wafers
-en:Wafer biscuit with chocolate filled with praline
-fr:Gaufrette chocolatée fourrée à la praline
 
 <en:Biscuits and cakes
 en:Fruits stuffed wafers
@@ -81624,7 +81687,8 @@ es:Salteados de vegetales asados congelados
 
 <en:Frozen vegetables
 <en:Frozen plant-based foods mixes
-en:Frozen vegetable mixes
+<en:Mixed vegetables
+en:Frozen mixed vegetables, Frozen vegetable mixes
 de:Gefrorene Gemüsemischungen
 es:Mezclas de verduras y hortalizas congeladas
 fi:Pakastevihannessekoitukset
@@ -81632,8 +81696,12 @@ fr:Mélanges de légumes surgelés
 it:Misti di verdure congelati
 nl:Diepvriesgroentemelanges
 pnns_group_2:en:Vegetables
+agribalyse_food_code:en:20101
+ciqual_food_code:en:20101
+ciqual_food_name:en:Mixed vegetables, frozen, raw
+ciqual_food_name:fr:Légumes, mélange surgelé, crus
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen spring vegetables
 fr:Printanière de légumes surgelée
 agribalyse_food_code:en:20267
@@ -81641,15 +81709,7 @@ ciqual_food_code:en:20267
 ciqual_food_name:en:Spring vegetables, frozen, raw (French beans, carrots, potatoes, green peas, onions)
 ciqual_food_name:fr:Printanière de légumes, surgelée, crue (haricots verts, carottes, pomme de terre, petits pois, oignons)
 
-<en:Frozen vegetable mixes
-en:Frozen mixed vegetables
-fr:Mélange de légumes surgelés
-agribalyse_food_code:en:20101
-ciqual_food_code:en:20101
-ciqual_food_name:en:Mixed vegetables, frozen, raw
-ciqual_food_name:fr:Légumes, mélange surgelé, crus
-
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen mixed diced vegetables
 fr:Macédoine de légumes surgelée
 agribalyse_food_code:en:20271
@@ -81657,7 +81717,7 @@ ciqual_food_code:en:20271
 ciqual_food_name:en:Mixed diced vegetables, frozen
 ciqual_food_name:fr:Macédoine de légumes, surgelée
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen thinly-shredded vegetables
 fr:Julienne de légumes surgelée 
 agribalyse_food_code:en:20265
@@ -81665,7 +81725,7 @@ ciqual_food_code:en:20265
 ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen diced vegetables
 fr:Brunoise de légumes surgelée
 agribalyse_food_code:en:20265
@@ -81720,7 +81780,7 @@ fr:Poêlées savoyardes
 <en:Pan-fried meat and vegetable mixes
 en:Frozen meat and vegetable mixes
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried vegetables without mushrooms
 fr:Poêlée de légumes assaisonnés surgelée sans champignons
 agribalyse_food_code:en:20262
@@ -81728,7 +81788,7 @@ ciqual_food_code:en:20262
 ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
 fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
 agribalyse_food_code:en:20273
@@ -81736,7 +81796,7 @@ ciqual_food_code:en:20273
 ciqual_food_name:en:Vegetables pan-fried or stir-fried, Asian-style, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés à l'asiatiques ou wok de légumes, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried Mediterranean-style grilled vegetables
 fr:Poêlée de légumes assaisonnés grillée méridionale surgelée, Poêlée de légumes assaisonnés grillée méditerranéenne surgelée
 agribalyse_food_code:en:20274
@@ -81744,7 +81804,7 @@ ciqual_food_code:en:20274
 ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried vegetables with mushrooms country-style
 fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
 agribalyse_food_code:en:20498
@@ -81760,7 +81820,7 @@ ciqual_food_code:en:25057
 ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
 ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen salads
 de:Gefrorene Salate
 es:Ensaladillas congeladas
@@ -82392,7 +82452,7 @@ nl:Diepvries Romanescos
 
 <en:Frozen vegetables
 <en:Spinachs
-en:Frozen spinachs
+en:Frozen spinachs, Frozen spinach
 de:Gefrorene Spinate
 es:Espinacas congeladas
 fi:pakastetut pinaatit
@@ -82400,9 +82460,10 @@ fr:Épinards surgelés
 it:Spinaci surgelati
 nl:Diepvriesspinazies
 pl:Szpinak mrożony
-agribalyse_proxy_food_code:en:20121
-agribalyse_proxy_food_name:en:Spinach, frozen, cooked
-agribalyse_proxy_food_name:fr:Épinard, surgelé, cuit
+agribalyse_food_code:en:20083
+ciqual_food_code:en:20083
+ciqual_food_name:en:Spinach, frozen, raw
+ciqual_food_name:fr:Épinard, surgelé, cru
 
 <en:Frozen spinachs
 en:Frozen chopped spinachs
@@ -82425,14 +82486,6 @@ agribalyse_food_code:en:20121
 ciqual_food_code:en:20121
 ciqual_food_name:en:Spinach, frozen, cooked
 ciqual_food_name:fr:Épinard, surgelé, cuit
-
-<en:Frozen spinachs
-en:Frozen spinach
-fr:Épinards surgelés
-agribalyse_food_code:en:20083
-ciqual_food_code:en:20083
-ciqual_food_name:en:Spinach, frozen, raw
-ciqual_food_name:fr:Épinard, surgelé, cru
 
 <en:Frozen vegetables
 <en:Zucchini
@@ -83569,9 +83622,10 @@ it:Foie gras
 nl:Foie gras
 wikidata:en:Q34807
 pnns_group_2:en:Salty and fatty products
-agribalyse_proxy_food_code:en:40120
-agribalyse_proxy_food_name:en:Liver, goose, raw
-agribalyse_proxy_food_name:fr:Foie, oie, cru
+agribalyse_proxy_food_code:en:8110
+agribalyse_proxy_food_name:en:Preserved duck
+agribalyse_proxy_food_name:fr:Confit de canard
+# Note the Agribalyse category 40121 "Liver, duck, raw" has a value that corresponds to chicken liver, it is not a good proxy for foie gras.
 
 <en:goose meat
 en:Goose liver, goose liver
@@ -83582,6 +83636,7 @@ ciqual_food_name:en:Liver, goose, raw
 ciqual_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
+en:Block of foie gras
 fr:Bloc de foie gras
 nl:Foie gras blokken
 
@@ -83604,7 +83659,7 @@ fr:Foies gras cuits, foies gras cuit, foie gras cuit
 nl:Gekookte foie gras
 
 <en:Foies gras
-en:Foies gras from ducks, fat liver from ducks, Block of foie gras
+en:Foies gras from ducks, fat liver from ducks, Block of duck foie gras
 ca:Foie-gras d'ànec, Foie de fetge d'ànec
 de:Gänseleber, Gänseleberpastete, Fettleber von der Ente
 es:Foies gras de patos
@@ -83669,9 +83724,6 @@ fi:Hanhenmaksapateet
 fr:Foies gras d'oies, Foie gras d'oies
 it:Foie gras di oca
 nl:Ganzen foie gras
-agribalyse_proxy_food_code:en:40120
-agribalyse_proxy_food_name:en:Liver, goose, raw
-agribalyse_proxy_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
 fr:Foies gras mi-cuits, foies gras mi-cuit, foie gras mi-cuit
