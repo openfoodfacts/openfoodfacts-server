@@ -38,9 +38,10 @@ BEGIN
 		$mongodb_timeout_ms
 		$memd_servers
 		$facebook_app_id
-	    $facebook_app_secret
+		$facebook_app_secret
 		$robotoff_url
 		%server_options
+		$google_cloud_vision_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -66,6 +67,8 @@ $memd_servers = [ "memcached:11211" ];
 $facebook_app_id = "";
 $facebook_app_secret = "";
 
+$google_cloud_vision_api_key = "";
+
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
@@ -75,4 +78,5 @@ $robotoff_url = '';
         export_servers => { public => "off", experiment => "off-exp" },
 		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
 );
+
 1;
