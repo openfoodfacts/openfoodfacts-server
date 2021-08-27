@@ -4217,7 +4217,7 @@ my %pnns = (
 	"Fats" => "Fat and sauces",
 	"Dressings and sauces" => "Fat and sauces",
 
-	"Pizza pies and quiche" => "Composite foods",
+	"Pizza pies and quiches" => "Composite foods",
 	"One-dish meals" => "Composite foods",
 	"Sandwiches" => "Composite foods",
 
@@ -4229,6 +4229,8 @@ my %pnns = (
 	"Waters and flavored waters" => "Beverages",
 	"Teas and herbal teas and coffees" => "Beverages",
 	"Plant-based milk substitutes" => "Beverages",
+
+	"Alcoholic beverages" => "Alcoholic beverages",
 
 	"unknown" => "unknown",
 
@@ -4281,18 +4283,11 @@ sub is_beverage_for_nutrition_score($) {
 		}
 		
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		if (has_tag($product_ref, "categories", "en:dairy-drinks")) {
+		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
 			
-			my $milk_percent = estimate_milk_percent_from_ingredients($product_ref); 
-			
-			if ($milk_percent < 80) {
-				$log->debug("in en:dairy-drinks category but milk < 80%", { milk_percent => $milk_percent }) if $log->is_debug();
-				$is_beverage = 1;
-			}
-			else {
-				$log->debug("in en:dairy-drinks category but milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
-				$is_beverage = 0;
-			}
+		if ($milk_percent >= 80) {
+			$log->debug("milk >= 80%", { milk_percent => $milk_percent }) if $log->is_debug();
+			$is_beverage = 0;
 		}
 	}
 

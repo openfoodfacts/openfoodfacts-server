@@ -327,6 +327,15 @@ my @tests = (
 		},
 	],
 
+	# Spanish label with "e" meaning "y"
+	[
+		"es-procedente-e-agricultura-biologica",
+		{
+			lc => "es",
+			ingredients_text => "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+		},
+	],
+
 );
 
 

@@ -37,9 +37,7 @@ use Storable qw/dclone/;
 ProductOpener::Display::init();
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
@@ -98,11 +96,10 @@ JS
 $initjs .= $js;
 
 my $html;
-
-$tt->process('top_translators.tt.html', $template_data_ref, \$html);
+process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>lang('translators_title'),
 	content_ref=>\$html
 });

@@ -2,7 +2,7 @@
 
 const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
@@ -27,15 +27,16 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-        { removeDimensions: true },
-          { addClassesToSVGElement: { className: "icon" } },
-          {
-            addAttributesToSVGElement: {
-              attributes: [{ "aria-hidden": "true", focusable: "false" }]
-            }
-          }
+        {
+          name: "addClassesToSVGElement",
+          active: true,
+          params: { className: "icon" }
+        },
+        {
+          name: "addAttributesToSVGElement",
+          active: true,
+          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
+        }
       ]
       })
     ).
@@ -45,12 +46,7 @@ function icons() {
 function attributesIcons() {
   return src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(
-      svgmin({
-      plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-      ]
-      })
+      svgmin()
     ).
     pipe(dest("./html/images/attributes"));
 }
@@ -84,7 +80,8 @@ function copyJs() {
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
       "./node_modules/jvectormap-next/jquery-jvectormap.js",
-      "./node_modules/jvectormap-content/world-mill.js"
+      "./node_modules/jvectormap-content/world-mill.js",
+      "./node_modules/select2/dist/js/select2.min.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -140,7 +137,8 @@ function copyCss() {
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
       "./node_modules/cropperjs/dist/cropper.css",
-      "./node_modules/jvectormap-next/jquery-jvectormap.css"
+      "./node_modules/jvectormap-next/jquery-jvectormap.css",
+      "./node_modules/select2/dist/css/select2.min.css"
     ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).

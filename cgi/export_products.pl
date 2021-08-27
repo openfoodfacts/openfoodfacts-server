@@ -131,7 +131,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 	
-	process_template('export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
+	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html) || ($html .= 'template error: ' . $tt->error());
 }
 
 elsif (($action eq "process") and $allow_submit) {
@@ -262,7 +262,9 @@ JS
 
 }
 else {
-	
+
+	my $template_data_ref2 = {};
+
 	# The organization does not have the permission enable_manual_export_to_public_platform checked
 
 		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
@@ -282,26 +284,36 @@ TEXT
 
 
 	my $admin_mail_body = <<EMAIL
-org_id: $Org_id
-user id: $User_id
-user name: $User{name}
-user email: $User{email}
-
-
-https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id
-<a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
+org_id: $Org_id <br>
+<br>
+user id: $User_id <br>
+<br>
+user name: $User{name} <br>
+<br>
+user email: $User{email} <br>
+<br>
+TODO:<br>
+<br>
+1. <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id">Control products on pro platform</a>. <br>
+<br>
+2. Validate the export. <br>
+<br>
+2b. Or, email to the producer if there are too many issues with their data.<br>
+<br>
+3. <a href="mailto:$User{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">Email to tell the producer its products have been exported</a>. <br>
+<br>
 
 EMAIL
 ;
 	send_email_to_producers_admin(
 		"Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body );
-		
-	$html .= "<p>" . lang('export_products_to_public_database_request_email') . "</p>";
+
+	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html) || ($html .= 'template error: ' . $tt->error());
 	
 }
 
-display_new( {
+display_page( {
 	title=>$title,
 	content_ref=>\$html,
 });

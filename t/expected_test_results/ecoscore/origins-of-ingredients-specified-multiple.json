@@ -31,28 +31,42 @@
                   "percent" : 10
                }
             ],
-            "epi_score" : 51.0972095961541,
-            "epi_value" : 0,
+            "epi_score" : 65.3,
+            "epi_value" : 2,
             "origins_from_origins_field" : [
                "en:unknown"
             ],
-            "transportation_score" : 60.45697452375,
-            "transportation_value" : 9,
-            "value" : 9
+            "transportation_score_be" : 44.9,
+            "transportation_score_ch" : 33.1,
+            "transportation_score_de" : 47,
+            "transportation_score_es" : 54.6,
+            "transportation_score_fr" : 63.6,
+            "transportation_score_ie" : 36.5,
+            "transportation_score_it" : 26.6,
+            "transportation_score_lu" : 39.8,
+            "transportation_score_nl" : 39.8,
+            "transportation_value_be" : 7,
+            "transportation_value_ch" : 5,
+            "transportation_value_de" : 7,
+            "transportation_value_es" : 8,
+            "transportation_value_fr" : 10,
+            "transportation_value_ie" : 5,
+            "transportation_value_it" : 4,
+            "transportation_value_lu" : 6,
+            "transportation_value_nl" : 6,
+            "value_be" : 9,
+            "value_ch" : 7,
+            "value_de" : 9,
+            "value_es" : 10,
+            "value_fr" : 12,
+            "value_ie" : 7,
+            "value_it" : 6,
+            "value_lu" : 8,
+            "value_nl" : 8
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -76,24 +90,42 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : 0.55246032,
+         "ef_total" : "0.55246032",
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 50
       },
-      "grade" : "c",
+      "grade" : "d",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 49,
+      "score" : 35,
+      "score_be" : 44,
+      "score_ch" : 42,
+      "score_de" : 44,
+      "score_es" : 45,
+      "score_fr" : 47,
+      "score_ie" : 42,
+      "score_it" : 41,
+      "score_lu" : 43,
+      "score_nl" : 43,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 49,
+   "ecoscore_score" : 47,
    "ecoscore_tags" : [
       "c"
    ],
@@ -101,10 +133,10 @@
       {
          "id" : "en:apricot",
          "origins" : "en:france,en:spain",
-         "percent" : 60,
-         "percent_estimate" : 60,
-         "percent_max" : 60,
-         "percent_min" : 60,
+         "percent" : "60",
+         "percent_estimate" : "60",
+         "percent_max" : "60",
+         "percent_min" : "60",
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -112,10 +144,10 @@
       {
          "id" : "en:cane-sugar",
          "origins" : "en:martinique,en:guadeloupe,en:dominican-republic",
-         "percent" : 30,
-         "percent_estimate" : 30,
-         "percent_max" : 30,
-         "percent_min" : 30,
+         "percent" : "30",
+         "percent_estimate" : "30",
+         "percent_max" : "30",
+         "percent_min" : "30",
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -172,11 +204,6 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

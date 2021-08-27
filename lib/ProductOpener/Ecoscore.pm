@@ -54,6 +54,10 @@ BEGIN
 		&load_agribalyse_data
 		&load_ecoscore_data
 		&compute_ecoscore
+		&localize_ecoscore
+		
+		@ecoscore_countries_sorted
+		%ecoscore_countries
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -150,7 +154,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	my $csv = Text::CSV->new ( $csv_options_ref )
 		or die("Cannot use CSV: " . Text::CSV->error_diag ());
 		
-	my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.9";
+	my $csv_file = $data_root . "/ecoscore/data/fr_countries.csv";
 	my $encoding = "UTF-8";
 	
 	$ecoscore_data{origins} = {};
@@ -158,49 +162,85 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	$log->debug("opening ecoscore origins CSV file", { file => $csv_file }) if $log->is_debug();
 
 	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
+		
+		# headers: Pays	"Score Politique environnementale"	Score Transport - France	"Score Transport - Belgique"	"Score Transport - Allemagne"	"Score Transport - Irlande"	Score Transport - Italie	"Score Transport - Luxembourg"	"Score Transport - Pays-Bas"	"Score Transport - Espagne"	"Score Transport - Suisse"		
+
+		my $header_row_ref = $csv->getline ($io);
+		
+		
+		$ecoscore_data{origins}{"en:unknown"} = {
+			epi_score => 0,
+		};
+		
+		my @countries = ();
+		%ecoscore_countries = ();
+		for (my $i = 0; $i < (scalar @{$header_row_ref}); $i++) {
+			if ($header_row_ref->[$i] =~  / - /s) {
+				my $country = $';
+				my $country_id = canonicalize_taxonomy_tag("fr", "countries", $country);
+				$countries[$i] = country_to_cc($country_id);
+				$ecoscore_countries{$countries[$i]} = 1;
+				# Score 0 for unknown origin
+				$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
+			}
+		}
+		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+
+		$ecoscore_data{origins}{"en:world"} = $ecoscore_data{origins}{"en:unknown"};
+		$ecoscore_data{origins}{"en:european-union-and-non-european-union"} = $ecoscore_data{origins}{"en:unknown"};
+
+		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries, ecoscore_countries_sorted => \@ecoscore_countries_sorted }) if $log->is_debug();		
 
 		my $row_ref;
-
-		# Skip first line
-		$csv->getline ($io);
 		
-		# headers: Country,Pays,"Score Transport","Score EPI","Bonus transport","Bonus EPI",Région
-
 		while ($row_ref = $csv->getline ($io)) {
 			
 			my $origin = $row_ref->[0];
 			
 			next if ((not defined $origin) or ($origin eq ""));
 			
-			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin);
 			
 			if (not exists_taxonomy_tag("origins", $origin_id)) {
 				
 				# Eco-Score entries like "Macedonia [FYROM]": remove the [..] part
 				# but keep it in the first try, as it is needed to distinguish "Congo [DRC]" and "Congo [Republic]"
-				if ($origin =~ /^(.*)\[/) {
-					$origin_id = canonicalize_taxonomy_tag("en", "origins", $1);
-				}
-				
-				if (not exists_taxonomy_tag("origins", $origin_id)) {
-				
-					$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
-					$errors++;
+				if ($origin =~ /^(.*)\[(.*)\]/) {
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1);
+					if (not exists_taxonomy_tag("origins", $origin_id)) {
+						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					}
 				}
 			}
 			
+			# La Guyane Française -> Guyane Française
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+				
+				if ($origin =~ /^(la|les|l'|le)\s?(.*)$/i) {
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+				}
+			}
+				
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			
+				$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
+				$errors++;
+			}
+		
 			$ecoscore_data{origins}{$origin_id} = {
-				name_en => $row_ref->[0], # Country
-				name_fr => $row_ref->[1], # Pays
-				transportation_score => $row_ref->[2], # "Score Transport"
-				epi_score => $row_ref->[3], # "Score EPI"
+				name_fr => $row_ref->[0],
+				epi_score => $row_ref->[1],
 			};
+			
+			for (my $i = 2; $i < (scalar @{$row_ref}); $i++) {
+				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
+			}
 			
 			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
 		}
 		
 		if ($errors) {
-			die("$errors unrecognized origins in CSV $csv_file");
+			#die("$errors unrecognized origins in CSV $csv_file");
 		}
 		
 		$ecoscore_data{origins}{"en:unspecified"} = $ecoscore_data{origins}{"en:unknown"};
@@ -452,7 +492,7 @@ sub compute_ecoscore($) {
 	
 	# Special case for waters and sodas: disable the Eco-Score
 	
-	my @categories_without_ecoscore = ("en:waters", "en:sodas", "en:energy-drinks");
+	my @categories_without_ecoscore = ("en:waters", "en:sodas", "en:energy-drinks", "en:fresh-vegetables", "en:fresh-fruits");
 	my $category_without_ecoscore;
 	
 	foreach my $category (@categories_without_ecoscore) {
@@ -494,63 +534,90 @@ sub compute_ecoscore($) {
 		if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
 			
 			$product_ref->{ecoscore_data}{status} = "known";
-			$product_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{agribalyse}{score};
-			
-			$log->debug("compute_ecoscore - agribalyse score", { agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
-			
-			# Add adjustments (maluses or bonuses)
 			
 			my $missing_data_warning;
 			
-			my $bonus = 0;
-			
-			foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
-				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-					$bonus += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value};
-					$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
-						value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} }) if $log->is_debug();
+			# Compute the Eco-Score for all countries + a default Eco-Score without transportation bonus/malus
+			foreach my $cc (@ecoscore_countries_sorted, undef) {
+				
+				my $suffix = "";
+				if (defined $cc) {
+					$suffix .= "_" . $cc;
 				}
-				if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
-					$missing_data_warning = 1;
+
+				$product_ref->{ecoscore_data}{"score" . $suffix} = $product_ref->{ecoscore_data}{agribalyse}{score};
+				
+				$log->debug("compute_ecoscore - agribalyse score", { cc => $cc, agribalyse_score => $product_ref->{ecoscore_data}{agribalyse}{score} }) if $log->is_debug();
+				
+				# Add adjustments (maluses or bonuses)
+				
+				my $bonus = 0;
+				
+				foreach my $adjustment (keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+					
+					my $value = "value";
+					if ((defined $cc) and (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{"value_" . $cc})) {
+						$value = "value_" . $cc;
+					}
+					
+					if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value}) {
+						$bonus += $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value};
+						$log->debug("compute_ecoscore - add adjustment", { adjustment => $adjustment, 
+							$value => $product_ref->{ecoscore_data}{adjustments}{$adjustment}{$value} }) if $log->is_debug();
+					}
+					if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+						$missing_data_warning = 1;
+					}
 				}
+				
+				# The sum of the bonuses is capped at 25
+				if ($bonus > 25) {
+					$bonus = 25;
+				}
+				
+				$product_ref->{ecoscore_data}{"score" . $suffix} += $bonus;
+				
+				# Assign A to E grade
+				
+				if ($product_ref->{ecoscore_data}{"score" . $suffix} >= 80) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "a";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 60) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 40) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "c";
+				}
+				elsif ($product_ref->{ecoscore_data}{"score" . $suffix} >= 20) {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "d";
+				}
+				else {
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "e";
+				}
+				
+				# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
+				if (($product_ref->{ecoscore_data}{"grade" . $suffix} eq "a")
+					and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
+						
+					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
+					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
+				}
+
+				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"score" . $suffix}, grade => $product_ref->{"grade" . $suffix}}) if $log->is_debug();				
 			}
 			
-			# The sum of the bonuses is capped at 25
-			if ($bonus > 25) {
-				$bonus = 25;
-			}
+			# The following values correspond to the Eco-Score for France.
+			# at run-time, they may be changed to the values for a specific country
+			# after localize_ecoscore() is called
+
+			# The ecoscore_tags used for the /ecoscore facet and the ecoscore_score used for sorting by Eco-Score
+			# can only have 1 value. 
+			# Unfortunately there is a MongoDB index limit and we cannot create a different set of field
+			# for each country.
 			
-			$product_ref->{ecoscore_score} += $bonus;
-			
-			# Assign A to E grade
-			
-			if ($product_ref->{ecoscore_score} >= 80) {
-				$product_ref->{ecoscore_grade} = "a";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 60) {
-				$product_ref->{ecoscore_grade} = "b";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 40) {
-				$product_ref->{ecoscore_grade} = "c";
-			}
-			elsif ($product_ref->{ecoscore_score} >= 20) {
-				$product_ref->{ecoscore_grade} = "d";
-			}
-			else {
-				$product_ref->{ecoscore_grade} = "e";
-			}
-			
-			# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
-			if (($product_ref->{ecoscore_grade} eq "a") and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
-				$product_ref->{ecoscore_grade} = "b";
-				$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
-			}
-			
-			$product_ref->{ecoscore_data}{score} = $product_ref->{ecoscore_score};
-			$product_ref->{ecoscore_data}{grade} = $product_ref->{ecoscore_grade};
-			$product_ref->{ecoscore_tags} = [$product_ref->{ecoscore_grade}];
-			
-			$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{ecoscore_score}, grade => $product_ref->{ecoscore_grade}}) if $log->is_debug();
+			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score_fr"};
+			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade_fr"};
+			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];			
 			
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
@@ -890,6 +957,8 @@ sub aggregate_origins_of_ingredients($$$) {
 Computes adjustments(bonus or malus for transportation + EPI / Environmental Performance Index) 
 according to the countries of origin of the ingredients.
 
+The transportation bonus or malus is computed for all the countries where the Eco-Score is enabled.
+
 =head3 Arguments
 
 =head4 Product reference $product_ref
@@ -901,9 +970,9 @@ The adjustment value and computations details are stored in the product referenc
 Returned values:
 
 $product_ref->{adjustments}{origins_of_ingredients} hash with:
-- value: combined bonus or malus for transportation + EPI
+- value_[country code]: combined bonus or malus for transportation + EPI
 - epi_value
-- transportation_value
+- transportation_value_[country code]
 - aggregated origins: sorted array of origin + percent to show the % of ingredients by country used in the computation
 
 =cut
@@ -947,7 +1016,10 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	# Compute the transportation and EPI values and a sorted list of aggregated origins
 	
 	my @aggregated_origins = ();
-	my $transportation_score = 0;
+	my %transportation_scores;
+	foreach my $cc (@ecoscore_countries_sorted) {
+		$transportation_scores{$cc} = 0;
+	}
 	my $epi_score = 0;
 	
 	foreach my $origin_id (sort ( { ($aggregated_origins{$b} <=> $aggregated_origins{$a}) || ($a cmp $b) } keys %aggregated_origins)) {
@@ -961,10 +1033,11 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		}
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
-		$transportation_score += $ecoscore_data{origins}{$origin_id}{transportation_score} * $percent / 100;
+		foreach my $cc (@ecoscore_countries_sorted) {
+			$transportation_scores{$cc} += $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc} * $percent / 100;
+		}
 	}
 	
-	my $transportation_value = $transportation_score / 6.66;
 	my $epi_value = $epi_score / 10 - 5;
 	
 	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - aggregated origins", {  aggregated_origins => \@aggregated_origins } ) if $log->is_debug();
@@ -972,12 +1045,16 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,		
 		aggregated_origins => \@aggregated_origins,
-		transportation_score => $transportation_score,
 		epi_score => $epi_score,
-		transportation_value => round($transportation_value),
 		epi_value => round($epi_value),
-		value => round($transportation_value) + round($epi_value),
 	};
+	
+	foreach my $cc (@ecoscore_countries_sorted) {
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score_" . $cc} = $transportation_scores{$cc};
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc} = round($transportation_scores{$cc} / 6.66);
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value_" . $cc} = round($epi_value)
+			+ $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+	}
 	
 	# Add a warning if the only origin is en:unknown
 	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
@@ -1019,143 +1096,201 @@ sub compute_ecoscore_packaging_adjustment($) {
 	
 	my $warning;
 	
-	# If we do not have packagings info, create an unknown shape + unknown material entry
+	# If we do not have packagings info, return the maximum malus, and indicate the product can contain non recyclable materials
 	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
-		$product_ref->{packagings} = [
-			{
-				shape => "en:unknown",
-				material => "en:unknown",
-			}
-		];
+		$product_ref->{ecoscore_data}{adjustments}{packaging} = {
+			value => -15,
+			non_recyclable_and_non_biodegradable_materials => 1,
+		};
 		$warning = "packaging_data_missing";
 	}
-	
-	my $packagings_ref = dclone($product_ref->{packagings});
-	
-	my $packaging_score = 0;
-	
-	my $non_recyclable_and_non_biodegradable_materials = 0;
-	
-	foreach my $packaging_ref (@$packagings_ref) {
+	else {
+
+		my $packagings_ref = dclone($product_ref->{packagings});
 		
-		# We need to match the material and shape to the Eco-score materials and shapes.
-		# We may have a child of the entries listed in the Eco-score data.
+		my $packaging_score = 0;
 		
-		# Shape is needed first, as it is used in the material section to determine if a non recyclable material has a ratio >= 1
+		my $non_recyclable_and_non_biodegradable_materials = 0;
 		
-		if (defined $packaging_ref->{shape}) {
+		foreach my $packaging_ref (@$packagings_ref) {
 			
-			my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
-			if (defined $ratio) {
-				$packaging_ref->{ecoscore_shape_ratio} = $ratio;
-			}
-			else {
-				if (not defined $warning) {
-					$warning = "unscored_shape";
+			# We need to match the material and shape to the Eco-score materials and shapes.
+			# We may have a child of the entries listed in the Eco-score data.
+			
+			# Shape is needed first, as it is used in the material section to determine if a non recyclable material has a ratio >= 1
+			
+			if (defined $packaging_ref->{shape}) {
+				
+				my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
+				if (defined $ratio) {
+					$packaging_ref->{ecoscore_shape_ratio} = $ratio;
+				}
+				else {
+					if (not defined $warning) {
+						$warning = "unscored_shape";
+					}
 				}
 			}
-		}
-		else {
-			$packaging_ref->{shape} = "en:unknown";
-			if (not defined $warning) {
-				$warning = "unspecified_shape";
+			else {
+				$packaging_ref->{shape} = "en:unknown";
+				if (not defined $warning) {
+					$warning = "unspecified_shape";
+				}
 			}
-		}
-		
-		if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
-			# No shape specified, or no Eco-score score for it, use a ratio of 1
-			$packaging_ref->{ecoscore_shape_ratio} = 1;
-		}		
-		
-		# Material
-		
-		if (defined $packaging_ref->{material}) {
 			
-			# For aluminium, we need to differentiate heavy and light aluminium based on the shape
-			if ($packaging_ref->{material} eq "en:aluminium") {
+			if (not defined $packaging_ref->{ecoscore_shape_ratio}) {
+				# No shape specified, or no Eco-score score for it, use a ratio of 1
+				$packaging_ref->{ecoscore_shape_ratio} = 1;
+			}		
+			
+			# Material
+			
+			if (defined $packaging_ref->{material}) {
 				
-				my $weight = "thin";
+				# For aluminium, we need to differentiate heavy and light aluminium based on the shape
+				if ($packaging_ref->{material} eq "en:aluminium") {
+					
+					my $weight = "thin";
+					
+					if (defined $packaging_ref->{shape}) {
+						$weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
+						$log->debug("aluminium", {  weight => $weight, shape => $packaging_ref->{shape} } ) if $log->is_debug();
+						if (not defined $weight) {
+							$weight = "heavy";
+						}
+					}
+					
+					if ($weight eq "heavy") {
+						$packaging_ref->{material} = "en:heavy-aluminium";
+					}
+					else {
+						$packaging_ref->{material} = "en:light-aluminium";
+					}
+				}			
 				
-				if (defined $packaging_ref->{shape}) {
-					$weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
-					$log->debug("aluminium", {  weight => $weight, shape => $packaging_ref->{shape} } ) if $log->is_debug();
-					if (not defined $weight) {
-						$weight = "heavy";
+				my $score = get_inherited_property("packaging_materials", $packaging_ref->{material}, "ecoscore_score:en");
+				if (defined $score) {
+					$packaging_ref->{ecoscore_material_score} = $score;
+				}
+				else {
+					if (not defined $warning) {
+						$warning = "unscored_material";
 					}
 				}
 				
-				if ($weight eq "heavy") {
-					$packaging_ref->{material} = "en:heavy-aluminium";
+				# Check if there is a shape-specific material score (e.g. PEHD bottle)
+				if (defined $packaging_ref->{shape}) {
+					my $shape_specific_score = get_inherited_property("packaging_materials", $packaging_ref->{material} . '.' . $packaging_ref->{shape} , "ecoscore_score:en");
+					if (defined $shape_specific_score) {
+						$packaging_ref->{ecoscore_material_score} = $shape_specific_score;
+						$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
+					}
 				}
-				else {
-					$packaging_ref->{material} = "en:light-aluminium";
+				
+				# Check if the material is non recyclable and non biodegradable
+				my $non_recyclable_and_non_biodegradable = get_inherited_property("packaging_materials", $packaging_ref->{material}, "non_recyclable_and_non_biodegradable:en");
+				if (defined $non_recyclable_and_non_biodegradable) {
+					$packaging_ref->{non_recyclable_and_non_biodegradable} = $non_recyclable_and_non_biodegradable;
+					if (($non_recyclable_and_non_biodegradable ne "no") and ($packaging_ref->{ecoscore_shape_ratio} >= 1)) {
+						$non_recyclable_and_non_biodegradable_materials++;
+					}
 				}
-			}			
-			
-			my $score = get_inherited_property("packaging_materials", $packaging_ref->{material}, "ecoscore_score:en");
-			if (defined $score) {
-				$packaging_ref->{ecoscore_material_score} = $score;
 			}
 			else {
+				$packaging_ref->{material} = "en:unknown";
 				if (not defined $warning) {
-					$warning = "unscored_material";
+					$warning = "unspecified_material";
 				}
 			}
 			
-			# Check if there is a shape-specific material score (e.g. PEHD bottle)
-			if (defined $packaging_ref->{shape}) {
-				my $shape_specific_score = get_inherited_property("packaging_materials", $packaging_ref->{material} . '.' . $packaging_ref->{shape} , "ecoscore_score:en");
-				if (defined $shape_specific_score) {
-					$packaging_ref->{ecoscore_material_score} = $shape_specific_score;
-					$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
-				}
+			if (not defined $packaging_ref->{ecoscore_material_score}) {
+				# No material specified, or no Eco-score score for it, use a score of 0
+				$packaging_ref->{ecoscore_material_score} = 0;
 			}
+
+			# Multiply the shape ratio and the material score
 			
-			# Check if the material is non recyclable and non biodegradable
-			my $non_recyclable_and_non_biodegradable = get_inherited_property("packaging_materials", $packaging_ref->{material}, "non_recyclable_and_non_biodegradable:en");
-			if (defined $non_recyclable_and_non_biodegradable) {
-				$packaging_ref->{non_recyclable_and_non_biodegradable} = $non_recyclable_and_non_biodegradable;
-				if (($non_recyclable_and_non_biodegradable ne "no") and ($packaging_ref->{ecoscore_shape_ratio} >= 1)) {
-					$non_recyclable_and_non_biodegradable_materials++;
-				}
-			}
-		}
-		else {
-			$packaging_ref->{material} = "en:unknown";
-			if (not defined $warning) {
-				 $warning = "unspecified_material";
-			}
+			$packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
 		}
 		
-		if (not defined $packaging_ref->{ecoscore_material_score}) {
-			# No material specified, or no Eco-score score for it, use a score of 0
-			$packaging_ref->{ecoscore_material_score} = 0;
+		$packaging_score = 100 - $packaging_score;
+		
+		my $value = round($packaging_score / 10 - 10);
+		if ($value < -15) {
+			$value = -15;
 		}
 
-		# Multiply the shape ratio and the material score
-		
-		$packaging_score +=  (100 - $packaging_ref->{ecoscore_material_score}) * $packaging_ref->{ecoscore_shape_ratio};
+		$product_ref->{ecoscore_data}{adjustments}{packaging} = {
+			packagings => $packagings_ref,
+			score => $packaging_score,
+			value => $value,
+			non_recyclable_and_non_biodegradable_materials => $non_recyclable_and_non_biodegradable_materials,
+		};
 	}
-	
-	$packaging_score = 100 - $packaging_score;
-	
-	my $value = round($packaging_score / 10 - 10);
-	if ($value < -10) {
-		$value = -10;
-	}
-
-	$product_ref->{ecoscore_data}{adjustments}{packaging} = {
-		packagings => $packagings_ref,
-		score => $packaging_score,
-		value => $value,
-		non_recyclable_and_non_biodegradable_materials => $non_recyclable_and_non_biodegradable_materials,
-	};
 	
 	if (defined $warning) {
 		$product_ref->{ecoscore_data}{adjustments}{packaging}{warning} = $warning;
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{packagings} = 1;		
 	}
+	
+}
+
+
+=head2 localize_ecoscore ( $cc, $product_ref)
+
+The Eco-Score and some of its components depend on the country of the consumer,
+as we take transportation to the consumer into account.
+
+We compute the Eco-Score for all countries, and this function copies the values
+for a specific country to the main Eco-Score fields.
+
+=head3 Arguments
+
+=head4 Country code of the request $cc
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+The adjustment value and computations details are stored in the product reference passed as input parameter.
+
+
+=cut
+
+sub localize_ecoscore ($$) {
+	
+	my $cc = shift;
+	my $product_ref = shift;
+
+	# Localize the Eco-Score fields that depends on the country of the request
+	if (defined $product_ref->{"ecoscore_grade_" . $cc}) {
+		$product_ref->{"ecoscore_grade"} = $product_ref->{"ecoscore_grade_" . $cc};
+	}
+	if (defined $product_ref->{"ecoscore_score_" . $cc}) {
+		$product_ref->{"ecoscore_score"} = $product_ref->{"ecoscore_grade_" . $cc};
+	}
+	if ((defined $product_ref->{ecoscore_data}) and (defined  $product_ref->{ecoscore_data}{"score_" . $cc})) {
+		
+		$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"score_" . $cc};
+		$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grade_" . $cc};
+
+		$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+		$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+		$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
+
+		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {
+	
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value_" . $cc};
+			
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score_" . $cc};
+			
+			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value"}
+			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+		}
+	}		
 	
 }
 

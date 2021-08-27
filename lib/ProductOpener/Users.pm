@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2020 Association Open Food Facts
@@ -577,79 +577,44 @@ sub process_user_form($$) {
     my $error = 0;
 
 	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+	
+	my $template_data_ref = {
+		userid => $user_ref->{userid},
+		user => $user_ref,
+		$user_ref->{requested_org_id},
+	};
 
-    # Professional account with requested org?
+	
+    # Professional account with a requested org (existing or new)
 
     if (defined $user_ref->{requested_org_id}) {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
 		
-		my $mailto_subject = URI::Escape::XS::encodeURIComponent(<<TEXT
-Aide pour importer vos produits sur Open Food Facts
-TEXT
-);
-
-		my $mailto_body = URI::Escape::XS::encodeURIComponent(<<TEXT
-Bonjour,
-
-J'ai remarqué que vous avez créé un compte sur la plate-forme producteur d'Open Food Facts  - https://fr.pro.openfoodfacts.org - mais que vous n'avez pas encore importé de produits.
-
-Cette plateforme totalement gratuite soutenue par Santé publique France vous permet d'importer vos produits dans Open Food Facts ainsi que les plus de 100 applications et services qui utilisent nos données.
-
-- Elle vous permet également de trouver des opportunités de reformulation pour améliorer le Nutri-Score de vos produits.
-- Il vous suffit d'importer tout tableau Excel dont vous disposez déjà, de vérifier et d’éventuellement ajuster la correspondance des colonnes pour importer l'ensemble de votre gamme.
-- Vous pouvez également glisser-déposer des images de vos produits (face avant, ingrédients, nutrition et éventuellement pack à plat, instruction de recyclage…)
-
-Nous disposons également d’une intégration automatisée via plusieurs systèmes de gestion de données.
-
-Vous trouverez une présentation complète de la plateforme dans cette présentation :
-
-Guide plateforme - https://docs.google.com/presentation/d/e/2PACX-1vQiPrVqyVFxie7embgOIeCAWkfPALWOjfMOBQBvFBiNqxyUJUrgr_rt48WnWuvvJKo-UPtLx52xuV6M/pub?start=false&loop=false&delayms=3000&slide=id.g76aba96933_2_51
-
-Je suis à votre disposition si vous avez des questions ou besoin d'aide sur ces divers points.
-
-Bien cordialement,
-
-
-TEXT
-);		
-
-		my $mailto_body_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
-Bonjour,
-Nous venons de mettre à jour votre compte pour le rattacher à l'organisation $user_ref->{requested_org_id}. 
-Vous pouvez accéder à votre espace producteur depuis votre compte $user_ref->{userid} (avec votre mot de passe habituel) sur https://fr.pro.openfoodfacts.org
-
-Merci beaucoup pour votre démarche de transparence,
-Bien cordialement,
-TEXT
-);
-
-
-
-my $mailto_subject_org_request = URI::Escape::XS::encodeURIComponent(<<TEXT
-Vous avez été rattaché à l'organisation $user_ref->{requested_org_id}
-TEXT
-);
-
+		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
+				
+		my $mail = '';
+		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
+			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+		}
 
 		if (defined $requested_org_ref) {
 			# The requested org already exists
-
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}<br>
-userid: $user_ref->{userid}<br>
-name: $user_ref->{name}<br>
-email: $user_ref->{email}<br>
-lc: $user_ref->{initial_lc}<br>
-cc: $user_ref->{initial_cc}<br>
-
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
-
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject&cc=producteurs\@openfoodfacts.org&body=$mailto_body">E-mail de relance</a>
-
-EMAIL
-;
-			send_email_to_producers_admin("Org request - user: $userid - org: " . $user_ref->{requested_org_id}, $admin_mail_body);
+			
+			$mail = '';
+			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+			if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+				my $subject = $1;
+				my $body = $';
+				$body =~ s/^\n+//;
+				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
+				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
+			}		
 		}
 		else {
 			# The requested org does not exist, create it
@@ -660,28 +625,20 @@ EMAIL
 			$user_ref->{org} = $user_ref->{requested_org_id};
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
-			my $admin_mail_body = <<EMAIL
-requested_org_id: $user_ref->{requested_org_id}<br>
-userid: $user_ref->{userid}<br>
-name: $user_ref->{name}<br>
-email: $user_ref->{email}<br>
-lc: $user_ref->{initial_lc}<br>
-cc: $user_ref->{initial_cc}<br>
-
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$user_ref->{requested_org_id}">Access the pro platform as organization $user_ref->{requested_org_id}</a><br>
-TODO: Add a specific mail telling that the account was linked
-<a href="mailto:$user_ref->{email}?subject=$mailto_subject_org_request&cc=producteurs\@openfoodfacts.org&body=$mailto_body_org_request">E-mail de relance</a>
-
-EMAIL
-;
-			send_email_to_producers_admin(
-				"Org created by user: $userid - org: "
-					. $user_ref->{requested_org_id},
-				$admin_mail_body
-			);
-
 			delete $user_ref->{requested_org};
 			delete $user_ref->{requested_org_id}
+		}
+		
+		# Send an e-mail notification to admins, with links to the organization
+		
+		$mail = '';
+		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			
+			send_email_to_producers_admin($subject, $body);
 		}
 	}
 
@@ -743,6 +700,16 @@ sub check_edit_owner($$) {
 	my $errors_ref = shift;
 
 	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	
+	# If the owner id looks like a GLN, see if we have a corresponding org
+	
+	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+		my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+		not defined $glns_ref and $glns_ref = {};
+		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
+			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		}
+	}
 
 	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
 
@@ -1061,6 +1028,7 @@ sub init_user()
 		# Producers platform moderators can set the owner to any user or organization
 		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
 			$Owner_id = $User{pro_moderator_owner};
+			
 			if ($Owner_id =~ /^org-/) {
 				$Org_id = $';
 				%Org = ( org => $Org_id, org_id => $Org_id );

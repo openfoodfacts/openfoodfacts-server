@@ -11,6 +11,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 Install docker:
 - [Docker CE](https://docs.docker.com/install/#supported-platforms)
+  - If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Command-line completion](https://docs.docker.com/compose/completion/)
 
@@ -70,6 +71,19 @@ You’re done! Check http://localhost/
 
 Note: it’s possible that you don’t see immediately the test product database: create an account and login, it should appear.
 
+### Setting up producers platform
+
+The process for setting up the producer’s platform is almost the same. The scripts to run it on a local machine are different. 
+
+```console
+$ cd ./openfoodfacts-server/docker/
+$ ./build_pro_dev.sh
+$ ./start_pro_dev.sh
+```
+Note: You will have to build front-end assets for the producer’s platform as well.  
+
+The link for the producer’s platform is http://world.pro.productopener.localhost/ 
+
 
 ## 4. Starting and stopping environment
 
@@ -122,7 +136,7 @@ Once you are done building your environment, go to http://localhost:8080/
 
 
 ### 7. Optional - Import full mongodb dump
-The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB).
+The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB). Note that this doesn't contain full product details (individual product files for each change made to each product, necessary to display and edit product pages).
 ```console
 $ wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 $ docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db

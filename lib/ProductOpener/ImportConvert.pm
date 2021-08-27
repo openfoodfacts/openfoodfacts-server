@@ -833,14 +833,6 @@ sub clean_fields($) {
 
 	$log->debug("clean_fields - start", {  }) if $log->is_debug();
 
-	foreach my $field (keys %{$product_ref}) {
-
-		# If we have generic_name but not product_name, also assign generic_name to product_name
-		if (($field =~ /^generic_name_(\w\w)$/) and (not defined $product_ref->{"product_name_" . $1})) {
-			$product_ref->{"product_name_" . $1} = $product_ref->{"generic_name_" . $1};
-		}
-	}
-
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 	
@@ -865,6 +857,9 @@ sub clean_fields($) {
 				foreach my $brand (split(/,/, $product_ref->{brands})) {
 					$brand =~ s/^\s+//;
 					$brand =~ s/\s+$//;
+					# dashes/dots/spaces -> allow matching dashes/dot/spaces
+					# e.g. "bons.mayennais" matches "bons mayennais"
+					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
 			}
@@ -973,6 +968,7 @@ sub clean_fields($) {
 		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
 			
 			# Lowercase fields in ALL CAPS
+			# Capitalize all lowercase fields
 			
 			# do not count x4 as a lowercase letter
 			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
@@ -981,10 +977,8 @@ sub clean_fields($) {
 			$value =~ s/x(\d)/X$1/;
 			$value =~ s/(\d)x/$1X/;
 			
-			if (($value =~ /[A-Z]{4}/)
-				and ($value !~ /[a-z]/)
-				) {
-					
+			if ((($value =~ /[A-Z]{4}/) and ($value !~ /[a-z]/))
+				or (($value =~ /[a-z]{4}/) and ($value !~ /[A-Z]/))	) {
 					
 				# Tag field: uppercase the first letter (e.g. brands)
 				if (defined $tags_fields{$field}) {
@@ -1000,6 +994,17 @@ sub clean_fields($) {
 			if ($product_ref->{$field} ne '-') {
 				$product_ref->{$field} =~ s/^( |0|-|_|\.|\/)+$//;
 			}
+			
+			# Remove HTML comments
+			$product_ref->{$field} =~ s/<!--(.*?)-->//sg;
+			
+			# if there's some HTML code, making special cases to try to repair is probably more dangerous than just ignoring the fields
+			# e.g. <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}Some text # found in CodeOnline data
+			# "Ingrédients : \n\n\n\n\t\n\t\n\t\n\t\n\t\n\t\tbody,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:\"Calibri\"; font-size:x-small }\n\t\ta.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } \n\t\ta.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } \n\t\tcomment { display:none;  } \n\t\n\t\n\n\n\n\n\t\n\t\n\t\tpersil\n\t\n\t\n\t\tamandes\n\t\n\t\n\t\tail\n\t\n\t\n\t\tsel\n\t\n\t\n\t\tpoivre\n\t\n\t\n\t\thuile d'olive\n\t\n\t\n\t\thuile de tournesol\n\t\n\t\n\t\tcitron\n\t\n\t\n\t\tchapelure\n\t\n\n\n\n\n",
+			if ($product_ref->{$field} =~ /(mso-data|font-family|font-style|text-decoration|<!--|-->)/) {
+				$product_ref->{$field} = "";
+			}
+			
 		}
 		
 		# All fields
@@ -1042,6 +1047,13 @@ sub clean_fields($) {
 			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
 
 			$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+			
+			# Ingredients without separators
+			# e.g. found in some CodeOnline data: "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"
+			
+			if ($product_ref->{$field} !~ /,|;| - /) {
+				$product_ref->{$field} =~ s/(\p{Lower}\p{Lower}+)(?=\p{Upper}\p{Lower}\p{Lower})/$1, /g;
+			}
 
 
 			if ($field eq "ingredients_text_fr") {

@@ -424,22 +424,20 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
 	en:tea-bags
 	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
@@ -457,7 +455,6 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:coffees
 	en:food-additives
 	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -465,7 +462,6 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
 
 # exceptions
@@ -489,8 +485,11 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+
+@taxonomy_fields = qw(states countries languages labels categories additives_classes additives
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
@@ -649,6 +648,8 @@ periods_after_opening
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
@@ -1319,6 +1320,16 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
 
 1;

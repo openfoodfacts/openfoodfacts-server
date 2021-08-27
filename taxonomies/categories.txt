@@ -1082,9 +1082,45 @@ pnns_group_2:en:Alcoholic beverages
 nova:en:3
 
 <en:Alcoholic beverages
+en:Premixed alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Beer-based alcoholic beverages
+
+<en:Beer-based alcoholic beverages
+en:Shandy, Beer with lemonade
+fr:Panaché, Limonade et bière, Bières à la limonade
+it:Birra al limone
+agribalyse_food_code:en:5004
+ciqual_food_code:en:5004
+ciqual_food_name:en:Shandy (beer + lemonade)
+ciqual_food_name:fr:Panaché (limonade et bière)
+
+<en:Shandy
+en:Shandy with less than 1° of alcohol
+fr:Panaché à moins de 1° d'alcool
+agribalyse_food_code:en:5005
+ciqual_food_code:en:5005
+ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
+ciqual_food_name:fr:Panaché préemballé (<1° alc.)
+
+<en:Premixed alcoholic beverages
+en:Rum-based alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Vodka-based alcoholic beverages
+
+<en:Premixed alcoholic beverages
+en:Wine-based alcoholic beverages
+
+
+
+# description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
+
+<en:Wine-based alcoholic beverages
 en:Sangria
-es:Sangría
-fr:Sangria
+xx:Sangria
+wikipedia:en:https://en.wikipedia.org/wiki/Sangria
 agribalyse_food_code:en:1017
 ciqual_food_code:en:1017
 ciqual_food_name:en:Sangria
@@ -1117,22 +1153,6 @@ agribalyse_food_code:en:1026
 ciqual_food_code:en:1026
 ciqual_food_name:en:Sake or rice wine
 
-<en:Alcoholic beverages
-en:Shandy, Beer with lemonade
-fr:Panaché, Limonade et bière, Bières à la limonade
-it:Birra al limone
-agribalyse_food_code:en:5004
-ciqual_food_code:en:5004
-ciqual_food_name:en:Shandy (beer + lemonade)
-ciqual_food_name:fr:Panaché (limonade et bière)
-
-<en:Alcoholic beverages
-en:Shandy with less than 1° of alcohol
-fr:Panaché à moins de 1° d'alcool
-agribalyse_food_code:en:5005
-ciqual_food_code:en:5005
-ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
-ciqual_food_name:fr:Panaché préemballé (<1° alc.)
 
 <en:Alcoholic beverages
 en:Beers
@@ -2706,8 +2726,7 @@ de:Weißer Armagnac
 nl:Witte Armagnac
 country:en:France
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:French Eaux-de-vie
 en:Calvados
 de:Calvados
 fr:Calvados
@@ -2719,15 +2738,13 @@ wikidata:en:Q3268
 wikipedia:en:https://en.wikipedia.org/wiki/Calvados
 origins:en: en:France, fr:Calvados
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:Calvados
 fr:Calvados Domfrontais
 protected_name_file_number:en: PGI-FR-01837
 protected_name_type:en: gi
 origins:en: en:France
 
-<fr:Eaux-de-vie
-<en:Wines from France
+<en:Calvados
 fr:Calvados Pays d'Auge
 protected_name_file_number:en: PGI-FR-02034
 protected_name_type:en: gi
@@ -3683,6 +3700,31 @@ wikidata:en:Q178780
 agribalyse_food_code:en:1003
 ciqual_food_code:en:1003
 ciqual_food_name:en:Liqueur
+
+<en:liqueur
+ca:Limoncello
+cs:Limoncello
+de:Limoncello
+en:Limoncello
+es:Limoncello
+fi:Limoncello
+fr:Limoncello
+hu:Limoncello
+it:Limoncello
+ja:リモンチェッロ
+ko:리몬첼로
+lt:Limončelas
+nl:Limoncello
+no:Limoncello
+pl:Limoncello
+pt:Limoncello
+ru:Лимончелло
+sv:Limoncello
+zh:檸檬酒
+wikipedia:en:https://en.wikipedia.org/wiki/Limoncello
+wikidata:en:Q736208
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
+# 226 "Limoncello" via OFF search on 2021-01-11
 
 <en:Liqueurs
 en:Italian liqueurs
@@ -27727,7 +27769,7 @@ ciqual_food_name:fr:Bonbons, tout type
 en:French candies
 fr:Bonbons français
 
-en:Candies
+<en:Candies
 en:Liquorice candies, Licorice candies
 fr:Bonbons au réglisse, Bonbons à la réglisse
 
@@ -28710,6 +28752,20 @@ fr:Œufs de poisson
 it:Uova di pesce
 nl:Visseneieren
 zh:鱼卵, 鱼子
+
+<en:Fish eggs
+en:Bottarga
+ca:Botàriga
+de:Bottarga
+es:Botarga
+fr:Boutargue, Poutargue
+it:Bottarga
+nl:Bottarga
+pt:Butarga
+wikidata:en:Q894875
+wikipedia:en:https://en.wikipedia.org/wiki/Bottarga
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=Bottarga&search_simple=1&action=process
+# 52 "bottarga" in OFF on 2021-08-16 and 32 "poutargue" 
 
 <en:Fish eggs
 <en:Semi-preserved foods
@@ -32729,7 +32785,7 @@ es:Maasdam, Queso Maasdam
 fi:maasdam
 fr:Maasdam
 it:Maasdam
-nl:Maasdam
+nl:Maasdam, Maasdammer
 wikidata:en:Q3273732
 oqali_family:en: fr:Fromages - Maasdam
 agribalyse_food_code:en:12705
@@ -32747,14 +32803,17 @@ ciqual_food_code:en:12741
 ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
 ciqual_food_name:fr:Fromage à pâte ferme environ 27% MG type Maasdam
 
-<en:Cheeses of the Netherlands
+# description:en:Gouda is a sweet, creamy, yellow cow's milk cheese originating from the Netherlands.
+# comment: Gouda is NOT a protected name. It can be made anywhere.
+<en:Uncooked pressed cheeses
+<en:Cow cheeses
 en:Gouda
 de:Goudas
 es:Gouda
 fi:Gouda
 fr:Goudas
 it:Gouda
-nl:Goudse Kazen
+nl:Gouda, Goudse Kazen
 pl:Gouda
 ru:Сыр Гауда
 wikidata:en:Q593675
@@ -32773,24 +32832,8 @@ fr:Goudas au cumin
 it:Gouda con cumino
 nl:Goudse Komijnenkazen
 
-<en:Gouda
-en:White gouda
-de:Weiße Goudas
-fr:Goudas blancs
 
-<en:Gouda
-fr:Goudas extra-vieux, Goudas de Noël
-de:Extra alte Goudas
-nl:Goudas extra oud, Overjarige Gouda
-
-<en:Gouda
-fr:Goudas fermiers
-
-<en:Gouda
-en:Yellow gouda
-de:Gelbe Goudas
-fr:Goudas jaunes
-
+# comment:en: ripings process < 4 weeks
 <en:Gouda
 en:Young gouda, Young goudas
 de:Junge Goudas, Junger Gouda
@@ -32799,21 +32842,25 @@ fr:Goudas jeunes, Gouda jeune
 it:Gouda giovane
 nl:Jonge Gouda
 
+# comment:en: ripings process 8 <-> 10 weeks
 <en:Gouda
+en:Young matured Gouda
+nl:Jong belegen Gouda
+
+# comment:en: ripings process 16 <-> 18 weeks
+<en:Gouda
+en:Matured Gouda
 fr:Goudas mi-vieux
 de:Mittelalter Gouda
 fi:Kypsytetyt Goudat
+nl:Belegen Gouda 
 
+# comment:en: ripings process 7 <-> 9 months
 <en:Gouda
-en:Orange goudas
-de:Orangene Goudas
-fr:Goudas oranges
+en:Extra matured Gouda
+nl:Extra belegen Gouda
 
-<en:Gouda
-en:Red goudas
-de:Rote Goudas
-fr:Goudas rouges
-
+# comment:en: ripings process 10 <-> 12 months
 <en:Gouda
 en:Old Goudas
 de:Alter Gouda
@@ -32821,19 +32868,27 @@ fi:kypsytetyt goudat
 fr:Goudas vieux
 nl:Oude Gouda
 
+# comment:en: ripings process > 12 months
+<en:Gouda
+fr:Goudas extra-vieux, Goudas de Noël
+de:Extra alte Goudas
+nl:Goudas extra oud, Overjarige Gouda
+
 <en:Cheeses of the Netherlands
 en:Edam
 de:Edamer
-es:Edam
-fi:Edam
-fr:Edam
+xx:Edam
 hu:Edámi sajt
-nl:Edam
 wikidata:en:Q597473
 oqali_family:en: fr:Fromages - Edam
 agribalyse_food_code:en:12729
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
+
+
+<en:Cheeses of the Netherlands
+en:Leerdammer
+xx:Leerdammer
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -34760,10 +34815,6 @@ nl:Boeren-Leidse kazen
 country:en:The Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Edamse kazen
-country:en:The Netherlands
-
-<en:Cheeses of the Netherlands
 nl:Nagelkazen
 country:en:The Netherlands
 
@@ -34774,13 +34825,16 @@ protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Edam
 nl:Edam Holland
 protected_name_file_number:en: PGI-NL-0329
 protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Gouda Holland
+<en:Gouda
+en:Gouda Holland
+xx:Gouda Holland
 protected_name_file_number:en: PGI-NL-0328
 protected_name_type:en: pgi
 origins:en: en:Netherlands
@@ -34804,6 +34858,7 @@ protected_name_type:en: pdo
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
+<en:Gouda
 nl:Noord-Hollandse Gouda
 protected_name_file_number:en: PDO-NL-0314
 protected_name_type:en: pdo
@@ -49420,7 +49475,7 @@ fr:Fruits surgelés
 it:Frutta surgelata, Frutta congelata
 nl:Bevroren fruit
 pl:Owoce mrożone
-pnns_group_2:en:fruits
+pnns_group_2:en:Fruits
 who_id:en:15
 
 en:Frozen fruits with added sugar
@@ -58371,7 +58426,7 @@ fr:Pizzas tartes salées et quiches
 it:Pizze e torte salate
 nl:Pizzas hartige taarten en quiches
 ru:Пицца и солёные открытые пироги
-pnns_group_2:en:Pizza pies and quiche
+pnns_group_2:en:Pizza pies and quiches
 
 <en:Pizzas pies and quiches
 en:Pizzas
@@ -65826,7 +65881,7 @@ hu:Gombák és belőle készült termékek
 it:Funghi e prodotti derivati
 nl:Paddestoel- en afgeleide producten
 ru:Грибы
-pnns_group_2:en:vegetables
+pnns_group_2:en:Vegetables
 
 <en:Mushrooms and their products
 en:Mushrooms, Fungi
@@ -68574,7 +68629,7 @@ it:Torte dolci e salate
 nl:Taarten
 zh:馅饼
 wikidata:en:Q1142483
-pnns_group_2:en:Pizza pies and quiche
+pnns_group_2:en:Pizza pies and quiches
 
 <en:Pies
 es:Empanada boloñesa
@@ -76621,7 +76676,7 @@ ciqual_food_name:fr:Céleri-rave, cuit
 # <en:Vegetable rods
 <en:vegetable
 en:Chards, Chard, Swiss chard
-ar:سلق 
+ar:سلق
 bg:Манголд
 bs:Blitva
 ca:bleda
@@ -76666,7 +76721,7 @@ zh:莙薘菜
 # kk-cn:جاپىراقتى قىزىلشا
 # kk-cyrl:Жапырақты қызылша
 # kk-kz:Жапырақты қызылша
-# kk-latn:Japıraqtı qızılşa # kk-tr:Japıraqtı qızılşa
+# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
 # ku-arab:دیو
 # ku-latn:Dîw
 # pcd:Biéte
@@ -78620,30 +78675,41 @@ ciqual_food_code:en:20230
 ciqual_food_name:en:Courgette or zucchini, pulp and peel, frozen, raw
 ciqual_food_name:fr:Courgette, pulpe et peau, surgelée, crue
 
+# Note: mixed vegetables / vegetable mixes refer to an assortment of different vegetables,
+# not vegetables that have been turned to puree with a mixer or blender
+<en:Vegetables
+en:Mixed vegetables, vegetable mixes
+de:Gemüse Mischung
+es:Mezclas de verduras y hortalizas
+fr:Mélanges de légumes
+it:Misti di verdure
+nl:Groentemengsels
+
 <en:Fresh vegetables
-en:Fresh vegetable mixes
+<en:Mixed vegetables
+en:Fresh mixed vegetables, Mixed fresh vegetables, fresh vegetable mixes
 de:Frische Gemüse Mischung
 es:Mezclas de verduras y hortalizas frescas
 fr:Mélanges de légumes frais
 nl:Verse groentemengsels
 
-<en:Fresh vegetable mixes
+<en:Fresh mixed vegetables
 es:Mezclas de verduras y hortalizas para puré, Mezclas de vegetales para puré
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 en:Mixtures of vegetables for broth
 de:Suppengemüse
 es:Mezclas de verduras y hortalizas para caldo
 fr:Mélanges de légumes pour bouillon
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para cocido, Mezclas de vegetales para cocido
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para sopa, Mezclas de vegetales para sopa
 fr:Mélanges de légumes pour soupes
 
-<en:Fresh vegetable mixes
+<en:Frozen mixed vegetables
 <en:Frozen foods
 en:Frozen mixed vegetables for soups
 fr:Légumes surgelés pour potage
@@ -78652,7 +78718,7 @@ ciqual_food_code:en:20263
 ciqual_food_name:en:Mixed vegetables for soups, frozen, raw
 ciqual_food_name:fr:Légumes pour potages, surgelés, crus
 
-<en:Fresh vegetable mixes
+<en:Mixed vegetables
 es:Mezclas de verduras y hortalizas para gazpacho
 
 <en:Leaf vegetables
@@ -81608,7 +81674,7 @@ fi:pakastetut kasvipohjaiset ruokasekoitukset
 fr:Mélanges d'aliments à base de plantes surgelés
 it:Misti di alimenti a base di verdure congelati
 nl:Diepvries plantenmengsels
-pnns_group_2:en:vegetables
+pnns_group_2:en:Vegetables
 
 <en:Frozen plant-based foods mixes
 es:Pistos congelados
@@ -81621,16 +81687,21 @@ es:Salteados de vegetales asados congelados
 
 <en:Frozen vegetables
 <en:Frozen plant-based foods mixes
-en:Frozen vegetable mixes
+<en:Mixed vegetables
+en:Frozen mixed vegetables, Frozen vegetable mixes
 de:Gefrorene Gemüsemischungen
 es:Mezclas de verduras y hortalizas congeladas
 fi:Pakastevihannessekoitukset
 fr:Mélanges de légumes surgelés
 it:Misti di verdure congelati
 nl:Diepvriesgroentemelanges
-pnns_group_2:en:vegetables
+pnns_group_2:en:Vegetables
+agribalyse_food_code:en:20101
+ciqual_food_code:en:20101
+ciqual_food_name:en:Mixed vegetables, frozen, raw
+ciqual_food_name:fr:Légumes, mélange surgelé, crus
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen spring vegetables
 fr:Printanière de légumes surgelée
 agribalyse_food_code:en:20267
@@ -81638,15 +81709,7 @@ ciqual_food_code:en:20267
 ciqual_food_name:en:Spring vegetables, frozen, raw (French beans, carrots, potatoes, green peas, onions)
 ciqual_food_name:fr:Printanière de légumes, surgelée, crue (haricots verts, carottes, pomme de terre, petits pois, oignons)
 
-<en:Frozen vegetable mixes
-en:Frozen mixed vegetables
-fr:Mélange de légumes surgelés
-agribalyse_food_code:en:20101
-ciqual_food_code:en:20101
-ciqual_food_name:en:Mixed vegetables, frozen, raw
-ciqual_food_name:fr:Légumes, mélange surgelé, crus
-
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen mixed diced vegetables
 fr:Macédoine de légumes surgelée
 agribalyse_food_code:en:20271
@@ -81654,7 +81717,7 @@ ciqual_food_code:en:20271
 ciqual_food_name:en:Mixed diced vegetables, frozen
 ciqual_food_name:fr:Macédoine de légumes, surgelée
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen thinly-shredded vegetables
 fr:Julienne de légumes surgelée 
 agribalyse_food_code:en:20265
@@ -81662,7 +81725,7 @@ ciqual_food_code:en:20265
 ciqual_food_name:en:Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen diced vegetables
 fr:Brunoise de légumes surgelée
 agribalyse_food_code:en:20265
@@ -81717,7 +81780,7 @@ fr:Poêlées savoyardes
 <en:Pan-fried meat and vegetable mixes
 en:Frozen meat and vegetable mixes
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried vegetables without mushrooms
 fr:Poêlée de légumes assaisonnés surgelée sans champignons
 agribalyse_food_code:en:20262
@@ -81725,7 +81788,7 @@ ciqual_food_code:en:20262
 ciqual_food_name:en:Vegetables pan-fried without mushrooms, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés sans champignon, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried Asian-style vegetables, Frozen stir-fried Asian-style vegetables
 fr:Poêlée de légumes assaisonnés à l'asiatiques, Wok de légumes surgelés
 agribalyse_food_code:en:20273
@@ -81733,7 +81796,7 @@ ciqual_food_code:en:20273
 ciqual_food_name:en:Vegetables pan-fried or stir-fried, Asian-style, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés à l'asiatiques ou wok de légumes, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried Mediterranean-style grilled vegetables
 fr:Poêlée de légumes assaisonnés grillée méridionale surgelée, Poêlée de légumes assaisonnés grillée méditerranéenne surgelée
 agribalyse_food_code:en:20274
@@ -81741,7 +81804,7 @@ ciqual_food_code:en:20274
 ciqual_food_name:en:Grilled vegetables pan-fried, Mediterranean-style, frozen, raw
 ciqual_food_name:fr:Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen pan-fried vegetables with mushrooms country-style
 fr:Poêlée de légumes assaisonnés aux champignons surgelée, Poêlée de légumes champêtre surgelée
 agribalyse_food_code:en:20498
@@ -81757,7 +81820,7 @@ ciqual_food_code:en:25057
 ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
 ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
 
-<en:Frozen vegetable mixes
+<en:Frozen mixed vegetables
 en:Frozen salads
 de:Gefrorene Salate
 es:Ensaladillas congeladas
@@ -81806,7 +81869,7 @@ en:Frozen cereals
 es:Cereales congelados
 fr:Céréales surgelés
 nl:Diepvriesgranen
-pnns_group_2:en:cereals
+pnns_group_2:en:Cereals
 
 <en:Frozen cereals
 en:Frozen corn, Frozen maize, Frozen sweet corn
@@ -81861,7 +81924,7 @@ pl:Mrożone warzywa
 pt:Legumes congelados
 ru:Замороженные овощи
 zh:冷藏蔬菜
-pnns_group_2:en:vegetables
+pnns_group_2:en:Vegetables
 who_id:en:15
 
 <en:Frozen vegetables
@@ -82456,7 +82519,7 @@ fr:Légumineuses surgelées, légumineuses surgelés
 it:Legumi surgelati, Legumi congelati
 nl:Diepvriespeulvruchten
 pl:Rośliny strączkowe głęboko mrożone
-pnns_group_2:en:legumes
+pnns_group_2:en:Legumes
 who_id:en:15
 
 <en:Frozen legumes
@@ -82517,7 +82580,7 @@ de:Gefröhrene Nüsse
 es:Frutos de cáscara congelados
 fr:Fruits à coques surgelés
 nl:Diepvriesnoten
-pnns_group_2:en:nuts
+pnns_group_2:en:Nuts
 
 <en:Frozen nuts
 en:Frozen chestnuts
@@ -82902,7 +82965,7 @@ fr:Viennoiseries
 it:Pasta sfoglia
 nl:Viennoiseries
 ru:Изделия из слоёного теста
-pnns_group_2:en:pastries
+pnns_group_2:en:Pastries
 ciqual_food_code:en:7600
 ciqual_food_name:en:Pastry, average food
 ciqual_food_name:fr:Viennoiserie (aliment moyen)
@@ -83559,9 +83622,10 @@ it:Foie gras
 nl:Foie gras
 wikidata:en:Q34807
 pnns_group_2:en:Salty and fatty products
-agribalyse_proxy_food_code:en:40120
-agribalyse_proxy_food_name:en:Liver, goose, raw
-agribalyse_proxy_food_name:fr:Foie, oie, cru
+agribalyse_proxy_food_code:en:8110
+agribalyse_proxy_food_name:en:Preserved duck
+agribalyse_proxy_food_name:fr:Confit de canard
+# Note the Agribalyse category 40121 "Liver, duck, raw" has a value that corresponds to chicken liver, it is not a good proxy for foie gras.
 
 <en:goose meat
 en:Goose liver, goose liver
@@ -83572,6 +83636,7 @@ ciqual_food_name:en:Liver, goose, raw
 ciqual_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
+en:Block of foie gras
 fr:Bloc de foie gras
 nl:Foie gras blokken
 
@@ -83594,7 +83659,7 @@ fr:Foies gras cuits, foies gras cuit, foie gras cuit
 nl:Gekookte foie gras
 
 <en:Foies gras
-en:Foies gras from ducks, fat liver from ducks, Block of foie gras
+en:Foies gras from ducks, fat liver from ducks, Block of duck foie gras
 ca:Foie-gras d'ànec, Foie de fetge d'ànec
 de:Gänseleber, Gänseleberpastete, Fettleber von der Ente
 es:Foies gras de patos
@@ -83659,9 +83724,6 @@ fi:Hanhenmaksapateet
 fr:Foies gras d'oies, Foie gras d'oies
 it:Foie gras di oca
 nl:Ganzen foie gras
-agribalyse_proxy_food_code:en:40120
-agribalyse_proxy_food_name:en:Liver, goose, raw
-agribalyse_proxy_food_name:fr:Foie, oie, cru
 
 <en:Foies gras
 fr:Foies gras mi-cuits, foies gras mi-cuit, foie gras mi-cuit
