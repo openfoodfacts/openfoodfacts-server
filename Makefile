@@ -21,6 +21,9 @@ restart:
 log:
 	docker-compose ${DEV_ARGS} logs -f
 
+tail:
+	tail -f logs/**/*
+
 import_sample_data:
 	docker-compose ${DEV_ARGS} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
 
@@ -40,8 +43,8 @@ prod: clean
 # Build #
 #-------#
 build_npm:
-	docker run --rm -it -v $(PWD)/node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm install
-	docker run --rm -it -v $(PWD)/node_modules:/mnt/node_modules -v $(PWD):/mnt -w /mnt node:lts npm run build
+	docker run --rm -it -v $(realpath ./)/node_modules:/mnt/node_modules -v $(realpath ./):/mnt -w /mnt node:lts npm install
+	docker run --rm -it -v $(realpath ./)/node_modules:/mnt/node_modules -v $(realpath ./):/mnt -w /mnt node:lts npm run build
 
 #-----------#
 # Utilities #
