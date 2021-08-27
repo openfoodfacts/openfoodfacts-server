@@ -41,8 +41,7 @@ BEGIN
 		$admin_email
 		$producers_email
 
-		$facebook_app_id
-		$facebook_app_secret
+		$google_cloud_vision_api_key
 
 		$google_cloud_vision_api_key
 
@@ -231,8 +230,7 @@ $data_root = $ProductOpener::Config2::data_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
@@ -613,7 +611,7 @@ $options{attribute_groups} = [
 		"ingredients_analysis",
 		[
 			"vegan", "vegetarian", "palm_oil_free",
-		]		
+		]
 	],
 	[
 		"labels",
@@ -638,12 +636,12 @@ $options{attribute_default_preferences} = {
 # possible values: mandatory, recommended, optional.
 # when not specified, fields are considered optional
 $options{import_export_fields_importance} = {
-	
+
 	# default values for groups
 	nutrition_group => "mandatory",
 	images_group => "mandatory",
 	ingredients_group => "mandatory",
-	
+
 	# values for fields
 	code => "mandatory",
 	lc => "mandatory",
@@ -659,15 +657,15 @@ $options{import_export_fields_importance} = {
 	countries => "recommended",
 	obsolete => "mandatory",
 	obsolete_since_date => "recommended",
-	
+
 	origins => "mandatory",
 	emb_codes => "recommended",
-	
+
 	recycling_instructions_to_recycle => "recommended",
 	recycling_instructions_to_discard => "recommended",
-	
+
 	image_other_url => "optional",
-	
+
 	alcohol_100g_value_unit => "optional",
 
 };

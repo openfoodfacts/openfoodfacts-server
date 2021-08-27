@@ -42,9 +42,6 @@ BEGIN
 		$admin_email
 		$producers_email
 
-		$facebook_app_id
-		$facebook_app_secret
-
 		$google_cloud_vision_api_key
 
 		$crowdin_project_identifier
@@ -194,9 +191,6 @@ $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 

@@ -26,10 +26,14 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	require Exporter;
+	@ISA = qw(Exporter);
+	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		$server_domain
 		@ssl_subdomains
+		$producers_platform
 		$data_root
 		$www_root
 		$geolite2_path
@@ -37,8 +41,9 @@ BEGIN
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-		$facebook_app_secret
+		$google_cloud_vision_api_key
+		$crowdin_project_identifier
+		$crowdin_project_key
 		$robotoff_url
 		%server_options
 		$google_cloud_vision_api_key
@@ -46,37 +51,50 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
+use strict;
+use utf8;
 
 # server constants
-$server_domain = "productopener.localhost";
+$server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
-@ssl_subdomains = qw();
+@ssl_subdomains = index($server_domain, 'localhost') == -1 ? qw(*) : qw();
+$producers_platform = $ENV{PRODUCERS_PLATFORM};
 
 # server paths
 $www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
+$geolite2_path = $ENV{GEOLITE2_PATH};
 
-$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
-
-$mongodb = "off";
+$mongodb = $producers_platform == "1" ? "off-pro" : "off";
 $mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "memcached:11211" ];
 
-$facebook_app_id = "";
-$facebook_app_secret = "";
+$google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
+$crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
+$crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
+
+my $postgres_db = "postgres";
+my $postgres_user = $ENV{POSTGRES_USER};
+my $postgres_password = $ENV{POSTGRES_PASSWORD};
+my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_db}/minion";
 
 $google_cloud_vision_api_key = "";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
-$robotoff_url = '';
+$robotoff_url = $ENV{ROBOTOFF_URL};
 
 %server_options = (
-        private_products => 0,  # 1 to make products visible only to the owner (producer platform)
-        export_servers => { public => "off", experiment => "off-exp" },
-		minion_backend => { Pg => 'postgresql://productopener:productopener@postgres/minion' },
+        private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
+		producers_platform => $producers_platform,
+		minion_backend => { Pg => $postgres_url},
+		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" : $server_domain,
+		minion_export_queue => $server_domain,
+		cookie_domain => $server_domain,
+		export_servers => { public => "off", experiment => "off-exp"},
+		ip_whitelist_session_cookie => ["", ""]
 );
 
 1;

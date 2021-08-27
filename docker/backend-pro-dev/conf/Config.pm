@@ -41,9 +41,6 @@ BEGIN
 		$admin_email
 		$producers_email
 
-		$facebook_app_id
-		$facebook_app_secret
-
 		$robotoff_url
 
 		$mongodb
@@ -228,9 +225,6 @@ $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 %server_options = %ProductOpener::Config2::server_options;
