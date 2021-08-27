@@ -9994,6 +9994,12 @@ ciqual_food_code:en:12723
 ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
 ciqual_food_name:fr:Cantal, Salers ou Laguiole
 
+<en:cheese
+en:Chaource cheese
+fr:Chaource
+ciqual_food_code:en:12028
+ciqual_food_name:en:Chaource cheese, from cow's milk
+ciqual_food_name:fr:Chaource
 
 <en:cheese
 en:cheddar, cheddar cheese, Cheddar cheese from cow's milk
@@ -10882,12 +10888,6 @@ ciqual_food_code:en:12030
 ciqual_food_name:en:Maroilles ""fermier"" cheese
 ciqual_food_name:fr:Maroilles fermier
 
-<en:cheese
-en:Chaource cheese
-fr:Chaource
-ciqual_food_code:en:12028
-ciqual_food_name:en:Chaource cheese, from cow's milk
-ciqual_food_name:fr:Chaource
 
 # MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
 
@@ -11165,6 +11165,31 @@ description:fr:Ossau-iraty est l'appellation d'origine d'un fromage français de
 description:it:L'ossau-iraty è un formaggio francese prodotto dal latte di pecora a pasta semidura non cotta, nel dipartimento dei Pirenei Atlantici e in qualche comune degli Alti Pirenei.
 description:nl:De Ossau-Iraty is een Franse kaas, een halfharde kaas afkomstig uit Frans-Baskenland en het hogergelegen deel van Béarn.
 description:oc:L'Aussau-Irati es un fromatge de Bearn e de Bascoat. 
+
+#category/munsters
+<en:cheese
+en:munster
+ar:مونستير
+be:Мюнстэр
+cv:Мюнстер
+id:Keju Munster
+ja:マンステール
+ko:묑스테르
+ru:Мюнстер
+th:เมิงสแตร์ชีส
+uk:Мюнстер
+xx:munster
+zh:芒斯特芝士
+wikidata:en:Q765540
+ciqual_food_code:en:12039
+ciqual_food_name:en:Munster cheese, from cow's milk
+ciqual_food_name:fr:Munster
+description:de:Munster oder Munster-Géromé ist ein französischer Weichkäse aus den Hochvogesen und traditionell besonders aus dem elsässischen Münstertal (Vallée de Munster).
+description:en:Munster, Munster-géromé, or Minschterkaas, is a strong-smelling soft cheese with a subtle taste, made mainly from milk first produced in the Vosges.
+description:fr:Le munster et le munster-géromé constituent une appellation d'origine désignant un fromage de lait de vache de l'Est de la France.
+description:es:El munster es un queso francés del este de Francia beneficiario de una AOC.
+description:nl:De Munster is een Franse kaas, afkomstig uit de Vogezen.
+description:pt:O munster ou munster-géromé é um queijo francês do Leste, das regiões da Alsácia.
 
 #category/neufchatel-cheese-from-cow-s-milk
 <en:cheese
