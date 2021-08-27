@@ -10821,33 +10821,43 @@ ca:formatge maasdam ratllat
 es:queso maasdam rallado
 nl:geraspte Maasdam
 
-# Maroilles is a cow's-milk cheese made in the regions of Picardy and Nord-Pas-de-Calais in northern France.
 
+#category/maroilles
 <en:cheese
 en:Maroilles
-br:Maroilles
-ca:maroilles
-de:Maroilles
-es:Maroilles
-fr:maroilles
-hu:Maroilles
-id:Maroilles
-it:Maroilles
+fr:maroilles AOP
 ja:マロリーズ
 ko:마루아유
-la:Maroilles
-nl:Maroilles
-oc:Maroilles
-ro:Maroilles
 ru:Марой
 uk:Марой
 wa:Marwale
+xx:Maroilles
 zh:瑪瑞里斯芝士
 # zh-hans:玛瑞里斯芝士
 # zh-hant:瑪瑞里斯芝士
 wikidata:en:Q734978
 wikipedia:en:https://en.wikipedia.org/wiki/Maroilles_cheese
-# ingredient/fr:maroilles has 41 products in french @2018-12-28
+description:de:Der Maroilles ist ein französischer Käse aus roher oder pasteurisierter Kuhmilch. 
+description:en:Maroilles is a cow's-milk cheese made in the regions of Picardy and Nord-Pas-de-Calais in northern France.
+description:es:Maroilles es un queso de leche de vaca, elaborado en las regiones de Picardía y Norte-Paso de Calais en el norte de Francia.
+description:fr:Le maroilles ou marolles est une appellation d'origine désignant un fromage dont la production et la transformation s'effectuent dans la Thiérache française.
+description:it:Il Maroilles o Marolles è un formaggio francese di latte vaccino, a pasta molle e a crosta lavata, prodotto in Avesnois nei dipartimenti dell'Aisne e del Nord.
+description:nl:De maroilles of marolles is een Franse kaas van het type gewassenkorstkaas. 
+# 63 in french @202108-27
+
+<en:Maroilles
+en:industrial Maroille
+fr:Maroilles laitier
+ciqual_food_code:en:12029
+ciqual_food_name:en:Maroilles ""laitier"" cheese
+ciqual_food_name:fr:Maroilles laitier
+
+<en:Maroilles
+en:farmers Maroilles
+fr:Maroilles fermier
+ciqual_food_code:en:12030
+ciqual_food_name:en:Maroilles ""fermier"" cheese
+ciqual_food_name:fr:Maroilles fermier
 
 <en:cheese
 en:Chaource cheese
