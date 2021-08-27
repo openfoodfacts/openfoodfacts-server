@@ -65,7 +65,6 @@ BEGIN
 		&display_mission
 		&display_tag
 		&display_search_results
-		&display_field
 		&display_error
 		&gen_feeds
 
@@ -87,7 +86,6 @@ BEGIN
 		&display_ingredient_analysis
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
-		&display_data_quality_description
 		&display_possible_improvement_description
 
 		&count_products
