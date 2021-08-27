@@ -134,9 +134,10 @@
 			[% END %]
 		</ul>
 		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>
-		<!--Packaging :-->
-		<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+		
 	[% END %]
+	<!--Packaging :-->
+	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	
 	[% IF adjustments.packaging.warning %]
 		<div class="panel warning">
