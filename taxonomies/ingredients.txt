@@ -9472,6 +9472,8 @@ description:en:Crottin de Chavignol is a goat cheese produced in the Loire Valle
 description:es:El Crottin de Chavignol, es un queso de cabra francés de la región Centro (antigua provincia de Berry), que se beneficia de una AOC desde 1976, y DOP a nivel europeo.
 description:fr:Le crottin de Chavignol est un fromage de chèvre français originaire du village berrichon de Chavignol situé dans le département du Cher, la région Centre-Val de Loire et la région naturelle du Sancerrois. Il bénéficie d'une appellation d'origine contrôlée (AOC) depuis 1976 et de l'appellation d'origine protégée (AOP) depuis 1996.
 description:nl:De Crottin de Chavignol is een Franse kaas, een van de vele Franse geitenkazen uit de vallei van de Loire.
+protected_name_type:en: en:aoc
+origins:en: en:France
 
 <en:goat cheese
 #category:en:Picodon
@@ -9823,6 +9825,8 @@ description:de:Der Beaufort ist ein französischer Schnittkäse aus roher Kuhmil
 description:en:Beaufort is a firm, raw cow's milk cheese associated with the gruyère family.
 description:fr:Beaufort est l'appellation d'origine d'un fromage au lait cru de vache, à pâte pressée cuite, élaboré en Savoie en France.
 description:nl:De Beaufort AOP is een Franse kaas die in Savoie geproduceerd wordt. Hij is een van de 44 Franse kazen die het roodgele Europese AOC/AOP-keurmerk.
+protected_name_type:en: en:pdo
+origins:en: en:France
 # ingredient/en:beaufort has 50 products in 2 languages @2021-08-14
 
 
@@ -9873,7 +9877,7 @@ ciqual_food_name:fr:Brie, sans précision
 
 #category/brie-de-meaux-cheeses
 <en:Brie
-en:Brie de Meaux
+en:Brie de Meaux, Brie de Meaux cheese from cow's milk
 fr:Brie de Meaux AOP
 ja:ブリー・ド・モー
 ko:브리 드 모
@@ -9886,17 +9890,15 @@ description:en:Brie de Meaux is an unpasteurized brie, manufactured in the town 
 description:es:Brie de Meaux es un queso francés con denominación de origen protegida elaborado alrededor de la ciudad de Meaux, en la región de Brie.
 description:fr:Le brie de Meaux est un fromage au lait cru avec une AOC depuis 1980. Son appellation vient de la région de la Brie et de la commune de Meaux en France.
 description:nl:Brie de Meaux AOP is een Franse traditionele, rauwmelkse witte korstkaas van koemelk met het AOC- en AOP-keur.
-
-<en:Brie de Meaux
-en:Brie de Meaux cheese from cow's milk
-fr:Brie de Meaux
+protected_name_type:en: en:pdo
+origins:en: en:France
 ciqual_food_code:en:12021
 ciqual_food_name:en:Brie de Meaux cheese, from cow's milk
 ciqual_food_name:fr:Brie de Meaux
 
 #category/brie-de-melun
 <en:Brie
-en:Brie de Melun
+en:Brie de Melun, Brie de Melun cheese from cow's milk
 xx:Brie de Melun
 zh:默倫布里
 wikidata:en:Q545994
@@ -9904,10 +9906,8 @@ description:en:Brie de Melun is a brie made with unpasteurized milk.
 description:es:Brie de Melun es un queso francés con denominación de origen protegida. Se trata de un queso brie elaborado alrededor de la ciudad de Melun en la región de la Brie.
 description:fr:Brie de Melun est une appellation d'origine désignant un fromage au lait cru de la plaine de Melun.
 description:nl:Brie de Melun AOP is een Franse traditionele, rauwmelkse witte korstkaas van koemelk met het AOC- en AOP-keur.
-
-<en:Brie de Melun
-en:Brie de Melun cheese from cow's milk
-fr:Brie de Melun
+protected_name_type:en: en:pdo
+origins:en: en:France
 ciqual_food_code:en:12022
 ciqual_food_name:en:Brie de Melun cheese, from cow's milk
 ciqual_food_name:fr:Brie de Melun
@@ -9988,6 +9988,7 @@ ciqual_food_code:en:12722
 ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
 ciqual_food_name:fr:Cantal entre-deux
 
+
 <en:cantal
 en:Cantal Salers or Laguiole cheese from cow's milk
 fr:Cantal Salers, Laguiole
@@ -10001,6 +10002,7 @@ fr:Chaource
 ciqual_food_code:en:12028
 ciqual_food_name:en:Chaource cheese, from cow's milk
 ciqual_food_name:fr:Chaource
+# origins:en: en:France
 
 <en:cheese
 en:cheddar, cheddar cheese, Cheddar cheese from cow's milk
@@ -10139,12 +10141,16 @@ description:fr:Comté est l'appellation d'origine d'un fromage français transfo
 description:it:Il Comté è un formaggio francese a pasta pressata da latte crudo di vacca originario della Franca Contea.
 description:nl:De Comté (ook Gruyère de Comté) is een Franse kaas, afkomstig uit de Jura, uit de Franche-Comté. 
 description:sv:Comté är en fransk ost gjord på opastöriserad komjölk från regionen Franche-Comté.
+protected_name_type:en: en:pdo
+origins:en: en:France
 
 <en:Comté cheese
 fr:comté aop
 ca:comté DOP
 es:comté DOP
 nl:Comté AOC
+protected_name_type:en: en:pdo
+origins:en: en:France
 # fr:comté-aop has 40 products in 1 language @2018-10-27
 
 
@@ -10156,8 +10162,6 @@ de:Double Gloucester, Double-Gloucester-Käse
 fr:fromage de Double Gloucester
 wikidata:en:Q174539
 wikipedia:en:https://en.wikipedia.org/wiki/Gloucester_cheese
-
-
 
 <en:cheese
 en:edam, edam cheese, Edam cheese from cow's milk
@@ -10292,10 +10296,13 @@ fi:Ranskalaista emmentalia
 fr:Emmental de France, emmental français
 it:Emmental francese
 nl:Emmental uit Frankrijk
+# origins:en: en:France
 # fr:emmental-français has 47 products in 3 languages @2018-10-27
 
 <en:Emmental from France
 fr:emmental de Savoie IGP
+protected_name_type:en: en:pgi
+origins:en: en:France
 
 <en:emmental
 en:melted Emmental cheese
@@ -10333,8 +10340,8 @@ es:queso emmental francés rallado, queso emmenthal francés rallado
 # fr:emmental-français-râpé has 43 products in 1 language @2018-10-27
 
 
-# FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium.
-# This cheese has translation issues as it is very similar to other fresh cheeses
+# en:description:FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium.
+# en:comment:This cheese has translation issues as it is very similar to other fresh cheeses
 
 <en:cheese
 en:fromage blanc
@@ -10510,6 +10517,9 @@ wikidata:en:Q182760
 wikipedia:en:https://en.wikipedia.org/wiki/Feta
 # fr:feta has 49 products in 3 languages @2018-10-28
 description:en:FETA is a brined curd white cheese made in Greece from sheep's milk or from a mixture of sheep and goat's milk.
+ciqual_food_code:en:12061
+ciqual_food_name:en:Feta cheese, from ewe's milk
+ciqual_food_name:fr:Feta de brebis
 
 <en:feta
 en:Feta cheese from ewe's milk
@@ -10702,6 +10712,8 @@ fr:fromage grana padano aop, grana padano dop, Grana Padano AOP
 it:grana padano dop, formaggio grana padano dop
 pt:queijo Grana Padano DOP
 sv:Grana Padano-ost D O P
+protected_name_type:en: en:pdo
+origins:en: en:Italy
 # fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
 
 
@@ -10763,7 +10775,8 @@ ciqual_food_name:en:Gruyere cheese, France, Protected Geographical Indication, f
 ciqual_food_name:fr:Gruyère IGP France
 description:de:Der Gruyère français ist ein Rohmilchkäse, der in den Bergen der Savoie und Franche-Comté hergestellt wird.
 description:fr:Le gruyère français est un fromage fabriqué en Franche-Comté et en Savoie. C'est un fromage au lait cru de vache, à pâte pressée cuite
-
+protected_name_type:en: en:pgi
+origins:en: en:France
 
 <en:cheese
 en:jarlsberg, jarlsberg cheese
@@ -10819,7 +10832,9 @@ description:de:Der Livarot ist ein französischer Käse aus der Normandie, der a
 description:en:Livarot is a French cheese of the Normandy region, originating in the commune of Livarot.
 description:es:El livarot es un queso francés fabricado en la región de Normandía, originario de la comuna de Livarot.
 description:fr:Le livarot est un fromage français de Normandie, originaire de la commune de Livarot.
-description:nl:Livarot is een halfzachte magere Franse kaas bereid uit koemelk, uit de streek Normandië. 
+description:nl:Livarot is een halfzachte magere Franse kaas bereid uit koemelk, uit de streek Normandië.
+protected_name_type:en: en:pdo
+origins:en: en:France
 
 <en:cheese
 en:maasdam, maasdam cheese
@@ -11058,7 +11073,7 @@ de:Pepper Jack, Pepper-Jack-Käse
 # ingredient/en:pepper-jack has 5 products in 1 language @2020-06-08
 
 
-# MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
+# description:en:MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
 
 <en:cheese
 en:mozzarella, mozzarella cheese
@@ -11321,10 +11336,12 @@ description:pt:O parmesão é um tipo de queijo italiano, com denominação de o
 
 <en:parmigiano reggiano
 fr:Parmigiano Reggiano AOP
+protected_name_type:en: en:pdo
+origins:en: en:Italy
 # fr:Parmigiano-Reggiano-AOP has 35 products @2018-10-27
 
 
-# PECORINO is a family of hard Italian cheeses made from sheep's milk.
+# description:en:PECORINO is a family of hard Italian cheeses made from sheep's milk.
 
 <en:cheese
 # <en:sheep's milk
@@ -11374,6 +11391,8 @@ fi:Pecorino romano
 fr:pecorino romano, romano, fromage pecorino romano aop
 it:Pecorino romano
 nl:pecorino romano, pecorino romano kaas
+protected_name_type:en: en:pdo
+origins:en: en:Italy
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
@@ -11446,7 +11465,7 @@ ciqual_food_name:en:Provolone cheese, from cow's milk
 ciqual_food_name:fr:Provolone
 
 
-# RACLETTE is a semi-hard cow's milk cheese that is usually fashioned into a wheel of about 6 kg.
+# description:en:RACLETTE is a semi-hard cow's milk cheese that is usually fashioned into a wheel of about 6 kg.
 
 <en:cheese
 en:Raclette
@@ -11493,7 +11512,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raclette
 # fr:raclette has 47 products in 4 languages @2018-10-27
 
 
-# Reblochon is a soft washed-rind and smear-ripened French cheese made in the Alpine region of Savoy from raw cow's milk.
+# description:en:Reblochon is a soft washed-rind and smear-ripened French cheese made in the Alpine region of Savoy from raw cow's milk.
 
 <en:cheese
 en:reblochon
@@ -11524,9 +11543,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
 
 <en:reblochon
 fr:Reblochon AOP, Reblochon de Savoie AOP
+protected_name_type:en: en:pdo
+origins:en: en:France, fr:Savoie
 
-
-#description:en:Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
+# description:en:Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
 
 <en:cheese
 en:red leicester, red leicester cheese
@@ -11614,7 +11634,7 @@ ciqual_food_name:fr:Ricotta
 <en:ricotta
 fr:ricotta de brebis
 
-# description:en:  ROQUEFORT  is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
+# description:en:ROQUEFORT  is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 
 <en:cheese
 en:roquefort, roquefort cheese, Roquefort cheese from ewe's milk
@@ -11696,6 +11716,8 @@ description:en:Saint-Marcellin is a soft French cheese made from cow's milk, pro
 description:es:El Saint-Marcellin es un queso francés del Delfinado, a base de leche de vaca, con pasta blanda y corteza fermentada.
 description:fr:Le saint-marcellin est un fromage AOP français, à base de lait de vache, à pâte molle à croûte fleurie, du Dauphiné.
 description:nl:De Saint-Marcellin is een klein Frans kaasje, afkomstig uit het dorp Saint-Marcellin in de Dauphiné.
+protected_name_type:en: en:pgi
+origins:en: en:France
 
 # description:en:Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
 
@@ -11716,7 +11738,7 @@ en:White Stilton, White Stilton cheese
 de:White Stilton, White-Stilton-Käse
 
 
-# TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
+# description:en:TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
 
 <en:cheese
 en:Taleggio
@@ -11742,7 +11764,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taleggio_cheese
 # fr:fromage Taleggio AOP has 1 product @2018-10-28
 
 
-# TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
+# description:en:TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
 
 <en:cheese
 en:tilsit
@@ -11773,7 +11795,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tilsit_cheese
 # fr:tilsit has 1 product in 3 languages @2018-10-27
 
 
-# TOMME, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
+# description:en:TOMME, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
 
 <en:cheese
 en:tomme
@@ -11793,7 +11815,7 @@ wikidata:en:Q2164539
 wikipedia:en:https://en.wikipedia.org/wiki/Tomme
 # fr:tomme has 13 products in 1 language @2018-10-27
 
-# Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
+# description:en:Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
 
 <en:cheese
 fr:Vacherin fribourgeois AOP
@@ -14001,6 +14023,8 @@ es:Sal de Guérande
 fr:Sel de Guérande, sel marin de guérande, sel de Guérande IGP
 it:Sale di Guérande
 nl:Zout uit Guérande
+protected_name_type:en: en:pgi
+origins:en: en:France
 
 <en:sea salt
 en:Salt from Ile de Ré
@@ -22460,7 +22484,8 @@ zh:玛萨拉酒
 wikidata:en:Q842052
 wikipedia:en:https://en.wikipedia.org/wiki/Marsala_wine
 # fr:vin-marsala has 53 products in 2 languages @2018-10-29
-
+protected_name_type:en: en:aoc
+origins:en: en:France
 
 # description:en:PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
@@ -29463,6 +29488,8 @@ fi:camargue-riisi
 fr:riz de Camargue
 hu:Camargue rizs, Camargue-i rizs
 wikipedia:fr:https://fr.wikipedia.org/wiki/Riz_de_Camargue
+protected_name_type:en: en:pgi
+origins:en: en:France
 
 <en:Camargue rice
 fr:riz rond de Camargue
@@ -50328,8 +50355,6 @@ nl:scherpe peperoni, scherpsmakende pepers
 # ingredient/fr:piment-fort has 391 products in 7 languages @2019-04-14
 # usage:en:hot peppers (hot peppers, water, vinegar, sugar, table salt, stabilizer [E 509])
 
-# description:en:The Espelette pepper is a variety of Capsicum annuum that is cultivated in the French commune of Espelette, Pyrénées-Atlantiques, traditionally the northern territory of the Basque people. On 1 June 2000, it was classified as an AOC product and was confirmed as an APO product on 22 August 2002.
-
 <en:chili pepper
 en:Espelette chili pepper
 de:Gorria
@@ -50347,6 +50372,9 @@ sv:espelette paprika
 tl:Espelette pepper
 wikidata:en:Q1538429
 wikipedia:en:https://en.wikipedia.org/wiki/Espelette_pepper
+description:en:The Espelette pepper is a variety of Capsicum annuum that is cultivated in the French commune of Espelette, Pyrénées-Atlantiques, traditionally the northern territory of the Basque people. On 1 June 2000, it was classified as an AOC product and was confirmed as an APO product on 22 August 2002.
+protected_name_type:en: en:aoc
+origins:en: en:France
 # ingredient/fr:piment-d’espelette has 371 products in 5 languages @2019-04-15
 # scoville:en:1500-2500
 
