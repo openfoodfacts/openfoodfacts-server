@@ -11511,34 +11511,31 @@ wikidata:en:Q20748
 wikipedia:en:https://en.wikipedia.org/wiki/Raclette
 # fr:raclette has 47 products in 4 languages @2018-10-27
 
-
-# description:en:Reblochon is a soft washed-rind and smear-ripened French cheese made in the Alpine region of Savoy from raw cow's milk.
-
+#category/reblochon
+<en:cow cheese
 <en:cheese
 en:reblochon
-ca:reblochon
-da:reblochon
-de:Reblochon
-es:reblochon
-fi:reblochon
-fr:reblochon, fromage reblochon
-hu:reblochon, reblochon sajt
-id:reblochon
-it:reblochon
+ar:ريبلوتشون
+fr:fromage reblochon
+he:רבלושון
+hu:reblochon sajt
 ko:르블로숑
-la:reblochon
-nb:reblochon
-nl:reblochon
-oc:reblochon
-ro:reblochon
 ru:реблошон
-sv:reblochon
 uk:Реблошон
+xx:reblochon
 zh:瑞布羅申芝士
-# frp:reblochon
 # yue:雷布洛芝士
 wikidata:en:Q543805
 wikipedia:en:https://en.wikipedia.org/wiki/Reblochon
+ciqual_food_code:en:12045
+ciqual_food_name:en:Reblochon cheese, from cow's milk
+ciqual_food_name:fr:Reblochon
+description:de:Reblochon ist ein feinwürziger AOC Kuhmilch-Käse aus der französischen Region Hochsavoyen und Savoyen.
+description:en:Reblochon is a soft washed-rind and smear-ripened French cheese made in the Alpine region of Savoy from raw cow's milk.
+description:es:El reblochon es un queso francés AOC,a base de leche de vaca de raza Abondance, Tarine y Montbéliarde, de la Alta Saboya.
+description:fr:Reblochon, ou reblochon de Savoie, est un fromage français AOC au lait cru et entier de vache à pâte pressée non cuite et croûte lavée, produit principalement en Haute-Savoie.
+reblochon:it:Il Reblochon o Reblochon di Savoia è un formaggio francese a pasta pressata da latte crudo di vacca.
+reblochon:nl:De reblochon is een Franse gewassenkorstkaas, geproduceerd in Haute-Savoie, Frankrijk.
 # ingredient/fr:reblochon has 64 products @2018-12-27
 
 <en:reblochon
@@ -11939,6 +11936,23 @@ description:fr:La fourme d'Ambert est un fromage français, à base de lait de v
 description:nl:De Fourme d’Ambert is een Franse koemelkkaas met Penicillum Roqueforti schimmels, afkomstig uit Saint-Just in het bergachtige gebied van de Puy-de-Dôme.
 
 <en:blue cheese
+en:bleu de Bresse
+ar:بليو د بريس
+he:ברס בלו
+ja:ブレス・ブルー
+ru:Бресс Блё
+xx:bleu de Bresse, Bresse Bleu
+zh:布勒·德·布瑞塞芝士
+wikidata:en:Q883933
+wikipedia:en:https://en.wikipedia.org/wiki/Bleu_de_Bresse
+description:de:Der Bleu de Bresse, auch Bresse Bleu genannt, ist ein französischer Blauschimmelkäse aus der Bresse in Ostfrankreich.
+description:en:Bleu de Bresse is a blue cheese made from whole milk.
+description:es:El Bleu de Bresse es un queso azul de leche entera que fue elaborado primero en la zona de Bresse.
+description:fr:Bresse Bleu (Bleu de Bresse) est un fromage au lait de vache pasteurisé, à pâte persillée produit en Bresse.
+description:nl:De Bleu de Bresse ofwel Bresse Bleu is een Franse kaas, een zachte kaas met een blauwschimmel.
+
+<en:blue cheese
+<en:cow cheese
 en:bleu de gex
 ar:بليو د جيكس
 az:Blyö de Jeks
