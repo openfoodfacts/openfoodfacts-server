@@ -14,13 +14,14 @@ jobs:
       - name: Install perl-doc
         run: |
           sudo apt-get update
-          sudo apt-get install perl-doc
+          sudo apt-get install perl perl-doc
       - name: Run perl-doc
         run: |
           pwd
           perldoc lib/ProductOpener/Food.pm
-          ls lib/ProductOpener/
+          pod2html .lib/ProductOpener/Food.pm > Food.html
           ls
+#ls lib/ProductOpener/
 #   - name: Convert from POD to HTML
 #     run: pod2html ../Food.pm > Food.html
 # https://metacpan.org/pod/Pod::Simple::HTMLBatch
