@@ -19,6 +19,8 @@ jobs:
         run: |
           pwd
           perldoc lib/ProductOpener/Food.pm
+          ls lib/ProductOpener/
+          ls
 #   - name: Convert from POD to HTML
 #     run: pod2html ../Food.pm > Food.html
 # https://metacpan.org/pod/Pod::Simple::HTMLBatch
