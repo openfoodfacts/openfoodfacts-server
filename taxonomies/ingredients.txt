@@ -9962,6 +9962,7 @@ description:nl:Camembert is een Franse witte schimmelkaas, die van koemelk wordt
 description:pt:Camembert ou camember é uma variedade de queijo de pasta mole, originária da região da Normandia, França
 
 <en:camembert
+en:camembert from pasteurised milk
 fr:camembert au lait pasteurisé
 ca:camembert de llet pasteuritzada
 es:camembert de leche pasteurizada
@@ -11800,25 +11801,38 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tilsit_cheese
 # fr:tilsit has 1 product in 3 languages @2018-10-27
 
 
-# description:en:TOMME, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
-
 <en:cheese
 en:tomme
 br:toma
-ca:Tomme
-de:Tomme
-es:Tomme
-fi:tomme
-fr:tomme
 he:טום
-hu:Tomme, tomme sajt
-la:Toma
+hu:tomme sajt
+ja:Tommé
 ru:Том
-sw:Tomme
-tr:Tomme
+xx:Tomme
 wikidata:en:Q2164539
 wikipedia:en:https://en.wikipedia.org/wiki/Tomme
-# fr:tomme has 13 products in 1 language @2018-10-27
+ciqual_food_code:en:12758
+ciqual_food_name:en:Tomme cheese, from cow's milk
+ciqual_food_name:fr:Tomme ou tome de vache
+description:de:Tomme ist eine Sammelbezeichnung zahlreicher Weichkäsesorten, die üblicherweise aus Frankreich, der Schweiz und Italien kommen.
+description:en:TOMME, occasionally spelled Tome, is a class of cheese produced mainly in the French Alps and in Switzerland.
+description:fr:La tomme ou tome est un fromage de montagne, existant en de multiples variétés.
+description:it:La tomme es un queso francés de montaña.
+# 34 in 4 @2020-08-29
+
+<en:tomme
+en:tomme de Savoie, tomme de Savoie IGP
+xx:tomme de Savoie, tomme de Savoie IGP
+wikidata:en:Q1247472
+wikipedia:en:https://en.wikipedia.org/wiki/Tomme_de_Savoie
+ciqual_food_code:en:12759
+ciqual_food_name:en:Tomme cheese, from mountain or Savoy
+ciqual_food_name:fr:Tomme ou tome de montagne ou de Savoie
+description:de:Der Tomme de Savoie ist ein französischer Käse aus nicht pasteurisierter Kuhmilch. 
+description:en:Tomme de Savoie is an upland variety of Tomme cheese, specifically, one from Savoy in the French Alps.
+description:es:Tomme de Savoie es un queso francés con indicación geográfica protegida.
+description:fr:Tomme de Savoie est un fromage AOC produit en France dans la région alpine de Savoie.
+description:nl:Tomme de Savoie is een halfharde kaas gemaakt in Savoie door gespecialiseerde kaasmakers.
 
 # description:en:Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
 
