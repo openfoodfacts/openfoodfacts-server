@@ -9912,6 +9912,7 @@ ciqual_food_code:en:12022
 ciqual_food_name:en:Brie de Melun cheese, from cow's milk
 ciqual_food_name:fr:Brie de Melun
 
+#category/camemberts
 <en:cheese
 en:camembert, camembert cheese
 ar:كامامبير
@@ -9948,10 +9949,17 @@ zh:卡芒贝尔奶酪
 # zh-tw:卡芒貝爾乾酪
 wikidata:en:Q131480
 wikipedia:en:https://en.wikipedia.org/wiki/Camembert
-# ingredient/fr:camembert has 23 products @2019-02-17
-carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
-carbon_footprint_fr_foodges_value:fr:4.3
-description:en:CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese.
+# 113 in 8 @2020-08-29
+ciqual_food_code:en:12001
+ciqual_food_name:en:Camembert cheese, from cow's milk
+ciqual_food_name:fr:Camembert, sans précision
+description:de:Camembert ist ein französischer Weißschimmelkäse.
+description:en:CAMEMBERT is a moist, soft, creamy, surface-ripened cow's milk cheese from Normandy, France.
+description:es:El Camembert de Normandía es un queso de leche de vaca producido en la región francesa de Normandía.
+description:fr:Camembert est une appellation générique qui désigne généralement un fromage à pâte molle et à croûte fleurie.
+description:it:Il camembert è un formaggio francese a pasta molle e crosta fiorita prodotto in Normandia.
+description:nl:Camembert is een Franse witte schimmelkaas, die van koemelk wordt gemaakt en Penicillium camemberti. 
+description:pt:Camembert ou camember é uma variedade de queijo de pasta mole, originária da região da Normandia, França
 
 <en:camembert
 fr:camembert au lait pasteurisé
