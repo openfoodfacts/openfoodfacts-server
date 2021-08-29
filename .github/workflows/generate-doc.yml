@@ -5,7 +5,7 @@ on:
     branches: ['*']
 
 jobs:
-  generate documentation:
+  generate-documentation:
     name: Generate documentation
     runs-on: ubuntu-latest
     steps:
