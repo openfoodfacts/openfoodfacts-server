@@ -1,0 +1,16 @@
+severity        = 5
+color           = 1
+
+[-Subroutines::ProhibitSubroutinePrototypes]
+
+[TestingAndDebugging::RequireUseStrict]
+equivalent_modules = Modern::Perl
+
+[TestingAndDebugging::RequireUseWarnings]
+equivalent_modules = Modern::Perl
+
+[-Modules::RequireFilenameMatchesPackage]
+
+# Allow `$`', `$&', `$'', because since Perl 5.20.0
+# there are no performance implications any more.
+[-Variables::ProhibitMatchVars]

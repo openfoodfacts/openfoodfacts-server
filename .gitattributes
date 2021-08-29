@@ -1,0 +1,17 @@
+# Basic .gitattributes for a perl repo.
+
+# Source files
+# ============
+*.pl	text
+*.pm	text
+
+*.pl linguist-language=Perl
+*.pm linguist-language=Perl
+
+# Test files
+# ============
+*.t	text
+
+# Template::Toolkit
+# =================
+*.tt linguist-language=HTML
