@@ -25,6 +25,6 @@ jobs:
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: lib/ProductOpener/
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'gh-pages' # <- Branch on which commit will be made
+          folder: .  # <- Folder containing our generated HTML docs lib/ProductOpener/
