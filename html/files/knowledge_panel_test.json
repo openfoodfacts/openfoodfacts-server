@@ -11,6 +11,7 @@
             {
                 "element_type": "text",
                 "element": {
+                    "text_type": "default",
                     "html": "Cocoa beans were expensive and hard to come by after the second world war, so in Piedmont (Italy) where Pietro Ferrero created Nutella, they were replaced with hazelnuts to make <em>gianduja</em>, a mix of hazelnut paste and chocolate."
                 }
             },
@@ -79,19 +80,19 @@
                 }
             },
             {
-                "element_type": "table_2_columns",
+                "element_type": "table",
                 "element": {
                     "table_id": "ecoscore_lca_impacts_by_stages",
                     "table_type": "percents",
                     "title": "Details of the impacts by stages of the life cycle",
                     "headers": ["Steps", "Impact"],
                     "rows": [
-                        {"id": "agriculture", "title": "Agriculture", "value": "82.7"},
-                        {"id": "processing", "title": "Processing", "value": "11.5"},	
-                        {"id": "packaging", "title": "Packaging", "value": "2.8"},
-                        {"id": "transportation", "title": "Transportation", "value": "2.4"},
-                        {"id": "distribution", "title": "Distribution", "value": "0.6"},
-                        {"id": "consumption", "title": "Consumption", "value": "0.0"}
+                        {"id": "agriculture", "icon_url": "https://static.openfoodfacts.org/images/icons/dist/agriculture.svg", "values": ["Agriculture", "82.7%"], "percent": 82.7},
+                        {"id": "processing", "values": ["Processing", "11.5%"], "percent": 11.5},	
+                        {"id": "packaging", "values": ["Packaging", "2.8%"], "percent": 2.8},
+                        {"id": "transportation", "values": ["Transportation", "2.4%"], "percent": 2.4},
+                        {"id": "distribution", "values": ["Distribution", "0.6%"], "percent": 0.6},
+                        {"id": "consumption", "values": ["Consumption", "0.0%"], "percent": 0}
                     ]
                 }
             }
