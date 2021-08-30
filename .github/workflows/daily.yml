@@ -24,7 +24,7 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
+          sudo sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
 
   dev-db-sync:
     runs-on: ubuntu-latest
