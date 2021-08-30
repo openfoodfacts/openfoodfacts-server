@@ -46,7 +46,6 @@ BEGIN
 		$crowdin_project_key
 		$robotoff_url
 		%server_options
-		$google_cloud_vision_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -79,8 +78,6 @@ my $postgres_db = "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
 my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_db}/minion";
-
-$google_cloud_vision_api_key = "";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
