@@ -1,0 +1,26 @@
+name: "MongoDB prod to dev sync"
+
+on:
+  push:
+    branches: [sync-db-dev]
+  schedule:
+  - cron: "0 0 * * *" # once a day at 00:00
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync prod db data to dev MongoDB
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+          sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+          sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"

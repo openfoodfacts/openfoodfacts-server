@@ -40,12 +40,27 @@ $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-ser
 
 ## 3. Setup the environment
 
+Before running the `docker-compose` deployment, you need to review and configure
+Product Opener's environment (`.env` file).
+
 The `.env` file contains ProductOpener default settings:
 * `PRODUCERS_PLATFORM` can be set to 1 to build / run the producer platform.
 * `ROBOTOFF_URL` can be set to connect with a Robotoff instance.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to enable OCR using Google Cloud Vision.
 * `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY` can be set to run translations.
-* `GEOLITE2_PATH` and `GEOLITE2_LICENSE_KEY` can be set to enable Geolite2.
+* `GEOLITE2_PATH`, `GEOLITE2_ACCOUNT_ID` and `GEOLITE2_LICENSE_KEY` can be set to enable Geolite2.
+
+The `.env` file also contains three useful Docker Compose variables:
+* `TAG` is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images.
+* `COMPOSE_PROJECT_NAME` is the compose project name that sets the prefix to every container name.
+* `COMPOSE_FILE` is the `;`-separated list of Docker compose files that are run:
+  * For a production-like environment, set it to `docker-compose.yml;docker/prod.yml;docker/mongodb.yml`
+  * For a development-like environment, set it to `docker-compose.yml;docker/dev.yml`
+  * For more features, you can add:
+    * `docker/admin-uis.yml`: add the Admin UIS container
+    * `docker/geolite2.yml`: add the Geolite2 container
+    * `docker/perldb.yml`: add the Perl debugger container
+    * `docker/vscode.yml`: add the VSCode container
 
 ## 4. Build your dev environment
 

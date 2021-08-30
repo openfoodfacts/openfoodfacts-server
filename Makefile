@@ -1,31 +1,27 @@
 #!/usr/bin/make
 
 NAME = "ProductOpener"
-DEV_ARGS = -f docker-compose.yml -f docker/dev.yml -f docker/mongodb.yml
-PROD_ARGS = -f docker-compose.yml -f docker/prod.yml -f docker/geolite2.yml
 
-#-----#
-# Dev #
-#-----#
-dev: up build_npm import_sample_data
-
+#-------#
+# Admin #
+#-------#
 up:
-	docker-compose ${DEV_ARGS} up -d --remove-orphans --build backend frontend
+	docker-compose up -d --remove-orphans --build backend frontend
 
 down:
-	docker-compose ${DEV_ARGS} down
+	docker-compose down
 
 restart:
-	docker-compose ${DEV_ARGS} restart
+	docker-compose restart backend
 
 log:
-	docker-compose ${DEV_ARGS} logs -f
+	docker-compose logs -f
 
 tail:
 	tail -f logs/**/*
 
 import_sample_data:
-	docker-compose ${DEV_ARGS} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
+	docker-compose exec backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 status:
 	docker ps
@@ -33,11 +29,7 @@ status:
 prune:
 	docker system prune -af
 
-#------------#
-# Production #
-#------------#
-prod: clean
-	docker-compose ${PROD_ARGS} up -d --remove-orphans
+dev: up build_npm import_sample_data
 
 #-------#
 # Build #
