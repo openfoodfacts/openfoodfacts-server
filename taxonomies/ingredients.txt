@@ -11115,7 +11115,7 @@ he:מוצרלה
 hi:मोत्ज़ारेला
 hr:mocarela
 hy:Մոցարելա
-it:formaggio mozzarella
+it:formaggio mozzarella, formaggi di mozzarella
 ja:モッツァレッラ
 ka:მოცარელა
 kk:Моцарелла
@@ -11125,6 +11125,8 @@ lt:Mocarela
 lv:mocarella
 mk:Моцарела
 mr:मोजारेला
+nl:mozzarella kaas
+nn:mozzarella ost
 or:ମୋଜ୍ଜରେଲା
 pa:ਮੋਜ਼ਾਰੇਲਾ
 pl:ser mozzarella
@@ -11153,19 +11155,28 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mozzarella
 ciqual_food_code:en:19590
 ciqual_food_name:en:Mozzarella cheese, from cow's milk
 ciqual_food_name:fr:Mozzarella au lait de vache
-# fr:mozzarella has 1057 products in 15 languages @2018-10-28
+description:de:Mozzarella ist ein ursprünglich italienischer Filata-Käse aus der Milch des Wasserbüffels oder des Hausrinds oder einem Gemisch beider Milcharten.
+description:en:Mozzarella is a traditionally southern Italian cheese made from Italian buffalo's milk by the pasta filata method.
+description:es:La mozzarella es un tipo de queso originario de la cocina italiana.
+description:fr:La mozzarella est un fromage à pâte filée d'origine italienne à base de lait de vache ou de bufflonne.
+description:it:La mozzarella è un latticino a pasta filata originario dell'Italia meridionale e prodotta da secoli anche in Italia centrale.
+description:nl:Mozzarella is een verzamelnaam voor twee soorten verse kaas: mozzarella di bufala vervaardigd uit de melk van de waterbuffel en mozzarella vervaardigd uit koemelk.
+description:pt:A mozarela ou muçarela é uma variedade de queijo de massa filada com origem na comuna (município) de Aversa, Italia.
+# 4663 in 15 languages @2021-08-30
 
-<en:mozzarella
-en:firmed mozzarella
-de:schnittfester mozzarella
-fr:Mozzarella affinée
-nl:Geharde mozzarella
-sv:skivbar mozzarella
+#processing:en: en:firmed
+#<en:mozzarella
+#en:firmed mozzarella
+#de:schnittfester mozzarella
+#fr:Mozzarella affinée
+#nl:Geharde mozzarella
+#sv:skivbar mozzarella
 
-<en:mozzarella
-fr:mozzarella râpée
-ca:mozzarella ratllada
-es:mozzarella rallada
+#processing:en en:grated
+#<en:mozzarella
+#fr:mozzarella râpée
+#ca:mozzarella ratllada
+#es:mozzarella rallada
 
 
 #category/munsters
