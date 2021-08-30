@@ -71,18 +71,19 @@
                 }
             },
             {
-                "element_type": "table",
+                "element_type": "table_2_columns",
                 "element": {
+                    "table_id": "ecoscore_lca_impacts_by_stages",
                     "table_type": "percents",
                     "title": "Details of the impacts by stages of the life cycle",
                     "headers": ["Steps", "Impact"],
                     "rows": [
-                        {"title": "Agriculture", "value": "82.7"},
-                        {"title": "Processing", "value": "11.5"},	
-                        {"title": "Packaging", "value": "2.8"},
-                        {"title": "Transportation", "value": "2.4"},
-                        {"title": "Distribution", "value": "0.6"},
-                        {"title": "Consumption", "value": "0.0"}
+                        {"id": "agriculture", "title": "Agriculture", "value": "82.7"},
+                        {"id": "processing", "title": "Processing", "value": "11.5"},	
+                        {"id": "packaging", "title": "Packaging", "value": "2.8"},
+                        {"id": "transportation", "title": "Transportation", "value": "2.4"},
+                        {"id": "distribution", "title": "Distribution", "value": "0.6"},
+                        {"id": "consumption", "title": "Consumption", "value": "0.0"}
                     ]
                 }
             }
