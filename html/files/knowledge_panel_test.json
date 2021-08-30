@@ -1,5 +1,6 @@
 {
     "doyouknow_brands_nutella_423": {
+        "parent_panel_id": "root",
         "type": "doyouknow",
         "level": "trivia",
         "topics": [
@@ -26,6 +27,7 @@
         ]
     },
     "ecoscore": {
+        "parent_panel_id": "root",
         "type": "ecoscore",
         "level": "info",
         "topics": [
@@ -66,8 +68,12 @@
         ]
     },
     "ecoscore_lca" : {
+        "parent_panel_id": "ecoscore",
         "type": "ecoscore_lca",
         "level": "info",
+        "topics": [
+            "environment"
+        ],        
         "title": "Lifecyle Analysis (LCA) for the product category",
         "subtitle": "Score: 40/100",
         "grade": "b",
