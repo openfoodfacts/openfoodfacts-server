@@ -45,6 +45,7 @@ Data about food is of public interest and has to be open. The complete database 
 * Summary of set up: 
    * [45 min Quick Start Guide w/ Docker](installation/dev-environment-quick-start-guide.md)
    * [Product Opener Guide](installation/product-opener.md)
+   * [Documentation of the code](https://openfoodfacts.github.io/openfoodfacts-server/)
 * Configuration
 * Dependencies
 * Database configuration
