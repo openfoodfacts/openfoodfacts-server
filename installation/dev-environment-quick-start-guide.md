@@ -39,6 +39,11 @@ If you are running Docker on Windows, please use the following git clone option 
 $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
+Go to the cloned directory:
+```
+cd openfoodfacts-server/
+```
+
 ## 3. Setup Product Opener's environment
 
 Before running the `docker-compose` deployment, you need to review and configure
