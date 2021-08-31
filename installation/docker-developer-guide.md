@@ -76,6 +76,11 @@ The above command will show the status of minion jobs. Run the following command
 ./minion_producers.pl minion worker -m production -q pro.openfoodfacts.org
 ```
 
+### Restarting Apache
+```
+apache2ctl -k restart
+```
+
 ### Exiting the container
 
 Use `exit` to exit the container.
@@ -88,6 +93,8 @@ If you have made any changes to backend code and just want to restart it, run:
 ```
 make restart
 ```
+
+**Note:** restart is necessary only if you make changes to files in the `lib/` directory (needs recompilation), but not if you make changes to files in the `cgi/` directory.
 
 ## Using multiple deployments
 
