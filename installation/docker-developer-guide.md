@@ -85,7 +85,6 @@ apache2ctl -k restart
 
 Use `exit` to exit the container.
 
-
 ## Restarting backend without quitting the running environment
 
 If you have made any changes to backend code and just want to restart it, run:
@@ -96,7 +95,24 @@ make restart
 
 **Note:** restart is necessary only if you make changes to files in the `lib/` directory (needs recompilation), but not if you make changes to files in the `cgi/` directory.
 
-## Using multiple deployments
+## Run queries on MongoDB database
+```
+docker-compose exec mongodb mongo
+```
+The above command will open a MongoDB shell, allowing you to use all the `mongo` 
+commands to interact with the database:
+
+```
+show dbs
+use off
+db.products.count()
+db.products.find({_id: "5053990155354"})
+db.products.deleteOne({_id: "5053990155354"})
+```
+
+See the [`mongo` shell docs](https://docs.mongodb.com/manual/reference/mongo-shell/) for more commands.
+
+## Managing multiple deployments
 
 To manage multiple deployments, you will need:
 
@@ -108,9 +124,9 @@ To manage multiple deployments, you will need:
   * `.env.opff`: configuration for Open Ped Food Facts dev env.
 
 
-* The variable `COMPOSE_PROJECT_NAME` should be set to different values in each `.env` file, so that container names are unique.
+* `COMPOSE_PROJECT_NAME` set to different values in each `.env` file, so that container names across deployments are unique.
 
-To switch between configurations, set `ENV_FILE` before running any `make` commands:
+To switch between configurations, set `ENV_FILE` before running `make` commands:
 
 ```
 ENV_FILE=.env.off-pro make up # starts the OFF Producer's Platform containers.
@@ -125,10 +141,9 @@ make up
 make restart
 make down
 make log
-...
 ```
 
-You can even have multiple terminals open, one for each deployment:
+A good strategy is to have multiple terminals open, one for each deployment:
 
 * `off` [Terminal 1]:
   ```
