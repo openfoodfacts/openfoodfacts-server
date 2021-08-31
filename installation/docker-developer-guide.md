@@ -114,7 +114,7 @@ See the [`mongo` shell docs](https://docs.mongodb.com/manual/reference/mongo-she
 
 ## Managing multiple deployments
 
-To manage multiple deployments, you will need:
+To juggle between multiple local deployments, you will need:
 
 * Multiple `.env` files (one per deployment), such as:
 
@@ -162,3 +162,11 @@ A good strategy is to have multiple terminals open, one for each deployment:
   export ENV_FILE=.env.obf
   make up
   ```
+
+* `opff` [Terminal 3]:
+  ```
+  export ENV_FILE=.env.opff
+  make up
+  ```
+
+**Note:** the above case of 4 deployments is ***a bit ambitious***, since ProductOpener's `backend` container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.
