@@ -1,1 +1,0 @@
-product_jqm_multilingual.pl
