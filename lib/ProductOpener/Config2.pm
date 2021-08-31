@@ -54,7 +54,9 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 use utf8;
 
 # server constants
-$server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
+my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
+my $po_port = $ENV{PRODUCT_OPENER_PORT};
+$server_domain = "$po_domain:$po_port";
 
 @ssl_subdomains = index($server_domain, 'localhost') == -1 ? qw(*) : qw();
 $producers_platform = $ENV{PRODUCERS_PLATFORM};

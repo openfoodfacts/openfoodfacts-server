@@ -77,23 +77,40 @@ The above command will show the status of minion jobs. Run the following command
 ```
 
 ### Restarting Apache
-```
-apache2ctl -k restart
-```
 
 ### Exiting the container
 
 Use `exit` to exit the container.
 
-## Restarting backend without quitting the running environment
+## Making code changes
 
-If you have made any changes to backend code and just want to restart it, run:
+In the dev environment, any code change to the local directory will be written 
+on the container. That said, some code changes require a restart of the `backend` 
+container, or rebuilding the NPM assets.
 
+### Manual reload
+
+To restart the `backend` container after a change (`docker-compose.yml`, `docker/` or `lib/` folder):
 ```
 make restart
 ```
 
-**Note:** restart is necessary only if you make changes to files in the `lib/` directory (needs recompilation), but not if you make changes to files in the `cgi/` directory.
+**Note:** restart is not necessary if making changes in the `cgi/` directory.
+
+
+To rebuild the NPM assets after a code change (`html/` folder):
+```
+make build_npm
+```
+
+### Live reload
+To automate the live reload on code changes, you can install the Python package `when-changed`:
+```
+pip3 install when-changed
+when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart"    # restart backend container on changes to lib/
+when-changed -r html/ -c "make build_npm" # rebuild NPM assets on changes to html/
+```
+
 
 ## Run queries on MongoDB database
 ```

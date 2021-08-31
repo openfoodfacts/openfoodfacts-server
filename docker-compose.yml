@@ -17,6 +17,7 @@ services:
     environment:
       - PRODUCERS_PLATFORM
       - PRODUCT_OPENER_DOMAIN
+      - PRODUCT_OPENER_PORT
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - ROBOTOFF_URL
@@ -47,7 +48,7 @@ services:
       - ./logs/nginx/:/var/log/nginx/
       - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 80:80
+      - ${PRODUCT_OPENER_PORT}:80
     networks:
       - webnet
 networks:

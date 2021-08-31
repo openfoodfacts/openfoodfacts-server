@@ -8,13 +8,7 @@ services:
       target: runnable
     volumes:
       - ./:/opt/product-opener/
-    depends_on:
-      - mongodb
   frontend:
     image: nginx:stable-alpine
     volumes:
       - ./:/opt/product-opener/
-  mongodb:
-    extends:
-      file: docker/mongodb.yml
-      service: mongodb

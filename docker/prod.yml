@@ -7,8 +7,6 @@ services:
       - html_data:/opt/product-opener/html/data
 
   backend:
-    depends_on: 
-    - mongodb
     volumes:
       - podata:/mnt/podata
       - product_images:/opt/product-opener/html/images/products
@@ -17,11 +15,6 @@ services:
   postgres:
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-mongodb:
-  extends:
-    file: docker/mongodb.yml
-    service: mongodb
 
 volumes:
   pgdata:

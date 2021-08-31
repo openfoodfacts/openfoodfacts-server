@@ -42,9 +42,11 @@ $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-ser
 ## 3. Setup Product Opener's environment
 
 Before running the `docker-compose` deployment, you need to review and configure
-Product Opener's environment (`.env` file).
+Product Opener's environment ([`.env`](../.env) file).
 
 The `.env` file contains ProductOpener default settings:
+* `PRODUCT_OPENER_DOMAIN` can be set to different values based on which flavor is run.
+* `PRODUCT_OPENER_PORT` can be set to different values to support multiple deployments (they would conflict if on the same port !).
 * `PRODUCERS_PLATFORM` can be set to `1` to build / run the producer platform.
 * `ROBOTOFF_URL` can be set to connect with a Robotoff instance.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to enable OCR using Google Cloud Vision.
@@ -63,6 +65,8 @@ The `.env` file also contains three useful Docker Compose variables:
     * `docker/perldb.yml`: add the Perl debugger container
     * `docker/vscode.yml`: add the VSCode container
     * `docker/mongodb.yml`: add the MongoDB container
+
+You can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
 
 **Hosts file:**
 
