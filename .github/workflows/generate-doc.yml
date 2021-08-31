@@ -15,19 +15,30 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install perl perl-doc
-      - name: Run perl-doc
+    
+      - name: prepare, build, and test
         run: |
-          pwd
-          perldoc lib/ProductOpener/Food.pm
-          pod2html .lib/ProductOpener/Food.pm > Food.html
-          ls
-#ls lib/ProductOpener/
-#   - name: Convert from POD to HTML
-#     run: pod2html ../Food.pm > Food.html
-# https://metacpan.org/pod/Pod::Simple::HTMLBatch
+          sudo apt-get update
+          # setup local::lib
+          cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+          # install perl dependencies
+          cpanm --quiet --installdeps --notest --skip-satisfied .
+          # Rebuild taxonomies
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
       - name: Deploy API documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: 'gh-pages' # <- Branch on which commit will be made
           folder: .  # <- Folder containing our generated HTML docs lib/ProductOpener/
+     #   run: |
+        #  pwd
+         # pod2html --infile=lib --outfile= "html/files/doc/perl"
+         # pod2html --infile=scripts --outfile "html/files/doc/perl"
+         # pod2html --infile=cgi --outfile "html/files/doc/perl"
+          #ls
+#ls lib/ProductOpener/
+#perldoc lib/ProductOpener/Food.pm
+#   - name: Convert from POD to HTML
+#     run: pod2html ../Food.pm > Food.html
+# https://metacpan.org/pod/Pod::Simple::HTMLBatch
