@@ -30,7 +30,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: 'gh-pages' # <- Branch on which commit will be made
-          folder: .  # <- Folder containing our generated HTML docs lib/ProductOpener/
+          folder: html/files/doc/perl  # <- Folder containing our generated HTML docs lib/ProductOpener/
      #   run: |
         #  pwd
          # pod2html --infile=lib --outfile= "html/files/doc/perl"
