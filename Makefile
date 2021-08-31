@@ -7,7 +7,7 @@ ENV_FILE ?= .env
 # Admin #
 #-------#
 up:
-	docker-compose --env-file=${ENV_FILE} up -d --remove-orphans --build backend frontend
+	docker-compose --env-file=${ENV_FILE} up -d --remove-orphans --build
 
 down:
 	docker-compose --env-file=${ENV_FILE} down
