@@ -41,7 +41,6 @@ Data about food is of public interest and has to be open. The complete database 
 ## How do I get started?
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
-* If you're looking for the API docs, look at <https://wiki.openfoodfacts.org/API>
 * Developer documentation:
    * [Quick start guide (Docker)](installation/dev-environment-quick-start-guide.md)
    * [Developer guide (Docker)](installation/docker-developer-guide.md)
