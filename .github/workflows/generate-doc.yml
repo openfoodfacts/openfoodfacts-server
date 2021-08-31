@@ -14,7 +14,7 @@ jobs:
       - name: Install perl-doc
         run: |
           sudo apt-get update
-          sudo apt-get install perl perl-doc
+          sudo apt-get install perl perl-doc cpanminus
     
       - name: prepare, build, and test
         run: |
