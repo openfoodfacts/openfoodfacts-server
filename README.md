@@ -30,11 +30,11 @@ Data about food is of public interest and has to be open. The complete database 
 
 * <https://world.openfoodfacts.org>
 
-<!-- ## Priorities
+## Priorities
 * Please list priority issues here 
 * Please add roadmaps here
 * [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
-* [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate) -->
+* [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
 
 <!-- ## Libraries used -->
 
