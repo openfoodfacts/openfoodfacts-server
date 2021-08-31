@@ -13,6 +13,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
   - If you run e.g. Debian, don't forget to add your user to the `docker` group!
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
+- [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
 
 
 ## 2. Clone the repository from GitHub
@@ -54,14 +55,14 @@ The `.env` file also contains three useful Docker Compose variables:
 * `TAG` is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images.
 * `COMPOSE_PROJECT_NAME` is the compose project name that sets the prefix to every container name. Do not update this unless you know what you're doing.
 * `COMPOSE_FILE` is the `;`-separated list of Docker compose files that are included in the deployment:
-  * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml` (default)
+  * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml;docker/mongodb.yml` (default)
   * For a **production**-like environment, set it to `docker-compose.yml;docker/prod.yml`
   * For more features, you can add:
     * `docker/admin-uis.yml`: add the Admin UIS container
     * `docker/geolite2.yml`: add the Geolite2 container
     * `docker/perldb.yml`: add the Perl debugger container
     * `docker/vscode.yml`: add the VSCode container
-
+    * `docker/mongodb.yml`: add the MongoDB container
 
 **Hosts file:**
 

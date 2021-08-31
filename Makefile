@@ -21,6 +21,18 @@ log:
 tail:
 	tail -f logs/**/*
 
+status:
+	docker-compose --env-file=${ENV_FILE} ps
+
+prune:
+	docker system prune -af
+
+
+dev: up build_npm import_sample_data
+
+#--------#
+# Import #
+#--------#
 import_sample_data:
 	docker-compose --env-file=${ENV_FILE} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
 
@@ -28,14 +40,6 @@ import_prod_data:
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	docker-compose --env-file=${ENV_FILE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
-
-status:
-	docker ps
-
-prune:
-	docker system prune -af
-
-dev: up build_npm import_sample_data
 
 #-------#
 # Build #

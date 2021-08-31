@@ -126,6 +126,8 @@ To juggle between multiple local deployments, you will need:
 
 * `COMPOSE_PROJECT_NAME` set to different values in each `.env` file, so that container names across deployments are unique.
 
+* `FRONTEND_PORT` set to different values in each `.env` file, so that frontend containers don't port-conflict with each other.
+
 To switch between configurations, set `ENV_FILE` before running `make` commands:
 
 ```
