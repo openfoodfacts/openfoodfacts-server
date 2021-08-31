@@ -107,7 +107,7 @@ make build_npm
 To automate the live reload on code changes, you can install the Python package `when-changed`:
 ```
 pip3 install when-changed
-when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart"    # restart backend container on changes to lib/
+when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart" # restart backend container on changes to lib/
 when-changed -r html/ -c "make build_npm" # rebuild NPM assets on changes to html/
 ```
 
