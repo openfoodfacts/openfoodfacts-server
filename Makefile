@@ -10,7 +10,7 @@ up:
 	docker-compose --env-file=${ENV_FILE} up -d --remove-orphans --build
 
 down:
-	docker-compose --env-file=${ENV_FILE} down
+	docker-compose --env-file=${ENV_FILE} down -v
 
 restart:
 	docker-compose --env-file=${ENV_FILE} restart backend frontend
@@ -28,7 +28,7 @@ prune:
 	docker system prune -af
 
 
-dev: up build_npm import_sample_data
+dev: up import_sample_data
 
 #--------#
 # Import #
@@ -40,6 +40,7 @@ import_prod_data:
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	docker-compose --env-file=${ENV_FILE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+	rm openfoodfacts-mongodbdump.tar.gz
 
 #-------#
 # Build #

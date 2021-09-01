@@ -6,7 +6,8 @@ WORKDIR /opt/product-opener
 RUN npm install
 ENV PATH /opt/product-opener/node_modules/.bin:$PATH
 
-COPY . /opt/product-opener/
+COPY html /opt/product-opener/html
+COPY gulpfile.js /opt/product-opener/
 RUN npm run build
 
 FROM nginx:stable-alpine
