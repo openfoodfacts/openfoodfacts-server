@@ -56,8 +56,10 @@ BEGIN
 		&compute_ecoscore
 		&localize_ecoscore
 		
-		@ecoscore_countries_sorted
 		%ecoscore_countries
+		@ecoscore_countries_sorted
+		%ecoscore_countries_enabled
+		@ecoscore_countries_enabled_sorted
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -74,6 +76,23 @@ use Text::CSV();
 use Math::Round;
 
 my %agribalyse = ();
+
+=head1 VARIABLES
+
+=head2 %ecoscore_countries_enabled
+
+List of countries for which we are going to compute and display the Eco-Score.
+
+The list is different from %ecoscore_countries that can contain more countries for which we have some
+data to compute the Eco-Score (e.g. distances).
+
+=cut
+
+@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+
+foreach my $country (@ecoscore_countries_enabled_sorted) {
+	$ecoscore_countries_enabled{$country} = 1;
+}
 
 =head1 FUNCTIONS
 
@@ -138,15 +157,110 @@ sub load_agribalyse_data() {
 }
 
 
-my %ecoscore_data = ();
+my %ecoscore_data = (
+	origins => {},
+);
+
+%ecoscore_countries = ();
+
+
+=head2 load_ecoscore_data_origins_of_ingredients_distances ( $product_ref )
+
+Loads origins of ingredients distances data needed to compute the Eco-Score.
+
+=cut
+
+sub load_ecoscore_data_origins_of_ingredients_distances() {
+
+	my $errors = 0;
+
+	my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
+	my $csv = Text::CSV->new ( $csv_options_ref )
+		or die("Cannot use CSV: " . Text::CSV->error_diag ());
+		
+	my $csv_file = $data_root . "/ecoscore/data/distances.csv";
+	my $encoding = "UTF-8";
+	
+	$log->debug("opening ecoscore origins distances CSV file", { file => $csv_file }) if $log->is_debug();
+
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
+		
+		my @countries = ();
+
+		# Headers: ISO Country Code,	Country (english),	Country (french),	AD,	AL,	AT,	AX,	BA,	BE,	BG,  ...
+		my $header_row_ref = $csv->getline ($io);
+
+		for (my $i = 3; $i < (scalar @{$header_row_ref}); $i++) {
+			$countries[$i] = lc($header_row_ref->[$i]);
+			if ($countries[$i] eq 'gb') {
+				$countries[$i] = 'uk';
+			}
+			$ecoscore_countries{$countries[$i]} = 1;
+			# Score 0 for unknown origin
+			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
+		}
+		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+
+		$ecoscore_data{origins}{"en:world"} = $ecoscore_data{origins}{"en:unknown"};
+		$ecoscore_data{origins}{"en:european-union-and-non-european-union"} = $ecoscore_data{origins}{"en:unknown"};
+
+		$log->debug("ecoscore origins distances CSV file - countries header row", { ecoscore_countries_sorted => \@ecoscore_countries_sorted }) if $log->is_debug();		
+
+		my $row_ref;
+		
+		while ($row_ref = $csv->getline ($io)) {
+			
+			my $origin = $row_ref->[0];
+			
+			next if ((not defined $origin) or ($origin eq ""));
+			
+			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+				
+			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			
+				$log->error("ecoscore origin does not exist in taxonomy", { origin => $origin, origin_id => $origin_id}) if $log->is_error();
+				$errors++;
+			}
+		
+			$ecoscore_data{origins}{$origin_id} = {
+				name_en => $row_ref->[1],
+				name_fr => $row_ref->[2],
+			};
+			
+			for (my $i = 3; $i < (scalar @{$row_ref}); $i++) {
+				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
+			}
+			
+			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
+		}
+		
+		if ($errors) {
+			#die("$errors unrecognized origins in CSV $csv_file");
+		}
+	}
+	else {
+		die("Could not open ecoscore origins distances CSV $csv_file: $!");
+	}
+}
+
 
 =head2 load_ecoscore_data_origins_of_ingredients( $product_ref )
 
 Loads origins of ingredients data needed to compute the Eco-Score.
 
+Data contains:
+- EPI score for each origin
+- Original transportation score for France, as defined in Eco-Score original specification
+(distances in distances.csv have been recomputed in a slightly different way, and the 
+scores for France slightly differ from the original ones)
+
 =cut
 
 sub load_ecoscore_data_origins_of_ingredients() {
+
+	# First load transportation data from the distances.csv file
+	
+	load_ecoscore_data_origins_of_ingredients_distances();
 
 	my $errors = 0;
 
@@ -157,8 +271,6 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	my $csv_file = $data_root . "/ecoscore/data/fr_countries.csv";
 	my $encoding = "UTF-8";
 	
-	$ecoscore_data{origins} = {};
-
 	$log->debug("opening ecoscore origins CSV file", { file => $csv_file }) if $log->is_debug();
 
 	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
@@ -167,29 +279,10 @@ sub load_ecoscore_data_origins_of_ingredients() {
 
 		my $header_row_ref = $csv->getline ($io);
 		
-		
-		$ecoscore_data{origins}{"en:unknown"} = {
-			epi_score => 0,
-		};
-		
-		my @countries = ();
-		%ecoscore_countries = ();
-		for (my $i = 0; $i < (scalar @{$header_row_ref}); $i++) {
-			if ($header_row_ref->[$i] =~  / - /s) {
-				my $country = $';
-				my $country_id = canonicalize_taxonomy_tag("fr", "countries", $country);
-				$countries[$i] = country_to_cc($country_id);
-				$ecoscore_countries{$countries[$i]} = 1;
-				# Score 0 for unknown origin
-				$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
-			}
-		}
-		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+		$ecoscore_data{origins}{"en:unknown"}{epi_score} = 0;
 
 		$ecoscore_data{origins}{"en:world"} = $ecoscore_data{origins}{"en:unknown"};
 		$ecoscore_data{origins}{"en:european-union-and-non-european-union"} = $ecoscore_data{origins}{"en:unknown"};
-
-		$log->debug("ecoscore origins CSV file - countries header row", { countries => \@countries, ecoscore_countries_sorted => \@ecoscore_countries_sorted }) if $log->is_debug();		
 
 		my $row_ref;
 		
@@ -227,14 +320,10 @@ sub load_ecoscore_data_origins_of_ingredients() {
 				$errors++;
 			}
 		
-			$ecoscore_data{origins}{$origin_id} = {
-				name_fr => $row_ref->[0],
-				epi_score => $row_ref->[1],
-			};
-			
-			for (my $i = 2; $i < (scalar @{$row_ref}); $i++) {
-				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
-			}
+			$ecoscore_data{origins}{$origin_id}{epi_score} = $row_ref->[1];
+
+			# Override data for France from distances.csv with the original French Eco-Score data for France
+			$ecoscore_data{origins}{$origin_id}{"transportation_score_fr"} = $row_ref->[2];
 			
 			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
 		}
@@ -538,7 +627,7 @@ sub compute_ecoscore($) {
 			my $missing_data_warning;
 			
 			# Compute the Eco-Score for all countries + a default Eco-Score without transportation bonus/malus
-			foreach my $cc (@ecoscore_countries_sorted, undef) {
+			foreach my $cc (@ecoscore_countries_enabled_sorted, undef) {
 				
 				my $suffix = "";
 				if (defined $cc) {
@@ -943,7 +1032,16 @@ sub aggregate_origins_of_ingredients($$$) {
 			$log->debug("aggregate_origins_of_ingredients - adding origins", { ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref }) if $log->is_debug();
 			foreach my $origin_id (@$ingredient_origins_ref) {
 				if (not defined $ecoscore_data{origins}{$origin_id}) {
-					$origin_id = "en:unknown";
+
+					# If the origin is a child of a country, use the country
+					my $country_code = get_inherited_property("origins", $origin_id, "country_code_2:en");
+
+					if ((defined $country_code) and (defined $ecoscore_data{origins}{canonicalize_taxonomy_tag("en", "origins", $country_code)})) {
+						$origin_id = canonicalize_taxonomy_tag("en", "origins", $country_code);
+					}
+					else {
+						$origin_id = "en:unknown";
+					}
 				}
 				defined $aggregated_origins_ref->{$origin_id} or $aggregated_origins_ref->{$origin_id} = 0;
 				$aggregated_origins_ref->{$origin_id} += $ingredient_ref->{percent_estimate} / scalar(@$ingredient_origins_ref);
@@ -1017,7 +1115,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	
 	my @aggregated_origins = ();
 	my %transportation_scores;
-	foreach my $cc (@ecoscore_countries_sorted) {
+	foreach my $cc (@ecoscore_countries_enabled_sorted) {
 		$transportation_scores{$cc} = 0;
 	}
 	my $epi_score = 0;
@@ -1033,7 +1131,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		}
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
-		foreach my $cc (@ecoscore_countries_sorted) {
+		foreach my $cc (@ecoscore_countries_enabled_sorted) {
 			$transportation_scores{$cc} += $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc} * $percent / 100;
 		}
 	}
@@ -1049,7 +1147,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		epi_value => round($epi_value),
 	};
 	
-	foreach my $cc (@ecoscore_countries_sorted) {
+	foreach my $cc (@ecoscore_countries_enabled_sorted) {
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_score_" . $cc} = $transportation_scores{$cc};
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc} = round($transportation_scores{$cc} / 6.66);
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"value_" . $cc} = round($epi_value)

@@ -29,10 +29,11 @@
             "transportation_score_de" : 52.5,
             "transportation_score_es" : 36.9,
             "transportation_score_fr" : 82.8,
-            "transportation_score_ie" : 39,
+            "transportation_score_ie" : 42.7,
             "transportation_score_it" : 47.8,
             "transportation_score_lu" : 65.6,
             "transportation_score_nl" : 61.6,
+            "transportation_score_uk" : 54.8,
             "transportation_value_be" : 10,
             "transportation_value_ch" : 8,
             "transportation_value_de" : 8,
@@ -42,6 +43,7 @@
             "transportation_value_it" : 7,
             "transportation_value_lu" : 10,
             "transportation_value_nl" : 9,
+            "transportation_value_uk" : 8,
             "value_be" : 13,
             "value_ch" : 11,
             "value_de" : 11,
@@ -50,7 +52,8 @@
             "value_ie" : 9,
             "value_it" : 10,
             "value_lu" : 13,
-            "value_nl" : 12
+            "value_nl" : 12,
+            "value_uk" : 11
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
@@ -95,6 +98,7 @@
       "grade_it" : "c",
       "grade_lu" : "c",
       "grade_nl" : "c",
+      "grade_uk" : "c",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
@@ -110,6 +114,7 @@
       "score_it" : 45,
       "score_lu" : 48,
       "score_nl" : 47,
+      "score_uk" : 46,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
