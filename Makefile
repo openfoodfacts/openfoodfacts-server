@@ -13,7 +13,7 @@ down:
 	docker-compose --env-file=${ENV_FILE} down
 
 restart:
-	docker-compose --env-file=${ENV_FILE} restart backend
+	docker-compose --env-file=${ENV_FILE} restart backend frontend
 
 log:
 	docker-compose --env-file=${ENV_FILE} logs -f
