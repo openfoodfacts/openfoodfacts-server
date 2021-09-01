@@ -735,9 +735,9 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "geröstete haselnuss"
+				'id' => 'en:hazelnut',
+				'processing' => 'en:chopped, en:toasted',
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',

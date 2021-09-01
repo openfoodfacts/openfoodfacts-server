@@ -53548,10 +53548,17 @@ sv:mandelpulver
 
 <en:almond
 en:almond paste
-de:Marzipan, Mandelmasse
+de:Mandelmasse
 es:pasta de almendra
 fr:Pâte d'amandes, pâte d'amande
 pt:Pasta de amêndoa
+
+<en:almond paste
+en:prepacked Almond paste
+fr:Pâte d'amande préemballée
+ciqual_food_code:en:15201
+ciqual_food_name:en:Almond paste or marzipan, prepacked
+ciqual_food_name:fr:Pâte d'amande, préemballée
 
 <en:almond
 en:almond flour
@@ -78492,8 +78499,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fondant_icing
 # usage:fr:Fondant (sucre, sirop de glucose, eau)
 
 
-# description:en:MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 
+#category/marzipan
 # mainIngredient:en:sugar
 en:marzipan
 ar:مرصبان
@@ -78556,7 +78563,21 @@ zh:杏仁膏
 # zh-tw:杏仁膏
 wikidata:en:Q106252
 wikipedia:en:https://en.wikipedia.org/wiki/Marzipan
-# ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
+description:de:Marzipan ist eine Süßware aus gemahlenen Mandeln, Zucker und – je nach Herkunft – beigefügten Aromastoffen. 
+description:en:MARZIPAN is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
+description:es:El mazapán es un dulce cuyos ingredientes principales son almendras, azúcar y huevo.
+description:fr:Le massepain est une pâte confectionnée à base d'amandes mondées et finement moulues, mélangées à du blanc d'œuf et du sucre.
+description:it:Il marzapane è una preparazione dolciaria più o meno consistente, è costituita da pasta di mandorle suddivisa tra albume d'uovo e zucchero.
+description:nl:Marsepein is een deegachtig mengsel van gemalen amandelen en suiker.
+description:pt:Marzipã, marzipan ou maçapão é um doce, preparado a partir de uma pasta feita de amêndoas moídas, açúcar e claras de ovos
+# 84 in 11 @2021-09-01
+
+<en:marzipan
+en:prepacked marzipan
+fr:massepain préemballée
+ciqual_food_code:en:15201
+ciqual_food_name:en:Almond paste or marzipan, prepacked
+ciqual_food_name:fr:Pâte d'amande, préemballée
 
 # description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels.
 
