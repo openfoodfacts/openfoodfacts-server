@@ -10,3 +10,4 @@ services:
       - 27017:27017
 volumes:
   dbdata:
+    external: true
