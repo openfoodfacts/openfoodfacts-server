@@ -1,13 +1,16 @@
 #!/bin/sh
 
-cp -a /home/sftp/systemeu/data/*csv /srv/off/imports/systemeu/data/
-cp -a /home/sftp/systemeu/data/*xlsx /srv/off/imports/systemeu/data/
+DEFAULT_MOUNT_PATH=/srv/off
+MOUNT_PATH="${1:-$DEFAULT_MOUNT_PATH}"
 
-cd /srv/off/imports/systemeu
+cp -a /home/sftp/systemeu/data/*csv ${MOUNT_PATH}/imports/systemeu/data/
+cp -a /home/sftp/systemeu/data/*xlsx ${MOUNT_PATH}/imports/systemeu/data/
 
-unzip -j -u -o '/home/sftp/systemeu/data/*zip' -d /srv/off/imports/systemeu/images/
+cd ${MOUNT_PATH}/imports/systemeu
 
-cd /srv/off/imports/systemeu/images
+unzip -j -u -o '/home/sftp/systemeu/data/*zip' -d ${MOUNT_PATH}/imports/systemeu/images/
+
+cd ${MOUNT_PATH}/imports/systemeu/images
 
 # systemeu zip includes files starting with ._ that are just metadata
 mv ._* ../tmp/
@@ -18,7 +21,7 @@ mogrify -format jpg *.png
 mv *.png ../images.png_converted_to_jpg/
 
 
-# cd /srv/off/scripts
+# cd ${MOUNT_PATH}/scripts
 
 export PERL5LIB=.
 

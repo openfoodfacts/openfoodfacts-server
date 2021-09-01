@@ -1,2 +1,4 @@
 #!/bin/sh
-./convert_carrefour_data.pl /srv/off/imports/carrefour/data /srv/off/imports/carrefour/Nomenclature_OpenFoodFacts.csv > /srv/off/imports/carrefour/carrefour.csv
+DEFAULT_MOUNT_PATH=/srv/off
+MOUNT_PATH="${1:-$DEFAULT_MOUNT_PATH}"
+./convert_carrefour_data.pl ${MOUNT_PATH}/imports/carrefour/data ${MOUNT_PATH}/imports/carrefour/Nomenclature_OpenFoodFacts.csv > ${MOUNT_PATH}/imports/carrefour/carrefour.csv
