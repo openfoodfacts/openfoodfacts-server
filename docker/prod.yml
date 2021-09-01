@@ -1,26 +1,22 @@
 ﻿version: "3.7"
 services:
-  frontend:
-    volumes:
-      - /mnt/data/:/opt/product-opener/html/data # Mount for static dumps needed by Robotoff
-      - node_modules:/opt/product-opener/node_modules:rw,shared # bind node_modules in to Docker volume (read-write)
-      - product_images:/opt/product-opener/html/images/products
-      - html_data:/opt/product-opener/html/data
   backend:
     volumes:
-      - /mnt/users:/mnt/podata/users # Mount user profiles
-      - /mnt/product_images:/opt/product-opener/html/images/products # Mount products images
-      - /mnt/products:/mnt/podata/products # Mount products info
-      - node_modules:/opt/product-opener/node_modules:r # bind node_modules Docker volume to container (read-only)
-      - podata:/mnt/podata
-      - product_images:/opt/product-opener/html/images/products
-      - html_data:/opt/product-opener/html/data
+      # Users, products, products images and extra data mounts
+      - /mnt/users:/mnt/podata/users
+      - /mnt/product_images:/opt/product-opener/html/images/products
+      - /mnt/products:/mnt/podata/products
+      - /mnt/data/:/opt/product-opener/html/data
+
+      # Binds from frontend container (read-only)
+      - icons_dist:/opt/product-opener/html/images/icons/dist:ro
+      - js_dist:/opt/product-opener/html/js/dist:ro
+      - css_dist:/opt/product-opener/html/css/dist:ro
+      - image_attributes:/opt/product-opener/html/images/attributes:ro
+      - node_modules:/opt/product-opener/node_modules:ro
   postgres:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:
-  podata:
-  product_images:
-  html_data:

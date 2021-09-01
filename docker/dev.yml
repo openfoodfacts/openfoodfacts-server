@@ -18,19 +18,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.frontend
-    volumes:
-      - icons_dist:/opt/product-opener/html/images/icons/dist
-      - js_dist:/opt/product-opener/html/js/dist
-      - css_dist:/opt/product-opener/html/css/dist
-      - image_attributes:/opt/product-opener/html/images/attributes
-      - node_modules:/opt/product-opener/node_modules
   mongodb:
     image: mongo:4.4
     networks:
       - webnet
-volumes:
-  node_modules:
-  icons_dist:
-  js_dist:
-  css_dist:
-  image_attributes:
