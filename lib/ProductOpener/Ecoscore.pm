@@ -68,6 +68,7 @@ BEGIN
 use vars @EXPORT_OK ;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 
@@ -577,7 +578,26 @@ sub compute_ecoscore($) {
 	
 	$product_ref->{ecoscore_data} = {
 		adjustments => {},
-	};		
+	};
+
+	# Check if we have extended ecoscore_data from the impact estimator
+	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
+	if (defined $product_ref->{misc_tags}) {
+		foreach my $tag (@{$product_ref->{misc_tags}}) {
+			if ($tag =~ /^en:ecoscore-extended-data/ ) {
+				remove_tag($product_ref,"misc", $tag);
+			}
+		}
+	}
+	if (defined $product_ref->{ecoscore_extended_data}) {
+		add_tag($product_ref,"misc","en:ecoscore-extended-data-computed");
+		if (defined $product_ref->{ecoscore_extended_data_version}) {
+			add_tag($product_ref,"misc","en:ecoscore-extended-data-version-" . get_string_id_for_lang("no_language", $product_ref->{ecoscore_extended_data_version}));
+		}
+	}
+	else {
+		add_tag($product_ref,"misc","en:ecoscore-extended-data-not-computed");
+	}
 	
 	# Special case for waters and sodas: disable the Eco-Score
 	
