@@ -88,7 +88,7 @@ data to compute the Eco-Score (e.g. distances).
 
 =cut
 
-@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl);
+@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
 
 foreach my $country (@ecoscore_countries_enabled_sorted) {
 	$ecoscore_countries_enabled{$country} = 1;
@@ -192,6 +192,9 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 
 		for (my $i = 3; $i < (scalar @{$header_row_ref}); $i++) {
 			$countries[$i] = lc($header_row_ref->[$i]);
+			if ($countries[$i] eq 'gb') {
+				$countries[$i] = 'uk';
+			}
 			$ecoscore_countries{$countries[$i]} = 1;
 			# Score 0 for unknown origin
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
@@ -320,7 +323,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 			$ecoscore_data{origins}{$origin_id}{epi_score} = $row_ref->[1];
 
 			# Override data for France from distances.csv with the original French Eco-Score data for France
-			$ecoscore_data{origins}{$origin_id}{"transportation_score_fr"} = 2;
+			$ecoscore_data{origins}{$origin_id}{"transportation_score_fr"} = $row_ref->[2];
 			
 			$log->debug("ecoscore origins CSV file - row", { origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}}) if $log->is_debug();
 		}

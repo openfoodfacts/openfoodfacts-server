@@ -7,45 +7,46 @@
          "origins_of_ingredients" : {
             "aggregated_origins" : [
                {
-                  "origin" : "en:france",
+                  "origin" : "en:unknown",
                   "percent" : 100
                }
             ],
-            "epi_score" : 93,
-            "epi_value" : 4,
+            "epi_score" : 0,
+            "epi_value" : -5,
             "origins_from_origins_field" : [
-               "en:france"
+               "en:unknown"
             ],
-            "transportation_score_be" : 85,
-            "transportation_score_ch" : 69,
-            "transportation_score_de" : 61,
-            "transportation_score_es" : 37,
-            "transportation_score_fr" : 100,
-            "transportation_score_ie" : 47,
-            "transportation_score_it" : 47,
-            "transportation_score_lu" : 82,
-            "transportation_score_nl" : 77,
-            "transportation_score_uk" : 68,
-            "transportation_value_be" : 13,
-            "transportation_value_ch" : 10,
-            "transportation_value_de" : 9,
-            "transportation_value_es" : 6,
-            "transportation_value_fr" : 15,
-            "transportation_value_ie" : 7,
-            "transportation_value_it" : 7,
-            "transportation_value_lu" : 12,
-            "transportation_value_nl" : 12,
-            "transportation_value_uk" : 10,
-            "value_be" : 17,
-            "value_ch" : 14,
-            "value_de" : 13,
-            "value_es" : 10,
-            "value_fr" : 19,
-            "value_ie" : 11,
-            "value_it" : 11,
-            "value_lu" : 16,
-            "value_nl" : 16,
-            "value_uk" : 14
+            "transportation_score_be" : 0,
+            "transportation_score_ch" : 0,
+            "transportation_score_de" : 0,
+            "transportation_score_es" : 0,
+            "transportation_score_fr" : 0,
+            "transportation_score_ie" : 0,
+            "transportation_score_it" : 0,
+            "transportation_score_lu" : 0,
+            "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
+            "transportation_value_be" : 0,
+            "transportation_value_ch" : 0,
+            "transportation_value_de" : 0,
+            "transportation_value_es" : 0,
+            "transportation_value_fr" : 0,
+            "transportation_value_ie" : 0,
+            "transportation_value_it" : 0,
+            "transportation_value_lu" : 0,
+            "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
+            "value_be" : -5,
+            "value_ch" : -5,
+            "value_de" : -5,
+            "value_es" : -5,
+            "value_fr" : -5,
+            "value_ie" : -5,
+            "value_it" : -5,
+            "value_lu" : -5,
+            "value_nl" : -5,
+            "value_uk" : -5,
+            "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 0,
@@ -102,41 +103,46 @@
          "score" : 54
       },
       "grade" : "b",
-      "grade_be" : "b",
-      "grade_ch" : "b",
-      "grade_de" : "b",
-      "grade_es" : "b",
-      "grade_fr" : "b",
-      "grade_ie" : "b",
-      "grade_it" : "b",
-      "grade_lu" : "b",
-      "grade_nl" : "b",
-      "grade_uk" : "b",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
+      "grade_uk" : "c",
+      "missing" : {
+         "origins" : 1
+      },
+      "missing_data_warning" : 1,
       "score" : 63,
-      "score_be" : 79,
-      "score_ch" : 77,
-      "score_de" : 76,
-      "score_es" : 73,
-      "score_fr" : 79,
-      "score_ie" : 74,
-      "score_it" : 74,
-      "score_lu" : 79,
-      "score_nl" : 79,
-      "score_uk" : 77,
+      "score_be" : 58,
+      "score_ch" : 58,
+      "score_de" : 58,
+      "score_es" : 58,
+      "score_fr" : 58,
+      "score_ie" : 58,
+      "score_it" : 58,
+      "score_lu" : 58,
+      "score_nl" : 58,
+      "score_uk" : 58,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 79,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 58,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
          "id" : "en:milk",
+         "origins" : "en:england",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "Lait",
+         "text" : "Milk",
          "vegan" : "no",
          "vegetarian" : "yes"
       }
@@ -163,23 +169,20 @@
       "en:milk",
       "en:dairy"
    ],
-   "ingredients_text" : "Lait",
+   "ingredients_text" : "Milk (England)",
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "en:eu-organic"
    ],
-   "lc" : "fr",
+   "lc" : "en",
    "misc_tags" : [
-      "en:ecoscore-no-missing-data",
+      "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "origins_tags" : [
-      "en:france"
-   ],
-   "packaging_text" : "1 bouteille en plastique PET, 1 bouchon PEHD",
+   "packaging_text" : "1 PET plastic bottle, 1 PEHD bottle cap",
    "packagings" : [
       {
          "material" : "en:pet-polyethylene-terephthalate",
