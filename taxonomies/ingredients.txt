@@ -54004,23 +54004,27 @@ ciqual_food_name:fr:Noisette
 <en:hazelnut
 fr:noisettes avec peau
 
+#processing:en: en:toasted
 <en:hazelnut
-en:toasted hazelnut
-ca:avellanes torrades
-de:geröstete Haselnüsse, Haselnüsse geröstet
-es:avellanas tostadas
-fi:paahdettu hasselpähkinä
-fr:noisettes grillées, noisettes torréfiées
-it:nocciole tostate
-nl:gebrande hazelnoot
-sv:rostade hasselnötter
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-grillées
-# 100 in 5 languages products @2018-10-07
+en:toasted hazelnuts
+#ca:avellanes torrades
+#de:geröstete Haselnüsse, Haselnüsse geröstet
+#es:avellanas tostadas
+#fi:paahdettu hasselpähkinä
+#fr:noisettes grillées, noisettes torréfiées
+#it:nocciole tostate
+#nl:gebrande hazelnoot
+#sv:rostade hasselnötter
+ciqual_food_code:en:15033
+ciqual_food_name:en:Hazelnut, grilled
+ciqual_food_name:fr:Noisette grillée
+# 495 in 10 @2021-09-01
 
 <en:hazelnut
 fr:noisettes décortiquées
 de:Haselnusskerne
 it:nocciole sgusciate
+ru:ядро ореха фундука 
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiquées
 # 42 products in 4 languages @2018-10-07
 
@@ -54037,17 +54041,16 @@ nl:hele gegrilde hazelnoten
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
 
+#processing:en: en:chopped
 <en:hazelnut
 en:chopped hazelnuts
-de:Gehackte Haselnüsse
-es:avellanas troceados
-fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
-fr:noisettes hachées
-it:nocciole tritate
-nl:gehakte hazelnoot, gehakte hazelnoten
-#in processing de:gehackte Haselnüsse
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées
-# 44 products @2018-10-07
+#de:Gehackte Haselnüsse
+#es:avellanas troceados
+#fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
+#fr:noisettes hachées
+#it:nocciole tritate
+#nl:gehakte hazelnoot, gehakte hazelnoten
+# 221 products in 7 @2021-09-01
 
 #<en:chopped hazelnuts
 #en:chopped toasted hazelnuts
@@ -54063,18 +54066,16 @@ pl:siekane i prażone orzeszki ziemne
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées-grillées
 # 55 products in 3 languages @2018-10-07
 
+#processing:en: en:ground
 <en:hazelnut
 en:ground hazelnuts
-de:gemahlene Haselnüsse, Haselnüsse gemahlen
-es:avellanas molidas
-fi:hasselpähkinäjauhe, jauhetut hasselpähkinät
-fr:noisettes moulues, noisettes broyées
-it:nocciole macinate
-nl:gemalen hazelnoten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-moulues
-# 76 products @2018-10-07
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-broyées
-# 28 products in 3 languages @2018-10-07
+#de:gemahlene Haselnüsse, Haselnüsse gemahlen
+#es:avellanas molidas
+#fi:hasselpähkinäjauhe, jauhetut hasselpähkinät
+#fr:noisettes moulues, noisettes broyées
+#it:nocciole macinate
+#nl:gemalen hazelnoten
+# 275 in 17 @2021-09-01
 
 <en:hazelnut
 fr:éclats de noisettes
