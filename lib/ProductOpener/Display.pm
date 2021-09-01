@@ -651,7 +651,7 @@ CSS
 	}
 	
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries{$cc}) or ($User{moderator}))) {
+		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator}))) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
 	}
