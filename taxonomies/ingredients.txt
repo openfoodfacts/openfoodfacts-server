@@ -717,10 +717,11 @@ zh:洋菜
 # zh-tw:洋菜
 wikidata:en:Q177998
 wikipedia:en:https://en.wikipedia.org/wiki/Agar
+ciqual_food_code:en:11084
+ciqual_food_name:en:Seaweed, agar, raw
+ciqual_food_name:fr:Agar (algue), cru
 # ingredient/fr:agar has 213 products in 5 languages @2018-12-4
 
-
-# description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
 
 # <en:gelling agent
 # <en:stabilizer
@@ -765,6 +766,7 @@ zh:卡拉胶
 # zh-tw:卡拉膠
 wikidata:en:Q421991
 wikipedia:en:https://en.wikipedia.org/wiki/Carrageenan
+description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
 # fr:carraghénane has 4521 products in 9 languages @2108-11-03
 
 <en:carrageenan
@@ -784,14 +786,6 @@ de:Stabilisator E407
 es:estabilizante E407
 fr:stabilisant e407
 
-<en:agar
-en:Seaweed agar raw
-fr:agar cru
-ciqual_food_code:en:11084
-ciqual_food_name:en:Seaweed, agar, raw
-ciqual_food_name:fr:Agar (algue), cru
-
-#description:en:TRAGACANTH is a natural gum obtained from the dried sap of several species of Middle Eastern legumes of the genus Astragalus
 
 en:Tragacanth, E413, E-413, E 413
 ar:صمغ الكثيراء
@@ -824,11 +818,9 @@ sv:Dragant
 tr:Kitre
 uk:Трагакант
 uz:Anzirat goʻshtxoʻr
+description:en:TRAGACANTH is a natural gum obtained from the dried sap of several species of Middle Eastern legumes of the genus Astragalus
 # ingredient/fr:gomme-adragante has 62 products in 4 languages @2019-03-23
 # additive/e413-tragacanth has 286 products in 6 languages @2019-03-24
-
-
-# description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
 
 en:tara gum, E417, E-417, E 417, INS417, INS-417, INS 417, SIN417, SIN-417, SIN 417
 bg:Гума тара
@@ -854,6 +846,7 @@ sl:Tara gumi
 sv:Taragummi
 wikidata:en:Q15089452
 wikipedia:en:https://en.wikipedia.org/wiki/Tara_spinosa#Uses
+description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
 # ingredient/fr:gomme-tara has 254 products in 6 languages -@2019-05-12
 
 
@@ -6101,6 +6094,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Beurre doux
 carbon_footprint_fr_foodges_value:fr:9.5
 wikidata:en:Q57312618
 wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_doux
+ciqual_food_code:en:16400
+ciqual_food_name:en:Butter, 82% fat, unsalted
+ciqual_food_name:fr:Beurre à 82% MG, doux
 # ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
 <en:unsalted butter
@@ -6126,6 +6122,9 @@ nl:halfgezouten boter
 wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_demi-sel
 description:en:BEURRE DEMI-SEL is a butter with a salt percentage between 0,5 % and 3 %
 description:fr:BEURRE DEMI-SEL - beurre avec une salinité moyenne de 0,5 % à 3 %
+ciqual_food_code:en:16402
+ciqual_food_name:en:Butter, 80% fat, lightly salted
+ciqual_food_name:fr:Beurre à 80% MG, demi-sel
 # ingredient/fr:beurre-demi-sel has 115 products in french @2019-07-10
 
 <en:lightly salted butter
@@ -6150,6 +6149,9 @@ it:Burro salato
 ja:塩バター
 nl:gezouten boter
 pt:manteiga com sal
+ciqual_food_code:en:16403
+ciqual_food_name:en:Butter, 80% fat, salted
+ciqual_food_name:fr:Beurre à 80% MG, salé
 wikipedia:fr:https://fr.wikipedia.org/wiki/Beurre_salé
 # ingredient/salted-butter has 633 products in 8 languages @2019-07-10
 
@@ -7170,7 +7172,14 @@ nl:volle geitemelk
 # 95 in 3 @2021-08-25
 
 <en:whole goat milk
-en:plain yogurt goat's milk around 5% fat
+en:goat's milk yogurt
+fr:Yaourt au lait de chèvre
+ciqual_food_code:en:19556
+ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
+ciqual_food_name:fr:Yaourt au lait de chèvre, nature, 5% MG environ
+
+<en:goat's milk yogurt
+en:plain goat's milk yogurt with around 5% fat
 fr:Yaourt au lait de chèvre nature 5% MG environ
 ciqual_food_code:en:19556
 ciqual_food_name:en:Yogurt, goat's milk, plain, around 5% fat
@@ -8109,6 +8118,10 @@ nl:Griekse yoghurt
 sk:Grécky jogurt
 wikidate:en:none
 # 395 in 5 @2021-08-25
+
+<en:yogurt
+en:Yogurt from ewe's milk
+fr:Yaourt au lait de brebis
 
 <en:greek yogurt
 en:Yogurt Greek-style from ewe's milk
@@ -9866,14 +9879,10 @@ description:it:Il Brie è un formaggio francese vaccino a pasta molle e crosta f
 description:nl:Brie is een Franse witschimmelkaas.
 description:nn:Brie er en fransk ost fra Brie-regionen sør for Paris.
 description:pt:Os chamados brie são uma família de queijos de pasta mole e crosta branca, originários da região de Brie, na França.
-# 85 in 3 @ 2021-08-25
-
-<en:Brie
-en:Brie cheese from cow's milk
-fr:Brie sans précision
 ciqual_food_code:en:12020
 ciqual_food_name:en:Brie cheese, from cow's milk
 ciqual_food_name:fr:Brie, sans précision
+# 85 in 3 @ 2021-08-25
 
 #category/brie-de-meaux-cheeses
 <en:Brie
@@ -9999,8 +10008,15 @@ ciqual_food_name:fr:Cantal entre-deux
 
 
 <en:cantal
-en:Cantal Salers or Laguiole cheese from cow's milk
-fr:Cantal Salers, Laguiole
+en:Cantal Salers
+fr:Cantal Salers
+ciqual_food_code:en:12723
+ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
+ciqual_food_name:fr:Cantal, Salers ou Laguiole
+
+<en:cheese
+en:Laguiole cheese from cow's milk
+fr:Laguiole
 ciqual_food_code:en:12723
 ciqual_food_name:en:Cantal, Salers or Laguiole cheese, from cow's milk
 ciqual_food_name:fr:Cantal, Salers ou Laguiole
@@ -10163,7 +10179,6 @@ origins:en: en:France
 # fr:comté-aop has 40 products in 1 language @2018-10-27
 
 
-# description:en:Gloucester is a traditional, semi-hard cheese which has been made in Gloucestershire, England, since the 16th century, at one time made only with the milk of the once nearly extinct Gloucester cattle.
 
 <en:cheese
 en:Double Gloucester, Double Gloucester cheese
@@ -10171,6 +10186,8 @@ de:Double Gloucester, Double-Gloucester-Käse
 fr:fromage de Double Gloucester
 wikidata:en:Q174539
 wikipedia:en:https://en.wikipedia.org/wiki/Gloucester_cheese
+description:en:Gloucester is a traditional, semi-hard cheese which has been made in Gloucestershire, England, since the 16th century, at one time made only with the milk of the once nearly extinct Gloucester cattle.
+
 
 <en:cheese
 en:edam, edam cheese, Edam cheese from cow's milk
@@ -10219,7 +10236,6 @@ zh:埃德姆芝士
 # yue:艾登芝士
 wikidata:en:Q597473
 wikipedia:en:https://en.wikipedia.org/wiki/Edam_cheese
-# fr:edam has 206 products in 11 languages @2018-10-28
 ciqual_food_code:en:12729
 ciqual_food_name:en:Edam cheese, from cow's milk
 ciqual_food_name:fr:Edam
@@ -10230,7 +10246,7 @@ description:it:L’édam est un fromage des Pays-Bas, traditionnellement vendu s
 description:it:L'edam è un formaggio a base di latte vaccino con l'aggiunta di caglio animale tipico dei Paesi Bassi, venduto in forme dalla pasta giallo tenue e con una sottile protezione di cera rossastra.
 description:nl:Edammer kaas of kortweg edammer is een bolvormige Nederlandse harde kaassoort, die van oorsprong verhandeld werd vanuit de stad Edam. De bekende kleur van de kaas is rood.
 description:pt:O queijo Edam é um queijo semi-duro típico da cidade de Edam, na província da Holanda do Norte, nos Países Baixos.
-
+# fr:edam has 206 products in 11 languages @2018-10-28
 
 
 <en:cheese
@@ -10331,7 +10347,7 @@ da:revet emmentalerost
 de:geriebener Emmentaler, geriebener Emmentaler-Käse
 es:queso emmental rallado, queso emmenthal rallado
 fi:emmentalraaste
-fr:emmental râpé, fromage emmental râpé, emmenthal râpé
+fr:emmental râpé, fromage emmental râpé, emmenthal râpé, fromage emmenthal râpé
 hu:reszelt ementáli
 it:Formaggio emmental grattugiato
 nl:geraspte emmentaler
@@ -10720,7 +10736,7 @@ origins:en: en:Italy
 
 
 <en:cheese
-en:gruyère, Gruyere cheese from cow's milk
+en:gruyère, Gruyere cheese, Gruyere cheese from cow's milk
 az:Qruyer
 bg:Грюер
 de:Greyerzer
@@ -10864,14 +10880,14 @@ description:pt:O Maasdam é um queijo oriundo da cidade holandesa de mesmo nome,
 # fr:Maasdam has 71 products in 6 languages @2021-08-14
 
 <en:maasdam
-en:Firm cheese around 14% fat Maasdam-type cheese reduced fat
+en:reduced fat Maasdam-type firm cheese with around 14% fat
 fr:fromage type Maasdam 14% MG
 ciqual_food_code:en:12705
 ciqual_food_name:en:Firm cheese, around 14% fat, Maasdam-type cheese, reduced fat
 ciqual_food_name:fr:Fromage à pâte ferme environ 14% MG type Masdaam à teneur réduite en MG
 
 <en:maasdam
-en:Firm cheese around 27% fat Maasdam-type cheese
+en:Maasdam-type firm cheese with around 27% fat
 fr:fromage type Maasdam 27% MG
 ciqual_food_code:en:12741
 ciqual_food_name:en:Firm cheese, around 27% fat, Maasdam-type cheese
@@ -10993,7 +11009,7 @@ ciqual_food_name:en:Mascarpone cheese, from cow's milk
 ciqual_food_name:fr:Mascarpone
 
 <en:cheese
-en:mimolette, Mimolette cheese from cow's milk
+en:mimolette, Mimolette cheese, Mimolette cheese from cow's milk
 ar:ميموليت
 bg:Мимолет
 cv:Мимолет
@@ -11020,28 +11036,28 @@ description:nl:Mimolette is een Franse ongepasteuriseerde kaas bereid uit koemel
 description:pt:Mimolette, ou Boule de Lille, é um tipo de queijo de leite de vaca cru tradicionalmente produzido na região de Lille, no norte de França. 
 
 <en:mimolette
-en:young Mimolette cheese from cow's milk
+en:young Mimolette, young Mimolette cheese, young Mimolette cheese from cow's milk
 fr:Mimolette jeune
 ciqual_food_code:en:12735
 ciqual_food_name:en:Mimolette cheese, young, from cow's milk
 ciqual_food_name:fr:Mimolette jeune
 
 <en:mimolette
-en:half-oldM imolette cheese from cow's milk
+en:half-old Mimolette, half-old Mimolette cheese, half-old Mimolette cheese from cow's milk
 fr:Mimolette demi-vieille
 ciqual_food_code:en:12737
 ciqual_food_name:en:Mimolette cheese, half-old, from cow's milk
 ciqual_food_name:fr:Mimolette demi-vieille
 
 <en:mimolette
-en:old Mimolette cheese from cow's milk
+en:old Mimolette, old Mimolette cheese, old Mimolette cheese from cow's milk
 fr:Mimolette vieille
 ciqual_food_code:en:12738
 ciqual_food_name:en:Mimolette cheese, old, from cow's milk
 ciqual_food_name:fr:Mimolette vieille
 
 <en:mimolette
-en:extra old Mimolette cheese from cow's milk
+en:extra old Mimolette, extra old Mimolette cheese, extra old Mimolette cheese from cow's milk
 fr:Mimolette extra-vieille
 ciqual_food_code:en:12742
 ciqual_food_name:en:Mimolette cheese, extra old, from cow's milk
@@ -11623,7 +11639,7 @@ ciqual_food_name:fr:Ricotta
 <en:ricotta
 fr:ricotta de brebis
 
-# description:en:ROQUEFORT  is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
+# description:en:ROQUEFORT is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 
 <en:cheese
 en:roquefort, roquefort cheese, Roquefort cheese from ewe's milk
@@ -11927,6 +11943,7 @@ ciqual_food_name:en:Blue cheese, from cow's milk
 ciqual_food_name:fr:Fromage bleu au lait de vache
 # ingredient/fr:bleu has 84 products in french @2021-08-28
 # bleu (lait de vache entier pasteurisé, présure végétale, ferments lactiques, sel)
+# TODO: can we put it up to blue cheese ?
 
 #category/auvergne-blue-cheese-from-cow-s-milk
 <en:blue cheese
@@ -14840,9 +14857,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Côtelettes d'Agneau
 carbon_footprint_fr_foodges_value:fr:55
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
-# <en:meat
-# fr:cotelettes d'agneau
-# ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
+<en:meat
+en:lamb cutlet
+fr:cotelettes d'agneau
+ciqual_food_code:en:21501
+ciqual_food_name:en:Lamb cutlet, grilled
+ciqual_food_name:fr:Agneau, côtelette, grillée
+ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 <en:meat
 <en:lamb
@@ -14852,7 +14873,7 @@ ciqual_food_code:en:25541
 ciqual_food_name:en:Lamb on skewer
 ciqual_food_name:fr:Brochette d'agneau
 
-<en:lamb meat
+<en:lamb cutlet
 en:Grilled lamb cutlet
 fr:Côtelette d'agneau grillée
 ciqual_food_code:en:21501
@@ -14860,13 +14881,18 @@ ciqual_food_name:en:Lamb cutlet, grilled
 ciqual_food_name:fr:Agneau, côtelette, grillée
 
 <en:lamb meat
+en:lamb shoulders
+fr:Epaule d'agneau
+# TODO: opportunity for proxy
+
+<en:lamb shoulders
 en:Roasted lamb shoulders, baked lamb shoulders
 fr:Epaule rôtie d'agneau, Epaule d'agneau cuite au four
 ciqual_food_code:en:21506
 ciqual_food_name:en:Lamb, shoulder, roasted/baked
 ciqual_food_name:fr:Agneau, épaule, rôtie/cuite au four
 
-<en:lamb meat
+<en:lamb shoulders
 en:Roasted lean lamb shoulder, Baked lean lamb shoulder
 fr:Epaule d'agneau maigre rôtie, Epaule d'agneau maigre cuite au four
 ciqual_food_code:en:21507
@@ -14889,6 +14915,10 @@ ciqual_food_name:en:Brain, lamb, cooked
 ciqual_food_name:fr:Cervelle, agneau, cuite
 
 <en:lamb
+en:lamb hearts
+fr:Coeurs d'agneau
+
+<en:lamb hearts
 en:Cooked lamb hearts
 fr:Coeurs d'agneau cuits
 ciqual_food_code:en:40059
@@ -14896,6 +14926,10 @@ ciqual_food_name:en:Heart, lamb, cooked
 ciqual_food_name:fr:Coeur, agneau, cuit
 
 <en:lamb
+en:lamb livers
+fr:Foies d'agneau
+
+<en:lamb livers
 en:Cooked lamb livers
 fr:Foies d'agneau cuits
 ciqual_food_code:en:40103
@@ -14903,7 +14937,11 @@ ciqual_food_name:en:Liver, lamb, cooked
 ciqual_food_name:fr:Foie, agneau, cuit
 
 <en:lamb
-en:Braised kidney lambs
+en:lamb kidneys
+fr:Rognons d'agneau
+
+<en:lamb kidneys
+en:Braised lamb kidneys
 fr:Rognons d'agneau braisés
 ciqual_food_code:en:40406
 ciqual_food_name:en:Kidney, lamb, braised
@@ -14924,40 +14962,41 @@ ciqual_food_name:en:Sweetbread, lamb, cooked
 ciqual_food_name:fr:Ris, agneau, cuit
 
 <en:lamb
-en:Raw lamb leg
-fr:Gigot d'agneau cru
+en:lamb leg
+fr:Gigot d'agneau
 ciqual_food_code:en:21502
 ciqual_food_name:en:Lamb, leg, raw
 ciqual_food_name:fr:Agneau, gigot, cru
 
-<en:lamb
+<en:lamb leg
 en:Pan-fried lamb leg
 fr:Gigot d'agneau poêlé
 ciqual_food_code:en:21518
 ciqual_food_name:en:Lamb, leg, grilled/pan-fried
 ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
 
-<en:lamb
+<en:lamb leg
 en:Grilled lamb leg
 fr:Gigot d'agneau grillé
 ciqual_food_code:en:21518
 ciqual_food_name:en:Lamb, leg, grilled/pan-fried
 ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
 
-<en:lamb
+<en:lamb leg
 en:Braised lamb leg
 fr:Gigot d'agneau braisé
 ciqual_food_code:en:21519
 ciqual_food_name:en:Lamb, leg, braised
 ciqual_food_name:fr:Agneau, gigot, braisé
 
-<en:lamb
+<en:lamb leg
 en:Roasted lamb leg, Baked lamb leg
 fr:Gigot d'agneau rôti au four, Gigot d'agneau cuit au four
 ciqual_food_code:en:21503
 ciqual_food_name:en:Lamb, leg, roasted/baked
 ciqual_food_name:fr:Agneau, gigot, rôti/cuit au four
 
+<en:lamb
 en:lamb neck
 fr:Collier d'agneau
 ciqual_food_code:en:21514
@@ -14999,42 +15038,52 @@ ciqual_food_code:en:21512
 ciqual_food_name:en:Lamb, rib chop, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte première, grillée/poêlée
 
+<en:lamb
+en:lamb chop fillet
+
+<en:lamb chop fillet
 en:Pan-fried lamb chop fillet
 fr:Côte de filet d'agneau poêlée
 ciqual_food_code:en:21509
 ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
 
+<en:lamb chop fillet
 en:Grilled lamb chop fillet, 
 fr:Côte de filet d'agneau grillée
 ciqual_food_code:en:21509
 ciqual_food_name:en:Lamb, chop fillet, grilled/pan-fried
 ciqual_food_name:fr:Agneau, côte filet, grillée/poêlée
 
+<en:lamb
 en:lamb saddle
 fr:Selle d'agneau
 ciqual_food_code:en:21515
 ciqual_food_name:en:Lamb, saddle, raw
 ciqual_food_name:fr:Agneau, selle, crue
 
+<en:lamb saddle
 en:Grilled lamb saddle
 fr:Selle d'agneau partie maigre grillée
 ciqual_food_code:en:21520
 ciqual_food_name:en:Lamb, saddle, grilled/pan-fried
 ciqual_food_name:fr:Agneau, selle, partie maigre, grillée/poêlée
 
+<en:lamb saddle
 en:Pan-fried lamb saddle
 fr:Selle d'agneau partie maigre poêlée
 ciqual_food_code:en:21520
 ciqual_food_name:en:Lamb, saddle, grilled/pan-fried
 ciqual_food_name:fr:Agneau, selle, partie maigre, grillée/poêlée
 
+<en:lamb saddle
 en:Baked lean lamb saddle
 fr:Selle d'agneau partie maigre cuite au four
 ciqual_food_code:en:21513
 ciqual_food_name:en:Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr:Agneau, selle, partie maigre, rôtie/cuite au four
 
+<en:lamb saddle
 en:Roasted lean lamb saddle
 fr:Selle d'agneau partie maigre rôtie
 ciqual_food_code:en:21513
@@ -15201,6 +15250,9 @@ uk:Кролятина
 vi:Thịt thỏ
 zh:兔肉
 wikidata:en:Q3556748
+ciqual_food_code:en:34001
+ciqual_food_name:en:Rabbit, meat, raw
+ciqual_food_name:fr:Lapin, viande crue
 # ingredient/rabbit-meat has 109 products in french @2019-04-19
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
@@ -15212,8 +15264,13 @@ ciqual_food_code:en:34001
 ciqual_food_name:en:Rabbit, meat, raw
 ciqual_food_name:fr:Lapin, viande crue
 
+<en:rabbit meat
+en:wild rabbit meat 
+fr:viande de lapin de garenne
+
 <en:raw rabbit meat
-en:raw wild rabbit  meat 
+<en:wild rabbit meat
+en:raw wild rabbit meat 
 fr:viande de lapin de garenne crue
 ciqual_food_code:en:34003
 ciqual_food_name:en:Rabbit, wild, meat, raw
@@ -15592,25 +15649,18 @@ sv:renbog
 # description:en:Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 
 <en:meat
-en:merguez
+en:merguez, Merguez sausage
 ar:مرقاز
-ca:Merguez
-cs:merguez
-de:Merguez
 eo:Mergezo
-es:merguez
-fi:merguez
 fr:merguez
 he:מרגז
-id:Merguez
-it:merguez
 ja:メルゲーズ
-nl:merguez
-pl:merguez
-pt:merguez
-sv:merguez
 uk:Мергези
+xx:merguez
 wikipedia:en:https://en.wikipedia.org/wiki/Merguez
+ciqual_food_code:en:30150
+ciqual_food_name:en:Merguez sausage, raw
+ciqual_food_name:fr:Merguez, crue
 # ingredient/fr:merguez has 63 products in french @2019-03–22
 
 <en:merguez
@@ -15983,6 +16033,9 @@ zh:山羊肉
 wikidata:en:Q449506
 wikipedia:en:https://en.wikipedia.org/wiki/Goat_meat
 # ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
+ciqual_food_code:en:21800
+ciqual_food_name:en:Young goat, raw
+ciqual_food_name:fr:Chevreau, cru
 
 <en:meat
 <en:goat
@@ -16076,13 +16129,16 @@ sv:grisbog
 wikidata:en:Q2255700
 wikipedia:de:https://de.wikipedia.org/wiki/Schweinebug
 description:de:Als Schweinebug (auch Schweineschulter) wird das Vorderbein vom Schwein bezeichnet. Es befindet sich direkt neben dem Schweinenacken.
+ciqual_food_code:en:28001
+ciqual_food_name:en:Pork, shoulder, raw
+ciqual_food_name:fr:Porc, épaule, crue
 
 <en:pork shoulder
 fr:Epaule séchée de porc
 
 <en:pork shoulder
-en:raw Pork shoulder
-fr:Porc épaule crue
+en:raw pork shoulder
+fr:épaule de porc crue, porc épaule crue
 ciqual_food_code:en:28001
 ciqual_food_name:en:Pork, shoulder, raw
 ciqual_food_name:fr:Porc, épaule, crue
@@ -16748,6 +16804,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pork_loin
 description:en:Pork loin is a cut of meat from a pig, created from the tissue along the dorsal side of the rib cage.
 description:es:El lomo de cerdo es cada una de las dos piezas de la carne del cerdo que están junto al espinazo y bajo las costillas del animal.
 # ingredient/pork-loin 93 products in 5 languages @2019-08-17
+ciqual_food_code:en:28003
+ciqual_food_name:en:Pork loin, raw
+ciqual_food_name:fr:Porc, longe, crue
 
 <en:pork loin
 en:raw pork loin
@@ -16860,6 +16919,7 @@ fr:poitrine de porc crue
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 ciqual_food_name:fr:Porc, poitrine, crue
+# TODO: investigate between pork belly and pork breast
 
 <en:pork belly
 en:british pork belly
@@ -16920,6 +16980,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pork_tenderloin
 description:en:Pork tenderloin, also called pork fillet, pork steak[1] or Gentleman's Cut, is a long thin cut of pork.
 description:nl:Varkenshaas is de meest malse spier van het varken, die zich in de rug van een varken bevindt. Het is een schuin toelopend stukje vlees.
 # ingredient/fr:filet-de-porc has 248 products in 6 languages @2021-08-17
+ciqual_food_code:en:28201
+ciqual_food_name:en:Pork tenderloin, lean, raw
+ciqual_food_name:fr:Porc, filet, maigre, cru
 
 <en:pork fillet
 en:raw lean pork tenderloin
@@ -16939,6 +17002,9 @@ sv:grisschnitzel
 wikidata:en:Q22971811
 wikipedia:en:https://en.wikipedia.org/wiki/Pork_cutlet
 # ingredient/fr:escalope-de-porc has 5 products in 1 language @2020-12-22
+ciqual_food_code:en:28460
+ciqual_food_name:en:Pork, ham escalope, raw
+ciqual_food_name:fr:Porc, escalope de jambon, crue
 
 <en:pork cutlet
 en:raw pork ham escalope
@@ -17068,6 +17134,9 @@ fr:os de veau
 en:veal fond
 fr:fond de veau
 # ingredient/veal-fond has no products @2021-08-17
+ciqual_food_code:en:11169
+ciqual_food_name:en:Veal stock for sauce and cooking, dehydrated
+ciqual_food_name:fr:Fond de veau pour sauces et cuisson, déshydraté
 
 <en:veal fond
 en:dehydrated veal fond
@@ -18390,7 +18459,7 @@ en:clarified butter
 ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
-de:Butterschmalz, , geklärte Butter
+de:Butterschmalz, geklärte Butter
 es:mantequilla clarificada
 fi:kirkastettu voi
 fr:beurre clarifié
@@ -27540,28 +27609,28 @@ sv:karamelliserat vetemaltmjöl
 # there is a correspondence between french type and italian type but I don't know it
 
 <en:wheat flour
-fr:farine de blé type 45
+fr:farine de blé type 45, farine de blé t45
 
 <en:wheat flour
-fr:farine de blé type 55
+fr:farine de blé type 55, farine de blé t55
 # ingredient/fr:farine-de-ble-type-55 has 12 products @2019-06-02
 
 <en:wheat flour
-en:Wheat flour type 55 for bread
-fr:Farine de blé tendre T55 pour pains
+en:Wheat flour type 55, Wheat flour T55, Wheat flour type 55 for bread
+fr:Farine de blé tendre T55, Farine de blé tendre T55 pour pains
 ciqual_food_code:en:9436
 ciqual_food_name:en:Wheat flour, type 55 (for bread)
 ciqual_food_name:fr:Farine de blé tendre ou froment T55 (pour pains)
 
 <en:wheat flour
-fr:Farine de froment T55 pour pains
+fr:Farine de froment T55, Farine de froment T55 pour pains
 
 <en:wheat flour
 fr:farine de blé type 65, farine de blé t65
 nl:tarwemeel T65
 
 <fr:farine de blé type 65
-en:Wheat flour type 65
+en:Wheat flour type 65, Wheat flour T65
 fr:Farine de blé tendre T65
 ciqual_food_code:en:9435
 ciqual_food_name:en:Wheat flour, type 65
@@ -27923,21 +27992,21 @@ sv:rågmjöl
 # Question
 
 <en:rye flour
-en:Rye flour type 170
+en:Rye flour type 170, Rye flour T170
 fr:Farine de seigle T170
 ciqual_food_code:en:9530
 ciqual_food_name:en:Rye flour, type 170
 ciqual_food_name:fr:Farine de seigle T170
 
 <en:rye flour
-en:Rye flour type 85
+en:Rye flour type 85, Rye flour T85
 fr:Farine de seigle T85
 ciqual_food_code:en:9532
 ciqual_food_name:en:Rye flour, type 85
 ciqual_food_name:fr:Farine de seigle T85
 
 <en:rye flour
-en:Rye flour type 130
+en:Rye flour type 130, Rye flour T130
 fr:Farine de seigle T130
 ciqual_food_code:en:9533
 ciqual_food_name:en:Rye flour, type 130
@@ -34433,6 +34502,9 @@ description:fr:Le soja, (soya) (Glycine max), est une espèce de plante annuelle
 description:nl:De sojaboon is een peulvrucht, afkomstig van de sojaplant (Glycine max), die als grondstof voor veel sojaproducten wordt gebruikt.
 description:pt:A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae
 # ingredient/soy-beans 22.545 in 34 @2021-08-22
+ciqual_food_code:en:20901
+ciqual_food_name:en:Soybean, whole grain
+ciqual_food_name:fr:Soja, graine entière
 
 <en:soya bean
 en:Whole soybean grain
@@ -37102,6 +37174,13 @@ carbon_footprint_fr_foodges_value:fr:1.2
 # 1538 products in 10 languages @2018-09-26
 
 <en:banana
+en:Dried banana
+fr:banane sèche
+ciqual_food_code:en:13089
+ciqual_food_name:en:Banana, pulp, dried
+ciqual_food_name:fr:Banane, pulpe, sèche
+
+<en:banana
 en:Dried banana pulp
 fr:Pulpe de banane sèche
 ciqual_food_code:en:13089
@@ -38370,6 +38449,9 @@ wikidata:en:Q89
 wikipedia:en:https://en.wikipedia.org/wiki/Apple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple
 # 5809 products in 12 languages @2018-10-05
+ciqual_food_code:en:13050
+ciqual_food_name:en:Apple, pulp, raw
+ciqual_food_name:fr:Pomme, pulpe, crue
 
 <en:apple
 en:Pink Lady apple
@@ -38923,6 +39005,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Clementine
 wikidata:en:Q460517
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
 # 81 products @2018-10-01
+ciqual_food_code:en:13082
+ciqual_food_name:en:Clementine, pulp, raw
+ciqual_food_name:fr:Clémentine, pulpe, crue
 
 <en:clementine
 <en:fruit juice
@@ -39457,6 +39542,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lime_(fruit)
 # 251 products @2018-10-01
 carbon_footprint_fr_foodges_ingredient:fr:Citron
 carbon_footprint_fr_foodges_value:fr:0.9
+ciqual_food_code:en:13067
+ciqual_food_name:en:Lime, pulp, raw
+ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
 
 <en:lime
 en:lime pulp
@@ -40733,6 +40821,9 @@ wikidata:en:Q196
 carbon_footprint_fr_foodges_ingredient:fr:Cerise
 carbon_footprint_fr_foodges_value:fr:1.3
 # 969 products in 7 languages @2018-09-29
+ciqual_food_code:en:13008
+ciqual_food_name:en:Cherry, pitted, raw
+ciqual_food_name:fr:Cerise, dénoyautée, crue
 
 <en:cherry
 en:Pitted cherry 
@@ -41332,6 +41423,10 @@ description:fr:Le dattier ou palmier-dattier (Phoenix dactylifera) est une espè
 description:it:La palma da datteri (Phoenix dactylifera) è una pianta appartenente alla famiglia Arecaceae. Fu nota sin dall'antichità per i suoi frutti eduli chiamati datteri.
 description:nl:De dadelpalm (Phoenix dactylifera) behoort tot de palmenfamilie. Ze wordt op grote schaal aangeplant omwille van de eetbare vruchten, de dadels.
 # ingredient/dates 3455 in 24 @2021-08-22
+ciqual_food_code:en:13011
+ciqual_food_name:en:Date, pulp and peel, dried
+ciqual_food_name:fr:Datte, pulpe et peau, sèche
+
 
 <en:date
 en:organic dates
@@ -41362,13 +41457,6 @@ de:pürierte Datteln
 fr:pâte de datte
 nl:dadelpuree
 sv:dadelpuré
-
-<en:date
-en:Dried date pulp and peel
-fr:Datte pulpe et peau sèche
-ciqual_food_code:en:13011
-ciqual_food_name:en:Date, pulp and peel, dried
-ciqual_food_name:fr:Datte, pulpe et peau, sèche
 
 #process:en:en:syrup
 #<en:date
@@ -42003,6 +42091,9 @@ zh:荔枝
 # wikidata:en:Q13182 refers to the plant
 wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 # ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
+ciqual_food_code:en:13023
+ciqual_food_name:en:Lychee, pulp, raw
+ciqual_food_name:fr:Litchi, pulpe, cru
 
 <en:lychee
 en:Lychee pulp
@@ -42307,6 +42398,9 @@ zh:西瓜
 wikidata:en:Q38645
 openfoodfacts:https://world.openfoodfacts.org/ingredient/watermelon
 # 172 products in 2 languages @ 2018-09-29
+ciqual_food_code:en:13036
+ciqual_food_name:en:Watermelon, pulp, raw
+ciqual_food_name:fr:Pastèque, pulpe, crue
 
 <en:watermelon
 en:watermelon pulp
@@ -42683,6 +42777,9 @@ es:caqui
 fr:kaki
 it:cachi
 wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
+ciqual_food_code:en:13066
+ciqual_food_name:en:Persimmon, pulp, raw
+ciqual_food_name:fr:Kaki, pulpe, cru
 
 <en:persimmon
 en:persimmon juice
@@ -45129,10 +45226,14 @@ description:fr:L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est 
 description:it:Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
 description:nl:De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
 description:pt:Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
+ciqual_food_code:en:20052
+ciqual_food_name:en:Artichoke, globe, raw
+ciqual_food_name:fr:Artichaut, cru
+# TODO: unsure of the proxy 
 
 <en:artichoke
-en:raw globe artichoke
-fr:artichaut cru
+en:globe artichoke
+fr:artichaut
 ciqual_food_code:en:20052
 ciqual_food_name:en:Artichoke, globe, raw
 ciqual_food_name:fr:Artichaut, cru
@@ -45974,6 +46075,9 @@ nl:gedroogde knoflook
 nn:tørket hvitløk
 sv:torkad vitlök, torkad hvidlök
 # fr:ailséché contains 35 products in 8 languages @2018-10-22
+ciqual_food_code:en:11023
+ciqual_food_name:en:Garlic, powder, dried
+ciqual_food_name:fr:Ail séché, poudre
 
 <fr:ail séché
 en:Dried garlic powder
@@ -49302,7 +49406,7 @@ de:Schwarzwurzeln
 et:mustjuur, aed-mustjuur
 eu:Eskortzonera
 fi:Mustajuuri
-fr:salsifis
+fr:salsifis, salsifis noirs
 gl:Escorzoneira
 hu:Feketegyökér
 it:scorzonera
@@ -50316,6 +50420,9 @@ description:it:Il peperoncino è il nome comune dato alla bacca ottenuta da alcu
 description:nl:Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
 description:pt:A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
 # ingredient/chili-pepper 29007 in 39 @2021-08-22
+ciqual_food_code:en:20151
+ciqual_food_name:en:Chili pepper, raw
+ciqual_food_name:fr:Piment, cru
 
 <en:chili pepper
 en:raw chili pepper
@@ -52868,6 +52975,9 @@ te:split peas
 wikidata:en:Q2265406
 wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
 # ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
+ciqual_food_code:en:20506
+ciqual_food_name:en:Split pea, cooked
+ciqual_food_name:fr:Pois cassé, cuit
 
 en:Cooked split peas
 fr:Pois cassés cuits
@@ -53288,7 +53398,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 # Almonds
 
 <en:tree nut
-en:almond, almonds, Almond peeled unpeeled or blanched
+en:almond, almonds, peeled Almond, unpeeled almond, blanched almond
 am:አልመንድ
 ar:لوز
 bg:бадеми
@@ -53302,7 +53412,7 @@ es:almendra, almendras
 et:Mandel, mandlid, mandleid
 eu:Arbendol
 fi:manteli, mantelit, mantelia
-fr:amande, amandes, Amande mondée émondée blanchie
+fr:amande, amandes, Amande mondée, amande émondée, amande blanchie
 fy:Mangel
 ga:almóinní
 gl:Améndoa
@@ -53349,6 +53459,7 @@ description:fr:L'amandier (Prunus dulcis) est une espèce d'arbres de la famille
 description:nl:De amandelboom (Prunus dulcis) komt van de rozenfamilie en is een kleine loofboom met als vrucht de amandel.
 description:pt:Prunus dulcis, popularmente conhecida como amendoeira é uma espécie de árvores de folhas caducas da família Rosaceae. A semente do seu fruto é geralmente considerada como um fruto seco: a amêndoa.
 # ingredient/almond has 25389 products in 38 languages @2021-08-17
+# TODO Split French and English
 
 <en:almond
 en:raw almonds
@@ -53679,6 +53790,9 @@ description:en:The chestnuts are a group of eight or nine species of deciduous t
 description:fr:Le châtaignier commun (Castanea sativa) est un arbre à feuillage caduc, qui produit des fruits largement consommés par l'homme : les châtaignes. 
 description:nl:Kastanje (Castanea) is een geslacht van loofbomen dat in België en Nederland niet autochtoon is. De vruchten van de tamme kastanje kunnen gegeten worden. Men kan de kastanjes rauw eten, poffen, roosteren of koken. Ook kan men gedroogde kastanjes verwerken in meel.
 # ingredient/chestnut 1019 in 9 @2021-08-21
+ciqual_food_code:en:15024
+ciqual_food_name:en:Chestnut, raw
+ciqual_food_name:fr:Châtaigne, crue
 
 <en:chestnut
 en:raw chestnut
@@ -53695,11 +53809,13 @@ ciqual_food_name:en:Chestnut, grilled
 ciqual_food_name:fr:Châtaigne, grillée
 
 <en:chestnut
-fr:châtaignes d'Ardéche AOP
+fr:châtaignes d'Ardèche AOP
+origins:en: en:France
 
 <en:chestnut
 en:chestnut from the EU
 nl:kastanjes EU
+origins:en: en:Europe
 
 #procerss:en:pureed
 #<en:chestnut
@@ -54321,6 +54437,8 @@ sv:pistaschmandel, pistaschnöt, pistaschnötter, pistagenöt
 zh:开心果, 阿月浑子
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
+ciqual_food_code:en:15044
+ciqual_food_name:en:Pistachio nut, grilled
 
 <en:pistachio nuts
 en:Grilled pistachio nut
@@ -54457,6 +54575,9 @@ description:fr:La noix est un fruit comestible à coque. Elle est produite par l
 description:it:La noce è il frutto degli alberi del genere Juglans.
 description:nl:Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van de gewone walnoten- of okkernotenboom (Juglans regia).
 # ingredient/walnut 5074 in 27 @2021-08-22
+ciqual_food_code:en:15023
+ciqual_food_name:en:Walnut, fresh
+ciqual_food_name:fr:Noix, fraîche
 
 <en:walnut
 en:Fresh walnut
@@ -54652,6 +54773,9 @@ ca:llavor d'alfals
 fr:Graines de Luzerne
 nl:alfalfa zaad
 wikidata:en:Q104245598
+ciqual_food_code:en:15032
+ciqual_food_name:en:Alphalfa seeds, raw
+ciqual_food_name:fr:Luzerne, graine
 
 <en:alfalfa seeds
 en:raw alfalfa seeds
@@ -58742,6 +58866,9 @@ wikidata:en:Q38859
 wikipedia:en:https://en.wikipedia.org/wiki/Basil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
 # 3605 products in 14 languages @2108-10-10
+ciqual_food_code:en:11033
+ciqual_food_name:en:Basil, fresh
+ciqual_food_name:fr:Basilic, frais
 
 <en:basil
 en:Fresh basil
@@ -63221,6 +63348,9 @@ description:en:Salicornia is a genus of succulent, halophyte (salt tolerant) flo
 description:de:Queller (Salicornia) ist eine Pflanzengattung in der Familie der Fuchsschwanzgewächse (Amaranthaceae). Insbesondere Europäischer Queller und Salicornia bigelovii sind essbar und wohlschmeckend, wenn auch recht salzig. Sie sind eher im gastronomischen Bereich oder im Großhandel erhältlich.
 description:fr:Le genre Salicornia regroupe une trentaine d'espèces de plantes halophytes appartenant à la famille des Amaranthaceae. En France, la majorité de la salicorne produite est ramassée en bords de mer et plus particulièrement dans les zones de marais salés. 
 description:nl:Zeekraal (Salicornia) is een geslacht van zoutverdragende succulenten uit de amarantenfamilie. Zeekraal kan tegen onderdompeling in zout water. Gekookt of rauw is het eetbaar. Na het koken lijkt het qua kleur op zeewier. De smaak en structuur lijken op jonge spinaziestengels.
+ciqual_food_code:en:20283
+ciqual_food_name:en:Glasswort (Salicornia sp.), fresh
+ciqual_food_name:fr:Salicorne (Salicornia sp.), fraîche
 
 <en:glasswort
 en:Fresh glasswort, Fresh salicornia
@@ -65352,6 +65482,9 @@ description:en:The Alaska pollock (Gadus chalcogrammus) is a marine fish species
 # zh-hk:黃線狹鱈
 wikidata:en:Q846231
 wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
+ciqual_food_code:en:26006
+ciqual_food_name:en:Alaska pollock, raw
+ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
 
 <en:alaska pollock
 en:Raw Alaska pollock
@@ -65574,6 +65707,9 @@ lij:Budego
 # zh-tw:釣鮟鱇
 wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
 # ingredient/en:angler-fish has 2 products @2019-01-12
+ciqual_food_code:en:26018
+ciqual_food_name:en:Anglerfish, raw
+ciqual_food_name:fr:Lotte ou baudroie, crue
 
 <en:Anglerfish
 en:Raw anglerfish
@@ -65616,6 +65752,9 @@ description:en:The Atlantic wolffish (Anarhichas lupus), also known as the seawo
 wikidata:en:Q934761
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_wolffish
 # ingredient/fr:loup-d’atlantique has 1 product @2019-01-15
+ciqual_food_code:en:26075
+ciqual_food_name:en:Atlantic bass, raw
+ciqual_food_name:fr:Bar ou loup de l'Atlantique, cru
 
 <en:Atlantic wolffish
 en:Raw Atlantic bass
@@ -65627,6 +65766,9 @@ ciqual_food_name:fr:Bar ou loup de l'Atlantique, cru
 <en:fish
 en:Spotted wolffish
 fr:Loup tacheté
+ciqual_food_code:en:26172
+ciqual_food_name:en:Spotted wolffish
+ciqual_food_name:fr:Loup tacheté, cru
 
 <en:Spotted wolffish
 en:Raw Spotted wolffish
@@ -65810,6 +65952,10 @@ ciqual_food_name:fr:Capelan, cru
 en:carp
 fr:carpe
 nl:karper
+ciqual_food_code:en:27003
+ciqual_food_name:en:Carp, raw, farmed
+ciqual_food_name:fr:Carpe, crue, élevage
+# TODO check if alternative
 
 <en:carp
 en:farmed raw Carp
@@ -66018,6 +66164,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
 # ingredient/fr:dorade-sébaste has 2 products @2019-01-15
 carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
 carbon_footprint_fr_foodges_value:fr:12
+ciqual_food_code:en:26132
+ciqual_food_name:en:Golden redfish, raw
+ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
+#TODO check proxy
 
 <en:deepwater redfish
 en:Raw golden redfish
@@ -66027,7 +66177,6 @@ ciqual_food_name:en:Golden redfish, raw
 ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
 
 <en:fish
-en:Raw golden redfish
 fr:Sébaste du nord crue, Dorade sébaste crue, Daurade sébaste crue
 ciqual_food_code:en:26210
 ciqual_food_name:en:Golden redfish, raw
@@ -67100,6 +67249,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
 carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
 carbon_footprint_fr_foodges_value:fr:6.6
+ciqual_food_code:en:26036
+ciqual_food_name:en:Salmon, raw, farmed
+ciqual_food_name:fr:Saumon, cru, élevage
+#TODO check proxy
 
 <en:salmon
 en:raw salmon
@@ -67108,10 +67261,14 @@ fr:saumon cru
 nl:rauwe zalm
 pt:Salmão cru
 # ingredient/raw-salmon has 100 products in 3 languages @2021-08-15
+ciqual_food_code:en:26036
+ciqual_food_name:en:Salmon, raw, farmed
+ciqual_food_name:fr:Saumon, cru, élevage
+
 
 <en:raw salmon
 en:raw farmed Salmon 
-fr:Saumon cru dsélevage
+fr:Saumon cru d'élevage
 ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
@@ -67892,10 +68049,6 @@ zh:长鳍金枪鱼
 wikipedia:en:https://en.wikipedia.org/wiki/Albacore
 # ingredient/fr:thon-0blanc has 47 products in 3 languages @2019-02-02
 # ingredient/fr:thon-blanc-germon has 64 products in french @2019-01-02
-
-<en:albacore
-en:Albacore raw
-fr:Thon germon, thon blanc cru
 ciqual_food_code:en:26076
 ciqual_food_name:en:Albacore, raw
 ciqual_food_name:fr:Thon germon ou thon blanc, cru
@@ -68018,10 +68171,7 @@ fr:thon au naturel
 
 <en:fish
 en:grenadier
-
-<en:grenadier
-en:Raw grenadier
-fr:Hoki cru
+fr:Hoki
 ciqual_food_code:en:26213
 ciqual_food_name:en:Grenadier, from any fishing spot, raw
 ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
@@ -68074,8 +68224,8 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Grenadier_patagonien
 
 # Perhaps a synonym
 
-en:Raw roundnose grenadier
-fr:Grenadier cru, Grenadier de roche cru
+en:roundnose grenadier
+fr:Grenadier de roche
 ciqual_food_code:en:26128
 ciqual_food_name:en:Roundnose grenadier, raw
 ciqual_food_name:fr:Grenadier (de roche), cru
@@ -68205,10 +68355,6 @@ wikidata:en:Q17767599
 wikipedia:en:https://en.wikipedia.org/wiki/Bream
 description:en:Bream are species of freshwater and marine fish belonging to a variety of genera.
 description:fr:Brème est un nom vernaculaire féminin, ambigu en français car il peut désigner différentes espèces de poissons d'eau douce
-
-<en:freshwater bream
-en:Raw freshwater bream
-fr:Brème cru
 ciqual_food_code:en:26170
 ciqual_food_name:en:Freshwater bream, raw
 ciqual_food_name:fr:Brème, cru
@@ -68228,10 +68374,6 @@ ciqual_food_name:fr:Julienne ou Lingue, crue
 <en:ling
 en:blue ling
 fr:Lingue bleue
-
-<en:blue ling
-en:Raw blue ling
-fr:Lingue bleue crue, Lingue crue
 ciqual_food_code:en:26194
 ciqual_food_name:en:Blue ling, raw
 ciqual_food_name:fr:Lingue bleue ou Lingue, crue
@@ -68342,10 +68484,6 @@ description:fr:La dorade grise (Spondyliosoma cantharus) est une espèce de pois
 description:it:La tanuta (Spondyliosoma cantharus), noto anche come cantaro, è un pesce di mare della famiglia Sparidae. È uno degli sparidi a distribuzione più settentrionale, si trova infatti a nord fino alla Scandinavia mentre a sud raggiunge l'Angola.
 description:nl:De zeekarper (Spondyliosoma cantharus) is een vis uit het geslacht Spondyliosoma uit de familie van Sparidae (Zeebrasems). De zeekarper wordt ook wel grijze dorade (Frans: dorade grise) genoemd. Deze vis komt voor aan de oostelijke kusten van de Atlantische Oceaan van Scandinavië tot Noord-Namibië.
 description:sv:Havsruda (Spondyliosoma cantharus) är en stimfisk från familjen havsrudefiskar (Sparidae) som lever i östra Atlanten från Skandinavien till södra Afrika.
-
-<en:black seabream
-en:raw Black seabream
-fr:dorade grise crue, daurade grise crue, griset crue
 ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
 ciqual_food_name:fr:Dorade grise, ou daurade grise, ou griset, crue
@@ -68459,6 +68597,10 @@ ciqual_food_name:fr:Dorade royale ou daurade ou vraie daurade, crue, élevage
 <en:seabream
 en:Mediterranean bass
 fr:Loup de Méditerranée
+ciqual_food_code:en:26205
+ciqual_food_name:en:Mediterranean bass, raw, wild
+ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, sauvage
+# TODO proxy
 
 <en:Mediterranean bass
 en:Raw wild Mediterranean bass
@@ -68633,15 +68775,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trout
 # ingredient/fr:truite has 53 products in 3 languages @2018-12-30
 
 <en:trout
-en:raw farmed trout
-fr:truite d'élevage crue
+en:farmed trout
+fr:truite d'élevage
 ciqual_food_code:en:27008
 ciqual_food_name:en:Trout, farmed, raw
 ciqual_food_name:fr:Truite d'élevage, crue
 
 <en:trout
-en:raw Sea trout
-fr:Truite de mer crue
+en:Sea trout
+fr:Truite de mer
 ciqual_food_code:en:26092
 ciqual_food_name:en:Sea trout, raw
 ciqual_food_name:fr:Truite de mer, crue
@@ -68721,15 +68863,15 @@ carbon_footprint_fr_foodges_value:fr:4.9
 
 #comment:en:
 <en:rainbow trout
-en:farmed raw Rainbow trout
-fr:Truite arc en ciel crue élevage
+en:farmed Rainbow trout
+fr:Truite arc en ciel d'élevage
 ciqual_food_code:en:27009
 ciqual_food_name:en:Rainbow trout, raw, farmed
 ciqual_food_name:fr:Truite arc en ciel, crue, élevage
 
 <en:rainbow trout
-en:raw salmon trout
-fr:Truite saumonée crue
+en:salmon trout
+fr:Truite saumonée
 ciqual_food_code:en:27021
 ciqual_food_name:en:Salmon trout, raw
 ciqual_food_name:fr:Truite saumonée, crue
@@ -68845,8 +68987,8 @@ ciqual_food_name:en:Surmullet or red mullet, raw
 ciqual_food_name:fr:Rouget-barbet de roche, cru
 
 <en:tub gurnard
-en:Raw tub gurnard
-fr:Grondin perlon cru
+en:Tub gurnard
+fr:Grondin perlon
 ciqual_food_code:en:26219
 ciqual_food_name:en:Tub gurnard, raw
 ciqual_food_name:fr:Grondin perlon, cru
@@ -68871,8 +69013,8 @@ ciqual_food_name:en:Turbot, raw, farmed
 ciqual_food_name:fr:Turbot d'élevage, cru
 
 <en:turbot
-en:Raw wild turbot
-fr:Turbot sauvage cru
+en:wild turbot
+fr:Turbot sauvage
 ciqual_food_code:en:26042
 ciqual_food_name:en:Turbot, raw, wild
 ciqual_food_name:fr:Turbot sauvage, cru
@@ -69026,15 +69168,12 @@ ciqual_food_name:fr:Lieu jaune ou colin, cru
 # description:fr:Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 <en:fish
+en:mullet
 fr:mulet
 br:Meilh
 wikidata:en:Q756996
 wikipedia:fr:https://fr.wikipedia.org/wiki/Mulet_(poisson)
 # ingredient/fr:mulet has 2 products in french @2019-01-01
-
-<fr:mulet
-en:Raw mullet
-fr:Mulet cru
 ciqual_food_code:en:26091
 ciqual_food_name:en:Mullet, raw
 ciqual_food_name:fr:Mulet, cru
@@ -69042,13 +69181,10 @@ ciqual_food_name:fr:Mulet, cru
 #description:fr:Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
 
 <en:rockfish
+en:spiny scorpionfish
 fr:rascasse
 wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
-
-<fr:rascasse
-en:Raw spiny scorpionfish
-fr:Rascasse crue
 ciqual_food_code:en:26063
 ciqual_food_name:en:Spiny scorpionfish, raw
 ciqual_food_name:fr:Rascasse, crue
@@ -69890,15 +70026,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 fr:Noix de Saint-Jacques sans corail
 
 <en:scallop
-en:Raw scallop with coral
-fr:Coquilles Saint-Jacques crues avec noix et corail
+en:scallop with coral
+fr:Coquilles Saint-Jacques avec noix et corail
 ciqual_food_code:en:10003
 ciqual_food_name:en:Scallop, with coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
 
 <en:scallop
-en:Raw scallop without coral
-fr:Coquilles Saint-Jacques crues avec noix
+en:scallop without coral
+fr:Coquilles Saint-Jacques avec noix
 ciqual_food_code:en:10045
 ciqual_food_name:en:Scallop, without coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
@@ -70027,8 +70163,8 @@ description:nl:Argopecten purpuratus is een tweekleppigensoort uit de familie va
 # ingredient/fr:Argopecten-purpuratus has 68 products @2019-01-12
 
 <en:Peruvian scallop
-en:Raw Peruvian scallop without coral
-fr:Pétoncle du Pérou avec noix crue, Peigne du Pérou avec noix cru
+en:Peruvian scallop without coral
+fr:Pétoncle du Pérou avec noix, Peigne du Pérou avec noix
 ciqual_food_code:en:10049
 ciqual_food_name:en:Peru sea scallop, without coral, raw
 ciqual_food_name:fr:Pétoncle ou Peigne du Pérou, noix, crue
@@ -70345,10 +70481,6 @@ zh:十腕总目
 wikidata:en:Q81900
 wikipedia:en:https://en.wikipedia.org/wiki/Squid
 # ingredient/fr:calmar has 25 products in 2 languages @2019-01-04
-
-<en:squid
-en:Raw squid
-fr:Calmar cru, Calamar cru, Encornet cru
 ciqual_food_code:en:10001
 ciqual_food_name:en:Squid, raw
 ciqual_food_name:fr:Calmar ou calamar ou encornet, cru
@@ -71254,9 +71386,6 @@ comment:en:The term shrimp is used to refer to some decapod crustaceans, althoug
 wikidata:en:Q1517781
 wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 # ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
-
-<en:shrimp
-en:raw shrimp
 ciqual_food_code:en:10021
 ciqual_food_name:en:Shrimp or prawn, raw
 ciqual_food_name:fr:Crevette, crue
@@ -73833,10 +73962,6 @@ zh:鸡肉
 # ingredient/chicken-meat has 2349 products in 8 languages @2019-04-16
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
-
-<en:chicken meat
-en:raw Chicken meat
-fr:viande de poulet sans peau crue
 ciqual_food_code:en:36003
 ciqual_food_name:en:Chicken, meat, raw
 ciqual_food_name:fr:Poulet, viande, crue
@@ -74144,6 +74269,9 @@ de:Entenbrust
 fr:magret de canard
 carbon_footprint_fr_foodges_ingredient:fr:Magret canard
 carbon_footprint_fr_foodges_value:fr:9.7
+ciqual_food_code:en:36206
+ciqual_food_name:en:Duck, breast fillet
+ciqual_food_name:fr:Canard, magret, cru
 
 <en:duck breast
 en:Smoked duck breast fillet
@@ -74151,13 +74279,6 @@ fr:Magret de canard fumé
 ciqual_food_code:en:8111
 ciqual_food_name:en:Duck breast fillet, smoked
 ciqual_food_name:fr:Canard, magret fumé
-
-<en:duck breast
-en:Duck breast fillet
-fr:Magret de canard cru
-ciqual_food_code:en:36206
-ciqual_food_name:en:Duck, breast fillet
-ciqual_food_name:fr:Canard, magret, cru
 
 <en:duck meat
 en:duck fillet
@@ -74348,14 +74469,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turkey_as_food
 # ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de dinde
 carbon_footprint_fr_foodges_value:fr:6.6
-
-<en:turkey meat
-en:raw turkey meat 
-fr:viande de dinde sans peau crue
 ciqual_food_code:en:36301
 ciqual_food_name:en:Turkey, meat, raw
 ciqual_food_name:fr:Dinde, viande, crue
-
 
 <en:turkey meat
 de:Putenfleisch
@@ -74452,10 +74568,6 @@ fr:oie
 <en:goose
 en:goose meat
 fr:viande d'oie
-
-<en:goose meat
-en:Goose meat and skin raw
-fr:viande et peau d'oie crue
 ciqual_food_code:en:36501
 ciqual_food_name:en:Goose, meat and skin, raw
 ciqual_food_name:fr:Oie, viande et peau, crue
@@ -74618,10 +74730,6 @@ allergens:en: en:eggs
 carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr:2.6
 description:en:EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
-
-<en:egg
-en:Raw egg
-fr:Oeuf cru
 ciqual_food_code:en:22000
 ciqual_food_name:en:Egg, raw
 ciqual_food_name:fr:Oeuf, cru
@@ -78828,6 +78936,9 @@ sv:nötköttsbuljong
 wikidata:en:Q96362190
 #wikipedia:en:no entry
 # ingredient/beef-broth has 1786 products in 10 languages @2021-08-19
+ciqual_food_code:en:11001
+ciqual_food_name:en:Broth, stock or bouillon, beef, dehydrated
+ciqual_food_name:fr:Bouillon de boeuf, déshydraté
 
 <en:beef broth, beef stock
 en:dehydrated beef stock, dehydrated beef bouillon
@@ -78860,6 +78971,9 @@ nl:gevogeltebouillon
 # ingredient/fr:fond-de-volaille has 226 products in french @2019-03-09
 vegetarian:en:no
 vegan:en:no
+ciqual_food_code:en:11174
+ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
+ciqual_food_name:fr:Bouillon de volaille, déshydraté
 
 <en:poultry broth
 fr:fond de volaille aromatisé
@@ -79763,6 +79877,9 @@ description:nl:Harissa is een hete rode saus, die gemaakt is van onder meer pepe
 description:pt:A harissa é uma mistura de temperos típica do Magrebe.
 # ingredient/harissa 100 in 7 @2021-08-21
 # usage:fr:harissa (piment, ail, coriandre, sel, carvi)
+ciqual_food_code:en:11112
+ciqual_food_name:en:Harissa (hot spicy sauce), prepacked
+ciqual_food_name:fr:Harissa (sauce condimentaire)
 
 <en:harissa
 en:Prepacked harissa
@@ -80038,7 +80155,9 @@ description:pt:Maionese é um molho à base de óleo e ovo, com a forma de uma e
 description:sv:Majonnäs är en kall sås och emulsion mellan äggula och matolja. Den smaksätts vanligtvis med senap och en syra i form av vinäger eller citron.
 # ingredient/mayonnaise 2291  in 19 @2021-08-22
 # usage:de:Mayonnaise (Rapsöl, Wasser, Eier*, Tafelessig, Kochsalz jodiert, Zucker)
-
+ciqual_food_code:en:11054
+ciqual_food_name:en:Mayonnaise (70% fat and more)
+ciqual_food_name:fr:Mayonnaise (70% MG min.)
 
 <en:mayonnaise
 en:70% fat mayonnaise
@@ -80749,14 +80868,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
 
 #category:en:Pestos
 <en:sauce
-en:pesto, pesto sauce
+en:pesto, pesto sauce, Prepacked pesto sauce
 ar:البيستو
 ba:песто
 be:песта
 bg:песто
 el:πέστο
 fa:پستو
-fr:sauce pesto
+fr:sauce pesto, Sauce pesto préemballée
 he:פסטו
 hy:պեստո
 is:pestó
@@ -80783,10 +80902,6 @@ description:nl:Pesto of pesto alla genovese is een Italiaanse saus, gemaakt door
 description:pt:Pesto é um molho italiano composto tradicionalmente de folhas de manjericão moídas com pinhões, alho e sal, queijo parmesão ou pecorino ralados e no fim misturados com azeite extra virgem e temperado com pimenta preta.
 # ingredient/pesto 153 in 11 @2021-08-20
 # usage:en:pesto 19% (olive oil, parmesan, basil, butter, walnut kernel, garlic)
-
-<en:pesto
-en:Prepacked pesto sauce
-fr:Sauce pesto préemballée
 ciqual_food_code:en:11179
 ciqual_food_name:en:Sauce, pesto, prepacked
 ciqual_food_name:fr:Sauce pesto, préemballée
@@ -80872,6 +80987,7 @@ description:it:La margarina è un grasso alimentare, costituito da due fasi: una
 description:nl:Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
 description:pt:Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
 # ingredient/margarine 5892 in 34 @2021-08-21
+# TODO we should really have a proxy
 
 <en:Margarine
 en:vegetable margarine, vegetal margarine
