@@ -51002,7 +51002,7 @@ fr:tomates semi-séchées marinées, tomates semi-déshydratées et marinées
 #process:en: en:dried
 #process:en: en:dehydrated
 <en:tomato
-en:dried tomatoes
+en:dried tomatoes, Dried tomato
 #da:tørret tomat
 #de:getrocknete Tomaten
 #es:tomate deshidratado
@@ -51014,6 +51014,9 @@ ja:ドライトマト
 #nn:tørket tomat
 #ro:roșii uscate
 #sv:torkad tomat
+ciqual_food_code:en:20189
+ciqual_food_name:en:Tomato, dried
+ciqual_food_name:fr:Tomate, séchée
 # ingredient/fr:tomate-séchée has 423 products in 9 languages @2018-12-26
 
 #process:en: en:sundried
@@ -51034,11 +51037,6 @@ description:fr:Les tomates séchées sont un aliment déshydraté traditionnel, 
 # ingredient/fr:tomates-sechees-au-soleil has 281 products in 1 language @2020-05-21
 
 <en:sundried tomatoes
-en:Dried tomato, Dried tomatoes, Sun-Dried tomato, Sun-Dried tomatoes
-fr:Tomate séchée, Tomates séchées
-ciqual_food_code:en:20189
-ciqual_food_name:en:Tomato, dried
-ciqual_food_name:fr:Tomate, séchée
 
 #<en:sundried tomatoes
 #en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil
@@ -52151,9 +52149,9 @@ de:grüne Erbsen
 es:guisantes verdes
 fi:vihreät herneet
 fr:Petits pois
-it:Piselli
+it:Piselli verde
 ja:グリーンピース
-nl:erwten
+nl:groene erwten
 sv:gröna ärtor
 th:ถั่ว ลันเตา
 vegan:en:yes
@@ -53413,8 +53411,10 @@ nutriscore_fruits_vegetables_nuts:en:yes
 ###################################################################################################
 # Almonds
 
+#comment:en:do NOT add the state of the almond, i.e. peeled, crushed, etc. This is detected in the processing taxonomy
+
 <en:tree nut
-en:almond, almonds, peeled Almond, unpeeled almond, blanched almond
+en:almond, almonds
 am:አልመንድ
 ar:لوز
 bg:бадеми
@@ -53428,7 +53428,7 @@ es:almendra, almendras
 et:Mandel, mandlid, mandleid
 eu:Arbendol
 fi:manteli, mantelit, mantelia
-fr:amande, amandes, Amande mondée, amande émondée, amande blanchie
+fr:amande, amandes
 fy:Mangel
 ga:almóinní
 gl:Améndoa
