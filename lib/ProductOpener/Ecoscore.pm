@@ -1032,7 +1032,16 @@ sub aggregate_origins_of_ingredients($$$) {
 			$log->debug("aggregate_origins_of_ingredients - adding origins", { ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref }) if $log->is_debug();
 			foreach my $origin_id (@$ingredient_origins_ref) {
 				if (not defined $ecoscore_data{origins}{$origin_id}) {
-					$origin_id = "en:unknown";
+
+					# If the origin is a child of a country, use the country
+					my $country_code = get_inherited_property("origins", $origin_id, "country_code_2:en");
+
+					if ((defined $country_code) and (defined $ecoscore_data{origins}{canonicalize_taxonomy_tag("en", "origins", $country_code)})) {
+						$origin_id = canonicalize_taxonomy_tag("en", "origins", $country_code);
+					}
+					else {
+						$origin_id = "en:unknown";
+					}
 				}
 				defined $aggregated_origins_ref->{$origin_id} or $aggregated_origins_ref->{$origin_id} = 0;
 				$aggregated_origins_ref->{$origin_id} += $ingredient_ref->{percent_estimate} / scalar(@$ingredient_origins_ref);

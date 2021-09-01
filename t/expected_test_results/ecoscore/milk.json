@@ -14,7 +14,7 @@
             "epi_score" : 93,
             "epi_value" : 4,
             "origins_from_origins_field" : [
-               "en:france"
+               "en:unknown"
             ],
             "transportation_score_be" : 85,
             "transportation_score_ch" : 69,
@@ -133,6 +133,7 @@
    "ingredients" : [
       {
          "id" : "en:milk",
+         "origins" : "en:brittany",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -163,7 +164,7 @@
       "en:milk",
       "en:dairy"
    ],
-   "ingredients_text" : "Lait",
+   "ingredients_text" : "Lait (origine : Bretagne)",
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "en:eu-organic"
@@ -176,9 +177,6 @@
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "origins_tags" : [
-      "en:france"
-   ],
    "packaging_text" : "1 bouteille en plastique PET, 1 bouchon PEHD",
    "packagings" : [
       {
