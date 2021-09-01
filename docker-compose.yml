@@ -53,9 +53,3 @@ services:
       - webnet
 networks:
   webnet:
-volumes:
-  dbdata:
-  pgdata:
-  podata:
-  product_images:
-  html_data:

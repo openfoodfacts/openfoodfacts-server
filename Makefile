@@ -27,6 +27,8 @@ status:
 prune:
 	docker system prune -af
 
+prune_cache:
+	docker builder prune
 
 dev: up import_sample_data
 
@@ -55,7 +57,7 @@ build_npm:
 info:
 	@echo "${NAME} version: ${VERSION}"
 
-clean: down prune
+clean: down prune_cache
 	rm -rf node_modules/
 	rm -rf tmp/
 	rm -rf logs/

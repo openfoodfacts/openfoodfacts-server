@@ -9,7 +9,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   strategy:
   #     matrix:
-  #       env: [off-mongodb-net, off-mongodb-org]
+  #       env: [mongodb-dev, mongodb-prod]
   #   steps:
   #   - name: Install dependencies
   #     environment: ${{ matrix.env }}
@@ -158,7 +158,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          sudo docker-compose up -d --remove-orphans 2>&1
+          docker-compose up -d --remove-orphans 2>&1
 
     - name: Check services are up
       environment: ${{ matrix.env }}
@@ -200,4 +200,4 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          sudo docker system prune -a -f
+          docker system prune -a -f

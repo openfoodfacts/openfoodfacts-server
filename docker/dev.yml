@@ -7,21 +7,30 @@ services:
       dockerfile: Dockerfile
       target: runnable
     volumes:
-      - ./:/opt/product-opener/
-      - ./node_modules:/opt/product-opener/node_modules
+      - ./:/opt/product-opener # we don't COPY the files in the Dockerfile 'runnable' target, so we have to bind them
+      - icons_dist:/opt/product-opener/html/images/icons/dist:ro
+      - js_dist:/opt/product-opener/html/js/dist:ro
+      - css_dist:/opt/product-opener/html/css/dist:ro
+      - image_attributes:/opt/product-opener/html/images/attributes:ro
+      - node_modules:/opt/product-opener/node_modules:ro
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:
       context: .
       dockerfile: Dockerfile.frontend
     volumes:
-      - ./:/opt/product-opener/
-      - ./node_modules:/opt/product-opener/node_modules
+      - icons_dist:/opt/product-opener/html/images/icons/dist
+      - js_dist:/opt/product-opener/html/js/dist
+      - css_dist:/opt/product-opener/html/css/dist
+      - image_attributes:/opt/product-opener/html/images/attributes
+      - node_modules:/opt/product-opener/node_modules
   mongodb:
     image: mongo:4.4
-    volumes:
-      - dbdata:/var/lib/mongodb
     networks:
       - webnet
 volumes:
-  dbdata:
+  node_modules:
+  icons_dist:
+  js_dist:
+  css_dist:
+  image_attributes:

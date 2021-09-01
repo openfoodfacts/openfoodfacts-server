@@ -2,6 +2,10 @@
 
 This guide will allow you to rapidly build a ready-to-use development environment for **Product Opener** running in Docker.
 
+First setup time estimate is `~10mn` with the following specs:
+* `8GB` RAM dedicated to Docker client
+* `6` CPUs dedicated to Docker client
+* `12MB/s` internet speed
 
 ## 1. Prerequisites
 **Docker** is the easiest way to install the Open Food Facts server, play with it, and even modify the code.
@@ -54,7 +58,7 @@ Product Opener's environment ([`.env`](../.env) file).
 
 The `.env` file contains ProductOpener default settings:
 * `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
-* `PRODUCT_OPENER_PORT` can be set to different values to support **multiple deployments** (they would conflict if on the same port !).
+* `PRODUCT_OPENER_PORT` can be set to different values to support **multiple deployments** (they would conflict if on the same port !). Default port: `80`.
 * `PRODUCERS_PLATFORM` can be set to `1` to build / run the **producer platform**.
 * `ROBOTOFF_URL` can be set to **connect with a Robotoff instance**.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to **enable OCR using Google Cloud Vision**.
@@ -76,13 +80,6 @@ The `.env` file also contains some useful Docker Compose variables:
 
 **Note:** you can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
 
-**Hosts file:**
-
-Since the default domain is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
-```text
-127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost 
-```
-
 ## 4. Build your dev environment
 
 From the repository root, run:
@@ -101,6 +98,13 @@ The command will run 3 subcommands:
 * The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
 
 * You might not immediately see the test products: create an account, login, and they should appear.
+
+**Hosts file:**
+
+Since the default domain is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+```text
+127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost 
+```
 
 ### You're done ! Check http://productopener.localhost/ !
 

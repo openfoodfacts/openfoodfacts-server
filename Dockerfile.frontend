@@ -7,6 +7,8 @@ RUN npm install
 ENV PATH /opt/product-opener/node_modules/.bin:$PATH
 
 COPY html /opt/product-opener/html
+COPY icons /opt/product-opener/icons
+COPY scss /opt/product-opener/scss
 COPY gulpfile.js /opt/product-opener/
 RUN npm run build
 

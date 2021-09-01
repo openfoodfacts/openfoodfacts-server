@@ -22,7 +22,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
-        dockerfile: docker/frontend/Dockerfile
+        dockerfile: Dockerfile.frontend
         tag_semver: true
         tags: "latest,${{ github.sha }}"
       id: publish_frontend
@@ -44,6 +44,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
-        dockerfile: docker/backend/Dockerfile
+        dockerfile: Dockerfile
         tag_semver: true
         tags: "latest,${{ github.sha }}"
