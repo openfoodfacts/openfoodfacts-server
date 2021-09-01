@@ -54,7 +54,7 @@ build_npm:
 info:
 	@echo "${NAME} version: ${VERSION}"
 
-clean:
+clean: down prune
 	rm -rf node_modules/
 	rm -rf tmp/
 	rm -rf logs/

@@ -8,7 +8,20 @@ services:
       target: runnable
     volumes:
       - ./:/opt/product-opener/
+      - ./node_modules:/opt/product-opener/node_modules:rw,shared
   frontend:
-    image: nginx:stable-alpine
+    image: openfoodfacts-server/frontend:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
     volumes:
       - ./:/opt/product-opener/
+      - ./node_modules:/opt/product-opener/node_modules:r
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - dbdata:/var/lib/mongodb
+    networks:
+      - webnet
+volumes:
+  dbdata:

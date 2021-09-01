@@ -5,13 +5,16 @@ services:
       - /mnt/data/:/opt/product-opener/html/data # Data mount for Robotoff static dumps
       - product_images:/opt/product-opener/html/images/products
       - html_data:/opt/product-opener/html/data
-
+      - node_modules:/opt/product-opener/node_modules:rw,shared
   backend:
     volumes:
+      - /mnt/users:/mnt/podata/users # Mount user profiles
+      - /mnt/product_images:/opt/product-opener/html/images/products # Mount products images
+      - /mnt/products:/mnt/podata/products # Mount products info
       - podata:/mnt/podata
       - product_images:/opt/product-opener/html/images/products
       - html_data:/opt/product-opener/html/data
-
+      - node_modules:/opt/product-opener/node_modules:r # use node_modules volume from frontend container
   postgres:
     volumes:
       - pgdata:/var/lib/postgresql/data

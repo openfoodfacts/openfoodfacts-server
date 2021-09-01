@@ -44,34 +44,37 @@ Go to the cloned directory:
 cd openfoodfacts-server/
 ```
 
-## 3. Setup Product Opener's environment
+## 3. [Optional] Review Product Opener's environment
 
-Before running the `docker-compose` deployment, you need to review and configure
+**Note: you can skip this step for the first setup since the default `.env` in the repo contains all the default values required to get started.**
+
+Before running the `docker-compose` deployment, you can review and configure
 Product Opener's environment ([`.env`](../.env) file).
 
-The `.env` file contains ProductOpener default settings:
-* `PRODUCT_OPENER_DOMAIN` can be set to different values based on which flavor is run.
-* `PRODUCT_OPENER_PORT` can be set to different values to support multiple deployments (they would conflict if on the same port !).
-* `PRODUCERS_PLATFORM` can be set to `1` to build / run the producer platform.
-* `ROBOTOFF_URL` can be set to connect with a Robotoff instance.
-* `GOOGLE_CLOUD_VISION_API_KEY` can be set to enable OCR using Google Cloud Vision.
-* `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY` can be set to run translations.
-* `GEOLITE2_PATH`, `GEOLITE2_ACCOUNT_ID` and `GEOLITE2_LICENSE_KEY` can be set to enable Geolite2.
 
-The `.env` file also contains three useful Docker Compose variables:
-* `TAG` is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images.
-* `COMPOSE_PROJECT_NAME` is the compose project name that sets the prefix to every container name. Do not update this unless you know what you're doing.
+The `.env` file contains ProductOpener default settings:
+* `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
+* `PRODUCT_OPENER_PORT` can be set to different values to support **multiple deployments** (they would conflict if on the same port !).
+* `PRODUCERS_PLATFORM` can be set to `1` to build / run the **producer platform**.
+* `ROBOTOFF_URL` can be set to **connect with a Robotoff instance**.
+* `GOOGLE_CLOUD_VISION_API_KEY` can be set to **enable OCR using Google Cloud Vision**.
+* `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY` can be set to **run translations**.
+* `GEOLITE2_PATH`, `GEOLITE2_ACCOUNT_ID` and `GEOLITE2_LICENSE_KEY` can be set to **enable Geolite2**.
+* `TAG` is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images. Note that this is useful only if you use pre-built images from the Docker Hub (`docker/prod.yml` override); the default dev setup (`docker/dev.yml`) builds images locally.
+
+The `.env` file also contains some useful Docker Compose variables:
+* `COMPOSE_PROJECT_NAME` is the compose project name that sets the **prefix to every container name**. Do not update this unless you know what you're doing.
 * `COMPOSE_FILE` is the `;`-separated list of Docker compose files that are included in the deployment:
-  * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml;docker/mongodb.yml` (default)
-  * For a **production**-like environment, set it to `docker-compose.yml;docker/prod.yml`
+  * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml` (default)
+  * For a **production**-like environment, set it to `docker-compose.yml;docker/prod.yml;docker/mongodb.yml`
   * For more features, you can add:
     * `docker/admin-uis.yml`: add the Admin UIS container
     * `docker/geolite2.yml`: add the Geolite2 container
     * `docker/perldb.yml`: add the Perl debugger container
     * `docker/vscode.yml`: add the VSCode container
-    * `docker/mongodb.yml`: add the MongoDB container
+* `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
 
-You can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
+**Note:** you can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
 
 **Hosts file:**
 
@@ -109,7 +112,8 @@ $ make down    # stop the containers
 $ make restart # restart the containers
 $ make log     # get `docker-compose` logs (does not include all logs)
 $ make tail    # get other logs (`Apache`, `mod_perl`, etc...) bound to the local `logs` directory
-$ make prune   # prune unused Docker artifacts
+$ make prune   # remove unused Docker artifacts
+$ make clean   # get a fresh start / clean up your dev environment: removes locally bound folders, run `down` and `purge`
 ```
 
 ## 6. Appendix
