@@ -10561,60 +10561,36 @@ es:fontal
 fr:fontal, fromage fontal
 wikidata:en:Q3076339
 
-# description:en:GORGONZOLA is a veined Italian blue cheese, made from unskimmed cow's milk.
-
+<en:cow cheese
 <en:cheese
 en:gorgonzola, gorgonzola cheese
-af:Gorgonzola
 ar:جبنة غورغونزولا
 be:Гаргандзола
 bg:Горгондзола
 bo:གོར་གོན་ཟོ་ལ།
-ca:gorgonzola
-cs:gorgonzola
 cv:Горгонзола
-da:Gorgonzola
-de:Gorgonzola
 el:Γκοργκοντζόλα
-eo:Gorgonzolo
-es:Gorgonzolo
-et:Gorgonzola, Gorgonzola juust
-eu:Gorgonzola
+et:Gorgonzola juust
 fa:گورگونتزولا
-fi:gorgonzola, gorgonzolajuusto
-fr:gorgonzola, fromage gorgonzola, gorgonzola AOP, fromage gorgonzola AOP
-gl:Gorgonzola
+fi:gorgonzolajuusto
+fr:fromage gorgonzola, gorgonzola AOP, fromage gorgonzola AOP
 he:גורגונזולה
-hr:Gorgonzola
-hu:Gorgonzola
 hy:Գորգոնձոլա
-id:Gorgonzola
-it:gorgonzola, formaggio gorgonzola
+it:formaggio gorgonzola
 ja:ゴルゴンゾーラ
 ko:고르곤졸라
-la:Gorgonzola
 mk:Горгонѕола
-nb:gorgonzola
-nl:gorgonzola
-pl:gorgonzola
-pt:gorgonzola
 ro:Brânză Gorgonzola
 ru:Горгондзола
 sd:گارگونزولا
 sl:Gorgonzola
 sr:горгонзола
-sv:Gorgonzola
-tr:Gorgonzola
 uk:Ґорґонцола
+xx:gorgonzola
 zh:古岡左拉芝士
 # eml:Gurgunzöla
-# en-ca:Gorgonzola
-# en-gb:Gorgonzola
 # lmo:Gorgonzoeula
-# pt-br:gorgonzola
-# sco:gorgonzola
 # sr-ec:горгонзола
-# sr-el:Gorgonzola
 # yue:哥根蘇拿芝士
 # zh-cn:古冈左拉干酪
 # zh-hans:古冈左拉芝士
@@ -10624,7 +10600,16 @@ zh:古岡左拉芝士
 # zh-tw:古岡左拉起司
 wikidata:en:Q209044
 wikipedia:en:https://en.wikipedia.org/wiki/Gorgonzola
-# ingredient/fr:gorgonzola has 108 products in french @2018-12-13
+description:de:Gorgonzola ist ein norditalienischer Blauschimmelkäse geschützter Ursprungsbezeichnung und besteht aus Kuhmilch, Lab und Salz, die mit einer Edelpilzkultur versetzt werden.
+description:en:GORGONZOLA is a veined Italian blue cheese, made from unskimmed cow's milk.
+description:es:El gorgonzola es un queso italiano de mesa, de pasta cremosa y untuosa, hecho con leche entera pasteurizada de vaca.
+description:fr:Le gorgonzola est l'appellation d'origine d'un fromage traditionnel à base de lait de vache, à pâte persillée, fabriqué dans les régions de Lombardie et du Piémont.
+description:it:Il gorgonzola è un formaggio erborinato, prodotto in Italia dal latte intero di vacca.
+description:nl:Gorgonzola is blauwschimmelkaas van volle koemelk uit het noorden van Italië.
+ciqual_food_code:en:12524
+ciqual_food_name:en:Gorgonzola cheese, from cow's milk
+ciqual_food_name:fr:Gorgonzola
+# 354 in 10 @2021-09-01
 
 
 <en:cheese
@@ -11514,7 +11499,7 @@ ciqual_food_name:en:Raclette cheese, from cow's milk
 ciqual_food_name:fr:Raclette (fromage)
 description:de:Raclette ist der Name eines Kuhmilchkäses.
 description:en:RACLETTE is a semi-hard cow's milk cheese.
-description:es:El raclette es un queso semicurado de origen suizo proveniente del cantón del Valais. 
+description:es:El raclette es un queso semicurado de origen suizo proveniente del cantón del Valais.
 description:fr:Le raclette est un fromage à base de lait cru de vache, à pâte pressée non cuite d'origine du canton du Valais en Suisse.
 # 84 in 4 @2021-08-31
 
@@ -45076,8 +45061,6 @@ wikidata:en:Q2142465
 wikipedia:en:https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
 
-
-# description:en:The globe  ARTICHOKE  (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
 
 #category/artichokes
 <en:vegetable
