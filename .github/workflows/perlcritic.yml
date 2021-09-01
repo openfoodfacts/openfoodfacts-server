@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: "Run Perl::Critic"
+    - name: "Run Perl::Critic" 
       uses: Difegue/action-perlcritic@2.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
