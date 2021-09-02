@@ -58,7 +58,7 @@ Product Opener's environment ([`.env`](../.env) file).
 
 The `.env` file contains ProductOpener default settings:
 * `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
-* `PRODUCT_OPENER_PORT` can be set to different values to support **multiple deployments** (they would conflict if on the same port !). Default port: `80`.
+* `PRODUCT_OPENER_PORT` can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. Default port: `80`.
 * `PRODUCERS_PLATFORM` can be set to `1` to build / run the **producer platform**.
 * `ROBOTOFF_URL` can be set to **connect with a Robotoff instance**.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to **enable OCR using Google Cloud Vision**.
@@ -88,9 +88,8 @@ From the repository root, run:
 $ make dev
 ```
 
-The command will run 3 subcommands:
-* `make up`: **Run all containers** from the local directory and bind local code files, so that you do not have to rebuild everytime.
-* `make build_npm`: **Build static assets (JS, CSS, HTML, etc...)** in local folders `node_modules/` and `html`, and bind them to the running frontend (NGINX) container.
+The command will run 2 subcommands:
+* `make up`: **Build and run containers** from the local directory and bind local code files, so that you do not have to rebuild everytime.
 * `make import_sample_data`: **Load sample data** into `mongodb` container (~100 products).
 
 ***Notes:*** 
@@ -101,9 +100,9 @@ The command will run 3 subcommands:
 
 **Hosts file:**
 
-Since the default domain is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
 ```text
-127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost 
+127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 ```
 
 ### You're done ! Check http://productopener.localhost/ !
@@ -112,33 +111,15 @@ Since the default domain is set to `productopener.localhost`, add the following 
 
 ```console
 $ make up      # start the containers
-$ make down    # stop the containers
+$ make down    # stop the containers and delete the volumes
 $ make restart # restart the containers
 $ make log     # get `docker-compose` logs (does not include all logs)
-$ make tail    # get other logs (`Apache`, `mod_perl`, etc...) bound to the local `logs` directory
-$ make prune   # remove unused Docker artifacts
-$ make clean   # get a fresh start / clean up your dev environment: removes locally bound folders, run `down` and `purge`
+$ make tail    # get other logs (`Apache`, `mod_perl`, etc...) bound to the local `logs/` directory
+$ make prune   # remove unused Docker artifacts (images, containers, volumes, networks, cache...)
+$ make clean   # get a fresh start / clean up your dev environment: removes locally bound folders, run `down` and `prune`
+$ make import_sample_data # load sample data (~100 products) into the MongoDB database
+$ make import_prod_data   # load latest prod data (~2M products, 1.7GB) into the MongoDB database. Can take a while (up to 10m).
 ```
-
-## 6. Appendix
-
-### Changing ports
-
-By default, the containers run using port 80. If you need to change this to ie. 8080, override the existing port of the `frontend` service in `docker/dev.yml`:
-```
-    ports:
-      - 8080:80
-```
-Once you are done building your environment, go to http://localhost:8080/
-
-### Import full mongodb dump
-The default docker environnement contains only ~120 products. If you need a full db with more than 1 millions products, you can import mongodb dump (1.7GB).
-```console
-$ make import_prod_data
-```
-
-**Note:** it might take a while (up to 10mn) to import the full production database.
-
 
 ### Going further
-To learn more about Docker and how to develop with it, see the [Docker developer's guide]((./docker-developer-guide.md)).
+To learn more about developing with Docker, see the [Docker developer's guide]((./docker-developer-guide.md)).

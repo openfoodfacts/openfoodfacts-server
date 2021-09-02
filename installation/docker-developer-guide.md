@@ -10,7 +10,7 @@ This page describes how to test and debug your changes once you have set up the 
 
 ```
 make log
-``` 
+```
 
 ### Tail other logs
 
@@ -62,7 +62,7 @@ mkdir directory-name
 
 ### Running minion jobs
 
-[Minion](https://docs.mojolicious.org/Minion) is a high-performance job queue for Perl. [Minion](https://docs.mojolicious.org/Minion) is used in [openfoodfacts-server](https://github.com/openfoodfacts/openfoodfacts-server) for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, are called minion jobs.
+[Minion](https://docs.mojolicious.org/Minion) is a high-performance job queue for Perl. [Minion](https://docs.mojolicious.org/Minion) is used in [openfoodfacts-server](https://github.com/openfoodfacts/openfoodfacts-server) for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, they are called minion jobs.
 
 Go to `/opt/product-opener/scripts` and run
 
@@ -77,6 +77,13 @@ The above command will show the status of minion jobs. Run the following command
 ```
 
 ### Restarting Apache
+
+Sometimes restarting the whole `backend` container is overkill, and you can just
+restart `Apache` from inside the container:
+
+```
+apache2ctl -k restart
+```
 
 ### Exiting the container
 
@@ -95,20 +102,20 @@ To restart the `backend` container after a change (`docker-compose.yml`, `docker
 make restart
 ```
 
-**Note:** restart is not necessary if making changes in the `cgi/` directory.
+**Note:** restart is not necessary when making changes in the `cgi/` directory.
 
 
-To rebuild the NPM assets after a code change (`html/` folder):
+To rebuild frontend assets after an asset change (`html/` folder):
 ```
-make build_npm
+make up
 ```
 
 ### Live reload
 To automate the live reload on code changes, you can install the Python package `when-changed`:
 ```
 pip3 install when-changed
-when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart" # restart backend container on changes to lib/
-when-changed -r html/ -c "make build_npm" # rebuild NPM assets on changes to html/
+when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart" # restart backend container on code changes
+when-changed -r html/ -c "make up" # rebuild frontend container on changes to html/ folder
 ```
 
 
@@ -129,9 +136,25 @@ db.products.deleteOne({_id: "5053990155354"})
 
 See the [`mongo` shell docs](https://docs.mongodb.com/manual/reference/mongo-shell/) for more commands.
 
+## Adding environment variables
+
+If you need some value to be configurable, it is best to set is as an environment variable.
+
+To add a new environment variable `TEST`:
+
+* In `.env` file, add `TEST=test_val` [local].
+* In `.github/workflows/container-deploy.yml`, add `echo "TEST=${{ secrets.TEST }}" >> .env` to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret `TEST=test_val`.
+* In `docker-compose.yml` file, add it under the `backend` > `environment` section.
+* In `conf/apache.conf` file, add `PerlPassEnv TEST`.
+* In `lib/Config2.pm`, add `$test = $ENV{TEST};`. Also add `$test` to the `EXPORT_OK` list at the top of the file to avoid a compilation error.
+
+The call stack goes like this:
+
+`make up` > `docker-compose` > loads `.env` > pass env variables to the `backend` container > pass to `mod_perl` > initialized in `Config2.pm`.
+
 ## Managing multiple deployments
 
-To juggle between multiple local deployments, you will need:
+To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host), you will need:
 
 * Multiple `.env` files (one per deployment), such as:
 

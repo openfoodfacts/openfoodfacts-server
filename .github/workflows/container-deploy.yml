@@ -77,6 +77,7 @@ jobs:
           echo "PRODUCER_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
           echo "PRODUCT_OPENER_PORT=80" >> .env
+          echo "MONGODB_HOST=${{ secrets.MONGODB_HOST }}" >> .env
           echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
           echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> .env

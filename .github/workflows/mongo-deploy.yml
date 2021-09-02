@@ -2,14 +2,16 @@ name: MongoDB Image Deployment CI
 
 on:
   push:
-    branches: [mongodb_*]
+    branches: [main]
+    paths:
+    - docker/mongodb.yml
 
 jobs:
   # deploy-script:
   #   runs-on: ubuntu-latest
   #   strategy:
   #     matrix:
-  #       env: [mongodb-dev, mongodb-prod]
+  #       env: [mongo-dev, mongo-prod]
   #   steps:
   #   - name: Install dependencies
   #     environment: ${{ matrix.env }}
