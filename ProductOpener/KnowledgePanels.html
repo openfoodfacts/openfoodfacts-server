@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::Tags</title>
+<html><head><title>ProductOpener::KnowledgePanels</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="blkbluw" type="text/css" href="../_blkbluw.css" media="all" >
 <link rel="alternate stylesheet" title="blkmagw" type="text/css" href="../_blkmagw.css" media="all" >
@@ -42,32 +42,26 @@
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#remove_stopwords_from_start_or_end_of_string_(_%24tagtype%2C_%24lc%2C_%24string_)'>remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )</a>
+    <li class='indexItem indexItem2'><a href='#compute_knowledge_panels(_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>compute_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24tagtype'>$tagtype</a>
-        <li class='indexItem indexItem4'><a href='#%24lc_-_Language_code'>$lc - Language code</a>
-        <li class='indexItem indexItem4'><a href='#%24string_-_string'>$string - string</a>
+        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
+        <li class='indexItem indexItem4'><a href='#language_code_%24target_lc_(or_%22data%22)'>language code $target_lc (or &#34;data&#34;)</a>
+        <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
+        <li class='indexItem indexItem4'><a href='#options_%24options_ref'>options $options_ref</a>
       </ul>
+      <li class='indexItem indexItem3'><a href='#Return_values'>Return values</a>
     </ul>
-    <li class='indexItem indexItem2'><a href='#remove_stopwords_(_%24tagtype%2C_%24lc%2C_%24tagid_)'>remove_stopwords ( $tagtype, $lc, $tagid )</a>
+    <li class='indexItem indexItem2'><a href='#compute_ecoscore_panel_(_%24product_ref%2C_%24target_lc%2C_%24target_cc_)'>compute_ecoscore_panel ( $product_ref, $target_lc, $target_cc )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24tagtype'>$tagtype</a>
-        <li class='indexItem indexItem4'><a href='#%24lc_-_Language_code'>$lc - Language code</a>
-        <li class='indexItem indexItem4'><a href='#%24tagid_-_normalized_tag'>$tagid - normalized tag</a>
+        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
+        <li class='indexItem indexItem4'><a href='#language_code_%24target_lc'>language code $target_lc</a>
+        <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
       </ul>
-    </ul>
-    <li class='indexItem indexItem2'><a href='#get_tag_image_(_%24target_lc%2C_%24tagtype%2C_%24canon_tagid_)'>get_tag_image ( $target_lc, $tagtype, $canon_tagid )</a>
-    <ul   class='indexList indexList3'>
-      <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24target_lc'>$target_lc</a>
-        <li class='indexItem indexItem4'><a href='#%24tagtype'>$tagtype</a>
-        <li class='indexItem indexItem4'><a href='#%24canon_tagid'>$canon_tagid</a>
-      </ul>
+      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
     </ul>
   </ul>
 </ul>
@@ -77,111 +71,118 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::Tags - multilingual tags taxonomies (hierarchies of tags)</p>
+<p>ProductOpener::KnowledgePanels - Generate product knowledge panels that can be requested through the API</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="SYNOPSIS"
 >SYNOPSIS</a></h1>
 
-<p><code>ProductOpener::Tags</code> provides functions to build multilingual tags taxonomies from source files,
-to use those taxonomies to canonicalize lists of tags,
-and to display them in different languages.</p>
-
-<pre>    use ProductOpener::Tags qw/:all/;</pre>
-
-<p>..</p>
+<p>Apps can request through the API knowledge panels for one product.
+They are returned in the same structured format for all panels.</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>..</p>
+<p>See https://docs.google.com/document/d/1vJ9gatmv8pCXxyOERmYD16jOKRWJpz1RaQQ5MEcTxms/edit</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="FUNCTIONS"
 >FUNCTIONS</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="remove_stopwords_from_start_or_end_of_string_(_$tagtype,_$lc,_$string_)"
->remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )</a></h2>
+name="compute_knowledge_panels(_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
+>compute_knowledge_panels( $product_ref,
+$target_lc,
+$target_cc,
+$options_ref )</a></h2>
 
-<p>Remove stopwords (that are specific to each category) from the start or end of a string that has not been normalized. This function differs from remove_stopwords() that works on normalized tags instead of strings and that also removes stopwords in the middle.</p>
+<p>Compute all knowledge panels for a product,
+with strings (descriptions,
+recommendations etc.) in a specific language,
+and return them in an array of panels.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tagtype"
->$tagtype</a></h4>
+name="product_reference_$product_ref"
+>product reference $product_ref</a></h4>
 
-<p>The type of the tag (e.g. categories, labels, allergens)</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$lc_-_Language_code"
->$lc - Language code</a></h4>
-
-<p>The language the string is in.</p>
+<p>Loaded from the MongoDB database,
+Storable files,
+or the OFF API.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$string_-_string"
->$string - string</a></h4>
+name="language_code_$target_lc_(or_&#34;data&#34;)"
+>language code $target_lc (or &#34;data&#34;)</a></h4>
 
-<p>The string to remove stopwords from.</p>
+<p>Returned panels contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.</p>
+
+<p>If $target_lc is equal to &#34;data&#34;,
+no strings are returned.</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="country_code_$target_cc"
+>country code $target_cc</a></h4>
+
+<p>Needed for some country specific panels like the Eco-Score.</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="options_$options_ref"
+>options $options_ref</a></h4>
+
+<p>Defines how some panels should be computed (or not computed)</p>
+
+<p>- skip_[attribute_id] : do not compute a specific attribute</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_values"
+>Return values</a></h3>
+
+<p>Panels are returned in the &#34;knowledge_panels_[$target_lc]&#34; hash of the product reference passed as input.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="remove_stopwords_(_$tagtype,_$lc,_$tagid_)"
->remove_stopwords ( $tagtype, $lc, $tagid )</a></h2>
+name="compute_ecoscore_panel_(_$product_ref,_$target_lc,_$target_cc_)"
+>compute_ecoscore_panel ( $product_ref,
+$target_lc,
+$target_cc )</a></h2>
 
-<p>Remove stopwords (that are specific to each category) from a normalized tag.</p>
-
-<h3><a class='u' href='#___top' title='click to go to top of document'
-name="Arguments"
->Arguments</a></h3>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tagtype"
->$tagtype</a></h4>
-
-<p>The type of the tag (e.g. categories, labels, allergens)</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$lc_-_Language_code"
->$lc - Language code</a></h4>
-
-<p>The language the tagid is in.</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tagid_-_normalized_tag"
->$tagid - normalized tag</a></h4>
-
-<p>Lowercased, unaccented depending on language, non-alphanumeric chars turned to dash.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="get_tag_image_(_$target_lc,_$tagtype,_$canon_tagid_)"
->get_tag_image ( $target_lc, $tagtype, $canon_tagid )</a></h2>
-
-<p>If an image is associated to a tag, return its relative url, otherwise return undef.</p>
+<p>Computes a knowledge panel to describe the Eco-Score,
+including sub-panels for the different components of the Eco-Score.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$target_lc"
->$target_lc</a></h4>
+name="product_reference_$product_ref"
+>product reference $product_ref</a></h4>
 
-<p>The desired language for the image. If an image is not available in the target language, it can be returned in the tag language, or in English.</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tagtype"
->$tagtype</a></h4>
-
-<p>The type of the tag (e.g. categories, labels, allergens)</p>
+<p>Loaded from the MongoDB database,
+Storable files,
+or the OFF API.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$canon_tagid"
->$canon_tagid</a></h4>
+name="language_code_$target_lc"
+>language code $target_lc</a></h4>
+
+<p>Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="country_code_$target_cc"
+>country code $target_cc</a></h4>
+
+<p>The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_value"
+>Return value</a></h3>
+
+<p>The return value is a reference to the resulting knowledge panel data structure.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
