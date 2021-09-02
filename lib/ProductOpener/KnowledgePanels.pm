@@ -118,7 +118,7 @@ sub compute_knowledge_panels($$$$) {
 
 	# Initialize panels
 	
-	$product_ref->{"knowledge_panels_" . $target_lc} = {};
+    my $panels_ref = {};
 
     # Test panel to test the start of the API
 
@@ -152,9 +152,136 @@ sub compute_knowledge_panels($$$$) {
             ]
         };
 
-        $product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_doyouknow_nutella"} = $test_panel_ref;
-
+        $panels_ref->{"tags_brands_doyouknow_nutella"} = $test_panel_ref;
     }
+
+    # Add knowledge panels
+
+    $panels_ref->{"ecoscore"} = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
+
+    $product_ref->{"knowledge_panels_" . $target_lc} = $panels_ref;
+}
+
+
+=head2 compute_ecoscore_panel ( $product_ref, $target_lc, $target_cc )
+
+Computes a knowledge panel to describe the Eco-Score, including sub-panels
+for the different components of the Eco-Score.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+
+=head3 Return value
+
+The return value is a reference to the resulting knowledge panel data structure.
+
+=cut
+
+sub compute_attribute_ecoscore($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("compute ecoscore panel", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
+
+	my $panel_ref = {
+        parent_panel_id => "root",
+        type => "score",
+        level => "info",
+        topics => [
+            "environment"
+        ],
+        elements => []
+    };
+		
+	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
+		
+		my $score = $product_ref->{ecoscore_data}{score};
+		my $grade = $product_ref->{ecoscore_data}{grade};
+		
+		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
+			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
+			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
+		}
+		
+		$log->debug("compute ecoscore panel - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
+		
+        $panel_ref->{grade} = $grade;
+        
+        # We can reuse some strings from the Eco-Score attribute
+        $panel_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade))
+            . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
+		$panel_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
+
+        # Agribalyse part of the Eco-Score
+
+        my $agribalyse_category_name = $product_ref->{ecoscore_data}{agribalyse}{name_en};
+        if (defined $product_ref->{ecoscore_data}{agribalyse}{"name_" . $target_lc}) {
+            $agribalyse_category_name = $product_ref->{ecoscore_data}{agribalyse}{"name_" . $target_lc};
+        }
+
+        # Agribalyse grade
+        my $agribalyse_grade;		
+        if ($product_ref->{ecoscore_data}{agribalyse}{score} >= 80) {
+            $agribalyse_grade = "a";
+        }
+        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 60) {
+            $agribalyse_grade = "b";
+        }
+        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 40) {
+            $agribalyse_grade = "c";
+        }
+        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 20) {
+            $agribalyse_grade = "d";
+        }
+        else {
+            $agribalyse_grade = "e";
+        }        
+
+        push @{$panel_ref->{elements}}, {
+            element_type => "text",
+            element => {
+                text_type => "h1",
+                html => "Average impact of products of the " . $agribalyse_category_name . " category: "
+                    . uc($agribalyse_grade) . " (" . $product_ref->{ecoscore_data}{agribalyse}{score} . "/100)"
+            }
+        };
+
+        # TODO: add Agribalyse panel to show impact of the different steps
+
+        push @{$panel_ref->{elements}}, {
+            element_type => "text",
+            element => {
+                text_type => "h1",
+                html => "Impact of " . product_name_brand($product_ref) . separator_before_colon($target_lc) . ": "
+                    . uc($grade) . " (" . $score . "/100)"
+            }
+        };
+
+        # TODO: add panels for the different bonuses and maluses
+
+	}
+	else {
+		$panel_ref->{grade} = "unknown";
+		$panel_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
+		$panel_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title")
+		    . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+	}
+	
+	return $panel_ref;
 }
 
 1;
