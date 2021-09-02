@@ -73424,8 +73424,8 @@ fi:kasvisteroliesteri, kasvisteroliesterit
 fr:ester de stérol végétal, esters de stérol végétal
 # ingredient/fr:esters-de-sterol-vegetal has 29 products in 3 languages @2020-12-21
 
-# description:en:CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae. In general cultivation, cucumbers are classified into three main cultivar groups:"slicing", "pickling", and "burpless". In a 100-gram serving, raw cucumber (with peel) is 95% water, provides 67 kilojoules (16 kilocalories) and supplies low content of essential nutrients, as it is notable only for vitamin K at 16% of the Daily Value.
 
+#category/cucumbers
 <en:vegetable
 en:cucumber, cucumbers
 ar:الخيار
@@ -73468,7 +73468,21 @@ carbon_footprint_fr_foodges_ingredient:fr:Concombre
 carbon_footprint_fr_foodges_value:fr:1.7
 carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
 carbon_footprint_fr_foodges_value:fr:2.4
-# ingredient/fr:concombre has 549 products in 6 languages @2019-05-15
+description:de:Die Gurke (Cucumis sativus), auch als Kukumer und Gartengurke bezeichnet, ist eine Art der Gattung Gurken (Cucumis) aus der Familie der Kürbisgewächse. Die Salatgurken werden vorwiegend frisch als Salat verzehrt. 
+description:en:CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae.
+description:es:Cucumis sativus, conocido popularmente como pepino, es una planta anual de la familia de las cucurbitáceas. Es un ingrediente típico en las ensaladas mediterráneas y su variante encurtida, el pepinillo, un popular aperitivo.
+description:fr:Le concombre (Cucumis sativus) est une plante potagère herbacée, rampante, de la même famille que la calebasse africaine, le melon ou la courge (famille des Cucurbitacées).
+description:it:Il cetriolo (Cucumis sativus) è un ortaggio appartenente alla famiglia delle Cucurbitaceae.
+description:nl:De komkommer is een eenjarige plant uit de komkommerfamilie, waarvan de gelijknamige vrucht in Nederland en België vooral rauw als salade wordt gegeten.
+description:pt:O pepino é o fruto do pepineiro (Cucumis sativus), que se come geralmente em forma de salada.
+# 6546 products in 22 @2021-09-02
+
+<en:cucumber
+en:raw cucumber pulp and peel raw
+fr:Concombre pulpe et peau cru
+ciqual_food_code:en:20019
+ciqual_food_name:en:Cucumber, pulp and peel, raw
+ciqual_food_name:fr:Concombre, pulpe et peau, cru
 
 
 # description:en:A GHERKIN is a variety of cucumber
