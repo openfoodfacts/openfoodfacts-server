@@ -73478,11 +73478,18 @@ description:pt:O pepino é o fruto do pepineiro (Cucumis sativus), que se come g
 # 6546 products in 22 @2021-09-02
 
 <en:cucumber
-en:raw cucumber pulp and peel raw
+en:raw cucumber pulp and peel
 fr:Concombre pulpe et peau cru
 ciqual_food_code:en:20019
 ciqual_food_name:en:Cucumber, pulp and peel, raw
 ciqual_food_name:fr:Concombre, pulpe et peau, cru
+
+<en:cucumber
+en:raw Cucumber pulp 
+fr:Concombre pulpe cru
+ciqual_food_code:en:20210
+ciqual_food_name:en:Cucumber, pulp, raw
+ciqual_food_name:fr:Concombre, pulpe, cru
 
 
 # description:en:A GHERKIN is a variety of cucumber
@@ -80884,8 +80891,7 @@ nl:sambal oelek
 description:en:Raw chili paste (bright red, thin and sharp tasting). Can be used as the base for making other sambals or as an ingredient for other cuisines.
 
 
-# description:en:BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
-
+#category/bearnaise-sauce
 <en:sauce
 en:béarnaise sauce
 be:беарнскі соус
@@ -80919,7 +80925,20 @@ tr:béarnaise sosu
 # zh_yue:賓利士汁
 wikidata:en:Q58265
 wikipedia:en:https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
-# ingredient/fr:sauce-bearnaise has 6 products in 1 language @2020-05-24
+description:de:Sauce béarnaise oder Béarner Sauce ist warme aufgeschlagene Buttersauce.
+description:en:BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
+description:es:La salsa bearnesa es una salsa emulsionada a base de mantequilla y yema de huevo, condimentada con estragón y chalotas, con perifollo, cocinado en vino y vinagre para hacer un glaseado.
+description:fr:La sauce béarnaise, ou la béarnaise, est une sauce émulsifiée chaude à base de beurre clarifié, de jaune d'œuf, d'échalote, d'estragon et de cerfeuil, servie pour relever les viandes.
+description:it:La salsa bernese o salsa bearnaise o semplicemente la bernese, è una salsa di condimento.
+description:nl:Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel met toevoeging van een gastrique, bestaande uit wijn, azijn, dragon, mignonettes, kervel, bouquet garni en sjalotten.
+# 9 in 1 language @2021-09-02
+
+<en:béarnaise sauce
+en:prepacked Bearnaise sauce 
+fr:Sauce béarnaise
+ciqual_food_code:en:11102
+ciqual_food_name:en:Bearnaise sauce, prepacked
+ciqual_food_name:fr:Sauce béarnaise, préemballée
 
 
 #category:en:Pestos
