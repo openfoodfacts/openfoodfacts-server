@@ -9,14 +9,13 @@ services:
     volumes:
       - ./:/opt/product-opener # mount local folder for reload on dev changes
       - product_images:/opt/product-opener/html/images/products # Product images [read / write]
+      - html_data:/opt/product-opener/html/data
 
-      # Static assets (JS, CSS, Icons, Image attributes) [readonly]
+      # Binds from frontend container (read-only)
       - icons_dist:/opt/product-opener/html/images/icons/dist:ro
       - js_dist:/opt/product-opener/html/js/dist:ro
       - css_dist:/opt/product-opener/html/css/dist:ro
       - image_attributes:/opt/product-opener/html/images/attributes:ro
-
-      # Node modules [readonly]
       - node_modules:/opt/product-opener/node_modules:ro
   frontend:
     image: openfoodfacts-server/frontend:dev
@@ -25,9 +24,11 @@ services:
       dockerfile: Dockerfile.frontend
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro # Product images [readonly]
+      - html_data:/opt/product-opener/html/data:ro # Translations written by backend
   mongodb:
     image: mongo:4.4
     networks:
       - webnet
 volumes:
   product_images:
+  html_data:
