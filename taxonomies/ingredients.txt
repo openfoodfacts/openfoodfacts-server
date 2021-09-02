@@ -68020,11 +68020,22 @@ zh:鮪魚, 吞拿魚
 # scn:Tunnu
 # wuu:金枪鱼属
 # xmf:თინუსი
+wikidata:en:Q2346039
 wikipedia:en:https://en.wikipedia.org/wiki/Tuna
 # ingredient/tuna has 1347 products in 10 languages @2019-01-02
 carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
 carbon_footprint_fr_foodges_value:fr:4
-description:en:A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
+ciqual_food_code:en:26053
+ciqual_food_name:en:Tuna, raw
+ciqual_food_name:fr:Thon, cru
+description:de:Thunfische bezeichnen eine Gattung großer Raubfische, die in allen tropischen, subtropischen und gemäßigten Meeren vorkommt. Sie gehören zu den wichtigsten Speisefischen.
+description:en:A tuna is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae family.
+description:es:El grupo Thunnus es un género de peces óseos marinos con menos de diez especies incluidas en él.
+description:fr:Thunnus est un genre de poissons de la famille des Scombridés1. Les espèces de ce genre sont communément appelés « thons ».
+description:it:Thunnus è un genere della famiglia Scombridae che raggruppa otto specie di grandi pesci pelagici predatori, conosciuti comunemente come tonni.
+description:nl:Tonijnen zijn enkele soorten oceaanvissen uit de familie van makrelen (Scombridae).
+description:pt:Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
+# 2838 @2021-09-02
 
 <en:tuna
 fr:filets de thon
@@ -68205,11 +68216,11 @@ la:Thunnus obesus
 wikidata:en:Q1122241
 wikipedia:en:https://en.wikipedia.org/wiki/Bigeye_tuna
 
-# thon-au-naturel is a compound ingredient
 
+#compound
 <en:tuna
 fr:thon au naturel
-# ingredient/fr:thon-au-naturel has 30 products in french @2019-01-02
+# ingredient/fr:thon-au-naturel 53 in french @202109-02
 # thon au naturel (thon albacore, eau, sel)
 
 <en:fish
