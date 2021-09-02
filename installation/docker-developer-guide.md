@@ -97,13 +97,17 @@ container, or rebuilding the NPM assets.
 
 ### Manual reload
 
-To restart the `backend` container after a change (`docker-compose.yml`, `docker/` or `lib/` folder):
+To restart the `backend` container after a config (`docker-compose.yml`, `docker/`, `.env`):
 ```
 make restart
 ```
 
-**Note:** restart is not necessary when making changes in the `cgi/` directory.
+To restart `Apache` within the backend container after a code change (`lib/`):
+```
+make restart_apache
+```
 
+**Note:** restart is not necessary when making changes in the `cgi/` directory.
 
 To rebuild frontend assets after an asset change (`html/` folder):
 ```
@@ -114,9 +118,12 @@ make up
 To automate the live reload on code changes, you can install the Python package `when-changed`:
 ```
 pip3 install when-changed
-when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart" # restart backend container on code changes
-when-changed -r html/ -c "make up" # rebuild frontend container on changes to html/ folder
+when-changed -r docker/ docker-compose.yml .env -c "make restart"                                         # restart backend container on compose changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c "make restart_apache"                               # restart Apache on code changes
+when-changed -r html/ -r css/ -r scss/ -r icons/ Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers on asset or Dockerfile changes
 ```
+
+An alternative to `when-changed` is `inotifywait`.
 
 
 ## Run queries on MongoDB database

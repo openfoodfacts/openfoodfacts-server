@@ -85,7 +85,7 @@ The `.env` file also contains some useful Docker Compose variables:
 From the repository root, run:
 
 ```console
-$ make dev
+$ make
 ```
 
 The command will run 2 subcommands:
