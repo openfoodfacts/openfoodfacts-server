@@ -102,7 +102,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          sudo docker-compose up -d --remove-orphans 2>&1
+          make up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -140,4 +140,4 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          sudo docker system prune -a -f
+          make prune

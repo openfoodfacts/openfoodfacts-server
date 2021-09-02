@@ -1,8 +1,6 @@
 name: "Daily tasks (cronjobs)"
 
 on:
-  push:
-    branches: [sync-dev-db]
   schedule:
   - cron: "0 0 * * *" # once a day at 00:00
 
@@ -44,6 +42,27 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-          sudo docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
-          sudo docker-compose exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+          make import_prod_db
+
+  build_lang:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [off-net]
+        # env: [off-net, off-org]
+    steps:
+    - name: Run build_lang.pl
+      uses: appleboy/ssh-action@master
+      environment: ${{ matrix.env }}
+      concurrency: ${{ matrix.env }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/
+          make build_lang

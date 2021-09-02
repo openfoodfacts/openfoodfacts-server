@@ -160,7 +160,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          docker-compose up -d --remove-orphans 2>&1
+          make up
 
     - name: Check services are up
       environment: ${{ matrix.env }}
@@ -202,4 +202,4 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          docker system prune -a -f
+          make prune
