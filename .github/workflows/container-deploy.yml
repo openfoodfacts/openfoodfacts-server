@@ -103,6 +103,7 @@ jobs:
         script_stop: false
         script: |
           make up
+          make setup_incron
 
     - name: Check services are up
       uses: appleboy/ssh-action@master

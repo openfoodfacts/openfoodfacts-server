@@ -84,6 +84,14 @@ build_lang:
 	@echo "🥫 Built Lang.${PRODUCT_OPENER_DOMAIN}.sto in /mnt/podata"
 	@echo "🥫 Changed ownership of /mnt/podata and /opt/product-opener/html/images/products to www-data user"
 
+setup_incron:
+	@echo "🥫 Setting up incron jobs defined in conf/incron.conf ..."
+	docker-compose --env-file=${ENV_FILE} exec backend sh -c "\
+		echo 'root' >> /etc/incron.allow && \
+		incrontab -u root /opt/product-opener/conf/incron.conf && \
+		incrond"
+	@echo "🥫 Incron jobs have been setup ..."
+
 #---------#
 # Imports #
 #---------#

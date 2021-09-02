@@ -125,7 +125,8 @@ RUN set -x \
     # Test::Number::Delta
     libtest-number-delta-perl \
     libdevel-size-perl \
-    gnumeric
+    gnumeric \
+    incron
 
 # Stage for installing/compiling cpanfile dependencies
 FROM modperl AS builder
