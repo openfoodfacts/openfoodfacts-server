@@ -207,8 +207,8 @@ sub create_panel_from_json_template ($$$$$$) {
     my $panel_template = shift;
     my $panel_data_ref = shift;
     my $product_ref = shift;
-	my $target_lc = shift;
-	my $target_cc = shift;    
+    my $target_lc = shift;
+    my $target_cc = shift;
 
     my $panel_json;
 
@@ -304,16 +304,6 @@ sub create_ecoscore_panel($$$) {
 	my $target_cc = shift;
 
 	$log->debug("create ecoscore panel", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
-
-	my $panel_ref = {
-        parent_panel_id => "root",
-        type => "score",
-        level => "info",
-        topics => [
-            "environment"
-        ],
-        elements => []
-    };
 		
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 		
@@ -326,13 +316,6 @@ sub create_ecoscore_panel($$$) {
 		}
 		
 		$log->debug("create ecoscore panel - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
-		
-        $panel_ref->{grade} = $grade;
-        
-        # We can reuse some strings from the Eco-Score attribute
-        $panel_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade))
-            . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
-		$panel_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
 
         # Agribalyse part of the Eco-Score
 
@@ -342,53 +325,54 @@ sub create_ecoscore_panel($$$) {
         }
 
         # Agribalyse grade
-        my $agribalyse_grade;		
-        if ($product_ref->{ecoscore_data}{agribalyse}{score} >= 80) {
+        my $agribalyse_score = $product_ref->{ecoscore_data}{agribalyse}{score};
+        my $agribalyse_grade;
+
+        if ($agribalyse_score >= 80) {
             $agribalyse_grade = "a";
         }
-        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 60) {
+        elsif ($agribalyse_score >= 60) {
             $agribalyse_grade = "b";
         }
-        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 40) {
+        elsif ($agribalyse_score >= 40) {
             $agribalyse_grade = "c";
         }
-        elsif ($product_ref->{ecoscore_data}{agribalyse}{score} >= 20) {
+        elsif ($agribalyse_score >= 20) {
             $agribalyse_grade = "d";
         }
         else {
             $agribalyse_grade = "e";
         }
 
+        # We can reuse some strings from the Eco-Score attribute
+        my $title = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade))
+            . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
+
         my $panel_data_ref = {
             "agribalyse_category_name" => $agribalyse_category_name,
+            "agribalyse_score" => $agribalyse_score,
             "agribalyse_grade" => $agribalyse_grade,
+            "score" => $score,
+            "grade" => $grade,
+            "title" => $title,
         };
 
-        push @{$panel_ref->{elements}}, {
-            element_type => "text",
-            element => {
-                text_type => "h1",
-                html => "Average impact of products of the " . $agribalyse_category_name . " category: "
-                    . uc($agribalyse_grade) . " (" . $product_ref->{ecoscore_data}{agribalyse}{score} . "/100)"
-            }
-        };
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
         # Add an Agribalyse panel to show the impact of the different steps for the category on average
 
-        create_panel_from_json_template("ecoscore_agribalyse2", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
+        create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
         # TODO: add panels for the different bonuses and maluses
 
 	}
 	else {
-		$panel_ref->{grade} = "unknown";
-		$panel_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
-		$panel_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title")
-		    . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
+        my $panel_data_ref = {};
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore_unknown.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
-	
-    $product_ref->{"knowledge_panels_" . $target_lc}{ecoscore} = $panel_ref;
 }
 
 1;
