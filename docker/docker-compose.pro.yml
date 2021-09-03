@@ -21,7 +21,7 @@ services:
       - POSTGRES_USER=productopener
       - POSTGRES_DB=minion
   backend-pro:
-    image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/backend:latest
+    image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
     depends_on:
       - mongodb
       - memcached
@@ -54,7 +54,7 @@ services:
     networks:
       - webnet
   frontend:
-    image: docker.pkg.github.com/openfoodfacts/openfoodfacts-server/frontend:latest
+    image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:latest
     depends_on:
       - backend-pro
     volumes:

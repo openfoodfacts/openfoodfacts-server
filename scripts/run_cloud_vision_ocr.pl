@@ -20,6 +20,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# This script is meant to be called through process_new_image_off.sh, itself run through an icrontab
+
 use Modern::Perl '2017';
 use utf8;
 
@@ -35,12 +37,22 @@ use Encode;
 use JSON::PP;
 use LWP::UserAgent;
 use MIME::Base64;
+use Log::Any qw($log);
+use Log::Any::Adapter 'TAP';
 
 # 1551113262.3302748614028.front_fr.30.jpg
+
+open (my $LOG, ">>", "$data_root/logs/run_cloud_vision_ocr.log");
 
 my $file = $ARGV[0];
 
 my $destination = readlink $file;
+
+if (not defined $destination) {
+	$log->error("Error: destination is not a valid symlink to an image file", { destination => $destination }) if $log->is_error();
+	print $LOG "ERROR: destination: $destination is not a valid symlink to an image file\n";
+	exit();
+}
 
 my $code;
 
@@ -65,7 +77,7 @@ my $json_file = $destination;
 $json_file =~ s/\.([^\.]+)$//;
 $json_file .= ".json";
 
-open (my $LOG, ">>", "$data_root/logs/run_cloud_vision_ocr.log");
+
 print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
 
 
@@ -73,8 +85,6 @@ my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $Produ
 # alpha-vision.googleapis.com/
 
 my $ua = LWP::UserAgent->new();
-
-
 
 open (my $IMAGE, "<", $file) || die "Could not read $file: $!\n";
 binmode($IMAGE);
@@ -91,8 +101,6 @@ my $api_request_ref = {
 				{ type => 'SAFE_SEARCH_DETECTION' },
 				{ type => 'FACE_DETECTION' }
 				]
-
-				#					, image => { source => { imageUri => $image_url}}
 			,
 			image => { content => encode_base64($image) }
 		}
@@ -104,15 +112,15 @@ my $request = HTTP::Request->new(POST => $url);
 $request->header( 'Content-Type' => 'application/json' );
 $request->content( $json );
 
-my $res = $ua->request($request);
+my $cloud_vision_response = $ua->request($request);
 
 my $status;
 	
-if ($res->is_success) {
+if ($cloud_vision_response->is_success) {
 
-	#$log->info("request to google cloud vision was successful") if $log->is_info();
+	$log->info("request to google cloud vision was successful") if $log->is_info();
 
-	my $json_response = $res->decoded_content(charset => 'UTF-8');
+	my $json_response = $cloud_vision_response->decoded_content(charset => 'UTF-8');
 	
 	# my $cloudvision_ref = decode_json($json_response);
 
@@ -124,21 +132,34 @@ if ($res->is_success) {
 	print $OUT $json_response;
 	close $OUT;
 
-	print $LOG "--> success\n";
+	print $LOG "--> cloud vision success\n";
 	
 	# Call robotoff to process the image and/or json from Cloud Vision
 	
-	my $response = $ua->post( "https://robotoff.openfoodfacts.org/api/v1/images/import", 
-	{ 'barcode' => $code,
-		'image_url' => $image_url,
-		'ocr_url' => $json_url,
-		'server_domain' => $auth . "api." . $server_domain} );
+	my $robotoff_response = $ua->post( $robotoff_url . "/api/v1/images/import", 
+		{
+			'barcode' => $code,
+			'image_url' => $image_url,
+			'ocr_url' => $json_url,
+			'server_domain' => $auth . "api." . $server_domain
+		}
+	);
+
+
+	if ($robotoff_response->is_success) {
+		$log->info("request to robotoff was successful") if $log->is_info();
+		print $LOG "--> robotoff success: " . $robotoff_response->decoded_content . "\n";
+	}
+	else {
+		$log->warn("robotoff request not successful", { code => $robotoff_response->code, response => $robotoff_response->message, status_line => $robotoff_response->status_line }) if $log->is_warn();
+		print $LOG "--> robotoff error: " . $robotoff_response->status_line . "\n";
+	}	
 	
 	unlink($file);
 }
 else {
-	#$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
-	print $LOG "--> error: $res->code $res->message\n";
+	$log->warn("google cloud vision request not successful", { code => $cloud_vision_response->code, response => $cloud_vision_response->message }) if $log->is_warn();
+	print $LOG "--> cloud vision error: $cloud_vision_response->code $cloud_vision_response->message\n";
 }
 
 close $LOG;

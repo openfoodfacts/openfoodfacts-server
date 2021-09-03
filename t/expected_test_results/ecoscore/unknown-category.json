@@ -25,6 +25,7 @@
             "transportation_score_it" : 0,
             "transportation_score_lu" : 0,
             "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
             "transportation_value_be" : 0,
             "transportation_value_ch" : 0,
             "transportation_value_de" : 0,
@@ -34,6 +35,7 @@
             "transportation_value_it" : 0,
             "transportation_value_lu" : 0,
             "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
             "value_be" : -5,
             "value_ch" : -5,
             "value_de" : -5,
@@ -43,21 +45,12 @@
             "value_it" : -5,
             "value_lu" : -5,
             "value_nl" : -5,
+            "value_uk" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -86,12 +79,8 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ]
+   "packagings" : []
 }

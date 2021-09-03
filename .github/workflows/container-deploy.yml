@@ -1,0 +1,141 @@
+name: Container Image Deployment CI
+
+on:
+  push:
+    branches: 
+      - main
+      - deploy-*
+    tags: 
+      - v*.*.*
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
+    concurrency: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
+    steps:
+    - name: Wait for container build workflow
+      uses: tomchv/wait-my-workflow@v1.1.0
+      id: wait-build
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkName: build
+        ref: ${{ github.event.pull_request.head.sha || github.sha }}
+        intervalSeconds: 10
+        timeoutSeconds: 600 # 10m
+
+    - name: Do something if build fail
+      if: steps.wait-build.outputs.conclusion == 'failure'
+      run: echo fail && false # fail if build fail
+
+    - name: Do something if build timeout
+      if: steps.wait-build.outputs.conclusion == 'timed_out'
+      run: echo Timeout && false # fail if build time out
+
+    - name: Set docker-compose overrides to GitHub env
+      run: |
+        echo "compose_args=-f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.geolite2.yml" >> $GITHUB_ENV
+
+    - name: Deploy Docker image to Proxmox VM
+      uses: appleboy/ssh-action@master
+      env:
+        DOCKER_CLIENT_TIMEOUT: 120
+        COMPOSE_HTTP_TIMEOUT: 120
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: DOCKER_CLIENT_TIMEOUT,COMPOSE_HTTP_TIMEOUT
+        script_stop: false
+        script: |
+          # Clone Git repository if not already there
+          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
+
+          # Go to docker/ directory
+          cd openfoodfacts-server/docker/
+
+          # Fetch newest commits (in case it wasn't freshly cloned)
+          git fetch --depth 1
+
+          # Checkout current commit SHA
+          git checkout -qf ${{ github.sha }}
+
+          # Set docker-compose environment
+          echo "TAG=${{ github.sha }}" > .env
+          echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
+          echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> .env
+          echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
+          echo "CROWDIN_PROJECT_IDENTIFIER=${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
+          echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
+          echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
+          echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
+          echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env
+          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
+
+          # Override domain name in nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./frontend-git/conf/nginx.conf
+
+          # Recreate containers that have a new image
+          sudo docker-compose ${{ env.compose_args }} up -d --remove-orphans 2>&1
+
+    - name: Check services are up
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/docker/
+          exit_code=0
+          for service in backend frontend mongodb memcached postgres geoipupdate; do 
+            if [ -z `docker-compose ${{ env.compose_args }} ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
+              echo "$service: DOWN"
+              exit_code=1
+            else
+              echo "$service: UP"
+            fi
+          done;
+          exit $exit_code;
+
+    - name: Import data into MongoDB database
+      uses: appleboy/ssh-action@master
+      if: ${{ success() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/docker/
+          sudo docker-compose ${{ env.compose_args }} exec -T backend bash /opt/scripts/import_sample_data.sh
+
+          # Import latest dump of mongodb production db
+          # wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+          # sudo docker cp openfoodfacts-mongodbdump.tar.gz docker_mongodb_1:/data/db
+          # sudo docker exec -it docker_mongodb_1 -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+
+    - name: Cleanup obsolete Docker objects
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          sudo docker system prune -a -f

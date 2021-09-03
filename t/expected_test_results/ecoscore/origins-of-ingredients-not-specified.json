@@ -25,6 +25,7 @@
             "transportation_score_it" : 0,
             "transportation_score_lu" : 0,
             "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
             "transportation_value_be" : 0,
             "transportation_value_ch" : 0,
             "transportation_value_de" : 0,
@@ -34,6 +35,7 @@
             "transportation_value_it" : 0,
             "transportation_value_lu" : 0,
             "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
             "value_be" : -5,
             "value_ch" : -5,
             "value_de" : -5,
@@ -43,21 +45,12 @@
             "value_it" : -5,
             "value_lu" : -5,
             "value_nl" : -5,
+            "value_uk" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -88,7 +81,7 @@
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 50
       },
-      "grade" : "c",
+      "grade" : "d",
       "grade_be" : "d",
       "grade_ch" : "d",
       "grade_de" : "d",
@@ -98,26 +91,28 @@
       "grade_it" : "d",
       "grade_lu" : "d",
       "grade_nl" : "d",
+      "grade_uk" : "d",
       "missing" : {
          "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 40,
-      "score_be" : 35,
-      "score_ch" : 35,
-      "score_de" : 35,
-      "score_es" : 35,
-      "score_fr" : 35,
-      "score_ie" : 35,
-      "score_it" : 35,
-      "score_lu" : 35,
-      "score_nl" : 35,
+      "score" : 35,
+      "score_be" : 30,
+      "score_ch" : 30,
+      "score_de" : 30,
+      "score_es" : 30,
+      "score_fr" : 30,
+      "score_ie" : 30,
+      "score_it" : 30,
+      "score_lu" : 30,
+      "score_nl" : 30,
+      "score_uk" : 30,
       "status" : "known"
    },
    "ecoscore_grade" : "d",
-   "ecoscore_score" : 35,
+   "ecoscore_score" : 30,
    "ecoscore_tags" : [
       "d"
    ],
@@ -188,17 +183,13 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

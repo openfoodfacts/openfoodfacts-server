@@ -41,9 +41,6 @@ BEGIN
 		$admin_email
 		$producers_email
 
-		$facebook_app_id
-		$facebook_app_secret
-
 		$google_cloud_vision_api_key
 
 		$crowdin_project_identifier
@@ -329,9 +326,6 @@ $data_root = $ProductOpener::Config2::data_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
-
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
@@ -485,8 +479,11 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+
+@taxonomy_fields = qw(states countries languages labels categories additives_classes additives
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers

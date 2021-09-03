@@ -25,6 +25,7 @@
             "transportation_score_it" : 0,
             "transportation_score_lu" : 0,
             "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
             "transportation_value_be" : 0,
             "transportation_value_ch" : 0,
             "transportation_value_de" : 0,
@@ -34,6 +35,7 @@
             "transportation_value_it" : 0,
             "transportation_value_lu" : 0,
             "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
             "value_be" : -5,
             "value_ch" : -5,
             "value_de" : -5,
@@ -42,21 +44,12 @@
             "value_ie" : -5,
             "value_it" : -5,
             "value_lu" : -5,
-            "value_nl" : -5
+            "value_nl" : -5,
+            "value_uk" : -5
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -87,7 +80,7 @@
          "name_fr" : "Camembert, sans précision",
          "score" : 54
       },
-      "grade" : "c",
+      "grade" : "d",
       "grade_be" : "d",
       "grade_ch" : "d",
       "grade_de" : "d",
@@ -97,25 +90,27 @@
       "grade_it" : "d",
       "grade_lu" : "d",
       "grade_nl" : "d",
+      "grade_uk" : "d",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 44,
-      "score_be" : 39,
-      "score_ch" : 39,
-      "score_de" : 39,
-      "score_es" : 39,
-      "score_fr" : 39,
-      "score_ie" : 39,
-      "score_it" : 39,
-      "score_lu" : 39,
-      "score_nl" : 39,
+      "score" : 39,
+      "score_be" : 34,
+      "score_ch" : 34,
+      "score_de" : 34,
+      "score_es" : 34,
+      "score_fr" : 34,
+      "score_ie" : 34,
+      "score_it" : 34,
+      "score_lu" : 34,
+      "score_nl" : 34,
+      "score_uk" : 34,
       "status" : "known"
    },
    "ecoscore_grade" : "d",
-   "ecoscore_score" : 39,
+   "ecoscore_score" : 34,
    "ecoscore_tags" : [
       "d"
    ],
@@ -156,6 +151,7 @@
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
@@ -165,11 +161,6 @@
    "origins_tags" : [
       "en:unspecified"
    ],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

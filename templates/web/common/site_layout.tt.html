@@ -7,7 +7,7 @@
     <title>[% title %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="fb:app_id" content="[% fb_config %]">
+    <meta property="fb:app_id" content="[% fb_config %]">
     <meta property="og:type" content="[% og_type %]">
     <meta property="og:title" content="[% canon_title %]">
     <meta property="og:url" content="[% canon_url %]">
@@ -27,6 +27,8 @@
     </style>
     [% google_analytics %]
 </head>
+
+
 <body[% bodyabout %] class="[% page_type %]_page">
 <nav class="top-bar" data-topbar id="top-bar">
 	<ul class="title-area">
@@ -70,9 +72,9 @@
         </form>
       </li>
       <li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
+      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</a></li>
       <li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
+      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</a></li>
       [% IF !(server_options_producers_platform) %]
         <li class="show-for-large-up divider"></li>
         <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
@@ -145,13 +147,13 @@
 		[% END %]
 		
 		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+		<div id="main_content" class="row full-width" style="max-width: 100% !important;" data-equalizer>
+			<div id="side_content" class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 				<div class="sidebar">
 					<div style="text-align:center">
 						<a href="/"><img id="logo" src="/images/misc/[% lang('logo') %]" srcset="/images/misc/[% lang('logo2x') %] 2x" width="178" height="150" alt="[% lang('logo_site_name') %]" style="margin-bottom:0.5rem"></a>
 					</div>
-					[% tagline %]
+          <p id="tagline">[% tagline %]</p>
 					<form action="/cgi/search.pl" class="hide-for-large-up">
 						<div class="row collapse">
 							<div class="small-9 columns">

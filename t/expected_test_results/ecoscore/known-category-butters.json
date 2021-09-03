@@ -25,6 +25,7 @@
             "transportation_score_it" : 0,
             "transportation_score_lu" : 0,
             "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
             "transportation_value_be" : 0,
             "transportation_value_ch" : 0,
             "transportation_value_de" : 0,
@@ -34,6 +35,7 @@
             "transportation_value_it" : 0,
             "transportation_value_lu" : 0,
             "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
             "value_be" : -5,
             "value_ch" : -5,
             "value_de" : -5,
@@ -43,21 +45,12 @@
             "value_it" : -5,
             "value_lu" : -5,
             "value_nl" : -5,
+            "value_uk" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
@@ -100,6 +93,7 @@
       "grade_it" : "e",
       "grade_lu" : "e",
       "grade_nl" : "e",
+      "grade_uk" : "e",
       "missing" : {
          "ingredients" : 1,
          "labels" : 1,
@@ -107,32 +101,29 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 17,
-      "score_be" : 12,
-      "score_ch" : 12,
-      "score_de" : 12,
-      "score_es" : 12,
-      "score_fr" : 12,
-      "score_ie" : 12,
-      "score_it" : 12,
-      "score_lu" : 12,
-      "score_nl" : 12,
+      "score" : 12,
+      "score_be" : 7,
+      "score_ch" : 7,
+      "score_de" : 7,
+      "score_es" : 7,
+      "score_fr" : 7,
+      "score_ie" : 7,
+      "score_it" : 7,
+      "score_lu" : 7,
+      "score_nl" : 7,
+      "score_uk" : 7,
       "status" : "known"
    },
    "ecoscore_grade" : "e",
-   "ecoscore_score" : 12,
+   "ecoscore_score" : 7,
    "ecoscore_tags" : [
       "e"
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ]
+   "packagings" : []
 }

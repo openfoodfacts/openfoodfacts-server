@@ -1532,7 +1532,7 @@ sub compute_attributes($$$$) {
 	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);	
 	
 	$attribute_ref = compute_attribute_additives($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
 	
 	# Environment
 	
