@@ -13,7 +13,6 @@ The step-by-step guide to setup the Product Opener using Docker is available on 
 * `make up`: build the backend container, and start the Docker containers (`docker-compose up -d --build backend`).
 * `make down`: stop the Docker containers (`docker-compose down`).
 * `make restart`: restart the Docker containers (`docker-compose restart`).
-* `make build_npm`: build the NPM frontend assets (`npm install`, `npm run build`).
 * `make import_sample_data`: execute the `import_sample_data.sh` script that loads some data into the MongoDB database.
 * `make log`: get the logs output (`docker-compose logs -f`).
 * `make tail`: get the other logs output (local directory bind).

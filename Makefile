@@ -82,7 +82,7 @@ build_lang:
 		perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl &&\
 		chown -R www-data:www-data /mnt/podata &&\
 		chown -R www-data:www-data /opt/product-opener/html/images/products"
-	@echo "🥫 Built lang.json files in /mnt/podata/lang"	
+	@echo "🥫 Built lang.json files in /mnt/podata/lang"
 	@echo "🥫 Built Lang.${PRODUCT_OPENER_DOMAIN}.sto in /mnt/podata"
 	@echo "🥫 Changed ownership of /mnt/podata and /opt/product-opener/html/images/products to www-data user"
 
