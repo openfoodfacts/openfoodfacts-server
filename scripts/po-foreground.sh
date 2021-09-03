@@ -57,7 +57,8 @@ then
 fi
 
 NLANG=$(find /opt/product-opener/html/data/ -name lang.json | wc -l)
-if [ ${NLANG} -eq 0 ]
+BUILD_LANG="${BUILD_LANG:-0}"
+if [ ${NLANG} -eq 0 ] || [ ${BUILD_LANG} -eq 1 ]
 then
   perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
   chown -R www-data:www-data /mnt/podata

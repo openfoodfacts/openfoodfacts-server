@@ -2,7 +2,7 @@ name: Container Image Deployment CI
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - deploy-*
     tags: 
@@ -32,6 +32,12 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
+    - name: Get po/* changed files
+      id: lang-files
+      uses: tj-actions/changed-files@v1.0.2
+      with:
+        files: "^po/*"
+
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
       with:
@@ -46,7 +52,7 @@ jobs:
           # Clone Git repository if not already there
           [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
 
-          # Go to docker/ directory
+          # Go to repository directory
           cd openfoodfacts-server/
 
           # Fetch newest commits (in case it wasn't freshly cloned)
@@ -66,13 +72,16 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          # Docker Compose variables
+          # Go to repository directory
+          cd openfoodfacts-server/
+
+          # Set Docker Compose variables
           echo "DOCKER_CLIENT_TIMEOUT=120 > .env"
           echo "COMPOSE_HTTP_TIMEOUT=120 >> .env"
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_FILE=docker-compose.yml:docker/prod.yml:docker/mongodb.yml:docker/geolite2.yml" >> .env
 
-          # App variables
+          # Set App variables
           echo "TAG=${{ github.sha }}" >> .env
           echo "PRODUCER_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
@@ -91,6 +100,12 @@ jobs:
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
+    - name: Set BUILD_LANG if needed
+      if: steps.lang-files.outputs.any_changed == 'true'
+      run:
+        cd openfoodfacts-server/
+        echo "BUILD_LANG=1" >> .env
+
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
@@ -102,6 +117,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           make up
           make setup_incron
 

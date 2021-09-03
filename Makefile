@@ -3,7 +3,7 @@
 NAME = "ProductOpener"
 ENV_FILE ?= .env
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
-
+DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 .DEFAULT_GOAL := dev
 
 hello:
@@ -25,19 +25,21 @@ edit_etc_hosts:
 #-------#
 up:
 	@echo "🥫 Building and starting ProductOpener containers ..."
-	docker-compose --env-file=${ENV_FILE} up -d --remove-orphans --build 2>&1
+	${DOCKER_COMPOSE} up -d --remove-orphans --build 2>&1
 
 down:
 	@echo "🥫 Bringing down ProductOpener containers and associated volumes ..."
-	docker-compose --env-file=${ENV_FILE} down -v
+	${DOCKER_COMPOSE} down -v 
+
+reset: down up
 
 restart:
 	@echo "🥫 Restarting ProductOpener frontend & backend containers ..."
-	docker-compose --env-file=${ENV_FILE} restart backend frontend
+	${DOCKER_COMPOSE} restart backend frontend
 
 log:
 	@echo "🥫 Reading ProductOpener logs (docker-compose) ..."
-	docker-compose --env-file=${ENV_FILE} logs -f
+	${DOCKER_COMPOSE} logs -f backend frontend
 
 tail:
 	@echo "🥫 Reading ProductOpener logs (Apache2, Nginx) ..."
@@ -45,7 +47,7 @@ tail:
 
 status:
 	@echo "🥫 Getting ProductOpener container status ..."
-	docker-compose --env-file=${ENV_FILE} ps
+	${DOCKER_COMPOSE} ps
 
 prune:
 	@echo "🥫 Pruning unused Docker artifacts (save space) ..."
@@ -72,11 +74,11 @@ prune_cache:
 #------------------#
 restart_apache:
 	@echo "🥫 Restarting Apache ..."
-	docker-compose --env-file=${ENV_FILE} exec backend sh -c "apache2ctl -k restart"
+	${DOCKER_COMPOSE} exec backend sh -c "apache2ctl -k restart"
 
 build_lang:
 	@echo "🥫 Running scripts/build_lang.pl ..."
-	docker-compose --env-file=${ENV_FILE} exec backend sh -c "\
+	${DOCKER_COMPOSE} exec backend sh -c "\
 		perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl &&\
 		chown -R www-data:www-data /mnt/podata &&\
 		chown -R www-data:www-data /opt/product-opener/html/images/products"
@@ -86,7 +88,7 @@ build_lang:
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf ..."
-	docker-compose --env-file=${ENV_FILE} exec backend sh -c "\
+	${DOCKER_COMPOSE} exec backend sh -c "\
 		echo 'root' >> /etc/incron.allow && \
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
@@ -97,7 +99,7 @@ setup_incron:
 #---------#
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB ..."
-	docker-compose --env-file=${ENV_FILE} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
+	${DOCKER_COMPOSE} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB ..."
@@ -107,7 +109,7 @@ import_prod_data:
 	echo "🥫 Copying the dump to MongoDB container ..."
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	echo "🥫 Restoring the MongoDB dump ..."
-	docker-compose --env-file=${ENV_FILE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+	${DOCKER_COMPOSE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
 	rm openfoodfacts-mongodbdump.tar.gz
 
 #-----------#
