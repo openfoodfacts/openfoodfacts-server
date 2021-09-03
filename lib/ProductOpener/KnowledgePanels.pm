@@ -49,8 +49,8 @@ BEGIN
 	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		&compute_knowledge_panels
-		&compute_ecoscore_panels
+		&create_knowledge_panels
+		&create_ecoscore_panels
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -68,13 +68,15 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 
+use JSON::PP;
+use Encode;
 
 =head1 FUNCTIONS
 
 
-=head2 compute_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
 
-Compute all knowledge panels for a product, with strings (descriptions, recommendations etc.)
+Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
 
 =head3 Arguments
@@ -96,9 +98,9 @@ Needed for some country specific panels like the Eco-Score.
 
 =head4 options $options_ref
 
-Defines how some panels should be computed (or not computed)
+Defines how some panels should be created (or not created)
 
-- skip_[attribute_id] : do not compute a specific attribute
+- skip_[panel_id] : do not create a specific panel
 
 =head3 Return values
 
@@ -107,18 +109,18 @@ passed as input.
 
 =cut
 
-sub compute_knowledge_panels($$$$) {
+sub create_knowledge_panels($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
 	my $target_cc = shift;
 	my $options_ref = shift;	
 
-	$log->debug("compute knowledge panels for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
+	$log->debug("create knowledge panels for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
 
 	# Initialize panels
 	
-    my $panels_ref = {};
+    $product_ref->{"knowledge_panels_" . $target_lc} = {};
 
     # Test panel to test the start of the API
 
@@ -152,20 +154,126 @@ sub compute_knowledge_panels($$$$) {
             ]
         };
 
-        $panels_ref->{"tags_brands_doyouknow_nutella"} = $test_panel_ref;
+        $product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
     }
 
     # Add knowledge panels
 
-    $panels_ref->{"ecoscore"} = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
-
-    $product_ref->{"knowledge_panels_" . $target_lc} = $panels_ref;
+    create_ecoscore_panel($product_ref, $target_lc, $target_cc);
 }
 
 
-=head2 compute_ecoscore_panel ( $product_ref, $target_lc, $target_cc )
+=head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc )
 
-Computes a knowledge panel to describe the Eco-Score, including sub-panels
+Creates a knowledge panel from a JSON template.
+The template is passed both the full product data + optional panel specific data.
+The template is thus responsible for all the display logic (what to display and how to display it).
+
+=head3 Arguments
+
+=head4 panel id $panel_id
+
+=head4 panel template $panel_template
+
+Relative path to the the template panel file, from the "/templates" directory.
+e.g. "api/knowledge-panels/ecoscore/agribalyse.tt.json"
+
+=head4 panel data reference $panel_data_ref (optional, can be an empty hash)
+
+Used to pass data that is necessary for the panel but is not contained in the product data.
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+
+=head3 Return value
+
+The return value is a reference to the resulting knowledge panel data structure.
+
+=cut
+
+sub create_panel_from_json_template ($$$$$$) {
+
+    my $panel_id = shift;
+    my $panel_template = shift;
+    my $panel_data_ref = shift;
+    my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;    
+
+    my $panel_json;
+
+    if (not process_template($panel_template, { panel => $panel_data_ref, product => $product_ref }, \$panel_json)) {
+        # The template is invalid
+        $product_ref->{"knowledge_panels_" . $target_lc}{$panel_id} = {
+            "template" => $panel_template, 
+            "template_error" => $tt->error() . "",
+        };
+    }
+    else {
+
+        # Turn the JSON to valid JSON
+
+        # Convert multilines strings between backticks `` into single line strings
+        # In the template, we use multiline strings for readability
+        # e.g. when we want to generate HTML
+
+        sub convert_multiline_string_to_singleline($) {
+            my $line = shift;
+            $line =~ s/\n/\\n/sg;
+            return '"' . $line . '"';
+        }
+
+        $panel_json =~ s/\`([^\`]*)\`/convert_multiline_string_to_singleline($1)/seg;
+
+        # Remove trailing commas after the last element of a array or hash, as they will make the JSON invalid
+        # It makes things much simpler in templates if they can output a trailing comma though
+        # e.g. in FOREACH loops.
+        # So we remove them here.
+
+        $panel_json =~ s/,(\s*)(\]|\})/$2/sg;
+        $panel_json =  encode('UTF-8', $panel_json);
+
+        eval {
+            $product_ref->{"knowledge_panels_" . $target_lc}{$panel_id} = decode_json($panel_json);
+            1;
+        }
+        or do {
+            # The JSON generated by the template is invalid
+            my $json_decode_error = $@;
+            $product_ref->{"knowledge_panels_" . $target_lc}{$panel_id} = {
+                "template" => $panel_template, 
+                "json_error" => $json_decode_error,
+                "json" => $panel_json,
+                "json_debug_url" => "$static_subdomain/files/debug/knowledge_panels/$panel_id.json"
+            };
+
+            # Save the JSON file so that it can be more easily debugged
+            (-e "$www_root/files") or mkdir("$www_root/files", 0755);
+            (-e "$www_root/files/debug") or mkdir("$www_root/files/debug", 0755);
+            (-e "$www_root/files/debug/knowledge_panels") or mkdir("$www_root/files/debug/knowledge_panels", 0755);
+            my $target_file = "$www_root/files/debug/knowledge_panels/$panel_id.json";
+            open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
+            print $out $panel_json;
+            close($out);
+        }
+    }
+
+}
+
+
+=head2 create_ecoscore_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel to describe the Eco-Score, including sub-panels
 for the different components of the Eco-Score.
 
 =head3 Arguments
@@ -189,13 +297,13 @@ The return value is a reference to the resulting knowledge panel data structure.
 
 =cut
 
-sub compute_attribute_ecoscore($$$) {
+sub create_ecoscore_panel($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
 	my $target_cc = shift;
 
-	$log->debug("compute ecoscore panel", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
+	$log->debug("create ecoscore panel", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
 	my $panel_ref = {
         parent_panel_id => "root",
@@ -217,7 +325,7 @@ sub compute_attribute_ecoscore($$$) {
 			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
 		}
 		
-		$log->debug("compute ecoscore panel - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
+		$log->debug("create ecoscore panel - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
 		
         $panel_ref->{grade} = $grade;
         
@@ -249,7 +357,12 @@ sub compute_attribute_ecoscore($$$) {
         }
         else {
             $agribalyse_grade = "e";
-        }        
+        }
+
+        my $panel_data_ref = {
+            "agribalyse_category_name" => $agribalyse_category_name,
+            "agribalyse_grade" => $agribalyse_grade,
+        };
 
         push @{$panel_ref->{elements}}, {
             element_type => "text",
@@ -260,16 +373,10 @@ sub compute_attribute_ecoscore($$$) {
             }
         };
 
-        # TODO: add Agribalyse panel to show impact of the different steps
+        # Add an Agribalyse panel to show the impact of the different steps for the category on average
 
-        push @{$panel_ref->{elements}}, {
-            element_type => "text",
-            element => {
-                text_type => "h1",
-                html => "Impact of " . product_name_brand($product_ref) . separator_before_colon($target_lc) . ": "
-                    . uc($grade) . " (" . $score . "/100)"
-            }
-        };
+        create_panel_from_json_template("ecoscore_agribalyse2", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
         # TODO: add panels for the different bonuses and maluses
 
@@ -281,7 +388,7 @@ sub compute_attribute_ecoscore($$$) {
 		    . ' - ' . lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_description_short");		
 	}
 	
-	return $panel_ref;
+    $product_ref->{"knowledge_panels_" . $target_lc}{ecoscore} = $panel_ref;
 }
 
 1;

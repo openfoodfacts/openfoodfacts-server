@@ -365,6 +365,8 @@ sub process_template($$$) {
 
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{images_subdomain} = $images_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
@@ -4705,7 +4707,7 @@ sub customize_response_for_product($$) {
 		}
 		# Knowledge panels in the $lc language
 		elsif ($field eq "knowledge_panels") {
-			compute_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 		}
 
