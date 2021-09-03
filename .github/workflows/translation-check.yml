@@ -18,6 +18,8 @@ jobs:
         run: cat po/common-check/common.pot
       - name: Cat 2
         run: cat po/common-check/es.po
+      - name: Ensure unicity in .pot files
+        run: find "/po/" -type f -name '*.po' -exec msguniq -u --use-first -f {} -o {} \;
         #-o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Ensure unicity in .pot files
         run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
