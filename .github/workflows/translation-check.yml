@@ -13,7 +13,7 @@ jobs:
       - name: Create dir
         run: mkdir po/common-check/
       - name: Run pofilter
-        run: pofilter -progress verbose po/common/ po/common-check/
+        run: pofilter --progress=VERBOSE po/common/ po/common-check/
       - name: Cat
         run: cat po/common-check/common.pot
       - name: Cat 2
