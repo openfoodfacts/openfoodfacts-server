@@ -9,8 +9,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install translate toolkit
         run: sudo apt-get install translate-toolkit
+      # http://docs.translatehouse.org/projects/translate-toolkit/en/latest/commands/pofilter_tests.html
+      - name: Create dir
+        run: mkdir po/common-check/
       - name: Run pofilter
-        run: pofilter -o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
+        run: pofilter po/common/ po/common-check/
+        #-o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Ensure unicity in .pot files
         run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Validate .po files
