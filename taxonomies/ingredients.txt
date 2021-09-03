@@ -68211,8 +68211,7 @@ ciqual_food_code:en:26101
 ciqual_food_name:en:Bonito, raw
 ciqual_food_name:fr:Bonite, crue
 
-# en:description:The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
-
+#category/yellowfin-tunas
 <en:tuna
 en:yellowfin tuna
 af:Geelvintuna
@@ -68245,9 +68244,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yellowfin_tuna
 ciqual_food_code:en:26064
 ciqual_food_name:en:Yellowfin tuna, raw
 ciqual_food_name:fr:Thon albacore ou thon jaune, cru
-# ingredient/fr:thon-albacore has 172 products in 2 languages 2019-01-02
-# ingredient/fr:Thunnus-albacares has 58 products @2019-01-02
-# THON albacore (Thunnus albacares)
+description:de:Der Gelbflossen-Thun (Thunnus albacares), auch Ahi genannt, ist eine Thunfischart und ein bedeutender Speisefisch.
+description:en:The yellowfin tuna (Thunnus albacares) is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide.
+description:es:El atún de aleta amarilla, atún claro o atún blanco o rabil (Thunnus albacares) es un tipo de atún que se encuentra en las aguas abiertas de mares tropicales y subtropicales por todo el mundo.
+description:fr:L'Albacore ou Thon jaune (Thunnus albacares) est une espèce de poissons de la famille des Scombridae.
+description:it:Il tonno a pinne gialle (Thunnus albacares), conosciuto anche come tonno albacora o tonno monaco, è un pesce di mare della famiglia Scombridae.
+description:nl:De geelvintonijn (Thunnus albacares) is een straalvinnige vis uit de familie van makrelen (Scombridae).
+description:pt:Thunnus albacares, conhecido pelos nomes comuns de albacora, albacora-da-lage, albacora-cachorra, atum-amarelo, atum-oledê, atum-de-galha-à-ré, rabão e rabo-seco, é uma espécie de atum com distribuição natural alargada nas água tropicais e subtropicais de todos os oceanos.
+# 462 in 9 2021-09-03
 
 <en:tuna
 en:bigeye tuna
