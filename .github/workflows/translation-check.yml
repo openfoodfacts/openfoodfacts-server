@@ -10,7 +10,7 @@ jobs:
       - name: Install translate toolkit
         run: sudo apt-get install translate-toolkit
       - name: Run pofilter
-        run: pofilter -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
+        run: pofilter -o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Ensure unicity in .pot files
         run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Validate .po files
