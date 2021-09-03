@@ -13,11 +13,11 @@ jobs:
       - name: Create dir
         run: mkdir po/common-check/
       - name: Run pofilter
-        run: pofilter po/common/ po/common-check/
+        run: pofilter --verbose po/common/ po/common-check/
       - name: Cat
-        run: cat/ po/common-check/common.pot
+        run: cat po/common-check/common.pot
       - name: Cat 2
-        run: cat/ po/common-check/es.po
+        run: cat po/common-check/es.po
         #-o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
       - name: Ensure unicity in .pot files
         run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
