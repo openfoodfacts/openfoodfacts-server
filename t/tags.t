@@ -346,17 +346,27 @@ is_deeply($product_ref->{brands_tags},
 
 my @tags = ();
 
+# ingredients taxonomy (@2021-09-03):
+# en:salt is at top-level (4)?
+# en:orange is child of en:fruit AND en:citrus-fruit (3)
+# en:citrus-fruit is child of en:fruit (2) and (3)
+# en:fruit is at top-level (4)
+# en:fruit-juice is child of en:fruit (3)
+# en:orange-juice is child of en:orange AND en:fruit-juice (2)
+# en:concentrated-orange-juice is child of en:orange-juice (1)
+# en:sugar is at the top-level (4)?
+
 @tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
-	'en:fruit',
-	'en:citrus-fruit',
-	'en:fruit-juice',
-	'en:salt',
-	'en:sugar',
-	'en:orange',
-	'en:orange-juice',
-	'en:concentrated-orange-juice'
+	'en:fruit', 
+	'en:sugar', 
+	'en:citrus-fruit', 
+	'en:fruit-juice', 
+	'en:salt', 
+	'en:orange', 
+	'en:orange-juice', 
+	'en:concentrated-orange-juice' 
 ]
 ) or diag explain(\@tags);
 
