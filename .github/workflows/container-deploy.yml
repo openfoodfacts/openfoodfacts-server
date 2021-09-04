@@ -92,7 +92,7 @@ jobs:
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/mongodb.yml;docker/geolite2.yml" >> .env
 
           # Set App variables
-          echo "TAG=${{ github.sha }}" >> .env
+          echo "TAG=sha-${{ github.sha }}" >> .env
           echo "PRODUCER_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
           echo "PRODUCT_OPENER_PORT=80" >> .env
