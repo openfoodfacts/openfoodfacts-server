@@ -106,6 +106,21 @@ jobs:
         cd openfoodfacts-server/
         echo "BUILD_LANG=1" >> .env
 
+    - name: Create Docker volumes
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          for volume in product_images html_data icons_dist js_dist css_dist image_attributes node_modules users products; do 
+            docker volume create $volume || echo "Docker volume '$volume' already exist. Skipping."
+          done;
+
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
