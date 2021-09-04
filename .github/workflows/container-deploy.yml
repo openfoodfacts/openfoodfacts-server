@@ -101,7 +101,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
     - name: Set BUILD_LANG if needed
-      if: steps.lang-files.outputs.any_changed == 'true'
+      # if: steps.lang-files.outputs.any_changed == 'true'
       run:
         cd openfoodfacts-server/
         echo "BUILD_LANG=1" >> .env
