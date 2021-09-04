@@ -21,7 +21,7 @@ jobs:
     - name: crowdin action
       uses: crowdin/github-action@1.3.3
       with:
-        upload_translations: true # default is false
+        upload_translations: false # default is false
         # Use this option to upload translations for a single specified language
         download_translations: true
         # Upload sources to Crowdin
