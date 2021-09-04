@@ -1,29 +1,31 @@
 ﻿version: "3.7"
 services:
   backend:
-    volumes:
-      # Users, products, products images and extra data mounts
-      - /mnt/users:/mnt/podata/users # .sto
-      - /mnt/products:/mnt/podata/products # .sto
-      - /mnt/product_images:/opt/product-opener/html/images/products
-      
-      # Crontabs write here
-      - /mnt/data/:/opt/product-opener/html/data
-
-      # Binds from frontend container (read-only)
-      - icons_dist:/opt/product-opener/html/images/icons/dist:ro
-      - js_dist:/opt/product-opener/html/js/dist:ro
-      - css_dist:/opt/product-opener/html/css/dist:ro
-      - image_attributes:/opt/product-opener/html/images/attributes:ro
-      - node_modules:/opt/product-opener/node_modules:ro
-
+    image: openfoodfacts-server/backend:prod
+    build:
+      context: .
+      dockerfile: Dockerfile
   frontend:
-    volumes:
-      - /mnt/product_images:/opt/product-opener/html/images/products:ro
-      - /mnt/data:/opt/product-opener/html/data:ro
-  postgres:
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
+    image: openfoodfacts-server/frontend:prod
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
 volumes:
-  pgdata:
+  product_images:
+    external: true
+  html_data:
+    external: true
+  icons_dist:
+    external: true
+  js_dist:
+    external: true
+  css_dist: 
+    external: true
+  image_attributes:
+    external: true
+  node_modules:
+    external: true
+  users:
+    external: true
+  products:
+    external: true

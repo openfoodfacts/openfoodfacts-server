@@ -12,6 +12,8 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   backend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
     environment:
@@ -31,10 +33,29 @@ services:
       - memcached
       - postgres
     volumes:
+      - product_images:/opt/product-opener/html/images/products # Product images [read / write]
+      - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
+
+      # Binds from frontend container (read-only)
+      - icons_dist:/opt/product-opener/html/images/icons/dist:ro
+      - js_dist:/opt/product-opener/html/js/dist:ro
+      - css_dist:/opt/product-opener/html/css/dist:ro
+      - image_attributes:/opt/product-opener/html/images/attributes:ro
+      - node_modules:/opt/product-opener/node_modules:ro
+
+      # Users and products .sto files
+      - users:/mnt/podata/users # .sto
+      - products:/mnt/podata/products # .sto
+
+      # Logs
       - ./logs/apache2:/var/log/apache2
       - ./logs/apache2:/mnt/podata/logs
       - ./logs/apache2:/var/log/httpd
+
+      # Apache conf
       - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+
+      # Tmpfs
       - type: tmpfs
         target: /mnt/podata/mnt
     command: ["/bin/sh", "/opt/product-opener/scripts/po-foreground.sh"]
@@ -47,15 +68,20 @@ services:
     environment:
       - PRODUCT_OPENER_DOMAIN
     volumes:
-      # Nginx
-      - ./logs/nginx/:/var/log/nginx/
-      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+      - product_images:/opt/product-opener/html/images/products:ro
+      - html_data:/opt/product-opener/html/data:ro
 
       # Static dist/ assets (JS, CSS, Icons, Image attributes)
       - icons_dist:/opt/product-opener/html/images/icons/dist
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
       - image_attributes:/opt/product-opener/html/images/attributes
+
+      # Logs 
+      - ./logs/nginx/:/var/log/nginx/
+      
+      # Nginx
+      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
 
       # Node modules
       - node_modules:/opt/product-opener/node_modules
@@ -64,6 +90,7 @@ services:
     networks:
       - webnet
 volumes:
+  pgdata:
   icons_dist:
   js_dist:
   css_dist:
