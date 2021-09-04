@@ -102,9 +102,18 @@ jobs:
 
     - name: Set BUILD_LANG if needed
       # if: steps.lang-files.outputs.any_changed == 'true'
-      run:
-        cd openfoodfacts-server/
-        echo "BUILD_LANG=1" >> .env
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/
+          echo "BUILD_LANG=1" >> .env
 
     - name: Create Docker volumes
       uses: appleboy/ssh-action@master
