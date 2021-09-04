@@ -66945,11 +66945,57 @@ fr:flétan
 wikipedia:en:https://en.wikipedia.org/wiki/Halibut
 
 <en:halibut
+en:Greenland halibut
+bg:гренландска камбала
+ca:Halibut negre
+cy:Lleden yr Ynys Las
+da:Hellefisk
+de:Schwarzer Heilbutt
+fa:لوزی‌ماهی گرینلند
+fi:Grönlanninpallas
+fo:Svartkalvi
+fr:flétan du Groenland
+is:Grálúða
+it:Halibut della Groenlandia
+ja:カラスガレイ
+la:Reinhardtius hippoglossoides
+nb:blåkveite
+nl:groenlandse heilbot
+nn:Blåkveite
+pl:Halibut czarny
+sv:Mindre hälleflundra
+uk:Палтус чорний
+zh:馬舌鰈
+wikidata:en:Q1466948
+wikipedia:en:https://en.wikipedia.org/wiki/Greenland_halibut
+description:de:Der Schwarze Heilbutt (Reinhardtius hippoglossoides) ist ein großer Plattfisch, der in kalten Meeren der nördlichen Hemisphäre lebt.
+description:en:The Greenland halibut or Greenland turbot (Reinhardtius hippoglossoides) belongs to the family Pleuronectidae.
+description:fr:Le flétan du Groenland (Reinhardtius hippoglossoides) est une espèce de poissons plats de la famille des Pleuronectidae. 
+description:it:L'halibut della Groenlandia (Reinhardtius hippoglossoides), noto commercialmente come ppoglosso nero o con il nome generico di halibut, è un pesce di mare della famiglia Pleuronectidae.
+description:nl:De Groenlandse heilbot of zwarte heilbot (Reinhardtius hippoglossoides) is een straalvinnige vis uit de familie van schollen (Pleuronectidae).
+
+<en:Greenland halibut
 en:Raw Greenland halibut
 fr:Flétan du Groënland cru, Flétan noir cru, Flétan commun cru
 ciqual_food_code:en:26154
 ciqual_food_name:en:Greenland halibut, raw
 ciqual_food_name:fr:Flétan du Groënland ou flétan noir ou flétan commun cru
+
+#<en:halibut
+#en:Raw Atlantic halibut
+#fr:Flétan de l'Atlantique cru, flétan blanc cru
+#ciqual_food_code:en:26009
+#ciqual_food_name:en:Atlantic halibut, raw
+#ciqual_food_name:fr:Flétan de l'Atlantique ou flétan blanc, cru
+#no ingredients @2021-09-03
+
+<en:halibut
+en:Arrowtooth flounder
+es:halibut de Alaska
+la:Atheresthes stomas
+wikipedia:en:https://en.wikipedia.org/wiki/Arrowtooth_flounder
+description:en:The arrowtooth flounder (Atheresthes stomas) is a fish in the family Pleuronectidae.
+description:nl:De Pacifische pijltandheilbot (Atheresthes stomias) is een straalvinnige vis uit de familie van schollen.
 
 # en:description:Herring are forage fish, mostly belonging to the family Clupeidae.
 
@@ -67209,7 +67255,6 @@ ciqual_food_name:en:Pouting, raw
 ciqual_food_name:fr:Tacaud, cru
 
 
-# en:description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 
 #<en:fish
 <en:white fish
@@ -67257,25 +67302,34 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pollachius_virens
 ciqual_food_code:en:26134
 ciqual_food_name:en:Saithe, raw
 ciqual_food_name:fr:Lieu noir, cru
+en:description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
+
+#<en:saithe
+#en:Frozen raw saithe
+#fr:Lieu noir cru surgelé
+#ciqual_food_code:en:26047
+#ciqual_food_name:en:Saithe, frozen, raw
+#ciqual_food_name:fr:Lieu noir, surgelé, cru
 
 
-en:Raw saithe
-fr:Lieu noir cru
-ciqual_food_code:en:26134
-ciqual_food_name:en:Saithe, raw
-ciqual_food_name:fr:Lieu noir, cru
+#<en:saithe
+#en:Raw saithe
+#fr:Lieu noir cru
+#ciqual_food_code:en:26134
+#ciqual_food_name:en:Saithe, raw
+#ciqual_food_name:fr:Lieu noir, cru
 
-<en:saithe
-en:Cooked Saithe
-fr:Lieu noir cuit
-ciqual_food_code:en:26015
-ciqual_food_name:en:Saithe, cooked
-ciqual_food_name:fr:Lieu noir, cuit
+#<en:saithe
+#en:Cooked Saithe
+#fr:Lieu noir cuit
+#ciqual_food_code:en:26015
+#ciqual_food_name:en:Saithe, cooked
+#ciqual_food_name:fr:Lieu noir, cuit
 
-<en:saithe
-nl:koolvisfilet
-fi:seitifilee
-
+#<en:saithe
+#nl:koolvisfilet
+#fi:seitifilee
+# has 1 product on 2021-09-03
 
 #description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 
@@ -74928,7 +74982,7 @@ ja:スイス産卵
 nl:eieren uit Zwitserland, zwitserse eieren
 # 2@2109-05-31
 
-#comment:en:this should be split in boiled as process and the result hard/soft
+#comment:en:this should be split in boiled as process and the result hard/soft. Not all translation seem to be correct.
 # category:en: en:Boiled eggs
 #process:en: en:cooked
 <en:egg
@@ -74940,12 +74994,9 @@ eo:boligita ovo
 es:huevo cocido
 eu:Arrautza egosi
 fi:Keitetty muna
-fr:œuf dur, œufs durs, oeuf dur, oeufs durs
-gl:Ovo duro
 he:ביצה מבושלת
 hi:उबले हुए अंडे
 id:telur rebus
-it:uovo alla coque
 ja:ゆで卵
 ko:삶은 달걀
 lb:Gekachtent Ee
@@ -74969,16 +75020,27 @@ description:fr:Un œuf dur est une préparation de l'œuf qui permet de consomme
 # ingredient/boiled-egg 255 in 5 @2021-08-22
 
 <en:boiled egg
+nl:gekookt ei kwarten
+
+<en:boiled egg
 en:soft-boiled egg
 fr:oeuf à la coque, œuf à la coque
+it:uovo alla coque
 ciqual_food_code:en:22014
 ciqual_food_name:en:Egg, soft-boiled
 ciqual_food_name:fr:Oeuf, à la coque
 description:fr:Un œuf à la coque est un œuf entier cuit dans sa coquille, de telle sorte que le blanc soit peu coagulé encore souple et le jaune coulant.
 
 <en:boiled egg
+en:hard-boiled egg
+fr:œuf dur, œufs durs, oeuf dur, oeufs durs
+gl:Ovo duro
+ciqual_food_code:en:22010
+ciqual_food_name:en:Egg, hard-boiled
+ciqual_food_name:fr:Oeuf, dur
+
+<en:hard-boiled egg
 fr:quartiers d'œufs durs
-nl:gekookt ei kwarten
 
 #process:en: en:pasteurised
 #<en:egg
