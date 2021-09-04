@@ -19,7 +19,7 @@ jobs:
       id: wait-build
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build (openfoodfacts/openfoodfacts-server/frontend)
+        checkName: build (frontend)
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
         intervalSeconds: 10
         timeoutSeconds: 600 # 10m
@@ -29,7 +29,7 @@ jobs:
       id: wait-build2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build (openfoodfacts/openfoodfacts-server/backend)
+        checkName: build (backend)
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
         intervalSeconds: 10
         timeoutSeconds: 600 # 10m
