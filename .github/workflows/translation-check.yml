@@ -30,7 +30,7 @@ jobs:
         #-o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
      # - name: Ensure unicity in .pot files
      #   run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
-     # - name: Validate .po files
-     #   uses: Tar-Minyatur/gettext-validation@master
-      #  with:
-       #   folder: po/
+      - name: Validate .po files
+        uses: Tar-Minyatur/gettext-validation@master
+        with:
+          folder: po/
