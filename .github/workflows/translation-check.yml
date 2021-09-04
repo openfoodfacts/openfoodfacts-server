@@ -19,11 +19,18 @@ jobs:
       - name: Cat 2
         run: pwd #cat po/common-check/es.po
       - name: Ensure unicity in .pot files
-        run: find "po/" -type f -name '*.po' -exec msguniq -u --use-first {} -o {} \;
+        run: |
+          find "po/" -type f -name '*.po' -exec msguniq -u --use-first {} -o {} \;
+          git config --global user.name 'automsguniq'
+          git config --global user.email 'teolemon@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout $GITHUB_HEAD_REF
+          git commit -am "fixup: msguniq"
+          git push
         #-o po-tests/ -i po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
-      - name: Ensure unicity in .pot files
-        run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
-      - name: Validate .po files
-        uses: Tar-Minyatur/gettext-validation@master
-        with:
-          folder: po/
+     # - name: Ensure unicity in .pot files
+     #   run: msguniq -s -o po/tags/tags.pot po/common/common.pot po/openbeautyfacts/openbeautyfacts.pot po/openfoodfacts/openfoodfacts.pot po/openpetfoodfacts/openpetfoodfacts.pot po/openproductsfacts/openproductsfacts.pot
+     # - name: Validate .po files
+     #   uses: Tar-Minyatur/gettext-validation@master
+      #  with:
+       #   folder: po/
