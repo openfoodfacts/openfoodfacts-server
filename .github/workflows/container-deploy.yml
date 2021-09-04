@@ -32,11 +32,11 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
-    - name: Get po/* changed files
-      id: lang-files
-      uses: tj-actions/changed-files@v1.0.2
-      with:
-        files: "^po/*"
+    # - name: Get po/* changed files
+    #   id: lang-files
+    #   uses: tj-actions/changed-files@v1.0.2
+    #   with:
+    #     files: "^po/*"
 
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
