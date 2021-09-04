@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         image_name: [
-          "${{ github.repository }}/frontend",
-          "${{ github.repository }}/backend"
+          "frontend",
+          "backend"
         ]
     steps:
     - uses: actions/checkout@v2
@@ -40,7 +40,8 @@ jobs:
       uses: docker/metadata-action@v3
       with:
         images: |
-          ${{ matrix.image_name }}
+          ${{ github.repository }}/${{ matrix.image_name }}
+        file: ${{ matrix.image_name == 'frontend' && Dockerfile.frontend || Dockerfile }}
         tags: |
           type=semver,pattern={{version}}
           type=ref,event=pr
