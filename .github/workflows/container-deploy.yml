@@ -152,8 +152,11 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          make up
-          make setup_incron
+          docker-compose up -d --remove-orphans 2>&1
+          docker-compose exec backend sh -c "\
+            echo 'root' >> /etc/incron.allow && \
+            incrontab -u root /opt/product-opener/conf/incron.conf && \
+            incrond"
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -191,4 +194,4 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          make prune
+          docker system prune -af
