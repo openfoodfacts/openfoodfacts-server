@@ -68144,8 +68144,7 @@ ciqual_food_name:en:Albacore, raw
 ciqual_food_name:fr:Thon germon ou thon blanc, cru
 
 
-# en:description:The skipjack tuna (Katsuwonus pelamis) is a medium-sized perciform fish in the tuna family, Scombridae
-
+#category/skipjack-tuna
 <en:tuna
 en:skipjack tuna
 af:Pensstreep-tuna
@@ -68199,17 +68198,18 @@ zh:鲣
 # zh-tw:正鰹
 wikidata:en:Q633957
 wikipedia:en:https://en.wikipedia.org/wiki/Skipjack_tuna 
-ciqual_food_code:en:26101
-ciqual_food_name:en:Bonito, raw
-ciqual_food_name:fr:Bonite, crue
-# ingredient/fr:thon-listao has 138 products @2019-01-02
+ciqual_food_code:en:26068
+ciqual_food_name:en:Skipjack tuna, raw
+ciqual_food_name:fr:Thon listao ou Bonite à ventre rayé, cru
+description:de:Der Echte Bonito (Katsuwonus pelamis) ist die einzige Art der damit monotypischen Gattung Katsuwonus innerhalb der Makrelen und Thunfische (Scombridae). 
+description:en:The skipjack tuna (Katsuwonus pelamis) is a medium-sized perciform fish in the tuna family, Scombridae.
+description:es:El Listado (Rayado o Bonito) es una especie de peces de la familia Scombridae.
+description:fr:Le Bonite à ventre rayé, thon listao, thon rose ou thon rosé (Katsuwonus pelamis), est une espèce de poissons de la famille des Scombridae.
+description:it:Il tonnetto striato (Katsuwonus pelamis), è un pesce di mare appartenente alla famiglia Scombridae.
+description:nl:De echte bonito (Katsuwonus pelamis) is een straalvinnige vis uit de familie van makrelen (Scombridae).
+decription:pt:O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Katsuwonus pelamis) é uma espécie de peixes da família Scombridae com distribuição natural cosmopolita nas águas tropicais e temperadas.
+# 644 products in 16 @2021-09-03
 
-<en:skipjack tuna
-en:raw Bonito
-fr:Bonite crue
-ciqual_food_code:en:26101
-ciqual_food_name:en:Bonito, raw
-ciqual_food_name:fr:Bonite, crue
 
 #category/yellowfin-tunas
 <en:tuna
