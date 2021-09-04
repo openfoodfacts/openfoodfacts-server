@@ -68794,7 +68794,6 @@ ciqual_food_code:en:26206
 ciqual_food_name:en:Mediterranean bass, raw, farmed
 ciqual_food_name:fr:Bar commun ou loup (Méditerranée), cru, élevage
 
-#description:en:Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
 
 <en:fish
 <en:oily fish
@@ -68879,10 +68878,17 @@ zh:劍旗魚科
 # zh-tw:劍旗魚
 wikidata:en:Q164327
 wikipedia:en:https://en.wikipedia.org/wiki/Swordfish
+ciqual_food_code:en:26082
+ciqual_food_name:en:Swordfish, raw
+ciqual_food_name:fr:Espadon, cru
+description:de:Der Schwertfisch (Xiphias gladius) ist ein großer, räuberisch lebender Knochenfisch, der weltweit in gemäßigt warmen bis tropischen Meeren anzutreffen ist.
+description:en:Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
+description:es:El pez espada o aguja palá (Xiphias gladius) es una especie de pez perciforme de la familia Xiphiidae.
+description:fr:L'espadon (Xiphias gladius) est une espèce de poissons pélagiques des mers tropicales et tempérées.
+description:it:Il pesce spada (Xiphias gladius) è un pesce osseo marino.
+description:nl:De zwaardvis (Xiphias gladius) is een straalvinnige vis uit de familie van zwaardvissen (Xiphiidae)
+description:pt:O espadarte (Xiphias gladius), meca, e por vezes incorretamente associado ao peixe-espada.
 # ingredient/swordfish has 16 products in 2 languages @2018-12-29
-# structure:outer:role:synonym,  eg:swordfish (xiphias gladius)
-# ingredient/Xiphias-gladius has 3 products in english @2018-12-30
-# structure:inner:role:synonym,  eg:swordfish (xiphias gladius)
 
 
 # en:description:Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae.
