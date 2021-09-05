@@ -45526,18 +45526,31 @@ ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
 
-
+#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
 <en:vegetable
+en:endive
+de:Endivie
+fr:chicorée
+la:Cichorium endivia
+pt:Chicória
+description:de:Die Endivie (Cichorium endivia) gehört zur Gattung der Wegwarten (Cichorium) und ist ein typischer Spätsommersalat.
+
+<en:endive
 en:curly endive
 de:Krausblättrige Endivie, Frisée
 es:escarola rizada
 fr:endive frisée
+la:Cichorium endivia var crispum
+description:en:This endive type has narrow, green, curly outer leaves.
+#99 in 6 2021-09-05
 
-<en:vegetable
-en:flat endive
+<en:endive
+en:flat endive, broad-leaved endive, Batavian endive, grumolo, scarola, scarole
 de:Glatte Endivie, Eskariol, Winterendivie
 es:escarola lisa
+la:Cichorium endivia var latifolia
+description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale green leaves and is less bitter than the other varieties. Varieties or names include Batavian endive, grumolo, scarola, and scarole.
 
 <en:vegetable
 en:Belgian endive
@@ -45546,22 +45559,75 @@ da:Julesalat
 de:Chicorée
 es:escarola, endivia Belga
 fi:salaattisikuri
-fr:chicorée, endives
+fr:endive, endives
 hu:cikória
 it:Cicoria Belga
+la:Cichorium intybus var. foliosum
 nl:witlof
 wikidata:en:Q1474
-# ingredient/fr:endives has 38 products in 4 languages @2018-12-10
+# 451 in 16 @2021-09-05
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
 
 
 <en:vegetable
 en:borage
+ar:حمحم مخزني
+az:Dərman göyzabanı
+be:Агурочнік лекавы
+bg:пореч
+ca:borratja
+co:Frìsgiula
+cs:brutnák lékařský
+cv:Хăяр курăкĕ
+cy:Tafod yr ych
+da:Almindelig Hjulkrone
 de:Borretsch
+el:Μπουράντζο
 es:borraja
+et:harilik kurgirohi
+eu:Borraja
+fa:گاوزبان
+fi:Rohtopurasruoho
 fr:Bourrache
+ga:Borráiste gorm
+gl:Borraxe
+hi:बोरेज
+hr:Boražina
+hu:Borágó
+hy:Գաղտրիկ դեղատու
+it:Borragine
+ja:ルリジサ
+ko:보리지
+mk:Лисичинка
+ml:ബോറേജ്
+la:Borago officinalis
+lt:Vaistinė agurklė
+lv:ārstniecības gurķene
+nb:agurkurt
+nl:bernagie
+os:Джитъригæрдæг
+pl:Ogórecznik lekarski
+pt:borragem
+ro:Limba mielului
+ru:Огуречная трава
+sl:Boraga
+sr:Борач
+sv:gurkört
+tr:Hodan
+tt:Кыяр үләне
+uk:Огірочник лікарський
+zh:琉璃苣
+wikidata:en:Q147075
 wikipedia:en:https://en.wikipedia.org/wiki/Borage
+description:de:Borretsch (Borago officinalis), ist eine zur Familie der Raublattgewächse (Boraginaceae) gehörige Pflanze. Sie wird als Gewürz- und Heilpflanze verwendet. Die Blätter des Borretschs werden in Salaten gegessen oder in Suppen gekocht.
+description:en:Borage, also known as a starflower, is an annual herb in the flowering plant family Boraginaceae. It is native to the Mediterranean region. Borage is used as either a fresh vegetable or a dried herb.
+description:es:Borago officinalis, la borraja, es una especie fanerógama perteneciente a la familia de las boragináceas. La forma de cocinarla es variada, pues se emplea de diferentes maneras toda la planta, desde los tallos, hasta las hojas.
+description:fr:La Bourrache ou Bourrache officinale (Borago officinalis) est une espèce de plantes annuelles de la famille des Boraginacées. Les fleurs de bourrache et les jeunes feuilles se consomment traditionnellement à l'état frais.
+description:it:La borragine (Borago officinalis L.) è una pianta erbacea annuale della famiglia delle Boraginaceae. Le foglie giovani sono variamente impiegate in cucina.
+description:nl:De bernagie (Borago officinalis), ook vaak komkommerkruid genoemd, is een gemakkelijk herkenbare, ruwharige, eenjarige plant met blauwe bloemen. Als voedsel wordt de plant vooral in het Middellandse Zeegebied gewaardeerd als onderdeel van salades en andere zomerse gerechten.
+description:pt:Borragem (Borago officinalis L.), é uma planta herbácea anual mediterrânea. Folhas e flores são utilizadas.
+# 27 in 4 @2021-09-05
 
 <en:vegetable
 en:cardoon, artichoke thistle
