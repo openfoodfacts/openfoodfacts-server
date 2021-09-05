@@ -28701,10 +28701,13 @@ fr:maïs torréfié concassé
 nl:maïspoeder
 
 <en:corn
+<en:molasses
 en:corn molasses
 de:Maissirup
 fr:mélasse de mais
+it:sciroppo di mais
 nl:maïsmelasse
+# 31 in 6 @2021-0-05
 
 <en:corn
 <en:malt
@@ -30970,15 +30973,22 @@ wikipedia:en:https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
 
 <en:molasses
-en:cane sugar molasses, cane molasses
+en:cane sugar molasses, cane molasses, molasses of cane sugar
 cs:melasa z třtinového cukru
 de:Rohrzuckermelasse, Zuckerrohrmelasse
 fi:ruokosokerimelassi, ruokomelassi
 fr:mélasse de sucre de canne, mélasse de canne
+hu:nádcukomelasz
+it:melassa di canna da zucchero
 lv:cukurniedru melase
 nl:rietsuikermelasse
 pl:melasa trzcinowa
+pt:melaço de cana
 sv:rörsockermelass
+ciqual_food_code:en:31067
+ciqual_food_name:en:Cane molasses
+ciqual_food_name:fr:Mélasse de canne
+# 505 in 12 @2021-09-06
 
 # description:en: TREHALOSE is a sugar consisting of two molecules of glucose. It is also known as mycose or tremalose. Trehalose has about 45% the sweetness of sucrose at concentrations above 22%, but when the concentration is reduced, its sweetness decreases more quickly than that of sucrose, so that a 2.3% solution tastes 6.5 times less sweet as the equivalent sugar solution. It is commonly used in prepared frozen foods, like ice cream, because it lowers the freezing point of foods.
 
@@ -45449,11 +45459,16 @@ nl:witte asperges
 pt:Espargos brancos
 # fr:asperges blanches has 46 products in 4 languages @2018-11-11
 
-# description:en:The AVOCADO (Persea americana) is a tree, long thought to have originated in South Central Mexico, classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado (or avocado pear or alligator pear), is botanically a large berry containing a single large seed. The fruit of horticultural cultivars has a markedly higher fat content than most other fruit, mostly monounsaturated fat, and as such serves as an important staple in the diet of consumers who have limited access to other fatty foods (high-fat meats and fish, dairy products). The fruit is not sweet, but distinctly and subtly flavored, with smooth texture.[4] It is used in both savory and sweet dishes, though in many countries not for both. The avocado is popular in vegetarian cuisine as a substitute for meats in sandwiches and salads because of its high fat content.
-
+#category/avocados
 <en:vegetable
 en:avocado
+an:aguacate
 ar:الأفوكادو
+az:Avokado
+bg:авокадо
+bn:আভোকাদো
+br:avoukez
+ca:alvocat
 cs:avokádo
 de:Avocado
 el:αβοκάντο
@@ -45463,24 +45478,55 @@ et:Avokaado
 eu:ahuakate
 fi:avokado
 fr:avocat
+gl:aguacate
+he:אבוקדו
+hi:एवोकाडो
 ht:Zaboka
+hu:avokádó
+hy:ավոկադո
+ia:Avocato
+id:alpukat
 it:avocado
+ja:アボカド
+ka:ავოკადო
+ku:avokado
 lt:Avokadas
+ma:rahopūru
+mk:авокадо
 nb:avokado
 nl:avocado
 pl:Awokado
 pt:abacate
 ru:авокадо
 sk:avokádo
+sq:avokado
 sv:avokado
 te:అవోకాడో
+tr:Avokado
+uk:авокадо
 vo:Avokaado
+zh:鳄梨
 # nah:Āhuacatl
 wikidata:en:Q961769
 wikipedia:en:https://en.wikipedia.org/wiki/Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
 carbon_footprint_fr_foodges_value:fr:2.4
-# ingredient/avocado has 223 products in 5 languages @2019-04-21
+description:de:Die Avocado (Persea americana) ist eine Pflanzenart aus der Familie der Lorbeergewächse (Lauraceae). Die Avocadofrucht ist eine einsamige Beere. Im deutschen Handel findet sich hauptsächlich der weltweit meistverbreitete Typ Fuerte.
+description:en:The AVOCADO (Persea americana) is a tree classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed.
+description:es:Persea americana, llamado popularmente aguacate, palto o aguacatero, es una especie arbórea del género Persea perteneciente a la familia Lauraceae, cuyo fruto, el aguacate o palta, es una baya comestible.
+description:fr:L'avocatier (Persea americana) est une espèce d'arbres fruitiers de la famille des Lauracées, originaire du Mexique et d'Amérique centrale. Il est notamment cultivé pour ses fruits, les avocats, riches en lipides.
+description:it:L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
+description:nl:De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
+# 858 in 12 @2021-09-21
+
+<en:avocado
+en:Raw avocado pulp
+fr:Pulpe d'avocat crue
+ciqual_food_code:en:13004
+ciqual_food_name:en:Avocado, pulp, raw
+ciqual_food_name:fr:Avocat, pulpe, cru
+
+
 
 <en:vegetable
 en:curly endive
