@@ -19,11 +19,10 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 - [Enable command-line completion](https://docs.docker.com/compose/completion/)
 - [Install Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) (if running on Windows)
 
-
 ## 2. Clone the repository from GitHub
 
 > You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.
-
+>
 > Be aware Open Food Facts server takes more than 1.3 GB (2019/11).
 
 Choose your prefered way to clone, either:
@@ -38,13 +37,15 @@ or
 $ git clone https://github.com/openfoodfacts/openfoodfacts-server.git
 ```
 
-If you are running Docker on Windows, please use the following git clone option :
+If you are running Docker on Windows, please use the following git clone option:
+
 ```console
 $ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
 Go to the cloned directory:
-```
+
+```console
 cd openfoodfacts-server/
 ```
 
@@ -75,7 +76,6 @@ The `.env` file also contains some useful Docker Compose variables:
     * `docker/admin-uis.yml`: add the Admin UIS container
     * `docker/geolite2.yml`: add the Geolite2 container
     * `docker/perldb.yml`: add the Perl debugger container
-    * `docker/vscode.yml`: add the VSCode container
 * `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
 
 **Note:** you can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
@@ -92,7 +92,7 @@ The command will run 2 subcommands:
 * `make up`: **Build and run containers** from the local directory and bind local code files, so that you do not have to rebuild everytime.
 * `make import_sample_data`: **Load sample data** into `mongodb` container (~100 products).
 
-***Notes:*** 
+***Notes:***
 
 * The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
 
@@ -101,6 +101,7 @@ The command will run 2 subcommands:
 **Hosts file:**
 
 Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+
 ```text
 127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 ```
@@ -122,4 +123,11 @@ $ make import_prod_data   # load latest prod data (~2M products, 1.7GB) into the
 ```
 
 ### Going further
+
 To learn more about developing with Docker, see the [Docker developer's guide]((./docker-developer-guide.md)).
+
+## Visual Studio Code
+
+This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
+
+To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the repository from GitHub](#2-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
