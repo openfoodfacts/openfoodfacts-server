@@ -7368,6 +7368,7 @@ nl:koffieroom
 
 # description:en:CONDENSED MILK is cow's milk from which water has been removed.  It is most often found in the form of "sweetened condensed milk" ("SCM"), with sugar added, and the terms "condensed milk" and "sweetened condensed milk" are often used interchangeably today. Sweetened condensed milk is a very thick, sweet product, which when canned can last for years without refrigeration if not opened. Condensed milk is used in numerous dessert dishes in many countries.
 
+#category/condensed-milks
 <en:milk
 en:condensed milk
 af:Kondensmelk
@@ -7420,56 +7421,75 @@ zh:煉奶
 # yue:煉奶
 wikidata:en:Q2830455
 wikipedia:en:https://en.wikipedia.org/wiki/Condensed_milk
-# ingredient/condensed-milk has 1704 products in 10 languages @2019-04-16
+# 6229 in 31 @2021-09-05
 
 <en:condensed milk
-en:sweetened condensed milk
+en:sweetened condensed milk, condensed milk with sugar
+bg:подсладено кондензирано мляко
 ca:llet condensada ensucrada, llet ensucrada condensada
+cs:slazené kondenzované mléko
 da:sukret kondenseret mælk
 de:gezuckerte Kondensmilch, gezuckerte eingedickte Milch
 es:leche condensada azucarada, leche azucarada condensada
+et:magustatud kondenspiim
 fi:makeutettu kondensoitu maito, makeutettu maitotiiviste, sokeroitu maitotiiviste, sokeroitua maitotiivistettä
 fr:lait concentré sucré, lait condensé sucré
-hu:édesített sűrített tej
+hu:édesített sűrített tej, cukrozott sűrített tej
 it:latte concentrato zuccherato
+lt:saldintas kondensuotas pienas
+lv:saldinats iebiezinātais piens
 nb:sukkerholdig kondensert melk, sukret kondensert skummet melk, søt kondensert melk
 nl:gecondenseerde gesuikerde melk, gesuikerde gecondenseerde melk
+ro:lapte condensat indulcit
 ru:молоко цельное сгущенное с сахаром
 sv:sockrad kondenserad mjölk, söt kondenserad mjölk, sötad kondenserad mjölk
 wikidata:en:Q57271749
-# ingredient/sweetened-condensed-milk has 516 products in 5 languages @2019-04-16
+# 2985 in 25 @2021-09-05
 
 <en:sweetened condensed milk
 en:sweetened condensed semi-skimmed milk
 ca:llet desnatada condensada ensucrada, llet descremada condensada ensucrada, llet desnatada ensucrada condensada, llet descremada ensucrada condensada,dolc de llet
+da:sockrad kondenserad mjölk
 de:gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
+el:ζαχαρούχο συμπυκνωμένο αποβουτυρωμένο γάλα
 es:leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada,dulce de leche
 fi:makeutettu tiivistetty vähärasvainen maito
 fr:lait écrémé condensé sucré, lait concentré sucré écrémé
-hu:sűrtett édesített zsírszegény tej, édesített sűrtett zsírszegény tej
+hr:zasladeno kondenzirano obrano mlijeko
+hu:sűrtett édesített zsírszegény tej, édesített sűrtett zsírszegény tej, cukrozott sűritett sovány tej
 it:latte magro condensato zuccherato
 nl:gesuikerde gecondenseerde magere melk
+pt:leite magro condensado açucarado
+ro:lapte degresat condensat indulcit
+sl:sladkano kondenzirano posneto mleko
+sv:sockrad kondenserad skummjölk
 # ingredient/fr:lait-écrémé-condensé-sucré has 42 products in 4 languages @2019-04-18
 # usage:de: gezuckerte Kondensmagermilch (Milch, Zucker)
 
 <en:sweetened condensed milk
-en:sweetened condensed whole milk
+en:sweetened condensed whole milk, Whole condensed milk with sugar
 ca:llet sencera condensada ensucrada
+da:sockrad kondenserad skummjölk
 de:gezuckerte Kondensvollmilch
 es:leche entera condensada azucadara
 fi:Makeutettu tiivistetty täysmaito
-fr:lait entier condensé sucré, lait entier concentré sucré
+fr:lait entier condensé sucré, lait entier concentré sucré, Lait concentré entier sucré
 hu:édesített sűrített teljes tej
 it:latte intero condensato zuccherato
 nl:gecondenseerde volle melk met suiker
+ciqual_food_code:en:19027
+ciqual_food_name:en:Condensed milk, with sugar, whole
+ciqual_food_name:fr:Lait concentré sucré, entier
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
 # <en:compound
-# category:en:en:Milk jams
+# category:en: en:Milk jams
 <en:sweetened condensed milk
+en:milk jam
 fr:confiture de lait
 ca:confitura de llet, llet confitada
 es:confitura de leche, leche confitada
+wikidata:en:Q17072931
 # usage:fr:confiture de lait (lait concentré sucré, sirop de glucose, sucre, eau, correcteur d'acidité : e331, sel, épaississant : pectines)
 
 <en:condensed milk
@@ -7481,6 +7501,9 @@ fi:Tiivistetty täysmaito
 fr:lait entier condensé, lait entier concentré
 hu:sűrített teljes tej
 nl:gecondenseerde volle melk
+ciqual_food_code:en:19026
+ciqual_food_name:en:Condensed milk, without sugar, whole
+ciqual_food_name:fr:Lait concentré non sucré, entier
 # ingredient/condensed-whole-milk has 52 products in 5 languages @2019-04-16
 
 <en:condensed milk
