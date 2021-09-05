@@ -51249,6 +51249,7 @@ nl:half ingedikte tomatenpuree
 <fr:purée de tomate mi-réduite
 fr:purée de tomates mi-réduite reconstituée
 
+#category/tomato-pastes
 <en:tomato
 en:tomato concentrate, tomato paste
 ca:Concentrat de tomàquet, Tomàquet concentrat
@@ -51278,6 +51279,13 @@ fr:purée de tomate concentrée, purée de tomates concentrée, purée de tomate
 hu:sűrített paradicsompüré, sűrített paradicsom, paradicsom (sűrítmény), paradicsom (sűrítményből)
 nl:geconentreerde tomatenpuree
 sv:koncentrerad tomatpuré
+
+<en:concentrated tomato purée
+en:Canned concentrated tomato paste
+fr:Concentré de tomate appertisé
+ciqual_food_code:en:20068
+ciqual_food_name:en:Tomato paste, concentrated, canned
+ciqual_food_name:fr:Tomate, concentré, appertisé
 # ingredient/en:concentrated-tomato-purée has 92 products in 4 languages @2018-12-26
 
 # en:double-concentrated-tomato can be a compound ingredient, eg Tomatenmark doppelt konzentriert (Tomaten, Speisesalz)
@@ -51292,6 +51300,14 @@ fr:double concentré de tomate, purée de tomates double concentré, purée de t
 it:doppio concentrato di pomodoro
 nl:Dubbel geconcentreerde tomatenpuree
 # ingredient/fr:double-concentré-de-tomate has 520 products in 8 languages @2018-12-26
+
+<en:double concentrated tomato
+en:Canned double concentrate tomato paste
+fr:Double concentré de tomate appertisé
+ciqual_food_code:en:20268
+ciqual_food_name:en:Tomato paste, double concentrate, canned
+ciqual_food_name:fr:Tomate, double concentré, appertisé
+
 
 <en:tomato purée
 fr:purée de tomates reconstituée, purée de tomates à base de concentré, purée de tomate à base de concentré
@@ -67218,7 +67234,30 @@ ciqual_food_code:en:26133
 ciqual_food_name:en:Pouting, raw
 ciqual_food_name:fr:Tacaud, cru
 
+<en:fish
+en:snapper
+fr:vivaneau
+ciqual_food_code:en:26146
+ciqual_food_name:en:Snapper, raw
+ciqual_food_name:fr:Vivaneau, cru
 
+
+<en:snapper
+en:Russell's snapper
+ar:نهاش روسيلي
+fr:Vivaneau hublot
+id:babak bangkau
+la:Lutjanus russellii
+sv:Russellsnapper
+th:ปลากะพงข้างปาน
+vi:Cá hồng chấm đen
+zh:黑星笛鯛
+wikidata:en:Q2049855
+wikipedia:en:https://en.wikipedia.org/wiki/Lutjanus_russellii
+description:en: Russell's snapper (Lutjanus russellii) is a species of marine ray-finned fish, a snapper belonging to the family Lutjanidae.
+description:es:Lutjanus russellii es una especie de peces de la familia Lutjanidae.
+description:nl:Lutjanus russellii is een straalvinnige vis uit de familie van snappers (Lutjanidae).
+description:pt:Lutjanus russellii é uma espécie de peixe nativa do Oceano Pacífico.
 
 #<en:fish
 <en:white fish
@@ -71850,7 +71889,6 @@ la:Plantago ovata
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:HONEY is a sweet, viscous food substance produced by bees and some related insects.
 
 # nova:en:honey
 
@@ -72059,23 +72097,34 @@ wikidata:en:Q10987
 wikipedia:en:https://en.wikipedia.org/wiki/Honey
 vegan:en:no
 vegetarian:en:yes
-# ingredient/honey has 9679 products in 17 languages @2018-12-17
+ciqual_food_code:en:31008
+ciqual_food_name:en:Honey
+ciqual_food_name:fr:Miel
+description:de:Honig ist ein von Honigbienen zur eigenen Nahrungsvorsorge erzeugtes und vom Menschen genutztes Lebensmittel aus dem Nektar von Blüten oder den zuckerhaltigen Ausscheidungsprodukten verschiedener Insekten, dem sogenannten Honigtau.
+description:en:HONEY is a sweet, viscous food substance produced by bees and some related insects.
+description:es:La miel es un fluido muy dulce y viscoso producido por abejas del género Apis, a partir del néctar de las flores o de secreciones de partes vivas de plantas o de excreciones de insectos chupadores de plantas (áfidos).
+description:fr:Le miel est une substance sucrée élaborée par les abeilles à miel à partir de nectar ou de miellat.
+description:it:Il miele è un alimento prodotto dalle api (Apis mellifera) a partire dal nettare o dalla melata.
+description:nl:Honing is een natuurlijke vloeibare zoete substantie die ontstaat als honingbijen en/of honingmieren nectar uit bloemen verzamelen en deze vervolgens omzetten.
+description:pt:O mel é um alimento, geralmente encontrado em estado líquido viscoso e açucarado, que é produzido pelas abelhas a partir do néctar recolhido de flores e processado pelas enzimas digestivas desses insetos.
+# 23961 in 36 @2021-09-04
 
 <en:honey
 en:bee honey
 de:Bienenhonig
 
-<en:honey
-en:raw honey
-de:Roher Honig
-es:miel pura
-fr:miel non raffiné, miel brut
+#process:en: en:raw
+#<en:honey
+#en:raw honey
+#de:Roher Honig
+#fr:miel non raffiné, miel brut
 
-<en:honey
-en:pure honey
-de:Purer Honig
-es:miel pura
-fr:Miel pur
+#process:en: en:pure
+#<en:honey
+#en:pure honey
+#de:Purer Honig
+#es:miel pura
+#fr:Miel pur
 # ingredient/fr:miel-pur has 3 products @2019-0-28
 
 <en:honey
@@ -72087,16 +72136,20 @@ fr:miel bio, miel biologique, miel issu de l'agriculture biologique
 nl:biologische honing
 # ingredient/nl:biologische-honing has 4 products @2019-05-24
 
-<en:honey
-fr:miel non pasteurisé
+#process:en: en:unpasteurized
+#<en:honey
+#en:unpasteurized honey
+#fr:miel non pasteurisé
 
-<en:honey
-fr:miel pasteurisé
+#<en:honey
+#fr:miel pasteurisé
+# no products on @2021-09-04
 
-<en:honey
-en:honey powder
-de:Honigpulver
-es:miel en polvo
+#process:en: en:powdered
+#<en:honey
+#en:honey powder
+#de:Honigpulver
+#es:miel en polvo
 
 <en:honey
 en:liquid honey
@@ -72106,20 +72159,21 @@ nl:vloeibare honing
 # ingredient/fr:miel-liquide has 12 products in french @2019-05-28
 
 <en:honey
+en:creamy honey, Creamy nectar honey, Honey with creamy flowers
 fr:miel crémeux, miel de nectar crémeux, miel de fleurs crémeux
 de:Honig cremig
 it:miele cremoso
-# ingredient/fr:miel-cremeux has 6 products in 3 languages @2019-05-28
+# 15 products in 4 @2021-09-04
 # ingredient/fr:miel-de-fleurs-cremeux has 4 products @2019-05-28
 
-<fr:miel crémeux
+<en:creamy honey
 fr:miel crémeux bio, miel de fleurs crémeux issu de l'agriculture biologique
 
 <en:honey
 en:flower honey
 da:blomsterhonning
 de:Blütenhonig
-es:miel de flores,miel mil flores
+es:miel de flores
 fi:kukkahunaja
 fr:miel de fleurs, miel de nectar
 it:miele di fiori
@@ -72129,32 +72183,42 @@ nl:bloemenhoning, bloemen-honing
 <en:flower honey
 fr:miel toutes fleurs
 de:Mischblütenhonig
+es:miel mil flores
 it:miele millefiori
-# ingredient/fr:miel-toutes-fleurs has 19 products in 3 languages @2019-05-28
+# 31 products in 4 @2019-05-28
+
+<fr:miel toutes fleurs
+<en:organic honey
+en:organic mixed flower honey
+fr:miel biologique toutes fleurs
 
 <en:flower honey
 <en:honey from France
 fr:miel de fleurs de France
-# ingredient/fr:miel-de-fleurs-de-france has 6 products in french @2019-05-28
+# 9 products in french @2021-09-05
+
+
+#<en:flower honey
+#<en:organic honey
+#en:organic flower honey
+#da:økologisk blomsterhonning
+#de:Bio-Blütenhonig
+#fr:miel de fleurs biologique
+#nl:Bloemenhoningcrème van biologische oorsprong, biologische bloemenhoning
+# no products @2021-09-04
+
+#<en:organic flower honey
+#<en:honey from Spain
+#fr:miel de fleurs biologique origine Espagne
+# no products @2021-09-04
 
 <en:flower honey
-en:organic flower honey
-da:økologisk blomsterhonning
-de:Bio-Blütenhonig
-fr:miel de fleurs biologique
-nl:Bloemenhoningcrème van biologische oorsprong
-
-<en:organic flower honey
-<en:honey from Spain
-fr:miel de fleurs biologique origine Espagne
-
-<en:flower honey
-en:wildflower honey
+en:wildflower honey, wild flower honey
 de:Wildblütenhonig
 fi:villikukkahunaja
 fr:miel de fleurs sauvages
 nl:wilde bloemen honing
-# ingredient/fr:miel-de-fleurs-sauvages has 6 products in 3 languages @2019-08-25
+# 138 products in 3 @2021-09-05
 
 ##################### HONEY FROM SPECIFIC FLOWERS
 
@@ -72166,22 +72230,27 @@ fi:akaasiahunaja
 fr:miel d'acacia, miel de acacia
 it:miele d'acacia
 nl:acaciahoning
-# ingredient/fr:miel-d’acacia has 84 products in 4 languages @2018-12-17
+# 192 products in 7 @2021-09-05
+
+#<en:acacia honey
+#<en:organic honey
+#en:organic acacia honey
+#fi:luomu akaasiahunaja
+#fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
+# no products @2021-09-05
 
 <en:acacia honey
-en:organic acacia honey
-fi:luomu akaasiahunaja
-fr:miel d'Acacia issu de l'Agriculture Biologique, miel bio d'acacia
-# ingredient/fr:miel-d-acacia-issu-de-l-agriculture-biologique has 3 products @2018-05-28
-
-<en:acacia honey
+<en:honey from France
 en:acacia honey from France
 de:Akazienhonig aus Frankreich
 fr:miel d'acacia de france, miel d'acacia récolté en France, Miel d'acacia de Bourgogne, miel d'acacia du val de saone, miel d'acacia d'occitanie
-# ingredient/fr:miel-d-acacia-recolte-en-france has 4 products @2019-05-28
+nl:Acaciahoning uit Frankrijk
+# 12 products in FR @2021-09-21
 
 <en:acacia honey
+<en:honey from Italy
 fr:miel italien d'acacia
+# 1 product @2021-09-05
 
 <en:acacia honey
 <fr:mélange de miels originaires et non originaires de l'ue
@@ -72189,25 +72258,31 @@ fr:Mélanges de miels d'Acacia originaires et non originaires de l'Union Europé
 
 <en:acacia honey
 fr:miel d'acacia des forets preservées d'Europe
+# 1 product @2021-09-05
 
 <en:honey
 fr:miel baies roses
+# 1 product @2021-09-05
 
 <en:honey
 fr:miel de Bourdaine
-# ingredient/fr:miel-de-bourdaine has 3 products @2019-05-28
+# 3 products @2021-09-05
 
 <en:honey
 fr:miel de bruyere
+nl:heidehoning
 
 <fr:miel de bruyere
 fr:miel de bruyere blanche
+nl:witte heidehoning
 
+# is this really honey, it is often translated as cane sugar
 <en:honey
 es:miel de caña
 
 <en:honey
 fr:miel de carotte sauvage
+# 1 product @2021-09-05
 
 <en:honey
 <fr:miel du Gâtinais
@@ -72215,10 +72290,13 @@ fr:miel de carotte récolté dans le gatinais
 
 <en:honey
 fr:miel de châtaignier, miel de chataigner, miel de fleurs de chataignier
-# ingredient/fr:Miel-de-châtaignier has 20 products in french @2018-12-17
+de:Kastanienhonig
+it:miele di castagno
+nl:kastanjehoning
+# 49 in 4 @2021-09-05
 
-<fr:miel de châtaignier
-fr:miel de châtaignier biologique, miel de chataignier issu de l'agriculture biologique
+#<fr:miel de châtaignier
+#fr:miel de châtaignier biologique, miel de chataignier issu de l'agriculture biologique
 
 <fr:miel de châtaignier
 <en:honey from France
@@ -72226,12 +72304,13 @@ fr:miel de châtaignier origine France, Miel de châtaignier récolté en France
 
 <en:honey
 fr:miel de citronnier
-# ingredient/fr:miel-de-citronnier has 7 products in french @2019-05-28
+# 13 products in 2 @2021-09-05
+
+#<fr:miel de citronnier
+#fr:miel de citronnier biologique, miel de citronnier bio
 
 <fr:miel de citronnier
-fr:miel de citronnier biologique, miel de citronnier bio
-
-<fr:miel de citronnier
+en:honey from Spain
 fr:miel de citronnier d'Espagne
 # ingredient/fr:miel-de-citronnier-d-espagne has 3 products @2019-05-28
 
@@ -72240,25 +72319,25 @@ en:eucalyptus honey
 de:Eukalyptushonig
 fi:eukalyptushunaja
 fr:miel d'eucalyptus
-nl:eucalytus honing
-# ingredient/fr:miel-d-eucalyptus has 7 products @2019-05-28
+nl:eucalyptushoning
+# 15 products @2021-09-05
 
-<en:eucalyptus honey
-en:organic eucalyptus honey
-fi:luomu eukalyptushunaja
-fr:miel d'eucalyptus issu de l'agriculture biologique
-
-<en:honey
-fr:miel de framboisier issu de l'agriculture biologique
+#<en:eucalyptus honey
+#en:organic eucalyptus honey
+#fi:luomu eukalyptushunaja
+#fr:miel d'eucalyptus issu de l'agriculture biologique
 
 <en:honey
-en:Pure Fynbos honey
+fr:miel de framboisier
+
+#<en:honey
+#en:Pure Fynbos honey
+#no products @2021-09-05
 
 <en:honey
 fr:miel de garrigue
-# ingredient/fr:miel-de-garrigue has 6 products in french @2019-05-28
+# 10 in french @2021-09-05
 
-# <en:category:en:Honeys
 <en:honey
 en:lavander honey
 de:Lavendelhonig, Lavendelhonige
@@ -72500,6 +72579,7 @@ nl:honing uit Frankrijk
 # ingredient/fr:miel-de-france has 20 products in french @2019-05-28
 
 <en:honey from France
+en:honey from the Gâtinais
 fr:miel du Gâtinais
 # ingredient/fr:miel-du-gatinais has 7 products @2019-05-28
 
