@@ -88,11 +88,21 @@ build_lang:
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
-	${DOCKER_COMPOSE} exec backend sh -c "\
+	${DOCKER_COMPOSE} exec -T backend sh -c "\
 		echo 'root' >> /etc/incron.allow && \
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
 	@echo "🥫 Incron jobs have been setup …"
+
+create_external_volumes:
+	@echo "🥫 Creating external volumes (production only) …"
+	for volume in icons_dist js_dist css_dist image_attributes node_modules; do \
+		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
+	done
+	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume 'users' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume 'products' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
 
 #---------#
 # Imports #
