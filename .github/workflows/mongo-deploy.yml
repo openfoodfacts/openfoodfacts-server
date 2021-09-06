@@ -52,6 +52,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           echo "DOCKER_CLIENT_TIMEOUT=120" > .env
           echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=po" >> .env
