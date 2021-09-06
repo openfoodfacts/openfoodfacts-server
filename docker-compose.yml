@@ -41,7 +41,6 @@ services:
       - js_dist:/opt/product-opener/html/js/dist:ro
       - css_dist:/opt/product-opener/html/css/dist:ro
       - node_modules:/opt/product-opener/node_modules:ro
-      # - image_attributes:/opt/product-opener/html/images/attributes:ro
 
       # Users and products .sto files
       - users:/mnt/podata/users # .sto
@@ -75,7 +74,6 @@ services:
       - icons_dist:/opt/product-opener/html/images/icons/dist
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
-      - image_attributes:/opt/product-opener/html/images/attributes
 
       # Logs 
       - ./logs/nginx/:/var/log/nginx/
@@ -94,7 +92,6 @@ volumes:
   icons_dist:
   js_dist:
   css_dist:
-  image_attributes:
   node_modules:
 networks:
   webnet:

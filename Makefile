@@ -96,7 +96,7 @@ setup_incron:
 
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	for volume in icons_dist js_dist css_dist image_attributes node_modules; do \
+	for volume in icons_dist js_dist css_dist node_modules; do \
 		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
 	done
 	docker volume create users || echo "Docker volume 'users' already exist. Skipping."
