@@ -2,11 +2,19 @@
     "parent_panel_id": "ecoscore",
     "type" : "score",
     "level" :"info",
-    "grade": "[% panel.grade %]",
     "topics": [
         "environment"
     ],
-    "title": "[% panel.title %]",
+    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+    "grade": "minus",
+    "title": "[% lang('ecoscore_packaging_impact_high') %]",
+    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
+    "grade": "neutral",
+    "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+    [% ELSE %]
+    "grade": "plus",
+    "title": "[% lang('ecoscore_packaging_impact_low') %]",      
+    [% END %]
     "elements": [
         {
             "element_type": "text",
