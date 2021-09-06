@@ -1,15 +1,4 @@
 ﻿version: "3.7"
-services:
-  backend:
-    image: openfoodfacts-server/backend:prod
-    build:
-      context: .
-      dockerfile: Dockerfile
-  frontend:
-    image: openfoodfacts-server/frontend:prod
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
 volumes:
   product_images:
     external: true
