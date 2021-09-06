@@ -40,8 +40,8 @@ services:
       - icons_dist:/opt/product-opener/html/images/icons/dist:ro
       - js_dist:/opt/product-opener/html/js/dist:ro
       - css_dist:/opt/product-opener/html/css/dist:ro
-      - image_attributes:/opt/product-opener/html/images/attributes:ro
       - node_modules:/opt/product-opener/node_modules:ro
+      # - image_attributes:/opt/product-opener/html/images/attributes:ro
 
       # Users and products .sto files
       - users:/mnt/podata/users # .sto
