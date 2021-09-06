@@ -1,9 +1,5 @@
 ﻿version: "3.7"
 volumes:
-  product_images:
-    external: true
-  html_data:
-    external: true
   icons_dist:
     external: true
   js_dist:
@@ -14,7 +10,11 @@ volumes:
     external: true
   node_modules:
     external: true
+  html_data:
+    external: true
   users:
     external: true
   products:
+    external: true
+  product_images:
     external: true

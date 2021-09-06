@@ -141,10 +141,13 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          for volume in product_images html_data icons_dist js_dist css_dist image_attributes node_modules users products; do 
+          for volume in icons_dist js_dist css_dist image_attributes node_modules; do 
             docker volume create $volume || echo "Docker volume '$volume' already exist. Skipping."
           done;
-
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume "users" already exist. Skipping
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume "products" already exist. Skipping
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume "product_images" already exist. Skipping
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume "html_data" already exist. Skipping
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
