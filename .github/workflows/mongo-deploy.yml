@@ -117,8 +117,6 @@ jobs:
           git checkout -qf ${{ github.sha }}
 
     - name: Set environment variables
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -135,8 +133,6 @@ jobs:
           echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
 
     - name: Create MongoDB Docker volume
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -150,8 +146,6 @@ jobs:
           docker volume create dbdata || echo "Docker volume 'dbdata' already exist. Skipping."
 
     - name: Start services
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -165,8 +159,6 @@ jobs:
           make up
 
     - name: Check services are up
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
@@ -191,8 +183,6 @@ jobs:
           exit $exit_code;
 
     - name: Cleanup obsolete Docker objects
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
