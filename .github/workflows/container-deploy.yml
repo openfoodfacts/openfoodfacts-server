@@ -141,6 +141,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           make create_external_volumes
     - name: Start services
       uses: appleboy/ssh-action@master
@@ -193,4 +194,5 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           make prune
