@@ -9,6 +9,118 @@ on:
     # - docker/mongodb.yml
 
 jobs:
+  deploy-docker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [mongo-dev]
+        # env: [mongo-dev, mongo-prod]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
+    steps:
+    - name: Checkout git repository
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          # Clone Git repository if not already there
+          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
+
+          # Go to docker/ directory
+          cd openfoodfacts-server/
+
+          # Fetch newest commits (in case it wasn't freshly cloned)
+          git fetch --depth 1
+
+          # Checkout current commit SHA
+          git checkout -qf ${{ github.sha }}
+
+    - name: Set environment variables
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          echo "DOCKER_CLIENT_TIMEOUT=120 > .env"
+          echo "COMPOSE_HTTP_TIMEOUT=120 >> .env"
+          echo "COMPOSE_PROJECT_NAME=po" >> .env
+          echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
+
+    - name: Create MongoDB Docker volume
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          docker volume create dbdata || echo "Docker volume 'dbdata' already exist. Skipping."
+
+    - name: Start services
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          docker-compose up -d --remove-orphans 2>&1
+
+    - name: Check services are up
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/
+          exit_code=0
+          for service in mongodb; do 
+            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
+              echo "$service: DOWN"
+              exit_code=1
+            else
+              echo "$service: UP"
+            fi
+          done;
+          exit $exit_code;
+
+    - name: Cleanup obsolete Docker objects
+      uses: appleboy/ssh-action@master
+      if: ${{ always() }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          docker system prune -af
+
   # deploy-script:
   #   runs-on: ubuntu-latest
   #   strategy:
@@ -83,115 +195,3 @@ jobs:
   #         script: |
   #           mongo --version
   #           mongo --eval 'db.runCommand({ connectionStatus: 1 })'
-
-  deploy-docker:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        env: [mongo-dev]
-        # env: [mongo-dev, mongo-prod]
-    environment: ${{ matrix.env }}
-    concurrency: ${{ matrix.env }}
-    steps:
-    - name: Checkout git repository
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          # Clone Git repository if not already there
-          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
-
-          # Go to docker/ directory
-          cd openfoodfacts-server/
-
-          # Fetch newest commits (in case it wasn't freshly cloned)
-          git fetch --depth 1
-
-          # Checkout current commit SHA
-          git checkout -qf ${{ github.sha }}
-
-    - name: Set environment variables
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          echo "DOCKER_CLIENT_TIMEOUT=120 > .env"
-          echo "COMPOSE_HTTP_TIMEOUT=120 >> .env"
-          echo "COMPOSE_PROJECT_NAME=po" >> .env
-          echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
-
-    - name: Create MongoDB Docker volume
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          docker volume create dbdata || echo "Docker volume 'dbdata' already exist. Skipping."
-
-    - name: Start services
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          make up
-
-    - name: Check services are up
-      uses: appleboy/ssh-action@master
-      if: ${{ always() }}
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          cd openfoodfacts-server/
-          exit_code=0
-          for service in mongodb; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
-              echo "$service: DOWN"
-              exit_code=1
-            else
-              echo "$service: UP"
-            fi
-          done;
-          exit $exit_code;
-
-    - name: Cleanup obsolete Docker objects
-      uses: appleboy/ssh-action@master
-      if: ${{ always() }}
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          docker system prune -af
