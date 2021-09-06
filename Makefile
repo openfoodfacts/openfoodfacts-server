@@ -102,12 +102,12 @@ create_external_volumes:
 	docker volume create users || echo "Docker volume 'users' already exist. Skipping."
 	docker volume create products || echo "Docker volume 'products' already exist. Skipping."
 	docker volume create product_images || echo "Docker volume 'product_images' already exist. Skipping."
-	docker volume create html_data || echo "Docker volume 'html_data' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
+
 	# TODO: Once production data is bound to /mnt, delete old volumes and create mounted ones:
 	# docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume 'users' already exist. Skipping."
 	# docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume 'products' already exist. Skipping."
 	# docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
-	# docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
 
 #---------#
 # Imports #
