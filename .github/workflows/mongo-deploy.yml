@@ -52,9 +52,10 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          echo "DOCKER_CLIENT_TIMEOUT=120 > .env"
-          echo "COMPOSE_HTTP_TIMEOUT=120 >> .env"
+          echo "DOCKER_CLIENT_TIMEOUT=120" > .env
+          echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=po" >> .env
+          echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
 
     - name: Create MongoDB Docker volume

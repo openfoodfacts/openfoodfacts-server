@@ -90,9 +90,10 @@ jobs:
           cd openfoodfacts-server/
 
           # Set Docker Compose variables
-          echo "DOCKER_CLIENT_TIMEOUT=120 > .env"
-          echo "COMPOSE_HTTP_TIMEOUT=120 >> .env"
+          echo "DOCKER_CLIENT_TIMEOUT=120" > .env
+          echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=po" >> .env
+          echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> .env
 
           # Set App variables
