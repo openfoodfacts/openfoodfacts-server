@@ -61,7 +61,7 @@ my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 my $po_port = $ENV{PRODUCT_OPENER_PORT};
 $server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
 
-@ssl_subdomains = $is_localhost ? qw(): qw(*);
+@ssl_subdomains = $is_localhost ? qw() : qw(*);
 $producers_platform = $ENV{PRODUCERS_PLATFORM};
 
 # server paths
