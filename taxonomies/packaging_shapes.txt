@@ -297,7 +297,7 @@ weight:en:light
 
 en:Applicator
 fr:Applicateur
-packaging_materials:en: en:plastic, en:cardboard
+#suggest:packaging_materials:en: en:plastic, en:cardboard
 
 fr:Bac
 
@@ -306,11 +306,11 @@ fr:Bag-in-box, Cubitainer
 
 en:strip, band
 fr:Bandelette
-packaging_materials:en: en:plastic, en:metal, en:carboard, en:other
+#suggest:packaging_materials:en: en:plastic, en:metal, en:carboard, en:other
 
 en:Ampoule, ampul, ampule
 fr:Ampoule
-packaging_materials:en: en:glass
+#suggest:packaging_materials:en: en:glass
 
 fr:Bidon
 
@@ -337,7 +337,7 @@ fr:Cintre
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
-packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
+#suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
 
 # close to bottle, but also ampoule is translated to vial by citeo
 en:Vial, flask
@@ -347,11 +347,11 @@ fr:Collier
 
 en:wrapper, wrapping
 fr:enveloppage
-packaging_materials:en: en:metal, en:paper, en:other
+#suggest:packaging_materials:en: en:metal, en:paper, en:other
 
 en:envelope
 fr:enveloppe
-packaging_materials:en: en:cardboard, en:paper
+#suggest:packaging_materials:en: en:cardboard, en:paper
 
 en:string
 fr:ficelle, ruban
@@ -363,7 +363,7 @@ fr:Housse
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, Flacon à pistolet, Spray
-packaging_materials:en: en:plastic, en:metal, en:glass
+#suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 
 en:Aerosol can
 fr:Aérosol
@@ -371,7 +371,7 @@ packaging_materials:en: en:plastic, en:metal
 
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
-packaging_materials:en: en:plastic, en:glass
+#suggest:packaging_materials:en: en:plastic, en:glass
 
 fr:Gobelet
 
@@ -385,7 +385,7 @@ fr:Plateau
 
 en:Hygiene wings
 fr:Ailettes
-packaging_materials:en: en:plastic, en:paper
+#suggest:packaging_materials:en: en:plastic, en:paper
 
 en:Bucket
 fr:Seau
