@@ -42,27 +42,5 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          make import_prod_db
-
-  build_lang:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        env: [off-net]
-        # env: [off-net, off-org]
-    steps:
-    - name: Run build_lang.pl
-      uses: appleboy/ssh-action@master
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          cd openfoodfacts-server/
-          make build_lang
+          # TODO: wait for users / products mounts
+          # make import_prod_db
