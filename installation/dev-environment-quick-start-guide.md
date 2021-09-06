@@ -45,6 +45,9 @@ $ cd ./openfoodfacts-server/docker/
 $ ./build_dev.sh
 $ ./start_dev.sh
 ```
+
+_If docker complains about `ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network` it can be solved by adding `{"base":"172.80.0.0/16","size":24}, {"base":"172.90.0.0/16","size":24}` to `default-address-pools` in `/etc/docker/daemon.json` and then restarting the docker daemon._
+
 The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
 This will build a new backend image from your local source files. Note that this binds the docker container to your local development directory. Therefore, it is not required to rebuild the container image after changing the source files.
 
