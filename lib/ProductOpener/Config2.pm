@@ -53,14 +53,13 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 use utf8;
 
-# check if localhost
-my $is_localhost = index($server_domain, 'localhost') != -1;
 
 # server constants
 my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 my $po_port = $ENV{PRODUCT_OPENER_PORT};
-$server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
+my $is_localhost = index($po_domain, 'localhost') != -1;
 
+$server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
 @ssl_subdomains = $is_localhost ? qw() : qw(*);
 $producers_platform = $ENV{PRODUCERS_PLATFORM};
 
