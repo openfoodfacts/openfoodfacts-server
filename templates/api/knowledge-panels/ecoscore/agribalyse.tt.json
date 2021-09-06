@@ -2,6 +2,7 @@
     "parent_panel_id": "ecoscore",
     "type" : "score",
     "level" :"info",
+    "grade": "[% panel.agribalyse_grade %]",
     "topics": [
         "environment"
     ],
