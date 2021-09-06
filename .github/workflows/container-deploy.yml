@@ -25,7 +25,7 @@ jobs:
         timeoutSeconds: 600 # 10m
 
     - name: Wait for backend container build workflow
-      uses: tomchv/wait-my-workflow@v1.1.0cc
+      uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
