@@ -90,11 +90,11 @@ jobs:
       matrix:
         env: [mongo-dev]
         # env: [mongo-dev, mongo-prod]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
     steps:
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
-      environment: ${{ matrix.env }}
-      concurrency: ${{ matrix.env }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
