@@ -180,6 +180,7 @@ de:Essstäbchen
 fr:Baguettes
 hu:evőpálcikák, evőpálkcika
 pt:Pauzinhos chineses, palitinhos, hashi
+packaging_materials:en: en:plastic, en:wood
 
 <en:Eating utensils
 en:Knife, knives
@@ -294,18 +295,22 @@ hu:címke, címkék
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
 
+en:Applicator
 fr:Applicateur
+packaging_materials:en: en:plastic, en:cardboard
 
 fr:Bac
 
 en:Bag-in-box
 fr:Bag-in-box, Cubitainer
 
-en:strip
+en:strip, band
 fr:Bandelette
+packaging_materials:en: en:plastic, en:metal, en:carboard, en:other
 
 en:Ampoule, ampul, ampule
 fr:Ampoule
+packaging_materials:en: en:glass
 
 fr:Bidon
 
@@ -330,19 +335,23 @@ fr:Muselet, Muselet et plaque
 en:hanger
 fr:Cintre
 
+en:Wedge, corner piece
 fr:Cale, Coin, Cornière
+packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
 
-# close to bottle
+# close to bottle, but also ampoule is translated to vial by citeo
 en:Vial, flask
 fr:Flacon
 
 fr:Collier
 
-en:wrapper
+en:wrapper, wrapping
 fr:enveloppage
+packaging_materials:en: en:metal, en:paper, en:other
 
-en:enveloppe
+en:envelope
 fr:enveloppe
+packaging_materials:en: en:cardboard, en:paper
 
 en:string
 fr:ficelle, ruban
@@ -352,16 +361,21 @@ fr:dose invididuelle
 
 fr:Housse
 
-en:pump bottle, spray
+en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, Flacon à pistolet, Spray
+packaging_materials:en: en:plastic, en:metal, en:glass
 
+en:Aerosol can
 fr:Aérosol
+packaging_materials:en: en:plastic, en:metal
 
-en:Ball flask
+en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
+packaging_materials:en: en:plastic, en:glass
 
 fr:Gobelet
 
+en:Basket
 fr:Panier
 
 en:Syringe
@@ -369,7 +383,9 @@ fr:Seringue
 
 fr:Plateau
 
+en:Hygiene wings
 fr:Ailettes
+packaging_materials:en: en:plastic, en:paper
 
 en:Bucket
 fr:Seau
