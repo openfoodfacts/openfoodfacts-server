@@ -41,7 +41,7 @@ jobs:
       with:
         images: |
           ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
-        file: ${{ matrix.image_name == 'frontend' && Dockerfile.frontend || Dockerfile }}
+        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
         tags: |
           type=semver,pattern={{version}}
           type=ref,event=pr
