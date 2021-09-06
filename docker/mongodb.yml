@@ -4,8 +4,6 @@ services:
     image: mongo:4.4
     volumes:
       - dbdata:/var/lib/mongodb
-    networks:
-      - webnet
     ports:
       - 27017:27017
 volumes:
