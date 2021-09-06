@@ -4,9 +4,8 @@ on:
   push:
     branches: 
     - main
-    - deploy-*
-    # paths:
-    # - docker/mongodb.yml
+    paths:
+    - docker/mongodb.yml
 
 jobs:
   deploy-docker:

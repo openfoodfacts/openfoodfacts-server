@@ -144,10 +144,10 @@ jobs:
           for volume in icons_dist js_dist css_dist image_attributes node_modules; do 
             docker volume create $volume || echo "Docker volume '$volume' already exist. Skipping."
           done;
-          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume "users" already exist. Skipping
-          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume "products" already exist. Skipping
-          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume "product_images" already exist. Skipping
-          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume "html_data" already exist. Skipping
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume 'users' already exist. Skipping."
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume 'products' already exist. Skipping."
+          docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
+          docker volume create --drivedocker-cor=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
@@ -161,7 +161,7 @@ jobs:
         script: |
           cd openfoodfacts-server/
           docker-compose up -d --remove-orphans 2>&1
-          docker-compose exec backend sh -c "\
+          docker-compose exec -T backend sh -c "\
             echo 'root' >> /etc/incron.allow && \
             incrontab -u root /opt/product-opener/conf/incron.conf && \
             incrond"
