@@ -76756,6 +76756,29 @@ wikidata:en:Q178024
 wikipedia:en:https://en.wikipedia.org/wiki/Dough
 
 <en:dough
+en:pizza dough
+da:pizzadej
+de:Pizzateig
+es:masa para pizza, masa de pizza
+fi:pizzataikina
+fr:pâte à pizza
+nl:pizzadeeg
+sv:pizzadeg
+
+#<en:compound
+<en:pizza dough
+en:pizza base
+de:Pizzaboden
+fi:pizzapohja
+fr:fond de pizza
+nl:pizzabodem
+sv:pizzabotten
+likely_allergens:en: en:gluten
+# ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
+# usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
+# mainIngredient:en:wheat flour
+
+<en:dough
 en:inactive dough
 de:inaktive Hefe
 
@@ -77364,6 +77387,26 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pastry
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
+
+#comment:en:Has a few products, which has cooked pieces of shortbread in it (ice)
+#category/shortbread-cookies
+en:shortbread, shortbread cookie, shortbread cookies
+af:brosbrood
+ar:مخبوز هش
+he:שורטברד
+ja:ショートブレッド
+jv:Roti cekak
+ko:쇼트브레드
+xx:shortbread
+zh:奶油酥餅
+wikidata:en:Q652695
+
+<en:shortbread
+en:Cooked shortbread dough
+fr:Pâte sablée cuite
+ciqual_food_code:en:23442
+ciqual_food_name:en:Shortbread dough, cooked
+ciqual_food_name:fr:Pâte sablée, cuite
 
 # description:en:GINGERBREAD refers to a broad category of baked goods, typically flavored with ginger, cloves, nutmeg or cinnamon and sweetened with honey, sugar or molasses. Gingerbread foods vary, ranging from a soft, moist loaf cake to something close to a ginger snap.
 
@@ -78131,9 +78174,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
 <en:ravioli
 fr:raviolis farcis aux légumes
 
-# description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
 
-# <en:compound
+#category/biscuits
 en:biscuit, biscuits
 ar:بسكويت
 az:Biskvit
@@ -78204,11 +78246,22 @@ wikidata:en:Q13270
 wikipedia:en:https://en.wikipedia.org/wiki/Biscuit
 carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
 carbon_footprint_fr_foodges_value:fr:4.5
-# ingredient/fr:biscuit has 391 products in 8 languages @2019-02-23
-# Biscuit (egg, wheat flour, sugar, emulsifier:mono - and diglycerides of fatty acids, leavening agents:diphosphates and sodium carbonate)
+ciqual_food_code:en:24000
+ciqual_food_name:en:Biscuit (cookie)
+ciqual_food_name:fr:Biscuit sec, sans précision
+# 896 in 19 @2021-09-06
+description:de:Ein Keks gehört zu den Dauerbackwaren, die meist aus fetthaltigem Teig mit mehr oder minder süßem Geschmack bestehen.
+description:en:A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
+description:es:La galleta es una preparación culinaria de pequeño tamaño, dulce o salada, horneada y hecha normalmente a base de harina de trigo, huevos, azúcar, mantequilla o aceites vegetales o grasas animales.
+description:fr:un biscuit est un petit gâteau sec, qui se décline dans plusieurs saveurs et formes.
+description:it:Il biscotto è una preparazione di cucina e di pasticceria dolce, di dimensioni ridotte (5–10 cm) e di forma varia, solitamente cotta nel forno sino a perdere quasi ogni traccia di umidità.
+description:nl:Een koekje of biscuit is een kleine, gebakken lekkernij.
+description:pt:Biscoito é um produto de doçaria confeccionado à base de farinha, açúcar e um emulsionante, que pode ser leite ou uma gordura.
 
 <en:biscuits
+en:butter biscuit
 fr:Biscuits au beurre
+nl:boterkoekje
 # ingredient/fr:Biscuits-au%-beurre has 3 products in french @2019-02-23
 
 
@@ -78217,6 +78270,7 @@ fr:Biscuits au beurre
 
 # mainIngredient:en:wheat
 # <en:compound
+<en:biscuit
 en:speculoos
 de:Spekulatius
 fr:spéculoos
@@ -81533,14 +81587,6 @@ fr:Combucha cru, Kombucha cru
 #                                Stuff that doesn't seem to fit anywhere..
 #
 ###################################################################################################
-en:pizza dough
-da:pizzadej
-de:Pizzateig
-es:masa para pizza, masa de pizza
-fi:pizzataikina
-fr:pâte à pizza
-nl:pizzadeeg
-sv:pizzadeg
 
 # en:description:NONPAREILS (or hundreds and thousands outside North America) are a decorative confectionery of tiny balls made with sugar and starch, traditionally an opaque white but now available in many colors.
 
@@ -81558,17 +81604,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nonpareils
 # mainIngredient:en:sugar
 # ingredient/en:nonpareils has 87 products in 1 language @2020-06-13
 
-#<en:compound
-en:pizza base
-de:Pizzaboden
-fi:pizzapohja
-fr:fond de pizza
-nl:pizzabodem
-sv:pizzabotten
-likely_allergens:en: en:gluten
-# ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
-# usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
-# mainIngredient:en:wheat flour
 
 
 <en:vegetable
