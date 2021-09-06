@@ -43,7 +43,7 @@ jobs:
       run: echo fail && false # fail if build fail
 
     - name: Do something if build timeout
-      if: steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build.outputs.conclusion == 'timed_out'
+      if: steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
     # - name: Get po/* changed files
