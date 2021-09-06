@@ -54,7 +54,7 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 use utf8;
 
 # check if localhost
-my $is_localhost = index($server_domain, 'localhost') != -1
+my $is_localhost = index($server_domain, 'localhost') != -1;
 
 # server constants
 my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
