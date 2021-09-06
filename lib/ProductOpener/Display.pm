@@ -65,7 +65,6 @@ BEGIN
 		&display_mission
 		&display_tag
 		&display_search_results
-		&display_field
 		&display_error
 		&gen_feeds
 
@@ -87,7 +86,6 @@ BEGIN
 		&display_ingredient_analysis
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
-		&display_data_quality_description
 		&display_possible_improvement_description
 
 		&count_products
@@ -127,6 +125,7 @@ BEGIN
 
 		$show_ecoscore
 		$attributes_options_ref
+		$knowledge_panels_options_ref
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -153,6 +152,7 @@ use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
+use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
 
@@ -365,6 +365,8 @@ sub process_template($$$) {
 
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{images_subdomain} = $images_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
@@ -653,9 +655,10 @@ CSS
 	}
 	
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries{$cc}) or ($User{moderator}))) {
+		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator}))) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
+		$knowledge_panels_options_ref = {};
 	}
 	else {
 		$show_ecoscore = 0;
@@ -663,6 +666,10 @@ CSS
 			skip_ecoscore => 1,
 			skip_forest_footprint => 1,
 		};
+		$knowledge_panels_options_ref = {
+			skip_ecoscore => 1,
+			skip_forest_footprint => 1,
+		};		
 	}
 	
 	# Producers platform url
@@ -4698,7 +4705,12 @@ sub customize_response_for_product($$) {
 			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 		}
-		
+		# Knowledge panels in the $lc language
+		elsif ($field eq "knowledge_panels") {
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
+		}
+
 		# Images to update in a specific language
 		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
@@ -7208,7 +7220,7 @@ else {
 JS
 	}
 
-	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
+	my $tagline = lang("tagline");
 
 	if ($server_options{producers_platform}) {
 

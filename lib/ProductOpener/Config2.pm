@@ -61,7 +61,7 @@ my $is_localhost = index($po_domain, 'localhost') != -1;
 
 $server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
 @ssl_subdomains = $is_localhost ? qw() : qw(*);
-$producers_platform = $ENV{PRODUCERS_PLATFORM} | "0";
+$producers_platform = $ENV{PRODUCERS_PLATFORM} || "0";
 
 # server paths
 $data_root = "/mnt/podata";
@@ -83,7 +83,7 @@ $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 my $postgres_db = "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
-my $postgres_url = "postgresql://$postgres_user:$postgres_password\@postgres/minion";
+my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_db}/minion";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page

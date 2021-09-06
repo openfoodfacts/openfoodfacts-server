@@ -228,6 +228,10 @@ $data_root = $ProductOpener::Config2::data_root;
 $conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
+<<<<<<< HEAD:lib/ProductOpener/Config.pm
+=======
+
+>>>>>>> main:docker/backend-dev/conf/Config.pm
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;

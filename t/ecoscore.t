@@ -401,8 +401,7 @@ my @tests = (
 			categories_tags=>["en:milks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
 			labels_tags => ["en:eu-organic"],
-			origins_tags => ["en:france"],
-			ingredients_text => "Lait",
+			ingredients_text => "Lait (origine : Bretagne)",
 		},
 	],
 	
@@ -448,6 +447,17 @@ my @tests = (
 			categories_tags=>["en:foies-gras"],
 			packaging_text => "1 pot en verre, 1 couvercle en acier",
 			ingredients_text => "Foie gras de canard",
+		},
+	],
+
+	# UK product
+	[
+		'uk-milk',
+		{
+			lc => "en",
+			categories_tags=>["en:milks"],
+			packaging_text => "1 PET plastic bottle, 1 PEHD bottle cap",
+			ingredients_text => "Milk (England)",
 		},
 	],	
 

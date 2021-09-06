@@ -30356,6 +30356,7 @@ ciqual_food_name:fr:Riz sauvage, cru
 
 <en:Cereals and their products
 en:Precooked rices, Instant rices, Rapid cooking rices, Pre-cooked rice
+da:forkogt ris, forkogte ris
 de:Vorgegarter Reis
 es:Arroces precocidos, Arroces rápidos, Arroces de cocción rápida
 fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits, riz précuits nature, riz précuit nature
@@ -30512,6 +30513,15 @@ fr:Onigiri
 it:Onigiri
 nl:Onigiri
 wikidata:en:Q13393
+pnns_group_2:en:Appetizers
+
+<en:Salty snacks
+en:Panzerotti
+de:Panzerotti
+es:Panzerotti
+fr:Panzerotti
+it:Panzerotti
+wikidata:en:Q7132009
 pnns_group_2:en:Appetizers
 
 <en:Salty snacks
@@ -32283,7 +32293,20 @@ origins:en: fr:Corse, en:France
 <en:French cheeses
 <en:Uncooked pressed cheeses
 <en:Cow cheeses
+en:cantal
+ar:كانتال
+fa:کانتال
 fr:Cantal, fourme de Cantal, cantalet, Cantals
+hy:Կանտալ
+ja:カンタル
+jv:Kèju cantal
+ko:캉탈
+ru:Канталь
+uk:Канталь
+xx:cantal
+zh:康塔爾芝士
+wikidata:en:Q681539
+wikipedia:en:https://en.wikipedia.org/wiki/Cantal_cheese
 agribalyse_food_code:en:12722
 ciqual_food_code:en:12722
 ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
@@ -35083,6 +35106,8 @@ sv:Laktosfri grädde
 
 <en:Creams
 en:Whipped creams
+ca:crema de llet montada, nata montada
+da:piskefløde
 de:Schlagsahne
 es:Nata montada
 fi:kermavaahdot
@@ -52233,6 +52258,30 @@ fr:Étoiles de badiane, Badiane chinoise, Anis étoilé
 la:Illicium verum
 nl:Steranijsthee
 wikidata:en:Q1760637
+
+<en:Spices
+en:Sumac, Sumach, Sumak, Soumak, Sumaq
+de:Sumach, Sumak, Rhus
+es:Sumac, Rhus, Zumaque
+fr:Sumac, Rhus
+it:Sommaco
+nl:Sumak
+pt:Sumagre
+wikidata:en:Q16131953
+wikipedia:en:https://en.wikipedia.org/wiki/Sumac
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=Sumac&search_simple=1&action=process
+# 28 "sumac", 5 "sumak" in OFF on 2021-08-16
+
+<en:Sumac
+en:Sicilian sumac, Rhus coriara, Tanner's sumach
+de:Gerber-Sumach, Rhus coriara
+es:Rhus coriara
+fr:Rhus coriaria, Sumac des corroyeurs
+it:Sommacco siciliano
+la:Rhus coriara
+pt:Rhus coriara
+wikidata:en:Q159546
+wikipedia:en:https://en.wikipedia.org/wiki/Rhus_coriaria
 
 <en:Spices
 en:Turmeric
@@ -80352,6 +80401,14 @@ ciqual_food_code:en:20904
 ciqual_food_name:en:Tofu, plain
 ciqual_food_name:fr:Tofu, nature
 nova:en:3
+
+<en:Tofu
+en:Plain tofu
+fr:Tofu nature
+
+<en:Tofu
+en:Smoked tofu
+fr:Tofu fumé
 
 <en:Legumes and their products
 <en:Meat analogues
