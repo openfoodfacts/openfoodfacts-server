@@ -40,8 +40,8 @@ jobs:
       uses: docker/metadata-action@v3
       with:
         images: |
-          ${{ github.repository }}/${{ matrix.image_name }}
-        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
+          ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
+        file: ${{ matrix.image_name == 'frontend' && Dockerfile.frontend || Dockerfile }}
         tags: |
           type=semver,pattern={{version}}
           type=ref,event=pr
