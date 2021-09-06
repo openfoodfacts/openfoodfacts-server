@@ -25,7 +25,7 @@ jobs:
         timeoutSeconds: 600 # 10m
 
     - name: Wait for backend container build workflow
-      uses: tomchv/wait-my-workflow@v1.1.0
+      uses: tomchv/wait-my-workflow@v1.1.0cc
       id: wait-build2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -33,6 +33,10 @@ jobs:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
         intervalSeconds: 10
         timeoutSeconds: 600 # 10m
+
+    - name: Do something if build isn't launch
+      if: steps.wait-build.outputs.conclusion == 'does not exist'
+      run: echo job does not exist && true
 
     - name: Do something if build fail
       if: steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure' 

@@ -41,7 +41,6 @@ jobs:
       with:
         images: |
           ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
-        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
         tags: |
           type=semver,pattern={{version}}
           type=ref,event=pr
@@ -53,6 +52,7 @@ jobs:
       with:
         context: .
         push: true
+        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
         tags: ${{ steps.meta.outputs.tags }}
