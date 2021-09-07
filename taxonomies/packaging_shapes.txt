@@ -133,14 +133,11 @@ hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
 
-en:Sleeve, sleeves
-fr:Étui, étuis
+en:Sleeve, sleeves,  sheath, outer open-end box
+fr:Étui, étuis, Fourreau, Cavalier
 hu:haskötő
 pt:Manga, mangas
-
-fr:Fourreau
-
-fr:Cavalier
+#suggest:packaging_materials:en: en:metal, en:paper, en:carboard, en:other
 
 en:Mold
 fr:Moule
@@ -232,6 +229,7 @@ fr:Filet, filets
 hu:Háló, hálók
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 #suggest:packaging_materials:en: en:metal, en:other
+# related_categories:en: en:Fresh garlic
 
 en:Film, wrap, films, wraps, film wrap, film wraps
 da:Film
@@ -290,7 +288,9 @@ fr:Batonnet, bâtonnets
 hu:rúd, rudak
 pt:Paus, pauzinhos, varetas de madeira
 
-fr:Stick
+en:Cosmetic stick
+fr:Stick cosmétique
+# related_categories:en: en:lipstick, en:deodorant
 # different - do not merge
 
 en:label, labels
@@ -339,9 +339,11 @@ fr:Collerette
 en:Wire cage and cap
 fr:Muselet, Muselet et plaque
 #goes_with:en:glass bottle
+# related_categories:en: en:Champagnes
 
 en:hanger
 fr:Cintre
+# related_categories:en: en:Clothes
 
 en:Wedge, corner piece
 fr:Cale, Coin, Cornière
@@ -398,8 +400,12 @@ fr:Ailettes
 
 en:Bucket
 fr:Seau
+#suggest:packaging_materials:en: en:plastic, en:metal
 
+# CITEO only translates it by pot
+en:Terrine Pot
 fr:Terrine
+#suggest:packaging_materials:en: en:stoneware, en:ceramic
 
 fr:Tonneau, tonnelet
 
