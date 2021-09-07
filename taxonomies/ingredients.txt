@@ -2823,7 +2823,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Glucono_delta-lactone
 # usage:fr:poudres à lever (glucono-delta-lactone, carbonate acide de sodium)
 
 
-# description:en:CALCIUM GLUCONATE is a mineral supplement and medication.
+# description:en:meCONATE is a mineral supplement and medication.
 
 # <en:calcium
 # <en:acidity regulator
@@ -10740,8 +10740,6 @@ description:de:Gouda (ndl. Goudse kaas) ist die Bezeichnung für verschiedene Sc
 description:en:GOUDA is a mild, yellow cheese made from cow's milk.
 description:es:El gouda es un queso blanco neerlandés denominado así por la ciudad de Gouda. El término "gouda" es hoy en día un nombre genérico, que no está limitado a los quesos de origen neerlandés.
 description:it:Il gouda è il formaggio più conosciuto e più consumato dei Paesi Bassi.
-
-
 description:nl:Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is een van de bekendste en meest gegeten kaassoorten.
 
 
@@ -18218,7 +18216,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cooking_oil
 
 
 # nova:en:hydrogenated-oil
-# process:en en:hydrogenated
+# processing:en: en:hydrogenated
 <en:oil
 en:hydrogenated oil
 de:gehärtetes öl
@@ -19750,7 +19748,7 @@ hu:bio repceolaj
 nl:olie van biologisch koolzaad
 # ingredient/nl:olie-van-biologisch-koolzaad has 1 product @2019-05-24
 
-process:en: en:hydrogenated
+#processing:en: en:hydrogenated
 #<en:colza oil
 #en:hydrogenated colza oil
 #de:Gehärtetes Rapsöl
@@ -19759,7 +19757,7 @@ es:aceite hidrogenado de colza
 #fr:Huile de colza hydrogénée
 #sv:hårdat rapsolja
 
-#process:en: en:fully hydrogenated
+#processing:en: en:fully hydrogenated
 #<en:hydrogenated colza oil
 #fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
 #fi:kokonaan kovetettu rapsiöljy
@@ -19767,7 +19765,7 @@ es:aceite hidrogenado de colza
 #sv:fullhärdad rapsolja
 # ingredient/fr:huile-de-colza-totalement-hydrogenee has 41 products in 4 languages @2020-06-10
 
-#process:en: en:non-hydrogenated
+#processing:en: en:non-hydrogenated
 #<en:colza oil
 #fr:huile de colza non hydrogénée
 
@@ -36663,13 +36661,8 @@ en:mixed peel
 en:red fruits
 de:rote Früchte
 es:frutos rojos
-fr:Fruits rouges
-
-<en:fruit
-fr:fruits des bois
-nl:bosvruchten
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-des-bois
-# 35 products in 1 language @2018-09-29
+fr:Fruits rouges, fruit rouge
+nl:rode vruchten
 
 <en:fruit
 en:vine fruit, mixed vine fruit
@@ -36680,16 +36673,15 @@ en:vine fruit, mixed vine fruit
 en:berries
 ca:Fruits de bosc
 da:Bær
-de:rote Früchte
 es:bayas,frutas del bosque
 fi:marja, marjat, marjoja
-fr:fruit rouge, fruits rouges
+fr:fruits des bois
 he:פירות יער
 hu:bogyó, bogyótermés, bogyós gyümölcs
 it:Bacche
 ja:ベリーズ
 nb:bær
-nl:rode vruchten
+nl:bosvruchten
 pl:Jagody
 ru:Ягоды
 sv:Bär
@@ -37904,7 +37896,7 @@ vegan:en:yes
 vegetarian:en:yes
 # ingredient/en:peach-syrup has 7 product in 4 languages @2021-08-19
 
-#process:en:dried
+#processing:en:dried
 <en:peach
 en:dried peach
 fr:Pêche sèche
@@ -37913,7 +37905,7 @@ ciqual_food_code:en:13118
 ciqual_food_name:en:Peach, dried
 ciqual_food_name:fr:Pêche, sèche
 
-process:en:paste
+#processing:en:paste
 <en:peach
 en:peach paste
 fi:persikkatahna
@@ -43799,10 +43791,6 @@ en:tempranillo grape
 de:Tempranillo, Tempranillo-Traube
 es:uva tempranillo
 
-<en:grape
-en:garnacha grape
-de:Garnacha, Garnacha-Traube, Grenache, Grenache-Traube
-es:uva garnacha
 
 <en:grape
 en:black grape
@@ -44486,15 +44474,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gamay
 # description:en:Grenache or Garnacha is one of the most widely planted red wine grape varieties in the world.
 
 <en:varietal
-en:Grenache
+en:Grenache, garnacha grape
 az:Qrenaş
 bg:Гренаш
 ca:garnatxa
 cs:Grenache
 cv:Гренаш
 da:Grenache
-de:Grenache
-es:Garnacha
+de:Garnacha, Garnacha-Traube, Grenache, Grenache-Traube
+es:Garnacha, uva garnacha
 et:Grenache
 fi:Grenache
 fr:Grenache, Grenache Noir
@@ -50577,7 +50565,7 @@ et:tšilli, tšillipipar
 eu:Pipermin
 fa:فلفل تند
 fi:chili, chilipippuri, chilipaprika
-fr:chili, piment du chili, piment
+fr:chili, piment du chili
 gl:Chile
 gn:Ky'ỹi
 gu:મરચું
@@ -55401,28 +55389,61 @@ fr:graine de pavot bleu
 <en:seed
 en:sunflower seed, sunflower seeds, sunflower kernels
 af:Sonneblomsaad
+ar:حب الشمس
+be:насенне сланечніка
+bg:слънчогледово семе, Слънчогледови семки
+bn:সূর্যমুখী বীজ
+bs:sjemenke od suncokreta
 ca:llavors de gira-sol, pipes de gira-sol
+cs:slunecnicová seminka
+cv:Хĕвелчамăш
 da:Solsikkekerner, solsikkefrø
 de:Sonnenblumenkerne
+el:ηλιόσπορος
+eo:sunflora semo
 es:semillas de girasol, pipas de girasol
+et:päevalilleseemned
+fa:تخمه آفتاب‌گردان
 fi:auringonkukansiemen, auringonkukansiemenet, auringonkukansiemeniä
 fr:graines de tournesol
+gl:semente de xirasol
 he:גרעיני חמנייה, גרעין חמנייה, גרעיני חמניה, גרעיני חמניה, גרעיני חמניות
+hi:सूरजमुखी के बीज
+hr:sjemenke od suncokreta
 hu:napraforgómag
+hy:արևածաղկի սերմեր
+id:Biji bunga matahari
 it:semi di girasole
-ja:ひまわりの種
+ja:ひまわりの種, 向日葵の種
+jv:Wiji kembang srengéngé
+ka:Күнбағыс дәні
+ko:해바라기 씨
+ml:സൂര്യകാന്തി വിത്ത്
+ms:Biji bunga matahari
+lt:saulėgražų branduoliai
 nb:solsikkefrø, solsikkekjerner
 nl:zonnebloempitten, zonnebloempit
 nn:solsikkefrø
+or:ସୁର୍ଯ୍ୟମୂଖୀ ମଞ୍ଜି
+pa:ਸੂਰਜਮੁਖੀ ਦੇ ਬੀਜ
 pl:Nasiona słonecznika
 ru:Семена Подсолнечника
 sk:slnečnicové jadierka
 sl:sončnicina Semena
+sq:farë luledielli
 sr:Jezgro suncokreta
 sv:solrosfrön, solrosfrö, solroskärna, solroskärnor
+ta:சூரியகாந்தி விதை
+th:เมล็ดทานตะวัน
+tt:көнбагыш орлыгы
+uk:Соняшникове насіння
+ur:ورج مکھی بیج
+vi:Hạt hướng dương
+zh:葵花籽
 ciqual_food_code:en:15011
 ciqual_food_name:en:Sunflower seed
 ciqual_food_name:fr:Tournesol, graine
+wikidata:en:Q1076906
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en:no
 
