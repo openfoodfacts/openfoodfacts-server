@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-11-05 10:07\n"
+"PO-Revision-Date: 2021-09-07 16:32\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: id\n"
-"X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1378\n"
+"X-Crowdin-File: common.pot\n"
+"X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -74,10 +74,6 @@ msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 msgstr "Kami menggunakan sistem yang disebut Slack di mana semua peserta dapat berdiskusi dan berkolaborasi. Kami akan menerima anda dengan senang hati jika anda bergabung dengan kami!"
 
-msgctxt "join_us_on_slack"
-msgid "Join us on Slack"
-msgstr "Bergabung dengan kami di Slack"
-
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
 msgstr "Sekarang Anda dapat mengimpor data dan foto produk Anda dengan mudah."
@@ -100,35 +96,35 @@ msgstr "Silahkan kirim email ke <a href=\"mailto:producers@openfoodfacts.org\">p
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Jika anda bekerja untuk sebuah produsen atau merek dan akan menambahkan atau melengkapi data hanya untuk produk anda sendiri, anda dapat memiliki akses ke Platform for Producers kami dengan gratis."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Platform untuk produsen memungkinkan produsen untuk mengimpor data dan foto dari seluruh produknya dengan mudah, menandai sebagai resmi, dan mendapatkan analisa gratis untuk peluang peningkatan produk mereka."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Akun profesional"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Ini adalah akun produsen atau merek."
 
 msgctxt "producer_or_brand"
-msgid "Producer or brand"
-msgstr ""
+msgid "Name of producer or name of brand"
+msgstr "Nama produsen atau nama merek"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Akun profesional harus memiliki organisasi yang terkait (nama atau merek perusahaan)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Sila masukkan nama dari organisasi anda (nama atau merek perusahaan)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Akun ini adalah akun profesional yang terkait dengan produsen atau merek %s. Anda memiliki akses ke Platform untuk Produsen."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -273,7 +269,7 @@ msgstr "Sumbu vertikal"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Kode batang"
+msgstr "kode batang"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -441,7 +437,7 @@ msgstr "korektor"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Negara tempat penjualan"
+msgstr "Negara tempat dijual"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -577,7 +573,7 @@ msgstr "Parameter akun"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Paramater akun anda telah diubah."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -593,35 +589,35 @@ msgstr "alamat surel"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Produk yang dikemas oleh perusahaan dengan kode pelacakan %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Kode pelacakan"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Packager code"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Packager code"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "kode pelacakan"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Produk dengan kode pelacakan %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "kode pelacakan"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Produk tanpa kode pelacakan %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -630,7 +626,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "Di Eropa, kode ini berbentuk elips dengan 2 inisial negara diikuti dengan angka dan CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -733,8 +729,8 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "Tanggal kedaluwarsa adalah cara untuk melacak perubahan produk dari waktu ke waktu dan untuk mengidentifikasi versi terbaru."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
-msgstr "Drilldown menjadi produk oleh ..."
+msgid "Explore products by..."
+msgstr "Jelajahi produk menurut..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -868,7 +864,7 @@ msgstr "<<site_name>> wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -963,11 +959,11 @@ msgstr "Tidak ada kode batang yang ditemukan pada gambar."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Tidak ada barcode yang ditentukan atau ditemukan di gambar atau nama berkas."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Gambar ini tidak dapat dibaca."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -1220,7 +1216,7 @@ msgstr "Belum terdaftar?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "memasuki"
+msgstr "Masuk"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1254,7 +1250,7 @@ msgstr "Anda dapat memilih satu atau lebih gambar lalu:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Tempat pemanufakturan atau pemrosesan"
+msgstr "Manufaktur atau tempat pengolahan"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1361,7 +1357,7 @@ msgstr "%s produk"
 
 msgctxt "name"
 msgid "Name"
-msgstr "Nama"
+msgstr "nama"
 
 msgctxt "names"
 msgid "Names"
@@ -1658,11 +1654,11 @@ msgstr "Halaman:"
 
 msgctxt "password"
 msgid "Password"
-msgstr "Kata sandi"
+msgstr "kata sandi anda"
 
 msgctxt "password_new"
 msgid "New password"
-msgstr ""
+msgstr "Kata sandi baru"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1746,7 +1742,7 @@ msgstr "Sebelumnya"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "Tambahkan gizi"
+msgstr "Tambahkan nutrisi"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1914,7 +1910,7 @@ msgstr "Produk yang telah Anda tambahkan atau edit"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Kota, negara bagian, dan negara tempat pembelian"
+msgstr "Kota, negara bagian dan negara tempat dibeli"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -2282,7 +2278,7 @@ msgstr "Lihat halaman produk"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Negara"
+msgstr "Negara tempat dijual"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2302,7 +2298,7 @@ msgstr "Mengirim gambar"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "Takaran saji"
+msgstr "Melayani ukuran"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2318,7 +2314,7 @@ msgstr "Jika terdapat nilai untuk produk yang telah diolah pada tabel informasi 
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "memasuki"
+msgstr "Masuk"
 
 msgctxt "share"
 msgid "Share"
@@ -2347,6 +2343,10 @@ msgstr "Basis data kolaboratif, gratis, dan terbuka mengenai bahan, informasi ni
 msgctxt "site_name"
 msgid "Open Food Facts"
 msgstr "Open Food Facts"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "Logo Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2570,7 +2570,7 @@ msgstr "Dapatkan dari Microsoft"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2598,7 +2598,7 @@ msgstr "Aktifkan perbesaran menggunakan roda tetikus."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Muat gambar dengan resolusi lebih rendah (untuk koneksi lambat)"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2614,11 +2614,11 @@ msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan, 
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari daftar bahan: %d%"
+msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan pada dari daftar bahan perkiraan: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari kategori (%s) produk: %d%"
+msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan pada label kategori (%s) produk: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2652,33 +2652,13 @@ msgctxt "delete_user"
 msgid "Delete the user"
 msgstr "Hapus pengguna"
 
-msgctxt "sources_openfood_ch"
-msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Beberapa data dan/atau gambar berasal dari basis data OpenFood.ch (daftar yang tepat tersedia dalam riwayat pengeditan produk). Elemen tersebut dilisensikan di bawah lisensi <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-
-msgctxt "sources_openfood_ch_product_page"
-msgid "Product page on openfood.ch"
-msgstr "Halaman produk di openfood.ch"
-
-msgctxt "sources_usda_ndb"
-msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr "Beberapa data berasal dari basis data USDA National Nutrients Database for Branded Foods (daftar pastinya tersedia dalam riwayat pengeditan produk)."
-
-msgctxt "sources_usda_ndb_product_page"
-msgid "Product page on USDA NDB"
-msgstr "Halaman produk di USDA NDB"
-
-msgctxt "sources_fleurymichon"
-msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "Beberapa data dan gambar telah disediakan langsung oleh pabrikan Fleury Michon."
-
 msgctxt "sources_manufacturer"
-msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh pabrikan %s"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s."
+msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh produsen %s."
 
-msgctxt "sources_collaboration"
-msgid "Some of the data for this product has been collected in collaboration with %s"
-msgstr "Sebagian data dari produk ini telah dikumpulkan dengan kolaborasi dari %s"
+msgctxt "list_of_sources"
+msgid "Some of the data and/or photos for this product come from those sources:"
+msgstr "Beberapa data dan/atau foto untuk ptoduk ini bersumber dari:"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2706,7 +2686,7 @@ msgstr "Harap dicatat bahwa tabel ini disegarkan setiap malam dan mungkin sudah 
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Nama"
+msgstr "nama"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2916,7 +2896,7 @@ msgstr "Memiliki risiko menengah terhadap paparan berlebih"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
-msgstr ""
+msgstr "Tidak ada atau sangat rendah risiko paparan berlebih"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -3108,7 +3088,7 @@ msgstr "halaman %s"
 
 msgctxt "obsolete"
 msgid "Product taken off the market"
-msgstr ""
+msgstr "Produk diambil dari pasar"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3298,7 +3278,7 @@ msgstr "Impor berkas data-data produk"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Unggah file spreedsheet(file Excel atau file CSV yang dikodekan dengan UTF-8 yang dipisahkan koma atau tab) dengan data produk."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -3447,7 +3427,7 @@ msgstr "Pilih opsi ini untuk kolom data secara spesifik, dan tetap ingin menjadi
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Ketik nama bidang target di bidang teks di sebelah kanan, atau biarkan kosong untuk menggunakan nama bidang sumber."
 
 msgctxt "value"
 msgid "Value"
@@ -3491,7 +3471,7 @@ msgstr "Nilai dalam μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Nilai dalam IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3561,11 +3541,11 @@ msgstr "Silakan memeriksa kebenaran data pada platform untuk produsen sebelum me
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
-msgstr ""
+msgstr "Ekspor foto ke database publik"
 
 msgctxt "replace_selected_photos"
 msgid "Replace existing selected photos"
-msgstr ""
+msgstr "Ganti foto terpilih yang ada"
 
 msgctxt "cancel"
 msgid "Cancel"
@@ -3900,7 +3880,7 @@ msgstr "Produk termasuk dalam kategori lemak, nilai untuk lemak jenuh digantikan
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
-msgstr "tenaga"
+msgstr "Energi"
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
@@ -4047,11 +4027,11 @@ msgstr "Saya telah melakukan donasi, atau Saya tidak tertarik. Sembunyikan banne
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Sebuah proyek independen dan dipimpin warga untuk transparansi pangan?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Data produk makanan untuk penelitian yang meningkatkan kesehatan masyarakat?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4151,26 +4131,6 @@ msgctxt "add_tag_field"
 msgid "Add a field"
 msgstr "Tambahkan kolom isian"
 
-msgctxt "scanned_code"
-msgid "Scanned code"
-msgstr "Kode yang terpindai"
-
-msgctxt "code_from_filename"
-msgid "Code from file name"
-msgstr "Kode dari nama berkas"
-
-msgctxt "using_previous_code"
-msgid "Using previous code"
-msgstr "Menggunakan kode sebelumnya"
-
-msgctxt "add_field_values"
-msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr "Anda dapat menentukan nilai kolom isian yang akan ditambahkan ke semua produk yang mana akan Anda tambahkan gambarnya."
-
-msgctxt "add_tag_field"
-msgid "Add a field"
-msgstr "Tambahkan kolom isian"
-
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Hapus semua produk"
@@ -4230,193 +4190,193 @@ msgstr "Yang harus dikerjakan"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "Tim"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "opsional"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "tim"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "tim"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Anda dapat bergabung dengan 1 hingga 3 tim. Produk yang Anda tambahkan atau edit akan dikreditkan kepada Anda dan tim Anda. Tim dapat diubah kapan saja."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Nama tim bersifat publik. Jangan membuat tim dengan nama yang berisi data pribadi (misalnya nama keluarga), merek dagang (kecuali Anda memilikinya), atau apa pun yang menyinggung."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Tim %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d produk akan diekspor."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "Nama makanan CIQUAL"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "Nama makanan CIQUAL"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "Nama makanan CIQUAL"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr ""
+msgstr "Kami membutuhkan bantuan Anda!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Anda dapat membantu kami mengenali lebih banyak bahan dan menganalisis daftar bahan untuk produk ini dan lainnya dengan lebih baik dengan:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Edit halaman produk ini untuk memperbaiki kesalahan ejaan dalam daftar bahan, dan/atau untuk menghapus bahan dalam bahasa dan kalimat lain yang tidak terkait dengan bahan."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Tambahkan entri baru, sinonim, atau terjemahan ke daftar bahan, metode pemrosesan bahan, dan label multibahasa kami."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Bergabunglah dengan saluran #ingredients di <a href=\"https://slack.openfoodfacts.org\">ruang diskusi Slack kami</a> dan/atau pelajari tentang <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">analisis bahan di wiki</a>, jika Anda ingin membantu. Terima kasih!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Produser"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Jika produk ini memiliki daftar bahan di %s, silakan tambahkan."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Kode batang hilang"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Kode batang tidak valid"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
-msgstr ""
+msgstr "Pisahkan beberapa nilai dengan koma."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "Jika kemasan produk dalam beberapa bahasa, tunjukkan bahasa yang paling terlihat pada produk."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "Masukkan Ya, Y atau 1 jika produk tidak lagi tersedia di toko."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "Tentukan nilai dan satuannya, atau gunakan satuan default: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Tentukan nilai dan satuannya."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Unduh file templat XLSX untuk Excel atau LibreOffice dengan bidang yang dapat diimpor."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "Barcode seperti yang tertera pada produk."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Kode internal yang digunakan oleh produsen untuk mengidentifikasi produk, berbeda dengan kode batang produk."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "Kode internal yang digunakan oleh produsen untuk mengidentifikasi versi produk tertentu ketika berubah."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Memberikan kategori sangat penting untuk membuat produk mudah dicari, dan untuk menghitung Nutri-Score"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Beberapa label seperti label organik digunakan untuk memfilter dan/atau memeringkat hasil pencarian, jadi sangat disarankan untuk menentukannya."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Bidang ini hanya boleh berisi daftar negara asal bahan yang dipisahkan koma"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Teks atau kalimat yang menunjukkan asal produk dan/atau bahannya."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr ""
+msgstr "Nilai Nutri-Score dari A hingga E ditampilkan pada label produk"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts menghitung nilai Nutri-Score berdasarkan informasi yang diberikan (fakta dan kategori nutrisi). Jika nilai yang kami hitung berbeda dengan nilai yang Anda berikan, Anda akan mendapatkan notifikasi pribadi di platform produsen agar perbedaan tersebut dapat teratasi."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr ""
+msgstr "Skor Nutri-Score (nilai numerik dari mana nilai A sampai E diturunkan)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts menghitung skor Nutri-Score berdasarkan informasi yang diberikan (fakta dan kategori nutrisi). Jika skor yang kami hitung berbeda dengan skor yang Anda berikan, Anda akan mendapatkan notifikasi pribadi di platform produsen agar perbedaan tersebut dapat teratasi."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
-msgstr ""
+msgstr "Bidang wajib"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
-msgstr ""
+msgstr "Semua produk harus memiliki informasi ini."
 
 msgctxt "recommended_field"
 msgid "Recommended field"
-msgstr ""
+msgstr "Bidang yang direkomendasikan"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Jika informasi ini ada dan relevan untuk produk, disarankan untuk menyediakannya agar produk lebih mudah dicari dan data produk lebih berguna."
 
 msgctxt "optional_field"
 msgid "Optional field"
-msgstr ""
+msgstr "Kolom opsional"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Jika tersedia, informasi ini akan ditampilkan pada halaman produk."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "Foto produk juga dapat disediakan secara terpisah melalui fungsi Impor foto produk pada platform untuk produsen."
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
@@ -4424,27 +4384,31 @@ msgstr ""
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "Pertanian organik"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr ""
+msgstr "Produk organik"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr ""
+msgstr "Bukan produk organik"
+
+msgctxt "attribute_labels_organic_unknown_title"
+msgid "Missing information: organic product?"
+msgstr "Informasi yang hilang: produk organik?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Mempromosikan keberlanjutan ekologi dan keanekaragaman hayati."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Produk organik mempromosikan keberlanjutan ekologi dan keanekaragaman hayati."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "Pertanian organik bertujuan untuk melindungi lingkungan dan melestarikan keanekaragaman hayati dengan melarang atau membatasi penggunaan pupuk sintetis, pestisida dan bahan tambahan makanan."
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4452,27 +4416,31 @@ msgstr "Perdagangan Adil"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Produk perdagangan yang adil"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Bukan produk perdagangan yang adil"
+
+msgctxt "attribute_labels_fair_trade_unknown_title"
+msgid "Missing information: fair trade product?"
+msgstr "Informasi yang hilang: produk perdagangan yang adil?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developping countries."
-msgstr ""
+msgstr "Membantu produsen di negara berkembang."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developping countries."
-msgstr ""
+msgstr "Produk perdagangan yang adil membantu produsen di negara berkembang."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Ketika Anda membeli produk perdagangan yang adil, produsen di negara berkembang dibayar dengan harga yang lebih tinggi dan lebih adil, yang membantu mereka meningkatkan dan mempertahankan standar sosial dan lingkungan yang lebih tinggi."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4480,48 +4448,48 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "Kualitas nutrisi yang baik (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score dihitung dan dapat diperhitungkan untuk semua produk, meskipun tidak ditampilkan pada kemasan."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr ""
+msgstr "Nutri-Skor %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score not computed"
-msgstr ""
+msgstr "Nutri-Score tidak dihitung"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Unknown nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi tidak diketahui"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi yang sangat baik"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi yang baik"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi rata-rata"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi buruk"
 
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Bad nutritional quality"
-msgstr ""
+msgstr "Kualitas nutrisi buruk"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Pengolahan makanan"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4529,28 +4497,20 @@ msgstr "Kelompok NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA tidak dihitung"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Tingkat pemrosesan makanan tidak diketahui"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Tidak ada atau sedikit pengolahan makanan (kelompok NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_title"
-msgid "NOVA not computed"
-msgstr ""
-
-msgctxt "attribute_nova_unknown_description_short"
-msgid "Food processing level unknown"
-msgstr ""
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4566,23 +4526,23 @@ msgstr ""
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "Makanan olahan ultra"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Ekspor produk ke database publik"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1 produk akan diekspor."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "Tidak ada produk untuk diekspor."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Filter kueri"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4590,7 +4550,7 @@ msgstr "Kelompok NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "Organisasi tidak dikenal."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
@@ -4658,12 +4618,12 @@ msgstr ""
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
-msgstr ""
+msgstr "Tautan ke petunjuk daur ulang dan/atau informasi pengemasan foto"
 
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
 msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
-msgstr ""
+msgstr "3001234567890.packaging_es.jpg: petunjuk daur ulang dalam bahasa Spanyol."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
@@ -4671,112 +4631,112 @@ msgstr ""
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "1 film plastik untuk dibuang, 1 kotak carboard FSC untuk didaur ulang, 6 botol plastik PET transparan 1,5L untuk didaur ulang, 6 tutup plastik buram berwarna, 12 kaleng aluminium 33cl"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Daftar semua bagian kemasan yang dipisahkan dengan koma atau umpan garis, dengan jumlah (misalnya 1 atau 6) jenis (misalnya botol, kotak, kaleng), bahan (misalnya plastik, logam, aluminium) dan jika tersedia ukurannya (misalnya 33cl) dan petunjuk daur ulang."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Cobalah untuk sespesifik mungkin. Untuk plastik, harap tunjukkan jika buram atau transparan, berwarna, PET atau PEHD."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "Ekstrak instruksi daur ulang dan/atau informasi kemasan dari gambar"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Petunjuk daur ulang dan/atau teks informasi kemasan tidak dapat diekstraksi. Coba dengan gambar yang lebih tajam, dengan resolusi yang lebih tinggi atau pembingkaian teks yang lebih baik."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Petunjuk daur ulang dan/atau teks informasi kemasan telah diekstraksi. Pengenalan teks tidak sempurna, jadi silakan periksa teks di bawah ini dan perbaiki kesalahan jika diperlukan."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Mengekstrak instruksi daur ulang dan/atau informasi pengemasan"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
-msgstr ""
+msgstr "Lingkungan"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr ""
+msgstr "Skor Lingkungan"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Dampak lingkungan yang rendah (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr ""
+msgstr "Skor Lingkungan %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan yang sangat rendah"
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan yang rendah"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan sedang"
 
 msgctxt "attribute_ecoscore_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan yang tinggi"
 
 msgctxt "attribute_ecoscore_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan yang sangat tinggi"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "Berisi: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
 msgid "May contain: %s"
-msgstr ""
+msgstr "Mungkin berisi: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "does_not_contain_s"
 msgid "Does not contain: %s"
-msgstr ""
+msgstr "Tidak mengandung: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Tanpa %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "pemilik"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "pemilik"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Anda dapat memberikan informasi tentang perusahaan Anda yang akan ditampilkan di profil organisasi Anda."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Beberapa informasi seperti informasi kontak layanan pelanggan juga dapat ditampilkan langsung di halaman produk Anda."
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "Nama"
+msgstr "nama"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Tautan ke situs web resmi"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4784,31 +4744,31 @@ msgstr "Layanan pelanggan"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Informasi layanan pelanggan bersifat publik dan dapat ditampilkan di situs web dan aplikasi Open Food Facts."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Semua bidang adalah opsional."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Layanan komersial"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Informasi layanan komersial hanya ditampilkan di profil organisasi."
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "Nama"
+msgstr "nama"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Alamat"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Nomor telepon"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4816,7 +4776,7 @@ msgstr "alamat surel"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Tautan formulir kontak"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4824,45 +4784,45 @@ msgstr "Informasi lain"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "misalnya jam buka"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organisasi tidak ditemukan."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Nama organisasi tidak ada."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Profil organisasi"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "Profil organisasi telah diperbarui."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Hapus organisasi"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Situs resmi"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Formulir kontak"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Edit profil organisasi Anda"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr ""
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Bahan"
 
@@ -4925,10 +4885,687 @@ msgid "Missing nutrition facts"
 msgstr ""
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
-msgstr ""
+msgid "Eco-Score"
+msgstr "Skor Lingkungan"
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
+msgid "Eco-Score"
+msgstr "Skor Lingkungan"
+
+msgctxt "packaging_parts"
+msgid "Packaging parts"
+msgstr ""
+
+# Number of packaging parts
+msgctxt "packaging_number"
+msgid "Number"
+msgstr ""
+
+msgctxt "packaging_shape"
+msgid "Shape"
+msgstr ""
+
+msgctxt "packaging_quantity"
+msgid "Quantity contained"
+msgstr ""
+
+msgctxt "packaging_material"
+msgid "Material"
+msgstr ""
+
+msgctxt "packaging_recycling"
+msgid "Recycling"
+msgstr ""
+
+msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
+msgid "Products on this page are sorted according to your preferences:"
+msgstr ""
+
+msgctxt "choose_which_information_you_prefer_to_see_first"
+msgid "Choose which information you prefer to see first."
+msgstr ""
+
+msgctxt "see_your_preferences"
+msgid "See your preferences"
+msgstr ""
+
+msgctxt "delete_all_preferences"
+msgid "Delete all preferences"
+msgstr ""
+
+msgctxt "products_are_being_loaded_please_wait"
+msgid "Products are being loaded, please wait."
+msgstr ""
+
+msgctxt "products_match_all"
+msgid "All products"
+msgstr ""
+
+msgctxt "products_match_yes"
+msgid "Products that match your preferences"
+msgstr ""
+
+msgctxt "products_match_no"
+msgid "Products that do not match your preferences"
+msgstr ""
+
+msgctxt "products_match_unknown"
+msgid "Products for which we currently miss data to determine if they match your preferences"
+msgstr ""
+
+msgctxt "forest_footprint"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "ingredients_requiring_soy"
+msgid "Ingredients requiring soy"
+msgstr ""
+
+msgctxt "type"
+msgid "Type"
+msgstr ""
+
+msgctxt "processing_factor"
+msgid "Processing factor"
+msgstr ""
+
+msgctxt "soy_feed_factor"
+msgid "Soy feed factor"
+msgstr ""
+
+msgctxt "soy_yield"
+msgid "Soy yield"
+msgstr ""
+
+msgctxt "deforestation_risk"
+msgid "Deforestation risk"
+msgstr ""
+
+msgctxt "total_forest_footprint"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "square_meters_per_kg_of_food"
+msgid "m² per kg of food"
+msgstr ""
+
+msgctxt "percent_of_food_after_processing"
+msgid "% of food after processing"
+msgstr ""
+
+msgctxt "kg_of_soy_per_kg_of_food"
+msgid "kg of soy per kg of food"
+msgstr ""
+
+msgctxt "kg_of_soy_per_square_meter"
+msgid "kg of soy per m²"
+msgstr ""
+
+msgctxt "percent_in_product"
+msgid "% in product"
+msgstr ""
+
+msgctxt "forest_footprint_calculation_details"
+msgid "Details of the calculation of the forest footprint"
+msgstr ""
+
+msgctxt "you_are_on_the_public_database"
+msgid "You are on the public database."
+msgstr ""
+
+msgctxt "manage_your_products_on_the_producers_platform"
+msgid "Manage your products on the platform for producers"
+msgstr ""
+
+msgctxt "number_of_products_with_changes_since_last_export"
+msgid "Number of products with changes since last export"
+msgstr ""
+
+msgctxt "only_export_products_with_changes"
+msgid "Only export products with changes"
+msgstr ""
+
+msgctxt "product_edits_by_producers"
+msgid "Is this your product? If it is, please use our free platform for producers to update it."
+msgstr ""
+
+msgctxt "product_edits_by_producers_platform"
+msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
+msgstr ""
+
+msgctxt "product_edits_by_producers_import"
+msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
+msgstr ""
+
+msgctxt "product_edits_by_producers_analysis"
+msgid "The platform also provides in-depth analysis of the products."
+msgstr ""
+
+# It = the platform
+msgctxt "product_edits_by_producers_indicators"
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr ""
+
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr ""
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr ""
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr ""
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr ""
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr ""
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr ""
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr ""
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr ""
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr ""
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr ""
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr ""
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr ""
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr ""
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr ""
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr ""
+
+msgctxt "attribute_ecoscore_unknown_title"
+msgid "Eco-Score not computed"
+msgstr ""
+
+msgctxt "attribute_ecoscore_unknown_description_short"
+msgid "Unknown environmental impact"
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr ""
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr ""
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr ""
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr ""
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr ""
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr ""
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr ""
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr "Sedang dalam proses"
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr "Selesai"
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr "Gagal"
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr ""
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr ""
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr ""
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr ""
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr ""
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr ""
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr ""
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr ""
+
+msgctxt "org_do_not_import_codeonline"
+msgid "Do not import CodeOnline data."
+msgstr ""
+
+msgctxt "overwrite_owner"
+msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+msgstr ""
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr ""
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr ""
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr ""
+
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr ""
+
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr ""
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr ""
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr ""
+
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr ""
+
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr ""
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr ""
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr ""
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr ""
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr ""
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr ""
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr ""
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr ""
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr ""
+
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr ""
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr ""
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr ""
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr ""
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Pengemasan"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr ""
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr ""
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr ""
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr ""
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr ""
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr ""
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_production_system"
+msgid "Production mode"
+msgstr ""
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr ""
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr ""
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr ""
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr ""
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr ""
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr ""
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr ""
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr ""
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr ""
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Pengemasan"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr ""
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr ""
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr ""
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr ""
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr ""
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr ""
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr ""
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr ""
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr ""
+
+# do not translate the link
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr ""
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr ""
+
+# do not remove %s, it will be replaced with the source name
+msgctxt "import_source_string"
+msgid "Import data from %s"
+msgstr ""
+
+msgctxt "org_protect_data"
+msgid "Protect the data that is provided by the organization."
+msgstr ""
+
+msgctxt "org_protect_data_note"
+msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "This product's packaging has an high impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "This product's packaging has an average impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "This product's packaging has a low impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "The information about this product's packaging is missing."
+msgstr ""
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr ""
+
+msgctxt "impact"
+msgid "impact"
 msgstr ""
 
