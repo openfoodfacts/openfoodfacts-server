@@ -28,6 +28,14 @@
                 "text_type": "h1",
                 "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
             }
-        },           
+        },
+        [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
+        {
+            "element_type": "panel",
+            "element": {
+                "panel_id": "ecoscore_[% adjustment %]",
+            }
+        },
+        [% END %]
     ]
 }

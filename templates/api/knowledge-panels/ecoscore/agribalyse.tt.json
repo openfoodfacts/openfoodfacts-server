@@ -2,6 +2,7 @@
     "parent_panel_id": "ecoscore",
     "type" : "score",
     "level" :"info",
+    "grade": "[% panel.agribalyse_grade %]",
     "topics": [
         "environment"
     ],
@@ -44,9 +45,13 @@
                         "id": "[% step %]",
                         "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
                         "values": [
-                            "[% lang("ecoscore_$step") %]",
-                            [% ef_step = "ef_$step" %]
-                            "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]"
+                            {
+                                "text": "[% lang("ecoscore_$step") %]"
+                            },
+                            {
+                                [% ef_step = "ef_$step" %]
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]"
+                            }
                         ],
                         "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
                     },
