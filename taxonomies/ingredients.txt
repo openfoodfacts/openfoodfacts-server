@@ -19297,14 +19297,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coconut_oil
 wikidata:en:Q216235
 from_palm_oil:en:no
 
-<en:coconut oil
-en:organic coconut oil
-de:Bio-Kokosnussöl
-es:aceite de coco orgánico
-fi:luomu kookosöljy
-fr:huile de coco biologique
-hu:bio kókuszolaj
-nl:Biologische kokosolie
+#<en:coconut oil
+#en:organic coconut oil
+#de:Bio-Kokosnussöl
+#es:aceite de coco orgánico
+#fi:luomu kookosöljy
+#fr:huile de coco biologique
+#hu:bio kókuszolaj
+#nl:Biologische kokosolie
 # ingredient/nl:biologische-kokosolie has 1 product @2019-05-24
 
 <en:coconut oil
@@ -19387,6 +19387,11 @@ nl:geheel gehard kokosvet
 sv:fullhärdat kokosfett
 # ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
+<en:coconut fat
+en:coconut butter
+de:Kokosbutter
+es:manteca de coco
+ro:unt de cocos
 
 <en:vegetable oil
 en:olive oil
@@ -41387,31 +41392,33 @@ sv:kokosmjölkspulver
 <en:coconut milk powder
 fr:lait de coco reconstitué
 
-<en:coconut
-en:coconut extract
-ca:extracte de coco
-de:Kokosnussextrakt
-es:extracto de coco
-fi:kookosuute, kookospähkinäuute
-fr:extrait de noix de coco, extrait de coco
-it:estratto di noce di cocco
-ja:ココナッツエキス
-nl:Kokosextract
-sv:kokosnötsextrakt, extrakt av kokosnöt
+#processing:en: en:extract
+#<en:coconut
+#en:coconut extract
+#ca:extracte de coco
+#de:Kokosnussextrakt
+#es:extracto de coco
+#fi:kookosuute, kookospähkinäuute
+#fr:extrait de noix de coco, extrait de coco
+#it:estratto di noce di cocco
+#ja:ココナッツエキス
+#nl:Kokosextract
+#sv:kokosnötsextrakt, extrakt av kokosnöt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-noix-de-coco
 # 216 products in 6 languages @2018-10-03
 
+#processing:en: en:pulp
 <en:coconut
-en:coconut pulp
-ca:polpa do coco
-de:Kokosfruchtfleisch
-es:Pulpa de coco
-fi:kookospähkinän hedelmäliha
-fr:pulpe de noix de coco
-it:polpa di cocco
+#en:coconut pulp
+#ca:polpa do coco
+#de:Kokosfruchtfleisch
+#es:Pulpa de coco
+#fi:kookospähkinän hedelmäliha
+#fr:pulpe de noix de coco
+#it:polpa di cocco
 nl:Kokospulp
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-noix-de-coco
-# 21 products in 3 languages @2018-10-03
+# 21 products in 18 @2021-09-06
 
 <en:coconut pulp
 en:desiccated coconut
@@ -41425,34 +41432,38 @@ it:Noce di cocco essiccata
 nl:gedroogde kokosnoot
 ro:nuca de cocos deshidratata
 sv:torkad kokosnöt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-séchée
-# 130 in 5 languages products @2018-10-03
+ciqual_food_code:en:15007
+ciqual_food_name:en:Coconut, kernel, dried
+ciqual_food_name:fr:Noix de coco, amande, sèche
+# 779 in 5 languages products @2018-10-03
 
-<en:coconut
-en:coconut powder
-ca:coco en pols
-de:Kokosnussepulver
-es:Coco en polvo
-fi:kookosjauhe
-fr:noix de coco en poudre
-it:noce di cocco in polvere
-ja:ココナッツパウダー
-nl:kokospoeder
+#processing:en: en:powdered
+#<en:coconut
+#en:coconut powder
+#ca:coco en pols
+#de:Kokosnussepulver
+#es:Coco en polvo
+#fi:kookosjauhe
+#fr:noix de coco en poudre
+#it:noce di cocco in polvere
+#ja:ココナッツパウダー
+#nl:kokospoeder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-en-poudre
 # 86 products in 5 languages @2108-10-03
 
-<en:coconut
-en:grated coconut
-ca:Coco ratllat
-cs:kokos strouhaný
-de:Kokosraspel, Kokosraspeln
-es:coco rallado
-fi:kookosraaste
-fr:noix de coco râpée
-it:cocco grattugiato
-nl:Gemalen kokos
-pt:coco ralado
-sv:riven kokos
+##processing:en: en:grated
+#<en:coconut
+#en:grated coconut
+#ca:Coco ratllat
+#cs:kokos strouhaný
+#de:Kokosraspel, Kokosraspeln
+#es:coco rallado
+#fi:kookosraaste
+#fr:noix de coco râpée
+#it:cocco grattugiato
+#nl:Gemalen kokos
+#pt:coco ralado
+#sv:riven kokos
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco-râpée
 # 575 products in 7 languages @2018-10-03
 
@@ -41487,14 +41498,12 @@ it:Scaglie di cocco
 en:coconut paste
 de:Kokospaste, Kokosmus, Kokosnusspaste, Kokosnussmus
 fr:pâte de noix de coco
+it:pasta di cocco
+nl:kokospuree
 
 <en:coconut
 es:nectar del brote de la flor del coco
 
-<en:coconut
-en:coconut butter
-de:Kokosbutter
-es:manteca de coco
 
 ###################################################################################################
 #
@@ -77388,6 +77397,10 @@ nl:kruimeldeeg
 nn:mørdeig
 pt:massa quebrada
 sv:pajdeg
+ciqual_food_code:en:23410
+ciqual_food_name:en:Short crust pastry, raw
+ciqual_food_name:fr:Pâte brisée, crue
+# 89 in 4 @2021-09-06
 
 <en:dough
 fr:pâte feuilletée
@@ -80117,6 +80130,38 @@ es:helado de chocolate
 fi:suklaajäätelö
 fr:glace au chocolat
 nl:chocoladeijs
+
+#category/pannacottas
+en:panna cotta
+ar:باناكوتا
+az:Pana Kota
+be:Панакота
+bn:পান্না কত্তা
+ca:panacota
+el:Πανακότα
+eu:panacota
+fa:پاناکوتا
+fi:pannacotta
+he:פנקוטה
+ja:パンナ・コッタ
+ka:პანა კოტა
+kn:ಪನ್ನ ಕೊಟ್ಟ
+ko:판나 코타
+ml:പന്ന കോട്ട
+pa:ਪਾਨਾ ਕੋਤਾ
+ru:панна котта
+th:ปันนาค็อตตา
+uk:Панна котта
+xx:panna cotta
+zh:意式奶凍
+wikidata:en:Q504941
+
+<en:panna cotta
+en:Refrigerated panna cotta
+fr:Panna cotta rayon frais
+ciqual_food_code:en:19685
+ciqual_food_name:en:Panna cotta, refrigerated
+ciqual_food_name:fr:Panna cotta, rayon frais
 
 # description:en:LINGONBERRY JAM is a staple food in Northern European cuisine and otherwise highly popular in Central and Eastern Europe.
 
