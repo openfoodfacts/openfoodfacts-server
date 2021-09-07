@@ -195,6 +195,7 @@ pt:enrolado, enrolada, enrolados, enroladas
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
 en:grated
 ca:ratllat
+cs:strouhaný
 de:gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes
 es:rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi:raastettu, raastetut, raaste
@@ -334,6 +335,7 @@ pt:floco, flocos, em floco, em flocos, floco de, flocos de
 
 #de:comment:result of grating
 de:raspel, raspeln
+fi:raaste
 
 en:grits
 de:schrot, grieß
@@ -351,6 +353,7 @@ fr:en poudre, poudre de, poudre d'
 hu:porított, por
 is:duft
 it:in polvere, polvere di, polvere d'
+ja:パウダー
 nb:pulver
 nl:poeder, poeders, in poedervorm
 pl:w proszku
@@ -364,6 +367,7 @@ sv:pulver
 # nb:parse:$pulver
 # sv:parse:$pulver
 
+ja:ココナッツパウダー
 
 #######################################################################
 #
@@ -448,6 +452,7 @@ en:zest
 
 # en:description:The soft center of a fruit
 en:pulp
+ca:polpa do
 de:mark, pulpe, fruchtfleisch
 es:pulpo, pulpa de
 fi:hedelmäliha
@@ -455,13 +460,14 @@ fr:pulpe, pulpe de, pulpe d', en pulpe
 #fr:false:avec pulpe
 hu:bél, velő
 it:polpa, polpa di
-#nl:pulp
+#nl:pulp (what was the issue here?)
 #nl:false:met pulp
 pt:polpa, polpas, polpa de, polpas de
 # en:wiktionary:pulp
 
 #<en:pulp
 fr:sans pulpe
+nl:zonder pulp
 pt:sem polpa, sem polpas, sem polpa de, sem polpas de
 
 en:sieved
@@ -474,7 +480,6 @@ pt:peneirado, peneirada, peneirados, peneiradas
 
 de:extrahiert, extrahierte, extrahierter, extrahiertes
 sv:extraherad, extraherade
-pt:extrato, extratos, extracto, extractos, extrato de, extratos de, extracto de, extractos de, extraído, extraídos, extraído de, extraídos de
 
 #<de:extrahiert
 de:kaltextrahiert, kaltextrahierte, kaltextrahierter, kaltextrahiertes
@@ -583,9 +588,10 @@ de:200fach konzentriertes
 
 # there is a problem with en:cocoa paste
 #en:paste
-#de:paste
+#de:paste, mus
 #fi:tahna
 #fr:pâte de
+#it:pasta di
 #sv:pasta
 
 de:eingekochter
@@ -713,15 +719,16 @@ en:partially reconstituted
 pt:parcialmente reconstituído, parcialmente reconstituída, parcialmente reconstituídos, parcialmente reconstituídas
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
-ca:xtracte,extracte
+ca:xtracte, extracte
 da:ekstrakt
 de:extrakt, extrakte, extrakt aus, extrakte aus
 es:extracto, extracto de, extractos
-fi:uute, uutetta, uutteet
+fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
 hu:kivonat, kivonatból
 it:estratto di, estratti di
+ja:エキス
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
@@ -732,6 +739,7 @@ sv:extrakt, extrakt av
 # fi:parse:$uute
 # nb:parse:$ekstrakt
 # sv:parse:$extrakt
+
 
 #<en:extract
 #<en:natural
