@@ -25,10 +25,15 @@ en:Box, boxes
 de:Kasten
 el:Κουτί
 nl:Boos
-fr:Boîte, boîtes, boitier
+fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
-it:Scatola
+it:Scatola, scatole
 pt:Caixa, caixas
+
+en:Case, cases
+fr:Caisse, caisses, caissette, caissettes
+it:Cassa, casse
+pt:Engradado, engradados
 
 en:Bottle, bottles
 da:Flaske, flasker
@@ -91,7 +96,7 @@ fr:pot individuel, pots individuels
 hu:külön edény, külön fazék
 pt:Pote individual, potes individuais, boião individual, boiões individuais
 
-en:Cup
+en:Tumbler
 fr:Gobelet
 
 en:Tube, tubes
@@ -100,10 +105,14 @@ fr:Tube, tubes
 hu:Tubus, tubusok, Cső, csövek, cső alakú
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 
-en:Fastener, clip, tie
+en:Fastener, clip
 fr:Attache
 hu:Rögzítő, kapocs, csipesz
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
+
+en:Tie
+fr:Lien
+weight:en:light
 
 en:Bag, bags
 da:Taske, tasker
@@ -115,8 +124,8 @@ it:Sacco
 nl:Zak
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
-en:Crate, Fruit and veg crate
-fr:Cagette, cageot
+en:Crate, crates
+fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
 pt:Caixote, caixotes
 
@@ -260,10 +269,6 @@ hu:zárófedő
 pt:Tampo, tampos
 # weight:en:light
 
-en:Tie
-fr:Lien
-weight:en:light
-
 en:bulk, without packaging
 da:uden emballage
 de:ohne Verpackung
@@ -360,57 +365,56 @@ en:envelope
 fr:enveloppe
 #suggest:packaging_materials:en: en:cardboard, en:paper
 
-en:String, ribbon, adhesive tape, gift ribbon, band
-fr:ficelle, ruban
+en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
+fr:ficelle, ficelles, ruban, rubans
 
 en:individual dose, Individual capsule
 fr:dose invididuelle
 #suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 
-en:Cover
-fr:Housse
+en:Protection cover
+fr:Housse, housses, housse de protection, housses de protection
 
 en:pump bottle, spray, spray bottle, applicator bottle
-fr:Flacon à pompe, Flacon à pistolet, Spray
+fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
 #suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 
-en:Aerosol can
-fr:Aérosol
+en:Aerosol can, aerosol cans
+fr:Aérosol, aérosols
 packaging_materials:en: en:plastic, en:metal
 
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
 #suggest:packaging_materials:en: en:plastic, en:glass
 
-en:Basket
-fr:Panier
+en:Basket, baskets
+fr:Panier, paniers
 
-en:Syringe
-fr:Seringue
+en:Syringe, syringes,
+fr:Seringue, seringues
 
-en:Hygiene wings
+en:Wings, Hygiene wings
 fr:Ailettes
 #suggest:packaging_materials:en: en:plastic, en:paper
 
-en:Bucket
-fr:Seau
+en:Bucket, buckets
+fr:Seau, seaux
 #suggest:packaging_materials:en: en:plastic, en:metal
 
 # CITEO only translates it by pot
-en:Terrine Pot
-fr:Terrine
+en:Terrine pot, terrine pots
+fr:Terrine, terrines
 #suggest:packaging_materials:en: en:stoneware, en:ceramic
 
-en:Barrel, drum, keg
-fr:Tonneau, tonnelet
+en:Barrel, barrels, drum, drums, keg, kegs
+fr:Tonneau, tonneaux, tonnelet, tonnelets
 #suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 
 en:Bubble wrap
 fr:Film à bulles
 
-en:Cartridge
-fr:Cartouche
-
+en:Cartridge, cartridges
+fr:Cartouche, cartouches
 
 #fr:Bac
 #fr:Bidon
