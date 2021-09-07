@@ -11,7 +11,7 @@ hello:
 	@echo "🥫 Note that the first installation might take a while to run, depending on your machine specs."
 	@echo "🥫 Typical installation time on 8GB RAM, 4-core CPU, and decent network bandwith is about 10 min."
 	@echo "🥫 Thanks for contributing to Open Food Facts!"
-	@echo
+	@echo ""
 
 dev: hello up import_sample_data
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"

@@ -10,10 +10,11 @@ COPY html /opt/product-opener/html
 COPY icons /opt/product-opener/icons
 COPY scss /opt/product-opener/scss
 COPY gulpfile.js /opt/product-opener/
+# https://github.com/openfoodfacts/openfoodfacts-server/pull/5544#issuecomment-914221199
+RUN find . -xtype l | xargs -I {} sh -c "origin=\$(readlink {} | tr '\\\\\\\\' '/') && ln -sf \$origin {}"
 RUN npm run build
 
 FROM nginx:stable-alpine
 WORKDIR /opt/product-opener
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
-# See https://github.com/openfoodfacts/openfoodfacts-server/pull/5544/files#r695001807 for context
 COPY --from=builder /opt/product-opener/node_modules/ /opt/product-opener/node_modules/
