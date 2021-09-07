@@ -83,7 +83,7 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          docker-compose up -d --remove-orphans 2>&1
+          make up 2>&1
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -121,7 +121,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          docker system prune -af
+          make prune
 
   # deploy-script:
   #   runs-on: ubuntu-latest
