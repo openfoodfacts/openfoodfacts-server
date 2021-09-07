@@ -4773,7 +4773,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-ca:ferment,ferments
+ca:ferment, ferments
 cs:Kvasnice
 da:gæret
 de:fermentiert
@@ -5071,7 +5071,7 @@ ru:бифидобактерии-actiregularis, бифидобактерии acti
 es:bifidobacterias y otros fermentos lácticos
 fr:ferments lactiques dont bifidobacterium
 
-<en:ferments
+<en:ferment
 en:kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
 es:fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
 fr:ferments du kéfir, culture de kéfir, cultures de kéfir
@@ -14547,13 +14547,36 @@ fr:boulettes de poulet
 # mainIngredient:en:chicken meat
 # ingredient/en:chicken-meatballs has 4 products in 1 language @2020-12-21
 
+<en:animal
 en:offal
 de:Innereien
 es:visceras
 fr:abats
-vegan:en:no
-vegetarian:en:no
 wikipedia:en:https://en.wikipedia.org/wiki/Offal
+
+#category/fr:quenelles
+<en:animal
+en:quenelle, quenelles
+he:קאנל
+hy:Կնել
+io:Kenelo
+ja:クネル
+ko:크넬
+ru:Кнели
+uk:Кнелі
+xx:quenelle, quenelles
+zh:肉丸子
+wikidata:en:Q12958
+ciqual_food_code:en:8937
+ciqual_food_name:en:Quenelle, plain, raw
+ciqual_food_name:fr:Quenelle nature, crue
+description:de:Quenelles ist eine kloßähnliche, aus Teig hergestellte Speise in runder oder ovaler Form, die meist pochiert als Beilage oder Vorspeise serviert wird.
+description:en:A quenelle is a mixture of creamed fish or meat, sometimes combined with breadcrumbs, with a light egg binding, formed into an egg-like shape, and then cooked.
+description:es:Las quenelles se hacen con una pasta de sémola de trigo o harina mezclada con mantequilla, huevos y leche o agua a la que se añade bien algún tipo de carne desmenuzada de pescado, ternera, ave, o bien tuétano.
+description:fr:La quenelle est une pâte moelleuse de forme cylindrique pochée dans l’eau bouillante. Elle est confectionnée à partir soit de farine, de mie de pain, de semoule ou de pâte à choux, mêlées de viande et pochées à l'eau ou dans un bouillon.
+description:it:La quenelle è una pietanza d'origine francese composta di crema di pesce, pollo, o carne, a volte mescolata con molliche di pane e legata da piccole quantità d'uovo.
+description:nl:Een quenelle is een langwerpig balletje gemaakt van deeg en gepureerde (traditioneel) vis. Quenelles lijken op knoedels en worden ook van vlees of gevogelte gemaakt.
+description:pt:A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate.
 
@@ -19702,7 +19725,7 @@ ca:Oli de colza
 de:Kolzaöl, Kohlsaatöl
 el:κραμβέλαιο
 es:aceite de colza
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
 it:olio di colza, olio vegetale di colza
 nl:koolzaadolie, plantaardige koolzaadolie
 pt:óleo de colza
@@ -25003,7 +25026,7 @@ de:Getreide- und Saatenmischung, Getreide-Saaten-Mischung, Getreide-Saatenmischu
 es:mezcla de cereales y semillas,mix de cereales y semillas
 
 
-<en:cereals
+<en:cereal
 en:hydrolysed cereal, hydrolysed cereals
 fr:céréales hydrolysées
 nova:en:4
@@ -55413,6 +55436,7 @@ fr:graine de pavot bleu
 <en:sunflower
 <en:seed
 en:sunflower seed, sunflower seeds, sunflower kernels
+af:Sonneblomsaad
 ca:llavors de gira-sol, pipes de gira-sol
 da:Solsikkekerner, solsikkefrø
 de:Sonnenblumenkerne
@@ -55428,9 +55452,14 @@ nl:zonnebloempitten, zonnebloempit
 nn:solsikkefrø
 pl:Nasiona słonecznika
 ru:Семена Подсолнечника
+sk:slnečnicové jadierka
+sl:sončnicina Semena
+sr:Jezgro suncokreta
 sv:solrosfrön, solrosfrö, solroskärna, solroskärnor
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
-# 1881 products in 11 languages @2018-10-07
+ciqual_food_code:en:15011
+ciqual_food_name:en:Sunflower seed
+ciqual_food_name:fr:Tournesol, graine
+# 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en:no
 
 <en:sunflower seed
