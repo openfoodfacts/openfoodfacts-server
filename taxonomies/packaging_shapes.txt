@@ -6,9 +6,9 @@ hu:Ismeretlen
 pt:Desconhecido
 
 # Use singular as the main name, and add plural as synonym
-en:Tray, trays
+en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
-fr:Barquette, barquettes
+fr:Barquette, barquettes, Plateau
 hu:Tálca, tálcák
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
@@ -305,8 +305,6 @@ en:Applicator
 fr:Applicateur
 #suggest:packaging_materials:en: en:plastic, en:cardboard
 
-fr:Bac
-
 en:Bag-in-box
 fr:Bag-in-box, Cubitainer
 
@@ -318,17 +316,14 @@ en:Ampoule, ampul, ampule
 fr:Ampoule
 #suggest:packaging_materials:en: en:glass
 
-fr:Bidon
-
-en:Blister
+en:Blister, Blister pack
 fr:Blister
+
+#en:shell with cardboard backing
+#fr:coque avec chevalet carton
 
 en:Roll, mandrel
 fr:Rouleau, Bobine, Mandrin
-
-fr:Caisse
-
-fr:Coupelle
 
 en:Canister
 fr:Bombonne
@@ -393,8 +388,6 @@ fr:Panier
 en:Syringe
 fr:Seringue
 
-fr:Plateau
-
 en:Hygiene wings
 fr:Ailettes
 #suggest:packaging_materials:en: en:plastic, en:paper
@@ -408,10 +401,18 @@ en:Terrine Pot
 fr:Terrine
 #suggest:packaging_materials:en: en:stoneware, en:ceramic
 
+en:Barrel, drum, keg
 fr:Tonneau, tonnelet
+#suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 
 en:Bubble wrap
 fr:Film à bulles
 
 en:Cartridge
 fr:Cartouche
+
+
+#fr:Bac
+#fr:Bidon
+#fr:Caisse
+#fr:Coupelle
