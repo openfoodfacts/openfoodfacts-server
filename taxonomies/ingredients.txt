@@ -8143,16 +8143,23 @@ sk:Grécky jogurt
 wikidate:en:none
 # 395 in 5 @2021-08-25
 
-<en:yogurt
-en:Yogurt from ewe's milk
-fr:Yaourt au lait de brebis
-
 <en:greek yogurt
-en:Yogurt Greek-style from ewe's milk
-fr:Yaourt à la grecque au lait de brebis
-ciqual_food_code:en:19550
-ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
-ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
+en:Plain Greek-style Yogurt 
+fr:Yaourt à la grecque nature
+ciqual_food_code:en:19860
+ciqual_food_name:en:Yogurt, Greek-style, plain
+ciqual_food_name:fr:Yaourt à la grecque, nature
+
+#<en:yogurt
+#en:Yogurt from ewe's milk
+#fr:Yaourt au lait de brebis
+
+#<en:greek yogurt
+#en:Yogurt Greek-style from ewe's milk
+#fr:Yaourt à la grecque au lait de brebis
+#ciqual_food_code:en:19550
+#ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
+#ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
 
 
 # no products in OFF
@@ -8482,9 +8489,9 @@ fi:kondensoitu hera
 #
 ###################################################################################################
 
-# description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 # comment:en:wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
 
+#category/creams
 <en:dairy
 en:cream,milk cream
 af:Room
@@ -8562,54 +8569,74 @@ zh:鮮奶油, 奶油
 # tyv:Өреме
 # war:Krema
 # yue:忌廉
+wikidata:en:Q13228
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
 vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr:4.2
+description:de:Als Rahm (Sahne, Obers, Nidel) wird die fetthaltige Phase der Milch bezeichnet, die beim Stehenlassen ungesäuerter Rohmilch natürlich an der Oberfläche aufschwimmt oder aus Rohmilch abzentrifugiert werden kann.
+description:en:CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
+description:es:La crema de leche o nata es una sustancia de consistencia grasa y tonalidad blanca o amarillenta dulce que se encuentra de forma emulsionada en la leche recién ordeñada o cruda
+description:fr:La crème est un produit laitier, un concentré issu du lait riche en matière grasse.
+description:it:La panna, o crema di latte, è un latticino costituito dalla parte grassa del latte, ottenuta per affioramento spontaneo in seguito a decantazione lenta oppure tramite centrifugazione[3], un processo più veloce ed efficiente.
+description:nl:Room bestaat uit melkvet en kleine hoeveelheden van andere koemelkbestanddelen. De melk wordt afgeroomd.
+description:pt:A nata ou creme de leite é a gordura do leite, um tipo de laticínio, muito utilizada em culinária e confeitaria e também como principal ingrediente da manteiga.
 # ingredient/cream has 27881 products in 29 languages @2019-07-12
 
 <en:cream
-en:pasteurized cream
-ca:nata pasteuritzada, crema de llet pasteuritzada
-de:pasteurisierte Sahne
-es:nata pasteurizada, crema de leche pasteurizada
-fi:pastöroitu kerma
-fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
-hr:pasterizirano vrhnje
-hu:pasztőrözött tejszín, pasztörizált tejszín
-it:crema pastorizzata
-nl:gepasteuriseerde room
-pl:Pasteryzowana śmietana
-pt:nata pasteurizada
-ru:пастеризованные сливки, сливки пастеризованные
-sv:pastöriserad grädde
+en:Refrigerated 30% fat thick cream 
+fr:Crème de lait épaisse à 30% de matières grasses rayon frais
+ciqual_food_code:en:19410
+ciqual_food_name:en:Thick cream 30% fat, refrigerated
+ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
+
+
+#processing:en: en:pasteurised
+#<en:cream
+#en:pasteurized cream
+#ca:nata pasteuritzada, crema de llet pasteuritzada
+#de:pasteurisierte Sahne
+#es:nata pasteurizada, crema de leche pasteurizada
+#fi:pastöroitu kerma
+#fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
+#hr:pasterizirano vrhnje
+#hu:pasztőrözött tejszín, pasztörizált tejszín
+#it:crema pastorizzata
+#nl:gepasteuriseerde room
+#pl:Pasteryzowana śmietana
+#pt:nata pasteurizada
+#ru:пастеризованные сливки, сливки пастеризованные
+#sv:pastöriserad grädde
 # ingredient/pasteurized-cream has 1877 products in 9 languages @2019-07-12
 
-<en:cream
-en:cream powder, Powdered cream
-ca:nata en pols, crema de llet en polvo
-da:flødepulver
-de:Cremepulver, Sahnepulver
-es:nata en polvo, crema de llet en polvo
-et:koorepulber
-fi:kermajauhe
-fr:crème en poudre, poudre de crème
-hu:tejszínpor
-it:panna in polvere
-nb:krempulver, pulverisert krem
-nl:roompoeder, poederroom
-ro:praf de frișcă
-ru:сливки сухие
-sv:gräddpulver
+#processing:en: en:powdered
+#<en:cream
+#en:cream powder, Powdered cream
+#ca:nata en pols, crema de llet en polvo
+#da:flødepulver
+#de:Cremepulver, Sahnepulver
+#es:nata en polvo, crema de llet en polvo
+#et:koorepulber
+#fi:kermajauhe
+#fr:crème en poudre, poudre de crème
+#hu:tejszínpor
+#it:panna in polvere
+#nb:krempulver, pulverisert krem
+#nl:roompoeder, poederroom
+#ro:praf de frișcă
+#ru:сливки сухие
+#sv:gräddpulver
 # ingredient/cream-powder has 910 products in 6 languages @2019-07-12
 
-<en:cream powder
-en:rehydrated cream powder
-ca:crema de llet en pols rehidratada, crema de llet en pols reconstituida, nata en pols rehidratada, nata en pols reconstituida
-de:Rehydriertes Sahnepulver
-es:crema de leche en polvo rehidratada, crema de leche en polvo reconstituida, nata en pols rehidratada, nata en pols reconstituida
-fr:crème en poudre réhydratée
+#processing:en: en:rehydrated
+#processing:en: en:powdered
+#<en:cream powder
+#en:rehydrated cream powder
+#ca:crema de llet en pols rehidratada, crema de llet en pols reconstituida, nata en pols rehidratada, nata en pols reconstituida
+#de:Rehydriertes Sahnepulver
+#es:crema de leche en polvo rehidratada, crema de leche en polvo reconstituida, nata en pols rehidratada, nata en pols reconstituida
+#fr:crème en poudre réhydratée
 # ingredient/rehydrated-cream-powder has 2 products @2019-07-12
 
 <en:cream
