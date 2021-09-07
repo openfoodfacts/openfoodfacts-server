@@ -91,6 +91,9 @@ fr:pot individuel, pots individuels
 hu:külön edény, külön fazék
 pt:Pote individual, potes individuais, boião individual, boiões individuais
 
+en:Cup
+fr:Gobelet
+
 en:Tube, tubes
 de:Tube, Tuben
 fr:Tube, tubes
@@ -124,8 +127,8 @@ fr:Sachet individuel, Sachets individuels
 hu:Külön zacskó, egyenkénti zacskó, külön tasak, egyenként zacskózott
 pt:Saco individual, sacos individuais, saquinho individual, saquinhos individuais, saqueta individual, saquetas individuais
 
-en:Flask, flasks
-fr:Gourde, gourde individuelle, gourdes individuelles
+en:Pouch flask, doypack, pouch
+fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
@@ -228,6 +231,7 @@ de:Netz
 fr:Filet, filets
 hu:Háló, hálók
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
+#suggest:packaging_materials:en: en:metal, en:other
 
 en:Film, wrap, films, wraps, film wrap, film wraps
 da:Film
@@ -256,8 +260,9 @@ de:Deckel
 fr:Opercule, opercules
 hu:zárófedő
 pt:Tampo, tampos
-weight:en:light
+# weight:en:light
 
+en:Tie
 fr:Lien
 weight:en:light
 
@@ -294,6 +299,7 @@ fr:étiquette, étiquettes
 hu:címke, címkék
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
+#suggest:packaging_materials:en: en:paper, en:carboard, en:other
 
 en:Applicator
 fr:Applicateur
@@ -327,8 +333,10 @@ fr:Coupelle
 
 fr:Bombonne
 
+en:neck seal
 fr:Collerette
 
+en:Wire cage and cap
 fr:Muselet, Muselet et plaque
 #goes_with:en:glass bottle
 
@@ -343,6 +351,7 @@ fr:Cale, Coin, Cornière
 en:Vial, flask
 fr:Flacon
 
+en:Clamping ring
 fr:Collier
 
 en:wrapper, wrapping
@@ -353,12 +362,14 @@ en:envelope
 fr:enveloppe
 #suggest:packaging_materials:en: en:cardboard, en:paper
 
-en:string
+en:String, ribbon, adhesive tape, gift ribbon, band
 fr:ficelle, ruban
 
-en:individual dose
+en:individual dose, Individual capsule
 fr:dose invididuelle
+#suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 
+en:Cover
 fr:Housse
 
 en:pump bottle, spray, spray bottle, applicator bottle
@@ -372,8 +383,6 @@ packaging_materials:en: en:plastic, en:metal
 en:Ball flask, Roll-on bottle
 fr:Flacon à bille, Roll
 #suggest:packaging_materials:en: en:plastic, en:glass
-
-fr:Gobelet
 
 en:Basket
 fr:Panier
@@ -393,3 +402,6 @@ fr:Seau
 fr:Terrine
 
 fr:Tonneau, tonnelet
+
+en:Bubble wrap
+fr:Film à bulles
