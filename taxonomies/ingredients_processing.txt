@@ -344,21 +344,24 @@ nl:gries
 sv:färs
 
 en:powdered, powder
-ca:en pols
+ca:en pols, en polvo
 da:pulver
 de:pulver, pulverisiert, pulverisierte, pulverisierter, pulverisiertes, gepulvert, gepulverte, gepulverter, gepulvertes
 es:en polvo, polvo de
+et:pulber
 fi:jauhe
 fr:en poudre, poudre de, poudre d'
 hu:porított, por
 is:duft
 it:in polvere, polvere di, polvere d'
 ja:パウダー
-nb:pulver
+nb:pulver, pulverisert
 nl:poeder, poeders, in poedervorm
 pl:w proszku
 pt:em pó, pó de
 ro:praf, praf de, pudră, pudră de
+ru:сухие
+# Google translates to dry
 sk:v prahu
 sv:pulver
 # da:parse:$pulver
@@ -367,7 +370,6 @@ sv:pulver
 # nb:parse:$pulver
 # sv:parse:$pulver
 
-ja:ココナッツパウダー
 
 #######################################################################
 #
@@ -703,7 +705,8 @@ it:disidratato, disidratata, disidratati, disidratate
 pt:desidratado, desidratada, desidratados, desidratadas
 
 en:rehydrated
-es:rehidritado,rehidritada,rehidritados,rehidritadas
+ca:rehidratada
+es:rehidritado, rehidritada, rehidritados, rehidritadas
 de:rehydriert, rehydrierte, rehydrierter, rehydriertes
 fr:réhydraté, réhydratée, réhydratés, réhydratées
 hu:rehidratált
@@ -711,7 +714,9 @@ it:reidratato, reidratata, reidratati, reidratate
 pt:reidratado, reidratada, reidratados, reidratadas
 sv:rehydrerat, rehydrerad
 
+
 en:reconstituted
+ca:reconstituida
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 pt:reconstituído, reconstituída, reconstituídos, reconstituídas
 
@@ -830,15 +835,18 @@ en:pasteurised, pasteurized
 ca:pasteuritzada
 da:pasteuriseret
 de:pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
-es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada,pasterizada
+es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
 fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
+hr:pasterizirano
 hu:pasztőrözött, pasztörizált
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 nb:pasteurisert
 nl:gepasteuriseerd, gepasteuriseerde
+pl:Pasteryzowana
 pt:pasteurizado, pasteurizados, pasteurizada, pasteurizadas
 ro:pasteurizat, pasteurizata
+ru:пастеризованные
 sv:pastöriserad
 
 en:unpasteurized, unpasteurised
