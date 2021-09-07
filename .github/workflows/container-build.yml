@@ -53,7 +53,7 @@ jobs:
         context: .
         push: true
         file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+        cache-from: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache
+        cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
