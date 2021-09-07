@@ -6,8 +6,6 @@ volumes:
     external: true
   css_dist: 
     external: true
-  image_attributes:
-    external: true
   node_modules:
     external: true
   html_data:
