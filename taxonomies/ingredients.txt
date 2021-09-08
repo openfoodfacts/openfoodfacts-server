@@ -28431,7 +28431,12 @@ pt:farinha de arroz
 ro:făină de orez
 ru:Рисовая мука, мука-рисовая
 sk:ryžová múka
+sr:пиринчано брашно
 sv:rismjöl
+ciqual_food_code:en:9520
+ciqual_food_name:en:Rice flour
+ciqual_food_name:fr:Farine de riz
+# 21929 in 39 @2021-09-08
 
 <en:rice flour
 en:dextrinated rice flour
@@ -40410,14 +40415,11 @@ nl:acaisap
 ###################################################################################################
 <en:fruit
 en:acerola
-de:Acerolakirschen, acerola
-es:acerola
-fi:akerola, acerola
+de:Acerolakirschen
+fi:akerola
 fr:acérola
-it:acerola
-nl:acerola
-pl:acerola
 ru:Ацерола
+xx:acerola
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
 # 133 products in 4 languages @2018-10-03
 
@@ -40462,7 +40464,7 @@ it:acerola in polvere con fecola di manioca, acerola in polvere con amido di man
 ###################################################################################################
 # description:en:The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
 
-<en:fruit
+<en:berries
 en:blackberry, blackberries
 bg:Къпина
 br:Mouar
@@ -40520,9 +40522,7 @@ fr:jus de mûre à base de jus concentré
 
 # Question
 
-<en:fruit
-<fr:fruit rouge
-<fr:fruits des bois
+<en:berries
 en:blackcurrant
 da:solbær
 de:schwarze Johannisbeere, schwarze Johannisbeeren
