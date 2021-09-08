@@ -36671,17 +36671,14 @@ en:vine fruit, mixed vine fruit
 
 <en:fruit
 en:berries
-ca:Fruits de bosc
 da:Bær
-es:bayas,frutas del bosque
+es:bayas
 fi:marja, marjat, marjoja
-fr:fruits des bois
 he:פירות יער
 hu:bogyó, bogyótermés, bogyós gyümölcs
 it:Bacche
 ja:ベリーズ
 nb:bær
-nl:bosvruchten
 pl:Jagody
 ru:Ягоды
 sv:Bär
@@ -36689,6 +36686,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Berry
 # ingredient/fr:fruits-rouges 205 products @2018-10-01
 
 <en:berries
+en:forest berries
+ca:Fruits de bosc
+es:frutas del bosque
+fr:fruits des bois
+nl:bosvruchten
+
+<en:red fruits
 fr:fruits rouges lyophilisés
 
 # <en:compound
@@ -36716,6 +36720,7 @@ en:Fruits and nuts, nuts and fruits, fruits & nuts, nuts & fruits
 fr:fruits et noix, noix et fruits, fruits & noix, noix et fruits
 
 # <en:compound
+<en:berries
 en:berry preparation
 de:Fruchtzubereitung aus roten Früchten
 fi:marjavalmiste
@@ -43495,8 +43500,7 @@ fi:mansikoista valmistettu mehu ja viinirypäleet
 
 # description:en:Fragaria vesca, commonly called WILD STRAWBERRY, woodland strawberry, Alpine strawberry, Carpathian strawberry, European strawberry, or fraisier des bois, is a perennial herbaceous plant in the rose family that grows naturally throughout much of the Northern Hemisphere, and that produces edible fruits.
 
-<en:fruit
-<fr:fruit rouge
+<en:strawberry
 en:wild strawberry, woodland strawberry, alpine strawberry, carpathian strawberry, fragaria vesca
 da:skovjordbær
 de:wald-erdbeere, walderdbeeren, wald-edbeeren
