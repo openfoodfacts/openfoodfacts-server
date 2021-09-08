@@ -43317,7 +43317,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rosa_canina
 en:description:The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.
 
 <en:fruit
-<fr:fruit rouge
 en:strawberry, strawberries
 an:Fraga
 ar:فراولة
@@ -55490,6 +55489,7 @@ fr:graines de tournesol décortiquées
 it:semi di girasole sbucciati
 # ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
 
+
 # The context should make clear what it is used for (seeds or oil from seeds)
 en:flax
 de:Flachs
@@ -55499,7 +55499,7 @@ fr:lin
 it:lino
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
-
+<en:flax
 <en:seed
 en:flax seed, flax seeds, flaxseed, linseed, linseed seeds
 bg:Ленено семе
@@ -80882,6 +80882,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # ingredient/fr:mirin has 74 products in 5 languages @2019-03-01
 # usage:fr:mirin (eau, glucose de maïs, sirop de tapioca, riz, alcool de sucre de canne)
 
+#category/mustard-sauce
+<en:sauce
+<en:mustard
+en:mustard sauce
+fr:sauce moutarde
+
+<en:mustard sauce
+en:Prepacked mustard sauce 
+fr:Sauce moutarde préemballée
+ciqual_food_code:en:11157
+ciqual_food_name:en:Mustard sauce prepacked
+ciqual_food_name:fr:Sauce moutarde, préemballée
 
 # description:en:FISH SAUCE is a liquid condiment made from fish or krill that have been coated in salt and fermented for up to two years. Following widespread recognition of its ability to impart a savory umami flavor to dishes, it has been embraced globally by chefs and home cooks. The umami flavor in fish sauce is due to its glutamate content.
 
