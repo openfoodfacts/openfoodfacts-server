@@ -13,7 +13,7 @@ hello:
 	@echo "🥫 Thanks for contributing to Open Food Facts!"
 	@echo ""
 
-dev: hello up import_sample_data
+dev: hello up setup_incron import_sample_data
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
