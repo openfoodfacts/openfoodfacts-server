@@ -369,20 +369,22 @@ sub create_ecoscore_panel($$$) {
 
         foreach my $adjustment ("production_system", "origins_of_ingredients", "threatened_species", "packaging") {
 
+            my $plus_or_minus;
+
             if (not defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-                $grade = "unknown";
+                $plus_or_minus = "unknown";
             }
             elsif ($product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} < 0) {
-                $grade = "minus";
+                $plus_or_minus = "minus";
             }
             else {
-                $grade = "plus";
+                $plus_or_minus = "plus";
             }
 
             $title = lang("ecoscore_" . $adjustment);
 
             $panel_data_ref = {
-                "grade" => $grade,
+                "plus_or_minus" => $plus_or_minus,
                 "title" => $title,
             };            
 
