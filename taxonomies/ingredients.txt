@@ -40648,8 +40648,7 @@ sv:svartvinbärspuré
 # description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
 # comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
 
-<en:fruit
-<fr:fruit rouge
+<en:berries
 en:blueberry, blueberries, bilberry
 ar:عنب الأحراج
 bg:Черна боровинка
@@ -40744,8 +40743,7 @@ sv:blåbärssaft av koncentrat
 ###################################################################################################
 # description:en:The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
 
-<en:fruit
-<fr:fruit rouge
+<en:berries
 en:boysenberry, boysenberries
 bg:бойсен
 ca:boysenberry
@@ -40781,7 +40779,7 @@ sv:boysenbärsjuice
 
 # description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
 
-<en:fruit
+<en:berries
 en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
 az:rubus chamaemorus
 ba:мораҡ
@@ -41077,7 +41075,7 @@ de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 #
 ###################################################################################################
 
-<en:fruit
+<en:cherry
 en:sweet cherry
 ar:كرز حلو
 az:Gilas
@@ -41212,7 +41210,7 @@ fr:queues de cerise
 
 # description:en:Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
 
-<en:fruit
+<en:berries
 en:chokeberry
 ar:أرونية
 az:Aroniya
@@ -41671,9 +41669,9 @@ en:concentrated date juice
 #
 ###################################################################################################
 
-<en:fruit
+#comment:en:This can refer to the flower of the berries
 en:elder
-de:Holunder, Holunderbeere, Holunderbeeren
+de:Holunder
 es:Saúco
 fi:selja
 fr:sureau
@@ -41684,10 +41682,10 @@ sv:fläder
 # 332 products @2018-09-29
 
 <en:elder
-<fr:fruits des bois
+<en:berries
 en:elderberry
 da:hyldebær
-de:Holunderbeer
+de:Holunderbeer, Holunderbeere, Holunderbeeren
 es:bayas del sauco
 fi:seljanmarja
 fr:baie de sureau, baies de sureau
@@ -41877,7 +41875,7 @@ sv:krusbärjuice
 ###################################################################################################
 # description:en:GOJI is the fruit of either Lycium barbarum or Lycium chinense, two closely related species of boxthorn in the nightshade family, Solanaceae. Since the early 21st century, the dried fruit has been marketed in the Western world as a health food, with unsupported health claims about its benefits
 
-<en:fruit
+<en:berries
 en:goji, goji berries
 ca:goji
 cs:godži
@@ -42131,7 +42129,7 @@ fr:jus de kiwi à base de concentré
 ###################################################################################################
 # description:en:Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
-<en:fruit
+<en:berries
 en:lingonberry
 ca:nabius
 da:tyttebær
@@ -42987,9 +42985,7 @@ ciqual_food_name:fr:Kaki, pulpe, cru
 
 # description:en:RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
-<en:fruit
-<fr:fruit rouge
-<fr:fruits des bois
+<en:berries
 en:raspberry, raspberries
 af:Framboos
 an:Chordón
@@ -43195,21 +43191,7 @@ wikidata:en:Q11962286
 en:raspberry sauce
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
 
-#TODO delete
-#es:fresas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
-#fr:Poudre de fraise
 
-<en:strawberry
-en:strawberry powder
-de:Erdbeerpulver
-es:fresa en polvo, polvo de fresa, polvo de fresas
-et:maasikapulber
-fi:mansikkajauhe
-fr:poudre de fraise
-it:Polvere di fragole
-ja:イチゴパウダー
-nl:aardbeipoeder
-ro:pudră de căpșuni
 
 ###################################################################################################
 #
@@ -43218,7 +43200,7 @@ ro:pudră de căpșuni
 ###################################################################################################
 # description:en:The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
 
-<en:fruit
+<en:berries
 en:redcurrant, red currant
 da:røde bær
 de:rote Johannisbeeren, rote Johannisbeere
