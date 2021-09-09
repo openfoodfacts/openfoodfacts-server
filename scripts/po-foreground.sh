@@ -56,16 +56,7 @@ then
   ln -sf /opt/product-opener/templates /mnt/podata/templates
 fi
 
-NLANG=$(find /opt/product-opener/html/data/ -name lang.json | wc -l)
-BUILD_LANG="${BUILD_LANG:-0}"
-if [ ${NLANG} -eq 0 ] || [ ${BUILD_LANG} -eq 1 ]
-then
-  perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-  chown -R www-data:www-data /mnt/podata
-  chown -R www-data:www-data /opt/product-opener/html/images/products
-else
-  echo "Skipping build_lang.pl"
-fi
+perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # https://github.com/docker-library/httpd/blob/75e85910d1d9954ea0709960c61517376fc9b254/2.4/alpine/httpd-foreground
 set -e

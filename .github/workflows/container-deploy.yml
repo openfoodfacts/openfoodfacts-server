@@ -46,12 +46,6 @@ jobs:
       if: steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out'
       run: echo Timeout && false # fail if build time out
 
-    # - name: Get po/* changed files
-    #   id: lang-files
-    #   uses: tj-actions/changed-files@v1.0.2
-    #   with:
-    #     files: "^po/*"
-
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
       with:
@@ -114,21 +108,6 @@ jobs:
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
-
-    - name: Set BUILD_LANG if needed
-      # if: steps.lang-files.outputs.any_changed == 'true'
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
-        script: |
-          cd openfoodfacts-server/
-          echo "BUILD_LANG=1" >> .env
 
     - name: Create Docker volumes
       uses: appleboy/ssh-action@master
