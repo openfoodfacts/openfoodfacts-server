@@ -57862,34 +57862,48 @@ en:english mustard
 de:Englischer Senf
 es:mostaza inglesa
 fr:Moutarde anglaise
+nl:Engelse mosterd
 
 # <en:seed
 <en:mustard
 en:mustard seed
+bg:синалено семе оцет
 ca:llavors de mostassa, grans de mostassa
+cs:hořčičné semínko
 da:sennepsfrø
 de:Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
 es:grano de mostaza, semillas de mostaza
+et:sinepiseemned
 fi:sinapinsiemen, sinapinsiemenet
 fr:graine de moutarde, graines de moutarde, cosse de moutarde
+hr:sjemenke gorušice
 hu:káposztafélék, Mustármag
 it:Semi di senape
 ja:カラシナ,シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
-no:sennepsfrø
+nn:sennepsfrø
 pl:ziarno gorczyca
 pt:Semente de mostarda
 ro:boabe de muștar
+ru:горчичное зерно
 sl:gorčično seme
+sr:seme slačice
 sv:senapsfrö, senapsfrön
+wikidata:en:Q1937700
+description:de:Als Senfkorn wird der Samen einiger Vertreter der Pflanzengattung Senf bezeichnet.
+description:en:A small, round seed of the mustard plant.
+description:es:Los granos de mostaza son pequeñas semillas redondas de diversas plantas de mostaza.
+description:pt:Sementes de mostarda são as pequenas sementes das várias plantas de mostarda.
+# 12112 in 26 @2019-09-09
 
-<en:mustard seed
-fr:Graines de moutarde issues de l'agriculture durable
+#<en:mustard seed
+#fr:Graines de moutarde issues de l'agriculture durable
 
-<en:mustard seed
-fr:graines de moutarde moulues
-nl:gemalen mosterdzaden
+#processing:en: en:ground
+#<en:mustard seed
+#fr:graines de moutarde moulues
+#nl:gemalen mosterdzaden
 
 <en:mustard seed
 en:yellow mustard seed
@@ -57897,6 +57911,8 @@ de:Gelbsenfsaat, Senfsaat gelb, gelbes Senfkorn
 es:semilla de mostaza amarilla, semillas de mostaza amarilla
 fi:keltainen sinapinsiemen
 fr:graines de moutarde jaunes
+it:chicchi di senape gialla
+nl:geel mosterdzaad, gele mosterdzaden
 sv:gult senapsfrö
 
 <en:mustard seed
@@ -57905,10 +57921,13 @@ de:Braunsenfsaat
 fi:ruskea sinapinsiemen
 fr:Graines de moutarde brune
 nl:bruin mosterdzaad
+sv:brunt senapsfrö
 
 <en:mustard seed
 en:black mustard seed
 fr:Graines de moutarde noire
+nl:zwart mosterdzaad
+#93 @2021-09-09
 
 # <en:aggregate
 <en:yellow mustard seed
