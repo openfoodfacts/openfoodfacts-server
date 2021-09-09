@@ -55,7 +55,7 @@ class RobotoffAsker extends HTMLElement {
         </div>
         <div class="small-10 columns">
           <span id="question">Question</span>
-          <span id="value">Value</span>
+          <span id="value"><a id="placeholder_deep_link_to_hungergames">Value</a></span>
         </div>
         <ul class="small-10 columns button-group" style="margin-top:0.5rem;">
           <li><a href="#" id="no" class="small button alert annotate" data-annotation="0">No</a></li>
