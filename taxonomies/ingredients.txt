@@ -19080,6 +19080,8 @@ wikidata:en:Q7128109
 description:en:Palm stearin is the solid fraction of palm oil.
 # 135 in 5 @2021-09-09
 
+#comment:en:Not all languages use palm fat, but use palm oil instead
+
 <en:palm oil and fat
 en:palm fat
 ca:greix de palma, greix vegetal de palma
@@ -19109,15 +19111,18 @@ sv:palmfett
 # 9007 in 34 @2021-09-09
 description:en:the solid state of the vegetable oil, obtained from the fruit of oil palms.
 
-<en:palm fat
-en:non-hydrogenated palm fat
-da:ikke-hydrogeneret palmefedt
-de:unhydriertes Palmfett, Palmfett ungehärtet
-fi:kovettamaton palmurasva, hydrogenoimaton palmurasva
-fr:graisse de palme non hydrogénée
-hu:nem hidrogénezett pálmazsír
-it:grasso di palma non idrogenato
-nl:Niet gehydrogeneerd palmvet
+#processing:en en:non-hydrogenated
+#<en:palm fat
+#en:non-hydrogenated palm fat
+#da:ikke-hydrogeneret palmefedt
+#de:unhydriertes Palmfett, Palmfett ungehärtet
+#es:aceite de palma no hidrogenado, grasa vegetal de palma no hidrogenada
+#fi:kovettamaton palmurasva, hydrogenoimaton palmurasva
+#fr:graisse de palme non hydrogénée
+#hu:nem hidrogénezett pálmazsír
+#it:grasso di palma non idrogenato
+#nl:Niet gehydrogeneerd palmvet
+#ro:grasimi vegetale nehidrogenate de palmier
 
 <en:palm fat
 en:hydrogenated palm fat
