@@ -108,8 +108,7 @@ my @tests = (
 		"fr-origins-labels",
 		{
 			lc => "fr",
-			ingredients_text => "Fraise origine 
-			, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
+			ingredients_text => "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
 		}
 	],
 
