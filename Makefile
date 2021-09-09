@@ -2,8 +2,10 @@
 
 NAME = "ProductOpener"
 ENV_FILE ?= .env
+MOUNT_POINT ?= /mnt
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+
 .DEFAULT_GOAL := dev
 
 hello:
@@ -99,10 +101,10 @@ create_external_volumes:
 	for volume in icons_dist js_dist css_dist node_modules; do \
 		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
 	done
-	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/users users || echo "Docker volume 'users' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/products products || echo "Docker volume 'products' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=/mnt/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
 
 #---------#
 # Imports #
