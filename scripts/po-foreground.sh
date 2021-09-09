@@ -57,9 +57,15 @@ then
 fi
 
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+chown www-data:www-data /mnt/podata
+chown www-data:www-data /mnt/podata/orgs
 
 # https://github.com/docker-library/httpd/blob/75e85910d1d9954ea0709960c61517376fc9b254/2.4/alpine/httpd-foreground
 set -e
+
+# Change Apache user to 'off' user
+# sed -i.bak 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=off/g' /etc/apache2/envvars
+# sed -i.bak 's/APACHE_RUN_GROUP=www-data/APACHE_RUN_GROUP=off/g' /etc/apache2/envvars
 
 # Apache gets grumpy about PID files pre-existing
 rm -f /usr/local/apache2/logs/httpd.pid
