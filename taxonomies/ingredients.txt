@@ -67068,6 +67068,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Hake
 # ingredient/fr:merlu-blanc has 34 products in french @2018-12-30
 # structure:outer:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
 
+<en:hake
+en:Frozen raw hake fillet 
+fr:Filet de merlu surgelé cru
+ciqual_food_code:en:26048
+ciqual_food_name:en:Hake, fillet, frozen, raw
+ciqual_food_name:fr:Merlu, filet, surgelé, cru
+
 
 <en:hake
 en:South African hake
@@ -75825,9 +75832,65 @@ it:proteina dell'uovo, proteine dell'uovo
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
 # <en:compound
+#category/meringues
 <en:egg white
-fr:meringue
+en:meringue
+ar:مرينج
+bg:Целувка
+bn:মেরিঙ্গু
+br:Mereng
+ca:merenga
+cs:bezé
+cy:Meráng
+da:marengs
+de:Baiser
+el:Μαρέγκα
+eo:meringo
+et:besee
+eu:Merenge
+fa:مرنگ
+fi:marenki
+ga:Meireang
+he:מקצפת
+hy:բեզե
+id:Kue busa
+io:Meringo
+is:Marens
+it:meringa
+ja:メレンゲ
+ka:ბეზე
+kk:безе
+ko:머랭
+lv:bezē
+ml:മെറിംഗു
+nb:marengs
+nn:marengs
+pl:Beza
+pt:suspiro
+ro:Bezea
+ru:безе
+sr:пуслице
+sv:maräng
+th:เมอแร็งก์
+tr:Beze
+uk:безе
+vi:Bánh trứng đường
+xx:merengue
+zh:蛋白脆饼
+#es,fr,nl,gl,jv
+wikidata:en:Q276276
+ciqual_food_code:en:24520
+ciqual_food_name:en:Meringue
+ciqual_food_name:fr:Meringue
+description:de:Baiser ist ein Schaumgebäck aus gezuckertem Eischnee. 
+description:en:Meringue is a type of dessert or candy, traditionally made from whipped egg whites and sugar.
+description:es:El merengue es un tipo de postre, hecho con clara de huevo batida y azúcar.
+description:fr:La meringue est une pâtisserie très légère et très fine composée uniquement d'un mélange de blancs d'œufs et de sucre.
+description:it:La meringa è una preparazione dolce a base di albume di uova e zucchero a velo.
+description:nl:Een meringue is een zoete lekkernij die bestaat uit gedroogd schuim, met stijfgeklopt eiwit en suiker als belangrijkste ingrediënten.
+description:pt:Suspiro ou merengue é um doce feito de claras de ovos e açúcar. 
 # usage:fr:meringue (blanc d'OEUF, sucre)
+# 6 in 2 @2021-09-09
 
 # description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
 
