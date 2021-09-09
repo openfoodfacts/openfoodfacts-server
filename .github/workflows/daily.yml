@@ -42,5 +42,4 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
-          # TODO: wait for users / products mounts
-          # make import_prod_db
+          make import_prod_data
