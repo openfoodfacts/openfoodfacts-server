@@ -57962,22 +57962,40 @@ sv:gult och brunt senapsfrö
 #en:yellow mustard flour
 #de:gelbes Senfmehl
 
-# fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
-
+#category/dijon-mustards
 <en:mustard
 en:dijon mustard
+cs:Dijonská hořčice
 da:dijonsennep
 de:Dijon-Senf
+eo:Diĵona mustardo
 es:Mostaza de Dijon
+fa:خردل دیژون
 fi:dijon-sinappi
 fr:moutarde de dijon
+he:חרדל דיז'ון
+hr:Senf Dijon
 it:senape di Digione
+ja:ディジョンマスタード
+ko:디종 머스터드
+ku:Gormiza Dijonê
+nb:Dijonsennep
 nl:mosterd van Dijon, Dijon-mosterd, mosterd uit Dijon
+pl:Musztarda Dijon
 pt:Mostarda Dijon
+ru:Дижонская горчица
 sv:dijonsenap
+th:มัสตาร์ดดีฌง
+tr:Dijon hardalı
+uk:Діжонська гірчиця
 zh:法式黃芥末醬
+wikidata:en:Q204226
 wiktionary:en:Dijon_mustard
+description:de:Dijon-Senf ist ein scharfer Tafelsenf, der nach der Stadt Dijon benannt ist.
 description:en:A kind of mustard made with verjuice (or, more recently, white wine) instead of vinegar.
+description:es:La mostaza de Dijon es una mostaza francesa.
+description:fr:La moutarde de Dijon est une moutarde française originaire de la ville de Dijon.
+description:pt:A mostarda de Dijon é uma variedade de mostarda forte muito usada na culinária francesa. 
 # 3445 in 9 @2021-09-10
 
 <fr:moutarde de dijon
@@ -57989,6 +58007,7 @@ fr:moutarde forte de dijon
 <en:mustard
 en:strong mustard
 fr:moutarde forte
+nl:sterke mosterd
 # 34 in 2 @2021-09-10
 
 <en:mustard
@@ -73824,89 +73843,108 @@ it:caffè torrefatto in chicchi
 nl:gebrande koffiebonen
 # ingredient/fr:cafe-torrefie-en-grains has 8 products @2019-0-27
 
-
-<en:coffee
-en:coffee extract
-de:Kaffee-Extrakt
-es:Extracto de café
-fi:kahviuute
-fr:extrait de café, extraits de café
-it:estratto di caffè
-ja:コーヒーエキス
-nl:koffie-extract
-pl:ekstrakt kawy
-pt:Extrato de café
-sv:kaffeextrakt
+#processing:en en:extract
+#<en:coffee
+#en:coffee extract
+#de:Kaffee-Extrakt
+#es:extracto de café
+#fi:kahviuute
+#fr:extrait de café, extraits de café
+#it:estratto di caffè
+#ja:コーヒーエキス
+#nl:koffie-extract
+#pl:ekstrakt kawy
+#pt:extrato de café
+#sv:kaffeextrakt
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
 
-<en:coffee extract
-en:liquid coffee extract
-de:flüssiger Kaffee-Extrakt
-es:extracto de café líquido
-fi:nestemäinen kahviuute
-fr:Extrait de café liquide
+#processing:en: en:liquid
+#processing:en en:extract
+#<en:coffee extract
+#en:liquid coffee extract
+#de:flüssiger Kaffee-Extrakt
+#es:extracto de café líquido
+#fi:nestemäinen kahviuute
+#fr:Extrait de café liquide
+#it:estratto di caffè liquido
+#nl:vloeibaar koffie-extract
+#32 in 5 @2021-09-10
 
-# description:en:INSTANT COFFEE, also called soluble coffee, coffee crystals, and coffee powder, is a beverage derived from brewed coffee beans that enables people to quickly prepare hot coffee by adding hot water or milk to the powder or crystals and stirring. Instant coffee is commercially prepared by either freeze-drying or spray drying, after which it can be rehydrated.
 # comment:en:Wonder if one should distinguish between the drink (fluid) and the powder to make the drink
 
 <en:coffee
-en:instant coffee, soluble Coffee
+en:instant coffee, soluble coffee
 ar:قهوة فورية
-az:Hazır qəhvə
-bg:Разтворимо кафе
+az:hazır qəhvə
+bg:разтворимо кафе
 ca:cafè instantani
-cs:Instantní káva
-de:löslicher Kaffee
-el:Στιγμιαίος καφές
+cs:instantní káva
+de:löslicher kaffee
+el:στιγμιαίος καφές
 eo:tuja kafo
 es:café soluble, café instantáneo
-et:Lahustuv kohv
-eu:Istanteko kafe
+et:lahustuv kohv
+eu:istanteko kafe
 fa:قهوه فوری
 fi:pikakahvi
 fr:café soluble, café instantané
 he:קפה נמס
 hi:तत्क्षण कॉफी
-hu:Instant kávé
-id:Kopi instan
-is:Skyndikaffi
+hu:instant kávé
+id:kopi instan
+is:skyndikaffi
 it:caffè solubile
 ja:インスタントコーヒー
 ka:ხსნადი ყავა
-kk:Ерітілмелі кофе
+kk:ерітілмелі кофе
 ko:인스턴트커피
-lt:Tirpi kava
+lt:tirpi kava
 nb:pulverkaffe
 nl:oploskoffie, instantkoffie
 nn:pulverkaffi
-pl:Kawa rozpuszczalna
+pl:kawa rozpuszczalna
 pt:café solúvel
 ru:растворимый кофе
 sa:काफीचूर्णम्
-sk:Instantná káva
+sk:instantná káva
 sv:snabbkaffe
-tr:Hazır kahve
-uk:Розчинна кава
-vi:Cà phê hòa tan
+tr:hazır kahve
+uk:розчинна кава
+vi:cà phê hòa tan
 zh:即溶咖啡
 # zh-cn:即溶咖啡
 # zh-hans:即溶咖啡
 # zh-hant:即溶咖啡
 # zh-hk:即溶咖啡
 wikidata:en:Q858049
+wiktionary:en:instant_coffee
 wikipedia:en:https://en.wikipedia.org/wiki/Instant_coffee
-# ingredient/fr:café-soluble has 315 products in 8 languages @2018-11-30
+description:en:INSTANT COFFEE is a beverage derived from brewed coffee beans that enables people to quickly prepare hot coffee by adding hot water or milk to the powder or crystals and stirring
+# 1171 in 16 @2021-09-10
+
+#processing:en: en:freeze dried
+#<en:instant coffee
+#en:freeze-dried soluble coffee
+#fr:café soluble lyophilisé
+# 28 in french @2021-09-10
 
 <en:instant coffee
-fr:café soluble lyophilisé
-# ingredient/fr:cafe-soluble-lyophilise has 17 products in french @2019-05-23
+en:decaffeinated instant coffee
+fr:Café décaféiné instantané
+ciqual_food_code:en:18069
+ciqual_food_name:en:Decaffeinated coffee, powder, instant
+ciqual_food_name:fr:Café, décaféiné, poudre soluble
+
 
 <en:coffee
 en:cold brew coffee
-de:Cold Brew Kaffee, cold brew coffee
+de:cold brew Kaffee, cold brew coffee
 fi:kylmäuutettu kahvi
-fr:Café infusé à froid
-wikidata:en:Q5142444
+fr:café infusé à froid
+wikidata:en:q5142444
+wiktionary:en:cold_brew_coffee
+description:de:Cold brewing is the process of steeping coffee grounds in water at cool temperatures for an extended period. 
+#170 in 3 @2021-09-10
 
 # description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue.
 
