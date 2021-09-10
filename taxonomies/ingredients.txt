@@ -7227,60 +7227,90 @@ hu:pasztőrözött bio kecsketej
 
 ################################# SHEEP MILKS ##################################
 
-# description:en:SHEEPS MILK -  milk produced by female sheep
-
 <en:milk
 en:sheeps milk, sheep milk, ewe's milk, sheep's milk
+ar:حليب الغنم
 ca:lley d'ovella
+cs:ovči mléko
 da:Fåremælk
 de:Schafsmilch, Schafmilch
+el:πρόβειο γάλα
+eo:ŝafina lakto
 es:leche de oveja
+et:lambapiim
+fa:شیر گوسفند
 fi:lampaanmaito
 fr:lait de brebis
+he:חלב כבש
 hu:juhtej, birkatej
+hy:ոչխարի կաթ
+id:Susu domba
 it:latte di pecora
+ja:羊乳
+jv:susu wedhus
+ka:ცხვრის რძე
+kk:қой сүті
+ko:양젖
+lt:avies pienas
+nb:sauemelk
 nl:schapenmelk
+nn:sauemjølk
+pl:mleko owcze
+pt:leite de ovelha
 ro:lapte de oaie
+ru:овечье молоко
+sr:овчије млеко
 sv:fårmjölk
+tt:сарык сөте
 wikidata:en:Q2736146
-
-# description:en:RAW SHEEPS MILK - milk produced by female sheep before any treatment
-
-<en:sheeps milk
-en:raw sheeps milk
-ca:llet crua d'ovella, llet d'ovella crua
-de:roher Schafmilch
-el:ακατέργαστο πρόβειο γάλα
-es:leche cruda de oveja, leche de oveja cruda
-fi:lampaan raakamaito, raaka lampaanmaito
-fr:lait cru de brebis
-hu:nyers juhtej
-nl:rauwe schapenmelk
-
-# description:en:PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
+wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk
+wiktionary:en:sheep_milk
+description:de:Schafmilch oder Schafsmilch ist die Milch von Schafen.
+description:en:Sheep's milk (or ewes' milk) is the milk of domestic sheep.
 
 <en:sheeps milk
-en:pasteurized sheeps milk, pasteurised sheep's milk
-ca:llet d'ovella pasteuritzada, llet pasteuritada d'ovella
-de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
-es:Leche de oveja pasteurizada, leche pasteurizada de oveja
-fi:pastöroitu lampaanmaito
-fr:lait de brebis pasteurisé, lait pasteurisé de brebis
-hu:pasztőrözött juhtej
-it:Latte di pecora pastorizzato
-nl:gepasteuriseerde schapenmelk
-ro:lapte de oaie pasteurizat
-sv:pastöriserad fårmjölk
+en:whole sheep milk
+fr:lait entier de brebis
+ca:llet sencera d'ovella, llet d'ovella sencera
+es:leche entera de oveja, leche de oveja entera
+fr:Lait de brebis entier
+nl:volle schapenmelk
+ciqual_food_code:en:19250
+ciqual_food_name:en:Sheep milk, whole
+ciqual_food_name:fr:Lait de brebis, entier
+
+
+#processing:en: en:raw
+#<en:sheeps milk
+#en:raw sheeps milk
+#ca:llet crua d'ovella, llet d'ovella crua
+#de:roher Schafmilch
+#el:ακατέργαστο πρόβειο γάλα
+#es:leche cruda de oveja, leche de oveja cruda
+#fi:lampaan raakamaito, raaka lampaanmaito
+#fr:lait cru de brebis
+#hu:nyers juhtej
+#nl:rauwe schapenmelk
+
+#processing:en: en:pasteurised
+#<en:sheeps milk
+#en:pasteurized sheeps milk, pasteurised sheep's milk
+#ca:llet d'ovella pasteuritzada, llet pasteuritada d'ovella
+#de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
+#es:Leche de oveja pasteurizada, leche pasteurizada de oveja
+#fi:pastöroitu lampaanmaito
+#fr:lait de brebis pasteurisé, lait pasteurisé de brebis
+#hu:pasztőrözött juhtej
+#it:Latte di pecora pastorizzato
+#nl:gepasteuriseerde schapenmelk
+#ro:lapte de oaie pasteurizat
+#sv:pastöriserad fårmjölk
 
 <en:sheeps milk
 fr:lait de brebis thermisé
 ca:llet d'ovella termitzada, llet termitzada d'ovella
 es:leche de oveja termizada, leche termizada de oveja
 
-<en:sheeps milk
-fr:lait entier de brebis
-ca:llet sencera d'ovella, llet d'ovella sencera
-es:leche entera de oveja, leche de oveja entera
 
 # <en:aggregate
 <en:goat's milk
@@ -73998,6 +74028,9 @@ zh:即溶咖啡
 wikidata:en:Q858049
 wiktionary:en:instant_coffee
 wikipedia:en:https://en.wikipedia.org/wiki/Instant_coffee
+ciqual_food_code:en:18005
+ciqual_food_name:en:Coffee, powder, instant
+ciqual_food_name:fr:Café, poudre soluble
 description:en:INSTANT COFFEE is a beverage derived from brewed coffee beans that enables people to quickly prepare hot coffee by adding hot water or milk to the powder or crystals and stirring
 # 1171 in 16 @2021-09-10
 
@@ -74765,11 +74798,12 @@ fr:manchons de poulet
 <en:chicken meat
 fr:haut de cuisse de poulet
 
-<en:chicken meat
-fr:poulet traité en salaison
 
 <en:chicken meat
 fr:filets de poulet
+
+<en:chicken meat
+fr:poulet traité en salaison
 
 <fr:poulet traité en salaison
 fr:poulet rôti traité en salaison
