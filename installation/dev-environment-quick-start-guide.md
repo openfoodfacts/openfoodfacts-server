@@ -88,6 +88,8 @@ From the repository root, run:
 $ make dev
 ```
 
+_If docker complains about ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network it can be solved by adding {"base":"172.80.0.0/16","size":24}, {"base":"172.90.0.0/16","size":24} to default-address-pools in /etc/docker/daemon.json and then restarting the docker daemon. Credits to https://theorangeone.net/posts/increase-docker-ip-space/ for this solution._
+
 The command will run 2 subcommands:
 * `make up`: **Build and run containers** from the local directory and bind local code files, so that you do not have to rebuild everytime.
 * `make import_sample_data`: **Load sample data** into `mongodb` container (~100 products).
