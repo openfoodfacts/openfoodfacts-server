@@ -37300,10 +37300,10 @@ bn:কলা
 bo:ངང་ལག
 br:Bananez
 bs:Banana
-ca:Banana,plàtan,plàtans
+ca:Banana, plàtan, plàtans
 ce:Банан
 co:Banana
-cs:Banán
+cs:Banán, banánových, banánová
 cy:Banana
 da:Banan, bananer
 de:Bananen, Banane
@@ -37359,7 +37359,7 @@ nv:Hashkʼaan
 oc:Banana
 or:କଦଳୀ
 pa:ਕੇਲਾ
-pl:banan, banany
+pl:banan, banany, bananowe, bananowy
 ps:كيله
 pt:bananas
 ru:Банан
@@ -37437,70 +37437,62 @@ wikidata:en:Q503
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
 carbon_footprint_fr_foodges_ingredient:fr:Banane
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_food_code:en:13005
+ciqual_food_name:en:Banana, pulp, raw
+ciqual_food_name:fr:Banane, pulpe, crue
 # 1538 products in 10 languages @2018-09-26
 
-<en:banana
-en:Dried banana
-fr:banane sèche
-ciqual_food_code:en:13089
-ciqual_food_name:en:Banana, pulp, dried
-ciqual_food_name:fr:Banane, pulpe, sèche
-
-<en:banana
-en:Dried banana pulp
-fr:Pulpe de banane sèche
-ciqual_food_code:en:13089
-ciqual_food_name:en:Banana, pulp, dried
-ciqual_food_name:fr:Banane, pulpe, sèche
-
-en:Plantain bananas
-fr:Bananes plantain
-ciqual_food_code:en:53100
-ciqual_food_name:en:Plantain banana, raw
-ciqual_food_name:fr:Banane plantain, crue
+#<en:banana
+#en:Plantain bananas
+#fr:Bananes plantain
+#ciqual_food_code:en:53100
+#ciqual_food_name:en:Plantain banana, raw
+#ciqual_food_name:fr:Banane plantain, crue
+#no ingredients @2021-09-10
 
 <en:banana
 en:dried banana, dried bananas
-de:Bananen getrocknet
+de:Bananen getrocknet, getrocknete Banane
 es:plátano seco
 fi:kuivattu banaani, kuivatut banaanit
 fr:bananes séchées
 it:banane secche
 nl:gedroogde banaan
 ro:banane uscate
+ciqual_food_code:en:13089
+ciqual_food_name:en:Banana, pulp, dried
+ciqual_food_name:fr:Banane, pulpe, sèche
 # ingredient/fr:bananes-sechees has 19 products in 4 languages @2019-06-03
 
-<en:banana
-en:banana flakes
-de:Bananenflocken, Bananenchipsstücke
-es:copos de plátano, copos de banana
-fi:banaanihiutale, banaanilastu
-fr:flocons de banane
-it:fiocchi di banane
-ja:バナナチップス
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-flakes
-# 38 products in 4 languages @2018-09-26
+#processing:en: en:flakes
+#<en:banana
+#en:banana flakes
+#de:Bananenflocken, Bananenchipsstücke
+#es:copos de plátano, copos de banana
+#fi:banaanihiutale, banaanilastu
+#fr:flocons de banane
+#it:fiocchi di banane
+#ja:バナナチップス
+# 198 in 9 @2021-09-10
 
-<en:banana
-en:banana chips
-de:getrocknete Banane
-es:chips de platano
-fr:Chips de bananes
+#processing:en: en:chips
+#<en:banana
+#en:banana chips
+#es:chips de platano
+#fr:Chips de bananes
 
-<en:banana
-<en:purée
-en:banana puree
-de:Bananenpüree, Bananenmark
-es:Puré de plátano
-fi:banaanipyree
-fr:purée de banane, purée de bananes
-hu:banánpüré
-it:purea di banana
-nl:Bananenpuree
-pt:Puré de banana
-# In process de:Bananenpüree, Bananenmark
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-puree
-# 612 products in 6 languages @2018-09-26
+#processing:en: en:pureed
+##<en:banana
+#en:banana puree
+#de:Bananenpüree, Bananenmark
+#es:Puré de plátano
+#fi:banaanipyree
+#fr:purée de banane, purée de bananes
+#hu:banánpüré
+#it:purea di banana
+#nl:Bananenpuree
+#pt:Puré de banana
+# 2082 in 15 @2021-09-10
 
 <en:banana
 de:Bananenpulver
@@ -67428,6 +67420,7 @@ description:nl:zilvergrijze zoutwatervis, geschikt voor comsumptie
 
 <en:herring
 en:herring fillet, herring fillets
+da:sildefileter
 de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
@@ -67474,9 +67467,6 @@ wikidata:en:Q2396858
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
 
-#comment:en:sild only applies to the atlantic herring
-<en:Atlantic herring
-da:sildefileter
 
 <en:Atlantic herring
 fr:clupea harengus pêché en Atlantique Nord
