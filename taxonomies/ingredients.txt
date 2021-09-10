@@ -57903,32 +57903,28 @@ fr:graines de moutarde jaune et brune
 sv:gult och brunt senapsfrö
 # ingredient/fr:graines-de-moutarde-jaune-et-brune has 11 products in 1 language @2020-06-11
 
-<en:mustard
-fr:sons de moutarde
-
-# description:en:MUSTARD is a condiment made from the seeds of a mustard plant
-
-<en:mustard
-en:mustard powder, mustard flour
-da:sennepspulver, sennepsmel
-de:Senfpulver, Senfmehl
-es:Mostaza en polvo, harina de mostaza
-et:Sinepijahu
-fi:sinappijauhe
-fr:moutarde en poudre, poudre de moutarde, farine de moutarde
-is:sinnepsduft
-it:senape in polvere
-ja:マスタードパウダー
-lt:garstyčių milteliai
-nl:mosterdpoeder, mosterdmeel
-ru:горчичный порошок
-sv:senapspulver, senapsfröpulver
+#processing:en: en:powder
+#<en:mustard
+#en:mustard powder, mustard flour
+#da:sennepspulver, sennepsmel
+#de:Senfpulver, Senfmehl
+#es:Mostaza en polvo, harina de mostaza
+#et:Sinepijahu
+#fi:sinappijauhe
+#fr:moutarde en poudre, poudre de moutarde, farine de moutarde
+#is:sinnepsduft
+#it:senape in polvere
+#ja:マスタードパウダー
+#lt:garstyčių milteliai
+#nl:mosterdpoeder, mosterdmeel
+#ru:горчичный порошок
+#sv:senapspulver, senapsfröpulver
 # fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
 # fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
 
-<en:mustard flour
-en:yellow mustard flour
-de:gelbes Senfmehl
+#<en:mustard flour
+#en:yellow mustard flour
+#de:gelbes Senfmehl
 
 # fr:moutarde-de-dijon is a compound ingredient, i.e:moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel)
 
@@ -57940,21 +57936,30 @@ es:Mostaza de Dijon
 fi:dijon-sinappi
 fr:moutarde de dijon
 it:senape di Digione
-nl:mosterd van Dijon
+nl:mosterd van Dijon, Dijon-mosterd, mosterd uit Dijon
 pt:Mostarda Dijon
 sv:dijonsenap
-# fr:moutarde-de-dijon has 1819 products in 4 languages @2018-10-25
+zh:法式黃芥末醬
+wiktionary:en:Dijon_mustard
+description:en:A kind of mustard made with verjuice (or, more recently, white wine) instead of vinegar.
+# 3445 in 9 @2021-09-10
 
 <fr:moutarde de dijon
+<en:strong mustard
+en:strong Dijon mustard
 fr:moutarde forte de dijon
-# fr:moutarde-forte-de-dijon has 18 products in 1 language @2018-10-25
+# 16 products in fr @2021-09-10
 
 <en:mustard
+en:strong mustard
 fr:moutarde forte
-# fr:moutarde-forte has 26 products in 1 language @2018-10-25
+# 34 products in 2 @2021-09-10
 
 <en:mustard
 fr:moutarde à l'ancienne
+nl:ambachtelijke mosterd
+sv:gammaldags senap
+# 389 in 5 @2021-09-10
 
 ###################################################################################################
 #
