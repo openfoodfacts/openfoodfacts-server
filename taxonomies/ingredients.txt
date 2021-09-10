@@ -67320,7 +67320,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Arrowtooth_flounder
 description:en:The arrowtooth flounder (Atheresthes stomas) is a fish in the family Pleuronectidae.
 description:nl:De Pacifische pijltandheilbot (Atheresthes stomias) is een straalvinnige vis uit de familie van schollen.
 
-# en:description:Herring are forage fish, mostly belonging to the family Clupeidae.
 
 <en:fish
 <en:oily fish
@@ -67382,18 +67381,22 @@ zh:鯡魚
 # sgs:Silkė
 # srn:elen
 wikidata:en:Q3127419
+wiktionary:en:herring
 wikipedia:en:https://en.wikipedia.org/wiki/Herring
-# ingredient/fr:hareng has 72 products in french @2018-12-30
-# structure:outer:role:synonym,  eg:Hareng (Clupea Harengus)
+ciqual_food_code:en:26011
+ciqual_food_name:en:Atlantic herring, raw
+ciqual_food_name:fr:Hareng, cru
+description:en:A type of small, oily fish of the genus Clupea, often used as food.
+description:nl:zilvergrijze zoutwatervis, geschikt voor comsumptie
+# 509 in 14 @2021-09-10
 
 <en:herring
-en:herring fillets
-da:sildefileter
+en:herring fillet, herring fillets
 de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
 it:filetti di aringa
-# ingredient/fr:filets-de-harengs has 41 products @2019-02-03
+# 250 in 6 @2021-09-10
 
 # description:en:Atlantic herring (Clupea harengus) is a herring in the family Clupeidae.
 
@@ -67434,6 +67437,10 @@ zh:大西洋鯡
 wikidata:en:Q2396858
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
+
+#comment:en:sild only applies to the atlantic herring
+<en:Atlantic herring
+da:sildefileter
 
 <en:Atlantic herring
 fr:clupea harengus pêché en Atlantique Nord
@@ -77694,29 +77701,37 @@ ciqual_food_code:en:23442
 ciqual_food_name:en:Shortbread dough, cooked
 ciqual_food_name:fr:Pâte sablée, cuite
 
-# description:en:GINGERBREAD refers to a broad category of baked goods, typically flavored with ginger, cloves, nutmeg or cinnamon and sweetened with honey, sugar or molasses. Gingerbread foods vary, ranging from a soft, moist loaf cake to something close to a ginger snap.
-
+#comment:en:not sure about the translations. Some prefer the pepper part, other the ginger-part. Need to split?
 #<en:compound
 en:gingerbread
 cs:perník
-de:lebkuchen
+de:Lebkuchen, Pfefferkuchen
 es:pan de jengibre
 fi:piparkakku
 fr:pain d'épices
 hr:medenjak
 hu:mézeskalács
 ia:pan de specie
-it:pan di zenzero
+it:pan di zenzero, panpepato
 ja:パン・デピス
 jv:roti jaé
+lv:piparkūka
 mr:जिंजरब्रेड
+nl:peperkoek
+nn:peparkake
 pt:pão de mel
 ro:turtă dulce
+sv:pepparkaka
 zh:香料糕饼
+wiktionary:en:gingerbread
 wikidata:en:Q17052976
 wikipedia:en:https://en.wikipedia.org/wiki/Gingerbread
+ciqual_food_code:en:23200
+ciqual_food_name:en:Gingerbread
+ciqual_food_name:fr:Pain d'épices
+description:en:GINGERBREAD refers to a broad category of baked goods, typically flavored with ginger, cloves, nutmeg or cinnamon and sweetened with honey, sugar or molasses.
 # usage:en:Gingerbread: enriched wheat flour (flour, niacin, iron, ascorbic acid, thiamine mononitrate, riboflavin, folic acid), sugar, vegetable oil (palm), molasses, water, cinnamon, leavening (sodium bicarbonate), ginger, salt, caramel color.
-# ingredient/en:gingerbread has 68 products in 1 language @2020-12-20
+# 109 in 7 @2021-09-10
 
 #<en:compound
 fr:galette
