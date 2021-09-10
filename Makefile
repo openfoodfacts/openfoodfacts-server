@@ -110,7 +110,7 @@ create_external_volumes:
 	for volume in icons_dist js_dist css_dist node_modules; do \
 		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
 	done
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/html_data html_data || echo "Docker volume 'html_data' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
