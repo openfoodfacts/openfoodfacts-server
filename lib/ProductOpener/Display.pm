@@ -8959,7 +8959,7 @@ sub display_nutrient_levels($) {
 			if ((has_tag($product_ref, "categories", "en:tea-bags"))
 				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
 				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
-				or ((has_tag($product_ref, "categories", "en:tea-bags")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
 				) {
 				$warning .= "<p>" . lang("nutrition_grade_fr_tea_bags_note") . "</p>";
 			}
