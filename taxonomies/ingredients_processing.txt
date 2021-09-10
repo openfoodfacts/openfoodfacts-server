@@ -619,6 +619,14 @@ fr:trempé, trempée, trempés, trempées
 #######################################################################
 # Processes that change the humidity level of an ingredient
 
+en:liquid
+de:flüssiger
+es:líquido
+fi:nestemäinen
+fr:liquide
+it:liquido
+nl:vloeibaar
+
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
 ca:concentrat
@@ -708,6 +716,7 @@ pt:semi-seco, semi-seca, semi-secos, semi-secas
 en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
+fr:lyophilisé
 hu:fagyasztva szárított
 nb:frysetørkede
 nl:gevriesdroogde
@@ -799,6 +808,7 @@ ja:エキス
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
+pl:ekstrakt
 pt:extrato, extratos, extracto, extractos, extrato de, extratos de, extracto de, extractos de, extrato da, extratos da, extracto da, extractos da
 ro:extract de
 sv:extrakt, extrakt av
@@ -806,7 +816,6 @@ sv:extrakt, extrakt av
 # fi:parse:$uute
 # nb:parse:$ekstrakt
 # sv:parse:$extrakt
-
 
 #<en:extract
 #<en:natural
