@@ -89,7 +89,7 @@ setup_incron:
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
-	${DOCKER_COMPOSE} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
+	${DOCKER_COMPOSE} exec --user=www-data backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
