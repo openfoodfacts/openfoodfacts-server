@@ -65808,7 +65808,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rockfish
 
 
 <en:fish
-en:fresh water fish
+en:freshwater fish
 af:varswatervis
 ar:أسماك المياه العذبة
 bn:স্বাদুপানির মাছ
@@ -65850,6 +65850,31 @@ description:en:FRESHWATER FISH are those that spend some or all of their lives i
 # zh-hk:淡水魚
 wikidata:en:Q1072742
 wikipedia:en:https://en.wikipedia.org/wiki/Freshwater_fish
+
+<en:fish
+en:yellowstripe scad
+fr:selar à bande dorée
+ga:bolmán buístríocach
+id:selar kuning
+ja:ホソヒラアジ
+la:Selaroides leptolepis
+nl:geelgestreepte horsmakreel
+ru:Желтополосый селар
+vi:Cá chỉ vàng
+zh:金带细鲹
+
+<en:fish
+en:bigeye scad
+bg:големоок сафрид
+fr:coulirou
+la:Selar crumenophthalmus
+nl:Marsbanker
+pt:Garapau
+wikidata:en:Q3239331
+ciqual_food_code:en:26159
+ciqual_food_name:en:Bigeye scad, raw
+ciqual_food_name:fr:Coulirou, cru
+
 
 <en:fish
 en:saltwater fish
@@ -67468,36 +67493,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
 fr:clupea harengus pêché en Atlantique Nord
 
 
-# en:description:Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
-
-<en:oily fish
-en:jack mackerels
-ar:طرخورة
-be:Стаўрыды
-bg:Сафриди
-de:Trachurus spp.
-eu:Txitxarro
-fa:زبردم‌ها
-fi:piikkimakrillit
-fr:chinchard
-he:טרכון
-hy:Ստավրիդներ
-ja:アジ、鯵
-ka:სტავრიდა
-kk:Ставрида
-kw:Keynek
-la:Trachurus
-mk:шарун
-pl:Suareus
-pt:chicharro
-ru:Ставриды
-tr:İstavrit
-uk:Ставрида
-vi:Cá sòng
-wikidata:en:Q982933
-wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
-# ingredient/fr:chinchard has 1 product in french @2019-01-01
-# description:en:Oarfish are large, greatly elongated, pelagic lampriform fish belonging to the small family Regalecidae
 
 <en:fish
 en:Common dab
@@ -68785,7 +68780,6 @@ ciqual_food_name:fr:Grenadier (de roche), cru
 
 
 <en:fish
-<en:oily fish
 en:mackerel
 ar:الإسقمري
 bg:скумрия
@@ -68905,6 +68899,49 @@ ciqual_food_name:fr:Maquereau espagnol ou maquereau blanc ou billard cru
 fr:Filets de maquereaux espagnols
 it:Filetti di sgombro occhione
 nl:Spaanse makreelfilets
+
+<en:mackerel
+en:horse mackerel
+nl:horsmakrel
+description:en:Horse mackerel is a vague vernacular term for a range of species of fish throughout the English-speaking world.
+
+# en:description:Jack mackerels or saurels are marine fish in the genus Trachurus of the family Carangidae.
+
+<en:mackerel
+en:jack mackerel
+ar:طرخورة
+be:Стаўрыды
+bg:Сафриди
+eu:Txitxarro
+fa:زبردم‌ها
+fi:piikkimakrillit
+fr:chinchard
+he:טרכון
+hy:Ստավրիդներ
+ja:アジ、鯵
+ka:სტავრიდა
+kk:Ставрида
+kw:Keynek
+la:Trachurus
+mk:шарун
+pl:Suareus
+pt:chicharro
+ru:Ставриды
+tr:İstavrit
+uk:Ставрида
+vi:Cá sòng
+wikidata:en:Q982933
+wikipedia:en:https://en.wikipedia.org/wiki/Trachurus
+ciqual_food_code:en:26113
+ciqual_food_name:en:Horse mackerel, raw
+ciqual_food_name:fr:Chinchard, cru
+# ingredient/fr:chinchard has 1 product in french @2019-01-01
+# description:en:Oarfish are large, greatly elongated, pelagic lampriform fish belonging to the small family Regalecidae
+
+
+<en:horse
+fr:Filets de chinchards
+pt:filetes de carapau
 
 # compound product eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
 
