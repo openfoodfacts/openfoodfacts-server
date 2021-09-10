@@ -37414,19 +37414,21 @@ ciqual_food_name:fr:Banane, pulpe, crue
 #ciqual_food_name:fr:Banane plantain, crue
 #no ingredients @2021-09-10
 
+#processing:en: en:dried
 <en:banana
 en:dried banana, dried bananas
-de:Bananen getrocknet, getrocknete Banane
-es:plátano seco
-fi:kuivattu banaani, kuivatut banaanit
-fr:bananes séchées
-it:banane secche
-nl:gedroogde banaan
-ro:banane uscate
+#de:Bananen getrocknet, getrocknete Banane
+#es:plátano seco
+#fi:kuivattu banaani, kuivatut banaanit
+#fr:bananes séchées
+#it:banane secche
+#nl:gedroogde banaan
+#ro:banane uscate
+#th:กล้วยตาก
 ciqual_food_code:en:13089
 ciqual_food_name:en:Banana, pulp, dried
 ciqual_food_name:fr:Banane, pulpe, sèche
-# ingredient/fr:bananes-sechees has 19 products in 4 languages @2019-06-03
+# 215 in 7 @2021-09-10
 
 #processing:en: en:flakes
 #<en:banana
@@ -37458,19 +37460,21 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 #pt:Puré de banana
 # 2082 in 15 @2021-09-10
 
-<en:banana
-de:Bananenpulver
-fi:banaanijauhe
+#processing:en: en:powder
+#<en:banana
+#de:Bananenpulver
+#fi:banaanijauhe
 
-<en:banana
-<en:fruit juice
-en:banana juice
-de:bananensaft
-es:zumo de plátano, zumo de banana
-fi:banaanimehu, banaanitäysmehu
-fr:jus de banane
-pt:Sumo de banana
-# ingredient/fr:jus-de-banane has 10 products in 4 languages @2020-06-13
+#processing:en: en:juice
+#<en:banana
+#<en:fruit juice
+#en:banana juice
+#de:bananensaft
+#es:zumo de plátano, zumo de banana
+#fi:banaanimehu, banaanitäysmehu
+#fr:jus de banane
+#pt:Sumo de banana
+# 61 in 6 @2021-09-10
 
 ###################################################################################################
 #
