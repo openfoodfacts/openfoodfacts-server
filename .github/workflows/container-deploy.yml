@@ -122,6 +122,7 @@ jobs:
         script: |
           cd openfoodfacts-server/
           make create_external_volumes
+
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
