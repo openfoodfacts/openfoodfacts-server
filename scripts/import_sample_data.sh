@@ -16,7 +16,5 @@ mkdir -p /opt/product-opener/html/images/products
 tar -xzvf 39-.images.tar.gz -C /opt/product-opener/html/images/products
 rm 39-.images.tar.gz
 
-chown -R www-data:www-data /mnt/podata
-
 echo "\033[32m------------------ 3/ Import products -------------------\033[0m";
 perl -I/opt/product-opener/lib /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
