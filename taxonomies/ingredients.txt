@@ -49039,9 +49039,13 @@ nl:geconcentreerd uiensap
 sv:lökjuicekoncentrat
 # ingredient/fr:jus-d’oignon-concentré has 48 products in 5 languages @2018-12-06
 
+#processing:en: en:dried
+#processing:en: en:dehydrated
 <en:onion
 en:dehydrated onion, dried onion
-ca:Ceba deshidratada
+ca:ceba deshidratada
+cs:cibule sušená
+da:tørret løg
 de:Zwiebeln getrocknet, Trockenzwiebeln
 es:cebolla deshidratada
 fi:kuivattu sipuli
@@ -49050,43 +49054,52 @@ hu:szárított hagyma, dehidratált hagyma
 it:cipolle disidratate
 ja:ドライ玉ねぎ
 nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
-pl:Suszona cebula
+nn:tørket hvitløk
+pl:suszona cebula
 pt:cebola desidratada, cebola seca
+ro:ceapă deshidratată
 ru:лук репчатый сушеный, лук-репчатый сушёный, лук репчатый-сушёный
 sv:torkad lök
-# ingredient/fr:oignons-déshydratés has 679 products @2018-12-06
-# ingredient/fr:oignons-séchés has 53 products in 6 languages @2018-11-06
+uk:цибуля ріпчаста сушена
+ciqual_food_code:en:20180
+ciqual_food_name:en:Onion, dried
+ciqual_food_name:fr:Oignon, séché
+# 12664 in 22 @2021-09-10
 
-# <en:Ground dried vegetables
-# <en:Onions and their products
-<en:onion
-en:onion powder, Granulated onion, Dried minced onion
-ca:ceba en pols
-cs:Sušená cibule
-da:løgpulver
-de:Zwiebelpulver
-el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
-eo:pulvorigita cepo
-es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
-fi:sipulijauhe
-fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
-he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
-hu:vöröshagymapor
-it:cipolla en polvere
-ja:玉ねぎパウダー
-ms:Serbuk bawang
-nb:løkpulver
-nl:uienpoeder, uipoeder, Uienpoeders
-pl:Cebula w proszku
-pt:cebola em pó
-ro:ceapă pudră
-ru:Луковый порошок
-sk:sušená cibuľa
-sl:čebula v prahu
-sv:lökpulver
-wikidata:en:Q7093931
-# ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
-# category/onion-powder has 11 products @2019-05-12
+#category/onion-powder
+#processing:en: en:powder
+#<en:onion
+#en:onion powder, Granulated onion, Dried minced onion
+#bg:лук на прах
+#ca:ceba en pols
+#cs:Sušená cibule
+#da:løgpulver
+#de:Zwiebelpulver
+#el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
+#eo:pulvorigita cepo
+#es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
+#et:sibulapulber
+#fi:sipulijauhe
+#fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
+#he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
+#hu:vöröshagymapor
+#it:cipolla en polvere
+#ja:玉ねぎパウダー
+#lt:svogünų milteliai
+#lv:sīpolu pulveris
+#ms:Serbuk bawang
+#nb:løkpulver
+#nl:uienpoeder, uipoeder, Uienpoeders
+#pl:Cebula w proszku
+#pt:cebola em pó
+#ro:ceapă pudră
+#ru:Луковый порошок
+#sk:sušená cibuľa
+#sl:čebula v prahu
+#sv:lökpulver
+#tr:soğan tozu
+#wikidata:en:Q7093931
+# 24139 in 36 @2021-09-10
 
 <en:onion powder
 de:Röstzwiebelpulver

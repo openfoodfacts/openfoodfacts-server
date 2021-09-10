@@ -396,15 +396,15 @@ en:powder, powdered
 af:poeier
 ar:مسحوق
 be:парашок
-bg:Прах
+bg:Прах, на прах
 bn:গুড়া
 ca:en pols, en polvo
-cs:prášek
+cs:prášek, sušená
 cy:powdwr
 da:pulver
 de:pulver, pulverisiert, pulverisierte, pulverisierter, pulverisiertes, gepulvert, gepulverte, gepulverter, gepulvertes
-el:σκόνη
-eo:pulvoro
+el:σκόνη, σε σκόνη
+eo:pulvoro, pulvorigita
 es:en polvo, polvo de
 et:pulber
 fa:پودر
@@ -418,13 +418,14 @@ hu:porított, por
 id:Bubuk
 io:Polvo
 is:duft
-it:in polvere, polvere di, polvere d'
+it:in polvere, en polvere, polvere di, polvere d'
 ja:パウダー
 jv:Bubuk
 lt:milteliai
 lv:pulveris
 ko:가루
 mk:прав
+ms:serbuk
 nb:pulver, pulverisert
 nl:poeder, poeders, in poedervorm
 pl:w proszku, proszek
@@ -432,10 +433,11 @@ pt:em pó, pó de
 ro:praf, praf de, pudră, pudră de, Pulbere
 ru:сухие, порошок
 # Google translates to dry
-sk:v prahu
+sk:v prahu, sušená
+sl:v prahu
 sr:прах
 sv:pulver
-tr:Pudra
+tr:pudra, tozu
 uk:порошок
 vi:Bột
 yi:שטויב
@@ -734,26 +736,31 @@ ro:din concentrat
 sv:från koncentrat
 
 en:dried
-cs:sušené
+ca:dessecade, dessecades, dessecats, dessecat
+cs:sušené, sušená
 da:tørret, tørrede
-de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form
-es:seco, seca, secos, secas, secados, secadas
+de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form, Trocken
+es:seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et:kuivatatud
 fi:kuivattu, kuivatut
 fr:séché, séchée, séchés, séchées
 hu:szárított
 it:secco, secca, secchi, secche
+ja:ドライ
 lt:džiovinti
 lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
 nn:tørket
-pl:suszony
+pl:suszony, suszona
 pt:seco, seca, secos, secas
 ro:uscate
+ru:сушеный
 sk:sušené
 sv:torkad
 th:ตาก
+uk:сушена
+
 
 # <en:dried
 en:semi-dried
@@ -819,12 +826,13 @@ pt:Xarope
 
 #<en:dried
 en:dehydrated
-ca:dessecade,dessecades,dessecats,dessecat
-es:deshidratado, deshidratada, deshidratados, deshidratadas,desecado,desecada,desecados,desecadas
+ca:deshidratada
+es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
 hu:dehidratált, liofilizált
 it:disidratato, disidratata, disidratati, disidratate
 pt:desidratado, desidratada, desidratados, desidratadas
+ro:deshidratată
 
 en:rehydrated
 ca:rehidratada
