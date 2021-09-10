@@ -24,13 +24,16 @@
 #######################################################################
 
 en:raw
+ca:crua
 da:rå
 de:roh, rohe, roher, rohes
+el:ακατέργαστο
 es:crudo, cruda, crudos, crudas
 fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
 es:crudo, cruda, crudos, crudas
 hu:nyers, nyersen
+nl:rauwe
 pt:cru, crus
 # da:parse:rå$
 # fi:parse:raaka$
@@ -87,13 +90,13 @@ pt:sementes
 sv:frön
 zh:籽
 
-en:fillet
-de:filet
-fi:filee
-fr:filet de
-it:filetti di
-nl:filet
-sv:filé, filé av
+#en:fillet
+#de:filet
+#fi:filee
+#fr:filet de
+#it:filetti di
+#nl:filet
+#sv:filé, filé av
 
 #######################################################################
 #
@@ -951,7 +954,7 @@ nl:ontdooid
 pt:descongelado, descongelada, descongelados, descongeladas
 
 en:pasteurised, pasteurized
-ca:pasteuritzada
+ca:pasteuritzada, pasteuritada
 da:pasteuriseret
 de:pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
 es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
@@ -967,6 +970,10 @@ pt:pasteurizado, pasteurizados, pasteurizada, pasteurizadas
 ro:pasteurizat, pasteurizata
 ru:пастеризованные
 sv:pastöriserad
+
+fr:thermisé
+ca:termitzada
+es:termizada
 
 en:unpasteurized, unpasteurised
 fr:non pasteurisé
