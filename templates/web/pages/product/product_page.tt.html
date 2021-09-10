@@ -227,6 +227,12 @@
 	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
 [% END %]
 
+[% IF ecoscore_panel %]
+<p>Eco-Score knowledge panel (in development):</p>
+        [% ecoscore_panel %]
+<p>End of Eco-Score panel</p>
+[% END %]
+
 [% IF ecoscore_grade %]
 	<h4>Eco-score
 		<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
