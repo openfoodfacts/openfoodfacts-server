@@ -34,26 +34,30 @@
             "element": {
                 "table_id": "ecoscore_lca_impacts_by_stages",
                 "table_type": "percents",
-                "title": "Details of the impacts by stages of the life cycle",
+                "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
                 "headers": [
-                    "Steps",
-                    "Impact"
+                    {
+                        "text": "[% lang('ecoscore_stage') %]",
+                    },
+                    {
+                        "text": "[% lang('ecoscore_impact') %]",
+                    }
                 ],
                 "rows": [
                     [% FOREACH step IN ["agriculture", "processing", "packaging", "transportation", "distribution", "consumption"] %]
                     {
                         "id": "[% step %]",
-                        "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
                         "values": [
                             {
+                                "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
                                 "text": "[% lang("ecoscore_$step") %]"
                             },
                             {
                                 [% ef_step = "ef_$step" %]
-                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]"
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]",
+                                "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
                             }
                         ],
-                        "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
                     },
                     [% END %]
                 ]

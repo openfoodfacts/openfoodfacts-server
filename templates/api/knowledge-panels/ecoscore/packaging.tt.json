@@ -6,13 +6,13 @@
         "environment"
     ],
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
-    "grade": "minus",
+    "plus_or_minus": "minus",
     "title": "[% lang('ecoscore_packaging_impact_high') %]",
     [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
-    "grade": "neutral",
+    "plus_or_minus": "neutral",
     "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
     [% ELSE %]
-    "grade": "plus",
+    "plus_or_minus": "plus",
     "title": "[% lang('ecoscore_packaging_impact_low') %]",      
     [% END %]
     "elements": [
@@ -33,10 +33,10 @@
                 "table_type": "table",
                 "title": "[% lang('packaging_parts') %]",
                 "headers": [
-                    "[% lang('packaging_shape') %]",
-                    "[% lang('packaging_material') %]",
-                    "[% lang('packaging_recycling') %]",
-                    "[% lang('packaging_impact') %]"
+                    { "text": "[% lang('packaging_shape') %]"},
+                    { "text": "[% lang('packaging_material') %]"},
+                    { "text": "[% lang('packaging_recycling') %]"},
+                    { "text": "[% lang('ecoscore_impact') %]"}
                 ],
                 "rows": [
                     [% FOREACH packaging IN product.ecoscore_data.adjustments.packaging.packagings %]

@@ -270,7 +270,8 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
-		ENCODING     => 'UTF-8'
+		ENCODING     => 'UTF-8',
+		RECURSION    => 1,	# Needed for the knowledge panels that contain subpanels
 	}
 );
 
@@ -8194,6 +8195,13 @@ HTML
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+
+		# Knowledge panels are in development, they can be activated with the "panels" parameter
+		# for debugging and demonstration purposes
+		if (param('panels')) {
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			$template_data_ref->{ecoscore_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "ecoscore");
+		}
 	}
 
 	# Forest footprint
