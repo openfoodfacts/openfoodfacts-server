@@ -68783,7 +68783,6 @@ ciqual_food_code:en:26128
 ciqual_food_name:en:Roundnose grenadier, raw
 ciqual_food_name:fr:Grenadier (de roche), cru
 
-# en:description:Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
 
 <en:fish
 <en:oily fish
@@ -68834,8 +68833,15 @@ zh:鯖魚
 # sr-ec:Скуша
 # sr-el:Skuša
 # yue:青花魚
+#wikidata:en:Q6724433
+wikidata:en:Q8064278
 wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
-# structure:outer:role:synonym, eg sgombri (Scomber scombrus)
+description:en:Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
+description:nl:een vis, familie van de makreelachtigen zoals tonijn.
+ciqual_food_code:en:26051
+ciqual_food_name:en:Mackerel, raw
+ciqual_food_name:fr:Maquereau, cru
+#775 @2021-09-10
 
 <en:mackerel
 en:mackerel fillet
