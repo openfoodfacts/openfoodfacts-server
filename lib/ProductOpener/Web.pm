@@ -64,6 +64,7 @@ BEGIN
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
 		&display_data_quality_description
+		&display_knowledge_panel
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -411,6 +412,28 @@ sub display_data_quality_description($$) {
 
 	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
 
+	return $html;
+}
+
+
+=head2 display_knowledge_panel( $panels_ref, $panel_id )
+
+
+=cut
+
+sub display_knowledge_panel($$) {
+
+	my $panels_ref = shift;
+	my $panel_id = shift;
+
+	my $html = '';
+
+	my $template_data_ref = {
+		panels => $panels_ref,
+		panel_id => $panel_id,
+	};
+
+	process_template('web/panels/panel.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 
