@@ -8,6 +8,12 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
+#------#
+# Info #
+#------#
+info:
+	@echo "${NAME} version: ${VERSION}"
+
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
 	@echo "🥫 Note that the first installation might take a while to run, depending on your machine specs."
@@ -15,6 +21,12 @@ hello:
 	@echo "🥫 Thanks for contributing to Open Food Facts!"
 	@echo ""
 
+goodbye:
+	@echo "🥫 Cleaning up dev environment (remove containers, remove local folder binds, prune Docker system) …"
+
+#-------#
+# Local #
+#-------#
 dev: hello up setup_incron import_sample_data
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
@@ -22,71 +34,48 @@ dev: hello up setup_incron import_sample_data
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
-#-------#
-# Admin #
-#-------#
+# TODO: Figure out events => actions and implement live reload
+# live_reload:
+# 	@echo "🥫 Installing when-changed …"
+# 	pip3 install when-changed
+# 	@echo "🥫 Watching directories for change …"
+# 	when-changed -r lib/
+# 	when-changed -r . -lib/ -html/ -logs/ -c "make restart_apache"
+# 	when-changed . -x lib/ -x html/ -c "make restart_apache"
+# 	when-changed -r docker/ docker-compose.yml .env -c "make restart"                                            # restart backend container on compose changes
+# 	when-changed -r lib/ -c "make restart_apache"                                  							     # restart Apache on code changes
+# 	when-changed -r html/ -r css/ -r scss/ -r icons/ -r Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers
+
+#----------------#
+# Docker Compose #
+#----------------#
 up:
-	@echo "🥫 Building and starting ProductOpener containers …"
+	@echo "🥫 Building and starting containers …"
 	${DOCKER_COMPOSE} up -d --remove-orphans --build 2>&1
 
 down:
-	@echo "🥫 Bringing down ProductOpener containers and associated volumes …"
+	@echo "🥫 Bringing down containers …"
+	${DOCKER_COMPOSE} down
+
+hdown:
+	@echo "🥫 Bringing down containers and associated volumes …"
 	${DOCKER_COMPOSE} down -v
 
-reset: down up
-
 restart:
-	@echo "🥫 Restarting ProductOpener frontend & backend containers …"
+	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 
+status:
+	@echo "🥫 Getting container status …"
+	${DOCKER_COMPOSE} ps
+
 log:
-	@echo "🥫 Reading ProductOpener logs (docker-compose) …"
+	@echo "🥫 Reading logs (docker-compose) …"
 	${DOCKER_COMPOSE} logs -f backend frontend
 
 tail:
-	@echo "🥫 Reading ProductOpener logs (Apache2, Nginx) …"
+	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
-
-status:
-	@echo "🥫 Getting ProductOpener container status …"
-	${DOCKER_COMPOSE} ps
-
-prune:
-	@echo "🥫 Pruning unused Docker artifacts (save space) …"
-	docker system prune -af
-
-prune_cache:
-	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f
-
-# TODO: Figure out events => actions and implement live reload
-# live_reload:
-# @echo "🥫 Installing when-changed …"
-# pip3 install when-changed
-# @echo "🥫 Watching directories for change …"
-# when-changed -r lib/
-# when-changed -r . -lib/ -html/ -logs/ -c "make restart_apache"
-# when-changed . -x lib/ -x html/ -c "make restart_apache"
-# when-changed -r docker/ docker-compose.yml .env -c "make restart"                                            # restart backend container on compose changes
-# when-changed -r lib/ -c "make restart_apache"                                  							   # restart Apache on code changes
-# when-changed -r html/ -r css/ -r scss/ -r icons/ -r Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers
-
-#------------------#
-# Backend commands #
-#------------------#
-restart_apache:
-	@echo "🥫 Restarting Apache …"
-	${DOCKER_COMPOSE} exec backend sh -c "apache2ctl -k restart"
-
-build_lang:
-	@echo "🥫 Running scripts/build_lang.pl …"
-	${DOCKER_COMPOSE} exec backend sh -c "\
-		perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl &&\
-		chown -R www-data:www-data /mnt/podata &&\
-		chown -R www-data:www-data /opt/product-opener/html/images/products"
-	@echo "🥫 Built lang.json files in /mnt/podata/lang"
-	@echo "🥫 Built Lang.${PRODUCT_OPENER_DOMAIN}.sto in /mnt/podata"
-	@echo "🥫 Changed ownership of /mnt/podata and /opt/product-opener/html/images/products to www-data user"
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
@@ -94,21 +83,7 @@ setup_incron:
 		echo 'root' >> /etc/incron.allow && \
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
-	@echo "🥫 Incron jobs have been setup …"
 
-create_external_volumes:
-	@echo "🥫 Creating external volumes (production only) …"
-	for volume in icons_dist js_dist css_dist node_modules; do \
-		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
-	done
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
-
-#---------#
-# Imports #
-#---------#
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
 	${DOCKER_COMPOSE} exec backend bash /opt/product-opener/scripts/import_sample_data.sh
@@ -124,13 +99,31 @@ import_prod_data:
 	${DOCKER_COMPOSE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
 	rm openfoodfacts-mongodbdump.tar.gz
 
-#-----------#
-# Utilities #
-#-----------#
-info:
-	@echo "${NAME} version: ${VERSION}"
+#------------#
+# Production #
+#------------#
+create_external_volumes:
+	@echo "🥫 Creating external volumes (production only) …"
+	for volume in icons_dist js_dist css_dist node_modules; do \
+		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
+	done
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/html_data html_data || echo "Docker volume 'html_data' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
 
-clean: down prune prune_cache
+#---------#
+# Cleanup #
+#---------#
+prune:
+	@echo "🥫 Pruning unused Docker artifacts (save space) …"
+	docker system prune -af
+
+prune_cache:
+	@echo "🥫 Pruning Docker builder cache …"
+	docker builder prune -f
+
+clean: goodbye hdown prune prune_cache
 	rm -rf node_modules/
 	rm -rf html/data/i18n/
 	rm -rf html/images/products/

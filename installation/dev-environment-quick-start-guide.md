@@ -85,7 +85,7 @@ The `.env` file also contains some useful Docker Compose variables:
 From the repository root, run:
 
 ```console
-$ make
+$ make dev
 ```
 
 The command will run 2 subcommands:
@@ -112,17 +112,21 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `producto
 
 ## 5. Starting, stopping, restarting Docker containers, and more...
 
-```console
-$ make up      # start the containers
-$ make down    # stop the containers and delete the volumes
-$ make restart # restart the containers
-$ make log     # get `docker-compose` logs (does not include all logs)
-$ make tail    # get other logs (`Apache`, `mod_perl`, etc...) bound to the local `logs/` directory
-$ make prune   # remove unused Docker artifacts (images, containers, volumes, networks, cache...)
-$ make clean   # get a fresh start / clean up your dev environment: removes locally bound folders, run `down` and `prune`
-$ make import_sample_data # load sample data (~100 products) into the MongoDB database
-$ make import_prod_data   # load latest prod data (~2M products, 1.7GB) into the MongoDB database. Can take a while (up to 10m).
-```
+| Command                   | Description                                                                            | Notes                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make up`                 | Start containers.                                                                      |                                                               |
+| `make down`               | Stop containers.                                                                       |                                                               |
+| `make hdown`              | Stop containers and delete the volumes (hard stop).                                    | All products and users data will be lost !                    |
+| `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
+| `make status`             | Get containers status (up, down, fail).                                                |                                                               |
+| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`).           |
+| `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
+| `make prune`              | Save space by removing unused Docker artifacts.                                        | Next build will take time (no cache) !                        |
+| `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |
+| `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
+| `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
+| `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
 
 ### Going further
 
