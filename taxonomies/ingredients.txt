@@ -55454,33 +55454,61 @@ fi:luomu kurpitsansiemen
 #en:chopped pumpkin seed
 #es:semillas de calabaza troceadas
 
-# description:en:POPPY SEED is an oilseed obtained from the poppy (Papaver somniferum).
-# The plant is only used for the seeds, so cumin implies cumin seeds
+en:poppy
+de:Mohn
+el:παπαρούνας
+es:amapola
+fr:pavot
+it:papavero
+la:Papaver somniferum
+pt:papoila
+sv:vallmo
 
-<en:seed
-en:poppy seed, poppy seeds, poppy
-de:Mohnsamen, Mohn
-es:semillas de amapola, amapola
+<en:poppy
+# processing:en: en:seed
+en:poppyseed, poppy seed, poppy seeds
+af:Papawersaad
+ar:بذور خشخاش
+bg:маково семе
+da:birkes
+de:Mohnsamen, Mohnsaat
+el:σπόροι παπαρούνας
+es:semillas de amapola
 fi:unikonsiemen, unikonsiemenet
-fr:graines de pavot, pavot
-it:semi di papavero, papavero
+fr:graines de pavot
+is:Valmúafræ
+it:semi di papavero, grani di papavero
+ja:ケシの実
+jv:Wiji poppy
+ko:양귀비 씨
+ml:കശകശ
+mr:खस खस
 nb:valmuefrø
 nl:maanzaad
-pl:nasiona lnu
+pa:ਖਸਖਸ
+pt:sementes de papoila
+sa:तिलभेदः
 sv:vallmofrön
+tr:Haşhaş tohumu
+zh:罌粟籽
+wiktionary:en:poppyseed
 wikipedia:en:https://en.wikipedia.org/wiki/Poppy_seed
 wikidata:en:Q2007388
-# 123 products in 6 languages @2018-10-08
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pavot
+ciqual_food_code:en:11061
+ciqual_food_name:en:Poppy, seed
+ciqual_food_name:fr:Pavot, graine
 nutriscore_fruits_vegetables_nuts:en:no
+description:en:The seed of the poppy.
+description:nl:De populaire naam van het zaad uit de maanbol van de klaproos.
+# 2090 in 17 @2021-09-10
 
 
 <en:poppy seed
 en:blue poppy seed
 de:Blaumohnsamen
-fr:graine de pavot bleu
-#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-pavot-bleu
-# 42 products (FR) @2020-04-23
+fr:graine de pavot bleu, graines de pavot bleu
+it:semi di papavero blu
+#110 in 4 @2021-09-10
 
 <en:sunflower
 <en:seed
@@ -55579,7 +55607,7 @@ it:semi di lino
 nb:linfrø
 nl:lijnzaad
 nn:linfrø
-pl:Siemię lniane
+pl:Siemię lniane, nasiona lnu
 pt:linhaça
 ru:семена льна
 sv:linfrön, linfrö
