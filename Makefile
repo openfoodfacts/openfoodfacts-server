@@ -27,12 +27,15 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data
+dev: hello up setup_incron import_sample_data fix_perms
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
+
+fix_perms:
+	${DOCKER_COMPOSE} exec backend sh -c "chown -R www-data:www-data /mnt/podata/"
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -111,6 +114,7 @@ create_external_volumes:
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs || echo "Docker volume 'orgs' already exist. Skipping."
 
 #---------#
 # Cleanup #

@@ -127,6 +127,7 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `producto
 | `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
 | `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
 | `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
+| `make fix_perms`          | Run if you have permission issues when creating / editing products and users.          |                                                               |
 
 ### Going further
 

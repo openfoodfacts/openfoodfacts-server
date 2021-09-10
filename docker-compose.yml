@@ -45,6 +45,7 @@ services:
       # Users and products .sto files
       - users:/mnt/podata/users # .sto
       - products:/mnt/podata/products # .sto
+      - orgs:/mnt/podata/orgs # .sto
 
       # Logs
       - ./logs/apache2:/var/log/apache2

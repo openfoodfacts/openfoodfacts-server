@@ -14,5 +14,7 @@ volumes:
     external: true
   products:
     external: true
+  orgs:
+    external: true
   product_images:
     external: true
