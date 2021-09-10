@@ -33,6 +33,7 @@ BEGIN
 
 		$server_domain
 		@ssl_subdomains
+		$conf_root
 		$data_root
 		$www_root
 		$geolite2_path
