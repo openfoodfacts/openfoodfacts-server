@@ -270,7 +270,8 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
-		ENCODING     => 'UTF-8'
+		ENCODING     => 'UTF-8',
+		RECURSION    => 1,	# Needed for the knowledge panels that contain subpanels
 	}
 );
 
@@ -365,6 +366,8 @@ sub process_template($$$) {
 
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{images_subdomain} = $images_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
@@ -4705,7 +4708,7 @@ sub customize_response_for_product($$) {
 		}
 		# Knowledge panels in the $lc language
 		elsif ($field eq "knowledge_panels") {
-			compute_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 		}
 
@@ -8192,6 +8195,13 @@ HTML
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+
+		# Knowledge panels are in development, they can be activated with the "panels" parameter
+		# for debugging and demonstration purposes
+		if (param('panels')) {
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			$template_data_ref->{ecoscore_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "ecoscore");
+		}
 	}
 
 	# Forest footprint
@@ -8928,19 +8938,6 @@ sub display_nutrient_levels($) {
 	}
 
 
-
-	# do not compute a score for coffee, tea etc.
-	if (   ( has_tag( $product_ref, "categories", "en:alcoholic-beverages" ) )
-		or ( has_tag( $product_ref, "categories", "en:coffees" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levure" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levures" ) ) )
-	{
-
-			return "";
-	}
-
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
@@ -8956,6 +8953,16 @@ sub display_nutrient_levels($) {
 
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
+			# only when reconstituted with water only (no milk, no sugar)
+			if ((has_tag($product_ref, "categories", "en:tea-bags"))
+				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
+				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_tea_bags_note") . "</p>";
+			}
 
 			# Combined message when we miss both fruits and fiber
 			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)

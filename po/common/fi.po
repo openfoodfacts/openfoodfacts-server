@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-12-07 09:34\n"
+"PO-Revision-Date: 2021-09-07 16:31\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fi\n"
-"X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1378\n"
+"X-Crowdin-File: common.pot\n"
+"X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -111,8 +111,8 @@ msgid "This is a producer or brand account."
 msgstr "Tämä on tuottaja- tai tuotemerkkitili."
 
 msgctxt "producer_or_brand"
-msgid "Producer or brand"
-msgstr "Tuottaja tai tuotemerkki"
+msgid "Name of producer or name of brand"
+msgstr "Tuottajan tai tuotemerkin nimi"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
@@ -226,7 +226,7 @@ msgstr "Android APK"
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -329,7 +329,7 @@ msgstr "tekijä:"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Tuoteluokat"
+msgstr "Luokat"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -729,8 +729,8 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "Vanhentumispäivä on tapa seurata tuotteen muutoksia ajan myötä ja tunnistaa kaikkein uusin versio."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
-msgstr "Tutki tuotteita kriteerillä..."
+msgid "Explore products by..."
+msgstr "Tutki tuotteita..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -824,7 +824,7 @@ msgstr "Lakiasiat"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1250,7 +1250,7 @@ msgstr "Voit valita yhden tai useampia kuvia ja sitten:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Valmistus- tai jalostuspaikat"
+msgstr "Valmistus- tai käsittelypaikat"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1629,7 +1629,7 @@ msgstr "Tuotteet, joissa %s -pakkaus"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "pakkaus"
+msgstr "pakkaukset"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1921,7 +1921,7 @@ msgstr "ostopaikat"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Paikassa %s myytävät tuotteet"
+msgstr "Tuotteet, joita myydään maassa %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1933,7 +1933,7 @@ msgstr "lisää paikka"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Tuotteet, joita ei myydä paikassa %s"
+msgstr "Tuotteet, joita ei myydä massa %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2337,11 +2337,15 @@ msgstr "Kirjaudu ulos"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista, ravintoarvoista ja tiedoista elintarvikkeista ympäri maailman"
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista, ravintoarvoista ja tiedoista elintarvikkeista joka puolelta maailmaa"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
 msgstr "Open Food Facts"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "Open Food Facts -logo"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2649,11 +2653,11 @@ msgstr "Poista käyttäjä"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
-msgstr ""
+msgstr "Jotkut tämän tuotteen tiedoista on toimittanut suoraan valmistaja %s."
 
 msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
-msgstr ""
+msgstr "Osa tämän tuotteen tiedoista ja/tai kuvista on peräisin näistä lähteistä:"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -3556,7 +3560,7 @@ msgstr "tiedon laadut"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr "tiedon laatu"
+msgstr "tiedon laadut"
 
 msgctxt "data_quality"
 msgid "data quality"
@@ -3580,7 +3584,7 @@ msgstr "selitteet tiedon laadusta"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr "selite tiedon laadusta"
+msgstr "selitteet tiedon laadusta"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
@@ -4818,7 +4822,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr "Muokkaa käyttäjäprofiiliasi"
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Ainesosat"
 
@@ -4881,12 +4885,12 @@ msgid "Missing nutrition facts"
 msgstr "Puuttuva ravintosisältö"
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5007,38 +5011,561 @@ msgstr "Yksityiskohdat metsäjalanjälkilaskelmasta"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Olet julkisessa tietokannassa."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Hallitse tuotteitasi tuottaja-alustalla"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "Tuotteiden määrä, joissa on muutoksia edellisen viennin jälkeen"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "Vie vain tuotteet, joissa on muutoksia"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "Onko tämä tuotteesi? Jos on, päivitä se maksuttomalla tuottaja-alustallamme."
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Kannustamme valmistajia lisäämään tai vaihtamaan tuotteitaan koskevia tietoja ja kuvia ilmaisen tuottaja-alustamme kautta, jotta ne voidaan merkitä virallisiksi ja suojata muiden muutoksilta."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "Alustan avulla on helppo tuoda tuotetietoja ja -kuvia Excel- tai CSV-tiedostolla missä tahansa muodossa."
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "Alusta tarjoaa myös perusteellisen analyysin tuotteista."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "Se laskee indikaattorit, kuten Nutri-Score, NOVA ja Eco-score, ja tunnistaa automaattisesti ehdotuksia niiden parantamiseksi (esimerkiksi kaikki tuotteet, jotka saisivat paremman Nutri-Score-arvosanan pienellä koostumuksen muutoksella)."
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr "Metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr "Alhainen metsäkadon riski (metsäjalanjälki)"
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr "Hyvin pieni metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr "Pieni metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr "Keskikokoinen metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr "Suuri metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr "Hyvin suuri metsäjalanjälki"
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr "Metsäjalanjälkeä ei laskettu"
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr "Lähes olematon metsäkadon riski"
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr "Pieni metsäkadon riski"
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr "Kohtalainen metsäkadon riski"
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr "Suuri metsäkadon riski"
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr "Erittäin suuri metsäkadon riski"
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr "Tällä hetkellä vain tuotteille, joissa on kanaa tai munaa"
+
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr "Luokittele tuotteet mieltymystesi mukaan"
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr "Luokittele alla olevat %d tuotetta mieltymystesi mukaan"
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr "Luetuimmat tuotteet"
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr "Tuotteet, joilla on paras Nutri-Score"
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr "Tuotteet, joilla on paras Eco-Score"
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr "Äskettäin lisätyt tuotteet"
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr "Äskettäin muokatut tuotteet"
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr "%d tuotetta sivulla"
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr "Ei sovellu"
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr "Lyhennetty tuotenimi"
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr "Tuotteen nimi kuiteissa näkyvillä lyhenteillä"
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr "Visio, missio, arvot ja ohjelmat"
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr "Unohditko salasanasi?"
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr "Emme voineet alustaa salasanaasi uudelleen. Ota yhteyttä meihin saadaksesi apua."
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr "Poista kaikki ravintoarvot"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "Käyttäjä poistettu."
+
+msgctxt "attribute_ecoscore_unknown_title"
+msgid "Eco-Score not computed"
+msgstr "Eco-Scorea ei laskettu"
+
+msgctxt "attribute_ecoscore_unknown_description_short"
+msgid "Unknown environmental impact"
+msgstr "Tuntematon ympäristövaikutus"
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr "GS1-tiedot liitetään automaattisesti OFF-organisaation tunnisteeseen, joka vastaa GS1 partyName -kenttää. Jos haluat muuttaa OFF-organisaation tunnistetta, voit suoraan määrittää yhden tai useamman GS1 GLN-tunnuksen."
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr "Luettelo organisaatioon liitettävistä GS1 GLN -tunnisteista"
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr "Pilkuilla erotettu luettelo GS1 GLN -tunnisteista yhdistämisen pakottamiseen tämän organisaation kanssa."
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr "Salli organisaation jäsenten viedä tuotetiedot ja -valokuvat manuaalisesti julkiseen tietokantaan."
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr "Manuaaliset viennit voidaan ottaa käyttöön, kun ylläpitäjä on tarkastanut tuodut tiedot."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr "Aktivoi tuotetietojen ja -valokuvien automaattinen päivittäinen vienti julkiseen tietokantaan."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr "Automaattinen vienti tulisi aktivoida vain organisaatioille, joilla on automatisoitu tuonti (esim. Equadisin kautta)."
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr "Ylläpitäjäkentät"
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr "Jonossa"
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr "Meneillään"
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr "Valmis"
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr "Epäonnistunut"
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr "Vienti tuottajien alustalta"
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr "Tuo julkiseen tietokantaan"
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr "Tuottajien alustan tuontitilan päivitys"
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr "Vienti on ajoitettu. Tämä sivu voidaan sulkea."
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr "Vientisi on ajoitettu. Saat sähköpostin, kun se on valmis."
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr "Tuotesivu julkisessa tietokannassa"
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr "Tuotetta ei ole vielä olemassa julkisessa tietokannassa"
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr "Joitakin tuotepäivityksiä ei ole julkaistu julkisessa tietokannassa."
+
+msgctxt "org_do_not_import_codeonline"
+msgid "Do not import CodeOnline data."
+msgstr "Älä tuo CodeOnline-tietoja."
+
+msgctxt "overwrite_owner"
+msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+msgstr "Korvaa tuotteet, joilla on eri omistaja julkisella alustalla. Muussa tapauksessa tuotteet, joilla on eri omistaja, ohitetaan."
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr "Jotkin omistajan %s tuotteiden tiedoista tulevat lähteestä %s."
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr "Valmistajat voivat käyttää Open Food Factsin <a href=\"<producers_platform_url>\">ilmaista alustaa tuottajille</a> saadakseen nämä tiedot ja täydentääkseen niitä sekä hankkiakseen raportteja, analyyseja ja tuoteparannusmahdollisuuksia (esim. parempi Nutri-Score)."
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr "Valmistaja %s käyttää palvelua %s tietojen ja valokuvien automaattiseen siirtämiseen tuotteilleen."
+
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr "Tuotekuvan tyyppi"
+
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr "Jos käytät samaa saraketta usealla rivillä tarjotaksesi kuvien URL-osoitteet yhdelle tuotteelle, voit käyttää tätä kenttää osoittamaan kuvan tyypin: front, ingredients, nutrition tai packaging."
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "Metsäjalanjälki lasketaan ottamalla huomioon ainesosat, joiden tuotanto vaatii soijapapuja, joiden viljely liittyy metsäkatoon."
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "Eco-Score voidaan laskea vain, jos tuotteella on riittävän tarkka luokka."
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr "Voit muokata tuotesivua lisätäksesi tarkemman luokan."
+
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://world.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Varoitus: joitakin Eco-Scoren tarkkaan laskemiseen tarvittavia tietoja ei ole toimitettu (katso laskelman yksityiskohdat alla)."
+
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr "Voit muokata tuotetta lisätäksesi puuttuvat tiedot."
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr "Tuoteluokan lähtöpisteet"
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr "Elinkaariarviointi (LCA)"
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr "Agribalyse-luokka"
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr "Arvioitu vastaavuus tuoteluokan kanssa"
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr "Tarkka vastaavuus tuoteluokan kanssa"
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr "PEF-ympäristöpisteet"
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr "mukaan lukien vaikutukset ilmastonmuutokseen"
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr "Yksityiskohtaiset tiedot vaikutuksista elinkaaren eri vaiheissa"
+
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr "Vaihe"
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr "Vaikutus"
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr "Maatalous"
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr "Jalostus"
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Pakkaus"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Kuljetus"
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr "Jakelu"
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr "Kulutus"
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr "LCA-pisteet 100 pisteestä"
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr "Tuoteluokkien ja Agribalyse-luokkien välillä ei ole vastaavuutta."
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr "Voit muokata tuotesivua lisätäksesi tarkemman luokan."
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr "Lisäbonukset ja -malukset"
+
+msgctxt "ecoscore_production_system"
+msgid "Production mode"
+msgstr ""
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr "Tuotantojärjestelmää varten ei ole otettu huomioon yhtäkään merkkiä."
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr "Jos tällä tuotteella on tuotantojärjestelmää kuvaava merkki (luomu, reilu kauppa, Label Rouge, Bleu Blanc Coeur jne.), voit muokata tuotelomaketta sen lisäämiseksi."
+
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr "Tämän tuotteen ainesosien alkuperää ei ole ilmoitettu."
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr "Jos ne on merkitty pakkaukseen, voit muokata tuotelomaketta ja lisätä ne."
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr "Ympäristökäytäntö"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr "Kuljetus"
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr "Uhanalaiset lajit"
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr "Ainesosat, joiden viljely uhkaa lajeja"
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient which cultivation threatens species has been detected."
+msgstr "Lajeja uhkaavia ainesosia ei tunnistettu."
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr "Tietoja tämän tuotteen ainesosista ei ole annettu."
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr "Saadaksesi tarkemman laskelman Eco-Scoresta, voit muokata tuotesivua ja lisätä ne."
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Pakkaus"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr "suhde"
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr "pisteet"
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr "Kaikkien komponenttien pisteet"
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr "Tämän tuotteen pakkausta koskevia tietoja ei ole täytetty."
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr ""
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr ""
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr ""
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr ""
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr ""
+
+# do not translate the link
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://world.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr ""
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr ""
+
+# do not remove %s, it will be replaced with the source name
+msgctxt "import_source_string"
+msgid "Import data from %s"
+msgstr ""
+
+msgctxt "org_protect_data"
+msgid "Protect the data that is provided by the organization."
+msgstr ""
+
+msgctxt "org_protect_data_note"
+msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "This product's packaging has an high impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "This product's packaging has an average impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "This product's packaging has a low impact on the environment."
+msgstr ""
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "The information about this product's packaging is missing."
+msgstr ""
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr ""
+
+msgctxt "impact"
+msgid "impact"
 msgstr ""
 
