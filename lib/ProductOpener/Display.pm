@@ -8938,19 +8938,6 @@ sub display_nutrient_levels($) {
 	}
 
 
-
-	# do not compute a score for coffee, tea etc.
-	if (   ( has_tag( $product_ref, "categories", "en:alcoholic-beverages" ) )
-		or ( has_tag( $product_ref, "categories", "en:coffees" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levure" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levures" ) ) )
-	{
-
-			return "";
-	}
-
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
@@ -8966,6 +8953,16 @@ sub display_nutrient_levels($) {
 
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
+			# only when reconstituted with water only (no milk, no sugar)
+			if ((has_tag($product_ref, "categories", "en:tea-bags"))
+				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
+				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_tea_bags_note") . "</p>";
+			}
 
 			# Combined message when we miss both fruits and fiber
 			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
