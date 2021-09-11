@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:32\n"
+"PO-Revision-Date: 2021-09-10 14:35\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5355,6 +5355,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Dettagli degli impatti per fasi del ciclo vitale"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "Fase"
@@ -5405,7 +5406,7 @@ msgstr "Bonus e malus aggiuntivi"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Modalità di produzione"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5417,7 +5418,7 @@ msgstr "Se questo prodotto ha un'etichetta caratterizzante il sistema di produzi
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Origini degli ingredienti"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5550,26 +5551,30 @@ msgstr "La rimozione o modifica dei dati forniti sarà possibile solo per contri
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "L'imballaggio del prodotto ha un forte impatto sull'ambiente."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "L'imballaggio del prodotto ha un impatto medio sull'ambiente."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "L'imballaggio del prodotto ha un debole impatto sull'ambiente."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
-msgstr ""
+msgstr "Le informazioni sull'imballaggio di questo prodotto sono mancanti."
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "medio"
 
 msgctxt "impact"
 msgid "impact"
+msgstr "impatto"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 

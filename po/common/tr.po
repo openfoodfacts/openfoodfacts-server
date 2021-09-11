@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:38\n"
+"PO-Revision-Date: 2021-09-10 14:40\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -601,7 +601,7 @@ msgstr "Paketleyici kodu"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Paketleyici kodu"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -4276,7 +4276,7 @@ msgstr "Geçersiz barkod"
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr "ltr"
+msgstr "soldan sağa"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -5348,6 +5348,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5564,5 +5565,9 @@ msgstr ""
 
 msgctxt "impact"
 msgid "impact"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: is\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:32\n"
+"PO-Revision-Date: 2021-09-10 14:35\n"
 "Language-Team: Icelandic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -226,7 +226,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -597,7 +597,7 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Packager code"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -3887,7 +3887,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "Dietary fiber"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -5334,6 +5334,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5550,5 +5551,9 @@ msgstr ""
 
 msgctxt "impact"
 msgid "impact"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 

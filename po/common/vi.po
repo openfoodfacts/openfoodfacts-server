@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:38\n"
+"PO-Revision-Date: 2021-09-10 14:40\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -598,7 +598,7 @@ msgstr "Mã xác định nguồn gốc"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Packager code"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -2712,55 +2712,55 @@ msgstr "khoáng chất bổ sung"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "khoáng chất bổ sung"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "các vitamin bổ sung"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "vitamin bổ sung"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "các axit amin bổ sung"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "axit amin bổ sung"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "các nucleotide bổ sung"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "nucleotide bổ sung"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "các chất dinh dưỡng khác được bổ sung"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "chất dinh dưỡng khác được bổ sung"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Đã bán"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Chuẩn bị"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Đơn vị"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "Thành phần dinh dưỡng được chỉ định trên sản phẩm."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
@@ -2777,11 +2777,11 @@ msgstr "Nhóm NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "Nhóm NOVA để chế biến thực phẩm"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Các đối tác"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3906,7 +3906,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "Dietary fiber"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -5353,6 +5353,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5415,7 +5416,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Nguồn gốc thành phần"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5548,26 +5549,30 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "Bao bì của sản phẩm này có tác động lớn tới môi trường."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "Bao bì của sản phẩm này có tác động trung bình tới môi trường."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "Bao bì của sản phẩm này có tác động nhỏ tới môi trường."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
-msgstr ""
+msgstr "Thông tin về bao bì của sản phẩm này hiện còn thiếu."
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "trung bình"
 
 msgctxt "impact"
 msgid "impact"
+msgstr "ảnh hưởng"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 

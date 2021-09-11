@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:33\n"
+"PO-Revision-Date: 2021-09-11 09:36\n"
 "Language-Team: Malay\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -598,7 +598,7 @@ msgstr "Kod kebolehjejakan"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Packager code"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
@@ -3907,7 +3907,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "Dietary fiber"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -5354,6 +5354,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Perincian kesan mengikut peringkat kitaran hayat"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "Peringkat"
@@ -5571,4 +5572,8 @@ msgstr ""
 msgctxt "impact"
 msgid "impact"
 msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "Catatan: Nutri-Score teh dan teh herba sesuai dengan produk yang disediakan hanya dengan air, tanpa gula atau susu."
 
