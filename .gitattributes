@@ -2,19 +2,16 @@
 
 # Source files
 # ============
-*.pl	text
-*.pm	text
-
-*.pl linguist-language=Perl
-*.pm linguist-language=Perl
+*.pl text linguist-language=Perl
+*.pm text linguist-language=Perl
 
 # Test files
 # ============
-*.t	text
+*.t text linguist-language=Perl
 
 # Template::Toolkit
 # =================
-*.tt linguist-language=HTML
+*.tt text linguist-language=HTML
 
 # Do not treat .csv.<number> files as Roff programming language files
 # ===================================================================
