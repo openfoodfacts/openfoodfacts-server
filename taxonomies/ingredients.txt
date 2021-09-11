@@ -40632,9 +40632,11 @@ fr:jus de mûre à base de jus concentré
 
 <en:berries
 en:blackcurrant
+bg:касис
 da:solbær
 de:schwarze Johannisbeere, schwarze Johannisbeeren
-es:grosella negra,grosellas negras
+es:grosella negra, grosellas negras
+et:must sõstar
 fi:mustaherukka, mustaherukkaa, mustaviinimarja, mustaviinimarjaa
 fr:cassis
 he:ענבי שועל
@@ -40644,42 +40646,49 @@ nb:solbær
 nl:zwarte bes, cassisbessen
 pl:Czarna porzeczka
 pt:groselha negra
+sl:črni ribez
 sv:svarta vinbär, svartvinbär, svart vinbär
 zh:黑加伦
 wikipedia:en:https://en.wikipedia.org/wiki/Blackcurrant
-wikidata:en:Q146604
-# wikidata refers to the shrub
+wikidata:en:Q2941309
+ciqual_food_code:en:13007
+ciqual_food_name:en:Black currant, raw
+ciqual_food_name:fr:Cassis, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blackcurrant
-# 1056 products in 9 languages @2018-10-01
+# 3581 in 22 @2021-09-12
 
 <en:blackcurrant
 fr:baies de cassis
 
+#processing:en: en:juice
+#<en:blackcurrant
+#<en:fruit juice
+#en:blackcurrant juice
+#bg:сокот касис
+#da:solbærjuice
+#de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft, Johannisbeersaft
+#es:zumo de grosella negra, jugo de grosella negra
+#fi:mustaherukkamehu
+#fr:jus de cassis
+#hu:feketeribizlilé
+#it:succo di ribes neri
+#nl:zwarte bessensap
+#sv:svartvinbärsjuice, svartvinbärssaft
+# 709 in 5 languages @2021-09-12
+
+#processing:en: en:concentrated
+#<en:blackcurrant juice
+#en:blackcurrant concentrate
+#de:schwarzes Johannisbeerkonzentrat
+#es:concentrado de grosella negra
+#fi:mustaherukkamehutiiviste, mustaherukkatiiviste
+#fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
+#hu:feketeribizli sűrítměny
+#nl:zwarte bessensapconcentraat
+#pt:concentrado de groselha
+# 238 in 1 language @2021-09-12
+
 <en:blackcurrant
-<en:fruit juice
-en:blackcurrant juice
-da:solbærjuice
-de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft, Johannisbeersaft
-es:zumo de grosella negra, jugo de grosella negra
-fi:mustaherukkamehu
-fr:jus de cassis
-it:succo di ribes neri
-nl:zwarte bessensap
-sv:svartvinbärsjuice, svartvinbärssaft
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis
-# 87 products in 5 languages @2018-10-01
-
-<en:blackcurrant juice
-en:blackcurrant concentrate
-de:schwarzes Johannisbeerkonzentrat
-es:concentrado de grosella negra
-fi:mustaherukkamehutiiviste, mustaherukkatiiviste
-fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
-nl:zwarte bessensapconcentraat
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-de-cassis
-# 58 products in 1 language @2018-10-01
-
-<en:blackcurrant juice
 en:blackcurrant juice from concentrate
 de:schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
 es:zumo de cassis a base de concentrado
@@ -40687,21 +40696,19 @@ fi:mustaherukkamehu tiivisteestä
 fr:jus de cassis à base de concentré
 nl:zwarte bessensap op basis van concentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
-# 75 languages @2018-10-01
+# 144 in 8 @2021-09-12
 
-<en:blackcurrant
-<en:purée
-en:blackcurrant puree
-da:solbærpuré
-de:schwarzes Johannesbeerpüree
-es:puré de grosella negra
-fi:mustaherukkapyree
-fr:purée de cassis
-nl:Zwarte bessenpuree
-sv:svartvinbärspuré
-# in process de:schwarzes Johannisbeerenpüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-cassis
-# 118 products in 5 languages @2018-10-01
+#processing:en: en:pureed
+#<en:blackcurrant
+#en:blackcurrant puree
+#da:solbærpuré
+#de:schwarzes Johannesbeerpüree
+#es:puré de grosella negra
+#fi:mustaherukkapyree
+#fr:purée de cassis
+#nl:Zwarte bessenpuree
+#sv:svartvinbärspuré
+# 248 in 5 languages @2021-09-12
 
 # no products
 # <en:blackcurrant
@@ -75026,6 +75033,7 @@ carbon_footprint_fr_foodges_value:fr:9.7
 ciqual_food_code:en:36206
 ciqual_food_name:en:Duck, breast fillet
 ciqual_food_name:fr:Canard, magret, cru
+#118 in 4 @2021-09-12
 
 <en:duck breast
 en:Smoked duck breast fillet
@@ -75037,11 +75045,16 @@ ciqual_food_name:fr:Canard, magret fumé
 <en:duck meat
 en:duck fillet
 fr:filet de canard
+it:filetto d'anatra
 
 <en:duck meat
-en:duck gizzards
+en:duck gizzard
 de:Enten-Kaumagen, Enten-Kaumägen
-fr:gésiers de canard
+fr:gésier de canard
+ciqual_food_code:en:40700
+ciqual_food_name:en:Gizzard, chicken, raw
+ciqual_food_name:fr:Gésier, poulet, cru
+#46 in 2 @2021-09-12
 
 # <en:compound
 <fr:gésiers de canard

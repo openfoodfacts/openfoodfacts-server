@@ -640,7 +640,8 @@ nn:juice
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
 ro:suc de
 ru:сок
-sv:juice
+sv:juice, saft
+
 
 # fr:jus concentré de, jus concentré d'
 # fr:pur jus
@@ -688,7 +689,7 @@ de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konz
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
 es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
-fi:tiivistetty
+fi:tiivistetty, tiiviste
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
 hu:sűrítmény, sűrített, koncentrátum
@@ -696,6 +697,7 @@ nl:concentraten, concentraat
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de
 sv:koncentrerad
 # en:wiktionary:concentrated
+
 
 <en:concentrated
 en:double concentrated
@@ -710,6 +712,14 @@ de:dreifach konzentriert
 de:200fach konzentriertes
 
 #en:not from concentrate
+
+#not sure if this interferes with the above
+#en:from concentrate
+#de:aus Konzentrat
+#es:a base de concentrado
+#fi:tiivisteestä
+#fr:à base de concentré
+#nl:op basis van concentraat
 
 # there is a problem with en:cocoa paste
 #en:paste
