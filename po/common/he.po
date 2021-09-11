@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:32\n"
+"PO-Revision-Date: 2021-09-11 17:32\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -602,7 +602,7 @@ msgstr "קוד מפעל אריזה"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "קוד מפעל אריזה"
+msgstr "קוד למעקב"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5353,6 +5353,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "פירוט ההשפעות לפי שלבי מחזור החיים"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "שלב"
@@ -5403,7 +5404,7 @@ msgstr "ציונים לשבח ולרעה"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "מצב ייצור"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5415,7 +5416,7 @@ msgstr "אם למוצר זה יש תווית שמאפיינת את מערכת ה
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "מקורות הרכיבים"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5548,26 +5549,30 @@ msgstr "הסרה או שינוי של הנתונים שסופקו תהיה אפ�
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "לאריזה של המוצר הזה יש השפעה רבה על הסביבה."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "לאריזה של המוצר הזה יש השפעה בינונית על הסביבה."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "לאריזה של המוצר הזה יש השפעה חלשה על הסביבה."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
-msgstr ""
+msgstr "המידע על האריזה של מוצר זה חסר."
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "בינונית"
 
 msgctxt "impact"
 msgid "impact"
-msgstr ""
+msgstr "השפעה"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "הערה: Nutri-Score לתה ותה צמחים מחושב לפי המוצר שהוכן עם מים בלבד, ללא סוכר או חלב."
 

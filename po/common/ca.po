@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:29\n"
+"PO-Revision-Date: 2021-09-11 13:29\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -598,11 +598,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Codi empaquetador"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Codi empaquetador"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5353,6 +5353,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5403,7 +5404,7 @@ msgstr ""
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Mode de producció"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5415,7 +5416,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Orígens dels ingredients"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5548,26 +5549,30 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "L’embolcall d’aquest producte té un alt impacte sobre el medi ambient."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "L’embolcall d’aquest producte té un impacte mitjà sobre el medi ambient."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "L’embolcall d’aquest producte té un impacte baix sobre el medi ambient."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
-msgstr ""
+msgstr "Manca informació sobre l’embolcall d’aquest producte."
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "mitjà"
 
 msgctxt "impact"
 msgid "impact"
+msgstr "impacte"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 
