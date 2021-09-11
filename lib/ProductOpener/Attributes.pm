@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2021 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -1122,7 +1122,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
-				$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
+				$attribute_ref->{description_short} = sprintf lang_in_other_lc($target_lc, 'g_per_100g'), ($product_ref->{nutriments}{$nid . $prepared . '_100g'} + 0.0);
 			}
 		}
 	}
