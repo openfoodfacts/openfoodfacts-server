@@ -15394,25 +15394,19 @@ ciqual_food_name:fr:Lapin, viande crue
 # ingredient/rabbit-meat has 109 products in french @2019-04-19
 carbon_footprint_fr_foodges_ingredient:fr:Lapin
 carbon_footprint_fr_foodges_value:fr:8.1
+#151 in fr @2021-09-11
 
-<en:rabbit meat
-en:raw rabbit meat
-fr:viande de lapin crue
-ciqual_food_code:en:34001
-ciqual_food_name:en:Rabbit, meat, raw
-ciqual_food_name:fr:Lapin, viande crue
+#<en:rabbit meat
+#en:wild rabbit meat 
+#fr:viande de lapin de garenne
 
-<en:rabbit meat
-en:wild rabbit meat 
-fr:viande de lapin de garenne
-
-<en:raw rabbit meat
-<en:wild rabbit meat
-en:raw wild rabbit meat 
-fr:viande de lapin de garenne crue
-ciqual_food_code:en:34003
-ciqual_food_name:en:Rabbit, wild, meat, raw
-ciqual_food_name:fr:Lapin de garenne, viande, crue
+#<en:raw rabbit meat
+#<en:wild rabbit meat
+#en:raw wild rabbit meat 
+#fr:viande de lapin de garenne crue
+#ciqual_food_code:en:34003
+#ciqual_food_name:en:Rabbit, wild, meat, raw
+#ciqual_food_name:fr:Lapin de garenne, viande, crue
 
 #<en:rabbit meat
 #en:Braised rabbit meat
@@ -15435,6 +15429,13 @@ ciqual_food_name:fr:Lapin de garenne, viande, crue
 #ciqual_food_name:en:Rabbit, wild, meat, cooked
 #ciqual_food_name:fr:Lapin de garenne, viande, cuite
 
+<en:rabbit
+en:rabbit liver
+fr:foie de lapin
+ciqual_food_code:en:40110
+ciqual_food_name:en:Liver, rabbit, raw
+ciqual_food_name:fr:Foie, lapin, cru
+#7 @2021-09-11
 
 ###################################################################################################
 #
@@ -74436,7 +74437,10 @@ fi:siipikarjan maksa
 fr:foie de volaille
 nl:gevogeltelever
 zh:禽类肝脏
-# ingredient/fr:foie-de-volaille has 212 products in 4 languages @2019-04-24
+ciqual_food_code:en:40108
+ciqual_food_name:en:Liver, poultry, raw
+ciqual_food_name:fr:Foie, volaille, cru
+# 260 in 3 @2021-0-10
 
 <en:poultry
 fr:jus de cuisson de volaille
@@ -74680,6 +74684,14 @@ it:osso di pollo
 nl:kippenbeenderen
 # ingredient/fr:os-de-poulet has 184 products in 5 languages @2019-05-10
 
+<en:chicken
+en:chicken heart
+fr:Coeur de poulet
+ciqual_food_code:en:40054
+ciqual_food_name:en:Heart, chicken, raw
+ciqual_food_name:fr:Coeur, poulet, cru
+
+
 # <en:liver
 <en:chicken
 en:chicken liver
@@ -74709,7 +74721,6 @@ sv:kycklingskinn
 # description:en:CHICKEN is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
 # comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
 
-<en:poultry meat
 <en:chicken
 en:chicken meat
 ca:carn de pollastre
@@ -75211,7 +75222,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Turkey_(bird)
 
 # description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
 
-<en:poultry meat
+<en:turkey
+en:turkey heart
+fr:Coeur de dinde
+ciqual_food_code:en:40055
+ciqual_food_name:en:Heart, turkey, raw
+ciqual_food_name:fr:Coeur, dinde, cru
+
+
 <en:turkey
 en:turkey meat
 ca:Carn de gall dindi
