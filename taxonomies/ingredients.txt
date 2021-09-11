@@ -75199,6 +75199,15 @@ ciqual_food_code:en:40055
 ciqual_food_name:en:Heart, turkey, raw
 ciqual_food_name:fr:Coeur, dinde, cru
 
+<en:turkey
+en:turkey liver
+cs:krůtí játra
+de:Putenleber
+fr:Foie de dinde
+ru:печень индейки
+ciqual_food_code:en:40115
+ciqual_food_name:en:Liver, turkey, raw
+ciqual_food_name:fr:Foie, dinde, cru
 
 <en:turkey
 en:turkey meat
@@ -75324,7 +75333,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quail
 
 <en:poultry
 en:goose
+es:ganso
 fr:oie
+nl:gans, ganzen
 
 <en:goose
 en:goose meat
@@ -75335,7 +75346,19 @@ ciqual_food_name:fr:Oie, viande et peau, crue
 
 <en:goose
 en:goose liver
+de:Gänseleber
+es:hígado de ganso 
 fr:foie d'oie
+it:fegato d'oca
+nl:ganzenlever
+nn:gåselever
+ru:гусиная печень
+sv:gåslever
+ciqual_food_code:en:40120
+ciqual_food_name:en:Liver, goose, raw
+ciqual_food_name:fr:Foie, oie, cru
+wikidata:en:Q103819968
+#51 in 5 @2021-09-11
 
 <en:goose liver
 fr:foie gras d'oie
