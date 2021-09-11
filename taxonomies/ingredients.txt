@@ -40662,39 +40662,49 @@ fr:jus de mûre à base de jus concentré
 #
 ###################################################################################################
 
-# description:en:The blackcurrant or black currant (Ribes nigrum) is a woody shrub in the family Grossulariaceae grown for its piquant berries.
-
-# Question
-
 <en:berries
 en:blackcurrant
+af:swartaalbessie
 bg:касис
+ca:riber negre
 da:solbær
 de:schwarze Johannisbeere, schwarze Johannisbeeren
+el:φραγκοστάφυλο
 es:grosella negra, grosellas negras
 et:must sõstar
 fi:mustaherukka, mustaherukkaa, mustaviinimarja, mustaviinimarjaa
-fr:cassis
+fo:sólber
+fr:cassis, baies de cassis
+ga:grosella
 he:ענבי שועל
 hu:fekete ribizli
+io:kasiso
+is:sólber
 it:ribes nero, ribes neri
+ja:カシス
+lv:upene
+mk:црна рибизла
+mt:passulina sewda
 nb:solbær
 nl:zwarte bes, cassisbessen
 pl:Czarna porzeczka
 pt:groselha negra
+ru:чёрная сморо́дина
 sl:črni ribez
 sv:svarta vinbär, svartvinbär, svart vinbär
+sw:tunda bukini jeusi
+tr:kuş üzümü
+uk:чо́рна сморо́дина
 zh:黑加伦
 wikipedia:en:https://en.wikipedia.org/wiki/Blackcurrant
 wikidata:en:Q2941309
 ciqual_food_code:en:13007
 ciqual_food_name:en:Black currant, raw
 ciqual_food_name:fr:Cassis, cru
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/blackcurrant
+description:de:Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung Johannisbeeren. Manchmal wird die französische Bezeichnung Cassis für ihre Früchte verwendet.
+description:fr:Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
+description:nl:de vrucht (bes) van de Ribes nigrum 
 # 3581 in 22 @2021-09-12
-
-<en:blackcurrant
-fr:baies de cassis
 
 #processing:en: en:juice
 #<en:blackcurrant
@@ -43315,18 +43325,28 @@ fr:sauce aux framboises, sauce à la framboise, sauce framboise
 ###################################################################################################
 # description:en:The redcurrant, or red currant (Ribes rubrum) is a member of the genus Ribes in the gooseberry family.
 
+#category/redcurrants
 <en:berries
 en:redcurrant, red currant
+af:aalbessie
+bg:френско грозде
 da:røde bær
-de:rote Johannisbeeren, rote Johannisbeere
+de:rote Johannisbeere, rote Johannisbeeren
 es:grosella roja, grosellas rojas
 fi:Punaherukka
 fr:groseille, groseilles, groseilles rouges
 it:ribes rosso
 nl:aalbes, rode bes
+pl:czerwona porzeczka
 pt:groselha
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-currant
-# 312 products in 6 languages @2018-10-01
+ro:coacaze rosii
+ru:красная смородина
+ciqual_food_code:en:13019
+ciqual_food_name:en:Red currant, raw
+ciqual_food_name:fr:Groseille, crue
+wikidata:en:Q14714085
+description:nl:rode bes of witte bes; vrucht van de aalbesstruik
+# 866 in 12 @2021-09-12
 
 <en:redcurrant
 en:red currant juice
