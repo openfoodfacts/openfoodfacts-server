@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: oc\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:34\n"
+"PO-Revision-Date: 2021-09-11 13:39\n"
 "Language-Team: Occitan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -212,7 +212,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -1434,11 +1434,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1510,7 +1510,7 @@ msgstr "Escart-tipe"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -3301,7 +3301,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Informacions nutricionalas"
+msgstr ""
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -5320,6 +5320,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5536,5 +5537,9 @@ msgstr ""
 
 msgctxt "impact"
 msgid "impact"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 
