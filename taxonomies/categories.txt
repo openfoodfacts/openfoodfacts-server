@@ -1307,6 +1307,15 @@ nl:Bier uit de Verenigde Staten van Amerika, Amerikaanse bieren
 origins:en: en:United States
 
 <en:Beers
+en:Finnish beers, Beers from Finland
+
+<en:Finnish beers
+fi:Sahti
+protected_name_file_number:en: TSG-FI-0014
+protected_name_type:en: tsg
+origins:en: en:Finland
+
+<en:Beers
 en:French beers, Beers from France
 de:Französische Biere
 es:Cervezas francesas, Cervezas de Francia
@@ -26094,6 +26103,27 @@ protected_name_type:en: pgi
 origins:en: en:Croatia
 
 <en:Bakery products
+en:Cypriot bakery products
+
+<en:Cypriot bakery products
+el:Γλυκό Τριαντάφυλλο Αγρού, Glyko Triantafyllo Agrou
+protected_name_file_number:en: PGI-CY-01310
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Cypriot bakery products
+el:Κουφέτα Αμυγδάλου Γεροσκήπου, Koufeta Amygdalou Geroskipou
+protected_name_file_number:en: PGI-CY-0800
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Cypriot bakery products
+el:Λουκούμι Γεροσκήπου, Loukoumi Geroskipou
+protected_name_file_number:en: PGI-CY-0454
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Bakery products
 en:Czech bakery products
 fr:Produits de boulangerie tchèques
 
@@ -26150,6 +26180,42 @@ cs:Štramberské uši
 protected_name_file_number:en: PGI-CZ-0378
 protected_name_type:en: pgi
 origins:en: en:Czech Republic
+
+<en:Bakery products
+en:Dutch bakery products
+
+<en:Dutch bakery products
+nl:Suikerstroop
+protected_name_file_number:en: TSG-NL-1203
+protected_name_type:en: tsg
+origins:en: en:Netherlands
+
+<en:Dutch bakery products
+nl:Basterdsuiker, Basterdsuicker, Basterdsuijcker, Basterdsuijker, Basterd, Bastardsuiker, Bastardsuicker, Bastardsuijcker, Bastardsuijker, Bastard, Bastert, Bastertsuiker
+protected_name_file_number:en: TSG-NL-0901
+protected_name_type:en: tsg
+origins:en: en:Netherlands
+
+<en:Bakery products
+en:Finnish bakery products
+
+<en:Finnish bakery products
+fi:Kainuun rönttönen
+protected_name_file_number:en: PGI-FI-0099
+protected_name_type:en: pgi
+origins:en: en:Finland
+
+<en:Finnish bakery products
+fi:Karjalanpiirakka
+protected_name_file_number:en: TSG-FI-0015
+protected_name_type:en: tsg
+origins:en: en:Finland
+
+<en:Finnish bakery products
+fi:Kalakukko
+protected_name_file_number:en: TSG-FI-0013
+protected_name_type:en: tsg
+origins:en: en:Finland
 
 <en:Bakery products
 en:German bakery products
@@ -33312,6 +33378,15 @@ agribalyse_food_code:en:12052
 ciqual_food_code:en:12052
 ciqual_food_name:en:Saint-Felicien cheese, from cow's milk
 
+<en:Cheeses
+en:Estonian cheeses
+
+<en:Estonian cheeses
+et:Vana-Võromaa sõir, Setomaa sõir
+protected_name_file_number:en: PGI-EE-02487
+protected_name_type:en: pgi
+origins:en: en:Estonia
+
 <en:Cow cheeses
 <en:Cheeses from England
 en:Cheddar cheese, Cheddar
@@ -33767,6 +33842,15 @@ origins:en: en:France
 fr:Pérail
 
 <en:Cheeses
+en:Cypriot cheeses, Cheeses from Cyprus
+
+<en:Cypriot cheeses
+el:Χαλλούμι, Hellim, Halloumi, Hellim
+protected_name_file_number:en: PDO-CY-01243
+protected_name_type:en: pdo
+origins:en: en:Cyprus
+
+<en:Cheeses
 en:Greek cheeses, cheeses from Greece
 de:Griechischer Käse
 es:Quesos griegos, quesos de Grecia
@@ -34022,6 +34106,7 @@ origins:en: en:Austria
 <en:Cheeses
 en:Belgian cheeses
 es:Quesos de Bélgica, Quesos Belgas
+fr:Fromages belges, Fromages de Belgique
 
 <en:Belgian cheeses
 fr:Bètchéye, Boulette de Huy, Boulette de Namur, Boulette de Nivelles, Boulette de Romedenne, Boulette de Surice, Cassette de Beaumont, Crau Stofé
@@ -34037,6 +34122,7 @@ origins:en: en:Belgium
 
 <en:Cheeses
 en:Croatian cheeses, Cheeses from Croatia
+fr:Fromages de Croatie
 
 <en:Croatian cheeses
 hr:Bjelovarski kvargl
@@ -34304,6 +34390,9 @@ country:en:France
 agribalyse_food_code:en:12028
 ciqual_food_code:en:12028
 ciqual_food_name:en:Chaource cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0114
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
@@ -34363,6 +34452,9 @@ wikidata:en:Q1231414
 agribalyse_food_code:en:12038
 ciqual_food_code:en:12038
 ciqual_food_name:en:Époisses cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0118
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -35225,7 +35317,10 @@ en:Ashdown Foresters
 wikidata:en:Q16834449
 
 <en:Cheeses from England
-en:Beacon Fell Traditional Lancashire Cheese
+en:Beacon Fell traditional Lancashire cheese
+protected_name_file_number:en: PDO-GB-0280
+protected_name_type:en: pdo
+origins:en: en:United Kingdom
 wikidata:en:Q8245118
 
 <en:Cheeses from England
@@ -55696,6 +55791,33 @@ protected_name_type:en: pgi
 origins:en: en:Croatia
 
 <en:Meat-based products
+en:Cypriot meat products, Meat products from Cyprus
+
+<en:Cypriot meat products
+el:Χοιρομέρι Πιτσιλιάς, Hiromeri Pitsilias
+protected_name_file_number:en: PGI-CY-02368
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Cypriot meat products
+el:Λούντζα Πιτσιλιάς, Lountza Pitsilias
+protected_name_file_number:en: PGI-CY-02367
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Cypriot meat products
+el:Λουκάνικο Πιτσιλιάς, Loukaniko Pitsilias
+protected_name_file_number:en: PGI-CY-02369
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Cypriot meat products
+el:Παφίτικο Λουκάνικο, Pafitiko Loukaniko
+protected_name_file_number:en: PGI-CY-1244
+protected_name_type:en: pgi
+origins:en: en:Cyprus
+
+<en:Meat-based products
 en:Bulgarian meat products
 fr:Produits carnés bulgares
 
@@ -68021,20 +68143,8 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:French cheeses
-fr:Chaource
-protected_name_file_number:en: PDO-FR-0114
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
 fr:Comté
 protected_name_file_number:en: PDO-FR-0116
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Époisses
-protected_name_file_number:en: PDO-FR-0118
 protected_name_type:en: pdo
 origins:en: en:France
 
