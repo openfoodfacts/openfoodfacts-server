@@ -37233,10 +37233,6 @@ vo:brikod
 wa:åbricot
 yi:אַפּריקאָס
 zh:杏
-carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:1.1
 # aeb-arab:كعبة مشماش
 # aeb-latn:mech'mèch'
 # arz:مشمشة
@@ -37265,44 +37261,49 @@ carbon_footprint_fr_foodges_value:fr:1.1
 # zh-cn:杏
 wikipedia:en:https://en.wikipedia.org/wiki/Apricot
 wikidata:en:Q3733836
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot
-# 1729 products @2018-09-29
+carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:1.1
+# 5160 in 25 @2021-09-12
 
-<en:apricot
-en:organic apricot
-fi:luomu aprikoosi
-fr:abricots bio
+#<en:apricot
+#en:organic apricot
+#fi:luomu aprikoosi
+#fr:abricots bio
 
+#processing:en: en:halved
 <en:apricot
 fr:demi-abricots, demi abricots
+#7 in fr @2021-09-12
 
-<en:apricot
-<en:purée
-en:apricot purée
-de:Aprikosenpüree
-es:Puré de albaricoques
-fi:aprikoosipyree
-fr:purée d'abricots, purée d'abricot, pulpe d'abricot
-it:purea di albicocca
-nl:abrikozenpuree
+#processing:en: en:purée
+#<en:apricot
+#en:apricot purée
+#de:Aprikosenpüree
+#es:Puré de albaricoques
+#fi:aprikoosipyree
+#fr:purée d'abricots, purée d'abricot, pulpe d'abricot
+#it:purea di albicocca
+#nl:abrikozenpuree
 # in process de:Aprikosenpüree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'abricots
-# 265 products in 5 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'abricot
-# 40 products in 1 language @2018-09-29
+# 873 @2021-09-12
 
+#processing:en: en:dried
 <en:apricot
-en:dried apricots
-da:tørret abrikos, tørrede abrikoser
-de:getrocknete Aprikosen
-es:albaricoques deshidratados
-fi:kuivattu aprikoosi, kuivatut aprikoosit
-fr:abricots secs, abricots séchés
-it:albicocche secche
-nl:gedroogde abrikozen
+#en:dried apricots
+#da:tørret abrikos, tørrede abrikoser
+#de:getrocknete Aprikosen
+#es:albaricoques deshidratados
+#fi:kuivattu aprikoosi, kuivatut aprikoosit
+#fr:abricots secs, abricots séchés
+#it:albicocche secche
+#nl:gedroogde abrikozen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots-secs
 # 138 products in 5 languages @2018-09-29
 
+#processing:en: en:dried
+#processing:en: en:pitted
 <en:dried apricots
 en:pitted dried apricots
 de:getrocknete Aprikosen entsteint, entsteinte getrocknete Aprikosen
@@ -37311,6 +37312,7 @@ fr:abricots secs dénoyautés, Abricots dénoyautés secs
 ciqual_food_code:en:13001
 ciqual_food_name:en:Apricot, pitted, dried
 ciqual_food_name:fr:Abricot, dénoyauté, sec
+#24 in 3 @2021-09-12
 
 <en:apricot
 en:apricot kernels
