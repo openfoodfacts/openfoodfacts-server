@@ -1122,7 +1122,10 @@ sub compute_attribute_nutrient_level($$$$) {
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
-				$attribute_ref->{description_short} = sprintf lang_in_other_lc($target_lc, 'g_per_100g'), ($product_ref->{nutriments}{$nid . $prepared . '_100g'} + 0.0);
+				$attribute_ref->{description_short} = sprintf(
+					lang_in_other_lc($target_lc, 'g_per_100g'),
+					(sprintf('%.2e', $product_ref->{nutriments}{$nid . $prepared . '_100g'}) + 0.0)
+				);
 			}
 		}
 	}
