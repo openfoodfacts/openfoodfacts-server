@@ -20958,9 +20958,7 @@ vegan:en:no
 vegetarian:en:no
 from_palm_oil:en:no
 
-
-
-<en:fat
+<en:animal fat
 en:poultry fat
 de:Geflügelfett
 es:Grasa de aves
@@ -20987,30 +20985,36 @@ nl:eendenvet
 pt:gordura de pato
 # ingredient/fr:graisse-de-canard has 902 products in 7 languages @2019-03-01
 
-# Chicken fat has been split in two. The translations are not always correct.
 
 <en:poultry fat
 en:chicken fat
+ar:دهن الدجاج
+bg:пилешка мазнина
 da:Kyllingefedt
-de:Hühnerfett
+de:Hühnerfett, Pouletfett
+el:λίπος κότας
 es:Grasa de pollo
 fi:kananrasva
-fr:graisse de poule
+fr:graisse de poule, graisse de poulet, gras de poulet
+hr:kokošija mast
 hu:tyúkzsír, csirkezsír
 it:grasso di pollo
 ja:鶏油
+ko:닭기름
 nl:kippenvet
+nn:kyllingefett
 pl:Tłuszcz z kurczaka
 ru:Куриный жир
+sr:kokošija mast
 sv:kycklingfett
-# ingredient/fr:graisse-de-poule has 208 products in 5 languages @2019-03-01
+zh:雞油
+wikidata:en:Q5096296
+ciqual_food_code:en:16540
+ciqual_food_name:en:Chicken fat
+ciqual_food_name:fr:Graisse de poulet
+# 4183 in 20 @2021-09-12
+description:nl:vet van een kip, vet dat vrijkomt als men een kip braadt of grilt.
 # kippenvet (kippenvet, antioxidant:rozemarijnextract)
-
-<en:chicken fat
-de:Pouletfett
-fr:graisse de poulet, gras de poulet
-sv:kycklingfett
-# ingredient/fr:graisse-de-poulet has 369 products in 6 languages @2019-03-01
 
 <en:poultry fat
 en:goose fat
