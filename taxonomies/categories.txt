@@ -2734,6 +2734,12 @@ nl:Witte Armagnac
 country:en:France
 
 <en:French Eaux-de-vie
+fr:Eau-de-vie de Faugères
+protected_name_file_number:en: PGI-FR-02076
+protected_name_type:en: gi
+origins:en: en:France
+
+<en:French Eaux-de-vie
 en:Calvados
 de:Calvados
 fr:Calvados
@@ -2858,6 +2864,8 @@ fr:Eau-de-vie de vin de la Marne
 de:Branntwein aus Marne, Branntwein aus dem Marne Tal
 nl:Wijn-eau-de-vies uit de Marne
 origins:en: en:France, fr:Marne
+protected_name_file_number:en: PGI-FR-02029
+protected_name_type:en: gi
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin de Savoie
@@ -2900,6 +2908,9 @@ fr:Eau-de-vie de vin originaire du Bugey
 de:Branntwein aus dem Bugey
 nl:Wijn-eau-de-vies uit de Bugey
 origins:en: en:France, fr:Bugey
+protected_name_file_number:en: PGI-FR-02068
+protected_name_type:en: gi
+origins:en: en:France
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Centre-Est
@@ -3294,6 +3305,12 @@ fi:Puolalaiset votkat
 fr:Vodkas polonaises
 it:Vodka polacche
 nl:Poolse wodkas, Poolse wodka
+origins:en: en:Poland
+
+<en:Polish vodkas
+pl:Polska Wódka
+protected_name_file_number:en: PGI-PL-01967
+protected_name_type:en: gi
 origins:en: en:Poland
 
 <en:Polish vodkas
@@ -9561,6 +9578,9 @@ country:en:France
 <en:Wines from France
 fr:Cabernet de Saumur, Cabernet de Saumur Val de Loire
 country:en:France
+protected_name_file_number:en: PDO-FR-A0257
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Bordeaux wines
 <en:White wines
@@ -11261,6 +11281,9 @@ wikidata:en:Q1345117
 country:en:France
 instanceof:fr:AOP
 grapevariety:fr:sémillon, sauvignon, muscadelle
+protected_name_file_number:en: PDO-FR-A0406
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Faugères
@@ -11995,6 +12018,15 @@ instanceof:fr:AOP
 <en:Wines from France
 fr:Lavilledieu
 country:en:France
+protected_name_file_number:en: PGI-FR-A1136
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Wines from France
+fr:Graves de Vayres
+protected_name_file_number:en: PDO-FR-A0927
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Les Baux de Provence
@@ -13456,6 +13488,9 @@ country:en:France
 region:fr:Bourgogne
 wikidata:en:Q3346179
 instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0579
+protected_name_type:en: pdo
+origins:en: en:France
 
 <fr:Nuits-Saint-Georges
 fr:Nuits-Saint-Georges premier cru
@@ -18556,11 +18591,6 @@ origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Beneventano
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
 it:Bergamasca
 protected_name_file_number:en: PGI-IT-A1369
 protected_name_type:en: pgi
@@ -19622,11 +19652,6 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Emilia, Dell'Emilia
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
 it:Epomeo
 protected_name_file_number:en: PGI-IT-A0258
 protected_name_type:en: pgi
@@ -19661,9 +19686,15 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Falerio dei Colli Ascolani, Falerio
+it:Falerio dei Colli Ascolani
 country:en:Italy
 #wikidata:en:
+
+<en:Wines from Italy
+it:Falerio
+protected_name_file_number:en: PDO-IT-A0433
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Wines from Italy
 it:Falerno del Massico
@@ -20054,11 +20085,6 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Mamertino di Milazzo, Mamertino
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
 it:Mandrolisai
 protected_name_file_number:en: PDO-IT-A1171
 protected_name_type:en: pdo
@@ -20323,11 +20349,6 @@ country:en:Italy
 
 <en:Wines from Italy
 it:Moscato di Siracusa
-country:en:Italy
-#wikidata:en:
-
-<en:Wines from Italy
-it:Moscato di Sorso-Sennori, Moscato di Sorso, Moscato di Sennori
 country:en:Italy
 #wikidata:en:
 
@@ -21127,7 +21148,10 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Valdadige whether or not followed by Terra dei Forti, Etschtaler
+it:Valdadige, Etschtaler, Valdadige Terra dei Forti
+protected_name_file_number:en: PDO-IT-A0474
+protected_name_type:en: pdo
+origins:en: en:Italy
 country:en:Italy
 #wikidata:en:
 
@@ -21510,6 +21534,7 @@ it:dell'Emilia, Emilia
 protected_name_file_number:en: PGI-IT-A0509-AM06
 protected_name_type:en: pgi
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Roero
@@ -21824,12 +21849,6 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Falerio
-protected_name_file_number:en: PDO-IT-A0433
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Wines from Italy
 it:Dogliani
 protected_name_file_number:en: PDO-IT-A1330
 protected_name_type:en: pdo
@@ -21852,6 +21871,8 @@ it:Mamertino, Mamertino di Milazzo
 protected_name_file_number:en: PDO-IT-A0783
 protected_name_type:en: pdo
 origins:en: en:Italy
+country:en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Tarquinia
@@ -21876,6 +21897,8 @@ it:Benevento, Beneventano
 protected_name_file_number:en: PGI-IT-A0283
 protected_name_type:en: pgi
 origins:en: en:Italy
+country:en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Colline del Genovesato
@@ -22551,12 +22574,6 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Valdadige, Etschtaler
-protected_name_file_number:en: PDO-IT-A0474
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Wines from Italy
 it:Moscato di Trani
 protected_name_file_number:en: PDO-IT-A0555
 protected_name_type:en: pdo
@@ -22783,6 +22800,8 @@ it:Moscato di Sorso, Moscato di Sennori, Moscato di Sorso - Sennori
 protected_name_file_number:en: PDO-IT-A0909
 protected_name_type:en: pdo
 origins:en: en:Italy
+country:en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Vernaccia di Oristano
@@ -33262,7 +33281,7 @@ agribalyse_food_code:en:12726
 ciqual_food_code:en:12726
 ciqual_food_name:en:Cheddar cheese, from cow's milk
 
-<en:British cheeses
+<en:Cheeses from the United Kingdom
 <en:Cheddar cheese
 en:West Country farmhouse Cheddar cheese
 protected_name_file_number:en: PDO-GB-0279
@@ -44253,7 +44272,7 @@ origins:en: en:Italy
 <en:Olive oils from Italy
 en:Olive oils from Umbria
 fr:Huile d'olive de Umbria
-it:Olio di oliva Umbria, Umbria
+it:Olio di oliva Umbria
 nl:Olijfoliën uit Umbria, Olijfolies uit Umbria
 protected_name_file_number:en: PDO-IT-1520
 protected_name_type:en: pdo
