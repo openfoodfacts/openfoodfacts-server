@@ -346,7 +346,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 				# Selected photos
 
-				foreach my $imageid ("front", "ingredients", "nutrition") {
+				foreach my $imageid ("front", "ingredients", "nutrition", "packaging") {
 
 					my $from_imageid = $imageid . "_" . $from_lc;
 					my $to_imageid = $imageid . "_" . $product_lc;
