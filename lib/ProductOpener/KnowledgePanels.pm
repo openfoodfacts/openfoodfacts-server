@@ -227,9 +227,14 @@ sub create_panel_from_json_template ($$$$$$) {
         # In the template, we use multiline strings for readability
         # e.g. when we want to generate HTML
 
+        # Also escape quotes " to \"
+
         sub convert_multiline_string_to_singleline($) {
             my $line = shift;
             $line =~ s/\n/\\n/sg;
+            # Escape quotes unless they have been escaped already
+            # negative look behind to not convert \" to \\"
+            $line =~ s/(?<!\\)"/\\"/g;
             return '"' . $line . '"';
         }
 
@@ -365,31 +370,15 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        # TODO: add panels for the different bonuses and maluses
+        # Add panels for the different bonuses and maluses
 
         foreach my $adjustment ("production_system", "origins_of_ingredients", "threatened_species", "packaging") {
 
-            my $plus_or_minus;
-
-            if (not defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{value}) {
-                $plus_or_minus = "unknown";
-            }
-            elsif ($product_ref->{ecoscore_data}{adjustments}{$adjustment}{value} < 0) {
-                $plus_or_minus = "minus";
-            }
-            else {
-                $plus_or_minus = "plus";
-            }
-
-            $title = lang("ecoscore_" . $adjustment);
-
-            $panel_data_ref = {
-                "plus_or_minus" => $plus_or_minus,
-                "title" => $title,
+            my $adjustment_panel_data_ref = {
             };            
 
             create_panel_from_json_template("ecoscore_" . $adjustment, "api/knowledge-panels/ecoscore/" . $adjustment . ".tt.json",
-                $panel_data_ref, $product_ref, $target_lc, $target_cc);
+                $adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
 	}
