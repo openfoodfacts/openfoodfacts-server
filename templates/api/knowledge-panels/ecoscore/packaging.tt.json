@@ -5,6 +5,20 @@
     "topics": [
         "environment"
     ],
+[% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
+    "plus_or_minus": "unknown",
+    "title": "[% lang('ecoscore_packaging_missing_information') %]",
+    "elements": [
+        {
+            "element_type": "text",
+            "element": {
+                "text_type": "warning",
+                "html": `
+                    [% lang('ecoscore_no_packaging_information') %]
+                    `
+            }
+        }, 
+[% ELSE %]
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
     "plus_or_minus": "minus",
     "title": "[% lang('ecoscore_packaging_impact_high') %]",
@@ -16,16 +30,6 @@
     "title": "[% lang('ecoscore_packaging_impact_low') %]",      
     [% END %]
     "elements": [
-        {
-            "element_type": "text",
-            "element": {
-                "text_type": "summary",
-                "html": `
-                    <p>[give more details here]</p> 
-                    `
-            }
-        },
-        [% IF product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size %]
         {
             "element_type": "table",
             "element": {
@@ -69,7 +73,31 @@
                     [% END %]
                 ]
             }
-        }
-        [% END %]         
+        },
+        [% IF product.ecoscore_data.adjustments.packaging.warning %]
+        {
+            "element_type": "text",
+            "element": {
+                "text_type": "warning",
+                "html": `
+                    [% lang('ecoscore_unprecise_packaging_information') %]
+                    `
+            }
+        },         
+        [% END %]
+[% END %]           
+        [% IF product.ecoscore_data.adjustments.packaging.warning %]
+        {
+            "element_type": "text",
+            "element": {
+                "text_type": "warning",
+                "html": `
+                [% lang('ecoscore_edit_for_more_precise_ecoscore') %]
+                <br><br>
+                [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                    `
+            }
+        },
+        [% END %]
     ]
 }
