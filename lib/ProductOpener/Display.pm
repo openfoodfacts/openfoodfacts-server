@@ -65,7 +65,6 @@ BEGIN
 		&display_mission
 		&display_tag
 		&display_search_results
-		&display_field
 		&display_error
 		&gen_feeds
 
@@ -87,6 +86,7 @@ BEGIN
 		&display_ingredient_analysis
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
+		&display_possible_improvement_description
 
 		&count_products
 		&add_params_to_query
@@ -125,6 +125,7 @@ BEGIN
 
 		$show_ecoscore
 		$attributes_options_ref
+		$knowledge_panels_options_ref
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -151,6 +152,7 @@ use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
+use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
 
@@ -268,7 +270,8 @@ $tt = Template->new(
 		STAT_TTL     => 60,                              # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT  => '.ttc',                          # compile templates to Perl code for much faster reload
 		COMPILE_DIR  => $data_root . '/tmp/templates',
-		ENCODING     => 'UTF-8'
+		ENCODING     => 'UTF-8',
+		RECURSION    => 1,	# Needed for the knowledge panels that contain subpanels
 	}
 );
 
@@ -363,6 +366,8 @@ sub process_template($$$) {
 
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
+	$template_data_ref->{static_subdomain} = $static_subdomain;
+	$template_data_ref->{images_subdomain} = $images_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
@@ -651,9 +656,10 @@ CSS
 	}
 	
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))
-		and ((defined $ecoscore_countries{$cc}) or ($User{moderator}))) {
+		and ((defined $ecoscore_countries_enabled{$cc}) or ($User{moderator}))) {
 		$show_ecoscore = 1;
 		$attributes_options_ref = {};
+		$knowledge_panels_options_ref = {};
 	}
 	else {
 		$show_ecoscore = 0;
@@ -661,6 +667,10 @@ CSS
 			skip_ecoscore => 1,
 			skip_forest_footprint => 1,
 		};
+		$knowledge_panels_options_ref = {
+			skip_ecoscore => 1,
+			skip_forest_footprint => 1,
+		};		
 	}
 	
 	# Producers platform url
@@ -2488,7 +2498,6 @@ HEADER
 
 	$log->debug("end", {}) if $log->is_debug();
 
-
 	return $html;
 }
 
@@ -2504,10 +2513,15 @@ sub display_list_of_tags_translate($$) {
 	my $html = '';
 	my $html_pages = '';
 
+	my $template_data_ref_tags_translate = {};
+
+	$template_data_ref_tags_translate->{results} = $results;
+	$template_data_ref_tags_translate->{ref_results} = ref($results);
+	$template_data_ref_tags_translate->{results_zero} = $results->[0];
+
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
 		$log->debug("results for aggregate MongoDB query key", { "results" => $results}) if $log->is_debug();
-		$html .= "<p>" . lang("no_products") . "</p>";
 		$request_ref->{structured_response}{count} = 0;
 
 	}
@@ -2523,15 +2537,9 @@ sub display_list_of_tags_translate($$) {
 		# $html .= "<h3>" . sprintf(lang("translate_taxonomy_to"), $Lang{$tagtype . "_p"}{$lang}, $Languages{$lc}{$lc}) . "</h3>";
 		# Display the message in English until we have translated the translate_taxonomy_to message in many languages,
 		# to avoid mixing local words with English words
-		$html .= "<h3>" . sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en}) . "</h3>";
 
-		$html .= "<p>" . lang("translate_taxonomy_description") . "</p>";
-
-		$html .= '<p id="counts"><COUNTS></p>';
-
-
-		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang})
-		. "</th><th>" . $Lang{save}{$lang} . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . "</tr></thead>\n<tbody>\n";
+		$template_data_ref_tags_translate->{tagtype_s} =  ucfirst($Lang{$tagtype . "_s"}{$lang});
+		$template_data_ref_tags_translate->{translate_taxonomy} = sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en});
 
 #var availableTags = [
 #      "ActionScript",
@@ -2574,6 +2582,8 @@ sub display_list_of_tags_translate($$) {
 		my $translated = 0;
 
 		my $path = $tag_type_singular{$tagtype}{$lc};
+
+		my @tagcounts;
 
 		foreach my $tagcount_ref (@tags) {
 
@@ -2660,7 +2670,7 @@ sub display_list_of_tags_translate($$) {
 			my $lc_tagid = get_string_id_for_lang($display_lc, $display_without_lc); # "yule-log"
 
 			if (
-				(defined $synonyms_for{$tagtype}{$display_lc}) 
+				(defined $synonyms_for{$tagtype}{$display_lc})
 				and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})
 			) {
 				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
@@ -2674,36 +2684,27 @@ sub display_list_of_tags_translate($$) {
 
 			my $google_translate_link = "https://translate.google.com/#view=home&op=translate&sl=en&tl=$lc&text=$escaped_synonyms";
 
-			$html .= <<HTML
-<tr><td>
-<a href="$link"$nofollow target="_blank">$display</a> $synonyms<br />
-<input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
-<div id="to_${j}_div"><input id="to_$j" name="to_$j" value="" /></div>
-$new_translation
-<span style="font-size: 80%;">&rarr; <a href="$google_translate_link" target="_blank">Google Translate</a></span>
-</td>
-<td>
-<div id="save_${j}_div"><button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button></div>
-</td>
-<td style="text-align:right">$products</td></tr>
-HTML
-;
+			push(@tagcounts, {
+				link => $link,
+				display => $display,
+				nofollow => $nofollow,
+				synonyms => $synonyms,
+				j => $j,
+				tagid => $tagid,
+				google_translate_link => $google_translate_link,
+				new_translation => $new_translation,
+				products => $products
+			});
 
 
 		}
 
-		$html .= "</tbody></table></div>";
-
-
 		my $counts = ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang}
 		. " (" . lang("translated") . " : $translated, " . lang("to_be_translated") . " : $to_be_translated)";
 
-		$html =~ s/<COUNTS>/$counts/;
-
-		$html .= <<HTML
-<input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />
-HTML
-;
+		$template_data_ref_tags_translate->{tagcounts} = \@tagcounts;
+		$template_data_ref_tags_translate->{tagtype} = $tagtype;
+		$template_data_ref_tags_translate->{counts} = $counts;
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
@@ -2781,6 +2782,9 @@ HEADER
 	$request_ref->{full_width} = 1;
 
 	$log->debug("end", {}) if $log->is_debug();
+
+	process_template('web/common/includes/display_list_of_tags_translate.tt.html', $template_data_ref_tags_translate, \$html) || return "template error: " . $tt->error();
+
 
 	return $html;
 }
@@ -4702,7 +4706,12 @@ sub customize_response_for_product($$) {
 			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 		}
-		
+		# Knowledge panels in the $lc language
+		elsif ($field eq "knowledge_panels") {
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
+		}
+
 		# Images to update in a specific language
 		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
@@ -7212,7 +7221,7 @@ else {
 JS
 	}
 
-	my $tagline = "<p>$Lang{tagline}{$lc}</p>";
+	my $tagline = lang("tagline");
 
 	if ($server_options{producers_platform}) {
 
@@ -7447,34 +7456,6 @@ JS
 	return $img;
 }
 
-
-=head2 display_data_quality_description( PRODUCT_REF, TAGID )
-
-Display an explanation of the data quality warning or error,
-using specific product data related to the warning.
-
-=cut
-
-sub display_data_quality_description($$) {
-
-	my $product_ref = shift;
-	my $tagid = shift;
-
-	my $html = "";
-	my $template_data_ref_quality = {};
-
-	$template_data_ref_quality->{tagid} = $tagid;
-	$template_data_ref_quality->{product_ref_nutriscore_score} = $product_ref->{nutriscore_score};
-	$template_data_ref_quality->{product_ref_nutriscore_score_producer} = $product_ref->{nutriscore_score_producer};
-	$template_data_ref_quality->{product_ref_nutriscore_grade_producer} = uc($product_ref->{nutriscore_grade_producer});
-	$template_data_ref_quality->{product_ref_nutriscore_grade} = uc($product_ref->{nutriscore_grade});
-
-	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
-
-	return $html;
-}
-
-
 =head2 display_possible_improvement_description( PRODUCT_REF, TAGID )
 
 Display an explanation of the possible improvement, using the improvement
@@ -7524,62 +7505,6 @@ sub display_possible_improvement_description($$) {
 
 	return $html;
 }
-
-
-=head2 display_data_quality_issues_and_improvement_opportunities( PRODUCT_REF )
-
-Display on the product page a list of data quality issues, and of improvement opportunities.
-
-This is for the platform for producers.
-
-=cut
-
-sub display_data_quality_issues_and_improvement_opportunities($) {
-
-	my $product_ref = shift;
-
-	my $html = "";
-	my $template_data_ref_quality_issues = {};
-	my @tagtypes;
-
-	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
-
-		my $tagtype_ref = {};
-
-		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
-
-			$tagtype_ref->{tagtype_heading} = ucfirst(lang($tagtype . "_p"));
-			my @tagids;
-			my $description = '';
-
-			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-
-				if ($tagtype =~ /^data_quality/) {
-					$description = display_data_quality_description($product_ref, $tagid);
-				}
-				elsif ($tagtype eq "improvements") {
-					$description = display_possible_improvement_description($product_ref, $tagid);
-				}
-
-				push(@tagids, {
-					display_taxonomy_tag => display_taxonomy_tag($lc, $tagtype, $tagid),
-					properties => $properties{$tagtype}{$tagid}{"description:$lc"},
-					description => $description,
-				});
-
-			}
-
-			$tagtype_ref->{tagids} = \@tagids;
-			push(@tagtypes, $tagtype_ref);
-		}
-	}
-
-	$template_data_ref_quality_issues->{tagtypes} = \@tagtypes;
-	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
-
-	return $html;
-}
-
 
 sub display_product($)
 {
@@ -8270,6 +8195,13 @@ HTML
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+
+		# Knowledge panels are in development, they can be activated with the "panels" parameter
+		# for debugging and demonstration purposes
+		if (param('panels')) {
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			$template_data_ref->{ecoscore_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "ecoscore");
+		}
 	}
 
 	# Forest footprint
@@ -9006,19 +8938,6 @@ sub display_nutrient_levels($) {
 	}
 
 
-
-	# do not compute a score for coffee, tea etc.
-	if (   ( has_tag( $product_ref, "categories", "en:alcoholic-beverages" ) )
-		or ( has_tag( $product_ref, "categories", "en:coffees" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "en:teas" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levure" ) )
-		or ( has_tag( $product_ref, "categories", "fr:levures" ) ) )
-	{
-
-			return "";
-	}
-
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
@@ -9034,6 +8953,16 @@ sub display_nutrient_levels($) {
 
 		# Do not display a warning for water
 		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
+			# only when reconstituted with water only (no milk, no sugar)
+			if ((has_tag($product_ref, "categories", "en:tea-bags"))
+				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
+				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_tea_bags_note") . "</p>";
+			}
 
 			# Combined message when we miss both fruits and fiber
 			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
@@ -10536,7 +10465,7 @@ XML
 sub display_recent_changes {
 
 	my ($request_ref, $query_ref, $limit, $page) = @_;
-	
+
 	add_params_to_query($request_ref, $query_ref);
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -10586,9 +10515,13 @@ sub display_recent_changes {
 	});
 	$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 
-	my $html = "<ul>\n";
+	my $html = '';
 	my $last_change_ref = undef;
 	my @cumulate_changes = ();
+	my $template_data_ref_changes = {};
+	my @changes;
+
+
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
 		my $change_hash = {
@@ -10602,6 +10535,8 @@ sub display_recent_changes {
 			diffs => $change_ref->{diffs}
 		};
 
+		my $changes_ref = {};
+
 		# security: Do not expose IP addresses to non-admin or anonymous users.
 		delete $change_hash->{ip} unless $admin;
 
@@ -10609,6 +10544,7 @@ sub display_recent_changes {
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
 
+		$changes_ref->{cumulate_changes} = @cumulate_changes;
 		if (defined $last_change_ref and $last_change_ref->{code} == $change_ref->{code}
 			and $change_ref->{userid} == $last_change_ref->{userid} and $change_ref->{userid} ne 'kiliweb') {
 
@@ -10618,24 +10554,29 @@ sub display_recent_changes {
 		}
 		elsif (@cumulate_changes > 0) {
 
-			$html.= "<details class='recent'><summary>" . lang('collapsed_changes') . "</summary>";
-			foreach (@cumulate_changes) {
-				$html.= display_change($_, compute_changes_diff_text($_));
-			}
-			$html.= "</details>";
+			my @cumulate_changes_display;
 
+			foreach (@cumulate_changes) {
+				push(@cumulate_changes_display, {
+					display_change => display_change($_, compute_changes_diff_text($_)),
+				});
+			}
+
+			$changes_ref->{cumulate_changes_display} = \@cumulate_changes_display;
 			@cumulate_changes = ();
 
 		}
-		$html.= display_change($change_ref, $diffs);
+
+		$changes_ref->{display_change} = display_change($change_ref, $diffs);
+		push(@changes, $changes_ref);
 
 		$last_change_ref = $change_ref;
 	}
 
-	# Display...
 
-	$html .= "</ul>";
-	$html .= "\n<hr>" . display_pagination($request_ref, $count, $limit, $page);
+	$template_data_ref_changes->{changes} = \@changes;
+	$template_data_ref_changes->{display_pagination} =  display_pagination($request_ref, $count, $limit, $page);
+	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html) || ($html .= 'template error: ' . $tt->error());
 
 	${$request_ref->{content_ref}} .= $html;
 	$request_ref->{title} = lang("recent_changes");

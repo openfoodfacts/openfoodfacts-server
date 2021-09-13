@@ -8824,6 +8824,7 @@ sv:pastöriserad vispgrädde
 <en:cream
 en:whipped cream
 ca:crema de llet montada, nata montada
+da:piskefløde
 de:Schlagsahne
 es:crema de leche montada
 fi:kermavaahto
@@ -13918,7 +13919,7 @@ et:sool, söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
 fi:suola, ruokasuola, kuivasuola, suolaa
-fr:sel, Sel alimentaire, sel de table, sel de cuisine, sel sec, sel comestible
+fr:sel, Sel alimentaire, sel de table, sel de cuisine, sel sec, sel comestible, gros sel
 ga:Salann
 gd:Salann
 gl:Sal común
@@ -17102,6 +17103,7 @@ fr:poitrine fumée
 <en:breast
 <en:pork meat
 en:pork breast
+da:brystflæsk
 de:Schweinebrust
 es:panceta de cerdo
 fi:Porsaan rinta
@@ -19231,6 +19233,10 @@ fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 it:Olio di palma idrogenato
 nl:geheel geharde palm
+<<<<<<< HEAD
+=======
+ro:unt de palmier complet hidrogenat
+>>>>>>> 0bae371ce76d1b59d5d0bdd392423e1de4526d23
 sl:popolnoma hidrogenirano palmino olje
 
 <en:hydrogenated palm oil
@@ -21777,6 +21783,31 @@ wikidata:en:Q455045
 wikipedia:en:https://en.wikipedia.org/wiki/Amaretto
 #ingredient/amaretto has 15 products in 4 languages @2018-12-21
 
+
+<en:liqueur
+ca:Limoncello
+cs:Limoncello
+de:Limoncello
+en:Limoncello
+es:Limoncello
+fi:Limoncello
+fr:Limoncello
+hu:Limoncello
+it:Limoncello
+ja:リモンチェッロ
+ko:리몬첼로
+lt:Limončelas
+nl:Limoncello
+no:Limoncello
+pl:Limoncello
+pt:Limoncello
+ru:Лимончелло
+sv:Limoncello
+zh:檸檬酒
+wikipedia:en:https://en.wikipedia.org/wiki/Limoncello
+wikidata:en:Q736208
+# https://world.openfoodfacts.org/cgi/search.pl?search_terms=limoncello&search_simple=1&action=process
+# 226 "Limoncello" via OFF search on 2021-01-11
 
 
 #<en:alcohol
@@ -26507,6 +26538,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Buckwheat
 wikidata:en:Q132734
 
 <en:buckwheat
+fr:sarrasin complet
+it:saraceno integrale
+
+<en:buckwheat
 fr:graines de sarrasin
 
 <en:buckwheat
@@ -28454,6 +28489,10 @@ fr:Son de maïs
 ciqual_food_code:en:9641
 ciqual_food_name:en:Maize/corn bran
 ciqual_food_name:fr:Son de maïs
+
+<en:soya flour
+fr:farine de soja degraissée
+ro:făină de soia degrasată, faina de soia degrasata
 
 <en:flour
 <en:corn
@@ -31866,7 +31905,7 @@ cs:sirup z invertního cukru
 de:Invertzuckersirup
 es:Jarabe de azúcar invertido
 fi:inverttisokerisiirappi, inverttisokerisiirappia
-fr:sirop de sucre inverti, sucre liquide inverti
+fr:sirop de sucre inverti, sucre liquide inverti, sucre inverti en sirop
 hu:invertcukor szirup, invertcukor-szirup, invertcukorszirup
 it:sciroppo di zucchero invertito
 lv:invertcukura sīrups

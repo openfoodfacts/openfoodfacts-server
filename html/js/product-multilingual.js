@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2020 Association Open Food Facts
+// Copyright (C) 2011-2021 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -400,16 +400,15 @@ $.fn.isVisible = function() {
   return $.expr.filters.visible(this[0]);
 };
 function update_nutrition_image_copy() {
-
 	// width big enough to display a copy next to nutrition table?
-  if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
-    $('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+	if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+		var position = $('html[dir=rtl]').length ? 'right' : 'left';
+		$('#nutrition_image_copy').css(position, $('#nutrition_data_table').width() + 10).show();
 	}
 	else {
 		$('#nutrition_image_copy').hide();
 	}
 }
-
 
 function update_display(imagefield, first_display) {
 

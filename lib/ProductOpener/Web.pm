@@ -62,6 +62,9 @@ BEGIN
 		&display_my_block
 		&display_product_search_or_add
 		&display_field
+		&display_data_quality_issues_and_improvement_opportunities
+		&display_data_quality_description
+		&display_knowledge_panel
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -88,7 +91,6 @@ sub display_blocks($)
 	return $html;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_my_block ( $blocks_ref )
 
@@ -139,7 +141,6 @@ sub display_my_block($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_login_register( $blocks_ref )
 
@@ -168,7 +169,6 @@ sub display_login_register($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_product_search_or_add ( $blocks_ref )
 
@@ -220,7 +220,6 @@ sub display_product_search_or_add($)
 	return;
 }
 
-=head1 FUNCTIONS
 
 =head2 display_product_search_or_add ( $product_ref, $field )
 
@@ -247,102 +246,194 @@ sub display_field($$) {
 
 	if ($field eq 'br') {
 		process_template('web/common/includes/display_field_br.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
-		return $html;
 	}
 
-	my $value = $product_ref->{$field};
+	# We will split the states field in 2 different fields: "to do" fields and "done" fields
+	elsif ($field eq 'states'){
 
-	# fields in %language_fields can have different values by language
-
-	if (defined $language_fields{$field}) {
-		if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
-			$value = $product_ref->{$field . "_" . $lc};
-			$value =~ s/\n/<br>/g;
-		}
-	}
-
-	if ($field eq 'states'){
-		my $to_do_status = '';
-		my $done_status = '';
-		my @to_do_status;
-		my @done_status;
+		my %states = (
+			to_do => [],
+			done => [],
+		);
 		my $state_items = $product_ref->{$field . "_hierarchy"};
 		foreach my $val (@{$state_items}){
-			if ( index( $val, 'empty' ) != -1 or $val =~ /(^|-)to-be-/sxmn ) {
-				push(@to_do_status, $val);
+			if ( index( $val, 'empty' ) != -1 or $val =~ /(en:|-)to-be-/sxmn ) {
+				push(@{$states{to_do}}, $val);
 			}
 			else {
-				push(@done_status, $val);
+				push(@{$states{done}}, $val);
 			}
 		}
-		$to_do_status = display_tags_hierarchy_taxonomy($lc, $field, \@to_do_status);
-		$done_status = display_tags_hierarchy_taxonomy($lc, $field, \@done_status);
 
-		$template_data_ref_field->{to_do_status} = $to_do_status;
-		$template_data_ref_field->{done_status} = $done_status;
-
-	}
-	elsif (defined $taxonomy_fields{$field}) {
-		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-	}
-	elsif (defined $hierarchy_fields{$field}) {
-		$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
-	}
-	elsif ((defined $tags_fields{$field}) and (defined $value)) {
-		$value = display_tags_list($field, $value);
-	}
-
-	$template_data_ref_field->{value_check} = $value;
-
-	if ((defined $value) and ($value ne '')) {
-		# See https://stackoverflow.com/a/3809435
-		if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
-			if ($value !~ /https?:\/\//) {
-				$value = 'http://' . $value;
-			}
-			my $link = $value;
-			$link =~ s/"|<|>|'//g;
-			my $link2 = $link;
-			$link2 =~ s/^(.{40}).*$/$1\.\.\./;
-			$value = "<a href=\"$link\">$link2</a>";
-		}
-		my $itemprop = '';
-		if (defined $itemprops{$field}) {
-			$itemprop = " itemprop=\"$itemprops{$field}\"";
-			if ($value =~ /<a /) {
-				$value =~ s/<a /<a$itemprop /g;
-			}
-			else {
-				$value = "<span$itemprop>$value</span>";
+		foreach my $status ('done', 'to_do') {
+			$template_data_ref_field->{field} = $status;
+			$template_data_ref_field->{name} = lang($status . "_status");
+			$template_data_ref_field->{value} = display_tags_hierarchy_taxonomy($lc, $field, $states{$status});
+			if ($template_data_ref_field->{value} ne "") {
+				my $html_status = '';
+				process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html_status) || return "template error: " . $tt->error();
+				$html .= $html_status;
 			}
 		}
-		my $lang_field = lang($field);
-		if ($lang_field eq '') {
-			$lang_field = ucfirst(lang($field . "_p"));
+	}
+
+	else {
+
+		my $value = $product_ref->{$field};
+
+		# fields in %language_fields can have different values by language
+
+		if (defined $language_fields{$field}) {
+			if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
+				$value = $product_ref->{$field . "_" . $lc};
+				$value =~ s/\n/<br>/g;
+			}
+		}
+		elsif (defined $taxonomy_fields{$field}) {
+			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+		}
+		elsif (defined $hierarchy_fields{$field}) {
+			$value = display_tags_hierarchy($field, $product_ref->{$field . "_hierarchy"});
+		}
+		elsif ((defined $tags_fields{$field}) and (defined $value)) {
+			$value = display_tags_list($field, $value);
 		}
 
-		$template_data_ref_field->{lang_field} = $lang_field;
-		$template_data_ref_field->{value} = $value;
+		if ((defined $value) and ($value ne '')) {
+			# See https://stackoverflow.com/a/3809435
+			if (($field eq 'link') and ($value =~ /[-a-zA-Z0-9\@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()\@:%_\+.~#?&\/\/=]*)/)) {
+				if ($value !~ /https?:\/\//) {
+					$value = 'http://' . $value;
+				}
+				my $link = $value;
+				$link =~ s/"|<|>|'//g;
+				my $link2 = $link;
+				$link2 =~ s/^(.{40}).*$/$1\.\.\./;
+				$value = "<a href=\"$link\">$link2</a>";
+			}
+			my $itemprop = '';
+			if (defined $itemprops{$field}) {
+				$itemprop = " itemprop=\"$itemprops{$field}\"";
+				if ($value =~ /<a /) {
+					$value =~ s/<a /<a$itemprop /g;
+				}
+				else {
+					$value = "<span$itemprop>$value</span>";
+				}
+			}
+			my $name = lang($field);
+			if ($name eq '') {
+				$name = ucfirst(lang($field . "_p"));
+			}
 
-		if ($field eq 'brands') {
-			my $brand = $value;
-			# Keep the first one
-			$brand =~ s/,(.*)//;
-			$brand =~ s/<([^>]+)>//g;
-			$product_ref->{brand} = $brand;
-		}
+			$template_data_ref_field->{name} = $name;
+			$template_data_ref_field->{value} = $value;
+			process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+		}	
+	}
 
-		if ($field eq 'categories') {
-			my $category = $value;
-			# Keep the last one
-			$category =~ s/.*,( )?//;
-			$category =~ s/<([^>]+)>//g;
-			$product_ref->{category} = $category;
+	return $html;
+}
+
+
+=head2 display_data_quality_issues_and_improvement_opportunities( $product_ref )
+
+Display on the product page a list of data quality issues, and of improvement opportunities.
+This is for the platform for producers.
+
+=cut
+
+sub display_data_quality_issues_and_improvement_opportunities($) {
+
+	my $product_ref = shift;
+
+	my $html = "";
+	my $template_data_ref_quality_issues = {};
+	my @tagtypes;
+
+	foreach my $tagtype ("data_quality_errors_producers", "data_quality_warnings_producers", "improvements") {
+
+		my $tagtype_ref = {};
+
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (scalar @{$product_ref->{$tagtype . "_tags"}} > 0)) {
+
+			$tagtype_ref->{tagtype_heading} = ucfirst(lang($tagtype . "_p"));
+			my @tagids;
+			my $description = '';
+
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+
+				if ($tagtype =~ /^data_quality/) {
+					$description = display_data_quality_description($product_ref, $tagid);
+				}
+				elsif ($tagtype eq "improvements") {
+					$description = display_possible_improvement_description($product_ref, $tagid);
+				}
+
+				push(@tagids, {
+					display_taxonomy_tag => display_taxonomy_tag($lc, $tagtype, $tagid),
+					properties => $properties{$tagtype}{$tagid}{"description:$lc"},
+					description => $description,
+				});
+
+			}
+
+			$tagtype_ref->{tagids} = \@tagids;
+			push(@tagtypes, $tagtype_ref);
 		}
 	}
 
-	process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html) || return "template error: " . $tt->error();
+	$template_data_ref_quality_issues->{tagtypes} = \@tagtypes;
+	process_template('web/common/includes/display_data_quality_issues_and_improvement_opportunities.tt.html', $template_data_ref_quality_issues, \$html) || return "template error: " . $tt->error();
+  
+  return $html;
+}
 
+
+=head2 display_data_quality_description( $product_ref, $tagid )
+
+Display an explanation of the data quality warning or error, using specific product data related to the warning.
+
+=cut
+
+sub display_data_quality_description($$) {
+
+	my $product_ref = shift;
+	my $tagid = shift;
+
+	my $html = "";
+	my $template_data_ref_quality = {};
+
+	$template_data_ref_quality->{tagid} = $tagid;
+	$template_data_ref_quality->{product_ref_nutriscore_score} = $product_ref->{nutriscore_score};
+	$template_data_ref_quality->{product_ref_nutriscore_score_producer} = $product_ref->{nutriscore_score_producer};
+	$template_data_ref_quality->{product_ref_nutriscore_grade_producer} = uc($product_ref->{nutriscore_grade_producer});
+	$template_data_ref_quality->{product_ref_nutriscore_grade} = uc($product_ref->{nutriscore_grade});
+
+	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html) || return "template error: " . $tt->error();
+
+	return $html;
+}
+
+
+=head2 display_knowledge_panel( $panels_ref, $panel_id )
+
+
+=cut
+
+sub display_knowledge_panel($$) {
+
+	my $panels_ref = shift;
+	my $panel_id = shift;
+
+	my $html = '';
+
+	my $template_data_ref = {
+		panels => $panels_ref,
+		panel_id => $panel_id,
+	};
+
+	process_template('web/panels/panel.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
 }
 

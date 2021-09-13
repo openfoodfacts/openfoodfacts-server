@@ -1,0 +1,34 @@
+name: Documentation
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  documentation:
+    name: Generate documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2.3.4
+
+      - name: Install Perl requirements
+        run: |
+          sudo apt-get update
+          sudo apt-get install perl perl-doc cpanminus libmodern-perl-perl
+
+      - name: "Setup local::lib"
+        run: |
+          cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+
+      - name: Run generate_perl_html_doc_from_pod.pl
+        run: |
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
+
+      - name: Deploy API documentation to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "gh-pages"
+          folder: html/files/doc/perl

@@ -31,7 +31,7 @@
                "description_short" : "Average nutritional quality",
                "icon_url" : "https://server_domain/images/attributes/nutriscore-c.svg",
                "id" : "nutriscore",
-               "match" : 45,
+               "match" : 47.3333333333333,
                "name" : "Nutri-Score",
                "status" : "known",
                "title" : "Nutri-Score C"
@@ -368,6 +368,7 @@
             "transportation_score_it" : 9.27272727272727,
             "transportation_score_lu" : 34.3636363636364,
             "transportation_score_nl" : 36.5454545454545,
+            "transportation_score_uk" : 54.5454545454545,
             "transportation_value_be" : 6,
             "transportation_value_ch" : 3,
             "transportation_value_de" : 4,
@@ -377,6 +378,7 @@
             "transportation_value_it" : 1,
             "transportation_value_lu" : 5,
             "transportation_value_nl" : 5,
+            "transportation_value_uk" : 8,
             "value_be" : 6,
             "value_ch" : 3,
             "value_de" : 4,
@@ -385,7 +387,8 @@
             "value_ie" : 6,
             "value_it" : 1,
             "value_lu" : 5,
-            "value_nl" : 5
+            "value_nl" : 5,
+            "value_uk" : 8
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 0,
@@ -445,6 +448,7 @@
       "grade_it" : "c",
       "grade_lu" : "b",
       "grade_nl" : "b",
+      "grade_uk" : "b",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
@@ -460,6 +464,7 @@
       "score_it" : 57,
       "score_lu" : 61,
       "score_nl" : 61,
+      "score_uk" : 64,
       "status" : "known"
    },
    "ecoscore_grade" : "b",
@@ -703,6 +708,7 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-computed",
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed",
       "en:forest-footprint-computed",

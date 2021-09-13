@@ -8,7 +8,7 @@ assignees: ''
 
 ---
 
-Epic: #
+- Epic: #
 
 ### Description
 <e.g. When tapping on the search box, Carla sees suggestions based on her search history to speed up the search process>
