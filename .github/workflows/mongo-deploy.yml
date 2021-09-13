@@ -2,7 +2,7 @@ name: MongoDB Image Deployment CI
 
 on:
   push:
-    branches: 
+    branches:
     - main
     paths:
     - docker/mongodb.yml
@@ -121,6 +121,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           make prune
 
   # deploy-script:
