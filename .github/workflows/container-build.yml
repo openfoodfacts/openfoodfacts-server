@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - deploy-*
+      - release-v*.*.*
     tags: 
       - v*.*.*
 
