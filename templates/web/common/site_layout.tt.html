@@ -294,6 +294,23 @@
 	"sameAs" : [ "[% lang("facebook_page") %]", "https://twitter.com/[% twitter_account %]"]
 }
 </script>
+
+[% IF lc == "ru" %]
+<script
+  type="text/javascript"
+  src="https://crowdin.com/js/crowdjet/crowdjet.js">
+</script>
+<div
+  id="crowdjet-container"
+  data-project-id="243092"
+  style="bottom: 90px; right: 20px;">
+</div>
+<div
+  id="crowdjet-expand-container"
+  style="bottom: 10px; right: 20px;">
+</div>
+[% END %]
+
 </body>
 </html>
 

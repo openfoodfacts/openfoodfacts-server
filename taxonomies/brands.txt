@@ -281,6 +281,7 @@ es:Goldhorn
 
 <de:Aldi Einkauf GmbH & Co. oHG
 es:GutBio, Gut Bio
+labels:en: en:organic
 
 <de:Aldi Einkauf GmbH & Co. oHG
 fr:Isali
@@ -2153,6 +2154,7 @@ barcodeprefix:325798
 barcodeprefix:302470
 
 es:Carrefour S.A.
+stores:en: fr:Carrefour
 
 <es:Carrefour S.A.
 es:Carrefour
@@ -2230,6 +2232,7 @@ fr:U maison
 fr:Club Vins & Terroirs
 
 fr:Monoprix
+stores:en: fr:Monoprix
 
 <fr:Monoprix
 fr:Monoprix Gourmet
@@ -2784,6 +2787,7 @@ de:EDEKA
 
 <de:Edeka Zentrale AG & Co. KG
 de:EDEKA BIO
+labels:en: en:organic
 
 <de:Edeka Zentrale AG & Co. KG
 it:EDEKA Italia
@@ -3271,6 +3275,7 @@ barcodeprefix:353756
 barcodeprefix:359671
 barcodeprefix:3660831
 barcodeprefix:3661121
+stores:en: fr:Auchan
 
 # I am not sure what to do with these two Russian chains, see https://ru.wikipedia.org/wiki/Auchan
 <fr:Auchan
@@ -4704,6 +4709,7 @@ es:EXQUISIT
 
 <de:Kaufland
 de:K-Bio
+labels:en: en:organic
 
 <de:Kaufland
 de:K-Classic
@@ -4994,6 +5000,7 @@ es:Legumbres Montes
 
 <de:Schwarz Beteiligungs GmbH
 de:Lidl Stiftung & Co. KG
+stores:en: xx:Lidl
 
 <de:Lidl Stiftung & Co. KG
 en:Alesto
@@ -5544,6 +5551,7 @@ es:Céréal, Cereal
 
 <de:Nutrinat AG
 es:Céréal Bio, Cereal Bio
+labels:en: en:organic
 
 <de:Nutrinat AG
 es:Gerblé, Gerble
@@ -5904,12 +5912,14 @@ Renting Steell S.A.
 es:Man Fong
 
 de:REWE-Zentral AG
+stores:en: de:REWE
 
 <de:REWE-Zentral AG
 de:REWE Beste Wahl
 
 <de:REWE-Zentral AG
 de:REWE Bio
+labels:en: en:organic
 
 <de:REWE-Zentral AG
 de:ja!
@@ -6012,7 +6022,6 @@ es:Maestranza
 
 <es:Sagra Holdings S.A.
 <es:Toksöz Grup
-
 
 <es:Sagra Holdings S.A.
 Sagra Investment Iberia S.L.U.
@@ -7127,6 +7136,7 @@ es:A.C.D. Lec
 
 <es:S.C. GALEC
 es:Bio Village
+labels:en: en:organic
 
 <es:S.C. GALEC
 es:Les Croises
@@ -7582,3 +7592,13 @@ barcodeprefix:4620016810
 
 <ru:ООО «УК «Альянс-Менеджмент»
 ru:ОАО «Молоко»
+
+fr:Migros Bio
+labels:en: en:organic
+stores:en: fr:Migros
+
+fr:DM Bio, DMBio
+labels:en: en:organic
+
+fr:Babybio
+labels:en: en:organic

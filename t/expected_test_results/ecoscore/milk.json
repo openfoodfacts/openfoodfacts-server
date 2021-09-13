@@ -14,7 +14,7 @@
             "epi_score" : 93,
             "epi_value" : 4,
             "origins_from_origins_field" : [
-               "en:france"
+               "en:unknown"
             ],
             "transportation_score_be" : 85,
             "transportation_score_ch" : 69,
@@ -25,6 +25,7 @@
             "transportation_score_it" : 47,
             "transportation_score_lu" : 82,
             "transportation_score_nl" : 77,
+            "transportation_score_uk" : 68,
             "transportation_value_be" : 13,
             "transportation_value_ch" : 10,
             "transportation_value_de" : 9,
@@ -34,6 +35,7 @@
             "transportation_value_it" : 7,
             "transportation_value_lu" : 12,
             "transportation_value_nl" : 12,
+            "transportation_value_uk" : 10,
             "value_be" : 17,
             "value_ch" : 14,
             "value_de" : 13,
@@ -42,7 +44,8 @@
             "value_ie" : 11,
             "value_it" : 11,
             "value_lu" : 16,
-            "value_nl" : 16
+            "value_nl" : 16,
+            "value_uk" : 14
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 0,
@@ -108,6 +111,7 @@
       "grade_it" : "b",
       "grade_lu" : "b",
       "grade_nl" : "b",
+      "grade_uk" : "b",
       "score" : 63,
       "score_be" : 79,
       "score_ch" : 77,
@@ -118,6 +122,7 @@
       "score_it" : 74,
       "score_lu" : 79,
       "score_nl" : 79,
+      "score_uk" : 77,
       "status" : "known"
    },
    "ecoscore_grade" : "b",
@@ -128,6 +133,7 @@
    "ingredients" : [
       {
          "id" : "en:milk",
+         "origins" : "en:brittany",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -158,22 +164,20 @@
       "en:milk",
       "en:dairy"
    ],
-   "ingredients_text" : "Lait",
+   "ingredients_text" : "Lait (origine : Bretagne)",
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "en:eu-organic"
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-no-missing-data",
       "en:ecoscore-computed"
    ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
    },
-   "origins_tags" : [
-      "en:france"
-   ],
    "packaging_text" : "1 bouteille en plastique PET, 1 bouchon PEHD",
    "packagings" : [
       {

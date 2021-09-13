@@ -5505,6 +5505,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Details of the impacts by stages of the life cycle"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "Stage"
@@ -5555,7 +5556,7 @@ msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "Additional bonuses and maluses"
 
-msgctxt "ecoscore_production_mode"
+msgctxt "ecoscore_production_system"
 msgid "Production mode"
 msgstr "Production mode"
 
@@ -5567,9 +5568,9 @@ msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 
-msgctxt "ecoscore_origin_of_ingredients"
-msgid "Origin of ingredients"
-msgstr "Origin of ingredients"
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr "Origins of ingredients"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5695,3 +5696,32 @@ msgstr "Protect the data that is provided by the organization."
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "This product's packaging has an high impact on the environment."
+msgstr "This product's packaging has an high impact on the environment."
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "This product's packaging has an average impact on the environment."
+msgstr "This product's packaging has an average impact on the environment."
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "This product's packaging has a low impact on the environment."
+msgstr "This product's packaging has a low impact on the environment."
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "The information about this product's packaging is missing."
+msgstr "The information about this product's packaging is missing."
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr "medium"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr "%s g / 100 g"

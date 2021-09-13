@@ -1765,6 +1765,7 @@ sub extract_text_from_image($$$$$) {
 		$request->content( $json );
 
 		my $res = $ua->request($request);
+		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
 
 		if ($res->is_success) {
 

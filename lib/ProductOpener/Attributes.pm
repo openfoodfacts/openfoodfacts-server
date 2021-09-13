@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2021 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -487,42 +487,44 @@ sub compute_attribute_nutriscore($$) {
 			}
 			elsif ($nutrition_score <= 1) {
 				# Grade B
-				$match = 80 - ($nutrition_score - (- 15)) / (1 - (- 15)) * 20;
+				# If the nutrition score is at the lowest limit (-15), make the match 80
+				# if the nutrition score is at the highest limit (1), make the match 61
+				$match = 80 - ($nutrition_score - (- 15)) / (1 - (- 15)) * 19;
 			}
 			elsif ($nutrition_score <= 5) {
 				# Grade C
-				$match = 60 - ($nutrition_score - 1) / (5 - 1) * 20;
+				$match = 60 - ($nutrition_score - 1) / (5 - 1) * 19;
 			}
 			elsif ($nutrition_score <= 9) {
 				# Grade D
-				$match = 40 - ($nutrition_score - 5) / (9 - 5) * 20;
+				$match = 40 - ($nutrition_score - 5) / (9 - 5) * 19;
 			}
 			else {
 				# Grade E
-				$match = 20 - ($nutrition_score - 9) / (40 - 9) * 20;
+				$match = 20 - ($nutrition_score - 9) / (40 - 9) * 19;
 			}
 		}
 		else {
 
 			if ($nutrition_score <= -1) {
 				# Grade A
-				$match = 100 - ($nutrition_score - (- 15)) / (-1 - (- 15)) * 20;
+				$match = 100 - ($nutrition_score - (- 15)) / (-1 - (- 15)) * 19;
 			}
 			elsif ($nutrition_score <= 2) {
 				# Grade B
-				$match = 80 - ($nutrition_score - (- 1)) / (2 - (- 1)) * 20;
+				$match = 80 - ($nutrition_score - (- 1)) / (2 - (- 1)) * 19;
 			}
 			elsif ($nutrition_score <= 10) {
 				# Grade C
-				$match = 60 - ($nutrition_score - 2) / (10 - 2) * 20;
+				$match = 60 - ($nutrition_score - 2) / (10 - 2 + 1) * 19;
 			}
 			elsif ($nutrition_score <= 18) {
 				# Grade D
-				$match = 40 - ($nutrition_score - 10) / (18 - 10) * 20;
+				$match = 40 - ($nutrition_score - 10) / (18 - 10 + 1) * 19;
 			}
 			else {
 				# Grade E
-				$match = 20 - ($nutrition_score - 18) / (40 - 18) * 20;
+				$match = 20 - ($nutrition_score - 18) / (40 - 18) * 19;
 			}
 		}
 		
@@ -1120,7 +1122,10 @@ sub compute_attribute_nutrient_level($$$$) {
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
-				$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
+				$attribute_ref->{description_short} = sprintf(
+					lang_in_other_lc($target_lc, 'g_per_100g'),
+					(sprintf('%.2e', $product_ref->{nutriments}{$nid . $prepared . '_100g'}) + 0.0)
+				);
 			}
 		}
 	}

@@ -118,7 +118,7 @@
 	
 	<div class="small-12 large-6 columns">
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_production_system" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('agriculture') %] [% lang('ecoscore_production_mode') %]</h4>
+	<h4>[% display_icon('agriculture') %] [% lang('ecoscore_production_system') %]</h4>
 	
 	[% IF adjustments.production_system.value %]
 		<p><strong>[% display_taxonomy_tag("labels",adjustments.production_system.label) %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
@@ -138,7 +138,7 @@
 	
 	<div class="small-12 large-6 columns">	
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_origins" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('public') %] [% lang('ecoscore_origin_of_ingredients') %]</h4>
+	<h4>[% display_icon('public') %] [% lang('ecoscore_origins_of_ingredients') %]</h4>
 	
 	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
 		<ul>

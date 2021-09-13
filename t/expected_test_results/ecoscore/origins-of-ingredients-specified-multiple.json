@@ -45,6 +45,7 @@
             "transportation_score_it" : 26.6,
             "transportation_score_lu" : 39.8,
             "transportation_score_nl" : 39.8,
+            "transportation_score_uk" : 33.2,
             "transportation_value_be" : 7,
             "transportation_value_ch" : 5,
             "transportation_value_de" : 7,
@@ -54,6 +55,7 @@
             "transportation_value_it" : 4,
             "transportation_value_lu" : 6,
             "transportation_value_nl" : 6,
+            "transportation_value_uk" : 5,
             "value_be" : 9,
             "value_ch" : 7,
             "value_de" : 9,
@@ -62,7 +64,8 @@
             "value_ie" : 7,
             "value_it" : 6,
             "value_lu" : 8,
-            "value_nl" : 8
+            "value_nl" : 8,
+            "value_uk" : 7
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
@@ -107,6 +110,7 @@
       "grade_it" : "c",
       "grade_lu" : "c",
       "grade_nl" : "c",
+      "grade_uk" : "c",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
@@ -122,6 +126,7 @@
       "score_it" : 41,
       "score_lu" : 43,
       "score_nl" : 43,
+      "score_uk" : 42,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
@@ -198,6 +203,7 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],

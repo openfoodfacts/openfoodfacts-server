@@ -1332,7 +1332,18 @@ sub build_tags_taxonomy($$$) {
 
 				if (defined $canon_tagid) {
 					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
-					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+
+					# If the property name matches the name of an already loaded taxonomy,
+					# canonicalize the property values for the corresponding synonym
+					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
+					# we can map it to en:stabilizer (the canonical name in the additives_classes taxonomy)
+					if (exists $translations_from{$property}) {
+						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = join(",",
+							map(canonicalize_taxonomy_tag($lc,$property, $_), split(/\s*,\s*/, $line)));
+					}
+					else {
+						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+					}	
 				} else {
 					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : " . substr($line, 0, 50) . "...\n";
 				}
@@ -1877,12 +1888,12 @@ sub gen_tags_hierarchy($$) {
 	my $tags_list = shift;    # comma-separated list of tags, not in a specific order
 
 	if (not (defined $tags_all_parents{$lc}) and (defined $tags_all_parents{$lc}{$tagtype})) {
-		return (split(/(\s*),(\s*)/, $tags_list));
+		return (split(/\s*,\s*/, $tags_list));
 	}
 
 	my %tags = ();
 
-	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
 		my $tag = $tag2;
 		$tag = canonicalize_tag2($tagtype, $tag);
 		my $tagid = get_string_id_for_lang($lc, $tag);
@@ -1924,14 +1935,14 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
-		return (split(/(\s*),(\s*)/, $tags_list));
+		return (split(/\s*,\s*/, $tags_list));
 	}
 
 	my %tags = ();
 
 	my $and = $and{$tag_lc} || " and ";
 
-	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
 		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
@@ -1995,13 +2006,13 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 
 	if (not defined $all_parents{$tagtype}) {
 		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
-		return (split(/(\s*),(\s*)/, $tags_list));
+		return (split(/\s*,\s*/, $tags_list));
 	}
 
 	my @tags = ();
 	my %seen = ();
 
-	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
 		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {

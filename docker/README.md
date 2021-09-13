@@ -1,32 +1,29 @@
 # Product Opener on Docker
 
-This directory contains some experimental files for running Product Opener on [Docker](https://docker.com).
+This directory contains `docker-compose` overrides for running Product Opener on [Docker](https://docker.com).
+The main docker-compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
+
+The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/installation/dev-environment-quick-start-guide.md).
 
 ## Docker Compose
 
-### Image from Docker Hub
+### Makefile commands
 
-Just run `docker-compose up` in this directory to run a pre-built image and start the process. This spins up an application container for the backend, an nginx container that acts as a reverse proxy for static files, and a MongoDB container for storage. You can also deploy OFF to Docker Swarm with `docker stack deploy -c docker-compose.yml`.
-
-### Local development
-
-Alternatively, run `docker-compose -f ./docker-compose.yml -f ./docker-compose.dev.yml build backend` once, and then you can run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `npm install && npm run build`, or you will experience missing assets.
-
-Note: You can also build the frontend assets inside docker. See `build_npm.bat` or `build_npm.sh` for more information about this. If you want to use geolocation, you need to update `docker-compose.geolite2.yml` with your [MaxMind Account](https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/) and license information, and include it in the call to `docker-compose`.
-
-The step by step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/installation/dev-environment-quick-start-guide.md).
-
-### Accessing Product Opener
-
-In this Docker image, Product Opener is configured to run on [localhost](http://world.productopener.localhost/). You may need to add this and other subdomains to your `hosts` file (see your operating system's documentation) to access it.
-
-### Connect to MongoDB
-
-If you want to have a look at the running MongoDB database, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec mongodb mongo`.
-
-### Import sample dataset
-
-By default, the container comes without a dataset, because it is intended to be used to run any Product Opener instance in a production cluster. If you require sample data for local development, you can import an extract from [OpenFoodFacts](https://world.openfoodfacts.org) with `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend /opt/scripts/import_sample_data.sh`.
+| Command                   | Description                                                                            | Notes                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make up`                 | Start containers.                                                                      |                                                               |
+| `make down`               | Stop containers.                                                                       |                                                               |
+| `make hdown`              | Stop containers and delete the volumes (hard stop).                                    | All products and users data will be lost !                    |
+| `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
+| `make status`             | Get containers status (up, down, fail).                                                |                                                               |
+| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`).           |
+| `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
+| `make prune`              | Save space by removing unused Docker artifacts.                                        | Next build will take time (no cache) !                        |
+| `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |
+| `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
+| `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
+| `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
 
 ## Kubernetes
 

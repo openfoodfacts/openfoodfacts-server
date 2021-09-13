@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - dbdata:/var/lib/mongodb
+    ports:
+      - 27017:27017
+volumes:
+  dbdata:
+    external: true
