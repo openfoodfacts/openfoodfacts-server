@@ -1,12 +1,12 @@
-name: Pull Request
+name: Pull Requests
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   gulp:
+    name: Gulp
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -19,6 +19,7 @@ jobs:
     - run: npm run build
 
   lint:
+    name: NPM lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,6 +32,7 @@ jobs:
     - run: npm run lint
 
   test:
+    name: Perl unit tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

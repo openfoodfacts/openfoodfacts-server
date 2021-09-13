@@ -428,8 +428,6 @@ $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:tea-bags
-	en:herbal-teas
 )];
 
 # categories that are considered as beverages
@@ -440,6 +438,10 @@ $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:herbal-tea-beverages
 	en:coffee-beverages
 	en:coffee-drinks
+
+	en:coffees
+	en:herbal-teas
+	en:teas		
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -448,9 +450,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:baby-foods
 	en:baby-milks
 	en:chewing-gum
-	en:coffees
 	en:food-additives
-	en:herbal-teas
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -459,6 +459,13 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:pet-food
 	en:non-food-products
 )];
+
+#	Coffees, teas and herbal teas can have a Nutri-Score if they have
+#	a nutrition facts table
+#
+#	en:coffees
+#	en:herbal-teas
+#	en:teas	
 
 # exceptions
 $options{categories_not_exempted_from_nutriscore} = [qw(

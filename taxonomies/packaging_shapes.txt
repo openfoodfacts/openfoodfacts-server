@@ -6,9 +6,9 @@ hu:Ismeretlen
 pt:Desconhecido
 
 # Use singular as the main name, and add plural as synonym
-en:Tray, trays
+en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
-fr:Barquette, barquettes
+fr:Barquette, barquettes, Plateau
 hu:Tálca, tálcák
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
@@ -25,10 +25,15 @@ en:Box, boxes
 de:Kasten
 el:Κουτί
 nl:Boos
-fr:Boîte, boîtes
+fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
-it:Scatola
+it:Scatola, scatole
 pt:Caixa, caixas
+
+en:Case, cases
+fr:Caisse, caisses, caissette, caissettes
+it:Cassa, casse
+pt:Engradado, engradados
 
 en:Bottle, bottles
 da:Flaske, flasker
@@ -91,16 +96,23 @@ fr:pot individuel, pots individuels
 hu:külön edény, külön fazék
 pt:Pote individual, potes individuais, boião individual, boiões individuais
 
+en:Tumbler
+fr:Gobelet
+
 en:Tube, tubes
 de:Tube, Tuben
 fr:Tube, tubes
 hu:Tubus, tubusok, Cső, csövek, cső alakú
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 
-en:Fastener, clip, tie
+en:Fastener, clip
 fr:Attache
 hu:Rögzítő, kapocs, csipesz
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
+
+en:Tie
+fr:Lien
+weight:en:light
 
 en:Bag, bags
 da:Taske, tasker
@@ -112,8 +124,8 @@ it:Sacco
 nl:Zak
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
-en:Crate
-fr:Cagette, cageot
+en:Crate, crates
+fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
 pt:Caixote, caixotes
 
@@ -124,16 +136,17 @@ fr:Sachet individuel, Sachets individuels
 hu:Külön zacskó, egyenkénti zacskó, külön tasak, egyenként zacskózott
 pt:Saco individual, sacos individuais, saquinho individual, saquinhos individuais, saqueta individual, saquetas individuais
 
-en:Flask, flasks
-fr:Gourde, gourde individuelle, gourdes individuelles
+en:Pouch flask, doypack, pouch
+fr:Gourde, gourde individuelle, gourdes individuelles, doypack, pouch
 hu:Flakon, Kulacs, flaska
 it:Borraccia
 pt:Frasco, frascos
 
-en:Sleeve, sleeves
-fr:Étui, étuis
+en:Sleeve, sleeves,  sheath, outer open-end box
+fr:Étui, étuis, Fourreau, Cavalier
 hu:haskötő
 pt:Manga, mangas
+#suggest:packaging_materials:en: en:metal, en:paper, en:carboard, en:other
 
 en:Mold
 fr:Moule
@@ -176,6 +189,7 @@ de:Essstäbchen
 fr:Baguettes
 hu:evőpálcikák, evőpálkcika
 pt:Pauzinhos chineses, palitinhos, hashi
+#suggest:packaging_materials:en: en:plastic, en:wood
 
 <en:Eating utensils
 en:Knife, knives
@@ -223,6 +237,8 @@ de:Netz
 fr:Filet, filets
 hu:Háló, hálók
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
+#suggest:packaging_materials:en: en:metal, en:other
+# related_categories:en: en:Fresh garlic
 
 en:Film, wrap, films, wraps, film wrap, film wraps
 da:Film
@@ -246,12 +262,12 @@ fr:Emballage de regroupement, emballages de regroupement
 hu:Csoportosító csomag, egyesítő csomag
 pt:Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embalagens de agrupagem, embalagem agrupadora, embalagens agrupadoras
 
-en:Seal, operculum, seals
+en:Seal, operculum, seals, peel-off lid
 de:Deckel
 fr:Opercule, opercules
 hu:zárófedő
 pt:Tampo, tampos
-weight:en:light
+# weight:en:light
 
 en:bulk, without packaging
 da:uden emballage
@@ -277,9 +293,130 @@ fr:Batonnet, bâtonnets
 hu:rúd, rudak
 pt:Paus, pauzinhos, varetas de madeira
 
+en:Cosmetic stick
+fr:Stick cosmétique
+# related_categories:en: en:lipstick, en:deodorant
+# different - do not merge
+
 en:label, labels
 de:Etikett, Etiketten
 fr:étiquette, étiquettes
 hu:címke, címkék
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
+#suggest:packaging_materials:en: en:paper, en:carboard, en:other
+
+en:Applicator
+fr:Applicateur
+#suggest:packaging_materials:en: en:plastic, en:cardboard
+
+en:Bag-in-box
+fr:Bag-in-box, Cubitainer
+
+en:strip, band
+fr:Bandelette
+#suggest:packaging_materials:en: en:plastic, en:metal, en:carboard, en:other
+
+en:Ampoule, ampul, ampule
+fr:Ampoule
+#suggest:packaging_materials:en: en:glass
+
+en:Blister, Blister pack
+fr:Blister
+
+#en:shell with cardboard backing
+#fr:coque avec chevalet carton
+
+en:Roll, mandrel
+fr:Rouleau, Bobine, Mandrin
+
+en:Canister
+fr:Bombonne
+# related_categories:en: en:Waters
+
+en:neck seal
+fr:Collerette
+
+en:Wire cage and cap
+fr:Muselet, Muselet et plaque
+#goes_with:en:glass bottle
+# related_categories:en: en:Champagnes
+
+en:hanger
+fr:Cintre
+# related_categories:en: en:Clothes
+
+en:Wedge, corner piece
+fr:Cale, Coin, Cornière
+#suggest:packaging_materials:en: en:plastic, en:cardboard, en:metal, en:other
+
+# close to bottle, but also ampoule is translated to vial by citeo
+en:Vial, flask
+fr:Flacon
+
+en:Clamping ring
+fr:Collier
+
+en:wrapper, wrapping
+fr:enveloppage
+#suggest:packaging_materials:en: en:metal, en:paper, en:other
+
+en:envelope
+fr:enveloppe
+#suggest:packaging_materials:en: en:cardboard, en:paper
+
+en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
+fr:ficelle, ficelles, ruban, rubans
+
+en:individual dose, Individual capsule
+fr:dose invididuelle
+#suggest:packaging_materials:en: en:paper, en:cardboard, en:other
+
+en:Protection cover
+fr:Housse, housses, housse de protection, housses de protection
+
+en:pump bottle, spray, spray bottle, applicator bottle
+fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+#suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+
+en:Aerosol can, aerosol cans
+fr:Aérosol, aérosols
+packaging_materials:en: en:plastic, en:metal
+
+en:Ball flask, Roll-on bottle
+fr:Flacon à bille, Roll
+#suggest:packaging_materials:en: en:plastic, en:glass
+
+en:Basket, baskets
+fr:Panier, paniers
+
+en:Syringe, syringes,
+fr:Seringue, seringues
+
+en:Wings, Hygiene wings
+fr:Ailettes
+#suggest:packaging_materials:en: en:plastic, en:paper
+
+en:Bucket, buckets
+fr:Seau, seaux
+#suggest:packaging_materials:en: en:plastic, en:metal
+
+# CITEO only translates it by pot
+en:Terrine pot, terrine pots
+fr:Terrine, terrines
+#suggest:packaging_materials:en: en:stoneware, en:ceramic
+
+en:Barrel, barrels, drum, drums, keg, kegs
+fr:Tonneau, tonneaux, tonnelet, tonnelets
+#suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
+
+en:Bubble wrap
+fr:Film à bulles
+
+en:Cartridge, cartridges
+fr:Cartouche, cartouches
+
+#fr:Bac
+#fr:Bidon
+#fr:Caisse
+#fr:Coupelle
