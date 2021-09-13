@@ -6,6 +6,7 @@ on:
     - main
     paths:
     - docker/mongodb.yml
+    - .github/workflows/mongo-deploy.yml
 
 jobs:
   deploy-docker:
