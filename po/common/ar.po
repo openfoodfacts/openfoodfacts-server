@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:28\n"
+"PO-Revision-Date: 2021-09-11 17:30\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -513,7 +513,7 @@ msgstr "حذف:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "تبرع لحقائق الغذاء المفتوحة"
+msgstr "تبرع ل Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -2109,7 +2109,7 @@ msgstr "قطعة مبعثرة"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>معرفة المزيد عن<<site_name>> الرسوم البيانية:<a href=\"/graphs-in-3-clicks\">الرسوم البيانية من خلال 3 نقرات</a>(مدونة).</p>"
+msgstr "<p>معرفة المزيد عن<<site_name>> الرسوم البيانية:<a href="/graphs-in-3-clicks">الرسوم البيانية من خلال 3 نقرات</a>(مدونة).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2339,7 +2339,7 @@ msgstr "تسجيل الخروج"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "مكونات, قيمة غذائية و معلومات حول المنتجات الغذائية في العالم الكل في قاعدة بيانات حرة و مفتوحة"
+msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمكونات وحقائق التغذية ومعلومات عن المنتجات الغذائية من جميع أنحاء العالم"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2347,7 +2347,7 @@ msgstr "Open Food Facts"
 
 msgctxt "logo_site_name"
 msgid "Open Food Facts logo"
-msgstr "شعار الحقائق الغذائية المفتوحة"
+msgstr "Open Food Facts logo"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -3189,7 +3189,7 @@ msgstr "ساعد في ترجمة %s إلى %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "يمكنك اقتراح ترجمات للإدخالات أدناه التي لم تتم ترجمتها إلى لغتك بعد. يظهر الرابط الأزرق والنص الأسود (كلاهما باللغة الإنجليزية) على التوالي المنتج غير المترجم والإدخال الأصلي متضمنًا. المرادفات الاختيارية مفصولة بفواصل. أدخل الترجمة في حقل النص ، بما في ذلك. المرادفات الاختيارية ، ثم انقر فوق زر الحفظ. شكرا لك!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3781,15 +3781,15 @@ msgstr "استيراد صور المنتج"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "يمكنك استخدام النموذج أدناه لتحميل الصور بسهولة (أمام المنتج وقائمة المكونات وجدول حقائق التغذية) للعديد من المنتجات."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "يجب أن يحتوي كل اسم ملف على الباركود الخاص بالمنتج."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "ويمكنك أيضًا تحديد نوع الصورة في اسم الملف:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
@@ -3813,15 +3813,15 @@ msgstr ""
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "إضافة صور..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "بدء التحميل"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "بدء"
 
 msgctxt "close"
 msgid "Close"
@@ -3829,15 +3829,15 @@ msgstr "إغلق"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "إلغاء التحميل"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "معلومات"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "تم استلام الملف"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
@@ -3845,19 +3845,19 @@ msgstr "تفاصيل احتساب Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يعتبر هذا المنتج مشروبًا لحساب Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "لا يعتبر هذا المنتج مشروبًا لحساب Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "نقاط إيجابية"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "نقاط سلبية"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -4044,11 +4044,11 @@ msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "رجاء تبرع"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "الاستهلاك المفرط للكحول ضار بالصحة ، لذا يجب تناولها باعتدال."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4134,7 +4134,7 @@ msgstr ""
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "إزالة جميع المنتجات"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4195,7 +4195,7 @@ msgstr ""
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "اختياري"
 
 msgctxt "teams_p"
 msgid "teams"
@@ -4262,7 +4262,7 @@ msgstr ""
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "منتجات"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
@@ -4271,11 +4271,11 @@ msgstr "إذا كان لهذا المنتج قائمة مكونات في %s، ف
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "باركود مفقود"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "باركود غير صالح"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -5352,6 +5352,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr ""
@@ -5402,7 +5403,7 @@ msgstr ""
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "حالة المنتَج"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5414,7 +5415,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "أصول المكونات"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5547,26 +5548,30 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "تغليف هذا المنتج له تأثير كبير على البيئة."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "تغليف هذا المنتج له تأثير متوسط على البيئة."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "تغليف هذا المنتج له تأثير ضئيل على البيئة."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
-msgstr ""
+msgstr "المعلومات حول تغليف هذا المنتج مفقودة."
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "متوسط"
 
 msgctxt "impact"
 msgid "impact"
-msgstr ""
+msgstr "تأثير"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "ملحوظة: النتيجة الغذائية Nutri-Score للشاي أو شاي الأعشاب مقاسة على أساس تحضير المنتج بالماء فقط، بدون سكر أو حليب."
 

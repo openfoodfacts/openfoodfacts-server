@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-06 20:16\n"
+"PO-Revision-Date: 2021-09-11 17:30\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -92,7 +92,13 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openbeautyfacts.org/legal\">قانوني</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">شروط الاستخدام</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/who-we-are\">من نحن</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/faq\">أسئلة متكررة</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">منتدى الأفكار</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">مدونة</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">الصحافة والمدونات</a>\n"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -104,7 +110,7 @@ msgstr "شامبو ضد القشرة، معجون أسنان مبيِّض"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -120,20 +126,20 @@ msgstr "قاعدة بيانات معاونة و مجانية و مفتوحة ع�
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openbeautyfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openbeautyfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "شامبو ضد القشرة"
 
 msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "مضاد للتعرق للحماية من الإجهاد"
 
 #. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -154,7 +160,7 @@ msgstr "البحث عن منتج"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "أكوا / ماء ، كبريتات لوريث الصوديوم ، ديسوديوم كوكامفودياسيتات ، جليكول ديستيرات ، كوكاميد أحادي أمين الإيثانول"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"

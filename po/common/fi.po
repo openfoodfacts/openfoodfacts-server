@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-07 16:31\n"
+"PO-Revision-Date: 2021-09-11 13:32\n"
 "Language-Team: Finnish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -601,7 +601,7 @@ msgstr "Jäljitettävyyskoodi"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Jäljitettävyyskoodi"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5351,6 +5351,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Yksityiskohtaiset tiedot vaikutuksista elinkaaren eri vaiheissa"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "Vaihe"
@@ -5567,5 +5568,9 @@ msgstr ""
 
 msgctxt "impact"
 msgid "impact"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
 msgstr ""
 
