@@ -21033,7 +21033,13 @@ fi:hanhenrasva
 fr:graisse d'oie
 hu:libazsír
 it:grasso d'oca
-# ingredient/fr:graisse-d’oie has 99 products in 4 languages @2019-03-01
+nl:ganzenvet
+ru:гусиный жир
+ciqual_food_code:en:16560
+ciqual_food_name:en:Goose fat
+ciqual_food_name:fr:Graisse d'oie
+wikidata:en:Q68187377
+# 146 in 5 @2021-09-12
 
 
 
@@ -29324,22 +29330,21 @@ hu:rizsfehérje
 en:whole rice protein
 de:Vollkornreisprotein
 
-# comment:en:organic is an independent aspect of all rices
 <en:rice
-en:organic rice
-de:Bio Reis
-es:arroz biológico
-fi:luomuriisi, luomu riisi, luomuriisistä
-fr:riz bio
-hu:bio rizs
-it:riso bio
-nl:biorijst
-ru:Органический рис
+#en:organic rice
+#de:Bio Reis
+#es:arroz biológico
+#fi:luomuriisi, luomu riisi, luomuriisistä
+#fr:riz bio
+#hu:bio rizs
+#it:riso bio
+#nl:biorijst
+#ru:Органический рис
 # ingredient/fr:riz-bio has 12 products in 4 languages @2019-05-25
 
-<en:organic rice
-en:superior quality organic rice
-fr:riz qualité supérieure issu de l'agriculture biologique
+#<en:organic rice
+#en:superior quality organic rice
+#fr:riz qualité supérieure issu de l'agriculture biologique
 
 # comment:en:The origin of rice is an independent aspect and can be present for all rice entries.
 <en:rice
@@ -29359,40 +29364,93 @@ ro:orez italian
 # comment:en:Parboiled rice is an independent aspect and can be present for all rice entries.
 <en:rice
 en:parboiled rice
-de:Parboiled Reis
-es:Arroz precocido
+de:parboiled Reis
+es:arroz precocido
 fi:parboil-käsitelty riisi
 fr:riz étuvé, riz parboiled
 hu:forrázott rizs, előfőzött rizs
 it:riso parboiled
-nl:voorgekookte rijst
-# ingredient/fr:riz-parboiled has 3 products in 3 languages @2018-12-19
+nl:parboiled rijst, voorgekookte rijst
+pl:ryż preparowany termicznie
+pt:arroz parboilizado. arroz estufado
+ciqual_food_code:en:9101
+ciqual_food_name:en:Rice, parboiled, raw
+ciqual_food_name:fr:Riz blanc étuvé, cru
+# 1087 in 10 @2021-09-12
 
 <en:rice
+en:glutinous rice
+ar:الأرز الدبق
+as:বৰা
+bn:চটচটে চাল
+ca:arròs glutinós
+cs:lepkavá rýže
+da:klæberis
+de:Klebreis, klebrigen Reis
+eo:glueca rizo
+es:arroz glutinoso, arroz pegajoso
+eu:arroz likatsu
+fa:برنج چسبناک
+fi:tahmea riisi
 fr:riz gluant
-# ingredient/fr:riz-gluant has 120 products in french @2018-12-19
+gl:arroz glutinoso
+he:אורז דביק
+hu:ragacsos rizs
+id:beras ketan
+it:riso glutinoso
+ko:찹쌀
+lo:ເຂົ້າຫນຽວ
+lv:lipīgie rīsi
+ms:pulut
+my:ကောက်ညှင်း
+nb:kleberis
+nl:plakrijst, kleverige rijst, kleefrijst
+pl:ryż kleisty
+pt:arroz glutinoso, arroz empapado
+ru:kлейкий рис
+su:béas ketan
+sv:klibbris
+th:ข้าวเหนียว
+tl:malagkit
+tr:yapışkan pirinç
+uk:kлейкий рис
+vi:gạo nếp
+zh:糯稻
+wikidata:en:Q115443
+# 174 in 11 @2021-09-13
 
 ########################### PROCESSING STAGES OF RICES #######################
 
 <en:rice
 fr:riz semi-complet
 
+#category/brown-rices
 <en:rice
-en:brown rice, full grain rice, wholegrain rice
-da:Brune ris
-de:Vollkornreis
+en:brown rice, full grain rice, wholegrain rice, whole rice, whole grain brown rice
+ar: أرز أسمر
+bg:кафяв пълнозърнест ориз
+ca:arròs integral
+cs:celozrnná rýže, hnědá rýže
+da:brune ris
+de:Vollkornreis, brauner Vollkornreis
 es:arroz integral
-fi:tumma riisi, täysjyväriisi
-fr:riz complet, riz brun
-hu:barna rizs, barnarizs, teljes kiőrlésű rizs
+fi:tumma riisi, täysjyväriisi, ruskea kokojyväriisi
+fr:riz complet, riz brun, riz brun complet
+hu:barna rizs, barnarizs, teljes kiőrlésű rizs, teljes értékű rizs
 it:riso integrale
 ja:玄米
-nl:Volkorenrijst
-pl:Ryż brązowy
-ru:Коричневый рис
-sv:råris
-# ingredient/fr:riz-complet has 253 products in 4 languages @2018-12-19
-# ingredient/fr:riz-brun has 39 products @2019-05-30
+nl:zilvervliesrijst, volkorenrijst, bruine rijst
+nn:brune fullkornris
+pl:ryż brązowy
+pt:arroz integral
+ru:kоричневый рис
+th:ข้าวกล้อง
+sv:brunt fullkornris, råris
+ciqual_food_code:en:9102
+ciqual_food_name:en:Rice, brown, raw
+ciqual_food_name:fr:Riz complet, cru
+wikidata:en:Q1066624
+# 3816 in 19 @2021-09-13
 
 <en:brown rice
 en:whole grain brown rice, wholegrain brown rice
@@ -29423,22 +29481,35 @@ fr:Riz brun complet étuvé pré-cuit
 
 <en:rice
 en:white rice
-de:Weißer Reis
-es:Arroz blanco
+ar:أرز أبيض
+de:weißer Reis
+el:λευκό ρύζι
+eo:blanka rizo
+es:arroz blanco
+eu:arroz zuri
 fi:valkoinen riisi
 fr:riz blanc
+ga:arroz branco
+hi:वाईट राईस
 hu:fehér rizs, fehérrizs
-it:Riso bianco
+it:riso bianco
 ja:白米
+ko:백미
 nl:witte rijst
-pt:Arroz branco
-# ingredient/fr:riz-blanc has 99 products in french @2018-12-19
+pt:arroz branco
+vi:gạo trắng
+zh:白米
+wikidata:en:Q2674257
+ciqual_food_code:en:9100
+ciqual_food_name:en:Rice, raw
+ciqual_food_name:fr:Riz blanc, cru
+# 970 products in 6 @2021-09-12
 
-<en:white rice
-en:organic white rice
-fi:luomu valkoinen riisi
-fr:riz blanc bio
-hu:bio fehér rizs, bio fehérrizs
+#<en:white rice
+#en:organic white rice
+#fi:luomu valkoinen riisi
+#fr:riz blanc bio
+#hhu:bio fehér rizs, bio fehérrizs
 # 2019-05-30
 
 <en:rice
@@ -29649,16 +29720,23 @@ fr:riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
 
+#category/wild-rices
 <en:rice
 en:wild rice
 de:Wildreis
-es:Arroz salvaje
-fi:intiaaniriisi, villiriisi
+es:arroz salvaje
+fi:villiriisi, intiaaniriisi
 fr:riz sauvage
+hr:divlja riža
 hu:vadrizs
 it:riso selvatico
 nl:wilde rijst
-# ingredient/fr:riz-sauvage has 65 products in 7 languages @2018-12-19
+pt:arroz selvagem
+wikipedia:en:Q108537241
+ciqual_food_code:en:9108
+ciqual_food_name:en:Wild rice, raw
+ciqual_food_name:fr:Riz sauvage, cru
+# 499 in 7 languages @2021-09-13
 
 <en:wild rice
 fr:riz sauvage cuit
@@ -29677,6 +29755,7 @@ es:arroz rojo, arroz colorado
 fi:punainen riisi, punariisi
 fr:riz rouge
 hu:vörös rizs
+pt:arroz vermelho
 # ingredient/fr:riz-rouge has 45 products in french @2018-12-19
 
 # comment:encargo seems to mean whole/brown
