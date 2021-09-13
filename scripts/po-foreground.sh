@@ -56,9 +56,12 @@ then
   ln -sf /opt/product-opener/templates /mnt/podata/templates
 fi
 
+# Run build_lang.pl
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-chown -R www-data:www-data /mnt/podata
-chown -R www-data:www-data /opt/product-opener/html/images/products
+
+# Fix permissions on /mnt/podata
+chown www-data:www-data /mnt/podata
+chown www-data:www-data /mnt/podata/orgs
 
 # https://github.com/docker-library/httpd/blob/75e85910d1d9954ea0709960c61517376fc9b254/2.4/alpine/httpd-foreground
 set -e

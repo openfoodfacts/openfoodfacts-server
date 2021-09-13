@@ -34,6 +34,7 @@ BEGIN
 		$server_domain
 		@ssl_subdomains
 		$data_root
+		$conf_root
 		$www_root
 		$geolite2_path
 		$reference_timezone
@@ -50,6 +51,7 @@ BEGIN
 		$memd_servers
 
 		$google_analytics
+		$google_cloud_vision_api_key
 
 		$thumb_size
 		$crop_size
@@ -223,8 +225,10 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 %server_options = %ProductOpener::Config2::server_options;

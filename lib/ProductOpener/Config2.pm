@@ -35,6 +35,7 @@ BEGIN
 		@ssl_subdomains
 		$producers_platform
 		$data_root
+		$conf_root
 		$www_root
 		$geolite2_path
 		$mongodb
@@ -50,22 +51,27 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
-use strict;
 use utf8;
 
-# server constants
-$server_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 
-@ssl_subdomains = index($server_domain, 'localhost') == -1 ? qw(*) : qw();
-$producers_platform = $ENV{PRODUCERS_PLATFORM};
+# server constants
+my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
+my $po_port = $ENV{PRODUCT_OPENER_PORT};
+my $is_localhost = index($po_domain, 'localhost') != -1;
+
+$server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
+@ssl_subdomains = $is_localhost ? qw() : qw(*);
+$producers_platform = $ENV{PRODUCERS_PLATFORM} || "0";
 
 # server paths
-$www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
+$www_root = "/opt/product-opener/html";
+$conf_root = "/opt/product-opener/conf";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
+my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
+$mongodb_host = "mongodb://$mongodb_url:27017";
 $mongodb = $producers_platform == "1" ? "off-pro" : "off";
-$mongodb_host = "mongodb://mongodb:27017";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "memcached:11211" ];
@@ -87,11 +93,10 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
         private_products => $producers_platform,  # 1 to make products visible only to the owner (producer platform)
 		producers_platform => $producers_platform,
 		minion_backend => { Pg => $postgres_url},
-		minion_local_queue => $producers_platform == "1" ? "pro.${server_domain}" : $server_domain,
+		minion_local_queue => $producers_platform == "1" ? "pro.$server_domain" : $server_domain,
 		minion_export_queue => $server_domain,
-		cookie_domain => $server_domain,
+		cookie_domain => $po_domain,
 		export_servers => { public => "off", experiment => "off-exp"},
 		ip_whitelist_session_cookie => ["", ""]
 );
-
 1;

@@ -125,7 +125,12 @@ RUN set -x \
     # Test::Number::Delta
     libtest-number-delta-perl \
     libdevel-size-perl \
-    gnumeric
+    gnumeric \
+    incron
+
+# Run www-data user as host user 'off'
+ARG WWW_DATA_HOST_USER=1001
+RUN usermod -u $WWW_DATA_HOST_USER www-data
 
 # Stage for installing/compiling cpanfile dependencies
 FROM modperl AS builder
