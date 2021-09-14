@@ -54,7 +54,7 @@
                             },
                             {
                                 [% ef_step = "ef_$step" %]
-                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]",
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %] %",
                                 "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
                             }
                         ],
