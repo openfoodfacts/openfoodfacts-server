@@ -1,4 +1,13 @@
 ﻿version: "3.7"
+services:
+  memcached:
+    restart: always
+  postgres:
+    restart: always
+  backend:
+    restart: always
+  frontend:
+    restart: always
 volumes:
   icons_dist:
     external: true
