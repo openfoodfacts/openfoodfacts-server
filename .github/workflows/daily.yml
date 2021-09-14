@@ -27,8 +27,8 @@ jobs:
 
   dev-db-sync:
     runs-on: ubuntu-latest
-    environment: off-net
-    concurrency: off-net
+    environment: mongo-dev
+    concurrency: mongo-dev
     steps:
     - name: Sync prod db data to dev MongoDB
       uses: appleboy/ssh-action@master
@@ -44,3 +44,22 @@ jobs:
           cd openfoodfacts-server/
           make import_prod_data
           make restart_db
+
+  refresh-products-tags:
+    runs-on: ubuntu-latest
+    environment: mongo-dev
+    concurrency: mongo-dev
+    steps:
+    - name: Refresh MongoDB products_tags collection
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/
+          make refresh_product_tags
