@@ -29759,6 +29759,7 @@ fr:riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
 
+#comment:en:Note that red rice is not really a rice. It is kept here for easy retrieval
 #category/wild-rices
 <en:cereal
 en:wild rice
@@ -29807,15 +29808,21 @@ ciqual_food_name:en:Rice, red, raw
 ciqual_food_name:fr:Riz rouge, cru
 # 239 in 11 @2021-09-14
 
-# comment:encargo seems to mean whole/brown
+# comment:en:cargo seems to mean whole/brown. I doubt the translations on the packages, seem more taken from Google
 <en:red rice
 en:red cargo rice
 de:Roten Cargo Reis
+el:κόκκινο ρύζι Cargo
 es:arroz rojo cargo
 fi:punainen cargo-riisi
 fr:riz cargo rouge
 it:riso ross cargo
 nl:rode cargo rijst
+vi:gạo lứt dỏ, gạo nâu đõ
+th:ข้าวกล้องแดง
+zh:红糙米
+wikidata:en:Q7303854
+wikipedia:en:https://en.wikipedia.org/wiki/Red_Cargo_rice
 
 <en:red rice
 fr:riz rouge long complet
@@ -29868,6 +29875,9 @@ uk:басматі
 # yue:印度香米
 wikidata:en:Q1649635
 wikipedia:en:https://en.wikipedia.org/wiki/Basmati
+ciqual_food_code:en:9119
+ciqual_food_name:en:Basmati rice, raw
+ciqual_food_name:fr:Riz thaï ou basmati, cru
 # ingredient/basmati-rice has 344 products in 6 languages @2018-12-19
 # category/basmati-rices has 276 products @2019-05-30
 
@@ -29881,9 +29891,9 @@ nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
-<en:basmati rice
-<en:organic rice
-fr:riz basmati demi-complet issu de l'agriculture biologique
+#<en:basmati rice
+#<en:organic rice
+#fr:riz basmati demi-complet issu de l'agriculture biologique
 # ingredient/fr:riz-basmati-demi-complet-issu-de-l-agriculture-biologique has 3 products @2019-05-30
 
 <en:basmati rice
@@ -29895,9 +29905,9 @@ hu:barna basmati rizs, barna baszmati rizs
 nl:volkoren basmati rijst
 # ingredient/fr:riz-basmati-complet has 11 products @2019-05-29
 
-<en:brown basmati rice
-en:Organic Brown Basmati Rice, Certified Organic Brown Basmati Rice
-fi:luomu tumma basmatiriisi
+#<en:brown basmati rice
+#en:Organic Brown Basmati Rice, Certified Organic Brown Basmati Rice
+#fi:luomu tumma basmatiriisi
 
 <en:basmati rice
 en:long grain basmati rice
@@ -29921,10 +29931,10 @@ fr:riz basmati long grain de qualité supérieure, riz long grain Basmati de qua
 nl:langkorrelige basmatirijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-basmati-long-grain-de-qualite-superieure has 16 products in 3 languages @2019-05-23
 
-<en:high quality long grain Basmati rice
-<en:organic rice
-en:organic high quality long grain Basmati rice
-fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
+#<en:high quality long grain Basmati rice
+#<en:organic rice
+#en:organic high quality long grain Basmati rice
+#fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
 
 <en:basmati rice
 <en:parboiled rice
