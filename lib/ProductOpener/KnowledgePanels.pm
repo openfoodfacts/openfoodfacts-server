@@ -169,6 +169,16 @@ Creates a knowledge panel from a JSON template.
 The template is passed both the full product data + optional panel specific data.
 The template is thus responsible for all the display logic (what to display and how to display it).
 
+Some special features that are not included in the JSON format are supported:
+
+1. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
+- The multiline strings will be converted to a single string.
+- Quotes " are automatically escaped unless they are already escaped
+
+2. Comments can be included by starting a line with //
+- Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
+
+
 =head3 Arguments
 
 =head4 panel id $panel_id
@@ -222,6 +232,11 @@ sub create_panel_from_json_template ($$$$$$) {
     else {
 
         # Turn the JSON to valid JSON
+
+        # Remove comment lines starting with //
+        # comments are not allowed in JSON, but they can be useful to have in the templates source
+        # /m modifier: ^ and $ match the start and end of each line
+        $panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
         # Convert multilines strings between backticks `` into single line strings
         # In the template, we use multiline strings for readability
