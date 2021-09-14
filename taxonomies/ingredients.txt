@@ -6715,13 +6715,16 @@ es:leche descremada esterilizada UHT, leche desnatada esterilizada UHT, leche UH
 fr:Lait écrémé stérilisé UHT, lait écrémé stérilisé u h t, lait stérilisé uht écrémé
 hu:sovány UHT tej
 nl:UHT-gesteriliseerde magere melk
-# ingredient/fr:lait-ecreme-sterilise-uht has 14 products in french @2019-05-23
+ciqual_food_code:en:19050
+ciqual_food_name:en:Milk, skimmed, UHT
+ciqual_food_name:fr:Lait écrémé, UHT
+# 49 in 3 @2021-09-14
 
-<en:UHT sterilised skimmed milk
-en:organic UHT sterilised skimmed milk
-ca:llet desnatada esterilitzada UHT ecològica, llet descremada esterilitzada ecològica
-es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
-fr:lait écrémé stérilisé uht issu de l'agriculture biologique
+#<en:UHT sterilised skimmed milk
+#en:organic UHT sterilised skimmed milk
+#ca:llet desnatada esterilitzada UHT ecològica, llet descremada esterilitzada ecològica
+#es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
+#fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
 <en:skimmed milk
 en:powder skimmed milk
@@ -42091,8 +42094,10 @@ ciqual_food_name:fr:Figue, crue
 # 570 products @2018-09-29
 
 <en:fig
+en:Pajarero Figs
 es:higos pajarero
 
+#comment:en:Is kept for ciqual
 #processing:en: en:dried
 <en:fig
 en:dried fig, dried figs
@@ -42116,6 +42121,7 @@ ciqual_food_name:fr:Figue, sèche
 en:fig paste
 de:Feigenpaste
 fr:pâte de figue
+#255 in 3 @2021-09-14
 
 <en:fruit
 en:cactus fig
