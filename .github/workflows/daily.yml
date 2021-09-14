@@ -43,3 +43,4 @@ jobs:
         script: |
           cd openfoodfacts-server/
           make import_prod_data
+          make restart_db
