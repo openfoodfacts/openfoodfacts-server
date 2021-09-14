@@ -106,6 +106,11 @@ import_prod_data:
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
 
+refresh_product_tags:
+	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
+	docker cp scripts/refresh_products_tags.js po_mongodb_1:/data/db
+	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+
 #------------#
 # Production #
 #------------#
