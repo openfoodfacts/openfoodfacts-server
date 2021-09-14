@@ -61,11 +61,15 @@
                                     [% IF value.percent.defined %]
                                         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
                                             <div class="agribalyse_impact_bar_full">
-                                                <div class="agribalyse_impact_bar" style="width:[% round(2 * value.percent)%]px;background-color:#ffbb88;height:1.2rem;"></div>
+                                                <div class="percent_bar[% IF value.percent_color.defined %] [% value.percent_color %][% END %]" style="width:[% round(2 * value.percent)%]px;height:1.2rem;"></div>
                                             </div>
                                         </div>	
-                                    [% END %]                                                                          
-                                    [% value.text %]
+                                    [% END %]
+                                    [% IF value.color.defined %]
+                                        <span class="[% value.color %]">[% value.text %]</span>
+                                    [% ELSE %]
+                                        [% value.text %]
+                                    [% END %]
                                 </td>                          
                             [% END %]
                         </tr>

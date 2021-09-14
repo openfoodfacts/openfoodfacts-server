@@ -371,6 +371,10 @@ details.recent {
   height:1em;
 }
 
+h3 > .icon {
+  font-size:24px;
+}
+
 h4 > .icon {
   font-size:24px;
 }
@@ -399,6 +403,36 @@ h4 > .icon {
     background-color: #47a647;
   }
 }
+
+.red {
+  color: #ec5656;
+}
+
+.orange {
+  color: #f9904c;
+}
+
+.green {
+  color: #47a647;
+}
+
+.percent_bar {
+  background-color:#88bbff;
+}
+
+.percent_bar.red {
+  background-color: #ec5656;
+}
+
+.percent_bar.orange {
+  background-color: #f9904c;
+}
+
+.percent_bar.green {
+  background-color: #47a647;
+}
+
+
 
 a[aria-controls="idOfLeftMenu"] {
 
