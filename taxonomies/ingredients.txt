@@ -67438,51 +67438,62 @@ bg:мерлуз
 ca:lluç
 de:Colin
 es:Merluza
-fi:kummeli
-fr:merlu, merlu blanc, filets de merlu blanc, lieu
-ga:Colmóir
-hu:Hekk
+fr:merlu
 it:merluzzo
+hu:Hekk
 nl:heek
-nn:lysing
 pl:hake
+pt:pescada
 ru:мерлуза
 sv:kummel
 tl:Merlusa
+tr:Berlam
+
+<en:hake
+en:European hake
+br:Pennoù merluz
+ca:lluç europeu
+de:Hechtdorsch, Europäischer Seehecht
+es:merluza europea, pescada, pescadilla, pijota
+eu:Legatz arrunta
+fi:kummeli
+fr:merlu commun, merlu européen, merlu blanc, filets de merlu blanc, lieu
+ga:Colmóir
+it:nasello
+la:Merluccius merluccius
+nl:gewone heek, Europese heek
+nn:lysing
+pt:pescada-do-atlântico, pescada-branca
+uk:Хек європейський
 wikidata:en:Q1289807
 wikipedia:en:https://en.wikipedia.org/wiki/Hake
+ciqual_food_code:en:26044
+ciqual_food_name:en:European hake, raw
+ciqual_food_name:fr:Merlu, cru
 # ingredient/fr:merlu-blanc has 34 products in french @2018-12-30
-# structure:outer:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
-
-<en:hake
-en:Frozen raw hake fillet 
-fr:Filet de merlu surgelé cru
-ciqual_food_code:en:26048
-ciqual_food_name:en:Hake, fillet, frozen, raw
-ciqual_food_name:fr:Merlu, filet, surgelé, cru
 
 
 <en:hake
-en:South African hake
+en:South African hake, cape hake, Shallow-water Cape hake
+af:stokvis
 bg:плитководни бели мерлузи
 ca:lluç de Sud-àfrica
-de:Seehecht
-es:merluza
-fa:قلاب‌دهان دماغه
+de:Kap-Seehecht
+es:merluza del Cabo
 fi:rantakummeli
-fr:Merlu commun
-it:Fileto di Merluzzo Sudafricano
+fr:merlu blanc du Cap
+it:nasello dal'Atlantico sud orientale, merluzzo Sudafricano
 la:Merluccius capensis
 nl:Zuid-Afrikaanse heek
-sv:Kapkummel
+sv:kapkummel
 zh:南非無鬚鱈
 wikidata:en:Q386641
 wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_capensis
-# ingredient/fr:Merluccius-capensis has 8 products in french @2018-12-30
+ciqual_food_code:en:26233
+ciqual_food_name:en:Shallow-water Cape hake, raw
+ciqual_food_name:fr:Merlu blanc du Cap, surgelé, cru
+# 33 in french @2018-12-30
 description:en:Merluccius capensis (shallow-water Cape hake or South African hake) is a ray-finned fish in the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of South Africa.
-# structure:outer:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
-# structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus)
-# structure:inner:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
 
 # en:description:Merluccius paradoxus, the deep-water Cape hake, is a merluccid hake of the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of Southern Africa, south of Angola.
 
@@ -67507,7 +67518,7 @@ en:South Pacific hake
 de:Südpazifischer Seehecht
 es:Merluza chilena
 fi:perunkummeli
-fr:Merluccius productus, Merlu du Pacifique sud, Merlu blanc du Chili
+fr:Merlu du Pacifique sud, Merlu blanc du Chili
 it:Nasello del Pacifico Meridionale
 la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
 ru:Чилийско-перуанская мерлуза
@@ -69016,6 +69027,7 @@ ciqual_food_name:fr:Hoki, tout lieu de pêche, cru
 en:blue grenadier
 ca:lluç de cua afuada neozelandès
 cs:treskovník novozélandský
+da:Hoki
 de:Hoki, Blauer Seehecht
 eo:Hokio
 es:Merluza neozelandesa
@@ -69030,10 +69042,11 @@ pl:Miruna
 ru:Новозеландский макруронус
 sv:Hoki
 zh:藍尖尾無鬚鱈
+ciqual_food_code:en:26214
+ciqual_food_name:en:Blue grenadier, raw
+ciqual_food_name:fr:Grenadier bleu ou hoki de Nouvelle-Zélande cru
 wikipedia:en:https://en.wikipedia.org/wiki/Blue_grenadier
-# ingredient/fr:hoki has 5 products in french @2018-12-31
-# ingredient/fr:Macruronus-novaezelandiae has 2 products @2018-12-31
-# structure:inner:role:synonym, egnasello azzurro (Macruronus novaezelandiae)
+# 17 in 7 @2021-09-14
 
 
 # en:description:Le grenadier patagonien appelé en espagnol merluza de cola (Macruronus magellanicus) est un poisson marin de la famille des Merlucciidae qui appartient de ce fait à l'ordre des Gadiformes.
