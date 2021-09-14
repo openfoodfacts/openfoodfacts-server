@@ -29760,7 +29760,7 @@ fr:riz pour risotto étuvé
 ########################### RICE SPECIES #######################
 
 #category/wild-rices
-<en:rice
+<en:cereal
 en:wild rice
 de:Wildreis
 es:arroz salvaje
@@ -29769,6 +29769,7 @@ fr:riz sauvage
 hr:divlja riža
 hu:vadrizs
 it:riso selvatico
+la:Zizania
 nl:wilde rijst
 pt:arroz selvagem
 wikipedia:en:Q108537241
@@ -29780,6 +29781,7 @@ ciqual_food_name:fr:Riz sauvage, cru
 <en:wild rice
 fr:riz sauvage cuit
 
+#comment:en:This just seems a synonym of wild rice
 <en:wild rice
 en:black wild rice
 de:schwarzer Wildreis
@@ -29789,13 +29791,21 @@ nl:zwarte wilde rijst
 
 <en:rice
 en:red rice
+ar:أرز أحمر
 de:roter Reis
 es:arroz rojo, arroz colorado
 fi:punainen riisi, punariisi
 fr:riz rouge
 hu:vörös rizs
+nl:rode rijst
 pt:arroz vermelho
-# ingredient/fr:riz-rouge has 45 products in french @2018-12-19
+th:ข้าวไรซ์เมอร์รี
+wikidata:en:Q7305375
+wikipedia:en:https://en.wikipedia.org/wiki/Red_rice
+ciqual_food_code:en:9109
+ciqual_food_name:en:Rice, red, raw
+ciqual_food_name:fr:Riz rouge, cru
+# 239 in 11 @2021-09-14
 
 # comment:encargo seems to mean whole/brown
 <en:red rice
