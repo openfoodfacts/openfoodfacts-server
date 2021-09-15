@@ -152,7 +152,7 @@ jobs:
         
         # Prepare config
         export BUILD_DIR=`pwd`
-        ln -s $BUILD_DIR/lib/ProductOpener/Config_off.pm $BUILD_DIR/lib/ProductOpener/Config.pm
+        ln -sf $BUILD_DIR/lib/ProductOpener/Config_off.pm $BUILD_DIR/lib/ProductOpener/Config.pm
         cp $BUILD_DIR/lib/ProductOpener/Config2_sample.pm $BUILD_DIR/lib/ProductOpener/Config2.pm
         ln -s $BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $BUILD_DIR/lib/ProductOpener/SiteLang.pm
         sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $BUILD_DIR/lib/ProductOpener/Config2.pm

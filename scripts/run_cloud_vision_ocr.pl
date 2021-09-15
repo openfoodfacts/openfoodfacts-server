@@ -49,8 +49,8 @@ my $file = $ARGV[0];
 my $destination = readlink $file;
 
 if (not defined $destination) {
-	$log->error("Error: destination is not a valid symlink to an image file", { destination => $destination }) if $log->is_error();
-	print $LOG "ERROR: destination: $destination is not a valid symlink to an image file\n";
+	$log->error("Error: destination is not a valid symlink to an image file", { file => $file, destination => $destination }) if $log->is_error();
+	print $LOG "ERROR: file: $file -> destination: $destination is not a valid symlink to an image file\n";
 	exit();
 }
 

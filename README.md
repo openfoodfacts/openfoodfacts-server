@@ -11,7 +11,7 @@
 
 ## What is Product Opener?
 
-Product Opener is the server software for Open Food Facts and Open Beauty Facts. It is [free and open-source software](https://en.wikipedia.org/wiki/Free_and_open-source_software) created in Perl, HTML and JavaScript.
+**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
 ## What is Open Food Facts?
 
@@ -36,21 +36,20 @@ Data about food is of public interest and has to be open. The complete database 
 * [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
 * [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
 
-## Libraries used
+<!-- ## Libraries used -->
 
-## How do I get set up?
+## How do I get started?
 
-* Feel free to join us on Slack at <https://openfoodfacts.slack.com/> in the channels: #api #productopener #dev
-* If you're looking for the API, look at <https://wiki.openfoodfacts.org/API>
-* Summary of set up: 
-   * [45 min Quick Start Guide w/ Docker](installation/dev-environment-quick-start-guide.md)
-   * [Product Opener Guide](installation/product-opener.md)
-   * [Documentation of the code](https://openfoodfacts.github.io/openfoodfacts-server/)
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
+* Developer documentation:
+   * [Quick start guide (Docker)](installation/dev-environment-quick-start-guide.md)
+   * [Developer guide (Docker)](installation/docker-developer-guide.md)
+   * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
+   * Configuration [TBA]
+   * Dependencies [TBA]
+   * Database configuration [TBA]
+   * How to run tests [TBA]
+ * [API Documentation](https://wiki.openfoodfacts.org/API)
 
 ## Contribution guidelines
 
