@@ -39,7 +39,7 @@
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
                 "headers": [
                     { "text": "[% lang('origin') %]"},
-                    { "text": "%"},
+                    { "text": "[% lang('percent_of_ingredients') %]"},
                     {
                         "text": "[% lang('ecoscore_impact') %]",
                     }
