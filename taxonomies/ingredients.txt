@@ -38516,27 +38516,28 @@ ciqual_food_name:fr:Pruneau, sec
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneau
 # 1092 in 13 @2021-09-15
 
-# description:en:Prune juice is a fruit juice derived from prunes (dried plums) that have been rehydrated.
-<en:prune
-en:prune juice
-da:sveskejuice
-de:Pflaumensaft
-fr:Jus de prune
-nl:pruimensap
-wikidata:en:Q65088683
-wikipedia:en:https://en.wikipedia.org/wiki/Prune_juice
+#processing:en: en:juice
+#<en:prune
+#en:prune juice
+#da:sveskejuice
+#de:Pflaumensaft
+#fr:Jus de prune
+#nl:pruimensap
+#wikidata:en:Q65088683
+#wikipedia:en:https://en.wikipedia.org/wiki/Prune_juice
 
-<en:prune juice
-fr:Jus de pruneau obtenu par extraction hydrique
+#<en:prune juice
+#fr:Jus de pruneau obtenu par extraction hydrique
 
 <en:prune
+en:prunes from Agen
 fr:pruneaux d'agen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pruneaux-d'agen
-# 57 products @2018-09-30
+wikidata:en:Q21093818
+# 141 in fr @2021-09-15
 
-<en:prune
-<en:purée
-fr:purée de pruneaux
+#processing:en: en:puree
+#<en:prune
+#fr:purée de pruneaux
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
@@ -68394,64 +68395,67 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sockeye_salmon
 <en:fish
 <en:oily fish
 en:sardine, sardines, European pilchard
-af:Sardyn
+af:sardyn
 ar:سردين
-az:Sardina
-be:Сардзіны
+az:sardina
+be:сардзіны
 bg:сардина
-br:Sardin
-ca:sardina,sardines
+br:sardin
+ca:sardina, sardines
 cs:sardinka obecná
-cy:Sardîn
-da:Sardin
-de:Sardine, Sardinen
-el:Σαρδέλα
-eo:Sardino
+cy:sardîn
+da:sardin
+de:sardine, sardinen
+el:σαρδέλα
+eo:sardino
 es:sardina,sardines
-eu:Sardina
+eu:sardina
 fa:ساردین
 fi:sardiini, sardiinit
 fr:sardine, sardines
-gl:Sardiña
-gu:Ypiaũ ete
+gl:sardiña
+gu:ypiaũ ete
 he:סרדין אירופי
-hr:Srdela
-ht:Sadin
-hu:Szardínia
-id:Sarden
-io:Sardino
-is:Evrópusardína
+hr:srdela, sardele
+ht:sadin
+hu:szardínia
+id:sarden
+io:sardino
+is:evrópusardína
 it:sardina, sardine
 ja:イワシ
 ka:სარდინი
 ko:정어리
 la:sardina pilchardus walbaum, sardina pilchardus
-lb:Sardinn
-li:Seléngé
+lb:sardinn
+li:seléngé
+lv:sardīne
 mk:сардина
 ml:മത്തി
-nb:Sardin
+nb:sardin
 nl:sardine
-nn:Sardin
-oc:Sarda
-pl:Sardynka europejska
-pt:Sardinha, sardinhas
-qu:Sardina
-ro:Sardea
-ru:Сардина
-sh:Srdele
-sv:Sardin
+nn:sardin
+oc:sarda
+pl:sardynka europejska
+pt:sardinha, sardinhas
+qu:sardina
+ro:sardea
+ru:сардина
+sh:srdele
+sl:sardele
+sr:sardela
+sv:sardin
 th:ปลาซาร์ดีนยุโรป
-tr:Sardalya
-uk:Сардина європейська
-vi:Cá mòi
+tr:sardalya
+uk:сардина європейська
+vi:cá mòi
 zh:沙丁魚
-# ast:Parrocha
-# csb:Sardinka
-# de-ch:Sardine
-# pcd:Sélin
-# pt-br:Sardinha
-# roa-tara:Sardèdde
+# ast:parrocha
+# csb:sardinka
+# de-ch:sardine
+# pcd:sélin
+# pt-br:sardinha
+# roa-tara:sardèdde
 # yue:沙甸魚
 # zh-cn:沙丁鱼
 # zh-hans:沙丁鱼
@@ -68459,38 +68463,49 @@ zh:沙丁魚
 # zh-hk:沙甸魚
 # zh-sg:沙丁鱼
 # zh-tw:沙丁魚
-wikidata:en:Q208600
+#wikidata:en:Q208600
+wikidata:en:Q7423795
 wikipedia:en:https://en.wikipedia.org/wiki/European_pilchard
-# ingredient/fr:sardine has 546 products in 6 languages @2019-01-02
+ciqual_food_code:en:26065
+ciqual_food_name:en:European pilchard or sardine, raw
+ciqual_food_name:fr:Sardine, crue
+# 1553 in 20 @2021-09-15
 
-<en:sardine
-en:sardine fillets
-de:Sardinenfilets
-fi:sardiinifilee
-fr:filets de sardines
-it:filetti di sardine
-nl:sardinefilets
-# ingredient/fr:filets-de-sardines has 115 products in 5 languages @2019-05-06
+#processing:en: en:fillet
+#<en:sardine
+#en:sardine fillets
+#de:Sardinenfilets
+#fi:sardiinifilee
+#fr:filets de sardines
+#it:filetti di sardine
+#nl:sardinefilets
+#sk:filety sardiniek
+# 142 in 5 languages @2021-09-21
 
-<en:sardine fillets
-en:precooked sardine fillets
-de:vorgegarte Sardinenfilets
-fi:esikypsennetty sardiinifilee
-fr:filets de sardines précuits
+#processing:en: en:pre-cooked
+#<en:sardine fillets
+#en:precooked sardine fillets
+#de:vorgegarte Sardinenfilets
+#fi:esikypsennetty sardiinifilee
+#fr:filets de sardines précuits
+# 5 in fr @2021-09-15
 
-<en:sardine
-fr:sardines fraîches
-# ingredient/fr:sardines-fraîches has 30 products in french @2019-02-21
+#processing:en: en:fresh
+#<en:sardine
+#fr:sardines fraîches
+# 54 in fr @2021-09-15
 
-<en:sardine
-fr:sardines sélectionnées
+#processing:en: en:selected
+#<en:sardine
+#fr:sardines sélectionnées
 # ingredient/fr:sardines-sélectionnées has 16 products @2019-02-03
 
-<en:sardine
-en:precooked sardine
-de:gegarte Sardine, Sardine gegart
-fi:esikypsennetty sardiini
-fr:sardines précuites
+#processing:en: en:pre-cooked
+#<en:sardine
+#en:precooked sardine
+#de:gegarte Sardine, Sardine gegart
+#fi:esikypsennetty sardiini
+#fr:sardines précuites
 
 # description:en:Scorpaenidae (also known as the SCORPIONFISH) are a family of mostly marine fish that includes many of the world's most venomous species.
 

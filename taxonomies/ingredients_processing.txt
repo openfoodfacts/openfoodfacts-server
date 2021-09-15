@@ -45,7 +45,7 @@ es:fresco, fresca, frescos, frescas
 hu:friss
 it:fresco, fresca, fresche, freschi
 # de:frisch is found in front and in the ingredients
-nl:verse
+nl:verse, vers
 pt:fresco, fresca, frescos, frescas
 
 # Often in combination with flavour. It does not seem that it has much meaning.
@@ -63,6 +63,9 @@ en:pure
 de:Purer
 es:pura
 fr:pur
+
+en:selected
+fr:sélectionnées
 
 #######################################################################
 #
@@ -96,6 +99,7 @@ zh:籽
 #fr:filet de
 #it:filetti di
 #nl:filet
+#sk:filety
 #sv:filé, filé av
 
 #######################################################################
@@ -1009,17 +1013,17 @@ en:unpasteurized, unpasteurised
 fr:non pasteurisé
 pt:não pasteurizado, não pasteurizados, não pasteurizada, não pasteurizadas
 
-en:pre-cooked,precooked
+en:pre-cooked, precooked
 ca:precuit
 da:forkogte
 de:vorgekocht, vorgekochte, vorgekochter, vorgekochtes
-es:precocido, precocida,precocidos, precocidas
+es:precocido, precocida, precocidos, precocidas
 fi:esikypsennetty, esikypsennetyt
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 hu:előfőzött
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
-pt:pré-cozido, pré-cozida, pré-cozidos, pré-cozidas
+
 
 # Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
 #<en:pre-cooked
@@ -1054,7 +1058,7 @@ ro:fiert
 sv:kokt, kokta
 
 #<en:cooked
-de:gegart, gegarte, gegarter, gegartes
+de:gegart, gegarte, gegarter, gegartes, vorgegarte
 nl:gegaard, gegaarde
 
 
