@@ -3,6 +3,7 @@ services:
   mongodb:
     restart: always
     image: mongo:4.4
+    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
     volumes:
       - dbdata:/data/db
     ports:
