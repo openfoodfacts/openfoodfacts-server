@@ -6,7 +6,7 @@
         "environment"
     ],
 [% IF adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
-    "plus_or_minus": "unknown",
+    "evaluation": "unknown",
     "title": "[% lang('ecoscore_ingredients_not_indicated') %]",
     "elements": [
         {
@@ -21,25 +21,30 @@
         }, 
 [% ELSE %]
     [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
-    "plus_or_minus": "minus",
+    "evaluation": "bad",
     "title": "[% lang('ecoscore_origins_of_ingredients_impact_high') %]",
     [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
-    "plus_or_minus": "neutral",
+    "evaluation": "neutral",
     "title": "[% lang('ecoscore_origins_of_ingredients_impact_medium') %]",    
     [% ELSE %]
-    "plus_or_minus": "plus",
+    "evaluation": "good",
     "title": "[% lang('ecoscore_origins_of_ingredients_impact_low') %]",      
     [% END %]
     "elements": [
         {
             "element_type": "table",
             "element": {
-                "table_id": "ecoscore_origins_of_ingredients",
+                "id": "ecoscore_origins_of_ingredients_table",
                 "table_type": "percents",
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
                 "headers": [
-                    { "text": "[% lang('origin') %]"},
-                    { "text": "[% lang('percent_of_ingredients') %]"},
+                    {
+                        "text": "[% lang('origin') %]"
+                    },
+                    {
+                        "text": "[% lang('percent_of_ingredients') %]",
+                        "type": "percent",
+                    },
                     {
                         "text": "[% lang('ecoscore_impact') %]",
                     }
@@ -58,23 +63,23 @@
                                 // Transportation bonus goes from 0 to 15 with the formula bonus = transportation_score * 0.15
                                 [% SET score = origin.epi_score / 10 - 5 + origin.transportation_score * 0.15 %]
                                 [% IF score >= 15 %]
-                                    "percent_color": "green"
+                                    "evaluation": "good",
                                 [% ELSIF score <= 0 %]
-                                    "percent_color": "red"
+                                    "evaluation": "bad",
                                 [% ELSE %]
-                                    "percent_color": "orange"
+                                    "evaluation": "neutral",
                                 [% END %]                                
                             },
                             {
                                 [% IF score >= 15 %]
                                     "text": "[% lang('low') FILTER ucfirst %]",
-                                    "color": "green"
+                                    "evaluation": "good",
                                 [% ELSIF score <= 0 %]
                                     "text": "[% lang('high') FILTER ucfirst %]",
-                                    "color": "red"
+                                    "evaluation": "bad",
                                 [% ELSE %]
                                     "text": "[% lang('medium') FILTER ucfirst %]",
-                                    "color": "orange"
+                                    "evaluation": "neutral",
                                 [% END %]
                             }
                             ]
