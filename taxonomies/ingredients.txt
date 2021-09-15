@@ -38964,21 +38964,25 @@ fr:fruits à cidre de Normandie
 
 <en:apple
 en:dried apple, dried apples
+cs:sušenná jablka
 de:getrocknete Äpfel, Äpfel getrocknet
 es:manzana deshidratada, manzanas deshidratadas
 fi:kuivattu omena
 fr:pomme séchée, pommes séchées, pommes déshydratées
 he:תפוח מיובש, תפוחים מיובשים
+hu:szárított almadarabkák
 it:mele secche
 nl:gedroogde appel
 pl:liofilizowane jabłka
 pt:maçãs desidratadas
 ru:Сушеное яблоко
+sk:sušené jablká
 sv:torkat äpple
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-apple
-# 75 products in 5 languages @2018-10-05
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-apples
-# 205 products in 6 languages @2018-10-05
+th:แอปเปิลอบแห้ง
+ciqual_food_code:en:13111
+ciqual_food_name:en:Apple, dried
+ciqual_food_name:fr:Pomme, sèche
+# 1152 in 20 @2021-09-15
 
 <en:dried apple
 da:tørrede æbleskiver
@@ -39004,6 +39008,7 @@ fi:kuivattu omena paloina
 fr:Morceaux de pommes séchées
 it:Pezzi di mela essiccati
 nl:stukjes gedroogde appel
+sl:sušeni koščki jabolk
 sv:torkade äppelbitar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kuivattu-omena-paloina
 # 1 entry @ 2019-10-31
@@ -42159,22 +42164,90 @@ nl:cactusvijg
 
 <en:fruit
 en:gooseberry, gooseberries
-da:Stikkelsbær
+af:appelliefie
+ar:عنب الثعلب
+#azb:ایری روس آلچاسی
+#bar:ogrosl
+be:агрэ́ст
+bg:цариградското грозде
+ca:agrassó
+cs:srstka angrešt
+#csb:kòsmatczi
+cv:йĕплĕ хурлăхан
+da:stikkelsbær
 de:Stachelbeere, Stachelbeeren
+#dsb:hendryškowy keŕ
+eo:groso
 es:grosella espinosa
 et:karusmari
+eu:arakatza
+fa:انگورفرنگی، گالش انگور
 fi:karviainen
 fr:groseille à maquereaux, groseilles à maquereaux, groseille verte, groseilles vertes
+#frr:stikelbei, stekebäär
+fy:krúsbei
+ga:spíonán
+gl:groselleira verde
+gv:berrish ghlass
+he:חזרזר
+hr:ogrozd
+#hsb:kosmačkowc
+hu:egres
+hy:Կոկռոշենի
+io:grozelo
+is:stikilsber
+it:uva spina
+ja:セイヨウスグリ
+ka:ჩვეულებრივი ხურტკმელი
+kn:ಬೆಟ್ಟನೆಲ್ಲಿ
+kk:қарлыған
+ko:구즈베리
+la:Ribes uva-crispa
+lb:déck Kréischel
+li:kroezjel
+#lmo:grizzèlla
+lt:agrastas
+lv:ērkšķogas
+ms:gusberi
 nl:kruisbes
-no:stikkelsbær
-sv:Krusbär
+nb:stikkelsbær
+nn:stikkelsbær
+nv:kʼíníjíłʼahí
+os:Хъалгъæн
+#pcd:croquepoutier
+pl:agrest
+pt:groselheira
+ro:agrișul
+ru:крыжовник
+sd:گوُز بيري هي
+se:muovjejieret
+sh:ogrozd
+sl:kosmúlja
+sr:oгрозд
+#stq:kjuusbäie
+sv:krusbär
+th:కేశ ఉసిరీ
+tl:gansang-ratiles
+tr:bektaşi üzümü
+tt:катырган
+uk:а́ґрус
+vi:lý chua lông
+#yue:菇時啤梨
+zh:鵝莓
+wikidata:en:Q17638951
+wikipedia:en:https://en.wikipedia.org/wiki/Gooseberry
+ciqual_food_code:en:13020
+ciqual_food_name:en:Gooseberry, raw
+ciqual_food_name:fr:Groseille à maquereau, crue
+#34 in 5 @2021-09-15
 
-<en:gooseberry
-<en:fruit juice
-en:gooseberry juice
-de:Stachelbeersaft
-fi:karviaismehu, karviaistäysmehu
-sv:krusbärjuice
+#processing:en: en:juice
+#<en:gooseberry
+#<en:fruit juice
+#en:gooseberry juice
+#de:Stachelbeersaft
+#fi:karviaismehu, karviaistäysmehu
+#sv:krusbärjuice
 
 ###################################################################################################
 #
@@ -67302,9 +67375,10 @@ en:Baltic sprat
 fr:Sprats de la mer Baltique
 la:Sprattus sprattus balticus
 
-<en:European sprat
-en:smoked European sprat
-fr:sprat fumé, sprats fumés
+#processing: en:smoked
+#<en:European sprat
+#en:smoked European sprat
+#fr:sprat fumé, sprats fumés
 
 ###################################################################################################
 #
