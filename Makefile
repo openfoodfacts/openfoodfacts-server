@@ -27,7 +27,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data fix_perms
+dev: hello up setup_incron import_sample_data fix_perms refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -68,6 +68,10 @@ restart:
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 
+restart_db:
+	@echo: "🥫 Restarting MongoDB database …"
+	${DOCKER_COMPOSE} restart mongodb
+
 status:
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
@@ -87,6 +91,11 @@ setup_incron:
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
 
+refresh_product_tags:
+	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
+	docker cp scripts/refresh_products_tags.js po_mongodb_1:/data/db
+	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
 	${DOCKER_COMPOSE} exec --user=www-data backend bash /opt/product-opener/scripts/import_sample_data.sh
@@ -94,12 +103,12 @@ import_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
-	echo "🥫 Downloading the full MongoDB dump …"
+	echo "🥫 Downloading full MongoDB dump from production …"
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore"
+	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
 
 #------------#
