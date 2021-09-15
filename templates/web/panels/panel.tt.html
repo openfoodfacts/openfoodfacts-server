@@ -3,20 +3,20 @@
 <div class="panel[% IF panel.parent_panel_id == 'root' %] callout[% END %]" id="[% panel_id %]">
     <div class="panel_title">
         <h3>
-            [% IF panel.plus_or_minus %]
-                [% IF panel.plus_or_minus == "plus" %]
+            [% IF panel.evaluation %]
+                [% IF panel.evaluation == "good" %]
                     <span class="icon" style="color:green">
                         [% display_icon("check") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "minus" %]
+                [% ELSIF panel.evaluation == "bad" %]
                     <span class="icon" style="color:red">
                         [% display_icon("cancel") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "neutral" %]
+                [% ELSIF panel.evaluation == "neutral" %]
                     <span class="icon" style="color:grey">
                         [% display_icon("check") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "unknown" %]
+                [% ELSIF panel.evaluation == "unknown" %]
                     <span class="icon" style="color:grey">
                         [% display_icon("help") %]
                     </span>
@@ -61,12 +61,24 @@
                                     [% IF value.percent.defined %]
                                         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
                                             <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar[% IF value.percent_color.defined %] [% value.percent_color %][% END %]" style="width:[% round(2 * value.percent)%]px;height:1.2rem;"></div>
+                                                <div class="percent_bar
+                                                    [% IF value.evaluation == 'good' %] green
+                                                    [% ELSIF value.evaluation == 'neutral' %] orange
+                                                    [% ELSIF value.evaluation == 'bad' %] red
+                                                    [% ELSIF value.evaluation == 'unknown' %] grey
+                                                    [% END %]
+                                                    "
+                                                    style="width:[% round(2 * value.percent)%]px;height:1.2rem;"></div>
+                                                </div>
                                             </div>
-                                        </div>	
-                                    [% END %]
-                                    [% IF value.color.defined %]
-                                        <span class="[% value.color %]">[% value.text %]</span>
+                                        </div>
+                                        [% value.text %]
+                                    [% ELSIF value.evaluation.defined %]
+                                        <span class="[% IF value.evaluation == 'good' %] green
+                                        [% ELSIF value.evaluation == 'neutral' %] orange
+                                        [% ELSIF value.evaluation == 'bad' %] red
+                                        [% ELSIF value.evaluation == 'unknown' %] grey
+                                        [% END %]">[% value.text %]</span>
                                     [% ELSE %]
                                         [% value.text %]
                                     [% END %]

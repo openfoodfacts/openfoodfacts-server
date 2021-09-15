@@ -6,7 +6,7 @@
         "environment"
     ],
 [% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
-    "plus_or_minus": "unknown",
+    "evaluation": "unknown",
     "title": "[% lang('ecoscore_packaging_missing_information') %]",
     "elements": [
         {
@@ -20,13 +20,13 @@
         }, 
 [% ELSE %]
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
-    "plus_or_minus": "minus",
+    "evaluation": "bad",
     "title": "[% lang('ecoscore_packaging_impact_high') %]",
     [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
-    "plus_or_minus": "neutral",
+    "evaluation": "neutral",
     "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
     [% ELSE %]
-    "plus_or_minus": "plus",
+    "evaluation": "good",
     "title": "[% lang('ecoscore_packaging_impact_low') %]",      
     [% END %]
     "elements": [
@@ -44,7 +44,7 @@
                 ],
                 "rows": [
                     [% FOREACH packaging IN product.ecoscore_data.adjustments.packaging.packagings %]
-                    [% score = packaging.ecoscore_material_score * packaging.ecoscore_shape_ratio %]
+                    [% score = packaging.ecoscore_material_score %]
                     {
                         "values": [
                             {
@@ -54,18 +54,23 @@
                                 "text": "[% display_taxonomy_tag('packaging_materials',packaging.material) %]"
                             },
                             {
-                                "text": "[% display_taxonomy_tag('packaging_recycling',packaging.recycling) %]"
+                                "text": "[% display_taxonomy_tag('packaging_recycling',packaging.recycling) %]",
+                                [% IF packaging.recycling == "en:recycle" %]
+                                    "evaluation": "good",
+                                [% ELSIF packaging.recycling == "en:discard" %]
+                                    "evaluation": "bad",
+                                [% END %]
                             },
                             {
                             [% IF score >= 75 %]
                                 "text": "[% lang('low') FILTER ucfirst %]",
-                                "color": "green"
+                                "evaluation": "good",
                             [% ELSIF score <= 25 %]
                                 "text": "[% lang('high') FILTER ucfirst %]",
-                                "color": "red"
+                                "evaluation": "bad",
                             [% ELSE %]
                                 "text": "[% lang('medium') FILTER ucfirst %]",
-                                "color": "orange"
+                                "evaluation": "neutral",
                             [% END %]
                             }
                         ]
