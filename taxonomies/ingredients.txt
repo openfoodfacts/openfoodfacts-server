@@ -59741,17 +59741,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Thai_basil
 # description:en:CHERVIL is a delicate annual herb related to parsley. It is commonly used to season mild-flavoured dishes and is a constituent of the French herb mixture fines herbes.
 # comment:en:The wikidata entries describe the plant. Not used. IATE has been used.
 
+#category/fresh-chervil
 <en:herb
 en:chervil
 da:kørvel
 de:Kerbel
 el:σκαντζίκι
-es:perifollo
+eo:cerfolio
+es:perifollo, cerafolio
+et:aed, harakputk
 fi:kirveli
 fr:cerfeuil
 ga:costóg
 hu:turbolya
-it:cerfogilo
+it:cerfoglio
 la:Anthriscus cerefolium
 lv:kārvele
 mt:sorfolja
@@ -59762,8 +59765,15 @@ ro:asmățui
 sk:trebuľka voňavá
 sl:krebuljica
 sv:körvel
+wikidata:en:Q21281535
 wikipedia:en:https://en.wikipedia.org/wiki/Chervil
-# ingredient/fr:cerfeuil has 242 products in 5 languages @2019-05-13
+# 392 in 8 @2021-09-15
+
+<en:chervil
+en:fresh chervil
+ciqual_food_code:en:11002
+ciqual_food_name:en:Chervil, fresh
+ciqual_food_name:fr:Cerfeuil, frais
 
 
 ###################################################################################################
