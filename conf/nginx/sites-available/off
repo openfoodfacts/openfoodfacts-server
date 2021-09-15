@@ -241,12 +241,22 @@ server {
         location = /lahjoita-open-food-factsille {
                 try_files /donate/fi.html =404;
         }
+
         location = /dar-a-open-food-facts {
                 try_files /donate/es.html =404;
         }
+
         location = /haz-su-donacion-a-open-food-facts {
                 try_files /donate/es.html =404;
         }
+
+	location = /donate-to-open-food-facts-ko {
+		try_files /donate/ko.html =404;
+	}
+
+	location = /hunger-game {
+		return 301 https://hunger.openfoodfacts.org;
+	}
 
 	location = /ecoscore {
 		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
