@@ -52869,8 +52869,8 @@ carbon_footprint_fr_foodges_value:fr:0.7
 carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
 carbon_footprint_fr_foodges_value:fr:22.8
 
-<fr:haricot vert
-fr:haricots verts tres fins issus de l'agriculture biologique
+#<fr:haricot vert
+#fr:haricots verts tres fins issus de l'agriculture biologique
 
 <fr:haricot vert
 fr:haricots verts coupés
@@ -52884,6 +52884,16 @@ fr:haricots vertes très fins coupés, haricots verts extra fines coupés
 
 <fr:haricot vert
 fr:haricots verts extra-fins
+
+#kept for Ciqual
+#processing:en: en:puree
+<en:green bean
+en:pureed green bean
+fr:purée de haricots verts
+ciqual_food_code:en:20257
+ciqual_food_name:en:French bean, puree
+ciqual_food_name:fr:Haricots verts, purée
+
 
 # description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 
@@ -67243,6 +67253,58 @@ ciqual_food_code:en:26001
 ciqual_food_name:en:American bass, raw
 ciqual_food_name:fr:Bar rayé ou bar d'Amérique cru
 
+
+#comment:en:can be mized up with the generic name sprat. Sometimes also called sardine
+en:European sprat, sprat
+af:sprot
+ar:صابوغة أوروبية
+be:eўрапейскі шпрот
+bg:цацата
+br:glizig
+ca:amploia
+cs:šprot obecný
+csb:szprotka
+da:brisling
+de:europäische Sprotte, Sprott
+eo:sproto
+es:espadín
+et:läänemere kilu
+eu:ijito-sardina
+fa:خمسی اروپایی
+fi:kilohaili
+fr:sprat, sprats
+gl:trancho
+hr:papalina
+hy:Եվրոպական շպրոտ
+io:sprato
+it:spratto
+ja:ヨーロピアンスプラット
+la:Sprattus Sprattus
+lt:šprotas
+lv:brētliņa
+nl:sprot
+pl:szprot
+pt:espadilha
+ro:șprotul
+ru:европейский шпрот
+sh:papalina
+sl:papalina, sprat
+sv:skarpsill
+uk:шпрот європейський
+tr:çaça
+zh:黍鯡
+wikipedia:en:Q506823
+ciqual_food_code:en:26173
+ciqual_food_name:en:European sprat, raw
+ciqual_food_name:fr:Sprat, cru
+
+en:Baltic sprat
+fr:Sprats de la mer Baltique
+la:Sprattus sprattus balticus
+
+<en:European sprat
+en:smoked European sprat
+fr:sprat fumé, sprats fumés
 
 ###################################################################################################
 #
