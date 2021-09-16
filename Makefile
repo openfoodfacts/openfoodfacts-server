@@ -27,15 +27,12 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data fix_perms refresh_product_tags
+dev: hello up setup_incron import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
-
-fix_perms:
-	${DOCKER_COMPOSE} exec backend sh -c "chown -R www-data:www-data /mnt/podata/"
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -63,6 +60,8 @@ down:
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
 	${DOCKER_COMPOSE} down -v
+
+reset: hdown up
 
 restart:
 	@echo "🥫 Restarting frontend & backend containers …"
