@@ -33,7 +33,6 @@ services:
       - memcached
       - postgres
     volumes:
-      - product_images:/opt/product-opener/html/images/products # Product images [read / write]
       - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
 
       # Binds from frontend container (read-only)
@@ -42,9 +41,10 @@ services:
       - css_dist:/opt/product-opener/html/css/dist:ro
       - node_modules:/opt/product-opener/node_modules:ro
 
-      # Users and products .sto files
+      # Users, products, product images and orgs files
       - users:/mnt/podata/users # .sto
       - products:/mnt/podata/products # .sto
+      - product_images:/mnt/podata/product_images # .jpg
       - orgs:/mnt/podata/orgs # .sto
 
       # Logs
