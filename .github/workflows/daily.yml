@@ -67,3 +67,4 @@ jobs:
         script: |
           cd openfoodfacts-server/
           make refresh_product_tags
+          make restart_db
