@@ -163,6 +163,23 @@ sub create_knowledge_panels($$$$) {
 }
 
 
+=head2 convert_multiline_string_to_singleline($line)
+
+Helper function to allow to enter multiline strings in JSON templates.
+The function converts the multiline string into a single line string.
+
+=cut
+
+sub convert_multiline_string_to_singleline($) {
+    my $line = shift;
+    $line =~ s/\n/\\n/sg;
+    # Escape quotes unless they have been escaped already
+    # negative look behind to not convert \" to \\"
+    $line =~ s/(?<!\\)"/\\"/g;
+    return '"' . $line . '"';
+}
+
+
 =head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc )
 
 Creates a knowledge panel from a JSON template.
@@ -243,15 +260,6 @@ sub create_panel_from_json_template ($$$$$$) {
         # e.g. when we want to generate HTML
 
         # Also escape quotes " to \"
-
-        sub convert_multiline_string_to_singleline($) {
-            my $line = shift;
-            $line =~ s/\n/\\n/sg;
-            # Escape quotes unless they have been escaped already
-            # negative look behind to not convert \" to \\"
-            $line =~ s/(?<!\\)"/\\"/g;
-            return '"' . $line . '"';
-        }
 
         $panel_json =~ s/\`([^\`]*)\`/convert_multiline_string_to_singleline($1)/seg;
 
