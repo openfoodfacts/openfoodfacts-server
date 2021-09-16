@@ -8,7 +8,10 @@ done
 
 # Create symlinks of data files to /mnt/podata
 for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes po taxonomies templates; do
-  ln -sf /opt/product-opener/${path} /mnt/podata/${path}
+  if [ ! -e ${path} ]
+  then
+    ln -sf /opt/product-opener/${path} /mnt/podata/${path}
+  fi
 done
 
 # Run build_lang.pl
