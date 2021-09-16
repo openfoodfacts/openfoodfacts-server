@@ -3,6 +3,8 @@ name: "Daily tasks (cronjobs)"
 on:
   schedule:
   - cron: "0 0 * * *" # once a day at 00:00
+  push:
+    branches: ["cron-*"]
 
 jobs:
   # TODO: Uncomment when prod environment is ready
@@ -39,6 +41,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 20m
         script_stop: false
         script: |
           cd openfoodfacts-server/
@@ -59,6 +62,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 20m
         script_stop: false
         script: |
           cd openfoodfacts-server/
