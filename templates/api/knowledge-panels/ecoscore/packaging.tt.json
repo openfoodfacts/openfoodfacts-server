@@ -5,42 +5,58 @@
     "topics": [
         "environment"
     ],
-    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
-    "plus_or_minus": "minus",
-    "title": "[% lang('ecoscore_packaging_impact_high') %]",
-    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
-    "plus_or_minus": "neutral",
-    "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
-    [% ELSE %]
-    "plus_or_minus": "plus",
-    "title": "[% lang('ecoscore_packaging_impact_low') %]",      
-    [% END %]
+[% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
+    "evaluation": "unknown",
+    "title": "[% lang('ecoscore_packaging_missing_information') %]",
     "elements": [
         {
             "element_type": "text",
             "element": {
-                "text_type": "summary",
+                "text_type": "warning",
                 "html": `
-                    <p>[give more details here]</p> 
+                    [% lang('ecoscore_no_packaging_information') %]
                     `
             }
-        },
-        [% IF product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size %]
+        }, 
+[% ELSE %]
+    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+    "evaluation": "bad",
+    "title": "[% lang('ecoscore_packaging_impact_high') %]",
+    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
+    "evaluation": "neutral",
+    "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+    [% ELSE %]
+    "evaluation": "good",
+    "title": "[% lang('ecoscore_packaging_impact_low') %]",      
+    [% END %]
+    "elements": [
         {
             "element_type": "table",
             "element": {
                 "table_id": "ecoscore_packaging_components",
                 "table_type": "table",
                 "title": "[% lang('packaging_parts') %]",
-                "headers": [
-                    { "text": "[% lang('packaging_shape') %]"},
-                    { "text": "[% lang('packaging_material') %]"},
-                    { "text": "[% lang('packaging_recycling') %]"},
-                    { "text": "[% lang('ecoscore_impact') %]"}
+                "columns": [
+                    {
+                        "text": "[% lang('packaging_shape') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_material') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_recycling') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('ecoscore_impact') %]",
+                        "type": "text",
+                    }
                 ],
                 "rows": [
                     [% FOREACH packaging IN product.ecoscore_data.adjustments.packaging.packagings %]
-                    [% score = packaging.ecoscore_material_score * packaging.ecoscore_shape_ratio %]
+                    [% score = packaging.ecoscore_material_score %]
                     {
                         "values": [
                             {
@@ -50,18 +66,23 @@
                                 "text": "[% display_taxonomy_tag('packaging_materials',packaging.material) %]"
                             },
                             {
-                                "text": "[% display_taxonomy_tag('packaging_recycling',packaging.recycling) %]"
+                                "text": "[% display_taxonomy_tag('packaging_recycling',packaging.recycling) %]",
+                                [% IF packaging.recycling == "en:recycle" %]
+                                    "evaluation": "good",
+                                [% ELSIF packaging.recycling == "en:discard" %]
+                                    "evaluation": "bad",
+                                [% END %]
                             },
                             {
                             [% IF score >= 75 %]
                                 "text": "[% lang('low') FILTER ucfirst %]",
-                                "color": "green"
+                                "evaluation": "good",
                             [% ELSIF score <= 25 %]
                                 "text": "[% lang('high') FILTER ucfirst %]",
-                                "color": "red"
+                                "evaluation": "bad",
                             [% ELSE %]
                                 "text": "[% lang('medium') FILTER ucfirst %]",
-                                "color": "orange"
+                                "evaluation": "neutral",
                             [% END %]
                             }
                         ]
@@ -69,7 +90,31 @@
                     [% END %]
                 ]
             }
-        }
-        [% END %]         
+        },
+        [% IF product.ecoscore_data.adjustments.packaging.warning %]
+        {
+            "element_type": "text",
+            "element": {
+                "text_type": "warning",
+                "html": `
+                    [% lang('ecoscore_unprecise_packaging_information') %]
+                    `
+            }
+        },         
+        [% END %]
+[% END %]           
+        [% IF product.ecoscore_data.adjustments.packaging.warning %]
+        {
+            "element_type": "text",
+            "element": {
+                "text_type": "warning",
+                "html": `
+                [% lang('ecoscore_edit_for_more_precise_ecoscore') %]
+                <br><br>
+                [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                    `
+            }
+        },
+        [% END %]
     ]
 }

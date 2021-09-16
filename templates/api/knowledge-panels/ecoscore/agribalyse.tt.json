@@ -32,15 +32,17 @@
         {
             "element_type": "table",
             "element": {
-                "table_id": "ecoscore_lca_impacts_by_stages",
+                "id": "ecoscore_lca_impacts_by_stages_table",
                 "table_type": "percents",
                 "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
-                "headers": [
+                "columns": [
                     {
                         "text": "[% lang('ecoscore_stage') %]",
+                        "type": "text",
                     },
                     {
                         "text": "[% lang('ecoscore_impact') %]",
+                        "type": "percent",
                     }
                 ],
                 "rows": [
@@ -54,7 +56,7 @@
                             },
                             {
                                 [% ef_step = "ef_$step" %]
-                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %]",
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %] %",
                                 "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
                             }
                         ],
