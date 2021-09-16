@@ -59445,128 +59445,148 @@ fr:feuilles de verveine
 ###################################################################################################
 # description:en:PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 
+#category/parsley
 <en:herb
 en:parsley
-af:Pietersielie
+af:pietersielie
 ar:بقدونس
-az:Cəfəri
-ba:Петрушка үләне
+az:cəfəri
+ba:петрушка үләне
 bg:магданоз
-br:Perisilh
-bs:Peršun
+br:perisilh
+bs:peršun
 ca:julivert
 cs:petržel
-cy:Persli
-da:Persille
-de:Petersilie, Persilie
-el:Μαϊντανός
-eo:Petroselo
-es:Perejil
+cy:persli
+da:persille
+de:petersilie, persilie
+el:μαϊντανός
+eo:petroselo
+es:perejil
 et:petersell, aedpetersell
-eu:Perrexil
+eu:perrexil
 fa:جعفری
-fi:Persilja
+fi:persilja
 fr:persil
-ga:Peirsil
-gl:Perexil
+ga:peirsil
+gl:perexil
 he:פטרוזיליה
 hi:अजमोद
-hr:Peršin
-ht:Pèsi
-hu:Petrezselyem
+hr:peršin
+ht:pèsi
+hu:petrezselyem
 hy:մաղադանոս
-id:Peterseli
-ie:Petrosel
-io:Petroselo
-is:Steinselja
+id:peterseli
+ie:petrosel
+io:petroselo
+is:steinselja
 it:prezzemolo
 ja:パセリ
 ka:ოხრახუში
-kk:Ақжелкен
+kk:ақжелкен
 kn:ಅಜಮೋದ
 ko:파슬리
-ku:Gêjnak
-ky:Ашкөк
-la:Petroselinum crispum
-lt:Petražolė, petražolių
-lv:Pētersīļi
-mk:Магдонос
-ms:Pokok Pasli
+ku:gêjnak
+ky:ашкөк
+la:petroselinum crispum
+lt:petražolė, petražolių
+lv:pētersīļi
+mk:магдонос
+ms:pokok pasli
 nb:persille
 nl:peterselie
 nn:persille
-oc:Jolverd
-os:Басгæрдæг
+oc:jolverd
+os:басгæрдæг
 pl:pietruszka
 pt:salsa
-ro:Pătrunjel
-ru:Петрушка кудрявая, петрушка, зелень петрушки
-sc:Pedrusìmula
+ro:pătrunjel
+ru:петрушка кудрявая, петрушка, зелень петрушки
+sc:pedrusìmula
 sd:پارسلي
-sh:Peršin
-sk:Petržlen
+sh:peršin
+sk:petržlen
 sl:peteršilj
-sq:Majdanozi
+sq:majdanozi
 sr:першун
 sv:persilja
 ta:வோக்கோசு
 tl:kinchay
-tr:Maydanoz
-uk:Петрушка
-vi:Mùi tây
-wa:Pierzin
+tr:maydanoz
+uk:петрушка
+vi:mùi tây
+wa:pierzin
 yi:פעטרישקע
 zh:香芹
 # aeb-arab:معدنوس
 # aeb-latn:ma3dnous
 # azb:جعفری
-# bar:Petersilie
-# ckb:Parsley
-# csb:Piotrëszka
-# frr:Pitersile
-# inh:ДарбаьрхӀ
-# lbe:Накьлил уртту
-# myv:Алашань тикше
-# nah:Perexil
-# nap:Petrusino
-# pdc:Pederli
-#qu:Qhurita
-# scn:Pitrusinu
-# sco:Persel
-# sgs:Petroška
-# vec:Parsémoło
-# vls:Perselle
+# bar:petersilie
+# csb:piotrëszka
+# frr:pitersile
+# inh:дарбаьрхӏ
+# lbe:накьлил уртту
+# myv:алашань тикше
+# nah:perexil
+# nap:petrusino
+# pdc:pederli
+# qu:qhurita
+# scn:pitrusinu
+# sco:persel
+# sgs:petroška
+# vec:parsémoło
+# vls:perselle
 # xmf:მაკინდოლი
 # yue:番茜
-wikidata:en:Q25284
-wikipedia:en:https://en.wikipedia.org/wiki/Parsley
-# en:parley has 191 products in 5 languages @2018-10-15
+wikidata:en:q65522500
+# plant: wikidata:en:q25284
+wikipedia:en:https://en.wikipedia.org/wiki/parsley
+# en:22363 in 51 @2021-09-16
 
 <en:parsley
-en:dehydrated parsley
-de:Petersilie getrocknet
-es:perejil deshidratado
-fi:kuivattu persilja
-fr:persil déshydraté, persil séché
-it:prezzemolo essiccato
-nl:Gedehydrateerde peterselie
-ru:зелень петрушки сушёная
+en:fresh parsley
+fr:persil frais
+ciqual_food_code:en:11014
+ciqual_food_name:en:Parsley, fresh
+ciqual_food_name:fr:Persil, frais
+
+#processing:en: en:dehydrated
+#<en:parsley
+#en:dehydrated parsley
+#de:Petersilie getrocknet
+#es:perejil deshidratado
+#fi:kuivattu persilja
+#fr:persil déshydraté, persil séché
+#it:prezzemolo essiccato
+#nl:Gedehydrateerde peterselie
+#ru:зелень петрушки сушёная
 # fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
-<en:parsley
-en:parsley leaf, parsley leaves
-de:Petersilienblatt, Petersilienblätter
-es:hojas de perejil
-hr:peršinov list
-pl:natka pietruszki
-ro:frunze de pătrunjel
+#processing:en: en:leaf
+#<en:parsley
+#en:parsley leaf, parsley leaves
+#cs:listová petržel
+#de:Petersilienblatt, Petersilienblätter
+#es:hojas de perejil
+#hr:peršinov list
+#hu:petrezselyemlevél
+#pl:natka pietruszki
+#ro:frunze de pătrunjel
+#sr:peršunov list
+#57 in 10 @2021-09-16
 
 <en:parsley
 en:parsley root
 de:Petersilienwurzel
+es:raices de peregril
 fr:racine de persil
+it:radice di prezzemolo
+la:Petroselinum crispum var. tuberosum
 nl:peterseliewortel
 pl:korzeń pietruszki
+sl:jeva korenina
+wikidata:en:Q68220931
+# 113 @2021-09-16
 
 ###################################################################################################
 #
