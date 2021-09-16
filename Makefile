@@ -104,7 +104,7 @@ import_prod_data:
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
 	@echo "🥫 Downloading full MongoDB dump from production …"
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-	echo "🥫 Copying the dump to MongoDB container …"
+	@echo "🥫 Copying the dump to MongoDB container …"
 	@docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
