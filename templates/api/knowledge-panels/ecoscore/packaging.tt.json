@@ -36,11 +36,23 @@
                 "table_id": "ecoscore_packaging_components",
                 "table_type": "table",
                 "title": "[% lang('packaging_parts') %]",
-                "headers": [
-                    { "text": "[% lang('packaging_shape') %]"},
-                    { "text": "[% lang('packaging_material') %]"},
-                    { "text": "[% lang('packaging_recycling') %]"},
-                    { "text": "[% lang('ecoscore_impact') %]"}
+                "columns": [
+                    {
+                        "text": "[% lang('packaging_shape') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_material') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_recycling') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('ecoscore_impact') %]",
+                        "type": "text",
+                    }
                 ],
                 "rows": [
                     [% FOREACH packaging IN product.ecoscore_data.adjustments.packaging.packagings %]

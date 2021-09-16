@@ -43,9 +43,9 @@
                     <caption style="text-align:left">[% element.title %]</caption>
                     <thead>
                         <tr>
-                            [% FOREACH header IN element.headers %]
+                            [% FOREACH column IN element.columns %]
                             <th scope="col">
-                                [% header.text %]
+                                [% column.text %]
                             </th>
                             [% END %]
                         </tr>
