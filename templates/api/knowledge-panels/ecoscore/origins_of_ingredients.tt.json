@@ -37,9 +37,10 @@
                 "id": "ecoscore_origins_of_ingredients_table",
                 "table_type": "percents",
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
-                "headers": [
+                "columns": [
                     {
-                        "text": "[% lang('origin') %]"
+                        "text": "[% lang('origin') %]",
+                        "type": "text",
                     },
                     {
                         "text": "[% lang('percent_of_ingredients') %]",
@@ -47,6 +48,7 @@
                     },
                     {
                         "text": "[% lang('ecoscore_impact') %]",
+                        "type": "text",
                     }
                 ],
                 "rows": [
