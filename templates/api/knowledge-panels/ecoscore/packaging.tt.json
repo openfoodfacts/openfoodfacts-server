@@ -11,7 +11,7 @@
     "elements": [
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "warning",
                 "html": `
                     [% lang('ecoscore_no_packaging_information') %]
@@ -32,7 +32,7 @@
     "elements": [
         {
             "element_type": "table",
-            "element": {
+            "table_element": {
                 "table_id": "ecoscore_packaging_components",
                 "table_type": "table",
                 "title": "[% lang('packaging_parts') %]",
@@ -94,7 +94,7 @@
         [% IF product.ecoscore_data.adjustments.packaging.warning %]
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "warning",
                 "html": `
                     [% lang('ecoscore_unprecise_packaging_information') %]
@@ -106,7 +106,7 @@
         [% IF product.ecoscore_data.adjustments.packaging.warning %]
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "warning",
                 "html": `
                 [% lang('ecoscore_edit_for_more_precise_ecoscore') %]
