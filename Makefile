@@ -77,7 +77,7 @@ status:
 
 livecheck:
 	@echo "🥫 Running livecheck …"
-	scripts/docker-livecheck.sh
+	docker/docker-livecheck.sh
 
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
