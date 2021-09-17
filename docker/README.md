@@ -13,11 +13,12 @@ The step-by-step guide to setup the Product Opener using Docker is available on 
 | ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
 | `make up`                 | Start containers.                                                                      |                                                               |
-| `make down`               | Stop containers.                                                                       |                                                               |
-| `make hdown`              | Stop containers and delete the volumes (hard stop).                                    | All products and users data will be lost !                    |
+| `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
+| `make hdown`              | Stop containers and delete the volumes (hard down).                                    | Products and users data will be lost !                        |
 | `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
+| `make reset`              | Run `hdown` and `up`.                                                                  |                                                               |
 | `make status`             | Get containers status (up, down, fail).                                                |                                                               |
-| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`).           |
+| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`.            |
 | `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
 | `make prune`              | Save space by removing unused Docker artifacts.                                        | Next build will take time (no cache) !                        |
 | `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |

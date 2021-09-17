@@ -60,6 +60,7 @@ Product Opener's environment ([`.env`](../.env) file).
 The `.env` file contains ProductOpener default settings:
 * `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
 * `PRODUCT_OPENER_PORT` can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. Default port: `80`.
+* `PRODUCT_OPENER_FLAVOR` can be modified to run different flavors of OpenFoodFacts, amongst `openfoodfacts` (default), `openbeautyfacts`, `openpetfoodfacts`, `openproductsfacts`.
 * `PRODUCERS_PLATFORM` can be set to `1` to build / run the **producer platform**.
 * `ROBOTOFF_URL` can be set to **connect with a Robotoff instance**.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to **enable OCR using Google Cloud Vision**.
@@ -118,9 +119,10 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `producto
 | ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
 | `make up`                 | Start containers.                                                                      |                                                               |
-| `make down`               | Stop containers.                                                                       |                                                               |
-| `make hdown`              | Stop containers and delete the volumes (hard stop).                                    | All products and users data will be lost !                    |
+| `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
+| `make hdown`              | Stop containers and delete the volumes (hard down).                                    | Products and users data will be lost !                        |
 | `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
+| `make reset`              | Run `hdown` and `up`.                                                                  |                                                               |
 | `make status`             | Get containers status (up, down, fail).                                                |                                                               |
 | `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`.            |
 | `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
@@ -129,7 +131,6 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `producto
 | `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
 | `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
 | `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
-| `make fix_perms`          | Run if you have permission issues when creating / editing products and users.          |                                                               |
 
 ### Going further
 
