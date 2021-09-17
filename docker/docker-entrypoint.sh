@@ -13,11 +13,7 @@ for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes 
     ln -sf /opt/product-opener/${path} /mnt/podata/${path}
   fi
 done
-
-if [ ! -e /opt/product-opener/html/images/products ]
-then
-  ln -sf /mnt/podata/product_images /opt/product-opener/html/images/products
-fi
+ln -sT /mnt/podata/product_images /opt/product-opener/html/images/products || true
 
 # Run build_lang.pl
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
