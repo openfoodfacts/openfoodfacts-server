@@ -69,7 +69,7 @@ restart:
 	${DOCKER_COMPOSE} restart backend frontend
 
 restart_db:
-	@echo: "🥫 Restarting MongoDB database …"
+	@echo "🥫 Restarting MongoDB database …"
 	${DOCKER_COMPOSE} restart mongodb
 
 status:
