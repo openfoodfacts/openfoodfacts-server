@@ -58,10 +58,10 @@ jobs:
         script_stop: false
         script: |
           # Clone Git repository if not already there
-          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
+          [ ! -d '${{ github.event.repository.name }}' ] && git clone --depth 1 https://github.com/${{ github.repository }}/ --no-single-branch 2>&1
 
           # Go to repository directory
-          cd openfoodfacts-server/
+          cd ${{ github.event.repository.name }}/
 
           # Fetch newest commits (in case it wasn't freshly cloned)
           git fetch --depth 1
@@ -81,7 +81,7 @@ jobs:
         script_stop: false
         script: |
           # Go to repository directory
-          cd openfoodfacts-server/
+          cd ${{ github.event.repository.name }}/
 
           # Set Docker Compose variables
           echo "DOCKER_CLIENT_TIMEOUT=120" > .env
@@ -120,7 +120,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
+          cd ${{ github.event.repository.name }}/
           make create_external_volumes
 
     - name: Start services
@@ -134,7 +134,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
+          cd ${{ github.event.repository.name }}/
           make up 2>&1
           make setup_incron
 
@@ -150,17 +150,8 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          exit_code=0
-          for service in backend frontend memcached postgres geoipupdate; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ${{ env.compose_args }} ps -q $service)` ]; then
-              echo "$service: DOWN"
-              exit_code=1
-            else
-              echo "$service: UP"
-            fi
-          done;
-          exit $exit_code;
+          cd ${{ github.event.repository.name }}/
+          make livecheck
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
@@ -174,5 +165,5 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
+          cd ${{ github.event.repository.name }}/
           make prune
