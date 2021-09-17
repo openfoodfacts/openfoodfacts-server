@@ -28,6 +28,14 @@ function icons() {
       svgmin({
       plugins: [
         {
+          name: "removeViewBox",
+          active: false
+        },
+        {
+          name: "removeDimensions",
+          active: true,
+        },
+        {
           name: "addClassesToSVGElement",
           active: true,
           params: { className: "icon" }
