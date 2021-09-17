@@ -160,6 +160,9 @@ ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
 ENV PATH="/opt/perl/local/bin:${PATH}"
 
 EXPOSE 80
+COPY ./docker/docker-entrypoint.sh /
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 FROM runnable AS runnable-vscode
 COPY --from=builder-vscode /tmp/local/ /opt/perl/local/

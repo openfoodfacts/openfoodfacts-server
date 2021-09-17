@@ -75,6 +75,10 @@ status:
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
 
+livecheck:
+	@echo "🥫 Running livecheck …"
+	docker/docker-livecheck.sh
+
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
 	${DOCKER_COMPOSE} logs -f backend frontend
@@ -136,9 +140,9 @@ prune_cache:
 	docker builder prune -f
 
 clean: goodbye hdown prune prune_cache
+	rm html/images/products
 	rm -rf node_modules/
 	rm -rf html/data/i18n/
-	rm -rf html/images/products/
 	rm -rf html/{css,js}/dist/
 	rm -rf tmp/
 	rm -rf logs/

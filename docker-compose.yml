@@ -20,6 +20,7 @@ services:
       - PRODUCERS_PLATFORM
       - PRODUCT_OPENER_DOMAIN
       - PRODUCT_OPENER_PORT
+      - PRODUCT_OPENER_FLAVOR
       - MONGODB_HOST
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -58,7 +59,6 @@ services:
       # Tmpfs
       - type: tmpfs
         target: /mnt/podata/mnt
-    command: ["/bin/sh", "/opt/product-opener/scripts/po-foreground.sh"]
     networks:
       - webnet
   frontend:
