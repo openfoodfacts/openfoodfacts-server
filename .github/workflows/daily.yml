@@ -27,8 +27,6 @@ jobs:
   #         cd openfoodfacts-server/
   #         sudo sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
 
-  repo-sync:
-
   dev-db-sync:
     runs-on: ubuntu-latest
     environment: mongo-dev
