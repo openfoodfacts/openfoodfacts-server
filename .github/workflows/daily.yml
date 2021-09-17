@@ -27,6 +27,8 @@ jobs:
   #         cd openfoodfacts-server/
   #         sudo sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
 
+  repo-sync:
+
   dev-db-sync:
     runs-on: ubuntu-latest
     environment: mongo-dev
@@ -45,6 +47,7 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
+          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref == 'refs/heads/cron-') && github.sha || 'main' }}
           make import_prod_data
           make restart_db
 
@@ -66,5 +69,6 @@ jobs:
         script_stop: false
         script: |
           cd openfoodfacts-server/
+          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref == 'refs/heads/cron-') && github.sha || 'main' }}
           make refresh_product_tags
           make restart_db
