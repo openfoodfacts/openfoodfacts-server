@@ -57415,38 +57415,38 @@ fr:extrait de muscade
 
 <en:spice
 en:cardamom, cardamon
-af:Kardamom
+af:kardamom
 ar:هال
-bs:Kardamom
+bs:kardamom
 cs:kardamom
-cy:Cardamom
+cy:cardamom
 da:kardemomme
-de:Kardamom
-el:Κακουλέ
-eo:Kardamomo
+de:kardamom
+el:κακουλέ
+eo:kardamomo
 es:cardamomo
-et:Kardemon
+et:kardemon
 fa:هل
 fi:kardemumma
 fr:cardamome, cardamone
-gd:Càrdamon
-gl:Cardamomo
+gd:càrdamon
+gl:cardamomo
 gu:ઇલાયચી
 he:הל
-hi:इलायची उपज करने वाले पौधे
-hr:Kardamom
-hy:Հիլ
-id:Kapulaga
-io:Kardamomo
+hi:इलायची
+hr:kardamom
+hy:հիլ
+id:kapulaga
+io:kardamomo
 it:cardamomo
 ja:カルダモン
-jv:Kapulaga
-kk:Кардамон
+jv:kapulaga
+kk:кардамон
 ko:카다멈
 lv:kardamons
 mk:кардамон
 mr:वेलदोडे
-ms:Buah pelaga
+ms:buah pelaga
 nl:kardemom, cardamon
 pl:kardamon
 ps:لاچی
@@ -57455,24 +57455,23 @@ ro:cardamon
 ru:кардамон
 sa:एला
 sd:ننڍو ڦوٽو
-sh:Kardamon
-sr:Кардамон
-su:Kapulaga
+sh:kardamon
+sr:кардамон
+su:kapulaga
 sv:kardemumma
 ta:ஏலம்
 te:ఏలకులు
 th:กระวาน
-tr:Kakule
+tr:kakule
 uk:кардамон
 yi:קארדעמאן
 # arc:ܫܘܫܡܢܝܬܐ
 # arz:حبهان
-# ast:Cardamomo
+# ast:cardamomo
 # gom:वेलची
-# nds:Kardamom
+# nds:kardamom
 # new:एला
 # tcy:ಏಲಕ್ಕಿ
-wikidata:en:Q18360378
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
@@ -57495,7 +57494,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
 # the pod contains the seeds
 <en:cardamom
 en:cardamom pod
+da:hel kardemomme
+sv:kardemummakapsel
+#18 @2021-09-17
 
+#comment:en:found inside the pod
 <en:seed
 <en:cardamom
 en:cardamom seed, cardamom seeds
@@ -57504,7 +57507,10 @@ fi:kardemumman siemen, kardemumman siemeniä
 fr:graines de cardamome
 nl:kardemomzaden, hele kardemomzaden
 wikidata:en:Q14625808
-# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
+ciqual_food_code:en:11075
+ciqual_food_name:en:Cardamom, powder
+ciqual_food_name:fr:Cardamome, poudre
+# 80 in 1 language @2021-09-17
 
 ###################################################################################################
 #
