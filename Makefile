@@ -75,6 +75,10 @@ status:
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
 
+livecheck:
+	@echo "🥫 Running livecheck …"
+	scripts/docker-livecheck.sh
+
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
 	${DOCKER_COMPOSE} logs -f backend frontend
