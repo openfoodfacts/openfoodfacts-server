@@ -14,6 +14,11 @@ for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes 
   fi
 done
 
+if [ ! -e /opt/product-opener/html/images/products ]
+then
+  ln -sf /mnt/podata/product_images /opt/product-opener/html/images/products
+fi
+
 # Run build_lang.pl
 perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
@@ -23,8 +28,4 @@ set -e
 # Apache gets grumpy about PID files pre-existing
 rm -f /usr/local/apache2/logs/httpd.pid
 
-if [ -n "$PERLDB" ]; then
-  exec apache2ctl -X -DPERLDB
-else
-  exec apache2ctl -DFOREGROUND
-fi
+exec "$@"

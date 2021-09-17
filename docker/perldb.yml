@@ -6,6 +6,7 @@ services:
       target: perldb
     environment:
       - PERLDB=1
+    command: ["apache2ctl", "-X", "-DPERLDB"]
     depends_on:
       - socat
   socat:
