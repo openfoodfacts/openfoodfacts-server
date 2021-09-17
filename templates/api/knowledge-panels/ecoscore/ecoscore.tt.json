@@ -11,20 +11,20 @@
     "elements": [
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "h1",
                 "html": "Average impact of products of the [% panel.agribalyse_category_name %] category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)"
             }
         },
         {
             "element_type": "panel",
-            "element": {
+            "panel_element": {
                 "panel_id": "ecoscore_agribalyse",
             }
         },
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "h1",
                 "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
             }
@@ -32,7 +32,7 @@
         [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
         {
             "element_type": "panel",
-            "element": {
+            "panel_element": {
                 "panel_id": "ecoscore_[% adjustment %]",
             }
         },
