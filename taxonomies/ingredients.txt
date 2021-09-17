@@ -58529,6 +58529,7 @@ fr:pimprenelle
 #
 ###################################################################################################
 
+#category/dill
 <en:herb
 en:dill
 af:Dille
@@ -58637,33 +58638,39 @@ comment:en:The wikidata page mixes the common name and latin name
 # sgs:Kraps
 # tyv:Койнут
 # yue:莳萝
-wikidata:en:Q26686
+#plant: wikidata:en:Q26686
+wikidata:en:Q59659860
 wikipedia:en:https://en.wikipedia.org/wiki/Dill
-# ingredient/fr:aneth has 512 products in 6 languages @2018-10-10
+# 2303 in 24 @2021-09-16
 
+#comment:en:kept separate as it is another ingredient than the leaves
 <en:dill
-en:dill seeds
+en:dill seed, dill seeds
 de:Dillsaat
 es:semillas de eneldo
+nl:dillezaad
+#184 @2021-09-16
 
-<en:dill
-en:organic dill seed
-fi:luomu tillinsiemen
-nl:biologisch dillezaad
+#<en:dill
+#en:organic dill seed
+#fi:luomu tillinsiemen
+#nl:biologisch dillezaad
 # ingredient/nl:biologisch-dillezaad has 1 product @2019-05-24
 
-<en:dill
-en:dried dill
-da:tørret dild
-de:getrockneter Dill, Dill getrocknet
-fi:kuivattu tilli
-fr:aneth déshydraté
+#processing:en: en:dried
+#<en:dill
+#en:dried dill
+#da:tørret dild
+#de:getrockneter Dill, Dill getrocknet
+#fi:kuivattu tilli
+#fr:aneth déshydraté
 
 <en:dill
 en:dill butter
 de:Dillbutter, Dill-Butter
 fi:tillivoi
 sv:dillsmör
+#1 @2021-09-16
 # usage:fi:Tillivoi: Voi (Suomi), tilli, suola
 
 ###################################################################################################
