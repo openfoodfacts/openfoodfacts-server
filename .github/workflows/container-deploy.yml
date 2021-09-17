@@ -11,9 +11,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        PRODUCT_OPENER_FLAVOR: ['openfoodfacts', 'openbeautyfacts']
     environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
     concurrency: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
     steps:
+
     - name: Wait for frontend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build
@@ -69,8 +73,17 @@ jobs:
           # Checkout current commit SHA
           git checkout -qf ${{ github.sha }}
 
+    - name: Get Product Opener flavor variables
+      run: |
+        DEPLOY_ENV="${{ env.environment }}"
+        echo PRODUCT_OPENER_SUFFIX=${DEPLOY_ENV##*:} >> $GITHUB_ENV
+        echo ENV_FILE=.env.${{ matrix.PRODUCT_OPENER_FLAVOR }} >> $GITHUB_ENV
+        echo PRODUCT_OPENER_FLAVOR_SHORT=`echo ${{ matrix.PRODUCT_OPENER_FLAVOR }} | sed 's/open/o/g' | sed 's/food/f/g' | sed 's/facts/f/g' | sed 's/beauty/b/g' | sed 's/products/p/g' | sed 's/pet/p/g'` >> $GITHUB_ENV
+
     - name: Set environment variables
       uses: appleboy/ssh-action@master
+      env:
+        ENV_FILE: ${{ env.ENV_FILE }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -78,40 +91,48 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: ENV_FILE
         script_stop: false
         script: |
           # Go to repository directory
           cd ${{ github.event.repository.name }}/
 
           # Set Docker Compose variables
-          echo "DOCKER_CLIENT_TIMEOUT=120" > .env
-          echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
-          echo "COMPOSE_PROJECT_NAME=po" >> .env
-          echo "COMPOSE_PATH_SEPARATOR=;" >> .env
-          echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> .env
+          echo "DOCKER_CLIENT_TIMEOUT=120" > ${ENV_FILE}
+          echo "COMPOSE_HTTP_TIMEOUT=120" >> ${ENV_FILE}
+          echo "COMPOSE_PROJECT_NAME=po" >> ${ENV_FILE}
+          echo "COMPOSE_PATH_SEPARATOR=;" >> ${ENV_FILE}
+          if [ "${{ env.PRODUCT_OPENER_FLAVOR_SHORT }}" == "off" ]
+          then 
+            echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> ${ENV_FILE}
+          else
+            echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> ${ENV_FILE}
+          fi
 
           # Set App variables
-          echo "TAG=sha-${{ github.sha }}" >> .env
-          echo "PRODUCERS_PLATFORM=0" >> .env
-          echo "PRODUCT_OPENER_PORT=80" >> .env
-          echo "PRODUCT_OPENER_DOMAIN=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
-          echo "PRODUCT_OPENER_FLAVOR=${{ secrets.PRODUCT_OPENER_FLAVOR }}" >> .env
-          echo "MONGODB_HOST=${{ secrets.MONGODB_HOST }}" >> .env
-          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
-          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
-          echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> .env
-          echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
-          echo "CROWDIN_PROJECT_IDENTIFIER=${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
-          echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
-          echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
-          echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
-          echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env
+          echo "TAG=sha-${{ github.sha }}" >> ${ENV_FILE}
+          echo "PRODUCERS_PLATFORM=0" >> ${ENV_FILE}
+          echo "PRODUCT_OPENER_PORT=80" >> ${ENV_FILE}
+          echo "PRODUCT_OPENER_DOMAIN=${{ matrix.PRODUCT_OPENER_FLAVOR }}.${{ env.PRODUCT_OPENER_SUFFIX }}" >> ${ENV_FILE}
+          echo "PRODUCT_OPENER_FLAVOR=${{ secrets.PRODUCT_OPENER_FLAVOR }}" >> ${ENV_FILE}
+          echo "MONGODB_HOST=${{ secrets.MONGODB_HOST }}" >> ${ENV_FILE}
+          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> ${ENV_FILE}
+          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> ${ENV_FILE}
+          echo "ROBOTOFF_URL=${{ secrets.ROBOTOFF_URL }}" >> ${ENV_FILE}
+          echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> ${ENV_FILE}
+          echo "CROWDIN_PROJECT_IDENTIFIER=${{ secrets.CROWDIN_PROJECT_IDENTIFIER }}" >> ${ENV_FILE}
+          echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> ${ENV_FILE}
+          echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> ${ENV_FILE}
+          echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> ${ENV_FILE}
+          echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> ${ENV_FILE}
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
 
     - name: Create Docker volumes
       uses: appleboy/ssh-action@master
+      env:
+        ENV_FILE: ${{ env.ENV_FILE }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -119,6 +140,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: ENV_FILE
         script_stop: false
         script: |
           cd ${{ github.event.repository.name }}/
@@ -126,6 +148,8 @@ jobs:
 
     - name: Start services
       uses: appleboy/ssh-action@master
+      env:
+        ENV_FILE: ${{ env.ENV_FILE }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -133,6 +157,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: ENV_FILE
         script_stop: false
         script: |
           cd ${{ github.event.repository.name }}/
@@ -141,6 +166,8 @@ jobs:
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
+      env:
+        ENV_FILE: ${{ env.ENV_FILE }}
       if: ${{ always() }}
       with:
         host: ${{ secrets.HOST }}
@@ -149,6 +176,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: ENV_FILE
         script_stop: false
         script: |
           cd ${{ github.event.repository.name }}/
@@ -156,6 +184,8 @@ jobs:
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
+      env:
+        ENV_FILE: ${{ env.ENV_FILE }}
       if: ${{ always() }}
       with:
         host: ${{ secrets.HOST }}
@@ -164,6 +194,7 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: ENV_FILE
         script_stop: false
         script: |
           cd ${{ github.event.repository.name }}/
