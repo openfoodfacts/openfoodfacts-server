@@ -77889,8 +77889,6 @@ fi:kypsennetty tuore pasta
 fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
-<en:fresh pasta
-fr:pâtes fraîches aux oeufs
 
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
@@ -78302,7 +78300,7 @@ carbon_footprint_fr_foodges_value:fr:7.3
 # description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
 <en:pasta
-en:egg pastas
+en:egg pasta
 af:eier pasta
 de:Eierteigwaren
 fi:munapasta
@@ -78310,11 +78308,23 @@ fr:pâtes aux œufs, pâtes aux oeufs
 id:pasta telur
 it:pasta all'uovo
 nl:eierpasta
-wikidata:en: Q53619707
+wikidata:en:Q53619707
 allergens:en: en:eggs
-# ingredient/egg-pastas has 49 products in 4 languages @2019-04-03
-# usage:en:egg pasta (durum wheat semolina, eggs)
-# usage:fr:Pâtes aux œufs (semoule de blé dur, œufs d'élevage au sol, sel de cuisine iodé]
+# 92 in 4 languages @2021-09-16
+
+#processing:en: en:fresh
+#kept for french and italian and ciqual
+<en:fresh pasta
+<en:egg pasta
+en:fresh egg pasta
+de:frische Eierteigwaren
+fr:pâtes fraîches aux oeufs
+it:pasta fresca all'uovo
+nl:verse eierpasta
+ciqual_food_code:en:9815
+ciqual_food_name:en:Fresh egg pasta, raw
+ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
+#24 @2021-09-17
 
 <en:dough
 en:pastry, pastry dough, pie dough
