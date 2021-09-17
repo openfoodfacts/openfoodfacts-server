@@ -52799,6 +52799,7 @@ de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
+<en:beans
 en:Snap pea, sugar snap peas
 de:Zuckererbse, Zuckererbsen
 fr:Pois sucré
@@ -52817,6 +52818,7 @@ en:round green beans
 de:runde grüne Bohnen, grüne Bohnen rund
 es:judia verde redonda
 
+<en:beans
 en:green peas
 de:grüne Erbsen
 es:guisantes verdes
@@ -60156,79 +60158,87 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 
 <en:herb
 en:marjoram
-af:Marjolein
-az:Mərzə
-be:Маяран
+af:marjolein
+az:mərzə
+be:маяран
 bg:майорана
-bs:Mažuranca:marduix
-cs:Majoránka
-cy:Penrhudd yr ardd
-da:Have-Merian
+bs:mažuran
+ca:marduix
+cs:majoránka
+cy:penrhudd yr ardd
+da:merian
 de:Majoran
-el:Ματζουράνα
-eo:Majorano
+el:ματζουράνα
+eo:majorano
 es:mejorana
-et:Aedmajoraan, vorstirohi
-eu:Mendaro
+et:majoraan
+eu:mendaro
 fa:مرزنجوش
-fi:Meirami
+fi:meirami
 fr:marjolaine
-ga:Oragán cumhra
-gl:Maiorana
+ga:oragán cumhra
+gl:maiorana
 he:מיורן
 hi:मरुआ
-hr:Majoran
-hu:Majoránna
-id:Marjoram
-io:Majorano
+hr:majoran
+hu:majoránna
+id:marjoram
+io:majorano
 it:maggiorana
 ja:マジョラム
-kk:Майоран
+kk:майоран
 kn:ಮರುಗ
 ko:마저럼
-ky:Майоран
-la:Amaracum
-li:Majoraan
-lt:Mairūnas
-lv:Majorāns
-mk:Мајоран
-ms:Marjoram
+ky:майоран
+la:amaracum
+li:majoraan
+lt:mairūnas
+lv:majorāns
+mk:мајоран
+ms:marjoram
 mt:merqtux
 nb:merian
 nl:marjolein, marjoraan
 nn:merian
-oc:Majorana
+oc:majorana
 pa:ਮਰੂਆ
-pl:Majeranek
+pl:majeranek
 pt:manjerona
-qu:Mikhurana
-ro:Maghiran
-ru:Майоран
-sk:Majoránka
-sr:Mažuran
-sv:Mejram
+qu:mikhurana
+ro:maghiran
+ru:майоран
+sk:majoránka
+sr:mažuran
+sv:mejram
 te:మరువము
-tr:Mercanköşk
-uk:Майоран
-wa:Mariolinne
+tr:mercanköşk
+uk:майоран
+wa:mariolinne
 zh:墨角蘭
 # aeb-arab:مردقوش
 # azb:مرزه
-# be-tarask:Маяран
+# be-tarask:маяран
 # en-gb:marjoram
-# hsb:Majoran
-# lij:Persa
-# nap:Peperna
-# pam:Marjoram
-# pfl:Marau
-# scn:Majurana
+# hsb:majoran
+# lij:persa
+# nap:peperna
+# pam:marjoram
+# pfl:marau
+# scn:majurana
 # sco:marjoram
-# sgs:Meiruonā
+# sgs:meiruonā
 # yue:墨角蘭
-wikidata:en:Q22694
+# plant: wikidata:en:Q22694
+wikidata:en:Q96181239
 wikipedia:en:https://en.wikipedia.org/wiki/Marjoram
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marjolaine
-# 413 products in 6 languages @2018-10-09
+# 1584 in 22 @2021-09-17
+
+<en:marjoram
+en:dried marjoram
+fr:Marjolaine séchée
+ciqual_food_code:en:11034
+ciqual_food_name:en:Marjoram, dried
+ciqual_food_name:fr:Marjolaine, séchée
 
 
 ###################################################################################################
