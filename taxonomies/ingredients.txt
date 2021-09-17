@@ -57029,127 +57029,86 @@ nl:cayennepeper gedroogd
 ###################################################################################################
 # The wikidata item specifies the dish and not the spice mix
 
-<en:curry powder
+<en:spice
 en:curry
-af:Kerrie
 ar:كاري
-az:Karri
-be:Кары
-bg:Къри
-bn:তরকারি
-br:Kari
-bs:Curry
+bg:къри
+br:kurri
 ca:curri
 cs:kari
-da:Karry
+cy:cyrri
+da:karry
 de:Curry
-el:κάρι
-eo:kareo
+el:Κάρυ
 es:curry
 et:karri
-eu:Curry
-fa:کاری
-fi:curry, curry-mauste
+fa:ماليدن
+fi:curry
 fr:curry
-ga:Curaí
-gd:Curraidh
-gl:Curry
-gu:કરી
-gv:curree
-he:מאכלי קארי
-hr:Curry
-hu:Curry
-hy:կարի
-id:Kari
-is:Karrí
+gu:શાક
+hi:सालन
+hu:curry
 it:curry
 ja:カレー
-jv:Kari
-ka:კარი
-km:ការី
-kn:ಮೇಲೋಗರ
-ko:커리
-lt:Karis
-mk:кари
-ml:കൂട്ടാൻ
-ms:Kari
-my:ဟင်း
-nb:karry
-ne:तरकारी
-nl:curry, kerrie
-pa:ਕੜ੍ਹੀ
-pl:Curry
+lt:karis
+mr:कोरड्यास
+nl:kerrie, curry
+pa:ਰੱਸਾ
+pl:curry
 pt:caril
-ro:Curry
 ru:карри
-sh:Kari
-sk:Kari
-sl:Curry
+sa:सलवण
+sk:kari
+sl:kari
 sv:curry
+xx:curry
 ta:கறி
-te:కూర
-tg:Curry
-th:แกง
-uk:Карі
-vi:Cà ri
-yi:קארי
-zh:咖喱
-# ast:Curry
-# dty:तरकारी
-# hak:咖哩
-# lfn:cari
-# nan:Ka-lí
-# sco:curry
-# tg-latn:Curry
-# wuu:咖喱
-# yue:咖喱
-# zh-cn:咖喱
-# zh-hans:咖喱
-# zh-hant:咖喱
-# zh-hk:咖喱
-# zh-sg:咖喱
-# zh-tw:咖喱
-wikidata:en:Q164606
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry
-# 622 products in 8 languages @2018-10-11
+te:కర్రీ
+zh:咖哩
+wikidata:en:Q1144935
+ciqual_food_code:en:11005
+ciqual_food_name:en:Curry, powder
+ciqual_food_name:fr:Curry, poudre
+# 972 in 10 @2021-09-17
 
 # description:en:CURRY POWDER is a spice mix originating from the Indian subcontinent.
 # Probably curry powder is a synonym of curry
 # With the translations be careful that they refer to the powder and not plain curry
 
-<en:spice
-en:curry powder
-ar:مسحوق الكاري
-ca:Curri en pols
-cs:Kari koření
-da:Karry
-de:Currypulver
-eo:karea pulvoro
-es:curry en polvo
-fa:ادویه کاری
-fi:curryjauhe
-fr:curry en poudre, poudre de curry
-he:תבלין קארי
-hu:curry por
-id:Bubuk kari
-it:curry in polvere
-ja:カレー粉
-ko:커리 가루
-lt:Karis (prieskoniai)
-ms:Serbuk kari
-ne:गरम मसला
-nl:kerriepoeder, currypoeder
-pt:Caril em pó
-ru:Карри (приправа)
-sl:Karijev prašek
-sv:currypulver
-uk:Карі (приправа)
-zh:咖喱粉
+#processing:en: en:powder
+#<en:curry
+#en:curry powder
+#ar:مسحوق الكاري
+#ca:Curri en pols
+#cs:Kari koření
+#da:Karry
+#de:Currypulver
+#eo:karea pulvoro
+#es:curry en polvo
+#fa:ادویه کاری
+#fi:curryjauhe
+#fr:curry en poudre, poudre de curry
+#he:תבלין קארי
+#hu:curry por
+#id:Bubuk kari
+#it:curry in polvere
+#ja:カレー粉
+#ko:커리 가루
+#lt:Karis (prieskoniai)
+#ms:Serbuk kari
+#ne:गरम मसला
+#nl:kerriepoeder, currypoeder
+#pt:Caril em pó
+#u:Карри (приправа)
+#sl:Karijev prašek
+#sv:currypulver
+#uk:Карі (приправа)
+#zh:咖喱粉
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-wikidata:en:Q1144935
-wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
+#wikidata:en:Q1144935
+#wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
@@ -58485,20 +58444,21 @@ fr:anéthol de badiane
 <en:spice
 nl:speculaaskruiden
 
-#
+
 <en:herb
-en:summer savory, savory
+en:savory
+bg:чубрица
+da:sar
 de:Bohnenkraut
+es:ajedrea
 fr:sariette, sarriette
 it:santoreggia
 nl:bonenkruid
 pl:cząber
-wikidata:en:Q157283
+sv:kyndel
+wikidata:en:Q19787919
 wikipedia:en:https://en.wikipedia.org/wiki/Summer_savory
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
-# 258 products in 5 languages @2018-10-10
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
-# 26 products in 2 languages @2018-10-10
+# 739 in 7 @2021-09-17
 
 <en:herb
 <en:coriander
@@ -58747,8 +58707,7 @@ tr:biberiye
 uk:розмарин
 vi:hương thảo
 zh:迷迭香
-#plant:
-wikidata:en:q122679
+wikidata:en:Q68315046
 wikipedia:en:https://en.wikipedia.org/wiki/rosemary
 # aeb-arab:كليل
 # dsb:rosmarin
@@ -58766,6 +58725,21 @@ wikipedia:en:https://en.wikipedia.org/wiki/rosemary
 # zh-sg:迷迭香
 # zh-tw:迷迭香
 # 4543 in 27 @2021-09-16
+
+<en:rosemary
+en:fresh rosemary
+fr:romarin frais
+ciqual_food_code:en:11068
+ciqual_food_name:en:Rosemary, fresh
+ciqual_food_name:fr:Romarin, frais
+
+<en:rosemary
+endDried rosemary
+fr:romarin séché
+ciqual_food_code:en:11036
+ciqual_food_name:en:Rosemary, dried
+ciqual_food_name:fr:Romarin, séché
+
 
 #<en:rosemary
 #en:organic rosemary
@@ -59365,6 +59339,9 @@ ciqual_food_code:en:11070
 ciqual_food_name:en:Thyme, fresh
 ciqual_food_name:fr:Thym, frais
 # 7086 in 18 @2021-09-16
+#ciqual_food_code:en:11038
+#ciqual_food_name:en:Thyme, dried
+#ciqual_food_name:fr:Thym, séché
 
 #<en:thyme
 #en:organic thyme
@@ -59872,7 +59849,6 @@ sv:salvia
 uk:шавлія
 ur:مریم گلی
 vi:xô thơm
-wa:franke saedje
 zh:鼠尾草
 # hsb:želbija
 # sah:шалфей
@@ -59887,7 +59863,14 @@ zh:鼠尾草
 #plant:
 wikidata:en:Q1111359
 wikipedia:en:https://en.wikipedia.org/wiki/Salvia_officinalis
+ciqual_food_code:en:11069
+ciqual_food_name:en:Sage, fresh
+ciqual_food_name:fr:Sauge, fraîche
 # 1379 in 15 @2021-09-16
+#ciqual_food_code:en:11037
+#ciqual_food_name:en:Sage, dried
+#ciqual_food_name:fr:Sauge, séchée
+
 
 #processing:en: en:extract
 #<en:sage
@@ -73365,8 +73348,8 @@ fr:miel de romarin
 it:miele di rosmarino
 # ingredient/fr:miel-de-romarin has 10 products in 3 languages @2019-05-28
 
-<en:rosemary honey
-fr:miel de romarin bio
+#<en:rosemary honey
+#fr:miel de romarin bio
 
 <en:rosemary honey
 <en:honey from France
