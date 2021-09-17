@@ -60156,6 +60156,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 ###################################################################################################
 # description:en:Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
 
+#category/marjoram
 <en:herb
 en:marjoram
 af:marjolein
@@ -60274,47 +60275,54 @@ ciqual_food_name:fr:Herbes de Provence, séchées
 
 <en:herb
 en:oregano
+bg:риган
 ca:orenga, herba musca, roca morera
-cs:oregano
-da:oregano
-de:Oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
-fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
 ja:オレガノ
 lt:raudonėlis, raudonėlių
 lv:raudene
-nb:oregano
-nl:oregano
-nn:oregano
-pl:Oregano
 pt:orégãos
-ro:oregano
-ru:Орегано
-sv:Oregano
+ru:орегано
+sl:origano
+uk:орегано
+xx:oregano
+wikipedia:en:Q92581152
+#plant: wikipedia:en:Q134283
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:origan
-# 2032 products in 11 languages @2018-10-09
+# 9423 in 29 @2021-09-17
 
+<en:oregano
+en:dried oregano
+fr:Origan séché
+ciqual_food_code:en:11035
+ciqual_food_name:en:Oregano, dried
+ciqual_food_name:fr:Origan, séché
+
+
+#processing:en:dehydrated
 <en:oregano
 fr:origan déshydraté
 fi:kuivattu oregano
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
-<en:oregano
-fr:origan en poudre
-fi:oreganojauhe
+#processing:en en:powder
+#<en:oregano
+#fr:origan en poudre
+#fi:oreganojauhe
 
-<en:oregano
-en:oregano extract
-de:Oteganoextrakt, Oregano-Extrakt
-es:extracto de orégano
-fi:oreganouute
-fr:extrait d'origan
+#processing:en: en:extract
+#<en:oregano
+#en:oregano extract
+#bg:екстракт от риган
+#de:Oteganoextrakt, Oregano-Extrakt
+#es:extracto de orégano
+#fi:oreganouute
+#fr:extrait d'origan
 
 ###################################################################################################
 #
