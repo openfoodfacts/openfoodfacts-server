@@ -57271,34 +57271,35 @@ zh:薑黃
 # zh-tw:薑黃
 wikidata:en:Q42562
 wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/turmeric
-# 6644 products in 12 languages @2018-10-11
+# 19427s in 32 @2021-09-18
 
-# This is sometimes mentioned as a colouring agent.
 
+#left in due to ciqual
+#processing:en en:powder
 <en:turmeric
 en:turmeric powder
 de:Curcumapulver, Kurkumapulver
 fi:kurkumajauhe
 fr:poudre de curcuma, curcuma moulu, curcuma déshydraté
 it:curcuma in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre-de-curcuma
-# 40 products @2018-10-11
+ciqual_food_code:en:11089
+ciqual_food_name:en:Turmeric, powder
+ciqual_food_name:fr:Curcuma, poudre
+#500  @2021-09-18
 
-# This is sometimes mentioned as a colouring agent.
-
-<en:turmeric
-en:turmeric extract
-da:gurkemejeekstrakt
-de:Kurkumaextrakt
-es:extracto de cúrcuma
-fi:kurkumauute
-fr:extrait de curcuma
-it:estratto di curcuma
-lv:kurkuma ekstrakts
-nl:kurkuma extract, kurkuma-extract
-sv:gurkmejaextrakt
-# en:turmeric-extract has 339 products in 12 languages @2018-10-11
+# moved to E100
+#<en:turmeric
+#en:turmeric extract
+#da:gurkemejeekstrakt
+#de:Kurkumaextrakt
+#es:extracto de cúrcuma
+#fi:kurkumauute
+#fr:extrait de curcuma
+#it:estratto di curcuma
+#lv:kurkuma ekstrakts
+#nl:kurkuma extract, kurkuma-extract
+#sv:gurkmejaextrakt
+# 6229 @2021-09-18
 
 <en:turmeric extract
 fr:extrait naturel de curcuma
