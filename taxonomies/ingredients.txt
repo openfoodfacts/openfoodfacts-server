@@ -57941,35 +57941,143 @@ wikipedia:en:https://en.wikipedia.org/wiki/Clove
 
 <en:spice
 en:fenugreek
-da:Bukkehorn
-de:Bockshornklee
-es:fenogreco
+af:fenegriek
+am:ኣብሽ
+ar:حلبة
+as:মেথি
+az:güldəfnə
+bn:মেথি
+bo:ཤུ་མོ་ཟ་
+ca:fenigrec
+cs:pískavice
+cy:ffenigrig
+da:bukkehorn
+de:bockshornklee
+dv:އޯބަތް
+el:τριγωνίσκος
+eo:fenugreko
+es:fenogreco, alholva
+eu:ailorbe
+fa:شنبلیله
 fi:sarviapila
 fr:fenugrec
+ga:seamair ghréagach
+gl:alforfa
+gu:મેથી
+he:גרגרנית יוונית
+hi:मेथी
+hu:görögszéna
+hy:շամբալա
+id:kelabat
 it:fieno greco
 ja:フェヌグリーク
-la:Trigonella foenum-graecum
+jv:kelabat
+ka:უცხო სუნელი
+kn:ಮೆಂತೆ
+ko:큰노랑꽃자리풀
+ku:şembelîk
+la:trigonella foenum-graecum
+mk:пискавица
+ml:ഉലുവ
+mr:मेथी
+ms:halba
+mt:fienu, ħelba
 nb:bukkehornkløver, bukkehornskløver
-nl:fenergriek
+ne:मेथी
+nl:fenegriek
+or:ମେଥି
+pa:ਮੇਥੀ
 pl:kozieradka, kozieradki
+ps:ملخوزه
+pt:feno-grego, fenacho, alforva
+ro:schinduf
+ru:пажитник сенной
+sa:मेथिका
+sd:ھرٻو
+si:උළුහාල්
+sk:senovka grécka
+sl:grško seno, triplat
+so:xulbad
+sr:пискавица
 sv:bockhornsklöver
+ta:வெந்தயம்
+te:మెంతులు
+th:ลูกซัด
+tr:çemen otu
+uk:гуньба сінна
+ur:میتھی
+vi:cỏ ca ri
+yi:באקסהארן
+zh:胡芦巴
+#ach:haleuba
+#arz:حلبة
+#azb:چمن اوْتو
+#bho:मेथी
+#hsb:kozyradka
+#kab:tifidas
+#ku-arab:شەمبەلیک
+#lzh:胡盧巴
+#mai:मेथी
+#mad:klabhet
+#wuu:胡芦巴
 wikidata:en:Q133205
 wikipedia:en:https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
 
 <en:fenugreek
 en:fenugreek leaf, fenugreek leaves
+de:Bockshornkleeblatt, Bockshornkleeblätter
+es:hoja de fenegreco
+fi:sarviapilan lehdet
+fr:feuille de fenugrec
+it:foglie di trigonella
+nl:fenegriekblad
+wikidata:en:Q104054829
+#130 @2021-09-19
 
+#processing:en: en:dried
 <en:fenugreek leaf
-en:dried fenugreek leaves
-de:getrockneter Bockshornklee
+en:dried fenugreek leaf
 es:hoja de fenegreco seca
 fi:kuivatut sarviapilan lehdet
 fr:feuille de fenugrec séchée
 nl:gedroogd fenegriekblad
 # en:dried-fenugreek-leaves has 6 products in 2 languages @2018-10-23
 
+<en:seed
 <en:fenugreek
+en:fenugreek seed, fenugreek seeds
+ca:llavor de fenigrec
+da:bukkehornsfrø
+de:Bockshornkleesamen, Bockshornkleesaat
+el:σπόρος τριγωνέλλας, σπόρος μοσχοσίταρου
+es:semilla de fenegreco, semilla de alholva
+fi:sarviapilan siemen, sarviapilan siemenet
+fr:graine de fenugrec, graines de fenugrec
+it:seme di fieno greco, semi di fieno greco
+la:Trigonellae foenugraeci semen
+nl:fenegriekzaad
+sk:senovka grécka
+wikidata:en:Q57659978
+ciqual_food_code:en:11077
+ciqual_food_name:en:Fenugreek, seed
+ciqual_food_name:fr:Fenugrec, graine
+#223 @2021-09-19
+
+#processing:en: en:dried
+#<en:fenugreek seed
+#en:dried fenugreek seed
+#de:getrocknete Bockshornkleesamen
+#es:semilla de fenegreco seca
+#fr:graine de fenugrec séchée
+#nl:gedroogd fenegriekzaad
+
+#processing:en: en:ground
+#<en:fenugreek seed
+#de:gemahlen Bockshornkleesamen
+
+# is this better as herb?
+<en:spice
 en:blue fenugreek
 be:пажытнік блакітны
 bg:син сминдух
@@ -57992,24 +58100,6 @@ wikidata:en:Q164849
 wikipedia:en:https://en.wikipedia.org/wiki/Trigonella_caerulea
 #17 in 4 2021-09-19
 
-
-###################################################################################################
-#
-#                                Fenugreek
-#
-###################################################################################################
-
-<en:seed
-<en:fenugreek
-en:fenugreek seed, fenugreek seeds
-de:Bockshornkleesamen, getrocknete Bockshornkleesamen, Bockshornkleesaat
-es:semilla de fenegreco, semilla de fenegreco seca
-fi:sarviapilan siemen, sarviapilan siemenet
-fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
-nl:fenegriekzaad, gedroogd fenegriekzaad
-
-<en:fenugreek seed
-de:gemahlen Bockshornkleesamen
 ###################################################################################################
 #
 #                                Galangal
