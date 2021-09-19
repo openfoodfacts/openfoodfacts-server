@@ -56336,24 +56336,6 @@ fi:musta- ja viherpippuri
 
 ###################################################################################################
 #
-#                                Fenugreek
-#
-###################################################################################################
-
-<en:seed
-<en:fenugreek
-en:fenugreek seed, fenugreek seeds
-de:Bockshornkleesamen, getrocknete Bockshornkleesamen, Bockshornkleesaat
-es:semilla de fenegreco, semilla de fenegreco seca
-fi:sarviapilan siemen, sarviapilan siemenet
-fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
-nl:fenegriekzaad, gedroogd fenegriekzaad
-
-<en:fenugreek seed
-de:gemahlen Bockshornkleesamen
-
-###################################################################################################
-#
 #                                Sesame
 #
 ###################################################################################################
@@ -57987,12 +57969,47 @@ fr:feuille de fenugrec séchée
 nl:gedroogd fenegriekblad
 # en:dried-fenugreek-leaves has 6 products in 2 languages @2018-10-23
 
-<en:herb
+<en:fenugreek
 en:blue fenugreek
-la:Trigonella caerulea, Trigonella melilotus-caerulea
+be:пажытнік блакітны
+bg:син сминдух
+de:Schabzigerklee
+el:τριγωνέλλα η κυανή
+eo:blua trigonelo
+es:meliloto azul
+et:sinine lambalääts
+fi:sinisarviapila
+fr:trèfle mélilot, fenugrec bleu, trèfle bleu
+ka:უცხო სუნელი
+ko:청호로파
+la:trigonella caerulea, trigonella melilotus-caerulea
+nl:zevengetijdenklaver
+pl:kozieradka błękitna
+ru:пажитник голубой
+tr:mavi çemenotu
+sv:blåväppling
 wikidata:en:Q164849
 wikipedia:en:https://en.wikipedia.org/wiki/Trigonella_caerulea
+#17 in 4 2021-09-19
 
+
+###################################################################################################
+#
+#                                Fenugreek
+#
+###################################################################################################
+
+<en:seed
+<en:fenugreek
+en:fenugreek seed, fenugreek seeds
+de:Bockshornkleesamen, getrocknete Bockshornkleesamen, Bockshornkleesaat
+es:semilla de fenegreco, semilla de fenegreco seca
+fi:sarviapilan siemen, sarviapilan siemenet
+fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
+nl:fenegriekzaad, gedroogd fenegriekzaad
+
+<en:fenugreek seed
+de:gemahlen Bockshornkleesamen
 ###################################################################################################
 #
 #                                Galangal
@@ -60705,19 +60722,6 @@ vegan:en:yes
 vegetarian:en:yes
 
 # The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
-
-<en:herb
-en:blue fenugreek
-be:Пажытнік блакітны
-de:Schabzigerklee
-eo:Blua trigonelo
-fi:Sinisarviapila
-fr:Fenugrec bleu
-ka:უცხო სუნელი
-ko:청호로파
-la:Trigonella caerulea
-ru:Пажитник голубой
-tr:Mavi çemenotu
 
 # description:en:Chamomile (American English) or camomile (British English) is the common name for several daisy-like plants of the family Asteraceae.
 
