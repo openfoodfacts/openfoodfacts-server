@@ -16583,27 +16583,38 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Barde_(cuisine)
 en:lardon, lardoon
 br:lardez
 de:Speckwürfel, Speckstreifen
-es:mechar
+es:mechar, mechas de tocino
 fr:lardons, lardons supérieurs
+he:לארדון
 it:Lardo
 ja:ラードン
-nl:spekjes
+nl:spek, spekjes, spekreepjes
+pt:toucinho
+uk:Шпиковање меса
 wikidata:en:Q3217888
 wikipedia:en:https://en.wikipedia.org/wiki/Lardon
 carbon_footprint_fr_foodges_ingredient:fr:Lardons
 carbon_footprint_fr_foodges_value:fr:5.6
+ciqual_food_code:en:28501
+ciqual_food_name:en:Lardoons, raw
+ciqual_food_name:fr:Lardon nature, cru
+#855 @2021-09-20
 
 <en:lardon
 en:smoked lardoons
 de:geräucherte Speckwürfel
+es:mechas de tocino ahumadas
 fr:lardon fumé, lardons fumés
 it:Lardi affumicati
+nl:gerookt spek
+pt:toucinho fumado
 
 <en:lardon
 en:cooked lardoons
 de:gekochte Speckwürfel
-es:jamón cocido
+es:jamón cocido, mechas de tocino cocidas
 fr:lardons cuits
+pt:toucinho cozido
 
 <en:smoked lardoons
 en:smoked cooked lardoons
@@ -40949,7 +40960,7 @@ nl:zwarte bessensap op basis van concentraat
 ###################################################################################################
 
 # description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
-# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
+# comment:en:usually only the generic name is in use
 
 <en:berries
 en:blueberry, blueberries, bilberry
@@ -40989,21 +41000,25 @@ wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 
+#en:the specific names are not seen as ingredient.
 <en:blueberry
 en:northern highbush blueberry
 fi:pensasmustikka
 la:Vaccinium corymbosum
 nl:blauwe bes, blauwe bessen
 
+<en:blueberry
+en:billberry, common blueberry
+la:Vaccinium myrtillus
+
 #comment:en:
 <en:blueberry
-en:common blueberry, wild blueberry, wild blueberries
+en:wild blueberry, wild blueberries
 da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
 fr:myrtille sauvage
 it:mirtilli selvatici
-la:Vaccinium myrtillus
 nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
 # 336 in 6 @2021-09-19
 
