@@ -8,11 +8,41 @@
     ],
     "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
     "title": "[% panel.title %]",
-    "elements": [
+    "elements": [     
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %]/images/icons/ecoscore-[% panel.grade %].svg",
+                "width": 274,
+                "height": 130,
+                "alt": "Eco-score [% panel.grade %]",
+                "link_url": "[% url_for_text('ecoscore') %]",
+                "link_title": "[% lang('ecoscore_information') %]",
+            }
+        },        
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "h1",
+                "html": `[% lang("ecoscore_description") %]`,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "note",
+                "html": `
+                    [% IF cc == "fr" %]
+                        [% lang("ecoscore_warning_fr") %]
+                    [% ELSE %]
+                        [% lang("ecoscore_warning_international") %]
+                    [% END %]                
+                `,
+            }
+        },        
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "h1",
                 "html": "Average impact of products of the [% panel.agribalyse_category_name %] category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)"
             }
         },
@@ -25,7 +55,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "h1",
+                "type": "h1",
                 "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
             }
         },
@@ -37,5 +67,12 @@
             }
         },
         [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `<p>[% lang("ecoscore_description") %]</p>`,
+            }
+        },        
     ]
 }
