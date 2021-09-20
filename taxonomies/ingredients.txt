@@ -40954,24 +40954,28 @@ nl:zwarte bessensap op basis van concentraat
 <en:berries
 en:blueberry, blueberries, bilberry
 ar:عنب الأحراج
-bg:Черна боровинка
+be:Ягаднік
+bg:боровинка
 cs:Borůvka
-da:blåbær
-de:Heidelbeer, Heidelbeeren, Heidelbeere, Blaubeer, Blaubeere, Blaubeeren
+da:bølle
+de:Heidelbeeren, Blaubeeren
 eo:mirtelo
-es:arándano azul, arándanos azules, mora azul
+es:arándano
+et:mustikas
 fa:بیل‌بری
-fi:mustikka, pensasmustikka
+fi:puolukat
 fr:myrtille
 hu:áfonya
-is:Aðalbláber
+is:bláber
 it:mirtillo, mirtilli
 ja:ビルベリー
 ka:მოცვი
+la:Vaccinium
+lt:Šilauogė
 nb:blåbær
-nl:bosbes, bosbessen, blauwe bes, blauwe bessen
+nl:bosbes, bosbessen
 nn:blåbær
-pl:Borówka czarna
+pl:borówka
 pt:mirtilo
 ru:черника
 sv:blåbär, blåbärs
@@ -40986,44 +40990,59 @@ wikidata:en:Q5812410
 # 943 producten in 13 languages @2018-10-01
 
 <en:blueberry
-en:wild blueberries
+en:northern highbush blueberry
+fi:pensasmustikka
+la:Vaccinium corymbosum
+nl:blauwe bes, blauwe bessen
+
+#comment:en:
+<en:blueberry
+en:common blueberry, wild blueberry, wild blueberries
+da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
-fr:Myrtilles sauvages
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
+fr:myrtille sauvage
+it:mirtilli selvatici
+la:Vaccinium myrtillus
+nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
+# 336 in 6 @2021-09-19
 
-<en:blueberry
-en:organic blueberry
-de:Bio-Heidelbeeren, Bio-Blaubeeren
-fi:luomumustikka, luomu mustikka
-fr:myrtilles bio
+#<en:blueberry
+#en:organic blueberry
+#de:Bio-Heidelbeeren, Bio-Blaubeeren
+#fi:luomumustikka, luomu mustikka
+#fr:myrtilles bio
 
-<en:blueberry
-<en:purée
-en:blueberry puree, blueberries puree
-de:Blaubeerenpuree
-es:Puré de arándanos
-fi:mustikkasose, soseutettu mustikka, mustikkapyree
-fr:purée de myrtilles
-it:Purea di mirtillo
-nl:bosbessenpuree, bosbessenmoes
-sv:blåbärpuré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
-# 105 products @2018-10-01
+#processing:en: en:pureed
+#<en:blueberry
+#<en:purée
+#en:blueberry puree, blueberries puree
+#de:Blaubeerenpuree
+#es:Puré de arándanos
+#fi:mustikkasose, soseutettu mustikka, mustikkapyree
+#fr:purée de myrtilles
+#hu:áfonyapüré
+#it:Purea di mirtillo
+#nl:bosbessenpuree, bosbessenmoes
+#sv:blåbärpuré
+# 832 @2021-09-20
 
-<en:blueberry puree
-de:Heidelbeerpüree aus Konzentrat
+#processing:en: from concentrate
+#<en:blueberry
+#de:Heidelbeerpüree aus Konzentrat
 
+#comment:en:need to check the processing and add some specific tests
+
+#processing:en: en:juice
 <en:blueberry
 en:blueberry juice
-de:Preiselbeersaft
-es:Jugo de zarzamora
-fi:mustikkamehu
-fr:jus de myrtille
-it:succo di mirtillo
-nl:bosbessensap
-ru:Черничный сок
+#de:Preiselbeersaft
+#es:Jugo de zarzamora
+#fi:mustikkamehu
+#fr:jus de myrtille
+#it:succo di mirtillo
+#nl:bosbessensap
+#ru:Черничный сок
 # ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
 
 <en:blueberry juice
@@ -41031,7 +41050,7 @@ en:concentrated blueberry juice
 de:Heidelbeer-Saftkonzentrat
 sv:blåbärssaftkoncentrat
 
-<en:blueberry juice
+<en:blueberry
 en:blueberry juice from concentrate
 de:Heidelbeersaft aus Heidelbeerkonzentrat
 es:Concentrado de jugo de zarzamora
