@@ -16539,12 +16539,16 @@ ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
 <en:pork
 en:pork heart
-ca:Cor de porc
+ca:cor de porc
 de:Schweineherz
 es:corazón de cerdo
 fr:coeur de porc
 vegan:en:no
 vegetarian:en:no
+ciqual_food_code:en:40060
+ciqual_food_name:en:Heart, pork, raw
+ciqual_food_name:fr:Coeur, porc, cru
+#141 @2021-09-20
 
 <en:pork
 en:pork kidney
@@ -16608,6 +16612,10 @@ fr:lardon fumé, lardons fumés
 it:Lardi affumicati
 nl:gerookt spek
 pt:toucinho fumado
+ciqual_food_code:en:28720
+ciqual_food_name:en:Smoked lardoons, raw
+ciqual_food_name:fr:Lardon fumé, cru
+
 
 <en:lardon
 en:cooked lardoons
@@ -17052,17 +17060,28 @@ fr:os de porc
 
 <en:pork meat
 en:pork liver
+ca:fetge de porc
+cs:vepřová játra
+da:svinelever
 de:Schweineleber
-es:Higado de cerdo,tocino de hígado de cerdo
+eo:porka hepataĵo
+es:Higado de cerdo, tocino de hígado de cerdo
 fi:sianmaksa
 fr:foie de porc
 hu:sertésmáj
+id:hati babi
 it:fegato di maiale
 nl:varkenslever
 ro:ficat de porc, ficat porc
 ru:Свиная печень, печень свиная
 sv:Grislever
 zh:猪肝
+#yue:豬膶
+wikidata:en:Q18384179
+ciqual_food_code:en:40119
+ciqual_food_name:en:Liver, pork, raw
+ciqual_food_name:fr:Foie, porc, cru
+
 
 <en:pork meat
 en:pork belly, pork bellies
