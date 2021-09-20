@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:02\n"
+"PO-Revision-Date: 2021-09-20 16:49\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4554,31 +4554,31 @@ msgstr "Organisasi tidak dikenal."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
-msgstr ""
+msgstr "Pengguna tidak diketahui."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Tingkat kandungan garam diperhitungkan oleh Nutri-Score. Gunakan pengaturan ini hanya jika Anda secara khusus menjalani diet rendah garam."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Tingkat kandungan gula diperthitungkan oleh Nutri-Score. Gunakan pengaturan ini hanya jika Anda secara khusus menjalani diet rendah gula."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Tingkat kandungan lemak diperhitungkan oleh Nutri-Score. Gunakan pengaturan ini hanya jika Anda secara khusus menjalani diet rendah lemak."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Tingkat kandungan lemah jenuh diperhitungkan oleh Nutri-Score. Gunakan pengaturan ini hanya jika Anda secara khusus menjalani diet rendah lemak jenuh."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Alergen"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Selalu ada kemungkinan bahwa data tentang alergen mungkin hilang, tidak lengkap, salah atau komposisi produknya telah berubah. Jika Anda memiliki alergi, selalu periksa informasi pada kemasan produk sebenarnya."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4586,35 +4586,35 @@ msgstr "Aditif"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "Tidak ada atau sedikit zat aditif"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Zat aditif tidak dihitung"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr ""
+msgstr "Tidak penting"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr ""
+msgstr "Penting"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr ""
+msgstr "Sangat penting"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
-msgstr ""
+msgstr "Wajib"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Instruksi mendaur ulang dan/atau informasi kemasan"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "Instruksi mendaur ulang dan/atau gambar informasi kemasan"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
@@ -4627,7 +4627,7 @@ msgstr "3001234567890.packaging_es.jpg: petunjuk daur ulang dalam bahasa Spanyol
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Instruksi mendaur ulang dan/atau informasi kemasan"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
@@ -4820,7 +4820,7 @@ msgstr "Edit profil organisasi Anda"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Sunting profil pengguna Anda"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4829,60 +4829,60 @@ msgstr "Bahan"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "Kehadiran tidak diketahui: %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "Dampak lingkungan"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "Nilai angka Eco-score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "Nilai huruf Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "Detail perhitungan Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Informasi tentang Eco-score"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Sunting preferensi makanan Anda"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Preferensi makanan Anda"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Preferensi terpilih saat ini"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Preferensi makanan Anda disimpan dalam peramban dan tidak pernah dikirim ke Open Food Facts atau siapapun."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "kuantitas tidak diketahui"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Daftar bahan yang hilang"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Kandungan gizi yang hilang"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -4894,144 +4894,144 @@ msgstr "Skor Lingkungan"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "Bagian kemasan"
 
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "Angka"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Bentuk"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Kuantitas terkandung"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Material"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "Mendaur ulang"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "Produk di halaman ini diurutkan sesuai dengan preferensi Anda:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "Pilih informasi mana yang Anda ingin lihat terlebih dahulu."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Lihat preferensi Anda"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Hapus semua preferensi"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "Produk sedang dimuat, mohon menunggu."
 
 msgctxt "products_match_all"
 msgid "All products"
-msgstr ""
+msgstr "Semua produk"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "Produk yang sesuai dengan preferensi Anda"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "Produk yang tidak sesuai dengan preferensi Anda"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Produk yang tentangnya kami saat ini tidak memiliki data untuk menentukan apakah mereka sesuai dengan preferensi Anda"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Jejak hutan"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "Bahan - bahan yang membutuhkan kedelai"
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "Faktor pemrosesan"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Factor pakan kedelai"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Hasil kedelai"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Resiko deforestasi"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Total jejak hutan"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² per kg makanan"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "% makanan setelah diproses"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "kg kedelai per kg makanan"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "kg kedelai per m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "% dalam produk"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "Detail penghitungan jejak hutan"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Anda berada di basis data publik."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Kelola produk Anda di platform untuk produsen"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "Jumlah produk dengan perubahan sejak ekspor terakhir"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "Hanya produk ekspor dengan perubahan"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "Apakah ini produk Anda? Jika ya, silahkan gunakan platform gratis kami bagi produsen untuk memperbaruinya."
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Kami mendorong produsen untuk menambahkan atau mengubah data dan foto produk mereka lewat platform gratis kami bagi produsen sehingga mereka bisa ditandai berstatus resmi dan terlindungi dari perubahan oleh orang lain."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
@@ -5048,7 +5048,7 @@ msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Jejak hutan"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
@@ -5559,6 +5559,26 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "The information about this product's origins of ingredients is missing."
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
 msgstr ""
 
 # medium as in "medium impact"

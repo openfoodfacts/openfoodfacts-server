@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:02\n"
+"PO-Revision-Date: 2021-09-20 16:48\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -602,7 +602,7 @@ msgstr "Identitätskennzeichen"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Produzentenschlüssel"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5404,7 +5404,7 @@ msgstr "Zusätzliche Boni und Malusse"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Produktionsweise"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5416,7 +5416,7 @@ msgstr "Wenn dieses Produkt einer Kategorie angehört, die das Produktionssystem
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Herkunft der Zutaten"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5549,28 +5549,48 @@ msgstr "Das Entfernen oder Ändern von bereitgestellten Daten ist nur für erfah
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "This product's packaging has an high impact on the environment."
-msgstr ""
+msgstr "Die Verpackung dieses Produkts hat hohe Auswirkungen auf die Umwelt."
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "This product's packaging has an average impact on the environment."
-msgstr ""
+msgstr "Die Verpackung dieses Produkts hat eine durchschnittliche Auswirkung auf die Umwelt."
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "This product's packaging has a low impact on the environment."
-msgstr ""
+msgstr "Die Verpackung dieses Produkts hat eine geringe Auswirkung auf die Umwelt."
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
+msgstr "Informationen zur Verpackung dieses Produkts fehlen."
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "The information about this product's origins of ingredients is missing."
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
 msgstr ""
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "mittlere"
 
 msgctxt "impact"
 msgid "impact"
-msgstr ""
+msgstr "Auswirkung"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5578,5 +5598,5 @@ msgstr "Hinweis: Der Nutri-Score von Tees und Kräutertees bezieht sich auf das 
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s g / 100 g"
 

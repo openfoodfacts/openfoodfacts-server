@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:03\n"
+"PO-Revision-Date: 2021-09-20 16:49\n"
 "Language-Team: Lithuanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1007,11 +1007,11 @@ msgstr "informatoriai"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sudėtis"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sudėtis"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -2141,7 +2141,7 @@ msgstr "Abejingas"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sudėtis"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -3327,7 +3327,7 @@ msgstr "Kilmė"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sudėtis"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
@@ -4823,7 +4823,7 @@ msgstr ""
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sudėtis"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
@@ -5558,6 +5558,26 @@ msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "The information about this product's origins of ingredients is missing."
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
 msgstr ""
 
 # medium as in "medium impact"
