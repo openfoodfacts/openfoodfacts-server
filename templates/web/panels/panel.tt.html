@@ -35,9 +35,25 @@
         
             [% IF element_type == "text" %]
                 [% text_element = element_ref.text_element %]
-                [% IF text_element.text_type == "h1" %]<h4>[% END %]
+                [% IF text_element.type == "h1" %]
+                    <h4>
+                [% ELSIF text_element.type == "note" %]
+                    <div class="note">→ 
+                [% ELSE %]
+                    <div>
+                [% END %]
                     [% text_element.html %]
-                [% IF text_element.text_type == "h1" %]</h4>[% END %]
+                [% IF text_element.type == "h1" %]
+                    </h4>
+                [% ELSE %]
+                    </div>
+                [% END %]
+
+            [% ELSIF element_type == "image" %]
+                [% image_element = element_ref.image_element %]
+                [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
+                    <img src="[% image_element.url %]" alt="[% image_element.alt %]">
+                [% IF image_element.link_url.defined %]</a>[% END %]
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
