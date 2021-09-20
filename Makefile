@@ -27,15 +27,12 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data fix_perms refresh_product_tags
+dev: hello up setup_incron import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
-
-fix_perms:
-	${DOCKER_COMPOSE} exec backend sh -c "chown -R www-data:www-data /mnt/podata/"
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -64,17 +61,23 @@ hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
 	${DOCKER_COMPOSE} down -v
 
+reset: hdown up
+
 restart:
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 
 restart_db:
-	@echo: "🥫 Restarting MongoDB database …"
+	@echo "🥫 Restarting MongoDB database …"
 	${DOCKER_COMPOSE} restart mongodb
 
 status:
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
+
+livecheck:
+	@echo "🥫 Running livecheck …"
+	docker/docker-livecheck.sh
 
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
@@ -103,11 +106,11 @@ import_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
-	echo "🥫 Downloading full MongoDB dump from production …"
+	@echo "🥫 Downloading full MongoDB dump from production …"
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
-	echo "🥫 Copying the dump to MongoDB container …"
+	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
-	echo "🥫 Restoring the MongoDB dump …"
+	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
 
@@ -137,9 +140,9 @@ prune_cache:
 	docker builder prune -f
 
 clean: goodbye hdown prune prune_cache
+	rm html/images/products
 	rm -rf node_modules/
 	rm -rf html/data/i18n/
-	rm -rf html/images/products/
 	rm -rf html/{css,js}/dist/
 	rm -rf tmp/
 	rm -rf logs/

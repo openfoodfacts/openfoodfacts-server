@@ -1407,6 +1407,20 @@ sub localize_ecoscore ($$) {
 			
 			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value"}
 			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+
+			# For each origin, we also add its score (EPI + transporation to country of request)
+			# so that clients can show which ingredients contributes the most to the origins of ingredients bonus / malus
+
+			if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
+			
+				foreach my $origin_ref (@{$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}}) {
+		
+					my $origin_id = $origin_ref->{origin};
+					$origin_ref->{epi_score} = $ecoscore_data{origins}{$origin_id}{epi_score};
+					$origin_ref->{transportation_score} = $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc};
+				}
+			}
+
 		}
 	}		
 	
