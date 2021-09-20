@@ -11,7 +11,7 @@
     "elements": [
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "warning",
                 "html": `
                 [% lang('ecoscore_please_add_the_ingredients') %]<br><br>
@@ -33,7 +33,7 @@
     "elements": [
         {
             "element_type": "table",
-            "element": {
+            "table_element": {
                 "id": "ecoscore_origins_of_ingredients_table",
                 "table_type": "percents",
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
