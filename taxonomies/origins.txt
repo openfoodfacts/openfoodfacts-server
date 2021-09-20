@@ -510,25 +510,32 @@ fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
 xx:FAO 27
 
 <xx:FAO 27
-xx:FAO 27 1
+en:Barents sea
+fr:Mer de Barents
+hu:Barents-tenger
+xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
+
+# Norwegian Sea, Spitzbergen, and Bear Island (Subarea 27.2)
+<xx:FAO 27
+en:Norwegian Sea
+fr:Mer de Norvège
+hu:Norvég tenger
+xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
+
+#  Skagerrak, Kattegat, Sound, Belt Sea, and Baltic Sea (Subarea 27.3)
 
 <xx:FAO 27
-xx:FAO 27 2
+en:North Sea
+de:Nordsee
+fr:Mer du Nord
+hu:Északi-tenger
+xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4
 
+# Iceland and Faroes Grounds (Subarea 27.5)
 <xx:FAO 27
-xx:FAO 27 4
+xx:FAO 27.5, FAO zone 27-5, FAO subarea 27-5
 
-<xx:FAO 27
-xx:FAO 27 5
 
-<xx:FAO 27
-xx:FAO 27.7, FAO 27 sub area vii
-
-<xx:FAO 27
-xx:FAO 27.8, FAO 27 sub area viii
-
-<xx:FAO 27
-xx:FAO 27 9, FAO 27 sub area ix
 
 <xx:FAO 27
 xx:FAO 27 ia
@@ -537,10 +544,19 @@ xx:FAO 27 ia
 xx:FAO 27 ib
 
 <xx:FAO 27
+xx:FAO 27.2
+
+<xx:FAO 27.2
 xx:FAO 27 iia
 
-<xx:FAO 27
+<xx:FAO 27.2
 xx:FAO 27 iib
+
+<xx:FAO 27
+xx:FAO 27.3
+
+<xx:FAO 27.3
+xx:FAO 27iiid
 
 <xx:FAO 27
 xx:FAO 27 iii d
@@ -566,50 +582,113 @@ xx:FAO 27 lb
 <xx:FAO 27
 xx:FAO 27 v
 
+<xx:FAO 27.5
+xx:FAO 27va
+
 <xx:FAO 27
 xx:FAO 27 va
 
 <xx:FAO 27
-xx:FAO 27 vi
+xx:FAO 27.6, FAO 27 vi
 
-<xx:FAO 27
+<xx:FAO 27.6
 xx:FAO 27 via
 
-<xx:FAO 27
+<xx:FAO 27.6
 xx:FAO 27 vib2
 
 <xx:FAO 27
-xx:FAO 27 vii
+xx:FAO 27.7, FAO 27 vii, FAO 27 sub area vii
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viia
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viib
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viic2
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viid
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viig
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viih
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viij2
 
-<xx:FAO 27
+<xx:FAO 27.7
 xx:FAO 27 viik2
 
 <xx:FAO 27
-xx:FAO 27iiid
+xx:FAO 27.8, FAO 27 sub area viii
 
 <xx:FAO 27
-xx:FAO 27va
+xx:FAO 27 9, FAO 27 sub area ix
+
+<xx:FAO 27
+xx:FAO 27.10
+
+<xx:FAO 27.10
+xx:FAO 27.10.a
+
+<xx:FAO 27.10
+xx:FAO 27.10.a.1
+
+<xx:FAO 27.10
+xx:FAO 27.10.a.2
+
+<xx:FAO 27.10
+xx:FAO 27.10.b
+
+<xx:FAO 27
+xx:FAO 27.11
+
+<xx:FAO 27
+xx:FAO 27.12
+
+<xx:FAO 27.12
+xx:FAO 27.12.a
+
+<xx:FAO 27.12
+xx:FAO 27.12.a.1
+
+<xx:FAO 27.12
+xx:FAO 27.12.a.2
+
+<xx:FAO 27.12
+xx:FAO 27.12.a.3
+
+<xx:FAO 27.12
+xx:FAO 27.12.a.4
+
+<xx:FAO 27.12
+xx:FAO 27.12.b
+
+<xx:FAO 27.12
+xx:FAO 27.12.c
+
+<xx:FAO 27
+xx:FAO 27.13
+
+<xx:FAO 27
+xx:FAO 27.14
+
+<xx:FAO 27.14
+xx:FAO 27.14.a
+
+<xx:FAO 27.14
+xx:FAO 27.14.B
+
+<xx:FAO 27.14
+xx:FAO 27.14.b.1
+
+<xx:FAO 27.14
+xx:FAO 27.14.b.2
 
 <en:Atlantic Ocean
 en:Central-East Atlantic Ocean
@@ -621,8 +700,10 @@ en:Northwest Atlantic Ocean
 fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 
 xx:FAO 41
+en:Southwest Atlantic Ocean
 
-xx:FAO 43
+# Does not exist ?
+#xx:FAO 43
 
 <en:Atlantic Ocean
 en:Southeast Atlantic Ocean
@@ -641,6 +722,12 @@ fr:Océan Indien Ouest
 xx:FAO 51
 
 <en:Western Indian Ocean
+xx:FAO 51.1
+
+<en:Western Indian Ocean
+xx:FAO 51.2
+
+<en:Western Indian Ocean
 en:Western Arabian Sea
 xx:FAO 51.3
 
@@ -648,22 +735,21 @@ xx:FAO 51.3
 en:Eastern Arabian Sea
 xx:FAO 51.4
 
+<en:Western Indian Ocean
+xx:FAO 51.5
+
+<en:Western Indian Ocean
+xx:FAO 51.6
+
+<en:Western Indian Ocean
+xx:FAO 51.7
+
+<en:Western Indian Ocean
+xx:FAO 51.8
+
 <en:Indian Ocean
 en:Eastern Indian Ocean
 es:Océano Índico Oriental, Este del Océano Índico
 fr:Océan Indien Est
 xx:FAO 57
-
-en:North Sea
-de:Nordsee
-fr:Mer du Nord
-hu:Északi-tenger
-
-en:Norwegian Sea
-fr:Mer de Norvège
-hu:Norvég tenger
-
-en:Barents sea
-fr:Mer de Barents
-hu:Barents-tenger
 
