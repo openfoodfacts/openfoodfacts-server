@@ -16,7 +16,7 @@
                 "width": 274,
                 "height": 130,
                 "alt": "Eco-score [% panel.grade %]",
-                "link_url": "[% url_for_text('ecoscore') %]",
+                "link_url": "[% formatted_subdomain %][% url_for_text('ecoscore') %]",
                 "link_title": "[% lang('ecoscore_information') %]",
             }
         },        
