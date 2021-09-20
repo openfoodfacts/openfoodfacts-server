@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:02\n"
+"PO-Revision-Date: 2021-09-20 16:48\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1132,7 +1132,7 @@ msgstr "מוצרים הנושאים את התווית %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "tavit"
+msgstr "תווית"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -5563,6 +5563,26 @@ msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
 msgstr "המידע על האריזה של מוצר זה חסר."
 
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "The information about this product's origins of ingredients is missing."
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr ""
+
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
@@ -5578,5 +5598,5 @@ msgstr "הערה: Nutri-Score לתה ותה צמחים מחושב לפי המו�
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s ג׳ / 100 ג׳"
 
