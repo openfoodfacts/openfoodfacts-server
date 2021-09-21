@@ -54,9 +54,10 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
-            "labels" : [],
-            "value" : 0,
-            "warning" : "no_label"
+            "labels" : [
+               "en:sustainable-fishing-method"
+            ],
+            "value" : 15
          },
          "threatened_species" : {
             "warning" : "ingredients_missing"
@@ -85,43 +86,53 @@
          "name_fr" : "Beurre à 82% MG, doux",
          "score" : 27
       },
-      "grade" : "e",
-      "grade_be" : "e",
-      "grade_ch" : "e",
-      "grade_de" : "e",
-      "grade_es" : "e",
-      "grade_fr" : "e",
-      "grade_ie" : "e",
-      "grade_it" : "e",
-      "grade_lu" : "e",
-      "grade_nl" : "e",
-      "grade_uk" : "e",
+      "grade" : "d",
+      "grade_be" : "d",
+      "grade_ch" : "d",
+      "grade_de" : "d",
+      "grade_es" : "d",
+      "grade_fr" : "d",
+      "grade_ie" : "d",
+      "grade_it" : "d",
+      "grade_lu" : "d",
+      "grade_nl" : "d",
+      "grade_uk" : "d",
       "missing" : {
          "ingredients" : 1,
-         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 12,
-      "score_be" : 7,
-      "score_ch" : 7,
-      "score_de" : 7,
-      "score_es" : 7,
-      "score_fr" : 7,
-      "score_ie" : 7,
-      "score_it" : 7,
-      "score_lu" : 7,
-      "score_nl" : 7,
-      "score_uk" : 7,
+      "score" : 27,
+      "score_be" : 22,
+      "score_ch" : 22,
+      "score_de" : 22,
+      "score_es" : 22,
+      "score_fr" : 22,
+      "score_ie" : 22,
+      "score_it" : 22,
+      "score_lu" : 22,
+      "score_nl" : 22,
+      "score_uk" : 22,
       "status" : "known"
    },
-   "ecoscore_grade" : "e",
-   "ecoscore_score" : 7,
+   "ecoscore_grade" : "d",
+   "ecoscore_score" : 22,
    "ecoscore_tags" : [
-      "e"
+      "d"
    ],
    "labels" : "Pêché à la ligne",
+   "labels_hierarchy" : [
+      "en:sustainable-fishing",
+      "en:sustainable-fishing-method",
+      "en:angled-fish"
+   ],
+   "labels_lc" : "fr",
+   "labels_tags" : [
+      "en:sustainable-fishing",
+      "en:sustainable-fishing-method",
+      "en:angled-fish"
+   ],
    "lc" : "fr",
    "misc_tags" : [
       "en:ecoscore-extended-data-not-computed",
