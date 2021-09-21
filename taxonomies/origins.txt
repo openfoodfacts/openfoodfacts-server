@@ -16,6 +16,13 @@ stopwords:fr:agriculture
 stopwords:es:agricultura
 stopwords:hu:mezőgazdaság
 
+synonyms:en:NW, Northwest, North West
+synonyms:en:NE, Northeast, North East
+synonyms:en:SW, Southwest, South West
+synonyms:en:SE, Southeast, South East
+synonyms:en:EC, Eastern Central, East Central
+synonyms:en:WC, Western Central, West Central
+
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en:Unknown
 ca:Desconegut
@@ -449,64 +456,53 @@ xx:FAO 4
 
 xx:FAO 05, FAO 5
 
-xx:FAO 21
-
-en:Pacific Ocean
-ca:Oceà Pacífic
-de:Pazifische Ozean
-es:Océano Pacífico
-fr:Océan Pacifique, Pacifique
-hu:Csendes-óceán
-it:Oceano Pacifico
-
-<en:Pacific Ocean
-en:Northeast Pacific Ocean
-de:Nordostpazifik
-fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
-hu:Északkelet-Csendes-óceán
-xx:FAO 67
-
-<en:Pacific Ocean
-en:Northwest Pacific Ocean
-fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
-hu:Északnyugat-Csendes-óceán
-xx:FAO 61
-
-<en:Pacific Ocean
-en:North Pacific Ocean
-fr:Océan Pacifique Nord
-
-<en:Pacific Ocean
-en:West Central Pacific Ocean
-ca:Oceà Pacífic central-oest
-fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
-xx:FAO 71
-
-xx:FAO 77
-
-xx:FAO 81
-
-<en:Pacific Ocean
-en:Southwest Pacific Ocean
-ca:Oceà Pacífic Sud-oest
-es:Océano Pacífico suroeste
-fr:Océan Pacifique Sud-Ouest, FAO 87, FAO N°87
-xx:FAO 87
-
-<en:Pacific Ocean
-en:Southeast Pacific Ocean
-fr:Océan Pacifique Sud-Est
+en:Arctic sea
+xx:FAO 18
 
 en:Atlantic Ocean, Atlantic
 de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 hu:Atlanti-óceán
 it:Oceano Atlantico, Atlantico
+wikidata:en:Q97
 
 <en:Atlantic Ocean
-en:North-East Atlantic Ocean
+fr:Océan Atlantique Nord
+wikidata:en:Q350134
+
+<en:Atlantic Ocean
+fr:Océan Atlantique Sud
+wikidata:en:Q1482804
+
+<en:Atlantic Ocean
+en:Northwest Atlantic Ocean
+fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
+xx:FAO 21
+
+<en:Atlantic Ocean
+en:North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
 de:Nordostatlantik
-fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27
+fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, Atlantique Du Nord-est
+bg:Североизточните Части На Атлантическия Океан
+cs:Severovýchodní Atlantik
+da:Nordøstlige Atlanterhav
+et:Atlandi Ookeani Kirdeosa
+el:Βορειο-ανατολικος Ατλαντικος
+es:Atlántico Nororiental
+hr:Sjeveroistočni Atlantik
+it:Atlantico Nord-orientale
+lv:Atlantijas Okeāna Ziemeļaustrumu Daļa
+lt:Šiaurės Rytų Atlantas
+hu:Atlanti-óceán Északkeleti Része
+mt:Grigal Tal-atlantiku
+nl:Noordoostelijke Atlantische Oceaan
+pl:Atlantyk Północno-wschodni
+pt:Atlântico Nordeste
+ro:Atlanticul De Nord-est
+sk:Severovýchodný Atlantik
+sl:Severovzhodni Atlantik
+fi:Koillis-atlanti
+sv:Nordostatlanten
 xx:FAO 27
 
 <xx:FAO 27
@@ -534,8 +530,6 @@ xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4
 # Iceland and Faroes Grounds (Subarea 27.5)
 <xx:FAO 27
 xx:FAO 27.5, FAO zone 27-5, FAO subarea 27-5
-
-
 
 <xx:FAO 27
 xx:FAO 27 ia
@@ -691,24 +685,25 @@ xx:FAO 27.14.b.1
 xx:FAO 27.14.b.2
 
 <en:Atlantic Ocean
+xx:FAO 31
+
+<en:Atlantic Ocean
 en:Central-East Atlantic Ocean
 fr:Océan Atlantique Centre-Est, FAO 34, FAO N°34
 xx:FAO 34
 
 <en:Atlantic Ocean
-en:Northwest Atlantic Ocean
-fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
-
-xx:FAO 41
 en:Southwest Atlantic Ocean
-
-# Does not exist ?
-#xx:FAO 43
+xx:FAO 41
 
 <en:Atlantic Ocean
 en:Southeast Atlantic Ocean
 fr:Océan Atlantique Sud-Est, FAO 47, FAO N°47
 xx:FAO 47
+
+<en:Atlantic Ocean
+en:Antartic Atlantic Ocean
+xx:FAO 48
 
 en:Indian Ocean
 de:Indischer Ozean
@@ -753,3 +748,61 @@ es:Océano Índico Oriental, Este del Océano Índico
 fr:Océan Indien Est
 xx:FAO 57
 
+en:Antartic and Southern Indian Ocean
+xx:FAO 58
+
+en:Pacific Ocean
+ca:Oceà Pacífic
+de:Pazifische Ozean
+es:Océano Pacífico
+fr:Océan Pacifique, Pacifique
+hu:Csendes-óceán
+it:Oceano Pacifico
+wikidata:en:Q98
+
+<en:Pacific Ocean
+en:North Pacific Ocean
+fr:Océan Pacifique Nord, Nord de l'Océan Pacifique
+wikidata.org:en:Q12353254
+
+<en:Pacific Ocean
+en:Northwest Pacific Ocean
+fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
+hu:Északnyugat-Csendes-óceán
+xx:FAO 61
+wikidata.org:en:Q34765253
+
+<en:Pacific Ocean
+en:Northeast Pacific Ocean
+de:Nordostpazifik
+fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
+hu:Északkelet-Csendes-óceán
+xx:FAO 67
+wikidata.org:en:Q63860551
+
+<en:Pacific Ocean
+en:West Central Pacific Ocean
+ca:Oceà Pacífic central-oest
+fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
+xx:FAO 71
+
+<en:Pacific Ocean
+en:Eastern Central Pacific Ocean
+xx:FAO 77
+
+<en:Pacific Ocean
+en:Southern Pacific Ocean
+fr:Océan Pacifique Sud, Sud de l'Océan Pacifique
+wikidata.org:en:Q12355425
+
+<en:Southern Pacific Ocean
+en:Southwest Pacific Ocean
+ca:Oceà Pacífic Sud-oest
+es:Océano Pacífico suroeste
+fr:Océan Pacifique Sud-Ouest, FAO 81, FAO N°81
+xx:FAO 81
+
+<en:Southern Pacific Ocean
+en:Southeast Pacific Ocean
+fr:Océan Pacifique Sud-Est, FAO 87, FAO N°87
+xx:FAO 87
