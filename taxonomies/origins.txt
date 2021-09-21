@@ -57,7 +57,7 @@ fr:Afrique de l'Ouest
 hu:Nyugat-Afrika
 
 en:Latin America
-ca:Amèrica Llatina
+ca:Amèrica Llatina$
 de:Lateinamerika
 es:America latina
 fr:Amérique Latine
@@ -515,6 +515,12 @@ hu:Barents-tenger
 xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
 wikidata:en:Q45823
 
+<xx:FAO 27
+xx:FAO 27.1.a
+
+<xx:FAO 27
+xx:FAO 27.1.b
+
 # Norwegian Sea, Spitzbergen, and Bear Island (Subarea 27.2)
 <xx:FAO 27
 en:Norwegian Sea
@@ -523,34 +529,25 @@ hu:Norvég tenger
 xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
 wikidata:en:Q47545
 
+<xx:FAO 27.2
+xx:FAO 27.2.a
+
+<xx:FAO 27.2.a
+xx:FAO 27.2.a.1
+
+<xx:FAO 27.2.a
+xx:FAO 27.2.a.2
+
+<xx:FAO 27.2
+xx:FAO 27.2.b
+
+<xx:FAO 27.2.b
+xx:FAO 27.2.b.1
+
+<xx:FAO 27.2.b
+xx:FAO 27.2.b.2
+
 #  Skagerrak, Kattegat, Sound, Belt Sea, and Baltic Sea (Subarea 27.3)
-
-<xx:FAO 27
-en:North Sea
-de:Nordsee
-fr:Mer du Nord
-hu:Északi-tenger
-xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4
-wikidata:en:Q1693
-
-# Iceland and Faroes Grounds (Subarea 27.5)
-<xx:FAO 27
-xx:FAO 27.5, FAO zone 27-5, FAO subarea 27-5
-
-<xx:FAO 27
-xx:FAO 27 ia
-
-<xx:FAO 27
-xx:FAO 27 ib
-
-<xx:FAO 27
-xx:FAO 27.2
-
-<xx:FAO 27.2
-xx:FAO 27 iia
-
-<xx:FAO 27.2
-xx:FAO 27 iib
 
 <xx:FAO 27
 xx:FAO 27.3
@@ -558,77 +555,101 @@ xx:FAO 27.3
 <xx:FAO 27.3
 xx:FAO 27iiid
 
-<xx:FAO 27
-xx:FAO 27 iii d
+<xx:FAO 27.3
+xx:FAO 27.3.d
+
+<xx:FAO 27.3
+xx:FAO 27.3.a
+
+<xx:FAO 27.3
+xx:FAO 27.3.d
 
 <xx:FAO 27
-xx:FAO 27 iiia
+en:North Sea
+de:Nordsee
+fr:Mer du Nord
+hu:Északi-tenger
+xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4, FAO 27 sub area iv
+wikidata:en:Q1693
 
-<xx:FAO 27
-xx:FAO 27 iiid
+<xx:FAO 27.4
+xx:FAO 27.4.a
 
-<xx:FAO 27
-xx:FAO 27 iv, FAO 27 sub area iv
+<xx:FAO 27.4
+xx:FAO 27.4.b
 
-<xx:FAO 27
-xx:FAO 27 iva
+<xx:FAO 27.4
+xx:FAO 27.4.c
 
+# Iceland and Faroes Grounds (Subarea 27.5)
 <xx:FAO 27
-xx:FAO 27 la
-
-<xx:FAO 27
-xx:FAO 27 lb
-
-<xx:FAO 27
-xx:FAO 27 v
+xx:FAO 27.5, FAO zone 27-5, FAO subarea 27-5
 
 <xx:FAO 27.5
-xx:FAO 27va
-
-<xx:FAO 27
-xx:FAO 27 va
+xx:FAO 27.5.a
 
 <xx:FAO 27
 xx:FAO 27.6, FAO 27 vi
 
 <xx:FAO 27.6
-xx:FAO 27 via
+xx:FAO 27.6.a
 
 <xx:FAO 27.6
-xx:FAO 27 vib2
+xx:FAO 27.6.b2
 
 <xx:FAO 27
 xx:FAO 27.7, FAO 27 vii, FAO 27 sub area vii
 
 <xx:FAO 27.7
-xx:FAO 27 viia
+xx:FAO 27.7.a
 
 <xx:FAO 27.7
-xx:FAO 27 viib
+xx:FAO 27.7.b
 
 <xx:FAO 27.7
-xx:FAO 27 viic2
+xx:FAO 27.7.c
 
 <xx:FAO 27.7
-xx:FAO 27 viid
+xx:FAO 27.7.c.1
 
 <xx:FAO 27.7
-xx:FAO 27 viig
+xx:FAO 27.7.c.2
 
 <xx:FAO 27.7
-xx:FAO 27 viih
+xx:FAO 27.7.d
 
 <xx:FAO 27.7
-xx:FAO 27 viij2
+xx:FAO 27.7.e
 
 <xx:FAO 27.7
-xx:FAO 27 viik2
+xx:FAO 27.7.f
+
+<xx:FAO 27.7
+xx:FAO 27.7.g
+
+<xx:FAO 27.7
+xx:FAO 27.7.h
+
+<xx:FAO 27.7
+xx:FAO 27.7.j.1
+
+<xx:FAO 27.7
+xx:FAO 27.7.j.2
+
+<xx:FAO 27.7
+xx:FAO 27.7.k
+
+<xx:FAO 27.7
+xx:FAO 27.7.k.1
+
+<xx:FAO 27.7
+xx:FAO 27.7.k.2
 
 <xx:FAO 27
 xx:FAO 27.8, FAO 27 sub area viii
 
 <xx:FAO 27
-xx:FAO 27 9, FAO 27 sub area ix
+xx:FAO 27.9, FAO 27 sub area ix
 
 <xx:FAO 27
 xx:FAO 27.10
