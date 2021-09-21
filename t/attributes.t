@@ -118,6 +118,29 @@ my @tests = (
 			packaging_text => "Cardboard box, film wrap",
 		}
 	],
+
+	# Nutri-Score attribute, with a match score computed from the nutriscore score
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/5636
+	[
+		'en-nutriscore',
+		{
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			nutrition_data_per => "100g",
+			ingredients_text => "100% fruits",
+			nutriments => {
+				"energy_100g" => 2591,
+				"fat_100g" => 50,
+				"saturated-fat_100g" => 9.7,
+				"sugars_100g" => 5.1,
+				"salt_100g" => 0,
+				"sodium_100g" => 0,
+				"proteins_100g" => 29,
+				"fiber_100g" => 5.5,
+			},
+		}
+	],	
 );
 
 foreach my $test_ref (@tests) {

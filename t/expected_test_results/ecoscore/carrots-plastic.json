@@ -63,7 +63,9 @@
             "value" : -10
          },
          "production_system" : {
-            "label" : "en:demeter",
+            "labels" : [
+               "en:demeter"
+            ],
             "value" : 20
          },
          "threatened_species" : {}

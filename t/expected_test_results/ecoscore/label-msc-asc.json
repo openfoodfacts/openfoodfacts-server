@@ -54,7 +54,10 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
-            "label" : "en:sustainable-seafood-msc",
+            "labels" : [
+               "en:sustainable-seafood-msc",
+               "en:responsible-aquaculture-asc"
+            ],
             "value" : 10
          },
          "threatened_species" : {
