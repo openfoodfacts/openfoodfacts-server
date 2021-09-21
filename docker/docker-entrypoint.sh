@@ -14,8 +14,9 @@ done
 # Link site-specific translations
 ln -sfT /opt/product-opener/po/${PRODUCT_OPENER_FLAVOR} /mnt/podata/po/site-specific
 
-# Link site-specific Config.pm
+# Link Config.pm and Config2.pm
 ln -sfT /opt/product-opener/lib/ProductOpener/Config_${PRODUCT_OPENER_FLAVOR_SHORT}.pm /opt/product-opener/lib/ProductOpener/Config.pm
+ln -sfT /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm
 
 # Link product images
 ln -sfT /mnt/podata/product_images /opt/product-opener/html/images/products
