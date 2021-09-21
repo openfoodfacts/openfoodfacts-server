@@ -26,14 +26,14 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
 
 		$server_domain
 		@ssl_subdomains
+		$conf_root
 		$data_root
 		$www_root
 		$geolite2_path
@@ -41,9 +41,6 @@ BEGIN
 		$contact_email
 		$admin_email
 		$producers_email
-
-		$facebook_app_id
-		$facebook_app_secret
 
 		$google_cloud_vision_api_key
 
@@ -54,6 +51,7 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 
 		$memd_servers
 
@@ -320,16 +318,15 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$mongodb_timeout_ms = $ProductOpener::Config2::mongodb_timeout_ms;
 $memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
@@ -354,7 +351,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
+$page_size = 24;
 
 
 $google_analytics = <<HTML
@@ -423,28 +420,28 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
-	en:tea-bags
-	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
 	en:herbal-tea-beverages
 	en:coffee-beverages
 	en:coffee-drinks
+
+	en:coffees
+	en:herbal-teas
+	en:teas		
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -453,10 +450,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:baby-foods
 	en:baby-milks
 	en:chewing-gum
-	en:coffees
 	en:food-additives
-	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -464,8 +458,14 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
+
+#	Coffees, teas and herbal teas can have a Nutri-Score if they have
+#	a nutrition facts table
+#
+#	en:coffees
+#	en:herbal-teas
+#	en:teas	
 
 # exceptions
 $options{categories_not_exempted_from_nutriscore} = [qw(
@@ -488,12 +488,16 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+
+@taxonomy_fields = qw(states countries languages labels categories additives_classes additives
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements
+improvements origins packaging_shapes packaging_materials packaging_recycling
+periods_after_opening
 );
 
 
@@ -534,6 +538,7 @@ improvements
 	data_sources
 	obsolete
 	obsolete_since_date
+	periods_after_opening
 );
 
 
@@ -565,6 +570,7 @@ improvements
 	recipe_idea
 	warning
 	conservation_conditions
+	periods_after_opening
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
@@ -574,6 +580,9 @@ improvements
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
@@ -590,8 +599,6 @@ improvements
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users
@@ -610,9 +617,11 @@ improvements
 	created_t
 	last_modified_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -642,24 +651,154 @@ improvements
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
 $options{import_export_fields_groups} = [
-	["identification", ["code", "producer_product_id", "producer_version_id", "lc", "product_name", "generic_name",
-		"quantity_value_unit", "net_weight_value_unit", "drained_weight_value_unit", "volume_value_unit", "serving_size_value_unit", "packaging",
-		"brands", "brand_owner", "categories", "categories_specific", "labels", "labels_specific", "countries", "stores", "obsolete", "obsolete_since_date"]
+	[   "identification",
+		[   "code",                      "producer_product_id",
+			"producer_version_id",       "lc",
+			"product_name",              "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit",       "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit",   "packaging",
+			"packaging_text",
+			"brands",                    "brand_owner",
+			"categories",                "categories_specific",
+			"labels",                    "labels_specific",
+			"countries",                 "stores",
+			"obsolete",                  "obsolete_since_date",
+			"periods_after_opening"	# included for OBF imports via the producers platform
+		]
 	],
-	["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	[   "origins",
+		[   "origins",              "origin",
+			"manufacturing_places", "producer",
+			"emb_codes"
+		]
 	],
-	["ingredients", ["ingredients_text", "allergens", "traces"]
-	],
+	[ "ingredients", [ "ingredients_text", "allergens", "traces" ] ],
 	["nutrition"],
 	["nutrition_other"],
-	["other", [	"nutriscore_score_producer", "nutriscore_grade_producer", "conservation_conditions", "warning", "preparation", "recipe_idea", "recycling_instructions_to_recycle", "recycling_instructions_to_discard", "customer_service", "link"]
+	[   "other",
+		[   "nutriscore_score_producer",
+			"nutriscore_grade_producer",
+			"nova_group_producer",
+			"conservation_conditions",
+			"warning",
+			"preparation",
+			"recipe_idea",
+			"recycling_instructions_to_recycle",
+			"recycling_instructions_to_discard",
+			"customer_service",
+			"link"
+		]
 	],
-	["images", ["image_front_url", "image_ingredients_url", "image_nutrition_url", "image_other_url"]],
+	[   "images",
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
 ];
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [
+	[
+		"nutritional_quality",
+		["nutriscore",
+		"low_salt", "low_sugars", "low_fat", "low_saturated_fat",
+		],
+	],
+	[
+		"processing",
+		["nova","additives"]
+	],
+	[
+		"allergens",
+		[
+			"allergens_no_gluten",
+			"allergens_no_milk",
+			"allergens_no_eggs",
+			"allergens_no_nuts",
+			"allergens_no_peanuts",
+			"allergens_no_sesame_seeds",
+			"allergens_no_soybeans",
+			"allergens_no_celery",
+			"allergens_no_mustard",
+			"allergens_no_lupin",
+			"allergens_no_fish",
+			"allergens_no_crustaceans",
+			"allergens_no_molluscs",
+			"allergens_no_sulphur_dioxide_and_sulphites",
+		],
+	],
+	[
+		"ingredients_analysis",
+		[
+			"vegan", "vegetarian", "palm_oil_free",
+		]		
+	],
+	[
+		"labels",
+		["labels_organic", "labels_fair_trade"]
+	],
+	[
+		"environment",
+		[
+			"ecoscore",
+			"forest_footprint",
+		]
+	],
+];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"nutriscore" => "very_important",
+	"nova" => "important",
+	"ecoscore" => "important",
+};
+
+# Used to generate the sample import file for the producers platform
+# possible values: mandatory, recommended, optional.
+# when not specified, fields are considered optional
+$options{import_export_fields_importance} = {
+	
+	# default values for groups
+	nutrition_group => "mandatory",
+	images_group => "mandatory",
+	ingredients_group => "mandatory",
+	
+	# values for fields
+	code => "mandatory",
+	lc => "mandatory",
+	product_name => "mandatory",
+	abbreviated_product_name => "optional",
+	generic_name => "recommended",
+	quantity => "mandatory",
+	serving_size => "recommended",
+	packaging => "recommended",
+	packaging_text => "mandatory",
+	brands => "mandatory",
+	categories => "mandatory",
+	labels => "mandatory",
+	countries => "recommended",
+	obsolete => "recommended",
+	obsolete_since_date => "recommended",
+	
+	origins => "mandatory",
+	emb_codes => "recommended",
+	
+	recycling_instructions_to_recycle => "recommended",
+	recycling_instructions_to_discard => "recommended",
+	
+	image_other_url => "optional",
+	
+	alcohol_100g_value_unit => "optional",
+
+};
 
 
 # for ingredients OCR, we use tesseract-ocr
@@ -1022,8 +1161,8 @@ $options{nova_groups_tags} = {
 	"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
 	"additives/en:e636" => 4, #Maltol
 	"additives/en:e637" => 4, #Ethyl maltol
-	"additives/en:e640" => 4, #	glycine
-	"additives/en:e641" => 4, #	leucine
+	"additives/en:e640" => 4, # glycine
+	"additives/en:e641" => 4, # leucine
 	"additives/en:e650" => 4, # zinc acetatel
 	"additives/en:e1104" => 4, # lipase
 
@@ -1184,6 +1323,16 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
 
 1;

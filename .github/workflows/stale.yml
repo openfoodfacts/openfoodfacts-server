@@ -1,0 +1,16 @@
+name: "Stale issue handler"
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/stale@v4
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'This issue is stale because it has been open 90 days with no activity.'
+        days-before-stale: 90
+        days-before-close: -1
+        skip-stale-issue-message: true

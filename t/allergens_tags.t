@@ -18,9 +18,9 @@ use ProductOpener::Products qw/:all/;
 my @tests = (
 	[ { lc => "fr", ingredients_text => "lait demi-écrémé 67%" }, [ "en:milk", ] ],
 	[ { lc => "fr", ingredients_text => "Eau, gluten et dérivés" }, [ "en:gluten", ] ],
-	[ { lc => "fr", ingredients_text => "NOIX DE SAINT-JACQUES MARINÉES: blabla, do not match the title of the product" }, [ ] ],
+	[ { lc => "fr", ingredients_text => "NOIX DE SAINT-JACQUES MARINÉES: blabla, do not match the title of the product" }, [ "en:molluscs"] ],
 	[ { lc => "fr", ingredients_text => "NOIX DE SAINT-JACQUES sans corail (8.6 %), ingredients in lower case too, match the ingredient" }, [ "en:molluscs", ] ],
-	[ { lc => "fr", ingredients_text => "Noix de Saint-Jacques marinées (8.6 %), ingredients in lower case too, no match" }, [ ] ],
+	[ { lc => "fr", ingredients_text => "Noix de Saint-Jacques marinées (8.6 %), ingredients in lower case too, no match" }, [ "en:molluscs" ] ],
 	[ { lc => "fr", ingredients_text => "GRAINES DE SESAME grillées, ingredients in lower case too" }, [ "en:sesame-seeds", ] ],
 	[ { lc => "fr", ingredients_text => "FRUITS A COQUE 10%, ingredients in lower case too" }, [ "en:nuts", ] ],
 	[ { lc => "fr", ingredients_text => "FRUITS A COQUE - Something else, ingredients in lower case too" }, [ "en:nuts", ] ],
@@ -53,7 +53,7 @@ my @tests = (
 
 	[ { lc => "fr", ingredients_text => "Sucre. Fabriqué dans un atelier qui manipule du lait, de la moutarde et du céleri." }, [], ["en:celery", "en:milk", "en:mustard"] ],
 
-	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_." }, [], ["en:celery"] ],
+	[ { lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_." }, ["en:gluten"], ["en:celery"] ],
 	[ { lc => "fr", ingredients_text => "Traces éventuelles de : épeautre." }, [], ["en:gluten"] ],
 
 	[ { lc => "fr", ingredients_text => "Contient du _lait_." }, ["en:milk"], [] ],
@@ -63,8 +63,13 @@ my @tests = (
 
 	# Currently not supported
 	# [ { lc => "de", ingredients_text => "kann Haselnüsse und andere schalenfrüchte enthalten",}, [], ["en:nuts"] ],
-  
+
 	[ { lc => "de", ingredients_text => "Kann spuren von Erdnüssen" }, [], ["en:peanuts"] ],
+	[ { lc => "en", ingredients_text => "salt, egg, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:eggs'], ['en:nuts'] ],
+	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:soybeans'], ['en:gluten', 'en:nuts' ] ],
+	
+	# Use the ingredients taxonomy to add allergens
+	[ { lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja" }, ["en:gluten"], [] ],	
 
 );
 
@@ -77,6 +82,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
 	compute_languages($product_ref);
+	extract_ingredients_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
 	is_deeply ($product_ref->{allergens_tags},

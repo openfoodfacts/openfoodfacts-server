@@ -28,11 +28,10 @@
 # TODO: factorize code with search_and_export_products() function
 # from ./lib/ProductOpener/Display.pm
 
-
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -57,7 +56,8 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
-use DateTime qw/:all/;
+#use DateTime qw/:all/;
+use POSIX qw(strftime);
 
 init_emb_codes();
 
@@ -113,6 +113,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
+$fields_ref->{ecoscore_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
@@ -126,16 +127,28 @@ foreach my $l ("en", "fr") {
 	$lc = $l;
 	$lang = $l;
 
-	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	# 300 000 ms timeout so that we can export the whole database
+	# 5mins is not enough, 50k docs were exported
+	my $cursor = get_products_collection(3 * 60 * 60 * 1000)
+		->query({'code' => { "\$ne" => "" },
+				'empty' => { "\$ne" => 1 }})
+		->fields($fields_ref)
+		->sort({code=>1});
+		
+	$cursor->immortal(1);
 
 	$langs{$l} = 0;
 
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
+	my $csv_filename = "$www_root/data/$lang.$server_domain.products.csv";
+	my $rdf_filename = "$www_root/data/$lang.$server_domain.products.rdf";
+	my $log_filename = "$www_root/data/$lang.$server_domain.products.bad-chars.log";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
-	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
-	open (my $BAD, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.bad-chars.log");
+	print STDERR "Write file: $csv_filename.temp\n";
+	print STDERR "Write file: $rdf_filename.temp\n";
+
+	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp");
+	open (my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
+	open (my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
 
 	# Headers
@@ -257,8 +270,15 @@ XML
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
+			
+			# Eco-Score
+			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
+				$field_value = $product_ref->{ecoscore_data}{$1 . "_" . $2};
+			}
 
-			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			if ($field_value ne '') {
+				$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			}
 
 			# Add field value to CSV file
 			$csv .= $field_value . "\t";
@@ -275,8 +295,11 @@ XML
 			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
-					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
-					$csv .= $dt->datetime() . 'Z' . "\t";
+					# surprisingly slow, approx 10% of script time is here.
+					#my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
+					#$csv .= $dt->datetime() . 'Z' . "\t";
+					my $dt = strftime("%FT%TZ", gmtime($product_ref->{$field}));
+					$csv .= $dt . "\t";
 				}
 				else {
 					$csv .= "\t";
@@ -311,7 +334,9 @@ XML
 					}
 				}
 				# sanitize_field_content($field_value, $log_file, $log_msg);
-				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				if ($geo ne '') {
+					$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				}
 
 				$csv .= $geo . "\t";
 			}
@@ -346,7 +371,8 @@ XML
 
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
-			$nid =~/^#/ and next;
+			#$nid =~/^#/ and next;
+			next if (substr($nid, 0, 1) eq '#');
 
 			$nid =~ s/!//g;
 			$nid =~ s/^-//g;
@@ -367,7 +393,10 @@ XML
 			}
 		}
 
-		$csv =~ s/\t$/\n/;
+		#$csv =~ s/\t$/\n/;
+		if (substr($csv, -1, 1) eq "\t") {
+			substr $csv, -1, 1, "\n";
+		}
 
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
@@ -427,6 +456,18 @@ XML
 	close $OUT;
 	close $BAD;
 
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $csv_size_old = (-s $csv_filename) // 0;
+	my $csv_size_new = (-s "$csv_filename.temp") // 0;
+	if ($csv_size_new >= $csv_size_old * 0.99) {
+		unlink $csv_filename;
+		rename "$csv_filename.temp", $csv_filename;
+	} else {
+		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
+		unlink "$csv_filename.temp";
+	}
+
+
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
 
@@ -471,6 +512,17 @@ XML
 	print $RDF "</rdf:RDF>\n";
 
 	close $RDF;
+
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $rdf_size_old = (-s $rdf_filename) // 0;
+	my $rdf_size_new = (-s "$rdf_filename.temp") // 0;
+	if ($rdf_size_new >= $rdf_size_old * 0.99) {
+		unlink $rdf_filename;
+		rename "$rdf_filename.temp", $rdf_filename;
+	} else {
+		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
+		unlink "$rdf_filename.temp";
+	}
 
 }
 

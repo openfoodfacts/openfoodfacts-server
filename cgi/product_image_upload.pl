@@ -129,19 +129,28 @@ if (not defined $code) {
 	}
 }
 
+
+my $response_ref = {
+	files => [{
+			filename => $filename . "",	# Make filename a scalar
+	}],
+};
+
 if ((not defined $code) or ($code eq '')) {
 
 	$log->warn("no code");
-	my %response = ( status => 'status not ok');
-	$response{error} = "error - missing product code";
+	$response_ref->{status} = 'status not ok';
+	$response_ref->{error} = lang("image_upload_error_no_barcode_specified_or_found");
 	if (not $code_specified) {
 		# for jquery.fileupload-ui.js
-		$response{files} = [ { error => $response{error} } ]
+		$response_ref->{files}[0]{error} = $response_ref->{error};
 	}
-	my $data =  encode_json(\%response);
+	my $data =  encode_json($response_ref);
 	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
+
+$response_ref->{code} = $code;
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -157,6 +166,8 @@ if (! -e "$www_root/images/products") {
 
 if ($imagefield) {
 
+	$response_ref->{imagefield} = $imagefield;
+
 	my $path = product_path_from_id($product_id);
 
 	$log->debug("path determined", { imagefield => $imagefield, path => $path, delete => $delete });
@@ -164,9 +175,10 @@ if ($imagefield) {
 	if ($path eq 'invalid') {
 		# non numeric code was given
 		$log->warn("no code", { code => $code });
-		my %response = ( status => 'status not ok');
-		$response{error} = "error - invalid product code: $code";
-		my $data =  encode_json(\%response);
+		$response_ref->{status} = 'status not ok';
+		$response_ref->{error} = "error - invalid product code: $code";
+		$response_ref->{files}[0]{error} = $response_ref->{error};
+		my $data =  encode_json($response_ref);
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit(0);
 	}
@@ -180,21 +192,33 @@ if ($imagefield) {
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
-			store_product($product_ref, "Creating product (image upload)");
+			store_product($User_id, $product_ref, "Creating product (image upload)");
 		}
 		else {
 			$log->info("product code already exists", { code => $code });
 		}
+		
+		my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+		if ((not defined $product_name) or ($product_name eq "")) {
+			$product_name = $code;
+		}
+
+		my $product_url = product_url($product_ref);	
+		
+		$response_ref->{files}[0]{url} = $product_url;
+		$response_ref->{files}[0]{name} = $product_name;
 
 		# Some apps may be passing a full locale like imagefield=front_pt-BR
-		$imagefield =~ s/^(front|ingredients|nutrition|other)_(\w\w)-.*/$1_$2/;
+		$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
 
 		# For apps that do not specify the language associated with the image, try to assign one
-		if ($imagefield =~ /^(front|ingredients|nutrition|other)$/) {
+		if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
 			# If the product exists, use the main language of the product
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};
 		}
+		
+		$response_ref->{imagefield} = $imagefield;
 
 		my $imgid;
 		my $debug_string;
@@ -205,32 +229,33 @@ if ($imagefield) {
 		my $imgid_returncode = process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid, \$debug_string);
 
 		$log->debug("after process_image_upload", { imgid => $imgid, imagefield => $imagefield, $imgid_returncode => $imgid_returncode, debug_string => $debug_string }) if $log->is_debug();
-
-		my $data;
-		my $response_ref;
+		
+		$response_ref->{imgid} = $imgid;
+		if ($imgid > 0) {
+			$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
+		}
 
 		if ($imgid_returncode < 0) {
-			$response_ref = { status => 'status not ok', imgid => $imgid_returncode };
+			$response_ref->{status} = 'status not ok';
 			$response_ref->{error} = "error";
 			($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
 			($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
 			($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
-			($imgid_returncode == -5) and $response_ref->{error} = "could not read image";
+			($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
 
 			if (not $code_specified) {
 				# for jquery.fileupload-ui.js
 				if ($imgid_returncode == -3) {
-					$response_ref->{files} = [ { info => $response_ref->{error} } ]
+					$response_ref->{files}[0]{info} = $response_ref->{error};
 				}
 				else {
-					$response_ref->{files} = [ { error => $response_ref->{error} } ]
+					$response_ref->{files}[0]{error} = $response_ref->{error};
 				}
 			}
 
 			if (defined $debug_string) {
 				$response_ref->{debug} = $debug_string;
 			}
-
 		}
 		else {
 
@@ -253,27 +278,18 @@ if ($imagefield) {
 
 			my $product_url = product_url($product_ref);
 
-			$response_ref = { status => 'status ok',
-				image => $image_data_ref,
-				imagefield => $imagefield,
-				code => $code,
-				files => [{
-					url => $product_url,
-					thumbnailUrl => "/images/products/$path/$imgid.$thumb_size.jpg",
-					name => $product_name,
-					filename => $filename . "",	# Make filename a scalar
-				}],
-			};
+			$response_ref->{status} = 'status ok';
+			$response_ref->{image} = $image_data_ref;
 
 			# Select the image
-			if ((($imagefield =~ /^front_/) or ($imagefield =~ /^ingredients_/) or ($imagefield =~ /^nutrition_/))
+			if (($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
 				# Changed 2020-03-05: overwrite already selected images
 				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
 				# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
 				and ((not defined param('source')) or (param('source') ne "product_edit_form") or (not defined $product_ref->{images}{$imagefield}))
 				) {
 				$log->debug("selecting image", { imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-				process_image_crop($product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+				process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 			}
 			# If the image type is "other" and we don't have a front image, assign it
 			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
@@ -281,7 +297,7 @@ if ($imagefield) {
 				or ((defined $previous_imgid) and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid})))
 				) {
 				$log->debug("selecting front image as we don't have one", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc}}) if $log->is_debug();
-				process_image_crop($product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+				process_image_crop($User_id, $product_id, "front_" . $product_ref->{lc}, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 			}
 			else {
 				$log->debug("not selecting as front image", { imgid => $imgid, previous_imgid => $previous_imgid, imagefield => $imagefield, front_imagefield => "front_" . $product_ref->{lc},
@@ -294,7 +310,7 @@ if ($imagefield) {
 		(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
 		(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
 
-		$data =  encode_json($response_ref);
+		my $data = encode_json($response_ref);
 
 		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
@@ -304,9 +320,9 @@ if ($imagefield) {
 	else {
 
 			$log->warn("no image field defined");
-			my %response = ( status => 'status not ok');
-			$response{error} = "error - imagefield not defined";
-			my $data =  encode_json(\%response);
+			$response_ref->{status} = 'status not ok';
+			$response_ref->{error} = "error - imagefield not defined";
+			my $data =  encode_json($response_ref);
 			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	}
 

@@ -55,10 +55,10 @@ my @tests = (
 
 	[ { lc => "de", ingredients_text => "Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."}, [ "en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250" ], ],
 
-	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:pasteurized-cream', 'en:salt', 'en:ferment'  ], ],
+	[ { lc => "fr", ingredients_text => "Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."}, [ 'en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'  ], ],
 	[ { lc => "en", ingredients_text => "Organically grown green tea"}, [ "en:green-tea" ], ],
-	[ { lc => "fr", ingredients_text => "Céleri - rave, choux - fleurs, béta - carotène"}, [ "en:celeriac", "en:cauliflower", "en:e160a" ], ],
-	[ { lc => "fr", ingredients_text => "Pâte de cacao de Madagascar, café"},["fr:Pâte de cacao de Madagascar", "en:coffee"]],
+	[ { lc => "fr", ingredients_text => "Céleri - rave, choux - fleurs, béta - carotène"}, [ "en:celeriac", "en:cauliflower", "en:e160ai" ], ],
+	[ { lc => "fr", ingredients_text => "Pâte de cacao de Madagascar, café"},["en:cocoa-paste", "en:coffee"]],
 	[ { lc => "es", ingredients_text => "Vinagre, chile rojo y sal."},["en:vinegar", "en:red-chili-pepper", "en:salt"]],
 	[ { lc => "fr", ingredients_text => "Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g"}, [ "en:wheat-flour", "en:butterfat", "en:sugar", "en:fresh-egg" ], ],
 	[ { lc => "fr", ingredients_text => "Farine de blé 60%. Les pourcentages sont exprimés sur le produit avant cuisson. Sucre 40% (% exprimé sur la pâte)"}, [ "en:wheat-flour", "en:sugar" ], ],
@@ -69,19 +69,19 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, [ "fr:Fromage étrange à pâte cuite" ], ],
 	[ { lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, [ "en:banana" ], ],
 	[ { lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, [ "en:banana" ], ],
-	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["en:chicken-fillet" ], ],
+	[ { lc => "fr", ingredients_text => "émincé de filet de poulet traité en salaison cuit rôti, Pourcentages exprimés sur les pâtes alimentaires aux oeufs "}, ["fr:filet-de-poulet-traite-en-salaison-cuit" ], ],
 	[ { lc => "fr", ingredients_text => "sucre 22g**"}, [ "en:sugar" ], ],
 
 	# [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"}, [ "en:sugar" ], ],
-	 [ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"}, [ "en:water", "en:e290", "en:sweetener", "en:e951", "en:e950" ], ],
-	 [ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
-	 [ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
+	[ { lc => "de", ingredients_text => "Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"}, [ "en:water", "en:e290", "en:sweetener", "en:e951", "en:e950" ], ],
+	[ { lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, [ "en:e951", "en:e950" ], ],
+	[ { lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"}, [ "en:colour", "en:e162", "en:e160c", "en:e100" ], ],
 
-	 [ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+	[ { lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
 
-	 [ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
-	 [ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
-	 [ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
+	[ { lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
+	[ { lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"}, ["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]],
+	[ { lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"}, ["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]],
 
 	[ { lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)" }, ["en:vegetable-oil", "en:coconut", "en:rapeseed"]],
 
@@ -121,7 +121,35 @@ my @tests = (
 	[ { lc => "es", ingredients_text => "caramelo E-150c"} , ["en:e150c"]],
 	# mismatch between name and number
 	[ { lc => "fr", ingredients_text => "acide citrique E120"} , ["fr:acide citrique e120"]],
+	
+	# removal of "allergy advice..." in %ignore_regexps
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."}, ['en:salt','en:spice','en:water']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergy advice: for allergens, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "en", ingredients_text => "salt, spice. allergen advice: for allergens including cereals containing gluten, see ingredients in bold. May contain traces of nuts."}, ['en:salt','en:spice']],
+	[ { lc => "fr", ingredients_text => "sucre, lécithine de soja, sel. Allergènes : voir les ingrédients en gras. Traces éventuelles de gluten et de fruits à coque."}, ['en:sugar', 'en:soya-lecithin', 'en:salt']],
 
+	[ { lc => "nl", ingredients_text => "romano"}, ['nl:romano']],
+
+	# MSC
+	[ { lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"}, ['en:salmon', 'en:alaska-pollock', 'en:cod']],
+	[ { lc => "fr", ingredients_text => "poisson ascorbique"}, [ "fr:poisson ascorbique" ], ],
+	# AOP
+	[ { lc => "fr", ingredients_text => "piment d'Espelette AOP"}, [ "en:espelette-chili-pepper" ], ],
+
+	# palm oil false negative
+	[ { lc => "fr", ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)", "" }, ['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme certifiée durable", "" }, ['en:palm-oil']],
+	[ { lc => "fr", ingredients_text => "huile de palme RSPO", "" }, ['en:palm-oil']],
+	
+	# Russian and / or
+	[ { lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "яблоко и / или малина"}, ["en:apple","en:raspberry"]],
+	[ { lc => "ru", ingredients_text => "бензоат натрия и сорбат калия"}, ["en:e211", "en:e202"]],
+	
+	# Russian oil
+	[ { lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"}, ["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]],
+	
+	
 );
 
 foreach my $test_ref (@tests) {

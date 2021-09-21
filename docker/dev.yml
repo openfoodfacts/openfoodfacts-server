@@ -1,0 +1,25 @@
+﻿version: "3.7"
+services:
+  backend:
+    image: openfoodfacts-server/backend:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runnable
+    volumes:
+      - ./:/opt/product-opener # mount local folder for reload on dev changes
+  frontend:
+    image: openfoodfacts-server/frontend:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+  mongodb:
+    image: mongo:4.4
+    networks:
+      - webnet
+volumes:
+  product_images:
+  html_data:
+  users:
+  products:
+  orgs:

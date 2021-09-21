@@ -1,0 +1,20 @@
+{
+    "parent_panel_id": "ecoscore",
+    "type" : "score",
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title": "[% panel.title %]",
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "text_type": "summary",
+                "html": `
+                    <p>[give more details here]</p> 
+                    `
+            }
+        },
+    ]
+}

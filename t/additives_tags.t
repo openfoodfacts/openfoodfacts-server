@@ -30,7 +30,7 @@ my @tests = (
 [ { lc => "en", ingredients_text => "FD&C Red #40 and silicon dioxide" }, [ "en:e129" ] ],
 
 [ { lc => "fi", ingredients_text => "Vesi, sianliha, kamara, naudanliha, silava, muunneltu maissitärkkelys, naudan sydän, soijaproteiini, suola, stabilointiaine (E450), mausteuutteet, arominvahvenne (E621), hapettumisenestoaine (E315), rapsiöljy, aromit, säilöntäaine (natriumnitriitti)" }, [ "en:e450", "en:e621", "en:e315", "en:e250" ] ],
-[ { lc => "fi", ingredients_text => "Sakeuttamisaine (arabikumi), makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, väriaine (kurkuma), pintakäsittelyaine mehiläisvaha" }, [ "en:e414", "en:e420i", "en:e965ii", "en:e950", "en:e330", "en:e100", "en:e901" ] ],
+[ { lc => "fi", ingredients_text => "Sakeuttamisaine (arabikumi), makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, väriaine (kurkuma), pintakäsittelyaine mehiläisvaha" }, [ "en:e414", "en:e420", "en:e965ii", "en:e950", "en:e330", "en:e100", "en:e901" ] ],
 
 [ { lc => "pl", ingredients_text => "przeciwutleniacz E385" }, [ "en:e385" ] ],
 [ { lc => "pl", ingredients_text => "mięso wieprzowe, meso wołowe, sól, białko sojowe, dekstroza, przyprawy (zawierają seler i gorczyce), ekstrakt przypraw, przeciwutleniacz E301; barwnik E120, substancja konserwująca E250, kultury starterowe. Otoczone żelatyna wieprzowa, pieprz kolorowy 6,5% (czarny biały, zielony, różowy), substancja konserwująca: E202. Do wywożenia 100 g produktu zużyto 114 g mięsa wieprzowego i 2 g mięsa wołowego." }, [ "en:e301", "en:e120", "en:e250", "en:e202" ] ],
@@ -42,6 +42,16 @@ my @tests = (
 [ { lc => "pl", ingredients_text => "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." }, [ "en:e330","en:e331" ] ],
 [ { lc => "es", ingredients_text => "Agua, edulcorantes (INS420, INS 960, INS N'952, INS N°954, INS°950, INS N 955), conservantes (INS.218, INS #202, INS N 216)."}, ["en:e420","en:e960","en:e952","en:e954","en:e950","en:e955","en:e218","en:e202","en:e216"]],
 [ { lc => "fr", ingredients_text => "cal" }, []],
+[ { lc => "fr", ingredients_text => "colorant: caramel" }, ["en:e150"]],
+[ { lc => "fr", ingredients_text => "caramel" }, []],
+[ { lc => "fr", ingredients_text => "caramel aromatique" }, []],
+
+# Russian "е" character
+
+[ { lc => "ru", ingredients_text => "е322, Куркумины e100, е-1442, (е621)" }, ["en:e322", "en:e100", "en:e1442", "en:e621"]],
+
+[ { lc => "fr", ingredients_text => "acide citrique E-330, E-102 tartrazine" }, ["en:e330","en:e102"]],
+
 );
 
 foreach my $test_ref (@tests) {

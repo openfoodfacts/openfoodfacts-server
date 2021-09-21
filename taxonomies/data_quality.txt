@@ -24,8 +24,14 @@ show_on_producers_platform:en:yes
 
 en:Energy value in kcal greater than in kJ
 fr:La valeur de l'énergie en kcal est plus grande qu'en kJ
-description:en:The energy value in kJ must be about 4.8 times greater than the value in kcal
-description:fr:La valeur de l'énergie en kJ doit être environ 4,8 fois plus grande que la valeur en kcal
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be inverted.
+description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
+show_on_producers_platform:en:yes
+
+en:Energy value in kcal does not match value in kJ
+fr:La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal
+description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal
 show_on_producers_platform:en:yes
 
 en:Nutri-Score score from producer does not match calculated score
@@ -38,4 +44,10 @@ en:Nutri-Score grade from producer does not match calculated grade
 fr:La note Nutri-Score du producteur ne correspond pas à la note calculée
 description:en:The difference may be due to different nutrition facts (for instance if fibers or fruits, vegetables and nuts are not specified).
 description:fr:La différence peut être due à des valeurs nutritionnelles différentes (par exemple si les fibres ou les fruits, légumes et noix ne sont pas indiqués).
+show_on_producers_platform:en:yes
+
+en:All nutrition values are set to 0
+fr:Toutes les valeurs nutritionnelles sont définies à 0
+description:en:If nutrition facts are unknown, they should not be specified.
+description:fr:Dans le cas où les informations nutritionnelles sont inconnues, elles ne doivent pas être renseignées.
 show_on_producers_platform:en:yes

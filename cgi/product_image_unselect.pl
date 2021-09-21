@@ -58,7 +58,7 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_unselect($product_id, $id);
+my $product_ref = process_image_unselect($User_id, $product_id, $id);
 
 my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
 

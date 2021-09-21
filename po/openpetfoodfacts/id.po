@@ -5,15 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-19 15:36\n"
+"PO-Revision-Date: 2021-09-11 13:34\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: id\n"
-"X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 448\n"
+"X-Crowdin-File: openpetfoodfacts.pot\n"
+"X-Crowdin-File-ID: 1816\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -28,7 +28,7 @@ msgstr "openfoodfacts-logo-en-356x300.png"
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
 msgid "Open Pet Food Facts"
-msgstr "Open Pet Food Facts"
+msgstr ""
 
 # Do not translate Open Pet Food Facts
 msgctxt "tagline"
@@ -106,7 +106,13 @@ msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
+"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -118,7 +124,7 @@ msgstr "Anda bisa mendapatkan informasi tentang bahan, nilai gizi, dan produk ma
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr "dan <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\"> adalah grup Facebook bagi kontributor"
+msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -126,7 +132,7 @@ msgstr "Basis data mengenai produk makanan dari seluruh dunia secara kolaboratif
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
@@ -147,6 +153,6 @@ msgstr "Pencarian produk Open Pet Food Facts"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
-msgstr ""
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
 

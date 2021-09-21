@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -134,7 +134,7 @@ if (open (my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tm
 			
 			chomp($english);
 			$english =~ s/(\s|\r|\n)*$//;
-			$english =~ s/^(\s|\r|\n)*//;		
+			$english =~ s/^(\s|\r|\n)*//;
 			$english =~ s/(-|_|\s|\r|\n)+/ /g;
 			my $english_orig = $english;
 			# lowercase and remove ending dot to increase chance of matching
@@ -213,7 +213,7 @@ foreach my $function (sort keys %functions) {
 				
 				print "description:" . $lang . ": " . $description . "\n";
 			}
-		}			
+		}
 
 		print "\n";
 }

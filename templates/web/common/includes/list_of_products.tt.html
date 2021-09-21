@@ -1,0 +1,112 @@
+
+<!-- start templates/[% template.name %] -->
+
+<p>[% error %]</p>
+[% IF (current_link_query.defined) && !(jqm.defined) %]
+    [% IF country != 'en:world' %]
+        <p>&rarr; <a href= "[% world_subdomain %][% current_link_query %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
+    [% END %]
+    &rarr; <a href="[% current_link_query %]">[% lang('search_link') %]</a><br>
+[% END %]
+[% IF (current_link_query_edit.defined) && !(jqm.defined) %]
+    &rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a><br>
+[% END %]
+
+[% IF count > 0 %]
+    [% IF (current_link_query_download.defined) && !(jqm.defined) %]
+        &rarr;[% lang('search_download_results') %]<br>
+        [% IF count <= export_limit %]
+            <ul>
+                <li><a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a> ([% lang('search_download_xlsx_description') %])</li>
+                <li><a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a> ([% lang('search_download_csv_description') %])</li>
+            </ul>
+        [% END %]
+    [% END %]
+
+    
+	<div class="row">
+		<div class="small-12 columns">
+			
+				<div style="float:left;margin-right:1em;padding-top:0.3rem;">
+					<span style="font-weight:bold;">[% display_icon('subdirectory_arrow_right') %] [% html_count %]</span>
+				</div>
+					
+				<div style="float:left;margin-right:1em;">
+					<button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button dropdown small secondary">
+						[% display_icon('sort_arrows') %]
+						<span style="font-size:1rem;font-weight:bold;">[% lang("sort_by_${sort_by}") %]</span>
+					</button>
+					<ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
+						[% FOREACH sort_option IN sort_options %]
+							<li><a href="[% sort_option.link %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value %]', { expires: 180, path: '/' });">[% sort_option.name %]</a></li>
+						[% END %]
+					</ul>
+					
+				</div>
+        
+        [% IF current_link.defined %]
+
+				[% IF explore_products == 'true' %]
+				<div>
+					<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">[% display_icon('sort') %] [% lang('explore_products_by') %]</button>
+					<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+						[% FOREACH newtagtype IN current_drilldown_fields %]
+							<li><a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a></li>
+						[% END %]
+					</ul>
+
+				</div>
+				[% END %]
+
+		[% END %]
+		</div>
+	</div>
+  
+	[% pagination %]
+	 
+	<div id="preferences_selected"></div>
+
+	<div id="preferences_selection_form" style="display:none"></div>
+
+    [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
+        <ul data-role="listview" data-theme="c" id="search_results_list">
+    [% ELSE %]
+    <div id="search_results" style="clear:left;">
+        <ul class="products">
+    [% END %]
+    
+    [% FOREACH product IN structured_response_products %]
+        [% IF product.jqm %]
+            <li>
+                <a href="#page_product?code=[% product.code %]" title="[% product.product_name %]">
+                    [% product.img %]
+                    [% product.product_name %]
+                </a>
+            </li>
+        [% ELSE %]
+            <li>
+                [% IF product.product_name == '' %]
+                    <a href="[% product.url %]" title="[% product.code %]">
+                [% ELSE %]
+                    <a href="[% product.url %]" title="[% product.product_name %]">
+                [% END %]
+                <div>[% product.img %]</div>
+                <span>[% product.product_name %]</span>
+                </a>
+            </li>
+        [% END %]
+
+    [% END %]
+    
+    [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
+        </ul>
+    [% ELSE %]
+		</ul></div>
+    [% END %]    
+    
+	<hr>
+	[% pagination %]
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->

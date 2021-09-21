@@ -1,6 +1,8 @@
 #!/bin/sh
 
 cd /srv/obf/scripts
+export PERL5LIB="../lib:${PERL5LIB}"
+
 ./get_blog_updates.pl --lang fr --rss "https://fr.blog.openfoodfacts.org/index.xml"
 ./get_blog_updates.pl --lang en --rss "https://en.blog.openfoodfacts.org/index.xml"
 ./get_blog_updates.pl --lang de --rss "https://en.blog.openfoodfacts.org/german.xml"

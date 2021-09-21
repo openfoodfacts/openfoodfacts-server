@@ -1,6 +1,8 @@
 # note: en:synonyms (E.g. RC codes) apply to all languages, there is no need to repeat them
 synonyms:en:Recycling code, RC
 
+en:Biodegradable materials
+
 en:Plastic
 de:Kunststoff
 fr:Plastique
@@ -15,6 +17,8 @@ fr:Matériau recyclable
 pt:Material reciclável
 hu:Újrahasznosítható anyag
 
+<en:Plastic
+<en:Recyclable material
 en:Recyclable plastic
 de:wiederverwertbarer Kunststoff
 fr:Plastique recyclable
@@ -31,6 +35,7 @@ pt:Material reciclado
 hu:Újrahasznosított anyagból
 
 <en:Recycled material
+<en:Plastic
 en:Recycled plastic
 de:wiederverwerteter Kunststoff
 fr:Plastique recyclé
@@ -40,14 +45,14 @@ pt:Plástico reciclável
 hu:jrahasznosított műanyagból
 
 <en:Plastic
-en:Polyethylene terephthalate, PET, Recycling Code 1, RC 01, 1, 01, PET(E), PETE, PET 1
-de:Polyethylenterephtalat, PET, 1 PET, 1-PET, ♳
+en:Polyethylene terephthalate, PET, Recycling Code 1, RC 01, 1, 01, PET(E), PETE, PET 1,1 PET,1-PET,♳
+de:Polyethylenterephtalat
 fr:Polytéréphtalate d'éthylène, polyéthylène téréphtalate
-hu:Polietilén-tereftalát, PET, 1 PET, 1-PET, ♳
+hu:Polietilén-tereftalát
 it:Polietilentereftalato, Polietilene tereftalato, PET 01, PET 1, PET, PETP, ♳
 nl:Polyethyleentereftalaat, PET, PETP
 nl_be:Polyethyleentereftalaat, PET, PETP
-pt:Tereftalato de polietileno, PET, 1 PET, 1-PET
+pt:Tereftalato de polietileno
 ru:Полиэтилентерефталат
 wikidata:en:Q145863
 
@@ -164,17 +169,17 @@ nl:Lithium-ion-accu, Li-ion-accu
 nl_be:Lithium-ion-accu, Li-ion-accu
 hu:Lítium akkumulátor, 12 Li, 12-Li
 
-en:Silver-oxide battery, 13 SO(Z)
-en:Silberoxidbatterie, 13 SO(Z), 13-SO
+en:Silver-oxide battery, 13 SO(Z), 13-SO
+de:Silberoxidbatterie
 nl:zilveroxide batterij
 nl_be:zilveroxide batterij
-hu:Ezüst-oxid akkumulátor, 13 SO(Z), 13-SO
+hu:Ezüst-oxid akkumulátor
 
-en:Zinc–carbon battery, 14 CZ
-de:Zink–Kohle-Batterie, 14 CZ, 14-CZ
+en:Zinc–carbon battery, 14 CZ, 14-CZ
+de:Zink–Kohle-Batterie
 nl:Zink-koolstofcel
 nl_be:Zink-koolstofcel
-hu:Cink-szén akkumulátor, 14 CZ
+hu:Cink-szén akkumulátor
 
 en:Cardboard, 20 C PAP, 20 C PCB
 de:Pappe, Wellpappe, 20 C PAP, 20 C PCB
@@ -202,10 +207,10 @@ nl:Papier
 nl_be:Papier
 ru:Бумага
 
-en:Paperboard, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
-en:Karton, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23, 23-PBD
+en:Paperboard, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23, 23-PBD
+de:Karton
 fr:Papier cartonné
-hu:Kartonlap, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
+hu:Kartonlap
 
 en:Metals
 fr:Métaux
@@ -231,72 +236,73 @@ nl:Staal
 ru:Сталь
 
 <en:Recyclable Metals
-en:Aluminium, 41 ALU
-de:Aluminium, 41 ALU, 41-ALU
-hu:Alumínium, 41 ALU
-it:Alluminio, ALU 41, 41 ALU
+en:Aluminium, 41 ALU, 41-ALU, ALU 41
+de:Aluminium
+hu:Alumínium
+it:Alluminio
 ja:アルミ
 nl:Aluminium
 ru:Алюминий
 wikidata:en:Q663
 
-en:Wood, 50 FOR
-de:Holz, 50 FOR, 50-FOR
+en:Wood, 50 FOR, 50-FOR
+de:Holz
 fr:Bois
-hu:Fa, 50 FOR
-it:Legno, 50 FOR
+hu:Fa
+it:Legno
 nl:Hout
 ru:Древесина
 
-en:Cork, 51 FOR
-de:Kork, 51 FOR, 51-FOR
+en:Cork, 51 FOR, 51-FOR
+de:Kork
 fr:Liège
-hu:Parafa, 51 FOR, 51-FOR
-it:Sughero, 51 FOR
+hu:Parafa
+it:Sughero
 nl:Kurk
 ru:Пробка
 
-en:Cotton, 60 COT
-de:Baumwolle, 60 COT, 60-COT
+en:Cotton, 60 COT, 60-COT, 60 TEX
+de:Baumwolle
 fr:Coton
-hu:Pamut, 60 COT
-it:Cotone, 60 TEX, 60 COT
+hu:Pamut
+it:Cotone
 nl:Katoen
 ru:Хлопок
 
-en:Jute, 61 TEX
-de:Jute, 61 TEX, 61-TEX
-it: Juta, 61 TEX
+en:Jute, 61 TEX, 61-TEX
+de:Jute
+hu:Juta
+it:Juta
 ru:Джутовое волокно
 
 en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 de:Andere Textilien, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
 fr:Autres textiles, autre textile
 nl:Ander textiel
-hu:Egyéb textília, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
+hu:Egyéb textilek, Egyéb textil, Egyéb textília, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 
 en:Glass
 
 <en:Glass
-en:Mixed Glass Container/Multi-Part Container, 70 GLS
+en:Mixed Glass Container/Multi-Part Container
 
 # Clear glass is 70 GLS not 71 GLS. Source: https://en.wikipedia.org/wiki/Recycling_codes#Glass
 <en:Glass
-en:Clear Glass, 71 GLS
-de:Klarglas, 71 GLS, 71-GLS
-hu:Tiszta üveg, 71 GLS, 71-GLS
-it: Vetro incolore, GL 70
+en:Clear Glass, GL 70, 70 GLS, 70-GLS
+de:Klarglas
+hu:Fehér üveg
+it:Vetro incolore
 
 # Green glass is 71 GLS not 72 GLS. Example: https://commons.wikimedia.org/wiki/File:Recycling-Code-71.svg
 <en:Glass
-en:Green Glass, 72 GLS
-de:Grünglas, 72 GLS, 72-GLS
-hu:Zöld üveg, 72 GLS, 72-GLS
-it:Vetro verde, GL 71, 71 GLS
+en:Green Glass, GL 71, 71 GLS, 71-GLS
+de:Grünglas
+hu:Zöld üveg
+it:Vetro verde
 
 <en: Glass
 en:Brown Glass, 72 GL, 72 GLS, GL 72
-it:Vetro Marrone, GL 72, 72 GLS
+it:Vetro Marrone
 
 <en:Glass
 en:Dark Sort Glass, 73 GLS
@@ -328,7 +334,9 @@ en:Paper and cardboard / Plastic / Aluminium, 84 C/PAP, PapAl
 hu:Papír és karton / Műanyag / Alumínium, 84 C/PAP, PapAl
 
 <en:Plastic
+<en:Biodegradable materials
 en:Biodegradable plastic, Card-stock Laminate, 87
+hu:Biológiai úton lebomló műanyag, Lebomló műanyag
 
 <en:Polyethylene terephthalate
 <en:Aluminium
@@ -499,6 +507,7 @@ en:Semi-preserved
 de:Halbkonserve
 es:En semiconserva, Semiconserva, Semi-conserva
 fr:Semi-conserve
+hu:Féltartós
 pt:Em semiconserva, Semiconserva, Semi-conserva
 
 en:Frozen
@@ -533,6 +542,7 @@ en:Modified atmosphere
 de:Unter Schutzatmosphäre, Unter Schutzatmosphäre verpackt
 es:Envasado en atmósfera protectora, Atmósfera protectora
 fr:Sous atmosphère protectrice, Atmosphère protectrice, Conditionné sous atmosphère protectrice
+hu:Védőgáz, védőgázas, védőgázas csomagolás
 nl:Beschermende atmosfeer
 wikidata:en:Q1815645
 
@@ -575,7 +585,7 @@ de:Vakuumverpackt
 es:Envasado al vacío, Al vacío
 fr:Sac sous vide, Sac sous-vide, Sous-vide
 nl:Vacuumverpakt
-hu:Vákumcsomagolt
+hu:Vákuumcsomagolt
 wikidata:en:Q682829
 
 en:Microwaveable
@@ -589,6 +599,8 @@ hu:Palack
 it:Bottiglia
 ru:Бутылка
 wikidata:en:Q80228
+
+en:Jar
 
 <en:Bottle
 <en:Plastic
@@ -636,6 +648,6 @@ ru:бумажный пакет
 <en:Plastic
 en:Plastic bag
 de:Plastiktüte
-hu:Műanyagzacskó
+hu:Műanyagzacskó, Nejlonzacskó
 it:Sacchetto di plastica
 pt:Saco de plástico

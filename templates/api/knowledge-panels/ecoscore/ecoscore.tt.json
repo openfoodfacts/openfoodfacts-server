@@ -1,0 +1,78 @@
+{
+    "parent_panel_id": "root",
+    "type": "score",
+    "level": "info",
+    "grade": "[% grade %]",
+    "topics": [
+        "environment"
+    ],
+    "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
+    "title": "[% panel.title %]",
+    "elements": [     
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %]/images/icons/ecoscore-[% panel.grade %].svg",
+                "width": 274,
+                "height": 130,
+                "alt": "Eco-score [% panel.grade %]",
+                "link_url": "[% formatted_subdomain %][% url_for_text('ecoscore') %]",
+                "link_title": "[% lang('ecoscore_information') %]",
+            }
+        },        
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% lang("ecoscore_description") %]`,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "note",
+                "html": `
+                    [% IF cc == "fr" %]
+                        [% lang("ecoscore_warning_fr") %]
+                    [% ELSE %]
+                        [% lang("ecoscore_warning_international") %]
+                    [% END %]                
+                `,
+            }
+        },        
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "h1",
+                "html": "Average impact of products of the [% panel.agribalyse_category_name %] category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)"
+            }
+        },
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ecoscore_agribalyse",
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "h1",
+                "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
+            }
+        },
+        [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ecoscore_[% adjustment %]",
+            }
+        },
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `<p>[% lang("ecoscore_description") %]</p>`,
+            }
+        },        
+    ]
+}

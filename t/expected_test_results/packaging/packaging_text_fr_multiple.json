@@ -1,0 +1,21 @@
+{
+   "lc" : "fr",
+   "packaging_text" : "barquette en plastique à jeter, film plastique à jeter, boîte en carton à recycler",
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "recycling" : "en:discard",
+         "shape" : "en:tray"
+      },
+      {
+         "material" : "en:plastic",
+         "recycling" : "en:discard",
+         "shape" : "en:film"
+      },
+      {
+         "material" : "en:cardboard",
+         "recycling" : "en:recycle",
+         "shape" : "en:box"
+      }
+   ]
+}

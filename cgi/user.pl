@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -23,8 +23,6 @@
 use Modern::Perl '2017';
 use utf8;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -38,8 +36,13 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Log::Any qw($log);
 
+my @user_groups = qw(producer database app bot moderator pro_moderator);
+
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
+
+# Passing values to the template
+my $template_data_ref = {};
 
 # If the "Create user" form was submitted from the product edit page
 # save the password parameter and unset it so that the ProductOpener::Display::init()
@@ -54,9 +57,31 @@ if (($type eq "add") and (defined param('prdct_mult'))) {
 
 ProductOpener::Display::init();
 
-my $userid = get_fileid(param('userid'), 1);
+
+# $userid will contain the user to be edited, possibly different than $User_id
+# if an administrator edits another user
+
+my $userid = $User_id;
+
+if (defined param('userid')) {
+
+	$userid = param('userid');
+
+	# The userid looks like an e-mail
+	if ($admin and ($userid =~ /\@/)) {
+		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		if (defined $emails_ref->{$userid}) {
+			$userid = $emails_ref->{$userid}[0];
+		}
+	}
+
+	$userid = get_fileid($userid, 1);
+}
+
+$log->debug("user form - start", { type => $type, action => $action, userid => $userid, User_id => $User_id }) if $log->is_debug();
 
 my $html = '';
+my $js = '';
 
 my $user_ref = {};
 
@@ -75,7 +100,6 @@ if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
 }
 
 my $debug = 0;
-
 my @errors = ();
 
 if ($action eq 'process') {
@@ -94,8 +118,8 @@ if ($action eq 'process') {
 	if ($type eq 'edit_owner') {
 		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 	}
-	else {
-		ProductOpener::Users::check_user_form($user_ref, \@errors);
+	elsif ($type ne 'delete') {
+		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 
 	if ($#errors >= 0) {
@@ -108,29 +132,14 @@ if ($action eq 'process') {
 	}
 }
 
-if (($action eq "display") or ($action eq "none")) {
+$template_data_ref->{action} = $action;
+$template_data_ref->{errors} = \@errors;
 
-	if ($#errors >= 0) {
-		$html .= "
-		<div class='alert-box alert'>
-			<p>
-				<b>$Lang{correct_the_following_errors}{$lang}</b>
-			</p>
-		";
-		foreach my $error (@errors) {
-			$html .= "$error<br />";
-		}
-		$html .= '</div>';
-	}
-}
+$log->debug("user form - before display / process", { type => $type, action => $action, userid => $userid }) if $log->is_debug();
 
 if ($action eq 'display') {
 
-	$scripts .= <<SCRIPT
-SCRIPT
-;
-
-	# We can pre-fill the form to create an account using the username and password
+    # We can pre-fill the form to create an account using the username and password
 	# passed in a form to open a session.
 	# e.g. when a non-logged user clicks on the "Edit product" button
 
@@ -150,104 +159,200 @@ SCRIPT
 		}
 	}
 
-	$html .= start_form()
-	. "<table>";
+	$template_data_ref->{user_ref} = $user_ref;
 
-	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
-	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
-	$html .= ProductOpener::Users::display_user_form_admin_only($user_ref);
+	# Create the list of sections and fields
 
-	if ($admin) {
-		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
+	$template_data_ref->{sections} = [];
+
+		if ($user_ref) {
+		push @{$template_data_ref->{sections}}, {
+			id => "user",
+			fields => [
+				{
+					field => "name"
+				},
+				{
+					field => "email",
+					type => "email",
+				},
+				{
+					field => "userid",
+					label => "username"
+				},
+				{
+					field => "password",
+					type => "password",
+					label => "password"
+				},
+				{
+					field => "confirm_password",
+					type => "password",
+					label => "password_confirm"
+				},
+			]
+		};
+
+		# Professional account
+		push @{$template_data_ref->{sections}}, {
+			id => "professional",
+			name => lang("pro_account"),
+			description => "if_you_work_for_a_producer",
+			note => "producers_platform_description_long",
+			fields => [
+				{
+					field => "pro",
+					type => "checkbox",
+					label => lang("this_is_a_pro_account"),
+					warning => sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>"),
+					value => "off",
+				},
+				{
+					field => "pro_checkbox",
+					type => "hidden",
+					value => 1,
+				},
+				{
+					field => "requested_org",
+					label => lang("producer_or_brand") . ":",
+				}
+			]
+		};
+
+		# Teams section
+		# Do not display teams if it is a professional account
+		# Do not display teams on pro platform
+		if (not ((defined $server_options{producers_platform})
+			or (defined $user_ref->{org}) or (defined $user_ref->{requested_org}))) {
+			my $team_section_ref = {
+				id => "teams",
+				name => lang("teams") . " (" . lang("optional") . ")",
+				description => "teams_description",
+				note => "teams_names_warning",
+				fields => []
+			};
+			for (my $i = 1; $i <= 3; $i++) {
+				push @{$team_section_ref->{fields}}, {
+					field => "team_". $i,
+					label => sprintf(lang("team_s"), $i),
+				 };
+			};
+
+			push @{$template_data_ref->{sections}}, {%$team_section_ref};
+		}
+
+		# Admin section
+		if ($admin) {
+			my $administrator_section_ref = {
+				id => "administrator",
+				name => "Administrator fields",
+				fields => []
+			};
+			push  @{$administrator_section_ref->{fields}}, {
+				field => "org",
+				label => lang("organization"),
+			};
+			foreach my $group (@user_groups) {
+				push @{$administrator_section_ref->{fields}}, {
+					field =>  "user_group_". $group,
+					label =>  lang("user_group_". $group) . " " . lang("user_group_" . ${group} . "_description"),
+					type => "checkbox",
+					value => $user_ref->{$group},
+				};
+			};
+			push @{$template_data_ref->{sections}}, {%$administrator_section_ref};
+		}
 	}
 
-	$html .= "\n<tr><td>"
-	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. hidden(-name=>'type', -value=>$type, -override=>1)
-	. hidden(-name=>'userid', -value=>$userid, -override=>1)
-	. submit(-class=>'button')
-	. "</td></tr>\n</table>"
-	. end_form();
+	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
+
+		$template_data_ref->{accepted_organization} = $user_ref->{org};
+		$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
+	}
+	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{requested_org_ref} = $requested_org_ref;
+		$template_data_ref-> {org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+		$template_data_ref->{teams_flag} = not ((defined $server_options{private_products}) and ($server_options{private_products}));
+	}
+
+		# Add labels, types, descriptions, notes and existing values for all fields
+	foreach my $section_ref (@{$template_data_ref->{sections}}) {
+
+		# Descriptions and notes for sections
+		if (defined $section_ref->{id}) {
+			if ($section_ref->{description}) {
+				$section_ref->{description} = lang($section_ref->{description});
+			}
+			if ($section_ref->{note}) {
+				$section_ref->{note} = lang($section_ref->{note});
+			}
+		}
+
+		foreach my $field_ref (@{$section_ref->{fields}}) {
+
+			my $field = $field_ref->{field};
+
+			# Default to text field
+			if (not defined $field_ref->{type}) {
+				$field_ref->{type} = "text";
+			};
+
+			# id to use for lang() strings
+			my $field_lang_id = $field;
+
+			if (not defined $field_ref->{value}) {
+				$field_ref->{value} = $user_ref->{$field};
+			};
+
+			# Label
+			if (not defined $field_ref->{label}) {
+				$field_ref->{label} = lang($field_lang_id);
+			};
+
+			if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
+			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
+				if (($section_ref->{id} eq "professional") and $field_ref->{type} eq "checkbox") {
+					$field_ref->{value} = "on";
+				}
+			};
+		};
+	};
 
 }
+
 elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
-		ProductOpener::Users::process_user_form($user_ref);
+		ProductOpener::Users::process_user_form($type, $user_ref);
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
 
-	$html .= "<p>" . lang($type . '_user_result') . "</p>";
-	
 	if ($type eq 'add') {
-		
-		# Show different messages depending on whether it is a pro account
-		# and whether we are on the public platform or the pro platform
-		
-		if (defined $user_ref->{requested_org}) {		
-			
-			# Pro account, but the requested org already exists
-			
-			my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-			
-			$html .= "<div id=\"existing_org_warning\">"
-			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
-			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
-			. "<p>" .lang("please_email_producers") . "</p>"
-			. "</div>";
-		}		
-		elsif (defined $user_ref->{org}) {
-			
-			# Pro-account, with a newly created org
-			
-			if (defined $server_options{producers_platform}) {
-				
-				# We are on the producers platform
-				# Suggest next steps:
-				# - import product data
-				
-				$html .= "<p>" . lang("add_user_you_can_edit_pro") . "</p>";
-				$html .= "<p>&rarr; <a href=\"/cgi/import_file_upload.pl\">" . lang("import_product_data") . "</a></p>";
-			}
-			else {
-				
-				# We are on the public platform, link to the producers platform
-				
-				my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
-				$html .= "<p>" . sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url) . "</p>";
-			}
-		}
-		else {
-			# Personal account
-			
-			# Suggest next steps:
-			# - add or edit products on the web site or through the app
-			# - join us on Slack
-			
-			$html .= "<p>" . sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link")) . "</p>";	
-			
-			$html .= "<p>" . sprintf(lang("add_user_join_the_project"), lang("site_name")) . "</p>";
-			
-			$html .= "<p>" . lang("add_user_join_us_on_slack") . "</p>";
-			$html .= "<p>&rarr; <a href=\"https://slack.openfoodfacts.org\">" . lang("join_us_on_slack") . "</a></p>";
-		}
+
+		$template_data_ref->{user_requested_org} = $user_ref->{requested_org};
+
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{add_user_existing_org} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+
+		$template_data_ref->{user_org} = $user_ref->{org};
+
+		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
+
+		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
+
+		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
+		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
 	}
 
-	if (($type eq 'add') or ($type eq 'edit')) {
-
-		# Do not display donate link on producers platform
-		if (not $server_options{producers_platform}) {
-			$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
-			$html .= "<p>" . lang("bottom_content") . "</p>\n";
-		}
-	}
 }
 
-if ($debug) {
-	$html .= "<p>type: $type action: $action userid: $userid</p>";
-}
+$template_data_ref->{debug} = $debug;
+$template_data_ref->{userid} = $userid;
+$template_data_ref->{type} = $type;
 
 my $full_width = 1;
 if ($action ne 'display') {
@@ -259,14 +364,21 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 
 	my $r = shift;
 	$r->headers_out->set(Location =>"/");
-	$r->status(301);
-	return 301;
+	$r->status(302);
+	return 302;
 }
 else {
-	
+
 	my $title = lang($type . '_user_' . $action);
-	
-	display_new( {
+
+	$log->debug("user form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
+
+	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/user_form/user_form.tt.js', $template_data_ref, \$js);
+
+	$initjs .= $js;
+
+	display_page( {
 		title=>$title,
 		content_ref=>\$html,
 		full_width=>$full_width,

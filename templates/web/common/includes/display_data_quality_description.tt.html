@@ -1,0 +1,15 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF tagid.match('^en:nutri-score-score') %]
+    <p>
+        [% lang('nutri_score_score_from_producer') %]: [% product_ref_nutriscore_score_producer %] <br>
+        [% lang("nutri_score_score_calculated")  %]: [% product_ref_nutriscore_score %]
+    </p>
+[% ELSIF tagid.match('^en:nutri-score-grade') %]
+    <p>
+        [% lang('nutri_score_grade_from_producer') %]: [% product_ref_nutriscore_grade_producer %]  <br>
+        [% lang("nutri_score_grade_calculated")  %]: [% product_ref_nutriscore_grade %]
+    </p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

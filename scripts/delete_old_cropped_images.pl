@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -52,6 +52,8 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 
@@ -145,15 +147,17 @@ my %codes = ();
 							$current_dir .= "/$component";
 							(-e "$current_dir") or mkdir($current_dir, 0755);
 						}
-					
-						use File::Copy;
-						move("$dir/$file","$www_root/old-images/products/$path/") or die("could not move: $!\n");
-						
+
+						require File::Copy;
+						File::Copy::move( "$dir/$file",
+							"$www_root/old-images/products/$path/" )
+							or die("could not move: $!\n");
+
 						$images_deleted++;
 					}
 				}
 			}
-			closedir DH;			
+			closedir DH;
 			#($images_deleted > 10) and last;
 		}
 	}

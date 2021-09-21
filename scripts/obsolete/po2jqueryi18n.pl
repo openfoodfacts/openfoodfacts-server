@@ -49,7 +49,7 @@ foreach my $file (@ARGV) {
 
 	my $json = "{\n";
 	
-	foreach my $ref (@$aref) {
+	foreach my $ref (@{$aref}) {
 
 		next if not defined $ref->{reference};
 		

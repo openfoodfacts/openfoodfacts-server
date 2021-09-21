@@ -1,0 +1,20 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF action == 'display' %]
+
+    <p>[% lang("remove_products_from_producers_platform_description") %]</p>
+    <p>[% lang("this_action_cannot_be_undone") %]</p>
+
+    <!--Start the form-->
+    <form id="remove_products_form" method="post" onsubmit="return confirm('[% confirm_alert.squote %]')" enctype="multipart/form-data">
+        <input type="submit" class="button small" value="[% lang('remove_products') %] ">
+        <input type="hidden" name="action" value="process">
+    </form>
+
+[% ELSIF action == 'process' %]
+
+    <p>[% lang("remove_products_done") %]</p>
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->
