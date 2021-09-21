@@ -106,7 +106,7 @@ jobs:
           then 
             echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> ${ENV_FILE}
           else
-            echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> ${ENV_FILE}
+            echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;" >> ${ENV_FILE}
           fi
 
           # Set App variables
