@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::Mail</title>
+<html><head><title>ProductOpener::Recipes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="blkbluw" type="text/css" href="../_blkbluw.css" media="all" >
 <link rel="alternate stylesheet" title="blkmagw" type="text/css" href="../_blkmagw.css" media="all" >
@@ -42,29 +42,24 @@
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#send_email(_USER_REF%2C_SUBJECT%2C_TEXT_)'>send_email( USER_REF, SUBJECT, TEXT )</a>
+    <li class='indexItem indexItem2'><a href='#compute_product_recipe(_%24product_ref%2C_%24parent_ingredients_ref_)'>compute_product_recipe( $product_ref, $parent_ingredients_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#Input_keys%3A_user_data'>Input keys: user data</a>
+        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
+        <li class='indexItem indexItem4'><a href='#list_of_parent_ingredients_%24parent_ingredients_ref'>list of parent ingredients $parent_ingredients_ref</a>
       </ul>
-      <li class='indexItem indexItem3'><a href='#Return_Values'>Return Values</a>
+      <li class='indexItem indexItem3'><a href='#Return_values'>Return values</a>
     </ul>
-  </ul>
-  <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
-  <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#send_email_to_admin(_SUBJECT%2C_TEXT_)'>send_email_to_admin( SUBJECT, TEXT )</a>
+    <li class='indexItem indexItem2'><a href='#add_product_recipe_to_set(_%24recipes_ref%2C_%24product_ref%2C_%24recipe_ref_)'>add_product_recipe_to_set( $recipes_ref, $product_ref, $recipe_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <li class='indexItem indexItem3'><a href='#Return_Values'>Return Values</a>
+      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
     </ul>
-  </ul>
-  <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
-  <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#send_email_to_producers_admin(_SUBJECT%2C_TEXT_)'>send_email_to_producers_admin( SUBJECT, TEXT )</a>
+    <li class='indexItem indexItem2'><a href='#analyze_recipes(_%24recipes_ref%2C_%24parent_ingredients_ref_)'>analyze_recipes( $recipes_ref, $parent_ingredients_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <li class='indexItem indexItem3'><a href='#Return_Values'>Return Values</a>
+      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
     </ul>
   </ul>
 </ul>
@@ -74,109 +69,100 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::Mail - sends emails to admin and producers.
-Moreover,
-replies to user queries.</p>
+<p>ProductOpener::Recipes - Analyze the distribution of ingredients in a set of products</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="SYNOPSIS"
 >SYNOPSIS</a></h1>
 
-<p><code>ProductOpener::Mail</code> is used to send emails from the contact address of the Open Food Facts to users,
-admin,
-and producers.</p>
+<p>This module contains functions to compute the distribution of specific ingredients in a specified set of products.</p>
 
-<pre>    use ProductOpener::Mail qw/:all/;
+<p>For instance,
+one can compute the distribution of water,
+sugar and fruits for products in the fruit nectars category.</p>
 
-        $contact_email = &#39;contact@openbeautyfacts.org&#39;;
-        $admin_email = &#39;stephane@openfoodfacts.org&#39;;
-        $producers_email = &#39;producers@openfoodfacts.org&#39;;</pre>
+<p>Functions in this module can be called through scripts for batch processing,
+and/or they could also be called for realtime analysis through the API or web interface (for a small enough set of products).</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>The module implements the sending of emails from the Open Food Facts contact email address to users, admin, and producers. These emails can be used to reply to user queries, submit feedback, or to request access from admin and producers.</p>
+<p>The ingredients list is first analyzed with the Ingredients.pm module to identify each ingredient and estimate the percentage of each ingredient.</p>
+
+<p>Then each ingredient is matched against the specified list of parents ingredients.
+(e.g.
+if we want the distribution of water,
+sugar and fruits,
+&#34;apple&#34; will be mapped to fruits.)</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="FUNCTIONS"
 >FUNCTIONS</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="send_email(_USER_REF,_SUBJECT,_TEXT_)"
->send_email( USER_REF, SUBJECT, TEXT )</a></h2>
+name="compute_product_recipe(_$product_ref,_$parent_ingredients_ref_)"
+>compute_product_recipe( $product_ref,
+$parent_ingredients_ref )</a></h2>
 
-<p><code>send_email()</code> sends email from the contact email of Open Food Facts to the email passed as an argument.</p>
+<p>Given a list of parent ingredients,
+analyze the ingredients of the parent to compute the percentage of each parent ingredient.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
-
-<p>The first argument is a hash reference. The other two arguments are scalar variables that consist of email subject and body.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="Input_keys:_user_data"
->Input keys: user data</a></h4>
+name="product_reference_$product_ref"
+>product reference $product_ref</a></h4>
 
-<p>The hash must contain values for the following keys:</p>
+<p>Loaded from the MongoDB database,
+Storable files,
+or the OFF API.</p>
 
-<p>- email -&#62; user email - name -&#62; user name</p>
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="list_of_parent_ingredients_$parent_ingredients_ref"
+>list of parent ingredients $parent_ingredients_ref</a></h4>
+
+<p>Reference to an array of canonicalized ingredients.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_Values"
->Return Values</a></h3>
+name="Return_values"
+>Return values</a></h3>
 
-<p>The function returns a 1 or 0 depending on the evaluation of the email sent or not.</p>
+<p>Percentages are returned in a hash that contains the parent ingredients canonicalized ids as the key,
+and the percentage as a value.</p>
 
-<p>If the function catches any error during evaluation it returns 1 indicating an error. On the other hand, if there was no error, it returns 0 indicating that the email has been sent successfully.</p>
+<p>2 extra keys are also returned:</p>
 
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="FUNCTIONS"
->FUNCTIONS</a></h1>
+<p>- &#34;unknown&#34;: for ingredients that are not known in the taxonomy - &#34;other&#34;: for ingredients that are known but are not children of any of the specified parent ingredients.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="send_email_to_admin(_SUBJECT,_TEXT_)"
->send_email_to_admin( SUBJECT, TEXT )</a></h2>
-
-<p><code>send_email_to_admin()</code> sends email from the contact email of Open Food Facts to the admin.</p>
+name="add_product_recipe_to_set(_$recipes_ref,_$product_ref,_$recipe_ref_)"
+>add_product_recipe_to_set( $recipes_ref,
+$product_ref,
+$recipe_ref )</a></h2>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
-<p>Two scalar variables that contain the email subject and body are passed as an argument.</p>
-
 <h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_Values"
->Return Values</a></h3>
-
-<p>The function returns a 1 or 0 depending on the evaluation of the email sent or not.</p>
-
-<p>If the function catches any error during evaluation it returns 1 indicating an error. On the other hand, if there was no error, it returns 0 indicating that the email has been sent successfully.</p>
-
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="FUNCTIONS"
->FUNCTIONS</a></h1>
+name="Return_value"
+>Return value</a></h3>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="send_email_to_producers_admin(_SUBJECT,_TEXT_)"
->send_email_to_producers_admin( SUBJECT, TEXT )</a></h2>
-
-<p><code>send_email_to_producers_admin()</code> sends email from the contact email of Open Food Facts to producers admin.</p>
+name="analyze_recipes(_$recipes_ref,_$parent_ingredients_ref_)"
+>analyze_recipes( $recipes_ref,
+$parent_ingredients_ref )</a></h2>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
-<p>Two scalar variables that contain the email subject and body are passed as an argument.</p>
-
 <h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_Values"
->Return Values</a></h3>
-
-<p>The function returns a 1 or 0 depending on the evaluation of email sent or not.</p>
-
-<p>If the function catches any error during evaluation it returns 1 indicating an error. On the other hand, if there was no error, it returns 1 indicating that email has sent successfully.</p>
+name="Return_value"
+>Return value</a></h3>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
