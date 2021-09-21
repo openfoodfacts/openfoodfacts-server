@@ -115,7 +115,7 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `producto
 
 ### Going further
 
-To learn more about developing with Docker, see the [Docker developer's guide]((./docker-developer-guide.md)).
+To learn more about developing with Docker, see the [Docker developer's guide](./docker-developer-guide.md).
 
 ## Visual Studio Code
 
