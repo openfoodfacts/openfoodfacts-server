@@ -6,6 +6,7 @@ on:
       - main
   pull_request:
     types: [labeled, closed]
+    branches: main
 
 jobs:
   printJob:    
