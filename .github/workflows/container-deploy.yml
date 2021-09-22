@@ -9,8 +9,8 @@ on:
     branches: main
 
 jobs:
-  printJob:    
-    name: Print event
+  debug:    
+    name: Print GitHub event
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
