@@ -10,7 +10,7 @@ jobs:
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
-          files: "html/donate/aa.html,html/donate/fr.html"
+          files: "*.html"
 
       - uses: LouisBrunner/checks-action@v0.1.0
         with:
