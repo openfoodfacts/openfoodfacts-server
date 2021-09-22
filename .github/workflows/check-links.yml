@@ -7,20 +7,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      #- uses: actions/checkout@v2
-      #- name: Get file names
-      #  id: get_files
-       # run: |
-       #   html_files=$(find . -type f -name '*.html' -exec basename {} \;)
-       #   html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
-        #  file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
-       #   echo "::set-output name=all_files::$file_list"
-       #   echo $file_list
-      - name: Get modified file names
-        id: files
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'csv'
+      - uses: actions/checkout@v2
+      - name: Get file names
+        id: get_files
+        run: |
+          html_files=$(find html/donate -type f -name '*.html' -exec basename {} \;)
+          html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
+          file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
+          echo "::set-output name=all_files::$file_list"
+          echo $file_list
+    #  - name: Get modified file names
+   #     id: files
+    #    uses: jitterbit/get-changed-files@v1
+      #  with:
+      #    format: 'csv'
      # - run: |
    # mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
   #  for added_modified_file in "${added_modified_files[@]}"; do
@@ -29,8 +29,8 @@ jobs:
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
-          #files: "${{ steps.get_files.outputs.all_files }}"
-          files: "${{steps.files.outputs.added_modified }}"
+          files: "${{ steps.get_files.outputs.all_files }}"
+          #files: "${{steps.files.outputs.added_modified }}"
           #blacklist: "${{ steps.get_files.outputs.all_files }},01-intro.md,about.md,doi2bib.org"
 
       - uses: LouisBrunner/checks-action@v0.1.0
