@@ -8,6 +8,15 @@ on:
       types: [labeled, closed]
 
 jobs:
+  printJob:    
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
   deploy:
     runs-on: ubuntu-latest
     environment: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release-v') && 'off-org' || github.event_name == 'push' && github.ref == 'refs/heads/main' && 'off-net' || github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'deploy-dev' && 'off-dev' }}
