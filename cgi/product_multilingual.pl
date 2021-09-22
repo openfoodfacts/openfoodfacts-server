@@ -282,7 +282,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang') {
 
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -754,7 +754,6 @@ sub display_input_field($$$) {
 	my $fieldtype = $field;
 	my $display_lc = $lc;
 	my @field_notes;
-	my $examples = '';
 
 	my $template_data_ref_field = {};
 
@@ -817,14 +816,13 @@ sub display_input_field($$$) {
 
 	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
 
-		$examples = $Lang{example}{$lang};
+		my $examples = $Lang{example}{$lang};
 		if ($Lang{$fieldtype . "_example"}{$lang} =~ /,/) {
 			$examples = $Lang{examples}{$lang};
 		}
+		$template_data_ref_field->{examples} = $examples;
+		$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
 	}
-
-	$template_data_ref_field->{examples} = $examples;
-	$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
 
 	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field) or $html_field = "<p>" . $tt->error() . "</p>";
 
@@ -1092,7 +1090,7 @@ sub display_input_tabs($$$$$) {
 	}
 
 	$template_data_ref_display->{display_fields_arr} = \@display_fields_arr;
-	my @ingredients_fields = ("ingredients_image", "ingredients_text");
+	my @ingredients_fields = ("ingredients_image", "ingredients_text", "origin");
 
 	my $checked = '';
 	my $tablestyle = 'display: table;';

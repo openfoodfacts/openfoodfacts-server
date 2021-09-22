@@ -570,6 +570,20 @@ my %gs1_to_off = (
 										],
 									},
 								],
+
+								["place_of_item_activity:placeOfItemActivityModule", {
+										fields => [
+											["placeOfProductActivity", {
+													fields => [
+														# provenanceStatement is a free text field, which can contain manufacturing places
+														# and/or origins of ingredients and related statements, in different languages
+														["provenanceStatement", "origin"],
+													],
+												},
+											],
+										],
+									},
+								],								
 								
 								["referenced_file_detail_information:referencedFileDetailInformationModule", {
 										fields => [
