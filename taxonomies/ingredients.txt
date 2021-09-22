@@ -7117,32 +7117,32 @@ th:น้ำนมโคขาดมันเนย
 en:goat milk, goat's milk, goats milk, goats' milk
 ca:llet de cabra
 cs:kozí mléko
-da:Gedemælk
+da:gedemælk
 de:Ziegenmilch
 el:κατσικίσιο γάλα
 eo:kaprina lakto
 es:leche de cabra
-et:Kitsepiim
+et:kitsepiim
 eu:ahuntz esne
 fi:vuohenmaito
 fr:lait de chèvre
 he:חלב עיזים
 hu:kecsketej
 hy:այծի կաթ
-id:Susu kambing
+id:susu kambing
 it:latte di capra, latte caprino
 ja:ヤギ乳
-jv:Susu wedhus
-kk:Ешкі сүті
+jv:susu wedhus
+kk:ешкі сүті
 ko:염소젖
-lt:Ožkos pienas
+lt:ožkos pienas
 mk:козјо млеко
 nb:geitemelk
 nl:geitenmelk
-pl:Kozie mleko, mleko kozie
+pl:kozie mleko, mleko kozie
 pt:leite de cabra
 ro:lapte de capră, lapte de capra
-ru:Козье молоко
+ru:козье молоко
 sk:kozie mlieko
 sr:козје млеко
 sv:getmjölk
@@ -7157,26 +7157,19 @@ description:nb:Geitemelk er melk fra geit (Capra aegagrus hircus).
 description:pl:Geitenmelk is de melk die gevormd wordt in de uier van een geit. 
 # 1.797 in 16 @2021-08-25
 
-
 <en:goat milk
-en:raw goat milk
-ca:llet crua de cabra, llet de cabra crua
-de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra, leche de cabra cruda
-fi:vuohen raakamaito, raaka vuohenmaito
-fr:lait cru de chèvre, lait de chèvre cru
-hu:nyers kecsketej
-
-<en:goat milk
-en:whole goat milk, whole goat milk
-ca:llet sencera de cabra, llet de cabra sencera
-de:Ziegenvollmilch, Ziegen-Vollmilch
-es:leche entera de cabra, leche de cabra entera
-fi:vuohen täysmaito
-fr:lait entier de chèvre
-hu:teljes kecsketej
+en:whole goat milk, whole goat milk, raw goat milk
+ca:llet sencera de cabra, llet de cabra sencera, llet crua de cabra, llet de cabra crua
+de:Ziegenvollmilch, Ziegen-Vollmilch, Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
+es:leche entera de cabra, leche de cabra entera, leche cruda de cabra, leche de cabra cruda
+fi:vuohen täysmaito, vuohen raakamaito, raaka vuohenmaito
+fr:lait entier de chèvre, lait cru de chèvre, lait de chèvre cru
+hu:teljes kecsketej, nyers kecsketej
 nl:volle geitemelk
-# 95 in 3 @2021-08-25
+ciqual_food_code:en:19202
+ciqual_food_name:en:Goat milk, whole, raw
+ciqual_food_name:fr:Lait de chèvre, entier, cru
+# 97 in 3 @2021-08-25
 
 <en:whole goat milk
 en:goat's milk yogurt
@@ -7225,12 +7218,27 @@ nl:gepasteuriseerde geitenmelk
 ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 
 <en:pasteurised goat milk
-en:organic pasteurised goat milk
-ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica pasteuritzada de vaca
-es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
-fi:luomu pastöroitu vuohenmaito
-fr:lait de chevre pasteurisé issu de l'agriculture biologique
-hu:pasztőrözött bio kecsketej
+en:whole goat milk UHT
+fr:Lait de chèvre entier UHT
+ciqual_food_code:en:19200
+ciqual_food_name:en:Goat milk, whole, UHT
+ciqual_food_name:fr:Lait de chèvre, entier, UHT
+
+<en:semi-skimmed goat milk
+en:semi-skimmed pasteurized goat milk UHT
+fr:lait de chèvre demi-écrémé UHT
+ciqual_food_code:en:19201
+ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
+ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
+
+
+#<en:pasteurised goat milk
+#en:organic pasteurised goat milk
+#ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica #pasteuritzada de vaca
+#es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
+#fi:luomu pastöroitu vuohenmaito
+#fr:lait de chevre pasteurisé issu de l'agriculture biologique
+#hu:pasztőrözött bio kecsketej
 
 ################################# SHEEP MILKS ##################################
 
@@ -9158,34 +9166,36 @@ wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
 vegan:en:no
 vegetarian:en:yes
-# ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
+# 9560 in 4 languages @2021-09-21
 
-<en:buttermilk
-fr:babeurre pasteurisé
+#processing:en: en:pasteurised
+#<en:buttermilk
+#fr:babeurre pasteurisé
 
-<en:buttermilk
-en:buttermilk powder
-ca:sèrum de mantega en pols, sèrum de mantega deshidratada
-da:kæarnemælkpulver
-de:Buttermilchpulver
-el:αποβουτυρωμενο γάλα σεβσκόνη
-es:suero de mantequilla en polvo, suero de mantequilla rehidratada
-fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
-hu:írópor
-it:latticello in polvere
-nl:karnemelkpoeder
-nn:kjernemelkpulver, pulverisert kjernemelk
-pt:leitelho em pó
-sv:kärnmjölkspulver
+#processing:en: en:powder
+#<en:buttermilk
+#en:buttermilk powder
+#ca:sèrum de mantega en pols, sèrum de mantega deshidratada
+#da:kæarnemælkpulver
+#de:Buttermilchpulver
+#es:suero de mantequilla en polvo, suero de mantequilla rehidratada
+#fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
+#fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
+#hu:írópor
+#it:latticello in polvere
+#nl:karnemelkpoeder
+#nn:kjernemelkpulver, pulverisert kjernemelk
+#pt:leitelho em pó
+#sv:kärnmjölkspulver
 # ingredient/fr:babeurre-en-poudre has 116 products in 12 languages @2018-12-15
 
+#processing:en: en:solids
 <en:buttermilk
 en:buttermilk solids
-de:Buttermilchpulver
 es:sólidos de manteca
 fr:Solides du babeurre
 it:Solidi di latticello
+#899 @2021-09-21
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -27067,62 +27077,63 @@ sv:havreprotein
 
 en:quinoa
 ar:كينوا
-ay:Jiwra
-az:Kinoa
-bg:Киноа
-ca:Quinoa
-cs:Merlík čilský
-da:Quinoa
-de:Quinoa
-el:Κινόα
-eo:Kvinoo
-es:quinoa, quinua, quinoa real
-et:kinoa, Tšiili hanemalts
-eu:Kinoa
+ay:jiwra
+az:kinoa
+bg:киноа
+cs:merlík čilský
+da:kvinoa, peruansk ris
+de:Reismelde, peruanischer Reis
+el:κινόα, χηνοπόδιον η κουινόα
+eo:kvinoo
+es:quinua, quinoa real
+et:kinoa, tšiili hanemalts
+eu:kinoa
 fa:کینوآ
-fi:Kvinoa
-fr:quinoa
-gl:Quinoa
+fi:kvinoa
+ga:cuineo
 he:קינואה
 hi:क्विन्वा
-hr:Kvinoja
+hr:kvinoja
 hu:kinoa, quinoa, rizsparéj
-id:Kinoa
-is:Kínóa
-it:Quinoa
+hy:uագախոտ
+id:kinoa
+is:kínóa
 ja:キヌア
 kn:ಕೀನೋವಾ
 ko:퀴노아
-la:Chenopodium quinoa
-lt:Bolivinė balanda
-ms:Kuinoa
-nb:Quinoa
-nl:Quinoa
-nn:Quinoa
-pl:Komosa ryżowa, quinoa
-pt:Quinoa
-qu:Kinwa
-ro:Quinoa
-ru:Киноа
-sh:Kinoa
-sl:Kvinoja
-sv:Quinoa
+la:chenopodium quinoa
+lt:bolivinė balanda
+ms:kuinoa
+nl:gierstmelde
+pl:komosa ryżowa, quinoa
+qu:kinwa
+ru:киноа
+sh:kinoa
+sl:kvinoja
+sr:kvinoja
+ta:கினோவா
 th:กีนัว
-tl:Quinoa
-tr:Kinoa
-uk:Кіноа
-vi:Diêm mạch
+tr:kinoa
+uk:кіноа
+vi:diêm mạch
+xx:quinoa
+# tl:,sv:,ro:,pt:,oc:,nn:,nb:,it:,gl:,fr:,ca:,nl:,es:,de:,da:
+# arn:dawe
 # ast:quinua
-# ceb:Chenopodium quinoa
-# frr:Kinoa
-# pam:Quinoa
-# sco:Quinoa
-# war:Chenopodium quinoa
+# ceb:chenopodium quinoa
+# frr:kinoa
+# pam:quinoa
+# sco:quinoa
+# war:chenopodium quinoa
+#wuu:藜麦
 # yue:藜麥
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Quinoa
 wikidata:en:Q139925
+ciqual_food_code:en:9340
+ciqual_food_name:en:Quinoa, raw
+ciqual_food_name:fr:Quinoa, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
 # 425 products in 6 languages @2018-09-22
 nutriscore_fruits_vegetables_nuts:en:no
@@ -27150,9 +27161,11 @@ it:Quinoa rossa
 en:black quinoa
 de:schwarzes Quinoa, schwarzer Quinoa, Quinoa schwarz
 es:quinoa negra
-fr:Quinoa noir
-pt:Quinoa preta
-
+fr:quinoa noir
+it:quinoa nera
+nl:zwarte quinoa
+pt:quinoa preta
+#97 in 6 @2021-09-21
 
 # ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
 <en:red quinoa
@@ -27178,10 +27191,15 @@ de:weißes Quinoamehl, weißes Quinoa-Mehl
 es:harina de quinoa blanca
 fr:Farine de quinoa blanche
 
+<en:white quinoa
+en:cooked white quinoa
+
 <en:quinoa
+en:cooked quinoa
+da:kogt quinoa
 fr:quinoa cuit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
-# 49 products in 1 language @2018-09-22
+# 99 in 1 language @2021-09-21
 
 <en:red quinoa
 <en:white quinoa
