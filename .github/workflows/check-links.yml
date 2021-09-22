@@ -7,10 +7,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get file names
+        id: get_files
+        run: |
+          html_files=$(find . -type f -name '*.html' -exec basename {} \;)
+          html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
+          file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
+          echo "::set-output name=all_files::$file_list"
+          echo $file_list
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
-          files: "*.html"
+          files: "${{ steps.get_files.outputs.all_files }}"
+          #blacklist: "${{ steps.get_files.outputs.all_files }},01-intro.md,about.md,doi2bib.org"
 
       - uses: LouisBrunner/checks-action@v0.1.0
         with:
