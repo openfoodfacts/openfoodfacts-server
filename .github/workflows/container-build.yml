@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-      - deploy-*
-      - release-v*.*.*
-    tags: 
+    pull_request:
+      types: [labeled, closed]
+    tags:
       - v*.*.*
 
 jobs:
