@@ -19574,6 +19574,12 @@ es:manteca de coco
 ro:unt de cocos
 
 <en:vegetable oil
+en:oat oil
+cs:ovesný olej
+de:Haferöl, Haferkernöl
+es:aceite vegetal avena
+
+<en:vegetable oil
 en:olive oil
 ar:زيت زيتون
 az:Zeytun yağı
@@ -26883,16 +26889,18 @@ sv:havregryn
 # ingredient/en:oat-grain has 15 products in 1 language @2020-07-06
 
 <en:oat
-en:wholemeal oat, wholegrain oats
-de:Vollkornhafer, Vollkorn-Hafer
+en:wholemeal oat, wholegrain oats, whole grain oats
+de:Vollkornhafer, Vollkorn-Hafer, Vollkornhaferglocken
 el:Βρώμη ολικής άλεσης
-es:Avena integral
+es:Avena integral, Avena entera en grano
+et:täisterakaer
 fi:täysjyväkaura
-fr:avoine complète
+fr:avoine complète, Avoine complet
 hu:teljes kiőrlésű zab
 it:Avena integrale
 nl:volkoren haver
 sv:fullkornshavre
+
 
 <en:oat
 en:gluten free oats
@@ -26955,9 +26963,6 @@ wikidata:en:Q1208221
 wikipedia:en:https://en.wikipedia.org/wiki/Rolled_oats
 #6643 @2021-09-22
 
-<en:oat
-de:Hafermehl, Haferbrei
-es:semola de avena
 
 <en:oat flakes
 en:gluten-free oat flakes
@@ -26967,44 +26972,6 @@ fi:gluteeniton kaurahiutale
 fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
 it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
-
-<en:oat
-en:oat oil
-de:Haferöl, Haferkernöl
-es:aceite vegetal avena
-
-<en:oat
-<en:vegetable fibre
-en:oat fibre
-da:Havrefibre
-de:Haferfasern
-el:εδώδιμες ινες βρώμης
-es:fibra de avena
-fi:kaurakuitu
-fr:fibre d'avoine, fibres d'avoine
-hu:zabrost
-it:fibra d'avena
-nl:havervezel
-pt:fibra de aveia
-ro:fibre de ovăz
-sv:havrefiber
-
-<en:oat fibre
-en:gluten free oat fibre
-de:glutenfreie Haferfaser
-fr:Fibre d'avoine sans gluten
-
-
-<en:oat
-en:whole grain oats
-de:Vollkornhaferglocken
-el:Βρώμη ολικής άλεσης
-es:Avena entera en grano
-et:täisterakaer
-fi:täysjyväkaura
-fr:Avoine complet
-it:avena integrale
-sv:fullkornshavre
 
 <en:oat flakes
 en:whole grain oat flakes, wholegrain oat flakes, whole grain rolled oats, whole oat flakes
@@ -27028,6 +26995,76 @@ sv:fullkornshavregryn
 
 <en:whole grain oat flakes
 en:british wholegrain oat flakes
+
+<en:cereal flour
+<en:oat
+en:oat flour, oatflour
+cs:Ovesná mouka
+da:havremel
+de:Hafermehl, Haferbrei
+el:βρμης αλεύρρυζού
+es:harina de avena, semola de avena
+fi:kaurajauho
+fr:farine d'avoine
+he:קמח שיבולת שועל
+hu:zabliszt
+it:farina d'avena, farina di avena
+ja:オート麦粉
+nb:havremel
+nl:havermeel
+pl:mąka owsiana
+pt:farinha de aveia
+ru:овсяная мука, мука овсяная
+sv:havremjöl
+wikidata:en:Q84470231
+#1041 @2021-09-22
+
+<en:oat flour
+<en:wholemeal flour
+en:wholemeal oat flour, whole grain oat flour
+de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
+es:Harina de avena integral, harina integral de avena
+fi:täysjyväkaurajauho, täysjyväkaurajauhoa
+fr:farine d'avoine complète, farine complète d'avoine
+hu:teljes kiőrlésű zabliszt
+it:farina di avena integrale
+nl:volkorenhavermeel
+pl:mąka owsiana pełnoziarnista
+pt:farinha de aveia integral
+sv:fullkornshavremjöl
+
+<en:oat flour
+en:gluten free oat flour
+es:harina de avena libre de gluten, harina de avena sin gluten
+fr:farine d'avoine sans gluten
+
+<en:oat
+<en:vegetable fibre
+en:oat fibre
+bg:овесени влакнини
+da:Havrefibre
+de:Haferfasern
+el:εδώδιμες ινες βρώμης
+es:fibra de avena
+fi:kaurakuitu
+fr:fibre d'avoine, fibres d'avoine
+hu:zabrost
+it:fibra d'avena
+nl:havervezel
+pt:fibra de aveia
+ro:fibre de ovăz
+sk:ovsená vláknina
+sl:zobena vlakna
+sv:havrefiber
+wikidata:en:Q108654342
+#2903 @2021-09-22
+
+<en:oat fibre
+en:gluten free oat fibre
+de:glutenfreie Haferfaser
+fr:Fibre d'avoine sans gluten
+
+
 
 <en:oat
 en:oat bran, oatbran
@@ -27094,7 +27131,7 @@ de:haferprotein
 fi:kauraproteiini
 fr:protéine d'avoine, protéines d'avoine
 sv:havreprotein
-# ingredient/fr:proteine-d'avoine has 3 products in 1 language @2020-06-08
+# 20 in 1 language @2021-09-22
 
 
 ##################################################################################
@@ -28297,44 +28334,6 @@ nl:gedextrineerd speltmeel
 
 # Question
 
-<en:cereal flour
-en:oat flour, oatflour
-cs:Ovesná mouka
-da:Havremel
-de:Hafermehl
-es:harina de avena
-fi:kaurajauho
-fr:farine d'avoine
-he:קמח שיבולת שועל
-hu:zabliszt
-it:farina d'avena, farina di avena
-nb:havremel
-nl:havermeel
-pl:mąka owsiana
-pt:farinha de aveia
-ru:овсяная мука, мука овсяная
-sv:havremjöl
-
-# Question
-
-<en:oat flour
-<en:wholemeal flour
-en:wholemeal oat flour, whole grain oat flour
-de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
-es:Harina de avena integral, harina integral de avena
-fi:täysjyväkaurajauho, täysjyväkaurajauhoa
-fr:farine d'avoine complète, farine complète d'avoine
-hu:teljes kiőrlésű zabliszt
-it:farina di avena integrale
-nl:volkorenhavermeel
-pl:mąka owsiana pełnoziarnista
-pt:farinha de aveia integral
-sv:fullkornshavremjöl
-
-<en:oat flour
-en:gluten free oat flour
-es:harina de avena libre de gluten, harina de avena sin gluten
-fr:farine d'avoine sans gluten
 
 <en:cereal flour
 en:buckwheat flour
