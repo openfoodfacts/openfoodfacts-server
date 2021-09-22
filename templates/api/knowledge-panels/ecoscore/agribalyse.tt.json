@@ -10,7 +10,7 @@
     "elements": [
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "summary",
                 "html": `
                     <p>Agribalyse category: 
@@ -31,7 +31,7 @@
         },
         {
             "element_type": "table",
-            "element": {
+            "table_element": {
                 "id": "ecoscore_lca_impacts_by_stages_table",
                 "table_type": "percents",
                 "title": "[% lang('ecoscore_impact_detail_by_stages') %]",

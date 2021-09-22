@@ -61,6 +61,7 @@ The `.env` file contains ProductOpener default settings:
 * `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
 * `PRODUCT_OPENER_PORT` can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. Default port: `80`.
 * `PRODUCT_OPENER_FLAVOR` can be modified to run different flavors of OpenFoodFacts, amongst `openfoodfacts` (default), `openbeautyfacts`, `openpetfoodfacts`, `openproductsfacts`.
+* `PRODUCT_OPENER_FLAVOR_SHORT` can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.
 * `PRODUCERS_PLATFORM` can be set to `1` to build / run the **producer platform**.
 * `ROBOTOFF_URL` can be set to **connect with a Robotoff instance**.
 * `GOOGLE_CLOUD_VISION_API_KEY` can be set to **enable OCR using Google Cloud Vision**.
@@ -105,36 +106,17 @@ The command will run 2 subcommands:
 
 **Hosts file:**
 
-Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfoodfacts.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
 
 ```text
-127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 ```
 
-### You're done ! Check http://productopener.localhost/ !
-
-## 5. Starting, stopping, restarting Docker containers, and more...
-
-| Command                   | Description                                                                            | Notes                                                         |
-| ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
-| `make up`                 | Start containers.                                                                      |                                                               |
-| `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
-| `make hdown`              | Stop containers and delete the volumes (hard down).                                    | Products and users data will be lost !                        |
-| `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
-| `make reset`              | Run `hdown` and `up`.                                                                  |                                                               |
-| `make status`             | Get containers status (up, down, fail).                                                |                                                               |
-| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`.            |
-| `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
-| `make prune`              | Save space by removing unused Docker artifacts.                                        | Next build will take time (no cache) !                        |
-| `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |
-| `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
-| `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
-| `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
+### You're done ! Check http://openfoodfacts.localhost/ !
 
 ### Going further
 
-To learn more about developing with Docker, see the [Docker developer's guide]((./docker-developer-guide.md)).
+To learn more about developing with Docker, see the [Docker developer's guide](./docker-developer-guide.md).
 
 ## Visual Studio Code
 
