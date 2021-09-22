@@ -14,7 +14,7 @@ jobs:
         id: check
         uses: "iterative/link-check.action@master"
         with:
-          configFile: "./config/link-check/config.json"
+          #configFile: "./config/link-check/config.json"
           rootURL: "${{ github.event.deployment.payload.web_url }}"
           output: checksAction
 
