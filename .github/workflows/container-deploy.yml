@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    pull_request:
-      types: [labeled, opened, synchronized, reopened, closed]
+  pull_request:
+    types: [labeled, opened, synchronized, reopened, closed]
 
 jobs:
   printJob:    
