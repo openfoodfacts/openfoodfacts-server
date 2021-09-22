@@ -5,7 +5,12 @@ fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 pt:Desconhecido
 
-# Use singular as the main name, and add plural as synonym
+# For all containers: use singular as the main name, and add plural as synonym
+
+# in English, "carton" can be any container: "a light box or container, typically one made of waxed cardboard or plastic in which drinks or foodstuffs are packaged."
+en:Container, carton, containers, cartons
+fr:Conteneur, conteneurs
+
 en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
 fr:Barquette, barquettes, Plateau
@@ -420,3 +425,6 @@ fr:Cartouche, cartouches
 #fr:Bidon
 #fr:Caisse
 #fr:Coupelle
+
+en:Straw, straws
+fr:Paille, pailles
