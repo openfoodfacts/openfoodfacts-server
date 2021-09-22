@@ -60,19 +60,14 @@
             }
         },
         [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
-        {
-            "element_type": "panel",
-            "panel_element": {
-                "panel_id": "ecoscore_[% adjustment %]",
-            }
-        },
-        [% END %]
-        {
-            "element_type": "text",
-            "text_element": {
-                "type": "warning",
-                "html": `<p>[% lang("ecoscore_description") %]</p>`,
-            }
-        },        
+            [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.ecoscore_data.adjustments.$adjustment.value > 0) %]
+                {
+                    "element_type": "panel",
+                    "panel_element": {
+                        "panel_id": "ecoscore_[% adjustment %]",
+                    }
+                },
+            [% END %]
+        [% END %]       
     ]
 }

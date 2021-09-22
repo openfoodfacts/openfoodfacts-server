@@ -73,7 +73,9 @@
             "value" : -6
          },
          "production_system" : {
-            "label" : "en:eu-organic",
+            "labels" : [
+               "en:eu-organic"
+            ],
             "value" : 15
          },
          "threatened_species" : {}

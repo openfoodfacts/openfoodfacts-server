@@ -54,7 +54,9 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
-            "label" : "fr:ab-agriculture-biologique",
+            "labels" : [
+               "fr:ab-agriculture-biologique"
+            ],
             "value" : 15
          },
          "threatened_species" : {

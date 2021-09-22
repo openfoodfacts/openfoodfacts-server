@@ -16710,6 +16710,13 @@ it:Sicurezza dei Delfini
 nl:dolfijnvriendelijk
 label_categories:en: en:Fishing labels
 
+# Should not be automatically triggered by the MSC label
+# as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
+# From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
+<en:Sustainable fishing
+en:Sustainable fishing method, sustainable fishing technique
+fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
@@ -16730,6 +16737,7 @@ ru:сейнерная рыбалка
 wikidata:en:Q600580
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Angled fish
 ca:Pescat amb canya
 de:Geangelter Fisch
@@ -16737,6 +16745,7 @@ fi:koukulla pyydystettyä kalaa
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
@@ -16784,6 +16793,7 @@ de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Hand fishing
 ca:Pescat manualment
 de:Handfischen
@@ -16826,7 +16836,7 @@ zh:鸬鹚捕鱼
 wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
-en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
+en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
 de:Nachhaltige Fischerei
 es:Pesca sostenible

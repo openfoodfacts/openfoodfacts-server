@@ -1,6 +1,6 @@
 {
    "categories_tags" : [
-      "en:some-unknown-category"
+      "en:butters"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -54,35 +54,83 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
-            "labels" : [],
-            "value" : 0,
-            "warning" : "no_label"
+            "labels" : [
+               "en:sustainable-seafood-msc",
+               "en:responsible-aquaculture-asc"
+            ],
+            "value" : 10
          },
          "threatened_species" : {
             "warning" : "ingredients_missing"
          }
       },
       "agribalyse" : {
-         "warning" : "missing_agribalyse_match"
+         "agribalyse_proxy_food_code" : "16400",
+         "co2_agriculture" : "14.494556",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.031874285",
+         "co2_packaging" : "0.20585948",
+         "co2_processing" : "0.57399261",
+         "co2_total" : "15.49101",
+         "co2_transportation" : "0.1800882",
+         "code" : "16400",
+         "dqr" : "2.69",
+         "ef_agriculture" : "1.0542554",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0096880018",
+         "ef_packaging" : "0.015478282000000001",
+         "ef_processing" : "0.055903738",
+         "ef_total" : "1.1514725",
+         "ef_transportation" : "0.013733529",
+         "is_beverage" : 0,
+         "name_en" : "Butter, 82% fat, unsalted",
+         "name_fr" : "Beurre à 82% MG, doux",
+         "score" : 27
       },
+      "grade" : "d",
+      "grade_be" : "e",
+      "grade_ch" : "e",
+      "grade_de" : "e",
+      "grade_es" : "e",
+      "grade_fr" : "e",
+      "grade_ie" : "e",
+      "grade_it" : "e",
+      "grade_lu" : "e",
+      "grade_nl" : "e",
+      "grade_uk" : "e",
       "missing" : {
-         "agb_category" : 1,
          "ingredients" : 1,
-         "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
-      "missing_agribalyse_match_warning" : 1,
-      "status" : "unknown"
+      "missing_data_warning" : 1,
+      "score" : 22,
+      "score_be" : 17,
+      "score_ch" : 17,
+      "score_de" : 17,
+      "score_es" : 17,
+      "score_fr" : 17,
+      "score_ie" : 17,
+      "score_it" : 17,
+      "score_lu" : 17,
+      "score_nl" : 17,
+      "score_uk" : 17,
+      "status" : "known"
    },
-   "ecoscore_grade" : "unknown",
+   "ecoscore_grade" : "e",
+   "ecoscore_score" : 17,
    "ecoscore_tags" : [
-      "unknown"
+      "e"
+   ],
+   "labels_tags" : [
+      "en:sustainable-seafood-msc",
+      "en:responsible-aquaculture-asc"
    ],
    "lc" : "en",
    "misc_tags" : [
       "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
    ],
    "packagings" : []
 }

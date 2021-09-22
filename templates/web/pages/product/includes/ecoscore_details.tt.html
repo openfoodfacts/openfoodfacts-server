@@ -120,17 +120,24 @@
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_production_system" data-equalizer-watch="ecoscore1">
 	<h4>[% display_icon('agriculture') %] [% lang('ecoscore_production_system') %]</h4>
 	
-	[% IF adjustments.production_system.value %]
-		<p><strong>[% display_taxonomy_tag("labels",adjustments.production_system.label) %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
+	[% IF adjustments.production_system.value > 0 %]
+		
+		<ul>
+		[% FOREACH label IN adjustments.production_system.labels %]
+			<li>[% display_taxonomy_tag("labels",label) %]</li>
+		[% END %]
+		</ul>
+	
+		<p><strong>[% lang('ecoscore_production_system') %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
 		<p>[% lang('ecoscore_no_labels_taken_into_account') %]</p>
 		
-	[% IF adjustments.production_system.warning %]
-		<div class="panel warning">
-			[% lang('ecoscore_please_add_the_labels') %]<br><br>
-			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
-		</div>
-	[% END %]		
+		[% IF adjustments.production_system.warning %]
+			<div class="panel warning">
+				[% lang('ecoscore_please_add_the_labels') %]<br><br>
+				[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+			</div>
+		[% END %]		
 		
 	[% END %]
 	</div>
