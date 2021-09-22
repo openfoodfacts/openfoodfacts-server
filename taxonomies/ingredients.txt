@@ -9090,70 +9090,70 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 
 <en:dairy
 en:buttermilk
-af:Karringmelk
+af:karringmelk
 am:አሬራ
 ar:حليب رائب, حليبب
-bg:Мътеница
+bg:мътеница
 br:laezh-ribod
 ca:sèrum de mantega
-cs:Podmáslí
-cv:Уйран
-cy:Llaeth enwyn
-da:Kærnemælk
-de:Buttermilch, Reine Buttermilch
-eo:Buterlakto
-es:Suero de mantequilla,leche mazada
-et:Pett
+cs:podmáslí
+cv:уйран
+cy:llaeth enwyn
+da:kærnemælk
+de:Buttermilch, reine Buttermilch
+eo:buterlakto
+es:suero de mantequilla, leche mazada
+et:pett
 fa:آب‌دوغ
 fi:kirnupiimä, kirnumaito
-fr:babeurre, bas-beurre, lait battu
+fr:babeurre, bas-beurre, lait battu, lait fermenté
 fy:sûpe
-ga:Bláthach
-gd:Blàthach
+ga:bláthach
+gd:blàthach
 gu:છાશ
 he:חובצה
 hi:छाछ
 hu:író
-id:Susu mentega
-io:Butro-lakto
-is:Áfir
+id:susu mentega
+io:butro-lakto
+is:áfir
 it:latticello
 ja:バターミルク
 kn:ಮಜ್ಜಿಗೆ
 ko:우락유
-li:Karnemèlk
-lt:Pasukos
+li:karnemèlk
+lt:pasukos
 lv:paniņas
 mk:матеница
 ml:മോര്
-mo:Babeurre
+mo:babeurre
 mr:ताक
-ms:Susu mentega
+ms:susu mentega
 nb:kjernemelk
 ne:मोही
 nl:karnemelk
-om:Baaduu
-pl:Maślanka
+om:baaduu
+pl:maślanka
 pt:leitelho
-ro:Babeurre
-ru:Пахта
+ro:babeurre
+ru:пахта
 sa:तक्रम्
-sk:Cmar
-sl:Pinjenec
-sv:Kärnmjölk
+sk:cmar
+sl:pinjenec
+sv:kärnmjölk, filmjölk
 ta:மோர்
 te:మజ్జిగ
-uk:Сколотини
+uk:сколотини
 zh:酪漿
-# bar:Buddä milsch
-# be-tarask:Масьлянка
+# bar:buddä milsch
+# be-tarask:масьлянка
 # ckb:دۆ
-# de-ch:Buttermilch
-# en-ca:Buttermilk
-# en-gb:Buttermilk
-# gom:Tak
-# mrj:Кӱтӹмӓк
-# nds-nl:Karnmelk
+# de-ch:buttermilch
+# en-ca:buttermilk
+# en-gb:buttermilk
+# gom:tak
+# mrj:кӱтӹмӓк
+# nds-nl:karnmelk
 # pt-br:leitelho
 # yue:牛油奶
 # zh-cn:酪浆
@@ -9166,6 +9166,9 @@ wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
 vegan:en:no
 vegetarian:en:yes
+ciqual_food_code:en:19801
+ciqual_food_name:en:Fermented milk drink, plain, skimmed milk
+ciqual_food_name:fr:Lait fermenté à boire, nature, maigre
 # 9560 in 4 languages @2021-09-21
 
 #processing:en: en:pasteurised
@@ -67282,10 +67285,16 @@ fr:oeufs de cabillaud fumés
 fr:oeufs de cabillaud salés et fumés
 
 <en:cod
-fr:foie de morue
+en:cod liver
+nb:torskelever
 de:Dorschleber
-nl:schelvislever, kabeljauwlever
-# ingredient/fr:foie-de-morue has 23 products @2018-12-29
+es:hígado de bacalao
+fr:foie de morue
+nl:kabeljauwlever, schelvislever
+nn:torskelever
+ru:печень трески
+wikidata:en:Q33247820
+#45 in 4 @2021-09-22
 
 <en:cod
 <en:roe
