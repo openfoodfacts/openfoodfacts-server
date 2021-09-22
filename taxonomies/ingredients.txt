@@ -26902,13 +26902,13 @@ fr:avoine sans gluten
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
-en:oat flakes, oatflakes, rolled oats, oatmeal flakes, oatmeal, oat meal
-af:Hawermout
+en:oat flakes, oatflakes, rolled oats, oatmeal flakes, 
+af:hawermout
 ar:رقانق الشوفان
 bg:овесени ядки
 ca:flocs de civada
 cs:ovesné vločky
-da:havregryn
+da:havregryn, havreflager
 de:haferflocken
 el:νιφάφες βρώμης
 eo:avenflokoj
@@ -26928,11 +26928,11 @@ ko:납작귀리
 lt:avižiniai dribsniai
 lv:auzu pārslas
 ms:emping oat
-nb:havreflak, havregryn
+nb:havregryn
 nl:havermoutvlokken, havermout, havervlokken, havervlok
 pl:płatki owsiane
 pt:flocos de aveia
-ro:fulgi de ovăz, haferflocken
+ro:fulgi de ovăz
 ru:овсяные хлопья, хлопья овсяные
 sk:ovsené vločky
 sl:ovseni kosmiči
@@ -26994,21 +26994,6 @@ en:gluten free oat fibre
 de:glutenfreie Haferfaser
 fr:Fibre d'avoine sans gluten
 
-<en:oat
-en:whole grain rolled oats, whole oat flakes
-ca:floca de civada integral,flocs de civada integral
-da:fullkornshavregryn
-de:Vollkorn-Haferflocken, Vollkorn haferflocken, Vollkornhaferflocken, Hafervollkornflocken, Vollkornhaferschrot
-es:Avena integral laminada
-fi:täysjyväkaurahiutale
-fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
-hu:teljes kiőrlésű zabpehely
-it:fiocchi di avena integrale, fiocchi d'avena integrale
-nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
-nn:fullkornshavregryn
-pl:płatki owsiane z pełnego przemiału
-pt:flocos de aveia integral
-sv:fullkornshavregryn
 
 <en:oat
 en:whole grain oats
@@ -27021,43 +27006,73 @@ fr:Avoine complet
 it:avena integrale
 sv:fullkornshavre
 
-<en:oat
-en:whole grain oat flakes, wholegrain oat flakes
-de:Vollkorn-Haferflocken, Vollkornhaferflocken
-es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
+<en:oat flakes
+en:whole grain oat flakes, wholegrain oat flakes, whole grain rolled oats, whole oat flakes
+ca:floca de civada integral,flocs de civada integral
+da:fullkornshavregryn
+de:Vollkorn-Haferflocken, Vollkornhaferflocken, Vollkorn haferflocken, Hafervollkornflocken, Vollkornhaferschrot
+es:copos de avena integrales, copos de avena integral, copos de avena integral laminados, Avena integral laminada
 et:täisterakaerahelbed, täistera kaerahelbed
-fr:Flocon d'avoine complet
-it:Fiocchi d'avena integrali
+fi:täysjyväkaurahiutale
+fr:Flocon d'avoine complet, flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+hu:teljes kiőrlésű zabpehely
+it:fiocchi di avena integrale, fiocchi d'avena integrale, Fiocchi d'avena integrali
 lt:pilno grūdo avižiniai dribsniai
 lv:pilngraudu auzu pārslas
-nl:volkoren havervlokken
+nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
+nn:fullkornshavregryn
+pl:płatki owsiane z pełnego przemiału
+pt:flocos de aveia integral
 sl:ovseni polnozrnati kosmiči
+sv:fullkornshavregryn
 
 <en:whole grain oat flakes
 en:british wholegrain oat flakes
 
 <en:oat
 en:oat bran, oatbran
+da:havreklid
 de:Haferkleie
-es:Salvado de avena
+es:salvado de avena
 fi:kauralese
 fr:son d'avoine
 hu:zabkorpa
 it:crusca d'avena
-nl:Haverzemelen
+kk:сұлы кебегі
+nl:haverzemelen, haverzemelen met kiem
+nn:havreklid
+pt:salvado de avena
+ru:отруби овсяные
+sv:havrekli
+wikidata:en:Q15818990
 ciqual_food_code:en:9640
 ciqual_food_name:en:Oat bran
 ciqual_food_name:fr:Son d'avoine
-
-<en:oat bran
-nl:Haverzemelen met kiem
-# ingredient/nl:haverzemelen-met-kiem has 1 product @2019-5-24
+#1256 @2021-09-22
 
 <en:oat
 en:oat milk
+ar:حليب الشوفان
+cs:ovesné mléko
 de:Hafermilch
+da:havredrik
+eo:avenlakto
 es:bebida de avena
+et:kaerahelbepiim
+fi:kauramaito
 fr:Lait d'avoine
+he:חלב שיבולת-שועל
+jv:susu oat
+nl:havermelk
+pl:mleko owsiane
+se:hávvarmielki
+#smn:haavvârmielkki
+#sms:ååʹvesmieʹlǩǩ
+uk:вівсяне молоко
+sv:havredryck
+zh:燕麦奶
+wikidata:en:Q20972637
+#28 @2021-09-22
 
 # <en:compound
 en:oat base
