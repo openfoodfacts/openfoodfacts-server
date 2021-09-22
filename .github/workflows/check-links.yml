@@ -1,5 +1,7 @@
 name: Link Check Deploy
-on: deployment_status
+on:
+  push:
+    branches: '*'
 
 jobs:
   run:
