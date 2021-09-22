@@ -106,13 +106,13 @@ The command will run 2 subcommands:
 
 **Hosts file:**
 
-Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `productopener.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfoodfacts.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
 
 ```text
-127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 ```
 
-### You're done ! Check http://productopener.localhost/ !
+### You're done ! Check http://openfoodfacts.localhost/ !
 
 ### Going further
 
