@@ -7,7 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    steps:
       - uses: actions/checkout@v2
       - name: Get file names
         id: get_files
