@@ -4,19 +4,13 @@ on:
     branches: '*'
 
 jobs:
-  run:
-    name: Check
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Run the link check script
-        id: check
-        uses: "iterative/link-check.action@master"
+      - name: Check URLs
+        uses: paramt/url-checker@master
         with:
-          #configFile: "./config/link-check/config.json"
-          rootURL: "${{ github.event.deployment.payload.web_url }}"
-          output: checksAction
+          files: "html/donate/aa.html,html/donate/fr.html"
 
       - uses: LouisBrunner/checks-action@v0.1.0
         with:
