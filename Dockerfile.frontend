@@ -16,5 +16,7 @@ RUN npm run build
 
 FROM nginx:stable-alpine
 WORKDIR /opt/product-opener
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
 COPY --from=builder /opt/product-opener/node_modules/ /opt/product-opener/node_modules/
