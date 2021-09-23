@@ -16748,10 +16748,6 @@ ciqual_food_code:en:28105
 ciqual_food_name:en:Pork, rack, cooked
 ciqual_food_name:fr:Porc, carré, cuit
 
-<en:pork meat
-fr:poitrine de porc fumée
-ca:cansalda de por fumat
-es:panceta de cerdo ahumada
 
 <en:pork meat
 en:Pork filet mignon
@@ -17113,40 +17109,50 @@ en:pork belly, pork bellies
 ca:cansalada de porc
 da:Slag
 de:Schweinebauch
+el:χοιρινό στήθος
 eo:porkventraĵo
 es:panza de cerdo
 fi:porsaankylki
 fr:ventre de porc
+ga:bolg muiceola
 hu:császárszalonna
 ja:ポークベリー
-jv:Weteng babi
+jv:weteng babi
 ko:삼겹살
-nb:Svineribbe
-nl:buikspek
+nl:varkensbuik, buikspek
 pl:boczek
-ru:Пашина
-sv:sidfläsk, grissida
-vi:Thịt ba chỉ
+ru:пашина
+sv:sidfläsk
+vi:thịt ba chỉ
 zh:豬腩
+#nan:sam-chân-ba̍h
 # wuu:五花肉
 # zh-hk:豬腩
 wikidata:en:Q1365868
 wikipedia:en:https://en.wikipedia.org/wiki/Pork_belly
-description:de:Als Schweinebauch werden die gut mit Fett durchwachsenen und mit Rippen durchzogenen Stücke der hinteren (caudalen), unteren (ventralen) Brustkörbe der Hausschweine bezeichnet.
-description:en:Pork belly is a boneless and fatty cut of meat[2] from the belly of a pig.
-description:es:La panza de cerdo es la carne procedente de la panza de un cerdo.
-# ingredient/pork-belly has 164 products in 9 languages @2021-09-17
-
-<en:pork belly
-en:raw pork belly 
-fr:poitrine de porc crue
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 ciqual_food_name:fr:Porc, poitrine, crue
 # TODO: investigate between pork belly and pork breast
+description:de:Als Schweinebauch werden die gut mit Fett durchwachsenen und mit Rippen durchzogenen Stücke der hinteren (caudalen), unteren (ventralen) Brustkörbe der Hausschweine bezeichnet.
+description:en:Pork belly is a boneless and fatty cut of meat[2] from the belly of a pig.
+description:es:La panza de cerdo es la carne procedente de la panza de un cerdo.
+# 169 in 9 languages @2021-09-22
 
 <en:pork belly
 en:british pork belly
+
+<en:pork belly
+en:smoked pork belly
+fr:poitrine de porc fumée
+ca:cansalda de por fumat
+es:panceta de cerdo ahumada
+it:pancetta affumicata
+nl:gerookt varkensbuik
+ciqual_food_code:en:28502
+ciqual_food_name:en:Pork belly, smoked, raw
+ciqual_food_name:fr:Poitrine de porc, fumée, crue
+#76 @2021-09-23
 
 en:breast
 da:Bryst
@@ -17262,28 +17268,32 @@ nl:varkensbindweefsel
 en:pork fat
 ar:دهن خنزير
 bg:свинска мас
+cs:vepřový tuk
 da:svinefedt
 de:schweinefett
+el:χοιρινό λίπος
 es:grasa de cerdo, grasa animal de cerdo
 eu:txerri-gantz
 fa:چربی خوک
-fr:lard gras, gras de porc
+fr:gras de porc
 hr:svinjska mast
-hu:sertészsír
+hu:slanina, sertészsír
 id:lemak babi
 it:grasso di maiale, grasso di suino, grasso suino
 nl:varkensvet
+pl:tłuszcz ze świni
+pt:gordura de porco
 sh:svinjska mast
 sl:svinjska mast
 sr:svinjska mast
 sv:grisfett, fett från gris
 tr:domuz yağı
-# ast:mantega de gochu
 # sr-el:svinjska mast
 ciqual_food_code:en:16530
 ciqual_food_name:en:Pork fat, raw
 ciqual_food_name:fr:Lard gras, cru
 
+#comment:en:Be careful between lard and pork fat. Not all languages differentiate
 <en:pork fat
 en:lard,  pork lard
 an:redetiu
@@ -17294,7 +17304,7 @@ de:Schmalz
 eo:ŝmalco
 es:manteca de cerdo, manteca de cerdo iberico
 fi:ilava
-fr:saindoux
+fr:saindoux, lard gras
 fy:riezel
 ga:blonag
 gd:blonag
@@ -17316,6 +17326,7 @@ th:มันหมู
 uk:смалець
 wa:saeyén
 zh:豬油
+# ast:mantega de gochu
 # bar:schmoiz
 # lzh:豬油
 # pdc:schmals
