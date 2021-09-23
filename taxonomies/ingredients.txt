@@ -6917,18 +6917,21 @@ fr:lait entier stérilisé
 hu:hőkezelt teljes tej
 it:latte intero sterilizzato, latte sterilizzato intero
 
-<en:whole milk
+<en:pasteurised whole milk
 <en:UHT pasteurised milk
 en:UHT pasteurised whole milk
 ca:llet sencera esterilitzada UHT, llet esterilitzada UHT sencera
 de:Haltbare Vollmilch, H-Vollmilch
 es:leche entera esterilizada UHT, leche esterilizada UHT entera,leche UHT entera
 fi:iskukuumennettu täysmaito
-fr:lait entier stérilisé uht, lait entier stérilisé u h t, lait stérilisé uht entier
+fr:lait entier stérilisé uht, lait entier stérilisé u h t, lait stérilisé uht entier, Lait pasteurisé entier pasteurisation haute
 hu:pasztőrözött UHT teljes tej
 it:Latte intero pastorizzato UHT
 nl:UHT gesteriliseerde volle melk
-# ingredient/fr:lait-entier-sterilise-uht has 20 products in 2 languages @2019-05-23
+ciqual_food_code:en:19023
+ciqual_food_name:en:Milk, whole, UHT
+ciqual_food_name:fr:Lait entier, UHT
+# 105 in 2 languages @2021-09-22
 
 <en:UHT pasteurised whole milk
 en:organic UHT pasteurised whole milk
@@ -6948,9 +6951,13 @@ fr:lait entier pasteurisé
 hu:pasztőrözött teljes tej
 it:latte intero pastorizzato
 nl:volle gepasteuriseerde melk
-
-<en:pasteurised whole milk
-fr:Lait pasteurisé entier pasteurisation haute
+pl:mleko pełne pasteryzowane
+pt:Leite pasteurizado gordo
+ro:lapte integral pasteurizat
+ciqual_food_code:en:19024
+ciqual_food_name:en:Milk, whole, pasteurised
+ciqual_food_name:fr:Lait entier, pasteurisé
+#1241 @2011-09-23
 
 <en:whole milk
 fr:lait entier standardisé
