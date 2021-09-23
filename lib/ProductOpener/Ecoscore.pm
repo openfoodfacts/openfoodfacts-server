@@ -456,7 +456,7 @@ sub load_ecoscore_data_packaging() {
 		die("Could not open ecoscore materials CSV $csv_file: $!");
 	}
 	
-	$log->debug("ecoscore packaging_materials data", { packaging_meterials => $ecoscore_data{packaging_materials} }) if $log->is_debug();
+	$log->debug("ecoscore packaging_materials data", { packaging_materials => $ecoscore_data{packaging_materials} }) if $log->is_debug();
 	
 	# Packaging shapes / formats
 
@@ -531,7 +531,7 @@ sub load_ecoscore_data_packaging() {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
 	}	
 	
-	$log->debug("ecoscore packaging_shapes data", { packaging_meterials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
+	$log->debug("ecoscore packaging_shapes data", { packaging_materials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
 }
 
 
