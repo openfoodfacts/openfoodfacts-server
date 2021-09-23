@@ -66,7 +66,7 @@ $producers_platform = $ENV{PRODUCERS_PLATFORM} || "0";
 # server paths
 $data_root = "/mnt/podata";
 $www_root = "/opt/product-opener/html";
-$conf_root = "/opt/product-opener/conf";
+$conf_root = "/opt/product-opener/conf/docker";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
 my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
