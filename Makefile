@@ -88,10 +88,10 @@ tail:
 	tail -f logs/**/*
 
 setup_incron:
-	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
+	@echo "🥫 Setting up incron jobs defined in conf/docker/incron.conf …"
 	${DOCKER_COMPOSE} exec -T backend sh -c "\
 		echo 'root' >> /etc/incron.allow && \
-		incrontab -u root /opt/product-opener/conf/incron.conf && \
+		incrontab -u root /opt/product-opener/conf/docker/incron.conf && \
 		incrond"
 
 refresh_product_tags:
