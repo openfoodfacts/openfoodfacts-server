@@ -50,7 +50,7 @@ jobs:
         # Create pull request after pushing to branch
         # create_pull_request: # default is true
         # The title of the new pull request
-        pull_request_title: "New Crowdin translations to review and merge"
+        pull_request_title: "chore: New Crowdin translations to review and merge"
         # The contents of the pull request
         # pull_request_body: # optional
         # To add labels for created pull request
