@@ -55,7 +55,7 @@ services:
       - ./logs/apache2:/var/log/httpd
 
       # Apache conf
-      - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+      - ./conf/docker/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
 
       # Tmpfs
       - type: tmpfs
@@ -77,11 +77,8 @@ services:
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
 
-      # Logs 
-      - ./logs/nginx/:/var/log/nginx/
-      
       # Nginx
-      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./conf/docker/nginx.conf:/etc/nginx/conf.d/default.conf
 
       # Node modules
       - node_modules:/opt/product-opener/node_modules
