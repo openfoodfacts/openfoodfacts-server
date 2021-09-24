@@ -88,7 +88,7 @@ jobs:
           echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
-          echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml" >> .env
+          echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml;docker/monitor.yml" >> .env
 
           # Set App variables
           echo "TAG=sha-${{ github.sha }}" >> .env
