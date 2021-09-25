@@ -15,6 +15,7 @@ jobs:
     name: Synchronize with crowdin (matrix)
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
          lc: [it, es, fr, de]
     steps:
