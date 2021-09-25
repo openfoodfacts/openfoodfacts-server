@@ -11,46 +11,15 @@ on:
       - crowdin-wf-refactor
 
 jobs:
-  synchronize-with-crowdin:
-    name: Synchronize with crowdin
+  synchronize-with-crowdin-matrix:
+    name: Synchronize with crowdin (matrix)
     runs-on: ubuntu-latest
     strategy:
       matrix:
-         lc: [it, es]
+         lc: [it, es, fr, de]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      
-    - name: Crowdin action for French
-      uses: crowdin/github-action@1.4.0
-      with:
-        upload_translations: false # default is false
-        download_translations: true
-        skip_untranslated_files: false
-        commit_message: "New Crowdin translations - French"
-        localization_branch_name: l10n_main_fr
-        pull_request_title: "chore: New translations - French"
-        pull_request_labels: "translations"
-        download_language: fr
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
-    - name: Crowdin action for German
-      uses: crowdin/github-action@1.4.0
-      with:
-        upload_translations: false # default is false
-        download_translations: true
-        skip_untranslated_files: false
-        commit_message: "New Crowdin translations - German"
-        localization_branch_name: l10n_main_de
-        pull_request_title: "chore: New translations - German"
-        pull_request_labels: "translations"
-        download_language: de
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
     - name: Matrix
       uses: crowdin/github-action@1.4.0
       with:
@@ -66,6 +35,11 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+         
+  synchronize-with-crowdin-classic:
+    name: Synchronize with crowdin
+    runs-on: ubuntu-latest
+    steps:
     - name: Crowdin action for Open Pet Food Facts only
       uses: crowdin/github-action@1.4.0
       with:
