@@ -29,6 +29,22 @@ jobs:
         localization_branch_name: l10n_main_fr
         pull_request_title: "chore: New translations - French"
         pull_request_labels: "translations"
+        download_language: fr
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+    - name: Crowdin action for German
+      uses: crowdin/github-action@1.4.0
+      with:
+        upload_translations: false # default is false
+        download_translations: true
+        skip_untranslated_files: false
+        commit_message: "New Crowdin translations - German"
+        localization_branch_name: l10n_main_de
+        pull_request_title: "chore: New translations - German"
+        pull_request_labels: "translations"
+        download_language: de
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
