@@ -28,7 +28,7 @@ jobs:
          download_translations: true
          skip_untranslated_files: false
          commit_message: New Crowdin translations - ${{ matrix.lc }}
-         localization_branch_name: l10n_main_de
+         localization_branch_name: ${{ matrix.lc }}
          pull_request_title: chore - New translations - ${{ matrix.lc }}
          pull_request_labels: "translations"
          download_language: ${{ matrix.lc }}
