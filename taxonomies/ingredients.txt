@@ -40867,6 +40867,16 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
+<en:orange
+en:orange marmalade
+de:Orangenmarmelade, Orangen-Marmelade
+es:mermelada de naranja
+nl:sinaasapplemarmelade
+ciqual_food_code:en:31039
+ciqual_food_name:en:Marmalade, orange
+ciqual_food_name:fr:Marmelade d'orange
+#22 @2021-09-26
+
 ##########################################
 #              Flavourings
 ##########################################
@@ -40899,10 +40909,6 @@ sv:smak från eterisk apelsinolja
 # ingredient/fi:eteerinen-appelsiiniöljyaromi has 1 product in 1 language @2020-06-08
 
 
-<en:orange
-en:orange marmalade
-de:Orangenmarmelade, Orangen-Marmelade
-es:mermelada de naranja
 
 ###################################################################################################
 #
@@ -43489,12 +43495,17 @@ sv:ananasfiber
 # ingredient/fr:fibres-d'ananas has 120 products in 6 languages @2018-09-30
 
 <en:pineapple
-<en:purée
+#<en:purée
+en:pineapple purée
+es:puré de piña
 fr:purée d'ananas
 fi:ananaspyree
-# IN process de:Ananaspüree
+nl:ananaspuree
+ciqual_food_code:en:13002
+ciqual_food_name:en:Pineapple, pulp, raw
+ciqual_food_name:fr:Ananas, pulpe, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
-# 33 products in 2 languages @2018-09-30
+# 60 in 4 languages @2021-09-26
 
 <en:pineapple
 <en:fruit juice
@@ -55854,27 +55865,46 @@ nl:biologisch anijszaad, anijs bio
 
 <en:seed
 <en:coriander
-en:coriander seeds
+en:coriander seed
+ca:llavor de coriandre
+cs:semeno koriandro
 da:korianderfrø
 de:Koriandersamen
+el:σπέρμα κορίανδρου
+eo:koriandra frukto
 es:Semillas de cilantro
 fi:korianterinsiemen
 fr:graine de coriandre, graines de coriandre
+gu:ધાણા
+he:זרעי כוסברה
+hy:Եփութուխ:Համեմ
+id:ketumbar
 it:Semi di coriandolo
+nb:korianderfrö
 nl:korianderzaad
+or:ଧନିଆ ମଞ୍ଜି
+pt:semente de coentro
+ru:семена кориандра
+th:ม็ดผักชี
 sv:korianderfrö
-# ingredient/fr:graine-de-coriandre has 188 products in 3 languages @2018-10-07
+wikidata:en:Q20856764
+ciqual_food_code:en:11026
+ciqual_food_name:en:Coriander, seed
+ciqual_food_name:fr:Coriandre, graine
+# 1002 in 14 @2019-09-26
 
-<en:coriander seeds
-en:coriander powder
-de:Korianderpulver
-es:cilantro en polvo
-fi:korianterijauhe
-fr:coriandre en poudre, coriandre moulue
-it:Polvere di coriandolo
-ja:コリアンダー
-nl:korianderpoeder
-sv:korianderpulver
+#processing:en: :en:powder
+#<en:coriander seeds
+#en:coriander powder
+#de:Korianderpulver
+#es:cilantro en polvo
+#fi:korianterijauhe
+#fr:coriandre en poudre, coriandre moulue
+#hi:धनिया पाउडर
+#it:Polvere di coriandolo
+#ja:コリアンダー
+#nl:korianderpoeder
+#sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
@@ -78341,6 +78371,9 @@ fi:pizzataikina
 fr:pâte à pizza
 nl:pizzadeeg
 sv:pizzadeg
+ciqual_food_code:en:23403
+ciqual_food_name:en:Pizza pastry base
+ciqual_food_name:fr:Préparation pour pâte à pizza
 
 #<en:compound
 <en:pizza dough
@@ -78351,8 +78384,7 @@ fr:fond de pizza
 nl:pizzabodem
 sv:pizzabotten
 likely_allergens:en: en:gluten
-# ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
-# usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
+# 93 in 5 languages @2021-09-26
 # mainIngredient:en:wheat flour
 
 <en:dough
