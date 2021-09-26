@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-         lc: [it, es, fr, de, id]
+         lc: [it, es, fr, de, id, en_GB,he,da,ko,nl_NL,zh_CN,pt_BR,zh_TW,nl_BE,pt_PT,nl, zh_HK]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
