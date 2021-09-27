@@ -1723,7 +1723,16 @@ sub flatten_sub_ingredients($) {
 
 =head2 compute_ingredients_tags ( product_ref )
 
-Go through the nested ingredients and compute ingredients_original_tags and ingredients_tags
+Go through the nested ingredients and:
+
+Compute ingredients_original_tags and ingredients_tags.
+
+Compute the total % of "leaf" ingredients (without sub-ingredients) with a specified %, and unspecified %.
+
+- ingredients_with_specified_percent_n : number of "leaf" ingredients with a specified %
+- ingredients_with_specified_percent_sum : % sum of "leaf" ingredients with a specified %
+- ingredients_with_unspecified_percent_n
+- ingredients_with_unspecified_percent_sum	
 
 =cut
 
@@ -1732,6 +1741,10 @@ sub compute_ingredients_tags($) {
 	my $product_ref = shift;
 	
 	$product_ref->{ingredients_tags} = [];
+	$product_ref->{ingredients_with_specified_percent_n} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_n} = 0;
+	$product_ref->{ingredients_with_specified_percent_sum} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_sum} = 0;	
 	
 	# Traverse the ingredients tree, breadth first
 	
@@ -1753,6 +1766,19 @@ sub compute_ingredients_tags($) {
 			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
 				
 				push @ingredients, $ingredient_ref->{ingredients}[$i];
+			}			
+		}
+		else {
+			# Count specified percent only for ingredients that do not have sub ingredients
+			if (defined $ingredient_ref->{percent}) {
+				$product_ref->{ingredients_with_specified_percent_n} += 1;
+				$product_ref->{ingredients_with_specified_percent_sum} += $ingredient_ref->{percent};
+			}
+			else {
+				$product_ref->{ingredients_with_unspecified_percent_n} += 1;
+				if (defined $ingredient_ref->{percent_estimate}) {
+					$product_ref->{ingredients_with_unspecified_percent_sum} += $ingredient_ref->{percent_estimate};
+				}
 			}			
 		}
 	}

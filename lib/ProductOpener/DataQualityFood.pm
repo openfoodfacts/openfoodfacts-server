@@ -1081,6 +1081,42 @@ sub check_ingredients_percent_analysis($) {
 }
 
 
+=head2 check_ingredients_with_specified_percent( PRODUCT_REF )
+
+Check if all or almost all the ingredients have a specified percentage in the ingredients list.
+
+=cut
+
+sub check_ingredients_with_specified_percent($) {
+	my $product_ref = shift;
+
+	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_unspecified_percent_n} == 0)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+		}
+		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} >= 90) and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+		}
+
+		# Flag products where the sum of % is higher than 100
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 100)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 200)) {
+			push @{$product_ref->{data_quality_warning_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}				
+	}
+
+	return;
+}
+
+
 =head2 check_ecoscore_data( PRODUCT_REF )
 
 Checks for data needed to compute the Eco-score.
@@ -1118,6 +1154,7 @@ sub check_quality_food($) {
 
 	check_ingredients($product_ref);
 	check_ingredients_percent_analysis($product_ref);
+	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
