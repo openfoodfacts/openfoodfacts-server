@@ -62,9 +62,35 @@ my @recipes_tests = (
                     lc => "en",
                     ingredients_text => "Water, strawberry juice 20%, sugar 5%",
                 },
-            ],            
+            ],
+            [
+                 'missing-ingredients',
+                {
+                    lc => "en",
+                    ingredients_text => "",
+                },               
+            ]          
         ],
     },
+
+    # Margherita pizzas
+    {
+        testid => 'fr-margherita-pizzas',
+        lc => "fr",
+        parent_ingredients =>   [
+            "farine", "tomate", "fromage", "eau"
+        ],
+        products => [
+            [
+                'fr-margherita-pizza-1',
+                {
+                    lc => "fr",
+                    ingredients_text => "Farine de blé*, purée de tomates* 26%, eau, mozzarella râpée* 17%, huile de tournesol*, levure, sel, plantes aromatiques*, épices*. Traces de poissons et fruits à coque. * Ingrédients issus de l'agriculture biologique.",
+                },
+            ],        
+        ],
+    },    
+
 );
 
 
