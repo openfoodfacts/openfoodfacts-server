@@ -58,26 +58,6 @@ stopwords:zh::配料
 # *Ingrédient décongelé, ne pas recongeler.
 # *Appellation d'Origine Contrôlée
 
-# comment:en:These are words that end ingredient lists.
-
-#de:
-
-#en:
-
-#es:
-
-#fr:
-
-#it:
-
-#ja:
-
-#nl:
-
-#pt:
-
-#ro:
-
 fr:additifs alimentaires
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
 # usage:fr: additif alimentaire (acide citrique)
@@ -17893,52 +17873,71 @@ wikipedia:en:https://en.wikipedia.org/wiki/Modified_starch
 
 # description:en:Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
+#category/corn starch
 <en:starch
 en:corn starch, maize starch, cornstarch
 ar:نشا الذرة
-ca:Midó de blat de moro
-cs:Kukuřičný škrob
+bg:царевично нишесте
+ca:midó de blat de moro
+cs:kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 el:άμυλο αραβοσίτου
-eo:Maizamelo
-es:almidón de maíz, Maicena,fecula de maiz,almidones de maiz modificados
-eu:Maizena
+eo:maizamelo
+es:almidón de maíz, maicena, fecula de maiz
+et:maisitärklis
+eu:maizena
 fa:نشاسته ذرت
-fi:Maissitärkkelys
+fi:maissitärkkelys
 fr:amidon de maïs, amidon de mais, fécule de mais, amidon natif de maïs
 he:עמילן תירס
+hr:kukuruzni škrob
 hu:kukoricakeményítő
-id:Tepung jagung
+id:tepung jagung
 is:maíssterkja
-it:Amido di mais
+it:amido di mais
 ja:コーンスターチ
+kk:жүгері крахмалы
 ko:옥수수 녹말
-lt:Kukurūzų krakmolas
-ms:Tepung jagung
-nb:maisstivelse, Maisenna
+lt:kukurūzų krakmolas
+lv:kukurūzas ciete
+ms:tepung jagung
+nb:maisstivelse, maisenna
 nl:maïszetmeel, maiszetmeel
 no:maisstivelse
-pl:Skrobia kukurydziana
+pl:skrobia kukurydziana
 pt:amido de milho
 ro:amidon de porumb
-ru:Кукурузный крахмал, крахмал кукурузный
-sv:stärkelse av majs, Majsstärkelse
+ru:кукурузный крахмал, крахмал кукурузный
+sk:kukuričný škrob
+sl:koruzni škrob
+sr:kukuruzni skrob
+sv:stärkelse av majs, majsstärkelse
 th:แป้งข้าวโพด
-tr:Mısır nişastası
-uk:Кукурудзяний крохмаль
+tr:mısır nişastası
+uk:кукурудзяний крохмаль
 zh:玉米澱粉
-# war:Gawgaw
+# war:gawgaw
 # yue:粟粉
+ciqual_food_code:en:9510
+ciqual_food_name:en:Maize/corn starch
+ciqual_food_name:fr:Amidon de maïs ou fécule de maïs
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_starch
+#76146 in 38 @2021-09-28
 
 <en:corn starch
 en:non-gmo corn starch
 es:maicena no modificada genéticamente, maicena no-gmo, maicena no gmo,
 fr:amidon de mais sans OGM
+#321 in 2 @2021-09-28
 
 <en:corn starch
+en:waxy maize starch
+de:Wachsmaisstärke
 fr:amidon de maïs cireux
+it:amido di mais ceroso
+nl:kleefmaïszetmeel
+#379 @2021-09-28
 
 <en:corn starch
 <en:modified starch
@@ -17948,10 +17947,11 @@ cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
 el:τροποποιημένο άμυλο αραβοσίτου
-es:Almidón modificado de maiz, almidon de maiz modificado
+es:Almidón modificado de maiz, almidon de maiz modificado, almidones de maiz modificados
 et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
+hr:modificirani kukuruzni škrob
 hu:módosított kukoricakeményítő
 is:umbreytt maíssterkja
 it:amido modificato di mais, amido di mais modificato
@@ -17962,11 +17962,17 @@ pl:Modyfikowana skrobia kukurydziana
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
 ru:крахмал кукурузный модифицированный
+sk:modifikovaný kukuričný škrob
+sl:modificiran koruzni škrob
 sv:modifierad majsstärkelse
 
 <en:modified starch
-<fr:amidon de maïs cireux
+<en:waxy maize starch
+en:modified waxy maize starch
+de:modifizierte Wachsmaisstärke
 fr:amidon modifié de maïs cireux, amidon de maïs cireux modifié
+it:amido di mais ceroso modificato
+wikidata:en:Q3614284
 
 <en:corn starch
 fr:amidon modifié de maïs visqueux
@@ -59120,6 +59126,9 @@ nl:korianderblad, korianderblaadjes, koriander blaadjes
 pl:liście kolendry
 sv:korianderblad
 wikidata:en:Q65523167
+ciqual_food_code:en:11094
+ciqual_food_name:en:Coriander, fresh
+ciqual_food_name:fr:Coriandre, fraiche
 # 4528 in 9 @2021-09-28
 
 #processing:en: en:dried
