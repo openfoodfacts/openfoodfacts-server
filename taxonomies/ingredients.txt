@@ -35975,7 +35975,7 @@ it:Lievito naturale
 ja:サワードウ
 ko:사워도
 nb:Surdeig
-nl:Zuurdesem, zuurdeeg
+nl:Zuurdesem, zuurdeeg, desem
 nn:Surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
@@ -36014,7 +36014,7 @@ fi:vehnätaikinanjuuri, vehnähapantaikina
 fr:levain de blé, levain panaire de blé
 it:lievito madre di frumento
 nb:surdeig av hvete
-nl:tarwe zuurdesem
+nl:tarwe zuurdesem, tarwedesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
@@ -36033,7 +36033,7 @@ de:Roggensauerteig
 es:masa madre de centeno
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
-nl:roggezuurdesem
+nl:roggezuurdesem, roggedesem
 sv:rågsurdeg, surdeg av råg
 allergens:en: en:gluten
 # ingredient/en:rye-sourdough has 47 products in 3 languages @2020-06-12
@@ -36051,7 +36051,7 @@ fr:levain de seigle dévitalisé
 fr:levain de seigle déshydraté et dévitalisé
 
 <en:rye sourdough
-nl:rogge zuurdesempoeder
+nl:rogge zuurdesempoeder, gedroogd roggedesm
 
 <en:sourdough
 nl:speltzuurdesempoeder
@@ -56568,6 +56568,8 @@ ru:Перец
 sl:poper
 sv:peppar
 tr:biber
+ur:کالی مرچ
+uz:galampiri
 # ast:Pimienta
 # atj:Tepwepar
 # nrm:Paîvre
@@ -56624,8 +56626,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Long_pepper
 en:white pepper
 ca:pebre blanc
 cs:pepř bílý, Bílý pepř
-da:Hvid peber
+da:hvid peber
 de:weißer Pfeffer, weisser Pfeffer, Pfeffer weiß
+el:λευκό πιπέρι
 es:Pimienta blanca
 fi:valkopippuri
 fr:poivre blanc
@@ -56634,6 +56637,7 @@ it:pepe bianco
 ja:白胡椒
 nl:witte peper
 pl:Pieprz biały
+pt:pimenta-branca
 sv:vitpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
 # 1596 products in 6 languages @2018-10-08
@@ -56681,6 +56685,9 @@ fr:poivre gris
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
 # 53 products in 1 language @2018-10-08
 
+<en:pepper
+lv:sarkanie pipari
+
 ###################################################################################################
 #
 #                                Black pepper
@@ -56689,6 +56696,9 @@ fr:poivre gris
 
 <en:pepper
 en:black pepper
+ar:فلفل أسود
+bg:черен пипер
+bs:crni biber
 ca:Pebre negre
 cs:pepř černý, černý pepř
 da:sort peber
@@ -56699,24 +56709,30 @@ es:pimienta negra
 et:must pipar
 fi:mustapippuri
 fr:poivre noir
+ga:piobar dubh
 hu:feketebors
 it:pepe nero
 ja:黒胡椒
+kk:қара бұрыш
 lt:juodieji piperai
 nb:svart pepper, piper nigrum
 nl:zwarte peper
 nn:svart pepper
 pl:czamy pieprz, pieprz czarny
-pt:pimenta preta
+pt:pimenta preta, pimenta-negra
 ro:piper negru
 ru:Черный перец, перец черный, перец чёрный
-sl:cmi poper, črni poper
+sk:čierne korenie
+sl:črni poper
 sv:svartpeppar, svart peppar
 tr:karabiber
+uk:перець чорний
 zh:黑胡椒
-# bs:cmi biber
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/black-pepper
-# 4995 products in 24 languages @2018-10-08
+ciqual_food_code:en:11015
+ciqual_food_name:en:Black pepper, powder
+ciqual_food_name:fr:Poivre noir, poudre
+# 17037 in 39 @2021-09-28
+
 
 <en:black pepper
 en:black peppercorns
@@ -56736,8 +56752,13 @@ fr:poivre noir concassé
 it:Pepe nero macerato
 nl:grove zwarte peper
 ru:перец черный молотый, перец-чёрный-молотый
+uk:перець чорний мелений
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
 # 64 products @2018-10-08
+
+#processing:en:powder
+#<en:black pepper
+#en:black pepper powder
 
 <en:black pepper
 en:black pepper extract
@@ -56753,7 +56774,7 @@ sv:svartpepparextrakt
 
 <en:black pepper
 <en:green pepper
-en:black and green pepper,green and black pepper
+en:black and green pepper, green and black pepper
 fi:musta- ja viherpippuri
 
 
