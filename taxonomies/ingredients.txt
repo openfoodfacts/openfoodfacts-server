@@ -56625,33 +56625,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/Long_pepper
 
 <en:pepper
 en:white pepper
+ar:فلفل أبيض
+bg:бял пипep
 ca:pebre blanc
 cs:pepř bílý, Bílý pepř
 da:hvid peber
 de:weißer Pfeffer, weisser Pfeffer, Pfeffer weiß
 el:λευκό πιπέρι
 es:Pimienta blanca
+et:valge pipar
 fi:valkopippuri
 fr:poivre blanc
 hu:fehérbors
 it:pepe bianco
-ja:白胡椒
+ja:白胡椒, ホワイトペッパー
+nb:hvit pepper
 nl:witte peper
 pl:Pieprz biały
 pt:pimenta-branca
+ru:перец белый
 sv:vitpeppar
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
-# 1596 products in 6 languages @2018-10-08
+ciqual_food_code:en:11019
+ciqual_food_name:en:White pepper, powder
+ciqual_food_name:fr:Poivre blanc, poudre
+# 5825 in 24 @2021-09-28
 
-<fr:poivre blanc
-en:ground white pepper
-cs:pepř bílý mletý
-de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
-es:pimienta blanca molida
-fi:valkopippurijauhe, jauhettu valkopippuri
-fr:poivre blanc moulu
-nl:gemalen witte peper
-sv:mald vitpeppar, vitpepparpulver
+#processing:en: en:ground
+#<en:white pepper
+#en:ground white pepper
+#cs:pepř bílý mletý
+#de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
+#es:pimienta blanca molida
+#fi:valkopippurijauhe, jauhettu valkopippuri
+#fr:poivre blanc moulu
+#nl:gemalen witte peper
+#sv:mald vitpeppar, vitpepparpulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc-moulu
 # 66 products in 3 languages @2018-10-08
 
@@ -56683,8 +56691,14 @@ sv:grönpeppar
 en:grey pepper, gray pepper
 de:Grauer Pfeffer
 fr:poivre gris
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
-# 53 products in 1 language @2018-10-08
+ciqual_food_code:en:11020
+ciqual_food_name:en:Grey pepper, powder
+ciqual_food_name:fr:Poivre gris, poudre
+# 98 in 1 language @2021-09-21
+
+#processing:en: en:ground
+#<en:grey pepper
+#en:ground grey pepper
 
 <en:pepper
 lv:sarkanie pipari
