@@ -69,7 +69,14 @@ my @recipes_tests = (
                     lc => "en",
                     ingredients_text => "",
                 },               
-            ]          
+            ],
+            [
+                 'impossible-ingredients',
+                {
+                    lc => "en",
+                    ingredients_text => "Orange juice 50%, water, sugar 30%",
+                },               
+            ],             
         ],
     },
 

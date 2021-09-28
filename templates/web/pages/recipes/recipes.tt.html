@@ -1,11 +1,12 @@
 <!-- start templates/[% template.name %] -->
 
 <table>
+    <caption style="text-align:left">[% lang('recipes_ingredients_statistics') %]</caption>
     <thead>
         <tr>
-            <th>[% lang("ingredients") %]</th>
+            <th scope="col"></th>
             [% FOREACH ingredient IN analysis.parent_ingredients %]
-            <th>
+            <th scope="col">
                 [% IF (ingredient == "other") OR (ingredient == "unknown") %]
                     [% lang(ingredient) %]
                 [% ELSE %]
@@ -19,7 +20,7 @@
     <tbody>
     [% FOREACH stat IN ["mean", "min", "max", "n"] %]
         <tr>
-            <th>[% IF stat == "n" %][% lang("number_of_products") %][% ELSE %][% lang(stat) %][% END %]</th>
+            <th scope="col">[% IF stat == "n" %][% lang("number_of_products") %][% ELSE %][% lang(stat) %][% END %]</th>
             [% FOREACH ingredient IN analysis.parent_ingredients %]
                 <td>[% IF stat == "n" %]
                         [% analysis.ingredients.$ingredient.$stat %]
@@ -35,11 +36,12 @@
 </table>
 
 <table>
+    <caption style="text-align:left">[% lang('recipes_ingredients_for_each_product') %]</caption>
     <thead>
         <tr>
-            <th>[% lang("ingredients") %]</th>
+            <th scope="col">[% lang("product") %]</th>
             [% FOREACH ingredient IN analysis.parent_ingredients %]
-            <th>
+            <th scope="col">
                 [% IF (ingredient == "other") OR (ingredient == "unknown") %]
                     [% lang(ingredient) %]
                 [% ELSE %]
