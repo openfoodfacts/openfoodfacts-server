@@ -94,7 +94,14 @@ my @recipes_tests = (
                     lc => "fr",
                     ingredients_text => "Farine de blé*, purée de tomates* 26%, eau, mozzarella râpée* 17%, huile de tournesol*, levure, sel, plantes aromatiques*, épices*. Traces de poissons et fruits à coque. * Ingrédients issus de l'agriculture biologique.",
                 },
-            ],        
+            ],
+            [
+                'fr-margherita-pizza-2-compound-ingredients',
+                {
+                    lc => "fr",
+                    ingredients_text => "Garniture 70% (tomates concassées, fromage râpé, feuilles de basilic), Pâte à pizza 30% (farine de blé, eau, sel)",
+                },
+            ],                
         ],
     },    
 

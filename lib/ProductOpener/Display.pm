@@ -10965,7 +10965,9 @@ sub search_and_analyze_recipes($$) {
 	my $fields_ref = {
 		lc                 => 1,
 		code               => 1,
-		product_name       => 1,
+		product_name	   => 1,
+		brands             => 1,
+		quantity           => 1,
 		"product_name_$lc" => 1,
 		ingredients        => 1,
 		ingredients_percent_analysis => 1,

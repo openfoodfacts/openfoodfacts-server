@@ -130,9 +130,21 @@ sub compute_product_recipe($$) {
     if ((defined $product_ref->{ingredients_percent_analysis}) and ($product_ref->{ingredients_percent_analysis} < 0)) {
         $log->debug("compute recipe for product - ingredients percent analysis returned impossible values", { code => $product_ref->{code}, ingredients => $product_ref->{ingredients}}) if $log->is_debug();
         $recipe_ref->{"warning"} = "ingredients_percent_analysis_failed";
-    }    
+    }
 
-    foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+    # Traverse the ingredients tree, breadth first.
+    # Stop if the ingredient matches one of the parent ingredients,
+    # otherwise go into sub ingredients if they exist
+			
+    my @ingredients = ();
+
+    for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+        push @ingredients, $product_ref->{ingredients}[$i];
+    }
+    
+    while (@ingredients) {    
+
+        my $ingredient_ref = shift @ingredients;
         my $ingredient_id = $ingredient_ref->{id};
         my $parent_of_current_ingredient = "other";
         if (not exists_taxonomy_tag("ingredients", $ingredient_id )) {
@@ -147,12 +159,24 @@ sub compute_product_recipe($$) {
             }
         }
 
-        # If ingredients percent analysis failed, percent_estimate will not be defined
-        my $percent = $ingredient_ref->{percent_estimate};
-        if (defined $ingredient_ref->{percent}) {
-            $percent = $ingredient_ref->{percent};
+        # If the ingredient is unknown or other and it has sub ingredients,
+        # try to find the parent ingredients we care about in the sub ingredients
+
+        if ((($parent_of_current_ingredient eq "other") or ($parent_of_current_ingredient eq "unknown"))
+            and (defined $ingredient_ref->{ingredients})) {
+            for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+                push @ingredients, $ingredient_ref->{ingredients}[$i];
+            }
         }
-        $recipe_ref->{$parent_of_current_ingredient} += $percent;
+        else {
+
+            # If ingredients percent analysis failed, percent_estimate will not be defined
+            my $percent = $ingredient_ref->{percent_estimate};
+            if (defined $ingredient_ref->{percent}) {
+                $percent = $ingredient_ref->{percent};
+            }
+            $recipe_ref->{$parent_of_current_ingredient} += $percent;
+        }
     }
 
     return $recipe_ref;
