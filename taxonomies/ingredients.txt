@@ -26094,11 +26094,13 @@ ciqual_food_code:en:51510
 ciqual_food_name:en:Frik (crushed immature durum wheat), raw
 ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 
-
 #processing:en: en:cooked
 #<en:freekeh
 #en:cooked freekeh
 #fr:freekeh cuit
+
+
+
 ##################################################################################
 #
 #                        Wheatgerm
@@ -58734,36 +58736,44 @@ ciqual_food_code:en:11074
 ciqual_food_name:en:Ginger, raw
 ciqual_food_name:fr:Gingembre, racine crue
 
-<en:ginger
-en:organic ginger
-de:Biologischer Ingwer
-es:Jengibre orgánico
-fi:luomu inkivääri
-fr:gingembre bio
-it:Zenzero biologico
+#<en:ginger
+#en:organic ginger
+#de:Biologischer Ingwer
+#es:Jengibre orgánico
+#fi:luomu inkivääri
+#fr:gingembre bio
+#it:Zenzero biologico
 
+#category/ginger-powder
 <en:ginger
 en:ginger powder, ground ginger
+da:malen ingefær
 de:gemahlener Ingwer, Ingwerpulver
 es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
+nb:malen ingefær
 nl:gemberpoeder, gemalen gember, gemalen gemberwortel, djahé
+pl:mielony imbir
 pt:Gengibre em pó
-sv:ingefärapulver
-# fr:gingembre-moulu has 58 products in 4 languages @2018-10-25
+sv:ingefärapulver, malen ingefära
+wikidata:en:Q58183281
+ciqual_food_code:en:11006
+ciqual_food_name:en:Ginger, powder
+ciqual_food_name:fr:Gingembre, poudre
+# 923 in 12 @2021-09-28
 
-<en:ginger
-en:ginger purée
-de:Ingverpüree
-es:Puré de gengibre
-fi:inkivääripyree, inkiväärisose
-fr:purée de gingembre
-it:purea di zenzero
-nl:gemberpuree
-sv:ingefärspuré, ingefära puré
-# In process de:Ingwerpüree
+#processing:en: en:puree
+#<en:ginger
+#en:ginger purée
+#de:Ingverpüree
+#es:Puré de gengibre
+#fi:inkivääripyree, inkiväärisose
+#fr:purée de gingembre
+#it:purea di zenzero
+#nl:gemberpuree
+#sv:ingefärspuré, ingefära puré
 # fr:purée-de-gingembre has 118 products in 6 languages @2018-10-25
 
 <en:ginger
@@ -58774,24 +58784,26 @@ fr:Pâte de gingembre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:inkiv%C3%A4%C3%A4ritahna
 # 1 entry @ 2019-10-31
 
-<en:ginger
-en:ginger juice
-de:Ingwersaft
-es:jugo de jengibre, jugo de kión
-fi:inkiväärimehu, inkivääritäysmehu
-fr:Jus de gingembre
-sv:ingefärsjuice
+#processing:en: en:juice
+#<en:ginger
+#en:ginger juice
+#de:Ingwersaft
+#es:jugo de jengibre, jugo de kión
+#fi:inkiväärimehu, inkivääritäysmehu
+#fr:Jus de gingembre
+#sv:ingefärsjuice
 # ingredient/en:ginger-juice has 304 products in 2 languages @2020-05-23
 
-<en:ginger
-en:ginger extract
-de:Ingwer-Extrakt
-es:extracto de jengibre, extracto de kión, extracto de kion
-fi:inkivääriuute
-fr:extrait de gingembre
-nl:gemberextract
-vegan:en:yes
-vegetarian:en:yes
+#processing:en: en:extract
+#<en:ginger
+#en:ginger extract
+#de:Ingwer-Extrakt
+#es:extracto de jengibre, extracto de kión, extracto de kion
+#fi:inkivääriuute
+#fr:extrait de gingembre
+#nl:gemberextract
+#vegan:en:yes
+#vegetarian:en:yes
 
 #category/mustards
 <en:spice
