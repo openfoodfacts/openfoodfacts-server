@@ -863,6 +863,19 @@ my %ignore_strings_after_percent = (
 
 
 
+=head2 parse_ingredients_text ( product_ref )
+
+Parse the ingredients_text field to extract individual ingredients.
+
+=head3 Return values
+
+=head4 ingredients structure
+
+Nested structure of ingredients and sub-ingredients
+
+=head4 
+
+=cut
 
 sub parse_ingredients_text($) {
 
@@ -870,7 +883,9 @@ sub parse_ingredients_text($) {
 
 	my $debug_ingredients = 0;
 
-	return if not defined $product_ref->{ingredients_text};
+	delete $product_ref->{ingredients};
+
+	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
 	my $text = $product_ref->{ingredients_text};
 
@@ -897,11 +912,7 @@ sub parse_ingredients_text($) {
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
 
-	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
-	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ?
-
 	$product_ref->{ingredients} = [];
-	$product_ref->{'ingredients_tags'} = [];
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
@@ -923,7 +934,6 @@ sub parse_ingredients_text($) {
 
 	my $and = $and{$product_lc} || " and ";
 
-	
 	my $min_regexp = "";
 	if (defined $min_regexp{$product_lc}) {
 		$min_regexp = $min_regexp{$product_lc};
@@ -1740,7 +1750,27 @@ sub compute_ingredients_tags($) {
 
 	my $product_ref = shift;
 	
+	# Delete ingredients related fields
+	# They will be recreated, unless the ingredients list was deleted
+
+	delete $product_ref->{ingredients_tags};
+	delete $product_ref->{ingredients_original_tags};
+
+	delete $product_ref->{ingredients_n};
+	delete $product_ref->{known_ingredients_n};
+	delete $product_ref->{unknown_ingredients_n};
+	delete $product_ref->{ingredients_n_tags};
+
+	delete $product_ref->{ingredients_with_specified_percent_n};
+	delete $product_ref->{ingredients_with_unspecified_percent_n};
+	delete $product_ref->{ingredients_with_specified_percent_sum};
+	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+
+	return if not defined $product_ref->{ingredients};
+
 	$product_ref->{ingredients_tags} = [];
+	$product_ref->{ingredients_original_tags} = [];	
+
 	$product_ref->{ingredients_with_specified_percent_n} = 0;
 	$product_ref->{ingredients_with_unspecified_percent_n} = 0;
 	$product_ref->{ingredients_with_specified_percent_sum} = 0;
@@ -1818,12 +1848,6 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
-	else {
-		delete $product_ref->{ingredients_n};
-		delete $product_ref->{known_ingredients_n};
-		delete $product_ref->{unknown_ingredients_n};
-		delete $product_ref->{ingredients_n_tags};
-	}
 }
 
 
@@ -1849,33 +1873,30 @@ sub extract_ingredients_from_text($) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
-	if (not defined $product_ref->{ingredients_text}) {
-		# Run analyze_ingredients() so that we can still get labels overrides
-		# if we don't have ingredients but if we have a label like "Vegan", "Vegatarian" or "Palm oil free".
-		analyze_ingredients($product_ref);
-		return;
-	}
-
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
 	parse_ingredients_text($product_ref);
 
-	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+	if (defined $product_ref->{ingredients}) {
 
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
-		# The computation yielded seemingly impossible values, delete the values
-		delete_ingredients_percent_values($product_ref->{ingredients});
-		$product_ref->{ingredients_percent_analysis} = -1;
+		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+			# The computation yielded seemingly impossible values, delete the values
+			delete_ingredients_percent_values($product_ref->{ingredients});
+			$product_ref->{ingredients_percent_analysis} = -1;
+		}
+		else {
+			$product_ref->{ingredients_percent_analysis} = 1;
+		}
+		
+		compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
+
+		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
+
 	}
-	else {
-		$product_ref->{ingredients_percent_analysis} = 1;
-	}
-	
-	compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
-
-	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
