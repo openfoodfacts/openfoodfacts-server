@@ -35,6 +35,7 @@ labels => [
 	
 	"fr:ab-agriculture-biologique",
 	"en:eu-organic",
+	#"en:sustainable-fishing-method",
 	
 	"fr:haute-valeur-environnementale",
 	"en:utz-certified",
@@ -114,6 +115,31 @@ my @tests = (
 			lc => "en",
 			categories_tags=>["en:butters"],
 			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],
+	# Labels can have cumulative points, except some labels that can't be cumulated (e.g. MSC + ASC, or AB Bio + EU Organic)
+	[
+		'label-ab-hve',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["fr:ab-agriculture-biologique", "fr:haute-valeur-environnementale"],
+		}
+	],
+	[
+		'label-msc-asc',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["en:sustainable-seafood-msc", "en:responsible-aquaculture-asc"],
+		}
+	],	
+	[
+		'label-ab-hve-msc-asc',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["fr:ab-agriculture-biologique", "fr:haute-valeur-environnementale", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc"],
 		}
 	],
 	[
@@ -304,6 +330,16 @@ my @tests = (
 			categories_tags=>["en:baguettes"],
 			ingredients_text=>"Wheat (France)",
 			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],
+
+	[
+		'packaging-fr-new-shapes',
+		{
+			lc => "fr",
+			categories_tags=>["en:baguettes"],
+			ingredients_text=>"Blé (France)",
+			packaging_text=>"1 caisse en carton, 1 paille, 2 couverts en métal, 1 gobelet en plastique, 1 enveloppe papier",
 		}
 	],		
 	

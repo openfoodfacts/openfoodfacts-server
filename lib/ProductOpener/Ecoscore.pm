@@ -456,7 +456,7 @@ sub load_ecoscore_data_packaging() {
 		die("Could not open ecoscore materials CSV $csv_file: $!");
 	}
 	
-	$log->debug("ecoscore packaging_materials data", { packaging_meterials => $ecoscore_data{packaging_materials} }) if $log->is_debug();
+	$log->debug("ecoscore packaging_materials data", { packaging_materials => $ecoscore_data{packaging_materials} }) if $log->is_debug();
 	
 	# Packaging shapes / formats
 
@@ -531,7 +531,7 @@ sub load_ecoscore_data_packaging() {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
 	}	
 	
-	$log->debug("ecoscore packaging_shapes data", { packaging_meterials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
+	$log->debug("ecoscore packaging_shapes data", { packaging_materials => $ecoscore_data{packaging_shapes} }) if $log->is_debug();
 }
 
 
@@ -890,6 +890,9 @@ $product_ref->{ecoscore_data}{missing} hash with:
 This function tests the presence of specific labels and categories that should not be renamed.
 They are listed in the t/ecoscore.t test file so that the test fail if they are renamed.
 
+The labels are listed in the Eco-Score documentation:
+https://docs.score-environnemental.com/methodologie/produit/label
+
 =cut
 
 my @production_system_labels = (
@@ -899,6 +902,8 @@ my @production_system_labels = (
 	
 	["fr:ab-agriculture-biologique", 15],
 	["en:eu-organic", 15],
+	# Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied."
+	["en:sustainable-fishing-method", 15],
 	
 	["fr:haute-valeur-environnementale", 10],
 	["en:utz-certified", 10],
@@ -915,7 +920,7 @@ sub compute_ecoscore_production_system_adjustment($) {
 
 	my $product_ref = shift;
 	
-	$product_ref->{ecoscore_data}{adjustments}{production_system} = {};
+	$product_ref->{ecoscore_data}{adjustments}{production_system} = { value => 0, labels => []};
 		
 	foreach my $label_ref (@production_system_labels) {
 		
@@ -927,16 +932,30 @@ sub compute_ecoscore_production_system_adjustment($) {
 				or (has_tag($product_ref, "categories", "en:beef"))
 				or (has_tag($product_ref, "categories", "en:veal-meat"))
 				or (has_tag($product_ref, "categories", "en:lamb-meat")))) {
-					
-			$product_ref->{ecoscore_data}{adjustments}{production_system}{value} = $value;
-			$product_ref->{ecoscore_data}{adjustments}{production_system}{label} = $label;
 			
-			last;
+			push @{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}, $label;
+
+			# Don't count the points for en:eu-organic if we already have fr:ab-agriculture-biologique
+			# and for ASC if we already have MSC
+			if (
+				(($label ne "en:eu-organic") or not (has_tag($product_ref, "labels", "fr:ab-agriculture-biologique")))
+				and
+				(($label ne "en:sustainable-seafood-msc") or not (has_tag($product_ref, "labels", "en:sustainable-fishing-method") ))
+				and
+				(($label ne "en:responsible-aquaculture-asc")
+					or not (has_tag($product_ref, "labels", "en:sustainable-seafood-msc") or has_tag($product_ref, "labels", "en:sustainable-fishing-method") ))
+			) {
+				$product_ref->{ecoscore_data}{adjustments}{production_system}{value} += $value;
+			}
 		}
+
+		if ($product_ref->{ecoscore_data}{adjustments}{production_system}{value} > 20) {
+			$product_ref->{ecoscore_data}{adjustments}{production_system}{value} = 20;
+		}		
 	}
 	
 	# No labels warning
-	if (not defined $product_ref->{ecoscore_data}{adjustments}{production_system}{label}) {
+	if ($product_ref->{ecoscore_data}{adjustments}{production_system}{value} == 0) {
 		$product_ref->{ecoscore_data}{adjustments}{production_system}{warning} = "no_label";
 		defined $product_ref->{ecoscore_data}{missing} or $product_ref->{ecoscore_data}{missing} = {};
 		$product_ref->{ecoscore_data}{missing}{labels} = 1;
@@ -1407,6 +1426,20 @@ sub localize_ecoscore ($$) {
 			
 			$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value"}
 			= $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_value_" . $cc};
+
+			# For each origin, we also add its score (EPI + transporation to country of request)
+			# so that clients can show which ingredients contributes the most to the origins of ingredients bonus / malus
+
+			if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
+			
+				foreach my $origin_ref (@{$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}}) {
+		
+					my $origin_id = $origin_ref->{origin};
+					$origin_ref->{epi_score} = $ecoscore_data{origins}{$origin_id}{epi_score};
+					$origin_ref->{transportation_score} = $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc};
+				}
+			}
+
 		}
 	}		
 	

@@ -3,6 +3,8 @@ name: "Daily tasks (cronjobs)"
 on:
   schedule:
   - cron: "0 0 * * *" # once a day at 00:00
+  push:
+    branches: ["cron-*"]
 
 jobs:
   # TODO: Uncomment when prod environment is ready
@@ -27,8 +29,8 @@ jobs:
 
   dev-db-sync:
     runs-on: ubuntu-latest
-    environment: off-net
-    concurrency: off-net
+    environment: mongo-dev
+    concurrency: mongo-dev
     steps:
     - name: Sync prod db data to dev MongoDB
       uses: appleboy/ssh-action@master
@@ -39,7 +41,32 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 30m
         script_stop: false
         script: |
           cd openfoodfacts-server/
+          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
           make import_prod_data
+          make restart_db
+
+  refresh-products-tags:
+    runs-on: ubuntu-latest
+    environment: mongo-dev
+    concurrency: mongo-dev
+    steps:
+    - name: Refresh MongoDB products_tags collection
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 30m
+        script_stop: false
+        script: |
+          cd openfoodfacts-server/
+          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
+          make refresh_product_tags
+          make restart_db

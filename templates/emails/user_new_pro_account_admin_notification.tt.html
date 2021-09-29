@@ -1,11 +1,10 @@
-<!-- start templates/[% template.name %] -->
-
 [% IF user.requested_org_id %]
 Subject: New pro account for existing org [% user.requested_org_id %] - [% user.userid %]
 [% ELSE %]
 Subject: New pro account for new org [% user.org_id %] - [% user.userid %]
 [% END %]
 
+<!-- start templates/[% template.name %] -->
 
 org_id: [% user.org_id or user.requested_org_id %]<br>
 org_name: [% user.org or user.requested_org %]<br>
@@ -63,3 +62,4 @@ Here is the tabular data for the producer if they are not in the tracking spread
 </table>
 
 <!-- end templates/[% template.name %] -->
+

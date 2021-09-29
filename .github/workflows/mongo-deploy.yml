@@ -2,10 +2,11 @@ name: MongoDB Image Deployment CI
 
 on:
   push:
-    branches: 
+    branches:
     - main
     paths:
     - docker/mongodb.yml
+    - .github/workflows/mongo-deploy.yml
 
 jobs:
   deploy-docker:
@@ -57,6 +58,7 @@ jobs:
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
+          echo "MONGODB_CACHE_SIZE=${{ secrets.MONGODB_CACHE_SIZE }}" >> .env
 
     - name: Create MongoDB Docker volume
       uses: appleboy/ssh-action@master
@@ -121,6 +123,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
+          cd openfoodfacts-server/
           make prune
 
   # deploy-script:

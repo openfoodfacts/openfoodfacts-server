@@ -62,7 +62,9 @@
             "warning" : "unspecified_material"
          },
          "production_system" : {
-            "label" : "en:demeter",
+            "labels" : [
+               "en:demeter"
+            ],
             "value" : 20
          },
          "threatened_species" : {}
@@ -160,6 +162,10 @@
       "en:root-vegetable"
    ],
    "ingredients_text" : "Carottes (origine France)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 3,
    "labels_tags" : [
       "en:demeter"

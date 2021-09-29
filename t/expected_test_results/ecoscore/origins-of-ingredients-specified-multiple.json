@@ -73,6 +73,8 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {}
@@ -200,6 +202,10 @@
       "en:fruit-juice"
    ],
    "ingredients_text" : "60% apricots (France, Spain), 30% cane sugar (Martinique, Guadeloupe, Dominican Republic), lemon juice",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 90,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 10,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [

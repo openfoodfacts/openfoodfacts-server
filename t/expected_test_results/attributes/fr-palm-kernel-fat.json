@@ -358,6 +358,8 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {
@@ -427,6 +429,10 @@
    "ingredients_text" : "graisse de palmiste",
    "ingredients_that_may_be_from_palm_oil_n" : 0,
    "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 4,
    "languages" : {},
    "languages_codes" : {},

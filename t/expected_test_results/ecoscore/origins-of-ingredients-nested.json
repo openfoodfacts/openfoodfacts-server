@@ -54,6 +54,8 @@
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {}
@@ -186,6 +188,10 @@
       "en:e160b"
    ],
    "ingredients_text" : "Milk, salt, coloring: E160b",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [

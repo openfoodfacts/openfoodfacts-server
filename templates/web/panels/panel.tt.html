@@ -3,20 +3,20 @@
 <div class="panel[% IF panel.parent_panel_id == 'root' %] callout[% END %]" id="[% panel_id %]">
     <div class="panel_title">
         <h3>
-            [% IF panel.plus_or_minus %]
-                [% IF panel.plus_or_minus == "plus" %]
+            [% IF panel.evaluation %]
+                [% IF panel.evaluation == "good" %]
                     <span class="icon" style="color:green">
                         [% display_icon("check") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "minus" %]
+                [% ELSIF panel.evaluation == "bad" %]
                     <span class="icon" style="color:red">
                         [% display_icon("cancel") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "neutral" %]
+                [% ELSIF panel.evaluation == "neutral" %]
                     <span class="icon" style="color:grey">
                         [% display_icon("check") %]
                     </span>
-                [% ELSIF panel.plus_or_minus == "unknown" %]
+                [% ELSIF panel.evaluation == "unknown" %]
                     <span class="icon" style="color:grey">
                         [% display_icon("help") %]
                     </span>
@@ -28,30 +28,48 @@
 
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
-        [% element = element_ref.element %]
+       
         [% IF element_type == "panel" %]
-            [% INCLUDE web/panels/panel.tt.html panel_id = element.panel_id %]
+            [% INCLUDE web/panels/panel.tt.html panel_id = element_ref.panel_element.panel_id %]
         [% ELSE %]
         
             [% IF element_type == "text" %]
-                [% IF element.text_type == "h1" %]<h4>[% END %]
-                    [% element.html %]
-                [% IF element.text_type == "h1" %]</h4>[% END %]
+                [% text_element = element_ref.text_element %]
+                [% IF text_element.type == "h1" %]
+                    <h4>
+                [% ELSIF text_element.type == "note" %]
+                    <div class="note">→ 
+                [% ELSE %]
+                    <div>
+                [% END %]
+                    [% text_element.html %]
+                [% IF text_element.type == "h1" %]
+                    </h4>
+                [% ELSE %]
+                    </div>
+                [% END %]
+
+            [% ELSIF element_type == "image" %]
+                [% image_element = element_ref.image_element %]
+                [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
+                    <img src="[% image_element.url %]" alt="[% image_element.alt %]">
+                [% IF image_element.link_url.defined %]</a>[% END %]
 
             [% ELSIF element_type == "table" %]
-                <table[% IF element.table_id %] id="[% element.table_id %]"[% END %]>
-                    <caption style="text-align:left">[% element.title %]</caption>
+                [% table_element = element_ref.table_element %]
+                <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %]>
+                    <caption style="text-align:left">[% table_element.title %]</caption>
                     <thead>
                         <tr>
-                            [% FOREACH header IN element.headers %]
+                            [% FOREACH column IN table_element.columns %]
                             <th scope="col">
-                                [% header.text %]
+                                [% column.text %]
                             </th>
                             [% END %]
                         </tr>
                     </thead>
                     <tbody>
-                        [% FOREACH row IN element.rows %]
+                        [% FOREACH row IN table_element.rows %]
                         <tr[% IF row.id %] id="[% row.id %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
                                 <td>
@@ -61,11 +79,27 @@
                                     [% IF value.percent.defined %]
                                         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
                                             <div class="agribalyse_impact_bar_full">
-                                                <div class="agribalyse_impact_bar" style="width:[% round(2 * value.percent)%]px;background-color:#ffbb88;height:1.2rem;"></div>
+                                                <div class="percent_bar
+                                                    [% IF value.evaluation == 'good' %] green
+                                                    [% ELSIF value.evaluation == 'neutral' %] orange
+                                                    [% ELSIF value.evaluation == 'bad' %] red
+                                                    [% ELSIF value.evaluation == 'unknown' %] grey
+                                                    [% END %]
+                                                    "
+                                                    style="width:[% round(2 * value.percent)%]px;height:1.2rem;"></div>
+                                                </div>
                                             </div>
-                                        </div>	
-                                    [% END %]                                                                          
-                                    [% value.text %]
+                                        </div>
+                                        [% value.text %]
+                                    [% ELSIF value.evaluation.defined %]
+                                        <span class="[% IF value.evaluation == 'good' %] green
+                                        [% ELSIF value.evaluation == 'neutral' %] orange
+                                        [% ELSIF value.evaluation == 'bad' %] red
+                                        [% ELSIF value.evaluation == 'unknown' %] grey
+                                        [% END %]">[% value.text %]</span>
+                                    [% ELSE %]
+                                        [% value.text %]
+                                    [% END %]
                                 </td>                          
                             [% END %]
                         </tr>

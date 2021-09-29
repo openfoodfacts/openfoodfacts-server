@@ -2,7 +2,6 @@
     "parent_panel_id": "ecoscore",
     "type" : "score",
     "level" :"info",
-    "grade": "[% panel.grade %]",
     "topics": [
         "environment"
     ],
@@ -10,7 +9,7 @@
     "elements": [
         {
             "element_type": "text",
-            "element": {
+            "text_element": {
                 "text_type": "summary",
                 "html": `
                     <p>[give more details here]</p> 

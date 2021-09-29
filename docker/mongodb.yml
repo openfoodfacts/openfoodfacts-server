@@ -1,11 +1,14 @@
 version: "3.7"
 services:
   mongodb:
+    restart: always
     image: mongo:4.4
+    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
     volumes:
-      - dbdata:/var/lib/mongodb
+      - dbdata:/data/db
     ports:
       - 27017:27017
 volumes:
   dbdata:
     external: true
+  
