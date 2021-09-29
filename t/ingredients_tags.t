@@ -33,7 +33,7 @@ my @tests = (
 	[ { lc => "fr", ingredients_text => "Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"}, [ "en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring", "en:tea-extract", "en:e330" ], ],
 	[ { lc => "fr", ingredients_text => "jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure, Traces de moutarde"}, [ "en:durum-wheat-semolina" ], ],
-	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"}, [ "en:sdurum-wheat-semolina",  ], ],
+	[ { lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"}, [ "en:durum-wheat-semolina",  ], ],
 	[ { lc => "fr", ingredients_text => "Eau. Traces possibles d'oeuf et de moutarde"}, [ "en:water" ], ],
 	[ { lc => "fr", ingredients_text => "jus de pomme, eau, sucre, Traces possibles d'oeuf, de moutarde et gluten."}, [ "en:apple-juice", "en:water", "en:sugar" ], ],
 	[ { lc => "fr", ingredients_text => "Traces de moutarde"}, [  ], ],
