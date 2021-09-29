@@ -10971,6 +10971,7 @@ sub search_and_analyze_recipes($$) {
 		"product_name_$lc" => 1,
 		ingredients        => 1,
 		ingredients_percent_analysis => 1,
+		ingredients_text   => 1,
 	};
 
 	# For the producer platform, we also need the owner

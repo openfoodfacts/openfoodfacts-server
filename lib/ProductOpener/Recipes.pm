@@ -170,7 +170,7 @@ sub compute_product_recipe($$) {
         }
         else {
 
-            # If ingredients percent analysis failed, percent_estimate will not be defined
+            # If ingredients percent analysis failed, percent_estimate may not be defined
             my $percent = $ingredient_ref->{percent_estimate};
             if (defined $ingredient_ref->{percent}) {
                 $percent = $ingredient_ref->{percent};
@@ -204,10 +204,7 @@ sub add_product_recipe_to_set( $$$) {
     if (defined $recipe_ref) {
 
         push @$recipes_ref, {
-            product => { 
-                code => $product_ref->{code},
-                product_name => $product_ref->{product_name}
-            },
+            product => $product_ref,
             recipe => $recipe_ref,
         };
     }
