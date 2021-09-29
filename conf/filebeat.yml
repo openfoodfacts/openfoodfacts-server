@@ -1,0 +1,17 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+
+output.elasticsearch:
+  hosts: [${ELASTICSEARCH_HOSTS:"localhost:9200"}]
+  indices:
+    - index: "logs-%{+yyyy.MM.dd}"
+
+logging.json: true
+logging.metrics.enabled: false
