@@ -10,15 +10,15 @@
     ],
     "name": "Carbon impact",
     "title": "Environmental impact on average for products of the same category",
-    [% IF driving_100g >= 10 %]
+    [% IF driving_100g >= 3 %]
     "evaluation": "bad",
-    [% ELSIF driving_100g >= 5 %]
+    [% ELSIF driving_100g >= 1.5 %]
     "evaluation": "average",
     [% ELSE %]
     "evaluation": "good",
     [% END %]
     "title": "Equal to driving [% driving_100g FILTER format('%.1f'); %] km in a petrol car",
-    "subtitle": "[% co2_100g FILTER format('%.1f'); %] kg CO² per 100g of product",
+    "subtitle": "[% co2_100g * 1000 FILTER format('%.0f'); %] g CO² per 100g of product",
     "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
     "icon_color_from_evaluation": true,
     "elements": [
