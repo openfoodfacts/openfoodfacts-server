@@ -1569,13 +1569,13 @@ sub get_cache_results($$){
 
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 
-	# disable caching if ?nocache=1
-	# or if the user is logged in and nocache is different from 0
-	if ( ((defined param("nocache")) and (param("nocache")))
-		or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
+	# disable caching if ?no_cache=1
+	# or if the user is logged in and no_cache is different from 0
+	if ( ((defined param("no_cache")) and (param("no_cache")))
+		or ((defined $User_id) and not ((defined param("no_cache")) and (param("no_cache") == 0)))
 		) {
 
-		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
+		$log->debug("MongoDB no_cache parameter, skip caching", { key => $key }) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
@@ -1712,9 +1712,9 @@ sub query_list_of_tags($$) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
-		# do not use the smaller cached products_tags collection if ?nocache=1
+		# do not use the smaller cached products_tags collection if ?no_cache=1
 		# or if we are on the producers platform
-		if ( ((defined param("nocache")) and (param("nocache")))
+		if ( ((defined param("no_cache")) and (param("no_cache")))
 			or ($server_options{producers_platform})) {
 
 			eval {
@@ -1784,9 +1784,9 @@ sub query_list_of_tags($$) {
 
 			my $count_results;
 
-			# do not use the smaller cached products_tags collection if ?nocache=1
+			# do not use the smaller cached products_tags collection if ?no_cache=1
 			# or if we are on the producers platform
-			if ( ((defined param("nocache")) and (param("nocache")))
+			if ( ((defined param("no_cache")) and (param("no_cache")))
 				or ($server_options{producers_platform})) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
@@ -4369,6 +4369,9 @@ my %ignore_params = (
 	password => 1,
 	action => 1,
 	type => 1,
+	nocache => 1,
+	no_cache => 1,
+	no_count => 1,
 );
 
 # Parameters that can be query filters
@@ -4384,6 +4387,11 @@ sub add_params_to_query($$) {
 	my $query_ref = shift;
 	
 	$log->debug("add_params_to_query", { params => {CGI::Vars()} }) if $log->is_debug();
+
+	# nocache was renamed to no_cache
+	if (defined param('nocache')) {
+		param('no_cache', param('nocache'));
+	}
 
 	my $and = $query_ref->{"\$and"};
 	
@@ -4977,7 +4985,12 @@ sub search_and_display_products($$$$$) {
 			else {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				# test if query_ref is empty
-				if (keys %{$query_ref} > 0) {
+				if (param('no_count')) {
+					# Skip the count if it is not needed
+					# e.g. for some API queries
+					$log->debug("no_count is set, skipping count") if $log->is_debug();
+				}
+				elsif (keys %{$query_ref} > 0) {
 					#check if count results is in cache
 					my $key_count = $server_domain . "/" . freeze($query_ref);
 					$log->debug("MongoDB query key - search-count", { key => $key_count }) if $log->is_debug();
@@ -5004,7 +5017,7 @@ sub search_and_display_products($$$$$) {
 							}
 						}
 					
-						if (($only_tags_filters) and ((not defined param("nocache")) or (param("nocache") == 0))) {
+						if (($only_tags_filters) and ((not defined param("no_cache")) or (param("no_cache") == 0))) {
 							
 							$count = execute_query(sub {
 								$log->debug("count_documents on smaller products_tags collection", { key => $key_count }) if $log->is_debug();
@@ -5070,7 +5083,10 @@ sub search_and_display_products($$$$$) {
 			
 			$request_ref->{structured_response}{count} = $count;
 			
-			set_cache_results($key,$request_ref->{structured_response})
+			# Don't set the cache if no_count was set
+			if (not param('no_count')) {
+				set_cache_results($key,$request_ref->{structured_response})
+			}
 		}
 	}
 
