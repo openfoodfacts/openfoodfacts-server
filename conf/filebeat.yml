@@ -1,17 +1,39 @@
-filebeat.config:
-  modules:
-    path: ${path.config}/modules.d/*.yml
-    reload.enabled: false
-
 filebeat.autodiscover:
   providers:
     - type: docker
       hints.enabled: true
+      templates:
+        - conditions:
+            contains:
+              docker.container.image: nginx
+          config:
+            - module: nginx
+              access:
+                enabled: true
+                input:
+                  type: docker
+                  containers:
+                    ids: "${data.docker.container.id}"
+                    stream: "stdout"
+              error:
+                enabled: true
+                input:
+                  type: docker
+                  containers:
+                    ids: "${data.docker.container.id}"
+                    stream: "stderr"
+
+processors:
+- add_docker_metadata: ~
+- add_locale:
+    format: offset
+- add_host_metadata:
+    netinfo.enabled: trues
+
+# output.console:
+#   pretty: true
 
 output.elasticsearch:
   hosts: ["${ELASTICSEARCH_HOSTS}"]
   indices:
     - index: "logs-%{+yyyy.MM.dd}"
-
-logging.json: true
-logging.metrics.enabled: false

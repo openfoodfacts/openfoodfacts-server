@@ -99,9 +99,6 @@ services:
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
 
-      # Logs
-      - ./logs/nginx/:/var/log/nginx/
-
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
 
