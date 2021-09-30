@@ -3,7 +3,7 @@
 <div class="panel[% IF panel.parent_panel_id == 'root' %] callout[% END %]" id="[% panel_id %]">
     <div class="panel_title">
         [% IF panel.icon_url.defined %]
-        <img src="[% panel.icon_url %]" style="height:72px;float:left;margin-right:1rem;"
+        <img src="[% panel.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
             [% IF panel.icon_color_from_evaluation %]
                 [% IF panel.evaluation == "good" %]
                     class="filter-green"
