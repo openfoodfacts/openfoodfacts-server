@@ -9,7 +9,7 @@ filebeat.autodiscover:
       hints.enabled: true
 
 output.elasticsearch:
-  hosts: [${ELASTICSEARCH_HOSTS:"localhost:9200"}]
+  hosts: ["${ELASTICSEARCH_HOSTS}"]
   indices:
     - index: "logs-%{+yyyy.MM.dd}"
 
