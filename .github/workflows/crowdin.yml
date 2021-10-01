@@ -10,7 +10,7 @@ on:
       - crowdin-trigger
 
 jobs:         
-  synchronize-with-crowdin-classic:
+  synchronize-with-crowdin:
     name: Synchronize with crowdin
     runs-on: ubuntu-latest
     steps:
