@@ -38128,82 +38128,96 @@ wikipedia:en:https://en.wikipedia.org/wiki/Durian
 <en:fruit
 en:cranberry, cranberries
 ar:عنبية حادة الخباء
-az:Mərcanı
-ba:Мүк еләге
-be:Журавіны
-ca:Nabiu de grua
-cs:Klikva, klikvy
-cy:Llugaeron
-da:Tranebær
+az:mərcanı
+ba:мүк еләге
+be:журавіны
+bg:червени боровинки
+ca:nabiu de grua
+cs:klikva, klikvy
+cy:llugaeron
+da:tranebær
 de:Moosbeeren, Cranberry, Cranberrys, Cranberries
-eo:Oksikoko
+eo:oksikoko
 es:arándano rojo, arándano
-et:Jõhvikas, Harilik jõhvikas
+et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
-fo:Tranuber
-fr:airelles, cranberries, cranberry, cranberrys, Canneberge
-ga:Mónóg
-gl:Arandeira vermella
-gv:Smeyr churree
+fo:tranuber
+fr:airelles, cranberries, cranberry, cranberrys, canneberge
+ga:mónóg
+gl:arandeira vermella
+gv:smeyr churree
 he:חמוצית
-hr:Brusnica
+hr:brusnica
 hu:vörösáfonya
-hy:Լոռամրգի
-id:Kranberi
-it:cranberries
+hy:լոռամրգի
+id:kranberi
+it:cranberry
 ja:クランベリー
-kk:Мүкжидек
-kv:Турипув
-lt:Spanguolė
-mk:Брусница
-mn:Цангис
+kk:мүкжидек
+kv:турипув
+lt:spanguolė
+mk:брусница
+mn:цангис
 mr:क्रॅनबेरी
-nb:Tranebær
+nb:tranebær
 nl:veenbessen, cranberry
-nn:Tranebær
-os:Сырхнæмыг
+nn:tranebær
+os:сырхнæмыг
 pl:żurawina
 pt:arandos, oxicocos
-ru:Клюква
-sh:Brusnica
-sr:Брусница
-sv:Tranbär
+ro:merişoare
+ru:клюква
+sh:brusnica
+sk:kľukvy
+sr:брусница
+sv:tranbär
 th:แครนเบอร์รี
-tl:Kranberya
-uk:Журавлина
-vi:Mạn việt quất
-wa:Bicoine
+tl:kranberya
+uk:журавлина
+vi:mạn việt quất
+wa:bicoine
 zh:小紅莓
-#s ast:Arándanu coloráu
-# atj:Mickekominan
-# bat-smg:Spangoulė
-# csb:Kwasnica
-# dsb:Žorawina
-# hsb:Tymjenka
-# olo:Garbalo
-# pam:Cranberry
-# scn:Milucuccu
-# udm:Нюрмульы
-# vep:Garbol
+# ast:arándanu coloráu
+# atj:mickekominan
+# bat-smg:spangoulė
+# csb:kwasnica
+# dsb:žorawina
+# hsb:tymjenka
+# olo:garbalo
+# pam:cranberry
+# scn:milucuccu
+# udm:нюрмульы
+# vep:garbol
 # yue:金啤梨
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
 wikidata:en:Q13181
+fr:Canneberge crue, Cranberry crue
+ciqual_food_code:en:13113
+ciqual_food_name:en:Cranberry, raw
+ciqual_food_name:fr:Canneberge ou cranberry, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
-# 429 products in 8 languages @2018-09-26
+# 7222 in 27 @2021-09-29
 
-<en:cranberry
-en:dried cranberries
-da:tørrede tranebærstykker
-de:Cranberries getrocknet
-es:arándanos deshidratados, arándanos secos
-fi:kuivattu karpalo, kuivatut karpalot, kuivatut karpalopalat
-fr:canneberges séchées, cranberries séchées
-it:cranberry secchi
-nl:gedroogde cranberries
-ru:клюква сушеная
-sv:torkade tranbär
+#processing:en: en:dried
+#<en:cranberry
+#en:dried cranberries
+#da:tørrede tranebærstykker
+#de:Cranberries getrocknet
+#es:arándanos deshidratados, arándanos secos
+#fi:kuivattu karpalo, kuivatut karpalot, kuivatut karpalopalat
+#fr:canneberges séchées, cranberries séchées
+#it:cranberry secchi
+#nl:gedroogde cranberries
+#ru:клюква сушеная
+#sk:sušené kľukvy
+#sv:torkade tranbär
 # ingredient/fr:canneberges-séchées has 57 products in 4 languages @2018-12-29
+
+#processing:en: en:juice
+#<en:cranberry
+#en:cranberry juice
+#az:mərcanı şıresl
 
 <en:cranberry
 <en:fruit juice
@@ -38223,7 +38237,27 @@ wikidata:en:Q26897677
 
 # description:en:Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 <en:cranberry
-la:Vaccinium macrocarpon
+en:american cranberry
+cs:klikva velkoplodá
+cy:llygaeren america
+da:storfrugtet tranebær
+de:großfrüchtige moosbeere
+eo:oksikoko amerika
+fi:amerikankarpalo
+fr:airelle à gros fruits
+hr:američka brusnica
+hu:amerikai tőzegáfonya
+it:mirtillo rosso americano
+la:vaccinium macrocarpon
+lt:stambiauogė spanguolė
+nb:amerikansk tranebær
+pl:żurawina wielkoowocowa
+sk:kľukva veľkoplodá
+sr:америчка брусница
+sv:amerikanskt tranbär
+zh:大果蔓越梅
+#dsb:Wjelikopłodowa žorawina
+#hsb:Wulkopłodowa tymjenka
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
