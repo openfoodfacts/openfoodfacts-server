@@ -3243,7 +3243,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beeswax
 # usage:fr:agent antiadhérant:cire d'abeilles
 
 <en:beeswax
-en:white and yellow beeswax
+en:white and beeswax
 bg:пчелен восък - бял и жълт
 ca:cera d'abelles blnaca i groga
 cs:včelí vosk bílý a žlutý
@@ -28774,16 +28774,6 @@ nl:tapiocameel
 pt:Farinha de tapioca
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:flour
-<en:lupin
-en:lupin flour
-de:Lupinenmehl, Süßlupinenmehl, Süsslupinenmehl
-es:harina de altramuz
-fi:lupiinijauho
-fr:farine de lupin
-hu:csillagfürtliszt
-it:Farina di lupino
-nl:lupinemeel
 
 <en:flour
 en:broad bean flour
@@ -40893,16 +40883,20 @@ nl:bloedsinaasappelsap
 
 <en:orange
 en:orange pulp
+ar: لب البرتقال
+ca:polpa de taronja
 de:Orangenfruchtfleisch
-es:Pulpa de naranja
+es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
 fr:pulpe d'orange
-hu:narancs püré
+hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
 nl:sinaasappelpulp
 pt:polpa de laranja
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'orange
-# 139 products in 5 languages @2018-09-28
+ciqual_food_code:en:13034
+ciqual_food_name:en:Orange, pulp, raw
+ciqual_food_name:fr:Orange, pulpe, crue
+# 571 in 13 @2021-10-01
 
 <en:orange
 en:orange zest, orange peel
@@ -53232,97 +53226,17 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Navette_(plante)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-
-en:legume
-af:Peulgewas
-an:Legumbre
-ar:بقول
-bg:бобово растение
-ca:llegum
-cs:luštěnina
-da:Bælgfrugt
-de:Hülsenfrucht
-el:Όσπρια
-eo:Guŝo
-es:legumbre
-et:kaunvili
-eu:Lekale
-fa:حبوبات
-fi:palkokasvi
-fr:légumineuse
-ga:Glasra pischineálach
-gl:Legume
-gu:વાલ
-ha:Legum
-he:קטניות
-hi:फली
-hu:hüvelyesek
-hy:Հատիկաընդեղեն բույսեր
-ia:Legumine
-id:Kacang-kacangan
-is:Baun
-it:legume
-ja:豆果
-ko:협과
-la:Legumen
-lt:Ankštis
-lv:pākšaugi
-mn:Буурцаг
-ms:Kekacang
-nb:belgfrukt
-ne:कोसेबाली
-nl:peulvruchten, peulvrucht
-nn:belgfrukt
-pl:Strąk
-pt:legume
-qu:Chaqallu
-ru:бобы
-sa:राजशिम्बी
-sd:دال
-sh:Mahuna
-sk:Strukoviny
-sl:Strok
-sr:махуна
-sv:ärtväxter
-sw:Jamii kunde
-ta:அவரை
-th:ถั่ว
-tr:baklagiller
-tt:Бөртекле-кузаклы культуралар
-uk:бобові культури
-uz:dukkakli don ekinlari
-vi:Quả đậu
-zh:荚果
-# ast:Llegume
-# csb:Łušćinowy płod
-# eml:Scurnècia
-# hsb:Łušćinowy płód
-# hsb:Łušćinowy płód
-# nan:Ngeh-kó
-# new:बूबः
-# scn:Vaiana
-# sco:legume
-# sgs:Onkštėnis augals
-# sr-ec:махуна
-# sr-el:Mahuna
-# war:Legume
-# yue:豆類
-# zh-cn:荚果
-# zh-hans:荚果
-# zh-hant:莢果
-# zh-hk:莢果
-# zh-sg:荚果
-# zh-tw:莢果
-wikidata:en:Q145909
-vegan:en:yes
-vegetarian:en:yes
+###########################
+#
+#
+#     B E A N S ==== THE PODS
+#
+#########################
 
 
 # description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
-<en:legume
 en:beans, common bean, bean
 am:ኣደንጓሬ
 ar:فاصولياء شائعة
@@ -53424,176 +53338,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
 
-# description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
-
-<en:beans
-en:lima beans, butter beans
-de:Limabohnen
-es:haba lima,judia de lima
-fi:limanpapu, voipapu
-fr:Haricot de Lima
-sv:limaböna, smörböna
-wikidata:en:Q1166136
-wikipedia:en:https://en.wikipedia.org/wiki/Lima_bean
-
-<en:lima beans
-en:large lima beans
-de:dicke Limabohnen, große Limabohnen
-fr:Grands haricots de Lima
-
-<en:lima beans
-en:baby lima beans
-de:Limabohnensprossen
-fr:jeunes pousses de haricots de Lima
-
-<en:beans
-en:pinto beans
-de:Pinto Bohnen
-es:frijol pinto
-fr:Haricots pinto
-
-<en:beans
+<en:bean
 en:Snap pea, sugar snap peas
 de:Zuckererbse, Zuckererbsen
 fr:Pois sucré
 vegan:en:yes
 vegetarian:en:yes
 
-<en:green beans
-en:flat green beans, flat beans,runner beans
-de:flache grüne Bohnen, flache Bohnen
-es:judia verde plana,ferraúra
-fr:haricots verts plats, haricots plats
-ru:фасоль стручковая
-
-<en:green beans
-en:round green beans
-de:runde grüne Bohnen, grüne Bohnen rund
-es:judia verde redonda
-
-<en:beans
-en:green peas
-de:grüne Erbsen
-es:guisantes verdes
-fi:vihreät herneet
-fr:Petits pois
-it:Piselli verde
-ja:グリーンピース
-nl:groene erwten
-sv:gröna ärtor
-th:ถั่ว ลันเตา
-vegan:en:yes
-vegetarian:en:yes
-
-<en:beans
-en:white beans, navy beans, great northern beans, haricot beans
-da:hvide bønner
-de:weiße Bohnen
-es:Alubias blancas, judia blanca
-fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots
-it:Fagioli bianchi
-nb:hvite bønner
-nl:witte bonen
-ru:фасоль белая
-sv:vit böna, vita bönor
-# ingredient/fr:lingots-blancs has 8 products @2019-06-02
-
-<en:beans
-fr:haricots coco roses, haricots cocos roses
-
-<en:beans
-fr:haricots chevriers verts
-
-<en:white beans
-fr:haricots mogettes, mogettes
-
-<fr:haricots mogettes
-fr:haricots mogettes de Vendée, mogettes de Vendée
-
-<en:white beans
-fr:haricots blancs secs trempés
-
-<en:white beans
-fr:haricots blancs précuits
-
-<en:white beans
-fr:haricots blancs réhydratés
-
-<en:beans
-en:black beans
-da:sorte bønner
-de:schwarze Bohnen
-es:Alubias negras
-fi:mustapapu, mustapavut
-fr:haricots noirs
-it:Fagioli neri
-nl:Zwarte bonen
-sv:svarta bönor
-
-<en:beans
-en:red beans, red kidney beans, kidney beans
-da:Røde kidneybønner, kidneybønner
-de:Rote Bohnen, Kidneybohnen
-es:Alubias rojas, judias rojas
-fi:punaiset kidneypavut
-fr:haricot rouge, haricots rouges
-it:fagioli rossi
-ja:金時豆
-ru:фасоль красная, красная фасоль
-sv:röda kidneybönor, kidneybönor
-wikidata:en:Q1828227
-wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
-
-<en:red beans
-en:small red beans
-de:Kleine rote Bohnen
-fr:Petit haricots rouges
-
-<en:red beans
-en:dried kidney beans
-de:Getrocknete Kidneybohnen, Kidneybohnen getrocknet
-fr:haricots rouges secs
-
-<fr:haricots rouges secs
-fr:haricots rouges secs trempés
-
-<en:red beans
-fr:haricots rouges précuits
-
-<en:red beans
-fr:haricots rouges réhydratés
-
-<en:beans
-en:cannellini beans, white kidney beans
-de:Cannellini Bohnen, Cannellinibohnen
-fr:haricots cannellini
-wikidata:en:Q74663825
-
-<en:beans
-en:mung bean, mungbean
-de:Mungbohne, Mungobohne, Mungbohnen, Mungobohnen
-es:habas de mungo,judias mungo
-fr:haricot mungo
-wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
-
-<en:mung bean
-en:Mung bean sprout, bean sprouts, beansprouts
-da:bønnespirer
-de:Mungobohnensprosse, Mungobohnensprossen
-es:brotes de judia mungo
-
-<en:mung bean
-en:mung bean seedlings
-de:Mungobohnenkeimlinge
-
-<fr:haricot mungo
-fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
-
-<en:beans
-fr:haricots beurre
-
-<en:beans
+<en:legume
 en:green bean, green beans
 ar:الفاصوليا الخضراء
 az:göy lobya
@@ -53693,20 +53445,327 @@ ciqual_food_code:en:20257
 ciqual_food_name:en:French bean, puree
 ciqual_food_name:fr:Haricots verts, purée
 
+<en:green bean
+en:wax bean, yellow bean
+de:Butterbohne
+fr:haricot beurre, haricots beurre
+gv:poanrey eeymey
+it:fagiolo giallo
+nl:boterboon
+wikidata:en:Q68189268
+ciqual_food_code:en:20195
+ciqual_food_name:en:Butter bean or yellow bean, raw
+ciqual_food_name:fr:Haricot beurre, cru
 
 # description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 
-en:flat bean, helda bean, romano bean
-de:flache Bohne, Helda Bohne, Romano Bohne
+<en:green bean
+en:flat bean, romano bean, helda bean, flat green beans, flat beans
+de:flache Bohne, Helda Bohne, Romano Bohne, flache grüne Bohnen, flache Bohnen
+es:judia verde plana, ferraúra
 fi:romanopapu, romanopavut
+fr:haricot vert plat, haricots verts plats, haricots plats
 nl:snijboon
 nn:snittebønne
+ru:фасоль стручковая
 sv:romanabönor
-# nds_nl:klemboon
+# nds_nl:klemboon, sniejboon
+#pap:sneibonchi
 wikidata:en:Q1828227
 wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
+ciqual_food_code:en:20269
+ciqual_food_name:en:Flat bean, raw
+ciqual_food_name:fr:Haricot plat, cru
 
-<en:beans
+<en:green beans
+en:round green beans
+de:runde grüne Bohnen, grüne Bohnen rund
+es:judia verde redonda
+
+<en:legume
+en:runner bean, runner beans
+be:фасоля крывава-чырвоная, фасоля шматкветкавая, фасоля агніста-чырвона, турэцкія бабы
+ca:mongetera vermella, fesolera vermella, fesol fava de sóller
+cs:fazol šarlatový
+cy:ffeuen ddringo
+da:pralbønne
+de:Feuerbohne, Wollbohne, Käferbohne
+eo:fajrofazeolo, skarlata fazeolo
+es:ayocote, ayecote, judía escarlata, poroto pallar
+eu:bbbarrun loregorria
+fa:لوبیای زینتی
+fi:ruusupapu
+fr:haricot d'espagne, haricot écarlate, haricot-fleur
+ga:pónaire reatha
+gl:faba de tres anos, feixón de tres anos, faba loba
+hy:կրակոտ կարմիր լոբի
+it:fagiolo di spagna
+ja:ベニバナインゲン
+kk:түрік бұршағы
+#kk-lat:türik burşağı
+#kk-arab:تۇرىك بۇرشاعى
+la:phaseolus coccineus
+lt:raudonžiedė pupelė
+nl:pronkboon
+nn:prydbønne
+pl:fasola wielokwiatowa
+pt:jão-da-espanha, feijoca
+ru:фасоль многоцветковая
+sr:многоцветни пасуљ
+#sr-el:mnogocvetni pasulj
+sv:rosenböna
+tr:ateş fasulyesi
+zh:荷包豆
+#csb:wielekwiatowy bónk
+#hsb:turkowski bob
+#nah:ayecohtli, ayocohtli
+wikidata:en:Q159753
+
+###########################
+#
+#
+#    L E G U M E S === THE SEEDS WITHIN THE PODS
+#
+#
+##########################
+
+
+
+# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+
+en:legume
+af:Peulgewas
+an:Legumbre
+ar:بقول
+bg:бобово растение
+ca:llegum
+cs:luštěnina
+da:Bælgfrugt
+de:Hülsenfrucht
+el:Όσπρια
+eo:Guŝo
+es:legumbre
+et:kaunvili
+eu:Lekale
+fa:حبوبات
+fi:palkokasvi
+fr:légumineuse
+ga:Glasra pischineálach
+gl:Legume
+gu:વાલ
+ha:Legum
+he:קטניות
+hi:फली
+hu:hüvelyesek
+hy:Հատիկաընդեղեն բույսեր
+ia:Legumine
+id:Kacang-kacangan
+is:Baun
+it:legume
+ja:豆果
+ko:협과
+la:Legumen
+lt:Ankštis
+lv:pākšaugi
+mn:Буурцаг
+ms:Kekacang
+nb:belgfrukt
+ne:कोसेबाली
+nl:peulvruchten, peulvrucht
+nn:belgfrukt
+pl:Strąk
+pt:legume
+qu:Chaqallu
+ru:бобы
+sa:राजशिम्बी
+sd:دال
+sh:Mahuna
+sk:Strukoviny
+sl:Strok
+sr:махуна
+sv:ärtväxter
+sw:Jamii kunde
+ta:அவரை
+th:ถั่ว
+tr:baklagiller
+tt:Бөртекле-кузаклы культуралар
+uk:бобові культури
+uz:dukkakli don ekinlari
+vi:Quả đậu
+zh:荚果
+# ast:Llegume
+# csb:Łušćinowy płod
+# eml:Scurnècia
+# hsb:Łušćinowy płód
+# hsb:Łušćinowy płód
+# nan:Ngeh-kó
+# new:बूबः
+# scn:Vaiana
+# sco:legume
+# sgs:Onkštėnis augals
+# sr-ec:махуна
+# sr-el:Mahuna
+# war:Legume
+# yue:豆類
+# zh-cn:荚果
+# zh-hans:荚果
+# zh-hant:莢果
+# zh-hk:莢果
+# zh-sg:荚果
+# zh-tw:莢果
+wikidata:en:Q145909
+vegan:en:yes
+vegetarian:en:yes
+
+# description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
+
+<en:legumes
+en:lima beans, butter beans
+de:Limabohnen
+es:haba lima,judia de lima
+fi:limanpapu, voipapu
+fr:Haricot de Lima
+sv:limaböna, smörböna
+wikidata:en:Q1166136
+wikipedia:en:https://en.wikipedia.org/wiki/Lima_bean
+
+
+<en:lima beans
+en:large lima beans
+de:dicke Limabohnen, große Limabohnen
+fr:Grands haricots de Lima
+
+<en:lima beans
+en:baby lima beans
+de:Limabohnensprossen
+fr:jeunes pousses de haricots de Lima
+
+<en:legumes
+en:pinto beans
+de:Pinto Bohnen
+es:frijol pinto
+fr:Haricots pinto
+
+
+<en:legumes
+en:green peas
+de:grüne Erbsen
+es:guisantes verdes
+fi:vihreät herneet
+fr:Petits pois
+it:Piselli verde
+ja:グリーンピース
+nl:groene erwten
+sv:gröna ärtor
+th:ถั่ว ลันเตา
+vegan:en:yes
+vegetarian:en:yes
+
+<en:legumes
+en:white beans, navy beans, great northern beans, haricot beans
+da:hvide bønner
+de:weiße Bohnen
+es:Alubias blancas, judia blanca
+fi:valkoinen papu, valkoiset pavut
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots
+it:Fagioli bianchi
+nb:hvite bønner
+nl:witte bonen
+ru:фасоль белая
+sv:vit böna, vita bönor
+# ingredient/fr:lingots-blancs has 8 products @2019-06-02
+
+<en:legumes
+fr:haricots coco roses, haricots cocos roses
+
+<en:legumes
+fr:haricots chevriers verts
+
+<en:white beans
+fr:haricots mogettes, mogettes
+
+<fr:haricots mogettes
+fr:haricots mogettes de Vendée, mogettes de Vendée
+
+<en:white beans
+fr:haricots blancs secs trempés
+
+<en:white beans
+fr:haricots blancs précuits
+
+<en:white beans
+fr:haricots blancs réhydratés
+<en:legumes
+en:black beans
+da:sorte bønner
+de:schwarze Bohnen
+es:Alubias negras
+fi:mustapapu, mustapavut
+fr:haricots noirs
+it:Fagioli neri
+nl:Zwarte bonen
+sv:svarta bönor
+
+<en:legumes
+en:red beans, red kidney beans, kidney beans
+da:Røde kidneybønner, kidneybønner
+de:Rote Bohnen, Kidneybohnen
+es:Alubias rojas, judias rojas
+fi:punaiset kidneypavut
+fr:haricot rouge, haricots rouges
+it:fagioli rossi
+ja:金時豆
+ru:фасоль красная, красная фасоль
+sv:röda kidneybönor, kidneybönor
+wikidata:en:Q1828227
+wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
+
+<en:red beans
+en:small red beans
+de:Kleine rote Bohnen
+fr:Petit haricots rouges
+
+<en:red beans
+en:dried kidney beans
+de:Getrocknete Kidneybohnen, Kidneybohnen getrocknet
+fr:haricots rouges secs
+
+<fr:haricots rouges secs
+fr:haricots rouges secs trempés
+
+<en:red beans
+fr:haricots rouges précuits
+
+<en:red beans
+fr:haricots rouges réhydratés
+
+<en:legumes
+en:cannellini beans, white kidney beans
+de:Cannellini Bohnen, Cannellinibohnen
+fr:haricots cannellini
+wikidata:en:Q74663825
+
+<en:legumes
+en:mung bean, mungbean
+de:Mungbohne, Mungobohne, Mungbohnen, Mungobohnen
+es:habas de mungo,judias mungo
+fr:haricot mungo
+wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
+
+<en:mung bean
+en:Mung bean sprout, bean sprouts, beansprouts
+da:bønnespirer
+de:Mungobohnensprosse, Mungobohnensprossen
+es:brotes de judia mungo
+
+<en:mung bean
+en:mung bean seedlings
+de:Mungobohnenkeimlinge
+
+<fr:haricot mungo
+fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
+
+<en:legumes
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -53715,8 +53774,6 @@ nl:borlotti bonen
 wikidata:en:Q6006851
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry_bean
 description:en:The borlotti bean is a variety of common bean (Phaseolus vulgaris) first bred in Colombia as the cargamanto.
-
-
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
 <en:legume
@@ -53779,66 +53836,65 @@ nl:extra fijne groene flageolets
 
 
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
-# comment:en:Unclear if the lupin genus or lupin bean wikidata entry should be referenced.
 
 <en:legume
-en:lupin, lupines
+en:lupin bean, lupin, lupines, lupine
 ar:ترمس
 az:Acıpaxla
-ba:Әсе борсаҡ
-be:Лубін
+ba:әсе борсаҡ
+be:лубін
 bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen, Lupine
-el:λούπινο
-eo:Lupenoj
-es:altramuces, altramuz
+de:Lupinensamen, Lupinen, Lupine
+el:λούπινο, λούπινα
+eo:lupenoj
+es:altramuz, altramuces
 et:lupiin
-fi:lupiinit
+fi:lupiinit, lupiini
 fr:lupin, lupins
 ga:lúipín
 he:תורמוס
 hu:csillagfürt
 hy:լուպին
-id:Lupino
-is:Úlfabaunir
+id:lupino
+is:úlfabaunir
 it:lupini
 ja:ルピナス属
 ka:ხანჭკოლა
-kk:Люпин
-ky:Люпин
+kk:люпин
+ky:люпин
 la:lupinus
-lt:lubinai
-lv:lupīna, Lupīnas
+lt:lubinai, lubinas
+lv:lupīna, lupīnas
 mk:волчјак
-mn:Шошлой
-mt:lupina
-nb:Lupinslekten
+mn:шошлой
+mt:lupina, lupin
+nb:lupin
 nl:lupine
-nn:Lupinslekta
-os:Бирæгъхъæдур
+nn:lupin
+os:бирæгъхъæдур
 pl:łubin
 pt:tremoço, tremoços
-qu:Q'ira
+qu:q'ira
 ro:lupin
 ru:люпин
 sd:چونرا
-se:Lupiidnat
+se:lupiidnat
 sk:vlčí bôb, lupina
-sl:volčji
-sv:lupin, Lupinsläktet
-sw:Mlupini
+sl:volčji, volčji bob
+sv:lupin
+sw:mlupini
 th:ลูพิน
-tr:Acı bakla
-uk:Люпин
-zh:羽扇豆属, 羽扇豆, 鲁冰花
-# be-tarask:Лубін
-# csb:Lёpin
-# hsb:Lupina
-# kbd:Бгъэдахэщӏудзхэр
-# mrj:Пивырса
+tr:acı bakla
+uk:люпин
+zh:羽扇豆, 鲁冰花
+# be-tarask:лубін
+# csb:lёpin
+# hsb:lupina
+# kbd:бгъэдахэщ, удзхэр
+# mrj:пивырса
 # yue:羽扇豆
 # zh-cn:羽扇豆
 # zh-hans:羽扇豆
@@ -53847,12 +53903,26 @@ zh:羽扇豆属, 羽扇豆, 鲁冰花
 # zh-sg:羽扇豆
 # zh-tw:羽扇豆
 allergens:en: en:lupin
-wikidata:en:Q156811
+#plant:wikidata:en:Q156811
+wikidata:en:Q13582643
 wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
-# ingredient/fr:lupin has 390 products @2019-04-11
-# usage:fr:lupins (lupine, sel de cuisine, antioxydants:acide citrique et acide ascorbique, conservateur:E202)
+ciqual_food_code:en:20534
+ciqual_food_name:en:lupin grain, raw
+ciqual_food_name:fr:Lupin, graine crue
+# 957 in 12 @2021-10-01
 
-
+#processing:en: en:flour
+#<en:flour
+#<en:lupin
+#en:lupin flour, lupine flour
+#de:Lupinenmehl, Süßlupinenmehl, Süsslupinenmehl
+#es:harina de altramuz
+#fi:lupiinijauho
+#fr:farine de lupin
+#hu:csillagfürtliszt
+#it:Farina di lupino
+#nl:lupinemeel
+# in 8 @2021-10-01
 
 # <en:compound
 fr:vermicelle de pois
@@ -80142,7 +80212,6 @@ zh:窩夫
 wikidata:en:Q375
 wikipedia:en:https://en.wikipedia.org/wiki/Waffle
 # ingredient/fr:gaufre has 10 products @2019-04-12
-# usage:fr:Gaufre (oeufs frais, sucre, graisse végétale, farine de blé , farine de lupin, lait écrémé en poudre, sel, émulsifiant : léccithine de tournesol, arôme naturel)
 
 # description:Cornet biscuit is for ice cream
 
