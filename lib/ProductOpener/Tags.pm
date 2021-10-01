@@ -144,6 +144,8 @@ BEGIN
 
 		&remove_stopwords_from_start_or_end_of_string
 
+		&generate_tags_taxonomy_extract
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1699,6 +1701,137 @@ sub build_tags_taxonomy($$$) {
 	}
 
 	return;
+}
+
+
+=head2 generate_tags_taxonomy_extract ( $tagtype, $tags_ref, $options_ref, $lcs_ref)
+
+Generate an extract of the taxonomy for a specific set of tags.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 reference to a list of tags ids $tags_ref
+
+=head4 reference to a hash of key/value options
+
+=cut
+
+sub generate_tags_taxonomy_extract ($$$$) {
+
+	my $tagtype = shift;
+	my $tags_ref = shift;
+	my $options_ref = shift;
+	my $lcs_ref = shift;
+
+	# Return empty hash if the taxonomy does not exist
+	if (not defined $translations_to{$tagtype}) {
+		return {};
+	}
+
+	# For the options include_children or include_parents,
+	# we will need to include data for more tags that requested.
+	# @tags will hold the tags to include
+
+	my @tags = ();
+	my %requested_tags = ();
+	foreach my $tagid (@$tags_ref) {
+		push @tags, $tagid;
+		$requested_tags{$tagid} = 1;
+	}
+
+	my $fields_ref;
+	if ((defined $options_ref) and (defined $options_ref->{fields})) {
+		$fields_ref = {};
+		foreach my $field (split(/,/, $options_ref->{fields}) ) {
+			$fields_ref->{$field} = 1;
+		}
+	}
+
+	my $taxonomy_ref = {};
+
+	while (my $tagid = shift @tags) {
+
+		if (defined $direct_parents{$tagtype}{$tagid}) {
+			
+			$taxonomy_ref->{$tagid}{parents} = [];
+			foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
+				if ((not defined $fields_ref) or (defined $fields_ref->{parents})) {
+					exists $taxonomy_ref->{$tagid}{parents} or $taxonomy_ref->{$tagid}{parents} = [];
+					push @{ $taxonomy_ref->{$tagid}{parents} }, $parentid;
+				}
+				# Include parents if the tag is one of the initially requested tags
+				# so that we don't also add parents of parents
+				if (($options_ref->{include_parents}) and ($requested_tags{$tagid})) {
+					push @tags, $parentid;
+				}
+			}
+		}
+
+		if (defined $direct_children{$tagtype}{$tagid}) {
+			
+			foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
+				if ((not defined $fields_ref) or (defined $fields_ref->{children})) {
+					exists $taxonomy_ref->{$tagid}{children} or $taxonomy_ref->{$tagid}{children} = [];
+					push @{$taxonomy_ref->{$tagid}{children}}, $childid;
+				}
+				if (($options_ref->{include_children}) and ($requested_tags{$tagid})) {
+					push @tags, $childid;
+				}
+			}
+		}
+
+		if (((not defined $fields_ref) or (defined $fields_ref->{name}))
+			and (defined $translations_to{$tagtype}{$tagid})) {
+
+			$taxonomy_ref->{$tagid} = {name => {}};
+
+			foreach my $lc (@{$lcs_ref}) {
+
+				if (defined $translations_to{$tagtype}{$tagid}{$lc}) {
+					$taxonomy_ref->{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				}
+
+				my $lc_tagid = get_string_id_for_lang($lc, $translations_to{$tagtype}{$tagid}{$lc});
+
+				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
+
+					# additives has e-number as their name, and the first synonym is the additive name
+					if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
+						$taxonomy_ref->{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+					}
+
+					# add synonyms to the full taxonomy
+					if (((not defined $fields_ref) or (defined $fields_ref->{synonyms}))
+						and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid})) {
+						(defined $taxonomy_ref->{$tagid}{synonyms}) or $taxonomy_ref->{$tagid}{synonyms} = {};
+						$taxonomy_ref->{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
+					}
+				}
+			}
+		}
+
+		if (defined $properties{$tagtype}{$tagid}) {
+
+			foreach my $prop_lc (sort keys %{$properties{$tagtype}{$tagid}}) {
+				
+				if ($prop_lc =~ /^(.*):(\w\w)$/) {
+					my $prop = $1;
+					my $lc = $2;
+
+					if (((not defined $fields_ref) or (defined $fields_ref->{$prop}))
+						and (grep( /^$lc$/, @$lcs_ref))) {
+
+						(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
+						$taxonomy_ref->{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+					}
+				}
+			}
+		}
+	}
+
+	return $taxonomy_ref;
 }
 
 
