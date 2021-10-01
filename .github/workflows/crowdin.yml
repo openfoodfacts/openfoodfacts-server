@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
          lc: [it, es, fr, de, id, en,he,da,ko,nl,zh_CN,pt_BR,zh_TW,nl_BE,pt_PT,nl,zh_HK,zhtw]
     steps:
