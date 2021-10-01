@@ -43,22 +43,6 @@ jobs:
     name: Synchronize with crowdin
     runs-on: ubuntu-latest
     steps:
-    - name: Crowdin action for Open Pet Food Facts only
-      uses: crowdin/github-action@1.4.0
-      with:
-        upload_translations: false # default is false
-        download_translations: true
-        skip_untranslated_files: false
-        commit_message: "New Crowdin translations - Open Pet Food Facts"
-        localization_branch_name: l10n_main_opff
-        pull_request_base_branch_name: main
-        pull_request_title: "chore: New translations - Open Pet Food Facts"
-        pull_request_labels: "translations"
-        config: crowdin-opff.yml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
     - name: crowdin action
       uses: crowdin/github-action@1.4.0
       with:
