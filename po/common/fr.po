@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:02\n"
+"PO-Revision-Date: 2021-10-01 18:38\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3033,11 +3033,11 @@ msgstr "Origine du produit et/ou de ses ingrédients"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr "Mentions de l'emballage qui indiquent le lieu de fabrication et/ou les origines des ingrédients"
+msgstr "Mentions sur l'emballage indiquant le lieu de fabrication et/ou l'origine des ingrédients"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr "Fabriqué en France. Tomates d'Italie. Origine du riz: Inde, Thaïlande."
+msgstr "Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -5574,14 +5574,30 @@ msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
 msgstr "Les informations sur l'emballage de ce produit sont manquantes."
 
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr "Le transport et l'origine des ingrédients ont un impact important."
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr "Le transport et les origines des ingrédients ont un impact moyen."
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr "Le transport et l'origine des ingrédients ont un faible impact."
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing information about the origins of ingredients"
+msgstr "Informations manquantes sur l'origine des ingrédients"
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "% d'ingrédients"
+
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
 msgstr "moyen"
-
-msgctxt "impact"
-msgid "impact"
-msgstr "impact"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5589,5 +5605,33 @@ msgstr "Remarque : le Nutri-Score des thés et tisanes correspond au produit pr�
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s g / 100 g"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "Important : nous avons besoin de votre soutien !"
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr "Open Food Facts est un projet collaboratif construit par des dizaines de milliers de bénévoles et géré par une organisation à but non lucratif de 3 salariés."
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr "Nous avons besoin de vos dons pour financer le budget Open Food Facts 2021 et continuer à développer le projet. <strong>Merci ! ️❤️</strong>"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "Faire un don"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Production mode with environmental benefits"
+msgstr "Mode de production avec des bénéfices environnementaux"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Production mode with high environmental benefits"
+msgstr "Mode de production à forts bénéfices environnementaux"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Production mode with very high environmental benefits"
+msgstr "Mode de production avec des bénéfices environnementaux très élevés"
 
