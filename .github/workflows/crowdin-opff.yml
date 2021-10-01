@@ -21,7 +21,7 @@ jobs:
         pull_request_base_branch_name: main
         pull_request_title: "chore: New translations - Open Pet Food Facts"
         pull_request_labels: "translations"
-        config: crowdin-opff.yml
+        config: ./crowdin-opff.yml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
