@@ -155,6 +155,7 @@ use ProductOpener::Attributes qw(:all);
 use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
+use ProductOpener::Recipes qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -386,6 +387,8 @@ sub process_template($$$) {
 	$template_data_ref->{display_date_ymd} = \&display_date_ymd;	
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
 	$template_data_ref->{url_for_text} = \&url_for_text;
+	$template_data_ref->{product_url} = \&product_url;
+	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
 	};
@@ -1566,13 +1569,13 @@ sub get_cache_results($$){
 
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 
-	# disable caching if ?nocache=1
-	# or if the user is logged in and nocache is different from 0
-	if ( ((defined param("nocache")) and (param("nocache")))
-		or ((defined $User_id) and not ((defined param("nocache")) and (param("nocache") == 0)))
+	# disable caching if ?no_cache=1
+	# or if the user is logged in and no_cache is different from 0
+	if ( ((defined param("no_cache")) and (param("no_cache")))
+		or ((defined $User_id) and not ((defined param("no_cache")) and (param("no_cache") == 0)))
 		) {
 
-		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
+		$log->debug("MongoDB no_cache parameter, skip caching", { key => $key }) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
@@ -1709,9 +1712,9 @@ sub query_list_of_tags($$) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
-		# do not use the smaller cached products_tags collection if ?nocache=1
+		# do not use the smaller cached products_tags collection if ?no_cache=1
 		# or if we are on the producers platform
-		if ( ((defined param("nocache")) and (param("nocache")))
+		if ( ((defined param("no_cache")) and (param("no_cache")))
 			or ($server_options{producers_platform})) {
 
 			eval {
@@ -1781,9 +1784,9 @@ sub query_list_of_tags($$) {
 
 			my $count_results;
 
-			# do not use the smaller cached products_tags collection if ?nocache=1
+			# do not use the smaller cached products_tags collection if ?no_cache=1
 			# or if we are on the producers platform
-			if ( ((defined param("nocache")) and (param("nocache")))
+			if ( ((defined param("no_cache")) and (param("no_cache")))
 				or ($server_options{producers_platform})) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection", { query => $aggregate_count_parameters }) if $log->is_debug();
@@ -4235,8 +4238,13 @@ JS
 		my $query_ref = {};
 		
 		$request_ref->{current_link_query} = $current_link;
-		
-		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
+
+		if (defined param('parent_ingredients')) {
+			$html .= search_and_analyze_recipes($request_ref, $query_ref);
+		}
+		else {
+			$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
+		}
 	}
 	
 	$request_ref->{content_ref} = \$html;
@@ -4361,6 +4369,9 @@ my %ignore_params = (
 	password => 1,
 	action => 1,
 	type => 1,
+	nocache => 1,
+	no_cache => 1,
+	no_count => 1,
 );
 
 # Parameters that can be query filters
@@ -4376,6 +4387,11 @@ sub add_params_to_query($$) {
 	my $query_ref = shift;
 	
 	$log->debug("add_params_to_query", { params => {CGI::Vars()} }) if $log->is_debug();
+
+	# nocache was renamed to no_cache
+	if (defined param('nocache')) {
+		param('no_cache', param('nocache'));
+	}
 
 	my $and = $query_ref->{"\$and"};
 	
@@ -4817,7 +4833,8 @@ sub search_and_display_products($$$$$) {
 		or (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by ne 'last_modified_t_complete_first')
 			and ($sort_by ne 'scans_n') and ($sort_by ne 'unique_scans_n') and ($sort_by ne 'product_name')
 			and ($sort_by ne 'completeness') and ($sort_by ne 'popularity_key') and ($sort_by ne 'popularity')
-			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score') )) {
+			and ($sort_by ne 'nutriscore_score') and ($sort_by ne 'nova_score') and ($sort_by ne 'ecoscore_score')
+			and ($sort_by ne 'nothing') )) {
 
 			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				$sort_by = 'popularity_key';
@@ -4827,7 +4844,7 @@ sub search_and_display_products($$$$$) {
 			}
 	}
 	
-	if (defined $sort_by) {
+	if ((defined $sort_by) and ($sort_by ne "nothing")) {
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 		
@@ -4968,7 +4985,12 @@ sub search_and_display_products($$$$$) {
 			else {
 				$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
 				# test if query_ref is empty
-				if (keys %{$query_ref} > 0) {
+				if (param('no_count')) {
+					# Skip the count if it is not needed
+					# e.g. for some API queries
+					$log->debug("no_count is set, skipping count") if $log->is_debug();
+				}
+				elsif (keys %{$query_ref} > 0) {
 					#check if count results is in cache
 					my $key_count = $server_domain . "/" . freeze($query_ref);
 					$log->debug("MongoDB query key - search-count", { key => $key_count }) if $log->is_debug();
@@ -4995,7 +5017,7 @@ sub search_and_display_products($$$$$) {
 							}
 						}
 					
-						if (($only_tags_filters) and ((not defined param("nocache")) or (param("nocache") == 0))) {
+						if (($only_tags_filters) and ((not defined param("no_cache")) or (param("no_cache") == 0))) {
 							
 							$count = execute_query(sub {
 								$log->debug("count_documents on smaller products_tags collection", { key => $key_count }) if $log->is_debug();
@@ -5061,7 +5083,10 @@ sub search_and_display_products($$$$$) {
 			
 			$request_ref->{structured_response}{count} = $count;
 			
-			set_cache_results($key,$request_ref->{structured_response})
+			# Don't set the cache if no_count was set
+			if (not param('no_count')) {
+				set_cache_results($key,$request_ref->{structured_response})
+			}
 		}
 	}
 
@@ -7661,7 +7686,7 @@ CSS
 
 	# On the producers platform, show a link to the public platform
 	if ($server_options{producers_platform}) {
-		my $public_product_url = "https:\/\/$cc.${server_domain}" . $request_ref->{canon_url};
+		my $public_product_url = $formatted_subdomain . product_url($product_ref);
 		$public_product_url =~ s/\.pro\./\./;
 		$template_data_ref->{public_product_url} = $public_product_url;
 	}
@@ -10928,5 +10953,125 @@ sub display_ecoscore_calculation_details_simple_html($$) {
 
 	return $html;
 }
+
+
+=head2 search_and_analyze_recipes ($request_ref, $query_ref)
+
+Analyze the distribution of selected parent ingredients in the searched products
+
+=cut
+
+sub search_and_analyze_recipes($$) {
+
+	my $request_ref = shift;
+	my $query_ref = shift;
+	
+	add_params_to_query($request_ref, $query_ref);
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	my $cursor;
+
+	$log->info("retrieving products from MongoDB to analyze their recipes") if $log->is_info();
+
+	if ($admin) {
+		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+	}
+
+	# Limit the fields we retrieve from MongoDB
+	my $fields_ref = {
+		lc                 => 1,
+		code               => 1,
+		product_name	   => 1,
+		brands             => 1,
+		quantity           => 1,
+		"product_name_$lc" => 1,
+		ingredients        => 1,
+		ingredients_percent_analysis => 1,
+		ingredients_text   => 1,
+	};
+
+	# For the producer platform, we also need the owner
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+		$fields_ref->{owner} = 1;
+	}
+	
+	eval {
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref)->fields($fields_ref);
+		});
+	};
+	if ($@) {
+		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
+	}
+	else {
+		$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
+	}
+
+	$log->info("retrieved products from MongoDB to analyze their recipes") if $log->is_info();
+
+	my @products = $cursor->all;
+	my $count = @products;
+	$request_ref->{count} = $count;
+
+	my $html = '';
+
+	if ($count < 0) {
+		$html .= "<p>" . lang("error_database") . "</p>";
+	}
+	elsif ($count == 0) {
+		$html .= "<p>" . lang("no_products") . "</p>";
+	}
+
+	if (defined $request_ref->{current_link_query}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
+	}
+
+	if ($count <= 0) {
+		return $html;
+	}
+
+	if ($count > 0) {
+
+		my $uncanonicalized_parent_ingredients = param('parent_ingredients');
+
+		# Canonicalize the parent ingredients
+		my $parent_ingredients_ref = [];
+		foreach my $parent (split(/,/, $uncanonicalized_parent_ingredients)) {
+			push @{$parent_ingredients_ref}, canonicalize_taxonomy_tag($lc, "ingredients", $parent);
+		}
+
+		my $recipes_ref = [];
+
+		my $debug = "";
+
+		foreach my $product_ref (@products) {
+			my $recipe_ref = compute_product_recipe($product_ref, $parent_ingredients_ref);
+
+        	add_product_recipe_to_set($recipes_ref, $product_ref, $recipe_ref);
+
+			if (param("debug")) {
+				$debug .= "product: " . JSON::PP->new->utf8->canonical->encode($product_ref) . "<br><br>\n\n"
+					. "recipe: " . JSON::PP->new->utf8->canonical->encode($recipe_ref) . "<br><br><br>\n\n\n";
+			}
+		}
+
+		my $analysis_ref = analyze_recipes($recipes_ref, $parent_ingredients_ref);
+
+		my $template_data_ref = {
+			analysis => $analysis_ref,
+			recipes => $recipes_ref,
+			debug => $debug,
+		};
+
+		process_template('web/pages/recipes/recipes.tt.html', $template_data_ref, \$html) or $html = "template error: " . $tt->error();
+
+	}
+
+	return $html;
+}
+
 
 1;
