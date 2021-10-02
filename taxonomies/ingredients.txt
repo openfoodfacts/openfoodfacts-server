@@ -58,26 +58,6 @@ stopwords:zh::配料
 # *Ingrédient décongelé, ne pas recongeler.
 # *Appellation d'Origine Contrôlée
 
-# comment:en:These are words that end ingredient lists.
-
-#de:
-
-#en:
-
-#es:
-
-#fr:
-
-#it:
-
-#ja:
-
-#nl:
-
-#pt:
-
-#ro:
-
 fr:additifs alimentaires
 # ingredient/fr:additifs-alimentaires has 52 products @2019-04-20
 # usage:fr: additif alimentaire (acide citrique)
@@ -6761,27 +6741,32 @@ fr:lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-éc
 ca:llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
 de:fettarme Haltbarmilch, fettarme H-milch
 es:leche parcialmente desnatada esterilizada UHT, leche semidesnatada esterilizada UHT, leche UHT parcialmente descremada
+it:Latte semiscremato UHT
 nl:halfvolle melk uht verhit
 pt:leite UHT meio gordo, leite meio gordo UHT
+ciqual_food_code:en:19041
+ciqual_food_name:en:Milk, semi-skimmed, UHT
+ciqual_food_name:fr:Lait demi-écrémé, UHT
+#274 @2021-09-23
 
 <fr:lait demi écrémé uht
 fr:lait de montagne demi écrémé stérilisé uht
 
-<en:semi-skimmed milk
-en:organic semi-skimmed milk, semi-skimmed milk from organic farming
-ca:llet parcialment desnatada ecològica, llet semidesnatada ecològica
-de:Fettarme Milch aus biologischer Landwirtschaft
-es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica, leche parcialmente descremada orgánica
-fr:Lait demi-écrémé issu de l'agriculture biologique
-hu:bio zsírszegény tej, zsírszegény bio tej
-it:latte parzialmente scremato da agricoltura biologica
-nl:biologische halfvolle melk
+#<en:semi-skimmed milk
+#en:organic semi-skimmed milk, semi-skimmed milk from organic farming
+#ca:llet parcialment desnatada ecològica, llet semidesnatada ecològica
+#de:Fettarme Milch aus biologischer Landwirtschaft
+#es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica, leche parcialmente #descremada orgánica
+#fr:Lait demi-écrémé issu de l'agriculture biologique
+#hu:bio zsírszegény tej, zsírszegény bio tej
+#it:latte parzialmente scremato da agricoltura biologica
+#nl:biologische halfvolle melk
 # ingredient/nl:biologische-halfvolle-melk has 1 product @2019-05-24
 
-<en:organic semi-skimmed milk
-fr:lait demi-écrémé stérilisé uht biologique,lait demi-écrémé issu de l'agriculture biologique stérilisé uht, lait demi-écrémé stérilisé uht issu de l'agriculture biologique, lait demi-écrémé biologique
-ca:llet semidesnatada esterilitzada UHT ecològica, llet parcialment desnatada esterilitzada UHT ecològica
-es:leche semidesnatada esterilizada UHT ecológica, leche parcialmente desnatada esterilizada UHT ecológica
+#<en:organic semi-skimmed milk
+#fr:lait demi-écrémé stérilisé uht biologique,lait demi-écrémé issu de l'agriculture biologique #stérilisé uht, lait demi-écrémé stérilisé uht issu de l'agriculture biologique, lait demi-écrémé #biologique
+#ca:llet semidesnatada esterilitzada UHT ecològica, llet parcialment desnatada esterilitzada UHT #ecològica
+#es:leche semidesnatada esterilizada UHT ecológica, leche parcialmente desnatada esterilizada UHT ecológica
 
 # description:en:PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
@@ -6795,15 +6780,20 @@ fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé, la
 hu:pasztőrözött zsírszegény tej
 it:latte pastorizzato parzialmente scremato, latte parzialmente scremato pastorizzato
 nl:gepasteuriseerde halfvolle melk
+pt:Leite pasteurizado parcialmente desnatado
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_food_code:en:19042
+ciqual_food_name:en:Milk, semi-skimmed, pasteurised
+ciqual_food_name:fr:Lait demi-écrémé, pasteurisé
+#4146 @2021-09-23
 
-<en:organic semi-skimmed milk
-<en:UHT pasteurised milk
-en:organic UHT pasteurised semi-skimmed milk
-ca:llet semidesnatada ecològica esterilitzada UHT, llet parcialment desnatada ecològica esterilitzada UHT
-es:leche semidesnatada ecológica esterilizada UHT, leche parcialmente desnatada ecológica esterilizada UHT
-fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t, lait demi-écrémé biologique stérilisé uht
+#<en:organic semi-skimmed milk
+#<en:UHT pasteurised milk
+#en:organic UHT pasteurised semi-skimmed milk
+#ca:llet semidesnatada ecològica esterilitzada UHT, llet parcialment desnatada ecològica #esterilitzada UHT
+#es:leche semidesnatada ecológica esterilizada UHT, leche parcialmente desnatada ecológica #esterilizada UHT
+#fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t, lait demi-écrémé biologique #stérilisé uht
 
 #<en:pasteurized skimmed milk
 #en:organic pasteurized skimmed milk
@@ -6917,18 +6907,21 @@ fr:lait entier stérilisé
 hu:hőkezelt teljes tej
 it:latte intero sterilizzato, latte sterilizzato intero
 
-<en:whole milk
+<en:pasteurised whole milk
 <en:UHT pasteurised milk
 en:UHT pasteurised whole milk
 ca:llet sencera esterilitzada UHT, llet esterilitzada UHT sencera
 de:Haltbare Vollmilch, H-Vollmilch
 es:leche entera esterilizada UHT, leche esterilizada UHT entera,leche UHT entera
 fi:iskukuumennettu täysmaito
-fr:lait entier stérilisé uht, lait entier stérilisé u h t, lait stérilisé uht entier
+fr:lait entier stérilisé uht, lait entier stérilisé u h t, lait stérilisé uht entier, Lait pasteurisé entier pasteurisation haute
 hu:pasztőrözött UHT teljes tej
 it:Latte intero pastorizzato UHT
 nl:UHT gesteriliseerde volle melk
-# ingredient/fr:lait-entier-sterilise-uht has 20 products in 2 languages @2019-05-23
+ciqual_food_code:en:19023
+ciqual_food_name:en:Milk, whole, UHT
+ciqual_food_name:fr:Lait entier, UHT
+# 105 in 2 languages @2021-09-22
 
 <en:UHT pasteurised whole milk
 en:organic UHT pasteurised whole milk
@@ -6948,9 +6941,13 @@ fr:lait entier pasteurisé
 hu:pasztőrözött teljes tej
 it:latte intero pastorizzato
 nl:volle gepasteuriseerde melk
-
-<en:pasteurised whole milk
-fr:Lait pasteurisé entier pasteurisation haute
+pl:mleko pełne pasteryzowane
+pt:Leite pasteurizado gordo
+ro:lapte integral pasteurizat
+ciqual_food_code:en:19024
+ciqual_food_name:en:Milk, whole, pasteurised
+ciqual_food_name:fr:Lait entier, pasteurisé
+#1241 @2011-09-23
 
 <en:whole milk
 fr:lait entier standardisé
@@ -7117,32 +7114,32 @@ th:น้ำนมโคขาดมันเนย
 en:goat milk, goat's milk, goats milk, goats' milk
 ca:llet de cabra
 cs:kozí mléko
-da:Gedemælk
+da:gedemælk
 de:Ziegenmilch
 el:κατσικίσιο γάλα
 eo:kaprina lakto
 es:leche de cabra
-et:Kitsepiim
+et:kitsepiim
 eu:ahuntz esne
 fi:vuohenmaito
 fr:lait de chèvre
 he:חלב עיזים
 hu:kecsketej
 hy:այծի կաթ
-id:Susu kambing
+id:susu kambing
 it:latte di capra, latte caprino
 ja:ヤギ乳
-jv:Susu wedhus
-kk:Ешкі сүті
+jv:susu wedhus
+kk:ешкі сүті
 ko:염소젖
-lt:Ožkos pienas
+lt:ožkos pienas
 mk:козјо млеко
 nb:geitemelk
 nl:geitenmelk
-pl:Kozie mleko, mleko kozie
+pl:kozie mleko, mleko kozie
 pt:leite de cabra
 ro:lapte de capră, lapte de capra
-ru:Козье молоко
+ru:козье молоко
 sk:kozie mlieko
 sr:козје млеко
 sv:getmjölk
@@ -7157,26 +7154,19 @@ description:nb:Geitemelk er melk fra geit (Capra aegagrus hircus).
 description:pl:Geitenmelk is de melk die gevormd wordt in de uier van een geit. 
 # 1.797 in 16 @2021-08-25
 
-
 <en:goat milk
-en:raw goat milk
-ca:llet crua de cabra, llet de cabra crua
-de:Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-es:leche cruda de cabra, leche de cabra cruda
-fi:vuohen raakamaito, raaka vuohenmaito
-fr:lait cru de chèvre, lait de chèvre cru
-hu:nyers kecsketej
-
-<en:goat milk
-en:whole goat milk, whole goat milk
-ca:llet sencera de cabra, llet de cabra sencera
-de:Ziegenvollmilch, Ziegen-Vollmilch
-es:leche entera de cabra, leche de cabra entera
-fi:vuohen täysmaito
-fr:lait entier de chèvre
-hu:teljes kecsketej
+en:whole goat milk, whole goat milk, raw goat milk
+ca:llet sencera de cabra, llet de cabra sencera, llet crua de cabra, llet de cabra crua
+de:Ziegenvollmilch, Ziegen-Vollmilch, Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
+es:leche entera de cabra, leche de cabra entera, leche cruda de cabra, leche de cabra cruda
+fi:vuohen täysmaito, vuohen raakamaito, raaka vuohenmaito
+fr:lait entier de chèvre, lait cru de chèvre, lait de chèvre cru
+hu:teljes kecsketej, nyers kecsketej
 nl:volle geitemelk
-# 95 in 3 @2021-08-25
+ciqual_food_code:en:19202
+ciqual_food_name:en:Goat milk, whole, raw
+ciqual_food_name:fr:Lait de chèvre, entier, cru
+# 97 in 3 @2021-08-25
 
 <en:whole goat milk
 en:goat's milk yogurt
@@ -7225,12 +7215,27 @@ nl:gepasteuriseerde geitenmelk
 ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 
 <en:pasteurised goat milk
-en:organic pasteurised goat milk
-ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica pasteuritzada de vaca
-es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
-fi:luomu pastöroitu vuohenmaito
-fr:lait de chevre pasteurisé issu de l'agriculture biologique
-hu:pasztőrözött bio kecsketej
+en:whole goat milk UHT
+fr:Lait de chèvre entier UHT
+ciqual_food_code:en:19200
+ciqual_food_name:en:Goat milk, whole, UHT
+ciqual_food_name:fr:Lait de chèvre, entier, UHT
+
+<en:semi-skimmed goat milk
+en:semi-skimmed pasteurized goat milk UHT
+fr:lait de chèvre demi-écrémé UHT
+ciqual_food_code:en:19201
+ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
+ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
+
+
+#<en:pasteurised goat milk
+#en:organic pasteurised goat milk
+#ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica #pasteuritzada de vaca
+#es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
+#fi:luomu pastöroitu vuohenmaito
+#fr:lait de chevre pasteurisé issu de l'agriculture biologique
+#hu:pasztőrözött bio kecsketej
 
 ################################# SHEEP MILKS ##################################
 
@@ -9082,70 +9087,70 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 
 <en:dairy
 en:buttermilk
-af:Karringmelk
+af:karringmelk
 am:አሬራ
 ar:حليب رائب, حليبب
-bg:Мътеница
+bg:мътеница
 br:laezh-ribod
 ca:sèrum de mantega
-cs:Podmáslí
-cv:Уйран
-cy:Llaeth enwyn
-da:Kærnemælk
-de:Buttermilch, Reine Buttermilch
-eo:Buterlakto
-es:Suero de mantequilla,leche mazada
-et:Pett
+cs:podmáslí
+cv:уйран
+cy:llaeth enwyn
+da:kærnemælk
+de:Buttermilch, reine Buttermilch
+eo:buterlakto
+es:suero de mantequilla, leche mazada
+et:pett
 fa:آب‌دوغ
 fi:kirnupiimä, kirnumaito
-fr:babeurre, bas-beurre, lait battu
+fr:babeurre, bas-beurre, lait battu, lait fermenté
 fy:sûpe
-ga:Bláthach
-gd:Blàthach
+ga:bláthach
+gd:blàthach
 gu:છાશ
 he:חובצה
 hi:छाछ
 hu:író
-id:Susu mentega
-io:Butro-lakto
-is:Áfir
+id:susu mentega
+io:butro-lakto
+is:áfir
 it:latticello
 ja:バターミルク
 kn:ಮಜ್ಜಿಗೆ
 ko:우락유
-li:Karnemèlk
-lt:Pasukos
+li:karnemèlk
+lt:pasukos
 lv:paniņas
 mk:матеница
 ml:മോര്
-mo:Babeurre
+mo:babeurre
 mr:ताक
-ms:Susu mentega
+ms:susu mentega
 nb:kjernemelk
 ne:मोही
 nl:karnemelk
-om:Baaduu
-pl:Maślanka
+om:baaduu
+pl:maślanka
 pt:leitelho
-ro:Babeurre
-ru:Пахта
+ro:babeurre
+ru:пахта
 sa:तक्रम्
-sk:Cmar
-sl:Pinjenec
-sv:Kärnmjölk
+sk:cmar
+sl:pinjenec
+sv:kärnmjölk, filmjölk
 ta:மோர்
 te:మజ్జిగ
-uk:Сколотини
+uk:сколотини
 zh:酪漿
-# bar:Buddä milsch
-# be-tarask:Масьлянка
+# bar:buddä milsch
+# be-tarask:масьлянка
 # ckb:دۆ
-# de-ch:Buttermilch
-# en-ca:Buttermilk
-# en-gb:Buttermilk
-# gom:Tak
-# mrj:Кӱтӹмӓк
-# nds-nl:Karnmelk
+# de-ch:buttermilch
+# en-ca:buttermilk
+# en-gb:buttermilk
+# gom:tak
+# mrj:кӱтӹмӓк
+# nds-nl:karnmelk
 # pt-br:leitelho
 # yue:牛油奶
 # zh-cn:酪浆
@@ -9158,34 +9163,39 @@ wikidata:en:Q106612
 wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
 vegan:en:no
 vegetarian:en:yes
-# ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
+ciqual_food_code:en:19801
+ciqual_food_name:en:Fermented milk drink, plain, skimmed milk
+ciqual_food_name:fr:Lait fermenté à boire, nature, maigre
+# 9560 in 4 languages @2021-09-21
 
-<en:buttermilk
-fr:babeurre pasteurisé
+#processing:en: en:pasteurised
+#<en:buttermilk
+#fr:babeurre pasteurisé
 
-<en:buttermilk
-en:buttermilk powder
-ca:sèrum de mantega en pols, sèrum de mantega deshidratada
-da:kæarnemælkpulver
-de:Buttermilchpulver
-el:αποβουτυρωμενο γάλα σεβσκόνη
-es:suero de mantequilla en polvo, suero de mantequilla rehidratada
-fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
-hu:írópor
-it:latticello in polvere
-nl:karnemelkpoeder
-nn:kjernemelkpulver, pulverisert kjernemelk
-pt:leitelho em pó
-sv:kärnmjölkspulver
+#processing:en: en:powder
+#<en:buttermilk
+#en:buttermilk powder
+#ca:sèrum de mantega en pols, sèrum de mantega deshidratada
+#da:kæarnemælkpulver
+#de:Buttermilchpulver
+#es:suero de mantequilla en polvo, suero de mantequilla rehidratada
+#fi:kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
+#fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
+#hu:írópor
+#it:latticello in polvere
+#nl:karnemelkpoeder
+#nn:kjernemelkpulver, pulverisert kjernemelk
+#pt:leitelho em pó
+#sv:kärnmjölkspulver
 # ingredient/fr:babeurre-en-poudre has 116 products in 12 languages @2018-12-15
 
+#processing:en: en:solids
 <en:buttermilk
 en:buttermilk solids
-de:Buttermilchpulver
 es:sólidos de manteca
 fr:Solides du babeurre
 it:Solidi di latticello
+#899 @2021-09-21
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -16539,17 +16549,26 @@ ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
 <en:pork
 en:pork heart
-ca:Cor de porc
+ca:cor de porc
 de:Schweineherz
 es:corazón de cerdo
 fr:coeur de porc
 vegan:en:no
 vegetarian:en:no
+ciqual_food_code:en:40060
+ciqual_food_name:en:Heart, pork, raw
+ciqual_food_name:fr:Coeur, porc, cru
+#141 @2021-09-20
 
 <en:pork
 en:pork kidney
 de:Schweineniere
 fr:rogons de porc
+nl:varkensnier
+wikidata:en:Q104223737
+ciqual_food_code:en:40404
+ciqual_food_name:en:Kidney, pork, raw
+ciqual_food_name:fr:Rognon, porc, cru
 vegan:en:no
 vegetarian:en:no
 
@@ -16583,27 +16602,42 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Barde_(cuisine)
 en:lardon, lardoon
 br:lardez
 de:Speckwürfel, Speckstreifen
-es:mechar
+es:mechar, mechas de tocino
 fr:lardons, lardons supérieurs
+he:לארדון
 it:Lardo
 ja:ラードン
-nl:spekjes
+nl:spek, spekjes, spekreepjes
+pt:toucinho
+uk:Шпиковање меса
 wikidata:en:Q3217888
 wikipedia:en:https://en.wikipedia.org/wiki/Lardon
 carbon_footprint_fr_foodges_ingredient:fr:Lardons
 carbon_footprint_fr_foodges_value:fr:5.6
+ciqual_food_code:en:28501
+ciqual_food_name:en:Lardoons, raw
+ciqual_food_name:fr:Lardon nature, cru
+#855 @2021-09-20
 
 <en:lardon
 en:smoked lardoons
 de:geräucherte Speckwürfel
+es:mechas de tocino ahumadas
 fr:lardon fumé, lardons fumés
 it:Lardi affumicati
+nl:gerookt spek
+pt:toucinho fumado
+ciqual_food_code:en:28720
+ciqual_food_name:en:Smoked lardoons, raw
+ciqual_food_name:fr:Lardon fumé, cru
+
 
 <en:lardon
 en:cooked lardoons
 de:gekochte Speckwürfel
-es:jamón cocido
+es:jamón cocido, mechas de tocino cocidas
 fr:lardons cuits
+pt:toucinho cozido
 
 <en:smoked lardoons
 en:smoked cooked lardoons
@@ -16639,7 +16673,12 @@ fr:langue de porc
 hu:sertésnyelv, disznónyelv
 it:lingua di maiale
 nl:varkenstong
-pt:Língua de porco
+pt:língua de porco
+wikidata:en:Q13164545
+ciqual_food_code:en:40205
+ciqual_food_name:en:Tongue, pork, raw
+ciqual_food_name:fr:Langue, porc, crue
+#69 @2021-09-20
 
 <en:pork meat
 fr:noix de jambon de porc
@@ -16706,10 +16745,6 @@ ciqual_food_code:en:28105
 ciqual_food_name:en:Pork, rack, cooked
 ciqual_food_name:fr:Porc, carré, cuit
 
-<en:pork meat
-fr:poitrine de porc fumée
-ca:cansalda de por fumat
-es:panceta de cerdo ahumada
 
 <en:pork meat
 en:Pork filet mignon
@@ -17041,57 +17076,80 @@ fr:os de porc
 
 <en:pork meat
 en:pork liver
+ca:fetge de porc
+cs:vepřová játra
+da:svinelever
 de:Schweineleber
-es:Higado de cerdo,tocino de hígado de cerdo
+eo:porka hepataĵo
+es:higado de cerdo, tocino de hígado de cerdo
 fi:sianmaksa
 fr:foie de porc
 hu:sertésmáj
+id:hati babi
 it:fegato di maiale
+ja:豚肝臓
 nl:varkenslever
+pl:watroba wieprzowa
 ro:ficat de porc, ficat porc
 ru:Свиная печень, печень свиная
 sv:Grislever
 zh:猪肝
+#yue:豬膶
+wikidata:en:Q18384179
+ciqual_food_code:en:40119
+ciqual_food_name:en:Liver, pork, raw
+ciqual_food_name:fr:Foie, porc, cru
+#1372 @2021-09-20
 
 <en:pork meat
 en:pork belly, pork bellies
 ca:cansalada de porc
 da:Slag
 de:Schweinebauch
+el:χοιρινό στήθος
 eo:porkventraĵo
 es:panza de cerdo
 fi:porsaankylki
 fr:ventre de porc
+ga:bolg muiceola
 hu:császárszalonna
 ja:ポークベリー
-jv:Weteng babi
+jv:weteng babi
 ko:삼겹살
-nb:Svineribbe
-nl:buikspek
+nl:varkensbuik, buikspek
 pl:boczek
-ru:Пашина
-sv:sidfläsk, grissida
-vi:Thịt ba chỉ
+ru:пашина
+sv:sidfläsk
+vi:thịt ba chỉ
 zh:豬腩
+#nan:sam-chân-ba̍h
 # wuu:五花肉
 # zh-hk:豬腩
 wikidata:en:Q1365868
 wikipedia:en:https://en.wikipedia.org/wiki/Pork_belly
-description:de:Als Schweinebauch werden die gut mit Fett durchwachsenen und mit Rippen durchzogenen Stücke der hinteren (caudalen), unteren (ventralen) Brustkörbe der Hausschweine bezeichnet.
-description:en:Pork belly is a boneless and fatty cut of meat[2] from the belly of a pig.
-description:es:La panza de cerdo es la carne procedente de la panza de un cerdo.
-# ingredient/pork-belly has 164 products in 9 languages @2021-09-17
-
-<en:pork belly
-en:raw pork belly 
-fr:poitrine de porc crue
 ciqual_food_code:en:28002
 ciqual_food_name:en:Pork, belly, raw
 ciqual_food_name:fr:Porc, poitrine, crue
 # TODO: investigate between pork belly and pork breast
+description:de:Als Schweinebauch werden die gut mit Fett durchwachsenen und mit Rippen durchzogenen Stücke der hinteren (caudalen), unteren (ventralen) Brustkörbe der Hausschweine bezeichnet.
+description:en:Pork belly is a boneless and fatty cut of meat from the belly of a pig.
+description:es:La panza de cerdo es la carne procedente de la panza de un cerdo.
+# 169 in 9 languages @2021-09-22
 
 <en:pork belly
 en:british pork belly
+
+<en:pork belly
+en:smoked pork belly
+fr:poitrine de porc fumée
+ca:cansalda de por fumat
+es:panceta de cerdo ahumada
+it:pancetta affumicata
+nl:gerookt varkensbuik
+ciqual_food_code:en:28502
+ciqual_food_name:en:Pork belly, smoked, raw
+ciqual_food_name:fr:Poitrine de porc, fumée, crue
+#76 @2021-09-23
 
 en:breast
 da:Bryst
@@ -17204,59 +17262,80 @@ nl:varkensbindweefsel
 
 # from:en:pork
 <en:animal fat
-en:lard, pork fat, pork lard
-an:Redetiu
+en:pork fat
 ar:دهن خنزير
-bg:Свинска мас
+bg:свинска мас
+cs:vepřový tuk
+da:svinefedt
+de:schweinefett
+el:χοιρινό λίπος
+es:grasa de cerdo, grasa animal de cerdo
+eu:txerri-gantz
+fa:چربی خوک
+fr:gras de porc
+hr:svinjska mast
+hu:slanina, sertészsír
+id:lemak babi
+it:grasso di maiale, grasso di suino, grasso suino
+nl:varkensvet
+pl:tłuszcz ze świni
+pt:gordura de porco
+sh:svinjska mast
+sl:svinjska mast
+sr:svinjska mast
+sv:grisfett, fett från gris
+tr:domuz yağı
+# sr-el:svinjska mast
+ciqual_food_code:en:16530
+ciqual_food_name:en:Pork fat, raw
+ciqual_food_name:fr:Lard gras, cru
+
+#comment:en:Be careful between lard and pork fat. Not all languages differentiate
+<en:pork fat
+en:lard,  pork lard
+an:redetiu
 ca:saïm
 cs:sádlo
-cv:Смалец
-da:Svinefedt
-de:Schweinefett, Schmalz
-eo:Ŝmalco
-es:grasa de cerdo,grasa animal de cerdo,tocino,magro de cerdo,manteca, manteca de cerdo,manteca de cerdo iberico, tocino de cerdo,tocino de jamón de cerdo
-eu:Txerri-gantz
-fa:چربی خوک
-fi:ihra, silava, läski
-fr:saindoux, gras de porc
-ga:Blonag
-gd:Blonag
-gl:Manteiga de porco
-hr:Svinjska mast
-hu:Disznózsír, sertészsír
-id:Lemak babi
-io:Saimo
-it:strutto, grasso di maiale, grasso di suino, grasso suino
+cv:смалец
+de:Schmalz
+eo:ŝmalco
+es:manteca de cerdo, manteca de cerdo iberico
+fi:ilava
+fr:saindoux, lard gras
+fy:riezel
+ga:blonag
+gd:blonag
+gl:manteiga de porco
+hu:disznózsír
+io:saimo
+it:strutto
 ja:ラード
 ko:라드
-lb:Schmalz
+lb:schmalz
 nb:smult
-nl:Reuzel, varkensvet
-nn:Smult
-pl:Smalec
+nl:reuzel
+nn:smult
+pl:smalec
 pt:banha
-ru:Смалец, шпик
-sh:Svinjska mast
-sl:Svinjska mast
-sr:Svinjska mast
-sv:Ister, fett fläsk, grisfett, fett från gris
+ru:смалец
+sv:ister
 th:มันหมู
-tl:Untosinsal
-tr:Domuz yağı
-uk:Смалець
-wa:Saeyén
+uk:смалець
+wa:saeyén
 zh:豬油
-# ast:Mantega de gochu
-# bar:Schmoiz
+# ast:mantega de gochu
+# bar:schmoiz
 # lzh:豬油
-# pdc:Schmals
-# scn:Nzunza
-# sgs:Taukā
-# sr-el:Svinjska mast
-# szl:Tuste
+# pdc:schmals
+# scn:nzunza
+# sgs:taukā
+# szl:tuste
 # yue:豬油
 wikidata:en:Q72827
 wikipedia:en:https://en.wikipedia.org/wiki/Lard
+ciqual_food_code:en:16520
+ciqual_food_name:en:Lard or pork fat
+ciqual_food_name:fr:Saindoux
 # ingredient/lard has 2818 products in 10 languages @2019-07-10
 
 ###################################################################################################
@@ -17794,52 +17873,71 @@ wikipedia:en:https://en.wikipedia.org/wiki/Modified_starch
 
 # description:en:Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
+#category/corn starch
 <en:starch
 en:corn starch, maize starch, cornstarch
 ar:نشا الذرة
-ca:Midó de blat de moro
-cs:Kukuřičný škrob
+bg:царевично нишесте
+ca:midó de blat de moro
+cs:kukuřičný škrob
 da:majsstivelse
 de:Maisstärke
 el:άμυλο αραβοσίτου
-eo:Maizamelo
-es:almidón de maíz, Maicena,fecula de maiz,almidones de maiz modificados
-eu:Maizena
+eo:maizamelo
+es:almidón de maíz, maicena, fecula de maiz
+et:maisitärklis
+eu:maizena
 fa:نشاسته ذرت
-fi:Maissitärkkelys
+fi:maissitärkkelys
 fr:amidon de maïs, amidon de mais, fécule de mais, amidon natif de maïs
 he:עמילן תירס
+hr:kukuruzni škrob
 hu:kukoricakeményítő
-id:Tepung jagung
+id:tepung jagung
 is:maíssterkja
-it:Amido di mais
+it:amido di mais
 ja:コーンスターチ
+kk:жүгері крахмалы
 ko:옥수수 녹말
-lt:Kukurūzų krakmolas
-ms:Tepung jagung
-nb:maisstivelse, Maisenna
+lt:kukurūzų krakmolas
+lv:kukurūzas ciete
+ms:tepung jagung
+nb:maisstivelse, maisenna
 nl:maïszetmeel, maiszetmeel
 no:maisstivelse
-pl:Skrobia kukurydziana
+pl:skrobia kukurydziana
 pt:amido de milho
 ro:amidon de porumb
-ru:Кукурузный крахмал, крахмал кукурузный
-sv:stärkelse av majs, Majsstärkelse
+ru:кукурузный крахмал, крахмал кукурузный
+sk:kukuričný škrob
+sl:koruzni škrob
+sr:kukuruzni skrob
+sv:stärkelse av majs, majsstärkelse
 th:แป้งข้าวโพด
-tr:Mısır nişastası
-uk:Кукурудзяний крохмаль
+tr:mısır nişastası
+uk:кукурудзяний крохмаль
 zh:玉米澱粉
-# war:Gawgaw
+# war:gawgaw
 # yue:粟粉
+ciqual_food_code:en:9510
+ciqual_food_name:en:Maize/corn starch
+ciqual_food_name:fr:Amidon de maïs ou fécule de maïs
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_starch
+#76146 in 38 @2021-09-28
 
 <en:corn starch
 en:non-gmo corn starch
 es:maicena no modificada genéticamente, maicena no-gmo, maicena no gmo,
 fr:amidon de mais sans OGM
+#321 in 2 @2021-09-28
 
 <en:corn starch
+en:waxy maize starch
+de:Wachsmaisstärke
 fr:amidon de maïs cireux
+it:amido di mais ceroso
+nl:kleefmaïszetmeel
+#379 @2021-09-28
 
 <en:corn starch
 <en:modified starch
@@ -17849,10 +17947,11 @@ cs:Modifikovaný kukuřičný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
 el:τροποποιημένο άμυλο αραβοσίτου
-es:Almidón modificado de maiz, almidon de maiz modificado
+es:Almidón modificado de maiz, almidon de maiz modificado, almidones de maiz modificados
 et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
+hr:modificirani kukuruzni škrob
 hu:módosított kukoricakeményítő
 is:umbreytt maíssterkja
 it:amido modificato di mais, amido di mais modificato
@@ -17863,11 +17962,17 @@ pl:Modyfikowana skrobia kukurydziana
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
 ru:крахмал кукурузный модифицированный
+sk:modifikovaný kukuričný škrob
+sl:modificiran koruzni škrob
 sv:modifierad majsstärkelse
 
 <en:modified starch
-<fr:amidon de maïs cireux
+<en:waxy maize starch
+en:modified waxy maize starch
+de:modifizierte Wachsmaisstärke
 fr:amidon modifié de maïs cireux, amidon de maïs cireux modifié
+it:amido di mais ceroso modificato
+wikidata:en:Q3614284
 
 <en:corn starch
 fr:amidon modifié de maïs visqueux
@@ -19240,10 +19345,7 @@ fr:huile de palme totalement hydrogénée, palme totalement hydrogénée
 hu:teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 it:Olio di palma idrogenato
 nl:geheel geharde palm
-<<<<<<< HEAD
-=======
 ro:unt de palmier complet hidrogenat
->>>>>>> 0bae371ce76d1b59d5d0bdd392423e1de4526d23
 sl:popolnoma hidrogenirano palmino olje
 
 <en:hydrogenated palm oil
@@ -19519,6 +19621,12 @@ en:coconut butter
 de:Kokosbutter
 es:manteca de coco
 ro:unt de cocos
+
+<en:vegetable oil
+en:oat oil
+cs:ovesný olej
+de:Haferöl, Haferkernöl
+es:aceite vegetal avena
 
 <en:vegetable oil
 en:olive oil
@@ -20918,6 +21026,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eucalyptus_oil
 # derivedFrom:en:eucalyptus
 # ingredient/fr:huile-essentielle-d'eucalyptus has 20 products in 2 languages @2020-06-08
 
+<en:essential oil
+en:thyme oil
+de:Thymianöl
+#10 @2021-09-16
+
 <en:oil
 # from:en:fish
 en:fish oil
@@ -21059,102 +21172,107 @@ wikidata:en:Q68187377
 #description:en:VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings.
 
 en:vinegar
-af:Asyn
-an:Vinagre
+af:asyn
+an:vinagre
 ar:خل
-az:Sirkə
-be:Воцат
-bg:Оцет
+az:sirkə
+be:воцат
+bg:оцет
 bn:ভিনেগার
-br:Gwinegr
-ca:Vinagre
+br:gwinegr
+ca:vinagre
 cs:ocet
-cy:Finegr
-da:Eddike
-de:Essig
-el:Ξίδι
+cy:finegr
+da:eddike
+de:essig
+el:ξίδι
 eo:vinagro
 es:vinagre
-et:Äädikas
-eu:Ozpin
+et:äädikas
+eu:ozpin
 fa:سرکه
-fi:Etikka
+fi:etikka
 fr:vinaigre, vinaigres
-fy:Jittik
-ga:Fínéagar
-gl:Vinagre
+fy:jittik
+ga:fínéagar
+gl:vinagre
 he:חומץ
 hi:सिरका
-hr:Ocat
+hr:ocat
 hu:ecet
-hy:Քացախ
+hy:քացախ
 id:vinegar
-io:Vinagro
-is:Edik
+io:vinagro
+is:edik
 it:aceto
 ja:酢
-kk:Сірке суы
+kk:сірке суы
 kn:ವಿನಿಗರ್
 ko:식초
-la:Acetum
-li:Aek
-lt:Actas
-lv:Etiķis
+la:acetum
+li:aek
+lt:actas
+lv:etiķis
 ml:വിനാഗിരി
-ms:Cuka
+ms:cuka
+mt:ħall
 nb:eddik
 ne:भिनेगर
 nl:azijn
 nn:eddik
 no:eddik
-oc:Vinagre
+oc:vinagre
 pa:ਸਿਰਕਾ
-pl:Ocet
+pl:ocet
 pt:vinagre
-qu:Mama aqha
-ro:Oțet
+qu:mama aqha
+ro:oțet
 ru:уксус, уксусная кислота, уксус натуральный, уксус столовый, уксусная кислота пищевая, уксус пищевой, кислота уксусная
-rw:Vinegre
-sh:sirće, Ocat
+rw:vinegre
+sh:sirće, ocat
 si:විනාකිරි
-sk:Ocot
-sl:Kis
-so:Khal
-sr:sirće, Сирће
+sk:ocot
+sl:kis
+so:khal
+sr:sirće, сирће
 sv:ättika, vinäger
 ta:புளிங்காடி
-tg:Suka
+tg:suka
 th:น้ำส้มสายชู
-tr:Sirke
-uk:Оцет
+tr:sirke
+uk:оцет
 ur:سرکہ
-uz:Sirka
+uz:sirka
 vi:giấm
 yi:עסיג
 zh:醋
 # arc:ܚܠܐ
-# ast:Vinagre
-# cdo:Chó
-# eml:Asé
-# frp:Vinégro
-# lmo:Asee
-# nap:Acito
-# neds-nl:Edik
+# ast:vinagre
+# cdo:chó
+# eml:asé
+# frp:vinégro
+# lmo:asee
+# nap:acito
+# neds-nl:edik
 # pnb:سرکہ
-# rup:Puscâ
-# sah:Уксуус
-# scn:Acitu
+# rup:puscâ
+# sah:уксуус
+# scn:acitu
 # sco:veenegar
-# sgs:Uksosos
-# vec:Axedo
-# vls:Azyn
-# war:Suoy
+# sgs:uksosos
+# vec:axedo
+# vls:azyn
+# war:suoy
 wikidata:en:Q41354
 wikipedia:en:https://en.wikipedia.org/wiki/Vinegar
+ciqual_food_code:en:11018
+ciqual_food_name:en:Vinegar
+ciqual_food_name:fr:Vinaigre
 vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr:4.2
+#65744 @2021-09-25
 
 <en:vinegar
 en:white vinegar
@@ -21267,54 +21385,82 @@ nl:appelazijn
 # description:en:CIDER VINEGAR, a vinegar made from apples, sugar and yeast
 
 <en:vinegar
-en:cider vinegar, apple cider vinegar
+en:cider vinegar
 ar:خل التفاح
-bg:Ябълков оцет
-da:Æblecidereddike, æbleeddike
-de:Apfelessig, Apfelweinessig
-es:vinagre de sidra, vinagre de sidra de manzana
+de:Zideressig
+el:ξύδi απó μήλiτή
+es:vinagre de sidra
 fa:سرکه سیب
-fi:siiderietikka, omenasiiderietikka
-fr:vinaigre de cidre, vinaigre de cidre de pomme
+fi:siiderietikka
+fr:vinaigre de cidre
+it:aceto sidro
+nl:ciderazijn
+pt:vinagre de sidra
+sv:cidervinäger
+#ast:Vinagre de sidra
+
+<en:cider vinegar
+en:apple cider vinegar
+bn:আপেল সিডার ভিনেগার
+bg:ябълков оцет
+da:æblecidereddike, æbleeddike
+de:Apfelessig, Apfelweinessig
+es:vinagre de sidra de manzana
+fi:omenasiiderietikka
+fr:vinaigre de cidre de pomme
 he:חומץ תפוחים
 hu:almaecet
-it:aceto sidro
+it:aceto di mele
 ko:사과식초
-nl:ciderazijn
-pl:Ocet jabłkowy
-ru:Яблочный уксус
-sr:Јабуково сирће
-ta:Apple Cider vinikar
-uk:Яблучний оцет
+nl:appelazijn
+nn:eplecidereddik
+pl:ocet jabłkowy
+sr:јабуково сирће
+ru:яблочный уксус
+uk:яблучний оцет
 vi:Giấm táo
 zh:苹果醋片
 wikidata:en:Q618322
 wikipedia:en:https://en.wikipedia.org/wiki/Apple_cider_vinegar
+#5185 @2021-09-26
 
-<en:cider vinegar
-en:cider vinegar powder
-de:Apfelessigpulver
-es:vinagre de sidra en polvo
-fi:siiderietikkajauhe
-fr:poudre de vinaigre de cidre
-hu:almaecet por
-it:aceto sidro en polvo
-nl:appelazijnpoeder
+#processing:en: en:powder
+#<en:cider vinegar
+#en:cider vinegar powder
+#de:Apfelessigpulver
+#es:vinagre de sidra en polvo
+#fi:siiderietikkajauhe
+#fr:poudre de vinaigre de cidre
+#hu:almaecet por
+#it:aceto sidro en polvo
+#nl:appelazijnpoeder
+
+#processing:en: en:dried
+#<en:cider vinegar
+#en:dried cider vinegar
+#da:tørret æblecidereddike
+#de:getrockneter Zideressig, Apfelessigpulver
+#es:vinagre de sidra deshidratado
+#it:aceto di mele disidratato, aceto sidro en polvo
+#nl:gedroogde appelazijn
+#nn:tørket eplecidereddik
+#pt:vinagre de sidra em pó
+#sv:torkad cidervinäger
 
 # description:en:Balsamic vinegar is a very dark, concentrated, and intensely flavoured vinegar originating in Italy, made wholly or partially from grape must, grape juice with all the skins, seeds and stems.
 
 <en:vinegar
 en:balsamic vinegar
 ar:خل بلسميك
-bs:Balzamovo sirće
-ca:Vinagre balsàmic
-cs:Balzámový ocet
+bs:balzamovo sirće
+ca:vinagre balsàmic
+cs:balzámový ocet
 da:balsamicoeddike
-de:Aceto balsamico, Balsamessig, Balsamico
+de:Balsamessig, Balsamico
 el:βαλσαμικό ξύδι
-eo:Balzamvinagro
-es:Aceto balsámico, vinagre balsamico
-eu:Ozpin baltsamiko
+eo:balzamvinagro
+es:aceto balsámico, vinagre balsamico
+eu:ozpin baltsamiko
 fa:سرکه بالزامیک
 fi:balsamietikka, balsamiviinietikka, balsamico
 fr:vinaigre balsamique
@@ -21322,17 +21468,21 @@ hu:balzsamecet
 it:aceto balsamico
 ja:バルサミコ酢
 ko:발사믹 식초
-lt:Balzaminis actas
+lt:balzaminis actas
 nb:balsamico
 nl:balsamico, balsamicoazijn, balsamico-azijn
-pl:Ocet balsamiczny
-pt:Vinagre balsâmico
-ru:Бальзамический уксус
-sv:Balsamvinäger
-uk:Бальзамічний оцет
+pl:ocet balsamiczny
+pt:vinagre balsâmico
+ru:бальзамический уксус
+sv:balsamvinäger
+uk:бальзамічний оцет
 zh:意大利香醋
 wikidata:en:Q170037
 wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar
+ciqual_food_code:en:11091
+ciqual_food_name:en:Vinegar, balsamic
+ciqual_food_name:fr:Vinaigre balsamique
+#2233 @2021-09-26
 
 <en:balsamic vinegar
 en:balsamic vinegar of modena, modena balsamic vinegar
@@ -21345,11 +21495,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Balsamic_vinegar_of_Modena
 
 <en:balsamic vinegar
 en:white balsamic vinegar
+da:hvid balsamicoeddike
 de:weißer balsamico Essig
-fi:vaalea balsamietikka
+el:λευκό βαλσαμικό ξύδι
+fi:vaalea balsamietikka, valkoinen balsamiviinietikka
 fr:vinaigre balsamique blanc
 hu:fehér balzsamecet
-it:Aceto balsamico bianco
+it:aceto balsamico bianco
 sv:vit balsamvinäger
 
 <en:white balsamic vinegar
@@ -22825,27 +22977,35 @@ en:Marsala wine
 ar:نبيذ مارسالا
 be:Марсала
 bg:Марсала
+cs:víno Marsala
 da:Marsala
 de:Marsala
-es:Marsala
-fi:marsala, marsala-viini
+el:κρασί Μαρσάλα
+eo:Marsala
+es:Marsala, vino de Marsala
+fa:شراب مارسالا
+fi:Marsala, marsala-viini
 fo:Marsalavín
 fr:vin marsala, vin Marsala AOC, marsala
+he:מרסלה
 hr:Marsala
 hu:Marsala
 id:Anggur Marsala
-it:vino marsala
+it:vino marsala, vino di Marsala
 ja:強化ワイン
 lt:Marsala
 nb:Marsala
 nl:Marsala
 pl:Marsala
-pt:Vinho Marsala
+pt:Vinho Marsala, vinho de Marsala
 ro:Vin de Marsala
 ru:Марсала
 sh:Marsala
+sk:Marsala, víno Marsala
 sv:Marsalavin
 uk:Марсала
+xx:Marsala
+# da,de,es,fifr,hr,hu,lt,nb,nl,pl,sh
 zh:玛萨拉酒
 # be-tarask:Марсала
 # scn:Marsala
@@ -22854,9 +23014,12 @@ zh:玛萨拉酒
 # zh-hk:瑪薩拉酒
 wikidata:en:Q842052
 wikipedia:en:https://en.wikipedia.org/wiki/Marsala_wine
-# fr:vin-marsala has 53 products in 2 languages @2018-10-29
+ciqual_food_code:en:1015
+ciqual_food_name:en:Marsala wine
+ciqual_food_name:fr:Marsala
 protected_name_type:en: en:aoc
 origins:en: en:France
+#227 @2021-09-25
 
 # description:en:PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
@@ -23226,10 +23389,95 @@ nl:Campari
 
 <en:alcohol
 en:cider, apple cider
-de:Apfelmost
+af:sider
+an:sidra
+#ang:æppelwīn
+ar:سيدر
+#ast:sidra
+az:sidr
+be:сідр
+bg:сайдер
+br:sistr
+ca:sidra
+cs:cider
+cv:сидр
+cy:seidr
+da:æblevin, cider
+de:Apfelmost, Apfelschaumwein, Apfelwein 
+el:μηλίτης
+eo:cidro
 es:sidra, sidra de manzana
+et:siider
+eu:sagardo
+fa:شراب سیب
+fi:siideri
+fo:cider
 fr:cidre
-nl:appelcider
+ga:ceirtlis
+gd:lionn-ubhal
+gl:sidra
+gv:lhune ooyl
+he:סיידר
+hr:jabučno vino
+hu:almabor
+hy:խնձորօղի
+id:cider
+io:cidro
+is:síder
+it:sidro
+ja:シードル
+jv:cidher
+ka:სიდრი
+kk:сидр
+ko:사과주
+kw:cider
+la:sicera
+#lad:sidra
+lt:sidras
+lv:sidrs
+mk:јаболковина
+ml:സിഡാർ
+ms:sider
+#nah:manzanaoctli
+nb:sider
+nl:cider, appelcider
+nn:sider
+#nrm:beire
+oc:pomat
+pa:ਸੀਡਰ
+#pcd:cite
+pl:cydr, jabłecznik 
+pt:sidra
+ro:cidru
+ru:сидр
+sh:cider
+sk:cíder
+sl:jabolčno vino
+sq:verë molle
+sr:цидер
+#sr-la:cider
+sv:cider
+th:ไซเดอร์
+tl:sidra
+tr:elma şarabı
+uk:сидр
+vi:cider
+#war:sidra
+#wuu:苹果酒
+#xmf:სიდრი
+#yue:蘋菓酒
+zh:苹果酒
+#zh-cn:苹果酒
+#zh-hs:苹果酒
+#zh-ht:蘋果酒
+#zh-hk:蘋果酒
+#zh-sg:苹果酒
+#zh-tw:蘋果酒
+wikidata:en:Q167296
+ciqual_food_code:en:5020
+ciqual_food_name:en:Cider
+ciqual_food_name:fr:Cidre traditionnel
+#394 in 6 2021-09-25
 
 <en:alcohol
 en:whiskeys
@@ -25598,68 +25846,80 @@ sv:vetekross
 
 <en:wheat
 en:durum wheat
-af:Durum
+af:durum
 ar:قمح صلب
-ca:Blat dur
-cs:Semolina
-cy:Gwenith barfog
-da:Durumhvede
+bg:твърда пшеница
+ca:blat dur
+cs:pšenice tvrdá
+cy:gwenith barfog
+da:durumhvede, hård hvede
 de:Hartweizen
-eo:Durum-tritiko
-es:trigo duro, Triticum durum, trigo candeal
-eu:Gari gogor
+el:σιτάρι Durum, σκληρός σίτος
+eo:durum-tritiko
+es:trigo duro, trigo candeal
+et:durumnisu
+eu:gari gogor
 fa:گندم الجزایری
-fi:Durumvehnä
+fi:durumvehnä
 fr:blé dur
-ga:Dúram
+ga:dúram, cruithneacht chrua
 gl:trigo duro
 he:דורום
+hr:tvrda pšenica
 hu:durumbúza
 it:grano duro
 ja:デュラムコムギ
 ka:მაგარი ხორბალი
 ko:듀럼밀
-ky:Катуу буудай
-lt:Kietasis kvietys
-ms:Durum
-nb:Durumhvete
-nl:durum tarwe, Durumtarwe
-oc:Blat dur
-pl:Pszenica twarda
+ky:катуу буудай
+lt:kietasis kvietys
+lv:cietais kviesis
+ms:durum
+mt:qamħ durum
+nb:durumhvete
+nl:durum tarwe, durumtarwe
+nn:durumkveite
+oc:blat dur
+pl:pszenica twarda
+pt:trigo-duro
 ro:grâu dur
-ru:Пшеница твёрдая
-sl:Trda pšenica
-sv:Durumvete
-tr:Durum buğdayı
-vi:Lúa mì cứng
+ru:пшеница твёрдая
+sk:pšenica tvrdá
+sl:trda pšenica
+sv:durumvete
+tr:durum buğdayı
+vi:lúa mì cứng
 zh:硬粒小麦
-# ceb:Triticum durum
-# lmo:Triticum durum
 # xmf:კიჭიბე ქობალკაკალი
 wikipedia:en:https://en.wikipedia.org/wiki/Durum
 wikidata:en:Q618324
 
-<en:durum wheat
-en:organic durum wheat
-fi:luomu durumvehnä
-fr:Blé dur biologique
-hu:bio durumbúza
-sv:ekologiskt durumvete
-
-<en:durum wheat
-fr:blé dur précuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-précuit/
+#<en:durum wheat
+#en:organic durum wheat
+#fi:luomu durumvehnä
+#fr:Blé dur biologique
+#hu:bio durumbúza
+#sv:ekologiskt durumvete
 
 <en:durum wheat
 fr:blé dur concassé
 bg:вид едра твърда пшеница
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-concassé/
+es:trigo duro molido
+nl:gebroken harde tarwe
+#43 in 3 @2021-09-28
 
-<fr:blé dur précuit
+<en:durum wheat
+en:pre-cooked durum wheat, pre-cooked durum
+fr:blé dur précuit
+# 167 @2021-09-28
+
+
+<en:pre-cooked durum wheat
 fr:blé dur précuit concassé
+nl:gemalen voorgekookte harde tarwe
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé-dur-précuit-concassé/
 
-<fr:blé dur précuit
+<en:pre-cooked durum wheat
 fr:Grains de blé dur précuits
 
 <en:durum wheat
@@ -25678,74 +25938,90 @@ fr:blé dur complet
 
 <en:Durum wheat flour
 <en:wholemeal flour
-en:Durum whole wheat flour
+en:durum whole wheat flour
 de:Hartweizenvollkornmehl, Hartweizenvollkorngrieß
 fi:täysjyvädurumvehnäjauho
 fr:farine complète de blé dur
 hu:durumbúzaiszt, durum búzaliszt
 nl:volkoren tarwegriesmeel
+ru:цельно зерновая мука из твердых сортов пшеницы
+#145 in 7 @2021-09-28
 
 <en:semolina
 <en:durum wheat
 # <en:Couscous
 en:durum wheat semolina, durum semolina
+ar: سيولينا قمح صلب
+bg:грис от твърда пшеница
+bs:krupica durum pšenice
+ca:sèmola de blat dur
+cs:krupice z tvrdé pšenice
 da:durumhvede semulje, durumhvedesemulje
 de:Hartweizengrieß, Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro, sémola de trigo candeal
+et:durumnisujahu
 fi:durumvehnäsuurimo
 fr:semoule de blé dur, semoule de blé dure
+ga:seimilín cruithneachta dúraim
 hr:krupica durum pšenice
 hu:durumbúzadara, durum búzadara
 it:semola di grano duro
+lt:kietųjų kviečių manų kruopos
+lv:cieto kviešu manna
+mt:dqiq tal-qamħ durum
 nb:durumhvete semule, durum semulegryn
-nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries, griesmeel van harde tarwe
-pl:Kasza z pszenicy durum
+nl:harde tarwe griesmeel, durum tarwegries, harde tarwegries, griesmeel van harde tarwe, durum tarwegriesmeel
+oc:semola de blat dur
+pl:kasza z pszenicy durum
 pt:sêmola de trigo duro
 ro:griș din grâu, griș de grău
-ru:манная крупа, крупа манная
+ru:манная крупа, крупа манная, борошно з пшеннци тверднх сортив
+sk:krupica z tvrdej pšenice
 sl:pšenični zdrob durum
+sr:krupica durum pšenice
 sv:durumvetegryn
 tr:durum buğdayı ırmığı
 zh:硬质粗粒小麦粉
-ciqual_food_code:en:9683
-ciqual_food_name:en:Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
-ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
+wikidata:en:Q95370124
+ciqual_food_code:en:9610
+ciqual_food_name:en:Durum wheat semolina, raw
+ciqual_food_name:fr:Semoule de blé dur, crue
+#13020 in 29 @2021-09-28
 
-<en:durum wheat semolina
-<en:Durum wheat flour
-nl:durum tarwegriesmeel
-
-<en:durum wheat semolina
-en:organic durum wheat semolina
-de:Bio Hartweizengriess
-fi:luomu durumvehnäsuurimo
-fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture biologique
-hu:bio durumbúzadara, bio durum búzadara
-it:semola di grano duro bio
-nl:biologische harde tarwegries
+#<en:durum wheat semolina
+#en:organic durum wheat semolina
+#de:Bio Hartweizengriess
+#fi:luomu durumvehnäsuurimo
+#fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture #biologique
+#hu:bio durumbúzadara, bio durum búzadara
+#it:semola di grano duro bio
+#nl:biologische harde tarwegries
 # ingredient/fr:semoule-de-ble-dur-bio has 9 products @2019-05-27
 
-<en:durum wheat semolina
-en:organic superior quality durum wheat semolina
-fr:Semoule de blé dur biologique de qualité supérieure, semoule de blé dur de qualité supérieure issue de l'agriculture biologique, semoule de blé dur de qualité supérieure issu de l'agriculture biologique, semoule de blé dur de qualité supérieure biologique, Semoule de blé dur de qualité supérieure issu de la Filière Alpina Savoie
+#<en:durum wheat semolina
+#en:organic superior quality durum wheat semolina
+#fr:Semoule de blé dur biologique de qualité supérieure, semoule de blé dur de qualité supérieure #issue de l'agriculture biologique, semoule de blé dur de qualité supérieure issu de l'agriculture #biologique, semoule de blé dur de qualité supérieure biologique, Semoule de blé dur de qualité #supérieure issu de la Filière Alpina Savoie
 # ingredient/fr:semoule-de-ble-dur-de-qualite-superieure-issue-de-l-agriculture-biologique has 15 products in french @2019-05-23
 
-<en:durum wheat semolina
-fr:semoule de blé dur réhydratée
+#processing:en: en:rehydrated
+#<en:durum wheat semolina
+#fr:semoule de blé dur réhydratée
 
-<en:durum wheat semolina
-fr:Semoule de blé dur sélectionnée
-# ingredient/fr:semoule-de-ble-dur-selectionnee has 14 products in french @2019-05-23
+#processing:en: en:selected
+#<en:durum wheat semolina
+#fr:Semoule de blé dur sélectionnée
+# 15 in fr @2021-09-28
 
-<en:durum wheat semolina
-en:superior quality durum wheat semolina
-de:hochwertiger Hartweizengrieß
-es:sémola de trigo duro de calidad superior
-fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
-it:semola di grano duro di qualità superiore
-nl:durumtarwegriesmeel van hoge kwaliteit
-pt:sêmola de trigo rijo de qualidade superior
+#processing:en: en:superior quality
+#<en:durum wheat semolina
+#en:superior quality durum wheat semolina
+#de:hochwertiger Hartweizengrieß
+#es:sémola de trigo duro de calidad superior
+#fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
+#it:semola di grano duro di qualità superiore
+#nl:durumtarwegriesmeel van hoge kwaliteit
+#pt:sêmola de trigo rijo de qualidade superior
 
 <en:durum wheat semolina
 fr:semoule blanche de blé dur
@@ -25758,33 +26034,37 @@ fr:semoule de blé dur blanche biologique
 fr:semoule blanche de blé dur biologique de sicile
 
 <en:durum wheat semolina
-en:semi-whole durum wheat semolina
+en:semi-whole durum wheat semolina, semi-complete durum wheat semolina
 de:Halbvollkorn-Hartweizengrieß, Hartweizengrieß halbvollkorn
 fr:semoule de blé dur demi-complète. semoule semi-complète de blé dur, semoule demi-complète de blé dur, Semoule de blé dur semi-complète
 nl:halfvolkoren harde tarwegriesmeel
-# ingredient/fr:semoule-de-ble-dur-demi-complete has 22 products in 2 languages @2019-05-24
-# ingredient/fr:semoule-semi-complète-de-blé-dur has 18 products in 1 language @2018-09-22
+# 61 in 2 @2021-09-28
 
-<en:semi-whole durum wheat semolina
-en:organic semi-whole durum wheat semolina
-fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de blé dur demi-complète biologique
+#<en:semi-whole durum wheat semolina
+#en:organic semi-whole durum wheat semolina
+#fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de #blé dur demi-complète biologique
 # ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
 
 <en:durum wheat semolina
-en:whole durum wheat semolina, durum wholewheat semolina
+en:whole durum wheat semolina, durum wholewheat semolina, Whole durum semolina
 bs:integralna krupica durum pšenice
+da:fuldkorns durumhvede
 de:Vollkorn-Hartweizengriß, Vollkorn-Hartweizengrieß
-el:σιμιγδάλι αλέσεως σκληρού σιταριού
+el:σιμιγδάλι αλέσεως σκληρού σιταριού, σιμιγδάλι ολικής αλέσεως σκληρού σιταριού
 es:sémola de trigo candeal integral
+fi:durum-täysjyvävehnäjauho
 fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
-hr:integralna krupica durum pšenice
-hu:teljes kiőrlésű durumbúzadara
+hr:integralna krupica durum pšenice, integralne krupice durum pšenice
+hu:teljes kiőrlésű durumbúzadara, teljes kiőrlésű durum búzaliszt
 it:semola di grano duro integrale, semola integrale di grano duro
 nl:volkoren griesmeel van harde tarwe
+nn:fullkornsdurumhvete
+pt:semola integral de trigo duro
+ru:Органичесая цельнозерновая мука из твердых сортов пшеницы
 sl:polnozrnati pšenični zdrob durum
 sr:integralna krupica durum pšenice
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-dur-complète/
-# 33+49 products in 11 languages @20180922
+sv:fullkornsdurumvete
+# 350 in 20 @2021-09-28
 
 <en:durum wheat semolina
 fr:semoule de blé dur précuite
@@ -25793,12 +26073,32 @@ fr:semoule de blé dur précuite
 
 # description:en:Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 <en:durum wheat
-en:freekeh
-de:Freekeh
-fr:freekeh
+en:freekeh, cooked spelt freekeh, frik
+ar:فريكة
+ba:фәрикә
+de:Freekeh, Farik
+fr:freekeh, blé vert freekeh, frik
+he:פריקה
+it:freekeh
+ja:フリーカ
+jv:freekeh
+nl:freekeh
 pt:freekeh
+ru:фрике
+tr:firik
+zh:翡麦
 wikidata:en:Q771079
 wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
+ciqual_food_code:en:51510
+ciqual_food_name:en:Frik (crushed immature durum wheat), raw
+ciqual_food_name:fr:Frik (blé dur immature concassé), cru
+
+#processing:en: en:cooked
+#<en:freekeh
+#en:cooked freekeh
+#fr:freekeh cuit
+
+
 
 ##################################################################################
 #
@@ -25896,13 +26196,14 @@ es:Sémola
 et:Manna
 fi:suurimo
 fr:Semoule
-hu:dara
+hu:dara, gríz
 it:Semolina
 ja:セモリナ
 nb:semulegryn, semule
 nl:gries
 oc:Semola
 pl:Kasza manna
+ru:манная крупа, крупа манная
 sv:semolinagryn
 vegan:en:yes
 vegetarian:en:yes
@@ -25923,10 +26224,10 @@ ca:semola de blat
 cs:pšeničná krupice
 de:Weizengrieß, Weizengriess
 el:σιμιγδάλι σίτου
-es:sémola de trigo,semolina de trigo
+es:sémola de trigo, semolina de trigo
 fi:mannasuurimo, vehnäsuurimo
 fr:semoule de blé
-hu:búzadara, gríz
+hu:búzadara
 it:semolino di frumento
 nl:tarwegries, tarwegriesmeel
 pt:sêmola de trigo
@@ -25935,11 +26236,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
+#980 @2021-09-28
 
+#comment:en:This is in many languages synonym of en:wheat semolina
 <en:wheat semolina
 fr:semoule de blé tendre
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-blé-tendre/
-# 20 products in 1 language @20180922
+it:granito di grano tenero
+nl:zachte tarwegriesmeel
+# 22 in 1 language @2021-09-28
 
 ##################################################################################
 #
@@ -26806,14 +27110,14 @@ comment:en:oat does not contain gluten, but is often contaminated by gluten cont
 # yue:燕麥
 wikipedia:en:https://en.wikipedia.org/wiki/Oat
 
-<en:oat
-en:organic oat
-de:Bio-Hafer
-es:Avena orgánica
-fi:luomukaura, luomu kaura
-fr:avoine biologique
-hu:bio zab
-ru:Органический овес
+#<en:oat
+#en:organic oat
+#de:Bio-Hafer
+#es:Avena orgánica
+#fi:luomukaura, luomu kaura
+#fr:avoine biologique
+#hu:bio zab
+#ru:Органический овес
 # ingredient/fr:avoine-biologique has 12 products in french @2019-05-25
 
 <en:oat
@@ -26825,16 +27129,18 @@ sv:havregryn
 # ingredient/en:oat-grain has 15 products in 1 language @2020-07-06
 
 <en:oat
-en:wholemeal oat, wholegrain oats
-de:Vollkornhafer, Vollkorn-Hafer
+en:wholemeal oat, wholegrain oats, whole grain oats
+de:Vollkornhafer, Vollkorn-Hafer, Vollkornhaferglocken
 el:Βρώμη ολικής άλεσης
-es:Avena integral
+es:Avena integral, Avena entera en grano
+et:täisterakaer
 fi:täysjyväkaura
-fr:avoine complète
+fr:avoine complète, Avoine complet
 hu:teljes kiőrlésű zab
 it:Avena integrale
 nl:volkoren haver
 sv:fullkornshavre
+
 
 <en:oat
 en:gluten free oats
@@ -26844,43 +27150,59 @@ fr:avoine sans gluten
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 <en:oat
-en:oat flakes, oatflakes, rolled oats
-ca:flocs de civada gruixuts, flocs de civada
+en:oat flakes, oatflakes, rolled oats, oatmeal flakes, 
+af:hawermout
+ar:رقانق الشوفان
+bg:овесени ядки
+ca:flocs de civada
 cs:ovesné vločky
-da:Havregryn
-de:Haferflocken
+da:havregryn, havreflager
+de:haferflocken
 el:νιφάφες βρώμης
-eo:Avenflokoj
-es:copos de avena,hojuela de Avena
+eo:avenflokoj
+es:copos de avena, hojuela de avena
 et:kaerahelbed
-eu:Olo-malutak
+eu:olo-malutak
 fi:kaurahiutale, kaurahiutaleet, kaurahiutaleita
 fr:flocons d'avoine, flocon d'avoine
+he:פתיתי שיבולת שועל
+hr:ječmene pahuljice
 hu:zabpehely
+hy:Վարսակի փաթիլներ
 it:fiocchi di avena, fiocchi d'avena
 ja:ロールド・オーツ, オート麦フレーク
+jv:Oat gulung
 ko:납작귀리
 lt:avižiniai dribsniai
 lv:auzu pārslas
-ms:Emping oat
-nb:havreflak, havregryn
+ms:emping oat
+nb:havregryn
 nl:havermoutvlokken, havermout, havervlokken, havervlok
 pl:płatki owsiane
 pt:flocos de aveia
-ro:fulgi de ovăz, Haferflocken
-ru:Овсяные хлопья, хлопья овсяные
+ro:fulgi de ovăz
+ru:овсяные хлопья, хлопья овсяные
+sk:ovsené vločky
+sl:ovseni kosmiči
+sr:ovsene pahuljice
 sv:havreflingor, havreflager, havregryn
-tr:Tahıl ezmesi
-uk:Вівсяні пластівці
+th:เกล็ดข้าวโอ๊ต
+tr:tahıl ezmesi, yulaf ezmesi
+uk:вівсяні пластівці
 zh:大燕麥片
-# bar:Howanfloggn
-# de-ch:Haferflocken
+# bar:howanfloggn
+# de-ch:haferflocken
 # en-ca:rolled oats
 # en-gb:rolled oats
-# pt-br:Flocos de aveia
-# szl:Hawerfloki
+# pt-br:flocos de aveia
+# szl:hawerfloki
+ciqual_food_code:en:9311
+ciqual_food_name:en:Oatmeal flakes
+ciqual_food_name:fr:Flocon d'avoine
 wikidata:en:Q1208221
 wikipedia:en:https://en.wikipedia.org/wiki/Rolled_oats
+#6643 @2021-09-22
+
 
 <en:oat flakes
 en:gluten-free oat flakes
@@ -26891,14 +27213,77 @@ fr:flocons d'avoine sans gluten
 hu:gluténmentes zabpehely
 it:fiocchi di avena senza glutine, fiocchi d'avena senza glutine
 
+<en:oat flakes
+en:whole grain oat flakes, wholegrain oat flakes, whole grain rolled oats, whole oat flakes
+ca:floca de civada integral,flocs de civada integral
+da:fullkornshavregryn
+de:Vollkorn-Haferflocken, Vollkornhaferflocken, Vollkorn haferflocken, Hafervollkornflocken, Vollkornhaferschrot
+es:copos de avena integrales, copos de avena integral, copos de avena integral laminados, Avena integral laminada
+et:täisterakaerahelbed, täistera kaerahelbed
+fi:täysjyväkaurahiutale
+fr:Flocon d'avoine complet, flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+hu:teljes kiőrlésű zabpehely
+it:fiocchi di avena integrale, fiocchi d'avena integrale, Fiocchi d'avena integrali
+lt:pilno grūdo avižiniai dribsniai
+lv:pilngraudu auzu pārslas
+nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
+nn:fullkornshavregryn
+pl:płatki owsiane z pełnego przemiału
+pt:flocos de aveia integral
+sl:ovseni polnozrnati kosmiči
+sv:fullkornshavregryn
+
+<en:whole grain oat flakes
+en:british wholegrain oat flakes
+
+<en:cereal flour
 <en:oat
-en:oat oil
-de:Haferöl, Haferkernöl
-es:aceite vegetal avena
+en:oat flour, oatflour
+cs:Ovesná mouka
+da:havremel
+de:Hafermehl, Haferbrei
+el:βρμης αλεύρρυζού
+es:harina de avena, semola de avena
+fi:kaurajauho
+fr:farine d'avoine
+he:קמח שיבולת שועל
+hu:zabliszt
+it:farina d'avena, farina di avena
+ja:オート麦粉
+mt:dqiq tal-ħafur
+nb:havremel
+nl:havermeel
+pl:mąka owsiana
+pt:farinha de aveia
+ru:овсяная мука, мука овсяная
+sk:ovsená múka
+sv:havremjöl
+wikidata:en:Q84470231
+#1041 @2021-09-22
+
+<en:oat flour
+<en:wholemeal flour
+en:wholemeal oat flour, whole grain oat flour
+de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
+es:Harina de avena integral, harina integral de avena
+fi:täysjyväkaurajauho, täysjyväkaurajauhoa
+fr:farine d'avoine complète, farine complète d'avoine
+hu:teljes kiőrlésű zabliszt
+it:farina di avena integrale
+nl:volkorenhavermeel
+pl:mąka owsiana pełnoziarnista
+pt:farinha de aveia integral
+sv:fullkornshavremjöl
+
+<en:oat flour
+en:gluten free oat flour
+es:harina de avena libre de gluten, harina de avena sin gluten
+fr:farine d'avoine sans gluten
 
 <en:oat
 <en:vegetable fibre
 en:oat fibre
+bg:овесени влакнини
 da:Havrefibre
 de:Haferfasern
 el:εδώδιμες ινες βρώμης
@@ -26910,77 +27295,63 @@ it:fibra d'avena
 nl:havervezel
 pt:fibra de aveia
 ro:fibre de ovăz
+sk:ovsená vláknina
+sl:zobena vlakna
 sv:havrefiber
+wikidata:en:Q108654342
+#2903 @2021-09-22
 
 <en:oat fibre
 en:gluten free oat fibre
 de:glutenfreie Haferfaser
 fr:Fibre d'avoine sans gluten
 
-<en:oat
-en:whole grain rolled oats, whole oat flakes
-ca:floca de civada integral,flocs de civada integral
-da:fullkornshavregryn
-de:Vollkorn-Haferflocken, Vollkorn haferflocken, Vollkornhaferflocken, Hafervollkornflocken, Vollkornhaferschrot
-es:Avena integral laminada
-fi:täysjyväkaurahiutale
-fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
-hu:teljes kiőrlésű zabpehely
-it:fiocchi di avena integrale, fiocchi d'avena integrale
-nl:volkoren havermout, volkoren havervlokken, volkorenhavervlokken
-nn:fullkornshavregryn
-pl:płatki owsiane z pełnego przemiału
-pt:flocos de aveia integral
-sv:fullkornshavregryn
 
-<en:oat
-en:whole grain oats
-de:Vollkornhaferglocken
-el:Βρώμη ολικής άλεσης
-es:Avena entera en grano
-et:täisterakaer
-fi:täysjyväkaura
-fr:Avoine complet
-it:avena integrale
-sv:fullkornshavre
-
-<en:oat
-en:whole grain oat flakes, wholegrain oat flakes
-de:Vollkorn-Haferflocken, Vollkornhaferflocken
-es:copos de avena integrales, copos de avena integral, copos de avena integral laminados
-et:täisterakaerahelbed, täistera kaerahelbed
-fr:Flocon d'avoine complet
-it:Fiocchi d'avena integrali
-lt:pilno grūdo avižiniai dribsniai
-lv:pilngraudu auzu pārslas
-nl:volkoren havervlokken
-sl:ovseni polnozrnati kosmiči
-
-<en:whole grain oat flakes
-en:british wholegrain oat flakes
 
 <en:oat
 en:oat bran, oatbran
+da:havreklid
 de:Haferkleie
-es:Salvado de avena
+es:salvado de avena
 fi:kauralese
 fr:son d'avoine
 hu:zabkorpa
 it:crusca d'avena
-nl:Haverzemelen
+kk:сұлы кебегі
+nl:haverzemelen, haverzemelen met kiem
+nn:havreklid
+pt:salvado de avena
+ru:отруби овсяные
+sv:havrekli
+wikidata:en:Q15818990
 ciqual_food_code:en:9640
 ciqual_food_name:en:Oat bran
 ciqual_food_name:fr:Son d'avoine
-
-<en:oat bran
-nl:Haverzemelen met kiem
-# ingredient/nl:haverzemelen-met-kiem has 1 product @2019-5-24
+#1256 @2021-09-22
 
 <en:oat
 en:oat milk
+ar:حليب الشوفان
+cs:ovesné mléko
 de:Hafermilch
+da:havredrik
+eo:avenlakto
 es:bebida de avena
+et:kaerahelbepiim
+fi:kauramaito
 fr:Lait d'avoine
+he:חלב שיבולת-שועל
+jv:susu oat
+nl:havermelk
+pl:mleko owsiane
+se:hávvarmielki
+#smn:haavvârmielkki
+#sms:ååʹvesmieʹlǩǩ
+uk:вівсяне молоко
+sv:havredryck
+zh:燕麦奶
+wikidata:en:Q20972637
+#28 @2021-09-22
 
 # <en:compound
 en:oat base
@@ -26996,20 +27367,13 @@ sv:havrebas
 # mainIngredient:en:water
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
 
-<en:oat
-en:oatmeal, oat meal
-de:Hafermehl, Haferbrei
-es:semola de avena
-fr:Flocons d'avoine
-it:Fiocchi d'avena
-
 <en:vegetable protein
 en:oat protein
 de:haferprotein
 fi:kauraproteiini
 fr:protéine d'avoine, protéines d'avoine
 sv:havreprotein
-# ingredient/fr:proteine-d'avoine has 3 products in 1 language @2020-06-08
+# 20 in 1 language @2021-09-22
 
 
 ##################################################################################
@@ -27022,62 +27386,63 @@ sv:havreprotein
 
 en:quinoa
 ar:كينوا
-ay:Jiwra
-az:Kinoa
-bg:Киноа
-ca:Quinoa
-cs:Merlík čilský
-da:Quinoa
-de:Quinoa
-el:Κινόα
-eo:Kvinoo
+ay:jiwra
+az:kinoa
+bg:киноа
+cs:merlík čilský
+da:quinoa, kvinoa, peruansk ris
+de:Quinoa, Reismelde, peruanischer Reis
+el:κινόα, χηνοπόδιον η κουινόα
+eo:kvinoo
 es:quinoa, quinua, quinoa real
-et:kinoa, Tšiili hanemalts
-eu:Kinoa
+et:kinoa, tšiili hanemalts
+eu:kinoa
 fa:کینوآ
-fi:Kvinoa
-fr:quinoa
-gl:Quinoa
+fi:kvinoa
+ga:cuineo
 he:קינואה
 hi:क्विन्वा
-hr:Kvinoja
+hr:kvinoja
 hu:kinoa, quinoa, rizsparéj
-id:Kinoa
-is:Kínóa
-it:Quinoa
+hy:uագախոտ
+id:kinoa
+is:kínóa
 ja:キヌア
 kn:ಕೀನೋವಾ
 ko:퀴노아
-la:Chenopodium quinoa
-lt:Bolivinė balanda
-ms:Kuinoa
-nb:Quinoa
-nl:Quinoa
-nn:Quinoa
-pl:Komosa ryżowa, quinoa
-pt:Quinoa
-qu:Kinwa
-ro:Quinoa
-ru:Киноа
-sh:Kinoa
-sl:Kvinoja
-sv:Quinoa
+la:chenopodium quinoa
+lt:bolivinė balanda
+ms:kuinoa
+nl:quinoa, gierstmelde
+pl:komosa ryżowa, quinoa
+qu:kinwa
+ru:киноа
+sh:kinoa
+sl:kvinoja
+sr:kvinoja
+ta:கினோவா
 th:กีนัว
-tl:Quinoa
-tr:Kinoa
-uk:Кіноа
-vi:Diêm mạch
+tr:kinoa
+uk:кіноа
+vi:diêm mạch
+xx:quinoa
+# tl:,sv:,ro:,pt:,oc:,nn:,nb:,it:,gl:,fr:,ca:
+# arn:dawe
 # ast:quinua
-# ceb:Chenopodium quinoa
-# frr:Kinoa
-# pam:Quinoa
-# sco:Quinoa
-# war:Chenopodium quinoa
+# ceb:chenopodium quinoa
+# frr:kinoa
+# pam:quinoa
+# sco:quinoa
+# war:chenopodium quinoa
+#wuu:藜麦
 # yue:藜麥
 vegan:en:yes
 vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Quinoa
 wikidata:en:Q139925
+ciqual_food_code:en:9340
+ciqual_food_name:en:Quinoa, raw
+ciqual_food_name:fr:Quinoa, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
 # 425 products in 6 languages @2018-09-22
 nutriscore_fruits_vegetables_nuts:en:no
@@ -27105,9 +27470,11 @@ it:Quinoa rossa
 en:black quinoa
 de:schwarzes Quinoa, schwarzer Quinoa, Quinoa schwarz
 es:quinoa negra
-fr:Quinoa noir
-pt:Quinoa preta
-
+fr:quinoa noir
+it:quinoa nera
+nl:zwarte quinoa
+pt:quinoa preta
+#97 in 6 @2021-09-21
 
 # ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
 <en:red quinoa
@@ -27133,10 +27500,15 @@ de:weißes Quinoamehl, weißes Quinoa-Mehl
 es:harina de quinoa blanca
 fr:Farine de quinoa blanche
 
+<en:white quinoa
+en:cooked white quinoa
+
 <en:quinoa
+en:cooked quinoa
+da:kogt quinoa
 fr:quinoa cuit
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
-# 49 products in 1 language @2018-09-22
+# 99 in 1 language @2021-09-21
 
 <en:red quinoa
 <en:white quinoa
@@ -28158,14 +28530,24 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
 <en:cereal flour
 en:spelt flour
-ca:Farina d'espelta
-de:Dinkelmehl, dinkelweizenmehl
-es:harina de espelta,harina de trigo espelta,harina gruesa de espelta
+ca:farina d'espelta
+de:Dinkelmehl, Dinkelweizenmehl
+es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
 fi:spelttijauho
 fr:farine d'épeautre, farine de blé d'épeautre
 hu:tönkölyliszt
 it:farina di spelta, farina di farro
+la:Triticum spelta
 nl:speltmeel, speltbloem
+pl:mąka orkiszowa
+pt:farinha de espelta
+sk:múka z pšenice špaldy
+sv:speltvetemjöl, dinkelmjöl
+ciqual_food_code:en:9480
+ciqual_food_name:en:Spelt flour
+ciqual_food_name:fr:Farine d'épeautre (grand épeautre)
+wikidata:en:Q3066924
+#1496 in 14 @2021-09-24
 
 <en:spelt flour
 de:Dinkelmehl Type 630
@@ -28189,6 +28571,7 @@ fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeau
 hu:teljes kiőrlésű tönkölyliszt
 it:farina integrale di spelta
 nl:volkoren speltmeel
+pt:farinha integral de espelta
 sv:fullkornsspeltvetemjöl
 
 <en:spelt flour
@@ -28202,61 +28585,30 @@ fr:farine d'épeautre dextrinée
 hu:dextrinált tönkölyliszt
 nl:gedextrineerd speltmeel
 
-# Question
 
-<en:cereal flour
-en:oat flour, oatflour
-cs:Ovesná mouka
-da:Havremel
-de:Hafermehl
-es:harina de avena
-fi:kaurajauho
-fr:farine d'avoine
-he:קמח שיבולת שועל
-hu:zabliszt
-it:farina d'avena, farina di avena
-nb:havremel
-nl:havermeel
-pl:mąka owsiana
-pt:farinha de aveia
-ru:овсяная мука, мука овсяная
-sv:havremjöl
 
-# Question
-
-<en:oat flour
-<en:wholemeal flour
-en:wholemeal oat flour, whole grain oat flour
-de:Hafer-Vollkornmehl, Hafervollkornmehl, Vollkorn-Hafermehl, Vollkornhafermehl
-es:Harina de avena integral, harina integral de avena
-fi:täysjyväkaurajauho, täysjyväkaurajauhoa
-fr:farine d'avoine complète, farine complète d'avoine
-hu:teljes kiőrlésű zabliszt
-it:farina di avena integrale
-nl:volkorenhavermeel
-pl:mąka owsiana pełnoziarnista
-pt:farinha de aveia integral
-sv:fullkornshavremjöl
-
-<en:oat flour
-en:gluten free oat flour
-es:harina de avena libre de gluten, harina de avena sin gluten
-fr:farine d'avoine sans gluten
-
-<en:cereal flour
+<en:buckwheat
 en:buckwheat flour
 da:boghvedemel
 de:Buchweizenmehl
+el:αλέυρι φαγόπυρου
 es:harina de sarraceno, harina de alforfon
 fi:tattarijauho
 fr:farine de sarrasin, farine de blé noir
 hu:hajdinaliszt
 it:farina di grano saraceno
-ja:そば粉
+ja:蕎麦粉
 nb:bokhvetemel
 nl:boekweitmeel
+pl:mąka gryczana
 pt:farinha de trigo mourisco
+ru:мука гречневая
 sv:bovetemjöl
+wikidata:en:Q11621982
+ciqual_food_code:en:9540
+ciqual_food_name:en:Buckwheat flour
+ciqual_food_name:fr:Farine de sarrasin
+#1493 @2021-09-27
 
 <en:buckwheat flour
 fr:galette en blé noir
@@ -35622,7 +35974,7 @@ it:Lievito naturale
 ja:サワードウ
 ko:사워도
 nb:Surdeig
-nl:Zuurdesem, zuurdeeg
+nl:Zuurdesem, zuurdeeg, desem
 nn:Surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
@@ -35661,7 +36013,7 @@ fi:vehnätaikinanjuuri, vehnähapantaikina
 fr:levain de blé, levain panaire de blé
 it:lievito madre di frumento
 nb:surdeig av hvete
-nl:tarwe zuurdesem
+nl:tarwe zuurdesem, tarwedesem
 sv:vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
@@ -35680,7 +36032,7 @@ de:Roggensauerteig
 es:masa madre de centeno
 fi:ruistaikinanjuuri, ruisjuuri
 fr:levain de seigle
-nl:roggezuurdesem
+nl:roggezuurdesem, roggedesem
 sv:rågsurdeg, surdeg av råg
 allergens:en: en:gluten
 # ingredient/en:rye-sourdough has 47 products in 3 languages @2020-06-12
@@ -35698,7 +36050,8 @@ fr:levain de seigle dévitalisé
 fr:levain de seigle déshydraté et dévitalisé
 
 <en:rye sourdough
-nl:rogge zuurdesempoeder
+en:rye sourdough powder
+nl:rogge zuurdesempoeder, gedroogd roggedesem
 
 <en:sourdough
 nl:speltzuurdesempoeder
@@ -38151,18 +38504,21 @@ fr:pêche blanche
 #no products @2021-08-19
 
 #process:en:pureed
-#<en:peach
+<en:peach
 #<en:purée
-#en:peach puree
-#da:ferskenpuré
-#de:Pfirsichpurée
-#es:Pure de melocotón
-#fi:persikkasose, persikkapyree
-#fr:purée de pêches, purée de pêche
-#it:purea di pesche
-#nl:Perzikkenpuree
-#pt:Puré de pêssego
-#sv:persikopuré
+en:peach puree
+da:ferskenpuré
+de:Pfirsichpurée
+es:pure de melocotón
+fi:persikkapyree, persikkasose
+fr:purée de pêches, purée de pêche
+it:purea di pesche
+nl:perzikenpuree
+pt:puré de pêssego
+sv:persikopuré
+ciqual_food_code:en:13043
+ciqual_food_name:en:Peach, pulp and peel, raw
+ciqual_food_name:fr:Pêche, pulpe et peau, crue
 # ingredient/peach-puree 801 products in 13 languages @2021-08-19
 
 #process:en:pureed
@@ -40573,6 +40929,16 @@ fi:luontainen appelsiiniuute
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
 
+<en:orange
+en:orange marmalade
+de:Orangenmarmelade, Orangen-Marmelade
+es:mermelada de naranja
+nl:sinaasapplemarmelade
+ciqual_food_code:en:31039
+ciqual_food_name:en:Marmalade, orange
+ciqual_food_name:fr:Marmelade d'orange
+#22 @2021-09-26
+
 ##########################################
 #              Flavourings
 ##########################################
@@ -40605,10 +40971,6 @@ sv:smak från eterisk apelsinolja
 # ingredient/fi:eteerinen-appelsiiniöljyaromi has 1 product in 1 language @2020-06-08
 
 
-<en:orange
-en:orange marmalade
-de:Orangenmarmelade, Orangen-Marmelade
-es:mermelada de naranja
 
 ###################################################################################################
 #
@@ -40946,29 +41308,33 @@ nl:zwarte bessensap op basis van concentraat
 ###################################################################################################
 
 # description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
-# comment:en:Note that th european variety should be called bilberry. For the moment we mix the two.
+# comment:en:usually only the generic name is in use
 
 <en:berries
 en:blueberry, blueberries, bilberry
 ar:عنب الأحراج
-bg:Черна боровинка
+be:Ягаднік
+bg:боровинка
 cs:Borůvka
-da:blåbær
-de:Heidelbeer, Heidelbeeren, Heidelbeere, Blaubeer, Blaubeere, Blaubeeren
+da:bølle
+de:Heidelbeeren, Blaubeeren
 eo:mirtelo
-es:arándano azul, arándanos azules, mora azul
+es:arándano
+et:mustikas
 fa:بیل‌بری
-fi:mustikka, pensasmustikka
+fi:puolukat
 fr:myrtille
 hu:áfonya
-is:Aðalbláber
+is:bláber
 it:mirtillo, mirtilli
 ja:ビルベリー
 ka:მოცვი
+la:Vaccinium
+lt:Šilauogė
 nb:blåbær
-nl:bosbes, bosbessen, blauwe bes, blauwe bessen
+nl:bosbes, bosbessen
 nn:blåbær
-pl:Borówka czarna
+pl:borówka
 pt:mirtilo
 ru:черника
 sv:blåbär, blåbärs
@@ -40982,45 +41348,64 @@ wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 
+#en:the specific names are not seen as ingredient.
 <en:blueberry
-en:wild blueberries
+en:northern highbush blueberry
+fi:pensasmustikka
+la:Vaccinium corymbosum
+nl:blauwe bes, blauwe bessen
+
+<en:blueberry
+en:billberry, common blueberry
+la:Vaccinium myrtillus
+
+#comment:en:
+<en:blueberry
+en:wild blueberry, wild blueberries
+da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
-fr:Myrtilles sauvages
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:myrtilles-sauvages
-# 55 products in 2 languages @2018-10-01
+fr:myrtille sauvage
+it:mirtilli selvatici
+nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
+# 336 in 6 @2021-09-19
 
-<en:blueberry
-en:organic blueberry
-de:Bio-Heidelbeeren, Bio-Blaubeeren
-fi:luomumustikka, luomu mustikka
-fr:myrtilles bio
+#<en:blueberry
+#en:organic blueberry
+#de:Bio-Heidelbeeren, Bio-Blaubeeren
+#fi:luomumustikka, luomu mustikka
+#fr:myrtilles bio
 
-<en:blueberry
-<en:purée
-en:blueberry puree, blueberries puree
-de:Blaubeerenpuree
-es:Puré de arándanos
-fi:mustikkasose, soseutettu mustikka, mustikkapyree
-fr:purée de myrtilles
-it:Purea di mirtillo
-nl:bosbessenpuree, bosbessenmoes
-sv:blåbärpuré
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-myrtilles
-# 105 products @2018-10-01
+#processing:en: en:pureed
+#<en:blueberry
+#<en:purée
+#en:blueberry puree, blueberries puree
+#de:Blaubeerenpuree
+#es:Puré de arándanos
+#fi:mustikkasose, soseutettu mustikka, mustikkapyree
+#fr:purée de myrtilles
+#hu:áfonyapüré
+#it:Purea di mirtillo
+#nl:bosbessenpuree, bosbessenmoes
+#sv:blåbärpuré
+# 832 @2021-09-20
 
-<en:blueberry puree
-de:Heidelbeerpüree aus Konzentrat
+#processing:en: from concentrate
+#<en:blueberry
+#de:Heidelbeerpüree aus Konzentrat
 
+#comment:en:need to check the processing and add some specific tests
+
+#processing:en: en:juice
 <en:blueberry
 en:blueberry juice
-de:Preiselbeersaft
-es:Jugo de zarzamora
-fi:mustikkamehu
-fr:jus de myrtille
-it:succo di mirtillo
-nl:bosbessensap
-ru:Черничный сок
+#de:Preiselbeersaft
+#es:Jugo de zarzamora
+#fi:mustikkamehu
+#fr:jus de myrtille
+#it:succo di mirtillo
+#nl:bosbessensap
+#ru:Черничный сок
 # ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
 
 <en:blueberry juice
@@ -41028,7 +41413,7 @@ en:concentrated blueberry juice
 de:Heidelbeer-Saftkonzentrat
 sv:blåbärssaftkoncentrat
 
-<en:blueberry juice
+<en:blueberry
 en:blueberry juice from concentrate
 de:Heidelbeersaft aus Heidelbeerkonzentrat
 es:Concentrado de jugo de zarzamora
@@ -43172,12 +43557,17 @@ sv:ananasfiber
 # ingredient/fr:fibres-d'ananas has 120 products in 6 languages @2018-09-30
 
 <en:pineapple
-<en:purée
+#<en:purée
+en:pineapple purée
+es:puré de piña
 fr:purée d'ananas
 fi:ananaspyree
-# IN process de:Ananaspüree
+nl:ananaspuree
+ciqual_food_code:en:13002
+ciqual_food_name:en:Pineapple, pulp, raw
+ciqual_food_name:fr:Ananas, pulpe, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
-# 33 products in 2 languages @2018-09-30
+# 60 in 4 languages @2021-09-26
 
 <en:pineapple
 <en:fruit juice
@@ -45925,7 +46315,12 @@ fi:vihreä parsa
 fr:asperges vertes
 it:asparagi verdi
 nl:groene asperges
-# fr:asperges-vertes has 65 products in 6 languages @2018-11-11
+pt:espargos verdes
+wikidata:en:Q35075688
+ciqual_food_code:en:20279
+ciqual_food_name:en:Asparagus, green, raw
+ciqual_food_name:fr:Asperge, verte, crue
+# 170 in 7 @2021-09-23
 
 <en:green asparagus
 es:Espárragos verdes sin pelar
@@ -47196,33 +47591,37 @@ en:bamboo shoot, bamboo sprouts
 as:খৰিচা
 bo:སྨྱུག་རྩ།
 ca:brot de bambú
-de:Bambussprossen
-es:Brotes de bambú
-et:Bambusevõrsed
-eu:Banbu-kimuak
+cs:bambusový výhonek
+de:Bambussprossen, Bambusschoessling
+el:βλαστάρι μπαμπού, βλαστός μπαμπού
+es:brotes de bambú
+et:bambusevõrsed, bambusevõrs
+eu:banbu-kimuak
 fi:bambunverso, bambunversoja
 fr:pousse de bambou, pousses de bambou
-gn:Takuarembo
+gn:takuarembo
 hu:bambuszrügy
-id:Rebung
-it:germogli di bambù, bambu a fette
+id:rebung
+it:germoglio di bambù, germogli di bambù, bambu a fette
 ja:タケノコ
 kn:ಕಳಲೆ
 ko:죽순
-lt:Bambuko ūglis
-ms:Rebung buluh
+lt:bambuko ūglis
+ms:rebung buluh
 nb:bambusskudd
-nl:bamboescheuten
+nl:bamboescheuten, bamboescheut, bamboespruit
 nn:bambusskudd
 or:କରଡ଼ି
-ru:Бамбуковые побеги
-su:Iwung
+pl:pęd bambusa
+pt:rebento de bambu, rebentos de bambu
+ru:бамбуковые побеги
+su:iwung
 sv:bambuskott
 th:หน่อไม้
-uk:Паростки бамбуку
-vi:Măng
+uk:паростки бамбуку
+vi:măng
 zh:筍
-# bcl:Lambo
+# bcl:lambo
 # ilo:rabong
 # lzh:筍
 # tcy:ಕಣಿಲೆ
@@ -47233,8 +47632,10 @@ zh:筍
 # zh-tw:筍
 wikidata:en:Q2157176
 wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
-# ingredient/fr:pousse-de-bambou has 43 products in 4 languages @2019-02-03
-# ingredient/fr:pousses-de-bambou/ has 95 products in 10 languages @2019-02-03
+ciqual_food_code:en:20198
+ciqual_food_name:en:Bamboo shoots, raw
+ciqual_food_name:fr:Bambou, pousse, crue
+# 412 in 10 languages @2021-09-22
 
 # <en:bamboo
 <en:vegetable fiber
@@ -47614,90 +48015,254 @@ carbon_footprint_fr_foodges_value:fr:0.8
 
 <en:cabbage
 en:white cabbage
+am:ጥቅል ጎመን
+ar:ملفوف
+az:kələm
+ba:кәбеҫтә
+be:капуста белакачанная
+bg:бяло зеле, зеле
+bi:kabis
+bn:বাঁধাকপি
+bo:པད་ལོག
+ca:col
+cs:hlávkové zelí, zelí
+cy:bresychen
 da:hvidkål
 de:Weißkohl, Weisskohl
-es:Col blanca
-fi:valkokaali
+el:λάχανο
+eo:blanka brasiko
+es:col blanca
+et:kapsas
+eu:aza
+fa:کلم‌برگ
+fi:valkokaali, kupukaali
+fj:kaveti
 fr:chou blanc
-it:cavolo bianco
-nb:hvitkål
-nl:witte kool
+ga:cabáiste
+gd:càl
+gl:repolo
+gu:tajao
+gv:cabbash vane
+he:כרוב
+hi:बंद गोभी
+ht:chou
+hr:kupus
+hu:fejes káposzta
+hy:կաղամբ
+ia:caule
+id:kubis
+io:kaulo
+is:hvítkál
+it:cavolo bianco, cavolo cappuccio
+ja:キャベツ
+jv:kul
+ka:კომბოსტო
+kn:ಎಲೆಕೋಸು
+ko:양배추
+ku:kelem
+li:sjepeng
+lt:gūžinis kopūstas
+lv:galviņkāposti
+mk:зелка
+ml:മൊട്ടക്കൂസ്
+mo:куреки
+mr:कोबी
+ms:kubis bulat
+mt:kaboċċa
+my:ဂေါ်ဖီထုပ်
+nb:hvitkål, kål
+ne:बन्दागोभी
+nl:witte kool, wittekool
+nn:hovudkål
+nv:chʼil łigaii
+oc:caulet
+or:ବନ୍ଧାକୋବି
+pa:ਪੱਤਾ ਗੋਭੀ
 pl:kapusta biała
+ps:كرم
+pt:repolho
+rn:ishu
+ro:varză albă
 ru:капуста белокочанная
+rw:ishu
+sa:पर्णशाकम्
+sd:بند گوبي
+sh:kupus
+si:ගෝවා
+sk:kapusta obyčajná hlávková
+sm:kapisi
+so:kaabaj
+sq:lakra
+sr:купус
+#sr-la:kupus
+su:engkol
 sv:vitkål
+sw:kabichi
+ta:முட்டைக்கோசு
+te:కాబేజీ
+tg:карам
+th:กะหล่ำปลี
+tl:repolyo
+to:kāpisi
+tr:lahana
+tt:кәбестә
+ug:كاپۇسكا
+uk:капуста білоголова
+ur:بند گوبھی
+vi:cải bắp
+yi:קרויט
+za:byaekgienjsim
+zh:卷心菜
+#ang:caƿel
+#bar:kabis
+#bcl:repolyo
+#bho:पत्ता गोभी
+#cdo:gái-làng-chái
+#de-ch:Weisskohl
+#frr:witjkual
+#hak:kô-lì-chhoi
+#hyw:կաղամբ
+#kaa:kapusta
+#ksh:kappes
+#mai:बन्दाकोबी
+#mdf:капста
+#nah:col
+#nan:ko-lê-chhài
+#nds:busekool
+#nrm:caboche
+#pam:repolyu
+#pcd:cabu
+#pnb:بند گوبی
+#sat:ᱵᱳᱱᱫᱷᱟᱠᱩᱵᱤ
+#scn:càvulu
+#sco:cabbitch
+#sgs:kuopūsts
+#szl:kapusta gowjasto
+#vec:capuso
+#vep:kerakapust
+#war:ripolyu
+#wuu:卷心菜
+#yue:椰菜
 wikidata:en:Q35051
-# fr:chou-blanc has 188 products in 5 languages @2018-10-17
+ciqual_food_code:en:20116
+ciqual_food_name:en:White cabbage, raw
+ciqual_food_name:fr:Chou blanc, cru
+# 930 in 13 @2021-09-29
 
 # description:en:The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
 
 <en:cabbage
 en:red cabbage
+bg:червено зеле
+bn:লাল বাঁধাকপি
+br:kaol ruz
 ca:col llombarda
-da:Rødkål
-de:Rotkohl
+cs:červené zelí
+da:rødkål
+de:rotkohl
+el:κόκκινο λάχανο
 eo:ruĝa brasiko
 es:cacho lombarda, col lombarda
 fa:کلم‌قرمز
-fi:Punakaali
+fi:punakaali
 fr:chou rouge
-gl:Lombarda
-hu:Vörös káposzta
+ga:cabáiste dearg
+gl:lombarda
+he:כרוב אדום
+hi:लाल पत्ता गोभी
+hu:vörös káposzta
+hy:կարմիր կաղամբ
+id:kol merah
+is:rauðkál
 it:cavolo rosso
 ja:赤キャベツ
+ka:წითელი კომბოსტო
 ko:적채
-lg:Emboga
+lg:emboga
+lv:sarkanais galviņkāposts
+mk:црвена зелка
+ml:ചുവന്ന കാബേജ്
+ms:kubis merah
 nb:rødkål
+ne:रातो गोभी
 nl:rode kool, rodekool
+pl:czerwona kapusta
+pt:couve-roxa
 ro:varză roșie
+sk:červená kapusta
+sq:lakër e kuqe
 th:กะหล่ำปลีม่วง
-tr:Kırmızı lahana
-uk:Капуста червоноголова
+tr:kırmızı lahana
+uk:капуста червоноголова
 zh:紫甘藍
-# bar:Blaukraut
+# bar:blaukraut
 # bho:लाल पत्ता गोभी
-# frr:Ruadkual
-# nan:Âng ko-lê-chhài
-# pcd:Colé'd vaque
-# szl:Modro kapusta
-wikidata:en:Q263203
+# frr:ruadkual
+#hsb:čerwjeny kał
+# nan:âng ko-lê-chhài
+# pcd:colé'd vaque
+# szl:modro kapusta
+# vec:Càvorlo roso
+wikidata:en:q263203
 wikipedia:en:https://en.wikipedia.org/wiki/Red_cabbage
-# fr:chou-rouge has 47 products in 4 languages @2018-10-17
+ciqual_food_code:en:20014
+ciqual_food_name:en:Red cabbage, raw
+ciqual_food_name:fr:Chou rouge, cru
+# 988 in 9 @2021-09-28
 
 # en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
 # en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
 
 <en:cabbage
 en:Napa cabbage
+ar:برند
 ca:col xinesa
-cs:Pekingské zelí
-da:Kinakål
+cs:pekingské zelí
+da:kinakål
 de:Chinakohl
-el:Κινέζικο λάχανο
-eo:Pekina brasiko
+el:kινέζικο λάχανο
+eo:pekina brasiko
 es:col china
+et:pekingi lehtnaeris
 fa:کاهوی چینی
-fi:Kiinankaali
-fr:chou chinois
-id:Sawi putih
+fi:kiinankaali
+fr:chou chinois, pe-tsaï
+ga:cabáiste Síneach
+id:sawi putih
+it:cavolo di pechino
 ja:ハクサイ
+jv:sawi putih
 ko:배추
-la:Brassica rapa subsp. pekinensis
-lt:Pekininis kopūstas
+la:brassica rapa subsp. pekinensis
+lt:pekininis kopūstas
+lv:ķīnas kāposti
 mk:кинеска зелка
-ms:Kubis Cina
-nb:Napakål
-nl:Chinese kool
-pl:Kapusta właściwa pekińska
-sv:Kinakål
+ms:kubis cina
+nb:napakål
+nl:chinese kool
+pl:kapusta pekińska, kapusta właściwa pekińska
+pt:couve-da-china
+sk:kapusta čínska, kapusta pekinská
+sl:kitajski kapus
+sv:kinakål
 th:ผักกาดขาว
-tl:Petsay
+tl:petsay
+tr:çin lahanası
+ug:يېسىۋېلەك
 uk:капуста пекінська
-vi:Cải thảo
+uz:pekin karami
+vi:cải thảo
 zh:大白菜
+#arz:ملفوف برند
+#lzh:菘
+#szy:mamumuway
 # yue:紹菜
 wikidata:en:Q13360268
 wikipedia:en:https://en.wikipedia.org/wiki/Chinese_cabbage
-# en:chinese-cabbage has 35 products @2018-10-17
+ciqual_food_code:en:20167
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
+# 200 @2021-09-29
 
 # description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
 
@@ -47713,6 +48278,9 @@ ru:бок-чой
 uk:Бок-чой
 wikidata:en:Q18968514
 wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
+ciqual_food_code:en:20167
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 # en:pak-choi has 9 products @2018-10-18
 
 # Brassica oleracea var. sabellica
@@ -47874,43 +48442,60 @@ fr:Jeunes pousses de chou frisé
 # be careful with the translation found on packages.
 
 <en:cabbage
-en:savoy cabbage
-ca:Col de Milà
-cs:Hlávková kapusta
-de:Wirsing
-el:λαχανίδα
-eo:Savoja brasiko
-es:Col de Saboya, col rizada
-fi:Kurttukaali
-fr:chou vert, choux verts, Chou de Milan
-gv:Cabbash chraplit
-hr:Kelj
-hu:Kelkáposzta
-it:verza, verze
+en:savoy cabbage, green cabbage
+ca:col de milà
+cs:hlávková kapusta
+da:savojkål
+de:Wirsing, Wirsingkohl
+el:λάχανο μιλάνου, κράμβη του μιλάνου, λάχανο σαβοΐας
+eo:savoja brasiko
+es:col de saboya, col de Milán
+eu:aza kizkur
+fa:کلم ساوی
+fi:kurttukaali
+fr:chou vert, choux verts, chou de milan, chou de savoie
+ga:cabáiste saváí
+gv:cabbash chraplit
+hr:kelj
+hu:kelkáposzta
+id:kubis savoy
+is:blöðrukál
+it:verza, verze, cavolo verza, cavolo di milano
 ja:サボイキャベツ
 ko:사보이양배추
-la:Brassica oleracea sabauda
-lt:Savojinis kopūstas, lapiniai kopūstai
-lv:lapu kāposti
+la:brassica oleracea sabauda
+lt:savojinis kopūstas, lapiniai kopūstai
+lv:lapu kāposti, savojas kāposti, virziņkāposti
 nl:savooikool, groene kool
-pl:Kapusta warzywna włoska
-pt:Couve-lombarda
-ro:Varza creață
-ru:Савойская капуста
-sk:Kapusta obyčajná kelová
-tr:Milano lahanası
-uk:Капуста савойська
+nn:savoykål
+pl:kapusta warzywna włoska
+pt:couve-lombarda
+ro:varza creață
+ru:савойская капуста
+sh:kelj
+sk:kapusta obyčajná kelová, kel hlávkový
+sr:кељ
+#sr-la:kelj
+sv:grönkål
+tr:milano lahanası
+uk:капуста савойська
+wa:savoye
 zh:野甘蓝
+#arz:ملفوف سافوى
 # de-ch:Wirsing
-# en-ca:Savoy cabbage
-# en-gb:Savoy cabbage
-# hsb:Krjózkaty kał
+# en-ca:savoy cabbage
+# en-gb:savoy cabbage
+# hsb:krjózkaty kał
 # ksh:Schavur
-# lij:Garbuxo
-# pt-br:Couve-lombarda
+# lij:garbuxo
+# pt-br:couve-lombarda
+#vec:verza
 wikidata:en:Q154013
 wikipedia:en:https://en.wikipedia.org/wiki/Savoy_cabbage
-# fr:chou-vert has 99 products @2018-10-17
+ciqual_food_code:en:20069
+ciqual_food_name:en:Green cabbage, raw
+ciqual_food_name:fr:Chou vert, cru
+# 256 @2021-09-29
 
 # description:en:GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
 
@@ -50807,59 +51392,59 @@ carbon_footprint_fr_foodges_value:fr:1.3
 
 <en:vegetable
 en:bell pepper
-af:Soetrissie
-an:Pimiento
+af:soetrissie
+an:pimiento
 ar:فلفل حلو
-ca:Pebrot morro de bou
+ca:pebrot morro de bou
 cs:kapie
 da:paprika, peberfrugt
-de:Paprika
-eo:Kapsiko
-es:Pimiento, morrón, Pimiento morrón
+de:paprika
+eo:kapsiko
+es:pimiento, morrón, pimiento morrón
 fa:فلفل دلمه‌ای
 fi:paprika, paprikaa
 fr:poivron, poivrons
-ha:Barkono
+ha:barkono
 he:גמבה, פלפל
 hu:bell paprika
-id:Paprika
-is:Paprika
-it:Peperone, peperoni
+id:paprika
+is:paprika
+it:peperone, peperoni
 ja:ピーマン
-kk:Бұрыш
+kk:бұрыш
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
 ko:단고추
-lt:Saldžioji paprika
+lt:saldžioji paprika
 mk:бабура
 mr:ढोबळी मिरची
-nb:Paprika
+nb:paprika
 nl:paprika
-nn:Paprika
-oc:Pebron
+nn:paprika
+oc:pebron
 ps:خواږه مرچ
 pt:pimentão
 ru:перец овощной, перец сладкий, перец сладкий свежий
 sa:महामरीचिका
-sl:Kapia
+sl:kapia
 sv:paprika
 ta:குடைமிளகாய்
 te:కూరమిరప
 th:พริกหยวก
-tl:Siling-pula
-tr:Dolma biber
+tl:siling-pula
+tr:dolma biber
 uk:овочевий перець
-uz:Shirin qalampir
-vi:Ớt chuông
+uz:shirin qalampir
+vi:ớt chuông
 wa:poevron
 yi:פאפריקע
 zh:菜椒
-# ast:Pimientu
+# ast:pimientu
 # en-ca:bell pepper
 # en-gb:bell pepper
-# hak:Chhiâng-chêu
-# kbp:Pwaavrɔɔ
+# hak:chhiâng-chêu
+# kbp:pwaavrɔɔ
 # pt-br:pimentão
-# war:Hulabtog
+# war:hulabtog
 # yue:甜椒
 # zh-cn:菜椒
 # zh-hans:菜椒
@@ -52794,6 +53379,7 @@ de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
+<en:beans
 en:Snap pea, sugar snap peas
 de:Zuckererbse, Zuckererbsen
 fr:Pois sucré
@@ -52812,6 +53398,7 @@ en:round green beans
 de:runde grüne Bohnen, grüne Bohnen rund
 es:judia verde redonda
 
+<en:beans
 en:green peas
 de:grüne Erbsen
 es:guisantes verdes
@@ -55524,27 +56111,46 @@ nl:biologisch anijszaad, anijs bio
 
 <en:seed
 <en:coriander
-en:coriander seeds
+en:coriander seed
+ca:llavor de coriandre
+cs:semeno koriandro
 da:korianderfrø
 de:Koriandersamen
+el:σπέρμα κορίανδρου
+eo:koriandra frukto
 es:Semillas de cilantro
 fi:korianterinsiemen
 fr:graine de coriandre, graines de coriandre
+gu:ધાણા
+he:זרעי כוסברה
+hy:Եփութուխ:Համեմ
+id:ketumbar
 it:Semi di coriandolo
+nb:korianderfrö
 nl:korianderzaad
+or:ଧନିଆ ମଞ୍ଜି
+pt:semente de coentro
+ru:семена кориандра
+th:ม็ดผักชี
 sv:korianderfrö
-# ingredient/fr:graine-de-coriandre has 188 products in 3 languages @2018-10-07
+wikidata:en:Q20856764
+ciqual_food_code:en:11026
+ciqual_food_name:en:Coriander, seed
+ciqual_food_name:fr:Coriandre, graine
+# 1002 in 14 @2019-09-26
 
-<en:coriander seeds
-en:coriander powder
-de:Korianderpulver
-es:cilantro en polvo
-fi:korianterijauhe
-fr:coriandre en poudre, coriandre moulue
-it:Polvere di coriandolo
-ja:コリアンダー
-nl:korianderpoeder
-sv:korianderpulver
+#processing:en: :en:powder
+#<en:coriander seeds
+#en:coriander powder
+#de:Korianderpulver
+#es:cilantro en polvo
+#fi:korianterijauhe
+#fr:coriandre en poudre, coriandre moulue
+#hi:धनिया पाउडर
+#it:Polvere di coriandolo
+#ja:コリアンダー
+#nl:korianderpoeder
+#sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
@@ -55554,25 +56160,32 @@ es:semillas de algodón
 fr:Graine de coton
 it:Semi di cotone
 
+#category/fennel-seeds
 <en:seed
 en:fennel seed
+ca:fruit del fonoll
 da:fennikelfrø
 de:Fenchelsamen, Fenchelsaat
-es:Semillas de hinojo
+es:Semilla de hinojo, Semillas de hinojo
 fi:fenkolinsiemen, fenkolin siemen
-fr:graines de fenouil
-it:semi di finocchio
+fr:graine de fenouil, graines de fenouil
+it:seme di finocchio, semi di finocchio
 ja:フェンネルシード
+la:Foeniculi Fructus
 nb:fennikelfrø
 nl:Venkelzaad
+ru:плод фенхеля
 sv:fänkålsfrö, fänkålsfrön
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-fenouil
-# 115 products in 4 languages @2018-10-07
+wikidata:en:Q27658833
+ciqual_food_code:en:11066
+ciqual_food_name:en:Fennel, seed
+ciqual_food_name:fr:Fenouil, graine
+# 742 in 12 @2021-09-27
 
-<en:fennel seed
-en:organic fennel seed
-fi:luomu fenkolinsiemen
-nl:biologisch venkelzaad
+#<en:fennel seed
+#en:organic fennel seed
+#fi:luomu fenkolinsiemen
+#nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
 en:chia
@@ -55632,29 +56245,127 @@ ciqual_food_name:fr:Chia, graine, séchée
 
 <en:seed
 en:cumin seeds, cumin
+af:komyn
+#ang:cymen
 ar:كمون
-ca:llavors de comí
-da:Spidskommen
-de:Kümmelkörner, Kreuzkümmel, Cumin, Kumin
-es:comino, semillas de comino,Granos de comino
-fi:roomankumina, juustokumina, jeera, juustokuminansiemen
-fr:graines de cumin, cumin
-hu:köménymag
-it:grani di cumino, cumino
-nb:spisskummen frø, spisskummen, spisskum, spisskarve
-nl:komijnzaad, komijnzaden, komijn
-pl:Nasiona kminku
-sv:spiskummin, spiskumminfrön
-wikidata:en:https://www.wikidata.org/wiki/Q132624
-wikipedia:en:https://en.wikipedia.org/wiki/Cumin
+#arz:كمون
+as:জীৰা
+az:adi cirə
+azb:عادی جیره
+be:зіра
+bg:кимион
+bn:জিরা
+br:koumin
+ca:comí
+#ceb:komino
+cs:římský kmín, kmín římský, kumin
+cy:cwmin
+da:spidskommen
+de:kreuzkümmel, römischer kümmel, cumin, kumin
+dv:ދިރި
+el:κύμινο
+eo:kumino
+es:comino
+eu:kumino
+fa:زیره سبز
+fi:roomankumina, juustokumina, jeera
+fr:cumin
+ga:cuimín
+gl:comiño
+gu:જીરું
+he:זרעי כמון
+hi:जीरा
+hr:kumin
+hu:kömény, római kömény
+id:jintan putih
+io:kumino
+it:cumino, cumino romano, comino común
+ja:クミン
+jv:jinten putih
+ka:ძირა
+#kab:takamimt
+kk:зира
+kn:ಜೀರಿಗೆ
+ko:쿠민
+ku:reşke
+#ku-arab:رەشکە
+#ku-latn:reşke
+#lez:гьефер
+lt:kuminas
+lv:kumīns
+#mai:जीरा
+ml:ജീരകം
+mr:जिरे
+ms:jintan putih
+mt:kemmun
+my:ဇီယာ
+nb:spisskummen, spisskum, spisskarve
+ne:जीरा
+nl:komijn
+nn:kummin, spisskummen, spisskum
+or:ଜିରା
+os:зира
+pa:ਜੀਰਾ
+pl:nasiona kminku, kmin rzymski
+pt:cominho
+ro:chimion
+ru:зёрна кумина, зира, кумин
+sa:जीरकम्
+#sco:cumin
+sd:اڇو جيرو
+si:සූදුරු
+sl:orientalska kumina
+sr:кумин
+su:jinten bodas
+sv:spiskummin
+sw:jira
+ta:சீரகம்
+#tcy:ಜೀರ್ದರಿ
+te:జీలకర్ర
+tg:зира
+th:ยีหร่า
+tl:komino
+tr:kimyon
+uk:зіра
+uz:zira
+vi:thì là ai cập
+#vls:komyn
+#wuu:孜然
+#yue:孜然
+zh:孜然
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-cumin
-# 87 products in 4 languages @2018-10-07
+# 7180 in 23 @2021-09-18
 
-<en:cumin seeds
-fr:cumin moulu
-de:gemahlener Kümmel, Kreuzkümmelpulver
-fi:jauhettu kumina
-it:cumino macinato
+<en:cumin
+en:cumin seeds
+ca:llavor de comí, llavors de comí
+de:Kümmelkörner
+es:semilla de comino, grano de comino
+fi:juustokuminansiemen
+fr:graine de cumin
+he:זרעי כמון
+hu:köménymag
+it:grano di cumino, grani di cumino
+nb:spisskummen frø
+nl:komijnzaad, komijnzaden
+pl:nasiona kminku
+pt:semente de cominhos, sementes de cominhos
+ru:зёрна кумина
+sv:spiskumminfrön
+wikidata:en:Q57328174
+wikipedia:en:https://en.wikipedia.org/wiki/Cumin
+ciqual_food_code:en:11042
+ciqual_food_name:en:Cumin, seed
+ciqual_food_name:fr:Cumin, graine
+
+#processing:en: en:ground
+#<en:cumin seeds
+#en:ground cumin seeds
+#fr:cumin moulu
+#de:gemahlener Kümmel, Kreuzkümmelpulver
+#fi:jauhettu kumina
+#it:cumino macinato
+#nn:malt kummin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 # 52 products in 3 languages @2018-10-07
 
@@ -56041,6 +56752,8 @@ ru:Перец
 sl:poper
 sv:peppar
 tr:biber
+ur:کالی مرچ
+uz:galampiri
 # ast:Pimienta
 # atj:Tepwepar
 # nrm:Paîvre
@@ -56095,31 +56808,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/Long_pepper
 
 <en:pepper
 en:white pepper
+ar:فلفل أبيض
+bg:бял пипep
 ca:pebre blanc
 cs:pepř bílý, Bílý pepř
-da:Hvid peber
+da:hvid peber
 de:weißer Pfeffer, weisser Pfeffer, Pfeffer weiß
+el:λευκό πιπέρι
 es:Pimienta blanca
+et:valge pipar
 fi:valkopippuri
 fr:poivre blanc
 hu:fehérbors
 it:pepe bianco
-ja:白胡椒
+ja:白胡椒, ホワイトペッパー
+nb:hvit pepper
 nl:witte peper
 pl:Pieprz biały
+pt:pimenta-branca
+ru:перец белый
 sv:vitpeppar
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc
-# 1596 products in 6 languages @2018-10-08
+ciqual_food_code:en:11019
+ciqual_food_name:en:White pepper, powder
+ciqual_food_name:fr:Poivre blanc, poudre
+# 5825 in 24 @2021-09-28
 
-<fr:poivre blanc
-en:ground white pepper
-cs:pepř bílý mletý
-de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
-es:pimienta blanca molida
-fi:valkopippurijauhe, jauhettu valkopippuri
-fr:poivre blanc moulu
-nl:gemalen witte peper
-sv:mald vitpeppar, vitpepparpulver
+#processing:en: en:ground
+#<en:white pepper
+#en:ground white pepper
+#cs:pepř bílý mletý
+#de:gemahlener weißer Pfeffer, weißer Pfeffer gemahlen
+#es:pimienta blanca molida
+#fi:valkopippurijauhe, jauhettu valkopippuri
+#fr:poivre blanc moulu
+#nl:gemalen witte peper
+#sv:mald vitpeppar, vitpepparpulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-blanc-moulu
 # 66 products in 3 languages @2018-10-08
 
@@ -56151,8 +56874,18 @@ sv:grönpeppar
 en:grey pepper, gray pepper
 de:Grauer Pfeffer
 fr:poivre gris
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-gris
-# 53 products in 1 language @2018-10-08
+nl:grijze peper
+ciqual_food_code:en:11020
+ciqual_food_name:en:Grey pepper, powder
+ciqual_food_name:fr:Poivre gris, poudre
+# 98 in 1 language @2021-09-21
+
+#processing:en: en:ground
+#<en:grey pepper
+#en:ground grey pepper
+
+<en:pepper
+lv:sarkanie pipari
 
 ###################################################################################################
 #
@@ -56162,6 +56895,9 @@ fr:poivre gris
 
 <en:pepper
 en:black pepper
+ar:فلفل أسود
+bg:черен пипер
+bs:crni biber
 ca:Pebre negre
 cs:pepř černý, černý pepř
 da:sort peber
@@ -56172,24 +56908,30 @@ es:pimienta negra
 et:must pipar
 fi:mustapippuri
 fr:poivre noir
+ga:piobar dubh
 hu:feketebors
 it:pepe nero
 ja:黒胡椒
+kk:қара бұрыш
 lt:juodieji piperai
 nb:svart pepper, piper nigrum
 nl:zwarte peper
 nn:svart pepper
 pl:czamy pieprz, pieprz czarny
-pt:pimenta preta
+pt:pimenta preta, pimenta-negra
 ro:piper negru
 ru:Черный перец, перец черный, перец чёрный
-sl:cmi poper, črni poper
+sk:čierne korenie
+sl:črni poper
 sv:svartpeppar, svart peppar
 tr:karabiber
+uk:перець чорний
 zh:黑胡椒
-# bs:cmi biber
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/black-pepper
-# 4995 products in 24 languages @2018-10-08
+ciqual_food_code:en:11015
+ciqual_food_name:en:Black pepper, powder
+ciqual_food_name:fr:Poivre noir, poudre
+# 17037 in 39 @2021-09-28
+
 
 <en:black pepper
 en:black peppercorns
@@ -56209,8 +56951,13 @@ fr:poivre noir concassé
 it:Pepe nero macerato
 nl:grove zwarte peper
 ru:перец черный молотый, перец-чёрный-молотый
+uk:перець чорний мелений
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
 # 64 products @2018-10-08
+
+#processing:en:powder
+#<en:black pepper
+#en:black pepper powder
 
 <en:black pepper
 en:black pepper extract
@@ -56226,28 +56973,10 @@ sv:svartpepparextrakt
 
 <en:black pepper
 <en:green pepper
-en:black and green pepper,green and black pepper
+en:black and green pepper, green and black pepper
 fi:musta- ja viherpippuri
 
 
-
-###################################################################################################
-#
-#                                Fenugreek
-#
-###################################################################################################
-
-<en:seed
-<en:fenugreek
-en:fenugreek seed, fenugreek seeds
-de:Bockshornkleesamen, getrocknete Bockshornkleesamen, Bockshornkleesaat
-es:semilla de fenegreco, semilla de fenegreco seca
-fi:sarviapilan siemen, sarviapilan siemenet
-fr:graine de fenugrec, graines de fenugrec, graine de fenugrec séchée
-nl:fenegriekzaad, gedroogd fenegriekzaad
-
-<en:fenugreek seed
-de:gemahlen Bockshornkleesamen
 
 ###################################################################################################
 #
@@ -56875,87 +57604,102 @@ fr:extraits naturels et aromates
 
 <en:spice
 en:caraway
-af:Karwy
+af:karwy
 ar:كروياء
-az:Adi zirə
+az:adi zirə
 bg:ким
 bo:གོ་སྙོད།
-bs:Kim
+bs:kim
 ca:alcaravia
 cs:kmín
-cy:Carwy
-da:Kommen
+cy:carwy
+da:kommen
 de:Kümmel
 dv:ފަރިހި ދަމުއި
-el:Κιουμέλ
-eo:Karvio
-es:Alcaravea
-eu:Txarpoil
+el:κιουμέλ, αγριοκύμινο
+eo:karvio
+es:alcaravea
+et:harilik köömen
+eu:txarpoil
 fa:زیره
-fi:Kumina
+fi:kumina
 fr:carvi
-ga:Cearbhas
-gl:Carvea
+ga:cearbhas
+gl:carvea
 he:כרוויה תרבותית
 hi:शाहजीरा
-hr:Kim
+hr:kim
 hu:fűszerkömény
 hy:քիմիոն
-id:Jintan
-is:Kúmen
+id:jintan
+is:kúmen
 it:carvi
 ja:キャラウェイ
 ka:ძირა
 ko:캐러웨이
-ku:Jaj
-la:Careum
-lt:Kmynas
+ku:jaj
+la:careum
+lt:kmynas
+lv:ķimenes
 mk:ким
 ml:കരിഞ്ചീരകം
 mr:शहाजिरे
-ms:Jintan
+ms:jintan
+mt:karwija
 my:ကရဝေး
 nb:karve
-nl:karwij, karwijzaad
-nn:Karve
+nl:karwij
+nn:karve
 pa:زيره
-pt:Alcaravia
-ro:Chimen
-sh:Kim
+pl:kminek
+pt:alcaravia
+ro:chimen
+sh:kim
 sk:kmín
-sl:Kumina
-sq:Qimnoni
-sr:Ким
-sv:Kummin
+sl:kumina
+sq:qimnoni
+sr:ким
+sv:kummin
 te:కరం కరవే
-tg:Карвиё
+tg:карвиё
 th:เทียนตากบ
-uk:Кмин
+uk:кмин
 zh:葛縷子
 # azb:عادی زیره
-# bar:Kimme
-# dsb:Garba
-# en-ca:Caraway
-# en-gb:Caraway
-# frr:Köömen
-# gsw:Chümmi
-# hsb:Kimjelčka
-# kbp:Issamen
-# pt-br:Alcaravia
-# sah:Анньыыс
-# sgs:Kvīns
-# sr-el:Kim
-# vec:Kumo
+# bar:kimme
+# dsb:garba
+# en-ca:caraway
+# en-gb:caraway
+# frr:köömen
+# gsw:chümmi
+# hsb:kimjelčka
+# kbp:issamen
+# pt-br:alcaravia
+# sah:анньыыс
+# sgs:kvīns
+# sr-el:kim
+# vec:kumo
 # wikidata:en:Q26811 for the plant
 # wikidata:en:Q61670763 for the seed
 wikipedia:en:https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
 <en:caraway
-en:caraway seeds
+en:caraway seed
 de:Kümmelsamen
-fr:graines de carvi
+el:σπόρος κύμινου
+es:semilla de alcaravea
+fr:graine de carvi
+it:seme di cumino, seme di carvi
+nl:karwijzaad
+pt:semente de cominho, semente de alcaravia
 ro:semințe de chimen, seminte de chimen
+ru:семена тмина
+#ltg:čymynu sāklys
+ciqual_food_code:en:11064
+ciqual_food_name:en:Caraway, seed
+ciqual_food_name:fr:Carvi, graine
+#498 @2021-09-19
 
 ###################################################################################################
 #
@@ -56965,48 +57709,55 @@ ro:semințe de chimen, seminte de chimen
 # description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
 <en:spice
-en:cayenne pepper,cayenne
-af:Brandrissie
+en:cayenne pepper, cayenne
+af:brandrissie
 ar:فليفلة حريفة
-ca:pebre de Caiena
+ca:pebre de caiena
 cs:kajenský pepř
-da:Cayennepeber
-de:Cayennepfeffer
-el:Καγιέν
-eo:Kajena pipro
+da:cayennepeber
+de:cayennepfeffer
+el:πιπέρι καγιέν, καγιέν
+eo:kajena pipro
 es:pimienta de cayena, pimienta roja,cayena,ají cayena,pimienta roja picante
-eu:Kaiena
-fi:Cayennepippuri, cayenne
-fr:piment de Cayenne, cayenne, poivre de cayenne
-gl:Pementa de Caiena
+et:kajenni paprika
+eu:kaiena
+fi:cayennepippuri, cayenne
+fr:piment de cayenne, cayenne, poivre de cayenne
+gl:pementa de caiena
 he:פלפל קאיין
-hr:Kajenski papar
-hu:Cayenne-i bors
-id:Cabai cayenne
-it:pepe di cayenna, peperoncino di Cayenna
+hr:kajenski papar
+hu:cayennebors
+hy:Կայենեյան պղպեղ
+id:cabai cayenne
+it:pepe di cayenna, peperoncino di cayenna
 ja:カイエンペッパー
 ko:카옌고추
-la:Capsicum annuum ‘Cayenne’
-lb:Cayennepeffer
-ms:Lada cayenne
+la:capsicum annuum ‘cayenne’
+lb:cayennepeffer
+ms:lada cayenne
 nb:kajennepepper, cayennepepper
 nl:cayennepeper
-nn:Kajennepepar
-pl:Pieprz cayenne
+nn:kajennepepar
+pl:pieprz cayenne
 pt:pimenta-caiena
+ro:piper cayenne
 ru:перец кайенский
+sk:kajenské korenie
 sv:cayennepeppar, cayenne, kajennpeppar
 th:พริกชี้ฟ้า
-tl:Kayena
+tl:siling kayena
+uk:Перець каєнський
 zh:牛角椒
-# en-ca:Cayenne pepper
-# en-gb:Cayenne pepper
+# en-ca:cayenne pepper
+# en-gb:cayenne pepper
 # yue:牛角椒
 wikidata:en:Q6598
 wikipedia:en:https://en.wikipedia.org/wiki/Cayenne_pepper
+ciqual_food_code:en:11088
+ciqual_food_name:en:Cayenne pepper
+ciqual_food_name:fr:Poivre de Cayenne ou piment de Cayenne
 # scoville:en:30000-50000
-# ingredient/cayenne-pepper has 1181 products in 7 languages @2019-02-10
-# ingredient/fr:poivre-de-cayenne has 222 products in 9 languages @2019-04-07
+# 4498 in 23 @2021-09-28
 
 <en:cayenne pepper
 en:dried cayenne pepper
@@ -57022,127 +57773,86 @@ nl:cayennepeper gedroogd
 ###################################################################################################
 # The wikidata item specifies the dish and not the spice mix
 
-<en:curry powder
+<en:spice
 en:curry
-af:Kerrie
 ar:كاري
-az:Karri
-be:Кары
-bg:Къри
-bn:তরকারি
-br:Kari
-bs:Curry
+bg:къри
+br:kurri
 ca:curri
 cs:kari
-da:Karry
+cy:cyrri
+da:karry
 de:Curry
-el:κάρι
-eo:kareo
+el:Κάρυ
 es:curry
 et:karri
-eu:Curry
-fa:کاری
-fi:curry, curry-mauste
+fa:ماليدن
+fi:curry
 fr:curry
-ga:Curaí
-gd:Curraidh
-gl:Curry
-gu:કરી
-gv:curree
-he:מאכלי קארי
-hr:Curry
-hu:Curry
-hy:կարի
-id:Kari
-is:Karrí
+gu:શાક
+hi:सालन
+hu:curry
 it:curry
 ja:カレー
-jv:Kari
-ka:კარი
-km:ការី
-kn:ಮೇಲೋಗರ
-ko:커리
-lt:Karis
-mk:кари
-ml:കൂട്ടാൻ
-ms:Kari
-my:ဟင်း
-nb:karry
-ne:तरकारी
-nl:curry, kerrie
-pa:ਕੜ੍ਹੀ
-pl:Curry
+lt:karis
+mr:कोरड्यास
+nl:kerrie, curry
+pa:ਰੱਸਾ
+pl:curry
 pt:caril
-ro:Curry
 ru:карри
-sh:Kari
-sk:Kari
-sl:Curry
+sa:सलवण
+sk:kari
+sl:kari
 sv:curry
+xx:curry
 ta:கறி
-te:కూర
-tg:Curry
-th:แกง
-uk:Карі
-vi:Cà ri
-yi:קארי
-zh:咖喱
-# ast:Curry
-# dty:तरकारी
-# hak:咖哩
-# lfn:cari
-# nan:Ka-lí
-# sco:curry
-# tg-latn:Curry
-# wuu:咖喱
-# yue:咖喱
-# zh-cn:咖喱
-# zh-hans:咖喱
-# zh-hant:咖喱
-# zh-hk:咖喱
-# zh-sg:咖喱
-# zh-tw:咖喱
-wikidata:en:Q164606
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry
-# 622 products in 8 languages @2018-10-11
+te:కర్రీ
+zh:咖哩
+wikidata:en:Q1144935
+ciqual_food_code:en:11005
+ciqual_food_name:en:Curry, powder
+ciqual_food_name:fr:Curry, poudre
+# 972 in 10 @2021-09-17
 
 # description:en:CURRY POWDER is a spice mix originating from the Indian subcontinent.
 # Probably curry powder is a synonym of curry
 # With the translations be careful that they refer to the powder and not plain curry
 
-<en:spice
-en:curry powder
-ar:مسحوق الكاري
-ca:Curri en pols
-cs:Kari koření
-da:Karry
-de:Currypulver
-eo:karea pulvoro
-es:curry en polvo
-fa:ادویه کاری
-fi:curryjauhe
-fr:curry en poudre, poudre de curry
-he:תבלין קארי
-hu:curry por
-id:Bubuk kari
-it:curry in polvere
-ja:カレー粉
-ko:커리 가루
-lt:Karis (prieskoniai)
-ms:Serbuk kari
-ne:गरम मसला
-nl:kerriepoeder, currypoeder
-pt:Caril em pó
-ru:Карри (приправа)
-sl:Karijev prašek
-sv:currypulver
-uk:Карі (приправа)
-zh:咖喱粉
+#processing:en: en:powder
+#<en:curry
+#en:curry powder
+#ar:مسحوق الكاري
+#ca:Curri en pols
+#cs:Kari koření
+#da:Karry
+#de:Currypulver
+#eo:karea pulvoro
+#es:curry en polvo
+#fa:ادویه کاری
+#fi:curryjauhe
+#fr:curry en poudre, poudre de curry
+#he:תבלין קארי
+#hu:curry por
+#id:Bubuk kari
+#it:curry in polvere
+#ja:カレー粉
+#ko:커리 가루
+#lt:Karis (prieskoniai)
+#ms:Serbuk kari
+#ne:गरम मसला
+#nl:kerriepoeder, currypoeder
+#pt:Caril em pó
+#u:Карри (приправа)
+#sl:Karijev prašek
+#sv:currypulver
+#uk:Карі (приправа)
+#zh:咖喱粉
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-wikidata:en:Q1144935
-wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
+#wikidata:en:Q1144935
+#wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
@@ -57204,100 +57914,100 @@ wikidata:en:Q1882876
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. E100
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
 
 # <en:root vegetable
 <en:spice
 en:turmeric
-af:Borrie
+af:borrie
 am:እርድ
 ar:كركم
 bg:куркума
 bn:হলুদ
-bs:Kurkuma
+bs:kurkuma
 ca:cúrcuma
 cs:kurkuma
-cy:Turmeric
-da:Gurkemeje
+cy:turmeric
+da:gurkemeje
 de:Kurkuma, Curcuma
 dv:ރީނދޫ
-el:Κουρκουμάς
-eo:Kurkumo
+el:κουρκουμάς
+eo:kurkumo
 es:cúrcuma, curcuma
-et:Kurkum
-eu:Kurkuma
+et:kurkum
+eu:kurkuma
 fa:زردچوبه
 fi:kurkuma, maustekurkuma
 fr:curcuma
-ga:Tuirmeiric
-gd:Curcuma
-gl:Cúrcuma
+ga:tuirmeiric
+gd:curcuma
+gl:cúrcuma
 gu:હળદર
 he:כורכום
 hi:हल्दी
-hr:Kurkuma
-hu:Kurkuma
-id:Kunyit
-io:Kurkumo
-is:Kúrkúma
+hr:kurkuma
+hu:kurkuma
+id:kunyit
+io:kurkumo
+is:kúrkúma
 it:curcuma, turmerico
 ja:ウコン
-jv:Kunir
+jv:kunir
 kn:ಅರಿಸಿನ
 ko:울금
-ku:Zerdeçal
-la:Curcuma longa
-lt:Turmerikas
-lv:Kurkuma
+ku:zerdeçal
+la:curcuma longa
+lt:turmerikas
+lv:kurkuma
 mk:куркума
 ml:മഞ്ഞൾ
 mr:हळद
-ms:Kunyit
+ms:kunyit
 my:နနွင်း
 nb:gurkemeie
 ne:बेसार
 nl:kurkuma, geelwortel, curcuma
 nn:gurkemeie
-oc:Curcuma
+oc:curcuma
 or:ହଳଦୀ
 pa:ਹਲਦੀ
-pl:Ostryż długi, kurkuma
+pl:kurkuma, ostryż długi
 ps:کورکمن
 pt:curcuma
 ro:curcumă, curcuma
-ru:Куркума длинная, куркума, куркумин
+ru:куркума, куркумин, куркума длинная
 sa:हरिद्रा
 sd:ھيڊ
 si:කහ
-sl:Kurkuma
-so:Huruud
+sl:kurkuma
+so:huruud
 sr:куркума
-su:Konéng
-sv:Gurkmeja
-sw:Manjano
+su:konéng
+sv:gurkmeja
+sw:manjano
 ta:மஞ்சள்
 te:పసుపు
-tg:Зардчӯба
+tg:зардчӯба
 th:ขมิ้น
-tl:Luyang-dilaw
-to:Ango
-tr:Zerdeçal
-ty:Rea tahiti
-uk:Куркума довга
+tl:luyang-dilaw
+to:ango
+tr:zerdeçal
+ty:rea tahiti
+uk:куркума
 ur:ہلدی
-vi:Nghệ
+vi:nghệ
 zh:薑黃
-# ace:Kunyèt
-# azb:Uzun kurkuma
-# bcl:Kalawag
-# bjn:Janar
-# gsw:Kurkuma
-# hsb:Jawaska kurkuma
-# lfn:Curcuma
-# nan:Kiuⁿ-n̂g
-# nds:Kunkelmei
-# nrm:Jaune êpice
-# pam:Ange
+# ace:kunyèt
+# azb:kurkuma
+# bcl:kalawag
+# bjn:janar
+# gsw:kurkuma
+# hsb:kurkuma
+# lfn:curcuma
+# nan:kiuⁿ-n̂g
+# nds:kunkelmei
+# nrm:jaune êpice
+# pam:ange
 # pnb:ہلدی
 # sat:ᱥᱟᱥᱟᱝ
 # sr-ec:куркума
@@ -57307,34 +58017,35 @@ zh:薑黃
 # zh-tw:薑黃
 wikidata:en:Q42562
 wikipedia:en:https://en.wikipedia.org/wiki/Turmeric
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/turmeric
-# 6644 products in 12 languages @2018-10-11
+# 19427s in 32 @2021-09-18
 
-# This is sometimes mentioned as a colouring agent.
 
+#left in due to ciqual
+#processing:en en:powder
 <en:turmeric
 en:turmeric powder
 de:Curcumapulver, Kurkumapulver
 fi:kurkumajauhe
 fr:poudre de curcuma, curcuma moulu, curcuma déshydraté
 it:curcuma in polvere
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poudre-de-curcuma
-# 40 products @2018-10-11
+ciqual_food_code:en:11089
+ciqual_food_name:en:Turmeric, powder
+ciqual_food_name:fr:Curcuma, poudre
+#500  @2021-09-18
 
-# This is sometimes mentioned as a colouring agent.
-
-<en:turmeric
-en:turmeric extract
-da:gurkemejeekstrakt
-de:Kurkumaextrakt
-es:extracto de cúrcuma
-fi:kurkumauute
-fr:extrait de curcuma
-it:estratto di curcuma
-lv:kurkuma ekstrakts
-nl:kurkuma extract, kurkuma-extract
-sv:gurkmejaextrakt
-# en:turmeric-extract has 339 products in 12 languages @2018-10-11
+# moved to E100
+#<en:turmeric
+#en:turmeric extract
+#da:gurkemejeekstrakt
+#de:Kurkumaextrakt
+#es:extracto de cúrcuma
+#fi:kurkumauute
+#fr:extrait de curcuma
+#it:estratto di curcuma
+#lv:kurkuma ekstrakts
+#nl:kurkuma extract, kurkuma-extract
+#sv:gurkmejaextrakt
+# 6229 @2021-09-18
 
 <en:turmeric extract
 fr:extrait naturel de curcuma
@@ -57349,96 +58060,113 @@ fr:extrait naturel de curcuma
 
 <en:spice
 en:nutmeg
-bs:Muskatni oraščić
-ca:nou moscada
-cs:Muškátový oříšek
-cv:Мускат мăйăрĕ
-da:Muskatnød
-de:Muskat, Muskatnuss
+da:muskat
+de:Muskat
 dv:ތަކޫވައް
-el:Μοσχοκαρυδιά
-eo:Muskato
-es:nuez moscada
-eu:Intxaur muskatu
-fa:جوز هندی
-fi:muskottipähkinä
-fr:noix de muscade, muscade
-gd:Cnò-mheannt
-gl:Noz moscada
+el:μοσχοκαρυδιά
+eo:muskato
+fr:muscade
+ga:noitmig
+gd:cnò-mheannt
 gu:જાયફળ
 he:אגוז מוסקט
 hi:जायफल
-hu:Szerecsendió
-hy:Մշկընկույզ
-id:Pala
-io:Muskado
-is:Múskat
-it:Noce moscata
+hu:szerecsendió
+hy:մշկընկույզ
+id:pala
+io:muskado
+is:múskat
 ja:ニクズク属
-jv:Pala
-ka:ჯავზის ხეkk:Мускат жаңғағы
+jv:pala
+ka:ჯავზის ხე
 kn:ಜಾಪತ್ರೆ
 ko:육두구
-la:Myristica fragrans
-lt:Kvapusis muskatmedis
-lv:muskatrieksti
-mk:морско оревче
+la:myristica fragrans
 ml:ജാതിക്ക
 mr:जायफळ
-ms:Buah pala
+ms:buah pala
 my:ဇာတိပ္ဖိုလ်
-nb:muskatnøttslekten
 nl:nootmuskaat
-oc:Notz muscada
 pa:ਜਾਇਫਲ
-pl:Muszkatołowiec korzenny
-pt:noz-moscada
-ro:Nucșoară
-ru:Мускатный орех
-sa:जातीफलम्# sco:nitmug
-sh:Muškatov oraščić
+pl:muszkatołowiec
+ro:nucșoară
+sa:जातीफलम्
+#sco:nitmug
 si:සාදික්කා
-sl:Muškatovec
-su:Pala
-sv:Muskotsläktet, muskot, muskotnöt
-sw:Kungumanga
+sl:muškatovec
+su:pala
+sv:muskot
+sw:kungumanga
 ta:ஜாதிக்காய்
 te:జాజికాయ
 th:จันทน์เทศ
-tl:Moskada
-to:Kotone
-tr:Muskat
-uk:Мускатник
+tl:moskada
+to:kotone
+tr:muskat
+uk:мускатник
 ur:جائفل
-vi:Hạt nhục đậu khấu
+vi:hạt nhục đậu khấu
 yi:מושקאט נוס
 zh:肉豆蔻
-# ceb:Moskada
-# en-ca:Nutmeg
-# en-gb:Nutmeg
+# ceb:moskada
+# en-ca:nutmeg
+# en-gb:nutmeg
 # new:nutmeg
-# nrm:Muscade
-# pt-br:noz-moscada
-# vls:Notevaschoa
+# nrm:muscade
 # zh-cn:肉豆蔻
 # zh-hk:肉豆蔻
 wikidata:en:Q83165
 wikipedia:en:https://en.wikipedia.org/wiki/Nutmeg
-# fr:noix-de-muscade has 517 products in 6 languages @2018-10-24
+ciqual_food_code:en:11048
+ciqual_food_name:en:Nutmeg
+ciqual_food_name:fr:Noix de muscade
+# 6807 in 22 @202109-23
 
 <en:nutmeg
-en:ground nutmeg
-de:Muskatnuss gemahlen, gemahlene Muskatnuss
-fi:jauhettu muskottipähkinä
-fr:muscade-moulue, noix de muscade en poudre
-it:Noce moscata macinata
+en:nutmeg nut
+bs:muskatni oraščić
+ca:nou moscada
+cs:muškátový oříšek
+cv:мускат мăйăрĕ
+da:muskatnød
+de:Muskatnuss
+es:nuez moscada
+eu:intxaur muskatu
+fa:جوز هندی
+fi:muskottipähkinä
+fr:noix de muscade
+ga:crann noitmigí
+gl:noz moscada
+hr:muškatni orašćić
+kk:мускат жаңғағы
+lt:muskatmedis
+lv:muskatrieksti
+mk:морско оревче
+mt:noċemuskata
+nb:muskatnøtts
+oc:notz muscada
+pt:noz-moscada
+sh:muškatov oraščić
+ru:мускатный орех
+sv:muskotnöt
+# pt-br:noz-moscada
+# vls:notevaschoa
 
-<en:nutmeg
-en:nutmeg extract
-de:Muskatnuss-Extrakt
-es:extracto de nuez moscada
-fi:muskottipähkinäuute
-fr:extrait de muscade
+#processing:en: en:ground
+#<en:nutmeg
+#en:ground nutmeg
+#de:Muskatnuss gemahlen, gemahlene Muskatnuss
+#fi:jauhettu muskottipähkinä
+#fr:muscade-moulue, noix de muscade en poudre
+#it:Noce moscata macinata
+
+#processing:en: en:extract
+#<en:nutmeg
+#en:nutmeg extract
+#de:Muskatnuss-Extrakt
+#es:extracto de nuez moscada
+#fi:muskottipähkinäuute
+#fr:extrait de muscade
 
 ###################################################################################################
 #
@@ -57449,38 +58177,38 @@ fr:extrait de muscade
 
 <en:spice
 en:cardamom, cardamon
-af:Kardamom
+af:kardamom
 ar:هال
-bs:Kardamom
+bs:kardamom
 cs:kardamom
-cy:Cardamom
+cy:cardamom
 da:kardemomme
-de:Kardamom
-el:Κακουλέ
-eo:Kardamomo
+de:kardamom
+el:κακουλέ
+eo:kardamomo
 es:cardamomo
-et:Kardemon
+et:kardemon
 fa:هل
 fi:kardemumma
 fr:cardamome, cardamone
-gd:Càrdamon
-gl:Cardamomo
+gd:càrdamon
+gl:cardamomo
 gu:ઇલાયચી
 he:הל
-hi:इलायची उपज करने वाले पौधे
-hr:Kardamom
-hy:Հիլ
-id:Kapulaga
-io:Kardamomo
+hi:इलायची
+hr:kardamom
+hy:հիլ
+id:kapulaga
+io:kardamomo
 it:cardamomo
 ja:カルダモン
-jv:Kapulaga
-kk:Кардамон
+jv:kapulaga
+kk:кардамон
 ko:카다멈
 lv:kardamons
 mk:кардамон
 mr:वेलदोडे
-ms:Buah pelaga
+ms:buah pelaga
 nl:kardemom, cardamon
 pl:kardamon
 ps:لاچی
@@ -57489,24 +58217,23 @@ ro:cardamon
 ru:кардамон
 sa:एला
 sd:ننڍو ڦوٽو
-sh:Kardamon
-sr:Кардамон
-su:Kapulaga
+sh:kardamon
+sr:кардамон
+su:kapulaga
 sv:kardemumma
 ta:ஏலம்
 te:ఏలకులు
 th:กระวาน
-tr:Kakule
+tr:kakule
 uk:кардамон
 yi:קארדעמאן
 # arc:ܫܘܫܡܢܝܬܐ
 # arz:حبهان
-# ast:Cardamomo
+# ast:cardamomo
 # gom:वेलची
-# nds:Kardamom
+# nds:kardamom
 # new:एला
 # tcy:ಏಲಕ್ಕಿ
-wikidata:en:Q18360378
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
 
@@ -57520,16 +58247,45 @@ wikipedia:en:https://en.wikipedia.org/wiki/Elettaria_cardamomum
 
 <en:cardamom
 en:black cardamom
+ar:هيل أسود
+az:bizvari hil
+bg:черен кардамон
+bo:ཀ་ཀོ་ལ།
+ca:cardamom negre
+cs:nepálský kardamom
 de:Schwarzer Kardamom, schwarzer Cardamom
+el:mαύρο κάρδαμο
+eo:amomo
+fa:هل سیاه
 fr:cardamome noire
+gu:એલચો
+hi:बड़ी इलायची
+it:cardamomo nero
+ja:アモムム・スブタトゥム
+jv:kapulaga ireng
+ko:향두구
 la:Amomum subulatum
+ml:പേരേലം
+nb:svart kardemomme
+ne:अलैंची
+nl:zwarte kardemom
+sv:svart kardemumma
+ta:கருப்பு ஏலக்காய்
+uk:чорний кардамон
+vi:thảo quả
+zh:香豆蔻
 wikidata:en:Q1369048
 wikipedia:en:https://en.wikipedia.org/wiki/Black_cardamom
+#34 @2021-09-17
 
 # the pod contains the seeds
 <en:cardamom
 en:cardamom pod
+da:hel kardemomme
+sv:kardemummakapsel
+#18 @2021-09-17
 
+#comment:en:found inside the pod
 <en:seed
 <en:cardamom
 en:cardamom seed, cardamom seeds
@@ -57538,7 +58294,10 @@ fi:kardemumman siemen, kardemumman siemeniä
 fr:graines de cardamome
 nl:kardemomzaden, hele kardemomzaden
 wikidata:en:Q14625808
-# ingredient/fr:graines-de-cardamome has 4 products in 1 language @2020-06-13
+ciqual_food_code:en:11075
+ciqual_food_name:en:Cardamom, powder
+ciqual_food_name:fr:Cardamome, poudre
+# 80 in 1 language @2021-09-17
 
 ###################################################################################################
 #
@@ -57546,24 +58305,24 @@ wikidata:en:Q14625808
 #
 ###################################################################################################
 <en:spice
-en:Cinnamon
-af:Kaneel
+en:cinnamon
+af:kaneel
 am:ቀረፋ
 ar:قرفة
-az:Darçın
-be:Карыца
-bg:Канела
+az:darçın
+be:карыца
+bg:канела
 bn:দারুচিনি
-br:Kanell
-bs:Cimet
+br:kanell
+bs:cimet
 ca:canyella
 co:cannella
 cs:skořice
 cy:sinamon
 da:kanel
-de:Zimt
+de:zimt
 dv:ފޮނި ތޮށި
-el:κανέλλη, Κανέλα
+el:κανέλλη, κανέλα
 eo:cinamo
 es:canela
 et:kaneel
@@ -57572,29 +58331,29 @@ fa:دارچین
 fi:kaneli
 fr:cannelle, canelle
 fy:kaniel
-ga:Cainéal
-gd:Caineal
-gl:Canela
+ga:cainéal
+gd:caineal
+gl:canela
 gu:તજ
 he:קינמון
 hi:दालचीनी
-hr:Cimet
+hr:cimet
 hu:fahéj
 hy:դարչին
-id:Kulit kayu manis
-io:Cinamo
+id:kulit kayu manis
+io:cinamo
 is:kanill
 it:cannella
 ja:シナモン
-jv:Kayu manis
+jv:kayu manis
 ka:დარიჩინი
 kn:ದಾಲ್ಚಿನ್ನಿ
-ko:육계나무, 실론계피나무
+ko:육계나무
 ku:darçîn
-la:Cinnamum
-lb:Kanéil
+la:cinnamum
+lb:kanéil
 li:keniel
-lt:Cinamonas
+lt:cinamonas
 lv:kanēlis
 mk:цимет
 ml:കറുവ
@@ -57604,85 +58363,91 @@ my:သစ်ကြံပိုးပင်
 nb:kanel
 ne:दालचिनी
 nl:kaneel
-nn:kanel, kaneltre
-oc:Canèla
+nn:kanel
+oc:canèla
 or:ଡାଳଚିନି
 pa:ਦਾਲਚੀਨੀ
 pl:cynamon
 pt:canela
-qu:Kanila sach'a
-ro:Scorțișoară
+qu:kanila sach'a
+ro:scorțișoară
 ru:корица
 sa:वराङ्गम्
 sd:دالچيني
-sh:Cimet
+sh:cimet
 si:කුරුඳු
 sk:škorica
-sl:Cimet
-sq:Kanella
+sl:cimet
+sq:kanella
 sr:цимет
-su:Ki amis
+su:ki amis
 sv:kanel
-sw:Mdalasini
+sw:mdalasini
 ta:கறுவா
 te:దాల్చిన చెక్క
 th:อบเชย
-tr:Tarçın
-uk:Кориця
+tr:tarçın
+uk:кориця
 ur:دارچینی
-vi:Quế quan
+vi:quế quan
 vo:kirfat
 yi:צימערינג
 zh:桂皮
 # aeb-arab:قرفة
-# ang:Ofersǣwisc rind
+# ang:ofersǣwisc rind
 # arc:ܩܠܦܬܐ ܕܒܣܡܐ
 # arz:قرفه
-# bar:Zimt
-# be-tarask:Карыца
-# ceb:Kanela
+# bar:zimt
+# be-tarask:карыца
+# ceb:kanela
 # ckb:دارچین
-# csb:Cynamón
-# de-ch:Zimt
+# csb:cynamón
+# de-ch:zimt
 # dsb:cymt
-# en-ca:Cinnamon
-# en-gb:Cinnamon
-# frr:Kaneel
-# gsw:Zimt
-# hsb:Skoričnik
+# en-ca:cinnamon
+# en-gb:cinnamon
+# frr:kaneel
+# gsw:zimt
+# hsb:skoričnik
 # mai:दालचिनी
-# nan:Ceylon jio̍k-kùi
-# nds:Kaneel
-# nrm:Cannelle
+# nan:jio̍k-kùi
+# nds:kaneel
+# nrm:cannelle
 # roa-tara:cannélle
-# scn:Cannedda
+# scn:cannedda
 # sco:cinnamon
-# vls:Kanêel
+# vls:kanêel
 # yue:肉桂
 # zh-tw:陰香
 wikidata:en:Q28165
 carbon_footprint_fr_foodges_ingredient:fr:Cannelle
 carbon_footprint_fr_foodges_value:fr:2.2
-# fr:cannelle has 1851 products in 14 languages @2018-10-24
+"# fr:cannelle has 1851 products in 14 languages @2018-10-24
 
-<en:Cinnamon
-en:organic cinnamon
-da:økologisk kanel
-de:Bio-Zimt
-es:Canela orgánica
-fi:luomukaneli, luomu kaneli
-fr:cannelle bio
+#<en:Cinnamon
+#en:organic cinnamon
+##da:økologisk kanel
+#de:Bio-Zimt
+#es:Canela orgánica
+#fi:luomukaneli, luomu kaneli
+#fr:cannelle bio
 
+#comment:en:kept for ciqual
 <en:Cinnamon
 en:cinnamon powder
+bg:канела прах
 de:Zimtpulver
 es:Canela en polvo
 fi:kanelijauhe
 fr:cannelle en poudre, cannelle moulue
 it:cannella in polvere
 nl:kaneelpoeder
+pt:canela em pó
 ru:корица молотая
-# fr:cannelle-en-poudre has 73 products in 4 languages @2018-10-24
+ciqual_food_code:en:11025
+ciqual_food_name:en:Cinnamon, powder
+ciqual_food_name:fr:Cannelle, poudre
+# 448 in 4 languages @2021-09-20
 
 # description:en:Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
 
@@ -57690,45 +58455,53 @@ ru:корица молотая
 en:cassia, chinese cinnamon
 am:ብርጕድ
 ar:سليخة
-az:Çin darçın ağacı
+az:çin darçın ağacı
 bg:касия
-da:Cassia
+da:cassia
 de:Zimtkassie
-el:Κιννάμωμον η Κασσία
-et:Hiina kaneelipuu
-fi:Kassiakaneli
-fr:cannelle de chine, cinnamomum cassia
-id:Kayu Manis Cina
+el:κιννάμωμον η κασσία
+et:hiina kaneelipuu
+fi:kassiakaneli
+fr:cannelle de chine
+id:kayu manis cina
+it:cassia
 ja:シナニッケイ
-la:Cinnamomum cassia
-lt:Kininis cinamonas
+la:cinnamomum cassia
+lt:kininis cinamonas
 ml:ചൈനീസ് പട്ട
-nb:Kassiakanel
-pl:Cynamonowiec wonny
-pt:Cássia-chinesa
-ru:Коричник китайский
-sk:Kineski cimet
-sl:Kitajski cimet
-sv:Kassiakanel
+nb:kassiakanel
+nl:cassie
+pl:cynamonowiec wonny
+pt:cássia-chinesa
+ru:коричник китайский
+sk:kineski cimet
+sl:kitajski cimet
+sv:kassiakanel
 th:อบเชยจีน
-uz:Dolchin
+uz:dolchin
 zh:肉桂
 # lzh:桂
-# nan:Jio̍k-kùi
+# nan:jio̍k-kùi
 # zh-tw:肉桂
 wikidata:en:Q204148
 wikipedia:en:https://en.wikipedia.org/wiki/Cinnamomum_cassia
-# fr:cannelle-de-chine has 21 products @2018-10-24
+# 165 @2021-09-20
 
 # description:en:CINNAMOMUM VERUM, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
 
-<en:Cinnamon
-fr:cannelle de ceylan, cinnamomum verum
+<en:cinnamon
+en:ceylon cinnamon
+cs:skořice-Cejlon
+fr:cannelle de ceylan 
 de:Ceylon-Zimt
 fi:ceyloninkaneli
+it:cannella di Ceylon
+ko:실론계피나무
+la:cinnamomum verum
+nl:Ceylonkaneel
 wikidata:en:Q370239
 wikipedia:en:https://en.wikipedia.org/wiki/Cinnamomum_verum
-# fr:cannelle-de-ceylan has 18 products in 3 languages @2018-10-24
+# 58 in 6 @2021-09-20
 
 
 ###################################################################################################
@@ -57740,107 +58513,109 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cinnamomum_verum
 
 <en:spice
 en:clove
-af:Naeltjie
+af:naeltjie
 am:ቅርንፉድ
 ar:قرنفل
 as:লং
-az:Mixək
-be:Гваздзік, Гваздзіковае дрэва
+az:mixək
+be:гваздзік
 bg:карамфил
 bn:লবঙ্গ
 bo:ལི་ཤི།
-bs:Klinčić
+bs:klinčić
 ca:clavell d'espècia
-co:Viulaccia
+co:viulaccia
 cs:hřebíček
-cv:Гвоздика
-da:Kryddernellike, nellike
+cv:гвоздика
+da:kryddernellike, nellike
 de:Nelke, Nelken, Gewürznelke, Gewürznelken
 dv:ކަރަންފޫ
-eo:Kariofilo
+eo:kariofilo
 es:clavos de olor, clavo
-et:Nelk
-eu:Iltze
+et:nelk
+eu:iltze
 fa:میخک صدپر
-fi:Mausteneilikka, neilikka
+fi:mausteneilikka, neilikka
 fr:girofle, clou de girofle, clous de girofle
-ga:Clóbh
-gd:Clo-mheas
-gl:Craveiro da India
+ga:clóbh
+gd:clo-mheas
+gl:craveiro da india
 gu:લવિંગ
 he:ציפורן
 hi:लौंग
-hr:Klinčić
-ht:Jiwòf
-hu:Szegfűszeg
-id:Cengkih
-io:Kariofilo
-is:Negull
+hr:klinčić
+ht:jiwòf
+hu:szegfűszeg
+id:cengkih
+io:kariofilo
+is:negull
 it:chiodo di garofano, chiodi di garofano
 ja:クローブ
-jv:Cengkèh
+jv:cengkèh
 ka:მიხაკის ხე
-kk:Қалампыр ағашы
+kk:қалампыр ағашы
 kn:ಲವಂಗ
 ko:정향나무
-ku:Mêxek
-la:Syzygium aromaticum
-lb:Neelcheskapp
-li:Groffelsnagel
-lt:Kvapnusis gvazdikmedis
-lv:Nagliņkoks
-mk:Каранфилче
+ku:mêxek
+la:syzygium aromaticum
+lb:neelcheskapp
+li:groffelsnagel
+lt:kvapnusis gvazdikmedis
+lv:nagliņkoks
+mk:каранфилче
 ml:കരയാമ്പൂ
 mr:लवंग
-ms:Cengkih
+ms:cengkih
 my:လေးညှင်းပင်
-nb:Kryddernellik
+nb:kryddernellik
 ne:ल्वाङ
 nl:kruidnagel, kruidnagels
-nn:Nelliktre
-oc:Giròfle
+nn:nelliktre
+oc:giròfle
 or:ଲବଙ୍ଗ
 pa:ਲੌਂਗ
-pl:Goździki
+pl:goździki
 ps:لونګ
-pt:Cravo-da-índia
-ro:Cuișoare
-ru:Гвоздика
+pt:cravo-da-índia
+ro:cuișoare
+ru:гвоздика
 sa:लवङ्गम्
-sh:Klinčić
-sk:Klinčekovec voňavý
-sl:Nageljnove žbice
-so:Dhaga yare
-sr:Karanfilić
-su:Cengkéh
-sv:Kryddnejlika, nejlika, kryddnejlikor, nejlikor
-sw:Karafuu, Mkarafuu
+sh:klinčić
+sk:klinčekovec voňavý
+sl:nageljnove žbice
+so:dhaga yare
+sr:karanfilić
+su:cengkéh
+sv:kryddnejlika, nejlika
+sw:karafuu, mkarafuu
 ta:கிராம்பு
 te:లవంగము
 th:กานพลู
-tr:Karanfil
-uk:Гвоздика
+tr:karanfil
+uk:гвоздика
 ur:لونگ
-vi:Đinh hương
-wa:Djirofe
+vi:đinh hương
+wa:djirofe
 yi:נעגעלע
 zh:丁香
 # arz:قرنفل
 # ckb:مێخەک
-# frr:Neegelkbuum
-# hsb:Prawy nalikowc
-# kbd:Къэрмэфибл
-# ksh:Jrovvötsnäähl
-# min:Cangkeh
-# nrm:Cliou d'giroufl'ye
+# frr:neegelkbuum
+# hsb:prawy nalikowc
+# kbd:къэрмэфибл
+# ksh:jrovvötsnäähl
+# min:cangkeh
+# nrm:cliou d'giroufl'ye
 # pnb:لونگ
 # pt-br:cravo da índia
 # tcy:ಲವಂಗ
-# vls:Kruudnoagel
+# vls:kruudnoagel
 # yue:丁香
+ciqual_food_code:en:11052
+ciqual_food_name:en:Cloves
+ciqual_food_name:fr:Clou de girofle
 wikipedia:en:https://en.wikipedia.org/wiki/Clove
-# fr:girofle has 416 products in 6 languages @2018-10-23
-# fr:clou-de-girofle has 524 products in 5 languages @2018-10-23
+# 4654 in 26 @2021-09-21
 
 ###################################################################################################
 #
@@ -57850,39 +58625,164 @@ wikipedia:en:https://en.wikipedia.org/wiki/Clove
 
 <en:spice
 en:fenugreek
-da:Bukkehorn
-de:Bockshornklee
-es:fenogreco
+af:fenegriek
+am:ኣብሽ
+ar:حلبة
+as:মেথি
+az:güldəfnə
+bn:মেথি
+bo:ཤུ་མོ་ཟ་
+ca:fenigrec
+cs:pískavice
+cy:ffenigrig
+da:bukkehorn
+de:bockshornklee
+dv:އޯބަތް
+el:τριγωνίσκος
+eo:fenugreko
+es:fenogreco, alholva
+eu:ailorbe
+fa:شنبلیله
 fi:sarviapila
 fr:fenugrec
+ga:seamair ghréagach
+gl:alforfa
+gu:મેથી
+he:גרגרנית יוונית
+hi:मेथी
+hu:görögszéna
+hy:շամբալա
+id:kelabat
 it:fieno greco
 ja:フェヌグリーク
-la:Trigonella foenum-graecum
+jv:kelabat
+ka:უცხო სუნელი
+kn:ಮೆಂತೆ
+ko:큰노랑꽃자리풀
+ku:şembelîk
+la:trigonella foenum-graecum
+mk:пискавица
+ml:ഉലുവ
+mr:मेथी
+ms:halba
+mt:fienu, ħelba
 nb:bukkehornkløver, bukkehornskløver
-nl:fenergriek
+ne:मेथी
+nl:fenegriek
+or:ମେଥି
+pa:ਮੇਥੀ
 pl:kozieradka, kozieradki
+ps:ملخوزه
+pt:feno-grego, fenacho, alforva
+ro:schinduf
+ru:пажитник сенной
+sa:मेथिका
+sd:ھرٻو
+si:උළුහාල්
+sk:senovka grécka
+sl:grško seno, triplat
+so:xulbad
+sr:пискавица
 sv:bockhornsklöver
+ta:வெந்தயம்
+te:మెంతులు
+th:ลูกซัด
+tr:çemen otu
+uk:гуньба сінна
+ur:میتھی
+vi:cỏ ca ri
+yi:באקסהארן
+zh:胡芦巴
+#ach:haleuba
+#arz:حلبة
+#azb:چمن اوْتو
+#bho:मेथी
+#hsb:kozyradka
+#kab:tifidas
+#ku-arab:شەمبەلیک
+#lzh:胡盧巴
+#mai:मेथी
+#mad:klabhet
+#wuu:胡芦巴
 wikidata:en:Q133205
 wikipedia:en:https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
 
 <en:fenugreek
 en:fenugreek leaf, fenugreek leaves
+de:Bockshornkleeblatt, Bockshornkleeblätter
+es:hoja de fenegreco
+fi:sarviapilan lehdet
+fr:feuille de fenugrec
+it:foglie di trigonella
+nl:fenegriekblad
+wikidata:en:Q104054829
+#130 @2021-09-19
 
+#processing:en: en:dried
 <en:fenugreek leaf
-en:dried fenugreek leaves
-de:getrockneter Bockshornklee
+en:dried fenugreek leaf
 es:hoja de fenegreco seca
 fi:kuivatut sarviapilan lehdet
 fr:feuille de fenugrec séchée
 nl:gedroogd fenegriekblad
 # en:dried-fenugreek-leaves has 6 products in 2 languages @2018-10-23
 
-<en:herb
+<en:seed
+<en:fenugreek
+en:fenugreek seed, fenugreek seeds
+ca:llavor de fenigrec
+da:bukkehornsfrø
+de:Bockshornkleesamen, Bockshornkleesaat
+el:σπόρος τριγωνέλλας, σπόρος μοσχοσίταρου
+es:semilla de fenegreco, semilla de alholva
+fi:sarviapilan siemen, sarviapilan siemenet
+fr:graine de fenugrec, graines de fenugrec
+it:seme di fieno greco, semi di fieno greco
+la:Trigonellae foenugraeci semen
+nl:fenegriekzaad
+sk:senovka grécka
+wikidata:en:Q57659978
+ciqual_food_code:en:11077
+ciqual_food_name:en:Fenugreek, seed
+ciqual_food_name:fr:Fenugrec, graine
+#223 @2021-09-19
+
+#processing:en: en:dried
+#<en:fenugreek seed
+#en:dried fenugreek seed
+#de:getrocknete Bockshornkleesamen
+#es:semilla de fenegreco seca
+#fr:graine de fenugrec séchée
+#nl:gedroogd fenegriekzaad
+
+#processing:en: en:ground
+#<en:fenugreek seed
+#de:gemahlen Bockshornkleesamen
+
+# is this better as herb?
+<en:spice
 en:blue fenugreek
-la:Trigonella caerulea, Trigonella melilotus-caerulea
+be:пажытнік блакітны
+bg:син сминдух
+de:Schabzigerklee
+el:τριγωνέλλα η κυανή
+eo:blua trigonelo
+es:meliloto azul
+et:sinine lambalääts
+fi:sinisarviapila
+fr:trèfle mélilot, fenugrec bleu, trèfle bleu
+ka:უცხო სუნელი
+ko:청호로파
+la:trigonella caerulea, trigonella melilotus-caerulea
+nl:zevengetijdenklaver
+pl:kozieradka błękitna
+ru:пажитник голубой
+tr:mavi çemenotu
+sv:blåväppling
 wikidata:en:Q164849
 wikipedia:en:https://en.wikipedia.org/wiki/Trigonella_caerulea
+#17 in 4 2021-09-19
 
 ###################################################################################################
 #
@@ -58063,36 +58963,44 @@ ciqual_food_code:en:11074
 ciqual_food_name:en:Ginger, raw
 ciqual_food_name:fr:Gingembre, racine crue
 
-<en:ginger
-en:organic ginger
-de:Biologischer Ingwer
-es:Jengibre orgánico
-fi:luomu inkivääri
-fr:gingembre bio
-it:Zenzero biologico
+#<en:ginger
+#en:organic ginger
+#de:Biologischer Ingwer
+#es:Jengibre orgánico
+#fi:luomu inkivääri
+#fr:gingembre bio
+#it:Zenzero biologico
 
+#category/ginger-powder
 <en:ginger
 en:ginger powder, ground ginger
+da:malen ingefær
 de:gemahlener Ingwer, Ingwerpulver
 es:Gengibre en polvo, polvo de gengibre, jengibre en polvo
 fi:inkiväärijauhe, jauhettu inkivääri
 fr:gingembre moulu
 it:zenzero macinato
+nb:malen ingefær
 nl:gemberpoeder, gemalen gember, gemalen gemberwortel, djahé
+pl:mielony imbir
 pt:Gengibre em pó
-sv:ingefärapulver
-# fr:gingembre-moulu has 58 products in 4 languages @2018-10-25
+sv:ingefärapulver, malen ingefära
+wikidata:en:Q58183281
+ciqual_food_code:en:11006
+ciqual_food_name:en:Ginger, powder
+ciqual_food_name:fr:Gingembre, poudre
+# 923 in 12 @2021-09-28
 
-<en:ginger
-en:ginger purée
-de:Ingverpüree
-es:Puré de gengibre
-fi:inkivääripyree, inkiväärisose
-fr:purée de gingembre
-it:purea di zenzero
-nl:gemberpuree
-sv:ingefärspuré, ingefära puré
-# In process de:Ingwerpüree
+#processing:en: en:puree
+#<en:ginger
+#en:ginger purée
+#de:Ingverpüree
+#es:Puré de gengibre
+#fi:inkivääripyree, inkiväärisose
+#fr:purée de gingembre
+#it:purea di zenzero
+#nl:gemberpuree
+#sv:ingefärspuré, ingefära puré
 # fr:purée-de-gingembre has 118 products in 6 languages @2018-10-25
 
 <en:ginger
@@ -58103,24 +59011,26 @@ fr:Pâte de gingembre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:inkiv%C3%A4%C3%A4ritahna
 # 1 entry @ 2019-10-31
 
-<en:ginger
-en:ginger juice
-de:Ingwersaft
-es:jugo de jengibre, jugo de kión
-fi:inkiväärimehu, inkivääritäysmehu
-fr:Jus de gingembre
-sv:ingefärsjuice
+#processing:en: en:juice
+#<en:ginger
+#en:ginger juice
+#de:Ingwersaft
+#es:jugo de jengibre, jugo de kión
+#fi:inkiväärimehu, inkivääritäysmehu
+#fr:Jus de gingembre
+#sv:ingefärsjuice
 # ingredient/en:ginger-juice has 304 products in 2 languages @2020-05-23
 
-<en:ginger
-en:ginger extract
-de:Ingwer-Extrakt
-es:extracto de jengibre, extracto de kión, extracto de kion
-fi:inkivääriuute
-fr:extrait de gingembre
-nl:gemberextract
-vegan:en:yes
-vegetarian:en:yes
+#processing:en: en:extract
+#<en:ginger
+#en:ginger extract
+#de:Ingwer-Extrakt
+#es:extracto de jengibre, extracto de kión, extracto de kion
+#fi:inkivääriuute
+#fr:extrait de gingembre
+#nl:gemberextract
+#vegan:en:yes
+#vegetarian:en:yes
 
 #category/mustards
 <en:spice
@@ -58478,35 +59388,47 @@ fr:anéthol de badiane
 <en:spice
 nl:speculaaskruiden
 
-#
+
 <en:herb
-en:summer savory, savory
+en:savory
+bg:чубрица
+da:sar
 de:Bohnenkraut
+es:ajedrea
 fr:sariette, sarriette
 it:santoreggia
 nl:bonenkruid
 pl:cząber
-wikidata:en:Q157283
+sv:kyndel
+wikidata:en:Q19787919
 wikipedia:en:https://en.wikipedia.org/wiki/Summer_savory
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
-# 258 products in 5 languages @2018-10-10
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
-# 26 products in 2 languages @2018-10-10
+# 739 in 7 @2021-09-17
 
 <en:herb
 <en:coriander
-en:coriander leaves, coriander leaf, cilantro
-da:Korianderblade
+en:coriander leaf, coriander leaves, cilantro
+da:korianderblade
 de:Korianderblätter
-es:Hojas de cilantro
-fi:korianterinlehti, korianterinlehdet
-fr:feuilles de coriandre, feuille de coriandre, coriandre en feuille
-it:Foglie di coriandolo
-nl:koriander blaadjes
-pl:Liście kolendry
+eo:koriandrofolio
+es:hoja de cilantro, hojas de cilantro
+fi:korianterinlehdet, korianterinlehti
+fr:feuille de coriandre, feuilles de coriandre, coriandre en feuille
+hu:korianderlevél
+it:foglie di coriandolo
+nl:korianderblad, korianderblaadjes, koriander blaadjes
+pl:liście kolendry
 sv:korianderblad
-# ingredient/fr:feuilles-de-coriandre has 38 products in 4 languages @2018-12-05
+wikidata:en:Q65523167
+ciqual_food_code:en:11094
+ciqual_food_name:en:Coriander, fresh
+ciqual_food_name:fr:Coriandre, fraiche
+# 4528 in 9 @2021-09-28
 
+#processing:en: en:dried
+#<en:coriander leaf
+#en:dried coriander leaf
+#fr:feuille de coriandre séchée
+#hu:száritott korianderlevél
 
 ###################################################################################################
 #
@@ -58524,55 +59446,54 @@ fr:pimprenelle
 #
 ###################################################################################################
 
+#category/dill
 <en:herb
 en:dill
-af:Dille
+af:dille
 am:እንስላል
 ar:شبت
-az:ایلی شویود
-ba:Укроп
-be:Кроп
+ba:укроп
+be:кроп
 bg:копър
 bn:শুলফা
 br:fanouilh-gad
-bs:Kopar
+bs:kopar
 ca:anet
 co:finochju
-cs:kopr, kopr vonný
-cy:Llysiau'r gwewyr
+cs:kopr
+cy:llysiau'r gwewyr
 da:dild
-de:Dill
+de:dill
 dv:ދަމުއި
-el:Άνηθος
-eo:Aneto
+el:άνηθος
+eo:aneto
 es:eneldo
-et:till, aedtill
-eu:Ezamihilu
+et:till
+eu:ezamihilu
 fa:شوید
 fi:tilli
 fo:dild
 fr:aneth
-ga:Lus mín
-gl:Aneto
+ga:lus mín
+gl:aneto
 he:שבת ריחני
 hi:सोआ
-hr:Kopar
-ht:Lanni
+hr:kopar
+ht:lanni
 hu:kapor
 hy:սամիթ
-id:Adas sowa
-io:Aneto
-is:Dill
+io:aneto
+is:dill
 it:aneto
 ja:イノンド
 ka:კამა
-kk:Аскөк
+kk:аскөк
 kn:ಸಬ್ಬಸಿಗೆ
 ko:딜
-la:Anethum graveolens
-lb:Dëll
+la:anethum graveolens
+lb:dëll
 lo:ຜັກຊີ
-lt:Krapas
+lt:krapas
 lv:dilles
 mk:ко́пар
 ml:ചതകുപ്പ
@@ -58584,81 +59505,86 @@ nl:dille
 nn:dill
 oc:anet
 or:ସୋୟା
-os:Хъонтхора
+os:хъонтхора
 pa:ਸੋਏ
-pl:Koper ogrodowy
-pt:Endro
-ro:Mărar
+pl:koper
+pt:endro
+ro:mărar
 ru:укроп
 sa:मिश्रेयसस्यम्
 sd:سوئا
-sh:Kopar
-sk:Kôpor voňavý
-sl:Navadni koper
+sh:kopar
+sk:kôpor
+sl:koper
 sq:kopra
 sr:мирођија
 sv:dill
-sw:Bizari
+sw:bizari
 ta:சதகுப்பி
 te:శత పుష్పం
-tg:Шибит
+tg:шибит
 th:ผักชีลาว
-tr:Dereotu
+tr:dereotu
 tt:шөер
-uk:Кріп пахучий
+uk:кріп
 ur:شِبِت
-vi:Thì là
-wo:Anet
+vi:thì là
+wo:anet
 zh:蒔蘿
-description:en:Dill (Anethum graveolens) is an annual herb in the celery family Apiaceae. Dill is widely grown in Eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
-comment:en:The wikidata page mixes the common name and latin name
+description:en:dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
+comment:en:the wikidata page mixes the common name and latin name
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
 # arz:شبت
-# azb:Şüyüd
+# azb:şüyüd
 # bho:सोआ
-# csb:Dil
+# csb:dil
 # dsb:kopš
 # eb-ca:dill
 # en-gb:dill
-# inh:Нарсий аьрхI
-# lbe:Гъаран
-# mrj:Ӓнис
-# myv:Копёр
-# pam:Dill
-# pcd:Anéte
-# pt-br:Endro
+# lbe:гъаран
+# mrj:ӓнис
+# myv:копёр
+# pam:dill
+# pcd:anéte
+# pt-br:endro
 # roa-tara
-# sgs:Kraps
-# tyv:Койнут
+# sgs:kraps
+# tyv:койнут
 # yue:莳萝
-wikidata:en:Q26686
+#plant: wikidata:en:q26686
+wikidata:en:Q59659860
 wikipedia:en:https://en.wikipedia.org/wiki/Dill
-# ingredient/fr:aneth has 512 products in 6 languages @2018-10-10
+# 2303 in 24 @2021-09-16
 
+#comment:en:kept separate as it is another ingredient than the leaves
 <en:dill
-en:dill seeds
+en:dill seed, dill seeds
 de:Dillsaat
 es:semillas de eneldo
+nl:dillezaad
+#184 @2021-09-16
 
-<en:dill
-en:organic dill seed
-fi:luomu tillinsiemen
-nl:biologisch dillezaad
+#<en:dill
+#en:organic dill seed
+#fi:luomu tillinsiemen
+#nl:biologisch dillezaad
 # ingredient/nl:biologisch-dillezaad has 1 product @2019-05-24
 
-<en:dill
-en:dried dill
-da:tørret dild
-de:getrockneter Dill, Dill getrocknet
-fi:kuivattu tilli
-fr:aneth déshydraté
+#processing:en: en:dried
+#<en:dill
+#en:dried dill
+#da:tørret dild
+#de:getrockneter Dill, Dill getrocknet
+#fi:kuivattu tilli
+#fr:aneth déshydraté
 
 <en:dill
 en:dill butter
 de:Dillbutter, Dill-Butter
 fi:tillivoi
 sv:dillsmör
+#1 @2021-09-16
 # usage:fi:Tillivoi: Voi (Suomi), tilli, suola
 
 ###################################################################################################
@@ -58669,81 +59595,83 @@ sv:dillsmör
 
 <en:herb
 en:rosemary
-af:Roosmaryn
+af:roosmaryn
 bg:розмарин
 bn:রোজমেরি
-br:Roumarin
-bs:Ruzmarin
+br:roumarin
+bs:ruzmarin
 ca:romaní
-cs:Rozmarýn
-cy:Rhosmari
+cs:rozmarýn
+cy:rhosmari
 da:rosmarin
-de:Rosmarin
-el:Δενδρολίβανο
+de:rosmarin
+el:δενδρολίβανο
 es:romero
-eu:Erromero
+eu:erromero
 fa:رومارن
-fi:Rosmariini
+fi:rosmariini
 fr:romarin
-ga:Marós
-gl:Romeu
+ga:marós
+gl:romeu
 he:רוזמרין רפואי
 hi:गुलमेंहदी
-hr:Ružmarin
-ht:Womaren
+hr:ružmarin
+ht:womaren
 hu:rozmaring
-hy:Հազրեվարդ բուժիչ
-ia:Rosmarino
-id:Rosemary
-io:Rosmarino
-is:Rósmarín
+hy:հազրեվարդ բուժիչ
+ia:rosmarino
+id:rosemary
+io:rosmarino
+is:rósmarín
 it:rosmarino
 ja:ローズマリー
 ka:როზმარინი
 kn:ರೋಸ್‌ಮರಿ
 ko:로즈메리
-ky:Розмарин
-la:Rosmarinus officinalis
-lb:Rousemaräin
+ky:розмарин
+la:rosmarinus officinalis
+lb:rousemaräin
 lo:ຕົ້ນໂຣສ ເມຣີ
-lt:Rozmarinas
+lt:rozmarinas
 lv:rozmarīns
-mk:Рузмарин
+mk:рузмарин
 ml:റോസ് മേരി
-ms:Rosmari
+ms:rosmari
 nb:rosmarin
 nl:rozemarijn
 nn:rosmarin
-oc:Romanin
+oc:romanin
 pl:rozmaryn
 ps:اکليل
 pt:alecrim
-qu:Sallika
-ro:Rozmarin
-ru:Розмарин
-rw:Romarin
-sc:Romasinu
-sh:Ružmarin
+qu:sallika
+ro:rozmarin
+ru:розмарин
+rw:romarin
+sc:romasinu
+sh:ružmarin
 si:රෝස්මෙරි
-sk:Rozmarín
+sk:rozmarín
 sl:rožmarin
-sq:Rozmarina
+sq:rozmarina
 sr:рузмарин
 sv:rosmarin
 ta:ரோசுமேரி
 th:โรสแมรี
-tr:Biberiye
-uk:Розмарин
-vi:Hương thảo
+tr:biberiye
+uk:розмарин
+vi:hương thảo
 zh:迷迭香
+wikidata:en:Q68315046
+wikipedia:en:https://en.wikipedia.org/wiki/rosemary
 # aeb-arab:كليل
-# dsb:Rosmarin
-# hsb:Rosmarin
-# nrm:Romathîn
+# dsb:rosmarin
+# hsb:rosmarin
+# nrm:romathîn
 # sco:rosemary
-# sr-ec:Рузмарин
-# sr-el:Ruzmarin
-# vec:Rosmarin
+# sr-ec:рузмарин
+# sr-el:ruzmarin
+# vec:rosmarin
 # yue:迷迭香
 # zh-cn:迷迭香
 # zh-hans:迷迭香
@@ -58751,8 +59679,22 @@ zh:迷迭香
 # zh-hk:迷迭香
 # zh-sg:迷迭香
 # zh-tw:迷迭香
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:romarin
-# 1262 in 14 languages @2018-10-09
+# 4543 in 27 @2021-09-16
+
+<en:rosemary
+en:fresh rosemary
+fr:romarin frais
+ciqual_food_code:en:11068
+ciqual_food_name:en:Rosemary, fresh
+ciqual_food_name:fr:Romarin, frais
+
+<en:rosemary
+en:Dried rosemary
+fr:romarin séché
+ciqual_food_code:en:11036
+ciqual_food_name:en:Rosemary, dried
+ciqual_food_name:fr:Romarin, séché
+
 
 #<en:rosemary
 #en:organic rosemary
@@ -59202,24 +60144,23 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sumac
 
 <en:herb
 en:tarragon
-af:Draakplant
+af:draakplant
 ar:طرخون
 az:tərxun
 be:эстрагон
 bg:тарос
 bn:তার্খুন
-br:Stragon
+br:stragon
 bs:estragon
 ca:estragó
-co:arba dragona
 cs:estragon
 cy:taragon
 da:estragon
-de:Estragon
+de:estragon
 el:εστραγκόν
 eo:estragono
-es:dragón, Estragon
-et:estragon, estragonpuju
+es:dragón, estragon
+et:estragon
 eu:binagrera
 fa:ترخون
 fi:rakuuna
@@ -59227,7 +60168,7 @@ fr:estragon
 ga:dragan
 gl:estragón
 gv:dragane
-he:לענה דרקונית
+he:לַעֲנָה
 hu:tárkony
 hy:թարխուն
 id:tarragon
@@ -59238,8 +60179,8 @@ ka:ტარხუნა
 kk:шырғалжың
 ko:타라곤
 ku:tarxûn
-la:Artemisia dracunculus
-lt:Estragonas
+la:artemisia dracunculus
+lt:estragonas
 mk:естрагон
 ms:taragon
 nb:estragon
@@ -59252,7 +60193,7 @@ pl:draganek
 pt:estragão
 ro:tarhon
 ru:эстрагон
-sk:Estragón
+sk:estragón
 sl:pehtran
 sq:terragoni
 sr:естрагон
@@ -59267,13 +60208,13 @@ zh:龍蒿
 # kk-cn:شىرعالجىڭ
 # kk-cyrl:шырғалжың
 # kk-kz:шырғалжың
-# kk-latn:Şırğaljıñ
-# kk-tr:Şırğaljıñ
+# kk-latn:şırğaljıñ
+# kk-tr:şırğaljıñ
 # kk-arab:تارخوون
 # kk-latn:tarxûn
 # pcd:astragon
 # sco:tarragon
-# sgs:Peletrūns
+# sgs:peletrūns
 # sr-ec:естрагон
 # zh-cn:龙蒿
 # zh-hans:龙蒿
@@ -59281,17 +60222,22 @@ zh:龍蒿
 # zh-hk:龍蒿
 # zh-sg:龙蒿
 # zh-tw:龍蒿
-wikidata:en:Q155814
+#plant: wikidata:en:Q155814
+wikidata:en:Q103554747
 wikipedia:en:https://en.wikipedia.org/wiki/Tarragon
-# ingredient/tarragon has 439 products in 5 languages @2019-05-17
+ciqual_food_code:en:11092
+ciqual_food_name:en:Tarragon, fresh
+ciqual_food_name:fr:Estragon, frais
+# 779 in 15 @2021-09-16
 
-<en:tarragon
-en:tarragon leaves
-de:Estragonblätter
-es:hoja de dragón
-fi:rakuunan lehti, rakuunan lehdet
-fr:feuille d’estragon
-nl:dragonblad
+#processing:en: eb:leaf
+#<en:tarragon
+#en:tarragon leaves
+#de:Estragonblätter
+#es:hoja de dragón
+#fi:rakuunan lehti, rakuunan lehdet
+#fr:feuille d’estragon
+#nl:dragonblad
 # ingredient/tarragon-leaves has 8 products in 2 languages @2019-05-17
 
 
@@ -59305,39 +60251,38 @@ nl:dragonblad
 <en:herb
 en:thyme
 ar:الزعتر
-az:Meqri kəklikotu
 bg:chubrica
 ca:farigola
 cs:tymián
-cy:Teim
+cy:teim
 da:timian
 de:Thymian
+el:θυμάρι
 es:tomillo
+et:tüümian
 fa:تایم
 fi:timjami
 fr:thym
 hu:kaukkfű
-id:Thyme
+id:thyme
 it:timo
 ja:タイム
-kk:Жебір
+kk:жебір
 kn:ಟೈಮ್
 ko:백리향
 la:thymus vulgaris
 lt:čiobrelis
-mk:majcina dusica
 ml:തോട്ടതുളസി
 nb:thyme
-nl:thijm, tijm
+nl:tijm, thijm
 nn:timian
 or:ଦଅଣା
 pa:ਅਜਵਾਇਣ
 pl:tymianek
 pt:tomilho
-ru:Тимьян
+ru:тимьян
 sv:timjan
-tr:Kekik
-vi:Cỏ xạ hương
+tr:kekik
 zh:麝香草
 # pt-br:tomilho
 # zh-hans:麝香草
@@ -59345,40 +60290,46 @@ zh:麝香草
 # zh-hk:麝香草
 wikidata:en:Q3215980
 wikipedia:en:https://en.wikipedia.org/wiki/Thyme
-# en:thyme has 3188 products in 10 languages @2018-10-10
+ciqual_food_code:en:11070
+ciqual_food_name:en:Thyme, fresh
+ciqual_food_name:fr:Thym, frais
+# 7086 in 18 @2021-09-16
+# TODO: split
+#ciqual_food_code:en:11038
+#ciqual_food_name:en:Thyme, dried
+#ciqual_food_name:fr:Thym, séché
 
-<en:thyme
-en:organic thyme
-de:Bio Thymian
-fi:luomu timjami
-fr:thym bio
-it:timo bio
-nl:biologische tijm
+#<en:thyme
+#en:organic thyme
+#de:Bio Thymian
+#fi:luomu timjami
+#fr:thym bio
+#it:timo bio
+#nl:biologische tijm
 # ingredient/fr:thym-bio has 10 products in 3 languages @2019-05-25
 
-<en:thyme
-en:dried thyme
-de:getrockneter Thymian, Thymian getrocknet
-es:tomillo deshidratado, tomillo seco
-fi:kuivattu timjami
-fr:thym déshydraté, thym deshydrate
+#processing:en: en:dried
+#<en:thyme
+#en:dried thyme
+#de:getrockneter Thymian, Thymian getrocknet
+#es:tomillo deshidratado, tomillo seco
+#fi:kuivattu timjami
+#fr:thym déshydraté, thym deshydrate
 
-<en:thyme
-en:thyme in powder
-de:Thymianpulver
-fi:timjamijauhe, timjami jauheena
-fr:thym en poudre
+#processing:en: en:powder
+#<en:thyme
+#en:thyme in powder
+#de:Thymianpulver
+#fi:timjamijauhe, timjami jauheena
+#fr:thym en poudre
 
-<en:thyme
-en:thyme oil
-de:Thymianöl
-
-<en:thyme
-en:thyme extract
-de:Thymianextrakt, Thymian-Extrakt
-es:extracto de tomillo
-fi:timjamiuute
-fr:extrait de thym
+#processing:en: en:extract
+#<en:thyme
+#en:thyme extract
+#de:Thymianextrakt, Thymian-Extrakt
+#es:extracto de tomillo
+#fi:timjamiuute
+#fr:extrait de thym
 # en:thyme-extract has 27 products in 1 language @2018-10-10
 
 ###################################################################################################
@@ -59811,77 +60762,81 @@ ciqual_food_name:fr:Cerfeuil, frais
 
 <en:herb
 en:sage
-af:Salie
+af:salie
 ar:مريمية
-az:Dərman sürvəsi
-bg:градински чай
-bs:Kadulja
-ca:Sàlvia
-cs:šalvěj lékařská
-cy:Saets
-da:Læge-Salvie, salvie
+bs:kadulja
+ca:sàlvia
+cs:šalvěj
+cy:saets
+da:salvie
 de:Salbei
-el:Φασκόμηλο
-eo:Oficina salvio
+el:φασκόμηλο
 es:salvia
-et:salvei, aedsalvei
+et:salvei
 fa:مریم‌گلی
-fi:salvia, ryytisalvia
+fi:salvia
 fr:sauge
-ga:Sáiste
+ga:sáiste
 he:מרווה
-hr:Kadulja
-hu:Orvosi zsálya
-id:Salvio
+hr:kadulja
+hu:zsálya
+id:salvio
 it:salvia
 ja:セージ
-kk:Дәрілік шалфей
+kk:шалфей
 ko:세이지
-la:Salvia officinalis
-lt:Vaistinis šalavijas
-lv:Ārstniecības salvija
-mk:обична жалфија
-ms:Salvia officinalis
-nb:Tesalvie, salvie
+la:salvia officinalis
+lt:šalavija
+lv:salvija
+mk:жалфија
+nb:salvie
 nl:salie
-nn:tesalvie
-os:Мыдгæрдæг
-pl:szałwia, szałwia lekarska
+os:мыдгæрдæг
+pl:szałwia
 ps:مريم گلي
-qu:Q'uwa
-ro:Salvie
-ru:Шалфей лекарственный
-sh:Kadulja
-sk:Šalvia lekárska
-sl:Žajbelj
-sr:Жалфија
-sv:salvia, Kryddsalvia
-uk:Шавлія лікарська
+qu:q'uwa
+ro:salvie
+ru:шалфей
+sh:kadulja
+sk:šalvia
+sl:žajbelj
+sr:жалфија
+sv:salvia
+uk:шавлія
 ur:مریم گلی
-vi:Xô thơm
-wa:Franke saedje
+vi:xô thơm
 zh:鼠尾草
-# hsb:Dobra želbija
-# pms:Szałwia lekarska
-# sah:Шалфей
-# sr-ec:Жалфија
-# sr-el:Žalfija
-# vec:Salvia
+# hsb:želbija
+# sah:шалфей
+# sr-ec:жалфија
+# sr-el:žalfija
+# vec:salvia
 # yue:普通鼠尾草
 # zh-hans:鼠尾草
 # zh-hant:鼠尾草
 # zh-hk:鼠尾草
 # zh-tw:鼠尾草
+#plant:
 wikidata:en:Q1111359
 wikipedia:en:https://en.wikipedia.org/wiki/Salvia_officinalis
-# ingredient/fr:sauge has 175 products in 5 languages @2018-10-10
+ciqual_food_code:en:11069
+ciqual_food_name:en:Sage, fresh
+ciqual_food_name:fr:Sauge, fraîche
+# 1379 in 15 @2021-09-16
+# TODO: split
+#ciqual_food_code:en:11037
+#ciqual_food_name:en:Sage, dried
+#ciqual_food_name:fr:Sauge, séchée
 
-<en:sage
-en:sage extract
-de:Salbeiextrakt
-es:extracto de salvia
-fi:salviauute
-fr:extrait de sauge
+
+#processing:en: en:extract
+#<en:sage
+#en:sage extract
+#de:Salbeiextrakt
+#es:extracto de salvia
+#fi:salviauute
+#fr:extrait de sauge
+#72 in 5 @2021-09-16
 
 ###################################################################################################
 #
@@ -60141,81 +61096,90 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soucis
 ###################################################################################################
 # description:en:Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
 
+#category/marjoram
 <en:herb
 en:marjoram
-af:Marjolein
-az:Mərzə
-be:Маяран
+af:marjolein
+az:mərzə
+be:маяран
 bg:майорана
-bs:Mažuranca:marduix
-cs:Majoránka
-cy:Penrhudd yr ardd
-da:Have-Merian
+bs:mažuran
+ca:marduix
+cs:majoránka
+cy:penrhudd yr ardd
+da:merian
 de:Majoran
-el:Ματζουράνα
-eo:Majorano
+el:ματζουράνα
+eo:majorano
 es:mejorana
-et:Aedmajoraan, vorstirohi
-eu:Mendaro
+et:majoraan
+eu:mendaro
 fa:مرزنجوش
-fi:Meirami
+fi:meirami
 fr:marjolaine
-ga:Oragán cumhra
-gl:Maiorana
+ga:oragán cumhra
+gl:maiorana
 he:מיורן
 hi:मरुआ
-hr:Majoran
-hu:Majoránna
-id:Marjoram
-io:Majorano
+hr:majoran
+hu:majoránna
+id:marjoram
+io:majorano
 it:maggiorana
 ja:マジョラム
-kk:Майоран
+kk:майоран
 kn:ಮರುಗ
 ko:마저럼
-ky:Майоран
-la:Amaracum
-li:Majoraan
-lt:Mairūnas
-lv:Majorāns
-mk:Мајоран
-ms:Marjoram
+ky:майоран
+la:amaracum
+li:majoraan
+lt:mairūnas
+lv:majorāns
+mk:мајоран
+ms:marjoram
 mt:merqtux
 nb:merian
 nl:marjolein, marjoraan
 nn:merian
-oc:Majorana
+oc:majorana
 pa:ਮਰੂਆ
-pl:Majeranek
+pl:majeranek
 pt:manjerona
-qu:Mikhurana
-ro:Maghiran
-ru:Майоран
-sk:Majoránka
-sr:Mažuran
-sv:Mejram
+qu:mikhurana
+ro:maghiran
+ru:майоран
+sk:majoránka
+sr:mažuran
+sv:mejram
 te:మరువము
-tr:Mercanköşk
-uk:Майоран
-wa:Mariolinne
+tr:mercanköşk
+uk:майоран
+wa:mariolinne
 zh:墨角蘭
 # aeb-arab:مردقوش
 # azb:مرزه
-# be-tarask:Маяран
+# be-tarask:маяран
 # en-gb:marjoram
-# hsb:Majoran
-# lij:Persa
-# nap:Peperna
-# pam:Marjoram
-# pfl:Marau
-# scn:Majurana
+# hsb:majoran
+# lij:persa
+# nap:peperna
+# pam:marjoram
+# pfl:marau
+# scn:majurana
 # sco:marjoram
-# sgs:Meiruonā
+# sgs:meiruonā
 # yue:墨角蘭
-wikidata:en:Q22694
+# plant: wikidata:en:Q22694
+wikidata:en:Q96181239
 wikipedia:en:https://en.wikipedia.org/wiki/Marjoram
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marjolaine
-# 413 products in 6 languages @2018-10-09
+# 1584 in 22 @2021-09-17
+
+<en:marjoram
+en:dried marjoram
+fr:Marjolaine séchée
+ciqual_food_code:en:11034
+ciqual_food_name:en:Marjoram, dried
+ciqual_food_name:fr:Marjolaine, séchée
 
 
 ###################################################################################################
@@ -60227,12 +61191,19 @@ wikipedia:en:https://en.wikipedia.org/wiki/Marjoram
 en:herbes de Provence
 da:herbes de Provence
 de:Provence-Kräuter, Kräuter der Provence
-es:Hierbas de Provenza
+es:Hierbas de Provenza, hierbas provenzales
 fi:herbes de provence
 fr:herbes de provence, herbe de provence
 it:erbe di Provenza
 nl:provençaalse kruiden
-# fr:herbe-de-provence has 832 products in 4 languages @2018-12-4
+pl:ziola prowansalskie
+pt:plante aromatice de Provence
+sv:provensalska örter
+wikidata:en:Q913548
+ciqual_food_code:en:11060
+ciqual_food_name:en:Provence herbs, dried
+ciqual_food_name:fr:Herbes de Provence, séchées
+# 1290 in 9 @2021-09-17
 
 
 ###################################################################################################
@@ -60244,47 +61215,54 @@ nl:provençaalse kruiden
 
 <en:herb
 en:oregano
+bg:риган
 ca:orenga, herba musca, roca morera
-cs:oregano
-da:oregano
-de:Oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
-fi:oregano
 fr:origan
 hu:oregánó, szurokfű
 it:origano
 ja:オレガノ
 lt:raudonėlis, raudonėlių
 lv:raudene
-nb:oregano
-nl:oregano
-nn:oregano
-pl:Oregano
 pt:orégãos
-ro:oregano
-ru:Орегано
-sv:Oregano
+ru:орегано
+sl:origano
+uk:орегано
+xx:oregano
+wikipedia:en:Q92581152
+#plant: wikipedia:en:Q134283
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:origan
-# 2032 products in 11 languages @2018-10-09
+# 9423 in 29 @2021-09-17
 
+<en:oregano
+en:dried oregano
+fr:Origan séché
+ciqual_food_code:en:11035
+ciqual_food_name:en:Oregano, dried
+ciqual_food_name:fr:Origan, séché
+
+
+#processing:en:dehydrated
 <en:oregano
 fr:origan déshydraté
 fi:kuivattu oregano
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
-<en:oregano
-fr:origan en poudre
-fi:oreganojauhe
+#processing:en en:powder
+#<en:oregano
+#fr:origan en poudre
+#fi:oreganojauhe
 
-<en:oregano
-en:oregano extract
-de:Oteganoextrakt, Oregano-Extrakt
-es:extracto de orégano
-fi:oreganouute
-fr:extrait d'origan
+#processing:en: en:extract
+#<en:oregano
+#en:oregano extract
+#bg:екстракт от риган
+#de:Oteganoextrakt, Oregano-Extrakt
+#es:extracto de orégano
+#fi:oreganouute
+#fr:extrait d'origan
 
 ###################################################################################################
 #
@@ -60293,51 +61271,53 @@ fr:extrait d'origan
 ###################################################################################################
 <en:herb
 en:bay leaf, bay leaves, bay, laurel
-af:Lourierblaar
-be:Лаўровы ліст
-bg:Дафинов лист
-ca:Llorer
-cs:Bobkový list
-da:Laurbær, laurbærblade
-de:Lorbeer, Lorbeerblatt, Lorbeerblätter
-es:Hoja de laurel, laurel
-fi:Laakerinlehti
-fr:laurier, feuilles de laurier
+af:lourierblaar
+be:лаўровы ліст
+bg:дафинов лист
+ca:llorer
+cs:bobkový list
+da:laurbær, laurbærblade
+de:lorbeer, lorbeerblatt, lorbeerblätter
+es:hoja de laurel, laurel
+fi:laakerinlehti
+fr:feuille de laurier, feuille de laurier, laurier
 hi:तेज पत्ता
 hu:babérlevél
-hy:Դափնու տերև
+hy:դափնու տերև
 it:laurier, alloro, lauro
 jv:ローリエ
-kk:Лавр жапырағы
+kk:лавр жапырағы
 ko:월계수 잎
+la:laurus nobilis
 mr:तमालपत्र
-ms:Daun salam
+ms:daun salam
 my:ကရဝေးပင်
-nl:laurier, laurierblad
+nl:laurierblad, laurier
 or:ତେଜପତ୍ର
 pl:liść laurowy
-ro:dafin, foi de dafin
-ru:Лавровый лист, лист лавровый
+ro:foi de dafin, dafin
+ru:лавровый лист, лист лавровый
+sk:bobkový list
 sv:lagerblad
 te:మాసాల ఆకు
-tg:Барги ғор
+tg:барги ғор
 th:ใบกระวาน
 tl:bay leaf
-tr:Akdeniz Defnesi
-uk:Лавровий лист
-uz:Dafna yaprogʻi
+tr:akdeniz defnesi
+uk:лавровий лист
+uz:dafna yaprogʻi
 zh:月桂葉
-# pam:Bay leaf
+# pam:bay leaf
 # zh-hans:月桂叶
 # zh-hant:月桂葉
 # zh-hk:月桂葉
 wikipedia:en:https://en.wikipedia.org/wiki/Bay_leaf
 wikidata:en:Q2370943
+ciqual_food_code:en:11053
+ciqual_food_name:en:Bay, leaves
+ciqual_food_name:fr:Laurier, feuille
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
-# 1302 products in 6 languages @2018-10-08
-
-<en:bay leaf
-la:Laurus Nobilis
+# 3758 in 22 @2021-09-19
 
 ###################################################################################################
 #
@@ -60539,19 +61519,6 @@ vegan:en:yes
 vegetarian:en:yes
 
 # The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
-
-<en:herb
-en:blue fenugreek
-be:Пажытнік блакітны
-de:Schabzigerklee
-eo:Blua trigonelo
-fi:Sinisarviapila
-fr:Fenugrec bleu
-ka:უცხო სუნელი
-ko:청호로파
-la:Trigonella caerulea
-ru:Пажитник голубой
-tr:Mavi çemenotu
 
 # description:en:Chamomile (American English) or camomile (British English) is the common name for several daisy-like plants of the family Asteraceae.
 
@@ -62608,89 +63575,89 @@ sv:safflor koncentrat
 es:concentrado de cártamo con efecto colorante
 
 
+#moved to additives/E164
 # description:en:Saffron is a spice derived from the flower of Crocus sativus, commonly known as the "saffron crocus".
 
-<en:plant
-en:saffron
-af:Saffraan
-an:Zafrán
-ar:زعفران
-az:زافران
-be:шафран
-bn:জাফরান
-br:Safron
-bs:Šafran
-ca:safrà
-cs:šafrán setý
-da:Safran
-de:Safran
-dv:ކުކުން
-el:σαφράνι
-eo:safrano
-es:azafrán
-et:Safran
-eu:Azafrai
-fa:زعفران
-# fi:Sahrami part of E164
-fr:safran
-ga:Cróch
-gl:Azafrán
-he:זעפרן
-hi:केसर
-hr:Šafran
-id:Kuma-kuma
-io:Safrano
-is:Saffran
-it:Zafferano
-ja:サフラン
-kn:ಕೇಸರಿ
-ko:사프란
-la:Safranum
-lb:Safran
-lt:Safrāns
-lv:Safrāns
-ml:കുങ്കുമം
-mr:केशर
-ms:Safron
-my:ကုံကုမံ
-nb:safran
-ne:केशर
-nl:saffraan
-nn:safran
-oc:Safran
-pa:ਕੇਸਰ
-pl:Zastosowanie szafranu
-ps:ګنګو
-pt:açafrão
-# ro:șofran part of E164
-ru:шафран
-sa:केसरम्
-sc:Zafferano
-sd:زعفران
-sh:Šafran
-si:කුංකුම
-sl:žafran
-sr:шафран
-sv:saffran
-ta:குங்குமப்பூ
-te:కుంకుమ పువ్వు
-th:หญ้าฝรั่น
-tr:Safran
-uk:Шафран посівний
-ur:زعفران
-vi:Saffron
-yi:זאפרען
-zh:番紅花
+#<en:plant
+#en:saffron
+#af:saffraan
+#an:zafrán
+#ar:زعفران
+#az:زافران
+#be:шафран
+#bn:জাফরান
+#br:safron
+#bs:šafran
+#ca:safrà
+#cs:šafrán setý
+#da:safran
+#de:safran
+#dv:ކުކުން
+#el:σαφράνι
+#eo:safrano
+#es:azafrán
+#et:safran
+#eu:azafrai
+#fa:زعفران
+# fi:sahrami part of e164
+#fr:safran
+#ga:cróch
+#gl:azafrán
+#he:זעפרן
+#hi:केसर
+#hr:šafran
+#id:kuma-kuma
+#io:safrano
+#is:saffran
+#it:zafferano
+#ja:サフラン
+#kn:ಕೇಸರಿ
+#ko:사프란
+#la:safranum
+#lb:safran
+#lt:safrāns
+#lv:safrāns
+#ml:കുങ്കുമം
+#mr:केशर
+#ms:safron
+#my:ကုံကုမံ
+#nb:safran
+#ne:केशर
+#nl:saffraan
+#nn:safran
+#oc:safran
+#pa:ਕੇਸਰ
+#pl:zastosowanie szafranu
+#ps:ګنګو
+#pt:açafrão
+## ro:șofran part of e164
+#ru:шафран
+#sa:केसरम्
+#sc:zafferano
+#sd:زعفران
+#sh:šafran
+#si:කුංකුම
+#sl:žafran
+#sr:шафран
+#sv:saffran
+#ta:குங்குமப்பூ
+#te:కుంకుమ పువ్వు
+#th:หญ้าฝรั่น
+#tr:safran
+#uk:шафран посівний
+#ur:زعفران
+#vi:saffron
+#yi:זאפרען
+#zh:番紅花
 # arz:زعفران
-# diq:Esparıkê kutıkan
-# lad:Alsafran
+# diq:esparıkê kutıkan
+# lad:alsafran
 # pnb:کیسر
 # sco:saffron
 # yue:藏紅花
-wikidata:en:Q25434
-wikipedia:en:https://en.wikipedia.org/wiki/Saffron
-# ingredient/fr:safran has 156 products in 4 languages @2019-01-23
+# 446 in 4 languages @2021-09-17
 
+#processing:en en:powder
 <en:saffron
 fr:safran en poudre
 de:Safranpulver
@@ -66763,6 +67730,39 @@ description:en:The burbot (Lota lota) is the only gadiform (cod-like) freshwater
 wikipedia:en:https://en.wikipedia.org/wiki/Burbot
 # ingredient/fr:lotte has 10 products in french @2018-12-31
 
+<en:fish
+en:bogue
+ar:سمكة موزة
+#ary:أشمشاو
+bg:гопа
+ca:boga, bogarró
+cy:pysgodyn llygad-llo
+de:Gelbstriemenbrasse
+el:γόπα
+es:boga
+eu:boga
+fi:boga
+fr:bogue
+gl:boga
+he:גובוס גלילי
+hr:bukva
+it:boga
+la:Boops boops
+nb:okseøyefisk
+nl:bokvis
+pl:bops, złotokres
+pt:boga, boga-do-mar
+ru:бопс, полосатик, большеглазый боопс
+sh:bukva
+sl:bukva
+sv:oxögonfisk
+tr:kupes
+uk:бопс великоокий, бопс смугастий
+zh:牛眼鯛
+wikidata:en:Q950498
+ciqual_food_code:en:26100
+ciqual_food_name:en:Bogue, raw
+ciqual_food_name:fr:Bogue, crue
 
 <en:fish
 en:capelin, caplin
@@ -66923,10 +67923,16 @@ fr:oeufs de cabillaud fumés
 fr:oeufs de cabillaud salés et fumés
 
 <en:cod
-fr:foie de morue
+en:cod liver
+nb:torskelever
 de:Dorschleber
-nl:schelvislever, kabeljauwlever
-# ingredient/fr:foie-de-morue has 23 products @2018-12-29
+es:hígado de bacalao
+fr:foie de morue
+nl:kabeljauwlever, schelvislever
+nn:torskelever
+ru:печень трески
+wikidata:en:Q33247820
+#45 in 4 @2021-09-22
 
 <en:cod
 <en:roe
@@ -73327,8 +74333,8 @@ fr:miel de romarin
 it:miele di rosmarino
 # ingredient/fr:miel-de-romarin has 10 products in 3 languages @2019-05-28
 
-<en:rosemary honey
-fr:miel de romarin bio
+#<en:rosemary honey
+#fr:miel de romarin bio
 
 <en:rosemary honey
 <en:honey from France
@@ -77684,6 +78690,9 @@ fi:pizzataikina
 fr:pâte à pizza
 nl:pizzadeeg
 sv:pizzadeg
+ciqual_food_code:en:23403
+ciqual_food_name:en:Pizza pastry base
+ciqual_food_name:fr:Préparation pour pâte à pizza
 
 #<en:compound
 <en:pizza dough
@@ -77694,8 +78703,7 @@ fr:fond de pizza
 nl:pizzabodem
 sv:pizzabotten
 likely_allergens:en: en:gluten
-# ingredient/en:pizza-base has 13 products in 5 languages @2020-05-23
-# usage:en:Pizza Base (Wheat Flour, Water, Rapeseed Oil, Yeast, Dextrose, Salt)
+# 93 in 5 languages @2021-09-26
 # mainIngredient:en:wheat flour
 
 <en:dough
@@ -77876,8 +78884,6 @@ fi:kypsennetty tuore pasta
 fr:pâtes fraîches cuites
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
-<en:fresh pasta
-fr:pâtes fraîches aux oeufs
 
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
@@ -78286,10 +79292,19 @@ nl:bladerdeeg
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
+<en:pasta
+en:dried pasta
+fr:pâte sèche
+ciqual_food_code:en:9810
+ciqual_food_name:en:Dried pasta, raw
+ciqual_food_name:fr:Pâtes sèches standard, crues
+#4 in fr @2021-09-17
+
 # description:en:EGG PASTA (pasta all'uovo) – May only be manufactured using durum wheat semolina with at least 4 hens’ eggs (chicken) weighing at least 200 grams (without the shells) per kilogram of semolina, or a liquid egg product produced only with hen’s eggs. Pasta made and sold in Italy under this category must be labeled egg pasta.
 
+
 <en:pasta
-en:egg pastas
+en:egg pasta
 af:eier pasta
 de:Eierteigwaren
 fi:munapasta
@@ -78297,11 +79312,23 @@ fr:pâtes aux œufs, pâtes aux oeufs
 id:pasta telur
 it:pasta all'uovo
 nl:eierpasta
-wikidata:en: Q53619707
+wikidata:en:Q53619707
 allergens:en: en:eggs
-# ingredient/egg-pastas has 49 products in 4 languages @2019-04-03
-# usage:en:egg pasta (durum wheat semolina, eggs)
-# usage:fr:Pâtes aux œufs (semoule de blé dur, œufs d'élevage au sol, sel de cuisine iodé]
+# 92 in 4 languages @2021-09-16
+
+#processing:en: en:fresh
+#kept for french and italian and ciqual
+<en:fresh pasta
+<en:egg pasta
+en:fresh egg pasta
+de:frische Eierteigwaren
+fr:pâtes fraîches aux oeufs
+it:pasta fresca all'uovo
+nl:verse eierpasta
+ciqual_food_code:en:9815
+ciqual_food_name:en:Fresh egg pasta, raw
+ciqual_food_name:fr:Pâtes fraîches, aux œufs, crues
+#24 @2021-09-17
 
 <en:dough
 en:pastry, pastry dough, pie dough
