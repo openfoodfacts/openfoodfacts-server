@@ -18093,6 +18093,7 @@ it:Barletta
 protected_name_file_number:en: PDO-IT-A0542
 protected_name_type:en: pdo
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Negroamaro di Terra d'Otranto
@@ -18106,6 +18107,8 @@ it:Terra d'Otranto
 protected_name_file_number:en: PDO-IT-A0572
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q26898065
+# Not to be confused with the olive oil
 
 <en:Wines from Italy
 it:Colli Euganei Fior d'Arancio, Fior d'Arancio Colli Euganei
@@ -51088,6 +51091,7 @@ fr:Abricots rouges du Roussillon
 protected_name_file_number:en: PDO-FR-01328
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q42300798
 
 <en:Fruits
 en:Berries, Red berries
@@ -57111,6 +57115,14 @@ protected_name_file_number:en: PGI-FR-0503
 protected_name_type:en: pgi
 origins:en: en:France
 wikidata:en:Q21427661
+# Le stockage des graines et la production de la pâte de moutarde doivent avoir lieu sur le territoire de la région Bourgogne, à savoir les quatre départements de la Côte-d'Or, de la Nièvre, de la Saône-et-Loire et de l'Yonne. 
+# La culture des graines doit s'effectuer dans une zone plus restreinte, au cœur de l'aire géographique précitée ; le Morvan et les monts du Mâconnais en sont exclus en raison de sols peu favorables à la culture3. 
+# Le vin blanc utilisé doit être produit en Bourgogne ou dans le Beaujolais.
+# La moutarde de Bourgogne comprend nécessairement des graines de moutarde produites et stockées en Bourgogne, du vin blanc aligoté et/ou chardonnay en proportion de 25 % minimum (et jusqu'à 16 % du produit fini2) à la mise en œuvre, d'eau, de sucre, d'épices, de quelques additifs et de sel
+compulsory_ingredient:fr:graines de moutarde
+minimum_percentage:fr:vin blanc aligoté:25
+minimum_percentage:fr:chardonnay:25
+
 
 <en:Mustards
 en:German mustards
