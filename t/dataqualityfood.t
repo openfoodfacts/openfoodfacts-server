@@ -6,6 +6,7 @@ use Test::More;
 
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
@@ -246,5 +247,27 @@ check_quality_and_test_product_has_quality_tag({
       }
 	}
 }, "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown", "origins 100 percent unknown", 1);
+
+
+# Specified percent of ingredients
+
+$product_ref = {
+	lc => 'en',
+	ingredients_text => 'Strawberries 100%',
+};
+extract_ingredients_from_text($product_ref);
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10')) or diag explain $product_ref;
+
+$product_ref = {
+	lc => 'en',
+	ingredients_text => 'Strawberries 90%, sugar 50%, water',
+};
+extract_ingredients_from_text($product_ref);
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:all-but-one-ingredient-with-specified-percent')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-percent-greater-than-100')) or diag explain $product_ref;
 
 done_testing();
