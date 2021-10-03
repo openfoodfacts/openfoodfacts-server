@@ -3924,56 +3924,56 @@ vi:Natri cyclamat
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 # description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
-
-<en:sweetener
-en:Saccharin, E954, E-954, E 954, sodium saccharin
-ar:سكارين
-be:Сахарын
-bg:Захарин
-ca:sacarina
-cs:Sacharin
-da:Sakkarin, Saccharin
-de:Saccharin
-el:Σακχαρινες
-eo:Sakarino
-es:Sacarina, sacarinas
-et:Sahhariin
-eu:Sakarina
-fa:ساخارین
-fi:Sakariini
-fr:Saccharine, saccharides
-ga:Siúicrín
-gl:Sacarina
-he:סכרין
-hi:सेकेरिन
-hr:Saharin
-hu:Szacharin, szaharin
-hy:Սախարին
-id:Sakarin
-io:Sakarino
-it:Saccarina
-ja:サッカリン
-ko:사카린
-lt:Sacharinas
-lv:Saccharin
-mt:Saccharin
-nb:Sakkarin
-nl:Sacharine
-pl:Sacharyna, sacharyny
-pt:Sacarina
-ro:Zaharină
-ru:Сахарин
-sh:Saharin
-sk:sacharín
-sl:Saharin
-sr:сахарин
-sv:Sackarinat, sackarinater
-ta:சாக்கரின்
-th:แซกคารีน
-tr:Sakarin
-uk:Сахарин
-vi:Saccharin
-zh:糖精
+# moved to additives
+#<en:sweetener
+#en:Saccharin, E954, E-954, E 954, sodium saccharin
+#ar:سكارين
+#be:Сахарын
+#bg:Захарин
+#ca:sacarina
+#cs:Sacharin
+#da:Sakkarin, Saccharin
+#de:Saccharin
+#el:Σακχαρινες
+#eo:Sakarino
+#es:Sacarina, sacarinas
+#et:Sahhariin
+#eu:Sakarina
+#fa:ساخارین
+#fi:Sakariini
+#fr:Saccharine, saccharides
+#ga:Siúicrín
+#gl:Sacarina
+#he:סכרין
+#hi:सेकेरिन
+#hr:Saharin
+#hu:Szacharin, szaharin
+#hy:Սախարին
+#id:Sakarin
+#io:Sakarino
+#it:Saccarina
+#ja:サッカリン
+#ko:사카린
+#lt:Sacharinas
+#lv:Saccharin
+#mt:Saccharin
+#nb:Sakkarin
+#nl:Sacharine
+#pl:Sacharyna, sacharyny
+#pt:Sacarina
+#ro:Zaharină
+#ru:Сахарин
+#sh:Saharin
+#sk:sacharín
+#sl:Saharin
+#sr:сахарин
+#sv:Sackarinat, sackarinater
+#ta:சாக்கரின்
+#th:แซกคารีน
+#tr:Sakarin
+#uk:Сахарин
+#vi:Saccharin
+#zh:糖精
 # azb:ساخارین
 # be-tarask:Цукрын
 # sr-ec:сахарин
@@ -3989,13 +3989,13 @@ wikidata:en:Q191381
 wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
 # ingredient/fr:saccharinate-de-sodium has 30 products in french @2019-01-30
 
-<en:Saccharin
-fr:saccharinate de sodium
-de:Saccharin-Natrium
-es:sacarina sódica
-fi:natriumsakariini
-it:saccarina di sodio
-ru:Натрия сахаринат
+#<en:Saccharin
+#fr:saccharinate de sodium
+#de:Saccharin-Natrium
+#es:sacarina sódica
+#fi:natriumsakariini
+#it:saccarina di sodio
+#ru:Натрия сахаринат
 
 
 # description:en:Neohesperidin dihydrochalcone, sometimes abbreviated to neohesperidin DC or simply NHDC, is an artificial sweetener derived from citrus.
@@ -30479,12 +30479,13 @@ en:rice cream
 de:Reiscreme
 es:crema de arroz
 
-<en:rice
-fr:riz moulu
-de:Reis gemahlen
-hu:őrölt rizs
-it:riso macinato
-nl:rijst gemalen
+#processing:en: en:ground
+#<en:rice
+#fr:riz moulu
+#de:Reis gemahlen
+#hu:őrölt rizs
+#it:riso macinato
+#nl:rijst gemalen
 # ingredient/fr:riz-moulu has 20 products in 4 languages @2018-12-19
 
 # This can be found under the flours
@@ -30493,10 +30494,20 @@ nl:rijst gemalen
 
 <en:rice
 en:rice bran
+da:risklid
 de:Reiskleie
+el:πίτυρο ρυζιού
 es:salvado de arroz
+fi:riisilese
 fr:son de riz
-it:Crusca di riso
+it:crusca di riso
+ko:쌀겨
+nl:rijstzemelen
+pt:farelo de arroz
+sv:riskli
+zh:米糠
+wikidata:en:Q34041491
+#772 in 9 @2021-10-03
 
 <en:rice
 en:rice semolina
