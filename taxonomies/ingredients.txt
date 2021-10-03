@@ -46463,25 +46463,73 @@ ciqual_food_name:fr:Avocat, pulpe, cru
 
 #comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
+# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+# comment:en: Endive in english is different from endive in french.
+
+# <en:Vegetables
 <en:vegetable
-en:endive
-de:Endivie
-fr:chicorée
-la:Cichorium endivia
-pt:chicória
-description:de:Die Endivie (Cichorium endivia) gehört zur Gattung der Wegwarten (Cichorium) und ist ein typischer Spätsommersalat.
+en:endive, Endives
+ca:endívia
+cy:Endif
+de:Endivien, Endivie
+eo:endivio
+es:escarola, escarolas, endibia, endibias
+eu:osterzuri
+fa:اندیو
+fi:endiivi
+fr:scarole, chicorée endive
+ga:searbhán muc
+gl:endivia
+he:עולש
+hr:endivija
+hu:endívia
+id:endive
+io:endivio
+it:scarola, indivia
+ja:エンダイブ
+ko:꽃상추
+ku:xêzimok
+la:Cichorium Endivia
+mt:scarola
+nb:endivie
+nl:andijvie
+nv:tʼąąʼdoolghasí
+pt:endívia
+ro:andivă
+ru:эндивий
+sr:ендивија
+sv:sydcikoria, cikoriasallat
+tr:hindiba
+uk:цикорій салатний
+vi:rau cúc đắng
+zh:苦苣
+# nds-nl:andievie
+# pcd:indife
+# scn:nirvia
+# sr-ec:ендивија
+wikidata:en:Q178547
+# wikidata:en:Q28604477 what is this?
+# category/endives has 8 products @2019-05-22
+# ingredient/endive has 125 products @2019-05-22
 
 <en:endive
 en:curly endive, frisée lettuce
+cy:ysgellog y meirch
+da:kruset endivie
 de:krauser Salat, Endiven gekraust, Krausblättrige Endivie, Frisée
+el:αντίδι κατσαρό
 es:escarola rizada
-fi:friseesalaatti
+fi:friseesalaatti, kähäräendiivi
 fr:chicorée frisée, frisée, salade frisée, endive frisée
+ga:searbhán cas
 it:indivia riccia
 la:Cichorium endivia var. crispum
+lv:krokainā endīvija, krokaino lapu endīvija
 nl:krulandijvie, frisée sla
 pl:endywia kędzierzawa
-sv:frisésallat
+pt:chicória frisada, chicória crespa
+sk:čakanka štrbáková pravá kučeravá
+sv:frisésallat, friséesallat
 # description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
 wikidata:en:Q2963415
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
@@ -46491,11 +46539,27 @@ ciqual_food_name:fr:Salade ou chicorée frisée, crue
 # 201 in 5 @2021-10-03
 
 <en:endive
-en:flat endive, broad-leaved endive, Batavian endive, grumolo, scarola, scarole
-de:Glatte Endivie, Eskariol, Winterendivie
+en:broad-leaved endive, Batavian endive, escarole, flat endive
+da:bredbladet endivie
+de:glatte Endivie, Eskariol, Winterendivie, Endivie-Eskariol, Eskariol Endivie, Breitblättrige Endivie, Ganzblättrige Endivie
+el:αντίδι πλατύφυλλο
 es:escarola lisa
+fi:siloendiivi, lehtisikuri
+fr:chicorée scarole
+ga:searbhán muc
+it:indivia scarola
 la:Cichorium endivia var latifolia
+lt:salotinė trūkažolė
+lv:platlapu endīvija
+mt:indivja tal-weraq wiesa'
+nl:kropandijvie, andijvie breedblad
+pl:endywia szerokolistna
+sv:escarolesallat
+#pcd:pindchucq
+wikidata:en:Q3237463
 description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale green leaves and is less bitter than the other varieties. Varieties or names include Batavian endive, grumolo, scarola, and scarole.
+
+
 
 <en:vegetable
 en:Belgian endive
@@ -46513,7 +46577,9 @@ wikidata:en:Q1474
 # 451 in 16 @2021-09-05
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
-
+ciqual_food_code:en:20026
+ciqual_food_name:en:Chicory, raw
+ciqual_food_name:fr:Endive, crue
 
 <en:vegetable
 en:borage
@@ -46664,59 +46730,6 @@ fr:concentrés de blettes
 # nl:daikon cress
 # ingredient/daikon-cress has no products @2019-05-15
 
-
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
-# comment:enEndive in english is different from endive in french.
-
-# <en:Vegetables
-<en:vegetable
-en:endive, Endives
-ca:endívia
-cy:Endif
-de:Endivien, Endivie
-eo:Endivio
-es:Escarolas,endibia,endibias
-eu:Osterzuri
-fa:اندیو
-fi:Endiivi
-fr:scarole, Chicorée endive
-ga:Searbhán muc
-gl:endivia
-he:עולש
-hr:Endivija
-hu:Endívia
-id:Endive
-io:Endivio
-it:Scarola, indivia
-ja:エンダイブ
-ko:꽃상추
-ku:Xêzimok
-la:Cichorium endivia
-nb:endivie
-nl:Andijvie
-nv:Tʼąąʼdoolghasí
-pt:Endívia
-ro:Andivă
-ru:эндивий
-sr:Ендивија
-sv:Sydcikoria
-tr:Hindiba
-uk:цикорій салатний
-vi:Rau cúc đắng
-zh:苦苣
-# nds-nl:Andievie
-# pcd:Indife
-# scn:Nirvia
-# sr-ec:Ендивија
-wikidata:en:Q178547
-# wikidata:en:Q28604477 what is this?
-# category/endives has 8 products @2019-05-22
-# ingredient/endive has 125 products @2019-05-22
-carbon_footprint_fr_foodges_ingredient:fr:Endive
-carbon_footprint_fr_foodges_value:fr:1.2
-ciqual_food_code:en:20026
-ciqual_food_name:en:Chicory, raw
-ciqual_food_name:fr:Endive, crue
 
 # description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 
