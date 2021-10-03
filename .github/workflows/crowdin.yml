@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - crowdin-trigger
+      - crowdin-wf-refactor
 
 jobs:         
   synchronize-with-crowdin:
