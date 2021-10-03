@@ -46463,6 +46463,7 @@ ciqual_food_name:fr:Avocat, pulpe, cru
 
 #comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
+
 # description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 # comment:en: Endive in english is different from endive in french.
 
@@ -46580,6 +46581,88 @@ carbon_footprint_fr_foodges_value:fr:1.2
 ciqual_food_code:en:20026
 ciqual_food_name:en:Chicory, raw
 ciqual_food_name:fr:Endive, crue
+
+# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+
+<en:vegetable
+en:radicchio
+ar:الهندباء
+ca:radicchio
+da:radicchio
+de:roter Chicorée, Radicchio
+eo:salatcikorio
+es:radicchio
+fi:punasikuri, punasalaatti
+fr:chicorée rouge, radicchio, trévise, salade trévise
+hu:vörös cikória
+it:radicchio
+ja:ラディッキオ
+ko:라디키오
+la:Cichorium intybus var., Cichorium intybus var. foliosum
+nl:roodlof
+pt:radicchio
+ru:радиккьо
+sh:radiccio di treviso
+sv:radicchiosallad, rosensallat, rosésallat
+#arz:هندباء
+# en-ca:radicchio
+# en-gb:radicchio
+# pt-br:radicchio
+# vec:radicio
+wikidata:en:Q767765
+wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
+# 703 in 7 @2021-10-03
+
+<en:vegetable
+en:chicory
+de:Chicoree, Zichorie
+es:Achicoria
+fi:sikuri
+fr:Chicorée
+he:עולש
+it:Cicoria
+nl:chicorij
+
+<en:chicory
+en:chicory root
+de:Chikoreewurzel
+fr:racine de chicorée
+it:radice di cicoria
+
+<en:vegetable fiber
+<en:chicory
+en:chicory fibre, chicory root fiber
+cs:vláknina z kořene čekanky
+da:cikoriefibre
+de:Zichorienfäser, Zichorienwurzelfaser
+es:fibra de la raíz de achicoria,fibra de achicoria
+fi:sikurikuitu, sikurijuurikuitu
+fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+it:Fibre di cicoria
+nl:chicoreivezel
+sk:vláknina z koreňa čakanky
+sv:cikoriarotfiber, fiber från cikoriarot
+# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
+
+<en:chicory
+fr:chicorée soluble
+es:achicoria en polvo
+nl:oploscichorei, poeder met witlof
+pt:chicória solúvel
+# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
+ciqual_food_code:en:18152
+ciqual_food_name:en:Chicory, powder, instant
+ciqual_food_name:fr:Chicorée, poudre soluble
+
+<en:chicory
+en:extract of chicory
+de:Zichorien-Extrakt
+es:extracto de achicoria
+fi:sikuriuute
+fr:extrait de chicorée, extraits de chicorée
+it:estratto di cicoria, Estratti di cicoria
+nl:cichorei-extract
+# ingredient/extract-of-chicory has 31 products @2019-04-04
 
 <en:vegetable
 en:borage
@@ -46730,87 +46813,6 @@ fr:concentrés de blettes
 # nl:daikon cress
 # ingredient/daikon-cress has no products @2019-05-15
 
-
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
-
-<en:vegetable
-en:radicchio
-ar:الهندباء
-ca:Radicchio
-da:radicchio
-de:Chicorée rot, Radicchio
-eo:salatcikorio
-es:radicchio
-fi:punasikuri, punasalaatti
-fr:chicorée rouge, Radicchio, trévise, salade trévise
-hu:Vörös cikória
-it:Radicchio
-ja:ラディッキオ
-ko:라디키오
-nl:Roodlof
-pt:Radicchio
-ru:радиккьо
-sh:Radiccio di Treviso
-sv:Radicchiosallad, rosensallat, rosésallat
-# en-ca:Radicchio
-# en-gb:Radicchio
-# pt-br:Radicchio
-# vec:Radicio
-wikidata:en:Q767765
-wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
-# ingredient/fr:chicorée-rouge has 114 products in 4 languages @2018-12-10
-# ingredient/fr:trévise has 16 products in 4 languages @2019-02-15
-
-<en:vegetable
-en:chicory
-de:Chicoree, Zichorie
-es:Achicoria
-fi:sikuri
-fr:Chicorée
-he:עולש
-it:Cicoria
-nl:chicorij
-
-<en:chicory
-en:chicory root
-de:Chikoreewurzel
-fr:racine de chicorée
-it:radice di cicoria
-
-<en:vegetable fiber
-<en:chicory
-en:chicory fibre, chicory root fiber
-cs:vláknina z kořene čekanky
-da:cikoriefibre
-de:Zichorienfäser, Zichorienwurzelfaser
-es:fibra de la raíz de achicoria,fibra de achicoria
-fi:sikurikuitu, sikurijuurikuitu
-fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
-it:Fibre di cicoria
-nl:chicoreivezel
-sk:vláknina z koreňa čakanky
-sv:cikoriarotfiber, fiber från cikoriarot
-# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
-
-<en:chicory
-fr:chicorée soluble
-es:achicoria en polvo
-nl:oploscichorei, poeder met witlof
-pt:chicória solúvel
-# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
-ciqual_food_code:en:18152
-ciqual_food_name:en:Chicory, powder, instant
-ciqual_food_name:fr:Chicorée, poudre soluble
-
-<en:chicory
-en:extract of chicory
-de:Zichorien-Extrakt
-es:extracto de achicoria
-fi:sikuriuute
-fr:extrait de chicorée, extraits de chicorée
-it:estratto di cicoria, Estratti di cicoria
-nl:cichorei-extract
-# ingredient/extract-of-chicory has 31 products @2019-04-04
 
 
 # description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
