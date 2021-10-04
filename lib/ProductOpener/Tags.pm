@@ -1814,7 +1814,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 
 		if (defined $properties{$tagtype}{$tagid}) {
 
-			foreach my $prop_lc (sort keys %{$properties{$tagtype}{$tagid}}) {
+			foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
 				
 				if ($prop_lc =~ /^(.*):(\w\w)$/) {
 					my $prop = $1;
