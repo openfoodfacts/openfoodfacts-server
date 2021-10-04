@@ -3985,8 +3985,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 # zh-hk:糖精
 # zh-sg:糖精
 # zt-tw:糖精
-wikidata:en:Q191381
-wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
+#wikidata:en:Q191381
+#wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
 # ingredient/fr:saccharinate-de-sodium has 30 products in french @2019-01-30
 
 #<en:Saccharin
@@ -62635,12 +62635,51 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 
+#category/romaine-lettuce
 <en:lettuce
 en:romaine lettuce
-de:Römersalat
-es:Lechuga romana
-fr:Laitue romaine
-it:Lattuga romana
+ar:خس روماني
+bn:রোমাইন লেটুস
+ca:enciam llarg
+cs:římský salát
+da:romainesalat, romersk salat, bindsalat
+de:Römersalat, römischer Salat, Bindesalat
+el:θρίδαξ ο μακρόφυλλος ο ρωμαϊκός
+eo:roma laktuko
+es:lechuga romana, lechuga larga, lechugon
+et:rooma salat
+fa:کاهوی رومی
+fi:roomansalaatti, sidesalaatti
+fr:laitue romaine
+ga:cósleitís
+he:חסה עלים
+hi:रोमेन सलाद
+hr:salata kristalka
+it:lattuga romana
+ja:ロメインレタス
+ko:로메인상추
+la:Lactuca sativa var. longifolia
+lv:romiešu salāti
+ml:റൊമെയ്ൻ ലെറ്റ്യൂസ്
+nb:romanosalat
+nl:bindsla, romeinse sla, romaine
+pa:ਰੋਮੇਨ ਸਲਾਦ
+pl:sałata rzymska
+pt:alface romana
+ro:salată romană
+ru:римский салат
+sl:solata vezivka
+sv:romansallat
+tl:letsugas romana
+vi:rau diếp
+zh:蘿蔓萵苣
+#nan:oe-á-chhài
+#yue:羅馬生菜
+wikidata:en:Q1762893
+ciqual_food_code:en:20171
+ciqual_food_name:en:Cos or romaine lettuce, raw
+ciqual_food_name:fr:Laitue romaine, crue
+#758 in 7 @2021-10-04
 
 <en:lettuce
 fr:jeunes pousses de laitue verte
