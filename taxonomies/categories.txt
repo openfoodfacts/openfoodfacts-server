@@ -8749,6 +8749,11 @@ protected_name_type:en: pgi
 <en:Wines from France
 fr:Ajaccio
 origins:en: en:France
+wikidata:en:Q411861
+
+<fr:Ajaccio
+fr:Ajaccio rouge
+wikidata:en:Q42300793
 
 <en:Wines from France
 fr:vin des Allobroges
@@ -8780,6 +8785,14 @@ protected_name_type:en: pdo
 fr:Aloxe-Corton La Coutière, Aloxe-Corton premier cru La Coutière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Aloxe-Corton La Coutière
+fr:Aloxe-Corton premier cru La Coutière rouge
+wd:Q29640424
+
+<fr:Aloxe-Corton La Coutière
+fr:Aloxe-Corton premier cru La Coutière blanc
+wd:Q29640423
 
 <fr:Aloxe-Corton
 fr:Aloxe-Corton La Maréchaude, Aloxe-Corton premier cru La Maréchaude
@@ -8851,6 +8864,14 @@ protected_name_type:en: pdo
 fr:Aloxe-Corton Les Vercots, Aloxe-Corton premier cru Les Vercots
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Aloxe-Corton Les Vercots
+fr:Aloxe-Corton premier cru Les Vercots rouge
+wd:Q29640450
+
+<fr:Aloxe-Corton Les Vercots
+fr:Aloxe-Corton premier cru Les Vercots blanc
+wd:Q29640448
 
 <en:Wines from France
 fr:Alpes de Haute Provence
@@ -9939,6 +9960,10 @@ fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bu
 protected_name_file_number:en: PDO-FR-A0588
 protected_name_type:en: pdo
 origins:en: en:France
+
+<fr:Bugey
+fr:Bugey mousseux blanc
+wd:Q43013643
 
 <en:Wines from France
 fr:Buzet
@@ -11710,6 +11735,7 @@ protected_name_type:en: pdo
 fr:Gevrey-Chambertin premier cru Clos des Varoilles, Gevrey-Chambertin Clos des Varoilles
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+# wd:Q42867203	Gevrey-Chambertin premier cru Clos des Varoilles
 
 <fr:Gevrey-Chambertin
 fr:Gevrey-Chambertin premier cru Clos du Chapitre, Gevrey-Chambertin Clos du Chapitre
@@ -12558,6 +12584,7 @@ fr:Marsannay rosé
 origins:en: en:France, fr:Bourgogne
 grape_variety:fr:pinot noir
 protected_name_type:en: pdo
+wikidata:en:Q42869067
 
 <en:Wines from France
 fr:Maures
@@ -12662,6 +12689,10 @@ fr:Mercurey premier cru Griffères, Mercurey Griffères
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
 
+<fr:Mercurey premier cru Griffères
+fr:Mercurey premier cru Griffères blanc
+wd:Q42864116
+
 <fr:Mercurey
 fr:Mercurey premier cru La Bondue, Mercurey La Bondue
 origins:en: en:France, fr:Bourgogne
@@ -12671,16 +12702,19 @@ protected_name_type:en: pdo
 fr:Mercurey premier cru La Cailloute, Mercurey La Cailloute
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+# wd:Q42864125	Mercurey premier cru La Cailloute blanc
 
 <fr:Mercurey
 fr:Mercurey premier cru La Chassière, Mercurey La Chassière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+#wd:Q42880495	Mercurey premier cru La Chassière rouge
 
 <fr:Mercurey
 fr:Mercurey premier cru La Levrière, Mercurey La Levrière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+#wd:Q42880498	Mercurey premier cru La Levrière rouge
 
 <fr:Mercurey
 fr:Mercurey premier cru La Mission, Mercurey La Mission
@@ -14678,6 +14712,14 @@ fr:Saint-Sardos
 wikidata:en:Q3463560
 origins:en: en:France
 
+<fr:Saint-Sardos
+fr:Saint-Sardos rosé
+wd:Q43019232
+
+<fr:Saint-Sardos
+fr:Saint-Sardos rouge
+wd:Q43019228
+
 <en:Burgundy wines
 <en:white wines
 fr:Saint-Véran
@@ -14704,6 +14746,10 @@ grape_variety:fr:pinot noir, chardonnay
 fr:Santenay premier cru
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Santenay premier cru
+fr:Santenay premier cru rouge
+wd:Q42863350
 
 <fr:Santenay
 fr:Santenay Côte de Beaune
@@ -18191,18 +18237,21 @@ it:Verdicchio di Matelica Riserva
 protected_name_file_number:en: PDO-IT-A0480
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q4009922
 
 <en:Wines from Italy
 it:Vigneti della Serenissima, Serenissima
 protected_name_file_number:en: PDO-IT-A0478
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q25385581
 
 <en:Wines from Italy
 it:Lessini Durello, Durello Lessini
 protected_name_file_number:en: PDO-IT-A0447
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q1820946
 
 <en:Wines from Italy
 it:Portofino, Golfo del Tigullio - Portofino
@@ -18275,6 +18324,7 @@ it:Bardolino Superiore
 protected_name_file_number:en: PDO-IT-A0437
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q2884366
 
 <en:Wines from Italy
 it:Albugnano
@@ -18346,6 +18396,7 @@ origins:en: en:Italy
 <it:Alto Adige
 it:Alto Adige Santa Maddalena, Südtiroler St.Magdalener
 origins:en: en:Italy
+wikidata:en:Q3613242
 
 <it:Alto Adige
 it:Alto Adige Terlano, Alto Adige Südtirol Terlaner
@@ -18372,6 +18423,7 @@ it:Ansonica Costa dell'Argentario
 protected_name_file_number:en: PDO-IT-A1312
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q3618365
 
 <en:Wines from Italy
 it:Aprilia
@@ -18393,6 +18445,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Arghillà
 origins:en: en:Italy
+wikidata:en:Q3622414
 
 <en:Wines from Italy
 it:Assisi
@@ -18420,6 +18473,7 @@ origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0466
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q2879110
 
 <en:Wines from Italy
 it:Barbagia
@@ -18434,6 +18488,7 @@ it:Barbera d'Alba
 protected_name_file_number:en: PDO-IT-A1068
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q807803
 
 <en:Wines from Italy
 it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano
@@ -18442,6 +18497,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Barbera d'Asti Nizza
 origins:en: en:Italy
+wikidata:en:Q3634742
 
 <en:Wines from Italy
 it:Barbera d'Asti Tinella
@@ -18501,6 +18557,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Bianchello del Metauro
 origins:en: en:Italy
+wikidata:en:Q3639419
 
 <en:Wines from Italy
 it:Bianco Capena
@@ -18564,12 +18621,14 @@ it:Bolgheri Sassicaia
 protected_name_file_number:en: PDO-IT-A1671
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q1422405
 
 <en:Wines from Italy
 it:Bosco Eliceo
 protected_name_file_number:en: PDO-IT-A0287
 protected_name_type:en: pdo
 origins:en: en:Italy
+wd:Q894397
 
 <en:Wines from Italy
 it:Botticino
@@ -18578,6 +18637,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Brachetto d'Acqui, Acqui
 origins:en: en:Italy
+wikidata:en:Q390630
 
 <en:Wines from Italy
 it:Bramaterra
@@ -18600,6 +18660,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Brunello di Montalcino
 origins:en: en:Italy
+wikidata:en:Q26667
 
 <en:Wines from Italy
 it:Cacc'e' mmitte di Lucera
