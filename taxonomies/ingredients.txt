@@ -50595,59 +50595,62 @@ fr:batavia
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
 
 <en:salad
-en:rocket, arugula
+en:rocket, arugula, garden rocket, eruca, rucola, rucoli, rugula, colewort, roquette, salad rocket
 ar:جرجير
-az:Əkin indausu
-be:Індаў пасяўны
-bg:рукола
+az:əkin indausu
+be:індаў пасяўны
+bg:рукола, ерука, посевна ерука
 bn:রকেট সালাদ
 br:roketez
 co:rutulella
 cs:roketa setá
-da:rucola
-de:Rucola
-el:Ρόκα
-eo:Kultiva eruko
-es:Rúcula, rucula
-et:rukola
+da:rucola, salatsennep
+de:Rucola, Garten-Senfrauke
+el:ρόκα
+eo:kultiva eruko
+es:rúcula, rúcola, rúgula, arrúgula, arúgula, jaramago, oruga, roqueta, ruca
+et:rukola, põld-võõrkapsas
 fa:منداب
 fi:sinappikaali, rucola
-fr:roquette
-gl:Eiruga
+fr:roquette, riquette
+ga:ruachán
+gl:eiruga
 he:בן-חרדל מצוי
-hu:Borsmustár
-hy:Ճարճրուկ ցանովի
-is:Klettasalat
-it:rucola
+hu:borsmustár, rukkola
+hy:ճարճրուկ ցանովի
+is:klettasalat
+it:ruchetta, rughetta, rucola, ruca
 ja:ルッコラ
 ka:რუკოლა
-kk:Егістік қышатүс
+kk:егістік қышатүс
 ko:루콜라
-la:Eruca vesicaria subsp. sativa
-lt:Rukola
+la:eruca vesicaria, eruca sativa mill, eruca vesicaria subsp. sativa, brassica eruca l.
+lt:rukola
+ml:അറൂഗ്യുള
 mt:eruka
 nb:ruccola
-nl:rucola
+nl:rucola, raketsla, zwaardherik
 pa:ਤਾਰਾਮੀਰਾ
-pl:Rokietta siewna
+pl:rokietta siewna, rukolą
 pt:rúcula
-ro:Voinicică
+ro:voinicică
 ru:руккола
 sd:ڄانڀو
 sq:sallatë manushaqeje
-sr:Рукола
+sr:рукола
 sv:ruccola, ruccolasallad
-tr:Roka
-uk:Рукола
+tr:roka
+uk:рукола
 zh:芝麻菜
 # arz:جرجير
-# ast:Guxanu
+# ast:guxanu
 # azb:اکین اینداوسو
 # en-ca:rocket
-# hsb:Běła hórčica
+# hsb:běła hórčica
+#kab:Alwat
 # pnb:تارا میرا
-# sr-ec:Рукола
-# sr-el:Rukola
+# sr-ec:рукола
+# sr-el:rukola
 # yue:火箭菜
 # zh-cn:芝麻菜
 # zh-hans:芝麻菜
@@ -50657,12 +50660,16 @@ zh:芝麻菜
 # zh-tw:芝麻菜
 wikidata:en:Q156884
 wikipedia:en:https://en.wikipedia.org/wiki/Eruca_sativa
-# ingredient/fr:roquette has 252 products in 5 languages @2019-05-10
+ciqual_food_code:en:20217
+ciqual_food_name:en:Roman rocket, raw
+ciqual_food_name:fr:Roquette, crue
+# 997 in 5 languages @2021-10-04
 
 <en:rocket
 en:baby arugula
 de:Babyrucola
 fr:Jeunes pousses de roquette
+# 86 in 2 @2021-10-04
 
 <en:salad
 en:wild rocket
