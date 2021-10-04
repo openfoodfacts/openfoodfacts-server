@@ -52935,13 +52935,80 @@ ciqual_food_name:fr:Cresson de fontaine, cru
 # description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
 <en:cress
-en:Garden cress
+en:garden cress
+af:waterkers
+am:ፌጦ
+ar:رشاد مزروع
+az:vəzəri-bozalaq
+be:клапоўнік пасяўны
+bg:кресон
+bn:হালিম শাক
+bs:obična grbaštica
+ca:morritort
+cs:řeřicha zahradní
+cy:pupurlys yr ardd
+da:have-karse, havekarse
 de:Gartenkresse
-fr:Cresson alénois
-la:Lepidium sativum
+el:κάρδαμο
+eo:ĝardenkreso
+es:lepido, berro hortelano, berro de jardin 
+et:salatkress
+fa:شاهی
+fi:vihanneskrassi
+ff:lapsur
+fr:cresson alénois
+ga:biolar gairdín
+gu:અશેળિયો
+hu:kerti zsázsa
+hy:կոտեմ
+is:karsi
+it:crescione di giardino, crescione inglese
+ja:コショウソウ
+ka:წიწმატი
+kk:кресс салат
+ko:큰다닥냉이
+kw:beler lowarth
+la:Lepidium Sativum
+lt:sėjamoji pipirnė
+mk:добрејка
+ml:ആശാളി
+mr:अहाळीव
+nb:karse
+ne:चम्सुर
+nl:tuinkers, sterrenkers, bitterkers, cressonette
+nn:matkarse
+os:дудгæ
+pl:pieprzyca siewna, rzeżucha ogrodowa
+pt:agrião-mouro, agrião-de-horta, mastruço
+qu:willk'uyuyu
+ro:creson
+ru:кресс-салат
+sh:obična grbaštica
+sk:žerucha záhradná
+sv:smörgåskrasse, kryddkrasse
+te:ఆడలవిటల
+th:เทียนแดง
+tr:tere
+uk:кресс-салат
+ur:ہالوں
+zh:水芹
+#ace:camcuruih
+#aeb:حبة الرشاد
+#azb:وزه ری
+#csb:zagrodna krjasa
+#frr:klaker
+#hsb:zahrodna žerchej
+#kab:agernunnec
+#lbe:гьумалаккиж
+#lez:цiуьлуьк
+#mzn:شاهین
+#wuu:家独行菜
 wikidata:en:Q27033
 wikipedia:en:https://en.wikipedia.org/wiki/Garden_cress
-
+ciqual_food_code:en:20199
+ciqual_food_name:en:Garden cress, raw
+ciqual_food_name:fr:Cresson alénois, cru
+# 8 in 4 @2021-10-04
 
 # description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
@@ -62635,9 +62702,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 
+<en:lettuce
+fr:jeunes pousses de laitue verte
+#20 in fr @2021-10-05
+
 #category/romaine-lettuce
 <en:lettuce
-en:romaine lettuce
+en:romaine lettuce, cos
 ar:خس روماني
 bn:রোমাইন লেটুস
 ca:enciam llarg
@@ -62680,10 +62751,6 @@ ciqual_food_code:en:20171
 ciqual_food_name:en:Cos or romaine lettuce, raw
 ciqual_food_name:fr:Laitue romaine, crue
 #758 in 7 @2021-10-04
-
-<en:lettuce
-fr:jeunes pousses de laitue verte
-#9@2019-06-06
 
 # description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
 
