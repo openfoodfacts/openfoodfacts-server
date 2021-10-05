@@ -1745,7 +1745,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 	}
 
 	# For the options include_children or include_parents,
-	# we will need to include data for more tags that requested.
+	# we will need to include data for more tags than requested.
 	# @tags will hold the tags to include
 
 	my @tags = ();
