@@ -53767,21 +53767,6 @@ de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
-
-<en:legumes
-en:green peas
-de:grüne Erbsen
-es:guisantes verdes
-fi:vihreät herneet
-fr:Petits pois
-it:Piselli verde
-ja:グリーンピース
-nl:groene erwten
-sv:gröna ärtor
-th:ถั่ว ลันเตา
-vegan:en:yes
-vegetarian:en:yes
-
 <en:legumes
 en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
@@ -54257,7 +54242,7 @@ or:ମଟର
 os:Тымбылхъæдур
 pa:ਮਟਰ
 pl:Groch zwyczajny, groszek
-pt:Ervilha
+pt:Ervilha, ervilhas
 qu:Allwirha
 ro:Mazăre
 ru:горох
@@ -54500,12 +54485,37 @@ ciqual_food_name:en:Chick pea flour
 ciqual_food_name:fr:Farine de pois chiche
 
 <en:pea
+en:green peas
+bg:зелен грах
+da:Grønne ærter
+de:grüne Erbsen, grüne Bohnen
+es:guisante verde, guisantes verdes
+fi:vihreät herneet, vihreä herne
+fr:pois vert
+it:piselli verde
+ja:グリーンピース
+kk:көк буршақ
+la:Pisum sativum L. subsp. sativum
+lt:žalieji žirneliai
+lv:zaļie zirnīši
+nl:groene erwt, groene erwten
+ro:mazăre
+ru:Зеленый горошек
+sv:gröna ärtor
+th:ถั่ว ลันเตา
+wikidata:en:Q3377275
+vegan:en:yes
+vegetarian:en:yes
+#3142 in 20 @2021-10-05
+
+<en:green pea
 en:garden peas
 de:Markerbsen, Gartenerbsen, Markerbsenschoten
-es:Guisantes de jardín
+es:guisantes de jardín
 fi:tarhaherne, tarhaherneet
 fr:petits pois, petit pois, pois doux
-it:Pisellini
+it:pisellini
+la:Pisum sativum L. subsp. sativum var. sativum
 nl:doperwten
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
@@ -54513,50 +54523,69 @@ carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
 carbon_footprint_fr_foodges_value:fr:0.9
 carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
 carbon_footprint_fr_foodges_value:fr:0.7
+ciqual_food_code:en:20072
+ciqual_food_name:en:Garden peas, raw
+ciqual_food_name:fr:Petits pois, crus
+#250 in 6 @2021-10-05
 
 <en:garden peas
 fr:petits pois fins
 
 <en:garden peas
-fr:petits pois très fins
+en:extra fine garden peas
+fr:petits pois très fins, petits pois extra fins
+es:guisantes extrafinos
+nl:extra fijne doperwten
 
 <en:garden peas
 fr:petits pois doux
+it:pisello dolce
 nl:zoete doperwten
+sv:söta ärtor
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
+<fr:petits pois doux
+fr:petits pois doux extra fins, petits pois doux extra-fins
+it:piselli dolci finissimi
+sv:extra fina söta ärtor
 
 <en:garden peas
 de:Junge Markerbsen
 
-<fr:petits pois doux
-fr:petits pois doux extra fins
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
 <en:pea
-en:snow pea, mangetout
+en:snow pea, mangetout, snow peas
 ca:tirabec
-de:Zuckerschoten, Kefen
+da:sukkerært
+de:Kefen, Zuckerschoten, Zuckererbse
+el:γλυκομπίζελα, ζαχαρομπίζελο
 eo:sukerpizo
+es:guisante mollar, guisante azucarado
 fi:sokeriherne
-fr:pois croquants, pois mange-tout
-gl:Tirabeque
-id:Kapri
-it:piselli dolce, Taccole
+fr:pois mange-tout, pois croquants, pois gourmand
+gl:tirabeque
+id:kapri
+it:taccole
 ja:スナップエンドウ
 ko:백설콩
-la:Pisum sativum
-nl:Peultjes
-su:Kapri
-tr:Sultani bezelye
+la:Pisum sativum var. saccharatum
+lt:cukriniai žirniai
+lv:cukurzirņi
+nl:peultje, peultjes
+sk:hrach siaty cukrový
+su:kapri
+sv:sockerärt
+tr:sultani bezelye
+wikidata:en:Q67210631
+wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
 carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
 carbon_footprint_fr_foodges_value:fr:1.7
-wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
-# ingredient/fr:pois-croquants has 30 products in 3 languages @2019-03-06
-# ingredient/fr:pois-mange-tout has 30 products @2019-02-13
-
-<en:garden peas
-fr:petits pois extra fins
+ciqual_food_code:en:20173
+ciqual_food_name:en:Snow pea, raw
+ciqual_food_name:fr:Pois mange-tout ou pois gourmand, cru
+# 202 @2021-10-05
 
 
 # description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
