@@ -27796,66 +27796,70 @@ sv:rågfiber
 <en:cereal
 en:spelt
 ar:حنطة
-bg:Спелта
-br:Yell
-ca:Espelta
-cs:špalda, Pšenice špalda
-da:Spelt
-de:Dinkel
-el:Όλυρα, ντίνκελ
-eo:Spelto
-es:espelta
-et:Speltanisu, spelta
-eu:Espelta
-fa:گندم آلمانی
-fi:speltti, spelttivehnä, spelttiä
+bg:спелта
+br:yell
+ca:espelta
+cs:špalda, pšenice špalda
+da:spelt
+de:DINKEL
+el:όλυρα, ντίνκελ, σπέλτα
+eo:spelto
+es:espelta, escanda
+et:speltanisu, spelta
+eu:espelta
+fa:اسپلت
+fi:spelttivehnä, speltti, spelttiä
 fr:épeautre
 ga:speilt
-gl:Espelta
+gl:espelta
 he:כוסמין
-hr:Pravi pir
+hr:pravi pir
 hu:tönkölybúza, tönköly
-io:Spelto
-is:Spelt
+io:spelto
+is:spelt
 it:farro, farro spelta
+ja:スペルトコムギ
 ko:스펠트밀
-la:Spelta
+la:Triticum aestivum ssp. spelta
 lb:Spelz
-lt:spelta
+lt:speltos, spelta
 lv:speltas kvieši
-ms:Spelt
-mt:ispelt
-nb:Spelt
+mk:крупник
+ms:spelt
+mt:farru, qamħ spelt
+nb:spelt
 nl:spelt
-nn:Spelt
-oc:Espeuta
-pl:Pszenica orkisz, orkisz
-pt:Espelta
-ro:grâu spelt
-ru:Спельта
+nn:spelt
+oc:espeuta
+pl:orkisz, pszenica orkisz
+pt:espelta
+ro:alac, grâu spelt, alac spelt
+ru:спельта
 sk:špalda
-sl:Pira
-sr:Крупник
-sv:spelt, Speltvete
+sl:pira
+sr:крупник, krupnik
+sv:spelt, speltvete
 ta:ஸ்பெல்ட்
-tr:Kavuzlu buğday
-tt:Борай
-uk:Спельта
-vi:Triticum spelta
-wa:Speate
+tr:kavuzlu buğday
+tt:борай
+uk:спельта
+wa:speate
 zh:斯佩耳特小麦
 description:en:SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
-# als:Schwobakorn
+# als:schwobakorn
 # ast:espelta
-# ceb:Triticum spelta
-# hsb:Krupnik
-# lmo:Triticum spelta
-# myv:Виш
-# nds-nl:Dinkelweite
-# sco:Spelt
-# war:Triticum spelta
+# dag:sipɛlit
+# hsb:krupnik
+# lmo:spèlta
+# myv:виш
+# nds:Dinkelweite
+# sco:spelt
+# yue:古麥
 wikipedia:en:https://en.wikipedia.org/wiki/Spelt
 wikidata:en:Q158767
+ciqual_food_code:en:9001
+ciqual_food_name:en:Spelt, raw
+ciqual_food_name:fr:Épeautre, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
 # 278 products in 6 languages @2018-09-22
 allergens:en: en:gluten
@@ -27869,14 +27873,14 @@ nl:volkoren spelt
 en:sprouted spelt
 de:Dinkel-Sprossen, Dinkel Sprossen, Dinkelkeimlinge
 
-<en:spelt
-en:organic spelt
-de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
-es:Espelta orgánica, trigo espelta troceado
-fi:luomu speltti
-fr:épeautre biologique
-hu:bio tönkölybúza
-nl:Biologische spelt
+#<en:spelt
+#en:organic spelt
+#de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
+#es:Espelta orgánica, trigo espelta troceado
+#fi:luomu speltti
+#fr:épeautre biologique
+#hu:bio tönkölybúza
+#nl:Biologische spelt
 # ingredient/nl:biologische-spelt has 1 product @2019-05-24
 
 <en:spelt
@@ -27911,6 +27915,63 @@ sv:dinkelkli
 en:inflated spelt
 de:Dinkelweizen gepufft, Dinkel gepufft, gepuffter Dinkel, gepuffter Weizendinkel
 es:espelta inflada
+
+<en:cereal flour
+en:spelt flour
+ca:farina d'espelta
+de:Dinkelmehl, Dinkelweizenmehl
+es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
+fi:spelttijauho
+fr:farine d'épeautre, farine de blé d'épeautre
+hu:tönkölyliszt
+it:farina di spelta, farina di farro
+la:Triticum spelta
+nl:speltmeel, speltbloem
+pl:mąka orkiszowa
+pt:farinha de espelta
+sk:múka z pšenice špaldy
+sv:speltvetemjöl, dinkelmjöl
+ciqual_food_code:en:9480
+ciqual_food_name:en:Spelt flour
+ciqual_food_name:fr:Farine d'épeautre (grand épeautre)
+wikidata:en:Q3066924
+#1496 in 14 @2021-09-24
+
+<en:spelt flour
+de:Dinkelmehl Type 630
+
+<en:spelt flour
+de:Dinkelmehl Type 812
+
+<en:spelt flour
+fr:Farine de blé d'épeautre T110
+
+# Question
+
+<en:wholemeal flour
+<en:spelt flour
+en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
+ca:farina de blat d'espelta integral
+de:Dinkelvollkornmehl, dinkel vollkornmehl
+es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
+fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
+fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
+hu:teljes kiőrlésű tönkölyliszt
+it:farina integrale di spelta
+nl:volkoren speltmeel
+pt:farinha integral de espelta
+sv:fullkornsspeltvetemjöl
+
+<en:spelt flour
+fr:farine de petit épeautre
+
+<en:spelt flour
+en:dextrinated spelt flour
+de:dextriniertes Dinkelmehl
+es:harina de espelta dextrinada
+fr:farine d'épeautre dextrinée
+hu:dextrinált tönkölyliszt
+nl:gedextrineerd speltmeel
 
 <en:cereal
 en:khorasan wheat, kamut
@@ -28526,62 +28587,6 @@ fr:farine d’orge dextrinée
 hu:dextrinált árpaliszt
 nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
-<en:cereal flour
-en:spelt flour
-ca:farina d'espelta
-de:Dinkelmehl, Dinkelweizenmehl
-es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
-fi:spelttijauho
-fr:farine d'épeautre, farine de blé d'épeautre
-hu:tönkölyliszt
-it:farina di spelta, farina di farro
-la:Triticum spelta
-nl:speltmeel, speltbloem
-pl:mąka orkiszowa
-pt:farinha de espelta
-sk:múka z pšenice špaldy
-sv:speltvetemjöl, dinkelmjöl
-ciqual_food_code:en:9480
-ciqual_food_name:en:Spelt flour
-ciqual_food_name:fr:Farine d'épeautre (grand épeautre)
-wikidata:en:Q3066924
-#1496 in 14 @2021-09-24
-
-<en:spelt flour
-de:Dinkelmehl Type 630
-
-<en:spelt flour
-de:Dinkelmehl Type 812
-
-<en:spelt flour
-fr:Farine de blé d'épeautre T110
-
-# Question
-
-<en:wholemeal flour
-<en:spelt flour
-en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
-ca:farina de blat d'espelta integral
-de:Dinkelvollkornmehl, dinkel vollkornmehl
-es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
-fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
-fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
-hu:teljes kiőrlésű tönkölyliszt
-it:farina integrale di spelta
-nl:volkoren speltmeel
-pt:farinha integral de espelta
-sv:fullkornsspeltvetemjöl
-
-<en:spelt flour
-fr:farine de petit épeautre
-
-<en:spelt flour
-en:dextrinated spelt flour
-de:dextriniertes Dinkelmehl
-es:harina de espelta dextrinada
-fr:farine d'épeautre dextrinée
-hu:dextrinált tönkölyliszt
-nl:gedextrineerd speltmeel
 
 
 
