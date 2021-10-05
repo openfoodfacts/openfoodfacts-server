@@ -92,6 +92,9 @@ if ((defined $request{api}) and (defined $request{api_method})) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api(\%request, $2);
 	}
+	elsif (param("api_method") eq "taxonomy") {
+		display_taxonomy_api(\%request);
+	}	
 	else {
 		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
 		display_product_api(\%request);
