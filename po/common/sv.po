@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:06\n"
+"PO-Revision-Date: 2021-10-05 18:50\n"
 "Language-Team: Swedish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -40,7 +40,7 @@ msgstr "Lägg till språk"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Lägg till produkt"
+msgstr "Lägg till en produkt"
 
 msgctxt "add_user"
 msgid "Register"
@@ -124,7 +124,7 @@ msgstr "Ange namnet på din organisation (företagsnamn eller varumärke)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Detta konto är ett professionellt konto som är associerat med tillverkaren eller varumärket %s. Du har tillgång till plattformen för producenter."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -318,11 +318,11 @@ msgstr "Produkter som inte kommer från varumärket %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Varumärkesägare"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -378,11 +378,11 @@ msgstr "Uppladdade bilder"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "kontrollant"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "kontrollant"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -574,7 +574,7 @@ msgstr "Kontoparametrar"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Dina kontoparametrar har ändrats."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -590,11 +590,11 @@ msgstr "e-postadress"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Produkter förpackade av företaget med spårbarhetskod %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Spårbarhetskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -606,19 +606,19 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "spårbarhetskoder"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Produkter med spårbarhetskod %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "spårbarhetskod"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Produkter utan spårbarhetskod %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -627,15 +627,15 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "I Europa är koden i en ellips med de 2 landsinitialer följt av ett nummer och CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Datum för inlägget"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Datum för inlägget"
 
 msgctxt "error"
 msgid "Error"
@@ -870,7 +870,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Kosmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -960,7 +960,7 @@ msgstr "Ingen streckkod finns i bilden."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Ingen streckkod angiven eller hittades i bilden eller filnamnet."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
@@ -980,11 +980,11 @@ msgstr "Filen laddades upp till produkten %s och är licensierad under %s licens
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Tillskrivning: Foto av %s per %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Tillskrivning: Foto av %s med ytterligare ändringar av %s per %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
@@ -992,7 +992,7 @@ msgstr "(Originalbild)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Fotodetaljer och tillskrivningsinformation"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1044,7 +1044,7 @@ msgstr "Antal ingredienser"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Antal igenkända ingredienser"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
@@ -1076,7 +1076,7 @@ msgstr ""
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Behåll ordningen, ange % när det anges, separera med komma eller -, använd () för ingredienser i en ingrediens, omge allergener med _ t.ex. _mjölk_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1121,7 +1121,7 @@ msgstr "Organisk"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Ange endast de mest specifika etiketterna. Överordnade etiketter kommer att läggas till automatiskt."
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1149,7 +1149,7 @@ msgstr "Huvudspråk"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Språk som är mest närvarande och mest markerat på produkten"
 
 msgctxt "language"
 msgid "en-US"
@@ -1177,17 +1177,19 @@ msgstr ""
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Senaste bilddatum"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Genom att lägga till information, data och/eller bilder accepterar du att oåterkalleligt placera ditt bidrag under <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licens\n"
+"för information och data, och under <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> -licens för bilder.\n"
+"Du accepterar att krediteras av återanvändare genom en länk till den produkt du bidrar till."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Länk till produktsidan på producentens officiella webbplats"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1224,7 +1226,8 @@ msgstr "Logga in för att lägga till eller redigera produkter."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>Vänligen logga in för att lägga till eller redigera en produkt.</p>\n\n"
+"<p>Om du ännu inte har ett konto på <<site_name>>, kan du <a href=\"/cgi/user.pl\">registrera dig på 30 sekunder</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1276,7 +1279,7 @@ msgstr "Produkter som inte tillverkats eller bearbetats i %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "%d produkter matchar sökkriterierna, varav %i produkter har en känd produktionsplats."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1288,7 +1291,7 @@ msgstr "Meny"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Lägg till produkt"
+msgstr "Lägg till en produkt"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1460,7 +1463,7 @@ msgstr "Näringsfakta"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Genomsnittliga näringsfakta för %d produkter i kategorin %s för vilka näringsfakta är kända (utav %d produkter)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1472,11 +1475,11 @@ msgstr "värde för 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Jämförelse med genomsnittliga värden för produkter i samma kategori:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Observera: för varje näringsämne beräknas medelvärdet för produkter för vilka näringsmängden är känd, inte för alla produkter i kategorin."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1533,7 +1536,8 @@ msgstr "Näringsfakta"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Tabellen visar som standard näringsämnen som ofta anges. Lämna fältet tomt om det inte finns på etiketten.<br/>Du kan lägga till extra näringsämnen (vitaminer, mineraler, kolesterol etc.)\n"
+"genom att skriva de första bokstäverna i deras namn i den sista raden i tabellen."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1673,7 +1677,7 @@ msgstr ""
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Tid efter öppnandet"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -3018,8 +3022,16 @@ msgid "Recipe idea"
 msgstr "Receptidé"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "Ursprung"
+msgid "Origin of the product and/or its ingredients"
+msgstr ""
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr ""
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr ""
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -5556,13 +5568,29 @@ msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
 msgstr ""
 
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing information about the origins of ingredients"
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr ""
+
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
-
-msgctxt "impact"
-msgid "impact"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
@@ -5571,5 +5599,50 @@ msgstr ""
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
+msgstr ""
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr ""
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr ""
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr ""
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "Donera"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Production mode with environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Production mode with high environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Production mode with very high environmental benefits"
+msgstr ""
+
+msgctxt "other"
+msgid "Other"
+msgstr ""
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "Medelvärde"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr ""
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
 msgstr ""
 

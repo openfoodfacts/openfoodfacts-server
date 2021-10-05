@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:03\n"
+"PO-Revision-Date: 2021-10-05 18:46\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2992,8 +2992,16 @@ msgid "Recipe idea"
 msgstr "crwdns166314:0crwdne166314:0"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "crwdns166316:0crwdne166316:0"
+msgid "Origin of the product and/or its ingredients"
+msgstr "crwdns190833:0crwdne190833:0"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "crwdns190835:0crwdne190835:0"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "crwdns190837:0crwdne190837:0"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -5530,14 +5538,30 @@ msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
 msgstr "crwdns190649:0crwdne190649:0"
 
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr "crwdns190769:0crwdne190769:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr "crwdns190771:0crwdne190771:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr "crwdns190773:0crwdne190773:0"
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing information about the origins of ingredients"
+msgstr "crwdns190811:0crwdne190811:0"
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "crwdns190777:0crwdne190777:0"
+
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
 msgstr "crwdns190651:0crwdne190651:0"
-
-msgctxt "impact"
-msgid "impact"
-msgstr "crwdns190653:0crwdne190653:0"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5546,4 +5570,49 @@ msgstr "crwdns190655:0crwdne190655:0"
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
 msgstr "crwdns190669:0%scrwdne190669:0"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "crwdns190813:0crwdne190813:0"
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr "crwdns190815:0crwdne190815:0"
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr "crwdns190817:0crwdne190817:0"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "crwdns190819:0crwdne190819:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Production mode with environmental benefits"
+msgstr "crwdns190821:0crwdne190821:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Production mode with high environmental benefits"
+msgstr "crwdns190823:0crwdne190823:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Production mode with very high environmental benefits"
+msgstr "crwdns190825:0crwdne190825:0"
+
+msgctxt "other"
+msgid "Other"
+msgstr "crwdns190993:0crwdne190993:0"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "crwdns190995:0crwdne190995:0"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "crwdns190997:0crwdne190997:0"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "crwdns190999:0crwdne190999:0"
 
