@@ -116,21 +116,35 @@ sub compute_product_recipe($$) {
 
 	$log->debug("compute recipe for product", { code => $product_ref->{code}, parent_ingredients_ref => $parent_ingredients_ref }) if $log->is_debug();
 
-    if (not defined $product_ref->{ingredients}) {
-        $log->debug("compute recipe for product - no ingredients structure", { code => $product_ref->{code}}) if $log->is_debug();
-        return undef;
-    }
-
-    if ((defined $product_ref->{ingredients_percent_analysis}) and ($product_ref->{ingredients_percent_analysis} < 0)) {
-        $log->debug("compute recipe for product - ingredients percent analysis returned impossible values", { code => $product_ref->{code}, ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+    if ((not defined $product_ref->{ingredients}) or (scalar @{$product_ref->{ingredients}} == 0)) {
+        $log->debug("compute recipe for product - empty ingredients", { code => $product_ref->{code}}) if $log->is_debug();
+        return;
     }
 
     my $recipe_ref = { "unknown" => 0, "other" => 0};
+    
     foreach my $parent_ingredient (@{$parent_ingredients_ref}) {
         $recipe_ref->{$parent_ingredient} = 0;
     }
 
-    foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+    if ((defined $product_ref->{ingredients_percent_analysis}) and ($product_ref->{ingredients_percent_analysis} < 0)) {
+        $log->debug("compute recipe for product - ingredients percent analysis returned impossible values", { code => $product_ref->{code}, ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+        $recipe_ref->{"warning"} = "ingredients_percent_analysis_failed";
+    }
+
+    # Traverse the ingredients tree, breadth first.
+    # Stop if the ingredient matches one of the parent ingredients,
+    # otherwise go into sub ingredients if they exist
+			
+    my @ingredients = ();
+
+    for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+        push @ingredients, $product_ref->{ingredients}[$i];
+    }
+    
+    while (@ingredients) {    
+
+        my $ingredient_ref = shift @ingredients;
         my $ingredient_id = $ingredient_ref->{id};
         my $parent_of_current_ingredient = "other";
         if (not exists_taxonomy_tag("ingredients", $ingredient_id )) {
@@ -144,8 +158,25 @@ sub compute_product_recipe($$) {
                 }
             }
         }
-        my $percent = $ingredient_ref->{percent_estimate};
-        $recipe_ref->{$parent_of_current_ingredient} += $percent;
+
+        # If the ingredient is unknown or other and it has sub ingredients,
+        # try to find the parent ingredients we care about in the sub ingredients
+
+        if ((($parent_of_current_ingredient eq "other") or ($parent_of_current_ingredient eq "unknown"))
+            and (defined $ingredient_ref->{ingredients})) {
+            for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+                push @ingredients, $ingredient_ref->{ingredients}[$i];
+            }
+        }
+        else {
+
+            # If ingredients percent analysis failed, percent_estimate may not be defined
+            my $percent = $ingredient_ref->{percent_estimate};
+            if (defined $ingredient_ref->{percent}) {
+                $percent = $ingredient_ref->{percent};
+            }
+            $recipe_ref->{$parent_of_current_ingredient} += $percent;
+        }
     }
 
     return $recipe_ref;
@@ -169,12 +200,14 @@ sub add_product_recipe_to_set( $$$) {
     my $product_ref = shift;
     my $recipe_ref = shift;
 
-    push @$recipes_ref, {
-        product => { 
-            code => $product_ref->{code}
-        },
-        recipe => $recipe_ref,
-    };
+    # Do not add undefined recipes (e.g. products without ingredients)
+    if (defined $recipe_ref) {
+
+        push @$recipes_ref, {
+            product => $product_ref,
+            recipe => $recipe_ref,
+        };
+    }
 }
 
 
@@ -192,7 +225,10 @@ sub add_product_recipe_to_set( $$$) {
 sub analyze_recipes( $$) {
 
     my $recipes_ref = shift;
-    my $parent_ingredients_ref = shift;
+    my $original_parent_ingredients_ref = shift;
+
+    # Add "other" and "unknown"
+    my $parent_ingredients_ref = [ @$original_parent_ingredients_ref, "other", "unknown" ];
 
     # Initialize the resulting analysis structure
 
@@ -204,8 +240,11 @@ sub analyze_recipes( $$) {
         },
     };
 
-    foreach my $ingredient (@$parent_ingredients_ref, "other", "unknown") {
+    foreach my $ingredient (@$parent_ingredients_ref) {
         $analysis_ref->{ingredients}{$ingredient} = {
+            n => 0,
+            min => 100,
+            max => 0,
             sum => 0,
             values => [],
         };
@@ -216,16 +255,29 @@ sub analyze_recipes( $$) {
     foreach my $product_recipe_ref (@$recipes_ref) {
         my $recipe_ref = $product_recipe_ref->{recipe};
         $analysis_ref->{n}++;
-        foreach my $ingredient (@$parent_ingredients_ref, "other", "unknown") {
+        foreach my $ingredient (@$parent_ingredients_ref) {
             push @{$analysis_ref->{ingredients}{$ingredient}{values}}, $recipe_ref->{$ingredient};
-            $analysis_ref->{ingredients}{$ingredient}{sum} += $recipe_ref->{$ingredient};
+            if ($recipe_ref->{$ingredient} > 0) {
+                $analysis_ref->{ingredients}{$ingredient}{n} += 1;
+                $analysis_ref->{ingredients}{$ingredient}{sum} += $recipe_ref->{$ingredient};
+            }
+            if ($recipe_ref->{$ingredient} < $analysis_ref->{ingredients}{$ingredient}{min}) {
+                $analysis_ref->{ingredients}{$ingredient}{min} = $recipe_ref->{$ingredient};
+            }
+            if ($recipe_ref->{$ingredient} > $analysis_ref->{ingredients}{$ingredient}{max}) {
+                $analysis_ref->{ingredients}{$ingredient}{max} = $recipe_ref->{$ingredient};
+            }            
         }        
     }
 
     # Compute some statistics
 
-     foreach my $ingredient (@$parent_ingredients_ref, "other", "unknown") {
+     foreach my $ingredient (@$parent_ingredients_ref) {
         $analysis_ref->{ingredients}{$ingredient}{mean} =  $analysis_ref->{ingredients}{$ingredient}{sum} / $analysis_ref->{n};
+        # Put min to 0 if there were no products with the ingredient
+        if ($analysis_ref->{ingredients}{$ingredient}{min} > $analysis_ref->{ingredients}{$ingredient}{max}) {
+            $analysis_ref->{ingredients}{$ingredient}{min} = $analysis_ref->{ingredients}{$ingredient}{max};
+        }
     }
 
     return $analysis_ref;
