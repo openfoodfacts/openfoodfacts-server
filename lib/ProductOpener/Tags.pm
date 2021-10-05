@@ -1745,27 +1745,29 @@ sub generate_tags_taxonomy_extract ($$$$) {
 	}
 
 	# For the options include_children or include_parents,
-	# we will need to include data for more tags that requested.
+	# we will need to include data for more tags than requested.
 	# @tags will hold the tags to include
 
 	my @tags = ();
 	my %requested_tags = ();
+	my %included_tags = ();
 	foreach my $tagid (@$tags_ref) {
 		push @tags, $tagid;
 		$requested_tags{$tagid} = 1;
+		$included_tags{$tagid} = 1;
 	}
 
-	my $fields_ref;
-	my @properties = ();
+	my $include_all_fields = 0;
+	my $fields_ref = {};
+	my @inherited_properties = ();
 	if ((defined $options_ref) and (defined $options_ref->{fields})) {
-		$fields_ref = {};
 		foreach my $field (split(/,/, $options_ref->{fields}) ) {
 			# Compute a list of the requested inherited properties,
 			# as we will populate them directly
 			if ($field =~  /^inherited:(.*):(\w\w)$/) {
 				my $prop = $1;
 				my $lc = $2;
-				push @properties, [$prop, $lc];
+				push @inherited_properties, [$prop, $lc];
 			}
 			# Compute a hash of the other requested fields
 			# as we will go through all existing properties
@@ -1774,44 +1776,65 @@ sub generate_tags_taxonomy_extract ($$$$) {
 			}
 		}
 	}
+	else {
+		$include_all_fields = 1;
+	}
 
 	my $taxonomy_ref = {};
 
 	while (my $tagid = shift @tags) {
 
+		$taxonomy_ref->{$tagid} = {};
+
+		# Handle parent fields
+
 		if (defined $direct_parents{$tagtype}{$tagid}) {
 			
 			$taxonomy_ref->{$tagid}{parents} = [];
 			foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
-				if ((not defined $fields_ref) or (defined $fields_ref->{parents})) {
+				if (($include_all_fields) or (defined $fields_ref->{parents})) {
 					exists $taxonomy_ref->{$tagid}{parents} or $taxonomy_ref->{$tagid}{parents} = [];
 					push @{ $taxonomy_ref->{$tagid}{parents} }, $parentid;
 				}
 				# Include parents if the tag is one of the initially requested tags
-				# so that we don't also add parents of parents
-				if (($options_ref->{include_parents}) and ($requested_tags{$tagid})) {
+				# so that we don't also add parents of parents.
+				# Also check that the parent has not been already included.
+				if (($options_ref->{include_parents}) and ($requested_tags{$tagid})
+					and (not exists $included_tags{$parentid})) {
+					# Add parent to list of tags to process and included_tags, while leaving it outside of requested_tags
 					push @tags, $parentid;
+					$included_tags{$parentid} = 1;
 				}
 			}
 		}
+
+		# Handle children fields
 
 		if (defined $direct_children{$tagtype}{$tagid}) {
 			
 			foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
-				if ((not defined $fields_ref) or (defined $fields_ref->{children})) {
+				if (($include_all_fields) or (defined $fields_ref->{children})) {
 					exists $taxonomy_ref->{$tagid}{children} or $taxonomy_ref->{$tagid}{children} = [];
 					push @{$taxonomy_ref->{$tagid}{children}}, $childid;
 				}
-				if (($options_ref->{include_children}) and ($requested_tags{$tagid})) {
+				# Include children if the tag is one of the initially requested tags
+				# so that we don't also add children of children.
+				# Also check that the child has not been already included.
+				if (($options_ref->{include_children}) and ($requested_tags{$tagid})
+					and (not exists $included_tags{$childid})) {
+					# Add child to list of tags to process and included_tags, while leaving it outside of requested_tags
 					push @tags, $childid;
+					$included_tags{$childid} = 1;
 				}
 			}
 		}
 
-		if (((not defined $fields_ref) or (defined $fields_ref->{name}))
+		# Handle name and synonyms fields
+
+		if ((($include_all_fields) or (defined $fields_ref->{name}))
 			and (defined $translations_to{$tagtype}{$tagid})) {
 
-			$taxonomy_ref->{$tagid} = {name => {}};
+			$taxonomy_ref->{$tagid}{name} = {};
 
 			foreach my $lc (@{$lcs_ref}) {
 
@@ -1829,7 +1852,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 					}
 
 					# add synonyms to the full taxonomy
-					if (((not defined $fields_ref) or (defined $fields_ref->{synonyms}))
+					if ((($include_all_fields) or (defined $fields_ref->{synonyms}))
 						and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid})) {
 						(defined $taxonomy_ref->{$tagid}{synonyms}) or $taxonomy_ref->{$tagid}{synonyms} = {};
 						$taxonomy_ref->{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
@@ -1838,46 +1861,49 @@ sub generate_tags_taxonomy_extract ($$$$) {
 			}
 		}
 
+		# Handle properties that are directly defined for the tags
+
 		if (defined $properties{$tagtype}{$tagid}) {
 
 			foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
 				
-				if ($prop_lc =~ /^(.*):(\w\w)$/) {
-					my $prop = $1;
-					my $lc = $2;
+				# properties are of the form [property_name]:[2 letter language code]
+				my ($prop, $lc) = split(/:/, $prop_lc);
 
-					if (
-						# Include the property in all requested languages if the property
-						# is specified without a language in the fields parameter
-						# or if the fields parameter is not specified.
-						
-						(((not defined $fields_ref) or (defined $fields_ref->{$prop}))
-							and (grep( /^$lc$/, @$lcs_ref)))
+				if (
+					# Include the property in all requested languages if the property
+					# is specified without a language in the fields parameter
+					# or if the fields parameter is not specified.
+					
+					((($include_all_fields) or (defined $fields_ref->{$prop}))
+						and (grep( /^$lc$/, @$lcs_ref)))
 
-						# Also include the property if it was requested in a specific language
-						# e.g. fields=vegan:en
-						# as some properties are defined only for English
+					# Also include the property if it was requested in a specific language
+					# e.g. fields=vegan:en
+					# as some properties are defined only for English
 
-						or ((defined $fields_ref) and (defined $fields_ref->{$prop_lc}))
-						
-						) {
+					or ((defined $fields_ref) and (defined $fields_ref->{$prop_lc}))
+					
+					) {
 
-						(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
-						$taxonomy_ref->{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
-					}
+					(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
+					$taxonomy_ref->{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
 				}
 			}
 		}
 
-		# Allow requests for inherited properties
-		foreach my $property_ref (@properties) {
+		# Handle inherited properties
+		foreach my $property_ref (@inherited_properties) {
 
 			my $prop = $property_ref->[0];
 			my $lc = $property_ref->[1];
 			my $property_value = get_inherited_property($tagtype, $tagid, "$prop:$lc");
 			if (defined $property_value) {
 				(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
-					$taxonomy_ref->{$tagid}{$prop}{$lc} = $property_value;
+				# If we already have a value for the property (because it's a direct property of the tag)
+				# then the inherited value is the same.
+				# For simplicity we return the value for both direct and inherited properties in the same field.
+				$taxonomy_ref->{$tagid}{$prop}{$lc} = $property_value;
 			}
 		}
 	}
