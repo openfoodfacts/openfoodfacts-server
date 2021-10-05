@@ -1790,6 +1790,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 				# Include parents if the tag is one of the initially requested tags
 				# so that we don't also add parents of parents
 				if (($options_ref->{include_parents}) and ($requested_tags{$tagid})) {
+                    # add parent to list of tags to process, while leaving it outside of requested_tags
 					push @tags, $parentid;
 				}
 			}
