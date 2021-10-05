@@ -1716,6 +1716,20 @@ Generate an extract of the taxonomy for a specific set of tags.
 
 =head4 reference to a hash of key/value options
 
+Options:
+- fields: comma separated lists of fields (e.g. "name,description,vegan:en,inherited:vegetarian:en" )
+
+Properties can be requested with their name (e.g."description") or name + a specific language (e.g. "vegan:en").
+Only properties directly defined for the entry are returned.
+To include inherited properties from parents, prefix the property with "inherited:" (e.g. "inherited:vegan:en").
+
+- include_parents: include entries for all direct parents of the requested tags
+- include_children: include entries for all direct children of the requested tags
+
+=head4 reference to an array of language codes
+
+Languages for which we want to extract names, synonyms, properties.
+
 =cut
 
 sub generate_tags_taxonomy_extract ($$$$) {
@@ -1742,10 +1756,22 @@ sub generate_tags_taxonomy_extract ($$$$) {
 	}
 
 	my $fields_ref;
+	my @properties = ();
 	if ((defined $options_ref) and (defined $options_ref->{fields})) {
 		$fields_ref = {};
 		foreach my $field (split(/,/, $options_ref->{fields}) ) {
-			$fields_ref->{$field} = 1;
+			# Compute a list of the requested inherited properties,
+			# as we will populate them directly
+			if ($field =~  /^inherited:(.*):(\w\w)$/) {
+				my $prop = $1;
+				my $lc = $2;
+				push @properties, [$prop, $lc];
+			}
+			# Compute a hash of the other requested fields
+			# as we will go through all existing properties
+			else {
+				$fields_ref->{$field} = 1;
+			}
 		}
 	}
 
@@ -1820,13 +1846,38 @@ sub generate_tags_taxonomy_extract ($$$$) {
 					my $prop = $1;
 					my $lc = $2;
 
-					if (((not defined $fields_ref) or (defined $fields_ref->{$prop}))
-						and (grep( /^$lc$/, @$lcs_ref))) {
+					if (
+						# Include the property in all requested languages if the property
+						# is specified without a language in the fields parameter
+						# or if the fields parameter is not specified.
+						
+						(((not defined $fields_ref) or (defined $fields_ref->{$prop}))
+							and (grep( /^$lc$/, @$lcs_ref)))
+
+						# Also include the property if it was requested in a specific language
+						# e.g. fields=vegan:en
+						# as some properties are defined only for English
+
+						or ((defined $fields_ref) and (defined $fields_ref->{$prop_lc}))
+						
+						) {
 
 						(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
 						$taxonomy_ref->{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
 					}
 				}
+			}
+		}
+
+		# Allow requests for inherited properties
+		foreach my $property_ref (@properties) {
+
+			my $prop = $property_ref->[0];
+			my $lc = $property_ref->[1];
+			my $property_value = get_inherited_property($tagtype, $tagid, "$prop:$lc");
+			if (defined $property_value) {
+				(defined $taxonomy_ref->{$tagid}{$prop}) or $taxonomy_ref->{$tagid}{$prop} = {};
+					$taxonomy_ref->{$tagid}{$prop}{$lc} = $property_value;
 			}
 		}
 	}

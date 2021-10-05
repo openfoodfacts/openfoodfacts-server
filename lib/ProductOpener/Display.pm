@@ -822,8 +822,8 @@ sub analyze_request($)
 		$request_ref->{search} = 1;
 	}
 
-	# /tags API endpoint
-	# e.g. /api/v2/tags?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children&lc=en,fr&include_children=1
+	# /taxonomy API endpoint
+	# e.g. /api/v2/taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
 	elsif ($components[0] eq "taxonomy") {
 		$request_ref->{taxonomy} = 1;
 	}	
