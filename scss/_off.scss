@@ -694,3 +694,8 @@ html[dir="rtl"] {
 .filter-grey {
   filter: invert(52%) sepia(0%) saturate(1186%) hue-rotate(218deg) brightness(96%) contrast(84%);
 }
+
+/* Accessuibility: Adding focus styles on the outer-box of the fake checkbox used for the Foundation switch to classify products according to one's preferences */
+.switch input[type="checkbox"]:focus + label::after {
+    outline: rgb(59, 153, 252) auto 5px;
+}
