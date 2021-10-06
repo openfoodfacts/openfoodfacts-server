@@ -7,8 +7,7 @@ name: Crowdin Sync
 on:
   push:
     branches:
-      - crowdin-trigger
-      - crowdin-wf-refactor
+      - crowdin-trigger-per-language
 
 jobs:
   synchronize-with-crowdin-matrix:
