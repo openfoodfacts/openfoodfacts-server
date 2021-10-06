@@ -722,7 +722,7 @@ Analyze request parameters and decide which method to call.
 
 It will analyze path and parameters.
 
-Some iformations are set in request_ref, notably
+Some information is set in request_ref, notably
 - polished query_string
 - page number (page)
 - api version and api_method
