@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-05-23 11:39\n"
+"PO-Revision-Date: 2021-10-06 07:45\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -602,7 +602,7 @@ msgstr "包装代码"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "包装代码"
+msgstr "溯源代码"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -2340,7 +2340,7 @@ msgstr "Open Food Facts"
 
 msgctxt "logo_site_name"
 msgid "Open Food Facts logo"
-msgstr ""
+msgstr "Open Food Facts标志"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -3017,8 +3017,16 @@ msgid "Recipe idea"
 msgstr "配方想法"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "起源"
+msgid "Origin of the product and/or its ingredients"
+msgstr "产品和/或其成分的来源"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "指名成分的制造地点和/或来源的包装提示"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "法国制造。西红柿源自意大利。大米来源：印度、泰国。"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -4706,23 +4714,23 @@ msgstr "不包含:%s"
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "不含 %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "所有者"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "所有者"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "你可以提供公司信息。这些信息将会在你的组织资料中展出。"
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "客户服务联系信息等某些信息也会在你的产品主页中直接展出。"
 
 msgctxt "org_name"
 msgid "Name"
@@ -4730,7 +4738,7 @@ msgstr "名称"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "链接到官方网站"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4738,19 +4746,19 @@ msgstr "客户服务"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "客户服务信息是公开的，也会在Open Food Facts（公开食物数据）网站和应用中显示。"
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "所有领域皆可选择。"
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "商业服务"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "商业服务信息仅在机构简介中展出。"
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4758,11 +4766,11 @@ msgstr "名称"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "电话号码"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4770,7 +4778,7 @@ msgstr "电子邮箱地址"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "通过链接联系我们"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4778,43 +4786,43 @@ msgstr "其他信息"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "例如：开放时间"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "未找到该组织"
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "缺少组织名称"
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "组织资料"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "组织文件已更新"
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "删除当前组织"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "官方网站"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "联系表单"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "编辑您的组织资料"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "编辑您的用户信息"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4823,60 +4831,60 @@ msgstr "成分"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "存在未知信息：%s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "环境影响"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "生态得分"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "生态得分等级"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "生态得分计算明细"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "生态得分相关信息"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "编辑您的食物偏好"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "您的食物偏好"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "当前已选择的偏好选项"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "您的食物偏好已保存至您的浏览器中，绝不会发给Open Food Facts网址以外的人。"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "未知数量"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "缺失原料配料表"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "缺失营养成分"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -4888,328 +4896,328 @@ msgstr "生态得分"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "包装方面"
 
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "数量"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "形状"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "包含的数量"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "材料"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "循坏利用"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "此页面的产品已根据您的偏好进行排序："
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "请选择您希望先看到的信息。"
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "查看您的偏好"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "删除所有偏好选项"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "产品正在加载中，请稍候……"
 
 msgctxt "products_match_all"
 msgid "All products"
-msgstr ""
+msgstr "所有产品"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "符合您喜好的产品"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "不符合您喜好的产品"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "现阶段因缺失确定您偏好数据而无法定性的产品"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "森林生态足迹"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "含大豆的原料"
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "加工系数"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "大豆含量"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "大豆产量"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "滥砍滥伐的危险"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "森林足迹总数"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "每公斤所占面积（㎡）"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "加工后食物所占百分比"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "每公斤食物的大豆含量（kg）"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "每平方米大豆所占重量（kg）"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "产品中所占百分比"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "森林足迹计算明细"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "你已在公共数据库中"
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "从生产商平台中管理您的产品"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "自上次出口以来变化的产品数量"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "仅发生变化的出口产品"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "这是您的产品吗？如果是的话，请使用我们针对生产商的免费平台更新您的产品。"
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "我们鼓励制造商通过我们专门面向他们的平台更新产品数据和照片，以便其受到官方认可并保护其免受他人更改。"
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "该平台可以使用任何格式的 Excel 或 CSV 文件轻松导入产品数据和照片。"
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "该平台还提供产品的深层分析"
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "该平台计算营养分数、NOVA和生态分数等指标，并自动识别可以加以改进的意见（例如，所有产品成分稍有改变都可以刷新更高的营养分数。）"
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "森林生态足迹"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
-msgstr ""
+msgstr "滥砍滥伐的低风险（森林足迹）"
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
-msgstr ""
+msgstr "微小森林足迹"
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Small forest footprint"
-msgstr ""
+msgstr "小森林足迹"
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Medium forest footprint"
-msgstr ""
+msgstr "中等森林足迹"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Large forest footprint"
-msgstr ""
+msgstr "大量森林足迹"
 
 msgctxt "attribute_forest_footprint_e_title"
 msgid "Very large forest footprint"
-msgstr ""
+msgstr "非常大的森林足迹"
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest footprint not computed"
-msgstr ""
+msgstr "未计算的森林足迹"
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "Almost no risk of deforestation"
-msgstr ""
+msgstr "几乎没有滥砍滥伐的危险"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr ""
+msgstr "滥砍滥伐的低风险"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Moderate risk of deforestation"
-msgstr ""
+msgstr "滥砍滥伐的中等危险"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr ""
+msgstr "滥砍滥伐的高风险"
 
 msgctxt "attribute_forest_footprint_e_description_short"
 msgid "Very high risk of deforestation"
-msgstr ""
+msgstr "滥砍滥伐导致很高的风险"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
-msgstr ""
+msgstr "目前仅适用于含鸡或者鸡蛋的产品"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "根据您的喜好对产品进行分类"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "根据您的喜好对%d产品进行分类"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr ""
+msgstr "被查看最多的产品"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr ""
+msgstr "营养得分最高的产品"
 
 msgctxt "sort_by_ecoscore_score"
 msgid "Products with the best Eco-Score"
-msgstr ""
+msgstr "生态得分最高的产品"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
-msgstr ""
+msgstr "最近新增的产品"
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
-msgstr ""
+msgstr "最近修改过的产品"
 
 # %d will be replaced by the number of products
 msgctxt "d_products_per_page"
 msgid "%d products per page"
-msgstr ""
+msgstr "每页%d产品"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "不适用的"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
-msgstr ""
+msgstr "产品缩写名"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
-msgstr ""
+msgstr "收据上显示的带有缩写的产品名称"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "希望、任务、价值和项目"
 
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
-msgstr ""
+msgstr "您是否忘记了密码？"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr ""
+msgstr "我们无法初始化您的密码，请联系我们寻求帮助。"
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "删除所有营养值"
 
 msgctxt "delete_user_process"
 msgid "User deleted."
-msgstr ""
+msgstr "用户已删除"
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
-msgstr ""
+msgstr "未计算的生态分数"
 
 msgctxt "attribute_ecoscore_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr ""
+msgstr "对环境未知的影响"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "GS1数据自动使用可以适配GS1使用者领域的OFF组织识别符。为改变OFF组织识别码的信息，你可以直接设计1个及以上的GS1 GLN识别符参与工作。"
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
-msgstr ""
+msgstr "与组织相关联的 GS1 GLN 标识符列表"
 
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
-msgstr ""
+msgstr "以逗号分隔的 GS1 GLN 标识符列表，用于强制与该组织建立关联。"
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
-msgstr ""
+msgstr "使组织成员能够手动将产品数据和照片导出到公共数据库。"
 
 msgctxt "org_enable_manual_export_to_public_platform_note"
 msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
-msgstr ""
+msgstr "导入的数据一经管理员审查，即可启用手动导出。"
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr ""
+msgstr "激活每天自动导出产品数据和照片到公共数据库。"
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr ""
+msgstr "仅限拥有自动导入功能 (例如通过 Equadis) 的组织激活自动导出功能。"
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "管理员字段"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "已在列队中"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5226,140 +5234,141 @@ msgstr "失败的"
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "从生产者平台导出"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
 msgid "Import to the public database"
-msgstr ""
+msgstr "导入公共数据库"
 
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr ""
+msgstr "更新生产者平台上的导入状态"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr ""
+msgstr "已安排导出。可以关闭此页面。"
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr ""
+msgstr "已安排导出。完成后您将收到一封电子邮件。"
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
-msgstr ""
+msgstr "公共数据库中的产品页面"
 
 msgctxt "product_does_not_exist_on_the_public_database"
 msgid "The product does not exist yet on the public database"
-msgstr ""
+msgstr "该产品尚不存在于公共数据库中"
 
 # product updates = updates to multiple products
 msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
 msgid "Some product updates have not been published on the public database."
-msgstr ""
+msgstr "某些产品更新尚未发布到公共数据库中。"
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
-msgstr ""
+msgstr "不要导入 CodeOnline 数据。"
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
-msgstr ""
+msgstr "覆盖公共平台上具有不同所有者的产品。否则，将跳过具有不同所有者的产品。"
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr ""
+msgstr "%s 产品的部分数据来自 %s。"
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr ""
+msgstr "制造商可以使用 Open Food Facts <a href=\"<producers_platform_url>\">生产者免费平台</a>访问并完成此数据，而且可以获得报告、分析和产品改进机会 (例如，得到更高的营养评分等级)。"
 
 msgctxt "data_source_database_equadis"
 msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "制造商 %s 使用 %s 自动传输产品的数据和照片。"
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
-msgstr ""
+msgstr "产品照片的类型"
 
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr ""
+msgstr "如果您在多行使用相同的列为单个产品提供图像 URL，则可以使用此字段指明图像的类型：正面、成分、营养表或包装。"
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "森林足迹的计算将考量生产过程中消耗大豆的成分，因为大豆的种植与砍伐森林有关。"
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "只有当产品具有足够精确的分类时，才能计算生态评分 (Eco-Score)。"
 
 msgctxt "ecoscore_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "您可以修改产品页面，添加更精确的分类。"
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "如果您是该产品的制造商，您可以通过我们的<a href=\"https://world.pro.openfoodfacts.org\">生产商免费平台</a>向我们发送信息。"
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "警告：未提供精确计算生态评分所需的一些信息 (请参阅下面的计算详细信息)。"
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "您可以编辑产品以添加缺失的信息。"
 
 msgctxt "ecoscore_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "产品类别的基线分数"
 
 msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "生命周期分析 (LCA)"
 
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Agribalyse 类别"
 
 msgctxt "ecoscore_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr ""
+msgstr "产品类别的近似匹配"
 
 msgctxt "ecoscore_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "产品类别的精确匹配"
 
 msgctxt "ecoscore_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr ""
+msgstr "PEF 环境评分"
 
 msgctxt "ecoscore_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "包括对气候变化的影响"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "生命周期各个阶段的影响详情"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
-msgstr ""
+msgstr "阶段"
 
 msgctxt "ecoscore_impact"
 msgid "Impact"
-msgstr ""
+msgstr "影响"
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "农业"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
-msgstr ""
+msgstr "加工"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5367,83 +5376,83 @@ msgstr "包装"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "运输"
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "分派"
 
 msgctxt "ecoscore_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "消耗量"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "LCA满分为100分"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr ""
+msgstr "产品类别和 Agribalyse 类别之间不匹配。"
 
 msgctxt "ecoscore_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "您可以修改产品页面，添加更细化的分类。"
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "额外的优缺点"
 
-msgctxt "ecoscore_production_mode"
+msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "生产模式"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "生产系统不使用任何标签"
 
 msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr ""
+msgstr "如果此产品具有说明生产系统的标签 (有机、公平贸易、Label Rouge、Bleu Blanc Coeur 等等) ，您可以修改产品表单以添加标签。"
 
-msgctxt "ecoscore_origin_of_ingredients"
-msgid "Origin of ingredients"
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
 msgstr "成分来源"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "未标明此产品成分的来源。"
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "如果在包装上标明，您可以修改产品表单并添加成分来源。"
 
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
-msgstr ""
+msgstr "环保政策"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "运输"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "受威胁物种"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients whose cultivation threatens species"
-msgstr ""
+msgstr "其种植会威胁物种的成分"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredient which cultivation threatens species has been detected."
-msgstr ""
+msgstr "未检测出其种植会威胁物种的成分"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "尚未提供此产品成分的信息。"
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "如需更精确地计算生态评分，您可以编辑产品页面并添加信息。"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5451,77 +5460,184 @@ msgstr "包装"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "比率"
 
 msgctxt "ecoscore_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "分数"
 
 msgctxt "ecoscore_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "所有组成部分的分数"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "未填写此产品的包装信息。"
 
 msgctxt "ecoscore_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "此产品的包装信息不够精确 (包装所有组成部分的形状和材料)。"
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "如需更精确地计算生态评分，您可以修改产品页面并添加信息。"
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "最终得分："
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "（分数越低，影响越小）"
 
 msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "千克二氧化碳当量/千克产品"
 
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "如果您是该产品的制造商，您可以通过我们的<a href=\"https://world.pro.openfoodfacts.org\">生产商免费平台</a>向我们发送信息。"
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
 msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/ecoscore\">Eco-Score</a> 是实验分数，用于总结食品对环境的影响。"
 
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_fr"
 msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "Eco-Score 计算公式会定期更新改进，以获得更精确的数据。"
 
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "Eco-Score 最初适用于法国，随后推广到欧洲其他国家。Eco-Score 计算公式会定期更新改进，以提高在各个国家的适应性和精确性。"
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr ""
+msgstr "扫描条形码即可获得 Nutri-Score、Eco-Score 等数据！"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
-msgstr ""
+msgstr "此制造商的 GS1 产品名称是缩写。"
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "此制造商的 GS1 制备营养素实际上针对出售产品。"
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
-msgstr ""
+msgstr "检查制造商制造的产品是否实际上不包含所制备产品的营养素。"
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr "有些制造商的部分 GS1 字段出现错误的值。下面的功能可用于修复部分错误。"
+
+# do not remove %s, it will be replaced with the source name
+msgctxt "import_source_string"
+msgid "Import data from %s"
+msgstr "从 %s 导入数据"
+
+msgctxt "org_protect_data"
+msgid "Protect the data that is provided by the organization."
+msgstr "保护组织提供的数据。"
+
+msgctxt "org_protect_data_note"
+msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+msgstr "只有经验丰富的贡献者可以在网站上删除或更改提供的数据。"
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "This product's packaging has an high impact on the environment."
+msgstr "此产品的包装对环境有高度影响。"
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "This product's packaging has an average impact on the environment."
+msgstr "此产品的包装对环境有中度影响。"
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "This product's packaging has a low impact on the environment."
+msgstr "此产品的包装对环境有低度影响。"
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "The information about this product's packaging is missing."
+msgstr "此产品的包装信息缺失。"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr "成分的运输和来源有高度影响。"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr "成分的运输和来源有中度影响。"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr "成分的运输和来源有低度影响。"
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing information about the origins of ingredients"
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "成分列表"
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr "中度"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "注意：茶和草本茶的 Nutri-Score 对应仅用水制备的产品，其中不含糖或牛奶。"
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr "%s 克/100 克"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr ""
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr ""
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr ""
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "捐助"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Production mode with environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Production mode with high environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Production mode with very high environmental benefits"
+msgstr ""
+
+msgctxt "other"
+msgid "Other"
+msgstr ""
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "平均值"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr ""
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
 msgstr ""
 
