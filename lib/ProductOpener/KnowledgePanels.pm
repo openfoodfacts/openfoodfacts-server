@@ -393,6 +393,9 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
+        create_panel_from_json_template("ecoscore_carbon_impact", "api/knowledge-panels/ecoscore/carbon_impact.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);            
+
         # Add panels for the different bonuses and maluses
 
         foreach my $adjustment ("production_system", "origins_of_ingredients", "threatened_species", "packaging") {
