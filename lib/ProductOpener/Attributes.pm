@@ -1335,7 +1335,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$status = "known";
 		}
 		elsif (has_tag($product_ref, "ingredients_analysis", "en:may-contain-$ingredient")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "may-contain-$ingredient";
 			$status = "known";
 		}
@@ -1360,7 +1360,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}
 		elsif (has_tag($product_ref, "labels", "en:maybe-$analysis")
 			or has_tag($product_ref, "ingredients_analysis", "en:maybe-$analysis")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "maybe-$analysis";
 			$status = "known";
 		}		
