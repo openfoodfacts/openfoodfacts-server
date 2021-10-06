@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Display - create and save products
+ProductOpener::Display - list, create and save products
 
 =head1 SYNOPSIS
 
@@ -709,12 +709,41 @@ sub _component_is_singular_tag_in_specific_lc($$) {
 	}
 }
 
+
+=head2 analyze_request ( $request_ref )
+
+Analyze request parameters and decide which method to call.
+
+=head3 Parameters
+
+=head4 $request_ref reference to a hash that will contain analyzed parameters
+
+=head3 Details
+
+It will analyze path and parameters.
+
+Some information is set in request_ref, notably
+- polished query_string
+- page number (page)
+- api version and api_method
+- requested page (text)
+- some boolean for routing : search / taxonomy / mission / product / tag / points
+- parameters for products, mission, tags, etc.
+
+It handles redirect for remamed texts or products, .well-known/change-password
+
+Sometimes we modify request parameters (param) to correspond to request_ref:
+- parameters for response format : json, jsonp, xml, ...
+- code parameter
+
+=cut
 sub analyze_request($)
 {
 	my $request_ref = shift;
 
 	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
+	# Remove ref and utm_* parameters
 	# Examples:
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt

@@ -63,6 +63,7 @@ my %request = (
 
 $log->debug("before analyze_request", { query_string => $request{query_string} });
 
+# analyze request will fill request with action and parameters
 analyze_request(\%request);
 
 $log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
