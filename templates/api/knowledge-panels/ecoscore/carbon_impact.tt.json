@@ -2,7 +2,7 @@
 [% SET co2_100g = product.ecoscore_data.agribalyse.co2_total / 10 %]
 [% SET driving_100g = co2_100g  * 100 / 19.3 %]
 {
-    "parent_panel_id": "ecoscore_carbon_impact",
+    "parent_panel_id": "root",
     "type" : "score",
     "level" :"info",
     "topics": [
