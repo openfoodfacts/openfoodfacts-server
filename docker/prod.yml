@@ -9,6 +9,8 @@ services:
   frontend:
     restart: always
 volumes:
+  html_data:
+    external: true
   users:
     external: true
   products:
