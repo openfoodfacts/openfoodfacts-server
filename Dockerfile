@@ -129,7 +129,7 @@ RUN set -x \
     incron
 
 # Run www-data user as host user 'off'
-ARG WWW_DATA_HOST_USER=1001
+ARG WWW_DATA_HOST_USER=1000
 RUN usermod -u $WWW_DATA_HOST_USER www-data
 
 # Stage for installing/compiling cpanfile dependencies
