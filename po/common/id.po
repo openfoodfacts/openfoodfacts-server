@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-01 18:41\n"
+"PO-Revision-Date: 2021-10-06 19:41\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -764,7 +764,7 @@ msgstr "Kode etik"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr "code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -3957,7 +3957,7 @@ msgstr "<a href=\"\">Kami membutuhkan bantuan dan donasi Anda</a> untuk melanjut
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Terima kasih!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -5629,4 +5629,21 @@ msgstr "Mode produksi dengan manfaat lingkungan yang tinggi"
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
 msgid "Production mode with very high environmental benefits"
 msgstr "Mode produksi dengan manfaat lingkungan sangat tinggi"
+
+msgctxt "other"
+msgid "Other"
+msgstr "Lainnya"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "Rata - rata"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "Statisktik kandungan bahan semua produk"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "Kandungan bahan setiap produk"
 
