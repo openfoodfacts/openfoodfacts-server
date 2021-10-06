@@ -1,10 +1,11 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
-<div class="panel[% IF panel.parent_panel_id == 'root' %] callout[% END %]" id="[% panel_id %]">
-    <div class="panel_title">
-        [% IF panel.icon_url.defined %]
-        <img src="[% panel.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
-            [% IF panel.icon_color_from_evaluation %]
+<ul data-accordion class="accordion" id="[% panel_id %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+<li class="accordion-navigation">
+    <a href="#panel_[% panel_id %]_content" class="panel_title">
+        [% IF panel.title_element.icon_url.defined %]
+        <img src="[% panel.title_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
+            [% IF panel.title_element.icon_color_from_evaluation %]
                 [% IF panel.evaluation == "good" %]
                     class="filter-green"
                 [% ELSIF panel.evaluation == "bad" %]
@@ -32,37 +33,38 @@
                style="color:grey"
             [% END %]
         >
-            [% IF panel.evaluation AND NOT panel.icon_url.defined %]
+            [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
                 [% IF panel.evaluation == "good" %]
-                    <span class="icon" style="color:green">
+                    <span style="color:green">
                         [% display_icon("check") %]
                     </span>
                 [% ELSIF panel.evaluation == "bad" %]
-                    <span class="icon" style="color:red">
+                    <span style="color:red">
                         [% display_icon("cancel") %]
                     </span>
                 [% ELSIF panel.evaluation == "average" %]
-                    <span class="icon" style="color:darkorange">
+                    <span style="color:darkorange">
                         [% display_icon("check") %]
                     </span>                    
                 [% ELSIF panel.evaluation == "neutral" %]
-                    <span class="icon" style="color:grey">
+                    <span style="color:grey">
                         [% display_icon("check") %]
                     </span>
                 [% ELSIF panel.evaluation == "unknown" %]
-                    <span class="icon" style="color:grey">
+                    <span style="color:grey">
                         [% display_icon("help") %]
                     </span>
                 [% END %]
             [% END %]
-            [% panel.title %]
+            [% panel.title_element.title %]
         </h3>
-        [% IF panel.subtitle.defined %]
-            <h4>[% panel.subtitle %]</h4>
+        [% IF panel.title_element.subtitle.defined %]
+            <h4>[% panel.title_element.subtitle %]</h4>
         [% END %]
-    </div>
+        <hr class="floatclear">
+    </a>
 
-    <div class="panel_elements" style="clear:left;margin-top:1rem;">
+    <div id="panel_[% panel_id %]_content" class="content panel_content" style="clear:left;margin-top:1rem;">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        
@@ -148,5 +150,6 @@
         [% END %]
     [% END %]
     </div>
-</div>
+</li>
+</ul>
 <!-- end templates/[% template.name %] - panel_id: [% panel_id %] -->

@@ -7,7 +7,9 @@
     ],
 [% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
     "evaluation": "unknown",
-    "title": "[% lang('ecoscore_packaging_missing_information') %]",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_missing_information') %]",
+    },
     "elements": [
         {
             "element_type": "text",
@@ -21,13 +23,19 @@
 [% ELSE %]
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
-    "title": "[% lang('ecoscore_packaging_impact_high') %]",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_high') %]",
+    }
     [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
     "evaluation": "neutral",
-    "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+    },
     [% ELSE %]
     "evaluation": "good",
-    "title": "[% lang('ecoscore_packaging_impact_low') %]",      
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_low') %]",
+    },
     [% END %]
     "elements": [
         {
