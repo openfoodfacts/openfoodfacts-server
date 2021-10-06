@@ -9,16 +9,6 @@ services:
   frontend:
     restart: always
 volumes:
-  icons_dist:
-    external: true
-  js_dist:
-    external: true
-  css_dist: 
-    external: true
-  node_modules:
-    external: true
-  html_data:
-    external: true
   users:
     external: true
   products:
@@ -27,7 +17,6 @@ volumes:
     external: true
   product_images:
     external: true
-
 networks:
   webnet:
     driver: bridge

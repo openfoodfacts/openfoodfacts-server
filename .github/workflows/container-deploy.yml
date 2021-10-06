@@ -137,6 +137,7 @@ jobs:
         script_stop: false
         script: |
           cd ${{ github.event.repository.name }}/
+          make hdown
           make up 2>&1
           make setup_incron
 
