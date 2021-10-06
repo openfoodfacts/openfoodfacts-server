@@ -4,11 +4,13 @@ on:
     branches:
       - crowdin-trigger
 
-jobs:
-  synchronize-with-crowdin-classic:
+jobs:         
+  synchronize-with-crowdin:
     name: Synchronize with crowdin
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: crowdin action
       uses: crowdin/github-action@1.4.0
       with:
