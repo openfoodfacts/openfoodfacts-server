@@ -71,7 +71,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          docker volume create dbdata || echo "Docker volume 'dbdata' already exist. Skipping."
+          docker volume create dbdata
 
     - name: Start services
       uses: appleboy/ssh-action@master
