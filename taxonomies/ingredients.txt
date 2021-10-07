@@ -25893,6 +25893,9 @@ zh:硬粒小麦
 # xmf:კიჭიბე ქობალკაკალი
 wikipedia:en:https://en.wikipedia.org/wiki/Durum
 wikidata:en:Q618324
+ciqual_proxy_food_code:en:9060
+ciqual_proxy_food_name:en:Durum wheat, whole, raw
+ciqual_proxy_food_name:fr:Blé dur entier, cru
 
 #<en:durum wheat
 #en:organic durum wheat
@@ -25909,10 +25912,17 @@ nl:gebroken harde tarwe
 #43 in 3 @2021-09-28
 
 <en:durum wheat
+en:finely ground durum wheat
+de:Hartweizendunst
+fr:fins finots de blé dur
+it:friscello di grano duro
+# https://world.openfoodfacts.org/ingredient/fr:fins-finots-de-blé-dur/
+# 35 in 4 @2021-10-07
+
+<en:durum wheat
 en:pre-cooked durum wheat, pre-cooked durum
 fr:blé dur précuit
 # 167 @2021-09-28
-
 
 <en:pre-cooked durum wheat
 fr:blé dur précuit concassé
@@ -25922,18 +25932,15 @@ nl:gemalen voorgekookte harde tarwe
 <en:pre-cooked durum wheat
 fr:Grains de blé dur précuits
 
-<en:durum wheat
-de:Hartweizendunst
-fr:fins finots de blé dur
-it:friscello di grano duro
-# https://world.openfoodfacts.org/ingredient/fr:fins-finots-de-blé-dur/
-# 17 products in 3 languages @20180922
 
 <en:durum wheat
 en:whole grain durum wheat
 de:Hartweizenvollkorn, Hartweizen-Vollkorn
 fi:täysjyvädurumvehnä
 fr:blé dur complet
+ciqual_food_code:en:9060
+ciqual_food_name:en:Durum wheat, whole, raw
+ciqual_food_name:fr:Blé dur entier, cru
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 
 <en:Durum wheat flour
@@ -26830,38 +26837,131 @@ it:Sciroppo di malto
 
 # description:en:BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
 
+
 <en:cereal
 en:buckwheat
+af:bokwiet
 ar:حنطة سوداء
+az:əkin qarabaşağı
+ba:ҡарабойҙай
+be:грэчка
+bg:елда
+bo:བྲ་བོ།
+br:gwinizh-du
 ca:fajol
+cs:pohanka
+cv:хура тулă
+cy:gwenith yr hydd
 da:boghvede
 de:Buchweizen
-es:sarraceno, trigo sarraceno,alforfon
+el:πολύγονον
+es:sarraceno, trigo sarraceno, alforfón
+eo:fagopiro
+et:harilik tatar
+eu:suge-ilar, artobeltz
+fa:گندم سیاه
 fi:tattari, viljatar
 fr:sarrasin
+fy:boekweet
+ga:ruán
+gl:trigo mouro
+he:כוסמת
+hi:कूटू
+hr:heljda
 hu:hajdina
+hy:հնդկացորեն ցանովի
+io:saraceno
+is:bókhveiti
 it:grano saraceno
+ja:ソバ
+kk:егістік қарақұмық
+kn:ಬಕ್‍ಹ್ವೀಟ್
+ko:메밀
+kw:ys du
+ky:кара күрүч
+la:fagopyrum esculentum
+lt:sėjamasis grikis
+lv:griķi
+mi:witi paka
+mk:елда
+mn:гурвалжин будаа
+ms:gandum kuda
 nb:bokhvete
+ne:फापर
 nl:boekweit
+nn:bokkveite
+oc:blat negre
+os:сауфагæ
+pl:gryka, gryka zwyczajna
 pt:trigo mourisco
-sr:Heljda
+ro:hrișcă
+ru:ядрица, гречиха посевная, греча, гречиха съедобная
+sh:heljda
+sk:pohánka jedlá
+sl:ajda, navadna ajda
+sr:heljda, хељда
+sv:bovete
+ta:நெளிகோதுமை
+th:บักวีต
+tl:hayang trigo
+tr:karabuğday
+tt:кара бодай
+uk:гречка
+ur:گندم سیاه
+uz:marjumak
+vi:kiều mạch
+wa:boûkete
+zh:蕎麥, 荞麦
+#azb:اکین قاراباشاغی
+#csb:bùkwita
+#dsb:hejduša
+#dty:फापर
+#hsb:hejduška
+#mrj:шимшӓдӓнгӹ
+#myv:ликша
+#nan:kiô-be̍h
+#nds:boeked
+#pcd:bucalhe
+#sah:гречиха
+#sgs:grėks
+#tyv:мыйырак
+#wuu:荞麦
+#yue:蕎麥
+#zh-cn:荞麦
+#zh-hans:荞麦
+#zh-hant:蕎麥
+#zh-hk:蕎麥
+#zh-sg:荞麦
+#zh-tw:蕎麥
 wikipedia:en:https://en.wikipedia.org/wiki/Buckwheat
-wikidata:en:Q132734
+#plant:wikidata:en:Q132734
+wikidata:en:Q4536337
+ciqual_proxy_food_code:en:9380
+ciqual_proxy_food_name:en:Buckwheat, whole, raw
+ciqual_proxy_food_name:fr:Sarrasin entier, cru
+#1604 @2021-10-07
 
 <en:buckwheat
+en:wholemeal buckwheat
 fr:sarrasin complet
 it:saraceno integrale
+ciqual_food_code:en:9380
+ciqual_food_name:en:Buckwheat, whole, raw
+ciqual_food_name:fr:Sarrasin entier, cru
+#70 @2021-10-07
 
 <en:buckwheat
+en:buckwheat grain
 fr:graines de sarrasin
+sr:крупа гречневая ядрица
 
-<en:buckwheat
-en:organic buckwheat
-es:trigo sarraceno organico
-fi:luomu tattari
-fr:sarrasin biologique
-hu:bio hajdina
-ru:крупа гречневая ядрица
+#<en:buckwheat
+#en:organic buckwheat
+#es:trigo sarraceno organico
+#fi:luomu tattari
+#fr:sarrasin biologique
+#hu:bio hajdina
+#ru:крупа гречневая ядрица
 
 #<en:compound
 <en:buckwheat
@@ -26874,7 +26974,46 @@ fr:flocons de sarrasin, pétales de sarrasin
 hu:hajdinapehely
 nl:boekweitvlokken, boekweitflakes
 sv:boveteflingor
-# pétales de sarrasin (sarrasin, sel)
+#67 @2021-10-07
+
+<en:buckwheat flakes
+en:whole buckwheat flakes
+es:copos de trigo sarraceno integral
+fr:flocons de sarrasin complets
+nl:volle boekweitvlokken
+
+<en:buckwheat
+<en:flour
+en:buckwheat flour
+da:boghvedemel
+de:Buchweizenmehl
+el:αλέυρι φαγόπυρου
+es:harina de sarraceno, harina de alforfon
+fi:tattarijauho
+fr:farine de sarrasin, farine de blé noir
+hu:hajdinaliszt
+it:farina di grano saraceno
+ja:蕎麦粉
+nb:bokhvetemel
+nl:boekweitmeel
+pl:mąka gryczana
+pt:farinha de trigo mourisco
+ru:мука гречневая
+sv:bovetemjöl
+wikidata:en:Q11621982
+ciqual_food_code:en:9540
+ciqual_food_name:en:Buckwheat flour
+ciqual_food_name:fr:Farine de sarrasin
+#1493 @2021-09-27
+
+<en:buckwheat flour
+fr:galette en blé noir
+
+<en:buckwheat flour
+<en:wholemeal flour
+en:whole grain buckwheat flour
+de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
+nl:volkoren boekweitmeel
 
 <en:buckwheat
 en:puffed buckwheat
@@ -26884,6 +27023,7 @@ fi:puffattu tattari
 fr:sarrasin soufflé
 hu:puffasztott hajdina
 nl:gepofte boekweit
+#13 @2021-10-07
 
 # In the English language, kasha is a term for the pseudocereal buckwheat. The word generally refers to roasted whole-grain buckwheat or buckwheat groats.
 
@@ -26922,7 +27062,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kasha
 # ingredient/fr:kasha has 13 products @2019-02-17
 
 <en:buckwheat
+en:rehydrated nuckwheat
 fr:sarrasin réhydraté
+#3 in fr @2021-10-07
 
 ##################################################################################
 #
@@ -28658,37 +28800,6 @@ nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
 
 
-<en:buckwheat
-en:buckwheat flour
-da:boghvedemel
-de:Buchweizenmehl
-el:αλέυρι φαγόπυρου
-es:harina de sarraceno, harina de alforfon
-fi:tattarijauho
-fr:farine de sarrasin, farine de blé noir
-hu:hajdinaliszt
-it:farina di grano saraceno
-ja:蕎麦粉
-nb:bokhvetemel
-nl:boekweitmeel
-pl:mąka gryczana
-pt:farinha de trigo mourisco
-ru:мука гречневая
-sv:bovetemjöl
-wikidata:en:Q11621982
-ciqual_food_code:en:9540
-ciqual_food_name:en:Buckwheat flour
-ciqual_food_name:fr:Farine de sarrasin
-#1493 @2021-09-27
-
-<en:buckwheat flour
-fr:galette en blé noir
-
-<en:buckwheat flour
-<en:wholemeal flour
-en:whole grain buckwheat flour
-de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
-nl:volkoren boekweitmeel
 
 <en:cereal flour
 en:rye flour
