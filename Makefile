@@ -51,7 +51,7 @@ edit_etc_hosts:
 #----------------#
 up:
 	@echo "🥫 Building and starting containers …"
-	${DOCKER_COMPOSE} up -d --remove-orphans --build 2>&1
+	${DOCKER_COMPOSE} up -d --build 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
