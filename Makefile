@@ -119,11 +119,11 @@ import_prod_data:
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images || echo "Docker volume 'product_images' already exist. Skipping."
-	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs || echo "Docker volume 'orgs' already exist. Skipping."
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
+	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
 
 #---------#
 # Cleanup #
