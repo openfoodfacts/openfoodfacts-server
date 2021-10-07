@@ -1485,21 +1485,6 @@ HTML
 	# Packaging photo and data
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
-	$html .= <<HTML
-
-<div id="packaging" class="fieldset">
-<legend>$Lang{packaging}{$lang}</legend>
-HTML
-;
-
-	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
-	
-
-
-	$html .= "</div><!-- fieldset -->";
-=======
->>>>>>> main
-
 	$template_data_ref_display->{display_tab_packaging} =display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
 
 	# Product check
