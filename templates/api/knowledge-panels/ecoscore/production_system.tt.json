@@ -5,14 +5,19 @@
     "topics": [
         "environment"
     ],
-    "title": "[% panel.title %]",
     "evaluation": "good",
-    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value >= 20 %]
-    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_very_high') %]",
-    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value >= 15 %]
-    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_high') %]",    
+    [% IF product.ecoscore_data.adjustments.production_system.value >= 20 %]
+    "title_element": {
+        "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_very_high') %]",
+    },
+    [% ELSIF product.ecoscore_data.adjustments.production_system.value >= 15 %]
+    "title_element": {
+        "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_high') %]",
+    },
     [% ELSE %]
-    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits') %]",      
+    "title_element": {
+        "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits') %]",
+    },
     [% END %]    
     "elements": [
         {

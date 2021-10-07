@@ -5,7 +5,10 @@
     "topics": [
         "environment"
     ],
-    "title": "[% panel.title %]",
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% panel.title %]",
+    }
     "elements": [
         {
             "element_type": "text",
