@@ -33,7 +33,7 @@ jobs:
           [ ! -d '${{ matrix.env }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
 
           # Go to docker/ directory
-          cd ${{ matrix.env }}/
+          cd ${{ matrix.env }}
 
           # Fetch newest commits (in case it wasn't freshly cloned)
           git fetch --depth 1
@@ -52,7 +52,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}/
+          cd ${{ matrix.env }}
           echo "DOCKER_CLIENT_TIMEOUT=120" > .env
           echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=mongo" >> .env
@@ -84,7 +84,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}/
+          cd ${{ matrix.env }}
           make up 2>&1
 
     - name: Check services are up
@@ -99,7 +99,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}/
+          cd ${{ matrix.env }}
           exit_code=0
           for service in mongodb; do 
             if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
@@ -123,7 +123,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ matrix.env }}/
+          cd ${{ matrix.env }}
           make prune
 
   # deploy-script:
