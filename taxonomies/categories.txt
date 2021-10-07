@@ -6072,13 +6072,75 @@ en:Dandelion herbal tea
 
 <en:Herbs
 en:Dandelion, Common dandelion
+af:perdeblom
+ar:Խատուտիկ սովորական
+az:Dərman zəncirotu
+be:Адуванчык лекавы
+bg:обикновено глухарче
+bh:टॅराक्सॅकम ऑफिशिनाले
+ca:xicoia, dent de lleó
+ce:Да́рбане ба́ппа
+cs:pampeliška lékařská, Pampelišky smetánky
+da:Mælkebøtte
 de:Löwenzahn
+el:ταράξακο
+eo:oficina taraksako, ofta leontodo
 es:Diente de león
+et:Harilik võilill
+eu:Txikoria-belarra
+fa:قاصدک, گل قاصدک
+fi:voikukka
 fr:Pissenlit commun, Pissenlit officinal, Pissenlit cru
+fy:Hynsteblom
+ga:caisearbhán, caisearbhán coiteann
+gl:mexacán común
+he:שינן רפואי
+hr:ljekoviti maslačak
+hu:gyermekláncfű
+hy:Խատուտիկ սովորական
+id:jombang, tanaman jombang
+is:Túnfífill
 it:Tarassaco, Dente di leone
+ja:タンポポ, セイヨウタンポポ
+ko:서양민들레
+ku:Xizêmok
+ky:Каакым-кукум
 la:Taraxacum officinale
+li:pisblóm
+lt:kiaulpienė
+lv:cūkpiene, ārstniecības pienene
+ml:ദുഗ്ധഫേനി
+ms:Dandelion
 nl:Paardenbloem, Paardebloem
-ro:Păpădie
+nn:løvetann
+pt:dente-de-leão
+rm:flur-portg
+ro:Păpădie, Păpădia
+ru:одуванчик, Одува́нчик лека́рственный
+sk:Púpava lekárska
+sl:regrat, Navadni regrat
+sr:Маслачак, Maslačak
+sv:maskros
+tr:karahindiba
+uk:кульбаба
+vi:địa đinh
+wa:Såvadje cécoreye
+zh:西洋蒲公英
+#ang:ægwyrt
+#bar: Zigori
+#csb:Mlécz
+#dsb:Mlac
+#hsb:Mlóč
+#ing:Дарбан баппа
+#ksh:Ketteplöck
+#lbe:Къупан тӀутӀи
+#nds:hondebloeme
+#olo:Rohtuvoikukku
+#sah:Ньээм от
+#sco:Dentylion
+#vec:pissacan
+#vep:Bakbatai
+#vls:pisseblomme
 wikidata:en:Q131219
 agribalyse_food_code:en:20038
 ciqual_food_code:en:20038
@@ -31579,12 +31641,20 @@ wikidata:en:Q2086586
 
 <en:Cereal grains
 en:Amaranth
+ar:الامارانت
+bg:амарант
+cs:amarant
 de:Amaranth, Amarant
 es:Amaranto
+fi:meksikonrevonhäntä, amarantti
 fr:Amarante
+hu:disznóparéj, amaránt
 it:Amaranto
 la:Amaranthus
 nl:Amaranth
+ro:amarant 
+sk:amarant
+sr:амарант
 wikidata:en:Q156344
 agribalyse_food_code:en:9345
 ciqual_food_code:en:9345
@@ -32543,18 +32613,72 @@ ciqual_food_name:fr:Blé de Khorasan, cru
 
 <en:Wheats
 en:Spelts, Spelt flour
+ar:حنطة
+bg:спелта
+br:yell
+ca:espelta
+cs:špalda, pšenice špalda
+da:spelt
 de:Dinkel
+el:όλυρα, ντίνκελ, σπέλτα
+eo:spelto
 es:Espeltas, Escaña mayor, Escanda mayor
+et:speltanisu, spelta
+eu:espelta
+fa:اسپلت
 fi:Speltit, Spelttijauho
 fr:Épeautres, Épeautre, Grands épeautres, Grand épeautre
-it:Spelta, farro spelta, farro grande
+ga:speilt
+gl:espelta
+he:כוסמין
+hr:pravi pir
+hu:tönkölybúza, tönköly
+io:spelto
+is:spelt
+it:spelta, farro spelta, farro grande
+ja:スペルトコムギ
+ko:스펠트밀
 la:Triticum spelta, Triticum aestivum subsp. spelta
+lb:Spelz
+lt:speltos, spelta
+lv:speltas kvieši
+mk:крупник
+ms:spelt
+mt:farru, qamħ spelt
+nb:spelt
 nl:Spelt
+nn:spelt
+oc:espeuta
+pl:orkisz, pszenica orkisz
+pt:espelta
+ro:alac, grâu spelt, alac spelt
+ru:спельта
+sk:špalda
+sl:pira
+sr:крупник, krupnik
+sv:spelt, speltvete
+ta:ஸ்பெல்ட்
+tr:kavuzlu buğday
+tt:борай
+uk:спельта
+wa:speate
+zh:斯佩耳特小麦
+# als:Schwobakorn
+# ast:espelta
+# dag:sipɛlit
+# hsb:krupnik
+# lmo:spèlta
+# myv:виш
+# nds:Dinkelweite
+# sco:spelt
+# yue:古麥
 wikidata:en:Q158767
 agribalyse_food_code:en:9001
 ciqual_food_code:en:9001
 ciqual_food_name:en:Spelt, raw
 ciqual_food_name:fr:Épeautre, cru
+fi:spelttivehnä, speltti, spelttiä
+
 
 <en:Cereal grains
 en:Wild rice, wild rice
@@ -50834,20 +50958,51 @@ ciqual_food_name:fr:Citron vert ou Lime, pulpe, cru
 
 <en:Citrus
 en:Mandarin oranges, Mandarins, Mandarines
+ca:mandarina
+co:mandarina
+cs:mandarinka
+cv:мандарин
+da:mandarin, mandariner
 de:Mandarinen
+el:μανταρίνι
 es:Mandarinas
+et:mandariin
+eu:mandarina
 fi:mandariinit
 fr:Mandarines
+ga:mandairín
+gl:mandarina
+ht:mandarin
 hu:Mandrain
+io:mandarino
+it:mandarino, mandarini
+ja:マンダリンオレンジ
 la:Citrus reticulata
-nl:Mandarijnen
-ro:Mandarine
+lt:mandarina
+lv:mandarīn
+nb:mandarin
+nl:Mandarijnen, Mandarijn
+oc:mandarina
+pl:mandarynka
+pt:mandarina
+ro:Mandarine, mandarină
 ru:Мандарины
+sk:mandarínkoa
+sv:mandarin
+sw:mchenza
+tr:mandalina
+uk:мандарин
+# aeb-arab:كعبة مدنين
+# arz:سفندى
+# eml:mandarëin
+# scn:mannarinu
+# vro:mandarijn
 
 <en:Mandarin oranges
 <en:Fresh fruits
 en:Fresh mandarin oranges
 fr:Mandarines fraîches
+nl:Verse mandarijnen
 season_in_country_fr:en: 1,2,11,12
 
 <en:Mandarin oranges
@@ -54691,11 +54846,41 @@ origins:en: en:France
 
 <en:Vanilla
 <fr:Arômes pâtisserie
-en:Vanilla extract
-es:Extracto de vainilla
-fr:Extrait de vanille
-nl:Vanille-extracten
-pt:Extracto de vainilla
+en:vanilla extract
+ar: مستخلص فانيليا عي
+bg:ванилов екстракт
+ca:extracte de vainilla
+cs:Vanilkový výtažek, vanilkový extrakt
+da:vaniljeekstrakt, vaniljeessens
+de:Vanilleextrakt, Vanille Extrakt
+el:απόσταγμα βανίλιας
+es:extracto de vainilla, esencia de vainilla
+et:vanilliekstrakt
+fi:vaniljauute
+fr:extrait de vanille
+he:תמצית וניל
+hr:ekstrakt vanilije
+hu:vaníliakivonat, vanília kivonat, vanília-kivonat
+it:estratto di vaniglia
+ja:バニラエキス
+jv:Vanilla èkstrak
+ko:바닐라 추출액
+lt:vaniles ekstraktas
+lv:vaniļas ekstrakts
+mk:Екстракт од ванила
+ms:Ekstrak vanila
+nl:vanille-extract
+nn:vaniljeekstrakt
+pl:Ekstrakt z wanillii
+pt:extrato de baunilha
+ro:extract de vanilie
+ru:экстракт ванили
+sk:výtažok z vanilky
+sl:izvlecek vanilje
+sr:ekstrakt vanile
+sv:vaniljextrakt
+uk:Екстракт ванілі, ванільний екстракт
+zh:香草精精
 wikidata:en:Q10749869
 agribalyse_proxy_food_code:en:11065
 agribalyse_proxy_food_name:en:Vanilla, alcoholic extract
@@ -81485,15 +81670,67 @@ protected_name_type:en: pgi
 origins:en: en:France
 
 <en:Leaf vegetables
-en:Salad rocket, rucola, rucoli, rugula, colewort, roquette, arugula
-de:Garten-Senfrauke
-es:Rúcula, Rúcola, rúgula
-fi:Sinappikaali
-fr:Roquette, riquette
-it:Ruchetta, rughetta, rucola, ruca
-nl:Rucola, raketsla
-nl_be:Rucola, raketsla
+en:rocket, arugula, garden rocket, eruca, rucola, rucoli, rugula, colewort, roquette, salad rocket
+ar:جرجير
+az:Əkin indausu
+be:Індаў пасяўны
+bg:рукола, ерука, посевна ерука
+bn:রকেট সালাদ
+br:roketez
+co:rutulella
+cs:roketa setá
+da:rucola, salatsennep
+de:Rucola, Garten-Senfrauke
+el:Ρόκα
+eo:Kultiva eruko
+es:rúcula, rúcola, rúgula
+et:rukola, põld-võõrkapsas
+fa:منداب
+fi:sinappikaali, rucola
+fr:roquette, riquette
+ga:ruachán
+gl:Eiruga
+he:בן-חרדל מצוי
+hu:Borsmustár, rukkola
+hy:Ճարճրուկ ցանովի
+is:Klettasalat
+it:ruchetta, rughetta, rucola, ruca
+ja:ルッコラ
+ka:რუკოლა
+kk:Егістік қышатүс
+ko:루콜라
+la:Eruca vesicaria, Eruca sativa Mill, Eruca vesicaria subsp. sativa, Brassica eruca L.
+lt:Rukola
+mt:eruka
+nb:ruccola
+nl:rucola, raketsla, zwaardherik
+pa:ਤਾਰਾਮੀਰਾ
 pl:Rokietta siewna, rukolą
+pt:rúcula
+ro:Voinicică
+ru:руккола
+sd:ڄانڀو
+sq:sallatë manushaqeje
+sr:Рукола
+sv:ruccola, ruccolasallad
+tr:Roka
+uk:Рукола
+zh:芝麻菜
+# arz:جرجير
+# ast:Guxanu
+# azb:اکین اینداوسو
+# en-ca:rocket
+# hsb:Běła hórčica
+# pnb:تارا میرا
+# sr-ec:Рукола
+# sr-el:Rukola
+# yue:火箭菜
+# zh-cn:芝麻菜
+# zh-hans:芝麻菜
+# zh-hant:芝麻菜
+# zh-hk:芝麻菜
+# zh-sg:芝麻菜
+# zh-tw:芝麻菜
 wikidata:en:Q156884
 agribalyse_food_code:en:20217
 ciqual_food_code:en:20217
@@ -81502,15 +81739,79 @@ ciqual_food_name:fr:Roquette, crue
 
 <en:Leaf vegetables
 en:Garden cress
-es:Berros hortelanos, Mastuerzos, Lepidios
+af:waterkers
+am:ፌጦ
+ar:رشاد مزروع
+az:Vəzəri-bozalaq
+be:Клапоўнік пасяўны
+bg:кресон
+bn:হালিম শাক
+bs:Obična grbaštica
+ca:morritort
+cs:řeřicha zahradní
+cy:Pupurlys yr ardd
+da:Have-Karse
+de:Gartenkresse
+el:Κάρδαμο
+eo:Ĝardenkreso
+es:Berros hortelanos
+et:salatkress
+fa:شاهی
+fi:vihanneskrassi
+ff:Lapsur
 fr:Cresson alénois
+ga:Biolar gairdín
+gu:અશેળિયો
+hu:kerti zsázsa
+hy:կոտեմ
+is:Karsi
+it:crescione di giardino
+ja:コショウソウ
+ka:წიწმატი
+kk:Кресс салат
+ko:큰다닥냉이
+kw:beler lowarth
 la:Lepidium sativum
-nl:Tuinkers
+lt:Sėjamoji pipirnė
+mk:добрејка
+ml:ആശാളി
+mr:अहाळीव
+nb:Karse
+ne:चम्सुर
+nl:tuinkers
+nn:Matkarse
+os:Дудгæ
+pl:Pieprzyca siewna
+pt:Agrião-mouro
+qu:Willk'uyuyu
+ro:Creson
+ru:кресс-салат
+sh:Obična grbaštica
+sk:Žerucha záhradná
+sv:Smörgåskrasse
+te:ఆడలవిటల
+th:เทียนแดง
+tr:tere
+uk:кресс-салат
+ur:ہالوں
+zh:水芹
+#ace:Camcuruih
+#aeb:حبة الرشاد
+#azb:وزه ری
+#csb:Zagrodna krjasa
+#frr:Klaker
+#hsb:Zahrodna žerchej
+#kab:Agernunnec
+#lbe:Гьумалаккиж
+#lez:ЦIуьлуьк
+#mzn:شاهین
+#wuu:家独行菜
 wikidata:en:Q27033
 agribalyse_food_code:en:20199
 ciqual_food_code:en:20199
 ciqual_food_name:en:Garden cress, raw
 ciqual_food_name:fr:Cresson alénois, cru
+
 
 <en:Leaf vegetables
 en:Mesclun, Mix of baby salad leaves
@@ -82421,11 +82722,74 @@ wikidata:en:Q511249
 
 <en:Pulses
 en:Mung beans
+ar:بقلة الماش
+bg:папуда, птичи боб, бебриджа
+bn:মুগ
+bo:སྲན་ལྗང་།
+ca:mongeta mung
+cs:mung fazole
+cy:ffeuen fwng
+da:mung-bønne
 de:Mungbohnen, Mungobohnen
+dv:ނޫމުގު
+el:ροβίτσα
+eo:mungfabo
 es:Judías mungo, Soja verde
+et:munguba
+fa:ماش‎
+fi:mungpapu
 fr:Haricots mungo, Soja vert
+gu:મગ
+he:מש
+hi:मूँग
+hr:zlatni grah
+hu:mungóbab
+id:kacang hijau
+it:fagioli mung, fagiolo mung
+ja:リョクトウ
+jv:kacang ijo
+kn:ಹೆಸರು ಕಾಳು
+ko:녹두
+ky:маш
 la:Vigna radiata
+ml:ചെറുപയർ
+mn:ногоон шош
+mr:मूग
+ms:pokok kacang hijau
+my:ပဲတီစိမ်း
+nb:mungbønne
+ne:मुगी
 nl:Mungbonen
+or:ମୁଗ
+pa:ਮੂੰਗੀ
+pl:fasola złota
+ps:مۍ
+ru:маш
+sa:मुद्ग
+si:මුංඇට
+su:kacang héjo
+sv:mungböna
+sw:mchoroko
+ta:பயறு
+te:పెసలు
+tg:мош
+th:ถั่วเขียว
+tl:monggo
+uk:боби мунг
+uz:mosh
+vi:đậu xanh
+za:duhheu
+zh:綠豆
+#aeb: لوبيا
+#arz:بقله الماش
+#cdo:liŏh-dâu
+#hak:liu̍k-theu
+#ilo:balatong
+#mad:arta'
+#pam:balatung
+#pnb:مونگ
+#wuu:绿豆
+#yue:綠豆
 wikidata:en:Q484447
 
 <en:Cooked pulses
