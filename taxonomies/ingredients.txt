@@ -26336,59 +26336,61 @@ ciqual_food_name:fr:Couscous (semoule de blé dur roulée précuite à la vapeur
 <en:durum wheat
 en:bulgur, bulgur wheat
 ar:برغل
-az:Bulqur
-be:Булгур
-bg:Булгур
-ca:Bulgur
-cs:Bulgur
-da:Bulgur
+az:bulqur
+be:булгур
+bg:булгур
 de:Bulgur, Bulgurweizen
-el:Πλιγούρι
-eo:Bulguro
-es:Bulgur
-et:Bulgur
-eu:Bulgur
+el:πλιγούρι
+eo:bulguro
 fa:بلغور
 fi:bulgur, bulgurvehnä
 fr:boulghour, boulgour
-gl:Bulgur
 he:בורגול
 hi:दलिया
 hu:bulgur, török rizs, tört búza
-hy:Բլղուր
-id:Bulgur
-it:bulgur
+hy:բլղուր
 ja:ブルグル
+kk:булгур
 ko:불구르
-ku:Savar
-la:Purgurium
-nb:Bulgur
-nl:Bulgur
-pl:Bulgur
-pt:Triguilho
-ru:Булгур
-sv:Bulgur
-tr:Bulgur
-uk:Булгур
+ku:savar
+la:purgurium
+mk:булгур
+pt:bulgur, triguilho
+ru:булгур
+uk:булгур
+xx:bulgur
+# tr:sv:sr:sl:pl:nl:nb:jv:it:id:gl:eu:et:es:da:cs:ca:bulgur
 zh:布格麦
 # azb:یارما
 # ckb:ساوار
+#mai:दलिया
 wikipedia:en:https://en.wikipedia.org/wiki/Bulgur
 wikidata:en:Q250432
+ciqual_food_code:en:9690
+ciqual_food_name:en:Wheat bulgur, raw
+ciqual_food_name:fr:Boulgour de blé, cru
+#1054 in 10 @2021-10-07
 
-<en:bulgur
-en:precooked bulgur
-de:vorgekochter Bulgur
-fi:esikypsennetty bulgur, esikypsennetty bulgurvehnä
-fr:boulgour précuit
-hu:előfőzött bulgur
+#en:processing: en:en:pre-cooked
+#<en:bulgur
+#en:precooked bulgur
+#de:vorgekochter Bulgur
+#es:bulgur precocido
+#fi:esikypsennetty bulgur, esikypsennetty bulgurvehnä
+#fr:boulgour précuit
+#hu:előfőzött bulgur
+#nl:voorgekookte bulgur
+#64 @2021-10-07
 
-<en:bulgur
-en:cooked bulgur
-de:Bulgur gekocht
-fi:kypsennetty bulgur, kypsennetty bulgurvehnä
-fr:boulgour cuit
-hu:főtt bulgur
+#en:processing: en:cooked
+#<en:bulgur
+#en:cooked bulgur
+#de:Bulgur gekocht
+#fi:kypsennetty bulgur, kypsennetty bulgurvehnä
+#fr:boulgour cuit
+#hu:főtt bulgur
+#nl:gekookte bulgur
+#141 @2021-10-07
 
 ##################################################################################
 #
