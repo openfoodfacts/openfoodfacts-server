@@ -35,6 +35,7 @@ BEGIN
 		&process_search_image_form
 
 		&get_code_and_imagefield_from_file_name
+		&get_imagefield_from_string
 		&process_image_upload
 		&process_image_move
 
@@ -428,6 +429,42 @@ sub dims {
 }
 
 
+
+=head2 get_code_and_imagefield_from_file_name ( $l $filename )
+
+This function is used to guess if an image is the front of the product,
+its list of ingredients, or the nutrition facts table, based on the filename.
+
+It is used in particular for bulk upload of photos sent by manufacturers.
+The file names have many different formats, but they very often include the barcode of the product,
+and sometimes an indication of what the image is.
+
+Producers are advised to use the [front|ingredients|nutrition|packaging]_[language code] format,
+but in practice we receive many other names.
+
+The %file_names_to_imagefield_regexps structure below contains some patterns
+used to guess what the image is about.
+
+=cut
+
+# the regexps apply to canonicalized strings
+# i.e. lowercased / unaccented strings in most European languages
+my %file_names_to_imagefield_regexps = (
+
+	en => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+	es => [
+		["ingredientes" => "ingredients"],
+		["nutricion" => "nutrition"],	
+	],
+	fr => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+);
+
 sub get_code_and_imagefield_from_file_name($$) {
 
 	my $l = shift;
@@ -435,6 +472,10 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	my $code;
 	my $imagefield;
+	
+	# codes with spaces
+	# 4 LR GROS LOUE_3 251 320 080 419_3D avant.png
+	$filename =~ s/(\d) (\d)/$1$2/g;
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
@@ -454,16 +495,29 @@ sub get_code_and_imagefield_from_file_name($$) {
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
 	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
-		$imagefield = $1;
+		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
 	# but [code]_2.jpg etc. should not be considered the front image
 	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
-		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )+\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
 		$imagefield = "front";
 	}
-	else {
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
 		$imagefield = "other";
 	}
 
@@ -472,6 +526,43 @@ sub get_code_and_imagefield_from_file_name($$) {
 	return ($code, $imagefield);
 }
 
+
+sub get_imagefield_from_string($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $imagefield;
+	
+	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+		$imagefield = lc($1);
+		$imagefield =~ s/-/_/;
+	}
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_imagefield_from_string", { l => $l, filename => $filename, imagefield => $imagefield }) if $log->is_debug();
+
+	return $imagefield;
+}
 
 sub process_image_upload($$$$$$$) {
 
@@ -738,7 +829,13 @@ sub process_image_upload($$$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
+				$log->debug("update the product image data", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
 				my $product_ref = retrieve_product($product_id);
+				
+				if (not defined $product_ref) {
+					$log->debug("product could not be loaded", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
+				}
+				
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
 					uploader => $userid,
@@ -761,6 +858,8 @@ sub process_image_upload($$$$$$$) {
 				if ((defined $comment) and ($comment ne '')) {
 					$store_comment .= ' - ' . $comment;
 				}
+				
+				$log->debug("storing product", {product_id => $product_id }) if $log->is_debug();
 				store_product($product_ref, $store_comment);
 
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
@@ -822,14 +921,14 @@ sub process_image_move($$$$) {
 	my $ownerid = shift;
 
 	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
+	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
 
 	my $product_id = product_id_for_owner($ownerid, $code);
 	my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
-	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+	$log->debug("process_image_move - start", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	my $path = product_path_from_id($product_id);
 
@@ -851,14 +950,17 @@ sub process_image_move($$$$) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
+			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 				}
+			}
+			else {
+				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
@@ -885,6 +987,8 @@ sub process_image_move($$$$) {
 	}
 
 	store_product($product_ref, "Moved images $imgids to $move_to");
+	
+	$log->debug("process_image_move - end", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	return 0;
 }
@@ -903,6 +1007,8 @@ sub process_image_crop($$$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 	my $coordinates_image_size = shift;
+	
+	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
 	# -> $coordinates_image_size = $crop_size
@@ -912,11 +1018,18 @@ sub process_image_crop($$$$$$$$$$$) {
 	# There was an issue saving coordinates_image_size for some products
 	# if any coordinate is above the $crop_size, then assume it was on the full size
 
-	if ((not defined $coordinates_image_size) and ($x2 <= $crop_size) and ($y2 <= $crop_size)) {
-		$coordinates_image_size = $crop_size;
+	if (not defined $coordinates_image_size) {
+		if (($x2 <= $crop_size) and ($y2 <= $crop_size)) {
+			$coordinates_image_size = $crop_size;
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 and y2 less than crop_size, setting to crop_size", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+		else {
+			$coordinates_image_size = "full";
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 or y2 greater than crop_size, setting to full", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
 	}
 	else {
-		$coordinates_image_size = "full";
+		$log->debug("process_image_crop - coordinates_image_size set", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 	}
 
 	my $path = product_path_from_id($product_id);

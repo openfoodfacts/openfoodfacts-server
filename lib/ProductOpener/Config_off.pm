@@ -495,6 +495,7 @@ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements origins packaging_shapes packaging_materials packaging_recycling
+periods_after_opening
 );
 
 
@@ -535,6 +536,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	data_sources
 	obsolete
 	obsolete_since_date
+	periods_after_opening
 );
 
 
@@ -566,6 +568,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	recipe_idea
 	warning
 	conservation_conditions
+	periods_after_opening
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
@@ -575,6 +578,9 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 # fields for drilldown facet navigation
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
@@ -591,8 +597,6 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users
@@ -611,6 +615,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	created_t
 	last_modified_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
@@ -651,7 +656,8 @@ $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
 			"producer_version_id",       "lc",
-			"product_name",              "generic_name",
+			"product_name",              "abbreviated_product_name",
+			"generic_name",
 			"quantity_value_unit",       "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit",   "packaging",
@@ -660,7 +666,8 @@ $options{import_export_fields_groups} = [
 			"categories",                "categories_specific",
 			"labels",                    "labels_specific",
 			"countries",                 "stores",
-			"obsolete",                  "obsolete_since_date"
+			"obsolete",                  "obsolete_since_date",
+			"periods_after_opening"	# included for OBF imports via the producers platform
 		]
 	],
 	[   "origins",
@@ -687,7 +694,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
 		]
 	],
 ];
@@ -738,6 +745,7 @@ $options{attribute_groups} = [
 		"environment",
 		[
 			"ecoscore",
+			"forest_footprint",
 		]
 	],
 ];
@@ -763,6 +771,7 @@ $options{import_export_fields_importance} = {
 	code => "mandatory",
 	lc => "mandatory",
 	product_name => "mandatory",
+	abbreviated_product_name => "optional",
 	generic_name => "recommended",
 	quantity => "mandatory",
 	serving_size => "recommended",
@@ -772,7 +781,7 @@ $options{import_export_fields_importance} = {
 	categories => "mandatory",
 	labels => "mandatory",
 	countries => "recommended",
-	obsolete => "mandatory",
+	obsolete => "recommended",
 	obsolete_since_date => "recommended",
 	
 	origins => "mandatory",

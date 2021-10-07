@@ -442,7 +442,13 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			}
 			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				# infocards set by admins can contain HTML
+				if (($admin) and ($field =~ /infocard/)) {
+					$product_ref->{$field} = decode utf8=>param($field);
+				}
+				else {
+					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+				}
 			}
 
 			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
@@ -459,15 +465,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		else {
 			$log->debug("could not find field in params", { field => $field }) if $log->is_debug();
 		}
-	}
-
-
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("Food::special_process_product") if $log->is_debug();
-		ProductOpener::Food::special_process_product($product_ref);
 	}
 
 	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
@@ -505,6 +502,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	detect_allergens_from_text($product_ref);
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
+	
+	# Food category rules for sweeetened/sugared beverages
+	# French PNNS groups from categories
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		$log->debug("Food::special_process_product") if $log->is_debug();
+		ProductOpener::Food::special_process_product($product_ref);
+	}	
 
 	# Nutrition data
 
@@ -1603,6 +1608,11 @@ HTML
 		}
 
 		my $nutriment_col_class = "nutriment_col" . $product_type;
+		
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
+		}
 
 		$initjs .= <<JS
 \$('#$nutrition_data').change(function() {
@@ -1612,6 +1622,7 @@ HTML
 	} else {
 		\$('#$nutrition_data_instructions').hide();
 		\$('.$nutriment_col_class').hide();
+		\$('.nutriment_value_$product_type_as_sold_or_prepared').val('');
 	}
 	update_nutrition_image_copy();
 	\$(document).foundation('equalizer', 'reflow');
@@ -1825,10 +1836,10 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td class="nutriment_col" $column_display_style{"nutrition_data"}>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_as_sold" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled autocomplete="off"/>
 </td>
 <td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
-<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
+<input class="nutriment_value nutriment_value_prepared" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled autocomplete="off"/>
 </td>
 HTML
 ;
@@ -2040,12 +2051,15 @@ function swapSalt(from, to, multiplier) {
 JAVASCRIPT
 ;
 
+	if ($User{moderator}) {
+		$html .= '<div><a class="small button" onclick="$(\'.nutriment_value\').val(\'\');">' . lang("remove_all_nutrient_values") . '</a></div>';
+	}
+
 
 	$html .= <<HTML
 <p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 HTML
 ;
-
 
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
@@ -2089,6 +2103,8 @@ HTML
 ;
 
 	$html .= display_tabs($product_ref, $select_add_language, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+	
+
 
 	$html .= "</div><!-- fieldset -->";
 
@@ -2130,7 +2146,13 @@ HTML
 
 	}
 
+	if ($admin) {
 
+		# Let admins edit any other fields
+		if (defined param("fields")) {
+			$html .= hidden(-name=>'fields', -value=>param("fields"), -override=>1);
+		}
+	}
 
 	$html .= ''
 	. hidden(-name=>'type', -value=>$type, -override=>1)
@@ -2171,7 +2193,7 @@ JS
 		<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" />
 	</div>
 	<div class="small-6 medium-6 large-2 xlarge-2 columns">
-		<button type="submit" name=".submit" class="button postfix small">
+		<button type="submit" name=".submit" class="button postfix small success">
 			@{[ display_icon('check') ]} $Lang{save}{$lc}
 		</button>
 	</div>
@@ -2190,7 +2212,7 @@ HTML
 <div class="small-12 medium-12 large-8 xlarge-10 columns">
 </div>
 <div class="small-12 medium-12 large-4 xlarge-2 columns">
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small success">
 </div>
 </div>
 HTML

@@ -318,7 +318,7 @@ The product id.
 sub product_id_for_owner($$) {
 
 	my $ownerid = shift;
-	my $code = shift;
+	my $code = shift;	
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		if (defined $ownerid) {
@@ -343,7 +343,7 @@ Returns the server for the product, if it is not on the current server.
 
 =head4 $product_id
 
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+Product id of the form [code], [owner-id]/[code], or [server-id]:[code] or [server-id]:[owner-id]/[code]
 
 =head3 Return values
 
@@ -501,21 +501,17 @@ sub product_path($) {
 
 sub product_exists($) {
 
-	my $id = shift;
+	my $product_id = shift;
 
-	my $path = product_path_from_id($id);
-	if (-e "$data_root/products/$path") {
-
-		my $product_ref = retrieve("$data_root/products/$path/product.sto");
-		if ((not defined $product_ref) or ($product_ref->{deleted})) {
-			return 0;
-		}
-		else {
-			return $product_ref;
-		}
+	# deprecated, just use retrieve_product()
+	
+	my $product_ref = retrieve_product($product_id);
+	
+	if (not defined $product_ref) {
+		return 0;
 	}
 	else {
-		return 0;
+		return $product_ref;
 	}
 }
 
@@ -590,6 +586,14 @@ sub init_product($$$$) {
 	my $countryid = shift;
 
 	$log->debug("init_product", { userid => $userid, orgid => $orgid, code => $code, countryid => $countryid }) if $log->is_debug();
+	
+	# We can have a server passed in the code. e.g. obf:43242345
+	my $server;
+	if ($code =~ /:/) {
+		$server = $`;
+		$code = $';
+		$log->debug("init_product - found server in code", { userid => $userid, orgid => $orgid, server => $server, code => $code, countryid => $countryid }) if $log->is_debug();
+	}
 
 	my $creator = $userid;
 
@@ -605,6 +609,10 @@ sub init_product($$$$) {
 		creator   => $creator,
 		rev       => 0,
 	};
+	
+	if (defined $server) {
+		$product_ref->{server} = $server;
+	}
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
@@ -617,7 +625,7 @@ sub init_product($$$$) {
 
 	my $country;
 
-	if ((not defined $countryid) or ($countryid eq "en:world")) {
+	if (((not defined $countryid) or ($countryid eq "en:world")) and (remote_addr() ne "127.0.0.1")) {
 
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
@@ -714,18 +722,28 @@ sub retrieve_product($) {
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
 
-	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path } ) if $log->is_debug();
+	my $full_product_path = "$product_data_root/products/$path/product.sto";
 
-	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
+	$log->debug("retrieve_product", { product_id => $product_id, product_data_root => $product_data_root, path => $path, full_product_path => $full_product_path } ) if $log->is_debug();
+
+	my $product_ref = retrieve($full_product_path);
 	
 	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
+	
+	if (not defined $product_ref) {
+		$log->debug("retrieve_product - product does not exist", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
 	}
+	else {
+		if (defined $server) {
+			$product_ref->{server} = $server;
+			$log->debug("retrieve_product - product on another server", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
+		}
 
-	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return;
+		if ($product_ref->{deleted}) {
+			$log->debug("retrieve_product - deleted product", { product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server } ) if $log->is_debug();
+			return;
+		}
 	}
 
 	return $product_ref;
@@ -837,10 +855,6 @@ Compute sort keys that are stored in the MongoDB database and used to order resu
 
 Used on the web site for facets pages, except the index page.
 
-=head3 sortkey - date of last modification, with obsolete products last and complete products first
-
-Used on the web site for index page.
-
 =head3 popularity_key - Popular and recent products
 
 Used for the Personal Search project to provide generic search results that apps can personnalize later.
@@ -850,12 +864,6 @@ Used for the Personal Search project to provide generic search results that apps
 sub compute_sort_keys($) {
 
 	my $product_ref = shift;
-
-	# put obsolete products last  		(substract 200000000000 when products are obsolete)
-	# then put complete products first	(add 100000000000 when products are complete)
-	# otherwise sort by last_modified_t (e.g.  1571384133)
-
-	my $sortkey = $product_ref->{last_modified_t};
 	
 	my $popularity_key = 0;
 	
@@ -900,20 +908,7 @@ sub compute_sort_keys($) {
 		}
 	}
 
-	# Put obsolete products last (negative key)
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$sortkey -= 200000000000;
-		$popularity_key -= 200000000000;
-	}
-
-	# Put products with complete data before uncomplete products
-	if ($product_ref->{complete}) {
-		$sortkey += 100000000000;
-		$popularity_key += 100000000000;
-	}
-
-# Add 0 so we are sure the key is saved as int
-	$product_ref->{sortkey} = $sortkey + 0;
+	# Add 0 so we are sure the key is saved as int
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
@@ -1122,7 +1117,7 @@ sub store_product($$) {
 	$product_ref->{last_modified_t} += 0;
 	$product_ref->{created_t} += 0;
 	$product_ref->{complete} += 0;
-	$product_ref->{sortkey} += 0;
+	$product_ref->{popularity_key} += 0;
 	$product_ref->{rev} +=0;
 
 	# make sure nutrient values are numbers
@@ -1221,13 +1216,21 @@ sub compute_data_sources($) {
 				$data_sources{"Databases"} = 1;
 				$data_sources{"Database - USDA NDB"} = 1;
 			}
+			if ($source_ref->{id} eq 'codeonline') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - CodeOnline"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}
+			if ($source_ref->{id} eq 'equadis') {
+				$data_sources{"Databases"} = 1;
+				$data_sources{"Database - Equadis"} = 1;
+				$data_sources{"Database - GDSN"} = 1;
+			}				
 		}
 	}
 
 
-	# Add a data source forapps
-
-	%data_sources = ();
+	# Add a data source for apps
 
 	if (defined $product_ref->{editors_tags}) {
 		foreach my $editor (@{$product_ref->{editors_tags}}) {
@@ -1324,7 +1327,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$notempty++;
 	}
 
-	my @needed_fields = qw(product_name quantity packaging brands categories );
+	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
@@ -2170,6 +2173,12 @@ sub product_name_brand($) {
 	}
 	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
+	}
+	elsif ((defined $ref->{"abbreviated_product_name_$lc"}) and ($ref->{"abbreviated_product_name_$lc"} ne '')) {
+		$full_name = $ref->{"abbreviated_product_name_$lc"};
+	}
+	elsif ((defined $ref->{abbreviated_product_name}) and ($ref->{abbreviated_product_name} ne '')) {
+		$full_name = $ref->{abbreviated_product_name};
 	}
 
 	if (defined $ref->{brands}) {

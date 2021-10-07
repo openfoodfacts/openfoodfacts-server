@@ -82,7 +82,8 @@ BEGIN
 		&preparse_ingredients_text
 		&parse_ingredients_text
 		&analyze_ingredients
-		&flatten_sub_ingredients_and_compute_ingredients_tags
+		&flatten_sub_ingredients
+		&compute_ingredients_tags
 
 		&compute_ingredients_percent_values
 		&init_percent_values
@@ -93,6 +94,9 @@ BEGIN
 
 		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
+		
+		&add_milk
+		&estimate_milk_percent_from_ingredients
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -134,9 +138,9 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
-my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]/i;
+my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}|\N{U+FF08}])[\p{Ps}]/i;
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
-my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]/i;
+my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
@@ -154,7 +158,7 @@ my %may_contain_regexps = (
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
-	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|jossa käsitellään|saattaa sisältää",
+	fi => "saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr => "peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr => "može sadržavati|može sadržati",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
@@ -162,12 +166,13 @@ my %may_contain_regexps = (
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
-	nb => "kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
+	nb => "kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
+	ru => "Могут содержаться следы",
 	sk => "Môže obsahovať",
-	sv => "kan innehålla små mängder|kan innehålla spår|kan innehålla",
+	sv => "kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -231,6 +236,10 @@ sub init_allergens_regexps() {
 					my $allergens_lc_allergenid = get_string_id_for_lang($allergens_lc, $translations_to{allergens}{$allergen}{$allergens_lc});
 
 					foreach my $synonym (@{$synonyms_for{allergens}{$allergens_lc}{$allergens_lc_allergenid}}) {
+						# Change parenthesis to dots
+						# e.g. chemical formula in Open Beauty Facts ingredients
+						$synonym =~ s/\(/./g;
+						$synonym =~ s/\)/./g;
 						push @allergenssuffixes, $synonym;
 					}
 				}
@@ -291,6 +300,7 @@ en => [
 	["w/o", "without"],
 	["w/", "with "], # note trailing space
 	["vit.", "vitamin"],
+	["i.a.", "inter alia"],
 
 ],
 
@@ -302,6 +312,7 @@ fi => [
 	[ "mikro.", "mikrobiologinen" ],
 	[ "mm.",    "muun muassa" ],
 	[ "sis.",   "sisältää" ],
+	[ "n.",     "noin" ],
 ],
 
 fr => [
@@ -333,6 +344,7 @@ sv => [
 	[ "stabil.",         "stabiliseringsämne" ],
 	[ "surhetsreg.",     "surhetsreglerande" ],
 	[ "veg.",            "vegetabilisk" ],
+	[ "ca.",             "cirka" ],
 ],
 );
 
@@ -374,6 +386,7 @@ my %and = (
 	pl => " i ",
 	pt => " e ",
 	ro => " și ",
+	ru => " и ",
 	sv => " och ",
 );
 
@@ -401,6 +414,7 @@ my %and_or = (
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
 );
 
@@ -420,7 +434,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "fr:label-rouge");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -449,6 +463,15 @@ sub init_labels_regexps() {
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
 			}
+			
+			# also add the xx: entries and synonyms
+			if (($label_lc ne "xx") and (defined $translations_to{labels}{$labelid}{"xx"})) {
+				my $label_xx_labelid = get_string_id_for_lang("xx", $translations_to{labels}{$labelid}{"xx"});
+
+				foreach my $synonym (@{$synonyms_for{labels}{"xx"}{$label_xx_labelid}}) {
+					push @synonyms, $synonym;
+				}
+			}			
 
 			my $label_regexp = "";
 			foreach my $synonym (sort { length($b) <=> length($a) } @synonyms) {
@@ -812,9 +835,11 @@ my %min_regexp = (
 # e.g. 50% du poids total, 30% of the total weight
 
 my %ignore_strings_after_percent = (
-	en => "of (the )?total weight",
+	en => "of (the )?(?:total weight|grain is wholegrain rye)",
 	es => "(en el chocolate( con leche)?)",
+	fi => "jauhojen määrästä",
 	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	sv => "fetthalt",
 );
 
 
@@ -984,7 +1009,7 @@ sub parse_ingredients_text($) {
 					$debug_ingredients and $log->debug("initial processing of percent and origins", { between => $between, after => $after, percent => $percent }) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
-					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i) and ($between !~ /^$percent_regexp$/i)) {
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", { between => $between }) if $log->is_debug();
 					}
@@ -1003,7 +1028,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1036,8 +1061,20 @@ sub parse_ingredients_text($) {
 										else {
 											$labels = $labelid;
 										}
-										$debug_ingredients and $log->debug("between is a label", { between => $between, label => $labelid }) if $log->is_debug();
-										$between = '';
+										
+										# some labels are in fact ingredients. e.g. "sustainable palm oil"
+										# in that case, add the corresponding ingredient
+																				
+										my $label_ingredient_id  = get_inherited_property("labels", $labelid, "ingredients:en");
+										
+										$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $labelid, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+										
+										if (defined $label_ingredient_id) {
+											$between = $label_ingredient_id;
+										}
+										else {
+											$between = '';
+										}
 									}
 									else {
 
@@ -1383,12 +1420,40 @@ sub parse_ingredients_text($) {
 						# and "France" matched "produit de France" / made in France (bug #2927)
 						my $label_id = canonicalize_taxonomy_tag($product_lc, "labels", $ingredient);
 						if (exists_taxonomy_tag("labels", $label_id)) {
+							
 							# Add the label to the product
 							add_tags_to_field($product_ref, $product_lc, "labels", $label_id);
-							$skip_ingredient = 1;
+														
 							$ingredient_recognized = 1;
 							
-							$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							# some labels are in fact ingredients. e.g. "sustainable palm oil"
+							# in that case, add the corresponding ingredient
+																	
+							my $label_ingredient_id  = get_inherited_property("labels", $label_id, "ingredients:en");
+							
+							$debug_ingredients and $log->debug("between is a known label", { between => $between, label => $label_id, label_ingredient_id => $label_ingredient_id }) if $log->is_debug();
+							
+							if (defined $label_ingredient_id) {
+								
+								# The label is specific to an ingredient
+								
+								$ingredient_id = $label_ingredient_id;
+								
+								if (defined $labels) {
+									$labels .= ", " . $label_id;
+								}
+								else {
+									$labels = $label_id;
+								}
+								
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and add corresponding ingredient", { ingredient => $ingredient, label_id => $label_id, ingredient_id => $ingredient_id }) if $log->is_debug();
+							}
+							else {
+								# The label is not specific to an ingredient
+								
+								$skip_ingredient = 1;
+								$debug_ingredients and $log->debug("unknown ingredient is a label, add label and skip ingredient", { ingredient => $ingredient, label_id => $label_id }) if $log->is_debug();
+							}
 						}
 					}
 
@@ -1398,6 +1463,10 @@ sub parse_ingredients_text($) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+
+							'da' => [
+								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+							   ],
 
 							'de' => [
 								'^in ver[äa]nderlichen Gewichtsanteilen$',
@@ -1414,6 +1483,10 @@ sub parse_ingredients_text($) {
 								'^see ingredients in bold$',
 								'^in var(iable|ying) proportions$',
 								'^dietary advice[:]?$',
+								'^in milk chocolate cocoa solids',
+								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
+								'^meat content',
+								'^packaged in a protective atmosphere',
 							],
 
 							'fr' => [
@@ -1438,23 +1511,44 @@ sub parse_ingredients_text($) {
 							],
 
 							'fi' => [
-								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^(?:Täysjyvää|Kauraa) \d{1,3}\s*% leivän viljasta ja \d{1,3}\s*% leivän painosta$',
+								'^jyviä ja siemeniä \d{1,3}\s*% leivontaan käytettyjen jauhojen määrästä$',
+								'^(?:Täysjyvä(?:ruista|ä)|Kauraa) \d{1,3}\s*% viljaraaka-aineesta',
+								'^Lihaa? ja lihaan verrattav(?:at|ia) valmistusaine(?:et|ita)',
+								'^Maitosuklaa sisältää maidon kiinteitä aineita vähintään',
+								'^Leivontaan käytetyistä viljasta \d{1,3}\s*% on ruista$',
+								'^(?:Maito|Tummassa )?suklaassa(?: kaakaota)? vähintään',
 								'^(?:Jauhelihapihvin )?(?:Suola|Liha|Rasva)pitoisuus',
-								'^Lihaa ja lihaan verrattavia valmistusaineita',
-								'^(?:Maito)?rasvaa',
-								'^Täysmehu(?:osuus|pitoisuus)',
-								'^(?:Maito)?suklaassa(?: kaakaota)? vähintään',
+								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
+								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
+								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
+								'^Maitosuklaa sisältää kaakaota vähintään',
+								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
+								'^Kuorta ei ole tarkoitettu syötäväksi$',
+								'^Kollageeni\/liha-proteiinisuhde alle',
+								'^Valmistettu (?:myllyssä|tehtaassa)',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Kuiva-aineiden täysjyväpitoisuus',
-								'^Valmistettu myllyssä',                # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Tuote on valmistettu linjalla',       # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
-								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^jota käytetään leivonnassa',          # Sisältää pienen määrän vehnää, jota käytetään leivonnassa alus- ja päällijauhona.
+								'^Leivottu tuotantolinjalla',           # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
+								'^vastaa 100 g porkkanaa$',
+								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
+								'^lakritsin osuudesta$',
+								'^Kaakaota vähintään',
+								'^(?:Maito)?rasvaa',
+								'^täysjyväsisältö',
 							],
 
 							'it' => [
 								'^in proporzion[ei] variabil[ei]$',
 							],
+
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+							   ],
 
 							'nl' => [
 								'^allergie.informatie$',
@@ -1463,7 +1557,31 @@ sub parse_ingredients_text($) {
 								'o\.a\.',
 							],
 
-							'sv' => [ 'varierande proportion', ],
+							'ru' => [
+								'^россия$',
+								'^состав( продукта)?$',
+								'^энергетическая ценность$',
+								'^калорийность$',
+								'^углеводы$',
+								'^не менее$',
+								'^средние значения$',
+								'^содержат$',
+								'^идентичный натуральному$',
+								'^(g|ж|ул)$'
+							],
+
+							'sv' => [
+								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Mjölkchokladen innehåller minst',
+								'^Fruktmängd \d+\s*g per$',
+								'^Kakaohalt i chokladen$',
+								'varierande proportion',
+								'^total mängd socker',
+								'kan innehålla ben$',
+								'^per 100 g sylt$',
+								'^Kakao minst',
+								'^fetthalt',
+							   ],
 
 						);
 						if (defined $ignore_regexps{$product_lc}) {
@@ -1548,14 +1666,13 @@ sub parse_ingredients_text($) {
 }
 
 
-=head2 flatten_sub_ingredients_and_compute_ingredients_tags ( product_ref )
+=head2 flatten_sub_ingredients ( product_ref )
 
-Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
-that expect a flat list of ingredients.
+Flatten the nested list of ingredients.
 
 =cut
 
-sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
+sub flatten_sub_ingredients($) {
 
 	my $product_ref = shift;
 
@@ -1578,11 +1695,47 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 			# Add a rank for all first level ingredients
 			$product_ref->{ingredients}[$i]{rank} = $rank++;
 		}
-		else {
-			# For sub-ingredients, do not list again the sub-ingredients
-			delete $product_ref->{ingredients}[$i]{ingredients};
+
+		# Delete the sub-ingredients, as they have been pushed at the end of the list
+		delete $product_ref->{ingredients}[$i]{ingredients};
+	}
+}
+
+
+=head2 compute_ingredients_tags ( product_ref )
+
+Go through the nested ingredients and compute ingredients_original_tags and ingredients_tags
+
+=cut
+
+sub compute_ingredients_tags($) {
+
+	my $product_ref = shift;
+	
+	$product_ref->{ingredients_tags} = [];
+	
+	# Traverse the ingredients tree, breadth first
+	
+	my @ingredients = ();
+
+	for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+		
+		push @ingredients, $product_ref->{ingredients}[$i];
+	}
+	
+	while (@ingredients) {
+		
+		my $ingredient_ref = shift @ingredients;
+		
+		push @{$product_ref->{ingredients_tags}}, $ingredient_ref->{id};
+		
+		if (defined $ingredient_ref->{ingredients}) {
+			
+			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+				
+				push @ingredients, $ingredient_ref->{ingredients}[$i];
+			}			
 		}
-		push @{$product_ref->{ingredients_tags}}, $product_ref->{ingredients}[$i]{id};
 	}
 
 	my $field = "ingredients";
@@ -1626,9 +1779,8 @@ sub flatten_sub_ingredients_and_compute_ingredients_tags($) {
 		delete $product_ref->{unknown_ingredients_n};
 		delete $product_ref->{ingredients_n_tags};
 	}
-
-	return;
 }
+
 
 =head2 extract_ingredients_from_text ( product_ref )
 
@@ -1639,8 +1791,7 @@ to extract individual ingredients and sub-ingredients
 
 - compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
 
-- flatten_sub_ingredients_and_compute_ingredients_tags() to keep the nested list of sub-ingredients,
-but also copy the sub-ingredients at the end for apps that expect a flat list of ingredients
+- compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
 - analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
@@ -1684,7 +1835,7 @@ sub extract_ingredients_from_text($) {
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
 
-	flatten_sub_ingredients_and_compute_ingredients_tags($product_ref);
+	compute_ingredients_tags($product_ref);
 
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
@@ -2145,8 +2296,27 @@ sub analyze_ingredients($) {
 		foreach my $property (@properties) {
 
 			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
+			
+			# Traverse the ingredients tree, breadth first
+			
+			my @ingredients = ();
 
-			foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+			for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
+				
+				push @ingredients, $product_ref->{ingredients}[$i];
+			}
+			
+			while (@ingredients) {
+				
+				my $ingredient_ref = shift @ingredients;
+								
+				if (defined $ingredient_ref->{ingredients}) {
+					
+					for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
+						
+						push @ingredients, $ingredient_ref->{ingredients}[$i];
+					}			
+				}
 
 				$values{all_ingredients}++;
 
@@ -2178,7 +2348,7 @@ sub analyze_ingredients($) {
 
 				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
 				if (($property eq "from_palm_oil") and (defined $value) and ($value eq "maybe")
-					and (defined $ingredient_ref->{has_sub_ingredients}) and ($ingredient_ref->{has_sub_ingredients} eq "yes")) {
+					and (defined $ingredient_ref->{ingredients})) {
 					$value = "ignore";
 				}
 
@@ -2322,6 +2492,7 @@ sub normalize_fr_a_de_enumeration {
 
 # English: oil, olive -> olive oil
 # French: huile, olive -> huile d'olive
+# Russian: масло растительное, пальмовое -> масло растительное оливковое
 
 sub normalize_a_of_b($$$) {
 
@@ -2333,7 +2504,6 @@ sub normalize_a_of_b($$$) {
 	$b =~ s/^\s+//;
 
 	if ($lc eq "en") {
-
 		return $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
@@ -2349,6 +2519,9 @@ sub normalize_a_of_b($$$) {
 			return $a . " de " . $b;
 		}
 	}
+	elsif ($lc eq "ru") {
+		return $a . " " . $b;		
+	}
 }
 
 
@@ -2362,13 +2535,19 @@ sub normalize_enumeration($$$) {
 	my $enumeration = shift;
 
 	$log->debug("normalize_enumeration", { type => $type, enumeration => $enumeration }) if $log->is_debug();
+	
+	# If there is a trailing space, save it and output it
+	my $trailing_space = "";
+	if ($enumeration =~ /\s+$/) {
+		$trailing_space = " ";
+	}
 
 	my $and = $Lang{_and_}{$lc};
 	#my $enumeration_separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
-	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list);
+	return join(", ", map { normalize_a_of_b($lc, $type, $_)} @list) . $trailing_space;
 }
 
 
@@ -2415,6 +2594,7 @@ sub normalize_vitamin($$) {
 		($lc eq 'it') and return "vitamina $a";
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
+		($lc eq 'pl') and return "witamina $a";
 		return "vitamin $a";
 	}
 	else {
@@ -2444,6 +2624,7 @@ sub normalize_vitamins_enumeration($$) {
 	elsif ($lc eq 'fi') { $split_vitamins_list = "vitamiinit" }
 	elsif ($lc eq 'nl') { $split_vitamins_list = "vitaminen" }
 	elsif ($lc eq 'is') { $split_vitamins_list = "vítamín" }
+	elsif ($lc eq 'pl') { $split_vitamins_list = "witaminy" }
 	else { $split_vitamins_list = "vitamins" }
 
 	$split_vitamins_list .= ", " . join(", ", map { normalize_vitamin($lc,$_)} @vitamins);
@@ -2685,6 +2866,10 @@ sl => [
 'sestavine',
 ],
 
+sq => [
+'P[eë]rb[eë]r[eë]sit',
+],
+
 sr => [
 'Sastojci',
 ],
@@ -2910,7 +3095,7 @@ fi => [
 '(?:Keskimääräinen )?Ravinto(?:arvo|sisältö)',
 'Sisältää aluspaperin',
 'Suositellaan säilytettäväksi',
-'Säily(?:y|tys|tetään)',
+'Säily(?:tettävä|tetään|tys|y)',
 'Tämä tuote on tehty ihmisille',
 'Valmist(?:aja:|us)',
 ],
@@ -3012,6 +3197,7 @@ it => [
 'MODALITA DI CONSERVAZIONE',
 'Preparazione:',
 'Una volta aperto', # once opened...
+'Da consumarsi preferibilmente entro', # best before
 ],
 
 ja => [
@@ -3088,6 +3274,7 @@ sv => [
 'närings(?:deklaration|innehåll|värde)',
 '(?:bör )?förvar(?:ing|as?)',
 'till(?:agning|redning)',
+'produkten innehåller',
 'serveringsförslag',
 'produkterna bör',
 'bruksanvisning',
@@ -3491,6 +3678,420 @@ sub replace_additive($$$) {
 }
 
 
+=head2 develop_ingredients_categories_and_types ( $product_lc, $text ) - turn "oil (sunflower, olive and palm)" into "sunflower oil, olive oil, palm oil"
+
+Some ingredients are specified by an ingredient "category" (e.g. "oil", "flavouring") and a "type" (e.g. "sunflower", "palm" or "strawberry", "vanilla").
+
+Sometimes, the category is mentioned only once for several types:
+"strawberry and vanilla flavourings", "vegetable oil (palm, sunflower)".
+
+This function lists each individual ingredient: 
+"oil (sunflower, olive and palm)" becomes "sunflower oil, olive oil, palm oil"
+
+=head3 Arguments
+
+=head4 Language
+
+=head4 Ingredients list text
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+=cut
+
+# simple plural (just an additional "s" at the end) will be added in the regexp
+my %ingredients_categories_and_types = (
+
+en =>
+[
+	# oils
+	[
+		# categories
+		[
+			"oil",
+			"vegetable oil",
+			"vegetal oil",
+		],
+		# types
+		[
+			"colza",
+			"olive",
+			"palm",
+			"rapeseed",
+			"sunflower",
+		],
+	],
+],
+
+
+fr =>
+[
+	# huiles
+	[
+		[
+			"huile",
+			"huile végétale",
+			"huiles végétales",
+			"matière grasse",
+			"matières grasses",
+			"matière grasse végétale",
+			"matières grasses végétales",
+			"graisse",
+			"graisse végétale",
+			"graisses végétales",
+		],
+		[
+			"arachide",
+			"avocat",
+			"chanvre",
+			"coco",
+			"colza",
+			"illipe",
+			"karité",
+			"lin",
+			"mangue",
+			"noisette",
+			"noix",
+			"noyaux de mangue",
+			"olive",
+			"olive extra",
+			"olive vierge",
+			"olive extra vierge",
+			"olive vierge extra",
+			"palme",
+			"palmiste",
+			"pépins de raisin",
+			"sal",
+			"sésame",
+			"soja",
+			"tournesol",
+			"tournesol oléique",
+		]
+	],
+		
+	[
+		[
+			"extrait",
+			"extrait naturel",
+		],
+		[
+			"café",
+			"chicorée",
+			"curcuma",
+			"houblon",
+			"levure",
+			"malt",
+			"muscade",
+			"poivre",
+			"poivre noir",
+			"romarin",
+			"thé",
+			"thé vert",
+			"thym",
+		]
+	],
+
+	[
+		[
+			"lécithine",
+		],
+		[
+			"colza",
+			"soja",
+			"soja sans ogm",
+			"tournesol",
+		]
+	],
+
+	[
+		[
+			"arôme naturel",
+			"arômes naturels",
+			"arôme artificiel",
+			"arômes artificiels",
+			"arômes naturels et artificiels",
+			"arômes",
+		],
+		[
+			"abricot",
+			"ail",
+			"amande",
+			"amande amère",
+			"agrumes",
+			"aneth",
+			"boeuf",
+			"cacao",
+			"cannelle",
+			"caramel",
+			"carotte",
+			"carthame",
+			"cassis",
+			"céleri",
+			"cerise",
+			"curcuma",
+			"cumin",
+			"citron",
+			"citron vert",
+			"crustacés",
+			"estragon",
+			"fenouil",
+			"figue",
+			"fraise",
+			"framboise",
+			"fromage de chèvre",
+			"fruit",
+			"fruit de la passion",
+			"fruits de la passion",
+			"fruits de mer",
+			"fumée",
+			"gentiane",
+			"herbes",
+			"jasmin",
+			"laurier",
+			"lime",
+			"limette",
+			"mangue",
+			"menthe",
+			"menthe crêpue",
+			"menthe poivrée",
+			"muscade",
+			"noix",
+			"noix de coco",
+			"oignon",
+			"olive",
+			"orange",
+			"orange amère",
+			"origan",
+			"pamplemousse",
+			"pamplemousse rose",
+			"pêche",
+			"piment",
+			"pistache",
+			"porc",
+			"pomme",
+			"poire",
+			"poivre",
+			"poisson",
+			"poulet",
+			"réglisse",
+			"romarin",
+			"rose",
+			"rhum",
+			"sauge",
+			"saumon",
+			"sureau",
+			"thé",
+			"thym",
+			"vanille",
+			"vanille de Madagascar",
+			"autres agrumes",
+		]
+	],
+
+	[
+		[
+			"carbonate",
+			"carbonates acides",
+			"chlorure",
+			"citrate",
+			"iodure",
+			"nitrate",
+			"diphosphate",
+			"diphosphate",
+			"phosphate",
+			"sélénite",
+			"sulfate",
+			"hydroxyde",
+			"sulphate",
+		],
+		[
+			"aluminium",
+			"ammonium",
+			"calcium",
+			"cuivre",
+			"fer",
+			"magnésium",
+			"manganèse",
+			"potassium",
+			"sodium",
+			"zinc",
+		]
+	],
+],
+
+ru =>
+[
+	# oils
+	[
+		# categories
+		[
+			"масло",
+			"масло растительное",
+		],
+		# types
+		[
+			"Подсолнечное",
+			"Пальмовое",
+			"Рапсовое",
+			"Кокосовое",
+			"горчицы",
+			"Соевое",
+			"Пальмоядровое",
+			"Оливковое",
+			"пальм",
+		],
+	],
+],
+
+);
+
+# Symbols to indicate labels like organic, fairtrade etc.
+my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
+my $symbols_regexp = join('|', @symbols);
+
+sub develop_ingredients_categories_and_types ($$) {
+	
+	my $product_lc = shift;
+	my $text = shift;	
+	
+	if (defined $ingredients_categories_and_types{$product_lc}) {
+
+		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$product_lc}}) {
+
+			my $category_regexp = "";
+			foreach my $category (@{$categories_and_types_ref->[0]}) {
+				$category_regexp .= '|' . $category . '|' . $category . 's';
+				my $unaccented_category = unac_string_perl($category);
+				if ($unaccented_category ne $category) {
+					$category_regexp .= '|' . $unaccented_category . '|' . $unaccented_category . 's';
+				}
+
+			}
+			$category_regexp =~ s/^\|//;
+
+			if ($product_lc eq "en") {
+				$category_regexp = '(?:organic |fair trade )*(?:' . $category_regexp . ')(?:' . $symbols_regexp . ')*';
+			}
+			elsif ($product_lc eq "fr") {
+				$category_regexp = '(?:' . $category_regexp . ')(?: bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
+			}
+			else {
+				$category_regexp = '(?:' . $category_regexp . ')(?:' . $symbols_regexp . ')*';
+			}
+
+			my $type_regexp = "";
+			foreach my $type (@{$categories_and_types_ref->[1]}) {
+				$type_regexp .= '|' . $type . '|' . $type . 's';
+				my $unaccented_type = unac_string_perl($type);
+				if ($unaccented_type ne $type) {
+					$type_regexp .= '|' . $unaccented_type . '|' . $unaccented_type . 's';
+				}
+
+			}
+			$type_regexp =~ s/^\|//;
+
+			# arôme naturel de citron-citron vert et d'autres agrumes
+			# -> separate types
+			$text =~ s/($type_regexp)-($type_regexp)/$1, $2/g;
+			
+			my $and = ' - ';
+			if (defined $and{$product_lc}) {
+				$and = $and{$product_lc};
+			}			
+			my $of = ' - ';
+			if (defined $of{$product_lc}) {
+				$of = $of{$product_lc};
+			}
+			my $and_of = ' - ';
+			if (defined $and_of{$product_lc}) {
+				$and_of = $and_of{$product_lc};
+			}
+			my $and_or = ' - ';
+			if (defined $and_or{$product_lc}) {
+				$and_or = $and_or{$product_lc};
+			}	
+			
+			if (($product_lc eq "en") or ($product_lc eq "ru")) {
+
+				# vegetable oil (palm, sunflower and olive)
+				$text =~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$2)/ieg;
+				
+				# vegetable oil (palm)
+				$text =~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$2)/ieg;
+				# vegetable oil: palm
+				$text =~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($product_lc,$1,$2)/ieg;	
+			}
+			elsif ($product_lc eq "fr") {
+				# arôme naturel de pomme avec d'autres âromes
+				$text =~ s/ (ou|et|avec) (d')?autres /, /g;
+
+				$text =~ s/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
+				
+				# Huiles végétales de palme, de colza et de tournesol
+				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
+				# TODO 18/07/2020 remove when we have a better solution
+				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
+				$text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$2)/ieg;
+				$text =~ s/fer_élémentaire/fer élémentaire/ig;				
+
+				# huile végétale (colza)
+				$text =~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$2)/ieg;
+				# huile végétale : colza,
+				$text =~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($product_lc,$1,$2)/ieg;
+			}
+		}
+
+		# Some additives have "et" in their name: need to recombine them
+		
+		if ($product_lc eq "fr") {
+
+			# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
+		
+			my $info = <<INFO
+Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
+oxyde et hydroxyde de fer rouge,
+oxyde et hydroxyde de fer jaune et rouge,
+Tartrate double de sodium et de potassium,
+Éthylènediaminetétraacétate de calcium et de disodium,
+Phosphate d'aluminium et de sodium,
+Diphosphate de potassium et de sodium,
+Tripoliphosphates de sodium et de potassium,
+Sels de sodium de potassium et de calcium d'acides gras,
+Mono- et diglycérides d'acides gras,
+Esters acétiques des mono- et diglycérides,
+Esters glycéroliques de l'acide acétique et d'acides gras,
+Esters glycéroliques de l'acide citrique et d'acides gras,
+Esters monoacétyltartriques et diacétyltartriques,
+Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
+Esters lactyles d'acides gras du glycérol et du propane-1,
+Silicate double d'aluminium et de calcium,
+Silicate d'aluminium et calcium,
+Silicate d'aluminium et de calcium,
+Silicate double de calcium et d'aluminium,
+Glycine et son sel de sodium,
+Cire d'abeille blanche et jaune,
+Acide cyclamique et ses sels,
+Saccharine et ses sels,
+Acide glycyrrhizique et sels,
+Sels et esters de choline,
+Octénylesuccinate d'amidon et d'aluminium,
+INFO
+;
+
+			# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+
+			$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
+
+			# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
+			$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
+		}
+	}
+	
+	return $text;
+}
+
+
 =head2 preparse_ingredients_text ($product_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -3518,7 +4119,6 @@ It does the following:
 
 =cut
 
-
 sub preparse_ingredients_text($$) {
 
 	my $product_lc = shift;
@@ -3540,10 +4140,6 @@ sub preparse_ingredients_text($$) {
 
 	$prev_lc = $product_lc;
 	$prev_text = $text;
-
-	# Symbols to indicate labels like organic, fairtrade etc.
-	my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)');
-	my $symbols_regexp = join('|', @symbols);
 
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
@@ -3645,7 +4241,8 @@ sub preparse_ingredients_text($$) {
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
-	$text =~ s/\b(ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
+	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
 	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -3711,7 +4308,13 @@ sub preparse_ingredients_text($$) {
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", { text => $text }) if $log->is_debug();
 
-	if ($product_lc eq 'es') {
+	if ($product_lc eq 'de') {
+		# deletes comma in "Bienenwachs, weiß und gelb" since it is just one ingredient
+		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb/ig;
+		# deletes brackets in "Bienenwachs, weiß und gelb" since it is just one ingredient
+		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
+	}
+	elsif ($product_lc eq 'es') {
 
 		# Special handling for sal as it can mean salt or shorea robusta
 		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)
@@ -3744,305 +4347,12 @@ sub preparse_ingredients_text($$) {
 
 		$text =~ s/dient\(s\)/dients/ig;
 		$text =~ s/\bissu(\(e\))?(\(s\))?/issu/ig;
-
-		# simple plural (just an additional "s" at the end) will be added in the regexp
-		my @prefixes_suffixes_list = (
-# huiles
-[[
-"huile",
-"huile végétale",
-"huiles végétales",
-"matière grasse",
-"matières grasses",
-"matière grasse végétale",
-"matières grasses végétales",
-"graisse",
-"graisse végétale",
-"graisses végétales",
-],
-[
-"arachide",
-"avocat",
-"chanvre",
-"coco",
-"colza",
-"illipe",
-"karité",
-"lin",
-"mangue",
-"noisette",
-"noix",
-"noyaux de mangue",
-"olive",
-"olive extra",
-"olive vierge",
-"olive extra vierge",
-"olive vierge extra",
-"palme",
-"palmiste",
-"pépins de raisin",
-"sal",
-"sésame",
-"soja",
-"tournesol",
-"tournesol oléique",
-]
-],
-
-
-[[
-"extrait",
-"extrait naturel",
-],
-[
-"café",
-"chicorée",
-"curcuma",
-"houblon",
-"levure",
-"malt",
-"muscade",
-"poivre",
-"poivre noir",
-"romarin",
-"thé",
-"thé vert",
-"thym",
-]
-],
-
-[[
-"lécithine",
-],
-[
-"colza",
-"soja",
-"soja sans ogm",
-"tournesol",
-]
-],
-
-[
-[
-"arôme naturel",
-"arômes naturels",
-"arôme artificiel",
-"arômes artificiels",
-"arômes naturels et artificiels",
-"arômes",
-],
-[
-"abricot",
-"ail",
-"amande",
-"amande amère",
-"agrumes",
-"aneth",
-"boeuf",
-"cacao",
-"cannelle",
-"caramel",
-"carotte",
-"carthame",
-"cassis",
-"céleri",
-"cerise",
-"curcuma",
-"cumin",
-"citron",
-"citron vert",
-"crustacés",
-"estragon",
-"fenouil",
-"figue",
-"fraise",
-"framboise",
-"fromage de chèvre",
-"fruit",
-"fruit de la passion",
-"fruits de la passion",
-"fruits de mer",
-"fumée",
-"gentiane",
-"herbes",
-"jasmin",
-"laurier",
-"lime",
-"limette",
-"mangue",
-"menthe",
-"menthe crêpue",
-"menthe poivrée",
-"muscade",
-"noix",
-"noix de coco",
-"oignon",
-"olive",
-"orange",
-"orange amère",
-"origan",
-"pamplemousse",
-"pamplemousse rose",
-"pêche",
-"piment",
-"pistache",
-"porc",
-"pomme",
-"poire",
-"poivre",
-"poisson",
-"poulet",
-"réglisse",
-"romarin",
-"rose",
-"rhum",
-"sauge",
-"saumon",
-"sureau",
-"thé",
-"thym",
-"vanille",
-"vanille de Madagascar",
-"autres agrumes",
-]
-],
-
-
-[
-[
-"carbonate",
-"carbonates acides",
-"chlorure",
-"citrate",
-"iodure",
-"nitrate",
-"diphosphate",
-"diphosphate",
-"phosphate",
-"sélénite",
-"sulfate",
-"hydroxyde",
-"sulphate",
-],
-[
-"aluminium",
-"ammonium",
-"calcium",
-"cuivre",
-"fer",
-"magnésium",
-"manganèse",
-"potassium",
-"sodium",
-"zinc",
-]
-],
-
-);
-
-		foreach my $prefixes_suffixes_ref (@prefixes_suffixes_list) {
-
-			my $prefixregexp = "";
-			foreach my $prefix (@{$prefixes_suffixes_ref->[0]}) {
-				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
-				my $unaccented_prefix = unac_string_perl($prefix);
-				if ($unaccented_prefix ne $prefix) {
-					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
-				}
-
-			}
-			$prefixregexp =~ s/^\|//;
-
-			$prefixregexp = '(' . $prefixregexp . ')( bio| biologique| équitable|s|\s|' . $symbols_regexp . ')*';
-
-			my $suffixregexp = "";
-			foreach my $suffix (@{$prefixes_suffixes_ref->[1]}) {
-				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
-				my $unaccented_suffix = unac_string_perl($suffix);
-				if ($unaccented_suffix ne $suffix) {
-					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
-				}
-
-			}
-			$suffixregexp =~ s/^\|//;
-
-			# arôme naturel de citron-citron vert et d'autres agrumes
-			# -> separate suffixes
-			$text =~ s/($suffixregexp)-($suffixregexp)/$1, $2/g;
-
-			# arôme naturel de pomme avec d'autres âromes
-			$text =~ s/ (ou|et|avec) (d')?autres /, /g;
-
-			$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $4, $8)/ieg;
-
-			# old:
-
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
-			#$text =~ s/($prefixregexp) (\(|\[|de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)(\)|\])?/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
-
-			$text =~ s/($prefixregexp)\s?(:|\(|\[)\s?($suffixregexp)\b(\s?(\)|\]))/normalize_enumeration($product_lc,$1,$5)/ieg;
-
-			# Huiles végétales de palme, de colza et de tournesol
-			# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
-			# TODO 18/07/2020 remove when we have a better solution
-			$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
-			$text =~ s/($prefixregexp)(:|\(|\[| | de | d')+((($suffixregexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($suffixregexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($product_lc,$1,$5)/ieg;
-			$text =~ s/fer_élémentaire/fer élémentaire/ig;
-		}
-
-		# Caramel ordinaire et curcumine
-		# $text =~ s/ et /, /ig;
-		# --> too dangerous, too many exceptions
-
-		# Some additives have "et" in their name: need to recombine them
-
-		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
-		my $info = <<INFO
-		Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
-		oxyde et hydroxyde de fer rouge,
-		oxyde et hydroxyde de fer jaune et rouge,
-		Tartrate double de sodium et de potassium,
-		Éthylènediaminetétraacétate de calcium et de disodium,
-		Phosphate d'aluminium et de sodium,
-		Diphosphate de potassium et de sodium,
-		Tripoliphosphates de sodium et de potassium,
-		Sels de sodium de potassium et de calcium d'acides gras,
-		Mono- et diglycérides d'acides gras,
-		Esters acétiques des mono- et diglycérides,
-		Esters glycéroliques de l'acide acétique et d'acides gras,
-		Esters glycéroliques de l'acide citrique et d'acides gras,
-		Esters monoacétyltartriques et diacétyltartriques,
-		Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
-		Esters lactyles d'acides gras du glycérol et du propane-1,
-		Silicate double d'aluminium et de calcium,
-		Silicate d'aluminium et calcium,
-		Silicate d'aluminium et de calcium,
-		Silicate double de calcium et d'aluminium,
-		Glycine et son sel de sodium,
-		Cire d'abeille blanche et jaune,
-		Acide cyclamique et ses sels,
-		Saccharine et ses sels,
-		Acide glycyrrhizique et sels,
-		Sels et esters de choline,
-		Octénylesuccinate d'amidon et d'aluminium,
-INFO
-;
-
-
-		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
-
-		$text =~ s/(di|tri|tripoli|)(phosphate|phosphates) d'aluminium,\s?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
-
-		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split...
-		$text =~ s/(sel|sels) de sodium,\s?(sel|sels) de potassium/sels de sodium et de potassium/ig;
-
-		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
-		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
-
 	}
-
+	
+	$text = develop_ingredients_categories_and_types($product_lc, $text);
+	
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)	
 
 	my @vitaminssuffixes = (
 "a", "rétinol",
@@ -4254,9 +4564,6 @@ sub extract_ingredients_classes_from_text($) {
 			$log->debug("ingredient 3", { ingredient => $ingredient }) if $log->is_debug();
 		}
 	}
-
-	#$product_ref->{ingredients_debug} = clone(\@ingredients);
-	#$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
 
 	my $with_sweeteners;
 
@@ -5094,7 +5401,7 @@ sub add_fruits($) {
 		elsif (defined $ingredient_ref->{ingredients}) {
 			$fruits += add_fruits($ingredient_ref->{ingredients});
 		}
-			$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
+		$log->debug("add_fruits ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits }) if $log->is_debug();
 	}
 
 	$log->debug("add_fruits result", { fruits => $fruits }) if $log->is_debug();
@@ -5130,6 +5437,73 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 	}
 
 	return;
+}
+
+
+=head2 add_milk ( $ingredients_ref )
+
+Recursive function to compute the % of milk for Nutri-Score computation.
+
+=cut
+
+sub add_milk($) {
+
+	my $ingredients_ref = shift;
+
+	my $milk = 0;
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		
+		if (is_a("ingredients", $ingredient_ref->{id}, "en:milk")) {
+
+			if (defined $ingredient_ref->{percent}) {
+				$milk += $ingredient_ref->{percent};
+			}
+			elsif (defined $ingredient_ref->{percent_min}) {
+				$milk += $ingredient_ref->{percent_min};
+			}
+			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
+			# in that case, try to get the possible percent values in nested sub ingredients
+			elsif (defined $ingredient_ref->{ingredients}) {
+				$milk += add_milk($ingredient_ref->{ingredients});
+			}
+		}
+		elsif (defined $ingredient_ref->{ingredients}) {
+			$milk += add_milk($ingredient_ref->{ingredients});
+		}
+		
+		$log->debug("add_milk ingredient, current total", { ingredient_id => $ingredient_ref->{id}, current_milk => $milk }) if $log->is_debug();
+	}
+
+	$log->debug("add_milk result", { milk => $milk }) if $log->is_debug();
+
+	return $milk;
+}
+
+
+=head2 estimate_milk_percent_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the minimum percentage of milk in a product,
+in order to know if a dairy drink should be considered as a food (at least 80% of milk) or a beverage.
+
+Return value: estimated % of milk.
+
+=cut
+
+sub estimate_milk_percent_from_ingredients($) {
+
+	my $product_ref = shift;
+	my $milk_percent = 0;
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+	
+		$log->debug("milk percent - start", { milk_percent => $milk_percent }) if $log->is_debug();
+		$milk_percent = add_milk($product_ref->{ingredients});
+	}
+	
+	$log->debug("milk percent", { milk_percent => $milk_percent }) if $log->is_debug();
+
+	return $milk_percent;
 }
 
 1;

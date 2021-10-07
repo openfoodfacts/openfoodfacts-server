@@ -6,8 +6,7 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Log::Any::Adapter 'TAP', filter => "none";
-#use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -186,7 +185,7 @@ foreach my $test_ref (@tests) {
 
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
-	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, carrefour bio"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, Carrefour bio"},
 ],
 
 	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
@@ -212,7 +211,23 @@ foreach my $test_ref (@tests) {
 	{ lc => "en", serving_size => "1 biscuit (10 g)", serving_size_value => "10", serving_size_unit => "g" },
 ],
 
+	# Test unspecified values
+[
+	{ lc => "en", generic_name_en => "unspecified", labels => "non-specified", origins => "unknown", warning_en => "not specified" },
+	{ lc => "en", product_name_en => '-', generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
+	# product_name_en is missing, so it is copied from generic_name_en
+],
 
+[
+	{ lc => "fr", preparation_fr => "non renseignée", categories => "non spécifiée", labels => "NON RENSEIGNES", conservation_conditions_fr => "non indiquées", origins => "n/a", ingredients_text_fr => "N/A" },
+	{ lc => "fr", preparation_fr => "-", categories => "", labels => "", conservation_conditions_fr => "-", origins => "", 'ingredients_text_fr' => '' },
+],
+
+	# Tags fields: separators should be normalized to a comma
+[
+	{ lc => "fr", packaging => "étui carton FSC + sachet individuel papier" },
+	{ lc => "fr", packaging => "étui carton FSC, sachet individuel papier" },
+],
 
 );
 
@@ -230,5 +245,45 @@ $product_ref = { lc => "fr", product_name_fr => "NUGGETS DE POULET, poulet élev
 match_labels_in_product_name($product_ref);
 
 is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+
+$product_ref = {
+	product_name => "Nutella 40 g",
+	quantity => "40 g",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella (40g)",
+	quantity => "(40g)",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella[40g]",
+	quantity => "[40g]",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella[40g]",
+	quantity => "40g",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
+
+$product_ref = {
+	product_name => "Nutella 2x20g (80g)",
+	quantity => "2x20g (80g)",
+};
+
+remove_quantity_from_field($product_ref,"product_name");
+is($product_ref->{product_name}, "Nutella");
 
 done_testing();

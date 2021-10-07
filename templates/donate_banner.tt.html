@@ -1,4 +1,24 @@
-[% IF banner %]
+
+[% IF (product_type == 'food') && (cc == 'fr') %]
+<div id="ecoscore_banner" class="row">
+	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
+		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">
+			<div class="row">
+				<div class="small-12 large-9 xlarge-10 columns">
+			<h2>Eco-Score, la note environnementale des produits alimentaires</h2>
+			<p style="margin-bottom:0">Dès le 7 janvier, l'Eco-Score fait son apparition sur le site et l'app Open Food Facts !<br>
+			&rarr; <a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires">Découvrir l'Eco-Score</a></p>
+				</div>
+				<div class="show-for-large-up large-3 xlarge-2 columns">
+					<a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-a.svg" alt="Eco-Score"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+[% ELSIF banner %]
+
 <div id="donate_banner" class="row">
 	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
 		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">

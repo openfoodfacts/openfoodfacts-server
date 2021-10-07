@@ -721,8 +721,8 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr "The expiration date is a way to track product changes over time and to identify the most recent version."
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
-msgstr "Drilldown into products by..."
+msgid "Explore products by..."
+msgstr "Explore products by..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -2506,6 +2506,10 @@ msgstr "A collaborative, free and open database of ingredients, nutrition facts 
 msgctxt "site_name"
 msgid "Open Food Facts"
 msgstr "Open Food Facts"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "Open Food Facts logo"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -4980,7 +4984,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr "Edit your user profile"
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Ingredients"
 
@@ -5043,12 +5047,12 @@ msgid "Missing nutrition facts"
 msgstr "Missing nutrition facts"
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
-msgstr "ecoscore"
+msgid "Eco-Score"
+msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5260,3 +5264,186 @@ msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
 msgstr "Currently only for products with chicken or eggs"
 
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr "Classify products according to your preferences"
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr "Classify the %d products below according to your preferences"
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr "Most scanned products"
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr "Products with the best Nutri-Score"
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr "Products with the best Eco-Score"
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr "Recently added products"
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr "Recently modified products"
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr "%d products per page"
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr "Not applicable"
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr "Abbreviated product name"
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr "Product name with abbreviations shown on receipts"
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr "Vision, Mission, Values and Programs"
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr "Forgotten password?"
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr "We could not reinitialize your password, please contact us for assistance."
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr "Remove all nutrient values"
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr "User deleted."
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr "List of GS1 GLN identifiers to be associated with the organization"
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr "Enable organization members to manually export product data and photos to the public database."
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr "Activate automated daily exports of product data and photos to the public database."
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr "Administrator fields"
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr "Queued"
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr "In progress"
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr "Finished"
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr "Failed"
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr "Export from the producers platform"
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr "Import to the public database"
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr "Update of the import status on the producers platform"
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr "The export has been scheduled. This page can be closed."
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr "Your export has been scheduled. You will receive an e-mail once it is finished."
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr "Product page on the public database"
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr "The product does not exist yet on the public database"
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr "Some product updates have not been published on the public database."
+
+msgctxt "org_do_not_import_codeonline"
+msgid "Do not import CodeOnline data."
+msgstr "Do not import CodeOnline data."
+
+msgctxt "overwrite_owner"
+msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+msgstr "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr "Some of the data for the products of %s come from %s."
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr "Type of the product photo"
+
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."

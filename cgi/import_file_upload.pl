@@ -71,7 +71,7 @@ if ($action eq "process") {
 
 	my %data = ();
 
-	if ($filename =~ /\.(xlsx|csv|tsv)$/i) {
+	if ($filename =~ /\.(xlsx|ods|csv|tsv)$/i) {
 
 
 		my $extension = lc($1) ;

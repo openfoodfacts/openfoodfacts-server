@@ -1,10 +1,11 @@
+stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
-stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua
+stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
-stopwords:sv:certifierad, ingrediens, godkänd, råvara, enlighet, med, kriterierna, produkt
+stopwords:sv:certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
 
 
 synonyms:en:carbon, co2
@@ -95,8 +96,65 @@ synonyms:fr:phase de ponte, période de ponte, la ponte
 
 synonyms:fr:premier, 1er
 
+da:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
+xx:Bedre Dyrevelfærd, Bedre Dyrevelfaerd
+
+< da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 1 Hjerte, Bedre Dyrevelfaerd 1 Hjerte
+de:Bedre Dyrevelfærd 1 Herz, Bedre Dyrevelfaerd 1 Herz
+xx:Bedre Dyrevelfærd 1 Heart, Bedre Dyrevelfaerd 1 Heart
+
+< da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 2 Hjerter, Bedre Dyrevelfaerd 2 Hjerter
+de:Bedre Dyrevelfærd 2 Herzen, Bedre Dyrevelfaerd 2 Herzen
+xx:Bedre Dyrevelfærd 2 Hearts, Bedre Dyrevelfaerd 2 Hearts
+
+< da:Bedre Dyrevelfærd
+da:Bedre Dyrevelfærd 3 Hjerter, Bedre Dyrevelfaerd 3 Hjerter
+de:Bedre Dyrevelfærd 3 Herzen, Bedre Dyrevelfaerd 3 Herzen
+xx:Bedre Dyrevelfærd 3 Hearts, Bedre Dyrevelfaerd 3 Hearts
+
+< da:Dansk vegetarisk forening
+< en:Vegan
+da:dansk vegetarisk forening vegansk, dvf vegansk
+xx:dansk vegetarisk forening vegan, dvf vegan
+
+< da:Dansk vegetarisk forening
+da:dansk vegetarisk forening vegetarisk, dvf vegetarisk
+xx:dansk vegetarisk forening vegetarian, dvf vegetarian
+
 de:Berliner Wein Trophy
 label_categories:en: en:Wines
+
+de:Für mehr Tierschutz
+xx:Für mehr Tierschutz
+
+< de:Für mehr Tierschutz
+de:Für mehr Tierschutz 1 Stern, Für mehr Tierschutz ein Stern, Für mehr Tierschutz Einsteigerstufe
+xx:Für mehr Tierschutz 1 Star, Für mehr Tierschutz one Star
+
+< de:Für mehr Tierschutz
+de:Für mehr Tierschutz 2 Sterne, Für mehr Tierschutz zwei Sterne, Für mehr Tierschutz Premiumstufe
+xx:Für mehr Tierschutz 2 Stars, Für mehr Tierschutz two Stars
+
+de:Haltungsform
+xx:Haltungsform
+
+< de:Haltungsform
+de:Haltungsform 1 Stallhaltung, Haltungsform Stallhaltung, Haltungsform 1
+xx:Haltungsform 1
+
+< de:Haltungsform
+de:Haltungsform 2 StallhaltungPlus, Haltungsform StallhaltungPlus, Haltungsform 2
+xx:Haltungsform 2
+
+< de:Haltungsform
+de:Haltungsform 3 Außenklima, Haltungsform Außenklima, Haltungsform 3
+xx:Haltungsform 3
+
+< de:Haltungsform
+de:Haltungsform 4 Premium, Haltungsform Premium, Haltungsform 4
+xx:Haltungsform 4
 
 de:Migros "Aus der Region", "Aus der Region"
 fr:Migros "De la région", "De la région"
@@ -104,6 +162,9 @@ origins:en: en:Switzerland
 
 de:Nach traditioneller Art, Hausmacher Art
 fr:À l'ancienne
+
+de:Neuland
+xx:Neuland
 
 de:Ohne Polyphosphate
 es:Sin polifosfatos
@@ -123,6 +184,7 @@ de:Typisch Harz
 
 en:1% for the planet, 1 percent for the planet, one percent for the planet
 ca:1% pel planeta
+de:1% für den Planeten
 es:1% para el planeta, uno por ciento para el planeta
 fi:1% planeetalle, prosentti planeetalle
 fr:1% pour la planète
@@ -177,8 +239,10 @@ en:Agri Natura, AgriNatura
 
 en:Angled fish
 ca:Pescat amb canya
+de:Geangelter Fisch
 fi:koukulla pyydystettyä kalaa
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
+label_categories:en: en:Fishing method
 
 en:Apples from France
 de:Äpfel aus Frankreich
@@ -187,11 +251,13 @@ fi:omenia Ranskasta, omenien alkuperä Ranska
 fr:Pommes de France
 it:Mele francesi
 pt:Maçãs da França
-origins:en: en:France
+origins:en: en:france
 
 en:Assured Food Standards, assured food standard, Red Tractor
 ca:Assured Food Standards
+de:gesicherte Essens Standards
 fi:assured food standards, punainen traktori
+it:Assured Food Standards, Red Tractor
 ru:гарантированный пищевой стандарт
 image:en: assured-food-standards.82x90.svg
 wikidata:en: Q4810404
@@ -209,6 +275,7 @@ hu:Ausztráliában készült
 it:Prodotto in Australia
 nl:Geproduceerd in Australië
 country:en: Australia
+label_categories:en: en:Geographic label
 origins:en: en:Australia
 wikidata:en: Q17000991
 
@@ -226,6 +293,7 @@ country:en: Finland
 wikidata:en: Q11853622
 
 en:Belgian Family Brewers
+de:Belgische Familien Brauer
 fi:belgialaiset perhepanimot
 it:Birrai Familiari Belgi
 nl:Belgische familiebrouwerijen
@@ -243,7 +311,10 @@ ca:Vi biodinàmic
 
 < en:Biodynamic agriculture
 en:Demeter
+ca:Demeter
+de:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
+it:Demetra
 xx:Demeter
 wikidata:en: Q939877
 
@@ -253,9 +324,7 @@ wikidata:en: Q3337101
 
 < en:Biogarantie
 en:Biogarantie BEL, Biogarantie Made in Belgium
-de:Biogarantie BEL, Biogarantie Made in Belgium
-fr:Biogarantie BEL, Biogarantie Made in Belgium
-nl:Biogarantie BEL, Biogarantie Made in Belgium
+xx:Biogarantie BEL, Biogarantie Made in Belgium
 country:en: Belgium
 image:en: biogarantie-bel.90x90.svg
 
@@ -263,7 +332,13 @@ en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
 fr:Pêché à la dynamite
+label_categories:en: en:Fishing method
 wikidata:en: Q1269057
+
+en:Blue Angel
+de:Blauer Engel
+label_categories:en: en:Environnment
+wikidata:en: Q882616
 
 en:Brazilian Beer Awards
 
@@ -343,7 +418,7 @@ en:Calcium source, Source of calcium
 ca:Font de calci
 de:Kalziumquelle
 es:Fuente de calcio
-fi:kalsiumin lähde
+fi:Kalsiumin lähde, Sisältää kalsiumia
 fr:Source de calcium
 he:מקור לסידן
 hu:Kalciumforrás
@@ -355,7 +430,9 @@ th:แหล่งของแคลเซียม
 
 en:Carbon compensated product, carbon neutral
 ca:Producte compensat en carboni, neutre en carboni
-de:Kohlenstoffneutral hergestelltes Produkt, Kohlenstoff-kompensiertes Produkt, kohlenstoffneutral
+da:CO2 neutral, CO2 kompenseret
+de:CO2-neutral, CO2-kompensiert, kohlenstoffdioxidneutral hergestelltes Produkt, Kohlenstoffdioxid-kompensiertes Produkt, kohlenstoffdioxidneutral
+es:Producto carbono neutro
 fi:hiilihyvitetty tuote, hiilikompensoitu tuote, hiilineutraali
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 hu:Szén-kompenzált termék, szén semleges
@@ -363,9 +440,19 @@ nl:Kooldioxide neutraal
 pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
 ru:углерод компенсирующий продукт, углерод нейтральный
 
+< en:Carbon compensated product
+en:Climate Neutral Ceritfied
+xx:Climate Neutral Ceritfied
+
+< en:Carbon compensated product
+en:CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
+da:CO2e neutral, CO2e kompenseret
+de:CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
+
 en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
 ca:Petjada de carboni, emissions de carboni, producte on la petjada de carboni hi surt reflectida
-de:CO2-Emissionen
+cs:Uhlíková stopa
+de:CO2-Fußabdruck, CO2-Emissionen
 es:Huella de carbono, Emisiones de CO2
 fi:hiilijalanjälki, hiilipäästöt, hiilijalanjäljen määrittelevä tuote
 fr:Empreinte carbone, émissions de carbone
@@ -379,7 +466,29 @@ ru:CO2-эмиссия
 label_categories:en: en:Environnment
 wikidata:en: Q310667
 
+en:Carbon Trust
+xx:Carbon Trust
+
+< en:Carbon compensated product
+< en:Carbon Trust
+en:Carbon Trust Carbon Neutral
+xx:Carbon Trust Carbon Neutral
+
+< en:Carbon footprint
+< en:Carbon Trust
+en:Carbon Trust CO2 Measured
+xx:Carbon Trust CO2 Measured
+
+< en:Carbon Trust
+en:Carbon Trust Lower Carbon
+xx:Carbon Trust Lower Carbon
+
+< en:Carbon Trust
+en:Carbon Trust Reducing CO2
+xx:Carbon Trust Reducing CO2
+
 en:Catad'Or Santiago de Chile Wine Awards
+label_categories:en: en:Wines
 
 en:Certified Belgian Abbey Beer
 es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abadía certificada
@@ -395,16 +504,19 @@ ca:Certificat per AENOR
 es:Certificado por l'Asociación Española de Normalización y Certificación
 fi:AENOR:in sertifioima
 fr:Certifié par l'AENOR
+label_categories:en: en:Certification
 
 en:Certified by Avicert
 fi:Avicertin sertifioima
 fr:Certifié par Avicert, Avicert
 nl:Gecertificeerd door Avicert
+label_categories:en: en:Certification
 
 en:Certified by Certiconfiance
 fi:Certificonfiancen sertifioima
 fr:Certifié par Certiconfiance, Certiconfiance
 it:Certificato da Certiconfiance
+label_categories:en: en:Certification
 
 en:Certified by Certipaq
 ca:Certificat per Certipaq
@@ -412,12 +524,14 @@ fi:Certipaqin sertifioima
 fr:Certifié par Certipaq, Certipaq
 it:Certificato da Certipaq
 pt:Certificado pela Certipaq
+label_categories:en: en:Certification
 
 en:Certified by Certisys
 fi:Certisysin sertifioima
 fr:Certifié par Certisys, Certisys
 it:Certificato da Certisys
 nl:Gecertificeerd door Certisys
+label_categories:en: en:Certification
 
 en:Certified by Ecocert, Ecocert
 ar:Ecocert
@@ -429,20 +543,24 @@ fr:Ecocert, Distribution certifiée par Ecocert
 he:באישור Ecocert
 it:Certificato da Ecocert, Ecocert
 nl:Gecerificeerd door Ecocert
+label_categories:en: en:Certification
 
 < en:Certified by Ecocert
 en:Cacao controlled by Ecocert SA
 ca:Cacau controlat per Ecocert SA
 fr:Cacao contrôlé par Ecocert SA
+label_categories:en: en:Certification, en:Cocoa
 
 < en:Certified by Ecocert
 en:Certified by Ecocert Canada
 fi:Ecocert Kanadan sertifioima
 fr:Ecocert Canada
 it:Certificato da Ecocert Canada
+label_categories:en: en:Certification
 
 < en:Certified by Ecocert
 fr:Equitable Ecocert
+label_categories:en: en:Certification, en:Fairtrade
 
 en:Certified by Ocacia
 ca:Certificat per Ocacia
@@ -450,12 +568,14 @@ fi:Ocacian sertifioima
 fr:Certifié par Ocacia, Ocacia
 he:באישור Ocacia
 it:Certificato da Ocacia
+label_categories:en: en:Certification
 
 en:Certified by Qualisud
 fi:Qualisudin sertifioima
 fr:Certifié par Qualisud, Certifiés par Qualisud, Qualisud
 it:Certificato da Qualisud
 pt:Certificado pela Qualisud
+label_categories:en: en:Certification
 
 en:Certified quality
 fr:Qualité certifiée
@@ -477,6 +597,10 @@ nl:Charte LU Harmony
 en:Chickens raised without antibiotics since birth
 fr:Poulets élevés sans antibiotique dès la naissance
 
+en:Choices
+de:Bewusst Wählen
+label_categories:en: en:Health, en:Nutrition
+
 en:Class I, class 1
 ca:Classe I
 de:Klasse I
@@ -496,12 +620,11 @@ fr:Catégorie II, qualité marchande, catégorie 2
 it:Classe II
 
 en:Cocoa Life
-de:Cocoa Life
 es:Cocoa Life
-fi:Cocoa Life
-fr:Cocoa Life
 it:Cocoa Life
 nl:Cocoa Life
+xx:Cocoa Life
+label_categories:en: en:Environment, en:Cocoa
 
 en:Contains a source of phenylalanine
 ca:Conté una font de fenilalanina
@@ -516,6 +639,7 @@ nl:Bevat een bron van phenylalanine
 sv:Innehåller en fenylalaninkälla, Innehåller en källa till fenylalanin, innehåller en källa av fenylalanin
 
 en:Contains alcohol
+de:Enthält Alkohol
 opposite:en: en:no-alcohol
 
 en:Contains gluten
@@ -566,13 +690,16 @@ fr:Contient de l'huile de palme
 opposite:en: en:no-palm-oil
 
 en:Contains soy
+ca:Conté soja
 de:Enthält Soja
 es:Contiene soja, Contiene soya
 fi:sisältää soijaa
 fr:Contient du soja
 hu:Szójatartalmú, szóját tartalmaz
 it:Contiene soia
+nl:bevat soya
 pt:Contem soja
+label_categories:en: en:Environment, en:Soy
 opposite:en: en:no-soy
 
 en:Cooked in France
@@ -584,6 +711,7 @@ fr:Cuisiné en France
 he:בושל בצרפת
 it:Cucinato in Francia
 pt:Cozido na França
+label_categories:en: en:Geographic label
 
 en:Cooperative product
 ca:Producte de cooperativa
@@ -606,9 +734,11 @@ te:కార్మోరాంట్ ఫిషింగ్
 th:การจับปลาของนกกาน้ำ
 vi:Đánh cá bằng chim cốc
 zh:鸬鹚捕鱼
+label_categories:en: en:Fishing method
 wikidata:en: Q1784476
 
 en:Decanter World Wine Awards
+label_categories:en: en:Wines
 
 en:Designated Origin Denomination
 de:Ausgewiesene Herkunftsbezeichnung
@@ -692,6 +822,7 @@ label_categories:en: en:Storage
 
 en:Do not freeze again
 ca:No tornar a congelar
+da:Må ikke nedfryses igen, Må ikke nedfryses igen efter optøning
 de:Nicht wieder einfrieren
 es:No volver a congelar, No congelar de nuevo
 fi:ei saa pakastaa uudelleen, sulanutta tuotetta ei saa pakastaa uudelleen
@@ -709,34 +840,35 @@ es:Sin riesgo para los delfines
 fi:Delfiini-ystävällinen, delfiinejä vaarantamaton
 fr:Protection des dauphins
 it:Sicurezza dei Delfini
+nl:dolfijnvriendelijk
+label_categories:en: en:Fishing labels
 
 en:Dredge fishing
 de:Baggerfischen
 fi:pohjaharakalastettu
 fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées à la drague
+label_categories:en: en:Fishing method
 
 en:EAC
-ca:EAC
-de:EAC
-fi:EAC
 it:EAC
-nl:EAC
-pl:EAC
-ru:EAC
+xx:EAC
 wikidata:en: Q18407253
 
 en:Egg laid in France
 ca:Ous posats a França
+de:in Frankreich gelegte Eier
 fi:munittu Ranskassa
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
 it:Uova deposte in Francia
-origins:en: en:France
+label_categories:en: en:Geographic label
+origins:en: en:france
 
 en:Enriched wih minerals
 fi:Lisätty kivennäisaineita
 fr:Enrichi en minéraux
 hu:Ásványi anyagokkal dúsított
 it:Arricchito con minerali
+nl:verrijkt met mineralen
 
 en:Enriched wih vitamins
 ca:Enriquit amb vitamines
@@ -747,6 +879,7 @@ fr:Enrichi en vitamines
 he:מועשר בוויטמינים
 hu:Vitaminokkal dúsított
 it:Arricchito con vitamine
+nl:verrijkt met vitaminen
 sv:Vitaminberikat, Vitaminberikad
 
 en:Enriched with calcium
@@ -757,6 +890,7 @@ fr:Enrichi en calcium
 he:מועשר בסידן
 hu:Kalciummal dúsított
 it:Arricchito con calcio
+nl:verrijkt met calcium
 pt:Enriquecido com cálcio
 
 en:Ethical Tea Partnership, ETP
@@ -764,6 +898,7 @@ label_categories:en: en:Faitrade
 
 en:EU Agriculture, European Union agriculture
 ca:Agricultura UE
+cs:Zemědělství EU
 de:EU-Landwirtschaft
 es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
 fi:tuotettu EU:ssa
@@ -778,6 +913,7 @@ ru:EU агрокультура, агрокультура Европейског�
 < en:Non-EU Agriculture
 en:EU/non-EU Agriculture, EU and non EU Agriculture
 ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
+cs:Zemědělství EU a mimo EU
 de:EU-/Nicht-EU-Landwirtschaft
 es:Agricultura UE/no UE
 fi:Tuotettu EU:ssa ja EU:n ulkopuolella
@@ -786,6 +922,9 @@ hu:EU/nem-EU mezőgazdaság
 it:Agricoltura EU/non-EU
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
+
+en:EU Ecolabel
+xx:EU Ecolabel
 
 < en:EU Organic
 en:AD-BIO-154
@@ -1275,77 +1414,60 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:AT-BIO-004
-fi:AT-BIO-004
+xx:AT-BIO-004
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-301
 ca:AT-BIO-301
-de:AT-BIO-301
 es:AT-BIO-301
-fi:AT-BIO-301
 it:AT-BIO-301
 nl:AT-BIO-301
-pl:AT-BIO-301
-pt:AT-BIO-301
+xx:AT-BIO-301
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-302
-de:AT-BIO-302
-fi:AT-BIO-302
+xx:AT-BIO-302
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-401
-ca:AT-BIO-401
-fi:AT-BIO-401
-it:AT-BIO-401
+xx:AT-BIO-401
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-402
 ca:AT-BIO-402
-de:AT-BIO-402
 es:AT-BIO-402
-fi:AT-BIO-402
 it:AT-BIO-402
-nl:AT-BIO-402
-pt:AT-BIO-402
+xx:AT-BIO-402
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-501
-ca:AT-BIO-501
-de:AT-BIO-501
-fi:AT-BIO-501
-pt:AT-BIO-501
+xx:AT-BIO-501
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-701
-ca:AT-BIO-701
-de:AT-BIO-701
-fi:AT-BIO-701
-pt:AT-BIO-701
+xx:AT-BIO-701
 country:en: Austria
 
 < en:EU Organic
 en:AT-BIO-901
+ca:AT-BIO-901
+de:AT-BIO-901
 es:AT-BIO-901
-fi:AT-BIO-901
-it:AT-BIO-901
-pt:AT-BIO-901
+xx:AT-BIO-901
 
 < en:EU Organic
 en:AT-BIO-902
 ca:AT-BIO-902
-de:AT-BIO-902
 es:AT-BIO-902
-fi:AT-BIO-902
 it:AT-BIO-902
 nl:AT-BIO-902
-pt:AT-BIO-902
+xx:AT-BIO-902
 country:en: Austria
 
 < en:EU Organic
@@ -1657,40 +1779,31 @@ exceptions:en: en: in-conversion products,en:
 
 < en:EU Organic
 en:BE-BIO-01, Certisys BE-BIO-01
-ca:BE-BIO-01, Certisys BE-BIO-01
-de:BE-BIO-01, Certisys BE-BIO-01
+ca:BE-BIO-01
 es:BE-BIO-01
-fi:BE-BIO-01, Certisys BE-BIO-01
-it:BE-BIO-01
-nl:BE-BIO-01
+it:BE-BIO-01, Certisys BE-BIO-01
 pl:BE-BIO-01
-pt:BE-BIO-01, Certisys BE-BIO-01
+xx:BE-BIO-01, Certisys BE-BIO-01
 country:en: Belgium
 
 < en:EU Organic
 en:BE-BIO-02
 ca:BE-BIO-02
-de:BE-BIO-02
 es:BE-BIO-02
-fi:BE-BIO-02
 it:BE-BIO-02
 nl:BE-BIO-02
-pl:BE-BIO-02
-pt:BE-BIO-02
+xx:BE-BIO-02
 country:en: Belgium
 
 < en:EU Organic
 en:BE-BIO-03
-fi:BE-BIO-03
-pt:BE-BIO-03
+de:BE-BIO-03
+xx:BE-BIO-03
 country:en: Belgium
 
 < en:EU Organic
 en:BE-BIO-04
-ca:BE-BIO-04
-fi:BE-BIO-04
-it:BE-BIO-04
-pt:BE-BIO-04
+xx:BE-BIO-04
 country:en: Belgium
 
 < en:EU Organic
@@ -1785,77 +1898,72 @@ exceptions:en: en:wine,en:until 30 June 2021
 
 < en:EU Organic
 en:BG-BIO-02
-de:BG-BIO-02
 es:BG-BIO-02
-fi:BG-BIO-02
-it:BG-BIO-02
-nl:BG-BIO-02
-pt:BG-BIO-02
+xx:BG-BIO-02
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-03
-fi:BG-BIO-03
+xx:BG-BIO-03
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-04
-ca:BG-BIO-04
-fi:BG-BIO-04
-it:BG-BIO-04
+de:BG-BIO-04
+xx:BG-BIO-04
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-05
-fi:BG-BIO-05
+xx:BG-BIO-05
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-06
-fi:BG-BIO-06
+xx:BG-BIO-06
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-07
-fi:BG-BIO-07
+xx:BG-BIO-07
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-08
-fi:BG-BIO-08
+xx:BG-BIO-08
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-10
-fi:BG-BIO-10
+xx:BG-BIO-10
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-12
-fi:BG-BIO-12
+xx:BG-BIO-12
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-13
-fi:BG-BIO-13
+xx:BG-BIO-13
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-14
-fi:BG-BIO-14
+xx:BG-BIO-14
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-15
-fi:BG-BIO-15
+xx:BG-BIO-15
 country:en: Bulgaria
 
 < en:EU Organic
 en:BG-BIO-16
+ca:BG-BIO-16
+de:BG-BIO-16
 es:BG-BIO-16
-fi:BG-BIO-16
-it:BG-BIO-16
-pt:BG-BIO-16
+xx:BG-BIO-16
 country:en: Bulgaria
 
 < en:EU Organic
@@ -2049,6 +2157,7 @@ exceptions:en: en:in-conversion products,en:wine
 
 < en:EU Organic
 en:BO-BIO-123
+de:BO-BIO-123
 es:BO-BIO-123
 auth_address:en: Calle Pasoskanki , 2134, Cochabamba, Bolivia
 auth_name:en: IMOcert Latinoamérica Ltda.
@@ -2591,37 +2700,30 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 < en:EU Organic
 en:CH-BIO-004
 ca:CH-BIO-004
-de:CH-BIO-004
 es:CH-BIO-004
-fi:CH-BIO-004
+it:CH-BIO-004
 nl:CH-BIO-004
-pt:CH-BIO-004
+xx:CH-BIO-004
 country:en: Switzerland
 
 < en:EU Organic
 en:CH-BIO-006, ch-bio-scesp-006
-ca:CH-BIO-006, ch-bio-scesp-006
-de:CH-BIO-006, ch-bio-scesp-006
+ca:CH-BIO-006
 es:CH-BIO-006
-fi:CH-BIO-006, ch-bio-scesp-006
-it:CH-BIO-006
-nl:CH-BIO-006
-pl:CH-BIO-006
-pt:CH-BIO-006, ch-bio-scesp-006
+it:CH-BIO-006, CH-BIO-006 SCESp 006
+xx:CH-BIO-006, ch-bio-scesp-006
 country:en: Switzerland
 
 < en:EU Organic
 en:CH-Bio-038
-fi:CH-Bio-038
-it:CH-Bio-038
-pt:CH-Bio-038
+de:CH-Bio-038
+xx:CH-BIO-038
 country:en: Switzerland
 
 < en:EU Organic
 en:CH-Bio-086
-fi:CH-Bio-086
-it:CH-Bio-086
-pt:CH-Bio-086
+de:CH-Bio-086
+xx:CH-BIO-086
 country:en: Switzerland
 
 < en:EU Organic
@@ -2968,6 +3070,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU Organic
 en:CN-BIO-140
+de:CN-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
 auth_url:en: http://www.ceres-cert.com
@@ -2977,6 +3080,8 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:CN-BIO-141
+ca:CN-BIO-141
+de:CN-BIO-141
 es:CN-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
@@ -3032,6 +3137,8 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:CN-BIO-154
+ca:CN-BIO-154
+de:CN-BIO-154
 es:CN-BIO-154
 it:CN-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
@@ -3187,6 +3294,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:CO-BIO-154
+de:CO-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -3367,231 +3475,166 @@ exceptions:en: en:in-conversion products,en:wine
 
 < en:EU Organic
 en:CY-BIO-001
-ca:CY-BIO-001
-fi:CY-BIO-001
-it:CY-BIO-001
+de:CY-BIO-001
+xx:CY-BIO-001
 country:en: Cyprus
 
 < en:EU Organic
 en:CY-BIO-002
-fi:CY-BIO-002
+xx:CY-BIO-002
 country:en: Cyprus
 
 < en:EU Organic
 en:CZ-BIO-001
 ca:CZ-BIO-001
-de:CZ-BIO-001
+cs:CZ-BIO-001
 es:CZ-BIO-001
-fi:CZ-BIO-001
 it:CZ-BIO-001
-nl:CZ-BIO-001
-pt:CZ-BIO-001
+xx:CZ-BIO-001
 country:en: Czech Republic
 
 < en:EU Organic
 en:CZ-BIO-002
-de:CZ-BIO-002
+ca:CZ-BIO-002
+cs:CZ-BIO-002
 es:CZ-BIO-002
-fi:CZ-BIO-002
-it:CZ-BIO-002
-pt:CZ-BIO-002
+xx:CZ-BIO-002
 country:en: Czech Republic
 
 < en:EU Organic
 en:CZ-BIO-003
-de:CZ-BIO-003
+ca:CZ-BIO-003
+cs:CZ-BIO-003
 es:CZ-BIO-003
-fi:CZ-BIO-003
-it:CZ-BIO-003
-pt:CZ-BIO-003
+xx:CZ-BIO-003
 country:en: Czech Republic
 
 < en:EU Organic
 en:CZ-BIO-004
-fi:CZ-BIO-004
+xx:CZ-BIO-004
 country:en: Czech Republic
 
 < en:EU Organic
 en:DE-ÖKO-001
 ca:DE-ÖKO-001
-de:DE-ÖKO-001
 es:DE-ÖKO-001
-fi:DE-ÖKO-001
-fr:DE-ÖKO-001
 it:DE-ÖKO-001
-nl:DE-ÖKO-001
-pl:DE-ÖKO-001
-pt:DE-ÖKO-001
+xx:DE-ÖKO-001
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-003
 ca:DE-ÖKO-003
-de:DE-ÖKO-003
 es:DE-ÖKO-003
-fi:DE-ÖKO-003
 it:DE-ÖKO-003
-nl:DE-ÖKO-003
-pl:DE-ÖKO-003
-pt:DE-ÖKO-003
+xx:DE-ÖKO-003
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-005
 ca:DE-ÖKO-005
-de:DE-ÖKO-005
 es:DE-ÖKO-005
-fi:DE-ÖKO-005
 it:DE-ÖKO-005
-nl:DE-ÖKO-00t
-pl:DE-ÖKO-005
-pt:DE-ÖKO-005
+xx:DE-ÖKO-005
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-006
 ca:DE-ÖKO-006
-de:DE-ÖKO-006
 es:DE-ÖKO-006
-fi:DE-ÖKO-006
-fr:DE-ÖKO-006
 it:DE-ÖKO-006
-nl:DE-ÖKO-006
-pl:DE-ÖKO-006
-pt:DE-ÖKO-006
+xx:DE-ÖKO-006
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-007
 ca:DE-ÖKO-007
-de:DE-ÖKO-007
 es:DE-ÖKO-007
-fi:DE-ÖKO-007
 it:DE-ÖKO-007
-nl:DE-ÖKO-007
-pl:DE-ÖKO-007
-pt:DE-ÖKO-007
+xx:DE-ÖKO-007
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-009
-de:DE-ÖKO-009
-fi:DE-ÖKO-009
-it:DE-ÖKO-009
-pt:DE-ÖKO-009
+xx:DE-ÖKO-009
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-012, DE-ÖKO-12
-de:DE-ÖKO-012, DE-ÖKO-12
 es:DE-ÖKO-012
-fi:DE-ÖKO-012, DE-ÖKO-12
-it:DE-ÖKO-12
-pt:DE-ÖKO-012, DE-ÖKO-12
+xx:DE-ÖKO-012, DE-ÖKO-12
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-013, DE-ÖKO-13
-ca:DE-ÖKO-013, DE-ÖKO-13
-de:DE-ÖKO-013
+ca:DE-ÖKO-013
+cs:DE-ÖKO-13
 es:DE-ÖKO-013
-fi:DE-ÖKO-013
-it:DE-ÖKO-013
-nl:DE-ÖKO-013
-pt:DE-ÖKO-013, DE-ÖKO-13
+it:DE-ÖKO-13
+xx:DE-ÖKO-013, DE-ÖKO-13
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-021, DE-ÖKO-21
-de:DE-ÖKO-021, DE-ÖKO-21
 es:DE-ÖKO-021
-fi:DE-ÖKO-021, DE-ÖKO-21
-fr:DE-ÖKO-021, DE-ÖKO-21
-it:DE-ÖKO-021
 nl:DE-ÖKO-021
-pt:DE-ÖKO-021, DE-ÖKO-21
+xx:DE-ÖKO-021, DE-ÖKO-21
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-022, DE-ÖKO-22
-de:DE-ÖKO-022, DE-ÖKO-22
-fi:DE-ÖKO-022, DE-ÖKO-22
-it:DE-ÖKO-022
-pt:DE-ÖKO-022, DE-ÖKO-22
+xx:DE-ÖKO-022, DE-ÖKO-22
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-024, DE-ÖKO-24
-ca:DE-ÖKO-024, DE-ÖKO-24
-de:DE-ÖKO-024, DE-ÖKO-24
 es:DE-ÖKO-024
-fi:DE-ÖKO-024, DE-ÖKO-24
-it:DE-ÖKO-024
-pt:DE-ÖKO-024, DE-ÖKO-24
+xx:DE-ÖKO-024, DE-ÖKO-24
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-034, DE-ÖKO-34
-de:DE-ÖKO-034, DE-ÖKO-34
 es:DE-ÖKO-034
-fi:DE-ÖKO-034, DE-ÖKO-34
-it:DE-ÖKO-034
-nl:DE-ÖKO-034
-pt:DE-ÖKO-034, DE-ÖKO-34
+xx:DE-ÖKO-034, DE-ÖKO-34
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-037, DE-ÖKO-37
 ca:DE-ÖKO-037, DE-ÖKO-37
-de:DE-ÖKO-037, DE-ÖKO-37
 es:DE-ÖKO-037
-fi:DE-ÖKO-037, DE-ÖKO-37
-it:DE-ÖKO-037
-pt:DE-ÖKO-037, DE-ÖKO-37
+it:DE-ÖKO-37
+xx:DE-ÖKO-037, DE-ÖKO-37
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-039, DE-ÖKO-39
-ca:DE-ÖKO-039, DE-ÖKO-39
-de:DE-ÖKO-039, DE-ÖKO-39
 es:DE-ÖKO-039
-fi:DE-ÖKO-039, DE-ÖKO-39
-it:DE-ÖKO-039
+it:DE-ÖKO-39
 nl:DE-ÖKO-039
-pt:DE-ÖKO-039, DE-ÖKO-39
+xx:DE-ÖKO-039, DE-ÖKO-39
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-044, DE-ÖKO-44
-de:DE-ÖKO-044, DE-ÖKO-44
-fi:DE-ÖKO-044, DE-ÖKO-44
-it:DE-ÖKO-044
-pt:DE-ÖKO-044, DE-ÖKO-44
+xx:DE-ÖKO-044, DE-ÖKO-44
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-060, DE-ÖKO-60
-de:DE-ÖKO-060, DE-ÖKO-60
 es:DE-ÖKO-060
-fi:DE-ÖKO-060, DE-ÖKO-60
-it:DE-ÖKO-060
 nl:DE-ÖKO-060
-pt:DE-ÖKO-060, DE-ÖKO-60
+xx:DE-ÖKO-060, DE-ÖKO-60
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-064, DE-ÖKO-64
-ca:DE-ÖKO-064, DE-ÖKO-64
-fi:DE-ÖKO-064, DE-ÖKO-64
-pt:DE-ÖKO-064, DE-ÖKO-64
+de:DE-ÖKO-064, DE-ÖKO-64
+xx:DE-ÖKO-064, DE-ÖKO-64
 country:en: Germany
 
 < en:EU Organic
 en:DE-ÖKO-070, DE-ÖKO-70
-de:DE-ÖKO-070, DE-ÖKO-70
-fi:DE-ÖKO-070, DE-ÖKO-70
-it:DE-ÖKO-070
-pt:DE-ÖKO-070, DE-ÖKO-70
+xx:DE-ÖKO-070, DE-ÖKO-70
 country:en: Germany
 
 < en:EU Organic
@@ -3605,26 +3648,23 @@ exceptions:en: en:in-conversion products,en:except products covered by Annex III
 
 < en:EU Organic
 en:DK-ØKO-050
-fi:DK-ØKO-050
+xx:DK-ØKO-050
 country:en: Denmark
 
 < en:EU Organic
 en:DK-ØKO-100
-de:DK-ØKO-100
 es:DK-ØKO-100
-fi:DK-ØKO-100
-it:DK-ØKO-100
-pt:DK-ØKO-100
+xx:DK-ØKO-100
 country:en: Denmark
 
 < en:EU Organic
 en:DK-ØKO-200
-fi:DK-ØKO-200
+xx:DK-ØKO-200
 country:en: Denmark
 
 < en:EU Organic
 en:DK-ØKO-300
-fi:DK-ØKO-300
+xx:DK-ØKO-300
 country:en: Denmark
 
 < en:EU Organic
@@ -3890,6 +3930,8 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:EC-BIO-141
+ca:EC-BIO-141
+de:EC-BIO-141
 es:EC-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
@@ -3963,14 +4005,11 @@ exceptions:en: en:www.caae.es,en:until 30 June 2021
 
 < en:EU Organic
 en:EE-ÖKO-01
-fi:EE-ÖKO-01
+xx:EE-ÖKO-01
 
 < en:EU Organic
 en:EE-ÖKO-02
-ca:EE-ÖKO-02
-de:EE-ÖKO-02
-fi:EE-ÖKO-02
-pt:EE-ÖKO-02
+xx:EE-ÖKO-02
 
 < en:EU Organic
 en:EG-BIO-102
@@ -4108,6 +4147,14 @@ eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group D: processed
 exceptions:en: en:in-conversion products,en:
 
 < en:EU Organic
+en:EG-Öko-Verordnung
+de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
+it:Regolamento Biologico CE
+nl:Biologische EU Verordening
+country:en: Germany
+image:en: eg-oko-verordnung.110x90.svg
+
+< en:EU Organic
 en:ER-BIO-149
 auth_address:en: Meeuwenlaan 4-6, 8011 BZ, Zwolle, Netherlands
 auth_name:en: Control Union Certifications
@@ -4118,371 +4165,331 @@ exceptions:en: en:in-conversion products,en:except products covered by Annex III
 
 < en:EU Organic
 en:ES-EC0-017-AN
-fi:ES-EC0-017-AN
+xx:ES-EC0-017-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-001
+ca:ES-ECO-001
+de:ES-ECO-001
 es:ES-ECO-001
-fi:ES-ECO-001
-fr:ES-ECO-001
-it:ES-ECO-001
-pt:ES-ECO-001
+xx:ES-ECO-001
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-001-AN
 ca:ES-ECO-001-AN
-de:ES-ECO-001-AN
 es:ES-ECO-001-AN
-fi:ES-ECO-001-AN
 it:ES-ECO-001-AN
 nl:ES-ECO-001-AN
-pt:ES-ECO-001-AN
+xx:ES-ECO-001-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-001-CL
-fi:ES-ECO-001-CL
+xx:ES-ECO-001-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-001-CM
+ca:ES-ECO-001-CM
 es:ES-ECO-001-CM
-fi:ES-ECO-001-CM
+xx:ES-ECO-001-CM
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-002
+ca:ES-ECO-002
+de:ES-ECO-002
 es:ES-ECO-002
-fi:ES-ECO-002
-it:ES-ECO-002
-pt:ES-ECO-002
+xx:ES-ECO-002
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-002-AN
+ca:ES-ECO-002-AN
 es:ES-ECO-002-AN
-fi:ES-ECO-002-AN
-it:ES-ECO-002-AN
-pt:ES-ECO-002-AN
+xx:ES-ECO-002-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-002-AR
-fi:ES-ECO-002-AR
+xx:ES-ECO-002-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-002-CL
-fi:ES-ECO-002-CL
+xx:ES-ECO-002-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-002-CM
 ca:ES-ECO-002-CM
 es:ES-ECO-002-CM
-fi:ES-ECO-002-CM
 it:ES-ECO-002-CM
 nl:ES-ECO-002-CM
-pt:ES-ECO-002-CM
+xx:ES-ECO-002-CM
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-003-AN
-de:ES-ECO-003-AN
+ca:ES-ECO-003-AN
 es:ES-ECO-003-AN
-fi:ES-ECO-003-AN
-fr:ES-ECO-003-AN
-it:ES-ECO-003-AN
-pt:ES-ECO-003-AN
+xx:ES-ECO-003-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-004
-ca:ES-ECO-004
-fi:ES-ECO-004
-pt:ES-ECO-004
+xx:ES-ECO-004
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-004-AN
-de:ES-ECO-004-AN
+ca:ES-ECO-004-AN
 es:ES-ECO-004-AN
-fi:ES-ECO-004-AN
-it:ES-ECO-004-AN
-pt:ES-ECO-004-AN
+xx:ES-ECO-004-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-004-AR
-fi:ES-ECO-004-AR
+xx:ES-ECO-004-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-005
-fi:ES-ECO-005
+xx:ES-ECO-005
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-005-AN
 es:ES-ECO-005-AN
-fi:ES-ECO-005-AN
+xx:ES-ECO-005-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-005-AR
 es:ES-ECO-005-AR
-fi:ES-ECO-005-AR
+xx:ES-ECO-005-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-006-AR
+ca:ES-ECO-006-AR
 es:ES-ECO-006-AR
-fi:ES-ECO-006-AR
 it:ES-ECO-006-AR
-pt:ES-ECO-006-AR
+xx:ES-ECO-006-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-007-AR
-fi:ES-ECO-007-AR
+xx:ES-ECO-007-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-008-AR
-fi:ES-ECO-008-AR
+xx:ES-ECO-008-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-009-AR
-fi:ES-ECO-009-AR
+xx:ES-ECO-009-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-010-AN
-fi:ES-ECO-010-AN
+xx:ES-ECO-010-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-010-AR
-ca:ES-ECO-010-AR
 es:ES-ECO-010-AR
-fi:ES-ECO-010-AR
-it:ES-ECO-010-AR
-pt:ES-ECO-010-AR
+xx:ES-ECO-010-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-011-AN
-fi:ES-ECO-011-AN
+xx:ES-ECO-011-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-011-AR
-fi:ES-ECO-011-AR
 pl:ES=ECO-011-AR
+xx:ES=ECO-011-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-011-CM
-fi:ES-ECO-011-CM
+xx:ES-ECO-011-CM
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-012-AS
+ca:ES-ECO-012-AS
 es:ES-ECO-012-AS
-fi:ES-ECO-012-AS
-it:ES-ECO-012-AS
-pt:ES-ECO-012-AS
+xx:ES-ECO-012-AS
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-013-IB
+ca:ES-ECO-013-IB
+de:ES-ECO-013-IB
 es:ES-ECO-013-IB
-fi:ES-ECO-013-IB
-it:ES-ECO-013-IB
-pt:ES-ECO-013-IB
+xx:ES-ECO-013-IB
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-014-IC
-ca:ES-ECO-014-IC
 es:ES-ECO-014-IC
-fi:ES-ECO-014-IC
-it:ES-ECO-014-IC
+xx:ES-ECO-014-IC
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-015-CN
-fi:ES-ECO-015-CN
+xx:ES-ECO-015-CN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-016-CL
 ca:ES-ECO-016-CL
-de:ES-ECO-016-CL
 es:ES-ECO-016-CL
-fi:ES-ECO-016-CL
 it:ES-ECO-016-CL
-pt:ES-ECO-016-CL
+xx:ES-ECO-016-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-017
-ca:ES-ECO-017
-fi:ES-ECO-017
-it:ES-ECO-017
-pt:ES-ECO-017
+xx:ES-ECO-017
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-017-CL
-fi:ES-ECO-017-CL
+xx:ES-ECO-017-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-017-CM
-ca:ES-ECO-017-CM
 es:ES-ECO-017-CM
-fi:ES-ECO-017-CM
-it:ES-ECO-017-CM
-pt:ES-ECO-017-CM
+xx:ES-ECO-017-CM
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-019-CT
 ca:ES-ECO-019-CT
-de:ES-ECO-019-CT
 es:ES-ECO-019-CT
-fi:ES-ECO-019-CT
 it:ES-ECO-019-CT
 nl:ES-ECI-019-CT
 pl:ES-ECO-019-CT
-pt:ES-ECO-019-CT
+xx:ES-ECO-019-CT
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-020-CV
 ca:ES-ECO-020-CV
-de:ES-ECO-020-CV
 es:ES-ECO-020-CV
-fi:ES-ECO-020-CV
 it:ES-ECO-020-CV
 nl:ES-ECO-020-CV
-pt:ES-ECO-020-CV
+xx:ES-ECO-020-CV
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-021-EX
+ca:ES-ECO-021-EX
 es:ES-ECO-021-EX
-fi:ES-ECO-021-EX
-it:ES-ECO-021-EX
-pt:ES-ECO-021-EX
+xx:ES-ECO-021-EX
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-022-GA
+ca:ES-ECO-022-GA
 es:ES-ECO-022-GA
-fi:ES-ECO-022-GA
-fr:ES-ECO-022-GA
 it:ES-ECO-022-GA
 nl:ES-ECO-022-GA
-pt:ES-ECO-022-GA
+xx:ES-ECO-022-GA
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-023-MA
 ca:ES-ECO-023-MA
-de:ES-ECO-023-MA
 es:ES-ECO-023-MA
-fi:ES-ECO-023-MA
 it:ES-ECO-023-MA
-pt:ES-ECO-023-MA
+xx:ES-ECO-023-MA
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-024-MU
 ca:ES-ECO-024-MU
-de:ES-ECO-024-MU
 es:ES-ECO-024-MU
-fi:ES-ECO-024-MU
 it:ES-ECO-024-MU
-pt:ES-ECO-024-MU
+xx:ES-ECO-024-MU
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-025-NA
 ca:ES-ECO-025-NA
 es:ES-ECO-025-NA
-fi:ES-ECO-025-NA
 it:ES-ECO-025-NA
-pt:ES-ECO-025-NA
+xx:ES-ECO-025-NA
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-026-VAS
+ca:ES-ECO-026-VAS
 es:ES-ECO-026-VAS
-fi:ES-ECO-026-VAS
-it:ES-ECO-026-VAS
-pt:ES-ECO-026-VAS
+xx:ES-ECO-026-VAS
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-027-RI
+ca:ES-ECO-027-RI
 es:ES-ECO-027-RI
-fi:ES-ECO-027-RI
-it:ES-ECO-027-RI
-pt:ES-ECO-027-RI
+xx:ES-ECO-027-RI
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-028-AN
-fi:ES-ECO-028-AN
+xx:ES-ECO-028-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-028-AR
-fi:ES-ECO-028-AR
+xx:ES-ECO-028-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-028-CL
-fi:ES-ECO-028-CL
+xx:ES-ECO-028-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-028-CM
 es:ES-ECO-028-CM
-fi:ES-ECO-028-CM
+xx:ES-ECO-028-CM
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-029-AN
-ca:ES-ECO-029-AN
 es:ES-ECO-029-AN
-fi:ES-ECO-029-AN
-it:ES-ECO-029-AN
+xx:ES-ECO-029-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-029-AR
-fi:ES-ECO-029-AR
+xx:ES-ECO-029-AR
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-029-CL
-fi:ES-ECO-029-CL
+xx:ES-ECO-029-CL
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-030-AN
-fi:ES-ECO-030-AN
+xx:ES-ECO-030-AN
 country:en: Spain
 
 < en:EU Organic
 en:ES-ECO-031-CL
-fi:ES-ECO-031-CL
+xx:ES-ECO-031-CL
 country:en: Spain
 
 < en:EU Organic
@@ -4613,97 +4620,93 @@ exceptions:en: en: in-conversion products,en:
 
 < en:EU Organic
 en:FI-EKO-101
-fi:FI-EKO-101
+xx:FI-EKO-101
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-102
-fi:FI-EKO-102
+xx:FI-EKO-102
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-103
-fi:FI-EKO-103
+xx:FI-EKO-103
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-104
-fi:FI-EKO-104
+xx:FI-EKO-104
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-105
-fi:FI-EKO-105
+xx:FI-EKO-105
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-106
-fi:FI-EKO-106
+xx:FI-EKO-106
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-107
-fi:FI-EKO-107
+xx:FI-EKO-107
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-108
-fi:FI-EKO-108
+xx:FI-EKO-108
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-109
-fi:FI-EKO-109
+xx:FI-EKO-109
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-110
-fi:FI-EKO-110
+xx:FI-EKO-110
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-111
-fi:FI-EKO-111
+xx:FI-EKO-111
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-112
-fi:FI-EKO-112
+xx:FI-EKO-112
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-113
-fi:FI-EKO-113
+xx:FI-EKO-113
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-114
-fi:FI-EKO-114
+xx:FI-EKO-114
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-115
-fi:FI-EKO-115
+xx:FI-EKO-115
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-201
-de:FI-EKO-201
 es:FI-EKO-201
-fi:FI-EKO-201
-it:FI-EKO-201
-nl:FI-EKO-201
-pt:FI-EKO-201
+xx:FI-EKO-201
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-301
-fi:FI-EKO-301
+xx:FI-EKO-301
 country:en: Finland
 
 < en:EU Organic
 en:FI-EKO-401
-fi:FI-EKO-401
+xx:FI-EKO-401
 country:en: Finland
 
 < en:EU Organic
@@ -4781,148 +4784,125 @@ exceptions:en: en: except products covered by Annex III,en:in conversion product
 < en:EU Organic
 en:FR-BIO-01
 ca:FR-BIO-01
-de:FR-BIO-01
 es:FR-BIO-01
-fi:FR-BIO-01
 fr:FR-BIO-01, Ecocert-FR-BIO-01
 it:FR-BIO-01
-nl:FR-BIO-01
-pl:FR-BIO-01
-pt:FR-BIO-01
-zh:FR-BIO-01
-country:en: France
+xx:FR-BIO-01
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-07
-de:FR-BIO-07
-fi:FR-BIO-07
-it:FR-BIO-07
-pt:FR-BIO-07
-country:en: France
+xx:FR-BIO-07
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-09
 ca:FR-BIO-09
-de:FR-BIO-09
 es:FR-BIO-09
-fi:FR-BIO-09
 it:FR-BIO-09
-pl:FR-BIO-09
-pt:FR-BIO-09
-country:en: France
+xx:FR-BIO-09
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-10
 ca:FR-BIO-10
-de:FR-BIO-10
 es:FR-BIO-10
-fi:FR-BIO-10
-fr:FR-BIO-10
 it:FR-BIO-10
 nl:FR-BIO-10
-pl:FR-BIO-10
-pt:FR-BIO-10
-country:en: France
+xx:FR-BIO-10
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-12
-fi:FR-BIO-12
+de:FR-BIO-12
 it:FR-BIO-12
-pt:FR-BIO-12
-country:en: France
+xx:FR-BIO-12
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-13
-ca:FR-BIO-13
+de:FR-BIO-13
 es:FR-BIO-13
-fi:FR-BIO-13
 it:FR-BIO-13
-pt:FR-BIO-13
-country:en: France
+xx:FR-BIO-13
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-15
-ca:FR-BIO-15
-fi:FR-BIO-15
+de:FR-BIO-15
 it:FR-BIO-15
-pt:FR-BIO-15
-country:en: France
+xx:FR-BIO-15
+country:en: france
 
 < en:EU Organic
 en:FR-BIO-16
-ca:FR-BIO-16
-fi:FR-BIO-16
+de:FR-BIO-16
 it:FR-BIO-16
-pt:FR-BIO-16
-country:en: France
+xx:FR-BIO-16
+country:en: france
 
 < en:EU Organic
 en:GB-ORG-01
-fi:GB-ORG-01
+xx:GB-ORG-01
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-02
+ca:GB-ORG-02
+de:GB-ORG-02
 es:GB-ORG-02
-fi:GB-ORG-02
-it:GB-ORG-02
 nl:GB-ORG-02
-pt:GB-ORG-02
+xx:GB-ORG-02
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-03
-fi:GB-ORG-03
+xx:GB-ORG-03
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-04
-fi:GB-ORG-04
-it:GB-ORG-04
-nl:GB-ORG-04
-pt:GB-ORG-04
+de:GB-ORG-04
+xx:GB-ORG-04
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-05
 ca:GB-ORG-05
-de:GB-ORG-05
 es:GB-ORG-05
-fi:GB-ORG-05
 it:GB-ORG-05
-nl:GB-ORG-05
 pl:GB-ORG-05
-pt:GB-ORG-05
+xx:GB-ORG-05
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-06
-fi:GB-ORG-06
+xx:GB-ORG-06
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-07
-fi:GB-ORG-07
+xx:GB-ORG-07
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-09
-fi:GB-ORG-09
+xx:GB-ORG-09
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-13
-fi:GB-ORG-13
+xx:GB-ORG-13
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-16
-fi:GB-ORG-16
+xx:GB-ORG-16
 country:en: United Kingdom
 
 < en:EU Organic
 en:GB-ORG-17
-fi:GB-ORG-17
+xx:GB-ORG-17
 country:en: United Kingdom
 
 < en:EU Organic
@@ -5233,108 +5213,90 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:GR-BIO-01
-ca:GR-BIO-01
-de:GR-BIO-01
 es:GR-BIO-01
-fi:GR-BIO-01
 it:GR-BIO-01
-nl:GR-BIO-01
-pt:GR-BIO-01
+xx:GR-BIO-01
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-02
-de:GR-BIO-02
 es:GR-BIO-02
-fi:GR-BIO-02
-it:GR-BIO-02
-pt:GR-BIO-02
+xx:GR-BIO-02
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-03
-ca:GR-BIO-03
-de:GR-BIO-03
-fi:GR-BIO-03
 it:GR-BIO-03
-nl:GR-BIO-03
-pt:GR-BIO-03
+xx:GR-BIO-03
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-04
-fi:GR-BIO-04
+xx:GR-BIO-04
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-05
-ca:GR-BIO-05
-fi:GR-BIO-05
-it:GR-BIO-05
-pt:GR-BIO-05
+de:GR-BIO-05
+xx:GR-BIO-05
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-06
-fi:GR-BIO-06
+xx:GR-BIO-06
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-07
-fi:GR-BIO-07
+xx:GR-BIO-07
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-08
-fi:GR-BIO-08
+xx:GR-BIO-08
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-10
-fi:GR-BIO-10
+xx:GR-BIO-10
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-12
-ca:GR-BIO-12
-fi:GR-BIO-12
-it:GR-BIO-12
+xx:GR-BIO-12
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-13
 ca:GR-BIO-13
+de:GR-BIO-13
 es:GR-BIO-13
-fi:GR-BIO-13
+xx:GR-BIO-13
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-14
-fi:GR-BIO-14
+xx:GR-BIO-14
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-15
-ca:GR-BIO-15
-de:GR-BIO-15
-fi:GR-BIO-15
-it:GR-BIO-15
-pt:GR-BIO-15
+xx:GR-BIO-15
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-16
-fi:GR-BIO-16
+xx:GR-BIO-16
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-17
-fi:GR-BIO-17
+xx:GR-BIO-17
 country:en: Greece
 
 < en:EU Organic
 en:GR-BIO-18
-fi:GR-BIO-18
+xx:GR-BIO-18
 country:en: Greece
 
 < en:EU Organic
@@ -5708,45 +5670,42 @@ exceptions:en: en:www.caae.es,en:until 30 June 2021
 
 < en:EU Organic
 en:HR-EKO-01
-fi:HR-EKO-01
+xx:HR-EKO-01
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-02
-fi:HR-EKO-02
+xx:HR-EKO-02
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-03
-fi:HR-EKO-03
+xx:HR-EKO-03
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-04
-fi:HR-EKO-04
+xx:HR-EKO-04
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-05
-fi:HR-EKO-05
+xx:HR-EKO-05
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-06
-fi:HR-EKO-06
+xx:HR-EKO-06
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-07
-de:HR-EKO-07
-fi:HR-EKO-07
-it:HR-EKO-07
-pt:HR-EKO-07
+xx:HR-EKO-07
 country:en: Croatia
 
 < en:EU Organic
 en:HR-EKO-08
-fi:HR-EKO-08
+xx:HR-EKO-08
 country:en: Croatia
 
 < en:EU Organic
@@ -5796,23 +5755,16 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:HU-ÖKO-01
-de:HU-ÖKO-01
 es:HU-ÖKO-01
-fi:HU-ÖKO-01
-fr:HU-ÖKO-01
 hu:Biokontroll Hungária, HU-ÖKO-01
-it:HU-ÖKO-01
-pt:HU-ÖKO-01
+xx:HU-ÖKO-01
 country:en: Hungary
 
 < en:EU Organic
 en:HU-ÖKO-02
-de:HU-ÖKO-02
 es:HU-ÖKO-02
-fi:HU-ÖKO-02
 hu:Hungária ÖKO Garancia, HU-ÖKO-02
-it:HU-ÖKO-02
-pt:HU-ÖKO-02
+xx:HU-ÖKO-02
 country:en: Hungary
 
 < en:EU Organic
@@ -5979,36 +5931,28 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU Organic
 en:IE-ORG-01
-fi:IE-ORG-01
+xx:IE-ORG-01
 country:en: Ireland
 
 < en:EU Organic
 en:IE-ORG-02
-ca:IE-ORG-02
-de:IE-ORG-02
-fi:IE-ORG-02
-pt:IE-ORG-02
+xx:IE-ORG-02
 country:en: Ireland
 
 < en:EU Organic
 en:IE-ORG-03
-ca:IE-ORG-03
-fi:IE-ORG-03
-it:IE-ORG-03
-pt:IE-ORG-03
+xx:IE-ORG-03
 country:en: Ireland
 
 < en:EU Organic
 en:IE-ORG-04
-ca:IE-ORG-04
-fi:IE-ORG-04
-it:IE-ORG-04
 pl:IE-ORG-04
+xx:IE-ORG-04
 country:en: Ireland
 
 < en:EU Organic
 en:IE-ORG-05
-fi:IE-ORG-05
+xx:IE-ORG-05
 country:en: Ireland
 
 < en:EU Organic
@@ -6031,6 +5975,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU Organic
 en:IN-BIO-134
+de:IN-BIO-134
 nl:IN-BIO-134
 auth_address:en: Moltkestrasse 4, 77654, Offenburg, Germany
 auth_name:en: LACON GmbH
@@ -6248,6 +6193,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:IR-BIO-154
+de:IR-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -6284,149 +6230,122 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU Organic
 en:IT-BIO-001-BZ
-ca:IT-BIO-001-BZ
-fi:IT-BIO-001-BZ
-it:IT-BIO-001-BZ
-pt:IT-BIO-001-BZ
+xx:IT-BIO-001-BZ
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-002
+de:IT-BIO-002
 es:IT-BIO-002
-fi:IT-BIO-002
-it:IT-BIO-002
-pt:IT-BIO-002
+xx:IT-BIO-002
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-002-BZ
-fi:IT-BIO-002-BZ
+xx:IT-BIO-002-BZ
 
 < en:EU Organic
 en:IT-BIO-003
+de:IT-BIO-003
 es:IT-BIO-003
-fi:IT-BIO-003
-it:IT-BIO-003
-pt:IT-BIO-003
+xx:IT-BIO-003
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-003-BZ
-fi:IT-BIO-003-BZ
+xx:IT-BIO-003-BZ
 
 < en:EU Organic
 en:IT-BIO-004
 ca:IT-BIO-004
-de:IT-BIO-004
 es:IT-BIO-004
-fi:IT-BIO-004
-it:IT-BIO-004
 nl:IT-BIO-004
 pl:IT-BIO-004
-pt:IT-BIO-004
+xx:IT-BIO-004
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-005
 ca:IT-BIO-005
-de:IT-BIO-005
 es:IT-BIO-005
-fi:IT-BIO-005
 it:IT-BIO-005
 pl:IT-BIO-005
-pt:IT-BIO-005
+xx:IT-BIO-005
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-006
 ca:IT-BIO-006
-de:IT-BIO-006
 es:IT-BIO-006
-fi:IT-BIO-006
 it:IT-BIO-006
-nl:IT-BIO-006
-pl:IT-BIO-006
-pt:IT-BIO-006
+xx:IT-BIO-006
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-007
 ca:IT-BIO-007
-de:IT-BIO-007
 es:IT-BIO-007
-fi:IT-BIO-007
 it:IT-BIO-007
 nl:IT-BIO-007
-pl:IT-BIO-007
-pt:IT-BIO-007
+xx:IT-BIO-007
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-008
 ca:IT-BIO-008
-de:IT-BIO-008
 es:IT-BIO-008
-fi:IT-BIO-008
 it:IT-BIO-008
-nl:IT-BIO-008
 pl:IT-BIO-008
-pt:IT-BIO-008
+xx:IT-BIO-008
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-009
 ca:IT-BIO-009
-de:IT-BIO-009
 es:IT-BIO-009
-fi:IT-BIO-009
 it:IT-BIO-009
-nl:IT-BIO-009
-pl:IT-BIO-009
-pt:IT-BIO-009
+xx:IT-BIO-009
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-010
-fi:IT-BIO-010
+xx:IT-BIO-010
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-011
-fi:IT-BIO-011
+xx:IT-BIO-011
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-012
-fi:IT-BIO-012
+de:IT-BIO-012
 pl:IT-BIO-012
+xx:IT-BIO-012
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-013
-de:IT-BIO-013
 es:IT-BIO-013
-fi:IT-BIO-013
-it:IT-BIO-013
-pt:IT-BIO-013
+xx:IT-BIO-013
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-014
 ca:IT-BIO-014
-de:IT-BIO-014
 es:IT-BIO-014
-fi:IT-BIO-014
 it:IT-BIO-014
 nl:IT-BIO-014
 pl:IT-BIO-014
-pt:IT-BIO-014
+xx:IT-BIO-014
 country:en: Italy
 
 < en:EU Organic
 en:IT-BIO-015
+ca:IT-BIO-015
+de:IT-BIO-015
 es:IT-BIO-015
-fi:IT-BIO-015
-pt:IT-BIO-015
+xx:IT-BIO-015
 country:en: Italy
 
 < en:EU Organic
@@ -6584,6 +6503,8 @@ exceptions:en: en:in-conversion products,en:except products covered by Annex III
 
 < en:EU Organic
 en:JP-BIO-154
+ca:JP-BIO-154
+de:JP-BIO-154
 es:JP-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
@@ -7341,7 +7262,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:li-bio-969
-fi:li-bio-969
+xx:li-bio-969
 
 < en:EU Organic
 en:LK-BIO-115
@@ -7417,9 +7338,12 @@ exceptions:en: en:in-conversion products,en:wine
 
 < en:EU Organic
 en:LK-BIO-149
+ca:LK-BIO-149
+de:LK-BIO-149
 es:LK-BIO-149
 it:LK-BIO-149
 nl:LK-BIO-149
+xx:LK-BIO-149
 auth_address:en: Meeuwenlaan 4-6, 8011 BZ, Zwolle, Netherlands
 auth_name:en: Control Union Certifications
 auth_url:en: http://certification.controlunion.com
@@ -7528,46 +7452,44 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:LT-EKO-001
-fi:LT-EKO-001
-it:LT-EKO-001
+de:LT-EKO-001
+xx:LT-EKO-001
 
 < en:EU Organic
 en:LU-BIO-01
-fi:LU-BIO-01
+xx:LU-BIO-01
 
 < en:EU Organic
 en:LU-BIO-04
-fi:LU-BIO-04
-fr:LU-BIO-04
-it:LU-BIO-04
-pt:LU-BIO-04
+de:LU-BIO-04
+xx:LU-BIO-04
 
 < en:EU Organic
 en:LU-BIO-05
-fi:LU-BIO-05
+xx:LU-BIO-05
 
 < en:EU Organic
 en:LU-BIO-06
-ca:LU-BIO-06
-fi:LU-BIO-06
-it:LU-BIO-06
 pl:LU-BIO-06
+xx:LU-BIO-06
 
 < en:EU Organic
 en:LU-BIO-07
-fi:LU-BIO-07
+xx:LU-BIO-07
 
 < en:EU Organic
 en:LV-BIO-01
-fi:LV-BIO-01
+de:LV-BIO-01
+xx:LV-BIO-01
 
 < en:EU Organic
 en:LV-BIO-02
-ca:LV-BIO-02
-fi:LV-BIO-02
+de:LV-BIO-02
+xx:LV-BIO-02
 
 < en:EU Organic
 en:MA-BIO-102
+de:MA-BIO-102
 auth_address:en: Viale Masini, 36, 40126, Bologna, Italy
 auth_name:en: CCPB Srl
 auth_url:en: http://www.ccpb.it
@@ -7973,6 +7895,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:MG-BIO-154
+de:MG-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -8333,7 +8256,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:MT-ORG-01
-fi:MT-ORG-01
+xx:MT-ORG-01
 
 < en:EU Organic
 en:MU-BIO-134
@@ -8572,6 +8495,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:MX-BIO-141
+de:MX-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -9140,20 +9064,14 @@ exceptions:en: en:www.caae.es,en:until 30 June 2021
 < en:EU Organic
 en:NL-BIO-01
 ca:NL-BIO-01
-de:NL-BIO-01
+cs:NL-BIO-01
 es:NL-BIO-01
-fi:NL-BIO-01
-fr:NL-BIO-01
 it:NL-BIO-01
-nl:NL-BIO-01
-pl:NL-BIO-01
-pt:NL-BIO-01
+xx:NL-BIO-01
 
 < en:EU Organic
 en:NO-ØKO-01
-ca:NO-ØKO-01
-fi:NO-ØKO-01
-it:NO-ØKO-01
+xx:NO-ØKO-01
 
 < en:EU Organic
 en:NP-BIO-119
@@ -9517,6 +9435,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU Organic
 en:PE-BIO-140
+de:PE-BIO-140
 es:PE-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
@@ -9527,6 +9446,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:PE-BIO-141
+de:PE-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -9572,6 +9492,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:PE-BIO-154
+de:PE-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -9752,6 +9673,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:PH-BIO-141
+de:PH-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -9788,6 +9710,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:PH-BIO-149
+de:PH-BIO-149
 auth_address:en: Meeuwenlaan 4-6, 8011 BZ, Zwolle, Netherlands
 auth_name:en: Control Union Certifications
 auth_url:en: http://certification.controlunion.com
@@ -9815,6 +9738,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:PH-BIO-154
+de:PH-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -9950,73 +9874,58 @@ exceptions:en: en: in-conversion products,en:
 
 < en:EU Organic
 en:PL-EKO-01
-fi:PL-EKO-01
-it:PL-EKO-01
-pt:PL-EKO-01
+de:PL-EKO-01
+xx:PL-EKO-01
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-02
-ca:PL-EKO-02
-fi:PL-EKO-02
-it:PL-EKO-02
+de:PL-EKO-02
+xx:PL-EKO-02
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-03
-fi:PL-EKO-03
+de:PL-EKO-03
+xx:PL-EKO-03
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-04
-fi:PL-EKO-04
+de:PL-EKO-04
+xx:PL-EKO-04
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-05
-ca:PL-EKO-05
-de:PL-EKO-05
-fi:PL-EKO-05
-it:PL-EKO-05
-pt:PL-EKO-05
+xx:PL-EKO-05
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-06
-fi:PL-EKO-06
+de:PL-EKO-06
+xx:PL-EKO-06
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-07
-de:PL-EKO-07
 es:PL-EKO-07
-fi:PL-EKO-07
-it:PL-EKO-07
-pt:PL-EKO-07
+xx:PL-EKO-07
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-08
-ca:PL-EKO-08
-de:PL-EKO-08
-fi:PL-EKO-08
-pt:PL-EKO-08
+xx:PL-EKO-08
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-09
-de:PL-EKO-09
-fi:PL-EKO-09
-it:PL-EKO-09
-pt:PL-EKO-09
+xx:PL-EKO-09
 country:en: Poland
 
 < en:EU Organic
 en:PL-EKO-10
-ca:PL-EKO-10
-fi:PL-EKO-10
-it:PL-EKO-10
-pt:PL-EKO-10
+xx:PL-EKO-10
 country:en: Poland
 
 < en:EU Organic
@@ -10066,76 +9975,72 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU Organic
 en:PT-BIO 01
-fi:PT-BIO 01
+xx:PT-BIO 01
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-02
+ca:PT-BIO-02
+de:PT-BIO-02
 es:PT-BIO-02
-fi:PT-BIO-02
-fr:PT-BIO-02
-it:PT-BIO-02
 nl:PT-BIO-02
-pt:PT-BIO-02
+xx:PT-BIO-02
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-03
+ca:PT-BIO-03
+de:PT-BIO-03
 es:PT-BIO-03
-fi:PT-BIO-03
-it:PT-BIO-03
-pt:PT-BIO-03
+xx:PT-BIO-03
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-04
 ca:PT-BIO-04
-de:PT-BIO-04
 es:PT-BIO-04
-fi:PT-BIO-04
 it:PT-BIO-04
-pt:PT-BIO-04
+xx:PT-BIO-04
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-05
-ca:PT-BIO-05
+de:PT-BIO-05
 es:PT-BIO-05
-fi:PT-BIO-05
-it:PT-BIO-05
+xx:PT-BIO-05
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-06
-fi:PT-BIO-06
+xx:PT-BIO-06
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-07
-fi:PT-BIO-07
+xx:PT-BIO-07
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-08
-fi:PT-BIO-08
+xx:PT-BIO-08
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-09
 ca:PT-BIO-09
 es:PT-BIO-09
-fi:PT-BIO-09
+xx:PT-BIO-09
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-10
 es:PT-BIO-10
-fi:PT-BIO-10
+xx:PT-BIO-10
 country:en: Portugal
 
 < en:EU Organic
 en:PT-BIO-11
-fi:PT-BIO-11
+xx:PT-BIO-11
 country:en: Portugal
 
 < en:EU Organic
@@ -10266,79 +10171,69 @@ exceptions:en: en: in-conversion products,en:
 
 < en:EU Organic
 en:RO-ECO-001
-ca:RO-ECO-001
-fi:RO-ECO-001
-it:RO-ECO-001
+xx:RO-ECO-001
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-005
-fi:RO-ECO-005
+xx:RO-ECO-005
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-007
-ca:RO-ECO-007
-de:RO-ECO-007
-fi:RO-ECO-007
-it:RO-ECO-007
-pt:RO-ECO-007
+xx:RO-ECO-007
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-008
-ca:RO-ECO-008
-fi:RO-ECO-008
-pt:RO-ECO-008
+de:RO-ECO-008
+xx:RO-ECO-008
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-009
-fi:RO-ECO-009
+xx:RO-ECO-009
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-010
-fi:RO-ECO-010
+xx:RO-ECO-010
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-014
-fi:RO-ECO-014
+xx:RO-ECO-014
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-015
-fi:RO-ECO-015
+xx:RO-ECO-015
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-016
-ca:RO-ECO-016
-fi:RO-ECO-016
-it:RO-ECO-016
 pl:RO-ECO-016
-pt:RO-ECO-016
+xx:RO-ECO-016
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-018
-fi:RO-ECO-018
+xx:RO-ECO-018
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-021
-fi:RO-ECO-021
+xx:RO-ECO-021
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-022
-fi:RO-ECO-022
+xx:RO-ECO-022
 country:en: Romania
 
 < en:EU Organic
 en:RO-ECO-023
-fi:RO-ECO-023
+xx:RO-ECO-023
 country:en: Romania
 
 < en:EU Organic
@@ -10388,10 +10283,7 @@ exceptions:en: en: in conversion products,en:wine
 
 < en:EU Organic
 en:RS-BIO-140
-ca:RS-BIO-140
-fi:RS-BIO-140
-it:RS-BIO-140
-pt:RS-BIO-140
+xx:RS-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
 auth_url:en: http://www.ceres-cert.com
@@ -10446,11 +10338,7 @@ exceptions:en: en:wine,en:until 30 June 2021
 
 < en:EU Organic
 en:RS-BIO-162
-ca:RS-BIO-162
-de:RS-BIO-162
-fi:RS-BIO-162
-it:RS-BIO-162
-pt:RS-BIO-162
+xx:RS-BIO-162
 auth_address:en: Trg cara Jovana Nenada 15, 24000, Subotica, Serbia
 auth_name:en: Organic Control System
 auth_url:en: http://www.organica.rs
@@ -10865,41 +10753,34 @@ exceptions:en: en: in-conversion products,en:
 
 < en:EU Organic
 en:SE-EKO-01
-ca:SE-EKO-01
-de:SE-EKO-01
 es:SE-EKO-01
-fi:SE-EKO-01
 it:SE-EKO-01
-pt:SE-EKO-01
+xx:SE-EKO-01
 
 < en:EU Organic
 en:SE-EKO-03
-fi:SE-EKO-03
-it:SE-EKO-03
-pt:SE-EKO-03
+de:SE-EKO-03
+xx:SE-EKO-03
 
 < en:EU Organic
 en:SE-EKO-04
-fi:SE-EKO-04
-it:SE-EKO-04
-pt:SE-EKO-04
+de:SE-EKO-04
+xx:SE-EKO-04
 
 < en:EU Organic
 en:SE-EKO-05
-fi:SE-EKO-05
-it:SE-EKO-05
+de:SE-EKO-05
+xx:SE-EKO-05
 
 < en:EU Organic
 en:SE-EKO-07
-ca:SE-EKO-07
-fi:SE-EKO-07
-pt:SE-EKO-07
+de:SE-EKO-07
+xx:SE-EKO-07
 
 < en:EU Organic
 en:SE-EKO-08
-fi:SE-EKO-08
-it:SE-EKO-08
-pt:SE-EKO-08
+de:SE-EKO-08
+xx:SE-EKO-08
 
 < en:EU Organic
 en:SG-BIO-107
@@ -11002,32 +10883,26 @@ exceptions:en: en:in-conversion products,en:wine
 
 < en:EU Organic
 en:SI-EKO-001
-ca:SI-EKO-001
 es:SI-EKO-001
-fi:SI-EKO-001
-it:SI-EKO-001
+xx:SI-EKO-001
 
 < en:EU Organic
 en:SI-EKO-002
-ca:SI-EKO-002
-fi:SI-EKO-002
+de:SI-EKO-002
+xx:SI-EKO-002
 
 < en:EU Organic
 en:SI-EKO-003
-ca:SI-EKO-003
-fi:SI-EKO-003
-it:SI-EKO-003
+xx:SI-EKO-003
 
 < en:EU Organic
 en:SK-BIO-002
-de:SK-BIO-002
-fi:SK-BIO-002
-pt:SK-BIO-002
+xx:SK-BIO-002
 country:en: Slovakia
 
 < en:EU Organic
 en:SK-BIO-003
-fi:SK-BIO-003
+xx:SK-BIO-003
 country:en: Slovakia
 
 < en:EU Organic
@@ -11707,6 +11582,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:TH-BIO-121
+de:TH-BIO-121
 es:TH-BIO-121
 auth_address:en: 102 Moo 2, Soi Ngamwongwan 23, Ngamwongwan Road, Muang District, 11000, Nonthaburi, Thailand
 auth_name:en: Organic Agriculture Certification Thailand -ACT-
@@ -11717,6 +11593,7 @@ exceptions:en: en:wine,en:in conversion products
 
 < en:EU Organic
 en:TH-BIO-132
+de:TH-BIO-132
 auth_address:en: Via dei Macabraccia 8, Casalecchio di Reno, 40033, Bologna, Italy
 auth_name:en: Bioagricert S.r.l.
 auth_url:en: http://bioagricert.org
@@ -11735,6 +11612,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:TH-BIO-141
+de:TH-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -11771,6 +11649,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:TH-BIO-149
+de:TH-BIO-149
 auth_address:en: Meeuwenlaan 4-6, 8011 BZ, Zwolle, Netherlands
 auth_name:en: Control Union Certifications
 auth_url:en: http://certification.controlunion.com
@@ -12167,6 +12046,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU Organic
 en:TR-BIO-141
+de:TR-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -12185,6 +12065,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:TR-BIO-154
+de:TR-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -12194,6 +12075,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:TR-BIO-161
+de:TR-BIO-161
 auth_address:en: Ackerstrasse, 5070, Frick, Switzerland
 auth_name:en: Bio.inspecta AG
 auth_url:en: http://www.bio-inspecta.ch
@@ -13202,6 +13084,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU Organic
 en:VN-BIO-154
+de:VN-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -13581,7 +13464,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 < en:EU Organic
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
 xx:AB Agriculture Biologique
-country:en: France
+country:en: france
 wikidata:en: Q396709
 
 en:European Beer Star
@@ -13601,17 +13484,23 @@ fi:Euroopan vegetaariliitto lakto-ovo-vegetaarinen, EVU lakto-ovo-vegetaarinen
 < en:Vegan
 en:European Vegetarian Union - Vegan
 ca:Unió Vegana Vegetariana Europea
-de:Europäische Vegetarier-Union Vegan
-es:Unión Vegetariana y vegana Europea
+cs:Veganské označení Evropské Vegetariánské Unie
+da:Europæiske Vegetarunion - Vegansk, European Vegetarian Union - Vegansk
+de:Europäische Vegetarier-Union - Vegan
+es:Unión Vegetariana Europea - Vegano, Unión Vegetariana Europea - Vegana
 fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
 fr:Union Végétarienne Européenne - Vegan
 it:Unione Vegetariana Europea - Vegano
 nl:Europese Vegetarische Unie Vegan, EVU Vegan
+sv:Europeiska Vegetariska Unionen - Vegan
 
 < en:European Vegetarian Union
 en:European Vegetarian Union - Vegetarian
+da:Europæiske Vegetarunion - Vegetarisk, European Vegetarian Union - Vegetarisk
 de:Europäische Vegetarier-Union - Vegetarisch
+es:Unión Vegetariana Europea - Vegetariano, Unión Vegetariana Europea - Vegetariana
 fr:Union Végétarienne Européenne - Végétarien
+sv:Europeiska Vegetariska Unionen - Vegetarisk
 
 < en:European Vegetarian Union
 < en:Lacto-vegetarian
@@ -13627,15 +13516,18 @@ fi:Euroopan vegetaariliitto Ovo-vegetaarinen, EVU ovo-vegetaarinen
 
 en:Excessive consumption can have laxative effects
 ca:El consum excessiu pot produir efectes laxants
+da:Overdreven indtagelse kan virke afførende
 de:Übermäßiger Konsum kann abführend wirken
 es:Un consumo excesivo puede tener efectos laxantes
 fi:liiallisella kulutuksella saattaa olla laksatiivisia vaikutuksia, liiallisella käytöllä voi olla laksatiivisia vaikutuksia
 fr:Une consommation excessive peut avoir des effets laxatifs
 it:Un consumo eccessivo puù avere effetti lassativi
+nb:Overdrevet inntak kan ha avførende virkning, Kan virke avførende ved stort inntak
 sv:Överdriven konsumtion kan ha laxerande verkan
 
 en:Fair trade
 ca:Comerç Just
+cs:Fair trade
 de:Fairer Handel
 es:Comercio justo, Fairtrade-Comercio Justo
 fi:Reilu kauppa
@@ -13645,6 +13537,7 @@ hu:Fair trade
 it:Commercio equo
 nl:Rechtvaardige handel, fair trade
 pl:Fair trade
+xx:Fair trade
 description:de: Als Fairer Handel -englisch fair trade- wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
 description:en: Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards.
 description:es: El comercio justo es una forma alternativa de comercio promovida por varias ONG -organizaciones no gubernamentales-, por la Organización de las Naciones Unidas y por los movimientos sociales y políticos -como el pacifismo y el ecologismo- que promueven una relación comercial voluntaria y justa entre productores y consumidores.
@@ -13655,8 +13548,14 @@ opposite:en: en:non-fair-trade
 wikidata:en: Q188485
 
 < en:Fair trade
+en:Fair for Life
+xx:Fair for Life
+auth_url:en: https://www.fairforlife.org/
+
+< en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
 ca:Fairtrade Internacional, FLO International
+de:Fairtrade International, Fairtrade, FLO international, FLO
 es:Fairtrade International, Fairtrade, FLO international, FLO
 fi:Fairtrade International, FLO
 fr:Fairtrade International, Fairtrade, FLO international, FLO
@@ -13667,21 +13566,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fairtrade_certification
 
 < en:Fair trade
 en:Fairtrade USA
+xx:Fairtrade USA
 wikipedia:en: https://en.wikipedia.org/wiki/Fair_Trade_USA
 
 < en:Fair trade
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
 ca:Max Havelaar, Comerç Just/Max Havelaar
-de:Max Havelaar
-es:Max Havelaar
-fi:Max Havelaar
 it:Max Havelaar
-nl:Max Havelaar
+xx:Max Havelaar
 wikidata:en: Q694008
 
 < en:Fair trade
 < en:Organic
 en:Fair-Trade Organic, Fair-Trade and Organic
+de:Fair Trade organisch
+es:Comercio justo y orgánico
 fi:Reilu kauppa ja luomu
 fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équitable et de l'agriculture biologique, Issus de l'agriculture biologique et du commerce équitable
 
@@ -13690,18 +13589,28 @@ fr:Commerce équitable Bio, Commerce équitable et Bio, Issus du commerce équit
 fr:Bio-équitable, bioéquitable
 
 < en:Fair trade
+< en:Organic
+fr:Biopartenaire, Bio partenaire
+xx:Biopartenaire
+
+< en:Fair trade
 en:Small Producers' Symbol, SPP, Small Producers
 es:Símbolo de Pequeños Productores, SPP, Pequeños Productores
 fr:Symbole des Producteurs Paysans, SPP, Producteurs Paysans
+it:Small Producers' Symbol, SPP, Small Producers
 auth_name:en: SPP
 auth_url:en: https://spp.coop/
 
 < en:Fair trade
 en:TransFer, TransFer Canada
 
+< en:Fair trade
+fr:Agri-Éthique France, Agri-Éthique
+xx:Agri-Éthique France
+
 en:Fed without GMOs, Fed without GMO
 ca:Alimentat sense Organismes Modificats Genèticament
-fi:eläintä on ruokittu gmo-vapaalla rehulla, ruokittu ilman GMO:ita
+fi:Eläintä on ruokittu GMO-vapaalla rehulla, ruokittu ilman GMO:ita
 fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
 it:Alimentati senza OGM
 pt:Alimentado sem OGM
@@ -13712,6 +13621,10 @@ fr:Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans 
 
 en:Fed without soy
 fr:Nourri sans soja
+
+en:For Life
+xx:For Life
+auth_url:en: https://www.fairforlife.org/
 
 en:Free from E number
 fi:E-kooditon, ei E-koodeja
@@ -13725,6 +13638,7 @@ fi:vapaana laiduntava, ulkoilma
 fr:Plein air
 he:גידול חופשי
 hu:Szabad tartású
+it:Allevamento a terra
 nl:Vrije uitloop
 pt:Criação em liberdade
 ru:свободный выгул, открытый воздух
@@ -13796,7 +13710,7 @@ fi:ranskalaisia munia, munien alkuperä Ranska
 fr:Oeufs de France, Oeufs français
 he:ביצים צרפתיות, ביצים מצרפת
 it:Uova francesi, Uova dalla Francia
-origins:en: en:France
+origins:en: en:france
 
 en:French meat
 ca:Carn francesa
@@ -13806,7 +13720,14 @@ fi:Ranskalaista lihaa, lihan alkuperä Ranska
 fr:Viande Française, VF
 he:בשר צרפתי
 it:Carne francese
-origins:en: en:France
+nl:Frans vlees
+origins:en: en:france
+
+< en:French meat
+en:French beef
+fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
+ingredients:en: en:beef
+origins:en: en:france
 
 < en:French meat
 en:French duck
@@ -13817,7 +13738,7 @@ fr:Canard Français, Canard de France, Canard Origine France, Viande de canard f
 he:ברווז צרפתי
 it:Anatra francese
 pt:Pato francês
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 en:French pork
@@ -13831,47 +13752,46 @@ it:Maiale francese
 nl:Frans varkensvlees
 pl:Francuska wieprzowina
 pt:Porco francês
-origins:en: en:France
+ingredients:en: en:pork
+origins:en: en:france
+
+< en:French meat
+en:French poultry
+fr:Volaille Française, volaille Origine France
+ingredients:en: en:poultry
+origins:en: en:france
 
 < en:French meat
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
-origins:en: en:France
-
-< en:French meat
-fr:Viande Bovine Française, VBF, Viande bovine Origine France, Bœuf 100% Français, Viande de bœuf Française, Bœuf 100% France, Bœuf Origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande de chèvre française, Viande de chèvre Origine France, Chèvre 100% Française, Chèvre 100% France, Chèvre Origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande de chevreau français, Viande de chevreau Origine France, Chevreau 100% Français, Viande de chevreau Française, Chevreau 100% France, Chevreau Origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
-origins:en: en:France
+origins:en: en:france
 
 < en:French meat
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
-origins:en: en:France
-
-< en:French meat
-fr:Volaille Française, volaille Origine France
-origins:en: en:France
+origins:en: en:france
 
 en:French milk
 ca:Llet francesa
@@ -13881,11 +13801,13 @@ fi:ranskalaista maitoa, maidon alkuperä Ranska
 fr:Lait Français, Lait de France, Lait Origine France
 he:חלב צרפתי
 it:Latte francese
+nl:Franse melk
 pt:Leite francês
-origins:en: en:France
+origins:en: en:france
 
 en:FSC, Forest Stewardship Council
 ca:FSC, Consell de Protecció Forestal
+cs:Forest Stewardship Council / FSC
 de:FSC, Forest Stewardship Council
 es:FSC, Forest Stewardship Council, Consejo de Administración Forestal
 fi:FSC, Forest Stewardship Council
@@ -13899,6 +13821,7 @@ wikidata:en: Q748367
 < en:FSC
 en:FSC Mix
 ca:Mix FSC
+cs:FSC Mix
 de:FSC Mix
 es:FSC Mixto
 fi:FSC Mix
@@ -13915,6 +13838,7 @@ fr:FSC Recyclé, FSC Recyclage
 
 en:German Agricultural Society
 ca:Societat Agrícola Alemanya
+cs:Německá Zemědělská Společnost / DLG
 de:DLG, Deutsche Landwirtschafts-Gesellschaft
 es:Sociedad Alemana de agricultura
 fi:Saksan maatalousyhdistys
@@ -13922,6 +13846,7 @@ he:איגוד החקלאות הגרמנית
 it:Società Agricola Tedesca
 nl:Duitse Landbouw Stichting
 pt:NL-BIO-01
+country:en: en:Germany
 label_categories:en: en:Quality
 wikidata:en: Q316331
 
@@ -13934,10 +13859,12 @@ de:DLG Bronzener Preis
 fi:Saksan maatalousyhdistyksen pronssimitali
 fr:Médaille de bronze de la Société Allemande d'Agriculture
 it:Medaglia di bronzo della Società Agricola Tedesca
+country:en: en:Germany
 
 < en:German Agricultural Society
 en:Gold medal of the German Agricultural Society
 ca:Medalla d'Or de la Societat Agrícola Alemanya
+cs:Zlatá medaile Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis
 es:Medalla de oro de la sociedad Alemana de agricultura
 fi:Saksan maatalousyhdistyksen kultamitali
@@ -13947,6 +13874,7 @@ it:Medaglia d'oro della Società Agricola Tedesca
 < en:German Agricultural Society
 en:Silver medal of the German Agricultural Society
 ca:Medalla de plata de la Societat Agrícola Alemanya
+cs:Stříbrná medaile Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis
 fi:Saksan maatalousyhdistyksen hopeamitali
 fr:Médaille d'argent de la Société Allemande d'Agriculture
@@ -13955,6 +13883,9 @@ it:Medaglia d'argento della Società Agricola Tedesca
 en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
+
+en:GLOBALG.A.P.
+xx:GLOBALG.A.P., Global GAP
 
 < en:Gold medal of the German Agricultural Society
 en:2009 Gold medal of the German Agricultural Society
@@ -13983,6 +13914,7 @@ fr:Médaille d'or 2012 de la Société Allemande d'Agriculture
 < en:Gold medal of the German Agricultural Society
 en:2013 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2013
+es:2013 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2013
 fr:Médaille d'or 2013 de la Société Allemande d'Agriculture
 it:Medaglia d'oro della Società Agricola Tedesca nel 2013
@@ -13991,6 +13923,7 @@ it:Medaglia d'oro della Società Agricola Tedesca nel 2013
 en:2014 Gold medal of the German Agricultural Society
 ca:Medalla d'or de la Societat Agrícola Alemanya 2014
 de:DLG Goldener Preis 2014
+es:2014 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2014
 fr:Médaille d'or 2014 de la Société Allemande d'Agriculture
 it:Medaglia d'oro della Società Agricola Tedesca nel 2014
@@ -13999,6 +13932,7 @@ it:Medaglia d'oro della Società Agricola Tedesca nel 2014
 en:2015 Gold medal of the German Agricultural Society
 ca:Medalla d'or de la Societat Agrícola Alemanya 2015
 de:DLG Goldener Preis 2015
+es:2015 Medalla de oro de la Sociedad Agrícola Alemana
 fi:Saksan maatalousyhdistyksen kultamitali 2015
 fr:Médaille d'or 2015 de la Société Allemande d'Agriculture
 it:Medaglia d'oro della Società Agricola Tedesca nel 2015
@@ -14014,6 +13948,7 @@ it:Medaglia d'oro della Società Agricola Tedesca nel 2016
 < en:Gold medal of the German Agricultural Society
 en:2017 Gold medal of the German Agricultural Society
 ca:Medalla d'or de la Societat Agrícola Alemanya 2017
+cs:Zlatá medaile r. 2017 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2017
 fi:Saksan maatalousyhdistyksen kultamitali 2017
 fr:Médaille d'or 2017 de la Société Allemande d'Agriculture
@@ -14022,6 +13957,7 @@ it:Medaglia d'oro della Società Agricola Tedesca nel 2017
 < en:Gold medal of the German Agricultural Society
 en:2018 Gold medal of the German Agricultural Society
 ca:Medalla d'or de la Societat Agrícola Alemanya 2018
+cs:Zlatá medaile r. 2018 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2018
 fi:Saksan maatalousyhdistyksen kultamitali 2018
 fr:Médaille d'or 2018 de la Société Allemande d'Agriculture
@@ -14029,6 +13965,7 @@ it:Medaglia d'oro della Società Agricola Tedesca nel 2018
 
 < en:Gold medal of the German Agricultural Society
 en:2019 Gold medal of the German Agricultural Society
+cs:Zlatá medaile r. 2019 Německé Zemědělské Společnosti / DLG
 de:DLG Goldener Preis 2019
 fi:Saksan maatalousyhdistyksen kultamitali 2019
 fr:Médaille d'or 2019 de la Société Allemande d'Agriculture
@@ -14047,6 +13984,7 @@ ru:ГОСТ, GOST
 
 en:Green Dot, The Green Dot
 ca:Punt verd
+cs:Zelený bod
 de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
 es:Punto Verde, El Punto Verde
 fi:vihreä piste
@@ -14054,10 +13992,15 @@ fr:Point Vert, Le Point Vert
 he:נקודה ירוקה, הנקודה הירוקה
 hu:Zöld Pont, Green Dot
 it:Punto Verde, Il Punto Verde
+nb:Grønt Punkt
 nl:Groene Punt
 pt:Ponto Verde
 th:กรีนดอท
 wikidata:en: Q975485
+
+en:Green Label - Israel
+he:הסימון הירוק
+country:en: Israel
 
 en:Grown in France
 ca:Cultivat a França
@@ -14068,7 +14011,7 @@ fr:Cultivé en France
 he:גודל בצרפת
 it:Cresciuto in Francia, Allevato in Francia
 pt:Cultivada na França
-origins:en: en:France
+origins:en: en:france
 
 en:HACCP, Hazard analysis and critical control points
 ar:HACCP, تحليل المخاطر ونقاط التحكم الحرجة
@@ -14178,6 +14121,7 @@ de:Handfischen
 fi:Käsin kalastettu
 fr:Pêché à la main, Pêchés à la main, Pêchée à la main, Pêchées à la main
 he:דיג ידני
+label_categories:en: en:Fishing method
 
 en:Harvested in France
 ca:Veremat a França
@@ -14186,10 +14130,12 @@ es:Cultivado en Francia
 fi:Ranskalaista sadonkorjuuta
 fr:Récolté en France
 it:Raccolto in Francia
-origins:en: en:France
+origins:en: en:france
 
 en:Health Star Rating, Health Star Rating System, HSR
-label_categories:en: en:Nutrition grades
+it:Health Star Rating, Health Star Rating System, HSR
+countries_where_sold:en: en:Australia
+label_categories:en: en:Nutrition Grades
 wikidata:en: Q85846088
 
 < en:Health Star Rating
@@ -14254,15 +14200,32 @@ pt:Rico em cálcio
 ru:Обогащено кальцием, источник кальция
 th:แคลเซียมสูง
 
+en:High in salt - Finland
+fi:Voimakassuolainen, Sisältää paljon suolaa
+sv:Kraftigt saltat, Innehåller mycket salt
+
+en:High level of fat - Israel
+he:שומן בכמות גבוהה
+country:en: Israel
+
+en:High level of sodium - Israel
+he:נתרן בכמות גבוהה
+country:en: Israel
+
+en:High level of sugar - Israel
+he:סוכר בכמות גבוהה
+country:en: Israel
+
 en:High proteins, Source of proteins
 ca:Alt en proteïnes, Font de proteïna
 de:Proteinreich
 es:Fuente de proteínas, Alto en proteinas, Rico en Proteinas
-fi:runsasproteiininen, paljon proteiineja, proteiinin lähde
+fi:Runsasproteiininen, Paljon proteiineja, Proteiinin lähde, Proteiinipitoinen, Runsaasti proteiinia
 fr:Riche en protéines
 he:עשיר בחלבונים
 hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
+nb:Rik på protein
 nl:Rijk aan protéines
 pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
@@ -14285,7 +14248,8 @@ de:Honig aus Frankreich
 fi:hunajaa Ranskasta, hunajan alkuperä Ranska
 fr:Miel de France, miel français
 he:דבש מצרפת
-origins:en: en:France
+label_categories:en: en:Honey
+origins:en: en:france
 
 en:Hungarian domestic product
 fi:Unkarilaista kotiteollisuutta
@@ -14293,13 +14257,16 @@ hu:Hazai-termék
 
 en:Hungarian Processed Product
 hu:Hazai Feldolgozású Termék
+manufacturing_places:en: en:Hungary
 
 en:Hungarian product
+de:Ungarisches Produkt
 fi:Unkarilainen tuote
 he:מוצר הונגרי
 hu:Magyar termék
 
 en:Iberwine in Miami
+label_categories:en: en:Wines
 
 en:In braille
 ca:En Braille
@@ -14345,6 +14312,10 @@ th:ข้อมูลในฉลากโภชนาการไม่ถู�
 en:Indy International Wine Competition
 fr:Concours International des Vins de l'Indiana
 
+en:Institut Fresenius
+de:Institut Fresenius, Institut Fresenius Lebensmittel Siegel
+xx:Institut Fresenius
+
 en:Integrated production
 es:Producción Integrada
 fi:integroitu tuotanto
@@ -14362,14 +14333,10 @@ nl:Bestraald, Bestraalde voeding
 pt:Alimentos Irradiados, Irradiados
 
 en:ISO 22000
-ca:ISO 22000
-de:ISO 22000
-es:ISO 22000
-fi:ISO 22000
 it:ISO 22000
-nl:ISO 22000
 pl:ISO 22000
 ru:ИСО 22000, ISO 22000
+xx:ISO 22000
 wikidata:en: Q524143
 
 < en:GOST
@@ -14378,25 +14345,17 @@ ru:ГОСТ Р ИСО 22000-2007
 
 < en:ISO 22000
 en:ISO 22000:2005
-es:ISO 22000:2005
-fi:ISO 22000:2005
-fr:ISO 22000:2005
-it:ISO 22000:2005
-nl:ISO 22000-2005
-pt:ISO 22000:2005
+de:ISO 22000:2005
+xx:ISO 22000:2005
 
 en:ISO 9001
-ca:ISO 9001
-de:ISO 9001
 es:ISO 9001, Certificación de calidad ISO 9001
 fi:ISO 9001, ISO 9001 laatujärjestelmäsertifikaatti
 fr:ISO 9001, Certifie iso 9001, La certification qualite iso 9001
-he:ISO 9001
 it:ISO 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
-nl:ISO 9001
 pl:ISO 9001
-pt:ISO 9001
 ru:ISO 9001, ИСО 9001
+xx:ISO 9001
 wikidata:en: Q1060682
 
 < en:GOST
@@ -14409,26 +14368,28 @@ ru:ГОСТ Р ИСО 9001-2015
 
 < en:ISO 9001
 en:ISO 9001-2000
-es:ISO 9001-2000
-fi:ISO 9001-2000
-it:ISO 9001-2000
-nl:ISO 9001-2000
 ru:ИСО 9001-2000, ГОСТ Р ИСО 9001
+xx:ISO 9001-2000
 wikidata:en: Q4130719
 
 < en:ISO 9001
 en:ISO-9001-2008, ISO 9001 2008 certified qms
-es:ISO 9001-2008
-fi:ISO 9001-2008
-fr:ISO-9001-2008
-it:ISO-9001-2008
-nl:ISO 9001-2008
+xx:ISO 9001-2008
 
 en:Japan Wine Challenge
-categories:en: en:Wines
+label_categories:en: en:Wines
+
+en:keyhole, the keyhole
+da:keyhole, the keyhole, nøglehull, nøglehullet
+it:Keyhole
+no:keyhole, the keyhole, nøkkelhull, nøkkelhullet
+sv:keyhole, the keyhole, nyckelhål, nyckelhålet
+xx:keyhole, the keyhole
+label_categories:en: en:Health, en:Nutrition
 
 en:Kosher, kasher
 ca:Kosher
+cs:Kosher
 de:Koscher
 es:Kosher
 fi:Kosher
@@ -14456,7 +14417,7 @@ nl:Kashrut divisie van de London Beth Din
 
 < en:Kosher
 en:Kof-K
-nl:Kof-K
+xx:Kof-K
 
 < en:Kosher
 en:Kosher Check, BC Kosher
@@ -14498,6 +14459,7 @@ it:Kashrut Kosher Organizzati
 < en:Kosher
 en:Orthodox Union Kosher, Orthodox Union, OU Kosher, OU, U, Ⓤ
 ca:Unió Ortodoxa Kosher, Unió Ortodoxa, UO Kosher, UO, U, Ⓤ
+de:Orthodox Union Kosher, Orthodox Union, OU Kosher, OU, U, Ⓤ
 es:Unión Ortodoxa Kosher
 he:הכשרות האורתודוקסית המאוחדת, הכשרות החרדית המאוחדת
 it:Unione Ortodossa Kosher
@@ -14544,6 +14506,7 @@ ru:Связанные окружающая среда и сельское хоз
 en:Lift net fishing, Lifting net fishing
 de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
+label_categories:en: en:Fishing method
 
 en:Limited edition
 ca:Edició limitada
@@ -14554,17 +14517,20 @@ fr:Edition limitée
 he:מהדורה מוגבלת
 hu:Limitált kiadás
 it:Edizione limitata
+nl:Beperkte oplage
 ru:Лимитированное издание
 
 en:Longline fishing
 de:Langleinenfischerei
 fi:Pitkäsiimalla kalastettu
 fr:Pêché à la palangre, Pêchés à la palangre, Pêchée à la palangre, Pêchées à la palangre
+label_categories:en: en:Fishing method
 
 < en:Low fat
 en:Reduced fat, Less fat
 ca:Reduït en greix, Menys greix
 de:Fettreduziert
+es:Reducido en grasas, Menos grasas, Reducido en grasa
 fi:Vähemmän rasvaa
 fr:Allégé en matière grasse, Allégée en matière grasse, Teneur en matière grasse réduite, teneur réduite en matière grasse, Moins de matière grasse, Moins gras, matière grasse réduit
 he:מופחת שומן
@@ -14574,6 +14540,10 @@ nl:Minder vet
 pt:Gordura reduzida, menos gordura
 ru:Низкожирный
 th:ลดไขมัน
+
+en:Low lactose - Finland
+fi:Vähälaktoosinen
+sv:Laktosfattig
 
 en:Low or no fat
 ca:Baix o sense greix
@@ -14592,20 +14562,24 @@ th:ไขมันต่ำ
 < en:Low or no fat
 en:Low fat, low in fat
 ca:Baix en greixos
+da:Fedtfattig, Naturligt fedtfattig
 de:Fettarm
 es:Bajo en grasas, Bajo contenido en grasas
-fi:vähärasvainen, vähän rasvaa
+fi:Vähärasvainen, Vähän rasvaa, Luonnostaan vähärasvainen
 fr:Peu de matière grasse, Peu gras, faible teneur en matière grasse, pauvre en matière grasse, pauvre en matières grasses
 he:דל שומן
 hu:Alacsony zsírtartalmú, zsírszegény
 it:Basso contenuto di grassi, A basso contenuto di grassi
+nb:Lavt fettinnhold, Naturlig lavt fettinnhold
 nl:Vetarm
 pt:Baixo teor de gordura
 ru:Низкожирный или обезжиренный
+sv:Låg fetthalt, Naturligt låg fetthalt
 th:ไขมันต่ำ
 
 < en:Low or no fat
 en:No added fat
+ca:Sense greix afegit
 de:Ohne zugesetztes Fett, Ohne beigesetztes Fett
 es:Sin grasas añadidas, 0% grasas añadidas
 fi:ei lisättyä rasvaa
@@ -14690,6 +14664,7 @@ th:ไม่มีเกลือ
 
 en:Low or no sugar
 ca:Sense o baix en sucre
+cs:Nízký nebo žádný obsah cukru
 de:zuckerarm oder zuckerfrei
 es:Bajo o sin azúcar
 fi:vähäsokerinen tai sokeriton, vähän sokeria tai sokeriton
@@ -14793,6 +14768,7 @@ label_categories:en: en:Health, en:Claim
 
 en:Made in Belgium
 ca:Fet a Bèlgica
+da:Fremstillet i Belgien
 de:Hergestellt in Belgien
 es:Hecho en Bélgica
 fi:Valmistettu Belgiassa
@@ -14803,6 +14779,13 @@ it:Fatto in Belgio
 nl:Geproduceerd in België
 pl:Wyprodukowano w Belgii
 country:en: Belgium
+label_categories:en: en:Geographic label
+
+en:Made in Denmark
+da:Fremstillet i Danmark
+fi:Valmistettu Tanskassa
+sv:Tillverkad i Danmark
+country:en: Denmark
 
 en:Made in France
 ca:Fet a França
@@ -14816,11 +14799,15 @@ it:Prodotto in Francia, fatto in Francia
 nl:Geproduceerd in Frankrijk
 pl:Wyprodukowano we Francji
 pt:Feito na França
+sv:Tillverkad i Frankrike
 zh:法国制造
-country:en: France
+country:en: france
+label_categories:en: en:Geographic label
 
 en:Made in Germany
 ca:Fet a Alemanya
+cs:Vyrobeno v Německu
+da:Fremstillet i Tyskland
 de:Hergestellt in Deutschland
 es:Hecho en Alemania
 fi:Valmistettu Saksassa
@@ -14828,19 +14815,26 @@ fr:Fabriqué en Allemagne
 he:נוצר בגרמניה
 hu:Németországban készült
 it:Fatto in Germania
+nb:Produsert i Tyskland
 nl:Geproduceerd in Duitsland
 pl:Wyprodukowano w Niemczech
 pt:Feito na Bélgica
+sv:Tillverkad i Tyskland
 th:ผลิตในเยอรมนี
 country:en: Germany
+label_categories:en: en:Geographic label
 
 en:Made in Hungary
 fi:valmistettu Unkarissa
 hu:Magyarországon készült
+sv:Tillverkad i Ungern
 label_categories:en: en:Origins
+manufacturing_places:en: en:Hungary
 
 en:Made in Italy, product of Italy
 ca:Fet a Itàlia
+cs:Vyrobeno v Itálii
+da:Fremstillet i Italien
 de:Hergestellt in Italien
 es:Fabricado en Italia, Producido en Italia
 fi:Valmistettu Italiassa
@@ -14851,10 +14845,20 @@ it:Prodotto in Italia, fatto in Italia
 nl:Geproduceerd in Italië
 pl:Wyprodukowano we Włoszech
 pt:Feito na Itália
+sv:Tillverkad i Italien
 th:ผลิตในอิตาลี
 country:en: Italy
+label_categories:en: en:Geographic label
+
+en:Made in Luxembourg
+da:Fremstillet i Luxemburg
+fi:Valmistettu Luxemburgissa
+pt:Produzido no Luxemburgo
+sv:Tillverkad i Luxemburg
+country:en: Luxembourg
 
 en:Made in Mexico
+ca:Fet a Mèxic
 de:Hergestellt in Mexiko
 es:Hecho en México
 fi:Valmistettu Meksikossa
@@ -14864,6 +14868,13 @@ it:Prodotto in Messico
 nl:Geproduceerd in Mexico
 pl:Wyprodukowano w Meksyku, Wyprodukowano w Mexyku
 country:en: Mexico
+label_categories:en: en:Geographic label
+
+en:Made in Poland
+da:Fremstillet i Polen
+fi:Valmistettu Puolassa
+sv:Tillverkad i Polen
+country:en: Poland
 
 en:Made in Portugal
 de:Hergestellt in Portugal
@@ -14877,6 +14888,7 @@ nl:Geproduceerd in Portugal
 pl:Wyprodukowano w Portugalii
 pt:Feito em Portugal
 country:en: Portugal
+label_categories:en: en:Geographic label
 
 en:Made in Russia
 de:Hergestellt in Russland
@@ -14889,6 +14901,7 @@ nl:Geproduceerd in Rusland
 pl:Wyprodukowano w Rosjii
 ru:Сделано в России
 country:en: Russia
+label_categories:en: en:Geographic label
 
 en:Made in Spain
 ca:Fet a Espanya
@@ -14902,7 +14915,7 @@ it:Prodotto in Spagna
 nl:Geproduceerd in Spanje
 pl:Wyprodukowano w Hiszpanii
 country:en: Spain
-origins:en: en:Spain
+label_categories:en: en:Geographic label
 
 en:Made in Swiss, made in Switzerland
 ca:Fet a Suïssa
@@ -14917,9 +14930,11 @@ nl:Geproduceerd in Zwitserland
 pl:Wyprodukowano w Szwajcarii
 pt:Fabricado na Suíça
 country:en: Switzerland
+label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
 ca:Fet a la Unió Europea
+cs:Vyrobeno v EU
 de:Hergestellt in der EU, Hergestellt in der Europäischen Union
 es:Hecho en la UE, Hecho en la Unión Europea
 fi:valmistettu EU:ssa, valmistettu Euroopan Unionissa
@@ -14933,13 +14948,17 @@ pt:Feito na UE, feito na União Europeia
 origins:en: en:European Union
 
 < en:Max Havelaar
-fr:Max Havelaar Belgique
+en:Max Havelaar Belgium
+de:Max Havelaar Belgien
 fi:Max Havelaar Belgia
+fr:Max Havelaar Belgique
 nl:Max Havelaar België
 
 < en:Max Havelaar
-fr:Max Havelaar France
+en:Max Havelaar France
+de:Max Havelaar Frankreich
 fi:Max Havelaar Ranska
+fr:Max Havelaar France
 nl:Max Havelaar Frankrijk
 
 en:May contain eggshell, may contain egg shell
@@ -14992,12 +15011,15 @@ pt:Sabores naturais
 th:ใช้สีธรรมชาติ
 
 en:Natural product
+ca:Producte natural
+de:Naturprodukt, Natürliches Produkt
 es:Producto natural
 fr:Produit naturel
 
 < en:Natural product
 < en:Without vegetable oils
 en:Natural product without vegetable oils, Natural product without vegetable fats
+ca:Producte natural sense olis vegetals
 es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
 fi:kasviöljytön luontaistuote, luontaistuote ilman kasviöljyjä, luonnontuote ilman kasviöljyjä
 fr:Produit naturel sans huiles végétales, Produit naturel sans matières grasses végétales
@@ -15006,6 +15028,7 @@ nl:Zonder plantaardige vetten
 ru:натуральный продукт без растительных жиров
 
 en:Natural source of calcium, Natural calcium source
+ca:Font natural de calci
 de:Natürliche Kalziumquelle
 es:Fuente de calcio natural
 fi:Luonnollinen kalsiumin lähde
@@ -15019,6 +15042,12 @@ ru:Источник натурального кальция
 en:NatureSuisse, Nature Suisse
 ca:NatureSuisse, Natura Suïssa
 country:en: en:Switzerland
+
+< en:Naturland
+en:Naturland Fair
+xx:Naturland Fair
+
+en:Nestlé Cocoa Plan, Cocoa Plan
 
 en:Never frozen
 ca:No congelar mai
@@ -15066,12 +15095,14 @@ fr:Sans glutamate ajouté, sans GMS ajouté
 hu:Hozzáadott MSG nélkül, Hozzáadott nátrium-glutamát nélkül
 nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 pt:Nenhum MSG adicionado
+label_categories:en: en:Health, en:Additives
 
 en:No added sugar, no sugar added, no added sugars
 ca:Sense sucre afegit, sense sucres afegits
+cs:Bez přidaného cukru
 de:Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 es:Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
-fi:ei lisättyä sokeria, ilman lisättyä sokeria
+fi:ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he:ללא תוספת סוכר
 hu:Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
@@ -15079,7 +15110,7 @@ it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers
 pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
-sv:Utan tillsatt socker
+sv:Inget tillsat socker, Utan tillsatt socker
 th:ไม่เติมน้ำตาล
 zh:无添糖
 
@@ -15105,6 +15136,7 @@ nl:Zonder toevoegingen
 pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos
 th:ไม่มีสารเติมแต่ง
+label_categories:en: en:Health, en:Additives
 
 en:No alcohol, alcohol-free, without alcohol
 ca:Sense alcohol, Lliure d'alcohol
@@ -15160,12 +15192,14 @@ fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, s
 
 < en:No antibiotics
 en:Without antibiotics since birth, no antibiotics ever
+de:Ohne Antibiotika seit der Geburt, keine Antibiotika jemals
 es:Sin antibióticos desde el nacimiento
 fi:Ei antibiootteja syntymän jälkeen
 fr:Sans antibiotique dès la naissance, sans antibiotique de la naissance à l'abattage, sans antibiotique sur toute la vie de l'animal, sans traitement antibiotique sur toute la vie de l'animal
 pt:Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 en:No artificial additives
+ca:Sense additius artificials
 de:Ohne künstliche Zusätze
 es:Sin aditivos artificiales
 fi:ei keinotekoisia lisäaineita, ilman keinotekoisia lisäaineita
@@ -15175,6 +15209,7 @@ hu:Nincs mesterséges adalékanyag, Mesterséges adalékanyagmentes
 it:Senza additivi artificiali
 nl:Zonder kunstmatige toevoegingen
 pt:Sem aditivos artificiais
+label_categories:en: en:Health, en:Additives
 
 en:No artificial colors, free of artificial color, no artificial colours
 ca:Sense colorants artificials
@@ -15189,11 +15224,13 @@ nl:Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
+label_categories:en: en:Health, en:Additives
 
 < en:No artificial colors
 < en:No artificial flavors
 en:No artificial colours or flavours, No artificial colours and flavours, No artificial colours and flavourings
 ca:Sense colorants ni aromes artificials
+da:Ingen kunstige smags- eller farvestoffer
 de:Keine künstlichen Farbstoffe oder Aromen
 es:Sin colorantes o saborizantes artificiales
 fi:ei keinotekoisia väriaineita tai aromeja, ei keinotekoisia väri- tai makuaineita
@@ -15201,9 +15238,12 @@ fr:Sans colorants ni arômes artificiels
 he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
+nb:Ingen kunstige smakstilsetninger eller farger
 nl:Zonder kunstmatige kleurstoffen
 pt:Sem corantes nem aromas artificiais
+sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
+label_categories:en: en:Health, en:Additives
 
 < en:No artificial colors
 < en:No artificial preservatives
@@ -15222,15 +15262,18 @@ nl:Vrij van kunstmatige smaakstoffen, Zonder kunstmatige smaakstoffen
 pl:Bez sztucznych aromatów
 pt:Sem sabores artificiais, livre de sabor artificial
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
+sv:Inga artificiella aromämnen
 th:ไม่เติมกลิ่นสังเคราะห์
 
 en:No artificial flavour enhancer
+ca:Sense potenciador del sabor artificial
 de:Ohne künstliche Geschmaksverstärker
 es:Sin potenciador artificial del sabor
 fi:ei keinotekoisia arominvahventeita, ilman keinotekoisia arominvahventeita
 fr:Sans exhausteurs de goût artificiels
 hu:Mesterséges ízfokozó nélkül
 nl:Zonder smaakversterkers
+label_categories:en: en:Health, en:Additives
 
 en:No artificial preservatives, free of artificial preservative
 ca:Sense conservants artificials
@@ -15242,8 +15285,10 @@ hu:Mesterséges tartósítószer nélkül
 it:Senza conservanti artificiali
 nl:Zonder kunstmatige bewaarstoffen
 pt:Sem conservantes artificiais
+label_categories:en: en:Health, en:Additives
 
 en:No artificial sweeteners
+ca:Sense edulcorants artificials
 de:Ohne künsztliche Süßungsmittel
 es:Sin edulcorantes artificiales, Sin endulzantes artificiales
 fi:ei keinotekoisia makeutusaineita, ilman keinotekoisia makeutusaineita
@@ -15269,6 +15314,7 @@ hu:Aszpartámmentes, Aszpartám mentes, Aszpartám nélkül
 it:Senza aspartame
 nl:Zonder Aspartaam
 pt:Sem aspartame
+label_categories:en: en:Health
 
 en:No Bisphenol-A, No BPA, BPA free, Bisphenol-A free
 de:Ohne Bisphenol-A
@@ -15277,8 +15323,10 @@ fi:ei sisällä Bisfenoli-A:ta, Ei BPA:ta, BPA-vapaa
 fr:Sans bisphénol-A, Sans BPA
 it:Senza BPA
 nl:Zonder bisfenol A
+label_categories:en: en:Health
 
 en:No caffeine, caffeine free, without caffeine
+ca:Sense cafeïna, lliure de cafeïna
 de:Koffeinfrei
 es:Sin cafeína
 fi:kofeiiniton, ilman kofeiinia
@@ -15289,6 +15337,7 @@ nl:Cafeinevrij, Vrij van cafeine, Zonder cafeine
 pl:Bez kofeiny
 pt:Sem cafeína, livre de cafeína
 th:ไม่มีคาเฟอีน
+label_categories:en: en:Health
 
 en:No cholesterol, cholesterol-free, without cholesterol
 ca:Sense colesterol, Lliure de colesterol
@@ -15307,6 +15356,7 @@ label_categories:en: en:Health
 
 en:No colorings, no added colorings
 ca:Sense colorants, sense colorants afegits
+cs:Bez přidaných barviv
 de:Ohne Farbstoffzusatz, Ohne Zusatz von Farbstoffen, Ohne Farbstoffe
 es:Sin colorantes, Sin colorantes añadidos
 fi:väriaineeton, ei väriaineita, ei lisättyjä väriaineita
@@ -15365,6 +15415,7 @@ label_categories:en: en:Health, en:Additives
 < en:No flavour enhancer
 en:No MSG, MSG free
 ca:Sense Glutamat Monosòdic, Sense GMS, Lliure de GMS
+de:kein MSG, MSG-frei, MSGfrei
 es:Sin glutamato, Sin glutamato monosódico, Sin glutamato de sodio, Sin GMS
 fi:natriumglutamaatiton, ei natriumglutamaattia, ilman natriumglutamaattia, MSG-vapaa
 fr:Sans glutamate, sans GMS
@@ -15388,6 +15439,7 @@ nl:Zonder gelatine, Gelatinevrij
 en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, ni gluten
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Sense gluten d'orígen
 cs:Bez lepku
+da:Glutenfri
 de:Glutenfrei
 es:Sin gluten, Libre de gluten
 fi:gluteeniton, ilman gluteenia, ei gluteenia, gluteenivapaa, luonnollisesti gluteeniton
@@ -15395,6 +15447,7 @@ fr:Sans gluten
 he:נטול גלוטן
 hu:Gluténmentes, Glutén nélkül, Gluténmentes élelmiszer, Nem tartalmaz glutént, Glutént nem tartalmaz
 it:Senza glutine
+nb:Uten gluten
 nl:Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
 pl:Bezglutenowy
 pt:Sem gluten, Isento de gluten
@@ -15408,20 +15461,28 @@ opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
 < en:No gluten
+en:Crossed Grain Symbol, Crossed Grain
+xx:Crossed Grain Symbol
+
+< en:No gluten
 en:DZG Gluten free
 de:DZG glutenfrei
 
 < en:No gluten
 en:FACE
-fi:FACE
-it:FACE
-nl:FACE
+xx:FACE
+
+< en:No gluten
+es:Sin TACC, Sin T.A.C.C.
+image:en: Sin-tacc.86x90.png
+wikidata:en: Q101542317
 
 < en:No gluten
 fr:Afdiag, Association Française des Intolérants au Gluten
 
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
+cs:Bez GMO
 de:gentechnikfrei
 es:Sin OMG, Sin transgénicos, Sin OMGs, Sin Organismos Modificados Genéticamente
 fi:GMO-vapaa, GM-vapaa, ilman GMO:ita, ei muuntogeenisiä organismeja, ilman muuntogeenisiä organismeja, tuotettu ilman geenitekniikka
@@ -15434,11 +15495,13 @@ pl:bez GMO
 pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
+label_categories:en: en:Health, en:Environment
 opposite:en: en:Contains GMOs
 
 < en:No GMOs
 en:Non GMO project
 ca:NON GMO Project
+es:Proyecto no OGM
 fi:Non GMO project, Ei-GMO-projekti
 it:Progetto non OGM
 pt:Non GMO project, Projeto não OGM
@@ -15446,6 +15509,7 @@ wikidata:en: Q7754286
 
 < en:No GMOs
 en:Ohne Gentechnik
+cs:Ohne Gentechnik
 de:Ohne Gentechnik
 it:Senza OGM
 nl:Zonder gentechnologie
@@ -15468,14 +15532,17 @@ label_categories:en: en:Health, en:Nutrition
 
 en:No lactose, lactose-free, without lactose
 ca:Sense lactosa, lliure de lactosa
+cs:Bez laktózy
 cz:Bez laktozy
+da:Laktosefri
 de:Laktosefrei, Lactosefrei
 es:Sin lactosa
 fi:laktoositon, ei laktoosia, ilman laktoosia
 fr:sans lactose
 he:נטול לקטוז
 hu:Laktózmentes
-it:Senza lattosio
+it:Senza lattosio, Naturalmente senza lattosio
+nb:Laktosefri, Uten laktose, Naturlig laktosefri
 nl:Lactosevrij, Vrij van lactose
 pl:Bez laktozy
 pt:Sem lactose
@@ -15505,9 +15572,11 @@ hu:Szójalecitin nélkül, Szójalecitin mentes
 it:Senza lecitina di soia
 pt:Sem lecitina de soja
 ru:Без соевого лецитина
+label_categories:en: en:Soy
 
 en:No milk, milk-free, dairy-free, no dairy, without milk
 ca:Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
+da:Mælkefri, Fri for mælkebestanddele
 de:Ohne Milch, Milchfrei
 es:Sin leche
 fi:maidoton, maitotuotteeton, ei maitoa, ilman maitoa
@@ -15515,10 +15584,11 @@ fr:sans lait, sans produits laitiers
 he:ללא חלב
 hu:Tej nélkül, tejmentes
 it:Senza latte
+nb:Uten melk, Fri fro melk
 nl:Melkvrij
 pl:Bez mleka, Bez zawartości mleka
 ru:Без молока
-sv:Mjölkfri, Fri från mjölk
+sv:Mjölkfri, Fri från mjölk, Fri från mjölkprodukter
 th:ไม่มีส่วนผสมของนม
 
 en:No palm oil, Palm oil free, Without palm oil
@@ -15553,9 +15623,11 @@ th:ไม่มีส่วนผสมของถั่วลิสงค์
 
 en:No preservatives, no added preservatives
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
+cs:Bez konzervantů
+da:Uden konserveringsmiddel
 de:Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
 es:Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
-fi:säilöntäaineeton, ei säilöntäaineita, ilman säilöntäaineita, ei lisättyjä säilöntäaineita
+fi:säilöntäaineeton, ei säilöntäaineita, ilman säilöntäaineita, ei lisättyjä säilöntäaineita, ei sisällä säilöntäaineita
 fr:Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
 he:ללא משמרים, ללא חומרים משמרים, ללא חומרים משמרים מלאכותיים
 hu:Tartósítószermentes, Nincs tartósítószer, nincs hozzáadott tartósítószer mesterséges tartósítószer nélkül
@@ -15565,6 +15637,7 @@ pl:Bez konserwantów, bez dodatku konserwantów, bez sztucznych dodatków
 pt:Sem conservantes, sem conservantes adicionados
 ro:Fără conservanți
 ru:Без консервантов
+sv:Utan konserveringsmedel
 th:ไม่ใช้วัตถุกันเสีย
 zh:无防腐剂
 
@@ -15597,6 +15670,7 @@ nl:Sojavrij
 pt:Sem soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+label_categories:en: en:Environment, en:Health, en:Soy
 opposite:en: en:contains-soy
 
 en:No thickening agent, No thickeners
@@ -15629,6 +15703,7 @@ nl:Zonder graan
 
 en:non-EU Agriculture
 ca:Agricultura No-UE
+cs:Zemědělství mimo EU
 da:ikke-EU jordbruk
 de:Nicht EU-Landwirtschaft
 es:Agricultura no UE
@@ -15643,17 +15718,18 @@ sv:icke EU-jordbruk
 
 < en:Non-EU Agriculture
 en:BO-BIO-126
-ca:BO-BIO-126
 es:BO-BIO-126
-fi:BO-BIO-126
-pt:BO-BIO-126
+xx:BG-BIO-126
 
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
 opposite:en: en:fair-trade
 
 en:Non-organic, not organic
+ca:No ecològic
+de:Nicht Bio, nichtbio
 fr:Non-bio
+it:Non organico
 opposite:en: en:organic
 
 en:Non-vegan, not vegan, not suitable for vegans
@@ -15666,6 +15742,7 @@ fi:ei-vegetaarinen, ei sovellu kasvissyöjille
 fr:Non végétarien, ne convient pas aux végétariens
 hu:Nem Vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
+nl:niet geschikt voor vegetariërs
 label_categories:en: en:Specific diets
 opposite:en: en:vegetarian
 
@@ -15693,6 +15770,7 @@ fi:Ei suositella lapsille tai raskauden aikana
 fr:Déconseillé aux enfants et aux femmes enceintes
 hu:Nem ajánlott gyerekek és várandós nők számára
 it:Sconsigliato per bambini e donne in gravidanza
+nl:Afgeraden voor kinderen en zwangere vrouwen
 pt:Não recomendado para crianças e mulheres grávidas
 ru:Не рекомендовано для детей и беременных женщин
 se:Rekommenderas ej till barn samt gravida
@@ -15735,6 +15813,7 @@ ru:Не закаленный
 
 en:Nutriscore
 ca:Comptador Nutricional, Nutriscore
+da:Nutriscore
 de:Nutriscore
 es:Nutriscore
 fi:Nutriscore
@@ -15743,12 +15822,14 @@ he:Nutriscore
 it:Nutriscore
 nl:Nutriscore
 pl:Nutriscore
+xx:Nutriscore
 label_categories:en: en:Nutrition Grades, en:Health
 wikidata:en: Q46577569
 
 < en:Nutriscore
 en:Nutriscore Grade A
 ca:Grau A Nutriscore
+da:Nutriscore A
 de:Nutriscore Note A
 es:Nutriscore A
 fi:Nutriscore-arvosana A
@@ -15756,10 +15837,13 @@ fr:Nutriscore A
 he:דירוג A ב־Nutriscore
 it:Nutriscore A
 nl:Nutriscore A
+xx:Nutriscore A
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en:Nutriscore Grade B
 ca:Grau B Nutriscore
+da:Nutriscore B
 de:Nutriscore B
 es:Nutriscore B
 fi:Nutriscore-arvosana B
@@ -15767,10 +15851,13 @@ fr:Nutriscore B
 he:דירוג B ב־Nutriscore
 it:Nutriscore B
 nl:Nutriscore B
+xx:Nutriscore B
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en:Nutriscore Grade C
 ca:Grau C Nutriscore
+da:Nutriscore C
 de:Nutriscore C
 es:Nutriscore C
 fi:Nutriscore-arvosana C
@@ -15778,10 +15865,13 @@ fr:Nutriscore C
 he:דירוג C ב־Nutriscore
 it:Nutriscore C
 nl:Nutriscore C
+xx:Nutriscore C
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en:Nutriscore Grade D
 ca:Grau D NutriScore
+da:Nutriscore D
 de:Nutriscore D
 es:Nutriscore D
 fi:Nutriscore-arvosana D
@@ -15789,16 +15879,21 @@ fr:Nutriscore D
 he:דירוג D ב־Nutriscore
 it:Nutriscore D
 nl:Nutriscore D
+xx:Nutriscore D
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en:Nutriscore Grade E
 ca:Grau E NutriScore
+da:Nutriscore E
 de:Nutriscore Note E
 es:Nutriscore E
 fi:Nutriscore-arvosana E
 fr:Nutriscore E
 it:Nutriscore E
 nl:Nutriscore E
+xx:Nutriscore E
+label_categories:en: en:Nutrition Grades, en:Health
 
 en:Nutriscore experiment
 ca:Experiment Nutriscore
@@ -15819,6 +15914,7 @@ fi:Nutriscore-kokeilu arvosana A
 fr:Expérimentation Nutriscore A
 it:Sperimentazione Nutriscore A
 nl:Nutriscore experiment A
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore experiment
 en:Nutriscore experiment Grade B
@@ -15828,6 +15924,7 @@ fi:Nutriscore-kokeilu arvosana B
 fr:Expérimentation Nutriscore B
 it:Sperimentazione Nutriscore B
 nl:Nutriscore experiment B
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore experiment
 en:Nutriscore experiment Grade C
@@ -15837,6 +15934,7 @@ fi:Nutriscore-kokeilu arvosana C
 fr:Expérimentation Nutriscore C
 it:Sperimentazione Nutriscore C
 nl:Nutriscore experiment C
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore experiment
 en:Nutriscore experiment Grade D
@@ -15845,6 +15943,7 @@ fi:Nutriscore-kokeilu arvosana D
 fr:Expérimentation Nutriscore D
 it:Sperimentazione Nutriscore D
 nl:Nutriscore experiment D
+label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore experiment
 en:Nutriscore experiment Grade E
@@ -15853,6 +15952,14 @@ fi:Nutriscore-kokeilu arvosana E
 fr:Expérimentation Nutriscore E
 it:Sperimentazione Nutriscore E
 nl:Nutriscore experiment E
+label_categories:en: en:Nutrition Grades, en:Health
+
+en:NZ Vegetarian Society, NZVS
+xx:NZ Vegetarian Society, NZVS
+
+< en:NZ Vegetarian Society
+en:NZ Vegetarian Society Vegan Certification, NZVS Vegan Certification
+xx:NZ Vegetarian Society Vegan Certification, NZVS Vegan Certification
 
 en:Omega-3
 ca:Omega-3
@@ -15914,10 +16021,10 @@ ru:Сто лучших товаров России 2015
 en:Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture
 ca:Orgànic, de cultiu ecologic
 cs:Bio
-da:Økologisk
-de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
+da:Økologisk, Økologiske
+de:Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
 es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica
-fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto
+fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
 hu:Bio, Öko, Organikus
@@ -15925,7 +16032,7 @@ it:Biologico, biologici, da agricoltura biologica
 ko:유기농
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
 pt:Orgânico
-sv:Ekologisk, ekologiskt
+sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
 zh:有机
 description:de: Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
@@ -15960,14 +16067,16 @@ image:en: bio-austria.67x90.svg
 < en:Organic
 en:Bio Suisse, BioSuisse
 ca:BioSuisse
+de:Bio Schweiz
 fr:Bio Suisse
+it:Bio Suisse, BioSuisse
 nl:Bio Zwitserland
 country:en: en:Switzerland
 
 < en:Organic
 en:Biodynamic agriculture
 ca:Agricultura biodinàmica
-de:Biodynamische Landwirtschaft, Biodynamisch
+de:Biodynamische Landwirtschaft, Biodynamisch, Biodynamische, Biodynamischer, Biodynamisches
 es:Agricultura biodinámica
 fi:biodynaaminen maatalous
 fr:Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique, bio-dynamique
@@ -15979,10 +16088,7 @@ wikidata:en: Q847611
 
 < en:Organic
 en:Biogarantie
-de:Biogarantie
-fi:Biogarantie
-fr:Biogarantie
-nl:Biogarantie
+xx:Biogarantie
 country:en: Belgium
 image:en: biogarantie.90x90.svg
 
@@ -16010,6 +16116,7 @@ wikidata:en: Q864442
 < en:Organic
 en:Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
 fr:Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
+it:Canada Organic, Biologique Canada
 nl:Canada Biologisch, Canada Organic
 
 < en:Organic
@@ -16025,14 +16132,6 @@ fi:Debio luomu
 nb:Debio Ø-merke, Debio økologisk
 country:en: Norway
 image:nb: debio-ø-merke.90x90.svg
-
-< en:Organic
-en:EG-Öko-Verordnung
-de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
-it:Regolamento Biologico CE
-nl:Biologische EU Verordening
-country:en: Germany
-image:en: eg-oko-verordnung.110x90.svg
 
 < en:Organic
 en:EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
@@ -16070,7 +16169,7 @@ en:KRAV
 ca:Categoria Extra
 de:Klasse “Extra”
 es:Categoría “Extra”
-fi:KRAV
+fi:"Ekstra"-luokka
 fr:Catégorie “Extra”, catégorie supérieure
 it:Classe &quot;Extra&quot;
 sv:KRAV
@@ -16086,10 +16185,7 @@ image:fi: aurinkomerkki.92x90.svg
 
 < en:Organic
 en:Migros Bio
-de:Migros Bio
-fr:Migros Bio
-it:Migros Bio
-nl:Migros Bio
+xx:Migros Bio
 country:en: en:Switzerland
 stores:en: Migros
 
@@ -16124,6 +16220,7 @@ image:is: vottað-lífrænt-tún.110x90.svg
 < en:Organic
 en:USDA Organic
 ca:Orgànic segons la USDA
+de:USDA Organic, National Organic Program, NOP
 fi:USDA-luomu
 it:Biologico USDA
 nl:USDA Organic
@@ -16148,6 +16245,13 @@ country:en: Spain
 < en:Organic
 es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM
 country:en: Spain
+
+< en:Organic
+es:Orgánico Argentina
+auth_url:en: https://organicoargentina.magyp.gob.ar
+country:en: Argentina
+image:es: organico-argentina.67x90.png
+wikidata:en: Q101928227
 
 < en:Organic
 fr:Bio-Cohérence, BioCohérence
@@ -16176,6 +16280,7 @@ fi:lakto-ovo-vegetaarinen
 fr:Ovo-lacto-végétarien
 hu:Ovo-lakto-vegetáriánus, Lakto-ovo-vegetáriánus
 it:Ovo-latto-vegetariano
+sv:Lakto-ovovegetarianer
 wikidata:en: Q3544800
 
 en:Packaged in France
@@ -16187,19 +16292,27 @@ fr:Conditionné en France
 he:נארז בצרפת
 hu:Franciaországban csomagolva
 it:Confezionato in Francia
+nl:Verpakt in Frankrijk
+label_categories:en: en:Geographic label
+packaging_places:en: en:france
 
 en:Pair trawling
 fi:Paritroolattu
 fr:Pêché à deux chaluts
+label_categories:en: en:Fishing method
 wikidata:en: Q7125126
 
 en:pasteurized product
+ca:Producte pasteuritzat
+de:Pasteurisiertes Produkt
 es:Producto pasteurizado
 fr:produit pasteurisé
 it:Prodotto pastorizzato
+nl:gepasteuriseerd product
 
 en:PDO, P.D.O., Protected Designation of Origin
 ca:DOP, Denominació d'Orígen Protegida
+da:BOB, B.O.B, Beskyttet oprindelsesbetegnelse
 de:gU, g.U., Geschützte Ursprungsbezeichnung
 es:DOP, D.O.P., Denominación de Origen Protegida
 fi:SAN, S.A.N., Suojattu alkuperänimitys
@@ -16207,6 +16320,7 @@ fr:AOP, A.O.P., Appellation d'origine protégée
 hu:OEM, Oltalom alatt álló redetmegjelölés
 it:DOP, D.O.P., Denominazione di origine protetta
 nl:BGO, Beschermde Geografische Oorsprong, PDO, AOP
+sv:SUB, S.U.B., Skyddad ursprungsbeteckning
 wikidata:en: Q13439060
 
 < en:PDO
@@ -16321,6 +16435,7 @@ en:Pelagic net fishing
 de:Pelagische Netzfischerei
 fi:pelaginen verkkokalastettu
 fr:Pêché au filet pélagique, Pêchés au filet pélagique, Pêché aux filets pélagiques, Pêchés aux filets pélagiques, Pêchée au filet pélagique, Pêchées au filet pélagique
+label_categories:en: en:Fishing method
 
 en:PGI, P.G.I., Protected Geographical Indication, PGI - Protected Geographical Indication
 ca:IGP, Indicació Geogràfica Protegida
@@ -16331,6 +16446,7 @@ fr:IGP, I.G.P, Indication Géographique Protégée, IGP - Indication Géographiq
 hu:Oltalom alatt álló földrajzi jelzés
 it:IGP, I.G.P., Indicazione geografica protetta
 nl:BGA, B.G.A., Beschermde geografische aanduiding
+sv:SGB, S.G.B., Skyddad geografisk beteckning
 wikidata:en: Q13533432
 
 < en:PGI
@@ -16413,6 +16529,7 @@ es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
 wikidata:en: Q3995785
 
 en:Phosphore source
+ca:Font de fòsfor
 de:Phosphorquelle
 es:Fuente de fósforo
 fi:fosforin lähde
@@ -16446,12 +16563,12 @@ fi:perunoita Ranskasta, perunoiden alkuperä Ranska
 fr:Pommes de terre de France
 it:Patate francesi, Patate dalla Francia
 nl:Aardappelen uit Frankrijk
-origins:en: en:France
+origins:en: en:france
 
 en:Pro Montagna, ProMontagna, Coop Pro Montagna
 ca:Pro Montagna, ProMontagna, Coop Pro Montagna
 
-en:Produced in Bretagne
+en:Produced in Brittany, Produced in Bretagne
 ca:Produït a la Bretanya
 de:Produziert in der Bretagne
 es:Producido en Bretaña
@@ -16460,7 +16577,7 @@ fr:Produit en Bretagne
 it:Prodotto in Bretagna
 nl:Geproduceerd in Bretagne
 pl:Wyprodukowano w Bretanii
-origins:en: en:France
+origins:en: en:france
 
 en:Products for professional use
 ca:Producte per ús professional
@@ -16477,6 +16594,8 @@ de:100% Rindfleisch
 fi:puhdasta naudanlihaa, 100% naudanlihaa
 fr:Pur bœuf
 he:בקר טהור
+it:Puro manzo
+nl:puur rund
 pl:Wieprzowina bez domieszek
 
 en:Pure butter
@@ -16493,6 +16612,7 @@ nl:Pure boter
 en:pure cocoa butter, pure cocoa butter chocolate
 ca:Mantega de cacau pura
 de:reine Kakaobutter
+es:Manteca de cacao pura
 fi:puhdasta kaakaovoita, suklaata puhtaasta kaakaovoista
 fr:pur beurre de cacao, chocolat pur beurre de cacao
 he:חמאת קקאו טהורה
@@ -16513,23 +16633,31 @@ it:Succo puro
 en:Pure pork
 ca:Pur porc
 de:100% Schweinefleisch
+es:Puro cerdo
 fi:puhdasta porsaanlihaa, 100% porsaanlihaa, puhdasta sianlihaa, 100% sianlihaa
 fr:Pur porc
 hu:100% sertéshús
 it:Maiale puro
+nl:puur varkensvlees
 pl:Wieprzowina bez domieszek
 pt:Carne de porco pura
 
 en:Purse seine fishing
 fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+label_categories:en: en:Fishing method
 wikidata:en: Q11997909
+
+en:QS certification mark
+de:QS-Prüfzeichen
+es:sello de certificación QS
+wikidata:en: Q2121277
 
 en:Qualité France (French quality)
 de:Französische Qualität
 es:Calidad francesa
 fr:Qualité France
 it:Qualité France (Qualità francese)
-origins:en: en:France
+origins:en: en:france
 
 en:Quality food from hungary
 fi:laaturuokaa Unkarista
@@ -16538,6 +16666,7 @@ image:en: Quality-food-from-hungary.90x90.jpg
 
 en:Rainforest Alliance
 ca:Aliança Tropical
+da:Rainforest Alliance
 de:Rainforest Alliance
 es:Rainforest Alliance, Alianza para Bosques
 fi:Rainforset Alliance
@@ -16548,6 +16677,7 @@ auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
 en:raised in Ireland
+de:aufgezogen in Irland, aufgewachsen in Irland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
 origins:en: en:Ireland
@@ -16917,6 +17047,7 @@ fr:Moins 50% de sucre, -50% de sucre, 50% de sucre en moins
 he:50% פחות סוכר
 hu:50%-al csökkentett cukortartalmú
 it:50% in meno di zucchero
+nl:50% minder suiker
 pt:50% menos açúcar
 
 < en:Reduced sugar
@@ -16955,34 +17086,21 @@ fi:Vastuullinen kalatalous, vastuullinen vesiviljely
 fr:Aquaculture responsable
 it:Acuacoltura responsabile
 nl:Verantwoorde aquacultuur
+label_categories:en: en:Fishing labels
 
 < en:Responsible aquaculture
-en:Responsible aquaculture ASC, ASC, Aquaculture Stewardship Council
-ca:Aqüicultura responsable ASC, ASC
+en:Responsible aquaculture ASC
+ca:Aqüicultura responsable ASC
 de:ASC
 es:ASC Acuicultura responsable
-fi:ASC -vastuullinen kalatalous, ASC
-fr:Aquaculture responsable ASC, ASC, Aquaculture Stewardship Council
-it:Acquacoltura responsabile ASC, ASC, Aquaculture Stewardship Council
-nl:Verantwoorde aquacultuur MSC
+fi:ASC -vastuullinen kalatalous
+fr:Aquaculture responsable ASC
+it:Acquacoltura responsabile ASC
+nl:Verantwoorde aquacultuur ASC
+xx:ASC, Aquaculture Stewardship Council
 auth_url:en: https://www.asc-aqua.org
+label_categories:en: en:Fishing labels
 wikidata:en: Q2028860
-
-< en:Responsible aquaculture ASC
-en:ASC C00386
-ca:ASC C00386
-fi:ASC C00386
-it:ASC C00386
-pl:ASC C00386
-
-< en:Responsible aquaculture ASC
-fr:ASC C 00026
-de:ASC C 00026
-fi:ASC C 00026
-
-< en:Responsible aquaculture ASC
-fr:ASC C 00473
-fi:ASC C 00473
 
 en:Rich in polyunsaturated fatty acids
 de:Reich an mehrfach ungesättigten Fettsäuren
@@ -17018,6 +17136,7 @@ fr:Riche en vitamine B1
 he:עשיר בוויטמין B1, עתיר בוויטמין B1
 hu:B1-vitaminban gazdag
 it:Ricco di vitamina B1
+nl:rijk aan vitamine B1
 pt:Rico em vitamina B1
 
 en:Rich in vitamin B12
@@ -17028,6 +17147,7 @@ fr:Riche en vitamine B12
 he:עתיר בוויטמין B12, עשיר בוויטמין B12
 hu:B12-vitaminban gazdag
 it:Ricco di vitamina B12
+nl:rijk aan vitamine B12
 
 en:Rich in vitamin B6
 de:Reich an Vitamin B6
@@ -17069,6 +17189,7 @@ fr:Riche en vitamine D
 he:עשיר בוויטמין D, עתיר בוויטמין D
 hu:D-vitaminban gazdag
 it:Ricco di vitamina D
+nl:rijk aan vitamine D
 pt:Rico em vitamina D
 
 en:Rich in vitamin E
@@ -17078,6 +17199,7 @@ fi:Runsaasti E-vitamiinia
 fr:Riche en vitamine E
 hu:E-vitaminban gazdag
 it:Ricco di vitamina E
+nl:rijk aan vitamine E
 pt:Rico em vitamina E
 
 < en:Roundtable on Sustainable Palm Oil
@@ -17111,10 +17233,10 @@ he:מומלח במלח יבש
 pt:Salgado com sal seco
 
 en:San Francisco Chronicle Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 en:San Francisco International Wine Competition
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 en:Seine fishing
 de:Ringwadenfischerei
@@ -17122,6 +17244,7 @@ es:Pesca al cerco, Pesca con red de jábega
 fi:nuottakalastettu
 fr:Pêché à la senne, Pêchés à la senne, Pêchée à la senne, Pêchées à la senne
 ru:сейнерная рыбалка
+label_categories:en: en:Fishing method
 wikidata:en: Q600580
 
 < en:Silver medal of the Concours Mondial de Bruxelles
@@ -17200,6 +17323,7 @@ fr:Médaille d'argent 2017 de la Société Allemande d'Agriculture
 
 < en:Silver medal of the German Agricultural Society
 en:2018 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2018 Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis 2018
 fi:Saksan maatalousyhdistyksen hopeamitali 2018
 fr:Médaille d'argent 2018 de la Société Allemande d'Agriculture
@@ -17207,6 +17331,7 @@ it:Medaglia d'argento della Società Agricola Tedesca nel 2018
 
 < en:Silver medal of the German Agricultural Society
 en:2019 Silver medal of the German Agricultural Society
+cs:Stříbrná medaile r. 2019 Německé Zemědělské Společnosti / DLG
 de:DLG Silberner Preis 2019
 fi:Saksan maatalousyhdistyksen hopeamitali 2019
 fr:Médaille d'argent 2019 de la Société Allemande d'Agriculture
@@ -17235,11 +17360,13 @@ fr:Certains ingrédients ne proviennent pas de France, Certains ingrédients de 
 it:Alcuni ingredienti non provengono dalla Francia
 
 en:Some ingredients not from Italy, Some ingredients of this product do not come from Italy
+de:einige Zutaten stammen nicht aus Italien
 fi:osa ainesosista ei Italiasta
 fr:Certains ingrédients ne proviennent pas d'Italie, Certains ingrédients de ce produit ne proviennent pas d'Italie
 it:Alcuni ingredienti non provengono dall'Italia
 
 en:Source of iron
+ca:Font de ferro
 de:Eisenquelle
 es:Fuente de hierro
 fi:Raudan lähde
@@ -17261,6 +17388,7 @@ it:Prodotto spagnolo protetto
 
 en:Spanish quality label
 ca:Etiqueta de qualitat espanyola
+de:Spanisches Qualitäts Etikett
 es:Etiquetas de calidad de España
 fi:espanjalainen laatumerkki
 fr:Label de qualité espagnol
@@ -17304,6 +17432,7 @@ en:Tierra de Sabor
 es:Tierra de Sabor
 
 en:Suisse Garantie, SuisseGarantie
+de:Schweizer Garantie
 country:en: en:Switzerland
 
 en:Suitable for diabetics
@@ -17327,10 +17456,12 @@ pl:najwyższa jakość
 
 en:Sustainable farming
 ca:Agricultura Sostenible
+cs:Udržitelné zemědělství
 de:Nachhaltige Agrikultur
 es:Agricultura sustentable
 fi:Kestävä maatalous
 fr:Agriculture durable
+he:חקלאות בת־קיימא
 hu:Fenntartható gazdálkodás
 it:Agricoltura sostenibile
 nl:Duurzame landbouw
@@ -17340,6 +17471,7 @@ pt:Agricultura sustentável
 < en:Sustainable farming
 en:UTZ Certified, UTZ
 ca:Certificat UTZ
+cs:UTZ certifikováno
 de:UTZ Zertifiziert, UTZ
 es:Certificado UTZ
 fi:UTZ-sertifioitu, UTZ
@@ -17358,17 +17490,20 @@ he:דיג מקיים
 it:Pesca sostenibile
 nl:Duurzame visserij
 pl:Zrównoważone rybołówstwo
+label_categories:en: en:Fishing labels
 
 < en:Sustainable fishery
-en:Sustainable Seafood MSC, MSC, Marine Stewardship Council, sustainable food msc
+en:Sustainable Seafood MSC, sustainable food msc
 ca:Marisc sostenible MSC, MSC, Consell per la Protecció Marina
-de:Zertifizierte nachhaltige Fischerei MSC, MSC zertifiziert, MSC
-es:Certificado MSC de pesca sostenible, Pesca sostenible MSC, MSC, Marine Stewardship Council
-fi:MSC-sertifioitu, MSC-sertifioidusta, MSC
-fr:Pêche durable MSC, MSC, Marine Stewardship Council
+de:Zertifizierte nachhaltige Fischerei MSC, MSC zertifiziert
+es:Certificado MSC de pesca sostenible, Pesca sostenible MSC
+fi:MSC-sertifioitu, MSC-sertifioidusta
+fr:Pêche durable MSC, certifié MSC, certifiée MSC, certifiés MSC, certifiées MSC, labellisé MSC, labellisée MSC, labellisés MSC, labellisées MSC
 it:Frutti di Mare Sostenibili MSC
 nl:Duurzaam Zeevruchten MSC
+xx:MSC, Marine Stewardship Council
 auth_url:en: https://www.msc.org
+label_categories:en: en:Fishing labels
 wikidata:en: Q1891246
 
 en:Sustainable Palm Oil
@@ -17380,6 +17515,7 @@ fr:Huile de palme durable, Huile de palme certifiée durable, Huile de palme iss
 hu:Fenntartható pálmaolaj
 it:Olio di palma sostenibile
 nl:Duurzame palmolie
+ingredients:en: en:palm-oil
 wikidata:en: Q686421
 
 < en:Sustainable Palm Oil
@@ -17449,11 +17585,14 @@ fi:Prosessoitu Ranskassa
 fr:Transformé en France
 it:Lavorato in Francia
 pt:Transformado na França
+label_categories:en: en:Geographic label
+manufacturing_places:en: en:france
 
 en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
+label_categories:en: en:Fishing method
 wikidata:en: Q2941001
 
 en:Trawl fishing
@@ -17464,6 +17603,7 @@ fi:troolattu, pyydetty troolilla
 fr:Pêché au chalut, Pêchés au chalut, Pêchée au chalut, Pêchées au chalut, Pêché par chalutage, Pêchés par chalutage
 hu:Vonóhálós halászat
 it:Pesca a strascico
+label_categories:en: en:Fishing method
 
 en:TSG, t.S.g., Traditional Speciality Guaranteed
 bg:храна с традиционно специфичен характер, ХТСХ
@@ -17526,9 +17666,9 @@ fi:CCOF-sertifioitu luomu
 pl:CCOF certified organic
 
 < en:UTZ Certified
-en:UTZ Certified Cacao, UTZ Certified Cocoa
+en:UTZ Certified Cocoa, UTZ Certified Cacao
 ca:Cacau certificat UTZ
-de:UTZ Certified Kakao
+de:UTZ Zertifizierter Kakao, UTZ Certified Kakao
 fi:UTZ-sertifioitua kaakaota
 fr:Cacao certifié UTZ
 it:Cacao certificato UTZ
@@ -17539,10 +17679,24 @@ pl:UTZ Certified Cacao
 en:UTZ Certified Coffee
 ca:Cafè amb certificat UTZ
 de:UTZ Certified Kaffee
+es:Café certificado UTZ
 fi:UTZ-sertifioitua kahvia
 fr:Café certifié UTZ
 it:Caffè certificato UTZ
 pl:UTZ Certified Coffee
+
+< en:Vegan
+en:EVE Vegan, Expertise Vegan Europe
+xx:EVE Vegan, Expertise Vegan Europe
+
+< en:Organic
+< en:Vegan
+en:EcoVeg
+xx:EcoVeg
+
+< en:Vegan
+en:Plamil Foods Vegan, Plamil Foods Vegan Label
+xx:Plamil Foods Vegan, Plamil Foods Vegan Label
 
 < en:Vegan
 en:The Vegan Society, Vegan Society, Vegan Flower
@@ -17553,31 +17707,61 @@ fi:The Vegan Society, Vegan Society, Vegaanikukka
 he:אגודת הטבעונים
 it:La società vegana
 nl:The Vegan Society
+pl:The Vegan Society, Vegan Society, Towarzystwo Wegańskie
 wikidata:en: Q1855049
 
 < en:Vegan
 en:Vegan Action
-de:Vegan Action
 es:Vegan Action
+xx:Vegan Action
 wikidata:en: Q7918275
+
+< en:Vegan
+en:Vegan Australia, Vegan Australia Certified
+xx:Vegan Australia, Vegan Australia Certified
+
+< en:Vegan
+en:Veganok, Vegan OK
+xx:Veganok, Vegan OK
 
 < en:Vegan
 es:UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
 
+< en:Vegan
+it:Qualità Vegetariana Vegan
+xx:Qualità Vegetariana Vegan
+
+< en:Vegan
+it:Vegan Cert, Vegan Product Certification
+xx:Vegan Cert, Vegan Product Certification
+
+< en:Vegan
+< en:Vege Project
+en:Vege Project Vegan, Vege Project Japan Vegan
+xx:Vege Project Vegan, Vege Project Japan Vegan
+
+< en:Vege Project
+en:Vege Project Vegetarian, Vege Project Japan Vegetarian
+xx:Vege Project Vegetarian, Vege Project Japan Vegetarian
+
 en:Vegetarian, Suitable for vegetarians
 ca:Vegetarià, Adequat per persones vegetarianes
+cs:Vegetariánské
+da:Vegetarisk, Velegnet for vegetarer
 de:Vegetarisch
 es:Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
-fi:kasvisruoka, vegetaarinen, sopii kasvissyöjille
+fi:kasvisruoka, vegetaarinen, sopii kasvissyöjille, sopii kasvisruokavalioon
 fr:Végétarien, Convient aux végétariens, Adapté au régime végétarien
 he:צמחוני, מתאים לצמחונים
 hr:Vegetarijanski
 hu:Vegetáriánus
 it:Vegetariano
+nb:Vegetarisk, Egnet for vegetarianere
 nl:Vegetarisch
 pl:Wegetariańskie, przyjazne wegetarianom
 pt:Vegetariano
 ro:Vegetarian
+sv:Vegetarisk, Passar för vegetarianer, Lämplig för vegetarianer
 th:มังสวิรัติ
 zh:素食
 description:de: Vegetarismus bezeichnet eine Ernährungs- und Lebensweise, welche Nahrungsmittel meidet, die von getöteten Tieren stammen.
@@ -17590,8 +17774,14 @@ wikidata:en: Q638022
 wikipedia:en: Vegetarianism
 
 < en:Vegetarian
+da:dansk vegetarisk forening, dvf
+xx:dansk vegetarisk forening, dvf
+
+< en:Vegetarian
 en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 ca:Unió Vegetariana Europea
+cs:V-Label Evropské Vegetariánské Unie
+da:Europæiske Vegetarunion, European Vegetarian Union
 de:Europäische Vegetarier-Union
 eo:Eŭropa vegetarana unuiĝo
 es:Unión Vegetariana Europea
@@ -17600,6 +17790,7 @@ fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Un
 he:איחוד הצמחונות האירופי
 it:Unione Europea Vegetariani
 nl:Europese vegetarische unie
+sv:Europeiska Vegetariska Unionen
 wikidata:en: Q443112
 
 < en:Vegetarian
@@ -17608,11 +17799,15 @@ wikidata:en: Q7918353
 
 < en:Vegetarian
 en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans
+an:vegano
 ca:Vegà, Adequat per persones veganes
+cs:Veganské
+da:Vegansk, Velegnet til veganere
 de:Vegan
 es:Vegano, Producto vegano, Vegan
-fi:vegaaninen, sopii vegaaneille
+fi:vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
 fr:Végétalien, Végan, végétal
+gl:vegano
 he:טבעוני, מתאים לטבעונים
 hu:Vegán
 it:Vegano, Vegan
@@ -17620,6 +17815,8 @@ nb:Vegan, Vegansk
 nl:Veganistisch, plantaardig
 pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
+sq:vegan
+sv:Vegansk, Passar för veganer
 th:สูตรเจ
 zh:纯素
 description:de: Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstellung sowie Lebens- und Ernährungsweise. Vegan lebende Menschen meiden entweder alle Nahrungsmittel tierischen Ursprungs oder sie lehnen generell die Verwertung tierischer Produkte und Ausbeutung der Tiere ab.
@@ -17628,16 +17825,30 @@ description:es: El veganismo o vegetarianismo estricto es la abstención del uso
 descrption:fr: Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
 descrption:nl: Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
 opposite:en: en:non-vegan
+wikidata:en: Q7918273
 wikipedia:en: Veganism
+
+< en:Vegetarian
+en:Vege Project, Vege Project Japan
+xx:Vege Project, Vege Project Japan
 
 < en:Vegetarian
 en:Vegetarian Society
 ca:Vegetarian Society
+de:Vegetarian Society
 es:La Sociedad Vegetariana
 fi:Vegetarian Society
 he:איגוד הצמחונות
 it:Vegetarian Society
 wikidata:en: Q2154954
+
+en:Vegetarian Society Approved
+xx:Vegetarian Society Approved
+
+< en:Vegan
+< en:Vegetarian Society Approved
+en:Vegetarian Society Approved Vegan
+xx:Vegetarian Society Approved Vegan
 
 en:Vinitaly
 
@@ -17664,6 +17875,7 @@ es:VP Campo de la Guardia, V.P. Campo de la Guardia, Campo de la Guardia
 wikidata:en: Q5028475
 
 en:Vitamin A source, Source of vitamin A
+ca:Font de vitamina A
 de:Vitamin A-Quelle
 es:Fuente de vitamina A
 fi:A-vitamiinin lähde
@@ -17698,15 +17910,19 @@ pt:Fonte de vitamina B1
 ru:Источник витамина B1
 
 en:Vitamin B12 source, Source of vitamin B12
+ca:Font de vitamina B12
+da:Kilde til vitamin B12
 de:Vitamin B12-Quelle
 es:Fuente de vitamina B12
 fi:B12-vitamiinin lähde
 fr:Source de vitamine B12
 hu:B12-vitaminforrás
 it:Fonte di vitamina B12
+nb:Kilde til vitamin B12
 nl:Bron van Vitamine B12
 pt:Fonte de vitamina B12
 ru:Источник витамина B12
+sv:Källa till vitamin B12
 
 en:Vitamin B6 source, Source of vitamin B6
 de:Vitamin B6-Quelle
@@ -17731,6 +17947,7 @@ pt:Fonte de vitamina B9
 ru:Источник витамина B9
 
 en:Vitamin C source, Source of vitamin C
+ca:Font de vitamina C
 de:Vitamin C-Quelle
 es:Fuente de vitamina C
 fi:C-vitamiinin lähde
@@ -17755,9 +17972,11 @@ nl:Bron van Vitamine D
 pl:Źródło witaminy D
 pt:Fonte de vitamina D
 ru:Источник витамина D
+sv:D-vitaminkälla
 th:แหล่งของวิตามินดี
 
 en:Vitamin E source, Source of vitamin E
+ca:Font de vitamina E
 de:Vitamin E-Quelle
 es:Fuente de vitamina E
 fi:E-vitamiinin lähde
@@ -17771,7 +17990,7 @@ ru:Источник витамина E
 
 en:Wine Masters Challenge
 pt:Concurso Mundial de Vinhos
-categories:en: en:Wines
+label_categories:en: en:Wines
 
 en:Wine Women Awards à l'Hôtel Bristol à Paris
 categories:en: en:Wines
@@ -17818,6 +18037,7 @@ it:Solfiti e SO2 > 10ppm
 
 < en:With sulfites
 en:With natural sulfites, Contains natural sulfites
+de:Enthält natürliche Sulfite, mit natürlichen Sulfiten
 fi:Sisältää luontaisesti sulfiitteja, Sisältää luontaisia sulfiitteja
 fr:Contient naturellement des sulfites
 hu:Természetes szulfitokkal
@@ -17838,7 +18058,7 @@ pt:Com óleo de girassol
 
 en:With sweeteners
 ca:Amb edulcorants
-da:Inneholder søtstoff
+da:Indeholder sødestoffer
 de:Mit Süßstoffen
 es:Con edulcorantes, Con endulzantes artificiales
 fi:sisältää makeutusaineita, sisältää makeutusainetta
@@ -17846,6 +18066,7 @@ fr:Avec édulcorants
 he:עם ממתיקים
 hu:Édesítővel, Édesítőszerrel
 it:Con dolcificanti, Con edulcoranti
+nb:Inneholder søtningsmiddel
 nl:Met kunstmatige zoetstoffen
 pt:Com adoçantes
 sv:Innehåller sötningsmedel
@@ -17853,6 +18074,7 @@ th:ใช้น้ำตาลเทียม
 
 en:Without addition of dairy products
 de:Ohne Zusatz von Milchprodukten
+es:Sin productos lácteos añadidos
 fi:ei lisättyjä maitotuotteita
 fr:Sans ajout de produit laitiers
 it:Senza aggiunta di latticini
@@ -17862,6 +18084,7 @@ ru:Без добавления молочных продуктов
 en:without azo dyes, without azodyes
 fi:atsoväritön, ei atsovärejä, ilman atsovärejä
 fr:Sans colorants azoïques
+label_categories:en: en:Health, en:Additives
 
 en:Without brown muscle
 fi:ilman ruskeaa lihasta
@@ -17909,6 +18132,7 @@ pt:Sem sulfitos
 
 en:Without sulfur
 ca:Sense sofre
+de:Ohne Schwefel
 fi:rikitön, ei sisällä rikkiä
 fr:Sans soufre
 he:ללא גופרית, נטול גופרית
@@ -17926,6 +18150,7 @@ hu:Édesítő nélkül, Édesítőszer nélkül
 it:Senza dolcificanti
 nl:Zonder zoetstoffen
 pt:Sem adoçantes
+sv:Utan sötningsmedel
 
 en:Without vegetable oils, without vegetable fats
 de:Ohne pfalnzliche Öle
@@ -17940,6 +18165,7 @@ ru:без растительных жиров
 zh:不含植物油
 
 en:World Beer Awards
+xx:World Beer Awards
 zh:世界啤酒奖
 
 < en:World Beer Awards
@@ -17989,14 +18215,17 @@ zh:世界啤酒奖 2018
 en:World Beer Awards 2019
 ca:Millors Cerveses del Món 2019
 he:פרסי הבירה העולמיים 2019
+xx:World Beer Awards 2019
 zh:世界啤酒奖 2019
 
 es:Cata Concurso Nacional de Vinos Jóvenes Cosecha
 label_categories:en: en:Wines
 
 es:Certificado organico ibd
+label_categories:en: en:Certification
 
 es:Concours Internetionale du Vins, Vinandino
+label_categories:en: en:Wines
 
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
 ru:Обозначение происхождения
@@ -18006,6 +18235,15 @@ ru:Обозначение происхождения
 en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
 es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
 wikidata:en: Q1569384
+
+es:Recicla amarillo
+xx:Recicla amarillo
+
+es:Recicla azul
+xx:Recicla azul
+
+es:Recicla verde
+xx:Recicla verde
 
 es:Salon Internacional del Vino de Valladolid
 fr:Iberwine à Valladolid
@@ -18023,6 +18261,9 @@ country:en: Finland
 wikidata:en: Q11895580
 
 fr:100% filet
+
+fr:Agri-Confiance
+xx:Agri-Confiance
 
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée
 protected_name_type:en: aoc
@@ -18054,29 +18295,35 @@ fr:Baco - Bacchus, Concours international des vins et vins primeurs de Madrid
 label_categories:en: en:Wines
 
 fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
-origins:en: en:France
+origins:en: en:france
 
-fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition
+fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, BBC
 auth_url:fr: https://www.bleu-blanc-coeur.org
 
 < fr:Bleu Blanc Cœur
-fr:Bleu Blanc Cœur Bœuf
+fr:Bleu Blanc Cœur Bœuf, Boeuf BBC, BBC Boeuf
 
 < fr:Bleu Blanc Cœur
-fr:Bleu Blanc Cœur Œuf
+fr:Bleu Blanc Cœur Lait, Lait BBC, BBC Lait
 
 < fr:Bleu Blanc Cœur
-fr:Bleu Blanc Cœur Porc
+fr:Bleu Blanc Cœur Œuf, Oeuf BBC, BBC Oeuf, Oeufs BBC, BBC Oeufs
 
 < fr:Bleu Blanc Cœur
-fr:Bleu Blanc Cœur Poulet
+fr:Bleu Blanc Cœur Porc, Porc BBC, BBC Porc
+
+< fr:Bleu Blanc Cœur
+fr:Bleu Blanc Cœur Poulet, BBC poulet, poulet BBC
 
 fr:Certifié écosocial par IBD
+label_categories:en: en:Certification
 
 fr:Certifié par bureau Veritas, Certifié par Veritas
+label_categories:en: en:Certification
 
 < fr:Certifié par bureau Veritas
 fr:Certifié par bureau Veritas certication France
+label_categories:en: en:Certification
 
 fr:Challenge International du Vin à Bordeaux
 label_categories:en: en:Wines
@@ -18153,6 +18400,7 @@ fr:Concours International des Vins de Gastronomie d'Antibes
 label_categories:en: en:Wines
 
 fr:Concours International des Vins de Montagne d'Aoste
+label_categories:en: en:Wines
 
 fr:Concours International des Vins de Terroir de Brignoles
 categories:en: en:Wines
@@ -18191,10 +18439,10 @@ es:Fabricación artesanal, Producción artesanal
 fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
 fr:Farine de blé français
-origins:en: en:France
+origins:en: en:france
 
 fr:Farine de sarrasin français, Farine de blé noir français
-origins:en: en:France
+origins:en: en:france
 
 fr:Femmes et Vins du Monde
 
@@ -18203,15 +18451,15 @@ fr:fermenté en barrique
 fr:fermenté en fût de chêne
 
 fr:Fruits et Légumes de France
-origins:en: en:France
+origins:en: en:france
 
 < fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français
-origins:en: en:France
+origins:en: en:france
 
 < fr:Fruits et Légumes de France
 fr:Légumes de France, Légumes français
-origins:en: en:France
+origins:en: en:france
 
 fr:Fumage naturel, fumé naturellement
 
@@ -18220,10 +18468,13 @@ fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 fr:Grand cru
 label_categories:en: en:Wines
 
-fr:Haute Valeur Environnementale
+fr:Haute Valeur Environnementale, HVE
+xx:Haute Valeur Environnementale, HVE
 auth_url:fr: https://hve-asso.com
 label_categories:en: en:Environment
 wikidata:en: Q3128557
+
+fr:Herta s'engage
 
 fr:Imprim'Vert
 wikidata:en: Q3149493
@@ -18234,7 +18485,8 @@ origins:en: en:China
 wikidata:en: Q3150362
 
 fr:La Lorraine notre signature
-origins:en: en:France, fr:Lorraine
+label_categories:en: en:Geographic label
+origins:en: en:france, fr:Lorraine
 
 fr:Label Rouge
 xx:Label Rouge
@@ -18243,7 +18495,7 @@ label_categories:en: en:Quality, en:Environment
 wikidata:en: Q3214309
 
 fr:Maïs de France
-origins:en: en:France
+origins:en: en:france
 
 < fr:Médaille d'argent du Concours de Bordeaux
 fr:Médaille d'argent du Concours de Bordeaux 2011, Concours de Bordeaux médaille d'argent 2011, Médaille d'Argent Bordeaux 2011 Concours de Bordeaux, Médaille d'Argent Bordeaux 2011
@@ -18426,10 +18678,13 @@ fr:Médaille de bronze du concours général agricole 2019, Concours général a
 fr:Médaille de bronze du concours général agricole 2020, Concours général agricole médaille de bronze 2020, Médaille de Bronze Paris 2020 Concours Général Agricole, Médaille de Bronze Paris 2020
 
 fr:Mis en bouteille à la propriété
+packaging:en: en:Bottles
 
 fr:Mis en bouteille au château
+packaging:en: en:Bottles
 
 fr:Mis en bouteille au domaine
+packaging:en: en:Bottles
 
 fr:Mondial des Pinots by VINEA
 
@@ -18442,16 +18697,20 @@ fr:Nou la fé
 fr:Nouvelle Agriculture
 
 fr:Origine France, Origine France Garantie, 100% origine France, les ingrédients de ce produit proviennent de France
-origins:en: en:France
+origins:en: en:france
 
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
+label_categories:en: en:Fishing method
 
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
+label_categories:en: en:Fishing method
 
 fr:Pêché au poison
+label_categories:en: en:Fishing method
 
 fr:Pêché au toc
+label_categories:en: en:Fishing method
 
 fr:PIL, Produit de l'Industrie Locale
 
@@ -18476,7 +18735,7 @@ fr:prix d'excellence du concours général agricole 2015, Concours général agr
 < fr:Prix d'excellence du Concours général agricole
 fr:prix d'excellence du concours général agricole 2016, Concours général agricole prix d'excellence 2016
 
-fr:Produit certifié
+fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
 fr:Salage naturel
@@ -18530,38 +18789,39 @@ fr:Saveurs de l'Année 2022, Saveur de l'Année 2022
 fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
 
 fr:Saveurs de Normandie
-origins:en: en:France
+origins:en: en:france
 
 fr:Saveurs en Or
-origins:en: en:France, fr:Hauts-de-France
+label_categories:en: en:Geographic label
+origins:en: en:france, fr:Hauts-de-France
 wikidata:en: Q3474531
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
-label_categories:en: en:Origins
-origins:en: en:France
+label_categories:en: en:Geographic label
+origins:en: en:france
 
 fr:Sélections Mondiales des Vins Canada à Québec
 
-fr:Soja de France
-origins:en: en:France
-
-fr:Soja Français, Soja de Français, Filière Soja Français
-origins:en: en:France
+fr:Soja Français, Soja de France, Filière Soja Français
+ingredients:en: en:soy
+label_categories:en: en:Soy
+origins:en: en:france
 
 < en:No GMOs
 < fr:Soja Français
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
-origins:en: en:France
+origins:en: en:france
 
 fr:Sud de France
-country:en: en:France
+country:en: en:france
+label_categories:en: en:Geographic label
 
 fr:Tidy man
 wikidata:en: Q3528198
 
 fr:Tomates de France
-origins:en: en:France
+origins:en: en:france
 
 fr:Tréfilage au bronze, tréfilé au bronze
 it:Trafilata al bronzo
@@ -18573,6 +18833,7 @@ fr:vieilli en fût de chêne
 fr:Vigneron indépendant
 
 fr:Vinalies
+label_categories:en: en:Wines
 
 < fr:Vinalies
 fr:Mondial du rosé
@@ -18643,6 +18904,36 @@ wikidata:en: Q654824
 
 it:DOCG, Denominazione di origine controllata e garantita
 
+it:ICEA
+xx:ICEA
+
+< en:Organic
+< it:ICEA
+it:ICEA Biologico
+xx:ICEA Biologico
+
+< en:Organic
+< en:Vegan
+< it:ICEA
+it:ICEA Bio Vegan
+xx:ICEA Bio Vegan
+
+< en:Vegan
+< it:ICEA
+it:ICEA Vegan, ICEA Certified Vegan
+xx:ICEA Vegan, ICEA Certified Vegan
+
+< en:Organic
+< en:Vegetarian
+< it:ICEA
+it:ICEA Bio Vegetariano
+xx:ICEA Bio Vegetariano
+
+< en:Vegetarian
+< it:ICEA
+it:ICEA Vegetariano, ICEA Certified Vegetariano
+xx:ICEA Vegetariano, ICEA Certified Vegetariano
+
 it:Indicazione geografica tipica
 
 la:Mundus Vini
@@ -18650,6 +18941,15 @@ fr:Grand Prix International du Vin de Neustadt
 label_categories:en: en:Wines
 
 pl:Gwarancja jakości
+
+pt:Ecoponto amarelo
+xx:Ecoponto amarelo
+
+pt:Ecoponto azul
+xx:Ecoponto azul
+
+pt:Ecoponto verde
+xx:Ecoponto verde
 
 ro:Concursul International de Vinuri
 

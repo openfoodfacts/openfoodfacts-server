@@ -158,9 +158,12 @@ HTML
 		if ((defined $columns_fields_ref->{$column}{min}) and ($columns_fields_ref->{$column}{letters} == 0)) {
 			$examples .= "<br><p>" . lang("min") . " " . $columns_fields_ref->{$column}{min} . "<br>" . lang("max") . " " . $columns_fields_ref->{$column}{max} . "</p>";
 		}
+		
+		my $column_without_tags = $column;
+		$column_without_tags =~ s/<(([^>]|\n)*)>//g;
 
 		$html .= <<HTML
-<tr id="column_$col" class="column_row"><td>$column</td>
+<tr id="column_$col" class="column_row"><td>$column_without_tags</td>
 <td>
 <select class="select2_field" name="select_field_$col" id="select_field_$col" style="width:420px">
 <option></option>
@@ -280,9 +283,9 @@ JS
 				\$('#select_field_option_tag_' + col).val(columns_fields[column]["tag"]);
 			}
 
-			\$('#select_field_option_input_' + col)
+			\$('#select_field_option_tag_' + col)
 			.on("change", function(e) {
-				var id = e.params.data.id;
+				var id = e.target.id;
 				var col = this.id.replace(/select_field_option_tag_/, '');
 				var column = columns[col];
 				columns_fields[column]["tag"] = \$(this).val();

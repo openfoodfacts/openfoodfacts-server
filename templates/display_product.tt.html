@@ -37,9 +37,12 @@
 [% IF server_options_producers_platform %]
     <div class="delete_button">
         <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+			[% display_icon('publish') %]
             <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
         </a>
     </div>
+    
+    <p>&rarr; <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
 [% END %]
 
 [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
@@ -52,7 +55,7 @@
 <!-- Display UPC code if the EAN starts with 0 -->
 [% IF upc_code == 'defined' %]
     <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]
+        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
     </p>
     <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
 [% END %]
@@ -81,7 +84,7 @@
     </div>
 [% END %]
 
-<!-- photos and data sources -->
+<!-- owner -->
 [% IF owner %]
 	<p>
 		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
@@ -224,16 +227,26 @@
 
 [% IF ecoscore_grade %]
 	<h4>Eco-score
-		<a href="/eco-score" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
+		<a href="/ecoscore" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
 	</h4>
-	<a href="/eco-score" title="[% lang('ecoscore_information') %]">
+	<a href="/ecoscore" title="[% lang('ecoscore_information') %]">
 		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
 
-	[% IF ecoscore_warning %]
-		<p>[% ecoscore_warning %]</p>
-	[% END %]
+	[% IF ecoscore_data.missing_agribalyse_match_warning %]
+		<div class="panel warning">
+			<strong>L'Eco-Score ne peut être calculé que si le produit possède une catégorie suffisamment précise.</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% ELSIF ecoscore_data.missing_data_warning %]
+		<div class="panel warning">
+			<strong>Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous).</strong><br><br>
+			Vous pouvez modifier la fiche produit pour ajouter les informations manquantes.<br><br>
+			Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href="https://fr.pro.openfoodfacts.org">plateforme gratuite pour les producteurs</a>.
+		</div>
+	[% END %]	
 
 	[% ecoscore_calculation_details %]
 [% END %]
@@ -385,6 +398,19 @@
 	[% END %]
 	</ul>
 [% END %]
+
+<!-- databases data sources -->
+<h2>[% lang('data_sources_p') FILTER ucfirst %]</h2>
+
+[% IF data_source_database_equadis %]
+	<p>[% data_source_database_equadis %]</p>
+[% ELSIF data_source_database_codeonline %]
+	<p>[% data_source_database_codeonline %]</p>
+	<p>[% data_source_database_note_about_the_producers_platform %]</p>
+[% ELSE %]
+<p>_</p>
+[% END %]
+
 
 <p class="details">
     [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>

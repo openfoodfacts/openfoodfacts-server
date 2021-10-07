@@ -37,6 +37,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Import qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -178,6 +181,17 @@ if (not $no_source) {
 }
 
 $missing_arg and exit();
+
+init_emb_codes();
+init_packager_codes();
+init_geocode_addresses();
+init_packaging_taxonomies_regexps();
+
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
 
 my $stats_ref = import_csv_file( {
 	user_id => $user_id,

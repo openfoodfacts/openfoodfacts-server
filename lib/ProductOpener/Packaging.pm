@@ -176,6 +176,8 @@ sub parse_packaging_from_text_phrase($$) {
 	my $text = shift;
 	my $text_language = shift;
 	
+	$log->debug("parse_packaging_from_text_phrase - start", { text => $text, text_language => $text_language }) if $log->is_debug();
+	
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);	
 	
@@ -202,8 +204,12 @@ sub parse_packaging_from_text_phrase($$) {
 						# If we already have a value for the property,
 						# apply the new value only if it is a child of the existing value
 						# e.g. if we already have "plastic", we can override it with "PET"
+						# Special case for "cardboard" that can be both a shape (card) and a material (cardboard):
+						# -> a new shape can be assigned. e.g. "carboard box" -> shape = box
 						if ((not defined $packaging_ref->{$property})
-							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))) {
+							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))
+							or (($property eq "shape") and ($packaging_ref->{$property} eq "en:card"))
+							) {
 							
 							$packaging_ref->{$property} = $tagid;
 						}
@@ -268,6 +274,8 @@ sub analyze_and_combine_packaging_data($) {
 	
 	my $product_ref = shift;
 	
+	$log->debug("analyze_and_combine_packaging_data - start", { existing_packagings => $product_ref->{packagings} }) if $log->is_debug();
+	
 	# Create the packagings data structure if it does not exist yet
 	# otherwise, we will use and augment the existing data
 	if (not defined $product_ref->{packagings}) {
@@ -290,7 +298,13 @@ sub analyze_and_combine_packaging_data($) {
 	
 	# Packaging tags field
 	if (defined $product_ref->{packaging}) {
-		push (@phrases, split(/,|\n/, $product_ref->{packaging}));
+		
+		# We sort the tags by length to have a greater chance of seeing more specific fields first
+		# e.g. "plastic bottle", "plastic", "metal", "lid",
+		# otherwise if we have "plastic", "lid", "metal", "plastic bottle"
+		# it would result in "plastic" being combined with "lid", then "metal", then "plastic bottle".
+		
+		push (@phrases, sort ({ length($b) <=> length($a) } split(/,|\n/, $product_ref->{packaging})));
 	}	
 	
 	# Add or merge packaging data from phrases to the existing packagings data structure
@@ -306,9 +320,15 @@ sub analyze_and_combine_packaging_data($) {
 		
 		my $packaging_ref = parse_packaging_from_text_phrase($phrase, $product_ref->{lc});
 		
-		# For phrases corresponding to the packaging text field, mark the shape as en:unrecognized if it was not identified
+		# If the shape is "capsule" and the product is in category "en:coffees", mark the shape as a "coffee capsule"
+		if ((defined $packaging_ref->{"shape"}) and ($packaging_ref->{"shape"} eq "en:capsule")
+			and (has_tag($product_ref, "categories", "en:coffees"))) {
+			$packaging_ref->{"shape"} = "en:coffee-capsule";
+		}
+		
+		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
 		if (($i <= $number_of_packaging_text_entries) and (not defined $packaging_ref->{shape})) {
-			$packaging_ref->{shape} = "en:unrecognized";
+			$packaging_ref->{shape} = "en:unknown";
 		}
 		
 		# Non empty packaging?
@@ -329,7 +349,7 @@ sub analyze_and_combine_packaging_data($) {
 					
 					# If there is an existing value for the property,
 					# check if it is either a child or a parent of the value extracted from the packaging text
-					if ((defined $existing_packaging_ref->{$property})
+					if ((defined $existing_packaging_ref->{$property}) and ($existing_packaging_ref->{$property} ne "en:unknown")
 						and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
 						and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
 						and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})) ) {
@@ -360,7 +380,7 @@ sub analyze_and_combine_packaging_data($) {
 					# If we already have a value for the property,
 					# apply the new value only if it is a child of the existing value
 					# e.g. if we already have "plastic", we can override it with "PET"
-					if ((not defined $matching_packaging_ref->{$property})
+					if ((not defined $matching_packaging_ref->{$property}) or ($matching_packaging_ref->{$property} eq "en:unknown")
 						or (is_a($tagtype, $packaging_ref->{$property}, $matching_packaging_ref->{$property}))) {
 						
 						$matching_packaging_ref->{$property} = $packaging_ref->{$property};
@@ -369,6 +389,8 @@ sub analyze_and_combine_packaging_data($) {
 			}
 		}
 	}
+	
+	$log->debug("analyze_and_combine_packaging_data - done", { packagings => $product_ref->{packagings} }) if $log->is_debug();
 }
 
 1;

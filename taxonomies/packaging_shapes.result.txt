@@ -1,9 +1,12 @@
 
 
+en:backing, support, board, stand
+fr:support, plaque
+
 en:Bag, bags
 de:Tüte, Sack
 el:Σακούλα
-fr:Sachet, sac, sachets, sacs
+fr:Sachet, sac, sachets, sacs, berlingots, berlingot
 hu:Zacskó
 it:Sacco
 nl:Zak
@@ -11,6 +14,7 @@ pt:Saco
 
 < en:Bag
 en:Individual bag, individual bags
+de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
 
 en:Bottle, bottles
@@ -24,7 +28,7 @@ pt:Garaffa
 wikidata:en: Q80228
 
 en:Bottle cap, bottle top, cap, top, Wine cork, wine bottle cork, cork, bottle caps, bottle tops, caps, tops, wine corks, wine bottle corks, corks
-fr:Bouchon de bouteille, bouchon, capsule, bouchon de bouteille de vin, bouchons de bouteille, bouchons de bouteilles, bouchons, capsules
+fr:Bouchon de bouteille, bouchon, bouchon de bouteille de vin, bouchons de bouteille, bouchons de bouteilles, bouchons
 
 en:Bowl, bows
 de:Schüssel
@@ -43,9 +47,11 @@ nl:Boos
 pt:Caixa
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
+de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr:Brique, briques
 
 en:bulk, without packaging
+de:ohne Verpackung
 fr:vrac, sans emballage
 
 en:Can, cans
@@ -74,32 +80,53 @@ it:Lattina di cibo
 nl:Conservenblik
 pt:Lata de comida
 
+en:Capsule, capsules
+fr:Capsule, capsules
+
+en:card, cardboard
+fr:carte, cartonnette
+
+en:Coffee capsule, coffee capsules
+fr:Capsule de café, Capsules de café, capsules café, capsule café
+
+en:Crate
+fr:Cagette, cageot
+
 en:Eating utensils, utensils, eating utensil, utensil
+de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
 
 < en:Eating utensils
 en:Chopsticks
+de:Essstäbchen
 fr:Baguettes
 
 < en:Eating utensils
 en:Fork, forks
+de:Gabel, Gabeln
 fr:Fourchette, fourchettes
 
 < en:Eating utensils
 en:Knife, knives
+de:Messer
 fr:Couteau, couteaux
 
 < en:Eating utensils
 en:Spoon, spoons
+de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
 
+en:Fastener, clip, tie
+fr:Attache
+
 en:Film, wrap, films, wraps, film wrap, film wraps
-de:Folie
+de:Folie, Film
 el:Μεμβράνη
-fr:Film, pellicule, films, pellicules
+fr:Film, pellicule, films, pellicules, film de regroupement
 hu:Film
 it:Film, Pellicola
 nl:Film
+weight:en: light
 
 en:Flask, flasks
 fr:Gourde, gourde individuelle, gourdes individuelles
@@ -107,6 +134,7 @@ hu:Kulacs
 it:Borraccia
 
 en:Grouping package, grouping packages
+de:Gruppierungspaket
 fr:Emballage de regroupement, emballages de regroupement
 
 en:Jar, jars
@@ -118,7 +146,9 @@ it:Vasetto, Barattolo
 nl:Pot
 
 en:label, labels
+de:Etikett, Etiketten
 fr:étiquette, étiquettes
+weight:en: light
 
 en:Lid, cover, lids, covers
 de:Deckel
@@ -127,6 +157,9 @@ fr:Couvercle, couvercles
 hu:Fedél
 nl:Deksel
 pt:Tampa
+
+en:Mold
+fr:Moule
 
 en:Net, nets
 de:Netz
@@ -150,9 +183,11 @@ fr:pot individuel, pots individuels
 en:Seal, operculum, seals
 de:Deckel
 fr:Opercule, opercules
+weight:en: light
 
 en:sheet, sheets
 fr:feuille, feuilles
+weight:en: light
 
 en:Sleeve, sleeves
 fr:Étui, étuis
@@ -161,14 +196,15 @@ en:Stick, sticks
 fr:Batonnet, bâtonnets
 
 en:Tray, trays
-de:Körbchen
+de:Tablettverpackung, Tablett
 fr:Barquette, barquettes
 hu:Tálca
 
 en:Tube, tubes
+de:Tube, Tuben
 fr:Tube, tubes
 hu:Cső
 
-en:Unrecognized
-fr:Non-reconnue, non-reconnu
+en:Unknown
+fr:Inconnu, inconnue, inconnus, inconnues
 

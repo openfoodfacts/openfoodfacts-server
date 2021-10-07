@@ -20,38 +20,71 @@
                }
             ],
             "epi_score" : 58.642701961449,
-            "epi_value" : 0.864270196144896,
+            "epi_value" : 1,
             "origins_from_origins_field" : [
                "en:france",
                "en:belgium"
             ],
             "transportation_score" : 80.3987960289583,
-            "transportation_value" : 12.0718912956394,
-            "value" : 12.9361614917843
+            "transportation_value" : 12,
+            "value" : 13
          },
          "packaging" : {
-            "packagings" : [],
-            "score" : 100,
-            "value" : 0
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:unknown",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
+                  "shape" : "en:unknown"
+               }
+            ],
+            "score" : 0,
+            "value" : -10,
+            "warning" : "packaging_data_missing"
          },
-         "production_system" : {},
+         "production_system" : {
+            "warning" : "no_label"
+         },
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "agribalyse_ef_total" : 0.55246032,
-         "agribalyse_food_name_en" : "Jam, strawberry",
-         "agribalyse_food_name_fr" : "Confiture de fraise (extra ou classique)",
          "agribalyse_proxy_food_code" : "31024",
-         "score" : 58.6020808480656
+         "co2_agriculture" : "0.4391425",
+         "co2_consumption" : "0.0047993021",
+         "co2_distribution" : "0.032692835",
+         "co2_packaging" : "0.54656517",
+         "co2_processing" : "0.24580915",
+         "co2_total" : "1.6271789",
+         "co2_transportation" : "0.35817",
+         "code" : "31024",
+         "dqr" : "3.16",
+         "ef_agriculture" : "0.41455559000000003",
+         "ef_consumption" : "0.0024293397",
+         "ef_distribution" : "0.0091648653",
+         "ef_packaging" : "0.056809478",
+         "ef_processing" : "0.041272627",
+         "ef_total" : 0.55246032,
+         "ef_transportation" : "0.02822842",
+         "is_beverage" : 0,
+         "name_en" : "Jam, strawberry",
+         "name_fr" : "Confiture de fraise (extra ou classique)",
+         "score" : 50
       },
-      "grade" : "b",
-      "score" : 71.5382423398499,
+      "grade" : "c",
+      "missing" : {
+         "labels" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 53,
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 71.5382423398499,
+   "ecoscore_grade" : "c",
+   "ecoscore_score" : 53,
    "ecoscore_tags" : [
-      "b"
+      "c"
    ],
    "ingredients" : [
       {
@@ -60,7 +93,6 @@
          "percent_estimate" : 60,
          "percent_max" : 60,
          "percent_min" : 60,
-         "rank" : 1,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -72,7 +104,6 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "rank" : 2,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -82,7 +113,6 @@
          "percent_estimate" : 10,
          "percent_max" : 10,
          "percent_min" : 10,
-         "rank" : 3,
          "text" : "lemon juice",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -123,6 +153,10 @@
    "ingredients_text" : "60% apricots, 30% cane sugar (Martinique), lemon juice",
    "known_ingredients_n" : 6,
    "lc" : "en",
+   "misc_tags" : [
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
    },
@@ -131,6 +165,11 @@
       "en:dordogne",
       "en:belgium"
    ],
-   "packagings" : [],
+   "packagings" : [
+      {
+         "material" : "en:unknown",
+         "shape" : "en:unknown"
+      }
+   ],
    "unknown_ingredients_n" : 0
 }

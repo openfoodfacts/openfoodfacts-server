@@ -907,7 +907,7 @@ sub check_ingredients($) {
 		|(aus biologischer Landwirtschaft)
 		|(aus kontrolliert ökologischer Landwirtschaft)
 		|(Zutaten aus ökol. Landwirtschaft)
-	/xx;
+	/x;
 
 	if ((defined $product_ref->{ingredients_text}) and
 		(($product_ref->{ingredients_text} =~ /$agr_bio/is) && !has_tag($product_ref, "labels", "en:organic"))) {
@@ -1070,6 +1070,32 @@ sub check_ingredients_percent_analysis($) {
 	return;
 }
 
+
+=head2 check_ecoscore_data( PRODUCT_REF )
+
+Checks for data needed to compute the Eco-score.
+
+=cut
+
+sub check_ecoscore_data($) {
+	my $product_ref = shift;
+
+	if (defined $product_ref->{ecoscore_data}) {
+
+		foreach my $adjustment (sort keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+				
+			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
+				my $warning = $adjustment . '-' . $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning};
+				$warning =~ s/_/-/g;
+				push @{$product_ref->{data_quality_warnings_tags}}, 'en:ecoscore-' . $warning ;
+			}
+		}
+	}
+
+	return;
+}
+
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -1090,6 +1116,7 @@ sub check_quality_food($) {
 	detect_categories($product_ref);
 	check_categories($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
+	check_ecoscore_data($product_ref);
 
 	return;
 }
