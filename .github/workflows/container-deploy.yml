@@ -141,7 +141,8 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          make up 2>&1
+          make hdown
+          make up
           make setup_incron
 
     - name: Check services are up

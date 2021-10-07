@@ -85,7 +85,7 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          make up 2>&1
+          make up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
