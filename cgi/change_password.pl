@@ -40,7 +40,6 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 
 my $template_data_ref = {
-	lang => \&lang,
 	method => $ENV{'REQUEST_METHOD'}
 };
 
@@ -90,12 +89,12 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 $template_data_ref->{errors} = \@errors;
 
 my $html;
-$tt->process('change_password.tt.html', $template_data_ref, \$html);
+process_template('web/pages/change_password/change_password.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_new( {
+display_page( {
 	title => lang('change_password'),
 	content_ref => \$html,
 });

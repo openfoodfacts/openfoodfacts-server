@@ -167,7 +167,7 @@ my %may_contain_regexps = (
 	lv => "var saturēt",
 	nl => "Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb => "kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	pl => "może zawierać śladowe ilości|może zawierać",
+	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
 	ru => "Могут содержаться следы",
@@ -462,6 +462,25 @@ sub init_labels_regexps() {
 
 			foreach my $synonym (@{$synonyms_for{labels}{$label_lc}{$label_lc_labelid}}) {
 				push @synonyms, $synonym;
+
+				# In Spanish, when preparsing ingredients text, we will replace " e " by " y ".
+				# also replace and / or by and to match labels
+
+				my $synonym2 = $synonym;
+				# replace "and / or" by "and"
+			        # except if followed by a separator, a digit, or "and", to avoid false positives
+			        my $and_or = ' - ';
+				my $and = $and{$label_lc} || " and ";
+			        my $and_without_spaces = $and;
+			        $and_without_spaces =~ s/^ //;
+			        $and_without_spaces =~ s/ $//;
+			        if (defined $and_or{$label_lc}) {
+                			$and_or = $and_or{$label_lc};
+			                $synonym2 =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
+					if ($synonym2 ne $synonym) {
+						push @synonyms, $synonym2;
+					}
+        			}
 			}
 			
 			# also add the xx: entries and synonyms
@@ -844,6 +863,19 @@ my %ignore_strings_after_percent = (
 
 
 
+=head2 parse_ingredients_text ( product_ref )
+
+Parse the ingredients_text field to extract individual ingredients.
+
+=head3 Return values
+
+=head4 ingredients structure
+
+Nested structure of ingredients and sub-ingredients
+
+=head4 
+
+=cut
 
 sub parse_ingredients_text($) {
 
@@ -851,7 +883,9 @@ sub parse_ingredients_text($) {
 
 	my $debug_ingredients = 0;
 
-	return if not defined $product_ref->{ingredients_text};
+	delete $product_ref->{ingredients};
+
+	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
 	my $text = $product_ref->{ingredients_text};
 
@@ -878,11 +912,7 @@ sub parse_ingredients_text($) {
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
 
-	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
-	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ?
-
 	$product_ref->{ingredients} = [];
-	$product_ref->{'ingredients_tags'} = [];
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
@@ -904,7 +934,6 @@ sub parse_ingredients_text($) {
 
 	my $and = $and{$product_lc} || " and ";
 
-	
 	my $min_regexp = "";
 	if (defined $min_regexp{$product_lc}) {
 		$min_regexp = $min_regexp{$product_lc};
@@ -1362,7 +1391,7 @@ sub parse_ingredients_text($) {
 									
 									#  Dutch: match before or after, do not require a space
 									or (
-										( ($product_lc eq 'de') or ($product_lc eq 'nl') )
+										( ($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu') )
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
 								) {
@@ -1704,7 +1733,16 @@ sub flatten_sub_ingredients($) {
 
 =head2 compute_ingredients_tags ( product_ref )
 
-Go through the nested ingredients and compute ingredients_original_tags and ingredients_tags
+Go through the nested ingredients and:
+
+Compute ingredients_original_tags and ingredients_tags.
+
+Compute the total % of "leaf" ingredients (without sub-ingredients) with a specified %, and unspecified %.
+
+- ingredients_with_specified_percent_n : number of "leaf" ingredients with a specified %
+- ingredients_with_specified_percent_sum : % sum of "leaf" ingredients with a specified %
+- ingredients_with_unspecified_percent_n
+- ingredients_with_unspecified_percent_sum	
 
 =cut
 
@@ -1712,7 +1750,31 @@ sub compute_ingredients_tags($) {
 
 	my $product_ref = shift;
 	
+	# Delete ingredients related fields
+	# They will be recreated, unless the ingredients list was deleted
+
+	delete $product_ref->{ingredients_tags};
+	delete $product_ref->{ingredients_original_tags};
+
+	delete $product_ref->{ingredients_n};
+	delete $product_ref->{known_ingredients_n};
+	delete $product_ref->{unknown_ingredients_n};
+	delete $product_ref->{ingredients_n_tags};
+
+	delete $product_ref->{ingredients_with_specified_percent_n};
+	delete $product_ref->{ingredients_with_unspecified_percent_n};
+	delete $product_ref->{ingredients_with_specified_percent_sum};
+	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+
+	return if not defined $product_ref->{ingredients};
+
 	$product_ref->{ingredients_tags} = [];
+	$product_ref->{ingredients_original_tags} = [];	
+
+	$product_ref->{ingredients_with_specified_percent_n} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_n} = 0;
+	$product_ref->{ingredients_with_specified_percent_sum} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_sum} = 0;	
 	
 	# Traverse the ingredients tree, breadth first
 	
@@ -1734,6 +1796,19 @@ sub compute_ingredients_tags($) {
 			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
 				
 				push @ingredients, $ingredient_ref->{ingredients}[$i];
+			}			
+		}
+		else {
+			# Count specified percent only for ingredients that do not have sub ingredients
+			if (defined $ingredient_ref->{percent}) {
+				$product_ref->{ingredients_with_specified_percent_n} += 1;
+				$product_ref->{ingredients_with_specified_percent_sum} += $ingredient_ref->{percent};
+			}
+			else {
+				$product_ref->{ingredients_with_unspecified_percent_n} += 1;
+				if (defined $ingredient_ref->{percent_estimate}) {
+					$product_ref->{ingredients_with_unspecified_percent_sum} += $ingredient_ref->{percent_estimate};
+				}
 			}			
 		}
 	}
@@ -1773,12 +1848,6 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
-	else {
-		delete $product_ref->{ingredients_n};
-		delete $product_ref->{known_ingredients_n};
-		delete $product_ref->{unknown_ingredients_n};
-		delete $product_ref->{ingredients_n_tags};
-	}
 }
 
 
@@ -1804,33 +1873,30 @@ sub extract_ingredients_from_text($) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
-	if (not defined $product_ref->{ingredients_text}) {
-		# Run analyze_ingredients() so that we can still get labels overrides
-		# if we don't have ingredients but if we have a label like "Vegan", "Vegatarian" or "Palm oil free".
-		analyze_ingredients($product_ref);
-		return;
-	}
-
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
 	parse_ingredients_text($product_ref);
 
-	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+	if (defined $product_ref->{ingredients}) {
 
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
-		# The computation yielded seemingly impossible values, delete the values
-		delete_ingredients_percent_values($product_ref->{ingredients});
-		$product_ref->{ingredients_percent_analysis} = -1;
+		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+			# The computation yielded seemingly impossible values, delete the values
+			delete_ingredients_percent_values($product_ref->{ingredients});
+			$product_ref->{ingredients_percent_analysis} = -1;
+		}
+		else {
+			$product_ref->{ingredients_percent_analysis} = 1;
+		}
+		
+		compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
+
+		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
+
 	}
-	else {
-		$product_ref->{ingredients_percent_analysis} = 1;
-	}
-	
-	compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
-
-	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
@@ -5216,6 +5282,76 @@ sub replace_allergen_between_separators($$$$$$) {
 }
 
 
+=head2 detect_allergens_from_ingredients ( $product_ref )
+
+Detects allergens from the ingredients extracted from the ingredients text,
+using the "allergens:en" property associated to some ingredients in the
+ingredients taxonomy.
+
+This functions needs to be run after the $product_ref->{ingredients} array
+is populated from the ingredients text.
+
+It is called by detect_allergens_from_text().
+Allergens are added to $product_ref->{"allergens_from_ingredients"} which
+is then used by detect_allergens_from_text() to populate the allergens_tags field.
+
+=cut
+
+sub detect_allergens_from_ingredients($) {
+
+	my $product_ref = shift;
+
+	# Check the allergens:en property of each ingredient
+	
+	$log->debug("detect_allergens_from_ingredients -- start", { ingredients => $product_ref->{ingredients} }) if $log->is_debug();
+	
+	if (not defined $product_ref->{ingredients}) {
+		return;
+	}
+	
+	my @ingredients = (@{$product_ref->{ingredients}});
+	
+	while (@ingredients) {
+		my $ingredient_ref = pop(@ingredients);
+		if (defined $ingredient_ref->{ingredients}) {
+			foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+				push @ingredients, $sub_ingredient_ref;
+			}
+		}
+		my $allergens = get_inherited_property("ingredients", $ingredient_ref->{id}, "allergens:en");
+		$log->debug("detect_allergens_from_ingredients -- ingredient", { id => $ingredient_ref->{id}, allergens => $allergens }) if $log->is_debug();
+		
+		if (defined $allergens) {
+			$product_ref->{"allergens_from_ingredients"} = $allergens . ', ';
+			$log->debug("detect_allergens_from_ingredients -- found allergen", { allergens => $allergens }) if $log->is_debug();
+		}
+	}	
+}
+
+
+=head2 detect_allergens_from_text ( $product_ref )
+
+This function:
+- combines all the ways we have to detect allergens in order to populate
+the allergens_tags and traces_tags fields.
+- creates the ingredients_text_with_allergens_[lc] fields with added
+HTML <span class="allergen"> tags
+
+Allergens are recognized in the following ways:
+
+1. using the list of ingredients that have been recognized through
+ingredients analysis, by looking at the allergens:en property in the
+ingredients taxonomy.
+This is done with the function detect_allergens_from_ingredients()
+
+2. when entered in ALL CAPS, or between underscores
+
+3. when matching exact entries o synonyms of the allergens taxonomy
+
+Allergens detected using 2. or 3. are marked with <span class="allergen">
+
+=cut
+
 sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
@@ -5234,6 +5370,9 @@ sub detect_allergens_from_text($) {
 
 		$product_ref->{$field . "_from_ingredients"} = "";
 	}
+	
+	# Add allergens from the ingredients analysis
+	detect_allergens_from_ingredients($product_ref);
 
 	# Remove ingredients_text_with_allergens_* fields
 	# they will be recomputed for existing ingredients languages
@@ -5269,9 +5408,6 @@ sub detect_allergens_from_text($) {
 			$text =~ s/\&quot;/"/g;
 
 			# allergens between underscores
-
-			#print STDERR "current text 1: $text\n";
-
 			# _allergen_ + __allergen__ + ___allergen___
 
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
@@ -5288,9 +5424,6 @@ sub detect_allergens_from_text($) {
 			}
 
 			# allergens between separators
-
-			# print STDERR "current text 2: $text\n";
-			# print STDERR "separators\n";
 
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator

@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2020 Association Open Food Facts
+// Copyright (C) 2011-2021 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -21,7 +21,6 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
-/*global toggle_manage_images_buttons */ // These are weird.
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -401,23 +400,22 @@ $.fn.isVisible = function() {
   return $.expr.filters.visible(this[0]);
 };
 function update_nutrition_image_copy() {
-
 	// width big enough to display a copy next to nutrition table?
-  if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
-    $('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+	if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+		var position = $('html[dir=rtl]').length ? 'right' : 'left';
+		$('#nutrition_image_copy').css(position, $('#nutrition_data_table').width() + 10).show();
 	}
 	else {
 		$('#nutrition_image_copy').hide();
 	}
 }
 
-
 function update_display(imagefield, first_display) {
 
 	var display_url = imagefield_url[imagefield];
 
 	if (display_url) {
-		
+
 		var imagetype = imagefield.replace(/_\w\w$/, '');
 
 		var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
@@ -440,7 +438,6 @@ function update_display(imagefield, first_display) {
 
 			var full_url = display_url.replace(/\.400\./, ".full.");
 			$('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
-			
 
 			$('div[id="display_' + imagefield +'"]').html(html);
 
@@ -478,9 +475,8 @@ function update_display(imagefield, first_display) {
 			});
 
 		} else {
-			
+
 			$('div[id="display_' + imagefield +'"]').html(html);
-			
 		}
 
 		$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
@@ -491,7 +487,7 @@ function update_display(imagefield, first_display) {
 			$.post(
 				'/cgi/product_image_unselect.pl',
 				{code: code, id: imagefield },
-				null, 
+				null,
 				'json'
 			)
 				.done(function(data) {
@@ -991,3 +987,246 @@ function convertTranslationToLanguage(Lang, translation) {
     return { id: match[1], text: Lang[translation] };
   }
 }
+
+
+$(function() {
+
+	$('#no_nutrition_data').change(function() {
+		if ($(this).prop('checked')) {
+			$('#nutrition_data_table input').prop('disabled', true);
+			$('#nutrition_data_table select').prop('disabled', true);
+			$('#multiple_nutrition_data').prop('disabled', true);
+			$('#multiple_nutrition_data').prop('checked', false);
+			$('#nutrition_data_table input.nutriment_value').val('');
+			$('#nutrition_data_table').hide();
+		} else {
+			$('#nutrition_data_table input').prop('disabled', false);
+			$('#nutrition_data_table select').prop('disabled', false);
+			$('#multiple_nutrition_data').prop('disabled', false);
+			$('#nutrition_data_table').show();
+		}
+		update_nutrition_image_copy();
+		$(document).foundation('equalizer', 'reflow');
+	});
+
+
+	$( ".nutriment_label" ).autocomplete({
+		source: otherNutriments,
+		select: select_nutriment,
+		//change: add_line
+	});
+
+	$("#nutriment_sodium").change( function () {
+		swapSalt($("#nutriment_sodium"), $("#nutriment_salt"), 2.5);
+	}
+	);
+
+	$("#nutriment_salt").change( function () {
+		swapSalt($("#nutriment_salt"), $("#nutriment_sodium"), 1/2.5);
+	}
+	);
+
+	$("#nutriment_sodium_prepared").change( function () {
+		swapSalt($("#nutriment_sodium_prepared"), $("#nutriment_salt_prepared"), 2.5);
+	}
+	);
+
+	$("#nutriment_salt_prepared").change( function () {
+		swapSalt($("#nutriment_salt_prepared"), $("#nutriment_sodium_prepared"), 1/2.5);
+	}
+	);
+
+	function swapSalt(from, to, multiplier) {
+		var source = from.val().replace(",", ".");
+		var regex = /^(.*?)([\d]+(?:\.[\d]+)?)(.*?)$/g;
+		var match = regex.exec(source);
+		if (match) {
+			var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
+			to.val(target);
+		} else {
+			to.val(from.val());
+		}
+	}
+
+	$("#nutriment_sodium_unit").change( function () {
+		$("#nutriment_salt_unit").val( $("#nutriment_sodium_unit").val());
+	}
+	);
+
+	$("#nutriment_salt_unit").change( function () {
+		$("#nutriment_sodium_unit").val( $("#nutriment_salt_unit").val());
+	}
+	);
+
+	$("#nutriment_new_0_label").change(add_line);
+	$("#nutriment_new_1_label").change(add_line);
+
+});
+
+$(function() {
+	var alerts = $('.alert-box.store-state');
+	$.each(alerts, function( index, value ) {
+		var display = $.cookie('state_' + value.id);
+		if (display) {
+			value.style.display = display;
+		} else {
+			value.style.display = 'block';
+		}
+	});
+	alerts.on('close.fndtn.alert', function() {
+		$.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+	});
+});
+
+
+$(document).foundation({
+    tab: {
+      callback : function (tab) {
+
+		$('.tabs').each(function() {
+			$(this).removeClass('active');
+		});
+
+        var id = tab[0].id;	 // e.g. tabs_front_image_en_tab
+		var lc = id.replace(/.*(..)_tab/, "$1");
+		$(".tabs_" + lc).addClass('active');
+
+		$(document).foundation('tab', 'reflow');
+      }
+    }
+});
+
+
+// As the save bar is position:fixed, there is no way to get its width, width:100% will be relative to the viewport, and width:inherit does not work as well.
+// Using javascript to set the width of the fixed bar at startup, and when the window is resized.
+
+var parent_width = $("#fixed_bar").parent().width();
+$("#fixed_bar").width(parent_width);
+
+$(window).resize(
+	function() {
+		parent_width = $("#fixed_bar").parent().width();
+		$("#fixed_bar").width(parent_width);
+	}
+);
+
+// This function returns a comma separated list of the imgids of images selected in the manage images section
+function get_list_of_imgids() {
+    var list_of_imgids = '';
+    var i = 0;
+    $( "#manage .ui-selected"  ).each(function() {
+        var imgid = $( this ).attr('id');
+        imgid = imgid.replace("manage_","");
+        list_of_imgids += imgid + ',';
+        i += 1;
+    });
+    if (i) {
+        // remove trailing comma
+        list_of_imgids = list_of_imgids.slice(0, -1);
+    }
+
+    return list_of_imgids;
+}
+
+function toggle_manage_images_buttons() {
+	$("#delete_images").addClass("disabled");
+	$("#move_images").addClass("disabled");
+	$( "#manage .ui-selected"  ).first().each(function() {
+		$("#delete_images").removeClass("disabled");
+		$("#move_images").removeClass("disabled");
+	});
+}
+
+$('#manage_images_accordion').on('toggled', function () {
+	toggle_manage_images_buttons();
+});
+
+$("#delete_images").click({},function(event) {
+
+	event.stopPropagation();
+	event.preventDefault();
+
+	if (! $("#delete_images").hasClass("disabled")) {
+
+		$("#delete_images").addClass("disabled");
+		$("#move_images").addClass("disabled");
+
+		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
+		$('div[id="moveimagesmsg"]').show();
+
+		get_list_of_imgids();
+
+		$("#product_form").ajaxSubmit({
+
+			url: "/cgi/product_image_move.pl",
+			data: { code: code, move_to_override: "trash", imgids : get_list_of_imgids() },
+			dataType: 'json',
+			success: function(data) {
+
+				if (data.error) {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
+				}
+				else {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
+				}
+				$([]).selectcrop('init_images',data.images);
+				$(".select_crop").selectcrop('show');
+
+			},
+			error : function(textStatus) {
+				$('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
+			},
+		});
+
+	}
+
+});
+
+$("#move_images").click({},function(event) {
+
+	event.stopPropagation();
+	event.preventDefault();
+
+	if (! $("#move_images").hasClass("disabled")) {
+
+		$("#delete_images").addClass("disabled");
+		$("#move_images").addClass("disabled");
+
+		$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
+		$('div[id="moveimagesmsg"]').show();
+
+		get_list_of_imgids();
+
+		$("#product_form").ajaxSubmit({
+
+			url: "/cgi/product_image_move.pl",
+			data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop( "checked" ), imgids : get_list_of_imgids() },
+			dataType: 'json',
+			success: function(data) {
+
+				if (data.error) {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
+				}
+				else {
+					$('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
+				}
+				$([]).selectcrop('init_images',data.images);
+				$(".select_crop").selectcrop('show');
+
+			},
+			error : function( textStatus) {
+				$('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
+			},
+			complete: function() {
+					$("#move_images").addClass("disabled");
+					$("#move_images").addClass("disabled");
+					$( "#manage .ui-selected"  ).first().each(function() {
+						$("#move_images").removeClass("disabled");
+						$("#move_images").removeClass("disabled");
+					});
+				}
+		});
+
+	}
+
+});

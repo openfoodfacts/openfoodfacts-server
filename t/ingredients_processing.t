@@ -42,12 +42,12 @@ my @tests = (
 			},
 			{
 				'id' => 'en:aubergine',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'eggplant'
 			},
 			{
 				'id' => 'en:courgette',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'courgette'
 			},
 			{
@@ -191,7 +191,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'noisettes'
 			},
 			{
@@ -275,7 +275,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:shallot',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'sjalot'
 			},
 			{
@@ -319,12 +319,12 @@ my @tests = (
 			},
 			{
 				'id' => 'en:sauerkraut',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'Sauerkraut'
 			},
 			{
 				'id' => 'en:acerola',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'acerola'
 			}
 		]
@@ -392,7 +392,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:gegart',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -433,7 +433,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => "en:oiled",
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			}
 		]
 	],
@@ -472,7 +472,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:puffed',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:passion-fruit',
@@ -536,7 +536,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:geschwefelt',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:passion-fruit',
@@ -604,7 +604,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:halved',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -625,7 +625,7 @@ my @tests = (
 			},
 			{	'id'         => 'en:hazelnut',
 				'processing' => 'en:concentrated',
-				'text'       => "haseln\x{fc}sse"
+				'text'       => "haselnüsse"
 			},
 			{	'id'         => 'en:almond',
 				'processing' => 'en:concentrated',
@@ -679,7 +679,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:zerkleinert',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -714,7 +714,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:feinst-zerkleinert',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:fig',
@@ -735,9 +735,9 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:toasted-hazelnut',
-				'processing' => 'en:chopped',
-				'text' => "geröstete haselnuss"
+				'id' => 'en:hazelnut',
+				'processing' => 'en:chopped, en:toasted',
+				'text' => "haselnuss"
 			},
 			{
 				'id' => 'en:almond',
@@ -769,7 +769,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:fein-gemahlen',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:spinach',
@@ -787,7 +787,7 @@ my @tests = (
 	# Test for de:getrocknet and synonyms
 	[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
 			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet,
-			 Holunder gefriergetrocknet, gefriergetrocknete Papaye, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
+			 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
 			 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
 			 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" },
 		[
@@ -809,7 +809,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:dried',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:spinach',
@@ -834,7 +834,7 @@ my @tests = (
 			{
 				'id' => 'en:papaya',
 				'processing' => 'en:freeze-dried',
-				'text' => 'Papaye'
+				'text' => 'Papaya'
 			},
 			{
 				'id' => 'en:kiwi',
@@ -902,12 +902,12 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:salted',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'en:salted',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:hazelnut',
@@ -1093,7 +1093,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'processing' => 'de:handgeschnitten',
-				'text' => "haseln\x{fc}sse"
+				'text' => "haselnüsse"
 			}
 		]
 	],
@@ -1239,7 +1239,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:garlic',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'garlic'
 			}
 		]
@@ -1250,7 +1250,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:chili-pepper',
-				'processing' => 'en:powdered',
+				'processing' => 'en:powder',
 				'text' => 'piment'
 			}
 		]

@@ -233,13 +233,7 @@
                "name" : "Groupe NOVA",
                "status" : "unknown",
                "title" : "NOVA non calculé"
-            }
-         ],
-         "id" : "processing",
-         "name" : "Transformation des aliments"
-      },
-      {
-         "attributes" : [
+            },
             {
                "icon_url" : "https://server_domain/images/attributes/0-additives.svg",
                "id" : "additives",
@@ -249,8 +243,8 @@
                "title" : "Sans additives"
             }
          ],
-         "id" : "ingredients",
-         "name" : ""
+         "id" : "processing",
+         "name" : "Transformation des aliments"
       },
       {
          "attributes" : [
@@ -326,27 +320,46 @@
             "origins_from_origins_field" : [
                "en:unknown"
             ],
-            "transportation_score" : 0,
-            "transportation_value" : 0,
-            "value" : -5,
+            "transportation_score_be" : 0,
+            "transportation_score_ch" : 0,
+            "transportation_score_de" : 0,
+            "transportation_score_es" : 0,
+            "transportation_score_fr" : 0,
+            "transportation_score_ie" : 0,
+            "transportation_score_it" : 0,
+            "transportation_score_lu" : 0,
+            "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
+            "transportation_value_be" : 0,
+            "transportation_value_ch" : 0,
+            "transportation_value_de" : 0,
+            "transportation_value_es" : 0,
+            "transportation_value_fr" : 0,
+            "transportation_value_ie" : 0,
+            "transportation_value_it" : 0,
+            "transportation_value_lu" : 0,
+            "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
+            "value_be" : -5,
+            "value_ch" : -5,
+            "value_de" : -5,
+            "value_es" : -5,
+            "value_fr" : -5,
+            "value_ie" : -5,
+            "value_it" : -5,
+            "value_lu" : -5,
+            "value_nl" : -5,
+            "value_uk" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {
@@ -416,6 +429,10 @@
    "ingredients_text" : "graisse de palmiste",
    "ingredients_that_may_be_from_palm_oil_n" : 0,
    "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 4,
    "languages" : {},
    "languages_codes" : {},
@@ -428,6 +445,7 @@
    "misc_tags" : [
       "en:nutriscore-not-computed",
       "en:nutriscore-missing-category",
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
@@ -445,12 +463,7 @@
    ],
    "nutrition_score_debug" : "no score when the product does not have a category",
    "other_nutritional_substances_tags" : [],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [
       "unknown",

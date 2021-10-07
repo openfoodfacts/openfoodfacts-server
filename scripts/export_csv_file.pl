@@ -44,6 +44,9 @@ binmode(STDERR, ":encoding(UTF-8)");
 my $usage = <<TXT
 export_csv_file.pl exports product data from the database of Product Opener.
 
+This script is intended primarily to export all the "raw" source product data,
+and not the structured data that is extracted from it.
+
 If the --fields argument is specified, only the corresponding fields are exported,
 otherwise all populated input fields (provided by users or producers) are exported.
 

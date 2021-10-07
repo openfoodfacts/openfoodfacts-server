@@ -19,32 +19,51 @@
                   "percent" : 30
                }
             ],
-            "epi_score" : 58.642701961449,
-            "epi_value" : 1,
+            "epi_score" : 73.45,
+            "epi_value" : 2,
             "origins_from_origins_field" : [
                "en:france",
                "en:belgium"
             ],
-            "transportation_score" : 80.3987960289583,
-            "transportation_value" : 12,
-            "value" : 13
+            "transportation_score_be" : 78.55,
+            "transportation_score_ch" : 56.2,
+            "transportation_score_de" : 61.75,
+            "transportation_score_es" : 34.7,
+            "transportation_score_fr" : 82.15,
+            "transportation_score_ie" : 45.1,
+            "transportation_score_it" : 41.8,
+            "transportation_score_lu" : 70.95,
+            "transportation_score_nl" : 72.65,
+            "transportation_score_uk" : 61,
+            "transportation_value_be" : 12,
+            "transportation_value_ch" : 8,
+            "transportation_value_de" : 9,
+            "transportation_value_es" : 5,
+            "transportation_value_fr" : 12,
+            "transportation_value_ie" : 7,
+            "transportation_value_it" : 6,
+            "transportation_value_lu" : 11,
+            "transportation_value_nl" : 11,
+            "transportation_value_uk" : 9,
+            "value_be" : 14,
+            "value_ch" : 10,
+            "value_de" : 11,
+            "value_es" : 7,
+            "value_fr" : 14,
+            "value_ie" : 9,
+            "value_it" : 8,
+            "value_lu" : 13,
+            "value_nl" : 13,
+            "value_uk" : 11
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 1,
-            "packagings" : [
-               {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
-                  "material" : "en:unknown",
-                  "non_recyclable_and_non_biodegradable" : "maybe",
-                  "shape" : "en:unknown"
-               }
-            ],
-            "score" : 0,
-            "value" : -10,
+            "value" : -15,
             "warning" : "packaging_data_missing"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {}
@@ -65,34 +84,54 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : 0.55246032,
+         "ef_total" : "0.55246032",
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 50
       },
-      "grade" : "c",
+      "grade" : "d",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
+      "grade_uk" : "c",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 53,
+      "score" : 35,
+      "score_be" : 49,
+      "score_ch" : 45,
+      "score_de" : 46,
+      "score_es" : 42,
+      "score_fr" : 49,
+      "score_ie" : 44,
+      "score_it" : 43,
+      "score_lu" : 48,
+      "score_nl" : 48,
+      "score_uk" : 46,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
-   "ecoscore_score" : 53,
+   "ecoscore_score" : 49,
    "ecoscore_tags" : [
       "c"
    ],
    "ingredients" : [
       {
          "id" : "en:apricot",
-         "percent" : 60,
-         "percent_estimate" : 60,
-         "percent_max" : 60,
-         "percent_min" : 60,
+         "percent" : "60",
+         "percent_estimate" : "60",
+         "percent_max" : "60",
+         "percent_min" : "60",
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -100,10 +139,10 @@
       {
          "id" : "en:cane-sugar",
          "origins" : "en:martinique",
-         "percent" : 30,
-         "percent_estimate" : 30,
-         "percent_max" : 30,
-         "percent_min" : 30,
+         "percent" : "30",
+         "percent_estimate" : "30",
+         "percent_max" : "30",
+         "percent_min" : "30",
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -151,9 +190,14 @@
       "en:fruit-juice"
    ],
    "ingredients_text" : "60% apricots, 30% cane sugar (Martinique), lemon juice",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 90,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 10,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],
@@ -165,11 +209,6 @@
       "en:dordogne",
       "en:belgium"
    ],
-   "packagings" : [
-      {
-         "material" : "en:unknown",
-         "shape" : "en:unknown"
-      }
-   ],
+   "packagings" : [],
    "unknown_ingredients_n" : 0
 }

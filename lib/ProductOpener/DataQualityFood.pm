@@ -553,6 +553,7 @@ sub check_nutrition_data($) {
 
 		my $nid_n = 0;
 		my $nid_zero = 0;
+		my $nid_non_zero = 0;
 
 		my $total = 0;
 
@@ -579,22 +580,31 @@ sub check_nutrition_data($) {
 				$has_prepared_data = 1;
 			}
 
-			next if $nid =~ /_/;
+			if ($nid =~ /_100g/) {
+				
+				my $nid2 = $`;
+				$nid2 =~ s/_/-/g;
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
 
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid";
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+				}
+
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
+
+					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+				}
+		# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
+				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {	
+					if ($product_ref->{nutriments}{$nid} == 0) {
+						$nid_zero++;
+					}
+					else {
+						$nid_non_zero++;
+					}
+				}
 			}
 
-			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 1000)) {
-
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid";
-			}
-
-			if ((defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} == 0)) {
-				$nid_zero++;
-			}
 			$nid_n++;
 
 			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
@@ -614,8 +624,8 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
-		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-all-values-zero";
+		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
 		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and
@@ -1064,7 +1074,42 @@ sub check_ingredients_percent_analysis($) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:ingredients-percent-analysis-ok';
 		}
 
-		delete $product_ref->{ingredients_percent_analysis};
+	}
+
+	return;
+}
+
+
+=head2 check_ingredients_with_specified_percent( PRODUCT_REF )
+
+Check if all or almost all the ingredients have a specified percentage in the ingredients list.
+
+=cut
+
+sub check_ingredients_with_specified_percent($) {
+	my $product_ref = shift;
+
+	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_unspecified_percent_n} == 0)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+		}
+		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} >= 90) and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+		}
+
+		# Flag products where the sum of % is higher than 100
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 100)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 200)) {
+			push @{$product_ref->{data_quality_warning_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}				
 	}
 
 	return;
@@ -1108,6 +1153,7 @@ sub check_quality_food($) {
 
 	check_ingredients($product_ref);
 	check_ingredients_percent_analysis($product_ref);
+	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);

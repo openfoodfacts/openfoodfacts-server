@@ -1,17 +1,19 @@
-name: Perl Critic
+name: "Perl::Critic"
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   perlcritic:
+    name: "Perl::Critic"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Perl Critic
+
+    - name: "Run Perl::Critic" 
       uses: Difegue/action-perlcritic@2.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

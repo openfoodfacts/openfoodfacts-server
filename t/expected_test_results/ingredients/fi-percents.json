@@ -2,23 +2,23 @@
    "ingredients" : [
       {
          "id" : "en:strawberry",
-         "percent" : 12.3,
-         "percent_estimate" : 12.3,
+         "percent" : "12.3",
+         "percent_estimate" : "12.3",
          "text" : "Mansikka",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:orange",
-         "percent" : 6.5,
-         "percent_estimate" : 6.5,
+         "percent" : "6.5",
+         "percent_estimate" : "6.5",
          "text" : "Appelsiini",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:apple",
-         "percent" : 3.5,
+         "percent" : "3.5",
          "percent_estimate" : 81.2,
          "text" : "Omena",
          "vegan" : "yes",
@@ -58,6 +58,10 @@
       "en:apple"
    ],
    "ingredients_text" : "Mansikka 12,3% ; Appelsiini 6.5%, Omena (3,5%)",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 22.3,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "known_ingredients_n" : 6,
    "lc" : "fi",
    "nutriments" : {

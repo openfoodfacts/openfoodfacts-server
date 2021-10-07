@@ -1,0 +1,32 @@
+{
+    "parent_panel_id": "ecoscore",
+    "type" : "score",
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title": "[% panel.title %]",
+    "evaluation": "good",
+    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value >= 20 %]
+    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_very_high') %]",
+    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value >= 15 %]
+    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_high') %]",    
+    [% ELSE %]
+    "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits') %]",      
+    [% END %]    
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "text_type": "summary",
+                "html": `
+                <ul>
+                [% FOREACH label IN product.ecoscore_data.adjustments.production_system.labels %]
+                    <li>[% display_taxonomy_tag("labels",label) %]</li>
+                [% END %]
+                </ul>
+                `
+            }
+        },
+    ]
+}

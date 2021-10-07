@@ -17,9 +17,36 @@
             "origins_from_origins_field" : [
                "en:unknown"
             ],
-            "transportation_score" : 0,
-            "transportation_value" : 0,
-            "value" : -5,
+            "transportation_score_be" : 0,
+            "transportation_score_ch" : 0,
+            "transportation_score_de" : 0,
+            "transportation_score_es" : 0,
+            "transportation_score_fr" : 0,
+            "transportation_score_ie" : 0,
+            "transportation_score_it" : 0,
+            "transportation_score_lu" : 0,
+            "transportation_score_nl" : 0,
+            "transportation_score_uk" : 0,
+            "transportation_value_be" : 0,
+            "transportation_value_ch" : 0,
+            "transportation_value_de" : 0,
+            "transportation_value_es" : 0,
+            "transportation_value_fr" : 0,
+            "transportation_value_ie" : 0,
+            "transportation_value_it" : 0,
+            "transportation_value_lu" : 0,
+            "transportation_value_nl" : 0,
+            "transportation_value_uk" : 0,
+            "value_be" : -5,
+            "value_ch" : -5,
+            "value_de" : -5,
+            "value_es" : -5,
+            "value_fr" : -5,
+            "value_ie" : -5,
+            "value_it" : -5,
+            "value_lu" : -5,
+            "value_nl" : -5,
+            "value_uk" : -5,
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
@@ -27,7 +54,7 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 0,
+                  "ecoscore_shape_ratio" : "0",
                   "material" : "en:unknown",
                   "shape" : "en:bulk"
                }
@@ -37,6 +64,8 @@
             "warning" : "unspecified_material"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {
@@ -59,7 +88,7 @@
          "ef_distribution" : "0.0088128735",
          "ef_packaging" : "0.014792145999999999",
          "ef_processing" : "0.0056288216",
-         "ef_total" : 0.14687612,
+         "ef_total" : "0.14687612",
          "ef_transportation" : "0.029304117999999997",
          "is_beverage" : 1,
          "name_en" : "Mixed fruits juice, orange based, multivitamin",
@@ -67,6 +96,16 @@
          "score" : 51
       },
       "grade" : "c",
+      "grade_be" : "c",
+      "grade_ch" : "c",
+      "grade_de" : "c",
+      "grade_es" : "c",
+      "grade_fr" : "c",
+      "grade_ie" : "c",
+      "grade_it" : "c",
+      "grade_lu" : "c",
+      "grade_nl" : "c",
+      "grade_uk" : "c",
       "missing" : {
          "ingredients" : 1,
          "labels" : 1,
@@ -74,7 +113,17 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 46,
+      "score" : 51,
+      "score_be" : 46,
+      "score_ch" : 46,
+      "score_de" : 46,
+      "score_es" : 46,
+      "score_fr" : 46,
+      "score_ie" : 46,
+      "score_it" : 46,
+      "score_lu" : 46,
+      "score_nl" : 46,
+      "score_uk" : 46,
       "status" : "known"
    },
    "ecoscore_grade" : "c",
@@ -84,6 +133,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed"
    ],

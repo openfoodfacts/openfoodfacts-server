@@ -73,6 +73,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
+use ProductOpener::MainCountries qw(:all);
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -127,6 +128,7 @@ my $mongodb_to_mongodb = '';
 my $compute_ecoscore = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
+my $compute_main_countries = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -174,6 +176,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"delete-old-fields" => \$delete_old_fields,
 			"mongodb-to-mongodb" => \$mongodb_to_mongodb,
 			"fix-nutrition-data-per" => \$fix_nutrition_data_per,
+			"compute-main-countries" => \$compute_main_countries,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -217,7 +220,7 @@ if (
 	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
-	and (not $mark_as_obsolete_since_date)
+	and (not $mark_as_obsolete_since_date) and (not $compute_main_countries)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $compute_forest_footprint) and (not $process_packagings)
 	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
@@ -235,6 +238,10 @@ if ($compute_ecoscore) {
 if ($compute_forest_footprint) {
 
 	load_forest_footprint_data();
+}
+
+if ($compute_main_countries) {
+	load_scans_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -731,8 +738,6 @@ while (my $product_ref = $cursor->next) {
 						and ((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
 						) {
 						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
-						my $User_id_copy = $User_id;
-						$User_id = "autorotate-bot";
 
 						# Save product so that OCR results now:
 						# autorotate may call image_process_crop which will read the product file on disk and
@@ -742,9 +747,8 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
+							$product_ref = process_image_crop("autorotate-bot", $code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
-						$User_id = $User_id_copy;
 					}
 				}
 			}
@@ -981,6 +985,10 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_forest_footprint) {
 			compute_forest_footprint($product_ref);
+		}
+		
+		if ($compute_main_countries) {
+			compute_main_countries($product_ref);
 		}	
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
@@ -1083,7 +1091,7 @@ while (my $product_ref = $cursor->next) {
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
-				store_product($product_ref, "update_all_products.pl - " . $comment );
+				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment );
 				$m++;
 			}
 

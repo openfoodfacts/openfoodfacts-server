@@ -33,6 +33,7 @@ BEGIN
 
 		$server_domain
 		@ssl_subdomains
+		$conf_root
 		$data_root
 		$www_root
 		$geolite2_path
@@ -40,9 +41,6 @@ BEGIN
 		$contact_email
 		$admin_email
 		$producers_email
-
-		$facebook_app_id
-		$facebook_app_secret
 
 		$google_cloud_vision_api_key
 
@@ -326,11 +324,9 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
@@ -424,28 +420,28 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
-	en:tea-bags
-	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
 	en:herbal-tea-beverages
 	en:coffee-beverages
 	en:coffee-drinks
+
+	en:coffees
+	en:herbal-teas
+	en:teas		
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -454,10 +450,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:baby-foods
 	en:baby-milks
 	en:chewing-gum
-	en:coffees
 	en:food-additives
-	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -465,8 +458,14 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
+
+#	Coffees, teas and herbal teas can have a Nutri-Score if they have
+#	a nutrition facts table
+#
+#	en:coffees
+#	en:herbal-teas
+#	en:teas	
 
 # exceptions
 $options{categories_not_exempted_from_nutriscore} = [qw(
@@ -489,8 +488,11 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+
+@taxonomy_fields = qw(states countries languages labels categories additives_classes additives
 vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
@@ -649,6 +651,8 @@ periods_after_opening
 	pnns_groups_2
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
@@ -1319,6 +1323,16 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
 
 1;

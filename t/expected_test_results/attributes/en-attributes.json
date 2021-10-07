@@ -14,10 +14,14 @@
       "en:e120"
    ],
    "allergens" : "",
-   "allergens_from_ingredients" : "",
+   "allergens_from_ingredients" : "en:gluten",
    "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
-   "allergens_tags" : [],
+   "allergens_hierarchy" : [
+      "en:gluten"
+   ],
+   "allergens_tags" : [
+      "en:gluten"
+   ],
    "amino_acids_tags" : [],
    "attribute_groups_en" : [
       {
@@ -27,7 +31,7 @@
                "description_short" : "Average nutritional quality",
                "icon_url" : "https://server_domain/images/attributes/nutriscore-c.svg",
                "id" : "nutriscore",
-               "match" : 45,
+               "match" : 47.3333333333333,
                "name" : "Nutri-Score",
                "status" : "known",
                "title" : "Nutri-Score C"
@@ -75,13 +79,13 @@
       {
          "attributes" : [
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
+               "debug" : "en:gluten in allergens",
+               "icon_url" : "https://server_domain/images/attributes/contains-gluten.svg",
                "id" : "allergens_no_gluten",
-               "match" : 100,
+               "match" : 0,
                "name" : "Gluten",
                "status" : "known",
-               "title" : "Does not contain: Gluten"
+               "title" : "Contains: Gluten"
             },
             {
                "debug" : "11 ingredients (0 unknown)",
@@ -246,13 +250,7 @@
                "name" : "NOVA group",
                "status" : "known",
                "title" : "NOVA 4"
-            }
-         ],
-         "id" : "processing",
-         "name" : "Food processing"
-      },
-      {
-         "attributes" : [
+            },
             {
                "icon_url" : "https://server_domain/images/attributes/2-additives.svg",
                "id" : "additives",
@@ -262,20 +260,20 @@
                "title" : "2 additives"
             }
          ],
-         "id" : "ingredients",
-         "name" : ""
+         "id" : "processing",
+         "name" : "Food processing"
       },
       {
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Low environmental impact",
-               "icon_url" : "https://server_domain/images/attributes/ecoscore-b.svg",
+               "description_short" : "Moderate environmental impact",
+               "icon_url" : "https://server_domain/images/attributes/ecoscore-c.svg",
                "id" : "ecoscore",
-               "match" : 62,
+               "match" : 56,
                "name" : "Eco-Score",
                "status" : "known",
-               "title" : "Eco-Score B"
+               "title" : "Eco-Score C"
             },
             {
                "description" : "",
@@ -356,14 +354,41 @@
                   "percent" : 22.7272727272727
                }
             ],
-            "epi_score" : 52.7301022116202,
+            "epi_score" : 52.9090909090909,
             "epi_value" : 0,
             "origins_from_origins_field" : [
                "en:unknown"
             ],
-            "transportation_score" : 41.6054002272727,
-            "transportation_value" : 6,
-            "value" : 6
+            "transportation_score_be" : 39.8181818181818,
+            "transportation_score_ch" : 18.5454545454545,
+            "transportation_score_de" : 27.8181818181818,
+            "transportation_score_es" : 7.09090909090909,
+            "transportation_score_fr" : 41.4545454545455,
+            "transportation_score_ie" : 43.0909090909091,
+            "transportation_score_it" : 9.27272727272727,
+            "transportation_score_lu" : 34.3636363636364,
+            "transportation_score_nl" : 36.5454545454545,
+            "transportation_score_uk" : 54.5454545454545,
+            "transportation_value_be" : 6,
+            "transportation_value_ch" : 3,
+            "transportation_value_de" : 4,
+            "transportation_value_es" : 1,
+            "transportation_value_fr" : 6,
+            "transportation_value_ie" : 6,
+            "transportation_value_it" : 1,
+            "transportation_value_lu" : 5,
+            "transportation_value_nl" : 5,
+            "transportation_value_uk" : 8,
+            "value_be" : 6,
+            "value_ch" : 3,
+            "value_de" : 4,
+            "value_es" : 1,
+            "value_fr" : 6,
+            "value_ie" : 6,
+            "value_it" : 1,
+            "value_lu" : 5,
+            "value_nl" : 5,
+            "value_uk" : 8
          },
          "packaging" : {
             "non_recyclable_and_non_biodegradable_materials" : 0,
@@ -386,6 +411,8 @@
             "warning" : "unspecified_material"
          },
          "production_system" : {
+            "labels" : [],
+            "value" : 0,
             "warning" : "no_label"
          },
          "threatened_species" : {}
@@ -413,13 +440,33 @@
          "name_fr" : "Biscuit sec, sans précision",
          "score" : 58
       },
-      "grade" : "b",
+      "grade" : "c",
+      "grade_be" : "b",
+      "grade_ch" : "c",
+      "grade_de" : "b",
+      "grade_es" : "c",
+      "grade_fr" : "b",
+      "grade_ie" : "b",
+      "grade_it" : "c",
+      "grade_lu" : "b",
+      "grade_nl" : "b",
+      "grade_uk" : "b",
       "missing" : {
          "labels" : 1,
          "packagings" : 1
       },
       "missing_data_warning" : 1,
-      "score" : 62,
+      "score" : 56,
+      "score_be" : 62,
+      "score_ch" : 59,
+      "score_de" : 60,
+      "score_es" : 57,
+      "score_fr" : 62,
+      "score_ie" : 62,
+      "score_it" : 57,
+      "score_lu" : 61,
+      "score_nl" : 61,
+      "score_uk" : 64,
       "status" : "known"
    },
    "ecoscore_grade" : "b",
@@ -646,6 +693,10 @@
    "ingredients_text" : "wheat flour (origin: UK), sugar (Paraguay), eggs, strawberries, high fructose corn syrup, rapeseed oil, macadamia nuts, milk proteins, salt, E102, E120",
    "ingredients_that_may_be_from_palm_oil_n" : 0,
    "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 27,
    "labels_tags" : [
       "en:organic",
@@ -663,6 +714,7 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-computed",
+      "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-computed",
       "en:forest-footprint-computed",

@@ -3,8 +3,8 @@
       {
          "id" : "en:apple-juice",
          "labels" : "en:organic",
-         "percent" : 80,
-         "percent_estimate" : 80,
+         "percent" : "80",
+         "percent_estimate" : "80",
          "text" : "jus de pomme",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -12,8 +12,8 @@
       {
          "id" : "en:quince",
          "labels" : "en:organic",
-         "percent" : 20,
-         "percent_estimate" : 20,
+         "percent" : "20",
+         "percent_estimate" : "20",
          "text" : "coing",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -75,6 +75,10 @@
       "en:sodium"
    ],
    "ingredients_text" : "80% jus de pomme biologique, 20% de coing biologique, sel marin, 98% chlorure de sodium (France, Italie)",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 198,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {

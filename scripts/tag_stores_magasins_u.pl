@@ -256,7 +256,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				
 				
-				store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
 				
 				push @edited, $code;
 				$edited{$code}++;
