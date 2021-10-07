@@ -62,7 +62,7 @@ jobs:
         script_stop: false
         script: |
           # Clone Git repository if not already there
-          [ ! -d '${{ github.event.repository.name }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
+          [ ! -d '${{ matrix.env }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
 
           # Go to repository directory
           cd ${{ matrix.env }}

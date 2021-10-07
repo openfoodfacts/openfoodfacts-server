@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         env: [mongo-dev]
-        # env: [mongo-dev, mongo-prod]
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
@@ -100,16 +99,7 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          exit_code=0
-          for service in mongodb; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
-              echo "$service: DOWN"
-              exit_code=1
-            else
-              echo "$service: UP"
-            fi
-          done;
-          exit $exit_code;
+          make livecheck
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
