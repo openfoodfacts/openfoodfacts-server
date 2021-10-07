@@ -11,8 +11,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
-    concurrency: ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
+    strategy:
+      matrix:
+        env:
+          - ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
     steps:
     - name: Wait for frontend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
@@ -58,10 +62,10 @@ jobs:
         script_stop: false
         script: |
           # Clone Git repository if not already there
-          [ ! -d '${{ github.event.repository.name }}' ] && git clone --depth 1 https://github.com/${{ github.repository }}/ --no-single-branch 2>&1
+          [ ! -d '${{ github.event.repository.name }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
 
           # Go to repository directory
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
 
           # Fetch newest commits (in case it wasn't freshly cloned)
           git fetch --depth 1
@@ -81,7 +85,7 @@ jobs:
         script_stop: false
         script: |
           # Go to repository directory
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
 
           # Set Docker Compose variables
           echo "DOCKER_CLIENT_TIMEOUT=120" > .env
@@ -122,7 +126,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
           make create_external_volumes
 
     - name: Start services
@@ -136,7 +140,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
           make up 2>&1
           make setup_incron
 
@@ -152,7 +156,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
           make livecheck
 
     - name: Cleanup obsolete Docker objects
@@ -167,5 +171,5 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd ${{ github.event.repository.name }}/
+          cd ${{ matrix.env }}
           make prune
