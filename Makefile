@@ -119,9 +119,6 @@ import_prod_data:
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	for volume in icons_dist js_dist css_dist node_modules; do \
-		docker volume create $$volume || echo "Docker volume '$$volume' already exist. Skipping."; \
-	done
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data || echo "Docker volume 'html_data' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users || echo "Docker volume 'users' already exist. Skipping."
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products || echo "Docker volume 'products' already exist. Skipping."
