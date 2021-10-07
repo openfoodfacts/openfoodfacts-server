@@ -1,8 +1,8 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
-<ul data-accordion class="accordion" id="[% panel_id %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+<ul data-accordion class="accordion" id="[% panel_id | replace(':','_') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 <li class="accordion-navigation">
-    <a href="#panel_[% panel_id %]_content" class="panel_title">
+    <a href="#panel_[% panel_id | replace(':','_') %]_content" class="panel_title">
         [% IF panel.title_element.icon_url.defined %]
         <img src="[% panel.title_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
             [% IF panel.title_element.icon_color_from_evaluation %]
@@ -64,7 +64,7 @@
         <hr class="floatclear">
     </a>
 
-    <div id="panel_[% panel_id %]_content" class="content panel_content" style="clear:left;margin-top:1rem;">
+    <div id="panel_[% panel_id | replace(':','_') %]_content" class="content panel_content" style="clear:left;margin-top:1rem;">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        
