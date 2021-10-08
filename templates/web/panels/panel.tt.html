@@ -1,7 +1,11 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
-<ul data-accordion class="accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+[% IF panel.type == "card" %]
+<div class="panel_card" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+[% ELSE %]
+<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 <li class="accordion-navigation">
+[% END %]
     <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title">
         [% IF panel.title_element.icon_url.defined %]
         <img src="[% panel.title_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
@@ -158,6 +162,10 @@
         [% END %]
     [% END %]
     </div>
+[% IF panel.type == "card" %]
+</div>
+[% ELSE %]    
 </li>
 </ul>
+[% END %]
 <!-- end templates/[% template.name %] - panel_id: [% panel_id %] -->

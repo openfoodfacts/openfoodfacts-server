@@ -410,7 +410,7 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        create_panel_from_json_template("carbon_impact", "api/knowledge-panels/environment/carbon_impact.tt.json",
+        create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
 
         # Add panels for the different bonuses and maluses
