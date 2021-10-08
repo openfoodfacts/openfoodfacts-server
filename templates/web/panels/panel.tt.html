@@ -70,6 +70,14 @@
        
         [% IF element_type == "panel" %]
             [% INCLUDE web/panels/panel.tt.html panel_id = element_ref.panel_element.panel_id %]
+        [% ELSIF element_type == "panel_group" %]
+            [% panel_group_element = element_ref.panel_group_element %]
+            <div class="panel_group">
+                <h3>[% panel_group_element.name %]</h3>
+                [% FOREACH panel_id IN panel_group_element.panel_ids %]
+                    [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]
+                [% END %]
+            </div>
         [% ELSE %]
         
             [% IF element_type == "text" %]
