@@ -43,10 +43,14 @@ services:
       - css_dist:/opt/product-opener/html/css/dist:ro
       - node_modules:/opt/product-opener/node_modules:ro
 
+      # Binds from frontend container (writable)
+      - debug:/opt/product-opener/html/files/debug # debug files written by backend
+
       # Users, products, product images and orgs files
       - users:/mnt/podata/users # .sto
       - products:/mnt/podata/products # .sto
       - product_images:/mnt/podata/product_images # .jpg
+      - debug
       - orgs:/mnt/podata/orgs # .sto
 
       # Logs
@@ -77,6 +81,9 @@ services:
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
 
+      # Debug files written and linked to by the backend
+      - debug:/opt/product-opener/html/files/debug
+
       # Logs 
       - ./logs/nginx/:/var/log/nginx/
       
@@ -94,6 +101,7 @@ volumes:
   icons_dist:
   js_dist:
   css_dist:
+  debug:
   node_modules:
 networks:
   webnet:
