@@ -80233,18 +80233,19 @@ bn:লেটুস
 bo:རྗེན་ཚལ་
 ca:Lletuga, enciam
 cs:locika setá, locika
-cy:Letysen
+cy:letysen
 da:Salat
 de:Lattich, Gartensalat
-eo:Laktuko, Kultiva laktuko
+eo:kultiva, ĝardena laktuko
 es:Lechuga, Lechugas
 et:Salat, Aedsalat
-eu:Uraza
+eu:Uraza, uhaza, letxuga
 fa:لاکتوکا, کاهو
 fi:salaatit, Lehtisalaatti
 fr:Laitues, laitue
 ga:Leitís
 gl:Leituga
+gr:Μαρούλι
 gu:Ka'anakyrỹi
 gv:Glassyr
 he:חסה, חסה תרבותית
@@ -80258,7 +80259,7 @@ is:Salat
 it:Lattuga, lattughe
 ja:アキノノゲシ属, レタス
 ka:ღორისქადა, სალათა
-kk:Ассүттіген, Салат
+kk:Ассүттіген, Салат, Salat latwk, سالات لاتۋك
 kn:ಲೆಟಿಸ್
 ko:왕고들빼기속, 상추
 ku:Kahû
@@ -80272,12 +80273,12 @@ ms:Salad
 my:ဆလတ်ပင်
 nb:Salater
 nl:sla
-nn:Planteslekta salat, hagesalat
+nn:hagesalat, hodesalat
 os:Къæсула
 pa:ਸਲਾਦ
 pl:sałata, Sałata siewna
 pt:alface
-qu:Pilliyuyu
+qu:Pilliyuyu, lichuwa
 ro:salată
 ru:Латук, Салат
 rw:Imboga za leti
@@ -80307,6 +80308,7 @@ zh:莴苣属, 萵苣
 # en-gb:Lettuce
 # hak:Fú-mak
 # kaa:Salat
+#kab:Tamafart
 # lij:Leituga
 # mzn:کهوک
 # nah:Quillechuca
@@ -80349,8 +80351,21 @@ ciqual_food_name:fr:Laitue romaine, crue
 
 <en:Lettuces
 en:Iceberg lettuce
+ca:enciam iceberg
+da:issalat, iceberg-salat
 de:Eisbergsalat
-fr:Laitue iceberg
+eo:glacilaktuko
+es:lechuga iceberg, iceberg
+fi:jäävuorisalaatti
+fr:Laitue iceberg, iceberg
+hu:jégsaláta
+it:insalata iceberg, lattuga iceberg
+la:Lactuca sativa var. capitata
+nb:isbergsalat
+nl:ijsbergsla
+pt:alface americana
+sv:isbergssallat
+# zh-tw:皺葉萵苣
 agribalyse_food_code:en:20200
 ciqual_food_code:en:20200
 ciqual_food_name:en:Iceberg lettuce, raw
