@@ -10056,7 +10056,7 @@ sub display_taxonomy_api($) {
 
 	my $request_ref = shift;
 
-	my $tagtype = param('type');
+	my $tagtype = param('tagtype');
 	my $tags = param('tags');
 	my @tags = split(/,/, $tags);
 
