@@ -19,6 +19,12 @@ Get started running server in development mode, see [Dev environment quick start
 
 ## Contributions Best Practices
 
+### Check before commiting
+
+You can save you sometime by running some checks localy before commiting.
+
+`make checks` should work.
+
 ### Commits
 
 * Write clear meaningful git commit messages (Do read [here](https://chris.beams.io/posts/git-commit/)).
