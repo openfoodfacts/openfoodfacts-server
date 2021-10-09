@@ -40230,34 +40230,48 @@ ru:Лимон
 sv:citron, citron frukt
 zh:柠檬
 wikidata:en:Q1093742
+ciqual_proxy_food_code:en:13009
+ciqual_proxy_food_name:en:Lemon, pulp, raw
+ciqual_proxy_food_name:fr:Citron, pulpe, cru
 
 # en:description:The skin or outer layer of a fruit, vegetable, etc.
 <en:lemon
 en:lemon peel, lemon rind
+ca:pell de llimona
+cs:citrónová kůra
 da:citronskal
 de:Zitronenschalen, Zitronenschale
-es:Cáscara de limón, ralladura de limon
+es:cáscara de limón
 fi:sitruunankuori
 fr:écorce de citron, écorces de citron, écorces de citrons
-it:scorza d’arancia
-nl:Citroenschil, schillen citroen
+it:scorza di limone
+nl:citroenschil, schillen citroen
+nn:citronskal
 pt:casca de limão
 sv:citronskal
+wikidata:en:Q104037650
+# 2217 @2021-10-09
+
+<en:lemon peel
+en:lemon peel extract
+da:citronskalextract
+fi:sitruunankuoriuute
+nl:citroenschilextract
+nn:citronskalextract
+ro:extract de coaja de lamaie
+sv:citronskalextract
 
 # en:description:The outer skin of a citrus fruit, removed through a zester.
 <en:lemon
 en:lemon zest
-ca:pell de llimona
 de:Zitronenzeste
 es:cáscara de limón, ralladura de limón
 fi:Sitruunankuori
 fr:zestes de citron, zeste de citron
 it:scorza di limone
 nl:citroenrasp, geraspte citroenschil, citroenzest
-nn:citronskal
-pt:casca de limão
 ru:цедра лимона
-sv:citronskal, citronzest
+sv:citronzest
 wikidata:en:Q26879249
 ciqual_food_code:en:13125
 ciqual_food_name:en:Lemon zest, raw
@@ -40273,17 +40287,21 @@ fr:feuille de citron
 nl:citroenblad
 
 <en:lemon
-en:lemon pulpe
+en:lemon pulp
 de:Zitronenpulpe
-es:Pulpa de limón
-fi:Sitruunan hedelmäliha
+es:pulpa de limón
+fi:sitruunan hedelmäliha
 fr:pulpe de citron, pulpes de citron
-nl:Citroenpulp
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-citron
-# 95 products in 3 languages @2018-10-01
+it:polpa di limone
+nl:citroenpulp
+pt:polpa de limão
+ciqual_food_code:en:13009
+ciqual_food_name:en:Lemon, pulp, raw
+ciqual_food_name:fr:Citron, pulpe, cru
+# 270 in 7 @2021-10-09
 
 <en:lemon
-<en:purée
+#<en:purée
 en:lemon puree, lemon purée
 de:Zitronenmark
 es:puré de limon
