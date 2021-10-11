@@ -8,7 +8,6 @@
     "topics": [
         "environment"
     ],
-    "name": "Carbon impact",
     [% IF driving_100g >= 3 %]
     "evaluation": "bad",
     [% ELSIF driving_100g >= 1.5 %]
@@ -18,7 +17,7 @@
     [% END %]
     "title_element": {
         "title": "Equal to driving [% driving_100g FILTER format('%.1f'); %] km in a petrol car",
-        "subtitle": "[% co2_100g * 1000 FILTER format('%.0f'); %] g CO² per 100g of product",
+        "subtitle": "[% co2_100g * 1000 FILTER format('%.0f'); %] [% lang('carbon_footprint_per_100g_of_product') %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
         "icon_color_from_evaluation": true,
     },
