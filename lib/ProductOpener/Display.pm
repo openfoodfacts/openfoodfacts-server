@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Display - create and save products
+ProductOpener::Display - list, create and save products
 
 =head1 SYNOPSIS
 
@@ -82,6 +82,7 @@ BEGIN
 		&search_and_map_products
 		&display_recent_changes
 		&add_tag_prefix_to_link
+		&display_taxonomy_api
 
 		&display_ingredient_analysis
 		&display_ingredients_analysis_details
@@ -563,6 +564,9 @@ sub init()
 			@lcs = ($lc);
 		}
 	}
+	else {
+		@lcs = ($lc);
+	}
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
 	if ($cc_lc_overrides) {
 		$subdomain = $cc;
@@ -709,12 +713,41 @@ sub _component_is_singular_tag_in_specific_lc($$) {
 	}
 }
 
+
+=head2 analyze_request ( $request_ref )
+
+Analyze request parameters and decide which method to call.
+
+=head3 Parameters
+
+=head4 $request_ref reference to a hash that will contain analyzed parameters
+
+=head3 Details
+
+It will analyze path and parameters.
+
+Some information is set in request_ref, notably
+- polished query_string
+- page number (page)
+- api version and api_method
+- requested page (text)
+- some boolean for routing : search / taxonomy / mission / product / tag / points
+- parameters for products, mission, tags, etc.
+
+It handles redirect for remamed texts or products, .well-known/change-password
+
+Sometimes we modify request parameters (param) to correspond to request_ref:
+- parameters for response format : json, jsonp, xml, ...
+- code parameter
+
+=cut
 sub analyze_request($)
 {
 	my $request_ref = shift;
 
 	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 
+	# Remove ref and utm_* parameters
 	# Examples:
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
@@ -817,7 +850,13 @@ sub analyze_request($)
 	elsif ($components[0] eq "search") {
 		$request_ref->{search} = 1;
 	}
-	
+
+	# /taxonomy API endpoint
+	# e.g. /api/v2/taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
+	elsif ($components[0] eq "taxonomy") {
+		$request_ref->{taxonomy} = 1;
+	}	
+
 	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
 	# assign the codes to the code parameter
 	elsif ($components[0] eq "products") {
@@ -9944,7 +9983,7 @@ sub display_preferences_api($$)
 }
 
 
-=head2 display_attribute_groups_api ( $target_lc )
+=head2 display_attribute_groups_api ( $request_ref, $target_lc )
 
 Return a JSON structure with all available attribute groups and attributes,
 with strings (names, descriptions etc.) in a specific language,
@@ -9996,8 +10035,49 @@ sub display_attribute_groups_api($$)
 }
 
 
-sub display_product_api($)
-{
+=head2 display_taxonomy_api ( $request_ref )
+
+Generate an extract of a taxonomy for specific tags, fields and languages,
+and return it as a JSON object.
+
+Accessed through the /api/v2/taxonomy API
+
+e.g. https://world.openfoodfacts.org/api/v2/taxonomy?type=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+
+=head3 Arguments
+
+=head4 request object reference $request_ref
+
+=cut
+
+sub display_taxonomy_api($) {
+
+	my $request_ref = shift;
+
+	my $tagtype = param('type');
+	my $tags = param('tags');
+	my @tags = split(/,/, $tags);
+
+	my $options_ref = {};
+
+	foreach my $field (qw(fields include_children include_parents)) {
+		if (defined param($field)) {
+			$options_ref->{$field} = param($field);
+		}
+	}
+
+	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs);
+
+	$request_ref->{structured_response} = $taxonomy_ref;
+
+	display_structured_response($request_ref);
+	
+	return;
+}
+
+
+sub display_product_api($) {
+
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});

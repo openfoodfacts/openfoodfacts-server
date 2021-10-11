@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:00\n"
+"PO-Revision-Date: 2021-10-03 15:15\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,12 +18,12 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=ca"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
@@ -33,12 +33,12 @@ msgstr ""
 #. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-ca-178x150.png"
 
 #. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-ca-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -51,7 +51,7 @@ msgstr "https://www.microsoft.com/ca-es/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
-msgstr ""
+msgstr "Open Products Facts reuneix informació i dades de productes d'arreu del món."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -60,7 +60,7 @@ msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Aquesta pàgina de producte no està completa. Pots ajudar a completar-la editant-la i afegint més dades a partir de les fotos que tenim, o fent més fotos utilitzant l'app per a <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=ca\">Android</a> o <a href=\"https://apps.apple.com/ca/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Gràcies!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -68,7 +68,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr ""
+msgstr "Feu un donatiu a Open Products Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -86,11 +86,11 @@ msgstr ""
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr ""
+msgstr "Nike, Apple"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
-msgstr ""
+msgstr "Telèfon mòbil, Detergent en pols"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -98,27 +98,27 @@ msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
-msgstr ""
+msgstr "Una base de dades col·laborativa, gratuïta i oberta d’informació sobre productes de tot el món"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "i el <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">grup de Facebook per a contribuïdors</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of products from around the world."
-msgstr ""
+msgstr "Una base de dades col·laborativa, gratuïta i oberta de productes de tot el món."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://es-ca.openfoodfacts.org/faq"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr ""
+msgstr "Mòbil Android"
 
 msgctxt "product_name_example"
 msgid "iPod Touch (1st generation)"
-msgstr ""
+msgstr "iPod Touch (1a generació)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
@@ -135,7 +135,7 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
-msgstr ""
+msgstr "Cerca de productes d'Open Products Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
