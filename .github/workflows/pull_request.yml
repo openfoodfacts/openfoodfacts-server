@@ -46,7 +46,7 @@ jobs:
     - run: npm install
     
     - name: find changed perl files
-      uses: futuratrepadeira/changed-files@v3.3.0
+      uses: umani/changed-files@v3.3.0
       id: changed-perl
       with:
         repo-token: ${{ github.token }}

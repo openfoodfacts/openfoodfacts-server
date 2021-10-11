@@ -799,11 +799,15 @@ sub init_user()
 		$user_id = remove_tags_and_quote($param_user_id) ;
 
 		if ($user_id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+			my $emails_ref = retrieve("$data_root/users_emails.sto");
+			if (not defined $emails_ref->{$user_id}) {
+				# not found, try with lower case email
+				$user_id = lc $user_id;
+			}
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
-				$log->info("bad user e-mail") if $log->is_info();
+				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
 				return ($Lang{error_bad_login_password}{$lang}) ;
 			}

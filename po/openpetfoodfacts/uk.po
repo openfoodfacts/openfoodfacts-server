@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-05 18:51\n"
+"PO-Revision-Date: 2021-10-06 19:34\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -18,12 +18,12 @@ msgstr ""
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openfoodfacts-logo-en-178x150.png"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openfoodfacts-logo-en-356x300.png"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
@@ -33,41 +33,41 @@ msgstr ""
 # Do not translate Open Pet Food Facts
 msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
-msgstr ""
+msgstr "Open Pet Food Facts збирають інформацію та дані про продукти харчування для домашніх тварин з усього світу.<br/><div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
-msgstr ""
+msgstr "Purina, Pedigree"
 
 msgctxt "product_name_example"
 msgid "Pro Plan Adult, rich in chicken"
-msgstr ""
+msgstr "Pro Plan Adult, містить багато курки"
 
 msgctxt "generic_name_example"
 msgid "Complete pet food for adult cats"
-msgstr ""
+msgstr "Повноцінний корм для дорослих котів"
 
 msgctxt "categories_example"
 msgid "Dry adult cat food"
-msgstr ""
+msgstr "Сухий корм для дорослих котів"
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
-msgstr ""
+msgstr "Без цукру, без барвників"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
-msgstr ""
+msgstr "Крупи 85,5% (борошно пшеничне, борошно цільне пшеничне 11%), екстракт солоду, аскорбінова кислота"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
@@ -84,7 +84,7 @@ msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Ця сторінка товару не є повною. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наших фотографій, або зробивши більше фотографій за допомогою програми для<a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a>або<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Дякуємо вам!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -92,11 +92,11 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "Пожертвуйте для Open Pet Food Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
@@ -106,7 +106,13 @@ msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Юридичні</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Умови використання</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Хто ми</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/faq\">Часті запитання</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Форум ідей</a> -\n"
+"<a href=\"https://en.blog.openpetfoodfacts.org\">Блог</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Преса та блоги</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"

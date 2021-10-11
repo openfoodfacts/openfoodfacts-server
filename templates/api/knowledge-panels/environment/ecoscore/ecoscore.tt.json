@@ -6,8 +6,10 @@
     "topics": [
         "environment"
     ],
-    "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
-    "title": "[% panel.title %]",
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
+        "title": "[% panel.title %]",
+    },
     "elements": [           
         {
             "element_type": "text",
@@ -27,31 +29,7 @@
                     [% END %]                
                 `,
             }
-        },
-        {
-            "element_type": "image",
-            "image_element": {
-                "url": "[% static_subdomain %]/images/icons/ecoscore-[% panel.grade %].svg",
-                "width": 274,
-                "height": 130,
-                "alt": "Eco-score [% panel.grade %]",
-                "link_url": "[% formatted_subdomain %][% url_for_text('ecoscore') %]",
-                "link_title": "[% lang('ecoscore_information') %]",
-            }
-        },          
-        {
-            "element_type": "text",
-            "text_element": {
-                "type": "h1",
-                "html": "Average impact of products of the [% panel.agribalyse_category_name %] category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)"
-            }
-        },
-        {
-            "element_type": "panel",
-            "panel_element": {
-                "panel_id": "ecoscore_carbon_impact",
-            }
-        },        
+        },    
         {
             "element_type": "panel",
             "panel_element": {
@@ -61,10 +39,9 @@
         {
             "element_type": "text",
             "text_element": {
-                "type": "h1",
-                "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
+                "html": "Positive and negative points of this product:"
             }
-        },
+        },        
         [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
             [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.ecoscore_data.adjustments.$adjustment.value > 0) %]
                 {
@@ -74,6 +51,13 @@
                     }
                 },
             [% END %]
-        [% END %]       
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "h1",
+                "html": "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)"
+            }
+        },         
     ]
 }
