@@ -58,6 +58,7 @@ BEGIN
 
 		&lang
 		&lang_sprintf
+		&f_lang
 		&lang_in_other_lc
 		%lang_lc
 
@@ -113,7 +114,7 @@ sub separator_before_colon($) {
 
 Returns a translation for a specific string id in the language defined in the $lang global variable.
 
-If a translation is not available, returns English.
+If a translation is not available, the function returns English.
 
 =head3 Arguments
 
@@ -157,13 +158,20 @@ in the language defined in the $lang global variable.
 The translation is stored using the sprintf format (e.g. with %s) and
 lang_sprintf() calls sprintf() to process it.
 
-If a translation is not available, returns English.
+Warning: if multiple variables need to be interpolated,
+they will be in the same order for all languages.
+
+If a translation is not available, the function returns English.
 
 =head3 Arguments
 
 =head4 string id $stringid
 
 In the .po translation files, we use the msgctxt field for the string id.
+
+=head4 other arguments
+
+Arguments to be interpolated.
 
 =cut
 
@@ -181,11 +189,52 @@ sub lang_sprintf() {
 }
 
 
+=head2 f_lang( $stringid, $variables_ref )
+
+Returns a translation for a specific string id with specific arguments
+in the language defined in the $lang global variable.
+
+The translation is stored using Python's f-string format with
+named parameters between { }.
+
+e.g. "This is a string with {a_variable} and {another_variable}."
+
+Variables between { } are interpolated with the corresponding entry
+in the $variables_ref hash reference.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
+sub f_lang($$) {
+
+	my $stringid = shift;
+	my $variables_ref = shift;
+
+	my $translation = lang($stringid);
+	if (defined $translation) {
+		# look for string keys between { } and replace them with the corresponding
+		# value in $variables_ref hash reference
+		$translation =~ s/\{([^\{\}]+)\}/$variables_ref->{$1}/eg;
+		return $translation;
+	}
+	else {
+		return '';
+	}
+}
+
+
 =head2 lang_in_other_lc( $target_lc, $stringid )
 
 Returns a translation for a specific string id in a specific language.
 
-If a translation is not available, returns English.
+If a translation is not available, the function returns English.
 
 =head3 Arguments
 

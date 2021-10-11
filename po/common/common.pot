@@ -4305,10 +4305,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Some ingredients could not be recognized."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5790,15 +5790,15 @@ msgctxt "carbon_footprint"
 msgid "Carbon footprint"
 msgstr "Carbon footprint"
 
-# %s will be replaced by a number
-msgctxt "s_carbon_footprint_per_100g_of_product"
-msgid "%s g CO² per 100g of product"
-msgstr "%s g CO² per 100g of product"
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} g CO² per 100g of product"
 
-# %s will be replaced by a number
-msgctxt "equal_to_driving_s_km_in_a_petrol_car"
-msgid "Equal to driving %s km in a petrol car"
-msgstr "Equal to driving %s km in a petrol car"
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "Equal to driving {kilometers} km in a petrol car"
 
 msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
