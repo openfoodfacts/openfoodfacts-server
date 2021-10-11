@@ -60630,63 +60630,86 @@ zh:薄荷
 # yue:薄荷
 wikidata:en:Q47859
 wikipedia:en:https://en.wikipedia.org/wiki/Mentha
+ciqual_food_code:en:11027
+ciqual_food_name:en:Mint, fresh
+ciqual_food_name:fr:Menthe, fraîche
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/mint
-# 1331 products in 6 languages @2018-10-10
+# 4098 in 25 @2021-10-11
+
+#<en:mint
+#fr:menthe bio
+#fi:luomu minttu
 
 <en:mint
-fr:menthe bio
-fi:luomu minttu
+en:mint leaf, mint leaves
+de:Minzblätter
+es:hojas de menta, hoja de menta, menta en hojas
+fi:mintunlehti, mintunlehdet
+fr:feuilles de menthe
+it:foglio di menta, foglie di menta intere
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
+# 50 products in 2 languages @2018-10-10
+
+<en:mint
+en:mint oil
+cs:mátový olej
+es:aceite de menta
+fr:huile de menthe
+it:olio di menta
+nl:muntolie
 
 # description:en:Spearmint (binomial Mentha spicata, synonym Mentha viridis), also known as garden mint.
 
 <en:mint
 en:spearmint
-af:Kruisement
+af:kruisement
 ar:نعناع مدبب
-az:Sünbüllü nanə
+az:sünbüllü nanə
 bg:джоджен
 bn:পুদিনা
-ca:Menta verda
+ca:menta verda
 cs:máta klasnatá
-cy:Mintys ysbigog
-da:Grøn Mynte
+cy:mintys ysbigog
+da:grøn mynte
 de:grüne Minze
-el:Δυόσμος
+el:δυόσμος
 es:menta verde
-et:Rohemünt
-eu:Mendabeltz
+et:rohemünt
+eu:mendabeltz
 fa:نعناع زینتی
 fi:viherminttu
 fr:menthe verte
-ga:Cartlainn gharraí
-gl:Hortelá verde
+ga:cartlainn gharraí
+gl:hortelá verde
 he:נענע קרחת
-hu:Fodormenta
-it:menta spicata
+hu:fodormenta
+it:menta spicata, menta romana, menta gentile
 ja:スペアミント
 ko:스피어민트
-ku:Nane
-lt:Šaltmėtė
-nl:Kruizemunt, groene munt
+ku:nane
+la:Mentha spicata
+lt:šaltmėtė
+nl:aarmunt, groene munt
 pl:mięta zielona
-pt:Hortelã-verde
-qu:Ispiha muña
-ru:Мята колосистая
-se:Ruonáminta
+pt:hortelã-verde
+qu:ispiha muña
+ru:мята колосистая
+se:ruonáminta
 sk:mäta klasnatá
-sv:grönmynta
+sl:klasasta meta
+sv:spearmint, grönmynta
 te:పుదీనా
 th:สเปียร์มินต์
-uk:М'ята кучерява
+uk:м'ята кучерява
 zh:留蘭香
 # aeb-arab:نعناع
 # azb:سونبوللو نانه
-# de-ch:Grüne Minze
-# hsb:Zelena mjetlička
+# de-ch:grüne minze
+# hsb:zelena mjetlička
 # ku-arab:نانە
-# ku-latn:Nane
-# pms:Mentha viridis
-# pt-br:Hortelã-verde
+# ku-latn:nane
+# pms:mentha viridis
+# pt-br:hortelã-verde
 # sco:spearimint
 # yue:綠薄荷
 # zh-cn:留兰香
@@ -60697,8 +60720,8 @@ zh:留蘭香
 # zh-tw:留蘭香
 wikidata:en:Q160114
 wikipedia:en:https://en.wikipedia.org/wiki/Spearmint
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe-verte
-# 29 products @2018-10-10
+# 289 in 11 @2021-10-11
+
 
 ###################################################################################################
 #
@@ -60710,67 +60733,69 @@ wikipedia:en:https://en.wikipedia.org/wiki/Spearmint
 <en:mint
 en:peppermint
 ar:نعناع فلفلي
-ba:Бөтнөк үләне
+ba:бөтнөк үләне
 ca:menta pebrera
 cs:máta peprná
-cy:Mintys poeth
-da:Pebermynte
+cy:mintys poeth
+da:pebermynte
 de:Pfefferminz, Pfefferminze
-eo:Pipromento
-es:hierbabuena
-et:Piparmünt
-eu:Mendafin
+el:μέντα η πεπερώδης, ηδύοσμος ο πεπερώδης
+eo:pipromento
+es:menta piperita, piperita
+et:piparmünt
+eu:mendafin
 fa:نعنای فلفلی
-fi:Piparminttu
+fi:piparminttu
 fr:menthe poivrée
-gl:Menta común
+ga:lus an phiobair
+gl:menta común
 he:נענע חריפה
 hi:पिपरमिंट
-hr:Paprena metvica
-hu:Borsmenta
+hr:paprena metvica
+hu:borsmenta
 hy:անանուխ
-id:Pepermin
-is:Piparminta
-it:Menta piperita
-jv:ペパーミント
-kk:Бұрышты жалбыз
+id:pepermin
+is:piparminta
+it:menta piperita
+ja:ペパーミント
+kk:бұрышты жалбыз
 ko:박하
-la:Mentha piperita
-lt:Pipirmėtė
-lv:Piparmētra
-ms:Pudina
-nb:Peppermynte
+la:mentha piperita
+lt:pipirmėtė
+lv:piparmētra
+ms:pudina
+nb:peppermynte
 nl:pepermunt
 pl:mięta pieprzowa
 ps:تور ويلني
-pt:Hortelã-pimenta
-ro:Izmă bună
-ru:Мята перечная
-sh:Pitoma metvica
+pt:hortelã-pimenta
+ro:izmă bună
+ru:мята перечная
+sh:pitoma metvica
 si:ڦودنو
 sk:mäta pieporná
-sl:Poprova meta
+sl:poprova meta
 sr:питома нана
-sv:Pepparmynta
+sv:pepparmynta
 ta:மிளகுக்கீரை
-tg:Наъно
+tg:наъно
 th:เปปเปอร์มินต์
-tr:Bahçe nanesi
-uk:М'ята перцева
-vi:Bạc hà
+tr:bahçe nanesi
+uk:м'ята перцева
+vi:bạc hà
 zh:胡椒薄荷
-# csb:Krziżewé zelé
-# hsb:Zahrodna mjetlička
+# csb:krziżewé zelé
+# hsb:zahrodna mjetlička
 # kk-arab:بۇرىشتى جالبىز
 # kk-cn:بۇرىشتى جالبىز
-# kk-cyrl:Бұрышты жалбыз
-# kk-kz:Бұрышты жалбыз
-# kk-latn:Burıştı jalbız
-# kk-tr:Burıştı jalbız
-# lez:Пурни
-# olo:Persudušmanku
+# kk-cyrl:бұрышты жалбыз
+# kk-kz:бұрышты жалбыз
+# kk-latn:burıştı jalbız
+# kk-tr:burıştı jalbız
+# lez:пурни
+# olo:persudušmanku
 # sr-ec:питома нана
-# sr-el:Pitoma nana
+# sr-el:pitoma nana
 # yue:胡椒薄荷
 # zh-cn:胡椒薄荷
 # zh-hans:胡椒薄荷
@@ -60784,51 +60809,57 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peppermint
 # 510 products in 6 languages @2018-10-10
 
 <en:peppermint
-en:peppermint leaves
-de:Pfefferminzblätter
-fr:feuilles de menthe poivrée
+en:peppermint leaf, peppermint leaves
+de:Pfefferminzblätter, Pfefferminzblätter ganz
+fr:feuilles de menthe poivrée, feuilles de menthe poivrée entières
+#83 @2021-10-11
 
-<en:peppermint
-en:organic peppermint
-de:Bio-Pfefferminz
-es:Menta orgánica
-fi:luomu piparminttu
-fr:menthe poivrée bio
+#<en:peppermint
+#en:organic peppermint
+#de:Bio-Pfefferminz
+#es:Menta orgánica
+#fi:luomu piparminttu
+#fr:menthe poivrée bio
 
 <en:peppermint
 en:peppermint oil
+ar:زيت النعناع
+da:pebermynteolie, pebermynte olie
 de:Pfefferminzöl
-es:aceite de menta
+el:αιθέριο έλαιο μέντας
+et:piparmündiõli
 fi:piparminttuöljy
 fr:huile de menthe poivrée
-it:Olio di menta piperita
+he:שמן מנטה חריפה
+hu:borsosmentaolaj
+it:olio di menta piperita
+lt:pipirmečių aliejus
 nl:pepermuntolie
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/peppermint-oil
-# 339 products in 4 languages @2018-10-10
+nn:pebermynte olie
+pl:olejek miętowy
+pt:óleo de hortelã-pimenta
+ru:масло мяты перечной
+sv:pepparmintolja, pebermynte olie
+# 1088 in 14 @2021-10-11
 
-<en:peppermint oil
-en:organic peppermint oil
-da:økologisk pebermynteolie
-de:Bio-Pfefferminzöl
-fi:luomu piparminttuöljy
-fr:huile de menthe poivrée biologique
-nl:biologische pepermuntolie
+#<en:peppermint oil
+##en:organic peppermint oil
+#da:økologisk pebermynteolie
+#de:Bio-Pfefferminzöl
+#fi:luomu piparminttuöljy
+#fr:huile de menthe poivrée biologique
+#nl:biologische pepermuntolie
 # ingredient/nl:biologische-pepermuntolie has 1 product @2019-05-24
 # usage:nl:natuurlijk aroma (biologische pepermuntolie)
 
 <en:mint
+en:sweetmint
+el:δυόσμος
 fr:menthe douce
+pt:hortelã-comum
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:menthe-douce
-# 81 products in 1 language @018-10-10
+# 156 in 7 @2021-10-11
 
-<en:mint
-en:mint leaf, mint leaves
-de:Minzblätter
-es:hojas de menta, hoja de menta, menta en hojas
-fi:mintunlehti, mintunlehdet
-fr:feuilles de menthe
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
-# 50 products in 2 languages @2018-10-10
 
 # description:en:The dried fruits of some sumac species are ground to produce a tangy, crimson spice popular in many countries.
 
