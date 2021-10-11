@@ -1052,9 +1052,10 @@ sub display_input_tabs($$$$$) {
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
 		if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-			my $msg = sprintf(lang("move_data_and_photos_to_main_language"),
-				'<span class="tab_language">' . $language . '</span>',
-				'<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>');
+			my $msg = f_lang("f_move_data_and_photos_to_main_language", {
+				language => '<span class="tab_language">' . $language . '</span>',
+				main_language => '<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>'
+			});
 
 			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
