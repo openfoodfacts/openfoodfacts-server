@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         env: [mongo-dev]
-        # env: [mongo-dev, mongo-prod]
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
@@ -30,10 +29,10 @@ jobs:
         script_stop: false
         script: |
           # Clone Git repository if not already there
-          [ ! -d 'openfoodfacts-server' ] && git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server/ --no-single-branch 2>&1
+          [ ! -d '${{ matrix.env }}' ] && git clone --depth 1 https://github.com/${{ github.repository }} ${{ matrix.env }} --no-single-branch 2>&1
 
           # Go to docker/ directory
-          cd openfoodfacts-server/
+          cd ${{ matrix.env }}
 
           # Fetch newest commits (in case it wasn't freshly cloned)
           git fetch --depth 1
@@ -52,7 +51,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
+          cd ${{ matrix.env }}
           echo "DOCKER_CLIENT_TIMEOUT=120" > .env
           echo "COMPOSE_HTTP_TIMEOUT=120" >> .env
           echo "COMPOSE_PROJECT_NAME=po" >> .env
@@ -71,7 +70,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          docker volume create dbdata || echo "Docker volume 'dbdata' already exist. Skipping."
+          docker volume create dbdata
 
     - name: Start services
       uses: appleboy/ssh-action@master
@@ -84,8 +83,8 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          make up 2>&1
+          cd ${{ matrix.env }}
+          make up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -99,17 +98,8 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          exit_code=0
-          for service in mongodb; do 
-            if [ -z `docker-compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose ps -q $service)` ]; then
-              echo "$service: DOWN"
-              exit_code=1
-            else
-              echo "$service: UP"
-            fi
-          done;
-          exit $exit_code;
+          cd ${{ matrix.env }}
+          make livecheck
 
     - name: Cleanup obsolete Docker objects
       uses: appleboy/ssh-action@master
@@ -123,7 +113,7 @@ jobs:
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
-          cd openfoodfacts-server/
+          cd ${{ matrix.env }}
           make prune
 
   # deploy-script:

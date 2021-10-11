@@ -51,6 +51,7 @@ BEGIN
 
 		&create_knowledge_panels
 		&create_ecoscore_panels
+        &create_environment_card_panel
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -133,8 +134,10 @@ sub create_knowledge_panels($$$$) {
             topics => [
                 "ingredients"
             ],
-            title => "Do you know why Nutella contains hazelnuts?",
-            subtitle => "It all started after the second world war...",
+            title_element => [
+                title => "Do you know why Nutella contains hazelnuts?",
+                subtitle => "It all started after the second world war...",
+            ],
             elements => [
                 {
                     element_type => "text",
@@ -160,6 +163,8 @@ sub create_knowledge_panels($$$$) {
     # Add knowledge panels
 
     create_ecoscore_panel($product_ref, $target_lc, $target_cc);
+
+    create_environment_card_panel($product_ref, $target_lc, $target_cc);
 }
 
 
@@ -195,6 +200,9 @@ Some special features that are not included in the JSON format are supported:
 2. Comments can be included by starting a line with //
 - Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
 
+3. Trailing commas are removed
+- For each loops in templates can result in trailing commas when separating items in a list with a comma
+(e.g. if want to generate a list of labels)
 
 =head3 Arguments
 
@@ -203,7 +211,7 @@ Some special features that are not included in the JSON format are supported:
 =head4 panel template $panel_template
 
 Relative path to the the template panel file, from the "/templates" directory.
-e.g. "api/knowledge-panels/ecoscore/agribalyse.tt.json"
+e.g. "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json"
 
 =head4 panel data reference $panel_data_ref (optional, can be an empty hash)
 
@@ -262,6 +270,15 @@ sub create_panel_from_json_template ($$$$$$) {
         # Also escape quotes " to \"
 
         $panel_json =~ s/\`([^\`]*)\`/convert_multiline_string_to_singleline($1)/seg;
+
+        # Remove trailing commas at the end of a string delimited by quotes
+        # Useful when using a foreach loop to generate a list of comma separated elements
+        # The negative look-behind is used in order not to remove commas after quotes, ] and } and digits
+        # (e.g. we want to keep the comma in "field1": "value1", "field2": "value2", and in "percent: 8, ")
+        # Note: this will fail if the string ends with a digit.
+        # As it is a trailing comma inside a string, it's not a terrible issue, the string will be valid,
+        # but it will have an unneeded trailing comma.
+        $panel_json =~ s/(?<!("|'|\]|\}|\d))\s*,\s*"/"/g;
 
         # Remove trailing commas after the last element of a array or hash, as they will make the JSON invalid
         # It makes things much simpler in templates if they can output a trailing comma though
@@ -385,15 +402,15 @@ sub create_ecoscore_panel($$$) {
             "title" => $title,
         };
 
-        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore.tt.json",
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
         # Add an Agribalyse panel to show the impact of the different steps for the category on average
 
-        create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
+        create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        create_panel_from_json_template("ecoscore_carbon_impact", "api/knowledge-panels/ecoscore/carbon_impact.tt.json",
+        create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
 
         # Add panels for the different bonuses and maluses
@@ -403,16 +420,85 @@ sub create_ecoscore_panel($$$) {
             my $adjustment_panel_data_ref = {
             };            
 
-            create_panel_from_json_template("ecoscore_" . $adjustment, "api/knowledge-panels/ecoscore/" . $adjustment . ".tt.json",
+            create_panel_from_json_template("ecoscore_" . $adjustment, "api/knowledge-panels/environment/ecoscore/" . $adjustment . ".tt.json",
                 $adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
+        # Add panels for environmental Eco-Score labels
+        if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
+            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
+            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels})) {
+
+            foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
+                my $label_panel_data_ref = {
+                    label => $labelid,
+                    evaluation => "good",
+                };
+
+                # Add label icon
+                my $icon_url = get_tag_image($target_lc, "labels", $labelid);
+                if (defined $icon_url) {
+                    $label_panel_data_ref->{icon_url} = $static_subdomain . $icon_url;
+                }
+
+                # Add properties of interest
+                foreach my $property (qw(environmental_benefits description)) {
+                    my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
+                    if (defined $property_value) {
+                        $label_panel_data_ref->{$property} = $property_value;
+                    }
+                }
+
+                create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
+                    $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
+            }
+        }
 	}
 	else {
         my $panel_data_ref = {};
-        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore_unknown.tt.json",
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+}
+
+
+=head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel card that contains all knowledge panels related to the environment.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+
+=head3 Return value
+
+The return value is a reference to the resulting knowledge panel data structure.
+
+=cut
+
+sub create_environment_card_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create environment card panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+
+    my $panel_data_ref = {};
+     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
 }
 
 1;

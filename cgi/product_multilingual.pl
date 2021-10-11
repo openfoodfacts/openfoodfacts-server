@@ -397,17 +397,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			if ($field eq "lang") {
 				my $value = remove_tags_and_quote(decode utf8=>param($field));
-				
+
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
 				$value = lc($value);
-				
+
 				# skip unrecognized languages (keep the existing lang & lc value)
 				if (defined $lang_lc{$value}) {
 					$product_ref->{lang} = $value;
 					$product_ref->{lc} = $value;
-				}				
-				
+				}
+
 			}
 			else {
 				# infocards set by admins can contain HTML
@@ -716,14 +716,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
-	
+
 	# Until we provide an interface to directly change the packaging data structure
 	# erase it before reconstructing it
 	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];	
-	
+	$product_ref->{packagings} = [];
+
 	analyze_and_combine_packaging_data($product_ref);
-	
+
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		compute_ecoscore($product_ref);
 		compute_forest_footprint($product_ref);
@@ -901,7 +901,7 @@ CSS
 	 and (defined $Org_id)) {
 
 		# Display a link to the producers platform
-		
+
 		my $producers_platform_url = $formatted_subdomain . '/';
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 
