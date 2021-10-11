@@ -380,6 +380,7 @@ sub process_template($$$) {
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} = $cc;
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -8266,8 +8267,7 @@ HTML
 		# for debugging and demonstration purposes
 		if (param('panels')) {
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-			$template_data_ref->{ecoscore_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "ecoscore");
-			$template_data_ref->{ecoscore_carbon_impact_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "ecoscore_carbon_impact");
+			$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 		}
 	}
 

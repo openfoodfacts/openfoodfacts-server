@@ -51,6 +51,7 @@ BEGIN
 
 		&create_knowledge_panels
 		&create_ecoscore_panels
+        &create_environment_card_panel
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -162,6 +163,8 @@ sub create_knowledge_panels($$$$) {
     # Add knowledge panels
 
     create_ecoscore_panel($product_ref, $target_lc, $target_cc);
+
+    create_environment_card_panel($product_ref, $target_lc, $target_cc);
 }
 
 
@@ -208,7 +211,7 @@ Some special features that are not included in the JSON format are supported:
 =head4 panel template $panel_template
 
 Relative path to the the template panel file, from the "/templates" directory.
-e.g. "api/knowledge-panels/ecoscore/agribalyse.tt.json"
+e.g. "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json"
 
 =head4 panel data reference $panel_data_ref (optional, can be an empty hash)
 
@@ -399,15 +402,15 @@ sub create_ecoscore_panel($$$) {
             "title" => $title,
         };
 
-        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore.tt.json",
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
         # Add an Agribalyse panel to show the impact of the different steps for the category on average
 
-        create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/ecoscore/agribalyse.tt.json",
+        create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        create_panel_from_json_template("ecoscore_carbon_impact", "api/knowledge-panels/ecoscore/carbon_impact.tt.json",
+        create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
 
         # Add panels for the different bonuses and maluses
@@ -417,7 +420,7 @@ sub create_ecoscore_panel($$$) {
             my $adjustment_panel_data_ref = {
             };            
 
-            create_panel_from_json_template("ecoscore_" . $adjustment, "api/knowledge-panels/ecoscore/" . $adjustment . ".tt.json",
+            create_panel_from_json_template("ecoscore_" . $adjustment, "api/knowledge-panels/environment/ecoscore/" . $adjustment . ".tt.json",
                 $adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
@@ -446,16 +449,56 @@ sub create_ecoscore_panel($$$) {
                     }
                 }
 
-                create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/ecoscore/label.tt.json",
+                create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
                     $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
             }
         }
 	}
 	else {
         my $panel_data_ref = {};
-        create_panel_from_json_template("ecoscore", "api/knowledge-panels/ecoscore/ecoscore_unknown.tt.json",
+        create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+}
+
+
+=head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel card that contains all knowledge panels related to the environment.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+
+=head3 Return value
+
+The return value is a reference to the resulting knowledge panel data structure.
+
+=cut
+
+sub create_environment_card_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create environment card panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+
+    my $panel_data_ref = {};
+     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
 }
 
 1;
