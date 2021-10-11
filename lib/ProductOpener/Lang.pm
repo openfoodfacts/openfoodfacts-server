@@ -18,6 +18,21 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Lang - load and return translations
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Lang> loads translations from .po files and return translated strings
+through the lang() and lang_sprintf() functions.
+
+=head1 DESCRIPTION
+
+
+
+=cut
+
 package ProductOpener::Lang;
 
 use utf8;
@@ -42,6 +57,7 @@ BEGIN
 		@Langs
 
 		&lang
+		&lang_sprintf
 		&lang_in_other_lc
 		%lang_lc
 
@@ -65,6 +81,21 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
+=head1 FUNCTIONS
+
+=head2 separator_before_colon( $l )
+
+=head3 Arguments
+
+=head4 language code $l
+
+In some languages like French, colons have a space before them.
+e.g. "Valeur : 500" in French, "Value: 500" in English
+
+This function returns a non-breaking space character for those languages.
+
+=cut
+
 sub separator_before_colon($) {
 
 	my $l = shift;
@@ -78,55 +109,118 @@ sub separator_before_colon($) {
 }
 
 
-# English values have been copied to languages that do not have defined values
-# Use the global $lang variable
+=head2 lang( $stringid )
+
+Returns a translation for a specific string id in the language defined in the $lang global variable.
+
+If a translation is not available, returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
 sub lang($) {
 
-	my $s = shift;
+	my $stringid = shift;
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
 		$short_l = $`;  # pt_pt
 	}
 
-	if (not defined $Lang{$s}) {
+	# English values have been copied to languages that do not have defined values
+
+	if (not defined $Lang{$stringid}) {
 		return '';
 	}
-	elsif (defined $Lang{$s}{$lang}) {
-		return $Lang{$s}{$lang};
+	elsif (defined $Lang{$stringid}{$lang}) {
+		return $Lang{$stringid}{$lang};
 	}
-	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-		return $Lang{$s}{$short_l};
+	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
+		return $Lang{$stringid}{$short_l};
 	}
 	else {
 		return '';
 	}
 }
 
-# Lang in a target language that may not be the same as the global $lang
+
+=head2 lang_sprintf( $stringid, [other arguments] )
+
+Returns a translation for a specific string id with specific arguments
+in the language defined in the $lang global variable.
+
+The translation is stored using the sprintf format (e.g. with %s) and
+lang_sprintf() calls sprintf() to process it.
+
+If a translation is not available, returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
+sub lang_sprintf() {
+
+	my $stringid = shift;
+
+	my $translation = lang($stringid);
+	if (defined $translation) {
+		return sprintf($translation, @_);
+	}
+	else {
+		return '';
+	}
+}
+
+
+=head2 lang_in_other_lc( $target_lc, $stringid )
+
+Returns a translation for a specific string id in a specific language.
+
+If a translation is not available, returns English.
+
+=head3 Arguments
+
+=head4 target language code $target_lc
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
 sub lang_in_other_lc($$) {
 
 	my $target_lc = shift;
-	my $s = shift;	
+	my $stringid = shift;	
 
 	my $short_l = undef;
 	if ($target_lc =~ /_/) {
 		$short_l = $`;  # pt_pt
 	}
 
-	if (not defined $Lang{$s}) {
+	if (not defined $Lang{$stringid}) {
 		return '';
 	}
-	elsif (defined $Lang{$s}{$target_lc}) {
-		return $Lang{$s}{$target_lc};
+	elsif (defined $Lang{$stringid}{$target_lc}) {
+		return $Lang{$stringid}{$target_lc};
 	}
-	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-		return $Lang{$s}{$short_l};
+	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
+		return $Lang{$stringid}{$short_l};
 	}
 	else {
 		return '';
 	}
 }
+
 
 $log->info("initialize", { data_root => $data_root }) if $log->is_info();
 

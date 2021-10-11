@@ -2,14 +2,12 @@
 [% SET co2_100g = product.ecoscore_data.agribalyse.co2_total / 10 %]
 [% SET driving_100g = co2_100g  * 100 / 19.3 %]
 {
-    "parent_panel_id": "ecoscore_carbon_impact",
+    "parent_panel_id": "root",
     "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
     ],
-    "name": "Carbon impact",
-    "title": "Environmental impact on average for products of the same category",
     [% IF driving_100g >= 3 %]
     "evaluation": "bad",
     [% ELSIF driving_100g >= 1.5 %]
@@ -17,10 +15,14 @@
     [% ELSE %]
     "evaluation": "good",
     [% END %]
-    "title": "Equal to driving [% driving_100g FILTER format('%.1f'); %] km in a petrol car",
-    "subtitle": "[% co2_100g * 1000 FILTER format('%.0f'); %] g CO² per 100g of product",
-    "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
-    "icon_color_from_evaluation": true,
+    "title_element": {
+        [% SET driving_100g_rounded = driving_100g FILTER format('%.1f'); %]
+        "title": "[% lang_sprintf('equal_to_driving_s_km_in_a_petrol_car', driving_100g_rounded) %]",
+        [% SET co2_100g_rounded = co2_100g * 1000 FILTER format('%.0f'); %]
+        "subtitle": "[% lang_sprintf('s_carbon_footprint_per_100g_of_product', co2_100g_rounded) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
+        "icon_color_from_evaluation": true,
+    },
     "elements": [
         {
             "element_type": "text",
@@ -29,6 +31,7 @@
                 "html": `
                     <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: 
                     <a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name %]</a>
+                    ([% lang('source_ademe_agribalyse') %]
                     </p>
                     `
             }
