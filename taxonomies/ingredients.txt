@@ -3924,56 +3924,56 @@ vi:Natri cyclamat
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 # description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
-
-<en:sweetener
-en:Saccharin, E954, E-954, E 954, sodium saccharin
-ar:سكارين
-be:Сахарын
-bg:Захарин
-ca:sacarina
-cs:Sacharin
-da:Sakkarin, Saccharin
-de:Saccharin
-el:Σακχαρινες
-eo:Sakarino
-es:Sacarina, sacarinas
-et:Sahhariin
-eu:Sakarina
-fa:ساخارین
-fi:Sakariini
-fr:Saccharine, saccharides
-ga:Siúicrín
-gl:Sacarina
-he:סכרין
-hi:सेकेरिन
-hr:Saharin
-hu:Szacharin, szaharin
-hy:Սախարին
-id:Sakarin
-io:Sakarino
-it:Saccarina
-ja:サッカリン
-ko:사카린
-lt:Sacharinas
-lv:Saccharin
-mt:Saccharin
-nb:Sakkarin
-nl:Sacharine
-pl:Sacharyna, sacharyny
-pt:Sacarina
-ro:Zaharină
-ru:Сахарин
-sh:Saharin
-sk:sacharín
-sl:Saharin
-sr:сахарин
-sv:Sackarinat, sackarinater
-ta:சாக்கரின்
-th:แซกคารีน
-tr:Sakarin
-uk:Сахарин
-vi:Saccharin
-zh:糖精
+# moved to additives
+#<en:sweetener
+#en:Saccharin, E954, E-954, E 954, sodium saccharin
+#ar:سكارين
+#be:Сахарын
+#bg:Захарин
+#ca:sacarina
+#cs:Sacharin
+#da:Sakkarin, Saccharin
+#de:Saccharin
+#el:Σακχαρινες
+#eo:Sakarino
+#es:Sacarina, sacarinas
+#et:Sahhariin
+#eu:Sakarina
+#fa:ساخارین
+#fi:Sakariini
+#fr:Saccharine, saccharides
+#ga:Siúicrín
+#gl:Sacarina
+#he:סכרין
+#hi:सेकेरिन
+#hr:Saharin
+#hu:Szacharin, szaharin
+#hy:Սախարին
+#id:Sakarin
+#io:Sakarino
+#it:Saccarina
+#ja:サッカリン
+#ko:사카린
+#lt:Sacharinas
+#lv:Saccharin
+#mt:Saccharin
+#nb:Sakkarin
+#nl:Sacharine
+#pl:Sacharyna, sacharyny
+#pt:Sacarina
+#ro:Zaharină
+#ru:Сахарин
+#sh:Saharin
+#sk:sacharín
+#sl:Saharin
+#sr:сахарин
+#sv:Sackarinat, sackarinater
+#ta:சாக்கரின்
+#th:แซกคารีน
+#tr:Sakarin
+#uk:Сахарин
+#vi:Saccharin
+#zh:糖精
 # azb:ساخارین
 # be-tarask:Цукрын
 # sr-ec:сахарин
@@ -3985,17 +3985,17 @@ zh:糖精
 # zh-hk:糖精
 # zh-sg:糖精
 # zt-tw:糖精
-wikidata:en:Q191381
-wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
+#wikidata:en:Q191381
+#wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
 # ingredient/fr:saccharinate-de-sodium has 30 products in french @2019-01-30
 
-<en:Saccharin
-fr:saccharinate de sodium
-de:Saccharin-Natrium
-es:sacarina sódica
-fi:natriumsakariini
-it:saccarina di sodio
-ru:Натрия сахаринат
+#<en:Saccharin
+#fr:saccharinate de sodium
+#de:Saccharin-Natrium
+#es:sacarina sódica
+#fi:natriumsakariini
+#it:saccarina di sodio
+#ru:Натрия сахаринат
 
 
 # description:en:Neohesperidin dihydrochalcone, sometimes abbreviated to neohesperidin DC or simply NHDC, is an artificial sweetener derived from citrus.
@@ -26964,20 +26964,88 @@ fr:graines de millet
 # https://world.openfoodfacts.org/ingredient/fr:graines-de-millet/
 # 111 products in 1 languages @1018-09-22
 
+#comment:en:be careful with the species Amaranthus, contains often the wrong translation.
 <en:cereal
 en:amaranth
+ar:الامارانت
+az:qaratərə
+bg:амарант
+br:amarant
+ca:amarant
+cs:amarant, laskavec
 de:Amarant
 es:amaranto
-fi:meksikonrevonhäntä, amarantti
+eu:amaranto
+fa:تاج خروس
+fi:meksikonrevonhäntä, amarantti, revonhännät
 fr:amarante
+ga:amarantas
+he:ירבוז
+hi:|चौलाई}}
 hu:disznóparéj, amaránt
+hy:Հավակատար
+io:amaranto
+id:bayam
 it:amaranto
+ja:アマランサス
+jv:bayem
+kk:Амарант
+la:Amaranthus caudatus, Amaranthus cruentus, Amaranthus hypochondriacus
+ln:bítɛkutɛku
+lt:burnotis
+ms:bayam
+mt:għobbejra
 nl:amaranth
+pl:szarłat
+pt:amaranto
+qu:sankurachi
+ro:amarant 
+ru:Амарант
+sa:|वास्तुकम्}}
+sk:amarant
+sl:amarante
+sr:амарант
+su:bayem
+tr:amaranthus
+uk:Щириця
+vi:chi dền
+zh:苋属
+# hsb:Šćěrjenc
+# nah:huauhtli
 description:en:Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
-wikipedia:en:https://en.wikipedia.org/wiki/Amaranth
-wikidata:en:Q156344
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/amaranth
-# 266 products in 4 languages @2018-09-22
+wikipedia:en:https://en.wikipedia.org/wiki/Amaranth_grain
+wikidata:en:Q10407363
+ciqual_food_code:en:9345
+ciqual_food_name:en:Amaranth, raw
+ciqual_food_name:fr:Amarante, crue
+# 1227 in 15 @2021-10-05
+
+<en:cereal flour
+<en:amaranth
+en:amaranth flour
+da:amarantmel
+de:Amarantmehl
+es:harina de amaranto
+fi:amaranttijauho
+fr:farine d’amarante
+hu:disznóparéjliszt
+it:farina d'amaranto
+nl:amaranthmeel, amarant gemalen
+sl:amarente flour
+sv:amarantmel
+# 249 in 10 @2021-10-05
+
+<en:amaranth flour
+<en:wholemeal flour
+en:whole grain amaranth flour
+de:Amaranthvollkornmehl, Amaranth-Vollkornmehl
+
+<en:amaranth
+fr:amarante soufflé
+ar: منتفخ الامارانت 
+de:gepuffter Amaranth
+es:amaranto inflado
+sr:експандиран амарант
 
 ##################################################################################
 #
@@ -26988,127 +27056,125 @@ wikidata:en:Q156344
 <en:cereal
 en:oat
 am:ገረማ
-an:Avena sativa
+an:cevada
 ar:شوفان
-az:Əkin yulafı
-ba:Һоло
-be:Авёс пасяўны
-bg:Овес
+az:əkin yulafı
+ba:һоло
+be:авёс
+bg:овес
 bn:জই
 bo:ཡུག་པོ།
-br:Kerc'h
-bs:Zob
-ca:Civada
-cs:Oves setý, oves
-cy:Ceirch
-da:Havre
-de:Hafer
-el:Βρώμη
-eo:Kutima aveno
+br:kerc'h
+bs:zob
+ca:civada
+cs:oves
+cy:ceirch
+da:havre
+de:hafer
+el:βρώμη
+eo:aveno
 es:avena
-et:Kaer, kaera
-eu:Olo
+et:kaer, kaera
+eu:olo
 fa:جو دوسر
-fi:Kaura
+fi:kaura
 fr:avoine
-ga:Coirce
-gd:Coirce
-gl:Avea común
-he:שיבולת-שועל
+ga:coirce
+gd:coirce
+gl:avea
+he:שיבולת
 hi:जई
-hr:Obična zob
-ht:Avwàn
+hr:zob
+ht:avwàn
 hu:zab
-ia:Avena sativa
-id:Haver
-is:Hafrar
+id:haver
+is:hafrar
 it:avena
 ja:エンバク
-jv:Haver
-ka:ჩვეულებრივი შვრია
-kk:Екпе сұлы
+jv:haver
+ka:შვრია
+kk:екпе сұлы
 kn:ತೋಕೆ ಗೋಧಿ
 ko:귀리
-ku:Gîhagulî
-ky:Сулу
-la:Avena sativa
-li:Haver
-lt:Sėjamoji aviža, avižos, avižų
-lv:Sējas auzas, auzu, auzas
-mk:Овес
+ku:gîhagulî
+ky:сулу
+la:avena sativa
+li:haver
+lt:sėjamoji aviža, avižos, avižų
+lv:sējas auzas, auzu, auzas
+mk:овес
 ml:ഓട്സ്
-mn:Таримал хошуу будаа
+mn:таримал хошуу будаа
 mr:ओट
-ms:Oat
+ms:oat
 mt:ħafur
-nb:Havre
+nb:havre
 nl:haver
-nn:Havre
-oc:Civada
+nn:havre
+oc:civada
 pa:ਜਵੀ
-pl:owsiana, Owies zwyczajny, owies, owsiane
+pl:owsiana, owies, owsiane
 pt:aveia
-qu:Tarpuy awina
-ro:Ovăz, ovaz
-ru:Овёс посевной, овёс
-sc:Avena
-sh:Zob
+qu:tarpuy awina
+ro:ovăz, ovaz
+ru:овёс
+sc:avena
+sh:zob
 si:යව
 sk:ovos
-sl:Oves
-so:Sareen
-sq:Tërshëra
-sr:Овас
-sv:Havre
-sw:Oti
+sl:oves
+so:sareen
+sq:tërshëra
+sr:овас
+sv:havre
+sw:oti
 ta:காடைக்கண்ணி
 te:వోట్
 th:ข้าวโอ๊ต
-tl:Obena
-tr:Beyaz yulaf
-tt:Игүле солы
-uk:Овес посівний
+tl:obena
+tr:beyaz yulaf
+tt:игүле солы
+uk:овес
 ur:جئی
-uz:Suli
-vi:Yến mạch
-wa:Avoenne
+uz:suli
+vi:yến mạch
+wa:avoenne
 yi:האבער
 zh:燕麦
-description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
+description:en:the oat (avena sativa) is a species of cereal grain grown for its seed.
 comment:en:oat does not contain gluten, but is often contaminated by gluten containing cereals.
-# als:Haaber
+# als:haaber
 # arz:شوفان
-# ast:Avena sativa
 # azb:اکین یولافی
 # bar:Howan
-# bat-smg:Avėža
-# bcl:Avena sativa
-# bxr:Обёос
-# ceb:Avena sativa
+# bat-smg:avėža
+# bxr:обёос
 # ckb:کاڕان
-# dsb:Rolny wows
-# fiu-vro:Kaar
-# frr:Heewer
+# dsb:rolny wows
+# fiu-vro:kaar
+# frr:heewer
 # gan:燕麥
-# hsb:Rólny wows
-# ilo:Avena sativa
-# jam:Uots
-# kbd:Зэнтхъ
-# kbp:Afʊwanɩ
-# lfn:Avena
+# hsb:rólny wows
+# jam:uots
+# kbd:зэнтхъ
+# kbp:afʊwanɩ
+# lfn:avena
 # mai:जई
 # new:ओट
-# pcd:Avin·ne
-# pdc:Hawwer
+# pcd:avinne
+# pdc:hawwer
 # pnb:جوی
-# roa-rup:Uvedzu
-# sah:Эбиэс
-# sco:Ait
-# war:Avena sativa
+# roa-rup:uvedzu
+# sah:эбиэс
+# sco:ait
 # wuu:燕麦
-# zh-min-nan:Iàn-be̍h
+# nan:iàn-be̍h
 # yue:燕麥
+wikidata:en:Q24265484
 wikipedia:en:https://en.wikipedia.org/wiki/Oat
+ciqual_food_code:en:9310
+ciqual_food_name:en:Oat, raw
+ciqual_food_name:fr:Avoine, crue
 
 #<en:oat
 #en:organic oat
@@ -27798,66 +27864,70 @@ sv:rågfiber
 <en:cereal
 en:spelt
 ar:حنطة
-bg:Спелта
-br:Yell
-ca:Espelta
-cs:špalda, Pšenice špalda
-da:Spelt
+bg:спелта
+br:yell
+ca:espelta
+cs:špalda, pšenice špalda
+da:spelt
 de:Dinkel
-el:Όλυρα, ντίνκελ
-eo:Spelto
-es:espelta
-et:Speltanisu, spelta
-eu:Espelta
-fa:گندم آلمانی
-fi:speltti, spelttivehnä, spelttiä
+el:όλυρα, ντίνκελ, σπέλτα
+eo:spelto
+es:espelta, escanda
+et:speltanisu, spelta
+eu:espelta
+fa:اسپلت
+fi:spelttivehnä, speltti, spelttiä
 fr:épeautre
 ga:speilt
-gl:Espelta
+gl:espelta
 he:כוסמין
-hr:Pravi pir
+hr:pravi pir
 hu:tönkölybúza, tönköly
-io:Spelto
-is:Spelt
+io:spelto
+is:spelt
 it:farro, farro spelta
+ja:スペルトコムギ
 ko:스펠트밀
-la:Spelta
+la:Triticum aestivum ssp. spelta
 lb:Spelz
-lt:spelta
+lt:speltos, spelta
 lv:speltas kvieši
-ms:Spelt
-mt:ispelt
-nb:Spelt
+mk:крупник
+ms:spelt
+mt:farru, qamħ spelt
+nb:spelt
 nl:spelt
-nn:Spelt
-oc:Espeuta
-pl:Pszenica orkisz, orkisz
-pt:Espelta
-ro:grâu spelt
-ru:Спельта
+nn:spelt
+oc:espeuta
+pl:orkisz, pszenica orkisz
+pt:espelta
+ro:alac, grâu spelt, alac spelt
+ru:спельта
 sk:špalda
-sl:Pira
-sr:Крупник
-sv:spelt, Speltvete
+sl:pira
+sr:крупник, krupnik
+sv:spelt, speltvete
 ta:ஸ்பெல்ட்
-tr:Kavuzlu buğday
-tt:Борай
-uk:Спельта
-vi:Triticum spelta
-wa:Speate
+tr:kavuzlu buğday
+tt:борай
+uk:спельта
+wa:speate
 zh:斯佩耳特小麦
 description:en:SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
 # als:Schwobakorn
 # ast:espelta
-# ceb:Triticum spelta
-# hsb:Krupnik
-# lmo:Triticum spelta
-# myv:Виш
-# nds-nl:Dinkelweite
-# sco:Spelt
-# war:Triticum spelta
+# dag:sipɛlit
+# hsb:krupnik
+# lmo:spèlta
+# myv:виш
+# nds:Dinkelweite
+# sco:spelt
+# yue:古麥
 wikipedia:en:https://en.wikipedia.org/wiki/Spelt
 wikidata:en:Q158767
+ciqual_food_code:en:9001
+ciqual_food_name:en:Spelt, raw
+ciqual_food_name:fr:Épeautre, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
 # 278 products in 6 languages @2018-09-22
 allergens:en: en:gluten
@@ -27871,14 +27941,14 @@ nl:volkoren spelt
 en:sprouted spelt
 de:Dinkel-Sprossen, Dinkel Sprossen, Dinkelkeimlinge
 
-<en:spelt
-en:organic spelt
-de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
-es:Espelta orgánica, trigo espelta troceado
-fi:luomu speltti
-fr:épeautre biologique
-hu:bio tönkölybúza
-nl:Biologische spelt
+#<en:spelt
+#en:organic spelt
+#de:Bio-Dinkel, Dinkel aus kontrolliert ökologischer Landwirtschaft
+#es:Espelta orgánica, trigo espelta troceado
+#fi:luomu speltti
+#fr:épeautre biologique
+#hu:bio tönkölybúza
+#nl:Biologische spelt
 # ingredient/nl:biologische-spelt has 1 product @2019-05-24
 
 <en:spelt
@@ -27913,6 +27983,63 @@ sv:dinkelkli
 en:inflated spelt
 de:Dinkelweizen gepufft, Dinkel gepufft, gepuffter Dinkel, gepuffter Weizendinkel
 es:espelta inflada
+
+<en:cereal flour
+en:spelt flour
+ca:farina d'espelta
+de:Dinkelmehl, Dinkelweizenmehl
+es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
+fi:spelttijauho
+fr:farine d'épeautre, farine de blé d'épeautre
+hu:tönkölyliszt
+it:farina di spelta, farina di farro
+la:Triticum spelta
+nl:speltmeel, speltbloem
+pl:mąka orkiszowa
+pt:farinha de espelta
+sk:múka z pšenice špaldy
+sv:speltvetemjöl, dinkelmjöl
+ciqual_food_code:en:9480
+ciqual_food_name:en:Spelt flour
+ciqual_food_name:fr:Farine d'épeautre (grand épeautre)
+wikidata:en:Q3066924
+#1496 in 14 @2021-09-24
+
+<en:spelt flour
+de:Dinkelmehl Type 630
+
+<en:spelt flour
+de:Dinkelmehl Type 812
+
+<en:spelt flour
+fr:Farine de blé d'épeautre T110
+
+# Question
+
+<en:wholemeal flour
+<en:spelt flour
+en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
+ca:farina de blat d'espelta integral
+de:Dinkelvollkornmehl, dinkel vollkornmehl
+es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
+fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
+fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
+hu:teljes kiőrlésű tönkölyliszt
+it:farina integrale di spelta
+nl:volkoren speltmeel
+pt:farinha integral de espelta
+sv:fullkornsspeltvetemjöl
+
+<en:spelt flour
+fr:farine de petit épeautre
+
+<en:spelt flour
+en:dextrinated spelt flour
+de:dextriniertes Dinkelmehl
+es:harina de espelta dextrinada
+fr:farine d'épeautre dextrinée
+hu:dextrinált tönkölyliszt
+nl:gedextrineerd speltmeel
 
 <en:cereal
 en:khorasan wheat, kamut
@@ -28528,62 +28655,6 @@ fr:farine d’orge dextrinée
 hu:dextrinált árpaliszt
 nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
-<en:cereal flour
-en:spelt flour
-ca:farina d'espelta
-de:Dinkelmehl, Dinkelweizenmehl
-es:harina de espelta, harina de trigo espelta, harina gruesa de espelta
-fi:spelttijauho
-fr:farine d'épeautre, farine de blé d'épeautre
-hu:tönkölyliszt
-it:farina di spelta, farina di farro
-la:Triticum spelta
-nl:speltmeel, speltbloem
-pl:mąka orkiszowa
-pt:farinha de espelta
-sk:múka z pšenice špaldy
-sv:speltvetemjöl, dinkelmjöl
-ciqual_food_code:en:9480
-ciqual_food_name:en:Spelt flour
-ciqual_food_name:fr:Farine d'épeautre (grand épeautre)
-wikidata:en:Q3066924
-#1496 in 14 @2021-09-24
-
-<en:spelt flour
-de:Dinkelmehl Type 630
-
-<en:spelt flour
-de:Dinkelmehl Type 812
-
-<en:spelt flour
-fr:Farine de blé d'épeautre T110
-
-# Question
-
-<en:wholemeal flour
-<en:spelt flour
-en:wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
-ca:farina de blat d'espelta integral
-de:Dinkelvollkornmehl, dinkel vollkornmehl
-es:harina de espelta integral,harina integral de espelta,harina integral de trigo de espelta
-fi:täysjyväspelttijauho, täysjyväspelttivehnäjauho
-fr:farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet
-hu:teljes kiőrlésű tönkölyliszt
-it:farina integrale di spelta
-nl:volkoren speltmeel
-pt:farinha integral de espelta
-sv:fullkornsspeltvetemjöl
-
-<en:spelt flour
-fr:farine de petit épeautre
-
-<en:spelt flour
-en:dextrinated spelt flour
-de:dextriniertes Dinkelmehl
-es:harina de espelta dextrinada
-fr:farine d'épeautre dextrinée
-hu:dextrinált tönkölyliszt
-nl:gedextrineerd speltmeel
 
 
 
@@ -28726,21 +28797,6 @@ ciqual_food_name:fr:Farine de millet
 en:whole grain millet flour
 de:Hirsevollkornmehl, Hirse-Vollkornmehl
 
-<en:cereal flour
-en:amaranth flour
-da:amarantmel
-de:Amarantmehl
-es:harina de amaranto
-fi:amaranttijauho
-fr:farine d’amarante
-hu:disznóparéjliszt
-nl:amaranthmeel, amarant gemalen
-# ingredient/amaranth-flour has 80 products in 3 languages @2018-09-22
-
-<en:amaranth flour
-<en:wholemeal flour
-en:whole grain amaranth flour
-de:Amaranthvollkornmehl, Amaranth-Vollkornmehl
 
 #category/chestnut-flours
 <en:flour
@@ -28774,16 +28830,6 @@ nl:tapiocameel
 pt:Farinha de tapioca
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:flour
-<en:lupin
-en:lupin flour
-de:Lupinenmehl, Süßlupinenmehl, Süsslupinenmehl
-es:harina de altramuz
-fi:lupiinijauho
-fr:farine de lupin
-hu:csillagfürtliszt
-it:Farina di lupino
-nl:lupinemeel
 
 <en:flour
 en:broad bean flour
@@ -30491,12 +30537,13 @@ en:rice cream
 de:Reiscreme
 es:crema de arroz
 
-<en:rice
-fr:riz moulu
-de:Reis gemahlen
-hu:őrölt rizs
-it:riso macinato
-nl:rijst gemalen
+#processing:en: en:ground
+#<en:rice
+#fr:riz moulu
+#de:Reis gemahlen
+#hu:őrölt rizs
+#it:riso macinato
+#nl:rijst gemalen
 # ingredient/fr:riz-moulu has 20 products in 4 languages @2018-12-19
 
 # This can be found under the flours
@@ -30505,10 +30552,20 @@ nl:rijst gemalen
 
 <en:rice
 en:rice bran
+da:risklid
 de:Reiskleie
+el:πίτυρο ρυζιού
 es:salvado de arroz
+fi:riisilese
 fr:son de riz
-it:Crusca di riso
+it:crusca di riso
+ko:쌀겨
+nl:rijstzemelen
+pt:farelo de arroz
+sv:riskli
+zh:米糠
+wikidata:en:Q34041491
+#772 in 9 @2021-10-03
 
 <en:rice
 en:rice semolina
@@ -38128,82 +38185,96 @@ wikipedia:en:https://en.wikipedia.org/wiki/Durian
 <en:fruit
 en:cranberry, cranberries
 ar:عنبية حادة الخباء
-az:Mərcanı
-ba:Мүк еләге
-be:Журавіны
-ca:Nabiu de grua
-cs:Klikva, klikvy
-cy:Llugaeron
-da:Tranebær
+az:mərcanı
+ba:мүк еләге
+be:журавіны
+bg:червени боровинки
+ca:nabiu de grua
+cs:klikva, klikvy
+cy:llugaeron
+da:tranebær
 de:Moosbeeren, Cranberry, Cranberrys, Cranberries
-eo:Oksikoko
+eo:oksikoko
 es:arándano rojo, arándano
-et:Jõhvikas, Harilik jõhvikas
+et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
-fo:Tranuber
-fr:airelles, cranberries, cranberry, cranberrys, Canneberge
-ga:Mónóg
-gl:Arandeira vermella
-gv:Smeyr churree
+fo:tranuber
+fr:airelles, cranberries, cranberry, cranberrys, canneberge
+ga:mónóg
+gl:arandeira vermella
+gv:smeyr churree
 he:חמוצית
-hr:Brusnica
+hr:brusnica
 hu:vörösáfonya
-hy:Լոռամրգի
-id:Kranberi
-it:cranberries
+hy:լոռամրգի
+id:kranberi
+it:cranberry
 ja:クランベリー
-kk:Мүкжидек
-kv:Турипув
-lt:Spanguolė
-mk:Брусница
-mn:Цангис
+kk:мүкжидек
+kv:турипув
+lt:spanguolė
+mk:брусница
+mn:цангис
 mr:क्रॅनबेरी
-nb:Tranebær
+nb:tranebær
 nl:veenbessen, cranberry
-nn:Tranebær
-os:Сырхнæмыг
+nn:tranebær
+os:сырхнæмыг
 pl:żurawina
 pt:arandos, oxicocos
-ru:Клюква
-sh:Brusnica
-sr:Брусница
-sv:Tranbär
+ro:merişoare
+ru:клюква
+sh:brusnica
+sk:kľukvy
+sr:брусница
+sv:tranbär
 th:แครนเบอร์รี
-tl:Kranberya
-uk:Журавлина
-vi:Mạn việt quất
-wa:Bicoine
+tl:kranberya
+uk:журавлина
+vi:mạn việt quất
+wa:bicoine
 zh:小紅莓
-#s ast:Arándanu coloráu
-# atj:Mickekominan
-# bat-smg:Spangoulė
-# csb:Kwasnica
-# dsb:Žorawina
-# hsb:Tymjenka
-# olo:Garbalo
-# pam:Cranberry
-# scn:Milucuccu
-# udm:Нюрмульы
-# vep:Garbol
+# ast:arándanu coloráu
+# atj:mickekominan
+# bat-smg:spangoulė
+# csb:kwasnica
+# dsb:žorawina
+# hsb:tymjenka
+# olo:garbalo
+# pam:cranberry
+# scn:milucuccu
+# udm:нюрмульы
+# vep:garbol
 # yue:金啤梨
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
 wikidata:en:Q13181
+fr:Canneberge crue, Cranberry crue
+ciqual_food_code:en:13113
+ciqual_food_name:en:Cranberry, raw
+ciqual_food_name:fr:Canneberge ou cranberry, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
-# 429 products in 8 languages @2018-09-26
+# 7222 in 27 @2021-09-29
 
-<en:cranberry
-en:dried cranberries
-da:tørrede tranebærstykker
-de:Cranberries getrocknet
-es:arándanos deshidratados, arándanos secos
-fi:kuivattu karpalo, kuivatut karpalot, kuivatut karpalopalat
-fr:canneberges séchées, cranberries séchées
-it:cranberry secchi
-nl:gedroogde cranberries
-ru:клюква сушеная
-sv:torkade tranbär
+#processing:en: en:dried
+#<en:cranberry
+#en:dried cranberries
+#da:tørrede tranebærstykker
+#de:Cranberries getrocknet
+#es:arándanos deshidratados, arándanos secos
+#fi:kuivattu karpalo, kuivatut karpalot, kuivatut karpalopalat
+#fr:canneberges séchées, cranberries séchées
+#it:cranberry secchi
+#nl:gedroogde cranberries
+#ru:клюква сушеная
+#sk:sušené kľukvy
+#sv:torkade tranbär
 # ingredient/fr:canneberges-séchées has 57 products in 4 languages @2018-12-29
+
+#processing:en: en:juice
+#<en:cranberry
+#en:cranberry juice
+#az:mərcanı şıresl
 
 <en:cranberry
 <en:fruit juice
@@ -38223,7 +38294,27 @@ wikidata:en:Q26897677
 
 # description:en:Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 <en:cranberry
-la:Vaccinium macrocarpon
+en:american cranberry
+cs:klikva velkoplodá
+cy:llygaeren america
+da:storfrugtet tranebær
+de:großfrüchtige moosbeere
+eo:oksikoko amerika
+fi:amerikankarpalo
+fr:airelle à gros fruits
+hr:američka brusnica
+hu:amerikai tőzegáfonya
+it:mirtillo rosso americano
+la:vaccinium macrocarpon
+lt:stambiauogė spanguolė
+nb:amerikansk tranebær
+pl:żurawina wielkoowocowa
+sk:kľukva veľkoplodá
+sr:америчка брусница
+sv:amerikanskt tranbär
+zh:大果蔓越梅
+#dsb:Wjelikopłodowa žorawina
+#hsb:Wulkopłodowa tymjenka
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
@@ -40448,55 +40539,71 @@ sv:limeblad
 <en:citrus fruit
 en:mandarin, mandarine, mandarin orange
 ca:mandarina
-co:Mandarina
+co:mandarina
 cs:mandarinka
-cv:Мандарин
-da:Mandarin, Mandariner
+cv:мандарин
+da:mandarin, mandariner
 de:Mandarine, Mandarinen
 el:μανταρίνι
 es:mandarina
-et:Mandariin
-eu:Mandarina
+et:mandariin
+eu:mandarina
 fi:mandariini
 fr:mandarine
-gl:Mandarina
-ht:Mandarin
+ga:mandairín
+gl:mandarina
+ht:mandarin
 hu:mandarin
-io:Mandarino
+io:mandarino
 it:mandarino, mandarini
 ja:マンダリンオレンジ
-lt:Mandarinas
+lt:mandarina
+lv:mandarīn
 nb:mandarin
 nl:mandarijn, mandarijnen
-oc:Mandarina
-pl:Mandarynka
-ro:Mandarină
-ru:Мандарин
-sk:Mandarínkovník
-sw:Mchenza
+oc:mandarina
+pl:mandarynka
+pt:mandarina
+ro:mandarină
+ru:мандарин
+sk:mandarínkoa
+sv:mandarin
+sw:mchenza
+tr:mandalina
 uk:мандарин
 # aeb-arab:كعبة مدنين
 # arz:سفندى
-# eml:Mandarëin
+# eml:mandarëin
 # scn:mannarinu
 # vro:mandarijn
 wikidata:en:Q190024
 wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
 carbon_footprint_fr_foodges_ingredient:fr:Mandarine
 carbon_footprint_fr_foodges_value:fr:1.3
-# 239 products in 6 languages @2018-10-01
+agribalyse_proxy_food_code:en:13090
+agribalyse_proxy_food_name:en:Mandarin, pulp, raw
+agribalyse_proxy_food_name:fr:Mandarine, pulpe, crue
+
+<en:mandarin
+en:mandarin pulp
+ciqual_food_code:en:13090
+ciqual_food_name:en:Mandarin, pulp, raw
+ciqual_food_name:fr:Mandarine, pulpe, crue
+# 1133 in 6 languages @2021-10-05
 
 <en:mandarin
 <en:fruit juice
+en:mandarin juice
+cs:mandarinková šťáva
 fr:jus de mandarine
 de:Mandarinesaft, Mandarinensaft
 fi:mandariinimehu
 it:succo di mandarino
+nl:mandarijnsap
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
-# 52 products in 3 languages @2018-10-01
+# 168 in 3 languages @2021-10-07
 
-<fr:jus de mandarine
+<en:mandarin juice
 en:concentrated mandarin juice
 da:mandarinjuice fra koncentrat
 de:Mandarinensaft aus Konzentrat
@@ -40507,8 +40614,36 @@ ru:Концентрированный мандариновый сок
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:mandariinit%C3%A4ysmehutiiviste
 # 1 entry @ 2019-10-31
 
+<en:mandarin juice
+en:Mandarin juice from concentrate
+cs:mandarinková šťáva z koncentrátu
+fr:jus de mandarine à base de concentré
+
 <en:mandarin
-fr:écorces de mandarine
+en:mandarin peel
+bg:кора от мандарина
+cs:mandarinková kůra
+da:mandarinskaller
+de:Mandarinenschale
+el:φλούδα μανταμινού
+es:piel de mandarina
+et:mandariinikoored
+fi:mandariinin kuoret
+fr:écorce de mandarine
+hr:kora mandarine
+it:scorze di mandarino
+hu:mandarinhéj
+lt:mandarinų žievelės
+lv:mandarina miziņas
+nl:mandarijnschilletjes
+no:mandarinskall
+pl:skórka mandarynki
+pt:casca de tangerina
+ro:coajă de mandarim
+sk:mandarínková kôra
+sl:mandarinina lupina
+sv:mandarinskal
+#22 @2021-10-05
 
 ###################################################################################################
 #
@@ -40859,16 +40994,20 @@ nl:bloedsinaasappelsap
 
 <en:orange
 en:orange pulp
+ar: لب البرتقال
+ca:polpa de taronja
 de:Orangenfruchtfleisch
-es:Pulpa de naranja
+es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
 fr:pulpe d'orange
-hu:narancs püré
+hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
 nl:sinaasappelpulp
 pt:polpa de laranja
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-d'orange
-# 139 products in 5 languages @2018-09-28
+ciqual_food_code:en:13034
+ciqual_food_name:en:Orange, pulp, raw
+ciqual_food_name:fr:Orange, pulpe, crue
+# 571 in 13 @2021-10-01
 
 <en:orange
 en:orange zest, orange peel
@@ -42690,57 +42829,69 @@ it:bacche di goji essiccate
 
 <en:fruit
 en:guava, guavas
-bg:Гуава
-bn:guava
-cs:Kvajáva
+af:koejawel
+bg:гуава
+cs:kvajáva
+da:guavabær
 de:Guaven
 dv:ފޭރު
+el:γουάβα, γκουαγιάβα
 es:guayaba
-et:guaava, Guajaav
-eu:Guaiaba
+et:guaava, guajaav
+eu:guaiaba
 fa:گواوا
 fi:guava, hedelmäguava, guavat, hedelmäguavat
 fr:goyave, goyaves
-gl:Goiaba
-gn:Arasa
+ga:guábha, guábha coiteann
+gl:goiaba
+gn:arasa
 gu:જમરૂખ
-ha:Gweba
-ht:Gwayav
-ia:Guayaba
-it:guaiave
+ha:gweba
+ht:gwayav
+ia:guayaba
+it:guaiave, guava
+jv:jambu wiji
 ko:구아바
-kv:Гуайява
-ln:Lípéla
+kv:гуайява
+la:psidium guajava
+ln:lípéla
+mg:goavy
 mr:पेरु
 my:မာလကာပင်
 nl:guava
+pl:guajawa
 pt:goiaba
-rw:Amapera
+ru:гуайява
+rw:amapera
 sd:زيتون
 si:පේර ශාකය
-sk:Goyave
+sk:goyave
+sl:gvava
 sr:guava
 sv:guava
-sw:Pera
+sw:pera
 ta:கொய்யாப் பழம்
 te:జామపండు
-tl:Bayabas
-ty:Tūava
+tl:bayabas
+ty:tūava
 ur:امرود
-za:Sandauz
+za:sandauz
 zh:番石榴果
-# bcl:Bayawas
+#arz:جوافه
+# bcl:bayawas
 # bho:अमरुत
-# bjn:Jambu karantukal
-# koi:Гуайява
-# lbe:Гуайява
-# mrj:Гуайява
-# nah:Xalxocotl
-# udm:Гуайява
+# bjn:jambu karantukal
+#dag:Gɔva
+# koi:гуайява
+# lbe:гуайява
+#mad:Jhâmbhu bighi
+# mrj:гуайява
+# nah:xalxocotl
+#sat:ᱥᱟᱹᱯᱟᱹᱨᱤ
+# udm:гуайява
 wikipedia:en:https://en.wikipedia.org/wiki/Guava
 wikidata:en:Q3181909
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:goyave
-# 242 products in 3 languages @2018-09-30
+# 1058 in 12 @2021-09-29
 
 <en:guava
 en:guava puree, guavas puree
@@ -42750,7 +42901,10 @@ fi:guavapyree, guavasose
 fr:purée de goyave
 it:purea di guaiave
 nl:guavapuree
-# ingredient/fr:purée-de-goyave has 91 products in 4 languages @2019-4-13
+ciqual_food_code:en:13083
+ciqual_food_name:en:Guava, pulp, raw
+ciqual_food_name:fr:Goyave, pulpe, crue
+# 302 in 7 @2021-09-29
 
 
 ###################################################################################################
@@ -45783,7 +45937,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
 # The wikidata translations refer to the tree and not the fruit
 
 en:tamarind
-af:Tamarinde
+af:tamarinde
 am:ሮቃ
 ar:تمر هندي
 bg:тамаринд
@@ -45792,98 +45946,104 @@ ca:tamarinde
 da:tamarind
 de:Tamarinde
 dv:ހެލެނބެލި
-el:Ταμάρινδος
-eo:Tamarindo
+el:ταμάρινδος
+eo:tamarindo
 es:tamarindos
-eu:Tamarindo
+eu:tamarindo
 fa:تمر هندی
-fi:Tamarindi
+fi:tamarindi
 fr:tamarin, tamarins
-gl:Tamarindo
-gn:Tamaríno
+ga:tamaraine
+gl:tamarindo
+gn:tamaríno
 gu:ખાટી આમલી
-ha:Tsamiya
+ha:tsamiya
 he:תמרינדי
 hi:इमली
-hr:Tamarind
-ht:Tamaren
+hr:tamarind
+ht:tamaren
 hu:tamarindusz
-id:Asam jawa
-io:Tamarindo
-is:Tamarind
+id:asam jawa
+io:tamarindo
+is:tamarind
 it:tamarindo
 ja:タマリンド
-jv:Asem jawa
+jv:asem jawa
 ka:თამარინდი
 kn:ಹುಣಸೆ
 ko:타마린드
-la:Tamarindus indica
-lv:Tamarinds
+la:tamarindus indica
+lv:tamarinds
 ml:പുളി
 mr:चिंच
-ms:Asam jawa
+ms:asam jawa
 my:မန်ကျည်း
 ne:तित्री
 nl:tamarinde
-oc:Tamarind
+oc:tamarind
 or:ତେନ୍ତୁଳି
 pa:ਇਮਲੀ
+pl:tamarynd, tamaryndowca
 ps:املۍ
-pt:Tamarindus
-ru:Тамаринд
+pt:tamarindus
+ru:тамаринд
 sa:तिन्त्रिणी
 sd:گدامڙي
 si:සියඹලා
-sl:Tamarinda
-so:Raqay
-su:Asem
-sv:Tamarind
-sw:Mkwaju
+sl:tamarinda
+so:raqay
+su:asem
+sv:tamarind
+sw:mkwaju
 ta:புளி
 te:చింత
 th:มะขาม
-tl:Sampalok
-to:Tamaline
-tr:Demirhindi
-uk:Тамаринд
-vi:Me
+tl:sampalok
+to:tamaline
+tr:demirhindi
+uk:тамаринд
+vi:me
 yi:טאמארינד
 zh:酸豆
-# ace:Mè
+# ace:mè
 # azb:تمرهیندی
-# be-tarask:Тамарынд
+# be-tarask:тамарынд
 # bho:इमिली
 # ilo:salamagi
-# pam:Sampaluk
+# pam:sampaluk
 # pnb:املی
 # sat:ᱡᱚᱡᱚ ᱡᱚ
-# war:Sampaluk
+# war:sampaluk
 # yue:羅望子
 # zh-hant:羅望子
 # zh-tw:羅望子
 # tree:wikidata:en:Q80235
 wikidata:en:Q28178875
 wikipedia:en:https://en.wikipedia.org/wiki/Tamarind
+ciqual_food_code:en:13079
+ciqual_food_name:en:Tamarind, immature fruit, pulp, raw
+ciqual_food_name:fr:Tamarin, fruit immature, pulpe, cru
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
 
-<en:tamarind
-nl:tamarindepuree
-
-<en:tamarind
-en:tamarind extract
-de:Tamarindenextrakt
-es:Extracto de tamarinado
-fi:tamarindiuute
-fr:extrait de tamarin
-nl:tamarinde-extract
-sv:tamarindextrakt
-# ingredient/fr:extrait-de-tamarin has 29 products in 6 languages @2019-02-07
+#processing:en: en:extract
+#<en:tamarind
+#en:tamarind extract
+#bg:екстракт от тамаринд
+#de:Tamarindenextrakt
+#es:extracto de tamarinado
+#fi:tamarindiuute
+#fr:extrait de tamarin
+#nl:tamarinde-extract
+#pl:ekstrakt z tamaryndowca
+#sv:tamarindextrakt
+# 585 in 9 @2021-10-02
 
 <en:tamarind
 en:tamarind paste
 de:Tamarindenpaste
 es:pasta de tamarindo
-
+nl:tamarindepuree
+#99 in 4 @2021-10-02
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -46405,29 +46565,104 @@ ciqual_food_name:fr:Avocat, pulpe, cru
 
 #comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
+
+# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+# comment:en: Endive in english is different from endive in french.
+
+# <en:Vegetables
 <en:vegetable
-en:endive
-de:Endivie
-fr:chicorée
-la:Cichorium endivia
-pt:Chicória
-description:de:Die Endivie (Cichorium endivia) gehört zur Gattung der Wegwarten (Cichorium) und ist ein typischer Spätsommersalat.
+en:endive, Endives
+ca:endívia
+cy:Endif
+de:Endivien, Endivie
+eo:endivio
+es:escarola, escarolas, endibia, endibias
+eu:osterzuri
+fa:اندیو
+fi:endiivi
+fr:scarole, chicorée endive
+ga:searbhán muc
+gl:endivia
+he:עולש
+hr:endivija
+hu:endívia
+id:endive
+io:endivio
+it:scarola, indivia
+ja:エンダイブ
+ko:꽃상추
+ku:xêzimok
+la:Cichorium Endivia
+mt:scarola
+nb:endivie
+nl:andijvie
+nv:tʼąąʼdoolghasí
+pt:endívia
+ro:andivă
+ru:эндивий
+sr:ендивија
+sv:sydcikoria, cikoriasallat
+tr:hindiba
+uk:цикорій салатний
+vi:rau cúc đắng
+zh:苦苣
+# nds-nl:andievie
+# pcd:indife
+# scn:nirvia
+# sr-ec:ендивија
+wikidata:en:Q178547
+# wikidata:en:Q28604477 what is this?
+# category/endives has 8 products @2019-05-22
+# ingredient/endive has 125 products @2019-05-22
 
 <en:endive
-en:curly endive
-de:Krausblättrige Endivie, Frisée
+en:curly endive, frisée lettuce
+cy:ysgellog y meirch
+da:kruset endivie
+de:krauser Salat, Endiven gekraust, Krausblättrige Endivie, Frisée
+el:αντίδι κατσαρό
 es:escarola rizada
-fr:endive frisée
-la:Cichorium endivia var crispum
-description:en:This endive type has narrow, green, curly outer leaves.
-#99 in 6 2021-09-05
+fi:friseesalaatti, kähäräendiivi
+fr:chicorée frisée, frisée, salade frisée, endive frisée
+ga:searbhán cas
+it:indivia riccia
+la:Cichorium endivia var. crispum
+lv:krokainā endīvija, krokaino lapu endīvija
+nl:krulandijvie, frisée sla
+pl:endywia kędzierzawa
+pt:chicória frisada, chicória crespa
+sk:čakanka štrbáková pravá kučeravá
+sv:frisésallat, friséesallat
+# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
+wikidata:en:Q2963415
+wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
+ciqual_food_code:en:20012
+ciqual_food_name:en:Curly endive, raw
+ciqual_food_name:fr:Salade ou chicorée frisée, crue
+# 201 in 5 @2021-10-03
 
 <en:endive
-en:flat endive, broad-leaved endive, Batavian endive, grumolo, scarola, scarole
-de:Glatte Endivie, Eskariol, Winterendivie
+en:broad-leaved endive, Batavian endive, escarole, flat endive
+da:bredbladet endivie
+de:glatte Endivie, Eskariol, Winterendivie, Endivie-Eskariol, Eskariol Endivie, Breitblättrige Endivie, Ganzblättrige Endivie
+el:αντίδι πλατύφυλλο
 es:escarola lisa
-la:Cichorium endivia var latifolia
+fi:siloendiivi, lehtisikuri
+fr:chicorée scarole
+ga:searbhán muc
+it:indivia scarola
+la:Cichorium endivia var latifolium
+lt:salotinė trūkažolė
+lv:platlapu endīvija
+mt:indivja tal-weraq wiesa'
+nl:kropandijvie, andijvie breedblad
+pl:endywia szerokolistna
+sv:escarolesallat
+#pcd:pindchucq
+wikidata:en:Q3237463
 description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale green leaves and is less bitter than the other varieties. Varieties or names include Batavian endive, grumolo, scarola, and scarole.
+
+
 
 <en:vegetable
 en:Belgian endive
@@ -46445,7 +46680,91 @@ wikidata:en:Q1474
 # 451 in 16 @2021-09-05
 carbon_footprint_fr_foodges_ingredient:fr:Endive
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_food_code:en:20026
+ciqual_food_name:en:Chicory, raw
+ciqual_food_name:fr:Endive, crue
 
+# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+
+<en:vegetable
+en:radicchio
+ar:الهندباء
+ca:radicchio
+da:radicchio
+de:roter Chicorée, Radicchio
+eo:salatcikorio
+es:radicchio
+fi:punasikuri, punasalaatti
+fr:chicorée rouge, radicchio, trévise, salade trévise
+hu:vörös cikória
+it:radicchio
+ja:ラディッキオ
+ko:라디키오
+la:Cichorium intybus var., Cichorium intybus var. foliosum
+nl:roodlof
+pt:radicchio
+ru:радиккьо
+sh:radiccio di treviso
+sv:radicchiosallad, rosensallat, rosésallat
+#arz:هندباء
+# en-ca:radicchio
+# en-gb:radicchio
+# pt-br:radicchio
+# vec:radicio
+wikidata:en:Q767765
+wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
+# 703 in 7 @2021-10-03
+
+<en:vegetable
+en:chicory
+de:Chicoree, Zichorie
+es:Achicoria
+fi:sikuri
+fr:Chicorée
+he:עולש
+it:Cicoria
+nl:chicorij
+
+<en:chicory
+en:chicory root
+de:Chikoreewurzel
+fr:racine de chicorée
+it:radice di cicoria
+
+<en:vegetable fiber
+<en:chicory
+en:chicory fibre, chicory root fiber
+cs:vláknina z kořene čekanky
+da:cikoriefibre
+de:Zichorienfäser, Zichorienwurzelfaser
+es:fibra de la raíz de achicoria,fibra de achicoria
+fi:sikurikuitu, sikurijuurikuitu
+fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+it:Fibre di cicoria
+nl:chicoreivezel
+sk:vláknina z koreňa čakanky
+sv:cikoriarotfiber, fiber från cikoriarot
+# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
+
+<en:chicory
+fr:chicorée soluble
+es:achicoria en polvo
+nl:oploscichorei, poeder met witlof
+pt:chicória solúvel
+# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
+ciqual_food_code:en:18152
+ciqual_food_name:en:Chicory, powder, instant
+ciqual_food_name:fr:Chicorée, poudre soluble
+
+<en:chicory
+en:extract of chicory
+de:Zichorien-Extrakt
+es:extracto de achicoria
+fi:sikuriuute
+fr:extrait de chicorée, extraits de chicorée
+it:estratto di cicoria, Estratti di cicoria
+nl:cichorei-extract
+# ingredient/extract-of-chicory has 31 products @2019-04-04
 
 <en:vegetable
 en:borage
@@ -46597,177 +46916,63 @@ fr:concentrés de blettes
 # ingredient/daikon-cress has no products @2019-05-15
 
 
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
-# comment:enEndive in english is different from endive in french.
-
-# <en:Vegetables
-<en:vegetable
-en:endive, Endives
-ca:endívia
-cy:Endif
-de:Endivien, Endivie
-eo:Endivio
-es:Escarolas,endibia,endibias
-eu:Osterzuri
-fa:اندیو
-fi:Endiivi
-fr:scarole, Chicorée endive
-ga:Searbhán muc
-gl:endivia
-he:עולש
-hr:Endivija
-hu:Endívia
-id:Endive
-io:Endivio
-it:Scarola, indivia
-ja:エンダイブ
-ko:꽃상추
-ku:Xêzimok
-la:Cichorium endivia
-nb:endivie
-nl:Andijvie
-nv:Tʼąąʼdoolghasí
-pt:Endívia
-ro:Andivă
-ru:эндивий
-sr:Ендивија
-sv:Sydcikoria
-tr:Hindiba
-uk:цикорій салатний
-vi:Rau cúc đắng
-zh:苦苣
-# nds-nl:Andievie
-# pcd:Indife
-# scn:Nirvia
-# sr-ec:Ендивија
-wikidata:en:Q178547
-# wikidata:en:Q28604477 what is this?
-# category/endives has 8 products @2019-05-22
-# ingredient/endive has 125 products @2019-05-22
-carbon_footprint_fr_foodges_ingredient:fr:Endive
-carbon_footprint_fr_foodges_value:fr:1.2
-ciqual_food_code:en:20026
-ciqual_food_name:en:Chicory, raw
-ciqual_food_name:fr:Endive, crue
-
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
-
-<en:vegetable
-en:radicchio
-ar:الهندباء
-ca:Radicchio
-da:radicchio
-de:Chicorée rot, Radicchio
-eo:salatcikorio
-es:radicchio
-fi:punasikuri, punasalaatti
-fr:chicorée rouge, Radicchio, trévise, salade trévise
-hu:Vörös cikória
-it:Radicchio
-ja:ラディッキオ
-ko:라디키오
-nl:Roodlof
-pt:Radicchio
-ru:радиккьо
-sh:Radiccio di Treviso
-sv:Radicchiosallad, rosensallat, rosésallat
-# en-ca:Radicchio
-# en-gb:Radicchio
-# pt-br:Radicchio
-# vec:Radicio
-wikidata:en:Q767765
-wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
-# ingredient/fr:chicorée-rouge has 114 products in 4 languages @2018-12-10
-# ingredient/fr:trévise has 16 products in 4 languages @2019-02-15
-
-<en:vegetable
-en:chicory
-de:Chicoree, Zichorie
-es:Achicoria
-fi:sikuri
-fr:Chicorée
-he:עולש
-it:Cicoria
-nl:chicorij
-
-<en:chicory
-en:chicory root
-de:Chikoreewurzel
-fr:racine de chicorée
-it:radice di cicoria
-
-<en:vegetable fiber
-<en:chicory
-en:chicory fibre, chicory root fiber
-cs:vláknina z kořene čekanky
-da:cikoriefibre
-de:Zichorienfäser, Zichorienwurzelfaser
-es:fibra de la raíz de achicoria,fibra de achicoria
-fi:sikurikuitu, sikurijuurikuitu
-fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
-it:Fibre di cicoria
-nl:chicoreivezel
-sk:vláknina z koreňa čakanky
-sv:cikoriarotfiber, fiber från cikoriarot
-# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
-
-<en:chicory
-fr:chicorée soluble
-es:achicoria en polvo
-nl:oploscichorei, poeder met witlof
-pt:chicória solúvel
-# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
-ciqual_food_code:en:18152
-ciqual_food_name:en:Chicory, powder, instant
-ciqual_food_name:fr:Chicorée, poudre soluble
-
-<en:chicory
-en:extract of chicory
-de:Zichorien-Extrakt
-es:extracto de achicoria
-fi:sikuriuute
-fr:extrait de chicorée, extraits de chicorée
-it:estratto di cicoria, Estratti di cicoria
-nl:cichorei-extract
-# ingredient/extract-of-chicory has 31 products @2019-04-04
-
 
 # description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
 # comment:en:The wikidata translations are a mix of common and latin names.
 
 <en:salad
 # <en:Leaf vegetables
-en:corn salad, common cornsalad, lamb's lettuce, fetticus, feldsalat, nut lettuce, field salad, rapunzel, doucette, raiponce
+en:corn salad, common cornsalad, lamb's lettuce, fetticus, nut lettuce, field salad, rapunzel, doucette, raiponce, Nusslisalat
+ar:خس النعجة
+be:валер’янэла малая
+ca:herba dels canonges
+cs:polníček, kozlíček polní
+cy:gwylaeth yr oen
+da:vårsalat
 de:Feldsalat, Rapunzel, Rapunzelsalat, Nüsslisalat
-es:canonigos
-et:Põldkännak
-eu:Ardi-mihi
-fi:Vuonankaali
+el:λυκοτρίβολο
+es:milamores, canonigos
+et:põldkännak
+eu:ardi-mihi
+fi:vuonankaali
 fr:mâche, rampon
-hr:Matovilac
-hu:salátagalambbegy
-it:Songino
+ga:ceathrú uain
+gl:herba dos cóengos
+hr:matovilac
+hu:salátagalambbegy, galambbegy, madársaláta, mezeisaláta
+io:valerianelo
+is:akursalat
+it:songino, nusslisalat, lattughella, dolcetta, morbidello, Formentino, Valerianella, Serzetto
 ja:ノヂシャ
 ko:콘샐러드
-la:Valerianella locusta
-nb:Vårsalat
+la:valerianella locusta
+nb:vårsalat
 nl:veldsla
-pl:Rapunkuł
-pt:Canónigos
-ru:Полевой салат
-sr:Матовилац
-sv:Vårklynne
-wa:Doûcete
+oc:doceta
+pl:rapunkuł, roszpunka warzywna
+pt:canónigos, alface-de-cordeiro
+ro:fetică
+ru:полевой салат, Валерянелла, Валерьяница
+sk:valeriánka poľná
+sl:navadni motovilec
+sr:матовилац, matilovac
+sv:vårklynne, fältsallat, vintersallat
+tr:kuzugevreği
+uk:мласкавець салатний
+wa:doûcete
 zh:萵苣纈草
-# hsb:rjaponka
-# sr-ec:Матовилац
-# sr-el:Matovilac
-# vec:Gałinełe
-# vls:Kôornsaloa
+# hsb:rjaponka, prawa rjaponka, solotwička
+#nap:còssa e muónece
+# sr-ec:матовилац
+# sr-el:matovilac
+# vec:gałinełe
+# vls:kôornsaloa
 wikidata:en:Q158954
 wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
-# ingredient/fr:mâche has 133 products in french @2019-05-08
-# category/corn-salad has 73 products @2019-05-22
+ciqual_food_code:en:20099
+ciqual_food_name:en:Lamb's lettuce, raw
+ciqual_food_name:fr:Mâche, crue
+# 262 in 7 @2021-10-03
 
 
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
@@ -48267,21 +48472,45 @@ ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 # description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
 
 <en:cabbage
-en:pak choi, Bok choy, pok choi
-de:Pak Choi
-el:Μποκ τσόι
+en:pak choi, bok choy, pok choi
+ar:ملفوف صيني
+bo:ཚལ་དཀར་ཆེ་བ།
+ca:pak choi, bleda xinesa
+cs:bok čoj, pak čoj zelí, čínské
+de:Pak Choi, Chinesischer Senfkohl
+el:mποκ τσόι
+es:bok choy, pak choi
+eu:txinatar aza
+fa:کلم چینی
 fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr:Bok choy, Pak choï
+fr:bok choy, pak choï, chou de Chine
+gl:col chinesa, coia chinesa, repolo chinés
+hu:bordáskel, bok choy, pak choi, bok choi
+id:pakcoy, bok choy
+is:blaðkál, salatkál, kínverskt selleríkál
+it:bok choy, pak-choi
+ja:チンゲンサイ
+kn:ಬಾಯ್ ಚಾಯ್
+ko:청경채
 la:Brassica rapa subsp. chinensis
-nl:Paksoi
-ru:бок-чой
-uk:Бок-чой
+mk:бок чој, пак чој
+ms:bok choy, pak choi, pok choi
+nb:bak choy, pak choy, paksoi, tai tsai
+nl:paksoi, bokchoy, pak-choi
+pt:pak-choi, bok-choi, tsoi sum
+ru:бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
+uk:бок-чой
+sv:sellerikål, pak choi
+vi:cải thìa, cải bẹ trắng, cải chíp, bạch giới tử 
+zh:小白菜
+#arz:ملفوف صينى
+#yue:白菜
 wikidata:en:Q18968514
 wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
 ciqual_food_code:en:20167
 ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
-# en:pak-choi has 9 products @2018-10-18
+# 128 in 5 @2021-09-29
 
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
@@ -50468,59 +50697,62 @@ fr:batavia
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
 
 <en:salad
-en:rocket, arugula
+en:rocket, arugula, garden rocket, eruca, rucola, rucoli, rugula, colewort, roquette, salad rocket
 ar:جرجير
-az:Əkin indausu
-be:Індаў пасяўны
-bg:рукола
+az:əkin indausu
+be:індаў пасяўны
+bg:рукола, ерука, посевна ерука
 bn:রকেট সালাদ
 br:roketez
 co:rutulella
 cs:roketa setá
-da:rucola
-de:Rucola
-el:Ρόκα
-eo:Kultiva eruko
-es:Rúcula, rucula
-et:rukola
+da:rucola, salatsennep
+de:Rucola, Garten-Senfrauke
+el:ρόκα
+eo:kultiva eruko
+es:rúcula, rúcola, rúgula, arrúgula, arúgula, jaramago, oruga, roqueta, ruca
+et:rukola, põld-võõrkapsas
 fa:منداب
 fi:sinappikaali, rucola
-fr:roquette
-gl:Eiruga
+fr:roquette, riquette
+ga:ruachán
+gl:eiruga
 he:בן-חרדל מצוי
-hu:Borsmustár
-hy:Ճարճրուկ ցանովի
-is:Klettasalat
-it:rucola
+hu:borsmustár, rukkola
+hy:ճարճրուկ ցանովի
+is:klettasalat
+it:ruchetta, rughetta, rucola, ruca
 ja:ルッコラ
 ka:რუკოლა
-kk:Егістік қышатүс
+kk:егістік қышатүс
 ko:루콜라
-la:Eruca vesicaria subsp. sativa
-lt:Rukola
+la:eruca vesicaria, eruca sativa mill, eruca vesicaria subsp. sativa, brassica eruca l.
+lt:rukola
+ml:അറൂഗ്യുള
 mt:eruka
 nb:ruccola
-nl:rucola
+nl:rucola, raketsla, zwaardherik
 pa:ਤਾਰਾਮੀਰਾ
-pl:Rokietta siewna
+pl:rokietta siewna, rukolą
 pt:rúcula
-ro:Voinicică
+ro:voinicică
 ru:руккола
 sd:ڄانڀو
 sq:sallatë manushaqeje
-sr:Рукола
+sr:рукола
 sv:ruccola, ruccolasallad
-tr:Roka
-uk:Рукола
+tr:roka
+uk:рукола
 zh:芝麻菜
 # arz:جرجير
-# ast:Guxanu
+# ast:guxanu
 # azb:اکین اینداوسو
 # en-ca:rocket
-# hsb:Běła hórčica
+# hsb:běła hórčica
+#kab:Alwat
 # pnb:تارا میرا
-# sr-ec:Рукола
-# sr-el:Rukola
+# sr-ec:рукола
+# sr-el:rukola
 # yue:火箭菜
 # zh-cn:芝麻菜
 # zh-hans:芝麻菜
@@ -50530,12 +50762,16 @@ zh:芝麻菜
 # zh-tw:芝麻菜
 wikidata:en:Q156884
 wikipedia:en:https://en.wikipedia.org/wiki/Eruca_sativa
-# ingredient/fr:roquette has 252 products in 5 languages @2019-05-10
+ciqual_food_code:en:20217
+ciqual_food_name:en:Roman rocket, raw
+ciqual_food_name:fr:Roquette, crue
+# 997 in 5 languages @2021-10-04
 
 <en:rocket
 en:baby arugula
 de:Babyrucola
 fr:Jeunes pousses de roquette
+# 86 in 2 @2021-10-04
 
 <en:salad
 en:wild rocket
@@ -52808,13 +53044,80 @@ ciqual_food_name:fr:Cresson de fontaine, cru
 # description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
 <en:cress
-en:Garden cress
+en:garden cress
+af:waterkers
+am:ፌጦ
+ar:رشاد مزروع
+az:vəzəri-bozalaq
+be:клапоўнік пасяўны
+bg:кресон
+bn:হালিম শাক
+bs:obična grbaštica
+ca:morritort
+cs:řeřicha zahradní
+cy:pupurlys yr ardd
+da:have-karse, havekarse
 de:Gartenkresse
-fr:Cresson alénois
-la:Lepidium sativum
+el:κάρδαμο
+eo:ĝardenkreso
+es:lepido, berro hortelano, berro de jardin 
+et:salatkress
+fa:شاهی
+fi:vihanneskrassi
+ff:lapsur
+fr:cresson alénois
+ga:biolar gairdín
+gu:અશેળિયો
+hu:kerti zsázsa
+hy:կոտեմ
+is:karsi
+it:crescione di giardino, crescione inglese
+ja:コショウソウ
+ka:წიწმატი
+kk:кресс салат
+ko:큰다닥냉이
+kw:beler lowarth
+la:Lepidium Sativum
+lt:sėjamoji pipirnė
+mk:добрејка
+ml:ആശാളി
+mr:अहाळीव
+nb:karse
+ne:चम्सुर
+nl:tuinkers, sterrenkers, bitterkers, cressonette
+nn:matkarse
+os:дудгæ
+pl:pieprzyca siewna, rzeżucha ogrodowa
+pt:agrião-mouro, agrião-de-horta, mastruço
+qu:willk'uyuyu
+ro:creson
+ru:кресс-салат
+sh:obična grbaštica
+sk:žerucha záhradná
+sv:smörgåskrasse, kryddkrasse
+te:ఆడలవిటల
+th:เทียนแดง
+tr:tere
+uk:кресс-салат
+ur:ہالوں
+zh:水芹
+#ace:camcuruih
+#aeb:حبة الرشاد
+#azb:وزه ری
+#csb:zagrodna krjasa
+#frr:klaker
+#hsb:zahrodna žerchej
+#kab:agernunnec
+#lbe:гьумалаккиж
+#lez:цiуьлуьк
+#mzn:شاهین
+#wuu:家独行菜
 wikidata:en:Q27033
 wikipedia:en:https://en.wikipedia.org/wiki/Garden_cress
-
+ciqual_food_code:en:20199
+ciqual_food_name:en:Garden cress, raw
+ciqual_food_name:fr:Cresson alénois, cru
+# 8 in 4 @2021-10-04
 
 # description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
@@ -53096,19 +53399,6 @@ es:calabacin deshidritado
 fi:kuivattu kesäkurpitsa
 fr:courgettes séchées
 
-<en:vegetable
-en:frisée lettuce
-de:krauser Salat
-fi:friseesalaatti
-fr:frisée
-la:Cichorium endivia var. crispum
-nl:krulandijvie
-pl:Endywia kędzierzawa
-sv:Frisésallat
-# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
-wikidata:en:Q2963415
-wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
-# ingredient/fr:frisée has 158 products in 4 languages @2019-05-10
 
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
@@ -53159,97 +53449,17 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Navette_(plante)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-
-en:legume
-af:Peulgewas
-an:Legumbre
-ar:بقول
-bg:бобово растение
-ca:llegum
-cs:luštěnina
-da:Bælgfrugt
-de:Hülsenfrucht
-el:Όσπρια
-eo:Guŝo
-es:legumbre
-et:kaunvili
-eu:Lekale
-fa:حبوبات
-fi:palkokasvi
-fr:légumineuse
-ga:Glasra pischineálach
-gl:Legume
-gu:વાલ
-ha:Legum
-he:קטניות
-hi:फली
-hu:hüvelyesek
-hy:Հատիկաընդեղեն բույսեր
-ia:Legumine
-id:Kacang-kacangan
-is:Baun
-it:legume
-ja:豆果
-ko:협과
-la:Legumen
-lt:Ankštis
-lv:pākšaugi
-mn:Буурцаг
-ms:Kekacang
-nb:belgfrukt
-ne:कोसेबाली
-nl:peulvruchten, peulvrucht
-nn:belgfrukt
-pl:Strąk
-pt:legume
-qu:Chaqallu
-ru:бобы
-sa:राजशिम्बी
-sd:دال
-sh:Mahuna
-sk:Strukoviny
-sl:Strok
-sr:махуна
-sv:ärtväxter
-sw:Jamii kunde
-ta:அவரை
-th:ถั่ว
-tr:baklagiller
-tt:Бөртекле-кузаклы культуралар
-uk:бобові культури
-uz:dukkakli don ekinlari
-vi:Quả đậu
-zh:荚果
-# ast:Llegume
-# csb:Łušćinowy płod
-# eml:Scurnècia
-# hsb:Łušćinowy płód
-# hsb:Łušćinowy płód
-# nan:Ngeh-kó
-# new:बूबः
-# scn:Vaiana
-# sco:legume
-# sgs:Onkštėnis augals
-# sr-ec:махуна
-# sr-el:Mahuna
-# war:Legume
-# yue:豆類
-# zh-cn:荚果
-# zh-hans:荚果
-# zh-hant:莢果
-# zh-hk:莢果
-# zh-sg:荚果
-# zh-tw:莢果
-wikidata:en:Q145909
-vegan:en:yes
-vegetarian:en:yes
+###########################
+#
+#
+#     B E A N S ==== THE PODS
+#
+#########################
 
 
 # description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
-<en:legume
 en:beans, common bean, bean
 am:ኣደንጓሬ
 ar:فاصولياء شائعة
@@ -53351,9 +53561,294 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
 
+<en:bean
+en:bean sprouts
+et:idudega
+lt:šparaginės pupelės
+lv:diedzētas pupinas
+
+<en:bean
+en:Snap pea, sugar snap peas
+de:Zuckererbse, Zuckererbsen
+fr:Pois sucré
+vegan:en:yes
+vegetarian:en:yes
+
+<en:legume
+en:green bean, green beans
+ar:الفاصوليا الخضراء
+az:göy lobya
+ca:mongeta tendra
+cs:zelená fazolka
+da:grønne bønne, grønne bønner, grønner bønner, havebønne, prydbønne
+de:grüne Bohne, grüne Bohnen, Brechbohne, Schnittbohne, Fisole
+dv:ފެހި ތޮޅި
+el:χλωρά φασόλια, πράσινα φασόλια
+es:judía verde, judías verdes, alubias verdes
+eu:leka
+fa:لوبیا سبز
+fr:haricot vert, haricots verts
+he:שעועית ירוקה
+hr:grah mahunar
+id:buncis
+it:fagiolino, fagiolo verde, fagiolini, fagioli verdi, Fagiolini verdi
+ja:いんげん豆, サヤインゲン
+jv:buncis
+ko:풋강낭콩
+la:phaseolus vulgaris
+lv:zaļās pupiņas
+mk:боранија
+ms:pokok kacang buncis
+nl:sperzieboon, sperziebonen, groene bonen, prinsessenboon, slaboon
+nn:brekkbønne
+pl:fasolka szparagowa zielona, fasolka szparagowa
+pt:feijão-verde, vagem
+ro:fasole pastai verde
+ru:фасоль стручковая, спаржевая фасоль, зелёностручковая фасоль
+sa:निष्पावप्रभेदः
+sh:mahuna
+sk:fazuľa záhradná
+sq:mashurka
+sr:боранија
+sv:brytböna, brytbönor, gröna bönor
+ta:பச்சை அவரை
+tl:sitaw
+uk:стручкова квасоля
+vi:đậu cô ve
+zh:豆角
+#arz:فاصوليا خضرا
+#bcl:balatong
+#chy:tó'êsemónêškeho
+#kab:sona lɛŋ ñɩna
+#lij:faxolin
+#nah:exotl
+#pam:aluntiang bitsuwelas
+#scn:fasulina
+#war:hantak
+#yue:荳角
+wikidata:en:Q2987371
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert frais locaux
+carbon_footprint_fr_foodges_value:fr:0.7
+carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+carbon_footprint_fr_foodges_value:fr:22.8
+ciqual_food_code:en:20061
+ciqual_food_name:en:French bean, raw
+ciqual_food_name:fr:Haricot vert, cru
+#4192 in 16 @2021-10-01
+
+#<en:green bean
+#fr:haricots verts tres fins issus de l'agriculture biologique
+
+<en:green bean
+fr:haricots verts coupés
+es:judía verde cortada, Judías verdes cortadas
+it:fagiolini tagliati
+nl:gesneden sperziebonen
+pl:fasolka szparagowa cieta
+pt:Feijão verde cortado
+ro:fasole verde pastai taiata
+
+<en:green bean
+en:very fine green beans
+de:grüne Bohnen sehr fein
+fr:haricots verts très fins
+nl:zeer fijne sperziebonen
+
+#<en:very fine green beans
+#<fr:haricots verts coupés
+#fr:haricots vertes très fins coupés, haricots verts extra fines coupés
+#no products @2021-10-01
+
+<en:green bean
+en:extra-fine green beans
+fr:haricots verts extra-fins
+nl:extra fijne sperziebonen
+#176 @2021-10-01
+
+#kept for Ciqual
+#processing:en: en:puree
+<en:green bean
+en:pureed green bean
+fr:purée de haricots verts
+ciqual_food_code:en:20257
+ciqual_food_name:en:French bean, puree
+ciqual_food_name:fr:Haricots verts, purée
+
+<en:green bean
+en:wax bean, yellow bean
+de:Butterbohne
+fr:haricot beurre, haricots beurre
+gv:poanrey eeymey
+it:fagiolo giallo
+nl:boterboon
+wikidata:en:Q68189268
+ciqual_food_code:en:20195
+ciqual_food_name:en:Butter bean or yellow bean, raw
+ciqual_food_name:fr:Haricot beurre, cru
+
+# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
+
+<en:green bean
+en:flat bean, romano bean, helda bean, flat green beans, flat beans
+de:flache Bohne, Helda Bohne, Romano Bohne, flache grüne Bohnen, flache Bohnen
+es:judia verde plana, ferraúra
+fi:romanopapu, romanopavut
+fr:haricot vert plat, haricots verts plats, haricots plats
+nl:snijboon
+nn:snittebønne
+ru:фасоль стручковая
+sv:romanabönor
+# nds_nl:klemboon, sniejboon
+#pap:sneibonchi
+wikidata:en:Q1828227
+wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
+ciqual_food_code:en:20269
+ciqual_food_name:en:Flat bean, raw
+ciqual_food_name:fr:Haricot plat, cru
+
+<en:green beans
+en:round green beans
+de:runde grüne Bohnen, grüne Bohnen rund
+es:judia verde redonda
+
+<en:legume
+en:runner bean, runner beans
+be:фасоля крывава-чырвоная, фасоля шматкветкавая, фасоля агніста-чырвона, турэцкія бабы
+ca:mongetera vermella, fesolera vermella, fesol fava de sóller
+cs:fazol šarlatový
+cy:ffeuen ddringo
+da:pralbønne
+de:Feuerbohne, Wollbohne, Käferbohne
+eo:fajrofazeolo, skarlata fazeolo
+es:ayocote, ayecote, judía escarlata, poroto pallar
+eu:bbbarrun loregorria
+fa:لوبیای زینتی
+fi:ruusupapu
+fr:haricot d'espagne, haricot écarlate, haricot-fleur
+ga:pónaire reatha
+gl:faba de tres anos, feixón de tres anos, faba loba
+hy:կրակոտ կարմիր լոբի
+it:fagiolo di spagna
+ja:ベニバナインゲン
+kk:түрік бұршағы
+#kk-lat:türik burşağı
+#kk-arab:تۇرىك بۇرشاعى
+la:phaseolus coccineus
+lt:raudonžiedė pupelė
+nl:pronkboon
+nn:prydbønne
+pl:fasola wielokwiatowa
+pt:jão-da-espanha, feijoca
+ru:фасоль многоцветковая
+sr:многоцветни пасуљ
+#sr-el:mnogocvetni pasulj
+sv:rosenböna
+tr:ateş fasulyesi
+zh:荷包豆
+#csb:wielekwiatowy bónk
+#hsb:turkowski bob
+#nah:ayecohtli, ayocohtli
+wikidata:en:Q159753
+
+###########################
+#
+#
+#    L E G U M E S === THE SEEDS WITHIN THE PODS
+#
+#
+##########################
+
+
+
+# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+
+en:legume
+af:Peulgewas
+an:Legumbre
+ar:بقول
+bg:бобово растение
+ca:llegum
+cs:luštěnina
+da:Bælgfrugt
+de:Hülsenfrucht
+el:Όσπρια
+eo:Guŝo
+es:legumbre
+et:kaunvili
+eu:Lekale
+fa:حبوبات
+fi:palkokasvi
+fr:légumineuse
+ga:Glasra pischineálach
+gl:Legume
+gu:વાલ
+ha:Legum
+he:קטניות
+hi:फली
+hu:hüvelyesek
+hy:Հատիկաընդեղեն բույսեր
+ia:Legumine
+id:Kacang-kacangan
+is:Baun
+it:legume
+ja:豆果
+ko:협과
+la:Legumen
+lt:Ankštis
+lv:pākšaugi
+mn:Буурцаг
+ms:Kekacang
+nb:belgfrukt
+ne:कोसेबाली
+nl:peulvruchten, peulvrucht
+nn:belgfrukt
+pl:Strąk
+pt:legume
+qu:Chaqallu
+ru:бобы
+sa:राजशिम्बी
+sd:دال
+sh:Mahuna
+sk:Strukoviny
+sl:Strok
+sr:махуна
+sv:ärtväxter
+sw:Jamii kunde
+ta:அவரை
+th:ถั่ว
+tr:baklagiller
+tt:Бөртекле-кузаклы культуралар
+uk:бобові культури
+uz:dukkakli don ekinlari
+vi:Quả đậu
+zh:荚果
+# ast:Llegume
+# csb:Łušćinowy płod
+# eml:Scurnècia
+# hsb:Łušćinowy płód
+# hsb:Łušćinowy płód
+# nan:Ngeh-kó
+# new:बूबः
+# scn:Vaiana
+# sco:legume
+# sgs:Onkštėnis augals
+# sr-ec:махуна
+# sr-el:Mahuna
+# war:Legume
+# yue:豆類
+# zh-cn:荚果
+# zh-hans:荚果
+# zh-hant:莢果
+# zh-hk:莢果
+# zh-sg:荚果
+# zh-tw:莢果
+wikidata:en:Q145909
+vegan:en:yes
+vegetarian:en:yes
+
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
-<en:beans
+<en:legumes
 en:lima beans, butter beans
 de:Limabohnen
 es:haba lima,judia de lima
@@ -53362,6 +53857,7 @@ fr:Haricot de Lima
 sv:limaböna, smörböna
 wikidata:en:Q1166136
 wikipedia:en:https://en.wikipedia.org/wiki/Lima_bean
+
 
 <en:lima beans
 en:large lima beans
@@ -53373,46 +53869,13 @@ en:baby lima beans
 de:Limabohnensprossen
 fr:jeunes pousses de haricots de Lima
 
-<en:beans
+<en:legumes
 en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
-<en:beans
-en:Snap pea, sugar snap peas
-de:Zuckererbse, Zuckererbsen
-fr:Pois sucré
-vegan:en:yes
-vegetarian:en:yes
-
-<en:green beans
-en:flat green beans, flat beans,runner beans
-de:flache grüne Bohnen, flache Bohnen
-es:judia verde plana,ferraúra
-fr:haricots verts plats, haricots plats
-ru:фасоль стручковая
-
-<en:green beans
-en:round green beans
-de:runde grüne Bohnen, grüne Bohnen rund
-es:judia verde redonda
-
-<en:beans
-en:green peas
-de:grüne Erbsen
-es:guisantes verdes
-fi:vihreät herneet
-fr:Petits pois
-it:Piselli verde
-ja:グリーンピース
-nl:groene erwten
-sv:gröna ärtor
-th:ถั่ว ลันเตา
-vegan:en:yes
-vegetarian:en:yes
-
-<en:beans
+<en:legumes
 en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
 de:weiße Bohnen
@@ -53426,10 +53889,10 @@ ru:фасоль белая
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
-<en:beans
+<en:legumes
 fr:haricots coco roses, haricots cocos roses
 
-<en:beans
+<en:legumes
 fr:haricots chevriers verts
 
 <en:white beans
@@ -53446,8 +53909,7 @@ fr:haricots blancs précuits
 
 <en:white beans
 fr:haricots blancs réhydratés
-
-<en:beans
+<en:legumes
 en:black beans
 da:sorte bønner
 de:schwarze Bohnen
@@ -53458,7 +53920,7 @@ it:Fagioli neri
 nl:Zwarte bonen
 sv:svarta bönor
 
-<en:beans
+<en:legumes
 en:red beans, red kidney beans, kidney beans
 da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen, Kidneybohnen
@@ -53491,89 +53953,103 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
-<en:beans
+<en:legumes
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
 wikidata:en:Q74663825
 
-<en:beans
+#comment:en:Do not confuse these with mungo beans: Vigna mungo
+<en:legumes
 en:mung bean, mungbean
-de:Mungbohne, Mungobohne, Mungbohnen, Mungobohnen
-es:habas de mungo,judias mungo
+ar:بقلة الماش
+bg:папуда, птичи боб, бебриджа
+bn:মুগ
+bo:སྲན་ལྗང་།
+ca:mongeta mung
+cs:mung fazole
+cy:ffeuen fwng
+da:mung-bønne
+de:Mungbohne, Mungbohnen
+dv:ނޫމުގު
+el:ροβίτσα
+eo:mungfabo
+es:judías mungo
+et:munguba
+fa:ماش‎
+fi:mungpapu
 fr:haricot mungo
+gu:મગ
+he:מש
+hi:मूँग
+hr:zlatni grah
+hu:mungóbab
+id:kacang hijau
+it:fagioli mung, fagiolo mung
+ja:リョクトウ
+jv:kacang ijo
+kn:ಹೆಸರು ಕಾಳು
+ko:녹두
+ky:маш
+la:vigna radiata
+ml:ചെറുപയർ
+mn:ногоон шош
+mr:मूग
+ms:pokok kacang hijau
+my:ပဲတီစိမ်း
+nb:mungbønne
+ne:मुगी
+nl:mungboon
+or:ମୁଗ
+pa:ਮੂੰਗੀ
+pl:fasola złota
+ps:مۍ
+ru:маш
+sa:मुद्ग
+si:මුංඇට
+su:kacang héjo
+sv:mungböna
+sw:mchoroko
+ta:பயறு
+te:పెసలు
+tg:мош
+th:ถั่วเขียว
+tl:monggo
+uk:боби мунг
+uz:mosh
+vi:đậu xanh
+za:duhheu
+zh:綠豆
+#aeb: لوبيا
+#arz:بقله الماش
+#cdo:liŏh-dâu
+#hak:liu̍k-theu
+#ilo:balatong
+#mad:arta'
+#pam:balatung
+#pnb:مونگ
+#wuu:绿豆
+#yue:綠豆
+wikidata:en:Q484447
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
+#579 @2021-10-06
 
 <en:mung bean
-en:Mung bean sprout, bean sprouts, beansprouts
-da:bønnespirer
-de:Mungobohnensprosse, Mungobohnensprossen
+en:mung bean sprout, mung bean seedlings
+da:mungbonnespirer
+de:Mungobohnenkeime, Mungbohnensprossen, Mungobohnensprosse, Mungobohnenkeimlinge
 es:brotes de judia mungo
+fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
+it:germogli di fagioli mung
+nl:taugé, mungboonscheut
+nn:mungbonnespirer
+sv:mungbonskott
 
 <en:mung bean
-en:mung bean seedlings
-de:Mungobohnenkeimlinge
+en:Mmngbean powder
+zh:緣豆粉
 
-<fr:haricot mungo
-fr:pousses de haricot mungo, germe de haricot mungo, pousses de haricots mungo, germes de haricot mungo, pousse de haricot mungo
-
-<en:beans
-fr:haricots beurre
-
-<en:beans
-en:green bean, green beans
-da:grønne bønner, grønner bønner
-de:grüne bohnen
-es:judía verde, judías verdes
-fr:haricot vert, haricots verts
-it:Fagiolo verde
-ja:いんげん豆
-nl:groene bonen
-sv:gröna bönor, brytböna, brytbönor
-carbon_footprint_fr_foodges_ingredient:fr:Haricot vert frais locaux
-carbon_footprint_fr_foodges_value:fr:0.7
-carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
-carbon_footprint_fr_foodges_value:fr:22.8
-
-#<fr:haricot vert
-#fr:haricots verts tres fins issus de l'agriculture biologique
-
-<fr:haricot vert
-fr:haricots verts coupés
-
-<fr:haricot vert
-fr:haricots verts très fins
-
-<fr:haricots verts très fins
-<fr:haricots verts coupés
-fr:haricots vertes très fins coupés, haricots verts extra fines coupés
-
-<fr:haricot vert
-fr:haricots verts extra-fins
-
-#kept for Ciqual
-#processing:en: en:puree
-<en:green bean
-en:pureed green bean
-fr:purée de haricots verts
-ciqual_food_code:en:20257
-ciqual_food_name:en:French bean, puree
-ciqual_food_name:fr:Haricots verts, purée
-
-
-# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
-
-en:flat bean, helda bean, romano bean
-de:flache Bohne, Helda Bohne, Romano Bohne
-fi:romanopapu, romanopavut
-nl:snijboon
-nn:snittebønne
-sv:romanabönor
-# nds_nl:klemboon
-wikidata:en:Q1828227
-wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
-
-<en:beans
+<en:legumes
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -53582,8 +54058,6 @@ nl:borlotti bonen
 wikidata:en:Q6006851
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry_bean
 description:en:The borlotti bean is a variety of common bean (Phaseolus vulgaris) first bred in Colombia as the cargamanto.
-
-
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
 <en:legume
@@ -53646,66 +54120,65 @@ nl:extra fijne groene flageolets
 
 
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
-# comment:en:Unclear if the lupin genus or lupin bean wikidata entry should be referenced.
 
 <en:legume
-en:lupin, lupines
+en:lupin bean, lupin, lupines, lupine
 ar:ترمس
 az:Acıpaxla
-ba:Әсе борсаҡ
-be:Лубін
+ba:әсе борсаҡ
+be:лубін
 bg:лупина
 bn:লুপিন
 cs:vlčí bob, lupina
 da:lupin
-de:Lupinen, Lupine
-el:λούπινο
-eo:Lupenoj
-es:altramuces, altramuz
+de:Lupinensamen, Lupinen, Lupine
+el:λούπινο, λούπινα
+eo:lupenoj
+es:altramuz, altramuces
 et:lupiin
-fi:lupiinit
+fi:lupiinit, lupiini
 fr:lupin, lupins
 ga:lúipín
 he:תורמוס
 hu:csillagfürt
 hy:լուպին
-id:Lupino
-is:Úlfabaunir
+id:lupino
+is:úlfabaunir
 it:lupini
 ja:ルピナス属
 ka:ხანჭკოლა
-kk:Люпин
-ky:Люпин
+kk:люпин
+ky:люпин
 la:lupinus
-lt:lubinai
-lv:lupīna, Lupīnas
+lt:lubinai, lubinas
+lv:lupīna, lupīnas
 mk:волчјак
-mn:Шошлой
-mt:lupina
-nb:Lupinslekten
+mn:шошлой
+mt:lupina, lupin
+nb:lupin
 nl:lupine
-nn:Lupinslekta
-os:Бирæгъхъæдур
+nn:lupin
+os:бирæгъхъæдур
 pl:łubin
 pt:tremoço, tremoços
-qu:Q'ira
+qu:q'ira
 ro:lupin
 ru:люпин
 sd:چونرا
-se:Lupiidnat
+se:lupiidnat
 sk:vlčí bôb, lupina
-sl:volčji
-sv:lupin, Lupinsläktet
-sw:Mlupini
+sl:volčji, volčji bob
+sv:lupin
+sw:mlupini
 th:ลูพิน
-tr:Acı bakla
-uk:Люпин
-zh:羽扇豆属, 羽扇豆, 鲁冰花
-# be-tarask:Лубін
-# csb:Lёpin
-# hsb:Lupina
-# kbd:Бгъэдахэщӏудзхэр
-# mrj:Пивырса
+tr:acı bakla
+uk:люпин
+zh:羽扇豆, 鲁冰花
+# be-tarask:лубін
+# csb:lёpin
+# hsb:lupina
+# kbd:бгъэдахэщ, удзхэр
+# mrj:пивырса
 # yue:羽扇豆
 # zh-cn:羽扇豆
 # zh-hans:羽扇豆
@@ -53714,12 +54187,27 @@ zh:羽扇豆属, 羽扇豆, 鲁冰花
 # zh-sg:羽扇豆
 # zh-tw:羽扇豆
 allergens:en: en:lupin
-wikidata:en:Q156811
+#plant:wikidata:en:Q156811
+wikidata:en:Q13582643
 wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
-# ingredient/fr:lupin has 390 products @2019-04-11
-# usage:fr:lupins (lupine, sel de cuisine, antioxydants:acide citrique et acide ascorbique, conservateur:E202)
+ciqual_food_code:en:20534
+ciqual_food_name:en:lupin grain, raw
+ciqual_food_name:fr:Lupin, graine crue
+# 957 in 12 @2021-10-01
 
-
+#processing:en: en:flour
+<en:flour
+<en:lupin
+en:lupin flour, lupine flour
+cs:mouka z vičího bobu
+de:Lupinenmehl, Süßlupinenmehl, Süsslupinenmehl
+es:harina de altramuz
+fi:lupiinijauho
+fr:farine de lupin
+hu:csillagfürtliszt
+it:farina di lupino
+nl:lupinemeel
+# 330 in 8 @2021-10-01
 
 # <en:compound
 fr:vermicelle de pois
@@ -53932,7 +54420,7 @@ or:ମଟର
 os:Тымбылхъæдур
 pa:ਮਟਰ
 pl:Groch zwyczajny, groszek
-pt:Ervilha
+pt:Ervilha, ervilhas
 qu:Allwirha
 ro:Mazăre
 ru:горох
@@ -54175,12 +54663,37 @@ ciqual_food_name:en:Chick pea flour
 ciqual_food_name:fr:Farine de pois chiche
 
 <en:pea
+en:green peas
+bg:зелен грах
+da:Grønne ærter
+de:grüne Erbsen, grüne Bohnen
+es:guisante verde, guisantes verdes
+fi:vihreät herneet, vihreä herne
+fr:pois vert
+it:piselli verde
+ja:グリーンピース
+kk:көк буршақ
+la:Pisum sativum L. subsp. sativum
+lt:žalieji žirneliai
+lv:zaļie zirnīši
+nl:groene erwt, groene erwten
+ro:mazăre
+ru:Зеленый горошек
+sv:gröna ärtor
+th:ถั่ว ลันเตา
+wikidata:en:Q3377275
+vegan:en:yes
+vegetarian:en:yes
+#3142 in 20 @2021-10-05
+
+<en:green pea
 en:garden peas
 de:Markerbsen, Gartenerbsen, Markerbsenschoten
-es:Guisantes de jardín
+es:guisantes de jardín
 fi:tarhaherne, tarhaherneet
 fr:petits pois, petit pois, pois doux
-it:Pisellini
+it:pisellini
+la:Pisum sativum L. subsp. sativum var. sativum
 nl:doperwten
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
@@ -54188,50 +54701,69 @@ carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
 carbon_footprint_fr_foodges_value:fr:0.9
 carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
 carbon_footprint_fr_foodges_value:fr:0.7
+ciqual_food_code:en:20072
+ciqual_food_name:en:Garden peas, raw
+ciqual_food_name:fr:Petits pois, crus
+#250 in 6 @2021-10-05
 
 <en:garden peas
 fr:petits pois fins
 
 <en:garden peas
-fr:petits pois très fins
+en:extra fine garden peas
+fr:petits pois très fins, petits pois extra fins
+es:guisantes extrafinos
+nl:extra fijne doperwten
 
 <en:garden peas
 fr:petits pois doux
+it:pisello dolce
 nl:zoete doperwten
+sv:söta ärtor
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
+<fr:petits pois doux
+fr:petits pois doux extra fins, petits pois doux extra-fins
+it:piselli dolci finissimi
+sv:extra fina söta ärtor
 
 <en:garden peas
 de:Junge Markerbsen
 
-<fr:petits pois doux
-fr:petits pois doux extra fins
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
 <en:pea
-en:snow pea, mangetout
+en:snow pea, mangetout, snow peas
 ca:tirabec
-de:Zuckerschoten, Kefen
+da:sukkerært
+de:Kefen, Zuckerschoten, Zuckererbse
+el:γλυκομπίζελα, ζαχαρομπίζελο
 eo:sukerpizo
+es:guisante mollar, guisante azucarado
 fi:sokeriherne
-fr:pois croquants, pois mange-tout
-gl:Tirabeque
-id:Kapri
-it:piselli dolce, Taccole
+fr:pois mange-tout, pois croquants, pois gourmand
+gl:tirabeque
+id:kapri
+it:taccole
 ja:スナップエンドウ
 ko:백설콩
-la:Pisum sativum
-nl:Peultjes
-su:Kapri
-tr:Sultani bezelye
+la:Pisum sativum var. saccharatum
+lt:cukriniai žirniai
+lv:cukurzirņi
+nl:peultje, peultjes
+sk:hrach siaty cukrový
+su:kapri
+sv:sockerärt
+tr:sultani bezelye
+wikidata:en:Q67210631
+wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
 carbon_footprint_fr_foodges_ingredient:fr:Pois d'hiver frais
 carbon_footprint_fr_foodges_value:fr:1.7
-wikipedia:en:https://en.wikipedia.org/wiki/Snow_pea
-# ingredient/fr:pois-croquants has 30 products in 3 languages @2019-03-06
-# ingredient/fr:pois-mange-tout has 30 products @2019-02-13
-
-<en:garden peas
-fr:petits pois extra fins
+ciqual_food_code:en:20173
+ciqual_food_name:en:Snow pea, raw
+ciqual_food_name:fr:Pois mange-tout ou pois gourmand, cru
+# 202 @2021-10-05
 
 
 # description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
@@ -61781,11 +62313,80 @@ fr:feuilles de mûrier
 fr:feuilles de mûres douces
 
 <en:plant
-en:dandelion
+en:dandelion, common dandelion
+af:perdeblom
+ar:Խատուտիկ սովորական
+az:Dərman zəncirotu
+be:Адуванчык лекавы
+bg:обикновено глухарче
+bh:टॅराक्सॅकम ऑफिशिनाले
+ca:xicoia, dent de lleó
+ce:Да́рбане ба́ппа
+cs:pampeliška lékařská, Pampelišky smetánky
+da:Mælkebøtte
 de:Löwenzahn
-es:diente de león
+el:ταράξακο
+eo:oficina taraksako, ofta leontodo
+es:diente de león, achicoria amarga
+et:Harilik võilill
+eu:Txikoria-belarra
+fa:قاصدک, گل قاصدک
+fi:voikukka
 fr:pissenlit
-
+fy:Hynsteblom
+ga:caisearbhán, caisearbhán coiteann
+gl:mexacán común
+he:שינן רפואי
+hr:ljekoviti maslačak
+hu:gyermekláncfű
+hy:Խատուտիկ սովորական
+id:jombang, tanaman jombang
+is:Túnfífill
+it:dente di leone
+ja:タンポポ, セイヨウタンポポ
+ko:서양민들레
+ku:Xizêmok
+ky:Каакым-кукум
+la:Taraxacum officinale
+li:pisblóm
+lt:kiaulpienė
+lv:cūkpiene, ārstniecības pienene
+ml:ദുഗ്ധഫേനി
+ms:Dandelion
+nl:paardenbloem
+nn:løvetann
+pt:dente-de-leão
+rm:flur-portg
+ro:Păpădia
+ru:одуванчик, Одува́нчик лека́рственный
+sk:Púpava lekárska
+sl:regrat, Navadni regrat
+sr:Маслачак, Maslačak
+sv:maskros
+tr:karahindiba
+uk:кульбаба
+vi:địa đinh
+wa:Såvadje cécoreye
+zh:西洋蒲公英
+#ang:ægwyrt
+#bar: Zigori
+#csb:Mlécz
+#dsb:Mlac
+#hsb:Mlóč
+#ing:Дарбан баппа
+#ksh:Ketteplöck
+#lbe:Къупан тӀутӀи
+#nds:hondebloeme
+#olo:Rohtuvoikukku
+#sah:Ньээм от
+#sco:Dentylion
+#vec:pissacan
+#vep:Bakbatai
+#vls:pisseblomme
+ciqual_food_code:en:20038
+ciqual_food_name:en:Dandelion, raw
+ciqual_food_name:fr:Pissenlit, cru
+#100 @2021-10-06
 
 # description:en:GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
 
@@ -62385,15 +62986,54 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # category/lettuces has 84 products @2019-5-22
 
 <en:lettuce
-en:romaine lettuce
-de:Römersalat
-es:Lechuga romana
-fr:Laitue romaine
-it:Lattuga romana
-
-<en:lettuce
 fr:jeunes pousses de laitue verte
-#9@2019-06-06
+#20 in fr @2021-10-05
+
+#category/romaine-lettuce
+<en:lettuce
+en:romaine lettuce, cos
+ar:خس روماني
+bn:রোমাইন লেটুস
+ca:enciam llarg
+cs:římský salát
+da:romainesalat, romersk salat, bindsalat
+de:Römersalat, römischer Salat, Bindesalat
+el:θρίδαξ ο μακρόφυλλος ο ρωμαϊκός
+eo:roma laktuko
+es:lechuga romana, lechuga larga, lechugon
+et:rooma salat
+fa:کاهوی رومی
+fi:roomansalaatti, sidesalaatti
+fr:laitue romaine
+ga:cósleitís
+he:חסה עלים
+hi:रोमेन सलाद
+hr:salata kristalka
+it:lattuga romana
+ja:ロメインレタス
+ko:로메인상추
+la:Lactuca sativa var. longifolia
+lv:romiešu salāti
+ml:റൊമെയ്ൻ ലെറ്റ്യൂസ്
+nb:romanosalat
+nl:bindsla, romeinse sla, romaine
+pa:ਰੋਮੇਨ ਸਲਾਦ
+pl:sałata rzymska
+pt:alface romana
+ro:salată romană
+ru:римский салат
+sl:solata vezivka
+sv:romansallat
+tl:letsugas romana
+vi:rau diếp
+zh:蘿蔓萵苣
+#nan:oe-á-chhài
+#yue:羅馬生菜
+wikidata:en:Q1762893
+ciqual_food_code:en:20171
+ciqual_food_name:en:Cos or romaine lettuce, raw
+ciqual_food_name:fr:Laitue romaine, crue
+#758 in 7 @2021-10-04
 
 # description:en: ICEBERG/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
 
@@ -64397,24 +65037,45 @@ fr:poudre de vanille Bourbon
 
 <en:vanilla
 en:vanilla extract
+ar: مستخلص فانيليا عي
+bg:ванилов екстракт
 ca:extracte de vainilla
-cs:Vanilkový výtažek
+cs:vanilkový výtažek, vanilkový extrakt
 da:vaniljeekstrakt, vaniljeessens
 de:Vanilleextrakt, Vanille Extrakt
+el:απόσταγμα βανίλιας
 es:extracto de vainilla, esencia de vainilla
+et:vanilliekstrakt
 fi:vaniljauute
 fr:extrait de vanille
 he:תמצית וניל
-hu:vaníliakivonat, vanília kivonat
+hr:ekstrakt vanilije
+hu:vaníliakivonat, vanília kivonat, vanília-kivonat
 it:estratto di vaniglia
 ja:バニラエキス
+jv:vanilla èkstrak
+ko:바닐라 추출액
+lt:vaniles ekstraktas
+lv:vaniļas ekstrakts
+mk:екстракт од ванила
+ms:ekstrak vanila
 nl:vanille-extract
-pl:Ekstrakt z wanillii
+nn:vaniljeekstrakt
+pl:ekstrakt z wanillii
 pt:extrato de baunilha
 ro:extract de vanilie
 ru:экстракт ванили
+sk:výtažok z vanilky
+sl:izvlecek vanilje
+sr:ekstrakt vanile
 sv:vaniljextrakt
-# ingredient/vanilla-extract has 4017 products in 13 languages @2019-02-24
+uk:екстракт ванілі, ванільний екстракт
+zh:香草精精
+wikidata:en:Q10749869
+ciqual_food_code:en:11065
+ciqual_food_name:en:Vanilla, alcoholic extract
+ciqual_food_name:fr:Vanille, extrait alcoolique
+# 13922 in 35 @2021-10-04
 
 <en:vanilla extract
 en:pure vanilla extract
@@ -64434,11 +65095,13 @@ es:Extracto natural de vainilla
 fi:luontainen vaniljauute
 fr:extrait naturel de vanille
 it:estratto naturale di vaniglia
+ja:天 然パニラエキス
 nl:natuurlijk vanille-extract
 pt:extracto natural de baunilha
 ro:extract natural de vanilie
 sr:prirodni ekstrakt vanile
 sv:naturlig vaniljextrakt
+zh:天然香草精精
 # ingredient/fr:extrait-naturel-de-vanille has 559 products in 13 languages @2019-02-24
 
 <en:vanilla extract
@@ -80009,7 +80672,6 @@ zh:窩夫
 wikidata:en:Q375
 wikipedia:en:https://en.wikipedia.org/wiki/Waffle
 # ingredient/fr:gaufre has 10 products @2019-04-12
-# usage:fr:Gaufre (oeufs frais, sucre, graisse végétale, farine de blé , farine de lupin, lait écrémé en poudre, sel, émulsifiant : léccithine de tournesol, arôme naturel)
 
 # description:Cornet biscuit is for ice cream
 
