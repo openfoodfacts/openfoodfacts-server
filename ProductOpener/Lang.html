@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::Recipes</title>
+<html><head><title>ProductOpener::Lang</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="blkbluw" type="text/css" href="../_blkbluw.css" media="all" >
 <link rel="alternate stylesheet" title="blkmagw" type="text/css" href="../_blkmagw.css" media="all" >
@@ -42,24 +42,34 @@
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#compute_product_recipe(_%24product_ref%2C_%24parent_ingredients_ref_)'>compute_product_recipe( $product_ref, $parent_ingredients_ref )</a>
+    <li class='indexItem indexItem2'><a href='#separator_before_colon(_%24l_)'>separator_before_colon( $l )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
-        <li class='indexItem indexItem4'><a href='#list_of_parent_ingredients_%24parent_ingredients_ref'>list of parent ingredients $parent_ingredients_ref</a>
+        <li class='indexItem indexItem4'><a href='#language_code_%24l'>language code $l</a>
       </ul>
-      <li class='indexItem indexItem3'><a href='#Return_values'>Return values</a>
     </ul>
-    <li class='indexItem indexItem2'><a href='#add_product_recipe_to_set(_%24recipes_ref%2C_%24product_ref%2C_%24recipe_ref_)'>add_product_recipe_to_set( $recipes_ref, $product_ref, $recipe_ref )</a>
+    <li class='indexItem indexItem2'><a href='#lang(_%24stringid_)'>lang( $stringid )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
+      <ul   class='indexList indexList4'>
+        <li class='indexItem indexItem4'><a href='#string_id_%24stringid'>string id $stringid</a>
+      </ul>
     </ul>
-    <li class='indexItem indexItem2'><a href='#analyze_recipes(_%24recipes_ref%2C_%24parent_ingredients_ref_)'>analyze_recipes( $recipes_ref, $parent_ingredients_ref )</a>
+    <li class='indexItem indexItem2'><a href='#lang_sprintf(_%24stringid%2C_%5Bother_arguments%5D_)'>lang_sprintf( $stringid, [other arguments] )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
+      <ul   class='indexList indexList4'>
+        <li class='indexItem indexItem4'><a href='#string_id_%24stringid'>string id $stringid</a>
+      </ul>
+    </ul>
+    <li class='indexItem indexItem2'><a href='#lang_in_other_lc(_%24target_lc%2C_%24stringid_)'>lang_in_other_lc( $target_lc, $stringid )</a>
+    <ul   class='indexList indexList3'>
+      <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
+      <ul   class='indexList indexList4'>
+        <li class='indexItem indexItem4'><a href='#target_language_code_%24target_lc'>target language code $target_lc</a>
+        <li class='indexItem indexItem4'><a href='#string_id_%24stringid'>string id $stringid</a>
+      </ul>
     </ul>
   </ul>
 </ul>
@@ -69,100 +79,110 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::Recipes - Analyze the distribution of ingredients in a set of products</p>
+<p>ProductOpener::Lang - load and return translations</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="SYNOPSIS"
 >SYNOPSIS</a></h1>
 
-<p>This module contains functions to compute the distribution of specific ingredients in a specified set of products.</p>
-
-<p>For instance,
-one can compute the distribution of water,
-sugar and fruits for products in the fruit nectars category.</p>
-
-<p>Functions in this module can be called through scripts for batch processing,
-and/or they could also be called for realtime analysis through the API or web interface (for a small enough set of products).</p>
+<p><code>ProductOpener::Lang</code> loads translations from .po files and return translated strings through the lang() and lang_sprintf() functions.</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
-
-<p>The ingredients list is first analyzed with the Ingredients.pm module to identify each ingredient and estimate the percentage of each ingredient.</p>
-
-<p>Then each ingredient is matched against the specified list of parents ingredients.
-(e.g.
-if we want the distribution of water,
-sugar and fruits,
-&#34;apple&#34; will be mapped to fruits.)</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="FUNCTIONS"
 >FUNCTIONS</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="compute_product_recipe(_$product_ref,_$parent_ingredients_ref_)"
->compute_product_recipe( $product_ref,
-$parent_ingredients_ref )</a></h2>
-
-<p>Given a list of parent ingredients,
-analyze the ingredients of the parent to compute the percentage of each parent ingredient.</p>
+name="separator_before_colon(_$l_)"
+>separator_before_colon( $l )</a></h2>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="product_reference_$product_ref"
->product reference $product_ref</a></h4>
+name="language_code_$l"
+>language code $l</a></h4>
 
-<p>Loaded from the MongoDB database,
-Storable files,
-or the OFF API.</p>
+<p>In some languages like French,
+colons have a space before them.
+e.g.
+&#34;Valeur : 500&#34; in French,
+&#34;Value: 500&#34; in English</p>
+
+<p>This function returns a non-breaking space character for those languages.</p>
+
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="lang(_$stringid_)"
+>lang( $stringid )</a></h2>
+
+<p>Returns a translation for a specific string id in the language defined in the $lang global variable.</p>
+
+<p>If a translation is not available,
+returns English.</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Arguments"
+>Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="list_of_parent_ingredients_$parent_ingredients_ref"
->list of parent ingredients $parent_ingredients_ref</a></h4>
+name="string_id_$stringid"
+>string id $stringid</a></h4>
 
-<p>Reference to an array of canonicalized ingredients.</p>
-
-<h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_values"
->Return values</a></h3>
-
-<p>Percentages are returned in a hash that contains the parent ingredients canonicalized ids as the key,
-and the percentage as a value.</p>
-
-<p>2 extra keys are also returned:</p>
-
-<p>- &#34;unknown&#34;: for ingredients that are not known in the taxonomy - &#34;other&#34;: for ingredients that are known but are not children of any of the specified parent ingredients.</p>
+<p>In the .po translation files,
+we use the msgctxt field for the string id.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="add_product_recipe_to_set(_$recipes_ref,_$product_ref,_$recipe_ref_)"
->add_product_recipe_to_set( $recipes_ref,
-$product_ref,
-$recipe_ref )</a></h2>
+name="lang_sprintf(_$stringid,_[other_arguments]_)"
+>lang_sprintf( $stringid,
+[other arguments] )</a></h2>
+
+<p>Returns a translation for a specific string id with specific arguments in the language defined in the $lang global variable.</p>
+
+<p>The translation is stored using the sprintf format (e.g.
+with %s) and lang_sprintf() calls sprintf() to process it.</p>
+
+<p>If a translation is not available,
+returns English.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
-<h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_value"
->Return value</a></h3>
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="string_id_$stringid"
+>string id $stringid</a></h4>
+
+<p>In the .po translation files,
+we use the msgctxt field for the string id.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="analyze_recipes(_$recipes_ref,_$parent_ingredients_ref_)"
->analyze_recipes( $recipes_ref,
-$parent_ingredients_ref )</a></h2>
+name="lang_in_other_lc(_$target_lc,_$stringid_)"
+>lang_in_other_lc( $target_lc,
+$stringid )</a></h2>
+
+<p>Returns a translation for a specific string id in a specific language.</p>
+
+<p>If a translation is not available,
+returns English.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
-<h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_value"
->Return value</a></h3>
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="target_language_code_$target_lc"
+>target language code $target_lc</a></h4>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="string_id_$stringid"
+>string id $stringid</a></h4>
+
+<p>In the .po translation files,
+we use the msgctxt field for the string id.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
