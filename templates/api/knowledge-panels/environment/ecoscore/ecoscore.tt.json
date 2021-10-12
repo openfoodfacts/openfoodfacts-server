@@ -43,7 +43,7 @@
             }
         },        
         [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
-            [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.ecoscore_data.adjustments.$adjustment.value > 0) %]
+            [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.ecoscore_data.adjustments.$adjustment.value != 0) %]
                 {
                     "element_type": "panel",
                     "panel_element": {

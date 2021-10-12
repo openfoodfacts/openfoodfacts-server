@@ -10898,19 +10898,19 @@ sub display_ingredients_analysis($) {
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
+				$icon = "palm-oil";
+
 				if (has_tag($product_ref, "labels", "en:palm-oil-free")
 					or ($ingredients_analysis_tag =~ /-free$/)) {
 					$ingredients_analysis_tag = "en:palm-oil-free";
 					$color = 'green';
-					$icon = "monkey_happy";
+					
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
 					$color = 'orange';
-					$icon = "monkey_uncertain";
 				}
 				else {
 					$color = 'red';
-					$icon = "monkey_unhappy";
 				}
 
 			}

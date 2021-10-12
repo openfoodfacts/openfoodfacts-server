@@ -28,7 +28,18 @@
                 "title": "[% lang('packaging') %]",
                 "panel_ids": ["ecoscore_packaging"],
             },
-        },  
+        },
+        [% IF panel.palm_oil %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_threatened_species') %]",
+                "panel_ids": [
+                    "palm_oil"
+                ],
+            },
+        },
+        [% END %]        
         [% IF product.ecoscore_data.adjustments.production_system.value != 0 %]
         {
             "element_type": "panel_group",

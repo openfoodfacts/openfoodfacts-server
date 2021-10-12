@@ -495,10 +495,23 @@ sub create_environment_card_panel($$$) {
 
 	$log->debug("create environment card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
-
     my $panel_data_ref = {};
-     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
-        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+    # Create panel for palm oil
+    if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
+        and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
+        and ($product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0)) {
+
+        create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        
+        # Tell the template to include the palm_oil panel
+        $panel_data_ref->{palm_oil} = 1;
+    }
+
+    # Create the environment_card panel
+    create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);    
 }
 
 1;
