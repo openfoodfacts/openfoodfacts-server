@@ -5,9 +5,35 @@
     "topics": [
         "environment"
     ],
+    [% IF product.ecoscore_data.adjustments.threatened_species.value == 0 %]
+        [% IF adjustments.threatened_species.warning %]
+        "evaluation": "neutral",
+        "title_element": {
+            "title": "[% lang('ecoscore_no_species_threatening_ingredients') %]",
+        },
+        [% ELSE %]
+        "evaluation": "neutral",
+        "title_element": {
+            "title": "[% lang('ecoscore_no_species_threatening_ingredients') %]",
+        },       
+        "elements": [
+            {
+                "element_type": "text",
+                "text_element": {
+                    "text_type": "summary",
+                    "html": `
+                    <strong>[% lang('ecoscore_ingredients_unknown') %]</strong><br><br>
+                    [% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
+                    [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                        `
+                }
+            },
+        ]
+        [% END %]
+    [% ELSE %]    
     "evaluation": "bad",
     "title_element": {
-        "title": "[% panel.title %]",
+        "title": "[% lang('ecoscore_ingredients_whose_cultivation_threatens_species') %]",
     },
     "elements": [
         {
@@ -15,9 +41,11 @@
             "text_element": {
                 "text_type": "summary",
                 "html": `
-                    <p>[give more details here]</p> 
+                    <p><strong>[% lang('contains_palm_oil') %]</strong></p> 
+                    <p>[% lang('contains_palm_oil_description') %]</p> 
                     `
             }
-        },
+        },        
     ]
+    [% END %]
 }
