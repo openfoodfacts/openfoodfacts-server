@@ -380,6 +380,7 @@ sub process_template($$$) {
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{f_lang} = \&f_lang;
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} = $cc;

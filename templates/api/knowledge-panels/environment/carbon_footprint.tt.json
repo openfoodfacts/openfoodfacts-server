@@ -17,9 +17,9 @@
     [% END %]
     "title_element": {
         [% SET driving_100g_rounded = driving_100g FILTER format('%.1f'); %]
-        "title": "[% lang_sprintf('equal_to_driving_s_km_in_a_petrol_car', driving_100g_rounded) %]",
+        "title": "[% f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_100g_rounded } ) %]",
         [% SET co2_100g_rounded = co2_100g * 1000 FILTER format('%.0f'); %]
-        "subtitle": "[% lang_sprintf('s_carbon_footprint_per_100g_of_product', co2_100g_rounded) %]",
+        "subtitle": "[% f_lang('f_carbon_footprint_per_100g_of_product', { 'grams' => co2_100g_rounded }) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/car.svg",
         "icon_color_from_evaluation": true,
     },
