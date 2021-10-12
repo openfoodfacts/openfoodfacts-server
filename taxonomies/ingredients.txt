@@ -43738,67 +43738,107 @@ fr:papayes séchées
 # description:en:PASSION FRUIT is the fruit of a number of plants in the Passiflora family.Edible passion fruits can be divided into three main types:purple ones (fruits of Passiflora edulis Sims), yellow ones (Passiflora edulis f. flavicarpa Deg.), and giant granadilla (Passiflora quadrangularis L.),[4] as well as sweet granadilla (Passiflora ligularis).
 
 <en:fruit
-en:passion fruit, passionfruit, maracuja
-ca:Fruita de la passió
-da:Passionsfrugt
+en:passionfruit, passion fruit, maracuja
+bg:маракуя
+ca:fruita de la passió
+cs:maracuja, maracuji
+da:passionsfrugt
 de:Passionsfrucht, Maracuja
-eo:Pasifrukto
+el:μαρακούγια, φρούτο του πάθους
+eo:pasifrukto
 es:maracuyá, fruta de la pasion
 fi:passiohedelmä, passionhedelmä, kärsimyshedelmä
 fr:fruit de la passion, passion, fruits de la passion, maracuja
+hu:maracuja
 it:frutto della passione, maracuja
-nl:passievrucht, maracuja
-pt:Maracujá
-ru:маракуйя
+jv:markisah
+la:Passiflora
+lt:valgomoji pasiflora
+ms:pokok markisa
+nb:pasjonsfrukt
+nl:passievrucht, maracuja, markieza
+pl:marakuja
+pt:maracujá
+ro:fructul pasiunii
+ru:маракуйя, маракуйи
+sk:marakujo, marakujová
+sl:marakuja
 sv:passionsfrukt
 ta:தாட்பூட்
+tr:çarkıfelek meyvesi
+ur:پیشن فروٹ
 zh:西番莲
 wikipedia:en:https://en.wikipedia.org/wiki/Passion_fruit_(fruit)
 wikidata:en:Q28836257
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/passion-fruit
-# 48 products in 2 languages @2018-09-29
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit-de-la-passion
-# 559 products in 5 languages @2018-09-29
+ciqual_food_code:en:13016
+ciqual_food_name:en:Passion fruit, pulp and pips, raw
+ciqual_food_name:fr:Fruit de la passion ou maracudja, pulpe et pépins, cru
+# 2754 in 5 languages @2021-10-12
 
-<en:passion fruit
+<en:passionfruit
+la:Passiflora incarnata
+
+<en:passionfruit
+la:Passiflora edulis, Passiflora edulis sims
+
+#processing:en: en:juice
+<en:passionfruit
 <en:fruit juice
 en:passion fruit juice, passionfruit juice
-de:Maracujasaft, Passionsfruchtsaft
-es:zumo de maracuyá, jugo de maracuyá
-fi:passiohedelmämehu
-fr:jus de fruit de la passion, jus de fruits de la passion
-it:succo di frutto della passione
-nb:pasjonsfruktjuice
-nl:passievruchtsap
-pt:Sumo de maracujá
-sv:passionsfruktjuice
+#de:Maracujasaft, Passionsfruchtsaft
+#es:zumo de maracuyá, jugo de maracuyá
+#fi:passiohedelmämehu
+#fr:jus de fruit de la passion, jus de fruits de la passion
+#it:succo di frutto della passione
+#nb:pasjonsfruktjuice
+#nl:passievruchtsap
+#pt:Sumo de maracujá
+#sv:passionsfruktjuice, passionsfrukts
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
 # 262 products in 6 languages @2018-09-29
 
-<en:passion fruit juice
-en:reconstituted passion fruit juice
+#processing:en: en:from concentrate
+#processing:en: en:juice
+<en:passionfruit juice
+#en:reconstituted passion fruit juice, passion fruit from concentrate
+#cs:koncentrovaná šťáva z maracuji
+# we keep this as unparsable
 de:Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
-es:zumo de maracuyá a partir de concentrado, jugo de maracuyá procedente de concentrado
-fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
-fr:jus de fruit de la passion à base de concentré
-sv:passionsfruktsjuice från koncentrat
+#es:zumo de maracuyá a partir de concentrado, jugo de maracuyá procedente de concentrado
+#fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
+#fr:jus de fruit de la passion à base de concentré
+#lt:pasiflorų sultys iš koncentrąto
+#sk:marakujová štava z koncentrátu
+#sv:passionsfruktsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
 
-<en:passion fruit juice
-en:concentrated passion fruit juice, concentrated passionfruit juice
-de:Passionsfruchtsaftkonzentrat, konzentrierter Passionsfruchtsaft
-ru:концентрированный сок маракуйи
+#processing:en: en:juice
+#processing:en: en:concentrated
+#<en:passionfruit
+#en:concentrated passion fruit juice, concentrated passionfruit juice
+#cs:koncentrát z štávy z marakuji
+#de:Passionsfruchtsaftkonzentrat, konzentrierter Passionsfruchtsaft, Maracujasaftkonzentrat
+#hu:maracujalé sűrítményből
+#nb:pasjonsfruktjuice
+#ro:suc concentrat de maracuja
+#ru:концентрированный сок маракуйи
+#sk:koncentrát z marakujovej stavy
 
-<en:passion fruit
-<en:purée
-es:puré de fruta de la pasión
-fi:passiohedelmäpyree
-fr:purée de fruit de la passion
-nl:passievruchtenpuree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruit-de-la-passion
-# 66 products in 2 languages @2018-09-29
+#processing:en: en:pureed
+#processing:en: en:pulp
+<en:passionfruit
+#<en:purée
+#en:passionfruit puree, passion fruits puree
+#de:Passionfruchtmark
+#es:puré de fruta de la pasión
+#fi:passiohedelmäpyree
+#fr:purée de fruit de la passion
+#it:polpa del frutto della passione
+#nl:passievruchtenpuree
+# 131 in 6 @2021-10-12
 
+#comment:en:Do not add a flavour to the fruit. The origin of the flavour can be artificial.
 <en:flavour
 en:passion fruit flavour
 de:Passionsfruchtaroma
@@ -60528,112 +60568,110 @@ en:mint
 af:ment
 am:እባን
 ar:نعناع
-az:Nanə
-be:Мята
-bg:Мента
+az:nanə
+be:мята
+bg:мента
 bn:মেন্থা
-br:Bent
-bs:Metvica
+br:bent
+bs:metvica
 ca:menta
 co:mente
 cs:máta
-cy:Mintys
+cy:mintys
 da:mynte
 de:Minze, Minzen
-el:Μέντα
-eo:Mento
+el:μέντα
+eo:mento
 es:menta
 et:münt
-eu:Menda
+eu:menda
 fa:نعنا
 fi:minttu, mintut
 fr:menthe
-ga:Mismín
-gl:Menta
-gu:Menta
+ga:mismín
+gl:menta
 he:נענע
 hi:पुदिना
-hr:Metvica
-ht:Mant
-hu:Menta
+hr:metvica
+ht:mant
+hu:menta
 hy:դաղձ
 id:mentha
-io:Minto
-is:Myntur
+io:minto
+is:myntur
 it:menta
 ja:ハッカ属
-jv:Mentha
+jv:mentha
 ka:პიტნა
-kk:Жалбыз
+kk:жалбыз
 ko:멘타
-ku:Pûjan
-ky:Эгилме жалбыз
-la:Mentha
-lt:Mėta
+ku:pûjan
+ky:эгилме жалбыз
+la:mentha
+lt:mėta
 lv:mētras
-mk:Нане
+mk:нане
 ml:കർപ്പൂരതുളസി
 mt:nagħniegħ
 my:ပူဒီနာ
 nb:mynteslekta
 nl:munt
 nn:mynteslekta
-oc:Menta
+oc:menta
 or:ପୋଦିନା
-os:Битъына
+os:битъына
 pa:ਪੁਦੀਨਾ
 pl:mięta
-pt:Mentha
-ro:Mentă
+pt:mentha
+ro:mentă
 ru:мята
 se:minta
-sh:Metvica
+sh:metvica
 si:මිංචි ගණය
 sk:mäta
-sl:Meta
+sl:meta
 sq:nenexhik
 sr:нана
 sv:mynta
 ta:புதினா
 te:మెంథా
-tg:Пудина
+tg:пудина
 th:มินต์
-tl:Malipukon
-tr:Nane
-tt:Бөтнек
-uk:М'ята
-uz:Yalpiz
-vi:Chi Bạc hà
+tl:malipukon
+tr:nane
+tt:бөтнек
+uk:м'ята
+uz:yalpiz
+vi:chi bạc hà
 wo:naana
 yi:מענטא
-za:Bozhoz
+za:bozhoz
 zh:薄荷
-# ang:Minte
+# ang:minte
 # arc:ܢܢܥܐ
-# ast:Mentha
+# ast:mentha
 # azb:نانه
-# cdo:Bŏk-hò̤
-# ceb:Mentha
-# chy:Móxêšéne
-# hsb:Mjetlička
-# kbd:БэрэтӀинэ
-# mrj:Пӹтньӹк
-# myv:Мятатикше
-# nah:Caxtillān epazōtl
-# nap:Amenta
-# pam:Mentha
+# cdo:bŏk-hò̤
+# ceb:mentha
+# chy:móxêšéne
+# hsb:mjetlička
+# kbd:бэрэтӏинэ
+# mrj:пӹтньӹк
+# myv:мятатикше
+# nah:caxtillān epazōtl
+# nap:amenta
+# pam:mentha
 # roa-tara:mende
-# scn:Amenta
-# sco:Mentha
-# sgs:Mietra
-# war:Mentha
+# scn:amenta
+# sco:mentha
+# sgs:mietra
+# war:mentha
 # yue:薄荷
 wikidata:en:Q47859
 wikipedia:en:https://en.wikipedia.org/wiki/Mentha
 ciqual_food_code:en:11027
 ciqual_food_name:en:Mint, fresh
 ciqual_food_name:fr:Menthe, fraîche
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/mint
 # 4098 in 25 @2021-10-11
 
 #<en:mint
