@@ -4916,7 +4916,9 @@ sub extract_ingredients_classes_from_text($) {
 							# soy lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
-						elsif (($product_ref->{lc} eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+						elsif ((($product_ref->{lc} eq 'es') or ($product_ref->{lc} eq 'fr'))
+							 and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+							# lecitina de girasol -> lecitina de -> lecitina
 							# lécithine de soja -> lécithine de -> lécithine
 							$ingredient_id_copy = $`;
 						}
