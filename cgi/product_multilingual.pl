@@ -1531,7 +1531,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 }
 elsif ($action eq 'process') {
 
-	my $template_data_ref_process = {};
+	my $template_data_ref_process = { type => $type };
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
 
@@ -1549,14 +1549,11 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $product_url = product_url($product_ref);
-
-
-	$template_data_ref_process->{product_ref_server} = $product_ref->{server};
+	my $edited_product_url = product_url($product_ref);
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
+		$edited_product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
 	}
 	elsif ($type eq 'delete') {
 
@@ -1596,7 +1593,7 @@ MAIL
 		}
 	}
 
-	$template_data_ref_process->{product_url} = $product_url;
+	$template_data_ref_process->{edited_product_url} = $edited_product_url;
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 }
