@@ -43055,122 +43055,139 @@ ciqual_food_name:fr:Goyave, pulpe, crue
 
 <en:fruit
 en:kiwi, kiwifruit, kiwi fruit
-af:Kiwivrug
+af:kiwivrug
 ar:كيوي
-be:Ківі
+az:kivi
+be:ківі
 bg:киви
-bi:Kiwe
+bi:kiwe
 bo:སྤྲེལ་ཁམ།
-br:Kiwi
-bs:Kivi
+br:kiwi
+bs:kivi
 ca:kiwi
 cs:kiwi
-cy:Ffrwyth ciwi
-da:Kiwi
+cy:ffrwyth ciwi
+da:kiwi, kiwifrugt
 de:Kiwi, Kiwifrucht
 el:ακτινίδιο
 eo:kivifrukto
 es:kiwi
-et:Kiivi
+et:kiivi
 eu:kiwi
 fa:کیوی
-fi:Kiivi
+fi:kiivi
 fr:kiwi
-gl:Kiwi
+ga:cíobhaí, planda cíobhaíonna
+gl:kiwi
 he:קיווי
 hi:कीवी फल
-hr:Aktinidija
-ht:Kiwi
-hu:Kivi
+hr:aktinidija
+ht:kiwi
+hu:kivi
 hy:կիվի
-id:Buah kiwi
-is:Kíví
-it:kiwi
+id:buah kiwi
+is:kíví
+it:kiwi, actinidia
 ja:キウイフルーツ
-jv:Kiwi
+jv:kiwi
 ka:კივი
-kk:Киви жемісі
+kk:киви жемісі
 kn:ಕೀವಿಹಣ್ಣು
 ko:참다래
-lb:Kiwi
-lt:Kivis
+la:actinidiae fructus
+lb:kiwi
+lt:kivi
 lv:kivi
-mk:Киви
+mi:киви
+mk:киви
 ml:കിവി പഴം
 mr:किवी
-ms:Buah Kiwi
+ms:buah kiwi
+my:ကီဝီသီး
 nb:kiwi
 ne:ठेकीफल
 nl:kiwi
 nn:kiwifrukt
-nv:Chʼil dishooí
+nv:chʼil dishooí
 oc:kiwi
 pa:ਕੀਵੀ
-pl:kiwi
-pt:Quiuí
-ro:Kiwi
+pl:kiwi, aktinidia
+pt:quiuí
+ro:kiwi
 ru:киви
-sh:Kivi
-sl:Kivi
-sr:Киви
-sv:Kiwi
+sh:kivi
+sl:kivi
+sr:киви
+su:buah kiwi
+sv:kiwi
 ta:பசலிப்பழம்
 th:กีวี
 ti:ኪዊ
-tr:Kivi
-tt:Киви
-uk:Ківі
+tr:kivi
+tt:киви
+uk:ківі
 ur:کيوی
-vi:Quả dương đào
+vi:quả dương đào
 zh:奇異果
-# ang:Cīnisc gōsberige
+# ang:cīnisc gōsberige
 # arz:كيوي
-# atj:Wamin ka kawisitc
+# atj:wamin ka kawisitc
 # azb:کیوی
-# be-tarask:Ківі
+# be-tarask:ківі
 # ckb:کیوی
-# en-ca:kiwi, Kiwifruit
-# en-gb:kiwi, Kiwifruit
-# lmo:Peròdegh
-# nan:Kiwi
-# pt-br:Quiuí
+# en-ca:kiwi, kiwifruit
+# en-gb:kiwi, kiwifruit
+# lmo:peròdegh
+#lzh:獼猴桃
+# nan:kiwi
+#pnb:کیوی
+# pt-br:quiuí
+#sah:киви
+#sty:maimēl šaftaslēsē
+#war:kiwi
+#wuu:猕猴桃
 # yue:奇異果
 # zh-cn:奇異果
 # zh-hans:奇異果
 # zh-hant:奇異果
 wikidata:en:Q13194
 wikipedia:en:https://en.wikipedia.org/wiki/Kiwifruit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/kiwi
-# 72 products in 2 languages @2018-09-30
+ciqual_food_code:en:13021
+ciqual_food_name:en:Kiwi fruit, pulp and seeds, raw
+ciqual_food_name:fr:Kiwi, pulpe et graines, cru
+#1182 in 24 @2021-10-13
 
-<en:kiwi
-en:organic kiwi
-fi:luomukiivi, luomu kiivi
-fr:kiwis biologiques
+#<en:kiwi
+#en:organic kiwi
+#fi:luomukiivi, luomu kiivi
+#fr:kiwis biologiques
 
-<en:kiwi
-<en:purée
-fr:purée de kiwi
-fi:kiivipyree
-# IN process de:Kiwipüree
+#processing:en: en:pureed
+#<en:kiwi
+#<en:purée
+#fr:purée de kiwi
+#fi:kiivipyree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
 # 27 products in 2 languages @2018-09-30
 
-<en:kiwi
-<en:fruit juice
-en:kiwi juice
-de:Kiwisaft
-es:zumo de kiwi, jugo de kiwi
-fi:kiivimehu
-fr:jus de kiwi
-nl:kiwisap
-pt:Sumo de kiwi
-ru:Сок киви
+#processing:en: en:juice
+#<en:kiwi
+#<en:fruit juice
+#en:kiwi juice
+#de:Kiwisaft
+#es:zumo de kiwi, jugo de kiwi
+#fi:kiivimehu
+#fr:jus de kiwi
+#nl:kiwisap
+#pt:Sumo de kiwi
+#ru:Сок киви
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
 # 8 products in 3 languages 22018-09-30
 
-<en:kiwi juice
-fr:jus de kiwi à base de concentré
+#processing:en: en:juice
+#processing:en: en:from concentrate
+#<en:kiwi juice
+#fr:jus de kiwi à base de concentré
 
 # No products
 
@@ -51975,6 +51992,9 @@ pl:zolty papryki
 pt:pimentos amarelos
 sl:rumene paprike
 sv:gul paprika
+ciqual_food_code:en:20168
+ciqual_food_name:en:Sweet pepper, yellow, raw
+ciqual_food_name:fr:Poivron jaune, cru
 # 1222 in 1 language @2021-10-13
 
 # green pepper should not be a synonym of green bell pepper
@@ -51995,6 +52015,9 @@ pt:pimentos verdes
 ru:перец сладкий зеленый
 sk:zelená paprika
 sv:Grön paprika
+ciqual_food_code:en:20085
+ciqual_food_name:en:Sweet pepper, green, raw
+ciqual_food_name:fr:Poivron vert, cru
 # 4183 in 15 @2021-10-14
 
 <en:green bell pepper
@@ -52026,6 +52049,9 @@ pt:pimento vermelho
 ro:ardei gras roșu
 ru:Красный перец, перец красный, перец красный молотый, паприка красная
 sv:röd paprika, 
+ciqual_food_code:en:20087
+ciqual_food_name:en:Sweet pepper, red, raw
+ciqual_food_name:fr:Poivron rouge, cru
 # 17432 in 13 languages @2021-10-12
 
 
@@ -79016,7 +79042,6 @@ zh:原漿
 wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
-# usage:fr:kiwi 4% (purée)
 # used only to qualify another ingredient, ignore for ingredient analysis
 vegan:en:ignore
 vegetarian:en:ignore
