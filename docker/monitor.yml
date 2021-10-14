@@ -20,3 +20,11 @@ services:
       - 9113:9113
     depends_on:
       - frontend
+  postgres_exporter:
+    image: prometheuscommunity/postgres-exporter:v0.10.0
+    environment:
+    - DATA_SOURCE_NAME=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?sslmode=disable
+    networks:
+      - webnet
+    depends_on:
+      - postgres
