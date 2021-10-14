@@ -32,6 +32,17 @@ tail -f <FILEPATH>
 ```
 to check a specific log.
 
+### Increasing log verbosity
+
+By default, the `log4perl` configuration `conf/log.conf` matches production 
+settings. You can tweak that file with your own dev configuration settings and 
+run `make restart` to reload the changes.
+
+A setting useful for local environments is to set `TRACE` log level:
+```
+log4perl.rootLogger=TRACE, LOGFILE
+```
+
 
 ## Opening a shell in a Docker container
 
