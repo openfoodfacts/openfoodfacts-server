@@ -174,3 +174,11 @@ jobs:
         script: |
           cd ${{ matrix.env }}
           make prune
+
+    - uses: frankie567/grafana-annotation-action@v1.0.2
+      if: ${{ always() }}
+      with:
+        apiHost: https://grafana.openfoodfacts.org
+        apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
+        text: Deployment of ${{ github.sha }} on ${{ matrix.env }}
+        tags: deployment,github,${{ failure() && 'failed' || 'success' }},${{ matrix.env }},${{ github.repository }}
