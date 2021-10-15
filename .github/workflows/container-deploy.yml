@@ -175,18 +175,10 @@ jobs:
           cd ${{ matrix.env }}
           make prune
 
-    - name: Get deployment URL
-      if: ${{ always() }}
-      id: get-deployment
-      uses: dorshinar/get-deployment-url@v1.0.7
-      timeout-minutes: 5
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-
     - uses: frankie567/grafana-annotation-action@v1.0.2
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org
         apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
-        text: <a href="${{ steps.get-deployment.outputs.deployment }}">Deploy ${{ github.sha }} on ${{ matrix.env }}</a>
-        tags: deployment,github,${{ failure() && 'failed' || 'success' }},${{ matrix.env }},${{ github.repository }}
+        text: <a href="https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}">Deployment ${{ steps.livecheck.outcome }} on ${{ matrix.env }}</a>
+        tags: type:deployment,origin:github,status:${{ steps.livecheck.outcome }},repo:${{ github.repository }},sha:${{ github.sha }},app:robotoff,env:${{ matrix.env }}
