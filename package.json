@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gulp",
     "build:watch": "gulp watch",
+    "build:dynamic": "npm install && gulp dynamic",
     "test": "npm run test:lang && npm run prove && npm run lint && npm run perlc",
     "test:lang": "npm run test:lang:common && npm run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",

@@ -114,6 +114,15 @@ import_prod_data:
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
 
+#--------#
+# Checks #
+#--------#
+
+front_lint:
+	COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
+
+checks: front_lint
+
 #------------#
 # Production #
 #------------#
