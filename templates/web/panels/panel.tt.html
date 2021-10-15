@@ -68,7 +68,7 @@
         <hr class="floatclear">
     </a>
 
-    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content" style="clear:left;margin-top:1rem;">
+    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.expanded == "yes" OR panel.expanded == "always" %] active[% END %]" style="clear:left;margin-top:1rem;">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        
@@ -85,9 +85,30 @@
                 [% END %]
             </div>
         [% ELSE %]
+
+            <div style="margin-bottom:0.5rem">
         
             [% IF element_type == "text" %]
                 [% text_element = element_ref.text_element %]
+
+                [% IF text_element.icon_url.defined %]
+                <img src="[% text_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
+                    [% IF text_element.icon_color_from_evaluation %]
+                        [% IF text_element.evaluation == "good" %]
+                            class="filter-green"
+                        [% ELSIF text_element.evaluation == "bad" %]
+                            class="filter-red"
+                        [% ELSIF text_element.evaluation == "average" %]
+                            class="filter-darkorange"                 
+                        [% ELSIF text_element.evaluation == "neutral" %]
+                            class="filter-grey"
+                        [% ELSIF text_element.evaluation == "unknown" %]
+                            class="filter-grey"
+                        [% END %]    
+                    [% END %]
+                >
+                [% END %]
+
                 [% IF text_element.type == "h1" %]
                     <h4>
                 [% ELSIF text_element.type == "note" %]
@@ -100,6 +121,10 @@
                     </h4>
                 [% ELSE %]
                     </div>
+                [% END %]
+
+                [% IF text_element.icon_url.defined %]
+                <hr class="floatclear">
                 [% END %]
 
             [% ELSIF element_type == "image" %]
@@ -159,7 +184,9 @@
                         [% END %]
                     </tbody>
                 </table>
-            [% END %]            
+            [% END %]
+            
+            </div>
 
         [% END %]
     [% END %]

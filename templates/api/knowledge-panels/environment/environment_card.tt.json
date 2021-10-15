@@ -22,13 +22,17 @@
                 "panel_ids": ["carbon_footprint"],
             },
         },
+        [% IF panel.packaging_recycling %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('packaging') %]",
-                "panel_ids": ["ecoscore_packaging"],
+                "title": "[% lang('ecoscore_packaging') %]",
+                "panel_ids": [
+                    "packaging_recycling"
+                ],
             },
         },
+        [% END %]   
         [% IF panel.palm_oil %]
         {
             "element_type": "panel_group",
