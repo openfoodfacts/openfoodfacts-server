@@ -1141,6 +1141,14 @@ $options{nova_groups_tags} = {
 	"additives/en:e181" => 4, #Tannin
 	"additives/en:e182" => 4, #Orcein
 
+	# emulsifiers
+	"additives/en:e322" => 4, # Lecithins
+	"additives/en:e325" => 4,
+	"additives/en:e326" => 4,
+	"additives/en:e327" => 4,
+	"additives/en:e328" => 4,
+	"additives/en:e329" => 4,
+
 	# flavour enhancers
 
 	"additives/en:e620" => 4, #Glutamic acid, L(+)-

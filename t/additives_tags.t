@@ -52,6 +52,8 @@ my @tests = (
 
 [ { lc => "fr", ingredients_text => "acide citrique E-330, E-102 tartrazine" }, ["en:e330","en:e102"]],
 
+[ { lc => "es", ingredients_text => "lecitina de girasol" }, ["en:e322i"]],
+
 );
 
 foreach my $test_ref (@tests) {
