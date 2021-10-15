@@ -165,8 +165,13 @@ function copyImages() {
     pipe(dest("./html/css/dist"));
 }
 
-async function buildAll() {
-   await parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, attributesIcons, css));
+function buildAll() {
+  return new Promise(
+    parallel(
+      copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes,
+      series(icons, attributesIcons, css)
+    )
+  );
 }
 
 function watchAll () {
