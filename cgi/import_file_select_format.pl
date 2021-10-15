@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -173,6 +174,22 @@ if ($action eq "display") {
 	$template_data_ref->{selected_columns_count} = $selected_columns_count;
 	$template_data_ref->{field_on_site} = $field_on_site;
 	$template_data_ref->{file_id} = $file_id;
+
+	# List of all languages for the template to display a dropdown for fields that are language specific
+	# Main language
+	my @lang_options;
+	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
+
+	my %lang_labels = ();
+	foreach my $l (@lang_values) {
+		next if (length($l) > 2);
+		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
+		push(@lang_options, {
+			value => $l,
+			label => $lang_labels{$l},
+		});
+	}
+	$template_data_ref->{lang_options} = \@lang_options;
 
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html', $template_data_ref, \$html);
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
