@@ -4913,13 +4913,13 @@ sub extract_ingredients_classes_from_text($) {
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 
 						if (($product_ref->{lc} eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
-							# soy lecithin -> lecithin
+							# soy-lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
 						elsif ((($product_ref->{lc} eq 'es') or ($product_ref->{lc} eq 'fr'))
 							 and ($ingredient_id_copy =~ /-([^-]+)$/)) {
-							# lecitina de girasol -> lecitina de -> lecitina
-							# lécithine de soja -> lécithine de -> lécithine
+							# lecitina-de-girasol -> lecitina-de -> lecitina
+							# lecithine-de-soja -> lecithine-de -> lecithine
 							$ingredient_id_copy = $`;
 						}
 						else {
