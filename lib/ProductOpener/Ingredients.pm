@@ -4911,6 +4911,7 @@ sub extract_ingredients_classes_from_text($) {
 						and (not $spellcheck)) {
 
 						# try to shorten the ingredient to make it less specific, to see if it matches then
+						# in last resort, try with the first (in French, Spanish) or last (in English) word only
 
 						if (($product_ref->{lc} eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 							# soy-lecithin -> lecithin
