@@ -22495,14 +22495,15 @@ es:vino Pedro Ximenez
 # en:pedro ximenez wine has 3 products in spanish @2021-08-14
 
 <en:wine
+en:natural sweet wine
 fr:vin doux naturel
 
-<en:wine
-en:organic wine
-fi:luomuviini, luomu viini
-fr:vin biologique
-hu:bio bor
-nl:biologische wijn
+#<en:wine
+#en:organic wine
+#fi:luomuviini, luomu viini
+#fr:vin biologique
+#hu:bio bor
+#nl:biologische wijn
 # 2019-05-29
 
 <en:wine
@@ -37581,6 +37582,11 @@ de:rote Früchte
 es:frutos rojos
 fr:Fruits rouges, fruit rouge
 nl:rode vruchten
+pt:frutas vermelhas
+ciqual_food_code:en:13997
+ciqual_food_name:en:Red berries (raspberries, strawberries, red currants, black currants) , raw
+ciqual_food_name:fr:Fruits rouges, crus (framboises, fraises, groseilles, cassis)
+#461 in 8 @2021-10-15
 
 <en:fruit
 en:vine fruit, mixed vine fruit
@@ -43802,10 +43808,12 @@ ciqual_food_name:fr:Melon miel ou melon honeydew, pulpe, cru
 #                                Papaya
 #
 ###################################################################################################
+
+#category/papayas
 <en:fruit
 en:papaya, papaw, pawpaw
 af:papaja
-ak:Bofr3
+ak:bofr3
 am:ፓፓያ
 ar:ببايا
 az:papayya
@@ -43941,6 +43949,15 @@ ciqual_food_name:fr:Papaye, pulpe, crue
 #it:papaya secchi
 #nl:gedroogde papaya
 #28 in 6 @2021-10-15
+
+<en:papaya
+fr:papaye rouge
+
+<en:papaya
+fr:papaye verte
+
+<en:papaya
+fr:Aiguillettes de papaye
 
 <en:papaya
 en:candied papaya
@@ -84879,17 +84896,52 @@ ca:sofregit
 de:Sofrito
 es:sofrito
 
+#<en:Plant-based spreads
+#category/Hummus
 en:hummus, houmous
-da:hummus
-de:hummus
-es:hummus
+ar:حمص بطحينة
+az:humus
+be:хумус
+bg:хумус
+bn:হুম্মুস
+br:houmous
+cy:hwmws
+de:Hummus
+el:χούμους
+eo:kikerkaĉo
+fa:حمص
 fr:houmous, hummus
-nl:hummus
-pl:hummus
+he:חומוס
+hi:हुम्मुस
+hu:hummusz
+hy:հումուս
+ja:フムス
+ka:ჰუმუსი
+kn:ಹುಮುಸ್
+ko:훔무스
+ku:humûs
+lt:humusas
+mk:хумус
+ml:ഹമ്മൂസ്
+ne:हम्मस
+pa:ਹੰਮਸ
 ro:hummus, humus
-sv:hummus
+ru:хумус
+sr:хумус
+th:ฮัมมัส
+tl:humus
+tr:humus
+uk:хумус
+ur:حمص
+xx:hummus
+zh:鹰嘴豆泥
+# ca, cs, da, es, et, fi, it, nl, nn, pl, sv, af, an, ast, ceb, eu, frr, gl, id, is, jv, ms, oc, sq, vi
 wikidata:en:Q241987
 wikipedia:en:https://en.wikipedia.org/wiki/Hummus
+ciqual_food_code:en:25621
+ciqual_food_name:en:Hummus
+ciqual_food_name:fr:Houmous
+
 
 en:falafel
 de:falafel
