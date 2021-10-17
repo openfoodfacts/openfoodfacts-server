@@ -55028,98 +55028,105 @@ fr:extrait de pois
 # chickpea parent is NOT pea
 <en:legume
 en:chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
+af:kekerertjie
 am:ሽምብራ
 ar:حمص شائع
-az:Qoyunnoxudu
+as:বুট
+az:qoyunnoxudu
 be:нут культурны
 bg:нахут
 bn:ছোলা
-bs:Leblebija
-ca:cigrn,cigrons
+bs:leblebija
+ca:cigron, cigrons
 cs:cizrna beraní
-cy:Gwygbysen gwygbys
-da:kikærter
+cy:gwygbysen, gwygbys
+da:kikært, kikærter
 de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
-el:ρεβίθι, Ρεβιθιά
+el:ρεβίθι, ρεβιθιά, ρεβύθι
 es:garbanzo, garbanzos, garbanzo beans,arvejas
 et:kikerhernes
-eu:Txitxirio
+eu:txitxirio
 fa:نخود
-fi:kikherne
+fi:kikherne, kahviherne
 fr:pois chiche, pois chiches
-ga:Piseánach
-gl:Garavanzo
+ga:piseánach
+gl:garavanzo
 gu:ચણા
 he:חמצה
 hi:चना
-hr:Slanutak
-hu:Csicseriborsó
+hr:slanutak
+hu:csicseriborsó
 id:kacang arab
-io:Garbanzo
-is:Kjúklingabaun
-it:ceci
+io:garbanzo
+is:kjúklingabaun
+it:cece, ceci
 ja:ヒヨコマメ
-kk:Нұт
+jv:Coklat, kacang polong
+kk:нұт
 kn:ಕಡಲೆ
 ko:병아리콩
-ku:Nok
-lb:Käicher
+ku:nok
+lb:käicher
 lt:avinžirniai
 lv:auna zirņi
 mk:леблебија
 ml:കടല
-ms:Kacang kuda
+ms:kacang kuda
 nb:kikert
 ne:चना
 nl:kikkererwt, kikkererwten
 nn:kikert
-oc:Céser
+oc:céser
 or:ଚଣା
 pa:ਛੋਲੇ
-pl:Ciecierzyca
+pl:ciecierzyca
 ps:نخود
-pt:Grão-de-bico, grãos-de-bico
-ro:Năut
+pt:grão-de-bico, grãos-de-bico
+ro:năut
 ru:нут
 sa:चणकः
-sh:Slanutak
+sh:slanutak
 si:කඩල
-sl:Čičerika
-so:Shunburo
-sq:Qiqra
-sr:леблебија
+sl:čičerika
+so:shunburo
+sq:qiqra
+sr:леблебија, Leblebija
 sv:kikärt, kikärter, kikärtor
-sw:Mnjegere mkubwa
+sw:mnjegere mkubwa
 ta:கொண்டைக் கடலை
 te:శనగలు
-tg:Нахӯд
+tg:нахӯд
 th:ถั่วหัวช้าง
-tl:Garbansos
+tl:garbansos
 tr:nohut
-tt:Бәрән ногыты
+tt:бәрән ногыты
 uk:нут
 ur:چنا
-vi:Đậu gà
-wa:Poes d' souke
+vi:đậu gà
+wa:poes d' souke
 yi:נאהיט
 zh:鹰嘴豆
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
 # bho:चना
-# ceb:Garbanso
+# ceb:garbanso
 # ckb:نۆک
-# diq:Nehe
+# diq:nehe
 # glk:نخۊت
 # gsw:Kichererbse
-# lbe:НухутӀ хъюрув
-# nap:Cicero
+#kab:Ikiker
+# lbe:нухут, хъюрув
+#lij:çeixao
+# nap:cicero
 # pnb:چنا
-# scn:Cìciru
+# scn:cìciru
 # sco:chickpea
+#wuu:鹰嘴豆
 # yue:三角豆
-# wikidata:en:Q81375 # this is actually the plant ont the legume
+# wikidata:en:Q81375 # this is actually the plant not the legume
+wikidata:en:Q33832605
 wikipedia:en:https://en.wikipedia.org/wiki/Chickpea
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
@@ -55130,72 +55137,117 @@ en:pedrosillano chickpeas
 ca:cigrons pedrosillanos
 de:Pedrosillano Kichererbsen
 es:Garbanzos pedrosillanos
+nl:pedrosillano kikkererwten
+#3 in es @2021-10-16
 
-# This is the plant, not the peas themselves
-
-<en:chickpea
-en:Cicer arietinum
-de:Cicer arietinum
-la:Cicer arietinum
-
-<en:chickpea
-en:organic chickpea
-fi:luomukikherne, luomu kikherne
-fr:Pois chiches biologiques
+#<en:chickpea
+#en:organic chickpea
+#fi:luomukikherne, luomu kikherne
+#fr:Pois chiches biologiques
 #10@2019-06-12
 
 <en:chickpea
 fr:pois chiches précuits
 
 # <en:compound
+#processing:en: en:cooked
 <en:chickpea
-en:cooked chickpeas
+en:cooked chickpeas, boiled chickpeas
+cs:vařená cizrna
 da:kogte kikærter
 de:gekochte Kichererbsen, Kichererbsen gekocht
 es:garbanzos cocidos
 fi:keitetty kikherne
 fr:pois chiches cuits
 nl:gekookte kikkererwten
+nn:Kogte kikærter
+pl:ciecierzyca gotowana
 pt:Grão-de-bico cozido
 ro:năut fiert
 sv:kokta kikärter
-# ingredient/fr:pois-chiches-cuits has 80 products @2019-02-14
-# garbanzos cocidos (agua, garbanzos)
 ciqual_food_code:en:20507
 ciqual_food_name:en:Chick pea, cooked
 ciqual_food_name:fr:Pois chiche, cuit
+# 594 @2021-10-15
 
 <en:chickpea
+en:soaked chickpeas
+da:udblødte kikærter
+de:gequellte Kichererbsen
+es:garbanzos remojados
+fr:Pois chiches trempés dans l'eau
+nl:gewelde kikkererwten
+pl:namoczona ciecierzyca
+
+<en:chickpea
+en:dried chickpea
 fr:pois chiche secs
+ciqual_food_code:en:20516
+ciqual_food_name:en:Chick pea, dried
+ciqual_food_name:fr:Pois chiche, sec
+#204 @2021-10-15
 
 <fr:pois chiche secs
-fr:pois chiches secs trempés, pois chiches trempés dans l'eau
-nl:geweekte droge kikkererwten, gewelde kikkererwten
-# ingredient/fr:pois-chiches-secs-trempés has 51 products in 2 languages @2019-02-14
+fr:pois chiches secs trempés
+nl:geweekte droge kikkererwten
+# 77 in 2 languages @2021-10-15
 
 <fr:pois chiche secs
+en:rehydrated chickpeas
 fr:pois chiches réhydratés
 de:rehydrierte Kichererbsen
 it:ceci reidratati
-# ingredient/fr:poi-chiches-réhydratés has 55 products in 4 languages @2019-02-15
+#110 in 4 languages @2021-10-15
 
+#category/chickpea flours
 <en:chickpea
 <en:flour
-en:chickpea flour, chick pea flour, gram flour
-ca:farina de cigro
+en:chickpea flour, chick pea flour, gram flour, garbanzo bean flour
+ar:طحين حمص
+bn:বেসন
+ca:farina de cigro, farina de cigrons
 da:kikærtemel
 de:Kichererbsenmehl
+el:ρεβυθάλευρο
+eo:kikerfaruno
 es:harina de garbanzo
+eu:txitxirio-irin
+fa:آرد نخودچی
 fi:kikhernejauho
 fr:farine de pois chiche, farine de pois chiches
-it:Farina di ceci
-nl:kikkererwtenmeel
+gu:ચણાનો લોટ
+he:קמח חומוס
+hi:बेसन
+it:farina di ceci
+ja:ベサン
+jv:glepung gram
+kn:ಕಡಲೆ ಹಿಟ್ಟು
+ko:베산
+ml:കടലമാവ്
+mr:बेसन
+nl:kikkererwtenmeel, besan, gram-meel
+nn:kikertmel
+pa:ਬੇਸਨ
+pl:mąka z ciecierzycy
+sa:चणकपिष्टम्
+sk:mleté cicerové bôby
+sl:čičerikina moka
 sv:kikärtsmjöl
+ta:கடலை மாவு
+te:ఉఇగ్య్ర్త్యె
+ur:بیسن یا چنے کا آٹا
+zh:鷹嘴豆粉
+#bho:बेसन
+#mai:बेसन
 wikidata:en:Q651829
 wikipedia:en:https://en.wikipedia.org/wiki/Gram_flour
 ciqual_food_code:en:9580
 ciqual_food_name:en:Chick pea flour
 ciqual_food_name:fr:Farine de pois chiche
+#1086 in 17 @2021-10-16
+
+<en:chickpea flour
+en:besan
 
 <en:pea
 en:green peas

@@ -3032,6 +3032,11 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
+nl => [
+'INGREDIENSER',
+],
+
+
 pl => [
 'SKŁADNIKI(\s*)',
 ],
@@ -3051,6 +3056,10 @@ si => [
 sv => [
 'INGREDIENSER',
 'INNEHÅLL(ER)?',
+],
+
+uz => [
+'ІHГРЕДІЄНТИ',
 ],
 
 uz => [
