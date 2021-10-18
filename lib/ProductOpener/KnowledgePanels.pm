@@ -278,7 +278,8 @@ sub create_panel_from_json_template ($$$$$$) {
         # Note: this will fail if the string ends with a digit.
         # As it is a trailing comma inside a string, it's not a terrible issue, the string will be valid,
         # but it will have an unneeded trailing comma.
-        $panel_json =~ s/(?<!("|'|\]|\}|\d))\s*,\s*"/"/g;
+        # The group (\W) at the end is to avoid removing commas before an opening quote (e.g. for "field": true, "other_field": ..)
+        $panel_json =~ s/(?<!("|'|\]|\}|\d))\s*,\s*"(\W)/"$2/g;
 
         # Remove trailing commas after the last element of a array or hash, as they will make the JSON invalid
         # It makes things much simpler in templates if they can output a trailing comma though
@@ -505,9 +506,17 @@ sub create_environment_card_panel($$$) {
         create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
         
-        # Tell the template to include the palm_oil panel
+        # Tell the environment card template to include the palm_oil panel
         $panel_data_ref->{palm_oil} = 1;
     }
+
+    # Create panel for packaging recycling
+    create_panel_from_json_template("packaging_recycling", "api/knowledge-panels/environment/packaging_recycling.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        
+    # Tell the environment card template to include packaging recycling panel
+    $panel_data_ref->{packaging_recycling} = 1;
+   
 
     # Create the environment_card panel
     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
