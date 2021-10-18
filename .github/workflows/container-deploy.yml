@@ -175,7 +175,7 @@ jobs:
           cd ${{ matrix.env }}
           make prune
 
-    - uses: frankie567/grafana-annotation-action@v1.0.2
+    - uses: frankie567/grafana-annotation-action@v1.0.3
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org
