@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create writable dirs and change ownership to www-data
-for path in " " users products product_images orgs new_images logs; do
+for path in " " users products product_images orgs new_images logs debug; do
   mkdir -p /mnt/podata/${path}
   chown www-data:www-data /mnt/podata/${path}
 done

@@ -19,6 +19,8 @@ volumes:
     external: true
   product_images:
     external: true
+  debug:
+    external: true
 
 networks:
   webnet:
