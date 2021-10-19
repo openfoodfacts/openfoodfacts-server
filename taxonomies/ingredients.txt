@@ -18023,42 +18023,6 @@ wikidata:en:Q715160
 en:arrowroot, arrowroot power, arrowroot starch, arrowroot flour
 de:Pfeilwurzelstärke, Pfeilwurzelmehl
 
-# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
-
-<en:starch
-en:tapioca starch, tapioca, manioc starch
-cs:tapiokový škrob
-da:tapiokastivelse, tapiocastivelse
-de:Tapiocastärke, Tapiokastärke, Maniokstärke
-el:άμυλο ταπιόκαζ, Ταπιόκα
-es:almidón de tapioca, almidón de mandioca
-fi:tapiokatärkkelys
-fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc
-hu:tápiókakeményítő
-it:amido di tapioca
-ja:タピオカ
-nb:tapiokastivelse, tapioka
-nl:tapiocazetmeel, tapioca zetmeel
-pl:Tapioka
-sk:tapiokový škrob
-sv:tapiokastärkelse, tapioka
-wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
-
-<en:modified starch
-<en:tapioca starch
-en:modified tapioca starch, modified manioc starch
-da:modificeret tapiokastivelse
-de:modifizierte Tapiokastärke
-es:almidón modificado de tapioca,almidón modificado de mandioca
-fi:muunnettu tapiokatärkkelys
-fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
-hu:módosított tápiókakeményítő
-it:amido modificato di tapioca
-nb:modifisert tapiokastivelse
-nl:gemodificeerd tapiocazetmeel
-pl:Skrobia modyfikowana z tapioki
-pt:amido modificado de tapioca
-sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
 
 <en:starch
 # <en:wheat
@@ -29011,20 +28975,6 @@ description:de:Maronenmehl wird aus getrockneten und geschälten Kastanien herge
 description:en:Chestnuts can be dried and milled into flour, which can then be used to prepare breads, cakes, pies, pancakes, pastas, polenta, or used as thickener for stews, soups, and sauces.
 # 7 in 3 @2021-09-02
 
-# Is this the same as tapioca starch?
-
-<en:flour
-en:tapioca flour
-da:Tapiocamel
-de:Tapiokamehl
-es:Harina de tapioca
-fi:tapiokajauho
-fr:farine de tapioca, farine de manioc
-hu:tápiókaliszt, maniókaliszt
-it:Farina di tapioca
-nl:tapiocameel
-pt:Farinha de tapioca
-nutriscore_fruits_vegetables_nuts:en:no
 
 
 <en:flour
@@ -51816,14 +51766,205 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 nutriscore_fruits_vegetables_nuts:en:no
 
+#comment:en: pit tapioka-related translations under en:tapioc starch
 <en:root vegetable
 en:cassava, cassava root, manioc, manioc root, yuca, yuca root
-de:Maniok
+af:broodwortel
+ak:bankyi
+ar:بفرة
+az:maniok
+be:маніёк
+bg:маниока
+bi:maniok
+bm:banaku
+bn:শিমুল আলু
+ca:iuca
+cs:maniok jedlý
+da:kassava, cassava, maniok
+de:Maniok, Cassave
+el:κασάβα
+ee:agbeli
+eo:manioko
+es:cassava
+eu:manioka
+fa:مانیوک
+fi:maniokki, kassava
 fr:manioc, racine de manioc
+#frr:maniok
+ga:casabhach
+gl:mandioca
+gn:mandi'o
+gu:મોગો
+ha:rogo
+he:מניהוט מצוי
+hr:manioka
+ht:manyòk dous
+hu:manióka
+id:singkong
+io:manioko
+is:kassavarót
+it:manioca
+ja:キャッサバ
+jv:ketéla pohung
+kg:mandioko
+ki:mĩanga
+kn:ಮರಗೆಣಸು
+ko:카사바
+la:manihot esculenta, mandioca
+ln:manyɔ́kɔ
+lt:valgomasis manijokas
+lv:manioka
+mg:mangahazo
+ml:മരച്ചീനി
+ms:ubi kayu
+my:ပီလောပီနံ
+nb:maniok
+nl:tapioca, maniok
+nn:kassava, maniokrot
+ny:chinangwa
+oc:manioc
+pl:kassawa
 pt:mandioca
+qu:rumu
+ru:маниок
+sg:gozo
+sh:manioka
+sn:mufarinya
+sl:manioka
+sr:tapioka, тапиока
+su:sampeu
+sv:maniok
+sw:muhogo
+ta:மரவள்ளி
+te:కర్ర పెండలము
+th:มันสำปะหลัง
+tl:kamoteng-kahoy
+to:mānioke
+tr:manyok
+ty:māniota
+uk:маніок
+ur:کاساوا
+vi:sắn
+yi:מאניאק
+yo:ẹ̀gẹ́
+za:moegsawz
+zh:木薯
+#ban:kaséla
+#bcl:balinghoy
+#bjn:jawaw
+#ceb:kamoteng kahoy
+#csb:jôdny maniok
+#dag:banchi
+#din:bafora
+#dsb:pšawy maniok
+#hsb:prawy maniok
+#ilo:balinghoy
+#mad:sabbhrâng
+#min:ubi parancih
+#nah:cuauhcamohtli
+#nan:chhiū-chî
+#nia:gowirio
+#sco:cassava
+#war:bilanghoy
+#wuu:木薯
+#yue:木薯
 nutriscore_fruits_vegetables_nuts:en:no
 wikidata:en:Q43304555
 wikipedia:en:https://en.wikipedia.org/wiki/Cassava
+ciqual_food_code:en:54031
+ciqual_food_name:en:Cassava or manioc, roots, raw
+ciqual_food_name:fr:Manioc, racine crue
+#650 in 10 @2021-10-18
+
+<en:flour
+<en:cassave
+en:cassave flour
+de:Maniokmehl
+fr:farine de manioc
+hu:maniókaliszt
+nl:maniokmeel
+nn:kassavamel
+sv:maniokmjöl
+nutriscore_fruits_vegetables_nuts:en:no
+
+# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
+
+<en:starch
+en:tapioca, tapioca starch, manioc starch
+ar:تابيوكا
+bg:тапиока
+ca:tapioca
+cs:tapioka, tapiokový škrob
+da:tapioca, tapiokastivelse, tapiocastivelse 
+de:Tapioka, Tapiocastärke, Tapiokastärke, Maniokstärke
+el:ταπιόκα, άμυλο ταπιόκαζ
+eo:tapioko
+es:tapioca, almidón de tapioca, almidón de mandioca
+eu:tapioka
+fa:تاپیوکا
+fi:tapioka, tapiokatärkkelys
+fr:tapioca, amidon de tapioca, fécule de tapioca, amidon de manioc, fécule de manioc
+ga:taipióca
+he:טפיוקה
+hu:tápióka, tápiókakeményítő
+id:tapioka
+io:tapiokao
+it:tapioca, amido di tapioca
+ja:タピオカ
+jv:tapioka
+kk:тапиока, tapïoka, تاپىيوكا
+ko:타피오카
+mt:tapjoka
+nb:tapioka, tapiokastivelse
+nl:tapiocazetmeel, tapioca zetmeel, tapioca
+nn:tapioka
+pl:tapioka
+pt:tapioca
+ru:тапиока
+sk:tapiokový škrob
+sl:tapioka
+su:tapioka
+sv:tapioka, tapiokastärkelse
+uk:тапіока
+vi:bột năng
+zh:木薯根淀粉
+#lfn:tapioca
+wikidata:en:Q873761
+wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
+
+<en:modified starch
+<en:tapioca starch
+en:modified tapioca starch, modified manioc starch
+da:modificeret tapiokastivelse
+de:modifizierte Tapiokastärke
+es:almidón modificado de tapioca,almidón modificado de mandioca
+fi:muunnettu tapiokatärkkelys
+fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
+hu:módosított tápiókakeményítő
+it:amido modificato di tapioca
+nb:modifisert tapiokastivelse
+nl:gemodificeerd tapiocazetmeel
+pl:Skrobia modyfikowana z tapioki
+pt:amido modificado de tapioca
+sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
+
+# Is this the same as tapioca starch?
+
+<en:flour
+<en:tapioca
+en:tapioca flour
+da:Tapiocamel
+de:Tapiokamehl
+es:harina de tapioca
+fi:tapiokajauho
+fr:farine de tapioca, fécule de tapioca
+hu:tápiókaliszt
+it:Farina di tapioca
+nl:tapiocameel
+nn:kassavamel, tapiokamel
+pt:Farinha de tapioca
+sv:tapiokamjöl
+nutriscore_fruits_vegetables_nuts:en:no
 
 # description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
 # In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
@@ -79986,14 +80127,21 @@ ciqual_food_name:fr:Préparation pour pâte à pizza
 #<en:compound
 <en:pizza dough
 en:pizza base
+cs:korpus pizzy
 de:Pizzaboden
 fi:pizzapohja
 fr:fond de pizza
+hu:pizzalap
+it:fondo per pizza
 nl:pizzabodem
+pl:spód do pizzy
+sk:pizzové cesto
 sv:pizzabotten
 likely_allergens:en: en:gluten
-# 93 in 5 languages @2021-09-26
-# mainIngredient:en:wheat flour
+ciqual_food_code:en:37001
+ciqual_food_name:en:Pizza base, raw
+ciqual_food_name:fr:Pâte à pizza crue
+# 93 in 5 @2021-09-26
 
 <en:dough
 en:inactive dough
@@ -84062,10 +84210,11 @@ sv:nuoc mam
 vi:Nước mắm
 wikidata:en: Q18456374
 wikipedia:fr:https://fr.wikipedia.org/wiki/Nuoc-mâm
+ciqual_food_code:en:11194
+ciqual_food_name:en:Nuoc mam sauce or fish sauce, prepacked
+ciqual_food_name:fr:Sauce Nuoc Mâm ou Sauce au poisson, préemballée
 # category:fr:sauces-nuoc-mam
-# ingredient/fr:sauce-nuoc-mam has 159 products in 3 languages @2019-04-30
-# ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
-# usage:fr:nuoc mâm (sauce poisson) (poisson, sel, eau)
+# 260 in 7 @2021-10-18
 
 
 #en:category:en:Soy sauces
