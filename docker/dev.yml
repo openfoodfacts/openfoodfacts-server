@@ -8,6 +8,8 @@ services:
       target: runnable
     volumes:
       - ./:/opt/product-opener # mount local folder for reload on dev changes
+      # we use this for debugging, from times to times
+      - ./debug:/mnt/podata/debug/
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
@@ -47,3 +49,4 @@ volumes:
   users:
   products:
   orgs:
+  podata:
