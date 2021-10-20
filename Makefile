@@ -28,7 +28,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data refresh_product_tags
+dev: hello init_backend up setup_incron import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -87,6 +87,21 @@ log:
 tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
+
+
+#----------#
+# Services #
+#----------#
+rebuild_language:
+	@echo "🥫 Rebuild language"
+	# Run build_lang.pl
+	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+
+reset_owner:
+	@echo "🥫 reset owner"
+	${DOCKER_COMPOSE} run --rm --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata
+
+init_backend: rebuild_language
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"

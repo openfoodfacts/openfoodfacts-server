@@ -56,7 +56,6 @@ cd openfoodfacts-server/
 Before running the `docker-compose` deployment, you can review and configure
 Product Opener's environment ([`.env`](../.env) file).
 
-
 The `.env` file contains ProductOpener default settings:
 * `PRODUCT_OPENER_DOMAIN` can be set to different values based on which **OFF flavor** is run.
 * `PRODUCT_OPENER_PORT` can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. Default port: `80`.
@@ -81,6 +80,13 @@ The `.env` file also contains some useful Docker Compose variables:
 * `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
 
 **Note:** you can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
+This works only for make commands,
+if you want to use docker-compose directly use `docker-compose --env-file=${ENV_FILE}`
+Also you may use an alias : `alias docker-compose='docker-compose --env-file=${ENV_FILE:-.env}'`
+(eventually add it to your `.bashrc`, it won't hurt)
+
+It is strongly advised to do so to avoid commiting your local env changes accidentaly.
+On linux and macOS, you may [use direnv](./use-direnv.md).
 
 ## 4. Build your dev environment
 
