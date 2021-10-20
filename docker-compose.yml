@@ -35,7 +35,6 @@ services:
       - postgres
     volumes:
       - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
-      - product_images:/opt/product-opener/html/images/products # Images are written by the backend
 
       # Binds from frontend container (read-only)
       - icons_dist:/opt/product-opener/html/images/icons/dist:ro
@@ -46,8 +45,9 @@ services:
       # Users, products, product images and orgs files
       - users:/mnt/podata/users # .sto
       - products:/mnt/podata/products # .sto
-      - product_images:/mnt/podata/product_images # .jpg
       - orgs:/mnt/podata/orgs # .sto
+      # images are directly in html hierarchy
+      - product_images:/opt/product-opener/html/images/products # .jpg
 
       # Logs
       - ./logs/apache2:/var/log/apache2
