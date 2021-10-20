@@ -3,6 +3,7 @@
 NAME = "ProductOpener"
 ENV_FILE ?= .env
 MOUNT_POINT ?= /mnt
+DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
@@ -128,11 +129,14 @@ checks: front_lint
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
+	# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
+	# local data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/po_data po_data
 
 #---------#
 # Cleanup #
