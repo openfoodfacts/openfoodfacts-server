@@ -65,14 +65,17 @@ function init_select_field_option(col) {
 			[% FOREACH language IN lang_options %]
                 select += '<option value="[% language.value %]">[% language.label %]</option>';
             [% END %]
+			select += '</select>';
 			\$("#select_field_option_" + col).html(select);
 
+			// set selected value from default language, or field language
 			var selected_lc = '[% lc %]';
 			if (columns_fields[column]["lc"]) {
 				selected_lc = columns_fields[column]["lc"];
 			}
 			\$('#select_field_option_lc_' + col).val(selected_lc);
 
+			// setup a select2 widget
 			\$('#select_field_option_lc_' + col).select2({
 				placeholder: "[% lang('specify') %]"
 			}).on("select2:select", function(e) {
