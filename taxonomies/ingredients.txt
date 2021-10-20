@@ -62675,94 +62675,99 @@ ciqual_food_name:fr:Laurier, feuille
 # description:en:CHIVES, scientific name Allium schoenoprasum, are an edible species of the genus Allium
 
 <en:root vegetable
-en:chives
-af:Sprietui
+en:chives, chive
+af:sprietui
 am:ቀጭን ሽንኩርት
 ar:ثوم معمر
-az:Mala soğanı
-be:Цыбуля скарада
-bg:Сибирски лук
+az:mala soğanı
+be:цыбуля скарада
+bg:сибирски лук
 bo:ཀེའུ།
-bs:Vlasac
+bs:vlasac
 ca:cibulet
-cs:pažitka pobřežní
-cy:Cenhinen syfi
+cs:pažitka, pažitka pobřežní
+cy:cenhinen syfi
 da:purløg
 de:Schnittlauch
-el:Άλλιον το σχοινόπρασον
-eo:Ŝenoprazo
-es:cebollino
-et:Murulauk
-eu:Tipulin
+el:πρασουλίδα, σχοινόπρασο, άλλιον το σχοινόπρασον
+eo:ŝenoprazo
+es:cebollino, cebollinos
+et:murulauk
+eu:tipulin
 fa:پیاز کوهی
-fi:ruohosipuli, ruohosipulia
+fi:ruohosipuli, ruohosipulia, käärmeenlaukka
 fr:ciboulette
-ga:Síobhas
-gl:Ceboliño
-gv:Shoushan
+ga:síobhas
+gl:ceboliño
+gv:shoushan
 he:שום העירית
-hr:Vlasac
-hu:Metélőhagyma
-id:Lokio
-is:Graslaukur
-it:cippolina
+hr:vlasac
+hu:metélőhagyma
+id:lokio
+is:graslaukur
+it:cippolina, aglio d'india
 ja:チャイブ
-jv:Lokio
-kk:Шалғын жуа
+jv:lokio
+kk:шалғын жуа
 ko:차이브
-la:Allium schoenoprasum
-lb:Bratzel
-li:Bieslouk
-lt:Laiškinis česnakas
-lv:maurloki
+la:allium schoenoprasum
+lb:bratzel
+li:bieslouk
+lt:laiškinis česnakas
+lv:maurloks, maurloki
 mk:власец
 ml:ചൈവ്സ്
-nb:Grasløk
+nb:grasløk
 nl:bieslook
-nn:Graslauk
-oc:Ceboleta
-pl:czosnek szczypiorek
+nn:graslauk
+oc:ceboleta
+pl:szczypior, czosnek szczypiorek
 pt:cebolinho
-ro:Arpagic
-ru:Лук скорода
-sk:Pažítka
-sl:Drobnjak
+ro:arpagic
+ru:лук скорода
+sk:pažítka
+sl:drobnjak
 sv:gräslök
 ta:இனப்பூண்டு
-tr:Yaprak soğanı
-uk:Цибуля-різанець
+tr:yaprak soğanı
+uk:цибуля-різанець
 ur:ثوم معمر
-vi:Hành tăm
-wa:Brele
+vi:hành tăm
+wa:brele
 zh:蝦夷蔥
-# ang:Secglēac
-# csb:Łëczk
-# de-ch:Schnittlauch
-# dsb:Cybulinka
+# ang:secglēac
+# csb:łëczk
+# de-ch:schnittlauch
+# dsb:cybulinka
 # en-ca:chives
 # en-gb:chives
-# hsb:Słódny kobołkht:Siv
-# nds-nl:Kreilook
-# pam:Chives
-# pcd:Chiboléte
+# hsb:słódny kobołkht:siv
+# nds-nl:kreilook
+# pam:chives
+# pcd:chiboléte
 # sco:chives
-# szl:Szńitloch
-# vec:Ajo de bisi
+# szl:szńitloch
+# vec:ajo de bisi
 # yue:細香蔥
 # zh-cn:蝦夷蔥
 # zh-hans:蝦夷蔥
 # zh-hant:蝦夷蔥
 # zh-tw:細香蔥
-wikidata:en:Q51148
+#plant: wikidata:en:Q51148
+wikidata:en:Q61046162
 wikipedia:en:https://en.wikipedia.org/wiki/Chives
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/chives/languages
-# 1774 products in 11 languages @2018-10-08
+# 4350 in 20 @2021-10-19
 
 <en:chives
-fr:ciboulette déshydratée
+en:dehydrated chives
+da:tørret purløg
 de:Schnittlauch getrocknet
 fi:kuivattu ruohosipuli
+fr:ciboulette déshydratée
 it:erba cipollina essiccata
+nl:gedroogde bieslook
+nn:tørket gressløk
+pl:szczypiorek suszony
 sv:torkad gräslök
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette-déshydratée
 # 69 products in 3 languages @2018-10-08
@@ -62771,6 +62776,7 @@ sv:torkad gräslök
 en:chive seasoning
 de:Schnittlauch Kräuter
 es:aderezo de cebollino
+#11 @2021-10-19
 
 <en:herb
 de:Borretsch

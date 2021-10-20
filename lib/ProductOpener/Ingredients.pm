@@ -2913,7 +2913,7 @@ pt => [
 ],
 
 ro => [
-'ingrediente',
+'(I|i)ngrediente',
 'compoziţie',
 ],
 
@@ -2934,7 +2934,7 @@ sk => [
 
 sl => [
 'vsebuje',
-'sestavine',
+'(S|s)estavine',
 ],
 
 sq => [
