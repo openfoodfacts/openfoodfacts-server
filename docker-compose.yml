@@ -35,6 +35,7 @@ services:
       - postgres
     volumes:
       - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
+      - product_images:/opt/product-opener/html/images/products # Images are written by the backend
 
       # Binds from frontend container (read-only)
       - icons_dist:/opt/product-opener/html/images/icons/dist:ro
