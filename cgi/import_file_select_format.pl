@@ -36,7 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw(display_taxonomy_tag);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
