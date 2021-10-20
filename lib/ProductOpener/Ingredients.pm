@@ -3067,7 +3067,7 @@ uz => [
 ],
 
 vi => [
-'THANH PHAN',
+'TH(A|À)NH PH(A|Â)N',
 ],
 
 

@@ -26525,9 +26525,11 @@ comment:en:The translations taken from wikipedia need to be checked. They can re
 wikidata:en:Q61665121
 wikipedia:en:https://en.wikipedia.org/wiki/Barley
 allergens:en: en:gluten
+#23663 @2021-10-20
 
 <en:barley
 en:wholemeal barley
+da:fuldkornsbyg
 de:Vollkorngerste
 es:cebada integral
 fi:täysjyväohra
@@ -26535,8 +26537,13 @@ fr:orge complète
 hu:teljes kiőrésű árpa
 it:Orzo integrale
 nl:volkorengerst
+nn:fulkornsbygg
 pl:jeçzmien z pełnego przemiału
 pt:cevada integral
+ciqual_food_code:en:9320
+ciqual_food_name:en:Barley, whole, raw
+ciqual_food_name:fr:Orge entière, crue
+#252 in 12 @2021-10-20
 
 #<en:barley
 #en:chopped barley
@@ -26557,9 +26564,10 @@ ru:хлопья ячменные
 sv:kornflingor
 
 <en:wholemeal barley
+<en:barley flakes
 en:whole grain barley flakes, wholegrain barley flakes
-de:vollkorn-gerstenflocken, vollkorngerstenflocken, Gerstenvollkornflocken
-fi:täysjyväohrahiutale
+de:vollkorn-gerstenflocken, Vollkorngerstenflocken, Gerstenvollkornflocken
+fi:täysjyväohrahiutale, täysjyväohrahiutaleet
 fr:flocons d'orge complète
 sv:fullkornskornflingor
 # ingredient/fr:flocons-d'orge-complete has 16 products in 4 languages @2020-06-08
@@ -50457,44 +50465,75 @@ es:aceite de cebolla
 # description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # comment:en:do not mix green onion with welsh onion
 
+# category/scallions
 # <en:Vegetables
 <en:onion
-en:green onion, scallions, spring onion, Spring onions, Green onions
+en:spring onion, green onion, scallions, spring onions, green onions
 ar:البصل الاخضر
-da:Forårs-Løg
-de:Frühlingszwiebeln
-eo:Askolonio
-es:Cebolla de primavera, Cebolletas tiernas
-et:Roheline sibul
+bg:пресният лук
+ca:ceba tendra, cebeta, ceballot
+cs:jarní cibulka
+da:forårs-løg
+de:Frühlingszwiebel
+el:φρέσκο κρεμμυδακι
+eo:askolonio
+es:cebolla de primavera, cebolletas tiernas
+et:roheline sibul
 fa:پیازچه
-fi:Vihersipuli, vihersipulit
-fr:oignon vert, cébette, oignons de printemps, Oignons verts, Cébettes
-hu:zöldhagyma
-id:Daun bawang
-is:Vorlaukur
-it:Cipollotto
+fi:vihersipuli, vihersipulit
+fr:oignon vert, cébette, oignons de printemps, oignons verts, cébettes, ciboule
+he:בצל ירוק
+hi:हरी प्याज
+hu:zöldhagyma, újhagyma
+hy:Կանաչ սոխ
+id:daun bawang
+is:vorlaukur
+it:cipollotto
 ja:ワケギ
-jv:Loncang
+jv:loncang
+kk:жасыл жуа
 ko:파류
 mr:कांदेपात
-ms:Daun bawang
-nl:lente-ui, bosui, Lenteuitjes
+ms:daun bawang
+nl:lente-ui, bosui, lenteuitjes
 nn:vårlauk
 no:vårløk
+pl:cebulka zielona
 pt:cebolinha
 ru:лук зелёный
-sv:Salladslök
+sk:jarná cibuľka
+sv:salladslök, vårlök
 ta:வெங்காயத்தாள்
 th:หอมต้นเดี่ยว
-tr:Yeşil soğan
-vi:Hành lá
+tr:yeşil soğan
+uk:зелена цибуля
+ug:غول پىياز
+uz:ko'k piyoz
+vi:hành lá
 zh:青蔥
-# sco:Sybae
+# arz:بصل اخضر
+# sco:sybae
 wikidata:en:Q774278
 wikipedia:en:https://en.wikipedia.org/wiki/Scallion
-# ingredient/fr:oignon-vert has 45 products in 6 languages @2018-12-06
-# ingredient/fr:oignons-de-printemps has 47 products @2018-12-06
-# category/scallions has 7 products @2019-05-22
+ciqual_food_code:en:11003
+ciqual_food_name:en:Chive or spring onion, fresh
+ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
+# 3011 @2021-10-20
+
+<en:spring onion
+en:Spring Onion Powder
+ar:مسحوق بصل أخضر
+da:forårsløgspulver
+de:Frühlingszwiebelpulver
+el:φρέσκο κρεμμυδακι σε σκόνη
+es:cebolleta en polvo
+it:cipollotti in polvere
+nl:lente-uipoeder
+nn:vårløkspulver
+sv:vårlökspulver
+
+<en:spring onion
+pl:lyofilizowana cebulka zielona
 
 <en:onion
 en:onion sproute
@@ -50502,8 +50541,8 @@ de:Zwiebelsprosse, Zwiebelsprossen
 es:Germinados de cebolla
 
 <en:green onion
-en:dried spring onion
-de:getrocknete Frühlingszwiebel
+en:dried spring onion, dried green onions
+de:getrocknete Frühlingszwiebel, getrocknete Frühlingszwiebeln
 es:cebolleta deshidratada, cebolleta seca
 fi:kuivattu kevätsipuli
 fr:Oignon de printemps séché
