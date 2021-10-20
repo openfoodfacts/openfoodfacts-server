@@ -88,7 +88,7 @@ services:
       # Node modules
       - node_modules:/opt/product-opener/node_modules
     ports:
-      - ${PRODUCT_OPENER_PORT}:80
+      - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
     networks:
       - webnet
 volumes:

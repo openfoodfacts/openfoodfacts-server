@@ -5,7 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: runnable
+      target: vscode
+      args:
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
     volumes:
       - ./:/opt/product-opener # mount local folder for reload on dev changes
       # we use this for debugging, from times to times
@@ -17,6 +20,9 @@ services:
       context: .
       target: builder
       dockerfile: Dockerfile.frontend
+      args:
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
     command: ["npm", "run", "build:dynamic"]
     volumes:
       # Static dist/ assets (JS, CSS, Icons, Image attributes)
