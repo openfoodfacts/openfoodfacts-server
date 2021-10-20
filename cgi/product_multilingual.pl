@@ -945,7 +945,7 @@ CSS
 
 	$template_data_ref_display->{product_lang_value} = $lang_value;
 	# List of all languages for the template to display a dropdown for fields that are language specific
-	$template_data_ref->{lang_options} = get_languages_options_list($lc);
+	$template_data_ref_display->{lang_options} = get_languages_options_list($lc);
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
