@@ -36,7 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw(display_taxonomy_tag);
+use ProductOpener::Tags qw(%language_fields display_taxonomy_tag);
 use ProductOpener::Web qw(get_languages_options_list);
 
 use Apache2::RequestRec ();
@@ -178,6 +178,7 @@ if ($action eq "display") {
 
 	# List of all languages for the template to display a dropdown for fields that are language specific
 	$template_data_ref->{lang_options} = get_languages_options_list($lc);
+	$template_data_ref->{language_fields} = [ keys %language_fields ];
 
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html', $template_data_ref, \$html);
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);

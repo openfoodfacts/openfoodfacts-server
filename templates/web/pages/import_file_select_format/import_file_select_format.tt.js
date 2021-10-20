@@ -1,61 +1,3 @@
-function initLanguageAdding() {
-	const Lang = lang();
-	const placeholder = Lang.add_language;
-	const languages = convertTranslationsToLanguageList(Lang);
-  
-	const existingLanguages = [];
-	const tabs = document.querySelectorAll('li.tabs:not([data-language="new_lc"]):not(.tabs_new)');
-	// eslint-disable-next-line guard-for-in
-	for (let i = 0; i < tabs.length; ++i) {
-	  existingLanguages.push(tabs[i].dataset.language);
-	}
-  
-	// eslint-disable-next-line no-unused-vars
-	const unusedLanguages = languages.filter(function(value) {
-	  return !existingLanguages.includes(value.id);
-	});
-  
-	$(".select_add_language").select2({
-	  placeholder: placeholder,
-	  allowClear: true,
-	  data: unusedLanguages
-	}).on("select2:select", function (e) {
-	  var lc = e.params.data.id;
-	  var language = e.params.data.text;
-	  add_language_tab(lc, language);
-	  $('.select_add_language option[value=' + lc + ']').remove();
-	  $(this).val("").trigger("change");
-	  var new_sorted_langs = $("#sorted_langs").val() + "," + lc;
-	  $("#sorted_langs").val(new_sorted_langs);
-	});
-  }
-  
-  function convertTranslationsToLanguageList(Lang) {
-	const results = [];
-  
-	// eslint-disable-next-line guard-for-in
-	for (var k in Lang) {
-	  if (k.startsWith('language_')) {
-		const language = convertTranslationToLanguage(Lang, k);
-		if (language) {
-		  results.push(language);
-		}
-	  }
-	}
-  
-	const locale = document.querySelector('html').lang;
-  
-	return results.sort(function (a, b) {
-	  return a.text.localeCompare(b.text, locale);
-	});
-  }
-  
-  function convertTranslationToLanguage(Lang, translation) {
-	const match = translation.match(/^language_([a-z]{2,})$/);
-	if (match) {
-	  return { id: match[1], text: Lang[translation] };
-	}
-  }
 
 var selected_columns = 0;
 var columns = [% columns_json %];
@@ -118,7 +60,7 @@ function init_select_field_option(col) {
 		[% END %]
 
 		// Language specific fields: display a language picker
-		if (field.match(/product_name|generic_name|ingredients_text|packaging_text|instructions/)) {
+		if (field.match(/^([% FOREACH language_field IN language_fields %][% language_field %]|[% END %])\$/)) {
 			var select = '<select class="select_language" id="select_field_option_lc_' + col + '" name="select_field_option_lc_' + col + '" style="width:150px">'
 			[% FOREACH language IN lang_options %]
                 select += '<option value="[% language.value %]">[% language.label %]</option>';
