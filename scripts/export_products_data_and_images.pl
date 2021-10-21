@@ -57,6 +57,10 @@ The --query parameter allows to select only products that match a specific query
 
 The --query-codes-from-file parameter allows to specify a file containing barcodes (one barcode per line).
 
+The --sample_mod [divisor],[remainder] parameter allows to get a sample of products,
+based on a modulo of their creation timestamp.
+e.g. --sample_mod 10000,0 will return about 1/10000th of the full database.
+
 Usage:
 
 export_products_data_and_images.pl --query field_name=field_value --query other_field_name=other_field_value
@@ -68,12 +72,15 @@ my %query_fields_values = ();
 my $query_codes_from_file;
 my $products_file;
 my $images_file;
+my $sample_mod;
 
 GetOptions (
 	"query=s%" => \%query_fields_values,
 	"query-codes-from-file=s" => \$query_codes_from_file,
-    "images-file=s" => \$images_file,
-    "products-file=s" => \$products_file,
+	"images-file=s" => \$images_file,
+	"products-file=s" => \$products_file,
+	"sample-mod=s" => \$sample_mod,
+    
 		)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -115,6 +122,18 @@ if (defined $query_codes_from_file) {
 	}
 	close($in);
 	$query_ref->{"code"} = { '$in' => \@codes };
+}
+
+# Sample of products whose creation timestamp modulo a divisor is equal to a remainder
+if (defined $sample_mod) {
+	if ($sample_mod =~ /^(\d+),(\d+)$/) {
+		my $divisor = $1 + 0;	# add 0 to turn scalar into number
+		my $remainder = $2 + 0;
+		$query_ref->{"created_t"} = { '$mod' => [ $divisor, $remainder ] };
+	}
+	else {
+		die("--sample-mod argument must be of the form divisor],remainder (e.g. 10,0):\n\n$usage");
+	}
 }
 
 use Data::Dumper;
