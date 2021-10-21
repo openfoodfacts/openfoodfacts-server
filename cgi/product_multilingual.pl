@@ -43,6 +43,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Web qw(get_languages_options_list);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -937,26 +938,14 @@ CSS
 	}
 
 	# Main language
-	my @lang_options;
-	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
-
-	my %lang_labels = ();
-	foreach my $l (@lang_values) {
-		next if (length($l) > 2);
-		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
-		push(@lang_options, {
-			value => $l,
-			label => $lang_labels{$l},
-		});
-	}
-
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
 	$template_data_ref_display->{product_lang_value} = $lang_value;
-	$template_data_ref_display->{lang_options} = \@lang_options;
+	# List of all languages for the template to display a dropdown for fields that are language specific
+	$template_data_ref_display->{lang_options} = get_languages_options_list($lc);
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
