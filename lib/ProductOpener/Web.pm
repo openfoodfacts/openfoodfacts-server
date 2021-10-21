@@ -65,6 +65,7 @@ BEGIN
 		&display_data_quality_issues_and_improvement_opportunities
 		&display_data_quality_description
 		&display_knowledge_panel
+		&get_languages_options_list
 		); #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -435,6 +436,38 @@ sub display_knowledge_panel($$) {
 
 	process_template('web/panels/panel.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	return $html;
+}
+
+
+=head2 get_languages_options_list( $target_lc )
+
+Generates a data structure containing the list of languages and their translation in a target language.
+The data structured can be passed to HTML templates to construction a list of options for a select element.
+
+=cut
+
+sub get_languages_options_list($) {
+
+	my $target_lc = shift;
+
+	my @lang_options = ();
+
+	my %lang_labels = ();
+	foreach my $l (@Langs) {
+		$lang_labels{$l} = display_taxonomy_tag($target_lc,'languages',$language_codes{$l});
+	}
+
+	my @lang_values = sort { $lang_labels{$a} cmp $lang_labels{$b} } @Langs;
+	
+	foreach my $l (@lang_values) {
+
+		push(@lang_options, {
+			value => $l,
+			label => $lang_labels{$l},
+		});
+	}
+
+	return \@lang_options;
 }
 
 1;

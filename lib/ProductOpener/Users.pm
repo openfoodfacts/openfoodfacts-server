@@ -595,12 +595,15 @@ sub process_user_form($$) {
 				
 		my $mail = '';
 		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
-		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 			my $subject = $1;
 			my $body = $';
 			$body =~ s/^\n+//;
 			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
 			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+		}
+		else {
+			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt", "Missing Subject line:\n\n" . $mail);
 		}
 
 		if (defined $requested_org_ref) {
@@ -608,13 +611,16 @@ sub process_user_form($$) {
 			
 			$mail = '';
 			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
-			if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 				my $subject = $1;
 				my $body = $';
 				$body =~ s/^\n+//;
 				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
 				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
-			}		
+			}
+			else {
+				send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt", "Missing Subject line:\n\n" . $mail);
+			}
 		}
 		else {
 			# The requested org does not exist, create it
@@ -633,12 +639,15 @@ sub process_user_form($$) {
 		
 		$mail = '';
 		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
-		if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 			my $subject = $1;
 			my $body = $';
 			$body =~ s/^\n+//;
 			
 			send_email_to_producers_admin($subject, $body);
+		}
+		else {
+			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_admin_notification.tt.html", "Missing Subject line:\n\n" . $mail);
 		}
 	}
 
@@ -790,11 +799,15 @@ sub init_user()
 		$user_id = remove_tags_and_quote($param_user_id) ;
 
 		if ($user_id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+			my $emails_ref = retrieve("$data_root/users_emails.sto");
+			if (not defined $emails_ref->{$user_id}) {
+				# not found, try with lower case email
+				$user_id = lc $user_id;
+			}
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
-				$log->info("bad user e-mail") if $log->is_info();
+				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
 				return ($Lang{error_bad_login_password}{$lang}) ;
 			}

@@ -331,6 +331,16 @@ my @tests = (
 			ingredients_text=>"Wheat (France)",
 			labels_tags=>["fr:ab-agriculture-biologique"],
 		}
+	],
+
+	[
+		'packaging-fr-new-shapes',
+		{
+			lc => "fr",
+			categories_tags=>["en:baguettes"],
+			ingredients_text=>"Blé (France)",
+			packaging_text=>"1 caisse en carton, 1 paille, 2 couverts en métal, 1 gobelet en plastique, 1 enveloppe papier",
+		}
 	],		
 	
 	# Sodas: no Eco-Score

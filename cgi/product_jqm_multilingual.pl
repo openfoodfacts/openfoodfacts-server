@@ -283,7 +283,7 @@ else {
 	# when the corresponding organization has the protect_data checkbox checked
 	my $protected_data = product_data_is_protected($product_ref);
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang') {
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')

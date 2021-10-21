@@ -49,7 +49,7 @@ Data about food is of public interest and has to be open. The complete database 
    * Dependencies [TBA]
    * Database configuration [TBA]
    * How to run tests [TBA]
- * [API Documentation](https://wiki.openfoodfacts.org/API)
+ * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
 
 ## Contribution guidelines
 

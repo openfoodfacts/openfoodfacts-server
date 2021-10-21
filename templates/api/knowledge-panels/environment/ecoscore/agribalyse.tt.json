@@ -6,7 +6,10 @@
     "topics": [
         "environment"
     ],
-    "title": "Environmental impact on average for products of the same category",
+    "title_element": {
+        "title": "Average impact for products of the same category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
+        "subtitle": "Category: [% panel.agribalyse_category_name %]"
+    },
     "elements": [
         {
             "element_type": "text",

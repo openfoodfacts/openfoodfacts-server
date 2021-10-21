@@ -81,7 +81,7 @@ $json_file .= ".json";
 print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
 
 
-my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
+my $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 # alpha-vision.googleapis.com/
 
 my $ua = LWP::UserAgent->new();

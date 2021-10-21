@@ -1,0 +1,236 @@
+{
+   "categories_tags" : [
+      "en:baguettes"
+   ],
+   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:france",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 93,
+            "epi_value" : 4,
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_score_be" : 85,
+            "transportation_score_ch" : 69,
+            "transportation_score_de" : 61,
+            "transportation_score_es" : 37,
+            "transportation_score_fr" : 100,
+            "transportation_score_ie" : 47,
+            "transportation_score_it" : 47,
+            "transportation_score_lu" : 82,
+            "transportation_score_nl" : 77,
+            "transportation_score_uk" : 68,
+            "transportation_value_be" : 13,
+            "transportation_value_ch" : 10,
+            "transportation_value_de" : 9,
+            "transportation_value_es" : 6,
+            "transportation_value_fr" : 15,
+            "transportation_value_ie" : 7,
+            "transportation_value_it" : 7,
+            "transportation_value_lu" : 12,
+            "transportation_value_nl" : 12,
+            "transportation_value_uk" : 10,
+            "value_be" : 17,
+            "value_ch" : 14,
+            "value_de" : 13,
+            "value_es" : 10,
+            "value_fr" : 19,
+            "value_ie" : 11,
+            "value_it" : 11,
+            "value_lu" : 16,
+            "value_nl" : 16,
+            "value_uk" : 14
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : "92",
+                  "ecoscore_shape_ratio" : "1",
+                  "material" : "en:cardboard",
+                  "number" : "1",
+                  "shape" : "en:case"
+               },
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : "1",
+                  "material" : "en:unknown",
+                  "number" : "1",
+                  "shape" : "en:straw"
+               },
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : "1",
+                  "material" : "en:metal",
+                  "number" : "2",
+                  "shape" : "en:eating-utensils"
+               },
+               {
+                  "ecoscore_material_score" : "0",
+                  "ecoscore_shape_ratio" : "1",
+                  "material" : "en:plastic",
+                  "non_recyclable_and_non_biodegradable" : "maybe",
+                  "number" : "1",
+                  "shape" : "en:tumbler"
+               },
+               {
+                  "ecoscore_material_score" : "92",
+                  "ecoscore_shape_ratio" : "0.1",
+                  "material" : "en:paper",
+                  "number" : "1",
+                  "shape" : "en:envelope"
+               }
+            ],
+            "score" : -208.8,
+            "value" : -15,
+            "warning" : "unspecified_material"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_food_code" : "7001",
+         "co2_agriculture" : "0.27683119",
+         "co2_consumption" : "0",
+         "co2_distribution" : "0.0064852108",
+         "co2_packaging" : "0.096327546",
+         "co2_processing" : "0.15668205",
+         "co2_total" : "0.66956768",
+         "co2_transportation" : "0.13323488",
+         "code" : "7001",
+         "dqr" : "1.95",
+         "ef_agriculture" : "0.060092513",
+         "ef_consumption" : "0",
+         "ef_distribution" : "0.0014414118",
+         "ef_packaging" : "0.020603751",
+         "ef_processing" : "0.035781102999999995",
+         "ef_total" : "0.12836245",
+         "ef_transportation" : "0.010443509",
+         "is_beverage" : 0,
+         "name_en" : "Bread, French bread, baguette",
+         "name_fr" : "Pain, baguette, courante",
+         "score" : 95
+      },
+      "grade" : "b",
+      "grade_be" : "b",
+      "grade_ch" : "b",
+      "grade_de" : "b",
+      "grade_es" : "b",
+      "grade_fr" : "b",
+      "grade_ie" : "b",
+      "grade_it" : "b",
+      "grade_lu" : "b",
+      "grade_nl" : "b",
+      "grade_uk" : "b",
+      "missing" : {
+         "labels" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 80,
+      "score_be" : 97,
+      "score_ch" : 94,
+      "score_de" : 93,
+      "score_es" : 90,
+      "score_fr" : 99,
+      "score_ie" : 91,
+      "score_it" : 91,
+      "score_lu" : 96,
+      "score_nl" : 96,
+      "score_uk" : 94,
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 99,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "ingredients" : [
+      {
+         "id" : "en:wheat",
+         "origins" : "en:france",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:wheat",
+      "en:cereal"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:wheat",
+      "en:cereal"
+   ],
+   "ingredients_text" : "Blé (France)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-computed"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+   },
+   "packaging_text" : "1 caisse en carton, 1 paille, 2 couverts en métal, 1 gobelet en plastique, 1 enveloppe papier",
+   "packagings" : [
+      {
+         "material" : "en:cardboard",
+         "number" : "1",
+         "shape" : "en:case"
+      },
+      {
+         "number" : "1",
+         "shape" : "en:straw"
+      },
+      {
+         "material" : "en:metal",
+         "number" : "2",
+         "shape" : "en:eating-utensils"
+      },
+      {
+         "material" : "en:plastic",
+         "number" : "1",
+         "shape" : "en:tumbler"
+      },
+      {
+         "material" : "en:paper",
+         "number" : "1",
+         "shape" : "en:envelope"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

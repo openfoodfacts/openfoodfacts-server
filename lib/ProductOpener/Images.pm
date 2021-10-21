@@ -315,14 +315,19 @@ sub display_search_image_form($) {
 HTML
 ;
 
+	# Do not load jquery file upload twice, if it was loaded by another form
 
-	$scripts .= <<JS
+	if ($scripts !~ /jquery.fileupload.js/) {
+
+		$scripts .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
+
+	}
 
 	$initjs .= <<JS
 
@@ -1734,8 +1739,7 @@ sub extract_text_from_image($$$$$) {
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-		# alpha-vision.googleapis.com/
+		my $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 
 		my $ua = LWP::UserAgent->new();
 

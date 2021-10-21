@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-09-13 06:00\n"
+"PO-Revision-Date: 2021-10-05 18:42\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3024,8 +3024,16 @@ msgid "Recipe idea"
 msgstr "فكرة الوصفة"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "الأصل"
+msgid "Origin of the product and/or its ingredients"
+msgstr "أصل المنتج و/أو مكوناته"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "حسب قواعد التغليف، أن تتم الإشارة مكان التصنيع و / أو أصل المكونات"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "صنع في فرنسا. الطماطم من ايطاليا. أصل الأرز: الهند، تايلاند."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -5562,14 +5570,30 @@ msgctxt "ecoscore_packaging_missing_information"
 msgid "The information about this product's packaging is missing."
 msgstr "المعلومات حول تغليف هذا المنتج مفقودة."
 
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Transportation and origins of ingredients have a high impact."
+msgstr "وسيلة النقل وبلد الأصل الذي تتبع له المكونات لهما تأثير كبير."
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Transportation and origins of ingredients have a medium impact."
+msgstr "وسيلة النقل وبلد الأصل الذي تتبع له المكونات لهما تأثير متوسط."
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Transportation and origins of ingredients have a low impact."
+msgstr "وسيلة النقل وبلد الأصل الذي تتبع له المكونات لهما تأثير منخفض."
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing information about the origins of ingredients"
+msgstr "معلومات مفقودة عن منشأ المكونات"
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "٪ من المكونات"
+
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
 msgstr "متوسط"
-
-msgctxt "impact"
-msgid "impact"
-msgstr "تأثير"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -5577,5 +5601,50 @@ msgstr "ملحوظة: النتيجة الغذائية Nutri-Score للشاي أ�
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s جم / 100 جم"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "هام: نحن بحاجة إلى دعمك!"
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr "Open Food Facts هو مشروع تعاوني أنشأه عشرات الآلاف من المتطوعين وتديره منظمة غير ربحية تضم 3 موظفين."
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr "نحتاج إلى تبرعاتك لتمويل ميزانية Open Food Facts 2021 ولمواصلة تطوير المشروع. <strong>شكرا لك! ❤️</strong>"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "تبرع"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Production mode with environmental benefits"
+msgstr "طريقة الإنتاج ذات الفوائد البيئية"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Production mode with high environmental benefits"
+msgstr "طريقة الإنتاج ذات الفوائد البيئية العالية"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Production mode with very high environmental benefits"
+msgstr "طريقة الإنتاج ذات الفوائد البيئية المرتفعة جداً"
+
+msgctxt "other"
+msgid "Other"
+msgstr "أخرى"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "‮المتوسط"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "إحصائيات المكونات لجميع المنتجات"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "المكونات لكل منتَج"
 

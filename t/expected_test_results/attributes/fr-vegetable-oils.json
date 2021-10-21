@@ -213,7 +213,7 @@
             {
                "icon_url" : "https://server_domain/images/attributes/may-contain-palm-oil.svg",
                "id" : "palm_oil_free",
-               "match" : 20,
+               "match" : 50,
                "name" : "Sans huile de palme",
                "status" : "known",
                "title" : "Pourrait contenir de l'huile de palme"
@@ -454,6 +454,10 @@
    "ingredients_that_may_be_from_palm_oil_tags" : [
       "huile-vegetale"
    ],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 8,
    "languages" : {},
    "languages_codes" : {},
