@@ -102,6 +102,7 @@ add_params_to_query($request_ref, $query_ref);
 
 use boolean;
 
+# Substitute values like null or exists to mongodb query values
 foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
