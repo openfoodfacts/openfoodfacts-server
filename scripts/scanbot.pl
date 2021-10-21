@@ -417,7 +417,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					# (codes can be reused by different companies in different countries)
 					if (($add_countries) and ($code !~ /^(02|2)/) and (not exists $existing{$country})) {
 						print "- adding $country to $product_ref->{countries}\n";
-						$product_ref->{countries} .= ", $country";
+						add_tags_to_field($product_ref, "en", "countries", $country);
 						$bot .= "+$country ";
 						$added_countries++;
 						$added_countries_list .= $country .',';
@@ -496,8 +496,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					}
 				}
 
-				$User_id = 'scanbot';
-				store_product($product_ref, $comment);
+				store_product('scanbot', $product_ref, $comment);
 			}
 			else {
 				print "updating scan count for $code\n";
