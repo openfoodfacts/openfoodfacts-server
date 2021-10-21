@@ -24,6 +24,8 @@
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
+die "This script needs to be fixed, see https://github.com/openfoodfacts/openfoodfacts-server/issues/4870 ";
+
 use Modern::Perl '2017';
 use utf8;
 
