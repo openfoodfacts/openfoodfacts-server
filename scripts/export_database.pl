@@ -231,10 +231,6 @@ XML
 	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
 	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
 
-	# Construct the list of nutrients to export
-
-	my @nutrients_to_export = ();
-
 	foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
 		$nid =~ /^#/ and next;
@@ -243,21 +239,6 @@ XML
 		$nid =~ s/^-//g;
 		$nid =~ s/-$//g;
 
-		push @nutrients_to_export, $nid;
-
-		if ($nid eq "fruits-vegetables-nuts-estimate") {
-
-			# Add the fruits-vegetables-nuts-estimate-from-ingredients nutrient
-			# which is computed from the ingredients list, and is not in the list
-			# of nutrients we display and allow users to edit
-
-			push @nutrients_to_export, "fruits-vegetables-nuts-estimate-from-ingredients";
-		}
-	}
-	
-	# Output the headers for the nutrients
-
-	foreach my $nid (@nutrients_to_export) {
 		$csv .= "${nid}_100g" . "\t";
 	}
 
@@ -388,7 +369,14 @@ XML
 		$csv .= ($product_ref->{image_nutrition_url} // "") . "\t" . ($product_ref->{image_nutrition_small_url} // "") . "\t";
 
 
-		foreach my $nid (@nutrients_to_export) {
+		foreach my $nid (@{$nutriments_tables{"europe"}}) {
+
+			#$nid =~/^#/ and next;
+			next if (substr($nid, 0, 1) eq '#');
+
+			$nid =~ s/!//g;
+			$nid =~ s/^-//g;
+			$nid =~ s/-$//g;
 
 			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
 				my $value = $product_ref->{nutriments}{$nid . "_100g"};
