@@ -141,6 +141,7 @@ if (defined $sample_mod) {
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 
+# harvest products'code from mongo db
 my $cursor = get_products_collection(3 * 60 * 60 * 1000)
 		->query($query_ref)
 		->fields({ "code" => 1})
