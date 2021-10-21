@@ -113,6 +113,7 @@ foreach my $field (sort keys %{$query_ref}) {
 	}
 }
 
+# transform file of code list to a mongodb query
 if (defined $query_codes_from_file) {
 	my @codes = ();
 	open(my $in, "<", "$query_codes_from_file") or die ("Cannot read $query_codes_from_file: $!\n");
