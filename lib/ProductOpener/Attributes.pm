@@ -615,15 +615,15 @@ sub compute_attribute_ecoscore($$$) {
 		my $match = 0;
 		
 		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
-		
+		# Warning: a score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
+		# So we substract 1 to the Eco-Score score to compute the match.
+		$match = $score - 1;
+
 		if ($score < 0) {
 			$match = 0;
 		}
 		elsif ($score > 100) {
 			$match = 100;
-		}
-		else {
-			$match = $score;
 		}
 		
 		$attribute_ref->{match} = $match;
@@ -1375,30 +1375,9 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$analysis_tag = "$analysis-status-unknown";
 		}		
 	}
-	
-	# Compute a 5 level grade from the match score
-	# We do it server side to be sure that clients do it the same way
-	# and that a Nutri-Score E match of 20 has a grade "e".
+
 	if (defined $match) {
 		$attribute_ref->{match} = $match;
-		if ($match <= 20) {
-			$attribute_ref->{grade} = 'a';
-		}
-		elsif ($match <= 40) {
-			$attribute_ref->{grade} = 'b';
-		}
-		elsif ($match <= 60) {
-			$attribute_ref->{grade} = 'c';
-		}
-		elsif ($match <= 80) {
-			$attribute_ref->{grade} = 'd';
-		}
-		else {
-			$attribute_ref->{grade} = 'e';
-		}
-	}
-	else {
-		$attribute_ref->{grade} = 'unknown';
 	}
 
 	$attribute_ref->{status} = $status;	
@@ -1451,6 +1430,31 @@ sub add_attribute_to_group($$$$) {
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
 		delete $attribute_ref->{setting_name};
 		delete $attribute_ref->{setting_note};
+
+		# Compute a 5 level grade from the match score
+		# We do it server side to be sure that clients do it the same way
+		# and that a Nutri-Score E match of 20 has a grade "e".
+		if ($attribute_ref->{status} eq "known") {
+			
+			if ($attribute_ref->{match} <= 20) {
+				$attribute_ref->{grade} = 'e';
+			}
+			elsif ($attribute_ref->{match} <= 40) {
+				$attribute_ref->{grade} = 'd';
+			}
+			elsif ($attribute_ref->{match} <= 60) {
+				$attribute_ref->{grade} = 'c';
+			}
+			elsif ($attribute_ref->{match} <= 80) {
+				$attribute_ref->{grade} = 'b';
+			}
+			else {
+				$attribute_ref->{grade} = 'a';
+			}
+		}
+		else {
+			$attribute_ref->{grade} = 'unknown';
+		}		
 		
 		my $group_ref;
 		# Select the requested group
