@@ -6,9 +6,9 @@
 <ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 <li class="accordion-navigation">
 [% END %]
-    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title">
+    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.grade %] grade_[% panel.grade %][% END %]">
         [% IF panel.title_element.icon_url.defined %]
-        <img src="[% panel.title_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
+        <img src="[% panel.title_element.icon_url %]" style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;" alt="icon"
             [% IF panel.title_element.icon_color_from_evaluation %]
                 [% IF panel.evaluation == "good" %]
                     class="filter-green"
@@ -68,7 +68,7 @@
         <hr class="floatclear">
     </a>
 
-    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.expanded == "yes" OR panel.expanded == "always" %] active[% END %]" style="clear:left;margin-top:1rem;">
+    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.type == 'card' %]_card[% END %][% IF panel.expanded == "yes" OR panel.expanded == "always" %] active[% END %]">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        

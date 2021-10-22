@@ -1376,9 +1376,31 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}		
 	}
 	
+	# Compute a 5 level grade from the match score
+	# We do it server side to be sure that clients do it the same way
+	# and that a Nutri-Score E match of 20 has a grade "e".
 	if (defined $match) {
 		$attribute_ref->{match} = $match;
+		if ($match <= 20) {
+			$attribute_ref->{grade} = 'a';
+		}
+		elsif ($match <= 40) {
+			$attribute_ref->{grade} = 'b';
+		}
+		elsif ($match <= 60) {
+			$attribute_ref->{grade} = 'c';
+		}
+		elsif ($match <= 80) {
+			$attribute_ref->{grade} = 'd';
+		}
+		else {
+			$attribute_ref->{grade} = 'e';
+		}
 	}
+	else {
+		$attribute_ref->{grade} = 'unknown';
+	}
+
 	$attribute_ref->{status} = $status;	
 	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil

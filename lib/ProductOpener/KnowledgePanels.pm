@@ -454,6 +454,10 @@ sub create_ecoscore_panel($$$) {
                     $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
             }
         }
+
+        # Add panel for the final Eco-Score of the product
+        create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
 	else {
         my $panel_data_ref = {};

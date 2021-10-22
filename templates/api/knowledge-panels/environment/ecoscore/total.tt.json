@@ -1,0 +1,13 @@
+{
+    "parent_panel_id": "root",
+    "type": "score",
+    "level": "info",
+    "grade": "[% panel.grade %]",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title":  "Impact for this product: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)",
+        "subtitle": "[% lang("front_alt") %][% sep %]: [% product_name_brand_quantity(product) %]",
+    },
+}

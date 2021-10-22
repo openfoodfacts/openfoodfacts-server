@@ -9,6 +9,10 @@
     "evaluation": "unknown",
     "title_element": {
         "title": "[% lang('ecoscore_ingredients_not_indicated') %]",
+        "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
     }
     "elements": [
         {
@@ -26,18 +30,24 @@
     "evaluation": "bad",
     "title_element": {
         "title": "[% lang('ecoscore_origins_of_ingredients_impact_high') %]",
-    },
     [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
-    "evaluation": "neutral",
+    "evaluation": "average",
     "title_element": {
         "title": "[% lang('ecoscore_origins_of_ingredients_impact_medium') %]",    
-    },
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
         "title": "[% lang('ecoscore_origins_of_ingredients_impact_low') %]",
-    },
     [% END %]
+        [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value > 0 %]
+            "subtitle": "[% lang('bonus') %][% sep %]: +[% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        [% ELSE %]
+            "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        [% END %]
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
+    },
     "elements": [
         {
             "element_type": "table",

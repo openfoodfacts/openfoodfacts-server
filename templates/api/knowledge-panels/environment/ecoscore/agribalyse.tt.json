@@ -7,8 +7,8 @@
         "environment"
     ],
     "title_element": {
-        "title": "Average impact for products of the same category: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
-        "subtitle": "Category: [% panel.agribalyse_category_name %]"
+        "title": "[% lang('average_impact_of_the_category') %][% sep %]: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
+        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name %]"
     },
     "elements": [
         {
@@ -16,8 +16,8 @@
             "text_element": {
                 "text_type": "summary",
                 "html": `
-                    <p>Agribalyse category: 
-                    <a href=\"https://www.ecoscore_data.agribalyse.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name %]</a>
+                    <p>[% lang('categories_s') FILTER ucfirst %][% sep %]: 
+                    <a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name %]</a>
                     </p>
                     <ul>
                         <li>
