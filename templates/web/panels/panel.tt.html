@@ -68,6 +68,7 @@
         <hr class="floatclear">
     </a>
 
+    [% IF panel.elements.defined %]
     <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.type == 'card' %]_card[% END %][% IF panel.expanded == "yes" OR panel.expanded == "always" %] active[% END %]">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
@@ -191,6 +192,7 @@
         [% END %]
     [% END %]
     </div>
+    [% END %]
 [% IF panel.type == "card" %]
 </div>
 [% ELSE %]    
