@@ -5,21 +5,22 @@
     "topics": [
         "environment"
     ],
-[% IF adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
+[% IF product.ecoscore_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% lang('ecoscore_ingredients_not_indicated') %]",
+        "title": "[% lang('ecoscore_origins_of_ingredients_missing_information') %]",
         "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
         "icon_size": "small",
-    }
+    },
     "elements": [
         {
             "element_type": "text",
             "text_element": {
                 "text_type": "warning",
                 "html": `
+                [% lang('ecoscore_ingredients_not_indicated') %]<br><br>
                 [% lang('ecoscore_please_add_the_ingredients') %]<br><br>
                 [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
                     `
