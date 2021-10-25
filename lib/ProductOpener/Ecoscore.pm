@@ -707,9 +707,10 @@ sub compute_ecoscore($) {
 				# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
 				if (($product_ref->{ecoscore_data}{"grade" . $suffix} eq "a")
 					and ($product_ref->{ecoscore_data}{adjustments}{packaging}{non_recyclable_and_non_biodegradable_materials} > 0)) {
-						
+					
+					$product_ref->{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
 					$product_ref->{ecoscore_data}{"grade" . $suffix} = "b";
-					$product_ref->{downgraded} = "non_recyclable_and_non_biodegradable_materials";
+					$product_ref->{ecoscore_data}{"score" . $suffix} = 79;					
 				}
 
 				$log->debug("compute_ecoscore - final score and grade", { score => $product_ref->{"score" . $suffix}, grade => $product_ref->{"grade" . $suffix}}) if $log->is_debug();				
@@ -1441,6 +1442,7 @@ sub localize_ecoscore ($$) {
 			}
 
 		}
+		
 	}		
 	
 }
