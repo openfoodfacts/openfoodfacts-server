@@ -18,10 +18,13 @@
     "topics": [
         "environment"
     ],
-[% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
+[% IF NOT (product.ecoscore_data.adjustments.packaging.packagings AND product.ecoscore_data.adjustments.packaging.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% lang('ecoscore_packaging_missing_information') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "neutral",                
     },
     "elements": [
         {
@@ -32,7 +35,8 @@
                     [% lang('ecoscore_no_packaging_information') %]
                     `
             }
-        }, 
+        },
+    ],
 [% ELSE %]    
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
