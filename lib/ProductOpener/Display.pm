@@ -11176,7 +11176,7 @@ sub display_properties($) {
 
 
 	my $html;
-	process_template('web/common/includes/folksonomy_engine_script.tt.html', {}, \$html) || return "template error: " . $tt->error();
+	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html) || return "template error: " . $tt->error();
 
 	return $html;
 }
