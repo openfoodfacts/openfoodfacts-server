@@ -88,6 +88,7 @@ BEGIN
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
+		&display_properties
 
 		&count_products
 		&add_params_to_query
