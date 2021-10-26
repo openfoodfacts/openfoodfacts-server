@@ -33,16 +33,13 @@
 
 // See: https://github.com/openfoodfacts/folksonomy_frontend/issues
 
+const feAPI = "https://api.folksonomy.openfoodfacts.org";
+//const feAPI = "http://127.0.0.1:8000";
+var feAPIProductURL, code;
 
 function folskonomy_engine_init() {
-    //'use strict';
-
-    console.log("FEUS - Folksonomy Engine User Script - 2021-09-14T16:54");
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-09-14T16:54 - mode: " + pageType);
-
-    const feAPI = "https://api.folksonomy.openfoodfacts.org";
-    //const feAPI = "http://127.0.0.1:8000";
 
     var bearer;
     var authHeader, loginWindow;
@@ -103,17 +100,17 @@ function folskonomy_engine_init() {
 
 
     if (pageType === "edit"               || pageType === "product view"  ||
-        pageType === "saved-product page" || pageType === "key"           ||
-        pageType === "keys") {
+        pageType === "saved-product page" || pageType === "property"           ||
+        pageType === "properties") {
 
-        var code = $("#barcode").html();
+        code = $("#barcode").html();
         console.log("FEUS - barcode: " + code);
-        var feAPIProductURL = feAPI + "/product/" + code;
+        feAPIProductURL = feAPI + "/product/" + code;
     }
 
 
     if (pageType === "product view") {
-        displayFolksonomyKeyValues();
+        displayFolksonomyPropertyValues();
         //displayFolksonomyForm();
     }
 
@@ -121,20 +118,20 @@ function folskonomy_engine_init() {
         displayFolksonomyForm();
     }
 
-    if (pageType === "key") {
-        // detect /key/test or /key/test/value/test_value
-        let results = new RegExp('/key/([^/]*)(/value/)?(.*)').exec(window.location.href);
+    if (pageType === "property") {
+        // detect /property/test or /property/test/value/test_value
+        let results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
         if (results === null) {
             return null;
         }
-        let key = results[1];
+        let property = results[1];
         let value = results[3];
-        displayProductsWithKey(key, value);
+        displayProductsWithProperty(property, value);
     }
 
 
-    if (pageType === "keys") {
-        displayAllKeys();
+    if (pageType === "properties") {
+        displayAllProperties();
     }
 }
 
@@ -145,7 +142,7 @@ function folskonomy_engine_init() {
      *
      * @returns none
      */
-    function displayFolksonomyKeyValues() {
+    function displayFolksonomyPropertyValues() {
         //$(".details").before(
         $("div[itemtype='https://schema.org/Product']").append(
             '<!-- ---- Folksonomy Engine ----- -->' +
@@ -153,7 +150,7 @@ function folskonomy_engine_init() {
             '<h2>User properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
             '<p id="fe_login_info"></p>' +
             "<p>This properties are created and filed by users for any kind of usages. Feel free to add your own. " +
-            "You can dive into <a href='/keys'>the list of properties already used by the community</a> " +
+            "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
             "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
             "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
             "<p>This is bring by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
@@ -161,7 +158,7 @@ function folskonomy_engine_init() {
             '<table>' +
             '<tr>' +
             '<th> </th>' +
-            '<th class="prop_title">Property <a href="/keys">🔗</a></th>' +
+            '<th class="prop_title">Property <a href="/properties">🔗</a></th>' +
             '<th class="val_title">Value</th>' +
             '</tr>' +
             '<tbody id="free_prop_body">' +
@@ -188,11 +185,11 @@ function folskonomy_engine_init() {
 
 
         // Autocomplete on property field
-        // TODO: launch when a key is pressed in the field?
+        // TODO: launch when a property is pressed in the field?
         fetch(feAPI + "/keys")
             .then(function(u){ return u.json();})
             .then(function(json){
-            let list = $.map(json, function (value, key) {
+            let list = $.map(json, function (value, property) {
                         return {
                             label: value.k + " (" + value.count + ")",
                             value: value.k
@@ -228,18 +225,18 @@ function folskonomy_engine_init() {
         // Get all property/value pairs and display it
         $.getJSON(feAPIProductURL, function(data) {
             if (data === null) {
-                console.log("FEUS - displayFolksonomyKeyValues() - No data");
+                console.log("FEUS - displayFolksonomyPropertyValues() - No data");
                 return;
             }
-            console.log("FEUS - displayFolksonomyKeyValues() - " + JSON.stringify(data));
+            console.log("FEUS - displayFolksonomyPropertyValues() - " + JSON.stringify(data));
             let index = data.length, content = "";
-            // Sort by key
+            // Sort by property
             let _data = data.sort(function(a,b){ return a.k <b.k ?1 :-1 });
             while (index--) {
                 content += ('<tr>' +
                             '<td class="version" data-version="' + _data[index].version + '"> </td>' +
-                            '<td class="property"><a href="/key/' + _data[index].k + '">'                          + _data[index].k + '</a></td>' +
-                            '<td class="value"><a href="/key/' + _data[index].k + '/value/' + _data[index].v +'">' + _data[index].v + '</a></td>' +
+                            '<td class="property"><a href="/property/' + _data[index].k + '">'                          + _data[index].k + '</a></td>' +
+                            '<td class="value"><a href="/property/' + _data[index].k + '/value/' + _data[index].v +'">' + _data[index].v + '</a></td>' +
                             '<td>'+
                             '<span class="button tiny fe_save_kv" style="display: none">save</span> '+
                             '<span class="button tiny fe_edit_kv">Edit</span> '+
@@ -249,36 +246,36 @@ function folskonomy_engine_init() {
             };
             // TODO: sortable by user?
             $("#free_prop_body").prepend(content);
-            $(".fe_del_kv").click( function() { isWellLoggedIn() ? delKeyValue($(this)) : loginProcess(); } );
-            $(".fe_edit_kv").click( function() { isWellLoggedIn() ? editKeyValue($(this)) : loginProcess(); } );
+            $(".fe_del_kv").click( function() { isWellLoggedIn() ? delPropertyValue($(this)) : loginProcess(); } );
+            $(".fe_edit_kv").click( function() { isWellLoggedIn() ? editPropertyValue($(this)) : loginProcess(); } );
         });
     }
 
 
-    function displayProductsWithKey(_key, _value) {
+    function displayProductsWithProperty(_property, _value) {
         /* curl -X 'GET' \
             'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
             -H 'accept: application/json'
         */
         $("#main_column p").remove();  // remove <p>Invalid address.</p>
-        $("#main_column h1").before('<!-- display products with key ' + _key + (_value ? ": "+ _value : '') + ' -->' +
-                                    '<h2 id="key_title">Property: '+ _key + (_value ? ": "+ _value : '') + '</h2>' +
-                                    '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _key + '">dedicated documentation</a>' +
+        $("#main_column h1").before('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
+                                    '<h2 id="property_title">Property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
+                                    '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
                                     ' about this property on Open Food Facts wiki</p>' +
                                     '<p>List of products using this property:</p>' +
-                                    '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/keys">list of all properties</a>.</div>' +
+                                    '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
                                     '<ul id="product_list"></ul>');
         $("#main_column h1").remove(); // remove <h1>Error</h1>
 
-        console.log("FEUS - displayProductsWithKey(_key) - GET " + feAPI + "/products?k=" + _key + (_value ? "&v="+ _value : ''));
-        $.getJSON(feAPI + "/products?k=" + _key + (_value ? "&v="+ _value : ''), function(data) {
-            console.log("FEUS - displayProductsWithKey() - " + JSON.stringify(data));
+        console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
+        $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
+            console.log("FEUS - displayProductsWithProperty() - " + JSON.stringify(data));
             let index = data.length, content = "";
             let mainAPI = window.location.origin;
             //$.getJSON(mainAPI +
             content +=
-                //'<p>List of all products with property <strong>' + _key + '</strong></p>' +
-                '<table id="keys_list">' +
+                //'<p>List of all products with property <strong>' + _property + '</strong></p>' +
+                '<table id="properties_list">' +
                 '<tr>' +
                 //'<th> </th>' +
                 '<th class="product_code">Code</th>' +
@@ -290,8 +287,8 @@ function folskonomy_engine_init() {
                             '<td class="product_code">' +
                             '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
                             '</td>' +
-                            '<td class="key_value">'+
-                            '<a href="/key/'+ _key + '/value/' + data[index].v + '">' + data[index].v + '</a>' + +
+                            '<td class="property_value">'+
+                            '<a href="/property/'+ _property + '/value/' + data[index].value + '">' + data[index].value + '</a>' +
                             '</td>' +
                             '</tr>');
             };
@@ -304,19 +301,19 @@ function folskonomy_engine_init() {
     }
 
 
-    function displayAllKeys(_owner) {
+    function displayAllProperties(_owner) {
         /* curl -X 'GET' \
              'https://api.folksonomy.openfoodfacts.org/keys' \
              -H 'accept: application/json'
         */
         // TODO: add owner filter?
         $("#main_column p").remove(); // remove <p>Invalid address.</p>
-        $("#main_column h1").before('<h2 id="key_title">Keys</h2>' +
-                                    '<p>List of all keys.</p>' +
-                                    '<table id="keys_list">' +
+        $("#main_column h1").before('<h2 id="property_title">Properties</h2>' +
+                                    '<p>List of all properties.</p>' +
+                                    '<table id="properties_list">' +
                                     '<tr>' +
                                     '<th> </th>' +
-                                    '<th class="key_name">Key</th>' +
+                                    '<th class="property_name">Property</th>' +
                                     '<th class="count">Count</th>' +
                                     '<th class="values">Values</th>' +
                                     '<th class="doc">Documentation</th>' +
@@ -326,32 +323,32 @@ function folskonomy_engine_init() {
                                     '</tbody>' +
                                     '</table>');
         $("#main_column h1").remove(); // remove <h1>Error</h1>
-        console.log("FEUS - displayAllKeys(_owner) - GET " + feAPI + "/keys");
+        console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
         $.getJSON(feAPI + "/keys", function(data) {
-            console.log("FEUS - displayAllKeys() - " + JSON.stringify(data));
+            console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
             let index = data.length, content = "";
             // sort by count
             let _data = data.sort(function(a,b){ return a.count >b.count ?1 :-1 });
             while (index--) {
-                content += ('<tr class="key">' +
+                content += ('<tr class="property">' +
                             '<td> </td>' +
-                            '<td><a href="/key/'+ _data[index].k + '">' + _data[index].k + '</a></td>' +
+                            '<td><a href="/property/'+ _data[index].k + '">' + _data[index].k + '</a></td>' +
                             '<td>' + _data[index].count + '</td>' +
                             '<td>' + _data[index].values + '</td>' +
                             '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + _data[index].k + '">🔗</a></td>' +
                             '</tr>');
             };
-            $("#keys_list").append(content);
+            $("#properties_list").append(content);
         });
     }
 
 
-    function delKeyValue(_this) {
+    function delPropertyValue(_this) {
         // curl -X 'DELETE' \
         //   'https://api.folksonomy.openfoodfacts.org/product/3760256070970/Test1620205047424?version=1' \
         //   -H 'accept: application/json' \
         //   -H 'Authorization: Bearer charlesnepote__U0da47a42-eb96-4386-b2eb-6e1657b7f969'
-        console.log("FEUS - delKeyValue() - start");
+        console.log("FEUS - delPropertyValue() - start");
         console.log($(_this).parent().text());
         const _property = $(_this).parent().parent().children(".property").text();
         const _version = $(_this).parent().parent().children(".version").attr("data-version");
@@ -366,11 +363,11 @@ function folskonomy_engine_init() {
             }),
         })
              .then(resp => {
-            //console.log("FEUS - delKeyValue() - resp: ", resp);
-            console.log("FEUS - delKeyValue() - resp.status: ", resp.status, ", ", resp.statusText);
+            //console.log("FEUS - delPropertyValue() - resp: ", resp);
+            console.log("FEUS - delPropertyValue() - resp.status: ", resp.status, ", ", resp.statusText);
             if (resp.ok) {
                 // if success or delete the row
-                console.log("FEUS - delKeyValue() - remove row");
+                console.log("FEUS - delPropertyValue() - remove row");
                 $(_this).parent().parent().remove();
             }
         })
@@ -419,16 +416,16 @@ function folskonomy_engine_init() {
                 // 1. Add a new row to the table
                 $("#free_prop_body").append('<tr>'+
                                             '<td class="version" data-version="1"></td>'+
-                                            '<td class="property"><a href="/key/' + _k + '">' + _k + '</a></td>'+
-                                            '<td class="value"><a href="/key/' + _k + '/value/' + _v + '">' + _v + '</a></td>'+
+                                            '<td class="property"><a href="/property/' + _k + '">' + _k + '</a></td>'+
+                                            '<td class="value"><a href="/property/' + _k + '/value/' + _v + '">' + _v + '</a></td>'+
                                             '<td>'+
                                             '<span class="button tiny fe_save_kv" style="display: none">save</span> '+
                                             '<span class="button tiny fe_edit_kv">Edit</span> '+
                                             '<span class="button tiny fe_del_kv">Delete</span>'+
                                             '</td>'+
                                             '</tr>');
-                $(".fe_del_kv").click( function() { isWellLoggedIn() ? delKeyValue($(this)) : loginProcess(); } );
-                $(".fe_edit_kv").click( function() { isWellLoggedIn() ? editKeyValue($(this)) : loginProcess(); } );
+                $(".fe_del_kv").click( function() { isWellLoggedIn() ? delPropertyValue($(this)) : loginProcess(); } );
+                $(".fe_edit_kv").click( function() { isWellLoggedIn() ? editPropertyValue($(this)) : loginProcess(); } );
                 // 2. clear the form
                 $("#fe_form_new_property").val("");
                 $("#fe_form_new_value").val("");
@@ -453,10 +450,10 @@ function folskonomy_engine_init() {
     }
 
 
-    function editKeyValue(_this) {
+    function editPropertyValue(_this) {
         // UI: create input field and replace "edit" button by "save" button
-        console.log("FEUS - editKeyValue() - start");
-        let _key = $(_this).parent().parent().children(".property").text();
+        console.log("FEUS - editPropertyValue() - start");
+        let _property = $(_this).parent().parent().children(".property").text();
         let _oldValue = $(_this).parent().parent().children(".value").text();
         let _version = $(_this).parent().parent().children(".version").data("version");
 
@@ -470,12 +467,12 @@ function folskonomy_engine_init() {
 
         // call modifyKV if save button
         // TODO: convert <input> into <td>
-        $(".fe_save_kv").click( function() { isWellLoggedIn() ? updateKeyValue(code, _key, $(_this).parent().parent().find(".fe_form_value").val(), "", _version+1) : loginProcess(); } );
+        $(".fe_save_kv").click( function() { isWellLoggedIn() ? updatePropertyValue(code, _property, $(_this).parent().parent().find(".fe_form_value").val(), "", _version+1) : loginProcess(); } );
         return;
     }
 
 
-    function updateKeyValue(_code, _k, _v, _owner, _version) {
+    function updatePropertyValue(_code, _k, _v, _owner, _version) {
         // {
         //   "product": "string",
         //   "k": "string",
@@ -540,7 +537,7 @@ function folskonomy_engine_init() {
             }
         })
             .catch(err => { // network errors like 500
-            console.log('FEUS - updateKeyValue() - ERROR. Something went wrong: ' +
+            console.log('FEUS - updatePropertyValue() - ERROR. Something went wrong: ' +
                         resStatus +
                         err);
         });
@@ -606,12 +603,12 @@ function folskonomy_engine_init() {
         if (new RegExp('api/v0/').test(document.URL) === true) return "api";
 
         // Detect API page. Examples:
-        // * https://world.openfoodfacts.org/key/test
-        // * https://world.openfoodfacts.org/key/test/value/test
-        if (new RegExp('/key/').test(document.URL) === true) return "key";
+        // * https://world.openfoodfacts.org/property/test
+        // * https://world.openfoodfacts.org/property/test/value/test
+        if (new RegExp('/property/').test(document.URL) === true) return "property";
 
-        // Detect API page. Example: https://world.openfoodfacts.org/key/test
-        if (new RegExp('keys$').test(document.URL) === true) return "keys";
+        // Detect properties page. Example: https://world.openfoodfacts.org/properties
+        if (new RegExp('properties$').test(document.URL) === true) return "properties";
 
         // Detect producers platform
         if (new RegExp('\.pro\.open').test(document.URL) === true) proPlatform = true;
@@ -815,7 +812,3 @@ function folskonomy_engine_init() {
         console.log("getConnectedUserID() > user_name: " + user_name);
         return user_name;
     }
-
-
-//})();
-
