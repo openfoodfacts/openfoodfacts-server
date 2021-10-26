@@ -5584,8 +5584,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "Ingredients whose cultivation threatens species"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "No ingredient which cultivation threatens species has been detected."
+msgid "No ingredient threatening species"
+msgstr "No ingredient threatening species"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5689,36 +5689,36 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
-msgstr "This product's packaging has an high impact on the environment."
+msgid "Packaging with a high impact"
+msgstr "Packaging with a high impact"
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
-msgstr "This product's packaging has an average impact on the environment."
+msgid "Packaging with a medium impact"
+msgstr "Packaging with a medium impact"
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
-msgstr "This product's packaging has a low impact on the environment."
+msgid "Packaging with a low impact"
+msgstr "Packaging with a low impact"
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
-msgstr "The information about this product's packaging is missing."
+msgid "Missing packaging information for this product"
+msgstr "Missing packaging information for this product"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
-msgstr "Transportation and origins of ingredients have a high impact."
+msgid "Origins of ingredients with a high impact"
+msgstr "Origins of ingredients with a high impact"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
-msgstr "Transportation and origins of ingredients have a medium impact."
+msgid "Origins of ingredients with a medium impact"
+msgstr "Origins of ingredients with a medium impact"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
-msgstr "Transportation and origins of ingredients have a low impact."
+msgid "Origins of ingredients with a low impact"
+msgstr "Origins of ingredients with a low impact"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
-msgstr "Missing information about the origins of ingredients"
+msgid "Missing origins of ingredients information"
+msgstr "Missing origins of ingredients information"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5827,3 +5827,43 @@ msgstr "Drives deforestation and threatens species such as the orangutan"
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
 msgstr "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr "Bonus"
+
+msgctxt "malus"
+msgid "Malus"
+msgstr "Malus"
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr "Life cycle analysis"
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr "Bonuses and maluses"
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr "Eco-Score for this product"
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr "Average impact of products of the same category"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr "Sum of bonuses and maluses"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr "The sum of bonuses and maluses is capped at +25."
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr "Life cycle analysis score"
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."

@@ -264,16 +264,16 @@ function display_product_summary(target, product) {
 		var color = "#eee";
 		
 		if (attribute.status == "known") {
-			if (attribute.match <= 20) {
+			if (attribute.grade == "e") {
 				color = "hsl(0, 100%, 90%)";
 			}
-			else if (attribute.match <= 40) {
+			else if (attribute.grade == "d") {
 				color = "hsl(30, 100%, 90%)";
 			}
-			else if (attribute.match <= 60) {
+			else if (attribute.grade == "c") {
 				color = "hsl(60, 100%, 90%)";
 			}
-			else if (attribute.match <= 80) {
+			else if (attribute.grade == "b") {
 				color = "hsl(90, 100%, 90%)";
 			}
 			else {
