@@ -7352,7 +7352,7 @@ JS
 	}
 	if ($$content_ref =~ /<scripts>(.*)<\/scripts>/s) {
 		$$content_ref = $` . $';
-		scripts .= $1;
+		$scripts .= $1;
 	}
 
 	$template_data_ref->{search_terms} = ${search_terms};
