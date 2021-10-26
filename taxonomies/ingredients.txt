@@ -40559,6 +40559,83 @@ en:kaffir lime peel
 de:Kaffirlimettenschale, Kaffirlimettenschalen, Kaffernlimettenschale
 es:piel de lima Kaffir
 
+<en:fruit
+en:kumquat, kumquats
+af:koemkwat
+ar:كمكوات
+az:kinkan
+bg:кумкуат
+ca:cumquat
+cs:kumquat
+cv:кумкват
+da:kumquat
+de:Kumquat
+el:κουμκουάτ
+eo:kumkvato
+es:kumquat, cumquat
+et:kinkan
+eu:kumkuat
+fa:پورنج
+fi:kumkvatti, kumkvatit, kääpiöpomeranssi
+fr:kumquat
+gl:kumquat
+he:קומקוואט
+hr:kumkvat
+hu:kumkvat
+id:kumkuat
+is:kúmkvat
+it:kumquat
+ja:キンカン
+ka:კინკანი
+ko:금귤
+kv:кумкват
+la:citrus japonica
+lt:kinkanas
+ml:കുംകാറ്റ് ഓറഞ്ച്
+ms:kumkuat, كومكوات‎
+nb:kumquat
+ne:मुन्तला
+nl:kumquat
+nn:kumquat
+pl:kumkwat
+pt:cunquate, quincã
+ro:kumquat
+ru:кумкват
+sk:kumkvat
+sl:kumkvat
+sr:кумкват, kumkvat
+sv:kumquat
+th:ส้มจี๊ด
+tl:kumquat
+to:kamikuati
+tr:kamkat
+uk:кумкват
+vi:quất
+zh:金橘
+#arz:كمكوات
+#ast:kumquat
+#azb:کینکان
+#ceb:kumkuwat
+#frr:kumquat
+#hsb:kumkwat
+#koi:кумкват
+#lbe:кумкват
+#lzh:金橘
+#mrj:кумкват
+#nds:kumquat
+#udm:кумкват
+#wuu:金柑
+#yue:金桔
+wikidata:en:Q104005575
+#plant: wikidata:en:Q5122903
+ciqual_food_code:en:13549
+ciqual_food_name:en:Kumquat, without pips, raw
+ciqual_food_name:fr:Kumquat, sans pépin, cru
+
+<en:juice
+<en:kumquat
+en:kumquat juice
+fr:jus de kumquat
 
 ###################################################################################################
 #
@@ -45041,12 +45118,6 @@ ur:تُوت علیق
 vi:Dâu tây vườn
 za:Godumh
 zh:草莓
-carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr:3.5
-carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:0.8
 # aeb-arab:كعبة فراز
 # ary:لفريز
 # ast:fresón
@@ -45058,12 +45129,6 @@ carbon_footprint_fr_foodges_value:fr:0.8
 # ckb:چلیک
 # csb:Ògardowô pòtrôwnica
 # dsb:Zagrodna słynica
-carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr:3.5
-carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:0.8
 # frr:Guard-eerdbei
 # hak:Chhó-mòi
 # hsb:Zahrodna truskalca
@@ -45080,6 +45145,12 @@ carbon_footprint_fr_foodges_value:fr:0.8
 # yue:士多啤梨
 wikidata:en:Q14458220
 wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
+carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr:3.5
+carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr:0.8
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
 # 2504 products in 15 languages @2018-10-01
 ciqual_food_code:en:13014
@@ -45209,6 +45280,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fragaria_vesca
 #                                Sea-Buckthorn
 #
 ###################################################################################################
+
 
 <en:fruit
 en:sea-buckthorn
@@ -56240,6 +56312,13 @@ fr:farine de lentilles corail
 
 <en:lentils
 fr:lentillons
+
+<en:lentils
+en:sprouted lentils
+fr:lentilles germées
+ciqual_food_code:en:20521
+ciqual_food_name:en:Lentils, sprouted
+ciqual_food_name:fr:Lentille, germée
 
 <en:lentils
 en:lentil flour
