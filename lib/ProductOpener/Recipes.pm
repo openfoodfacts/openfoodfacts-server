@@ -118,7 +118,7 @@ sub compute_product_recipe($$) {
 
     if ((not defined $product_ref->{ingredients}) or (scalar @{$product_ref->{ingredients}} == 0)) {
         $log->debug("compute recipe for product - empty ingredients", { code => $product_ref->{code}}) if $log->is_debug();
-        return undef;
+        return;
     }
 
     my $recipe_ref = { "unknown" => 0, "other" => 0};

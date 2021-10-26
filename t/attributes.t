@@ -140,7 +140,18 @@ my @tests = (
 				"fiber_100g" => 5.5,
 			},
 		}
-	],	
+	],
+
+	# Maybe vegan: attribute score should be 50
+	[
+		'en-maybe-vegan',
+		{
+			lc => "en",
+			categories => "Non-dairy cheeses",
+			categories_tags => ["en:non-dairy-cheeses"],
+			ingredients_text => "tapioca starch, palm oil, enzyme",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

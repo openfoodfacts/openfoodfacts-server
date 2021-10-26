@@ -43,6 +43,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Web qw(get_languages_options_list);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -397,17 +398,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			if ($field eq "lang") {
 				my $value = remove_tags_and_quote(decode utf8=>param($field));
-				
+
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
 				$value = lc($value);
-				
+
 				# skip unrecognized languages (keep the existing lang & lc value)
 				if (defined $lang_lc{$value}) {
 					$product_ref->{lang} = $value;
 					$product_ref->{lc} = $value;
-				}				
-				
+				}
+
 			}
 			else {
 				# infocards set by admins can contain HTML
@@ -716,14 +717,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
-	
+
 	# Until we provide an interface to directly change the packaging data structure
 	# erase it before reconstructing it
 	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];	
-	
+	$product_ref->{packagings} = [];
+
 	analyze_and_combine_packaging_data($product_ref);
-	
+
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		compute_ecoscore($product_ref);
 		compute_forest_footprint($product_ref);
@@ -901,7 +902,7 @@ CSS
 	 and (defined $Org_id)) {
 
 		# Display a link to the producers platform
-		
+
 		my $producers_platform_url = $formatted_subdomain . '/';
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 
@@ -937,26 +938,14 @@ CSS
 	}
 
 	# Main language
-	my @lang_options;
-	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
-
-	my %lang_labels = ();
-	foreach my $l (@lang_values) {
-		next if (length($l) > 2);
-		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
-		push(@lang_options, {
-			value => $l,
-			label => $lang_labels{$l},
-		});
-	}
-
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
 	$template_data_ref_display->{product_lang_value} = $lang_value;
-	$template_data_ref_display->{lang_options} = \@lang_options;
+	# List of all languages for the template to display a dropdown for fields that are language specific
+	$template_data_ref_display->{lang_options} = get_languages_options_list($lc);
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1052,9 +1041,10 @@ sub display_input_tabs($$$$$) {
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
 		if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-			my $msg = sprintf(lang("move_data_and_photos_to_main_language"),
-				'<span class="tab_language">' . $language . '</span>',
-				'<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>');
+			my $msg = f_lang("f_move_data_and_photos_to_main_language", {
+				language => '<span class="tab_language">' . $language . '</span>',
+				main_language => '<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>'
+			});
 
 			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
@@ -1530,7 +1520,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 }
 elsif ($action eq 'process') {
 
-	my $template_data_ref_process = {};
+	my $template_data_ref_process = { type => $type };
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
 
@@ -1548,14 +1538,11 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $product_url = product_url($product_ref);
-
-
-	$template_data_ref_process->{product_ref_server} = $product_ref->{server};
+	my $edited_product_url = product_url($product_ref);
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
+		$edited_product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
 	}
 	elsif ($type eq 'delete') {
 
@@ -1595,7 +1582,7 @@ MAIL
 		}
 	}
 
-	$template_data_ref_process->{product_url} = $product_url;
+	$template_data_ref_process->{edited_product_url} = $edited_product_url;
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 }

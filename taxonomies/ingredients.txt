@@ -26026,14 +26026,14 @@ ciqual_food_name:fr:Semoule de blé dur, crue
 # 15 in fr @2021-09-28
 
 #processing:en: en:superior quality
-#<en:durum wheat semolina
-#en:superior quality durum wheat semolina
-#de:hochwertiger Hartweizengrieß
-#es:sémola de trigo duro de calidad superior
-#fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
-#it:semola di grano duro di qualità superiore
-#nl:durumtarwegriesmeel van hoge kwaliteit
-#pt:sêmola de trigo rijo de qualidade superior
+<en:durum wheat semolina
+en:superior quality durum wheat semolina
+de:hochwertiger Hartweizengrieß
+es:sémola de trigo duro de calidad superior
+fr:semoule de blé dur de qualité supérieure, semoule supérieure de blé dur
+it:semola di grano duro di qualità superiore
+nl:durumtarwegriesmeel van hoge kwaliteit
+pt:sêmola de trigo rijo de qualidade superior
 
 <en:durum wheat semolina
 fr:semoule blanche de blé dur
@@ -28936,9 +28936,37 @@ fr:farine d’orge dextrinée
 hu:dextrinált árpaliszt
 nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
+<en:buckwheat
+en:buckwheat flour
+da:boghvedemel
+de:Buchweizenmehl
+el:αλέυρι φαγόπυρου
+es:harina de sarraceno, harina de alforfon
+fi:tattarijauho
+fr:farine de sarrasin, farine de blé noir
+hu:hajdinaliszt
+it:farina di grano saraceno
+ja:蕎麦粉
+nb:bokhvetemel
+nl:boekweitmeel
+pl:mąka gryczana
+pt:farinha de trigo mourisco
+ru:мука гречневая
+sv:bovetemjöl
+wikidata:en:Q11621982
+ciqual_food_code:en:9540
+ciqual_food_name:en:Buckwheat flour
+ciqual_food_name:fr:Farine de sarrasin
+#1493 @2021-09-27
 
+<en:buckwheat flour
+fr:galette en blé noir
 
-
+<en:buckwheat flour
+<en:wholemeal flour
+en:whole grain buckwheat flour
+de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
+nl:volkoren boekweitmeel
 
 <en:cereal flour
 en:rye flour
@@ -29065,6 +29093,19 @@ description:de:Maronenmehl wird aus getrockneten und geschälten Kastanien herge
 description:en:Chestnuts can be dried and milled into flour, which can then be used to prepare breads, cakes, pies, pancakes, pastas, polenta, or used as thickener for stews, soups, and sauces.
 # 7 in 3 @2021-09-02
 
+
+<en:flour
+en:tapioca flour
+da:Tapiocamel
+de:Tapiokamehl
+es:Harina de tapioca
+fi:tapiokajauho
+fr:farine de tapioca, farine de manioc
+hu:tápiókaliszt, maniókaliszt
+it:Farina di tapioca
+nl:tapiocameel
+pt:Farinha de tapioca
+nutriscore_fruits_vegetables_nuts:en:no
 
 
 <en:flour
@@ -59610,7 +59651,7 @@ wikidata:en:Q1882876
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. E100
+# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
 
 # <en:root vegetable
 <en:spice
@@ -59743,8 +59784,8 @@ ciqual_food_name:fr:Curcuma, poudre
 #sv:gurkmejaextrakt
 # 6229 @2021-09-18
 
-<en:turmeric extract
-fr:extrait naturel de curcuma
+#<en:turmeric extract
+#fr:extrait naturel de curcuma
 # fr:extrait-naturel-de-curcuma has 23 products in 1 language @2018-10-11
 
 ###################################################################################################
@@ -64187,6 +64228,9 @@ ciqual_food_name:en:Lettuce, raw
 ciqual_food_name:fr:Laitue, crue
 # 2021 in 5 languages @2021-08-10
 
+<en:lettuce
+fr:jeunes pousses de laitue verte
+#20 in fr @2021-10-05
 
 #category/romaine-lettuce
 <en:lettuce
@@ -64234,8 +64278,7 @@ ciqual_food_name:en:Cos or romaine lettuce, raw
 ciqual_food_name:fr:Laitue romaine, crue
 #758 in 7 @2021-10-04
 
-# description:en: 
-/Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
+# description:en:Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
 
 #category/iceberg-lettuce
 <en:lettuce

@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gulp",
     "build:watch": "gulp watch",
+    "build:dynamic": "npm install && gulp dynamic",
     "test": "npm run test:lang && npm run prove && npm run lint && npm run perlc",
     "test:lang": "npm run test:lang:common && npm run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
@@ -55,7 +56,7 @@
     "leaflet.markercluster": "1.5.1",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.3.1",
-    "snyk": "^1.727.0",
+    "snyk": "^1.733.0",
     "xml2json": "^0.12.0",
     "select2": "~4.0"
   },

@@ -1,18 +1,15 @@
 <!-- start templates/[% template.name %] -->
 
-[% IF product_ref_server.defined %]
-    <p>[% lang("product_changes_saved") %]</p>
-    <p>&rarr; <a href="[% product_url %]">[% lang("see_product_page") %]</a></p>
+[%  IF display_random_sample_of_products_after_edits_options.defined && display_random_sample_of_products_after_edits_options %]
 
 [% ELSIF type == 'delete' %]
 
+    <p>[% lang("product_deleted") %]</p>
+
 [% ELSE %]
 
-    [%  IF display_random_sample_of_products_after_edits_options.defined && display_random_sample_of_products_after_edits_options %]
-    [% ELSE %]
-        <p>[% lang("product_changes_saved") %]</p>
-        <p>&rarr; <a href="[% product_url %]">[% lang("see_product_page") %]</a></p>
-    [% END %]
+    <p>[% lang("product_changes_saved") %]</p>
+    <p>&rarr; <a href="[% edited_product_url %]">[% lang("see_product_page") %]</a></p>
 
 [% END %]
 

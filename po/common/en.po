@@ -4317,10 +4317,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Some ingredients could not be recognized."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5754,17 +5754,21 @@ msgctxt "g_per_100g"
 msgid "%s g / 100 g"
 msgstr "%s g / 100 g"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "No labels with environmental benefits"
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
-msgstr "Production mode with environmental benefits"
+msgid "Labels with environmental benefits"
+msgstr "Labels with environmental benefits"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
-msgstr "Production mode with high environmental benefits"
+msgid "Labels with high environmental benefits"
+msgstr "Labels with high environmental benefits"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
-msgstr "Production mode with very high environmental benefits"
+msgid "Labels with very high environmental benefits"
+msgstr "Labels with very high environmental benefits"
 
 msgctxt "other"
 msgid "Other"
@@ -5797,4 +5801,46 @@ msgstr "We need your donations to fund the Open Food Facts 2021 budget and to co
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "Donate" 
+msgstr "Donate"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "Product deleted."
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "Carbon footprint"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} g CO² per 100g of product"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "Equal to driving {kilometers} km in a petrol car"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "Source: ADEME Agribalyse Database"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Environment"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "Nutrition and health"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "Contains palm oil"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "Drives deforestation and threatens species such as the orangutan"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
