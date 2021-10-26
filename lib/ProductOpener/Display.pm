@@ -11174,11 +11174,15 @@ Load the Folksonomy Engine properties script
 
 sub display_properties($) {
 
+	my $request_ref = shift;
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html) || return "template error: " . $tt->error();
 
-	return $html;
+	$request_ref->{content_ref} = \$html;
+	$request_ref->{page_type} = "properties";
+
+	display_page($request_ref);
 }
 
 1;
