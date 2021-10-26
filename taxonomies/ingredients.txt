@@ -40642,7 +40642,7 @@ fr:jus de kumquat
 #                                Lemon
 #
 ###################################################################################################
-<en:fruit
+
 <en:citrus fruit
 en:lemon
 ca:Llimona
@@ -50710,105 +50710,126 @@ ciqual_food_name:fr:Topinambour, cru
 
 # description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 
-# <en:category:en:Vegetable rods
+# category/leeks
 <en:root vegetable
 en:leek
 ar:كراث
-az:Kəvər soğanı
-bg:Праз
+az:kəvər soğanı
+be:цыбуля парэй
+bg:праз
+bn:পলাণ্ডু
 bo:ཀེའུ་ཙོང་།
-br:Pour
+br:pour
 ca:porro
-co:Porru
-cs:pór zahradní
-cy:Cenhinen
-da:Porre, porrer
+co:porru
+cs:pór, pórek
+cy:cenhinen
+da:porre, porrer
 de:Lauch, Lauche, Porrees, Porree
-el:Πράσο
-eo:Poreo
-es:Puerro, Puerros
-eu:Porru
+el:πράσο
+eo:poreo
+es:puerro, puerros
+eu:porru
 fa:تره‌فرنگی
-fi:Purjo, purjosipuli
+fi:purjo, purjosipuli
 fr:poireau, poireaux
-ga:Cainneann
-gl:Allo porro
-gv:Cannian
+ga:cainneann
+gl:allo porro
+gv:cannian
+ha:albasa mai kara
 he:כרישה
-hr:Poriluk
-ht:Powo
-hu:Póréhagyma
-hy:պռսասոխ
-id:Bawang prei
-io:Porelo
-is:Blaðlaukur
+hi:हरा प्याज
+hr:poriluk
+ht:powo
+hu:póréhagyma
+hy:պրաս
+id:bawang prei
+io:porelo
+is:blaðlaukur
 it:porro, porri
 ja:リーキ
+jv:brambang préi
 ka:პრასი
-kk:Порей пиязы
+kk:порей пиязы, poreý pïyazı, پورەي پىييازى
 kn:ಲೀಕ್
 ko:대파
-ku:Pirasa
-la:Allium ampeloprasum var. porrum
-li:Sjpoor
-lt:Daržinis poras
+ku:pirasa, پراسا
+la:allium ampeloprasum var. porrum
+li:sjpoor
+lt:poras, daržinis poras
 lv:puravi
 mk:праз
-ms:Bawang perai
+ms:bawang perai, ‏باوڠ ڤراي‎‎
+mt:kurrat
 my:ထန်းကြက်သွန်
 nb:purre, purreløk
 nl:prei
 nn:purre
-oc:Pòrre
-os:Зæнгджын хъæдындз
+oc:pòrre
+os:зæнгджын хъæдындз
 pl:por
 pt:alho-porro, alho francês
-ro:Praz
-ru:Лук-порей
-rw:Igitunguru
-sc:Porru
-se:Boskalávki
-sh:Praziluk
-sl:Por
-sq:Preshi
-sr:Празилук
-sv:Purjolök
+ro:praz
+ru:лук-порей
+rw:igitunguru
+sc:porru
+se:boskalávki
+sh:praziluk
+sk:pór
+sl:por
+sq:presh, preshi
+sr:празилук, praziluk
+sv:purjolök
 ta:லீக்ஸ்
+tg:гандано
 th:กระเทียมต้น
-tr:Pırasa
-uk:Цибуля порей
+tr:pırasa
+uk:цибуля порей
 ur:کراث
-vi:Tỏi tây
-wa:Porea
+vi:tỏi tây
+wa:porea
 yi:פארע-ציבעלע
 zh:韭葱
 # aeb-arab:كرّاث
-# frr:Gäärslook
-# kbp:Puwaroo
-# nah:Huēyi Caxtillān xōnacatl
-# nap:Puorr
-# nds:Look
-# pcd:Poreau
+#ang:lēac
+#arz:كراث
+# frr:gäärslook
+# kbp:puwaroo
+# nah:huēyi caxtillān xōnacatl
+# nap:puorr
+# nds:look
+#pap:siboyo largu
+# pcd:poreau
 # pnb:ہرا پیاز
-# pt-br:Alho poró
-# sco:Leek
-# vls:Pret
+# pt-br:alho poró
+# sco:leek
+#smn:purjosiipuul
+#sms:purjoluukk
+# vls:pret
+#wuu:韭葱
+#xmf:პურასქია
 # yue:京蔥
+#plant: wikidata:en:Q21870138
 wikidata:en:Q1807269
 wikipedia:en:https://en.wikipedia.org/wiki/Leek
 carbon_footprint_fr_foodges_ingredient:fr:Poireau
 carbon_footprint_fr_foodges_value:fr:0.3
-# ingredient/leek has 3620 products in 19 languages @2019-05-22
-# category/leeks has 34 products @2019-05-22
+ciqual_food_code:en:20039
+ciqual_food_name:en:Leek, raw
+ciqual_food_name:fr:Poireau, cru
+# 6266 in 27 @2021-10-26
 
 <en:leek
 en:concentrated leek juice
 da:koncentreret porresaft
 de:Konzentrierter Porreesaft
 fr:jus de poireau concentré
+#20 in 3 @2021-10-26
 
 <en:leek
+en:leek powder
 de:Lauchpulver
+#15 in 2 @2021-10-26
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
