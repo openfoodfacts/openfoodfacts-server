@@ -4609,11 +4609,24 @@ sub add_params_to_query($$) {
 			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
 			
 			if ($values =~ /\||\+|,/) {
+				# Multiple values: construct a MongoDB $in query
 				my @values = split(/\||\+|,/, $values);
-				$query_ref->{$field} = { '$in' => \@values };
+				if ($field eq "code") {
+					# normalize barcodes: add missing leading 0s
+					$query_ref->{$field} = { '$in' => [ map { normalize_code($_) } @values ] };
+				}
+				else {
+					$query_ref->{$field} = { '$in' => \@values };
+				}
 			}
 			else {
-				$query_ref->{$field} = $values;
+				# Single value
+				if ($field eq "code") {
+					$query_ref->{$field} = normalize_code($values);
+				}
+				else {
+					$query_ref->{$field} = $values;
+				}
 			}
 		}		
 	}
