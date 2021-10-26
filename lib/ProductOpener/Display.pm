@@ -11172,7 +11172,7 @@ Load the Folksonomy Engine properties script
 
 =cut
 
-sub display_properties($$) {
+sub display_properties($) {
 
 
 	my $html;
