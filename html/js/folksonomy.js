@@ -36,6 +36,7 @@
 const feAPI = "https://api.folksonomy.openfoodfacts.org";
 //const feAPI = "http://127.0.0.1:8000";
 var feAPIProductURL, code;
+//folksonomy_engine_init();
 
 function folskonomy_engine_init() {
     const pageType = isPageType(); // test page type
@@ -257,15 +258,15 @@ function folskonomy_engine_init() {
             'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
             -H 'accept: application/json'
         */
-        $("#main_column p").remove();  // remove <p>Invalid address.</p>
-        $("#main_column h1").before('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
+        //$("#main_column p").remove();  // remove <p>Invalid address.</p>
+        $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
                                     '<h2 id="property_title">Property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
                                     '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
                                     ' about this property on Open Food Facts wiki</p>' +
                                     '<p>List of products using this property:</p>' +
                                     '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
                                     '<ul id="product_list"></ul>');
-        $("#main_column h1").remove(); // remove <h1>Error</h1>
+        //$("#main_column h1").remove(); // remove <h1>Error</h1>
 
         console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
         $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
@@ -288,7 +289,7 @@ function folskonomy_engine_init() {
                             '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
                             '</td>' +
                             '<td class="property_value">'+
-                            '<a href="/property/'+ _property + '/value/' + data[index].value + '">' + data[index].value + '</a>' +
+                            '<a href="/property/'+ _property + '/value/' + data[index].v + '">' + data[index].v + '</a>' +
                             '</td>' +
                             '</tr>');
             };
@@ -307,8 +308,8 @@ function folskonomy_engine_init() {
              -H 'accept: application/json'
         */
         // TODO: add owner filter?
-        $("#main_column p").remove(); // remove <p>Invalid address.</p>
-        $("#main_column h1").before('<h2 id="property_title">Properties</h2>' +
+        //$("#main_column p").remove(); // remove <p>Invalid address.</p>
+        $("#main_column").append('<h2 id="property_title">Properties</h2>' +
                                     '<p>List of all properties.</p>' +
                                     '<table id="properties_list">' +
                                     '<tr>' +
@@ -322,7 +323,7 @@ function folskonomy_engine_init() {
                                     '' +
                                     '</tbody>' +
                                     '</table>');
-        $("#main_column h1").remove(); // remove <h1>Error</h1>
+        //$("#main_column h1").remove(); // remove <h1>Error</h1>
         console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
         $.getJSON(feAPI + "/keys", function(data) {
             console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
