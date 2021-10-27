@@ -391,7 +391,7 @@ function folskonomy_engine_init() {
     }
 
 
-    function addKV(_code, _k, _v) {
+    function addKV(_code, _k, _v, _owner) {
         // curl -X 'POST' \
         //         'https://api.folksonomy.openfoodfacts.org/product' \
         //          -H 'accept: application/json' \
@@ -409,7 +409,7 @@ function folskonomy_engine_init() {
                     "        -H 'accept; application/json' \\\n" +
                     "        -H 'Authorization: Bearer " + bearer + "' \\\n" +
                     "        -H 'Content-Type: application/json' \\\n" +
-                    "        -d '{ \"product\": \"" + _code + "\", \"k\": \"" + _k + "\", \"v\": \"" + _v + "\" }'");
+                    "        -d '{ \"product\": \"" + _code + "\", \"k\": \"" + _k + "\", \"v\": \"" + _v + "\", \"owner\": \""+_owner+"\" }'");
         let resStatus = 0;
         fetch(feAPI + "/product",{
             method: 'POST',
@@ -421,7 +421,7 @@ function folskonomy_engine_init() {
                 'Authorization': 'Bearer ' + bearer,
                 'Content-Type': 'application/json'
             }),
-            body: '{"product": "' + _code + '", "k": "' + _k + '", "v": "' +_v + '"}'
+            body: '{"product": "' + _code + '", "k": "' + _k + '", "v": "' +_v + '", "owner": "' + _owner + '"}'
         }).
             then((res) => {
             resStatus = res.status;
