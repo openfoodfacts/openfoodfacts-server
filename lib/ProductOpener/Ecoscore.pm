@@ -728,6 +728,8 @@ sub compute_ecoscore($) {
 			# Unfortunately there is a MongoDB index limit and we cannot create a different set of field
 			# for each country.
 			
+			$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"scores"}{"fr"};
+			$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grades"}{"fr"};
 			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"scores"}{"fr"};
 			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grades"}{"fr"};
 			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];			

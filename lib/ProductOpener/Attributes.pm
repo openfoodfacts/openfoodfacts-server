@@ -600,12 +600,12 @@ sub compute_attribute_ecoscore($$$) {
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 		$attribute_ref->{status} = "known";
 		
-		my $score = $product_ref->{ecoscore_data}{score};
-		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $score = $product_ref->{ecoscore_score} // 0;
+		my $grade = $product_ref->{ecoscore_grade};
 		
-		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
-			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
-			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
+		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$cc})) {
+			$score = $product_ref->{ecoscore_data}{"scores"}{$cc} // 0;
+			$grade = $product_ref->{ecoscore_data}{"grades"}{$cc};
 		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
