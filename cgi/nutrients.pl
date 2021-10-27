@@ -35,24 +35,16 @@ use JSON::PP;
 
 ProductOpener::Display::init();
 
-# Recursively remove parent association to avoid redundant JSON data.
-sub _remove_parent {
-	my $current_ref = shift;
-
-	if (defined $current_ref->{nutrients}) {
-		foreach my $nutrient (@{$current_ref->{nutrients}}) {
-			_remove_parent($nutrient);
-		}
-	}
-
-	delete $current_ref->{parent};
-
-	return;
-}
+# Turn the flat nutriments table array into a nested array of nutrients
+# The level of each nutrient is indicated by leading dashes before its id:
+# nutrient
+# -sub-nutrient
+# --sub-sub-nutrient
 
 my @table = ();
-my $previous_ref;
-my $previous_prefix_length = 0;
+my $parent_level0;
+my $parent_level1;
+
 foreach (@{$nutriments_tables{$nutriment_table}}) {
 	my $nid = $_;	# Copy instead of alias
 
@@ -62,33 +54,37 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	my $default_edit_form = $nid =~ /-$/ ? JSON::PP::false : JSON::PP::true;
 	$nid =~ s/-$//g;
 
-	my $onid = $nid =~ s/^(-+)//gr;
-	my $prefix_length = defined $1 ? length($1) : 0;
-	my %current = ( id => $onid, important => $important, display_in_edit_form => $default_edit_form );
-	my $current_ref = \%current;
+	my $onid = $nid =~ s/^(\-+)//gr;
+
+	my $current_ref = { id => $onid, important => $important, display_in_edit_form => $default_edit_form };
 	my $name = get_nutrient_label($onid, $lc);
 	if (defined $name) {
 		$current_ref->{name} = $name;
 	}
 
-	if (($prefix_length gt 0) or ($prefix_length gt $previous_prefix_length)) {
-		@{$previous_ref->{nutrients}} = () unless defined $previous_ref->{nutrients};
-		push @{$previous_ref->{nutrients}}, $current_ref unless not defined $current_ref;
-		$current_ref->{parent} = $previous_ref;
+	my $prefix_length = 0;
+	if ($nid =~ s/^--//g) {
+		$prefix_length = 2;
+	} elsif($nid =~ s/^-//g) {
+		$prefix_length = 1;
 	}
-	else {
+
+	if ($prefix_length == 0) {
+		#  I'm on level 2, my parent is the latest level 1 parent
 		push @table, $current_ref unless not defined $current_ref;
+		$parent_level0 = $current_ref;
 	}
-
-	if (($prefix_length gt $previous_prefix_length) or ($prefix_length eq 0)) {
-		$previous_ref = $current_ref;
-		$previous_prefix_length = $prefix_length;
+	elsif ($prefix_length == 1) {
+		# I'm on level 0, I have no parent, and I'm the latest level 0 parent
+		@{$parent_level0->{nutrients}} = () unless defined $parent_level0->{nutrients};
+		push @{$parent_level0->{nutrients}}, $current_ref unless not defined $current_ref;
+		$parent_level1 = $current_ref;
 	}
-}
-
-# The parent attribute is only used to build up the structure. Just remove it here to avoid circular dependency in JSON.
-foreach my $nutrient (@table) {
-	_remove_parent($nutrient);
+	elsif ($prefix_length == 2) {
+		#  I'm on level 1, my parent is the latest level 0 parent, and I'm the latest level 1 parent
+		@{$parent_level1->{nutrients}} = () unless defined $parent_level1->{nutrients};
+		push @{$parent_level1->{nutrients}}, $current_ref unless not defined $current_ref;
+	}
 }
 
 my %result = ( nutrients => \@table );
