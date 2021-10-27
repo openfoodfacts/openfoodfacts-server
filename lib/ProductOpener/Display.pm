@@ -7739,9 +7739,16 @@ CSS
 		return 301;
 	}
 
+	# Note: the product_url function is automatically added to all templates
+	# so we need to use a different field name for the displayed product url
+
+	my $product_url = product_url($product_ref);
+	$template_data_ref->{this_product_url} = $product_url;
+
 	# On the producers platform, show a link to the public platform
+
 	if ($server_options{producers_platform}) {
-		my $public_product_url = $formatted_subdomain . product_url($product_ref);
+		my $public_product_url = $formatted_subdomain . $product_url;
 		$public_product_url =~ s/\.pro\./\./;
 		$template_data_ref->{public_product_url} = $public_product_url;
 	}
