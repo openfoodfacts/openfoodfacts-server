@@ -26,12 +26,13 @@
 //     * delete a property-value pair
 //     * add a new property-value pair containing the previous deleted property-value
 
-// TODO: see https://github.com/openfoodfacts/folksonomy_frontend/issues
+// Issues: see https://github.com/openfoodfacts/folksonomy_frontend/issues
 
 const feAPI = "https://api.folksonomy.openfoodfacts.org";
 //const feAPI = "http://127.0.0.1:8000";
 var feAPIProductURL, code;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
+/* exported folksonomy_engine_init */
 //folksonomy_engine_init();
 
 function folskonomy_engine_init() {
@@ -135,7 +136,7 @@ function folskonomy_engine_init() {
      * Examples:
      *    * Photo_Front: To be updated
      *
-     * @returns none
+     * @returns {undefined}
      */
     function displayFolksonomyPropertyValues() {
         //$(".details").before(
@@ -606,7 +607,7 @@ function folskonomy_engine_init() {
         if (new RegExp('properties$').test(document.URL) === true) return "properties";
 
         // Detect producers platform
-        if (new RegExp('\.pro\.open').test(document.URL) === true) proPlatform = true;
+        if (new RegExp('\\.pro\\.open').test(document.URL) === true) proPlatform = true;
 
         // Detect "edit" mode.
         if (new RegExp('product\\.pl').test(document.URL) === true) {
