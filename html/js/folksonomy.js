@@ -26,25 +26,19 @@
 //     * delete a property-value pair
 //     * add a new property-value pair containing the previous deleted property-value
 
-// TODO
-
-// Priority 1:
-// * organise a place for property documentation, and link FEUS to it (the wiki?)
-
-// See: https://github.com/openfoodfacts/folksonomy_frontend/issues
+// TODO: see https://github.com/openfoodfacts/folksonomy_frontend/issues
 
 const feAPI = "https://api.folksonomy.openfoodfacts.org";
 //const feAPI = "http://127.0.0.1:8000";
 var feAPIProductURL, code;
+const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
 function folskonomy_engine_init() {
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-09-14T16:54 - mode: " + pageType);
 
-    var bearer;
-    var authHeader, loginWindow;
-    const authrenewal = 1 * 5 * 60 * 60 * 1000; console.log("authrenewal: " + authrenewal); // days * hours * minutes * seconds * ms
+    console.log("authrenewal: " + authrenewal); // days * hours * minutes * seconds * ms
 
 
     // css
@@ -121,12 +115,12 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        let results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
+        const results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
         if (results === null) {
             return null;
         }
-        let property = results[1];
-        let value = results[3];
+        const property = results[1];
+        const value = results[3];
         displayProductsWithProperty(property, value);
     }
 
@@ -550,7 +544,7 @@ function folskonomy_engine_init() {
      * Examples:
      *    * Photo_Front: To be updated
      *
-     * @returns none
+     * @returns {undefined}
      */
     function displayFolksonomyForm() {
         $(".details").before(
@@ -716,7 +710,7 @@ function folskonomy_engine_init() {
     }
 
 
-    function getCredentials(_username, _password) {
+    function getCredentials(_username, _password, callback) {
         console.log("FEUS - getCredentials - call " + feAPI + "/auth");
         console.log("FEUS - getCredentials - username: " + _username);
         fetch(feAPI + '/auth',{
