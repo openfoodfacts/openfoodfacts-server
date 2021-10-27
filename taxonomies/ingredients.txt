@@ -42175,6 +42175,44 @@ sv:boysenbärsjuice
 ###################################################################################################
 
 <en:fruit
+en:breadfruit
+af:broodvrugt
+az:çörək ağacı
+bi:bredfrut
+bo:གོ་རེ་ཤིང་འབྲས།
+ca:fruit del pa
+da:brødfrugt
+de:Brotfrucht
+dv:ބަނބުކެޔޮ
+eo:panfrukto
+es:frutipan, fruta del pan
+fr:fruit à pain
+id:sukun
+ja:パンの実
+ko:빵열매
+La:Artocarpus Altilis
+ms:sukun, ‏سوكون‎‎, kulur, كولور‎
+nl:broodvrucht
+pt:fruta-pão
+ru:плод хлебного дерева
+rw:urubuto rw’umugati
+th:สาเก
+ty:ùru
+vi:xa kê, sa kê
+#akr:levu
+#bcl:rimas
+#msn:biēg
+#zdj:furiapa, friapa
+wikidata:en:Q5869893
+#plant:wikidata:en:Q14677
+
+###################################################################################################
+#
+#                                Carambola
+#
+###################################################################################################
+
+<en:fruit
 en:carambola, star fruit
 ar:قلنباق
 as:কৰ্দ্দৈ
@@ -42255,6 +42293,10 @@ zh:楊桃
 #yue:楊桃
 wikidata:en:Q181560
 #plant:wikidata:en:Q159447
+ciqual_food_code:en:13054
+ciqual_food_name:en:Carambola, pulp, raw
+ciqual_food_name:fr:Carambole, pulpe, crue
+
 
 ###################################################################################################
 #
@@ -55190,26 +55232,55 @@ vegetarian:en:yes
 
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
+#category/butter-beans
 <en:legumes
-en:lima beans, butter beans
-de:Limabohnen
-es:haba lima,judia de lima
-fi:limanpapu, voipapu
-fr:Haricot de Lima
-sv:limaböna, smörböna
-wikidata:en:Q1166136
+en:lima bean, butter bean
+ca:garrofó, fesol de la peladilla, mongeta de Lima
+da:limabønne, månebønne, sukkerbønne
+de:Limabohne, Mondbohne
+el:φασόλι της Lima, φασόλια Lima
+eo:limofazeolo
+es:Garrofones, Garrofón, Habones, Judías de Lima, Habas de Lima
+eu:limako babarruna
+fa:لوبیای عروس
+fi:voipapu, limanpapu, valkoinen voipapu
+fr:haricot de Lima
+ga:pónaire mhór
+ht:pwachouk
+id:kacang kratok, kacang jawa, kekara
+it:fagiolo di Lima
+ja:ライマメ
+ko:리마콩
+la:Phaseolus lunatus
+ml:ബട്ടർ ബീൻസ്
+ms:kacang serinding, kacang keratuk, kacang kratok, kacang cina
+nb:limabønne, limabønner
+nl:limaboon, Indische maanboon, wilgenbladboon, olifantsboon
+pl:fasola półksiężycowata
+pt:feijão-de-lima
+ru:фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
+sr:лима пасуљ, lima pasulj
+su:roay, kacang jawa, kekara
+sv:limaböna, smörböna, smörbönor
+sw:mfiwi
+tl:patani
+vi:dâu ngu
+zh:棉豆
+#ban:kara, kekara
+#ilo:patani
+#plant: wikidata:en:Q1166136
+wikidata:en:Q104007010
 wikipedia:en:https://en.wikipedia.org/wiki/Lima_bean
-
+ciqual_food_code:en:20126
+ciqual_food_name:en:Lima bean, raw
+ciqual_food_name:fr:Haricot de Lima, cru
+#528 @2021-10-27
 
 <en:lima beans
 en:large lima beans
-de:dicke Limabohnen, große Limabohnen
-fr:Grands haricots de Lima
 
 <en:lima beans
 en:baby lima beans
-de:Limabohnensprossen
-fr:jeunes pousses de haricots de Lima
 
 <en:legumes
 en:pinto beans
