@@ -40393,12 +40393,22 @@ nl:pompelmoesschillen
 #32 @2021-10-25
 
 <en:grapefruit
+en:yellow grapefruit
+fr:Pulpe de pomelo jaune cru, Pulpe de pamplemousse jaune cru
+ciqual_food_code:en:13179
+ciqual_food_name:en:Grapefruit, yellow, pulp, raw
+ciqual_food_name:fr:Pomelo (dit Pamplemousse) jaune, pulpe, cru
+
+<en:grapefruit
 en:pink grapefruit
 de:Pink grapefruit
 es:pomelo rosa
 fi:verigreippi
 fr:pamplemousse rose
 it:pompelmo rosa
+ciqual_food_code:en:13180
+ciqual_food_name:en:Grapefruit, red or pink, pulp, raw
+ciqual_food_name:fr:Pomelo (dit Pamplemousse) rose, pulpe, cru
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pamplemousse-rose
 # 265 @2021-10-25
 
@@ -44278,6 +44288,69 @@ ciqual_food_name:en:Melon, honeydew, pulp, raw
 ciqual_food_name:fr:Melon miel ou melon honeydew, pulpe, cru
 #27 @2021-10-10
 
+###################################################################################################
+#
+#                                Nectarine
+#
+###################################################################################################
+
+#category/nectarines
+<en:fruit
+en:nectarine
+ar:زليقة
+bg:нектарина
+ca:nectarina
+cs:nektarinka
+da:nektarin
+de:Nektarine
+el:νεκταρίνι
+eo:nektarino
+es:melocotonero, nectarina, pelón
+eu:brinoi
+fa:شلیل
+fi:nektariini
+fr:nectarine
+ga:neachtairín
+gv:naghtyreen
+he:נקטרינה
+hr:nektarina
+hu:kopaszbarack, nektarin, csupaszbarack
+hy:նեկտարին
+it:nettarina, pesca noce
+ja:ネクタリン
+ka:ვაშლატამა
+kv:нектарин
+la:prunus persica var. nucipersica
+lt:nektarinas, nektarininis abrikosas
+lv:nektarīns
+mt:nuċipriska
+nb:nektarin
+nl:nectarine, naakte perzik, nectarijn
+pl:nektarynka
+pt:nectarina
+ro:nectarin
+ru:нектарин
+sk:nektárinka, broskyňa obyčajná, broskyňa obyčajná hladká
+sl:nektarina
+sv:nektarin
+tl:nektarina
+tr:nektarin
+uk:нектарин
+vi:du đào
+zh:桃駁李
+#aeb:خوخ
+#koi:нектарин
+#lbe:нектарин
+#mrj:нектарин
+#scn:pèrsica
+#udm:нектарин
+#yue:桃駁李
+wikidata:en:Q841156
+#plant:wikidata:en:Q3408651
+ciqual_food_code:en:13030
+ciqual_food_name:en:Nectarine, pulp and peel, raw
+ciqual_food_name:fr:Nectarine ou brugnon, pulpe et peau, crue
+#94 in 5 @2021-10-28
 
 ###################################################################################################
 #
@@ -45465,14 +45538,6 @@ sv:havtornsjuice
 wikidata:Q68192318
 
 
-
-# nectarine
-
-<en:fruit
-en:nectarine
-es:nectarina
-fr:nectarine
-it:nettarina
 
 
 <en:fruit
