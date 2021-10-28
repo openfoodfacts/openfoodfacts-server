@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2021 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,6 +30,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Food qw/:all/;
 
+use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
 use JSON::PP;
 
@@ -70,20 +71,24 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	}
 
 	if ($prefix_length == 0) {
-		#  I'm on level 2, my parent is the latest level 1 parent
-		push @table, $current_ref unless not defined $current_ref;
+		# I'm on level 0, I have no parent, and I'm the new level 0 parent
+		push @table, $current_ref;
 		$parent_level0 = $current_ref;
+		$parent_level1 = undef;
 	}
-	elsif ($prefix_length == 1) {
-		# I'm on level 0, I have no parent, and I'm the latest level 0 parent
-		@{$parent_level0->{nutrients}} = () unless defined $parent_level0->{nutrients};
+	elsif (($prefix_length == 1) and (defined $parent_level0)) {
+		#  I'm on level 1, my parent is the latest level 0 parent, and I'm the new level 1 parent
+		defined $parent_level0->{nutrients} or $parent_level0->{nutrients} = [];
 		push @{$parent_level0->{nutrients}}, $current_ref unless not defined $current_ref;
 		$parent_level1 = $current_ref;
 	}
-	elsif ($prefix_length == 2) {
-		#  I'm on level 1, my parent is the latest level 0 parent, and I'm the latest level 1 parent
-		@{$parent_level1->{nutrients}} = () unless defined $parent_level1->{nutrients};
-		push @{$parent_level1->{nutrients}}, $current_ref unless not defined $current_ref;
+	elsif (($prefix_length == 2) and (defined $parent_level1)) {
+		#  I'm on level 2, my parent is the latest level 1 parent
+		defined $parent_level1->{nutrients} or $parent_level1->{nutrients} = [];
+		push @{$parent_level1->{nutrients}}, $current_ref;
+	}
+	else {
+		$log->error("invalid nesting of nutrients", { nutriment_table => $nutriment_table, nid => $nid, prefix_length => $prefix_length, current_ref => $current_ref, parent_level0 => $parent_level0, parent_level1 => $parent_level1 }) if $log->is_error();
 	}
 }
 
