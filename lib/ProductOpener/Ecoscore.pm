@@ -87,6 +87,9 @@ List of countries for which we are going to compute and display the Eco-Score.
 The list is different from %ecoscore_countries that can contain more countries for which we have some
 data to compute the Eco-Score (e.g. distances).
 
+2021-10-28: we will now enable Eco-Score for all available countries,
+so this list will be overriden when we load the Eco-Score data.
+
 =cut
 
 @ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
@@ -201,6 +204,9 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
 		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+
+		%ecoscore_countries_enabled = %ecoscore_countries;
+		@ecoscore_countries_enabled_sorted = @ecoscore_countries_sorted;
 
 		$ecoscore_data{origins}{"en:world"} = $ecoscore_data{origins}{"en:unknown"};
 		$ecoscore_data{origins}{"en:european-union-and-non-european-union"} = $ecoscore_data{origins}{"en:unknown"};
