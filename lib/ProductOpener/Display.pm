@@ -88,6 +88,7 @@ BEGIN
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
+		&display_properties
 
 		&count_products
 		&add_params_to_query
@@ -858,6 +859,11 @@ sub analyze_request($)
 	elsif ($components[0] eq "taxonomy") {
 		$request_ref->{taxonomy} = 1;
 	}	
+
+	# Folksonomy engine properties endpoint
+	elsif (($components[0] eq "properties") or ($components[0] eq "property")) {
+		$request_ref->{properties} = 1;
+	}
 
 	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
 	# assign the codes to the code parameter
@@ -7358,6 +7364,10 @@ JS
 		$$content_ref = $` . $';
 		$initjs .= $1;
 	}
+	if ($$content_ref =~ /<scripts>(.*)<\/scripts>/s) {
+		$$content_ref = $` . $';
+		$scripts .= $1;
+	}
 
 	$template_data_ref->{search_terms} = ${search_terms};
 	$template_data_ref->{torso_class} = $torso_class;
@@ -7367,14 +7377,13 @@ JS
 	$template_data_ref->{h1_title} = $h1_title;
 	$template_data_ref->{content_ref} = $$content_ref;
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
-	$template_data_ref->{scripts} = $scripts;
-	my $html;
-
+	
 	# init javascript code
 
-	$html =~ s/<initjs>/$initjs/;
+	$template_data_ref->{scripts} = $scripts;
 	$template_data_ref->{initjs} = $initjs;
 
+	my $html;
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html) || ($html = "template error: " . $tt->error());
 
 	# disable equalizer
@@ -11176,5 +11185,24 @@ sub search_and_analyze_recipes($$) {
 	return $html;
 }
 
+
+=head2 display_properties( $cc, $ecoscore_data_ref )
+
+Load the Folksonomy Engine properties script
+
+=cut
+
+sub display_properties($) {
+
+	my $request_ref = shift;
+
+	my $html;
+	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html) || return "template error: " . $tt->error();
+
+	$request_ref->{content_ref} = \$html;
+	$request_ref->{page_type} = "properties";
+
+	display_page($request_ref);
+}
 
 1;
