@@ -229,6 +229,7 @@ my %synonyms  = ();
 my %direct_parents  = ();
 my %direct_children = ();
 my %all_parents     = ();
+my %root_entries = ();
 
 
 %properties = ();
@@ -785,6 +786,7 @@ sub build_tags_taxonomy($$$) {
 	$direct_parents{$tagtype} = {};
 	$direct_children{$tagtype} = {};
 	$all_parents{$tagtype} = {};
+	$root_entries{$tagtype} = {};
 
 	$just_tags{$tagtype} = {};
 	$just_synonyms{$tagtype} = {};
@@ -1456,6 +1458,10 @@ sub build_tags_taxonomy($$$) {
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
+			else {
+				# Keep track of entries that are at the root level
+				$root_entries{$tagtype}{$tagid} = 1;
+			}
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
@@ -1691,6 +1697,7 @@ sub build_tags_taxonomy($$$) {
 			direct_parents => $direct_parents{$tagtype},
 			direct_children => $direct_children{$tagtype},
 			all_parents => $all_parents{$tagtype},
+			root_entries => $root_entries{$tagtype},
 			properties => $properties{$tagtype},
 		};
 
@@ -1751,10 +1758,23 @@ sub generate_tags_taxonomy_extract ($$$$) {
 	my @tags = ();
 	my %requested_tags = ();
 	my %included_tags = ();
+
+	# Requested tags
 	foreach my $tagid (@$tags_ref) {
 		push @tags, $tagid;
 		$requested_tags{$tagid} = 1;
 		$included_tags{$tagid} = 1;
+	}
+
+	# Root entries
+	if ((defined $options_ref) and ($options_ref->{include_root_entries})) {
+		if (defined $root_entries{$tagtype}) {
+			foreach my $tagid (sort keys %{$root_entries{$tagtype}}) {
+				push @tags, $tagid;
+				$requested_tags{$tagid} = 1;
+				$included_tags{$tagid} = 1;
+			}
+		}
 	}
 
 	my $include_all_fields = 0;
@@ -1799,7 +1819,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 				# Include parents if the tag is one of the initially requested tags
 				# so that we don't also add parents of parents.
 				# Also check that the parent has not been already included.
-				if (($options_ref->{include_parents}) and ($requested_tags{$tagid})
+				if ((defined $options_ref) and ($options_ref->{include_parents}) and ($requested_tags{$tagid})
 					and (not exists $included_tags{$parentid})) {
 					# Add parent to list of tags to process and included_tags, while leaving it outside of requested_tags
 					push @tags, $parentid;
@@ -1820,7 +1840,7 @@ sub generate_tags_taxonomy_extract ($$$$) {
 				# Include children if the tag is one of the initially requested tags
 				# so that we don't also add children of children.
 				# Also check that the child has not been already included.
-				if (($options_ref->{include_children}) and ($requested_tags{$tagid})
+				if ((defined $options_ref) and ($options_ref->{include_children}) and ($requested_tags{$tagid})
 					and (not exists $included_tags{$childid})) {
 					# Add child to list of tags to process and included_tags, while leaving it outside of requested_tags
 					push @tags, $childid;
@@ -1948,6 +1968,7 @@ sub retrieve_tags_taxonomy {
 		$direct_parents{$tagtype} = $taxonomy_ref->{direct_parents};
 		$direct_children{$tagtype} = $taxonomy_ref->{direct_children};
 		$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
+		$root_entries{$tagtype} = $taxonomy_ref->{root_entries};
 		$properties{$tagtype} = $taxonomy_ref->{properties};
 	}
 
