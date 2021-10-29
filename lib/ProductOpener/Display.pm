@@ -10092,7 +10092,7 @@ sub display_taxonomy_api($) {
 
 	my $options_ref = {};
 
-	foreach my $field (qw(fields include_children include_parents)) {
+	foreach my $field (qw(fields include_children include_parents include_root_entries)) {
 		if (defined param($field)) {
 			$options_ref->{$field} = param($field);
 		}
