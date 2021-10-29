@@ -39,6 +39,8 @@ services:
     image: mongo:4.4
     networks:
       - webnet
+    ports:
+      - 27017:27017
 volumes:
   product_images:
   html_data:
