@@ -936,15 +936,9 @@ function initLanguageAdding() {
 
   const existingLanguages = [];
   const tabs = document.querySelectorAll('li.tabs:not([data-language="new_lc"]):not(.tabs_new)');
-  // eslint-disable-next-line guard-for-in
-  for (let i = 0; i < tabs.length; ++i) {
-    existingLanguages.push(tabs[i].dataset.language);
-  }
+  tabs.forEach((tab) => existingLanguages.push(tab.dataset.language));
 
-  // eslint-disable-next-line no-unused-vars
-  const unusedLanguages = languages.filter(function(value) {
-    return !existingLanguages.includes(value.id);
-  });
+  const unusedLanguages = languages.filter((value) => !existingLanguages.includes(value.id));
 
   $(".select_add_language").select2({
     placeholder: placeholder,

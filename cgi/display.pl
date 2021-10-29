@@ -110,6 +110,9 @@ elsif (defined $request{search}) {
 		display_search_results(\%request);
 	}
 }
+elsif (defined $request{properties}) {
+	display_properties(\%request);
+}
 elsif (defined $request{text}) {
 	display_text(\%request);
 }

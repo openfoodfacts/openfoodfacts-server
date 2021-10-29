@@ -119,7 +119,7 @@ import_prod_data:
 #--------#
 
 front_lint:
-	COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
 
 checks: front_lint
 
@@ -145,10 +145,12 @@ prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
 	docker builder prune -f
 
-clean: goodbye hdown prune prune_cache
+clean_folders:
 	rm html/images/products
 	rm -rf node_modules/
 	rm -rf html/data/i18n/
 	rm -rf html/{css,js}/dist/
 	rm -rf tmp/
 	rm -rf logs/
+
+clean: goodbye hdown prune prune_cache clean_folders
