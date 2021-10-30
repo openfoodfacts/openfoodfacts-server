@@ -155,7 +155,7 @@ function folskonomy_engine_init() {
             "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
             "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
             "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
-            "<p>This is bring by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
+            "<p>This is brought by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
             '<form id="free_properties_form">' +
             '<table>' +
             '<tr>' +
