@@ -92,16 +92,17 @@ tail:
 #----------#
 # Services #
 #----------#
-rebuild_language:
+build_lang:
 	@echo "🥫 Rebuild language"
 	# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
+# use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
 	${DOCKER_COMPOSE} run --rm --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata
 
-init_backend: rebuild_language
+init_backend: build_lang
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
