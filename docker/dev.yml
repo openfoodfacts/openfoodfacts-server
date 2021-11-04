@@ -42,7 +42,8 @@ services:
       context: .
       dockerfile: Dockerfile.frontend
       args:
-        WWW_DATA_HOST_USER: ${WWW_DATA_HOST_USER}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
   mongodb:
     image: mongo:4.4
     networks:
