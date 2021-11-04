@@ -87,7 +87,6 @@ USAGE
 	exit();
 }
 
-
 print STDERR "Running scanbot for year $year\n";
 
 my %codes = ();
@@ -332,8 +331,6 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				$source = "producers";
 			}
 
-			$lc = $product_ref->{lc};
-
 			$product_ref->{unique_scans_n} = $unique_scans_n + 0;
 			$product_ref->{scans_n} = $scans_n + 0;
 
@@ -379,9 +376,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 			}
 
 			# Add countries tags based on scans
-			my $field = 'countries';
-
-			my $current_countries = $product_ref->{$field};
+			my $current_countries = $product_ref->{'countries'};
 
 			my %existing = ();
 			foreach my $countryid (@{$product_ref->{countries_tags}}) {
@@ -417,7 +412,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					# (codes can be reused by different companies in different countries)
 					if (($add_countries) and ($code !~ /^(02|2)/) and (not exists $existing{$country})) {
 						print "- adding $country to $product_ref->{countries}\n";
-						$product_ref->{countries} .= ", $country";
+						add_tags_to_field($product_ref, "en", "countries", $country);
 						$bot .= "+$country ";
 						$added_countries++;
 						$added_countries_list .= $country .',';
@@ -431,31 +426,9 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				}
 			}
 
-			if ($product_ref->{$field} ne $current_countries) {
+			if ($added_countries_list ne "") {
 				$product_ref->{"countries_beforescanbot"} = $current_countries;
 				$changed_products++;
-
-				if ($product_ref->{$field} =~ /^, /) {
-					$product_ref->{$field} = $';
-				}
-
-				if (defined $taxonomy_fields{$field}) {
-					$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-					$product_ref->{$field . "_tags" } = [];
-					foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-						push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($lc, $tag);
-					}
-				}
-
-				if (defined $hierarchy_fields{$field}) {
-					$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-					$product_ref->{$field . "_tags" } = [];
-					foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-						if (get_fileid($tag) ne '') {
-							push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-						}
-					}
-				}
 
 				my $comment = $bot;
 
@@ -496,8 +469,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					}
 				}
 
-				$User_id = 'scanbot';
-				store_product($product_ref, $comment);
+				store_product('scanbot', $product_ref, $comment);
 			}
 			else {
 				print "updating scan count for $code\n";
