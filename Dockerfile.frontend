@@ -1,7 +1,11 @@
-FROM node:lts as builder
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
+
+
+FROM node:lts as builder
+ARG USER_UID
+ARG USER_GID
 RUN usermod --uid $USER_UID node && \
     groupmod --gid $USER_GID node && \
     mkdir -p /opt/product-opener/node_modules && \
@@ -24,5 +28,9 @@ RUN npm run build
 
 FROM nginx:stable
 WORKDIR /opt/product-opener
+ARG USER_UID
+ARG USER_GID
+RUN usermod -u $USER_UID www-data && \
+    groupmod --gid $USER_GID www-data
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
 COPY --from=builder /opt/product-opener/node_modules/ /opt/product-opener/node_modules/
