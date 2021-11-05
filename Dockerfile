@@ -184,8 +184,8 @@ RUN \
     chown www-data:www-data var/run/apache2/ && \
     for path in users products product_images orgs new_images logs; do \
         mkdir -p /mnt/podata/${path}; \
-        chown www-data:www-data /mnt/podata/${path}; \
     done && \
+    chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files in /mnt/podata (because we currently mix data and conf data)
     for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes po taxonomies templates; do \
         ln -sfT /opt/product-opener/${path} /mnt/podata/${path}; \
