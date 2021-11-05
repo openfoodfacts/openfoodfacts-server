@@ -42,7 +42,7 @@
     "evaluation": "bad",
     "title_element": {
         "title": "[% lang('ecoscore_packaging_impact_high') %]",
-    }
+    },
     [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
