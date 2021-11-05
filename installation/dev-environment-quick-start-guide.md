@@ -86,7 +86,10 @@ Also you may use an alias : `alias docker-compose='docker-compose --env-file=${E
 (eventually add it to your `.bashrc`, it won't hurt)
 
 It is strongly advised to do so to avoid commiting your local env changes accidentaly.
-On linux and macOS, you may [use direnv](./use-direnv.md).
+However a more flexible approach is
+to set your own env variable in your shell (using `export`),
+they will overide values in the `.env` file.
+On linux and macOS, you can automatically do it if you [use direnv](./use-direnv.md).
 
 ## 4. Build your dev environment
 
