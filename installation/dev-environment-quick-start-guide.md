@@ -28,19 +28,19 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 Choose your prefered way to clone, either:
 
 ```console
-$ git clone git@github.com:openfoodfacts/openfoodfacts-server.git
+git clone git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
 or
 
 ```console
-$ git clone https://github.com/openfoodfacts/openfoodfacts-server.git
+git clone https://github.com/openfoodfacts/openfoodfacts-server.git
 ```
 
 If you are running Docker on Windows, please use the following git clone option:
 
 ```console
-$ git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
 Go to the cloned directory:
@@ -96,7 +96,7 @@ On linux and macOS, you can automatically do it if you [use direnv](./use-direnv
 From the repository root, run:
 
 ```console
-$ make dev
+make dev
 ```
 
 _If docker complains about ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network it can be solved by adding {"base":"172.80.0.0/16","size":24}, {"base":"172.90.0.0/16","size":24} to default-address-pools in /etc/docker/daemon.json and then restarting the docker daemon. Credits to https://theorangeone.net/posts/increase-docker-ip-space/ for this solution._
