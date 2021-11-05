@@ -112,8 +112,12 @@
                         [% END %]    
                     [% END %]
                 >
+                <div style="float:left">
+                [% ELSE %]
+                <div>
                 [% END %]
 
+                
                 [% IF text_element.type == "h1" %]
                     <h4>
                 [% ELSIF text_element.type == "note" %]
@@ -127,6 +131,7 @@
                 [% ELSE %]
                     </div>
                 [% END %]
+                </div>
 
                 [% IF text_element.icon_url.defined %]
                 <hr class="floatclear">
