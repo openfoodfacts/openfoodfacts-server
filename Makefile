@@ -95,7 +95,9 @@ tail:
 build_lang:
 	@echo "🥫 Rebuild language"
 	# Run build_lang.pl
+	${DOCKER_COMPOSE} run --rm backend ls -lrt /mnt/podata/
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:

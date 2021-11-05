@@ -388,11 +388,11 @@ PO
 
 # Load stored %Lang from Lang.sto
 
-my $path = "$data_root/Lang.${server_domain}.sto";
+my $path = "$data_root/data/Lang.${server_domain}.sto";
 if (-e $path) {
 
 	$log->info("Loading \%Lang", { path => $path }) if $log->is_info();
-	my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
+	my $lang_ref = retrieve($path);
 	%Lang = %{$lang_ref};
 	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
 
@@ -409,7 +409,7 @@ if (-e $path) {
 	sleep(1) if $log->is_info();
 }
 else {
-	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
+	$log->warn("Language translations file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
 }
 
 

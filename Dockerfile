@@ -182,7 +182,7 @@ ENV PATH="/opt/perl/local/bin:${PATH}"
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in users products product_images orgs new_images logs; do \
+    for path in data html_data users products product_images orgs new_images logs tmp; do \
         mkdir -p /mnt/podata/${path}; \
         chown www-data:www-data /mnt/podata/${path}; \
     done && \
