@@ -14,10 +14,13 @@ As a quick guide as an openfoodfacts developper:
     alias docker-compose=docker-compose --env-file=${ENV_FILE:-.env}
     ```
   you have adapt the direnv line according to what you use, see [direnv doc](https://direnv.net/docs/hook.html)
-- to use `my-env`, in your project directory add a file:
+- In your project directory add a file, where you superseed variables from `.env`
+  that you wan't to
+
 ```
-echo "setting up .my-env"
-export ENV_FILE=.my-env
+echo "setting up docker-compose env"
+export USER_UID=${UID}
+export USER_UID=$(id -g)
 ```
 - in project directory, run `direnv allow .`
 - in a new shell:
