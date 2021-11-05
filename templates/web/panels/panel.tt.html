@@ -8,7 +8,9 @@
 [% END %]
     <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.grade %] grade_[% panel.grade %][% END %]">
         [% IF panel.title_element.icon_url.defined %]
-        <img src="[% panel.title_element.icon_url %]" style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;" alt="icon"
+        <img src="[% panel.title_element.icon_url %]"
+            style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+            alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
             [% IF panel.title_element.icon_color_from_evaluation %]
                 [% IF panel.evaluation == "good" %]
                     class="filter-green"
@@ -93,7 +95,9 @@
                 [% text_element = element_ref.text_element %]
 
                 [% IF text_element.icon_url.defined %]
-                <img src="[% text_element.icon_url %]" style="height:72px;float:left;margin-right:1rem;" alt="icon"
+                <img src="[% text_element.icon_url %]"
+                    style="height:72px;float:left;margin-right:1rem;"
+                    alt="[% IF text_element.icon_alt.defined %][% text_element.icon_alt %][% ELSE %]icon[% END %]"
                     [% IF text_element.icon_color_from_evaluation %]
                         [% IF text_element.evaluation == "good" %]
                             class="filter-green"
