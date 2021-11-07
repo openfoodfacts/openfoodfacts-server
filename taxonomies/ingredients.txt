@@ -253,7 +253,7 @@ hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
 lt:karamelizuotas cukraus sirupas
 lv:karamelizēts cukura sīrups
-nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop
 pl:cukier skarmelizowanny
 sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap, karamellsockersirap
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
@@ -8361,7 +8361,7 @@ lt:Išrūgos, išrügų
 lv:Sūkalas
 ms:Whey
 nb:Myse, valle
-nl:Wei, Melkwei
+nl:Wei, Melkwei, melkserum
 nn:Myse
 oc:Lactoserum, leiton, gaspa, lachada
 pa:ਪਨੀਰ ਦਾ ਪਾਣੀ
@@ -14082,6 +14082,10 @@ fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
 <en:salt
+en:black salt
+nl:zwart zout
+
+<en:salt
 en:Himalayan salt
 ca:Sal de l'Himalaya
 de:Himalayasalz
@@ -14092,7 +14096,7 @@ it:Sale dell'Himalaya
 
 
 <en:salt
-en:Pink salt
+en:pink salt
 ca:Sal rosa
 de:Himmalaja-Salz
 es:Sal rosa
@@ -14100,7 +14104,7 @@ fr:Sel rose
 it:Sale rosa
 
 <en:Himalayan salt
-<en:Pink salt
+<en:pink salt
 en:Himalayan pink salt, Pink Himalayan salt
 ca:Sal rosa de l'Himalaya
 de:rosa Himalayasalz, rosa Himalaya-Salz
@@ -17655,6 +17659,7 @@ fr:charcuterie
 <en:meat
 en:smoked sausages
 fr:saucisses fumées
+nl:rookworst
 
 en:Garlic sausage
 fr:Saucisson à l'ail
@@ -18105,6 +18110,10 @@ sv:modifierad vetestärkelse
 <en:modified starch
 <en:wheat starch
 fr:amidon de blé partiellement modifié
+
+<en:wheat starch
+en:fermented wheat starch
+nl:gefermenteerde tarwezetmeel
 
 <en:wheat starch
 en:pregelatinized wheat starch
@@ -25193,7 +25202,7 @@ mk:чад
 ms:Asap
 my:မီးခိုး
 nb:røyk
-nl:rook
+nl:rook, houtrook
 nn:røyk
 oc:Fum
 pl:dym
@@ -25795,6 +25804,10 @@ nl:tarwevezel
 pt:fibras de trigo
 ru:Пшеничные волокна
 sv:vetefiber, Vete fiber
+
+<en:wheat fiber
+en:gluten free wheat fiber
+nl:glutenvrije tarwevezel
 
 <en:wheat
 en:wheat bran
@@ -38223,7 +38236,7 @@ mk:брусница
 mn:цангис
 mr:क्रॅनबेरी
 nb:tranebær
-nl:veenbessen, cranberry
+nl:veenbessen, cranberry, cranberry's
 nn:tranebær
 os:сырхнæмыг
 pl:żurawina
@@ -44900,14 +44913,38 @@ fr:concentré de raisin
 # maybe it is necessary to split between dried and fresh
 
 <en:grape
-en:sultanas
-de:Sultaninen
-es:Sultanas
+en:sultana, sultanas
+af:Sultana
+ar:العنب الكشمشي
+bg:Султанина
+da:sultana
+de:Sultana, Sultanine
+el:σουλτανίνα
+es:Sultanina, Sultana
+et:Sultana
+fa:انگور سلطانی
 fi:sulttaanirusina, sulttaanirusinoita
-fr:raisins secs sultanines
-it:uva sultanina, uvetta sultanina
+fr:sultanine, sultanines
+he:סולטנה
+hi:सुल्ताना
+id:Sultana
+it:sultanina
+ja:サルタナ
+kn:ಸುಲ್ತಾನ
+ko:설태너
+ms:sultana
 nl:sultana, sultanas
+pt:sultanina
+ru:Белый кишмиш
+sa:द्राक्षा
+si:සුල්තානා
+sl:sultanina
 sv:sultanrussin
+tr:Sultaniye üzümü
+uk:Кишмиш
+uz:Kishmish
+zh:蘇丹娜葡萄
+wikidata:en:Q1898118
 wikipedia:en:https://en.wikipedia.org/wiki/Sultana_(grape)
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 # 46 products in 3 languages @2018-10-02
@@ -49105,7 +49142,7 @@ fi:porkkanauute
 fr:extrait de carotte
 it:estratto di carota, estratto di carote
 ja:人参エキス
-nl:wortelextract
+nl:wortelextract, kleurend wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 <en:carrot
@@ -58142,6 +58179,22 @@ fr:plantes aromatiques déshydratées
 <en:herb
 fr:extraits naturels et aromates
 
+<en:spice
+<en:seed
+en:black cumin, black caraway, nigella
+ca:pebreta, pebretera
+de:Schwarzkümmel
+es:abésoda, agenuz, ajenuz, arañuel
+fr:cumin noir, graine de Nigelle
+it:cumino nero
+la:nigella sativa
+lv:Sējas melnsēklīte
+nl:zwarte komijn, nigellazaad
+ro:Negrilica
+sh:Crni kumin
+sv:Svartkummin
+#vls:Nigelle, zwarte komyn
+wikidata:en:Q104414363
 
 ###################################################################################################
 #
@@ -69612,6 +69665,7 @@ de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
 it:filetti di aringa
+nl:haringfilet
 # 250 in 6 @2021-09-10
 
 # description:en:Atlantic herring (Clupea harengus) is a herring in the family Clupeidae.
