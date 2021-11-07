@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-05 18:43\n"
+"PO-Revision-Date: 2021-11-07 14:46\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -60,7 +60,7 @@ msgstr "Благодарим ви, че се присъединихте към �
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Вече можеш да добавяш и редактираш продукти в уеб сайта или в безплатното ни <a href=\"%s\">мобилно приложение</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -76,7 +76,7 @@ msgstr ""
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Вече можеш лесно да импортираш данни и снимки на твоите продукти."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
@@ -88,11 +88,11 @@ msgstr "Вече съществува организация с името %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Заявката за присъединяване към организацията изчаква одобрение от администратора на организацията."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Моля, изпрати имейл на <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> ако имаш въпроси."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -104,7 +104,7 @@ msgstr ""
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Професионален акаунт"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
@@ -318,11 +318,11 @@ msgstr "Продукти не са от марката %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Собственик на марката"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -470,7 +470,7 @@ msgstr "източници на данни"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "източник на данни"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -490,15 +490,15 @@ msgstr "Изтриване на продукт"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Изтриване на страницата"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Изтриване на снимките"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Изтриване на потребител"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -522,7 +522,7 @@ msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Екологичен отпечатък"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -538,11 +538,11 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Редактирай продукт"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Редактирай страницата"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -562,15 +562,15 @@ msgstr ""
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Параметри на акаунта"
 
 msgctxt "edit_user_display"
 msgid "Account parameters"
-msgstr ""
+msgstr "Параметри на акаунта"
 
 msgctxt "edit_user_process"
 msgid "Account parameters"
-msgstr ""
+msgstr "Параметри на акаунта"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
@@ -578,15 +578,15 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "редактори"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "редактор"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "имейл адрес"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -627,7 +627,7 @@ msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "В Европа кодът е в елипса с двете инициали на държавата, последвани от число и CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -696,7 +696,7 @@ msgstr "Трябва да въведете потребителско име"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Вече си влезъл."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
@@ -704,7 +704,7 @@ msgstr ""
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Няма акаунт с този имейл"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -775,7 +775,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -783,21 +783,21 @@ msgstr ""
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Често задавани въпроси"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/Чзв"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Преводачи"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -807,15 +807,15 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "Инсталирайте приложението"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Присъединете се към общността"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Присъединете се в %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -828,7 +828,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Преса"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -850,12 +850,12 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Кои сме ние"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/кои-сме-ние"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -869,11 +869,11 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Козметика"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -893,7 +893,7 @@ msgstr ""
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "До скоро!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
@@ -925,7 +925,7 @@ msgstr ""
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Предна снимка"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -4160,9 +4160,9 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr ""
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 msgstr ""
 
 msgctxt "move_data_and_photos_to_main_language_replace"
@@ -4765,7 +4765,7 @@ msgstr ""
 
 msgctxt "contact_email"
 msgid "e-mail address"
-msgstr ""
+msgstr "имейл адрес"
 
 msgctxt "contact_link"
 msgid "Contact form link"
@@ -5434,7 +5434,7 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
+msgid "No ingredient threatening species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5539,35 +5539,35 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
+msgid "Packaging with a high impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
+msgid "Packaging with a medium impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
+msgid "Packaging with a low impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
+msgid "Missing packaging information for this product"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
+msgid "Origins of ingredients with a high impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
+msgid "Origins of ingredients with a medium impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
+msgid "Origins of ingredients with a low impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
+msgid "Missing origins of ingredients information"
 msgstr ""
 
 msgctxt "percent_of_ingredients"
@@ -5603,16 +5603,20 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Дарете"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr ""
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
+msgid "Labels with environmental benefits"
 msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
+msgid "Labels with high environmental benefits"
 msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
+msgid "Labels with very high environmental benefits"
 msgstr ""
 
 msgctxt "other"
@@ -5630,5 +5634,87 @@ msgstr ""
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
+msgstr ""
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr ""
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr ""
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr ""
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Околна среда"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr ""
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr ""
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr ""
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr ""
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
 

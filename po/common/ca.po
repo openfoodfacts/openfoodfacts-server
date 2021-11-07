@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-05 18:43\n"
+"PO-Revision-Date: 2021-11-07 14:46\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -848,7 +848,7 @@ msgstr "Condicions d'ús"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/condicions d'ús"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -2883,11 +2883,11 @@ msgstr "Per avaluar la vostra exposició a <tag>, podeu navegar per la nostra ll
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d productes amb %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr ""
+msgstr "L'Autoritat Europea de Seguretat Alimentària (EFSA) ha determinat que cap grup de població té més del 5% dels membres amb risc de consumir més de la ingesta diària acceptable de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -2903,115 +2903,115 @@ msgstr "Cap o molt baix risc de sobreexposició"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Risc de superar la ingesta diària recomanada (IDA)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Risc de superar la dosi màxima sense efectes adversos (No s'ha observat cap nivell d'efecte advers - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Grups amb més del 50% de membres que superen la ingesta diària recomanada (IDA)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Grups amb més del 5% de membres que superen la ingesta diària recomanada (IDA)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Grups amb més del 50% de membres que superen la dosi màxima sense efectes adversos (No hi ha un nivell d'efecte advers observat - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Grups amb més del 5% de membres que superen la dosi màxima sense efectes adversos (No hi ha un nivell d'efecte advers observat - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Algunes persones"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "més del 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "La majoria de la gent"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "més del 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Viquipèdia"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Funcions"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Comprovació de fotos i dades"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "Els col·laboradors experimentats poden marcar les pàgines del producte com verificades per verificar que les fotos més recents estan seleccionades i retallades i que totes les dades del producte que es poden deduir de les fotos s'han omplert i són correctes."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Fotos i dades comprovades"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "He revisat les fotos i les dades."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "He revisat les fotos i les dades novament."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Darreres dates de comprovació"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Darrera data de revisió"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "Última comprovació de la pàgina del producte"
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Altres dades"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "Identificador de versió del productor"
 
 msgctxt "producer_product_id"
 msgid "Producer product identifier"
-msgstr ""
+msgstr "Identificador de producte del productor"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "Pes net"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Pes escorregut"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "Volum"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Altres dades"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "Condicions de conservació"
 
 msgctxt "warning"
 msgid "Warning"
@@ -3019,83 +3019,83 @@ msgstr "Avís"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "Preparació"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "Idea de recepta"
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "Origen del producte i / o dels seus ingredients"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "Mencions de l'envàs que indiquen el lloc de fabricació i/o els orígens dels ingredients"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Fet a França. Tomàquets d'Itàlia. Orígen de l'arròs: Índia, Tailàndia."
 
 msgctxt "customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "Servei al client"
 
 msgctxt "producer"
 msgid "Producer"
-msgstr ""
+msgstr "Productor"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "Instruccions de reciclatge - Per a reciclar"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "Instruccions de reciclatge - Per a rebutjar"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Productes comprovats per %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Productes no comprovats per %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Productes corregits per %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "Productes no corregits per %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Productes editats per %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "Productes no editats per %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Productes completats per %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Productes no completats per %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Productes fotografiats per %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Productes no fotografiats per %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Pàgina de %s"
 
 msgctxt "obsolete"
 msgid "Product taken off the market"
@@ -3103,7 +3103,7 @@ msgstr "Producte retirat del mercat"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Data de retirada"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
@@ -3127,11 +3127,11 @@ msgstr "Aconseguiu l'aplicació d'Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Obteniu l'aplicació per a iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Obteniu l'aplicació per a iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3191,7 +3191,7 @@ msgstr "Els càlculs de la petjada de carboni no són matemàtics. Els valors s�
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "Hi ha massa productes (%d productes, el límit és %d) a exportar, si us plau, descarregueu <a href=\"/data\">l'exportació de la base de dades completa</a>."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3351,7 +3351,7 @@ msgstr ""
 
 msgctxt "fields_group_other"
 msgid "Other information"
-msgstr ""
+msgstr "Altres dades"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
@@ -3986,7 +3986,7 @@ msgstr ""
 
 msgctxt "user_group_producer"
 msgid "Producer"
-msgstr ""
+msgstr "Productor"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
@@ -4178,9 +4178,9 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr ""
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 msgstr ""
 
 msgctxt "move_data_and_photos_to_main_language_replace"
@@ -4751,7 +4751,7 @@ msgstr ""
 
 msgctxt "org_customer_service"
 msgid "Customer service"
-msgstr ""
+msgstr "Servei al client"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
@@ -4791,7 +4791,7 @@ msgstr ""
 
 msgctxt "contact_info"
 msgid "Other information"
-msgstr ""
+msgstr "Altres dades"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
@@ -5452,7 +5452,7 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "Ingredients, el cultiu dels quals amenaça les espècies"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
+msgid "No ingredient threatening species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5557,36 +5557,36 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
-msgstr "L’embolcall d’aquest producte té un alt impacte sobre el medi ambient."
+msgid "Packaging with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
-msgstr "L’embolcall d’aquest producte té un impacte mitjà sobre el medi ambient."
+msgid "Packaging with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
-msgstr "L’embolcall d’aquest producte té un impacte baix sobre el medi ambient."
+msgid "Packaging with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
-msgstr "Manca informació sobre l’embolcall d’aquest producte."
+msgid "Missing packaging information for this product"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
-msgstr "L'origen i el transport dels ingredients té un gran impacte."
+msgid "Origins of ingredients with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
-msgstr "L'origen i el transport dels ingredients té un impacte mitjà."
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
-msgstr "L'origen i el transport dels ingredients té un impacte lleu."
+msgid "Origins of ingredients with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
-msgstr "Falta informació sobre l'origen dels ingredients"
+msgid "Missing origins of ingredients information"
+msgstr ""
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5622,17 +5622,21 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Feu un donatiu"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr ""
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
-msgstr "Sistema de producció amb avantatges mediambientals"
+msgid "Labels with environmental benefits"
+msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
-msgstr "Sistema de producció amb grans avantatges mediambientals"
+msgid "Labels with high environmental benefits"
+msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
-msgstr "Sistema de producció amb grandíssims avantatges mediambientals"
+msgid "Labels with very high environmental benefits"
+msgstr ""
 
 msgctxt "other"
 msgid "Other"
@@ -5649,5 +5653,87 @@ msgstr ""
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
+msgstr ""
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr ""
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr ""
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr ""
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Entorn"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr ""
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr ""
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr ""
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr ""
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
 

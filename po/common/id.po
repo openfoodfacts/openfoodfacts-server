@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-06 19:41\n"
+"PO-Revision-Date: 2021-11-07 14:49\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -220,7 +220,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "APK Android"
 
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
@@ -281,7 +281,7 @@ msgstr "Anda juga dapat membantu mendanai proyek Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> didirikan oleh asosiasi non-profit, terlepas dari industri. Didirikan untuk semua, oleh semua, dan didanai oleh semua. Anda dapat mendukung pekerjaan kami dengan cara <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">berdonasi ke Open Food Facts</a> dan juga dengan <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">menggunakan mesin pencari Lilo</a>.<br/><b>Terima kasih!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> didirikan oleh asosiasi non-profit, terlepas dari industri. Didirikan untuk semua orang, oleh semua orang, dan didanai oleh semua orang. Anda dapat mendukung pekerjaan kami dengan <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">berdonasi ke Open Food Facts</a> dan juga dengan <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">menggunakan mesin pencari Lilo</a>.<br/><b>Terima kasih!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -513,7 +513,7 @@ msgstr "Dihapus:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Donasi untuk Open Food Facts"
+msgstr "Berdonasi ke Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -764,7 +764,7 @@ msgstr "Kode etik"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr "code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -4031,7 +4031,7 @@ msgstr "Moderator dari platform para produsen dapat melihat dan menyunting produ
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr "Saya telah melakukan donasi, atau Saya tidak tertarik. Sembunyikan spanduk."
+msgstr "Saya telah melakukan donasi, atau saya tidak tertarik. Sembunyikan spanduk."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
@@ -4175,10 +4175,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Beberapa bahan tidak dapat dikenali."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "Pindahkan semua data serta foto terpilih dalam %s ke bahasa utama produk: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "Pindahkan semua data dan foto terpilih dalam {language} ke bahasa utama produk: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5449,8 +5449,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "Bahan yang budidayanya mengancam spesies"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "Tidak ada bahan yang budidayanya mengancam spesies telah terdeteksi."
+msgid "No ingredient threatening species"
+msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5554,36 +5554,36 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr "Menghapus atau mengubah data yang disediakan hanya akan mungkin oleh kontributor yang bereksperimen di situs web."
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
-msgstr "Kemasan produk ini memiliki dampak yang tinggi terhadap lingkungan."
+msgid "Packaging with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
-msgstr "Kemasan produk ini memiliki dampak sedang terhadap lingkungan."
+msgid "Packaging with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
-msgstr "Kemasan produk ini memiliki dampak rendah terhadap lingkungan."
+msgid "Packaging with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
-msgstr "Informasi tentang kemasan produk ini tidak ada."
+msgid "Missing packaging information for this product"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
-msgstr "Transportasi dan asal usul bahan memiliki dampak yang tinggi."
+msgid "Origins of ingredients with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
-msgstr "Transportasi dan asal usul bahan memiliki dampak sedang."
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
-msgstr "Transportasi dan asal-usul bahan memiliki dampak rendah."
+msgid "Origins of ingredients with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
-msgstr "Informasi yang hilang tentang asal usul bahan"
+msgid "Missing origins of ingredients information"
+msgstr ""
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5612,23 +5612,27 @@ msgstr "Open Food Facts adalah sebuah proyek kolaboratif yang dibangun oleh pulu
 
 msgctxt "donation_why"
 msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Kami membutuhkan donasi Anda untuk mendanai anggaran Open Food Facts 2021 dan untuk terus mengembangkan proyek ini. <strong>Thank you! ❤️</strong>"
+msgstr "Kami membutuhkan donasi Anda untuk mendanai anggaran Open Food Facts 2021 dan untuk terus mengembangkan proyek ini. <strong>Terima kasih! ❤️</strong>"
 
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Berdonasi"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "Tidak ada label dengan manfaat lingkungan"
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
-msgstr "Mode produksi dengan manfaat lingkungan"
+msgid "Labels with environmental benefits"
+msgstr "Label dengan manfaat lingkungan"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
-msgstr "Mode produksi dengan manfaat lingkungan yang tinggi"
+msgid "Labels with high environmental benefits"
+msgstr "Label dengan manfaat lingkungan yang tinggi"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
-msgstr "Mode produksi dengan manfaat lingkungan sangat tinggi"
+msgid "Labels with very high environmental benefits"
+msgstr "Label dengan manfaat lingkungan yang sangat tinggi"
 
 msgctxt "other"
 msgid "Other"
@@ -5646,4 +5650,86 @@ msgstr "Statisktik kandungan bahan semua produk"
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
 msgstr "Kandungan bahan setiap produk"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "Produk dihapus."
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "Jejak karbon"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} g CO² per 100g produk"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "Sama dengan mengendarai {kilometers} km dalam sebuah mobil berbahan bakar bensin"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "Sumber: Basis Data Agribalyse ADEME"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Lingkungan"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "Nutrisi dan kesehatan"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "Mengandung minyak sawit"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "Mendorong deforestasi dan mengancam spesies seperti orangutan"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "Hutan tropikal di Asia, Afrika dan Amerika Latin dihancurkan untuk membuat dan memperluas perkebunan pohon kelapa sawit. Deforestasi berkontribusi terhadap perubahan iklim, dan ia membahayakan spesies seperti orangutan, gajah kerdil, dan badak Sumatera."
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
 
