@@ -48,7 +48,6 @@ services:
       - products:/mnt/podata/products # .sto
       - product_images:/mnt/podata/product_images # .jpg
       - orgs:/mnt/podata/orgs # .sto
-      - html_data:/mnt/podata/html_data # Static data (e.g dumps)
 
       # all the rest
       - podata:/mnt/podata
