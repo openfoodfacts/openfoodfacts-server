@@ -502,6 +502,11 @@ sub create_environment_card_panel($$$) {
 
     my $panel_data_ref = {};
 
+    # Include the carbon footprint panel if we have data for it
+    if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
+        $panel_data_ref->{carbon_footprint} = 1;
+    }
+
     # Create panel for palm oil
     if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
         and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
