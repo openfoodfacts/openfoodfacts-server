@@ -189,7 +189,9 @@ RUN \
     # Create symlinks of data files in /mnt/podata (because we currently mix data and conf data)
     for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes po taxonomies templates; do \
         ln -sfT /opt/product-opener/${path} /mnt/podata/${path}; \
-    done
+    done && \
+    # Create a symlink for html images
+    ln -sfT /mnt/podata/product_images /opt/product-opener/html/images/products
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
