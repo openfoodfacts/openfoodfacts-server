@@ -109,7 +109,7 @@ init_backend: build_lang
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
-	${DOCKER_COMPOSE} exec -T backend sh -c "\
+	${DOCKER_COMPOSE} exec --user=root -T backend sh -c "\
 		echo 'root' >> /etc/incron.allow && \
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
