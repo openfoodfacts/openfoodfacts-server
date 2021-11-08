@@ -186,12 +186,17 @@ RUN \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
-    # Create symlinks of data files in /mnt/podata (because we currently mix data and conf data)
+    # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     for path in ecoscore emb_codes forest-footprint ingredients lang packager-codes po taxonomies templates; do \
-        ln -sfT /opt/product-opener/${path} /mnt/podata/${path}; \
+        ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
-    # Create a symlink for html images
-    ln -sfT /mnt/podata/product_images /opt/product-opener/html/images/products
+    # Create some necessary files to ensure permissions in volumes
+    mkdir -p /opt/product-opener/html/data/ && \
+    mkdir -p /opt/product-opener/html/images/ && \
+    chown www-data:www-data -R /opt/product-opener/html/ && \
+    # logs dir
+    mkdir -p /var/log/apache2/ && \
+    chown www-data:www-data -R /var/log
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
@@ -222,4 +227,4 @@ USER www-data
 ######################
 FROM runnable as prod
 # Install Product Opener from the workdir
-COPY --chown=wwww-data:www-data . /opt/product-opener/
+COPY --chown=www-data:www-data . /opt/product-opener/
