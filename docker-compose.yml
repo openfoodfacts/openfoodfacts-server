@@ -47,7 +47,7 @@ services:
       # Users, products, product images and orgs files
       - users:/mnt/podata/users # .sto
       - products:/mnt/podata/products # .sto
-      - product_images:/mnt/podata/product_images # .jpg
+      - product_images:/opt/product-opener/html/images/products # .jpg
       - orgs:/mnt/podata/orgs # .sto
       # all the rest
       - podata:/mnt/podata

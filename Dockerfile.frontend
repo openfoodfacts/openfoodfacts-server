@@ -9,6 +9,11 @@ ARG USER_GID
 RUN usermod --uid $USER_UID node && \
     groupmod --gid $USER_GID node && \
     mkdir -p /opt/product-opener/node_modules && \
+    mkdir -p /opt/product-opener/html/data && \
+    mkdir -p /opt/product-opener/html/css/dist && \
+    mkdir -p /opt/product-opener/html/images/icons/dist && \
+    mkdir -p /opt/product-opener/html/js/dist && \
+    mkdir -p /opt/product-opener/html/images/products && \
     chown node:node -R /opt/product-opener/
 COPY --chown=node:node package*.json /opt/product-opener/
 COPY --chown=node:node .snyk /opt/product-opener/
