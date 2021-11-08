@@ -97,17 +97,21 @@ build_lang:
 	# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
+# create some bind mounted dirs, to avoid them from being owned by root
+make_base_dirs:
+	mkdir -p logs/apache2/ logs/nginx/
+
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
 	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang
+init_backend: make_base_dirs build_lang
 
 setup_incron:
 	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
-	${DOCKER_COMPOSE} exec -T backend sh -c "\
+	${DOCKER_COMPOSE} exec --user root -T backend sh -c "\
 		echo 'root' >> /etc/incron.allow && \
 		incrontab -u root /opt/product-opener/conf/incron.conf && \
 		incrond"
@@ -119,7 +123,7 @@ refresh_product_tags:
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
-	${DOCKER_COMPOSE} exec --user=www-data backend bash /opt/product-opener/scripts/import_sample_data.sh
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
@@ -167,11 +171,11 @@ prune_cache:
 	docker builder prune -f
 
 clean_folders:
-	rm html/images/products
-	rm -rf node_modules/
-	rm -rf html/data/i18n/
-	rm -rf html/{css,js}/dist/
-	rm -rf tmp/
-	rm -rf logs/
+	( rm html/images/products || true )
+	( rm -rf node_modules/ || true )
+	( rm -rf html/data/i18n/ || true )
+	( rm -rf html/{css,js}/dist/ || true )
+	( rm -rf tmp/ || true )
+	( rm -rf logs/ || true )
 
 clean: goodbye hdown prune prune_cache clean_folders
