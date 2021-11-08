@@ -22,7 +22,8 @@ echo "setting up docker-compose env"
 export USER_UID=${UID}
 export USER_UID=$(id -g)
 ```
+
 - in project directory, run `direnv allow .`
 - in a new shell:
   - go in project directory
-  - you should have direnv trigger and load `ENV_FILE`
+  - you should have direnv trigger and load your variables
