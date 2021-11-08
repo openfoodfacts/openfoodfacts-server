@@ -184,6 +184,7 @@ RUN \
     chown www-data:www-data var/run/apache2/ && \
     for path in data html_data users products product_images orgs new_images logs tmp; do \
         mkdir -p /mnt/podata/${path}; \
+        chown www-data:www-data /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files in /mnt/podata (because we currently mix data and conf data)
