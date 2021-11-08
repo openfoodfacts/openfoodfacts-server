@@ -207,22 +207,6 @@ ENTRYPOINT [ "/docker-entrypoint.sh" ]
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 ######################
-# Image for dev
-######################
-# note: user is not root but you car run --user root in docker if you want
-FROM runnable AS vscode
-COPY --from=builder-vscode /tmp/local/ /opt/perl/local/
-# install usefull packages
-USER root
-RUN install_packages apt-utils dialog 2>&1 && \
-    # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    # also add support for readline for debugger etc.
-    install_packages \
-        git iproute2 procps lsb-release \
-        libterm-readline-gnu-perl libterm-readkey-perl
-USER www-data
-
-######################
 # Prod image is default
 ######################
 FROM runnable as prod
