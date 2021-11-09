@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-06 19:34\n"
+"PO-Revision-Date: 2021-11-07 14:53\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -283,7 +283,7 @@ msgstr "Ви також можете допомогти фінансувати �
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> створено некомерційною асоціацією, незалежною від промисловості. Ця база даних створена для всіх, усіма та кожен може зробити свій внесок. Ви можете підтримати наш проект <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> і зробити благодійний внесок до Open Products Facts</a> або через <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> за допомогою пошукової системи Lilo </a>.<br/><b>Дякуємо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -391,23 +391,23 @@ msgstr "міста упаковки"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Товари, запаковані в місті %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "місто пакування"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Не запаковані товари в місті %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Код"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -415,7 +415,7 @@ msgstr "виконано %d місій:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Ви підключені до вашого облікового запису Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -451,19 +451,19 @@ msgstr "країни"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Товари, продані у %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "країна"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Товари, не продані в %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Джерело інформації"
 
 msgctxt "data_sources_p"
 msgid "data sources"
@@ -483,7 +483,7 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Причина видалення"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -491,7 +491,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Видалити сторінку"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
@@ -599,11 +599,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код відстеження"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код відстеження"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -1719,7 +1719,7 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Рейтинги"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Товари, продані у %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1927,7 +1927,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Товари, не продані в %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -4160,9 +4160,9 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr ""
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 msgstr ""
 
 msgctxt "move_data_and_photos_to_main_language_replace"
@@ -4373,7 +4373,7 @@ msgstr ""
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr ""
+msgstr "Етикетки"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4507,7 +4507,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Необроблені або мінімально оброблені продукти"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -5434,7 +5434,7 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
+msgid "No ingredient threatening species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5539,35 +5539,35 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
+msgid "Packaging with a high impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
+msgid "Packaging with a medium impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
+msgid "Packaging with a low impact"
 msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
+msgid "Missing packaging information for this product"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
+msgid "Origins of ingredients with a high impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
+msgid "Origins of ingredients with a medium impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
+msgid "Origins of ingredients with a low impact"
 msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
+msgid "Missing origins of ingredients information"
 msgstr ""
 
 msgctxt "percent_of_ingredients"
@@ -5603,16 +5603,20 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Підтримати проект"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr ""
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
+msgid "Labels with environmental benefits"
 msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
+msgid "Labels with high environmental benefits"
 msgstr ""
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
+msgid "Labels with very high environmental benefits"
 msgstr ""
 
 msgctxt "other"
@@ -5631,4 +5635,86 @@ msgstr "Статистика використання складників дл�
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
 msgstr "Складники для всіх продуктів"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr ""
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr ""
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr ""
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Середовище"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr ""
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr ""
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr ""
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr ""
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
 
