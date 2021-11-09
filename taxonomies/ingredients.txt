@@ -18044,7 +18044,7 @@ fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de 
 hu:tápiókakeményítő
 it:amido di tapioca
 ja:タピオカ
-nb:tapiokastivelse, tapioka
+nb:tapiokastivelse, tapioka, tapioca
 nl:tapiocazetmeel, tapioca zetmeel
 pl:Tapioka
 sk:tapiokový škrob
@@ -33216,6 +33216,10 @@ nl:gehydroliseerd soja-eiwit, gehydrolyseerd soja-eiwit
 fr:protéines de soja i.p
 
 <en:vegetable protein
+en:cereal protein
+nl:graneneiwit
+
+<en:vegetable protein
 en:wheat protein
 de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
@@ -33223,7 +33227,7 @@ fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
 hu:búzafehérje
 it:proteine del grano
-nl:graneneiwit
+nl:utarwe-eiwit
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
@@ -37543,7 +37547,7 @@ es:Zumo a partir de concentrado, zumo concentrado, jugo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
-nl:sap uit vruchtensapconcentraat
+nl:sap uit vruchtensapconcentraat, geconcentreerd sap
 ru:концентрированные соки
 # ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
 # concentrated juice:lemon and orange
@@ -44561,8 +44565,6 @@ fr:Jus d'argousier
 sv:havtornsjuice
 wikidata:Q68192318
 
-
-
 # nectarine
 
 <en:fruit
@@ -44570,6 +44572,13 @@ en:nectarine
 es:nectarina
 fr:nectarine
 it:nettarina
+
+<en:fruit
+en:tamarillo
+de:Tamarillo, Baumtomate
+fr:tamarillo
+wikidata:en:Q379747
+wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
 ###################################################################################################
 #
@@ -44811,13 +44820,13 @@ az:Kişmiş
 be:Разынкі
 bg:Стафида
 bs:Grožđica
-ca:pansa,panses sultanes,panses
+ca:pansa, panses
 cs:rozinka
 da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas, uva desecada
+es:uvas pasas, pasas, uva desecada
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -44913,36 +44922,41 @@ fr:concentré de raisin
 # maybe it is necessary to split between dried and fresh
 
 <en:grape
-en:sultana, sultanas
-af:Sultana
+en:sultana, sultanas, Thompson seedless, sultanina
+af:sultana
 ar:العنب الكشمشي
-bg:Султанина
+bg:султанина
+ca:panses sultanes
 da:sultana
-de:Sultana, Sultanine
+de:Sultana, Sultanine, Sultanina
 el:σουλτανίνα
-es:Sultanina, Sultana
-et:Sultana
+eo:sultanino
+es:sultanina, sultana, pasas sultanas, uvas pasas sultanas
+et:sultana
 fa:انگور سلطانی
 fi:sulttaanirusina, sulttaanirusinoita
 fr:sultanine, sultanines
+ga:sabhdánach
 he:סולטנה
 hi:सुल्ताना
-id:Sultana
+id:sultana
 it:sultanina
 ja:サルタナ
 kn:ಸುಲ್ತಾನ
 ko:설태너
+mk:суво грозје
 ms:sultana
 nl:sultana, sultanas
 pt:sultanina
-ru:Белый кишмиш
+ro:sultanină
+ru:белый кишмиш
 sa:द्राक्षा
 si:සුල්තානා
 sl:sultanina
 sv:sultanrussin
-tr:Sultaniye üzümü
-uk:Кишмиш
-uz:Kishmish
+tr:sultaniye üzümü
+uk:кишмиш
+uz:kishmish
 zh:蘇丹娜葡萄
 wikidata:en:Q1898118
 wikipedia:en:https://en.wikipedia.org/wiki/Sultana_(grape)
@@ -50026,7 +50040,7 @@ jv:Loncang
 ko:파류
 mr:कांदेपात
 ms:Daun bawang
-nl:lente-ui, bosui, Lenteuitjes
+nl:lente-ui, bosui, Lenteuitjes, lenteui
 nn:vårlauk
 no:vårløk
 pt:cebolinha
@@ -54323,7 +54337,7 @@ ml:അവര
 ms:Kacang parang
 nb:Hestebønne
 ne:बकुल्ला सिमी
-nl:tuinboon, tuibonen
+nl:tuinboon, tuinbonen
 nn:Hestebønne
 oc:Fava
 os:Бæхы хъæдур
@@ -54402,6 +54416,9 @@ fr:féverole, féverolle
 en:Vicia faba
 la:Vicia faba
 
+<en:vegetable protein
+en:broad bean protein
+nl:tuinbooneiwit
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
@@ -59633,6 +59650,10 @@ fr:Pâte de gingembre
 #nl:gemberextract
 #vegan:en:yes
 #vegetarian:en:yes
+
+<en:ginger
+en:ginger syrup
+nl:gembersiroop
 
 #category/mustards
 <en:spice
@@ -66387,7 +66408,7 @@ es:extracto de champiñón
 fi:sieniuute, herkkusieniuute
 fr:extrait de champignon, extrait de champignons
 it:estratti di funghi
-nl:champignonextract
+nl:champignonextract, paddestoelenextract
 sv:svampextrakt, champinjonextrakt
 # en:mushroom-extract has 94 products in 4 languages @2018-11-02
 
@@ -74521,7 +74542,7 @@ fr:fibres de psyllium, psyllium
 he:פסיליום
 hi:isabgol
 it:psyllium
-nl:Psyllium
+nl:Psyllium, psylliumvezels
 pl:Babka
 ro:Psyllium
 ru:Подорожник
@@ -77745,7 +77766,7 @@ fi:ulkomunat
 fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
 it:uova da allevamento a terra, Uova di allevamento all'aperto
 ja:平飼い卵
-nl:vrije uitloop ei
+nl:vrije-uitloopei, vrije uitloop ei
 
 <en:eggs
 en:category A eggs
@@ -83546,7 +83567,7 @@ mr:सोया सॉस
 ms:kicap
 mt:zalza tas-soja
 nb:soyasaus
-nl:Sojasaus
+nl:Sojasaus, ketjap
 pa:ਸੋਇਆ ਸੌਸ
 pl:sos sojowy
 pt:molho de soja
@@ -84414,12 +84435,6 @@ sv:falafel
 wikidata:en:Q188788
 wikipedia:en:https://en.wikipedia.org/wiki/Falafel
 
-<en:fruit
-en:tamarillo
-de:Tamarillo, Baumtomate
-fr:tamarillo
-wikidata:en:Q379747
-wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
 # Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
 
@@ -84430,7 +84445,7 @@ es:extracto de frutas, extracto de fruta
 fi:hedelmäuute
 fr:extrait de fruit
 it:Estratto di frutta
-nl:vruchtenextract
+nl:vruchtenextract, vruchtconcentraten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
 

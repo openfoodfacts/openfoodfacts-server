@@ -30041,9 +30041,11 @@ ciqual_food_name:fr:Bonbons, tout type
 en:French candies
 fr:Bonbons français
 
+#should this be in gelified candies?
 <en:Candies
 en:Liquorice candies, Licorice candies
 fr:Bonbons au réglisse, Bonbons à la réglisse
+nl:Drop
 
 <en:French candies
 fr:Bêtises de Cambrai
@@ -30072,10 +30074,6 @@ fi:hunajamakeiset
 fr:Bonbons au miel, bonbon au miel
 it:Caramelle al miele
 nl:Honingbonbons
-
-<en:Candies
-en:Liquorice candies
-fr:Bonbons au réglisse, Bonbons à la réglisse
 
 <en:Candies
 en:Candy meringues, candy meringue
@@ -30115,6 +30113,9 @@ en:Gummy strawberries
 de:Gummi Erdbeeren
 fr:fraises gélifiées
 nl:Gummi-aardbeien
+
+<en:Gelified candies
+nl:Wine gums
 
 <en:Gelified candies
 en:Gummy cola bottles
@@ -30192,8 +30193,6 @@ ciqual_food_code:en:31059
 ciqual_food_name:en:Hard candy and lollipop
 ciqual_food_name:fr:Bonbon dur et sucette
 
-<en:Candies
-nl:Drop
 
 <en:Nut confectioneries
 en:French pralines
@@ -37266,7 +37265,7 @@ protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Boerenkaas
+nl:Boerenkazen, Boerenkaas
 protected_name_file_number:en: TSG-NL-0023
 protected_name_type:en: tsg
 origins:en: en:Netherlands
@@ -61604,6 +61603,14 @@ wikidata:en:Q281278
 <en:Prepared salads
 en:Buddha Bowl
 fr:Buddha Bowl
+
+<en:Prepared salads
+en:Chicken salads
+nl:Kipsalades
+
+<en:Prepared salads
+en:Egg salads
+nl:Eisalades, Eiersalades
 
 <en:Prepared salads
 <en:Meals with fish
