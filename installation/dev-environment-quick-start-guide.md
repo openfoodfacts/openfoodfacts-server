@@ -79,16 +79,10 @@ The `.env` file also contains some useful Docker Compose variables:
     * `docker/perldb.yml`: add the Perl debugger container
 * `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
 
-**Note:** you can use a different `.env` file by setting the environment variable `ENV_FILE` (e.g: `export ENV_FILE=/path/to/my/custom/.env.prod`).
-This works only for make commands,
-if you want to use docker-compose directly use `docker-compose --env-file=${ENV_FILE}`
-Also you may use an alias : `alias docker-compose='docker-compose --env-file=${ENV_FILE:-.env}'`
-(eventually add it to your `.bashrc`, it won't hurt)
-
-It is strongly advised to do so to avoid commiting your local env changes accidentaly.
-However a more flexible approach is
-to set your own env variable in your shell (using `export`),
-they will overide values in the `.env` file.
+**Note:**
+Instead of modifying `.env` (with the risk commit it inadvertently),
+You can also set needed variables in your shell, they will override `.env` values.
+Consider creating a `.envrc` file that you source each time you need to work on the project.
 On linux and macOS, you can automatically do it if you [use direnv](./use-direnv.md).
 
 ## 4. Build your dev environment

@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.2
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
@@ -9,7 +10,7 @@ ARG USER_GID=1000
 FROM bitnami/minideb:buster AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
     install_packages \
         apache2 \
         apt-utils \
@@ -154,16 +155,7 @@ WORKDIR /tmp
 COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
-RUN cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
-
-
-######################
-# Stage for installing/compiling cpanfile dependencies with dev dependencies
-######################
-FROM builder AS builder-vscode
-
-# Add ProductOpener runtime dependencies from cpan
-RUN cpanm --with-develop --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
+RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
 
 ######################

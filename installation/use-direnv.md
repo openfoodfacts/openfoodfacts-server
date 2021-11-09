@@ -10,8 +10,6 @@ As a quick guide as an openfoodfacts developper:
     ```bash
     # direnv
     eval "$(direnv hook bash)"
-    # docker-compose specific env file
-    alias docker-compose=docker-compose --env-file=${ENV_FILE:-.env}
     ```
   you have adapt the direnv line according to what you use, see [direnv doc](https://direnv.net/docs/hook.html)
 - In your project directory add a file, where you superseed variables from `.env`
@@ -19,6 +17,7 @@ As a quick guide as an openfoodfacts developper:
 
 ```
 echo "setting up docker-compose env"
+export DOCKER_BUILDKIT=1
 export USER_UID=${UID}
 export USER_UID=$(id -g)
 ```
