@@ -91,6 +91,22 @@ my @tests = (
 		}
 	],
 	
+	[
+		'packaging_text_nl_doosje_oud_papier',
+		{
+			lc => "nl",
+			packaging_text => "doosje bij oud papier"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_over_plastic_afval',
+		{
+			lc => "nl",
+			packaging_text => "overig bij plastic afval"	
+		}
+	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
