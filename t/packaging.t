@@ -83,29 +83,29 @@ my @tests = (
 	],
 	
 	# container type and instruction
-	[
-		'packaging_text_nl_fles_glasbak',
-		{
-			lc => "nl",
-			packaging_text => "fles in glasbak"	
-		}
-	],
-	
-	[
-		'packaging_text_nl_doosje_oud_papier',
-		{
-			lc => "nl",
-			packaging_text => "doosje bij oud papier"	
-		}
-	],
-	
-	[
-		'packaging_text_nl_over_plastic_afval',
-		{
-			lc => "nl",
-			packaging_text => "overig bij plastic afval"	
-		}
-	],
+	#[
+#		'packaging_text_nl_fles_glasbak',
+#		{
+#			lc => "nl",
+#			packaging_text => "fles in glasbak"	
+#		}
+#	],
+#	
+#	[
+#		'packaging_text_nl_doosje_oud_papier',
+#		{
+#			lc => "nl",
+#			packaging_text => "doosje bij oud papier"	
+#		}
+#	],
+#	
+#	[
+#		'packaging_text_nl_over_plastic_afval',
+#		{
+#			lc => "nl",
+#			packaging_text => "overig bij plastic afval"	
+#		}
+#	],
 	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
