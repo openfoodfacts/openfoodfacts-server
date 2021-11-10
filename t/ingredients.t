@@ -336,6 +336,15 @@ my @tests = (
 		},
 	],
 
+	# Irradiated spices
+	[
+		"fr-epices-irradiees",
+		{
+			lc => "fr",
+			ingredients_text => "Epices irradiées, sésame (irradié), thym (non-irradié)",
+		}
+	],
+
 );
 
 
