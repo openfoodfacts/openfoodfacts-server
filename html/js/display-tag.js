@@ -124,7 +124,7 @@ function displayPointers(pointers) {
       // Otherwise we have a structured object
       // e.g. from a map element of a knowledge panel
       else {
-        coordinates = [ pointer['geo']['lat'], pointer['geo']['lng'] ];
+        coordinates = [ pointer.geo.lat, pointer.geo.lng ];
       }
 
       var marker = new L.marker(coordinates);
