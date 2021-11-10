@@ -34,7 +34,17 @@
                 ],
             },
         },
-        [% END %]   
+        [% END %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_transportation') %]",
+                "panel_ids": [
+                    [% IF panel.manufacturing_place %]"manufacturing_place",[% END %]
+                    "origins_of_ingredients",
+                ],
+            },
+        },         
         [% IF panel.palm_oil %]
         {
             "element_type": "panel_group",

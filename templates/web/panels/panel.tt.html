@@ -194,6 +194,26 @@
                         [% END %]
                     </tbody>
                 </table>
+            [% ELSIF element_type == "map" %]
+                [% map_element = element_ref.map_element %]
+                <!-- start templates/[% template.name %] -->
+
+                <div id="tag_map" class="large-9 columns" style="display: none;">
+                    <div id="container" style="height: 300px"></div>
+                </div>
+
+                <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
+                <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
+                <script src="[% static_subdomain %]/js/dist/osmtogeojson.js"></script>
+                <script src="[% static_subdomain %]/js/dist/display-tag.js"></script>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    displayMap([% encode_json(map_element.pointers) %], null);
+                });
+                </script>
+
+                <!-- end templates/[% template.name %] -->
             [% END %]
             
             </div>
