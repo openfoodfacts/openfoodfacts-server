@@ -2,16 +2,22 @@
 
 # Source files
 # ============
-*.pl	text
-*.pm	text
-
-*.pl linguist-language=Perl
-*.pm linguist-language=Perl
+*.pl text linguist-language=Perl
+*.pm text linguist-language=Perl
 
 # Test files
 # ============
-*.t	text
+*.t text linguist-language=Perl
 
 # Template::Toolkit
 # =================
-*.tt linguist-language=HTML
+*.tt text linguist-language=HTML
+
+# Scripts
+# =======
+scripts/po-foreground.sh text=auto eol=lf
+
+# Do not treat .csv.<number> files as Roff programming language files
+# ===================================================================
+*.csv.[0-9] linguist-language=CSV
+*.csv.[0-9][0-9] linguist-language=CSV

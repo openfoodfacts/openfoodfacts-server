@@ -25,6 +25,9 @@ my @tests = (
 [ { lc => "en", ingredients_text_en => "tomatoes", categories_tags => ["en:sandwiches"]}, 3],
 [ { lc => "en", ingredients_text_en => "sugar", categories_tags => ["en:sugars"]}, 2],
 
+# emulsifiers
+[ { lc => "es", ingredients_text_es => "Puré de castañas, lecitina de girasol y conservador: sorbato potásico (E202).", categories_tags => ["en:sweet-spreads"]}, 4],
+
 );
 
 foreach my $test_ref (@tests) {

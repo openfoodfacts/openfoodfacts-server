@@ -4,7 +4,6 @@
          "id" : "en:crushed-tomato",
          "percent" : "19",
          "percent_estimate" : "19",
-         "rank" : 1,
          "text" : "purée de tomate",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -13,7 +12,6 @@
          "id" : "en:beef",
          "percent" : "90",
          "percent_estimate" : 81,
-         "rank" : 2,
          "text" : "boeuf",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -22,7 +20,6 @@
          "id" : "en:fruit-juice",
          "percent" : "100",
          "percent_estimate" : 0,
-         "rank" : 3,
          "text" : "jus de fruit",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -32,7 +29,6 @@
          "id" : "en:oil-and-fat",
          "percent" : "45",
          "percent_estimate" : 0,
-         "rank" : 4,
          "text" : "matière grasses",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -78,6 +74,10 @@
       "en:oil-and-fat"
    ],
    "ingredients_text" : "19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
+   "ingredients_with_specified_percent_n" : 4,
+   "ingredients_with_specified_percent_sum" : 254,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "known_ingredients_n" : 9,
    "lc" : "fr",
    "nutriments" : {

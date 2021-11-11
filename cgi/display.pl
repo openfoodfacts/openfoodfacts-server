@@ -63,6 +63,7 @@ my %request = (
 
 $log->debug("before analyze_request", { query_string => $request{query_string} });
 
+# analyze request will fill request with action and parameters
 analyze_request(\%request);
 
 $log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
@@ -75,7 +76,7 @@ if ( ((defined $server_options{private_products}) and ($server_options{private_p
 	display_error(lang("no_owner_defined"), 200);
 }
 
-if (defined $request{api}) {
+if ((defined $request{api}) and (defined $request{api_method})) {
 	if (param("api_method") eq "search") {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
@@ -92,6 +93,9 @@ if (defined $request{api}) {
 		# /api/v0/attribute_groups or /api/v0/attribute_groups_[language code]
 		display_attribute_groups_api(\%request, $2);
 	}
+	elsif (param("api_method") eq "taxonomy") {
+		display_taxonomy_api(\%request);
+	}	
 	else {
 		# /api/v0/product/[code] or a local name like /api/v0/produit/[code] so that we can easily add /api/v0/ to any product url
 		display_product_api(\%request);
@@ -105,6 +109,9 @@ elsif (defined $request{search}) {
 	else {
 		display_search_results(\%request);
 	}
+}
+elsif (defined $request{properties}) {
+	display_properties(\%request);
 }
 elsif (defined $request{text}) {
 	display_text(\%request);

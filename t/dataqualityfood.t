@@ -6,6 +6,7 @@ use Test::More;
 
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
@@ -208,14 +209,65 @@ ok( has_tag($product_ref, 'data_quality', 'en:missing-nutrition-data-prepared-wi
 'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
 
 
+$product_ref = {
+	categories_tags => ['en:dried-products-to-be-rehydrated'],
+	nutrition_data_prepared => 'on',
+	nutriments => {
+		energy_prepared_100g => 5
+	},
+	no_nutrition_data => 'on'
+
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'),
+'dried product category with no nutrition data checked prepared data is flagged for issue 1466' ) or diag explain $product_ref;
+
 use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag({
-	categories_tags => ["en:cakes"],
-	nutriments => { 
-		salt_100g => 10,
-		fat_100g => 99,
-	},
-}, "en:nutrition-value-very-high-for-category-fat", "very high salt value", 1);
+	 'ecoscore_data' => {
+     'adjustments' => {
+       'origins_of_ingredients' => {
+         'aggregated_origins' => [
+           {
+             'origin' => 'en:unknown',
+             'percent' => 100
+           }
+         ],
+         'epi_score' => 0,
+         'epi_value' => -5,
+         'origins_from_origins_field' => [
+           'en:unknown'
+         ],
+         'transportation_score' => 0,
+         'transportation_value' => 0,
+         'value' => -5,
+         'warning' => 'origins_are_100_percent_unknown'
+       },
+      }
+	}
+}, "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown", "origins 100 percent unknown", 1);
+
+
+# Specified percent of ingredients
+
+$product_ref = {
+	lc => 'en',
+	ingredients_text => 'Strawberries 100%',
+};
+extract_ingredients_from_text($product_ref);
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10')) or diag explain $product_ref;
+
+$product_ref = {
+	lc => 'en',
+	ingredients_text => 'Strawberries 90%, sugar 50%, water',
+};
+extract_ingredients_from_text($product_ref);
+ProductOpener::DataQuality::check_quality($product_ref);
+ok( has_tag($product_ref, 'data_quality', 'en:all-but-one-ingredient-with-specified-percent')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10')) or diag explain $product_ref;
+ok( has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-percent-greater-than-100')) or diag explain $product_ref;
 
 done_testing();

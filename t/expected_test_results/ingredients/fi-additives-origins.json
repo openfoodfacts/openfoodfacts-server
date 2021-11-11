@@ -1,7 +1,6 @@
 {
    "ingredients" : [
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:emulsifier",
          "ingredients" : [
             {
@@ -9,13 +8,14 @@
                "percent_estimate" : 33.5,
                "percent_max" : 34,
                "percent_min" : 33,
-               "text" : "auringonkukkalesitiini"
+               "text" : "auringonkukkalesitiini",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 33.5,
          "percent_max" : 34,
          "percent_min" : "33",
-         "rank" : 1,
          "text" : "emulgointiaine"
       },
       {
@@ -24,7 +24,6 @@
          "percent_estimate" : 33.25,
          "percent_max" : 33.5,
          "percent_min" : "33",
-         "rank" : 2,
          "text" : "aromi",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -36,7 +35,6 @@
          "percent_estimate" : "33",
          "percent_max" : "33",
          "percent_min" : "33",
-         "rank" : 3,
          "text" : "vehnäjauho",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -46,17 +44,7 @@
          "percent_estimate" : 0.25,
          "percent_max" : 1,
          "percent_min" : 0,
-         "rank" : 4,
          "text" : "sokeri",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "id" : "en:sunflower-lecithin",
-         "percent_estimate" : 33.5,
-         "percent_max" : 34,
-         "percent_min" : 33,
-         "text" : "auringonkukkalesitiini",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -106,6 +94,10 @@
       "en:e322i"
    ],
    "ingredients_text" : "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 33,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 67,
    "known_ingredients_n" : 11,
    "lc" : "fi",
    "nutriments" : {

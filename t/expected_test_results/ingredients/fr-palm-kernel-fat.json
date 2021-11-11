@@ -6,7 +6,6 @@
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "rank" : 1,
          "text" : "graisse de palmiste",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -39,6 +38,10 @@
       "en:palm-kernel-oil-and-fat"
    ],
    "ingredients_text" : "graisse de palmiste",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "nutriments" : {

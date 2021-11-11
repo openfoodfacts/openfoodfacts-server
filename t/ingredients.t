@@ -306,7 +306,44 @@ my @tests = (
 			lc => "es",
 			ingredients_text => "Tomate, pimiento (12%), atún (10%), aceite de oliva virgen extra (4%), huevo (3%), cebolla (3%), azúcar, almidón de maíz, sal y acidulante: ácido cítrico.",
 		}
-	],	
+	],
+	
+	# Ingredient that is also an existing label - https://github.com/openfoodfacts/openfoodfacts-server/issues/4907
+	
+	[
+		"fr-huile-de-palme-certifiee-durable",
+		{
+			lc => "fr",
+			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)",
+		},
+	],
+	
+	# Russian oil parsing
+	[
+		"ru-russian-oil",
+		{
+			lc => "ru",
+			ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)",
+		},
+	],
+
+	# Spanish label with "e" meaning "y"
+	[
+		"es-procedente-e-agricultura-biologica",
+		{
+			lc => "es",
+			ingredients_text => "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+		},
+	],
+
+	# Irradiated spices
+	[
+		"fr-epices-irradiees",
+		{
+			lc => "fr",
+			ingredients_text => "Epices irradiées, sésame (irradié), thym (non-irradié)",
+		}
+	],
 
 );
 

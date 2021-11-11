@@ -35,6 +35,7 @@ BEGIN
 		&process_search_image_form
 
 		&get_code_and_imagefield_from_file_name
+		&get_imagefield_from_string
 		&process_image_upload
 		&process_image_move
 
@@ -101,10 +102,11 @@ HTML
 
 
 
-sub display_select_crop($$) {
+sub display_select_crop($$$) {
 
 	my $object_ref = shift;
 	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
+	my $language = shift;
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -123,7 +125,7 @@ sub display_select_crop($$) {
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
 	my $html = <<HTML
-<label for="$id">$label</label>
+<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
@@ -313,14 +315,19 @@ sub display_search_image_form($) {
 HTML
 ;
 
+	# Do not load jquery file upload twice, if it was loaded by another form
 
-	$scripts .= <<JS
+	if ($scripts !~ /jquery.fileupload.js/) {
+
+		$scripts .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
+
+	}
 
 	$initjs .= <<JS
 
@@ -428,6 +435,42 @@ sub dims {
 }
 
 
+
+=head2 get_code_and_imagefield_from_file_name ( $l $filename )
+
+This function is used to guess if an image is the front of the product,
+its list of ingredients, or the nutrition facts table, based on the filename.
+
+It is used in particular for bulk upload of photos sent by manufacturers.
+The file names have many different formats, but they very often include the barcode of the product,
+and sometimes an indication of what the image is.
+
+Producers are advised to use the [front|ingredients|nutrition|packaging]_[language code] format,
+but in practice we receive many other names.
+
+The %file_names_to_imagefield_regexps structure below contains some patterns
+used to guess what the image is about.
+
+=cut
+
+# the regexps apply to canonicalized strings
+# i.e. lowercased / unaccented strings in most European languages
+my %file_names_to_imagefield_regexps = (
+
+	en => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+	es => [
+		["ingredientes" => "ingredients"],
+		["nutricion" => "nutrition"],	
+	],
+	fr => [
+		["ingredients" => "ingredients"],
+		["nutrition" => "nutrition"],
+	],
+);
+
 sub get_code_and_imagefield_from_file_name($$) {
 
 	my $l = shift;
@@ -435,6 +478,10 @@ sub get_code_and_imagefield_from_file_name($$) {
 
 	my $code;
 	my $imagefield;
+	
+	# codes with spaces
+	# 4 LR GROS LOUE_3 251 320 080 419_3D avant.png
+	$filename =~ s/(\d) (\d)/$1$2/g;
 
 	# Look for the barcode
 	if ($filename =~ /(\d{8}\d*)/) {
@@ -454,16 +501,29 @@ sub get_code_and_imagefield_from_file_name($$) {
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 	
 	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
-		$imagefield = $1;
+		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
 	# but [code]_2.jpg etc. should not be considered the front image
 	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
-		and not ($filename =~ /^\d{8}\d*(-|_|\.| )*\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )+\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
 		$imagefield = "front";
 	}
-	else {
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
 		$imagefield = "other";
 	}
 
@@ -473,11 +533,48 @@ sub get_code_and_imagefield_from_file_name($$) {
 }
 
 
+sub get_imagefield_from_string($$) {
+
+	my $l = shift;
+	my $filename = shift;
+
+	my $imagefield;
+	
+	# Check for a specified imagefield
+	
+	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
+	
+	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+		$imagefield = lc($1);
+		$imagefield =~ s/-/_/;
+	}
+	elsif (defined $file_names_to_imagefield_regexps{$l}) {
+		
+		my $filenameid = get_string_id_for_lang($l,$filename);
+		
+		foreach my $regexp_ref (@{$file_names_to_imagefield_regexps{$l}}) {
+			my $regexp = $regexp_ref->[0];
+			if ($filenameid =~ /$regexp/) {
+				$imagefield = $regexp_ref->[1];
+				last;
+			}
+		}
+	}
+	
+	if (not defined $imagefield) {
+		$imagefield = "other";
+	}
+
+	$log->debug("get_imagefield_from_string", { l => $l, filename => $filename, imagefield => $imagefield }) if $log->is_debug();
+
+	return $imagefield;
+}
+
 sub process_image_upload($$$$$$$) {
 
 	my $product_id = shift;
 	my $imagefield = shift;
-	my $userid     = shift;
+	my $user_id     = shift;
 	my $time       = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment   = shift;
 	my $imgid_ref = shift; # to return the imgid (new image or existing image)
@@ -491,7 +588,7 @@ sub process_image_upload($$$$$$$) {
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - userid: $userid - imagefield: $imagefield";
+	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
 
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
@@ -534,7 +631,7 @@ sub process_image_upload($$$$$$$) {
 	}
 	
 	local $log->context->{imagefield} = $imagefield;
-	local $log->context->{uploader}   = $userid;
+	local $log->context->{uploader}   = $user_id;
 	local $log->context->{file}       = $file;
 	local $log->context->{time}       = $time;
 
@@ -688,7 +785,7 @@ sub process_image_upload($$$$$$$) {
 			# Check the image is big enough so that we do not get thumbnails from other sites
 			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
 				and ((not defined $options{users_who_can_upload_small_images})
-					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
+					or (not defined $options{users_who_can_upload_small_images}{$user_id}))){
 				unlink "$product_www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$product_www_root/images/products/$path/$imgid.lock");
 				$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
@@ -738,10 +835,16 @@ sub process_image_upload($$$$$$$) {
 			if (not "$x") {
 
 				# Update the product image data
+				$log->debug("update the product image data", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
 				my $product_ref = retrieve_product($product_id);
+				
+				if (not defined $product_ref) {
+					$log->debug("product could not be loaded", { imgid => $imgid, product_id => $product_id }) if $log->is_debug();
+				}
+				
 				defined $product_ref->{images} or $product_ref->{images} = {};
 				$product_ref->{images}{$imgid} = {
-					uploader => $userid,
+					uploader => $user_id,
 					uploaded_t => $time,
 					sizes => {
 						full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
@@ -761,7 +864,9 @@ sub process_image_upload($$$$$$$) {
 				if ((defined $comment) and ($comment ne '')) {
 					$store_comment .= ' - ' . $comment;
 				}
-				store_product($product_ref, $store_comment);
+				
+				$log->debug("storing product", {product_id => $product_id }) if $log->is_debug();
+				store_product($user_id, $product_ref, $store_comment);
 
 				# Create a link to the image in /new_images so that it can be batch processed by OCR
 				# and computer vision algorithms
@@ -814,22 +919,23 @@ sub process_image_upload($$$$$$$) {
 
 
 
-sub process_image_move($$$$) {
+sub process_image_move($$$$$) {
 
+	my $user_id = shift;
 	my $code = shift;
 	my $imgids = shift;
 	my $move_to = shift;
 	my $ownerid = shift;
 
 	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
+	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
 
 	my $product_id = product_id_for_owner($ownerid, $code);
 	my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
-	$log->debug("process_image_move", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
+	$log->debug("process_image_move - start", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	my $path = product_path_from_id($product_id);
 
@@ -851,14 +957,17 @@ sub process_image_move($$$$) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $User_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
+			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+				$ok = process_image_upload($move_to_id, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", \$new_imgid, \$debug);
 				if ($ok < 0) {
-					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
 				else {
-					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $User_id, result => $ok });
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", move_to => $move_to, old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 				}
+			}
+			else {
+				$log->info("moved image to trash", { source_path => "$www_root/images/products/$path/$imgid.jpg", old_code => $code, ownerid => $ownerid, user_id => $user_id, result => $ok });
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
@@ -884,14 +993,17 @@ sub process_image_move($$$$) {
 
 	}
 
-	store_product($product_ref, "Moved images $imgids to $move_to");
+	store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
+	
+	$log->debug("process_image_move - end", { product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id }) if $log->is_debug();
 
 	return 0;
 }
 
 
-sub process_image_crop($$$$$$$$$$$) {
+sub process_image_crop($$$$$$$$$$$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 	my $imgid = shift;
@@ -903,14 +1015,29 @@ sub process_image_crop($$$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 	my $coordinates_image_size = shift;
+	
+	$log->debug("process_image_crop - start", { product_id => $product_id, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
 	# -> $coordinates_image_size = $crop_size
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
+	# There was an issue saving coordinates_image_size for some products
+	# if any coordinate is above the $crop_size, then assume it was on the full size
+
 	if (not defined $coordinates_image_size) {
-		$coordinates_image_size = $crop_size;
+		if (($x2 <= $crop_size) and ($y2 <= $crop_size)) {
+			$coordinates_image_size = $crop_size;
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 and y2 less than crop_size, setting to crop_size", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+		else {
+			$coordinates_image_size = "full";
+			$log->debug("process_image_crop - coordinates_image_size not set and x2 or y2 greater than crop_size, setting to full", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
+		}
+	}
+	else {
+		$log->debug("process_image_crop - coordinates_image_size set", { $coordinates_image_size => $coordinates_image_size }) if $log->is_debug();
 	}
 
 	my $path = product_path_from_id($product_id);
@@ -1210,6 +1337,7 @@ sub process_image_crop($$$$$$$$$$$) {
 		y1 => $y1,
 		x2 => $x2,
 		y2 => $y2,
+		coordinates_image_size => $coordinates_image_size,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,
@@ -1223,14 +1351,15 @@ sub process_image_crop($$$$$$$$$$$) {
 			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}};
 	}
 
-	store_product($product_ref, "new image $id : $imgid.$rev");
+	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 
 	$log->trace("image crop done") if $log->is_trace();
 	return $product_ref;
 }
 
-sub process_image_unselect($$) {
+sub process_image_unselect($$$) {
 
+	my $user_id = shift;
 	my $product_id = shift;
 	my $id = shift;
 
@@ -1262,7 +1391,7 @@ sub process_image_unselect($$) {
 	}
 
 
-	store_product($product_ref, "unselected image $id");
+	store_product($user_id, $product_ref, "unselected image $id");
 
 	$log->debug("unselected image") if $log->is_debug();
 	return $product_ref;
@@ -1329,7 +1458,8 @@ sub display_image_thumb($$) {
 	# last try the field without a language (for old products without updated images)
 	push @display_ids, $imagetype;
 
-	my $static = format_subdomain('static');
+	my $images_subdomain = format_subdomain('images');
+	my $static_subdomain = format_subdomain('static');
 	foreach my $id (@display_ids) {
 
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
@@ -1340,7 +1470,7 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				$html .= <<HTML
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
+<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
 HTML
 ;
 
@@ -1352,7 +1482,7 @@ HTML
 	if ($html eq '') {
 
 		$html = <<HTML
-<img src="$static/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
 </img>
 HTML
 ;
@@ -1609,8 +1739,7 @@ sub extract_text_from_image($$$$$) {
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-		# alpha-vision.googleapis.com/
+		my $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 
 		my $ua = LWP::UserAgent->new();
 
@@ -1640,6 +1769,7 @@ sub extract_text_from_image($$$$$) {
 		$request->content( $json );
 
 		my $res = $ua->request($request);
+		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
 
 		if ($res->is_success) {
 

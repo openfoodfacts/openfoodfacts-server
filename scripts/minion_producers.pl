@@ -25,10 +25,17 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$data_root/minion_log.conf"); # Init log4perl from a config file.
+Log::Log4perl->init("$conf_root/minion_log.conf"); # Init log4perl from a config file.
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 
@@ -40,6 +47,19 @@ use Minion;
 
 $log->info("starting minion producers workers", { minion_backend => $server_options{minion_backend} }) if $log->is_info();
 
+# load large data files into mod_perl memory
+init_emb_codes();
+init_packager_codes();
+init_geocode_addresses();
+init_packaging_taxonomies_regexps();
+
+load_scans_data();
+
+if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	load_agribalyse_data();
+	load_ecoscore_data();
+	load_forest_footprint_data();
+}
 
 if (not defined $server_options{minion_backend}) {
 

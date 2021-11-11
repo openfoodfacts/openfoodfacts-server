@@ -44,9 +44,7 @@ use JSON::PP;
 use Log::Any qw($log);
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $html;
 
@@ -91,6 +89,12 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	if (defined param($parameter)) {
 		$request_ref->{$parameter} = param($parameter);
 	}
+}
+
+# if the query request json or xml, either through the json=1 parameter or a .json extension
+# set the $request_ref->{api} field
+if ((defined param('json')) or (defined param('jsonp')) or (defined param('xml'))) {
+	$request_ref->{api} = 'v0';
 }
 
 my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
@@ -162,7 +166,7 @@ foreach my $tagtype (@search_ingredient_classes) {
 	$search_ingredient_classes_checked{$tagtype} = { $search_ingredient_classes{$tagtype} => 'checked="checked"' };
 }
 
-for (my $i = 0; $i < $nutriments_n ; $i++) {
+for (my $i = 0; defined param("nutriment_$i") ; $i++) {
 
 	my $nutriment = remove_tags_and_quote(decode utf8=>param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8=>param("nutriment_compare_$i"));
@@ -337,7 +341,7 @@ if ($action eq 'display') {
 		},
 	];
 	
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
+	for (my $i = 0; ($i < $nutriments_n) or (defined param("nutriment_$i")) ; $i++) {
 
 		push @{$template_data_ref->{nutriments}}, {
 			id => $i,
@@ -429,13 +433,12 @@ var select2_options = {
 JS
 ;
 
-
-$tt->process('search_form.tt.html', $template_data_ref, \$html);
+process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
 	
-	display_new($request_ref);
+	display_page($request_ref);
 
 }
 
@@ -560,7 +563,7 @@ elsif ($action eq 'process') {
 
 	# Nutriments
 
-	for (my $i = 0; $i < $nutriments_n ; $i++) {
+	for (my $i = 0; (defined $search_nutriments[$i]) ; $i++) {
 
 		my ($nutriment, $compare, $value, $unit) = @{$search_nutriments[$i]};
 
@@ -683,7 +686,7 @@ elsif ($action eq 'process') {
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("generate_graph_scatter_plot")  # old parameter, kept for existing links
 		or param("graph")) {
@@ -716,7 +719,7 @@ HTML
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("download")) {
 		# CSV export
@@ -747,7 +750,7 @@ HTML
 </a></div>
 HTML
 ;
-			display_new($request_ref);
+			display_page($request_ref);
 		}
 		else {
 

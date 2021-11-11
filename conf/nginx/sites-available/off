@@ -81,15 +81,15 @@ server {
 	if ($host = translation.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
 	if ($host = translations.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
 	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-	if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-	if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-	if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-	if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-	if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-	if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-	if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-	if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-	if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
+        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
+        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
+        if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
+        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -119,7 +119,6 @@ server {
         #}
 
 	location /data/ {
-
      if ($request_method = 'OPTIONS') {
         add_header Access-Control-Allow-Origin *;
         add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
@@ -148,11 +147,10 @@ server {
         add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
      }
 	include snippets/ssl-headers.conf;
-
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-	}
+}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
@@ -161,16 +159,21 @@ server {
 
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		add_header Access-Control-Allow-Origin *;
+	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
+		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
 	}
 
+        if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy 
 	# if there is a spike of installs
-        #location ~ ^/1.json$ {
-        #        root /srv/off/html/static;
-        #        try_files /1.json = 404;
-        #}
+        location ~ ^/1.json$ {
+                root /srv/off/html/static;
+                try_files /1.json = 404;
+        }
 
 
 	location ~ ^/(favicon.ico) {
@@ -181,7 +184,7 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -196,73 +199,70 @@ server {
         }
 
 	location = /faire-un-don-a-open-food-facts {
-		try_files /donate/fr.helloasso.html =404;
-	}
+                try_files /donate/fr.helloasso.html =404;
+        }
 
-	location = /dona-a-open-food-facts {
-		try_files /donate/it.html =404;
-	}
+        location = /dona-a-open-food-facts {
+                try_files /donate/it.html =404;
+        }
 
-	location = /spenden {
-		try_files /donate/de.html =404;
-	}
+        location = /spenden {
+                try_files /donate/de.html =404;
+        }
 
-	location = /doner-til-open-food-facts {
-			try_files /donate/da.html =404;
-	}
-  
-	location = /donar-a-open-food-facts {
-			try_files /donate/ca.html =404;
-	}
+        location = /doner-til-open-food-facts {
+                try_files /donate/da.html =404;
+        }
 
-	location = /doniraj-k-open-food-facts {
-			try_files /donate/sl.html =404;
-	}
-	
-	location = /open-food-factse-bagista-bulununs {
-			try_files /donate/tr.html =404;
-	}
-	
-	location = /pozhertvovat-open-food-facts {
-			try_files /donate/ru.html =404;
-	}
-	
-	location = /donate-to-open-food-facts-ru {
-			try_files /donate/ru.html =404;
-	}
-	
-	location = /donate-to-open-food-facts-he {
-			try_files /donate/he.html =404;
-	}
-	
-	location = /donate-to-open-food-facts-pl {
-			try_files /donate/pl.html =404;
-	}
-  
-	location = /fazer-um-donativo-ao-open-food-facts {
-			try_files /donate/pt.html =404;
-	}
-	
-	location = /lahjoita-open-food-factsille {
-			try_files /donate/fi.html =404;
-	}
-  
-	location = /dar-a-open-food-facts {
-			try_files /donate/es.html =404;
-	}
-  
-	location = /haz-su-donacion-a-open-food-facts {
-			try_files /donate/es.html =404;
-	}
-  
+        location = /doniraj-k-open-food-facts {
+                try_files /donate/sl.html =404;
+        }
+
+        location = /open-food-factse-bagista-bulununs {
+                try_files /donate/tr.html =404;
+        }
+
+        location = /pozhertvovat-open-food-facts {
+                try_files /donate/ru.html =404;
+        }
+
+        location = /donate-to-open-food-facts-ru {
+                try_files /donate/ru.html =404;
+        }
+
+        location = /donate-to-open-food-facts-he {
+                try_files /donate/he.html =404;
+        }
+
+        location = /fazer-um-donativo-ao-open-food-facts {
+                try_files /donate/pt.html =404;
+        }
+
+        location = /lahjoita-open-food-factsille {
+                try_files /donate/fi.html =404;
+        }
+
+        location = /dar-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
+
+        location = /haz-su-donacion-a-open-food-facts {
+                try_files /donate/es.html =404;
+        }
+
 	location = /donate-to-open-food-facts-ko {
-			try_files /donate/ko.html =404;
+		try_files /donate/ko.html =404;
 	}
-  
+
 	location = /hunger-game {
 		return 301 https://hunger.openfoodfacts.org;
 	}
-  
+
+	location = /ecoscore {
+		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+	}
+
+
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
 	# port than port 80 (e.g. 8001)
@@ -292,3 +292,4 @@ server {
 	#}
 
 }
+

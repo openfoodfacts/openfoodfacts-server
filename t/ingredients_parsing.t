@@ -180,6 +180,8 @@ my @lists =(
 
 	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
 	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs, weiß und gelb", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs (weiß und gelb)", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
 
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
@@ -239,6 +241,7 @@ my @lists =(
 	# vit. e
 	["en", "vit. e, vitamins b2, B3 and K, vit d, vit a & c, vit. B12", "vitamin e, vitamins, vitamin b2, vitamin B3, vitamin K, vitamin d, vitamin a, vitamin c, vitamin B12"],
 	["fr", "vit. pp, vit c, vit. a et b6","vitamines, vitamine pp, vitamine c, vitamine a, vitamine b6"],
+	["pl", "witaminy A i D", "witaminy, witamina A, witamina D"],
 
 	["fr", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique", "colorant de surface : caramel ordinaire, agent de traitement de farine (E300), acide citrique"],
 
@@ -292,8 +295,29 @@ my @lists =(
 	# (origins, contains milk)
 	["en","Chocolate (Italy, contains milk)","Chocolate (Italy, Substances or products causing allergies or intolerances : milk.)"],
 	["en","Chocolate (contains milk)","Chocolate ( Substances or products causing allergies or intolerances : milk.)"],
-	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."]
+	["en","Chocolate. Contains (milk)","Chocolate. Substances or products causing allergies or intolerances : milk."],
 
+	# ¹ and ² symbols
+	["fr", "Sel, sucre², graisse de palme¹, amidons¹ (maïs¹, pomme de terre¹), oignon¹ : 8,9%, ail¹, oignon grillé¹ : 1,4%, épices¹ et aromate¹ (livèche¹ : 0,4%, curcuma¹, noix de muscade¹), carotte¹ : 0,5%. Peut contenir : céleri, céréales contenant du gluten, lait, moutarde, œuf, soja. ¹Ingrédients issus de l'Agriculture Biologique. ² Ingrédients issus du commerce équitable",
+"Sel, sucre Commerce équitable, graisse de palme Bio, amidons Bio (maïs Bio, pomme de terre Bio ), oignon Bio : 8,9%, ail Bio, oignon grillé Bio : 1,4%, épices Bio et aromate Bio (livèche Bio : 0,4%, curcuma Bio, noix de muscade Bio ), carotte Bio : 0,5%. Traces éventuelles : céleri, Traces éventuelles : céréales contenant du gluten, Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : œuf, Traces éventuelles : soja."],
+	# Russian е character
+	["ru", "е322, Куркумины e100, е-1442, (е621)", "e322, куркумины e100, e1442, (e621)"],
+	
+	# New ingredients categories + types : generalized from French to other languages
+	["fr", "huiles végétales (palme, olive et tournesol)", "huiles végétales de palme, huiles végétales d'olive, huiles végétales de tournesol"],
+	["fr", "huile végétale : colza", "huile végétale de colza"],
+	["fr", "huile végétale : colza, fraises", "huile végétale de colza, fraises"],
+	["fr", "huile végétale : colza et tomates","huile végétale : colza et tomates"],
+	["en", "vegetable oil: sunflower", "sunflower vegetable oil"],
+	["en", "vegetable oil (palm)", "palm vegetable oil"],
+	["en", "vegetable oils (palm, olive)", "palm vegetable oils, olive vegetable oils"],
+	["en", "organic vegetable oils (sunflower, colza and rapeseed)","sunflower organic vegetable oils, colza organic vegetable oils, rapeseed organic vegetable oils"],
+	# used to have bad output: sunflower vegetable oils, colza vegetable oilsand strawberry
+	["en", "vegetable oils : sunflower, colza and strawberry","sunflower vegetable oils, colza vegetable oils and strawberry"],
+	# Russian oils (more tests needed)
+	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
+	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
+	["ru", "масло растительное (подсолнечное, соевое)","масло растительное подсолнечное, масло растительное соевое"],
 );
 
 foreach my $test_ref (@lists) {
