@@ -7642,6 +7642,7 @@ vegetarian:en:yes
 ################################ MILK POWDERS ##################################
 
 # nova:en:milk-powder
+#process:en: en:powder
 <en:milk
 en:milk powder, powdered milk, dry milk, dried milk
 ca:Llet en pols
@@ -7674,7 +7675,7 @@ nova:en:3
 fr:lait origine france en poudre écrémé
 
 <en:milk powder
-#en:process:en:powder
+#process:en: en:powder
 en:Semi-skimmed milk powder
 fr:lait en poudre demi-écrémé, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé
 ca:llet en pols parcialment desnatada, llet parcialment desnatada en pols, llet en pols semidesnatada, llet semidesnatada en pols
