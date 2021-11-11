@@ -64,7 +64,6 @@ my @tests = (
 		[
 			{
 				'id' => 'en:milk',
-				'processing' => 'en:dried',
 				'text' => 'dried milk'
 			}
 		]
@@ -281,7 +280,6 @@ my @tests = (
 			},
 			{
 				'id' => 'en:whey-powder',
-				'processing' => 'en:powder',
 				'text' => 'wei-poeder'
 			},
 			{
