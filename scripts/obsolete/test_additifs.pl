@@ -67,11 +67,12 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 		#next if $code ne '3329770041684';
 		
 		#print "testing product $code\n";
-		
+
 		$product_ref = retrieve_product($code);
 		my $class = 'additives';
-		defined $product_ref->{$class . '_tags'} or	$product_ref->{$class . '_tags'} = [];		
-		
+		defined $product_ref->{ $class . '_tags' }
+			or $product_ref->{ $class . '_tags' } = [];
+
 		my @old_r = @{$product_ref->{$class . '_tags'}};
 		my @old = @old_r;
 
@@ -103,15 +104,15 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 				$minus{$id}++;
 			}
 		}
-		
+
 		foreach my $id (@new) {
-			if (not $old{$id}) {
-				$change .= "+$id ";
+			if ( not $old{$id} ) {
+				$change      .= "+$id ";
 				$change_html .= "<span style=\"color:#0a0\">+$id</span> ";
 				$plus{$id}++;
 			}
-		}		
-		
+		}
+
 		if ($change ne '') {
 			print "change for $code: $change\n";
 		}
@@ -134,18 +135,17 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 	
 print $OUT "<br><br><br>Additifs les plus enlevés :</br>";
 
-foreach my $id (sort { $minus{$b} <=> $minus{$a} } keys %minus) {
+foreach my $id ( sort { $minus{$b} <=> $minus{$a} } keys %minus ) {
 	print $OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
-}	
+}
 
 print $OUT "<br><br><br>Additifs les plus ajoutés :</br>";
 
-foreach my $id (sort { $plus{$b} <=> $plus{$a} } keys %plus) {
+foreach my $id ( sort { $plus{$b} <=> $plus{$a} } keys %plus ) {
 	print $OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";
-}	
-	
-	
-close $OUT;	
+}
+
+close $OUT;
 
 exit(0);
 

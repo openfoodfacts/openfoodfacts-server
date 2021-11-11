@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,9 +20,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
-
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -102,7 +101,7 @@ foreach my $code (sort keys %products) {
 		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
 		stopwords => '(de|au|en|bio|aop|pot|moulu|concassé|graine|semoule|entier|entière|bâton|coupé|feuille|aromatique|haché|poudre|gousse|moulin|lyophilisé|lamelle|naturel|france)(e)?(s)?',
 	}
-	);		
+	);
 }
 
 # Clean / normalize fields

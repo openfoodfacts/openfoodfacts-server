@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,13 +50,12 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					&format_subdomain
-					&subdomain_supports_https
+		&format_subdomain
+		&subdomain_supports_https
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -118,8 +117,8 @@ sub subdomain_supports_https {
 	my ($sd) = @_;
 	
 	return $sd unless $sd;
-	return 1 if grep $_ eq '*', @ssl_subdomains;
-	return grep $_ eq $sd, @ssl_subdomains;
+	return 1 if grep { $_ eq '*' } @ssl_subdomains;
+	return grep { $_ eq $sd } @ssl_subdomains;
 
 }
 

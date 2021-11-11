@@ -1,12 +1,22 @@
 /*global exports */
 
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
 const svgmin = require("gulp-svgmin");
+
+const jsSrc = [
+  './html/js/display*.js',
+  './html/js/product-multilingual.js',
+  './html/js/search.js'
+];
+
+const sassSrc = "./scss/**/*.scss";
+
+const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
 
 const sassOptions = {
   errLogToConsole: true,
@@ -19,23 +29,42 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: false },
-        { removeTitle: false },
-        { removeDimensions: true },
-          { addClassesToSVGElement: { className: "icon" } },
-          {
-            addAttributesToSVGElement: {
-              attributes: [{ "aria-hidden": "true", focusable: "false" }]
-            }
-          }
+        {
+          name: "removeViewBox",
+          active: false
+        },
+        {
+          name: "removeDimensions",
+          active: true,
+        },
+        {
+          name: "addClassesToSVGElement",
+          active: true,
+          params: { className: "icon" }
+        },
+        {
+          name: "addAttributesToSVGElement",
+          active: true,
+          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
+        }
       ]
       })
     ).
     pipe(dest("./html/images/icons/dist"));
 }
 
+function attributesIcons() {
+  return src("*.svg", { cwd: "./html/images/attributes/src" }).
+    pipe(
+      svgmin()
+    ).
+    pipe(dest("./html/images/attributes"));
+}
+
 function css() {
-  return src("./scss/**/*.scss").
+  console.log("(re)building css");
+  
+return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(minifyCSS()).
@@ -53,12 +82,18 @@ function copyJs() {
       "./node_modules/osmtogeojson/osmtogeojson.js",
       "./node_modules/leaflet/dist/leaflet.js",
       "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
-      "./node_modules/blueimp-tmpl/js/*.js",
+      "./node_modules/blueimp-tmpl/js/tmpl.js",
       "./node_modules/blueimp-load-image/js/load-image.all.min.js",
       "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
       "./node_modules/blueimp-file-upload/js/*.js",
       "./node_modules/@yaireo/tagify/dist/tagify.min.js",
-      "./node_modules/cropper/dist/*.js"
+      "./node_modules/cropperjs/dist/cropper.js",
+      "./node_modules/jquery-cropper/dist/jquery-cropper.js",
+      "./node_modules/jquery-form/src/jquery.form.js",
+      "./node_modules/highcharts/highcharts.js",
+      "./node_modules/jvectormap-next/jquery-jvectormap.js",
+      "./node_modules/jvectormap-content/world-mill.js",
+      "./node_modules/select2/dist/js/select2.min.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -67,11 +102,9 @@ function copyJs() {
 }
 
 function buildJs() {
-  return src([
-    './html/js/display*.js',
-    './html/js/product-multilingual.js',
-    './html/js/search.js'
-  ]).
+  console.log("(re)building js");
+  
+return src(jsSrc).
   pipe(sourcemaps.init()).
   pipe(terser()).
   pipe(sourcemaps.write(".")).
@@ -117,7 +150,9 @@ function copyCss() {
       "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
-      "./node_modules/cropper/dist/cropper.css"
+      "./node_modules/cropperjs/dist/cropper.css",
+      "./node_modules/jvectormap-next/jquery-jvectormap.css",
+      "./node_modules/select2/dist/css/select2.min.css"
     ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
@@ -126,12 +161,36 @@ function copyCss() {
 }
 
 function copyImages() {
-  return src(["./node_modules/leaflet/dist/**/*.png"]).
+  return src(imagesSrc).
     pipe(dest("./html/css/dist"));
+}
+
+function buildAll() {
+  return new Promise(
+    parallel(
+      copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes,
+      series(icons, attributesIcons, css)
+    )
+  );
+}
+
+function watchAll () {
+  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(sassSrc, { delay: 500 }, css);
+  watch(imagesSrc, { delay: 500 }, copyImages);
+  // do we want to watch everything to support checkout of a branch with new libs ?
 }
 
 exports.copyJs = copyJs;
 exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, css));
+exports.attributesIcons = attributesIcons;
+exports.default = buildAll;
+exports.watch = watchAll;
+exports.dynamic = function () {
+  buildAll().then(() => {
+    console.log("Build succeeded start watching for css and js changes");
+    watchAll();
+  });
+};

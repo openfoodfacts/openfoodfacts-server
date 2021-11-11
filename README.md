@@ -1,17 +1,17 @@
-# Product Opener
+<img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
+
+# Open Food Facts - Product Opener (Web Server)
 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://translate.openfoodfacts.org/)
 [![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 [![Backers on Open Collective](https://opencollective.com/openfoodfacts-server/backers/badge.svg)](#backers)
- [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
+[![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
 
 ## What is Product Opener?
 
-Product Opener is the server software for Open Food Facts and Open Beauty Facts. It is [free and open-source software](https://en.wikipedia.org/wiki/Free_and_open-source_software) created in Perl, HTML and JavaScript.
+**Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
 ## What is Open Food Facts?
 
@@ -22,7 +22,7 @@ Open Food Facts is a database of food products with ingredients, allergens, nutr
 ### Made by everyone
 
 Open Food Facts is a non-profit association of volunteers.
-25.000+ contributors like you have added 1,3 million + products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+25.000+ contributors like you have added 1.7 million + products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
 
 ### For everyone
 
@@ -30,22 +30,28 @@ Data about food is of public interest and has to be open. The complete database 
 
 * <https://world.openfoodfacts.org>
 
-## Libraries used
+## Priorities
+* Please list priority issues here 
+* Please add roadmaps here
+* [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1)
+* [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
 
-### How do I get set up?
+<!-- ## Libraries used -->
 
-* Feel free to join us on Slack at <https://openfoodfacts.slack.com/> in the channels: #api #productopener #dev
-* If you're looking for the API, look at <https://wiki.openfoodfacts.org/API>
-* Summary of set up: 
-   * [45 min Quick Start Guide w/ Docker](installation/dev-environment-quick-start-guide.md)
-   * [Product Opener Guide](installation/product-opener.md)
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## How do I get started?
 
-### Contribution guidelines
+* Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
+* Developer documentation:
+   * [Quick start guide (Docker)](installation/dev-environment-quick-start-guide.md)
+   * [Developer guide (Docker)](installation/docker-developer-guide.md)
+   * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
+   * Configuration [TBA]
+   * Dependencies [TBA]
+   * Database configuration [TBA]
+   * How to run tests [TBA]
+ * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+
+## Contribution guidelines
 
 If you're new to Open-Source, we recommend you to Checkout our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md). Feel free to fork the project and send us a pull request.
 
@@ -54,20 +60,22 @@ If you're new to Open-Source, we recommend you to Checkout our [_Contributing Gu
 * Other guidelines
 * Please add new features to the CHANGELOG.md file before or after merge to make testing easier
 
-### Reporting bugs
+## Reporting problems or asking for a feature
 
-Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please [open a new issue](https://github.com/openfoodfacts/openfoodfacts-server/issues).
+Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please [open a new issue](https://github.com/openfoodfacts/openfoodfacts-server/issues). You can ask directly in the discussion room if you're not sure
 
-### Translate Open Food Facts in your language
+## Translate Open Food Facts in your language
 
-You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup):
-<https://translate.openfoodfacts.org/>
+You can help translate the Open Food Facts web version and the app at :
+<https://translate.openfoodfacts.org/> (no technical knowledge required, takes a minute to signup)
+
+## Helping with HTML and CSS
+
+We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates)] Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set up? section).
 
 ### Who do I talk to?
 
-* Repo owner or admin
-* contact@openfoodfacts.org
-* Join our discussion room at <https://slack.openfoodfacts.org/>
+* Join our discussion room at <https://slack.openfoodfacts.org/> Make sure to join the #productopener and #productopener-alerts channels. Stéphane, Pierre, Charles or Hangy will be around to help you get started.
 
 ## Contributors
 
@@ -97,4 +105,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/8/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/9/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/9/avatar.svg"></a>
 
+<a href="https://nlnet.nl/"><img style="height:100px" src="https://static.openfoodfacts.org/images/misc/nlnet_logo.svg" alt="Logo NLnet: abstract logo of four people seen from above Logo NGI Zero: letterlogo shaped like a tag"></a>
 
+Open Food Facts Personal Search project was funded through the <a href="https://nlnet.nl/discovery/">NGI0 Discovery</a> Fund,
+a fund established by NLnet with financial support from the European Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -127,7 +127,7 @@ sub split_tags {
     $singular{":langname"} = $plural{":langname"} = delete $l10n->{":langname"};
     $singular{":langtag"}  = $plural{":langtag"}  = delete $l10n->{":langtag"};
 
-    for my $key (keys %$l10n) {
+    for my $key (keys %{$l10n}) {
         my ($tag, $kind) = split /:/, $key;
 
         if    ($kind eq "plural"  ) { $plural{$tag}   = delete $l10n->{$key} }
@@ -139,7 +139,7 @@ sub split_tags {
 }
 
 
-__PACKAGE__
+1;
 
 __END__
 

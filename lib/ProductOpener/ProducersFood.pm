@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,12 +38,12 @@ use Exporter qw(import);
 
 BEGIN
 {
-	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		&detect_possible_improvements
 
-	);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -73,6 +73,8 @@ sub detect_possible_improvements($) {
 
 	detect_possible_improvements_compare_nutrition_facts($product_ref);
 	detect_possible_improvements_nutriscore($product_ref);
+
+	return;
 }
 
 =head2 detect_possible_improvements_nutriscore( PRODUCT_REF )
@@ -187,6 +189,8 @@ sub detect_possible_improvements_nutriscore($) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 detect_possible_improvements_compare_nutrition_facts( PRODUCT_REF )
@@ -210,7 +214,7 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 	my $i = @{$product_ref->{categories_tags}} - 1;
 
 	while (($i >= 0)
-		and	not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
+		and     not ((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
 			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))) {
 		$i--;
 	}
@@ -273,6 +277,8 @@ sub detect_possible_improvements_compare_nutrition_facts($) {
 			}
 		}
 	}
+
+	return;
 }
 
 

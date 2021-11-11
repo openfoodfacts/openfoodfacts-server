@@ -139,12 +139,14 @@ while (my $product_ref = $cursor->next) {
 		$imgids{$product_ref->{images}{$nutrition_imgid}{imgid}} = 1;
 		
 		foreach my $imgid (sort keys %imgids) {
-			
+
 				print STDERR "copying imgid: $imgid\n";
 
-				use File::Copy;
-				copy("$dir/$imgid.jpg","$target_dir/$code" . '_' . $imgid . ".jpg") or print STDERR ("could not copy: $!\n");
-				
+				require File::Copy;
+				File::Copy::copy( "$dir/$imgid.jpg",
+					"$target_dir/$code" . '_' . $imgid . ".jpg" )
+					or print STDERR ("could not copy: $!\n");
+
 				$images_copied++;
 		}
 

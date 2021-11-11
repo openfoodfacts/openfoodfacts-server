@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -45,7 +45,7 @@ if (defined $categories_ref) {
 
 	$categories_ref = $categories_ref->{tags};
 	
-	foreach my $category_ref (@$categories_ref) {
+	foreach my $category_ref (@{$categories_ref}) {
 	
 	
 		my $category = $category_ref->{id};

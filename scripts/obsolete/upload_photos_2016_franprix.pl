@@ -96,8 +96,8 @@ if (opendir (DH, "$dir")) {
 			my $code = scan_code("$dir/$file");
 			print $file . "\tcode: " . $code . "\n";
 
-			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
-			# see https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
+			if ( ( defined $code ) and ( not defined $codes{$code} ) ) {    # in some pictures we detect the wrong code, for a product we already scanned..
+																			# see https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
 
 				$codes{$code}++;
 

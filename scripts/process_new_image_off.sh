@@ -6,10 +6,10 @@
 # incrontab -e -u off
 # /srv/off/new_images IN_CREATE /srv/off/scripts/process_new_image_off.sh $@/$#
 
-export PERL5LIB=.
+export PERL5LIB="/srv/off/lib/:${PERL5LIB}"
+DEFAULT_MOUNT_PATH=/srv/off
+MOUNT_PATH="${2:-$DEFAULT_MOUNT_PATH}"
 
-cd /srv/off/scripts
-
-/srv/off/scripts/run_cloud_vision_ocr.pl $1
+${MOUNT_PATH}/scripts/run_cloud_vision_ocr.pl $1
 
 

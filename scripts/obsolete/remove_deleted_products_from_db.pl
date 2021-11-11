@@ -69,8 +69,8 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
 				get_products_collection()->delete_one({"code" => $code});
 						my $err = $database->last_error();
-		use Data::Dumper;
-		print STDERR Dumper($err);
+		require Data::Dumper;
+		print STDERR Data::Dumper::Dumper($err);
 				# store_product($product_ref, "desindex deleted product");
 			}
 		}

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,8 +26,7 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$server_domain
 		@ssl_subdomains
@@ -36,9 +35,8 @@ BEGIN
 		$geolite2_path
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-		$facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
@@ -65,11 +63,9 @@ $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
 $mongodb = "off";
 $mongodb_host = "mongodb://localhost";
+$mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "127.0.0.1:11211" ];
-
-$facebook_app_id = "";
-$facebook_app_secret = "";
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';

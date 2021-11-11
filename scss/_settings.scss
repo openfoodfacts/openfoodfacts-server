@@ -392,10 +392,12 @@ $microformat-abbr-font-decoration: none;
 
 // $include-html-block-grid-classes: $include-html-classes;
 // $include-xl-html-block-grid-classes: false;
+$include-xl-html-block-grid-classes: true;
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
 // $block-grid-default-spacing: rem-calc(20);
+$block-grid-default-spacing: rem-calc(10);
 
 // $align-block-grid-to-grid: false;
 // @if $align-block-grid-to-grid {$block-grid-default-spacing: $column-gutter;}

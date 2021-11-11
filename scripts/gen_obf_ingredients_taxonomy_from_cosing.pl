@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -58,7 +58,7 @@ if (open (my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tm
 			$english = lc($english);
 			chomp($english);
 			$english =~ s/(\s|\r|\n)*$//;
-			$english =~ s/^(\s|\r|\n)*//;		
+			$english =~ s/^(\s|\r|\n)*//;
 			$english =~ s/(\s|\r|\n)+/ /g;
 			$translations{$english} = {};
 			
@@ -101,7 +101,7 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 	foreach my $field (keys %{$ingredient_ref}) {
 		$ingredient_ref->{$field} =~ s/(\s|\r|\n)*$//;
 		$ingredient_ref->{$field} =~ s/^(\s|\r|\n)*//;
-		$ingredient_ref->{$field} =~ s/(\s|\r|\n)+/ /g;	
+		$ingredient_ref->{$field} =~ s/(\s|\r|\n)+/ /g;
 	}
 
 	my $name = $ingredient_ref->{"INCI name"};
@@ -135,7 +135,7 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 
 	if ((defined $ingredient_ref->{"INN name"}) and ($ingredient_ref->{"INN name"} ne "") and ($ingredient_ref->{"INN name"} ne "-")) {
 		print "inn-name:en: " . $ingredient_ref->{"INN name"} . "\n";
-	}	
+	}
 	
 	if ((defined $ingredient_ref->{"Ph. Eur. Name"}) and ($ingredient_ref->{"Ph. Eur. Name"} ne "") and ($ingredient_ref->{"Ph. Eur. Name"} ne "-")) {
 		print "ph-eur-name:en: " . $ingredient_ref->{"Ph. Eur. Name"} . "\n";
@@ -144,7 +144,7 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 	if ((defined $ingredient_ref->{"Update Date"}) and ($ingredient_ref->{"Update Date"} ne "") and ($ingredient_ref->{"Update Date"} ne "-")) {
 		
 		print "inci-update-date:en: " . $ingredient_ref->{"Update Date"} . "\n";
-	}		
+	}
 	
 	if ((defined $ingredient_ref->{"Function"}) and ($ingredient_ref->{"Function"} ne "") and ($ingredient_ref->{"Function"} ne "-")) {
 	
@@ -154,15 +154,15 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 		$functions =~ s/, en:-//g;
 	
 		print "inci-function:en: $functions\n";
-	}	
+	}
 	
 	if ((defined $ingredient_ref->{"Chem/IUPAC Name / Description"}) and ($ingredient_ref->{"Chem/IUPAC Name / Description"} ne "")) {
 	
 		my $description = $ingredient_ref->{"Chem/IUPAC Name / Description"};
 		$description =~ s/(\s|\r|\n)*$//;
-		$description =~ s/^(\s|\r|\n)*//;		
+		$description =~ s/^(\s|\r|\n)*//;
 		$description =~ s/(\s|\r|\n)+/ /g;
-	
+
 		print "inci-description:en: " . $description . "\n";
 
 		my $english = lc($ingredient_ref->{"Chem/IUPAC Name / Description"});
@@ -176,7 +176,7 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 				$description =~ s/(\s|\r|\n)+/ /g;
 				print "inci-description:" . $lang . ": " . $description . "\n";
 			}
-		}			
+		}
 	}
 
 	if ((defined $ingredient_ref->{"Restriction"}) and ($ingredient_ref->{"Restriction"} ne "")) {
@@ -184,19 +184,19 @@ while (my $ingredient_ref = $csv->getline_hr ($io)) {
 
 		my $english = lc($ingredient_ref->{"Restriction"});
 		$english =~ s/(\s|\r|\n)*$//;
-		$english =~ s/^(\s|\r|\n)*//;	
-			
+		$english =~ s/^(\s|\r|\n)*//;
+
 		if (defined $translations{$english}) {
 			foreach my $lang (sort keys %{$translations{$english}}) {
 				print "inci-restriction:" . $lang . ": " . $translations{$english}{$lang} . "\n";
 			}
-		}			
+		}
 	}
 
 	if ((defined $ingredient_ref->{"wikidata suggestions"}) and ($ingredient_ref->{"wikidata suggestions"} ne "")) {
 		
 		print "wikidata:en:" . $ingredient_ref->{"wikidata suggestions"} . "\n";
-	}		
+	}
 	
 	print "\n";
 

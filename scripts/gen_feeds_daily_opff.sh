@@ -1,6 +1,8 @@
 #!/bin/sh
 
 cd /srv/opff/scripts
+export PERL5LIB="../lib:${PERL5LIB}"
+
 ./remove_empty_products.pl
 ./compute_missions.pl
 ./export_database.pl
