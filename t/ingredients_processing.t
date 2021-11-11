@@ -63,13 +63,13 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "dried milk"},
 		[
 			{
-				'id' => 'en:milk powder',
+				'id' => 'en:milk-powder',
 				'text' => 'dried milk'
 			}
 		]
 	],
 
-# en: smoked (children are lef out at the moment)
+# en: smoked (children are left out at the moment)
 	[ { lc => "en", ingredients_text => "smoked milk, not smoked tomatoes"},
 		[
 			{
@@ -254,7 +254,7 @@ my @tests = (
 # 			'text' => 'raakamaito'
 # 		},
 # 		{	'id'         => 'en:blueberry',
-# 			'processing' => 'en:powdered',
+# 			'processing' => 'en:powder',
 # 			'text'       => 'mustikka'
 # 		},
 # 		{	'id'         => 'en:vanilla-pod',
@@ -264,6 +264,18 @@ my @tests = (
 # 	]
 # ],
 
+	[
+ 		{	lc => "fi",
+ 				ingredients_text =>
+ 					"valkosipulijauhe"
+ 		},
+	 	[	
+			{	'id'         => 'en:garlic',
+	 			'processing' => 'en:powder',
+	 			'text'       => 'valkosipulijauhe'
+			}
+		]
+ 	],
 
 ##################################################################
 #
