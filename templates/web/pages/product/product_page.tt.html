@@ -184,7 +184,7 @@
                 <a href="/nova" title="[% a_title %]">
                 [% display_icon('info') %]</a>
             </h4>
-            <a href="/nova" title="[% a_title %]"><img src="/images/misc/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
+            <a href="/nova" title="[% a_title %]"><img src="/images/attributes/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
             [% display %]
         [% END %]
     </div>
@@ -227,6 +227,12 @@
 	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
 [% END %]
 
+[% IF environment_card_panel %]
+<p>Environment card panel (in development):</p>
+        [% environment_card_panel %]
+<p>End of environment card panel</p>
+[% END %]
+
 [% IF ecoscore_grade %]
 	<h4>Eco-score
 		<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
@@ -241,7 +247,7 @@
 	[% END %]
 	
 	<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">
-		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
+		<img src="/images/attributes/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
 	</a>
 	<br>
   
@@ -452,5 +458,7 @@
         [% lang('edit_product_page') %]
     </a>
 </div>
+
+[% INCLUDE web/common/includes/folksonomy_script.tt.html %]
 
 <!-- end templates/[% template.name %] -->

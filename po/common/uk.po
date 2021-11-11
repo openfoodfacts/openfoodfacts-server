@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-12-07 09:37\n"
+"PO-Revision-Date: 2021-11-07 14:53\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: uk\n"
-"X-Crowdin-File: /master/po/common/common.pot\n"
-"X-Crowdin-File-ID: 1378\n"
+"X-Crowdin-File: common.pot\n"
+"X-Crowdin-File-ID: 1808\n"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -52,79 +52,79 @@ msgstr "Зареєструватися"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Ласкаво просимо!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Дякуємо за підтримку!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Тепер ви можете додавати та редагувати продукти в Інтернеті або за допомогою нашого безкоштовного <a href=\"%s\">мобільного додатка</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Приєднуйтесь до нас на Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s - це спільний проєкт, до якого ви можете додати набагато більше, ніж просто нові продукти: свою енергію, ентузіазм та ідеї!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Ми використовуємо дискусійну систему під назвою Slack, де всі учасники проєкту можуть обмінюватися ідеями та співпрацювати. Будь ласка, приєднуйтесь! Ми були б раді познайомитися з Вами!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Тепер ви можете легко імпортувати дані про товари та фотографії."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Тепер ви можете додавати та редагувати свої продукти та імпортувати їх дані та фотографії на нашій безкоштовній <a href=\"%s\">для виробників</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Організація з назвою %s вже існує."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Ваш запит на приєднання до організації очікує на схвалення адміністратором організації."
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Будь ласка, напишіть на електронну адресу запитання <a href=\"mailto:producers@openfoodfacts.org\">producents@openfoodfacts.org</a> якщо вони у вас виникли."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Якщо ви працюєте на виробника або бренд і будете додавати або заповнювати дані лише для власних продуктів, ви можете отримати доступ до нашої повністю безкоштовної Платформи для виробників."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Платформа для розробників дозволяє виробникам легко імпортувати дані та фотографії всіх своїх товарів, позначати їх офіційно та отримувати безкоштовний аналіз можливостей вдосконалення своєї продукції."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Професійний рахунок"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Це обліковий запис виробника або бренду."
 
 msgctxt "producer_or_brand"
-msgid "Producer or brand"
-msgstr ""
+msgid "Name of producer or name of brand"
+msgstr "Назва виробника або назва торгової марки"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Професійні акаунти повинні мати асоційовану організацію (назва компанії або бренд)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Введіть назву вашої організації (назва компанії або бренд)."
 
 msgctxt "this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Цей обліковий запис - професійний, пов'язаний з виробником або брендом %s. У вас є доступ до платформи для виробників."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -232,7 +232,7 @@ msgstr ""
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr ""
+msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -241,7 +241,7 @@ msgstr "Завантажити з Google Play"
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -283,7 +283,7 @@ msgstr "Ви також можете допомогти фінансувати �
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> створено некомерційною асоціацією, незалежною від промисловості. Ця база даних створена для всіх, усіма та кожен може зробити свій внесок. Ви можете підтримати наш проект <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> і зробити благодійний внесок до Open Products Facts</a> або через <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> за допомогою пошукової системи Lilo </a>.<br/><b>Дякуємо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -291,19 +291,19 @@ msgstr "Пожертвуйте на підтримку нашої роботи"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Виробники"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "бренди"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Товари бренду %s"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -311,23 +311,23 @@ msgstr "виробник"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "додати бренд"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Товари не від торгової марки %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Власник бренду"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Компанія Coca Cola"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "за допомогою"
 
 msgctxt "categories"
 msgid "Categories"
@@ -335,11 +335,11 @@ msgstr "Категорії"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Сардини в оливковій олії, апельсиновий сік з концентрату"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Вкажіть лише найбільш конкретну категорію. Категорії \"Батьки\" будуть додані автоматично."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -347,7 +347,7 @@ msgstr "категорії"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Товари з категорії %s"
 
 msgctxt "categories_s"
 msgid "category"
@@ -359,19 +359,19 @@ msgstr "додати категорію"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Товари не з категорії %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Дані"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Поживні речовини"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Вибране зображення"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -379,43 +379,43 @@ msgstr "Завантажені зображення"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "перевірка"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "перевірка"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "міста упаковки"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Товари, запаковані в місті %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "місто пакування"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Не запаковані товари в місті %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Код"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "виконано %d місій:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Ви підключені до вашого облікового запису Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -439,7 +439,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Країни, в яких продається:"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -447,23 +447,23 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "країни"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Товари, продані у %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "країна"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Товари, не продані в %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Джерело інформації"
 
 msgctxt "data_sources_p"
 msgid "data sources"
@@ -483,7 +483,7 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Причина видалення"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -491,31 +491,31 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Видалити сторінку"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Видалити зображення"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Видалити користувача"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Додано:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Змінено:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Видалено:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Пожертвуй на Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -599,11 +599,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код відстеження"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код відстеження"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -636,7 +636,7 @@ msgstr ""
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Дата запису"
 
 msgctxt "error"
 msgid "Error"
@@ -652,19 +652,19 @@ msgstr ""
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Пароль і підтвердження відрізняються."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Електронна адреса вже використовується іншим користувачем. Можливо, у вас вже є обліковий запис? Ви можете <a href=\"/cgi/reset_password.pl\"> скинути пароль </a> іншого облікового запису."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Недійсна адреса."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Неприпустима адреса електронної пошти"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -672,31 +672,31 @@ msgstr "Пароль має містити принаймні 6 символів
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Неприпустиме ім'я користувача."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Ім’я користувача має містити лише букви без надрядкових знаків, цифри та тире."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Товар вже існує з новим кодом"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Введіть ім'я або псевдонім."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Немає дозволу."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Введіть ім'я користувача"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Ви вже увійшли в систему."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
@@ -731,7 +731,7 @@ msgid "The expiration date is a way to track product changes over time and to id
 msgstr ""
 
 msgctxt "explore_products_by"
-msgid "Drilldown into products by..."
+msgid "Explore products by..."
 msgstr ""
 
 msgctxt "facebook_locale"
@@ -841,7 +841,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "Умови використання"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -885,7 +885,7 @@ msgstr "Продукт"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Загальне ім’я"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1111,7 +1111,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Мітка, сертифікати, нагороди"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1131,7 +1131,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "етикетка\n"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1246,7 +1246,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Місця виробництва чи обробки"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1333,7 +1333,7 @@ msgstr ""
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Завдання"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1381,7 +1381,7 @@ msgstr ""
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Харчова цінність не вказана на продукті."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1571,7 +1571,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Походження інгредієнтів"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1603,7 +1603,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Упаковка"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1659,7 +1659,7 @@ msgstr ""
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Час після відкриття"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
@@ -1719,7 +1719,7 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Рейтинги"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -1735,7 +1735,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Додати поживну речовину"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1747,7 +1747,7 @@ msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Характеристики продукту"
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Назва товару"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1899,11 +1899,11 @@ msgstr ""
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Товари, які ви додали або відредагували"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Країна, область та місто, де було придбано"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Товари, продані у %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1927,11 +1927,11 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Товари, не продані в %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Кількість"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2164,7 +2164,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Поживні речовини"
 
 msgctxt "search_or"
 msgid "or"
@@ -2264,7 +2264,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Countries where sold"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2284,7 +2284,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Розмір порції"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2324,15 +2324,19 @@ msgstr "Вийти"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Безкоштовна та відкрита база даних із харчовими інгредієнтами, фактами про харчування та інформацією про харчові продукти із різних куточків світу"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
+
+msgctxt "logo_site_name"
+msgid "Open Food Facts logo"
+msgstr "Логотип Бази відкритих даних про харчові продукти"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Сортувати за"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2352,7 +2356,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Назва товару"
 
 msgctxt "state"
 msgid "State"
@@ -2368,7 +2372,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Магазини"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2420,7 +2424,7 @@ msgstr "Пошук:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Сліди"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2583,7 +2587,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Попередження: кількість клітковини не вказано, їх можливий позитивний внесок у сорт не може бути врахований."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2595,11 +2599,11 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Попередження: кількість фруктів, овочів та горіхів не зазначена на етикетці, вона оцінюється зі списку інгредієнтів: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Попередження: кількість фруктів, овочів та горіхів не зазначена на етикетці, вона оцінюється зі списку інгредієнтів: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2769,11 +2773,11 @@ msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Дорослі"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "Від 18 до 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2781,11 +2785,11 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Люди похилого віку"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2793,11 +2797,11 @@ msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Підлітки"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "Від 10 до 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -3004,8 +3008,16 @@ msgid "Recipe idea"
 msgstr ""
 
 msgctxt "origin"
-msgid "Origin"
-msgstr ""
+msgid "Origin of the product and/or its ingredients"
+msgstr "Походження продукту та/або його складників"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "Вказівки на упаковці щодо місця продукції та/або походження його складників"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "Виготовлено у Франції. Томати з Італії. Країна походження: Індія, Таїланд."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3412,7 +3424,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Цінність"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3530,7 +3542,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr "Скасувати"
+msgstr "Відмінити"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3757,7 +3769,7 @@ msgstr ""
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr "Імпортувати з Фотографій"
+msgstr ""
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
@@ -4148,9 +4160,9 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr ""
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
 msgstr ""
 
 msgctxt "move_data_and_photos_to_main_language_replace"
@@ -4361,7 +4373,7 @@ msgstr ""
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr ""
+msgstr "Етикетки"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4495,7 +4507,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Необроблені або мінімально оброблені продукти"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4563,7 +4575,7 @@ msgstr ""
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
-msgstr ""
+msgstr "Добавки"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
@@ -4803,7 +4815,7 @@ msgctxt "edit_user_profile"
 msgid "Edit your user profile"
 msgstr ""
 
-msgctxt "attribute_group_ingredients_analysis"
+msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
 msgstr "Інгредієнти"
 
@@ -4866,11 +4878,11 @@ msgid "Missing nutrition facts"
 msgstr ""
 
 msgctxt "ecoscore_p"
-msgid "ecoscore"
+msgid "Eco-Score"
 msgstr ""
 
 msgctxt "ecoscore_s"
-msgid "ecoscore"
+msgid "Eco-Score"
 msgstr ""
 
 msgctxt "packaging_parts"
@@ -4896,7 +4908,7 @@ msgstr ""
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "Переробка"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
@@ -4944,7 +4956,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5025,5 +5037,684 @@ msgstr ""
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_name"
+msgid "Forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_setting_name"
+msgid "Low risk of deforestation (Forest footprint)"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_title"
+msgid "Very small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_title"
+msgid "Small forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_title"
+msgid "Medium forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_title"
+msgid "Large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_title"
+msgid "Very large forest footprint"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest footprint not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_a_description_short"
+msgid "Almost no risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_description_short"
+msgid "Low risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_description_short"
+msgid "Moderate risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description_short"
+msgid "High risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_e_description_short"
+msgid "Very high risk of deforestation"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Currently only for products with chicken or eggs"
+msgstr ""
+
+msgctxt "classify_products_according_to_your_preferences"
+msgid "Classify products according to your preferences"
+msgstr ""
+
+# %d will be replaced by the number of products
+msgctxt "classify_the_d_products_below_according_to_your_preferences"
+msgid "Classify the %d products below according to your preferences"
+msgstr ""
+
+msgctxt "sort_by_popularity"
+msgid "Most scanned products"
+msgstr ""
+
+msgctxt "sort_by_nutriscore_score"
+msgid "Products with the best Nutri-Score"
+msgstr ""
+
+msgctxt "sort_by_ecoscore_score"
+msgid "Products with the best Eco-Score"
+msgstr ""
+
+msgctxt "sort_by_created_t"
+msgid "Recently added products"
+msgstr ""
+
+msgctxt "sort_by_last_modified_t"
+msgid "Recently modified products"
+msgstr ""
+
+# %d will be replaced by the number of products
+msgctxt "d_products_per_page"
+msgid "%d products per page"
+msgstr ""
+
+msgctxt "not_applicable"
+msgid "Not applicable"
+msgstr ""
+
+msgctxt "abbreviated_product_name"
+msgid "Abbreviated product name"
+msgstr ""
+
+msgctxt "abbreviated_product_name_note"
+msgid "Product name with abbreviations shown on receipts"
+msgstr ""
+
+msgctxt "footer_vision"
+msgid "Vision, Mission, Values and Programs"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_vision_link"
+msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
+
+msgctxt "forgotten_password"
+msgid "Forgotten password?"
+msgstr ""
+
+msgctxt "reset_password_error"
+msgid "We could not reinitialize your password, please contact us for assistance."
+msgstr ""
+
+msgctxt "remove_all_nutrient_values"
+msgid "Remove all nutrient values"
+msgstr ""
+
+msgctxt "delete_user_process"
+msgid "User deleted."
+msgstr ""
+
+msgctxt "attribute_ecoscore_unknown_title"
+msgid "Eco-Score not computed"
+msgstr ""
+
+msgctxt "attribute_ecoscore_unknown_description_short"
+msgid "Unknown environmental impact"
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln_description"
+msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln"
+msgid "List of GS1 GLN identifiers to be associated with the organization"
+msgstr ""
+
+msgctxt "org_list_of_gs1_gln_note"
+msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
+msgstr ""
+
+msgctxt "org_enable_manual_export_to_public_platform"
+msgid "Enable organization members to manually export product data and photos to the public database."
+msgstr ""
+
+msgctxt "org_enable_manual_export_to_public_platform_note"
+msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
+msgstr ""
+
+msgctxt "org_activate_automated_daily_export_to_public_platform"
+msgid "Activate automated daily exports of product data and photos to the public database."
+msgstr ""
+
+msgctxt "org_activate_automated_daily_export_to_public_platform_note"
+msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
+msgstr ""
+
+msgctxt "org_admin"
+msgid "Administrator fields"
+msgstr ""
+
+msgctxt "minion_status_inactive"
+msgid "Queued"
+msgstr ""
+
+msgctxt "minion_status_active"
+msgid "In progress"
+msgstr ""
+
+msgctxt "minion_status_finished"
+msgid "Finished"
+msgstr ""
+
+msgctxt "minion_status_failed"
+msgid "Failed"
+msgstr ""
+
+# Export: use a noun and not a verb
+msgctxt "export_job_export"
+msgid "Export from the producers platform"
+msgstr ""
+
+# Import: use a noun and not a verb
+msgctxt "export_job_import"
+msgid "Import to the public database"
+msgstr ""
+
+# Update: use a noun and not a verb
+msgctxt "export_job_status_update"
+msgid "Update of the import status on the producers platform"
+msgstr ""
+
+msgctxt "export_in_progress"
+msgid "The export has been scheduled. This page can be closed."
+msgstr ""
+
+msgctxt "export_products_to_public_database_request_email"
+msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
+msgstr ""
+
+msgctxt "product_page_on_the_public_database"
+msgid "Product page on the public database"
+msgstr ""
+
+msgctxt "product_does_not_exist_on_the_public_database"
+msgid "The product does not exist yet on the public database"
+msgstr ""
+
+# product updates = updates to multiple products
+msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
+msgid "Some product updates have not been published on the public database."
+msgstr ""
+
+msgctxt "org_do_not_import_codeonline"
+msgid "Do not import CodeOnline data."
+msgstr ""
+
+msgctxt "overwrite_owner"
+msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
+msgstr ""
+
+msgctxt "data_source_database"
+msgid "Some of the data for the products of %s come from %s."
+msgstr ""
+
+msgctxt "data_source_database_note_about_the_producers_platform"
+msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
+msgstr ""
+
+msgctxt "data_source_database_equadis"
+msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
+msgstr ""
+
+msgctxt "image_other_type"
+msgid "Type of the product photo"
+msgstr ""
+
+# do not translate "front, ingredients, nutrition, packaging"
+msgctxt "image_other_type_description"
+msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
+msgstr ""
+
+msgctxt "forest_footprint_one_line_explanation"
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
+
+msgctxt "ecoscore_agribalyse_match_warning"
+msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgstr ""
+
+msgctxt "ecoscore_add_more_precise_category"
+msgid "You can modify the product page to add a more precise category."
+msgstr ""
+
+msgctxt "ecoscore_platform_promo"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+msgctxt "ecoscore_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgstr ""
+
+msgctxt "ecoscore_add_missing_information"
+msgid "You can edit the product to add the missing information."
+msgstr ""
+
+msgctxt "ecoscore_product_category_reference_score"
+msgid "Baseline score of the product category"
+msgstr ""
+
+msgctxt "ecoscore_panel_lca"
+msgid "Lifecyle Analysis (LCA)"
+msgstr ""
+
+# do not translate Agribalyse
+msgctxt "ecoscore_agribalyse_category"
+msgid "Agribalyse category"
+msgstr ""
+
+msgctxt "ecoscore_category_proxy_match"
+msgid "Approximate match with the product category"
+msgstr ""
+
+msgctxt "ecoscore_category_exact_match"
+msgid "Exact match with the product category"
+msgstr ""
+
+msgctxt "ecoscore_pef_environmental_score"
+msgid "PEF environmental score"
+msgstr ""
+
+msgctxt "ecoscore_incl_climate_change_impact"
+msgid "including impact on climate change"
+msgstr ""
+
+msgctxt "ecoscore_impact_detail_by_stages"
+msgid "Details of the impacts by stages of the life cycle"
+msgstr ""
+
+# stage meaning step
+msgctxt "ecoscore_stage"
+msgid "Stage"
+msgstr ""
+
+msgctxt "ecoscore_impact"
+msgid "Impact"
+msgstr ""
+
+msgctxt "ecoscore_agriculture"
+msgid "Agriculture"
+msgstr ""
+
+msgctxt "ecoscore_processing"
+msgid "Processing"
+msgstr ""
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Упаковка"
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr ""
+
+msgctxt "ecoscore_distribution"
+msgid "Distribution"
+msgstr ""
+
+msgctxt "ecoscore_consumption"
+msgid "Consumption"
+msgstr ""
+
+msgctxt "ecoscore_lca_score_out_of_100"
+msgid "LCA score out of 100"
+msgstr ""
+
+msgctxt "ecoscore_no_agribalyse_category_match"
+msgid "No match between product categories and Agribalyse categories."
+msgstr ""
+
+msgctxt "ecoscore_edit_category_to_more_granular"
+msgid "You can modify the product page to add a more granular category."
+msgstr ""
+
+msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgid "Additional bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_production_system"
+msgid "Production mode"
+msgstr ""
+
+msgctxt "ecoscore_no_labels_taken_into_account"
+msgid "No labels taken into account for the production system."
+msgstr ""
+
+msgctxt "ecoscore_please_add_the_labels"
+msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_not_indicated"
+msgid "The origins of the ingredients of this product are not indicated."
+msgstr ""
+
+msgctxt "ecoscore_please_add_the_ingredients"
+msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
+msgstr ""
+
+msgctxt "ecoscore_environmental_policy"
+msgid "Environmental policy"
+msgstr ""
+
+msgctxt "ecoscore_transportation"
+msgid "Transportation"
+msgstr ""
+
+msgctxt "ecoscore_threatened_species"
+msgid "Threatened species"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgid "Ingredients whose cultivation threatens species"
+msgstr ""
+
+msgctxt "ecoscore_no_species_threatening_ingredients"
+msgid "No ingredient threatening species"
+msgstr ""
+
+msgctxt "ecoscore_ingredients_unknown"
+msgid "The information on the ingredients of this product has not been given."
+msgstr ""
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgstr ""
+
+msgctxt "ecoscore_packaging"
+msgid "Packaging"
+msgstr "Упаковка"
+
+msgctxt "ecoscore_packaging_ratio"
+msgid "ratio"
+msgstr ""
+
+msgctxt "ecoscore_packaging_score"
+msgid "score"
+msgstr ""
+
+msgctxt "ecoscore_score_of_all_components"
+msgid "Score of all components"
+msgstr ""
+
+msgctxt "ecoscore_no_packaging_information"
+msgid "The information about the packaging of this product is not filled in."
+msgstr ""
+
+msgctxt "ecoscore_unprecise_packaging_information"
+msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
+msgstr ""
+
+msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgstr ""
+
+msgctxt "ecoscore_final_score"
+msgid "Final score"
+msgstr ""
+
+msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgid "(the lower the score, the lower the impact)"
+msgstr ""
+
+msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgid "kg CO2 eq/kg of product"
+msgstr ""
+
+# do not translate the link
+msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
+msgstr ""
+
+# do not translate Eco-Score and the link
+msgctxt "ecoscore_description"
+msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_fr"
+msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr ""
+
+# do not translate Eco-Score
+msgctxt "ecoscore_warning_international"
+msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr ""
+
+msgctxt "app_banner_text"
+msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated"
+msgid "GS1 product names for this manufacturer are abbreviated."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared"
+msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
+msgstr ""
+
+msgctxt "org_gs1_nutrients_are_unprepared_note"
+msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
+msgstr ""
+
+msgctxt "org_gs1_product_name_is_abbreviated_description"
+msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
+msgstr ""
+
+# do not remove %s, it will be replaced with the source name
+msgctxt "import_source_string"
+msgid "Import data from %s"
+msgstr ""
+
+msgctxt "org_protect_data"
+msgid "Protect the data that is provided by the organization."
+msgstr ""
+
+msgctxt "org_protect_data_note"
+msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "Packaging with a high impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "Packaging with a medium impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "Packaging with a low impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "Missing packaging information for this product"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Origins of ingredients with a high impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Origins of ingredients with a low impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing origins of ingredients information"
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr ""
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr ""
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr ""
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr ""
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr ""
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr ""
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "Підтримати проект"
+
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Labels with environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Labels with high environmental benefits"
+msgstr ""
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Labels with very high environmental benefits"
+msgstr ""
+
+msgctxt "other"
+msgid "Other"
+msgstr "Інше"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr ""
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "Статистика використання складників для всіх продуктів"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "Складники для всіх продуктів"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr ""
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr ""
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr ""
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Середовище"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr ""
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr ""
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr ""
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr ""
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
 

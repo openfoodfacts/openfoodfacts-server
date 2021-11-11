@@ -35,7 +35,7 @@ use ProductOpener::MainCountries qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$data_root/minion_log.conf"); # Init log4perl from a config file.
+Log::Log4perl->init("$conf_root/minion_log.conf"); # Init log4perl from a config file.
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-06-26 09:47\n"
+"PO-Revision-Date: 2021-11-07 14:47\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -597,11 +597,11 @@ msgstr "Sporbarhedskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr "Emballagekode"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr "Emballagekode"
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -3024,8 +3024,16 @@ msgid "Recipe idea"
 msgstr "Opskriftidé"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "Oprindelse"
+msgid "Origin of the product and/or its ingredients"
+msgstr "Produktoprindelse og/eller dets ingredienser"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "Emballageoplysninger, som angiver fremstillingsstedet og/eller ingrediensoprindelse(r)"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "Fremstillet i Frankrig. Tomater fra Italien. Risens oprindelse: Indien, Thailand."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3125,7 +3133,7 @@ msgstr "Hent iPad-appen"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr "<em>Tvetydig stregkode</em>: Dette produkt har et strejkkode med begrænset antal cirkulationsnumre for produkter inden for et firma. Det betyder, at forskellige producenter og butikker kan benytte den samme stregkode til forskellige produkter."
+msgstr "<em>Tvetydig stregkode</em>: Dette produkt har en stregkode med et begrænset antal cirkulationsnumre for produkter inden for et firma. Det betyder, at forskellige producenter og butikker kan benytte den samme stregkode til forskellige produkter."
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -4168,10 +4176,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Ikke alle ingredienser kunne genkendes."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "Flyt alle data og valgte fotos i %s til produktets hovedsprog: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "Flyt alle data og udvalgte fotos på {language} til produktets hovedsprog: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5352,6 +5360,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Oplysninger om påvirkningerne efter livscyklusstadier"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "Fase"
@@ -5400,9 +5409,9 @@ msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "Ekstra bonusser og misbrug"
 
-msgctxt "ecoscore_production_mode"
+msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr "Produktionstilstand"
+msgstr ""
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5412,9 +5421,9 @@ msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "Har dette produkt en etiket, der kendetegner produktionssystemet (organisk, fair-trade, Label Rouge, Bleu Blanc Coeur mv.), kan du ændre produktarket for at tilføje det."
 
-msgctxt "ecoscore_origin_of_ingredients"
-msgid "Origin of ingredients"
-msgstr "Oprindelse af ingredienser"
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr ""
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5441,8 +5450,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "Ingredienser, hvis dyrkning truer arter"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "Ingen ingrediens, hvis dyrkning truer arter, er påvist."
+msgid "No ingredient threatening species"
+msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5544,3 +5553,185 @@ msgstr "Beskyt dataene leveret af organisationen."
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "Fjernelse eller ændring af leverede data er kun mulig for erfarne webstedsbidragsydere."
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "Packaging with a high impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "Packaging with a medium impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "Packaging with a low impact"
+msgstr ""
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "Missing packaging information for this product"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Origins of ingredients with a high impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Origins of ingredients with a low impact"
+msgstr ""
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing origins of ingredients information"
+msgstr ""
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "% af ingredienser"
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr "medium"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "Bemærk, at Nutri-Score for te og urtete modsvarer produkttilberedning alene med vand, uden sukker eller mælk."
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr "%s g/100 g"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "Vigtigt: Der er behov for din støtte!"
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr "OFF er et samarbejdsprojekt bygget af titusinder af frivillige\n"
+"og administreret af en nonprofitorganisation med 3 ansatte."
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr "Der er behov for jeres donationer til finansiering af OFF 2021-budgettet og til fortsat projektudvikling. <strong>Tak! ❤️</strong>"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "Donér"
+
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "Ingen etiketter med miljøfordele"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Labels with environmental benefits"
+msgstr "Etiketter med miljøfordele"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Labels with high environmental benefits"
+msgstr "Etiketter med store miljøfordele"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Labels with very high environmental benefits"
+msgstr "Etiketter med meget store miljøfordele"
+
+msgctxt "other"
+msgid "Other"
+msgstr ""
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "Middel"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "Ingrediensstatistikker for alle produkter"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "Ingredienser for hvert produkt"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "Produkt slettet."
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "CO²-aftryk"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} g CO² pr. 100 g produkt"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "Svarende til at køre {kilometers} km i en benzinbil"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "Kilde: ADEME Agribalyse Database"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Miljø"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "Ernæring og sundhed"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "Indeholder palmeolie"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "Driver skovrydning og truer arter som orangutangen"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "Tropiske skove i Asien, Afrika og Latinamerika ødelægges for at skabe og udvide oliepalmeplantager. Skovrydningen bidrager til klimaforandringer og truer arter, såsom orangutangen, griseelefanten og Sumatran-næsehornet, i fare."
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
+
