@@ -43487,7 +43487,7 @@ eu:Ziazerba
 fa:اسفناج
 fi:pinaatti
 fo:spinat
-fr:épinard
+fr:épinard, épinards
 fy:spinaazje
 ga:Spionáiste
 gd:Bloinigean-gàrraidh
@@ -43581,12 +43581,13 @@ fr:Jeunes pousses d'épinards
 
 <en:spinach
 en:spinach powder
-de:Spinatpulver
-es:polvo de espinaca
-fi:pinaattijauhe
-fr:poudre d'épinard, épinards en poudre, épinard en poudre
-nl:spinaziepoeder
-pt:pó de espinafre
+#en:processing:en:powder
+#de:Spinatpulver
+#es:polvo de espinaca
+#fi:pinaattijauhe
+#fr:poudre d'épinard, épinards en poudre, épinard en poudre
+#nl:spinaziepoeder
+#pt:pó de espinafre
 # fr:poudre-d'épinard 40 products in 4 languages @2018-10-14
 # fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
 
@@ -43885,20 +43886,24 @@ fr:Pommes de terres rousses
 
 <en:potato
 en:potato powder
-da:kartoffelpulver
-de:Kartoffelpulver
-el:πατάτα σε σκόνη
-es:patata en polvo
-fi:perunajauhe
-fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
-hu:burgonyapor
-it:Patate in polvere
-nl:aardappelpoeder
-pt:Patatas en polvo
-sk:sušené zemiaky
-sl:krompir v prahu
-sv:potatispulver
+#en:processing:en:powder
+#da:kartoffelpulver
+#de:Kartoffelpulver
+#el:πατάτα σε σκόνη
+#es:patata en polvo
+#fi:perunajauhe
+#fr:poudre de pommes de terre, poudre de pomme de terre, pommes de terre en poudre
+#hu:burgonyapor
+#it:Patate in polvere
+#nl:aardappelpoeder
+#pt:Patatas en polvo
+#sl:krompir v prahu
+#sv:potatispulver
 # en:potato-powder has 67 products in 13 languages @2018-10-15
+
+<en:potato
+fr:pomme de terre déshydratée, pommes de terre déshydratées, 
+sk:sušené zemiaky
 
 <en:potato
 en:cooked potato
@@ -44832,14 +44837,15 @@ fr:purée de tomates triple concentrée, triple concentré de tomate
 
 <en:tomato
 en:tomato powder, powdered tomato
-da:tomatpulver
-de:Tomatenpulver
-es:tomate en polvo
-fi:tomaattijauhe, tomaattijauhetta, tomaattisosejauhe
-fr:tomate en poudre, tomates en poudre, tomate déshydratée, poudre de tomate, poudre de tomates
-it:pomodoro en polvere
-nl:tomatenpoeder
-sv:tomatpulver
+#en:processing:en:powder
+#da:tomatpulver
+#de:Tomatenpulver
+#es:tomate en polvo
+#fi:tomaattijauhe, tomaattijauhetta, tomaattisosejauhe
+#fr:tomate en poudre, tomates en poudre, tomate déshydratée, poudre de tomate, poudre de tomates
+#it:pomodoro en polvere
+#nl:tomatenpoeder
+#sv:tomatpulver
 # ingredient/powdered-tomato has 546 products in 1o languages @2018-12-26
 
 <en:tomato purée
