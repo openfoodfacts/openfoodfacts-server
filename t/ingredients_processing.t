@@ -63,7 +63,7 @@ my @tests = (
 	[ { lc => "en", ingredients_text => "dried milk"},
 		[
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk powder',
 				'text' => 'dried milk'
 			}
 		]
