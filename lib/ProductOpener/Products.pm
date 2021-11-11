@@ -704,16 +704,18 @@ sub send_notification_for_product_change($$) {
 
 	my $product_ref = shift;
 	my $action = shift;
-
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
+		my $endpoint = "$robotoff_url/api/v1/webhook/product";
 		$ua->timeout(2);
 
-		my $response = $ua->post( "$robotoff_url/api/v1/webhook/product",  {
+		$log->debug("send_notif_robotoff_product_update", { endpoint => $endpoint, barcode => $product_ref->{code}, action => $action, server_domain => "api." . $server_domain }) if $log->is_debug();
+		my $response = $ua->post($endpoint,  {
 			'barcode' => $product_ref->{code},
 			'action' => $action,
 			'server_domain' => "api." . $server_domain
 		} );
+		$log->debug("send_notif_robotoff_product_update", { endpoint => $endpoint, is_success => $response->is_success, code => $response->code, status_line => $response->status_line }) if $log->is_debug();
 	}
 
 	return;

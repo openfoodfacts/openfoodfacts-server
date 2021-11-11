@@ -425,41 +425,45 @@ sub create_ecoscore_panel($$$) {
                 $adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
-        # Add panels for environmental Eco-Score labels
-        if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
-            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
-            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels})) {
-
-            foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
-                my $label_panel_data_ref = {
-                    label => $labelid,
-                    evaluation => "good",
-                };
-
-                # Add label icon
-                my $icon_url = get_tag_image($target_lc, "labels", $labelid);
-                if (defined $icon_url) {
-                    $label_panel_data_ref->{icon_url} = $static_subdomain . $icon_url;
-                }
-
-                # Add properties of interest
-                foreach my $property (qw(environmental_benefits description)) {
-                    my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
-                    if (defined $property_value) {
-                        $label_panel_data_ref->{$property} = $property_value;
-                    }
-                }
-
-                create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
-                    $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
-            }
-        }
+        # Add panel for the final Eco-Score of the product
+        create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
 	else {
         my $panel_data_ref = {};
         create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+
+    # Add panels for environmental Eco-Score labels
+    if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
+        and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
+        and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels})) {
+
+        foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
+            my $label_panel_data_ref = {
+                label => $labelid,
+                evaluation => "good",
+            };
+
+            # Add label icon
+            my $icon_url = get_tag_image($target_lc, "labels", $labelid);
+            if (defined $icon_url) {
+                $label_panel_data_ref->{icon_url} = $static_subdomain . $icon_url;
+            }
+
+            # Add properties of interest
+            foreach my $property (qw(environmental_benefits description)) {
+                my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
+                if (defined $property_value) {
+                    $label_panel_data_ref->{$property} = $property_value;
+                }
+            }
+
+            create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
+                $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }    
 }
 
 
@@ -497,6 +501,11 @@ sub create_environment_card_panel($$$) {
 	$log->debug("create environment card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
     my $panel_data_ref = {};
+
+    # Include the carbon footprint panel if we have data for it
+    if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
+        $panel_data_ref->{carbon_footprint} = 1;
+    }
 
     # Create panel for palm oil
     if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})

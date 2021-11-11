@@ -165,7 +165,7 @@ print STDERR "$i products to export.\n";
 
 my $tmp_file = "/tmp/export_products_data_and_images." . time() . ".txt";
 
-open (my $out, ">$tmp_file") or die("Could not open $tmp_file for writing: $!\n");
+open (my $out, ">", $tmp_file) or die("Could not open $tmp_file for writing: $!\n");
 print $out $files;
 close($out);
 

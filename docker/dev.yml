@@ -33,10 +33,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.frontend
+      args:
+        WWW_DATA_HOST_USER: ${WWW_DATA_HOST_USER}
   mongodb:
     image: mongo:4.4
     networks:
       - webnet
+    ports:
+      - 27017:27017
 volumes:
   product_images:
   html_data:
