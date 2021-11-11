@@ -272,7 +272,7 @@ my @tests = (
 	 	[	
 			{	'id'         => 'en:garlic',
 	 			'processing' => 'en:powder',
-	 			'text'       => 'valkosipulijauhe'
+	 			'text'       => 'valkosipuli'
 			}
 		]
  	],
