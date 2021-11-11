@@ -59,13 +59,13 @@ my @tests = (
 		]
 	],
 
-# en:dried (children are lef out at the moment)
+# en:dried (children are left out at the moment)
 	[ { lc => "en", ingredients_text => "dried milk"},
 		[
 			{
 				'id' => 'en:milk',
 				'processing' => 'en:dried',
-				'text' => 'milk'
+				'text' => 'dried milk'
 			}
 		]
 	],
