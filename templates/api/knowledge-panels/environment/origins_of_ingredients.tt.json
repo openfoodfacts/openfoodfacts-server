@@ -1,10 +1,9 @@
 {
-    "parent_panel_id": "ecoscore",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
     ],
+    "expanded": false,
 [% IF product.ecoscore_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
     "evaluation": "unknown",
     "title_element": {
@@ -17,7 +16,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "warning",
+                "type": "warning",
                 "html": `
                 [% lang('ecoscore_ingredients_not_indicated') %]<br><br>
                 [% lang('ecoscore_please_add_the_ingredients') %]<br><br>

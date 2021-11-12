@@ -124,8 +124,8 @@ sub create_knowledge_panels($$$$) {
     $product_ref->{"knowledge_panels_" . $target_lc} = {};
 
     # Test panel to test the start of the API
-
-    if ($product_ref->{code} eq "3017620422003") {
+    # Disabled, kept as reference when we create a "Do you know" panel
+    if ($product_ref->{code} eq "3017620422003--disabled") {
 	
         my $test_panel_ref = {
             parent_panel_id => "root",
@@ -165,6 +165,10 @@ sub create_knowledge_panels($$$$) {
     create_ecoscore_panel($product_ref, $target_lc, $target_cc);
 
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
+
+    # Create the root panel that contains the panels we want to show directly on the product page
+    create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
+        {}, $product_ref, $target_lc, $target_cc);    
 }
 
 

@@ -1,4 +1,4 @@
-//
+// Create a structure so that we can display the packaging components for each recycling type
 [% SET recycling_types = {} %]
 [% SET unknown = "en:unknown" %]
 [% IF product.packagings %]
@@ -12,8 +12,6 @@
 [% END %]
 
 {
-    "parent_panel_id": "environment_card",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
@@ -54,7 +52,7 @@
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
     },        
-    "expanded": "yes",
+    "expanded": true,
     "elements": [
         [% FOREACH recycling_type IN ["en:recycle", "en:discard", "en:unknown"] %]
             [% IF recycling_types.$recycling_type.defined %]

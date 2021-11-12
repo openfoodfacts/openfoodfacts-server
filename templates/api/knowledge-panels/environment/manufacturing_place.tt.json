@@ -1,12 +1,10 @@
 {
-    "parent_panel_id": "root",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
     ],
     "evaluation": "neutral",
-    "expanded": "yes",
+    "expanded": true,
     "title_element": {
         "title": "[% lang('manufacturing_places_s') FILTER ucfirst %]",
         [% IF panel.packager_code_data.cc == 'fr' %]
