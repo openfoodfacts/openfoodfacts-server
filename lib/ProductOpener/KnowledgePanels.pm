@@ -581,6 +581,7 @@ sub create_manufacturing_place_panel($$$) {
     # Go through the product packaging codes, keep the first one with associated geo coordinates
     if (defined $product_ref->{emb_codes_tags}) {
         foreach my $packager_code_tagid (@{$product_ref->{emb_codes_tags}}) {
+            # we will create a panel for the first known location
             if (exists $packager_codes{$packager_code_tagid}) {
                 $log->debug("packager code found for the canon_tagid", { cc => $packager_codes{$packager_code_tagid}{cc} }) if $log->is_debug();
                 my ($lat, $lng) = get_packager_code_coordinates($packager_code_tagid);
