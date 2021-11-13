@@ -38403,6 +38403,7 @@ ciqual_food_name:fr:Boisson lactée aromatisée à la fraise, sucrée, au lait p
 <en:Flavoured milks
 en:Milkshakes, Milk-shakes
 fr:Milkshakes, Milk-shakes
+nl:Milkshakes
 agribalyse_proxy_food_code:en:39001
 agribalyse_proxy_food_name:en:Milkshake, from fast foods restaurant
 agribalyse_proxy_food_name:fr:Milk-shake, provenant de fast food
@@ -38414,6 +38415,11 @@ agribalyse_food_code:en:39001
 ciqual_food_code:en:39001
 ciqual_food_name:en:Milkshake, from fast foods restaurant
 ciqual_food_name:fr:Milk-shake, provenant de fast food
+
+<en:Milkshakes
+en:Weight-loss milkshakes
+fr:Milkshakes minceurs
+nl:Afslankshakes
 
 <en:Dairy drinks
 <en:Coffee drinks
@@ -42346,7 +42352,6 @@ de:Haselnussmus
 es:Mantecas de avellana
 fr:Purées de noisette, Purée de noisette, Purées de noisettes, Beurres de noisettes
 nl:Hazelnootpasta's
-nl_be:Hazelnootpasta's
 wikidata:en:Q5688100
 
 <en:Nut butters
@@ -61988,8 +61993,7 @@ fr:Viandes
 he:בשרים
 hu:Húsok
 it:Carni
-nl:Vlezen
-nl_be:Vlezen
+nl:Vlezen, Vlees
 pl:Mięsa
 pt:Carnes
 ru:Мясо
@@ -63613,6 +63617,11 @@ ciqual_food_code:en:8373
 ciqual_food_name:en:Rolled escalope of pork with pistachios
 
 #fr:Roulade au jambon pistachée
+
+<en:Meat preparations
+fr:Paupiettes
+nl:Slavinken
+#wiktionary:nl:slavink
 
 <en:Pork meat
 en:Pork ham escalope
@@ -77102,7 +77111,7 @@ fi:suklaa- ja hasselpähkinälevitteet
 fr:Pâtes à tartiner aux noisettes et au cacao, pâtes à tartiner aux noisettes et au chocolat, Pâtes à tartiner au cacao et aux noisettes, Pâtes à tartiner au chocolat et aux noisettes
 hu:Kenhető csokoládé és mogyoró
 it:Crema con nocciole e cacao
-nl:Choco-hazelnootpastas
+nl:Choco-hazelnootpastas, Chocoladehazelnootpastas
 agribalyse_food_code:en:31032
 ciqual_food_code:en:31032
 ciqual_food_name:en:Chocolate spread with hazelnuts
