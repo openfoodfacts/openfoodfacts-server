@@ -82,12 +82,12 @@ my @tests = (
 		}
 	],
 	
-	# container type and instruction
+#	 Dutch container type and instruction
 	[
 		'packaging_text_nl_fles_glasbak',
 		{
 			lc => "nl",
-			packaging_text => "fles in glasbak"	
+			packaging_text => "fles in de glasbak"	
 		}
 	],
 	
