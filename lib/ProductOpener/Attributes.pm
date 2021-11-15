@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2021 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -487,42 +487,44 @@ sub compute_attribute_nutriscore($$) {
 			}
 			elsif ($nutrition_score <= 1) {
 				# Grade B
-				$match = 80 - ($nutrition_score - (- 15)) / (1 - (- 15)) * 20;
+				# If the nutrition score is at the lowest limit (-15), make the match 80
+				# if the nutrition score is at the highest limit (1), make the match 61
+				$match = 80 - ($nutrition_score - (- 15)) / (1 - (- 15)) * 19;
 			}
 			elsif ($nutrition_score <= 5) {
 				# Grade C
-				$match = 60 - ($nutrition_score - 1) / (5 - 1) * 20;
+				$match = 60 - ($nutrition_score - 1) / (5 - 1) * 19;
 			}
 			elsif ($nutrition_score <= 9) {
 				# Grade D
-				$match = 40 - ($nutrition_score - 5) / (9 - 5) * 20;
+				$match = 40 - ($nutrition_score - 5) / (9 - 5) * 19;
 			}
 			else {
 				# Grade E
-				$match = 20 - ($nutrition_score - 9) / (40 - 9) * 20;
+				$match = 20 - ($nutrition_score - 9) / (40 - 9) * 19;
 			}
 		}
 		else {
 
 			if ($nutrition_score <= -1) {
 				# Grade A
-				$match = 100 - ($nutrition_score - (- 15)) / (-1 - (- 15)) * 20;
+				$match = 100 - ($nutrition_score - (- 15)) / (-1 - (- 15)) * 19;
 			}
 			elsif ($nutrition_score <= 2) {
 				# Grade B
-				$match = 80 - ($nutrition_score - (- 1)) / (2 - (- 1)) * 20;
+				$match = 80 - ($nutrition_score - (- 1)) / (2 - (- 1)) * 19;
 			}
 			elsif ($nutrition_score <= 10) {
 				# Grade C
-				$match = 60 - ($nutrition_score - 2) / (10 - 2) * 20;
+				$match = 60 - ($nutrition_score - 2) / (10 - 2 + 1) * 19;
 			}
 			elsif ($nutrition_score <= 18) {
 				# Grade D
-				$match = 40 - ($nutrition_score - 10) / (18 - 10) * 20;
+				$match = 40 - ($nutrition_score - 10) / (18 - 10 + 1) * 19;
 			}
 			else {
 				# Grade E
-				$match = 20 - ($nutrition_score - 18) / (40 - 18) * 20;
+				$match = 20 - ($nutrition_score - 18) / (40 - 18) * 19;
 			}
 		}
 		
@@ -550,7 +552,7 @@ sub compute_attribute_nutriscore($$) {
 }
 
 
-=head2 compute_attribute_ecoscore ( $product_ref, $target_lc )
+=head2 compute_attribute_ecoscore ( $product_ref, $target_lc, $target_cc )
 
 Computes an environmental impact attribute based on the Eco-Score.
 
@@ -564,6 +566,10 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =head3 Return value
 
@@ -579,10 +585,11 @@ that is used to define the Eco-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_ecoscore($$) {
+sub compute_attribute_ecoscore($$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
+	my $target_cc = shift;
 
 	$log->debug("compute ecoscore attribute", { code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data} }) if $log->is_debug();
 
@@ -593,8 +600,13 @@ sub compute_attribute_ecoscore($$) {
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 		$attribute_ref->{status} = "known";
 		
-		my $score = $product_ref->{ecoscore_data}{score};
-		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $score = $product_ref->{ecoscore_score} // 0;
+		my $grade = $product_ref->{ecoscore_grade};
+		
+		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$cc})) {
+			$score = $product_ref->{ecoscore_data}{"scores"}{$cc} // 0;
+			$grade = $product_ref->{ecoscore_data}{"grades"}{$cc};
+		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
 		
@@ -603,15 +615,15 @@ sub compute_attribute_ecoscore($$) {
 		my $match = 0;
 		
 		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
-		
+		# Warning: a score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
+		# So we substract 1 to the Eco-Score score to compute the match.
+		$match = $score - 1;
+
 		if ($score < 0) {
 			$match = 0;
 		}
 		elsif ($score > 100) {
 			$match = 100;
-		}
-		else {
-			$match = $score;
 		}
 		
 		$attribute_ref->{match} = $match;
@@ -1110,7 +1122,10 @@ sub compute_attribute_nutrient_level($$$$) {
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
-				$attribute_ref->{description_short} = (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g / 100 g";
+				$attribute_ref->{description_short} = sprintf(
+					lang_in_other_lc($target_lc, 'g_per_100g'),
+					(sprintf('%.2e', $product_ref->{nutriments}{$nid . $prepared . '_100g'}) + 0.0)
+				);
 			}
 		}
 	}
@@ -1320,7 +1335,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$status = "known";
 		}
 		elsif (has_tag($product_ref, "ingredients_analysis", "en:may-contain-$ingredient")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "may-contain-$ingredient";
 			$status = "known";
 		}
@@ -1345,7 +1360,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}
 		elsif (has_tag($product_ref, "labels", "en:maybe-$analysis")
 			or has_tag($product_ref, "ingredients_analysis", "en:maybe-$analysis")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "maybe-$analysis";
 			$status = "known";
 		}		
@@ -1360,10 +1375,11 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$analysis_tag = "$analysis-status-unknown";
 		}		
 	}
-	
+
 	if (defined $match) {
 		$attribute_ref->{match} = $match;
 	}
+
 	$attribute_ref->{status} = $status;	
 	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
@@ -1414,6 +1430,31 @@ sub add_attribute_to_group($$$$) {
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
 		delete $attribute_ref->{setting_name};
 		delete $attribute_ref->{setting_note};
+
+		# Compute a 5 level grade from the match score
+		# We do it server side to be sure that clients do it the same way
+		# and that a Nutri-Score E match of 20 has a grade "e".
+		if ($attribute_ref->{status} eq "known") {
+			
+			if ($attribute_ref->{match} <= 20) {
+				$attribute_ref->{grade} = 'e';
+			}
+			elsif ($attribute_ref->{match} <= 40) {
+				$attribute_ref->{grade} = 'd';
+			}
+			elsif ($attribute_ref->{match} <= 60) {
+				$attribute_ref->{grade} = 'c';
+			}
+			elsif ($attribute_ref->{match} <= 80) {
+				$attribute_ref->{grade} = 'b';
+			}
+			else {
+				$attribute_ref->{grade} = 'a';
+			}
+		}
+		else {
+			$attribute_ref->{grade} = 'unknown';
+		}		
 		
 		my $group_ref;
 		# Select the requested group
@@ -1439,7 +1480,7 @@ sub add_attribute_to_group($$$$) {
 }
 
 
-=head2 compute_attributes ( $product_ref, $target_lc )
+=head2 compute_attributes ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Compute all attributes for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of attribute groups.
@@ -1457,6 +1498,10 @@ This parameter sets the desired language for the user facing strings.
 
 If $target_lc is equal to "data", no strings are returned.
 
+=head4 country code $target_cc
+
+Needed for some country specific attributes like the Eco-Score.
+
 =head4 options $options_ref
 
 Defines how some attributes should be computed (or not computed)
@@ -1472,10 +1517,11 @@ The array contains attribute groups, and each attribute group contains individua
 
 =cut
 
-sub compute_attributes($$$) {
+sub compute_attributes($$$$) {
 
 	my $product_ref = shift;
 	my $target_lc = shift;
+	my $target_cc = shift;
 	my $options_ref = shift;	
 
 	$log->debug("compute attributes for product", { code => $product_ref->{code}, target_lc => $target_lc }) if $log->is_debug();
@@ -1517,12 +1563,12 @@ sub compute_attributes($$$) {
 	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);	
 	
 	$attribute_ref = compute_attribute_additives($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
 	
 	# Environment
 	
 	if ((not defined $options_ref) or (not defined $options_ref->{skip_ecoscore}) or (not $options_ref->{skip_ecoscore})) {
-		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc);
+		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
 		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
 	}
 	

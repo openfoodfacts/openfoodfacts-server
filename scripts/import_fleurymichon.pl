@@ -284,7 +284,7 @@ print STDERR "importing products\n";
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
 					delete $product_ref->{countries_hierarchy};
-					store_product($product_ref, "Creating product (import_fleurymichon_ch.pl bulk upload) - " . $comment );
+					store_product($User_id, $product_ref, "Creating product (import_fleurymichon_ch.pl bulk upload) - " . $comment );
 				}
 
 			}
@@ -356,7 +356,7 @@ print STDERR "importing products\n";
 								or ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid) ) {
 								print STDERR "assigning image $imgid ($fleury_michon_image_file) to front-fr\n";
 
-								process_image_crop($code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+								process_image_crop($User_id, $code, "front_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 
 								$crop++;
 							}
@@ -995,7 +995,7 @@ QTE_SUCRE => "sugars",
 
 
 
-				store_product($product_ref, "Editing product (import_fleurymichon_ch.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_fleurymichon_ch.pl bulk import) - " . $comment );
 
 				push @edited, $code;
 				$edited{$code}++;

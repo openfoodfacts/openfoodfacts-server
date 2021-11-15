@@ -74,6 +74,10 @@ if ($action eq 'process') {
 		if ($id =~ /\@/) {
 			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			if (not defined $emails_ref->{$id}) {
+				# not found, try with lower case email
+				$id = lc $id;
+			}
+			if (not defined $emails_ref->{$id}) {
 				push @errors, $Lang{error_reset_unknown_email}{$lang};
 			}
 			else {
@@ -193,9 +197,9 @@ elsif ($action eq 'process') {
 	}
 }
 
-process_template('reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 
 	title=> $Lang{'reset_password'}{$lang},
 	content_ref=>\$html,

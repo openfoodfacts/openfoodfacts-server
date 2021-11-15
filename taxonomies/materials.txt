@@ -271,6 +271,7 @@ ru:Хлопок
 
 en:Jute, 61 TEX, 61-TEX
 de:Jute
+hu:Juta
 it:Juta
 ru:Джутовое волокно
 
@@ -278,7 +279,7 @@ en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TE
 de:Andere Textilien, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
 fr:Autres textiles, autre textile
 nl:Ander textiel
-hu:Egyéb textília, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
+hu:Egyéb textilek, Egyéb textil, Egyéb textília, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 
 en:Glass
 
@@ -289,7 +290,7 @@ en:Mixed Glass Container/Multi-Part Container
 <en:Glass
 en:Clear Glass, GL 70, 70 GLS, 70-GLS
 de:Klarglas
-hu:Tiszta üveg
+hu:Fehér üveg
 it:Vetro incolore
 
 # Green glass is 71 GLS not 72 GLS. Example: https://commons.wikimedia.org/wiki/File:Recycling-Code-71.svg
@@ -335,6 +336,7 @@ hu:Papír és karton / Műanyag / Alumínium, 84 C/PAP, PapAl
 <en:Plastic
 <en:Biodegradable materials
 en:Biodegradable plastic, Card-stock Laminate, 87
+hu:Biológiai úton lebomló műanyag, Lebomló műanyag
 
 <en:Polyethylene terephthalate
 <en:Aluminium
@@ -505,6 +507,7 @@ en:Semi-preserved
 de:Halbkonserve
 es:En semiconserva, Semiconserva, Semi-conserva
 fr:Semi-conserve
+hu:Féltartós
 pt:Em semiconserva, Semiconserva, Semi-conserva
 
 en:Frozen
@@ -539,6 +542,7 @@ en:Modified atmosphere
 de:Unter Schutzatmosphäre, Unter Schutzatmosphäre verpackt
 es:Envasado en atmósfera protectora, Atmósfera protectora
 fr:Sous atmosphère protectrice, Atmosphère protectrice, Conditionné sous atmosphère protectrice
+hu:Védőgáz, védőgázas, védőgázas csomagolás
 nl:Beschermende atmosfeer
 wikidata:en:Q1815645
 
@@ -581,7 +585,7 @@ de:Vakuumverpackt
 es:Envasado al vacío, Al vacío
 fr:Sac sous vide, Sac sous-vide, Sous-vide
 nl:Vacuumverpakt
-hu:Vákumcsomagolt
+hu:Vákuumcsomagolt
 wikidata:en:Q682829
 
 en:Microwaveable
@@ -644,6 +648,6 @@ ru:бумажный пакет
 <en:Plastic
 en:Plastic bag
 de:Plastiktüte
-hu:Műanyagzacskó
+hu:Műanyagzacskó, Nejlonzacskó
 it:Sacchetto di plastica
 pt:Saco de plástico

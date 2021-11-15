@@ -31,10 +31,11 @@ use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$data_root/minion_log.conf"); # Init log4perl from a config file.
+Log::Log4perl->init("$conf_root/minion_log.conf"); # Init log4perl from a config file.
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 
@@ -51,6 +52,8 @@ init_emb_codes();
 init_packager_codes();
 init_geocode_addresses();
 init_packaging_taxonomies_regexps();
+
+load_scans_data();
 
 if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_agribalyse_data();
