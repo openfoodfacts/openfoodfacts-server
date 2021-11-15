@@ -10,6 +10,13 @@ fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
 
+<en:recycle
+en:recycle in glass bin, recycle with glass
+fr:recycler dans le container à verre, recycler avec le verre
+nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
+# If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
+packaging_materials:en: en:glass
+
 en:discard, to discard, throw away, to throw away, non-recyclable
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
 fr:jeter, à jeter, non-recyclable
