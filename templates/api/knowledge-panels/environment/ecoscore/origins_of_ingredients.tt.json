@@ -1,6 +1,4 @@
 {
-    "parent_panel_id": "ecoscore",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
@@ -18,7 +16,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "warning",
+                "type": "warning",
                 "html": `
                 [% lang('ecoscore_ingredients_not_indicated') %]<br><br>
                 [% lang('ecoscore_please_add_the_ingredients') %]<br><br>
@@ -64,7 +62,6 @@
             "element_type": "table",
             "table_element": {
                 "id": "ecoscore_origins_of_ingredients_table",
-                "table_type": "percents",
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
                 "columns": [
                     {

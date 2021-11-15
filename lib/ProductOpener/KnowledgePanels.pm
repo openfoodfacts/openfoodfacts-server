@@ -124,8 +124,8 @@ sub create_knowledge_panels($$$$) {
     $product_ref->{"knowledge_panels_" . $target_lc} = {};
 
     # Test panel to test the start of the API
-
-    if ($product_ref->{code} eq "3017620422003") {
+    # Disabled, kept as reference when we create a "Do you know" panel
+    if ($product_ref->{code} eq "3017620422003--disabled") {
 	
         my $test_panel_ref = {
             parent_panel_id => "root",
@@ -165,6 +165,10 @@ sub create_knowledge_panels($$$$) {
     create_ecoscore_panel($product_ref, $target_lc, $target_cc);
 
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
+
+    # Create the root panel that contains the panels we want to show directly on the product page
+    create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
+        {}, $product_ref, $target_lc, $target_cc);    
 }
 
 
@@ -425,36 +429,6 @@ sub create_ecoscore_panel($$$) {
                 $adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
-        # Add panels for environmental Eco-Score labels
-        if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
-            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
-            and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels})) {
-
-            foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
-                my $label_panel_data_ref = {
-                    label => $labelid,
-                    evaluation => "good",
-                };
-
-                # Add label icon
-                my $icon_url = get_tag_image($target_lc, "labels", $labelid);
-                if (defined $icon_url) {
-                    $label_panel_data_ref->{icon_url} = $static_subdomain . $icon_url;
-                }
-
-                # Add properties of interest
-                foreach my $property (qw(environmental_benefits description)) {
-                    my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
-                    if (defined $property_value) {
-                        $label_panel_data_ref->{$property} = $property_value;
-                    }
-                }
-
-                create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
-                    $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
-            }
-        }
-
         # Add panel for the final Eco-Score of the product
         create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
@@ -464,6 +438,36 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 	}
+
+    # Add panels for environmental Eco-Score labels
+    if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
+        and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
+        and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels})) {
+
+        foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
+            my $label_panel_data_ref = {
+                label => $labelid,
+                evaluation => "good",
+            };
+
+            # Add label icon
+            my $icon_url = get_tag_image($target_lc, "labels", $labelid);
+            if (defined $icon_url) {
+                $label_panel_data_ref->{icon_url} = $static_subdomain . $icon_url;
+            }
+
+            # Add properties of interest
+            foreach my $property (qw(environmental_benefits description)) {
+                my $property_value = get_inherited_property("labels", $labelid, $property . ":" . $target_lc);
+                if (defined $property_value) {
+                    $label_panel_data_ref->{$property} = $property_value;
+                }
+            }
+
+            create_panel_from_json_template("environment_label_" . $labelid, "api/knowledge-panels/environment/label.tt.json",
+                $label_panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }    
 }
 
 
@@ -502,6 +506,11 @@ sub create_environment_card_panel($$$) {
 
     my $panel_data_ref = {};
 
+    # Include the carbon footprint panel if we have data for it
+    if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
+        $panel_data_ref->{carbon_footprint} = 1;
+    }
+
     # Create panel for palm oil
     if ((defined $product_ref->{ecoscore_data}) and (defined $product_ref->{ecoscore_data}{adjustments})
         and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
@@ -520,11 +529,80 @@ sub create_environment_card_panel($$$) {
         
     # Tell the environment card template to include packaging recycling panel
     $panel_data_ref->{packaging_recycling} = 1;
-   
+
+    # Create panel for manufacturing place
+    $panel_data_ref->{manufacturing_place} = create_manufacturing_place_panel($product_ref, $target_lc, $target_cc);
+
+    # Origins of ingredients for the environment card
+    create_panel_from_json_template("origins_of_ingredients", "api/knowledge-panels/environment/origins_of_ingredients.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     # Create the environment_card panel
     create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+}
+
+
+=head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel when we know the location of the manufacturing place,
+usually through a packaging code.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+
+=head3 Return value
+
+1 to indicate that the panel has been created
+0 to indicate that the panel was not created (if we don't have enough data for the product)
+
+=cut
+
+sub create_manufacturing_place_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create_manufacturing_place_panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+    # Go through the product packaging codes, keep the first one with associated geo coordinates
+    if (defined $product_ref->{emb_codes_tags}) {
+        foreach my $packager_code_tagid (@{$product_ref->{emb_codes_tags}}) {
+            # we will create a panel for the first known location
+            if (exists $packager_codes{$packager_code_tagid}) {
+                $log->debug("packager code found for the canon_tagid", { cc => $packager_codes{$packager_code_tagid}{cc} }) if $log->is_debug();
+                my ($lat, $lng) = get_packager_code_coordinates($packager_code_tagid);
+                if ((defined $lat) and (defined $lng)) {
+
+                    my $panel_data_ref = {
+                        packager_code_data => $packager_codes{$packager_code_tagid},
+                        lat => $lat + 0.0,
+                        lng => $lng + 0.0,
+                    };
+
+                    create_panel_from_json_template("manufacturing_place", "api/knowledge-panels/environment/manufacturing_place.tt.json",
+                        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+                    return 1;
+                }
+            }
+        }
+    }
+
+    return 0;  
 }
 
 1;

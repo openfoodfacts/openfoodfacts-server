@@ -399,7 +399,14 @@ sub process_template($$$) {
 
 	$template_data_ref->{round} = sub($) {
 		return sprintf ("%.0f", $_[0]);
-	};	
+	};
+	$template_data_ref->{sprintf} = sub($$) {
+		return sprintf ($_[0], $_[1]);
+	};
+
+	$template_data_ref->{encode_json} = sub($) {
+		return JSON::PP->new->utf8->canonical->encode($_[0]);
+	};
 	
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
@@ -8295,7 +8302,8 @@ HTML
 
 		# Knowledge panels are in development, they can be activated with the "panels" parameter
 		# for debugging and demonstration purposes
-		if (param('panels')) {
+		# Also activate them for moderators
+		if (($User{moderator}) or (param('panels'))) {
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$template_data_ref->{environment_card_panel} = display_knowledge_panel($product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 		}

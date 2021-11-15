@@ -1,5 +1,6 @@
 en:General waste
 hu:Kommunális hulladék, kommunális szemét, vegyes hulladék, vegyes szemét
+nl:Restafval, bij restafval
 pt:lixo indiferenciado, indiferenciado, indeferenciados, lixo, contentor de lixo, contentor do lixo, caixote de lixo, caixote do lixo, cesto de lixo, cesto do lixo, lixo doméstico, resíduos indiferenciados
 
 #Comment:en:This includes general waste, but also metal (tins)
@@ -20,7 +21,6 @@ country:en:Belgium
 nl:plastic afval, bij plastic afval, in de plastic heroes bak of zak, in de plastic heroes bak, in de plastic heroes zak
 country:en:Netherlands
 
-
 #used in Portugal for packages in general (most of them plastic, metal and Tetra Pak) except glass, paper, cardboard, journals, books... but not mixed paper and other materials like Tetra Pak
 <en:Plastics container
 pt:coponto amarelo, contentor azul, contentor do plástico, contentor dos plásticos, contentor das embalagens, contentor de embalagens, contentor do plástico e metal, contentor dos plásticos e metais
@@ -29,6 +29,9 @@ country:en:Portugal
 #A specific container for drink cartons, like Tetrapak
 nl:Drankenkartons, bij drankenkartons
 country:en:Netherlands
+
+#A specific container for drink cartons, like Tetrapak
+nl:Drankenkartons, bij drankenkartons
 
 en:Glass container
 de:Glascontainer, Altglas
