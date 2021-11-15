@@ -1,14 +1,13 @@
 {
-    "parent_panel_id": "ecoscore",
-    "type" : "score",
     "level" :"info",
-    "grade": "[% panel.agribalyse_grade %]",
     "topics": [
         "environment"
     ],
     "title_element": {
         "title": "[% lang('average_impact_of_the_category') %][% sep %]: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
-        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name %]"
+        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name %]",
+        "type": "grade",
+        "grade": "[% panel.agribalyse_grade %]",
     },
     "elements": [
         {

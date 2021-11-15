@@ -1,14 +1,13 @@
 {
-    "parent_panel_id": "root",
-    "type": "score",
     "level": "info",
-    "grade": "[% panel.grade %]",
     "topics": [
         "environment"
     ],
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
         "title": "[% panel.title %]",
+        "type": "grade",
+        "grade": "[% panel.grade %]",
     },
     "elements": [           
         {

@@ -402,7 +402,11 @@ sub process_template($$$) {
 	};
 	$template_data_ref->{sprintf} = sub($$) {
 		return sprintf ($_[0], $_[1]);
-	};		
+	};
+
+	$template_data_ref->{encode_json} = sub($) {
+		return JSON::PP->new->utf8->canonical->encode($_[0]);
+	};
 	
 	return($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
