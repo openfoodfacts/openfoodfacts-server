@@ -12,6 +12,7 @@ use Getopt::Long;
 
 
 use JSON::PP;
+use File::Basename "dirname";
 
 my $json = JSON::PP->new->allow_nonref->canonical;
 
@@ -34,11 +35,12 @@ init_packaging_taxonomies_regexps();
 
 load_forest_footprint_data();
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "attributes";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -178,11 +180,12 @@ foreach my $test_ref (@tests) {
 			
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
-	# Travis has a different $server_domain, so we need to change the resulting URLs
+	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
 	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
 	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
 	
 	# code below from https://www.perlmonks.org/?node_id=1031287
+
 	
 	use Scalar::Util qw/reftype/;
 
@@ -205,7 +208,7 @@ foreach my $test_ref (@tests) {
 	  }
 	}
 	
-	walk $product_ref, sub { $_[0] =~ s/https:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
+	walk $product_ref, sub { $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
 	
 	# Save the result
 	
@@ -217,7 +220,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

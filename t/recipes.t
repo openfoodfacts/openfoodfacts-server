@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -17,11 +18,12 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Recipes qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "recipes";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -148,7 +150,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
         
         # Compare the result with the expected result
         
-        if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$recipes_testid.$testid.json")) {
+        if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.$testid.json")) {
 
             local $/; #Enable 'slurp' mode
             my $expected_product_ref = $json->decode(<$expected_result>);
@@ -172,7 +174,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
     
     # Compare the result with the expected result
     
-    if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$recipes_testid.json")) {
+    if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.json")) {
 
         local $/; #Enable 'slurp' mode
         my $expected_analysis_ref = $json->decode(<$expected_result>);
