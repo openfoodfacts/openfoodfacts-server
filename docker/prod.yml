@@ -6,6 +6,8 @@ services:
     restart: always
   backend:
     restart: always
+  incron:
+    restart: always
   frontend:
     restart: always
 volumes:
