@@ -183,7 +183,9 @@ sub parse_packaging_from_text_phrase($$) {
 	
 	my $packaging_ref = {};
 	
-	foreach my $property ("shape", "material", "recycling") {
+	# Match recycling instructions first, as some of them can contain the name of materials
+	# e.g. "recycle in paper bin", which should not imply that the material is paper (it could be cardboard)
+	foreach my $property ("recycling", "material", "shape") {
 		
 		my $tagtype = $packaging_taxonomies{$property};
 		
@@ -236,6 +238,15 @@ sub parse_packaging_from_text_phrase($$) {
 									$packaging_ref->{number} = $1;
 								}
 							}
+						}
+
+						# Remove the string that we have matched, so that when we match the "in the paper bin" recycling instruction,
+						# we don't also match the "paper" material (it could be cardboard)
+						# But don't remove "cardboard" as we do want to possibly match it as both a material and a shape
+						if ($tagid ne "en:cardboard") {
+							$text =~ s/\b($regexp)\b/ MATCHED /i;
+							$textid = get_string_id_for_lang($text_language, $text);
+							$log->debug("parse_packaging_from_text_phrase - removed match", { text => $text, textid => $textid }) if $log->is_debug();
 						}
 					}
 					elsif ($textid =~ /(^|-)($regexp)(-|$)/) {

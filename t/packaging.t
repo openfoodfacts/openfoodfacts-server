@@ -363,7 +363,17 @@ my @tests = (
 			lc => "fr",
 			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
 		}
-	],		
+	],
+
+	[
+		'en-cardboard-box-to-recycle',
+		{
+			lc => "en",
+			packaging => "Cardboard box to recycle",
+		}
+	],
+
+
 );
 
 init_packaging_taxonomies_regexps();
