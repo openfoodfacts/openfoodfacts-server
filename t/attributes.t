@@ -8,8 +8,12 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use JSON;
 use Getopt::Long;
+
+
+use JSON::PP;
+
+my $json = JSON::PP->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -114,11 +118,41 @@ my @tests = (
 			packaging_text => "Cardboard box, film wrap",
 		}
 	],
+
+	# Nutri-Score attribute, with a match score computed from the nutriscore score
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/5636
+	[
+		'en-nutriscore',
+		{
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			nutrition_data_per => "100g",
+			ingredients_text => "100% fruits",
+			nutriments => {
+				"energy_100g" => 2591,
+				"fat_100g" => 50,
+				"saturated-fat_100g" => 9.7,
+				"sugars_100g" => 5.1,
+				"salt_100g" => 0,
+				"sodium_100g" => 0,
+				"proteins_100g" => 29,
+				"fiber_100g" => 5.5,
+			},
+		}
+	],
+
+	# Maybe vegan: attribute score should be 50
+	[
+		'en-maybe-vegan',
+		{
+			lc => "en",
+			categories => "Non-dairy cheeses",
+			categories_tags => ["en:non-dairy-cheeses"],
+			ingredients_text => "tapioca starch, palm oil, enzyme",
+		}
+	],
 );
-
-
-
-my $json = JSON->new->allow_nonref->canonical;
 
 foreach my $test_ref (@tests) {
 
@@ -142,7 +176,7 @@ foreach my $test_ref (@tests) {
 	compute_ecoscore($product_ref);
 	compute_forest_footprint($product_ref);
 			
-	compute_attributes($product_ref, $product_ref->{lc}, $options_ref);
+	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
 	# Travis has a different $server_domain, so we need to change the resulting URLs
 	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'

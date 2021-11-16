@@ -113,6 +113,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
+$fields_ref->{ecoscore_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
@@ -128,7 +129,12 @@ foreach my $l ("en", "fr") {
 
 	# 300 000 ms timeout so that we can export the whole database
 	# 5mins is not enough, 50k docs were exported
-	my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	my $cursor = get_products_collection(3 * 60 * 60 * 1000)
+		->query({'code' => { "\$ne" => "" },
+				'empty' => { "\$ne" => 1 }})
+		->fields($fields_ref)
+		->sort({code=>1});
+		
 	$cursor->immortal(1);
 
 	$langs{$l} = 0;
@@ -225,6 +231,10 @@ XML
 	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
 	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
 
+	# Construct the list of nutrients to export
+
+	my @nutrients_to_export = ();
+
 	foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
 		$nid =~ /^#/ and next;
@@ -233,6 +243,21 @@ XML
 		$nid =~ s/^-//g;
 		$nid =~ s/-$//g;
 
+		push @nutrients_to_export, $nid;
+
+		if ($nid eq "fruits-vegetables-nuts-estimate") {
+
+			# Add the fruits-vegetables-nuts-estimate-from-ingredients nutrient
+			# which is computed from the ingredients list, and is not in the list
+			# of nutrients we display and allow users to edit
+
+			push @nutrients_to_export, "fruits-vegetables-nuts-estimate-from-ingredients";
+		}
+	}
+	
+	# Output the headers for the nutrients
+
+	foreach my $nid (@nutrients_to_export) {
 		$csv .= "${nid}_100g" . "\t";
 	}
 
@@ -263,6 +288,11 @@ XML
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
+			}
+			
+			# Eco-Score
+			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
+				$field_value = $product_ref->{ecoscore_data}{$1 . "_" . $2};
 			}
 
 			if ($field_value ne '') {
@@ -358,14 +388,7 @@ XML
 		$csv .= ($product_ref->{image_nutrition_url} // "") . "\t" . ($product_ref->{image_nutrition_small_url} // "") . "\t";
 
 
-		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-
-			#$nid =~/^#/ and next;
-			next if (substr($nid, 0, 1) eq '#');
-
-			$nid =~ s/!//g;
-			$nid =~ s/^-//g;
-			$nid =~ s/-$//g;
+		foreach my $nid (@nutrients_to_export) {
 
 			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
 				my $value = $product_ref->{nutriments}{$nid . "_100g"};

@@ -2,7 +2,7 @@
 
 const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const minifyCSS = require("gulp-csso");
 const terser = require("gulp-terser-js");
@@ -16,6 +16,8 @@ const jsSrc = [
 
 const sassSrc = "./scss/**/*.scss";
 
+const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: "expanded",
@@ -27,15 +29,24 @@ function icons() {
     pipe(
       svgmin({
       plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-        { removeDimensions: true },
-          { addClassesToSVGElement: { className: "icon" } },
-          {
-            addAttributesToSVGElement: {
-              attributes: [{ "aria-hidden": "true", focusable: "false" }]
-            }
-          }
+        {
+          name: "removeViewBox",
+          active: false
+        },
+        {
+          name: "removeDimensions",
+          active: true,
+        },
+        {
+          name: "addClassesToSVGElement",
+          active: true,
+          params: { className: "icon" }
+        },
+        {
+          name: "addAttributesToSVGElement",
+          active: true,
+          params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
+        }
       ]
       })
     ).
@@ -45,18 +56,15 @@ function icons() {
 function attributesIcons() {
   return src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(
-      svgmin({
-      plugins: [
-        { removeMetadata: true },
-        { removeTitle: true },
-      ]
-      })
+      svgmin()
     ).
     pipe(dest("./html/images/attributes"));
 }
 
 function css() {
-  return src(sassSrc).
+  console.log("(re)building css");
+  
+return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(minifyCSS()).
@@ -84,7 +92,8 @@ function copyJs() {
       "./node_modules/jquery-form/src/jquery.form.js",
       "./node_modules/highcharts/highcharts.js",
       "./node_modules/jvectormap-next/jquery-jvectormap.js",
-      "./node_modules/jvectormap-content/world-mill.js"
+      "./node_modules/jvectormap-content/world-mill.js",
+      "./node_modules/select2/dist/js/select2.min.js"
     ]).
     pipe(sourcemaps.init()).
     pipe(terser()).
@@ -93,7 +102,9 @@ function copyJs() {
 }
 
 function buildJs() {
-  return src(jsSrc).
+  console.log("(re)building js");
+  
+return src(jsSrc).
   pipe(sourcemaps.init()).
   pipe(terser()).
   pipe(sourcemaps.write(".")).
@@ -140,7 +151,8 @@ function copyCss() {
       "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./html/css/product-multilingual.css",
       "./node_modules/cropperjs/dist/cropper.css",
-      "./node_modules/jvectormap-next/jquery-jvectormap.css"
+      "./node_modules/jvectormap-next/jquery-jvectormap.css",
+      "./node_modules/select2/dist/css/select2.min.css"
     ]).
     pipe(sourcemaps.init()).
     pipe(minifyCSS()).
@@ -149,8 +161,24 @@ function copyCss() {
 }
 
 function copyImages() {
-  return src(["./node_modules/leaflet/dist/**/*.png"]).
+  return src(imagesSrc).
     pipe(dest("./html/css/dist"));
+}
+
+function buildAll() {
+  return new Promise(
+    parallel(
+      copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes,
+      series(icons, attributesIcons, css)
+    )
+  );
+}
+
+function watchAll () {
+  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(sassSrc, { delay: 500 }, css);
+  watch(imagesSrc, { delay: 500 }, copyImages);
+  // do we want to watch everything to support checkout of a branch with new libs ?
 }
 
 exports.copyJs = copyJs;
@@ -158,8 +186,11 @@ exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
 exports.attributesIcons = attributesIcons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, attributesIcons, css));
-exports.watch = function () {
-  watch(jsSrc, { delay: 500 }, buildJs);
-  watch(sassSrc, { delay: 500 }, css);
+exports.default = buildAll;
+exports.watch = watchAll;
+exports.dynamic = function () {
+  buildAll().then(() => {
+    console.log("Build succeeded start watching for css and js changes");
+    watchAll();
+  });
 };

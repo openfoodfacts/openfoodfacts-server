@@ -177,6 +177,13 @@ foreach my $test_ref (@tests) {
 	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
 ],
 
+# Uppercase all lowercase fields
+
+[
+	{lc => "es", product_name_es => "natillas de soja sabor vainilla"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
 # Remove brand at end of product name
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
@@ -186,6 +193,18 @@ foreach my $test_ref (@tests) {
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR BIO", brands => "CARREFOUR, CARREFOUR BIO"},
 	{lc => "es", product_name_es => "Natillas de soja sabor vainilla", brands => "Carrefour, Carrefour bio"},
+],
+
+# Brand with dots or other characters instead of spaces / dashes
+
+[
+	{lc => "fr", product_name_fr => "Petit brie bons.mayennais", brands => "Bons mayennais"},
+	{lc => "fr", product_name_fr => "Petit brie", brands => "Bons mayennais"},
+],
+
+[
+	{lc => "fr", product_name_fr => "Petit brie bonsxmayennais", brands => "Bons mayennais"},
+	{lc => "fr", product_name_fr => "Petit brie bonsxmayennais", brands => "Bons mayennais"},
 ],
 
 	# combine serving_size, serving_size_value, serving_size_unit (e.g. US import)
@@ -214,8 +233,7 @@ foreach my $test_ref (@tests) {
 	# Test unspecified values
 [
 	{ lc => "en", generic_name_en => "unspecified", labels => "non-specified", origins => "unknown", warning_en => "not specified" },
-	{ lc => "en", product_name_en => '-', generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
-	# product_name_en is missing, so it is copied from generic_name_en
+	{ lc => "en", generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
 ],
 
 [
@@ -227,6 +245,18 @@ foreach my $test_ref (@tests) {
 [
 	{ lc => "fr", packaging => "étui carton FSC + sachet individuel papier" },
 	{ lc => "fr", packaging => "étui carton FSC, sachet individuel papier" },
+],
+
+	# Ingredients without separators
+[
+	{ lc => "fr", ingredients_text_fr => "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"},
+	{ lc => "fr", ingredients_text_fr => "Pur cacao de Madagascar, Œufs frais, Huiles végétales, Gélifiant végétal, Sucre"},
+],
+
+	# Broken HTML code: just remove the field
+[
+	{ lc => "fr", ingredients_text_fr => "Ingrédients : -table\n\t{mso-displayed-decimal-separator:\"\\,\";\n\tmso-displayed-thousand-separator:\\00A0;}\n.font5\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;}\n.font6\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\tfont-weight:700;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;}\ntd\n\t{padding:0px;\n\tmso-ignore:padding;\n\tcolor:black;\n\tfont-size:11.0pt;\n\tfont-weight:400;\n\tfont-style:normal;\n\ttext-decoration:none;\n\tfont-family:Calibri, sans-serif;\n\tmso-font-charset:0;\n\tmso-number-format:General;\n\ttext-align:general;\n\tvertical-align:bottom;\n\tborder:none;\n\tmso-background-source:auto;\n\tmso-pattern:auto;\n\tmso-protection:locked visible;\n\twhite-space:nowrap;\n\tmso-rotate:0;}\n.xl65\n\t{color:#713D39;\n\tfont-family:Calibri;\n\tmso-generic-font-family:auto;\n\tmso-font-charset:0;}\n.xl66\n\t{color:windowtext;\n\tfont-size:8.0pt;\n\ttext-align:left;\n\tvertical-align:middle;\n\tbackground:white;\n\tmso-pattern:black none;\n\twhite-space:normal;}\n\n\n\n\n\n\n \n \n \n \n \n  \n  \n   \n         haché végétal de SOJA Cuit * 100%  ((SOJA* 97,1%(Eau, protéines de SOJA*),\n   \n  \n  \n \n \n       SOJA naturellement fermenté* 2,9% (eau, fèves de SOJA 24%, , extrait de\n  champignons)).", },
+	{ lc => "fr", ingredients_text_fr => ""}
 ],
 
 );

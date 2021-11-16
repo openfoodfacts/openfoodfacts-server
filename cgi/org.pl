@@ -67,7 +67,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", { orgid => $orgid }) if $log->is_debug();
 	
-	if ($admin) {
+	if ($admin or $User{pro_moderator}) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
@@ -77,7 +77,7 @@ if (not defined $org_ref) {
 
 # Does the user have permission to edit the org profile?
 
-if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin)) {
+if (not (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
 	$log->debug("user does not have permission to edit org", { orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id }) if $log->is_debug();
 	display_error($Lang{error_no_permission}{$lang}, 403);
 }
@@ -99,40 +99,35 @@ if ($action eq 'process') {
 			
 			# Administrator fields
 			
-			if ($admin) {
+			if ($admin or $User{pro_moderator}) {
 				
 				# If the org does not exist yet, create it
 				if (not defined $org_ref) {
 					$org_ref = create_org($User_id, $orgid);
 				}
+
+				my @admin_fields = ();
 				
-				foreach my $field ("enable_manual_export_to_public_platform", "activate_automated_daily_export_to_public_platform", "do_not_import_codeonline") {
+				push (@admin_fields, ("enable_manual_export_to_public_platform",
+					"activate_automated_daily_export_to_public_platform",
+					"protect_data",
+					"do_not_import_codeonline",
+					"gs1_product_name_is_abbreviated",
+					"gs1_nutrients_are_unprepared",
+				));
+
+				if (defined $options{import_sources}) {
+					foreach my $source_id (sort keys %{$options{import_sources}}) {
+						push (@admin_fields, "import_source_" . $source_id);
+					}
+				}				
+				
+				foreach my $field (@admin_fields) {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
-				}
+				}			
 				
-				# List of GS1 GLNs
-				# Remove existing GLNs
-				my $glns_ref = retrieve("$data_root/orgs_glns.sto");
-				not defined $glns_ref and $glns_ref = {};
-				if (defined $org_ref->{list_of_gs1_gln}) {
-					foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
-						$gln =~ s/\s//g;
-						if ($gln =~ /[0-9]+/) {
-							delete $glns_ref->{$gln};
-						}
-					}
-				}
-				# Add new GLNs
-				$org_ref->{list_of_gs1_gln} = remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln"));
-				if (defined $org_ref->{list_of_gs1_gln}) {
-					foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
-						$gln =~ s/\s//g;
-						if ($gln =~ /[0-9]+/) {
-							$glns_ref->{$gln} = $orgid;
-						}
-					}
-				}
-				store("$data_root/orgs_glns.sto", $glns_ref);
+				# Set the list of org GLNs
+				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8=>param("list_of_gs1_gln")));
 			}
 			
 			# Other fields
@@ -190,26 +185,54 @@ if ($action eq 'display') {
 	
 	# Admin
 	
-	if ($admin) {
+	if ($admin or $User{pro_moderator}) {
+
+		my $admin_fields_ref = [];
+
+		push (@$admin_fields_ref, (
+			{
+				field => "enable_manual_export_to_public_platform",
+				type => "checkbox",
+			},
+			{
+				field => "activate_automated_daily_export_to_public_platform",
+				type => "checkbox",
+			},
+			{
+				field => "protect_data",
+				type => "checkbox",
+			},			
+		));
+
+		if (defined $options{import_sources}) {
+			foreach my $source_id (sort keys %{$options{import_sources}}) {
+				push (@$admin_fields_ref, 
+					{
+						field => "import_source_" . $source_id,
+						type => "checkbox",
+						label => sprintf(lang("import_source_string"), $options{import_sources}{$source_id}),
+					},
+				);
+			}
+		}
+
+		push (@$admin_fields_ref, (
+			{
+				field => "list_of_gs1_gln",
+			},
+			{
+				field => "gs1_product_name_is_abbreviated",
+				type => "checkbox",
+			},
+			{
+				field => "gs1_nutrients_are_unprepared",
+				type => "checkbox",
+			},	
+		));
+
 		push @{$template_data_ref->{sections}}, {
 			id => "admin",
-			fields => [
-				{
-					field => "enable_manual_export_to_public_platform",
-					type => "checkbox",
-				},
-				{
-					field => "activate_automated_daily_export_to_public_platform",
-					type => "checkbox",
-				},
-				{
-					field => "list_of_gs1_gln",
-				},
-				{
-					field => "do_not_import_codeonline",
-					type => "checkbox",
-				},				
-			]
+			fields => $admin_fields_ref,
 		};		
 	}
 	
@@ -289,8 +312,10 @@ if ($action eq 'display') {
 				$field_lang_id = "org_" . $field;
 			}
 			
-			# Label
-			$field_ref->{label} = lang($field_lang_id);
+			# Label if it has not been set already
+			if (not defined $field_ref->{label}) {
+				$field_ref->{label} = lang($field_lang_id);
+			}
 			
 			# Descriptions and notes for fields
 			if (lang($field_lang_id . "_description")) {
@@ -328,9 +353,9 @@ my $title = lang($type . '_org_title');
 
 $log->debug("org form - template data", { template_data_ref => $template_data_ref }) if $log->is_debug();
 
-$tt->process('org_form.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
+$tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html) or $html = "<p>template error: " . $tt->error() . "</p>";
 
-display_new( {
+display_page( {
 	title=>$title,
 	content_ref=>\$html,
 	full_width=>$full_width,
