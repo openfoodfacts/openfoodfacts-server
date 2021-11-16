@@ -189,6 +189,12 @@ RUN \
     # logs dir
     mkdir -p /var/log/apache2/ && \
     chown www-data:www-data -R /var/log
+# Install Product Opener from the workdir
+COPY --chown=www-data:www-data . /opt/product-opener/
+RUN \
+    # www-data user shall be able to use incron
+    echo www-data >> /etc/incron.allow && \
+    incrontab -u www-data /opt/product-opener/conf/incron.conf
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
@@ -202,5 +208,3 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 # Prod image is default
 ######################
 FROM runnable as prod
-# Install Product Opener from the workdir
-COPY --chown=www-data:www-data . /opt/product-opener/
