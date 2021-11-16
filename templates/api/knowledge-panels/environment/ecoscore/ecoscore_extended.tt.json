@@ -1,0 +1,67 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "Eco-Score extended",
+        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "type": "grade",
+        "grade": "[% panel.agribalyse_grade %]",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "text_type": "summary",
+                "html": `eco-score extended panel
+
+                ecoscore_extended_data: {
+                    impact: {
+                    average_total_used_mass: 100.084281307652,
+                    calculation_time: 56.4590351581573,
+
+                    testing access:
+
+                    calculation_time: [% product.ecoscore_extended_data.impact.calculation_time %]
+
+                    `
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "ecoscore_lca_impacts_by_stages_table",
+                "table_type": "percents",
+                "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
+                "columns": [
+                    {
+                        "text": "Agribalyse",
+                        "type": "text",
+                    },
+                    {
+                        "text": "Estimator",
+                        "type": "text",
+                    }
+                ],
+                "rows": [
+                    [% FOREACH ingredients IN product.ecoscore_extended_data.impact.max_confidence_recipe %]
+                    {
+                        "id": "[% step %]",
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag('ingredients', ingredients.id) %] - [% ingredients.quantity %]"
+                            },
+                            {
+                                [% ef_step = "ef_$step" %]
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %] %",
+                                "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
+                            }
+                        ],
+                    },
+                    [% END %]
+                ]
+            }
+        }
+    ]
+}

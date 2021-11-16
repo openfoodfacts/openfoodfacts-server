@@ -416,6 +416,39 @@ sub create_ecoscore_panel($$$) {
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
+        if (defined $product_ref->{ecoscore_extended_data}) {
+
+            # FIXME : check version of ecoscore_extended_data (needs to be 2 or 3)
+            # Compute the index of the recipe with the maximum confidence
+            my $max_confidence = 0;
+            my $max_confidence_index;
+            my $i = 0;
+
+            foreach my $confidence (@{$product_ref->{ecoscore_extended_data}{impact}{confidence_score_distribution}}) {
+                if ($confidence > $max_confidence) {
+
+                    $max_confidence_index = $i;
+                    $max_confidence = $confidence;
+                }
+                $i++;
+            }
+            
+            my @ingredients = ();
+
+            foreach my $ingredient (sort { $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$b}
+                <=> $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$a} } keys %{$product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]}) {
+                push @ingredients, {
+                    id => $ingredient,
+                    quantity => $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$ingredient},
+                }
+            }
+
+            $product_ref->{ecoscore_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
+
+            create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+                $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
 
