@@ -1,22 +1,27 @@
 ﻿version: "3.7"
+
+x-backend-conf: &backend-conf
+  image: openfoodfacts-server/backend:dev
+  build:
+    context: .
+    dockerfile: Dockerfile
+    # align user id
+    args:
+      USER_UID: ${USER_UID:-1000}
+      USER_GID: ${USER_GID:-1000}
+  volumes:
+    # mount local folder for reload on dev changes.
+    # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
+    # Sadly, there is no sane way to do this, while retaining compatibility with prod
+    # (which requires images/product to be empty in git)
+    - ./:/opt/product-opener
+    # we use this for debugging, from times to times
+    - ./debug:/mnt/podata/debug/
+
+
 services:
-  backend:
-    image: openfoodfacts-server/backend:dev
-    build:
-      context: .
-      dockerfile: Dockerfile
-      # align user id
-      args:
-        USER_UID: ${USER_UID:-1000}
-        USER_GID: ${USER_GID:-1000}
-    volumes:
-      # mount local folder for reload on dev changes.
-      # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
-      # Sadly, there is no sane way to do this, while retaining compatibility with prod
-      # (which requires images/product to be empty in git)
-      - ./:/opt/product-opener
-      # we use this for debugging, from times to times
-      - ./debug:/mnt/podata/debug/
+  backend: *backend-conf
+  incron: *backend-conf
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:

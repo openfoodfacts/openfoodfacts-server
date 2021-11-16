@@ -30,7 +30,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello init_backend up setup_incron import_sample_data refresh_product_tags
+dev: hello init_backend up import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -110,13 +110,6 @@ reset_owner:
 	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: make_base_dirs build_lang
-
-setup_incron:
-	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
-	${DOCKER_COMPOSE} exec --user root -T backend sh -c "\
-		echo 'root' >> /etc/incron.allow && \
-		incrontab -u root /opt/product-opener/conf/incron.conf && \
-		incrond"
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
