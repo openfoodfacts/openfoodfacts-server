@@ -28077,12 +28077,15 @@ fr:Préparations pour desserts gélifiés
 
 <en:Dessert mixes
 en:Pancake mixes, pancake mix
-de:Pfannkuchenmischung
 es:Mezcla para tortitas
 fi:lettujauhot
-fr:Préparations pour crêpes
 it:Preparato per pancake
 nl:Pancake mixes
+
+<en:Dessert mixes
+de:Pfannkuchenmischung
+fr:Préparations pour crêpes
+nl:Pannekoekenmixes
 
 <en:Cakes
 en:Filled cakes
@@ -40799,7 +40802,8 @@ fr:Compotes de pomme, Compotes de pommes, Compote de pommes
 he:לפתן תפוחים, קומפוט תפוחים
 hu:Almakompótok
 it:Composte di mela
-nl:Appelcompotes
+#comment:en:In dutch there is a difference between compote and moes. The former has pieces in it, while the later is more finely ground.
+nl:Appelcompotes, Applemoezen, Appelmoes
 sv:Äppelmos
 wikidata:en:Q618345
 agribalyse_food_code:en:13038
@@ -55325,7 +55329,7 @@ ciqual_food_name:en:Yogurt sauce
 ciqual_food_name:fr:Sauce au yaourt
 
 <en:Yogurt sauce
-en:Blue cheese yogurt dressing
+en:Blue cheese yogurt dressings
 
 <en:Sauces
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
@@ -55356,6 +55360,10 @@ agribalyse_food_code:en:11162
 ciqual_food_code:en:11162
 ciqual_food_name:en:Cream sauce with herbs
 ciqual_food_name:fr:Sauce à la crème aux herbes
+
+<en:Sauces
+en:Curry sauces
+nl:Currysauzen
 
 <en:Sauces
 en:Cream sauces with mushrooms
@@ -88363,7 +88371,15 @@ nl:Suiker hagel
 <en:Sprinkles
 en:Chocolate sprinkles
 fr:Vermicelles en chocolat
-nl:Chocolade hagel
+nl:Hagelslag, Chocolade hagel
+
+<en:Chocolate sprinkles
+en:Dark choclate sprinkles
+nl:Chocoladehagelslag puur, Chocolade hagel puur
+
+<en:Chocolate sprinkles
+en:Milk choclate sprinkles
+nl:Chocoladehagelslag melk, Hagelchocolade hagel melk
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
