@@ -140,6 +140,10 @@ front_lint:
 
 checks: front_lint
 
+tests:
+	@echo "🥫 Runing tests …"
+	docker-compose run --rm backend prove -l
+
 #------------#
 # Production #
 #------------#
