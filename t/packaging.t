@@ -365,6 +365,7 @@ my @tests = (
 		}
 	],
 
+	# Special test for cardboard that can be both a material and a shape
 	[
 		'en-cardboard-box-to-recycle',
 		{
@@ -373,6 +374,14 @@ my @tests = (
 		}
 	],
 
+	# in glass container should trigger the glass material, which should then be overriden by its clear glass child
+	[
+		'en-clear-glass-bottle-in-glass-container',
+		{
+			lc => "en",
+			packaging => "Clear glass bottle in glass container",
+		}
+	],	
 
 );
 
