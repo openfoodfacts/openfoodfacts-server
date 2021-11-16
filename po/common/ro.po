@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:51\n"
+"PO-Revision-Date: 2021-11-16 14:39\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -459,7 +459,7 @@ msgstr "Produse care nu sunt vândute în %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr "Sursa de date"
+msgstr "Sursa datelor"
 
 msgctxt "data_sources_p"
 msgid "data sources"
@@ -1309,7 +1309,7 @@ msgstr "Descoperiți"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/descoperă"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1422,7 +1422,7 @@ msgstr "Valori nutriționale pentru 100g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/valori nutritive"
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1531,7 +1531,7 @@ msgstr "Valori nutriționale"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel."
+msgstr "Tabelul listează în mod implicit nutrienții care sunt adesea specificați. Lăsați câmpul necompletat dacă nu este pe etichetă.<br/>Puteți adăuga nutrienți suplimentari (vitamine, minerale, colesterol etc.) tastând primele litere ale numelui lor în ultimul rând al tabelului."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -3996,7 +3996,7 @@ msgstr "Pentru surse externe de date. Proprietatea produselor importate nu se va
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr "Aplicație"
+msgstr "Aplicatie"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4449,7 +4449,7 @@ msgstr "Calitatea nutrițională"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Nutri-Scor"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4668,7 +4668,7 @@ msgstr "Mediu"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr "Eco-Score"
+msgstr "Scor Ecologic"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
@@ -4858,7 +4858,7 @@ msgstr "Detalii despre calculul Scorului Eco"
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr "Informații despre Eco-Score"
+msgstr "Informații despre Scorul Eco"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
@@ -5442,11 +5442,11 @@ msgid "Threatened species"
 msgstr "Specii pe cale de disparitie"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "Ingrediente a căror cultivare amenință speciile"
+msgid "Ingredients that threatens species"
+msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
+msgid "No ingredients that threaten species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5552,35 +5552,35 @@ msgstr "Eliminarea sau modificarea datelor furnizate va fi posibilă numai de c�
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Ambalare cu impact mare"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Ambalare cu impact mediu"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Ambalare cu impact redus"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Lipsesc informații despre ambalaj pentru acest produs"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact ridicat"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact mediu"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Originile ingredientelor cu impact redus"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Lipsa informațiilor despre originea ingredientelor"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5692,41 +5692,41 @@ msgstr "Pădurile tropicale din Asia, Africa și America Latină sunt distruse p
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr ""
+msgstr "Malus"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Analiza ciclului de viață"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonusuri și malusuri"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Scor Eco pentru acest produs"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Impactul mediu al produselor din aceeași categorie"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Suma bonusurilor și a malusurilor"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Suma bonusurilor și a malusurilor este limitată la +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Scorul analizei ciclului de viață"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "Scorul produselor cu materiale de ambalare nereciclabile și nebiodegradabile este limitat la 79 (gradul B)."
 

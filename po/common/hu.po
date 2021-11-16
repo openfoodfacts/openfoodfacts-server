@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:49\n"
+"PO-Revision-Date: 2021-11-16 14:36\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -3210,7 +3210,7 @@ msgstr "lefordítva"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr "Lefordítandó"
+msgstr "lefordítandó"
 
 msgctxt "current_translation"
 msgid "Current translation"
@@ -3250,7 +3250,7 @@ msgstr "Összetevők elemzése"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Az elemzés kizárólag a felsorolt összetevőkre épül, de nem veszi figyelembe a feldolgozási módszereket."
+msgstr "Az elemzés kizárólag a felsorolt összetevőkön alapul, és nem veszi figyelembe a feldolgozási módszereket."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
@@ -3298,7 +3298,7 @@ msgstr "Termékadatokat tartalmazó fájl feltöltése"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr "Fájl feltöltve."
+msgstr "Fájl feltöltés alatt."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
@@ -3330,7 +3330,7 @@ msgstr "Termék azonosítása"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr "Eredet"
+msgstr "Származás"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3354,7 +3354,7 @@ msgstr "Termékfotók"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr "Link az első oldali termékfotóhoz"
+msgstr "Link az előlapi termékfotóhoz"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
@@ -3362,7 +3362,7 @@ msgstr "Link az összetevő lista fotóhoz"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr "Hivatkozás a tápérték táblázat fotóra"
+msgstr "Link a tápérték táblázat fotóhoz"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
@@ -3441,7 +3441,7 @@ msgstr "Érték"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr "Érték + egység"
+msgstr "Érték + mértékegység"
 
 msgctxt "value_in_l"
 msgid "Value in L"
@@ -3477,7 +3477,7 @@ msgstr "Érték μg-ban"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr "Érték IU-ban"
+msgstr "Érték NE-ben"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
@@ -3543,7 +3543,7 @@ msgstr "Termékadatok és fotók exportálása a publikus adatbázisba"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr "Kérjük, mielőtt a nyilvános adatbázisba exportálná, ellenőrizze, hogy az adatok a gyártói platformon helyesek-e."
+msgstr "Kérjük, ellenőrizze a gyártói platformon szereplő adatok helyességét, mielőtt exportálja azokat a nyilvános adatbázisba."
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
@@ -3559,7 +3559,7 @@ msgstr "Mégse"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
-msgstr ""
+msgstr "Összecsukott módosítások"
 
 msgctxt "data_quality_p"
 msgid "data quality"
@@ -3786,7 +3786,7 @@ msgstr "Termékfotók importálása"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr "Az alábbi űrlapot használhatja fényképek (termékfotó, összetevők listája, tápérték táblázat) egyszerű feltöltésére több termékről."
+msgstr "Az alábbi űrlap segítségével egyszerűen feltölthet fényképeket (termékfotó, összetevők listája, tápérték táblázat) számos termékről."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
@@ -3814,7 +3814,7 @@ msgstr "3001234567890.ingredients_fr.jpg: az összetevők listája franciául."
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr "3001234567890.nutrition_es.jpg: tápérték táblázat spanyolul."
+msgstr "3001234567890.nutrition_es.jpg: tápértéktáblázat spanyolul."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3866,19 +3866,19 @@ msgstr "Negatív pontok"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a negatív pontok 11-nél kevesebbek."
+msgstr "A fehérjék pontjai azért számítanak bele, mert 11-nél kevesebb a negatív pont."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr "A fehérjékre vonatkozó pontok nem számítanak bele, mert a negatív pontok száma legalább 11."
+msgstr "A fehérjék pontjai nem számítanak bele, mert a negatív pontok száma legalább 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj pontszáma maximális."
+msgstr "A fehérjék pontjai beleszámítanak, mert a gyümölcsök, zöldségek, csonthéjasok és repce/dió/olívaolaj pontszáma maximális."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr "A fehérjékre vonatkozó pontok beleszámítanak, mert a termék szerepel a sajtok kategóriában."
+msgstr "A fehérjék pontjai beleszámítanak, mert a termék a sajtok kategóriába tartozik."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
@@ -3951,7 +3951,7 @@ msgstr "Az Open Food Facts 100%-ban ingyenes és független."
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr "A projekt folytatásához és továbbfejlődéséhez <a href=\"\">az ön segítségére és adományaira van szükségünk</a>."
+msgstr "A projekt folytatásához és továbbfejlődéséhez <a href=\"\">az Ön segítségére és adományaira is szükségünk van</a>."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3969,7 +3969,7 @@ msgstr "%s kategória középértéke"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "A Nutri-Score %s értékről %s értékre változtatható, ha a(z) %s értéket erről: %s erre: %s módosítja (%s százalék eltérés)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -3985,7 +3985,7 @@ msgstr "Gyártó"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Csak a saját termékeiket szerkesztő gyártói fiókoknál kell ellenőrizni. A termék a gyártónak lesz tulajdonítva amikor hozzáadnak vagy módosítanak egy terméket."
 
 msgctxt "user_group_database"
 msgid "Database"
@@ -4017,7 +4017,7 @@ msgstr "Moderátor"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "A moderátorok speciális funkciókhoz férhetnek hozzá a termékek szerkesztéséhez és felülvizsgálatához."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
@@ -4033,15 +4033,15 @@ msgstr "Már adományoztam, vagy nem érdekel. Banner elrejtése."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Független és polgárok által irányított projekt az élelmiszerek átláthatóságáért?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Élelmiszeripari adatok a közegészségügyet javító kutatásokhoz?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Könnyebb és jobb ételválasztás a saját kritériumai szerint?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
@@ -4057,7 +4057,7 @@ msgstr "A túlzott alkoholfogyasztás káros az egészségre, mértékkel fogyas
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "A gyártói platform moderálása"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
@@ -4078,7 +4078,7 @@ msgstr "Módosítás"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc vagy org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
@@ -4087,27 +4087,27 @@ msgstr "%s felhasználó nem létezik"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "Az azonosítónak user-abc vagy org-xyz formátumúnak kell lennie"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "Termékkategóriák importálása a publikus adatbázisból"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "Kategóriák hozzáadása a nyilvános adatbázisból a gyártói platformon található termékekhez."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "Kategóriák importálása"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Nutri-Score osztályzat a gyártótól"
+msgstr "Nutri-Score pontszám a gyártótól"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Számított Nutri-Score osztályzat"
+msgstr "Számított Nutri-Score pontszám"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
@@ -4131,7 +4131,7 @@ msgstr "Az előző kód használata"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Megadhat olyan mezőértékeket, amelyek minden termékhez hozzáadódnak, amelyekről képeket küld."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4143,19 +4143,19 @@ msgstr "Összes termék eltávolítása"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Összes termékének eltávolítása a gyártói platformról"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Eltávolíthatja az összes termékét a gyártók platformjáról, például tiszta lappal kezdhet, ha az importálás során problémák adódtak. Ez nem érinti a nyilvános adatbázisban szereplő termékeket."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "Felhívjuk figyelmét, hogy ez a művelet nem vonható vissza."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Figyelem: ez a művelet nem vonható vissza. Biztos benne, hogy el kívánja távolítani az összes termékét a gyártók platformjáról?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
@@ -4176,15 +4176,15 @@ msgstr "Egyes összetevőket nem sikerült felismerni."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Összes {language} nyelvű adat és kiválasztott fotó áthelyezése a termék fő nyelvére: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Meglévő értékek és kiválasztott fotók cseréje"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Meglévő értékek és kiválasztott fotók megtartása"
 
 msgctxt "done_status"
 msgid "Done"
@@ -4192,7 +4192,7 @@ msgstr "Kész"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Teendő"
 
 msgctxt "teams"
 msgid "Teams"
@@ -4212,11 +4212,11 @@ msgstr "csapat"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "1-3 csapathoz lehet csatlakozni. A hozzáadott vagy szerkesztett termékeket jóváírjuk Önnek és csapatainak. A csapatok bármikor cserélhetők."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "A csapatnevek nyilvánosak. Ne hozzon létre csapatokat olyan nevekkel, amelyek személyes adatokat (pl. családneveket), védjegyeket (kivéve, ha Ön a tulajdonosa) vagy bármi sértőt tartalmaznak."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
@@ -4230,15 +4230,15 @@ msgstr "%d termék lesz exportálva."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL ételnév"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL ételnév"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL ételnevek"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
@@ -4289,7 +4289,7 @@ msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
-msgstr "Több érték elválasztása vesszőkkel."
+msgstr "A több értéket vesszővel válassza el."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
@@ -4297,31 +4297,31 @@ msgstr "Ha a termék csomagolása több nyelven készült, jelölje meg a termé
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "Írjon be „Igen”-t, „Y”-t vagy 1-et, ha a termék már nem kapható a boltokban."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "Adja meg az értéket és a mértékegységet is, vagy használja az alapértelmezett mértékegységet: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Adja meg az értéket és a mértékegységet is."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Töltsön le egy XLSX-sablonfájlt az importálható mezőkkel Excelhez vagy LibreOffice-hoz."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "A vonalkód, ahogy a terméken látható."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "A gyártó által a termék azonosítására használt, a termék vonalkódjától eltérő belső kód."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "A gyártó által a termék megváltozásakor az adott verzió azonosítására használt belső kód."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
@@ -4329,15 +4329,15 @@ msgstr "A kategória megadása nagyon fontos a termék megkeresésének megkönn
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr "Néhány címkét, például a bio címkét, a keresési eredmények szűrésére és/vagy rangsorolására használnak, ezért erősen ajánlott megadni."
+msgstr "Egyes címkék, például a bio címke a keresési eredmények szűrésére, rangsorolására szolgálnak, ezért erősen ajánlott megadni őket."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Ez a mező csak az összetevők származási országainak vesszővel elválasztott listáját tartalmazhatja"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Szöveg vagy mondatok, amelyek jelzik a termék és/vagy összetevői eredetét."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4345,15 +4345,15 @@ msgstr "A termék címkéjén látható Nutri-Score osztályzat A-tól E-ig"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Az Open Food Facts kiszámítja a Nutri-Score osztályzatot a megadott információk (tápértékadatok és kategória) alapján. Ha az általunk kiszámított osztályzat eltér az Ön által megadott osztályzattól, privát értesítést kap a gyártói platformon, hogy az eltérést fel lehessen oldani."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr ""
+msgstr "Nutri-Score pontszám (számérték, amelyből az A-tól E-ig terjedő osztályzat származtatható)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Az Open Food Facts kiszámítja a Nutri-Score pontszámot a megadott információk (tápértékadatok és kategória) alapján. Ha az általunk kiszámított pontszám eltér az Ön által megadott pontszámtól, privát értesítést kap a gyártói platformon, hogy az eltérést fel lehessen oldani."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -4361,7 +4361,7 @@ msgstr "Kötelező mező"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
-msgstr ""
+msgstr "Minden terméknek rendelkeznie kell ezzel az információval."
 
 msgctxt "recommended_field"
 msgid "Recommended field"
@@ -4369,7 +4369,7 @@ msgstr "Ajánlott mező"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Ha ezek az információk rendelkezésre állnak és relevánsak a termékre nézve, akkor ajánlott megadni, hogy a termék könnyebben kereshető, a termékadatok pedig hasznosabbak legyenek."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -4377,12 +4377,12 @@ msgstr "Opcionális mező"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Ez az információ – amennyiben elérhető – megjelenik a termékoldalon."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "A termékfotók a gyártói platform termékfotók importálása funkciója segítségével külön is megadhatók."
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
@@ -4406,15 +4406,15 @@ msgstr "Hiányzó információ: biotermék?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Elősegíti az ökológiai fenntarthatóságot és a biodiverzitást."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "A biotermékek elősegítik az ökológiai fenntarthatóságot és a biodiverzitást."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "Az ökológiai gazdálkodás célja a környezet védelme és a biológiai sokféleség megőrzése azáltal, hogy tiltja vagy korlátozza a szintetikus műtrágyák, növényvédő szerek és élelmiszer-adalékanyagok használatát."
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4458,7 +4458,7 @@ msgstr "Jó tápérték (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "A Nutri-Score kiszámításra kerül, és minden terméknél figyelembe vehető, még akkor is, ha nincs feltüntetve a csomagoláson."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4495,7 +4495,7 @@ msgstr "Rossz tápérték"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr "Élelmiszer feldolgottság"
+msgstr "Élelmiszer feldolgozottság"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4536,15 +4536,15 @@ msgstr "Többszörösen feldolgozott élelmiszer"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Termék exportálása nyilvános adatbázisba"
 
 msgctxt "one_product_will_be_exported"
 msgid "1 product will be exported."
-msgstr ""
+msgstr "1 termék lesz exportálva."
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "Nincs exportálandó termék."
 
 msgctxt "query_filter"
 msgid "Query filter"
@@ -4641,11 +4641,11 @@ msgstr "1 eldobható műanyag fólia, 1 újrahasznosítható FSC kartondoboz, 6 
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Sorolja fel a csomagolás összes részét vesszővel vagy sortöréssel elválasztva, feltüntetve a mennyiségüket (pl. 1 vagy 6) típusukat (pl. palack, doboz, konzerv), anyagukat (pl. műanyag, fém, alumínium) és ha van, méretüket (pl. 33cl), valamint az újrahasznosítási utasításokat."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Próbáljon meg a lehető legspecifikusabb lenni. Műanyag esetén kérjük, tüntesse fel, hogy átlátszatlan vagy átlátszó, színes, PET vagy PEHD."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4657,11 +4657,11 @@ msgstr "Az újrahasznosítási utasításokat és/vagy a csomagolásra vonatkoz�
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Az újrahasznosítási utasítások és/vagy a csomagolásra vonatkozó információk ki lettek olvasva. A szövegfelismerés nem tökéletes, ezért kérjük, hogy ellenőrizze az alábbi szöveget és szükség esetén javítsa ki a hibákat."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Újrahasznosítási utasítások és/vagy csomagolási információk kiolvasása"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4734,7 +4734,7 @@ msgstr "Információkat adhat meg a vállalatáról, amik megjelennek az Ön sze
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Egyes információk, például az ügyfélszolgálat elérhetőségei közvetlenül is megjelenhetnek a termékei oldalain."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4750,15 +4750,15 @@ msgstr "Vevőszolgálat"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Az ügyfélszolgálati információk nyilvánosak, és megjelenhetnek az Open Food Facts webhelyén és az alkalmazásokban."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Az összes mező opcionális."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Kereskedelmi szolgáltatás"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
@@ -4770,11 +4770,11 @@ msgstr "Név"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Cím"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonszám"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -5443,11 +5443,11 @@ msgid "Threatened species"
 msgstr "Veszélyeztetett fajok"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "Összetevők, amelyek termesztése fajokat veszélyeztet"
+msgid "Ingredients that threatens species"
+msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
+msgid "No ingredients that threaten species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
