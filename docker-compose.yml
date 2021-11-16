@@ -1,4 +1,57 @@
 ﻿version: "3.7"
+
+x-backend-conf: &backend-conf
+  image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
+  environment:
+    - PRODUCERS_PLATFORM
+    - PRODUCT_OPENER_DOMAIN
+    - PRODUCT_OPENER_PORT
+    - PRODUCT_OPENER_FLAVOR
+    - PRODUCT_OPENER_FLAVOR_SHORT
+    - MONGODB_HOST
+    - POSTGRES_USER
+    - POSTGRES_PASSWORD
+    - ROBOTOFF_URL
+    - GOOGLE_CLOUD_VISION_API_KEY
+    - CROWDIN_PROJECT_IDENTIFIER
+    - CROWDIN_PROJECT_KEY
+    - GEOLITE2_PATH
+    - LOG_LEVEL_ROOT
+    - LOG_LEVEL_MONGODB
+  depends_on:
+    - memcached
+    - postgres
+  volumes:
+    - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
+
+    # Binds from frontend container (read-only)
+    - icons_dist:/opt/product-opener/html/images/icons/dist:ro
+    - js_dist:/opt/product-opener/html/js/dist:ro
+    - css_dist:/opt/product-opener/html/css/dist:ro
+    - node_modules:/opt/product-opener/node_modules:ro
+
+    # Users, products, product images and orgs files
+    - users:/mnt/podata/users # .sto
+    - products:/mnt/podata/products # .sto
+    - product_images:/opt/product-opener/html/images/products # .jpg
+    - orgs:/mnt/podata/orgs # .sto
+    # all the rest
+    - podata:/mnt/podata
+
+    # Logs
+    - ./logs/apache2:/var/log/apache2
+    - ./logs/apache2:/mnt/podata/logs
+    - ./logs/apache2:/var/log/httpd
+
+    # Apache conf
+    - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+
+    # Tmpfs
+    - type: tmpfs
+      target: /mnt/podata/mnt
+  networks:
+    - webnet
+
 services:
   memcached:
     image: memcached:1.6-alpine
@@ -14,57 +67,13 @@ services:
       - POSTGRES_DB=minion
     volumes:
       - pgdata:/var/lib/postgresql/data
-  backend:
-    image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
-    environment:
-      - PRODUCERS_PLATFORM
-      - PRODUCT_OPENER_DOMAIN
-      - PRODUCT_OPENER_PORT
-      - PRODUCT_OPENER_FLAVOR
-      - PRODUCT_OPENER_FLAVOR_SHORT
-      - MONGODB_HOST
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - ROBOTOFF_URL
-      - GOOGLE_CLOUD_VISION_API_KEY
-      - CROWDIN_PROJECT_IDENTIFIER
-      - CROWDIN_PROJECT_KEY
-      - GEOLITE2_PATH
-      - LOG_LEVEL_ROOT
-      - LOG_LEVEL_MONGODB
-    depends_on:
-      - memcached
-      - postgres
-    volumes:
-      - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
-
-      # Binds from frontend container (read-only)
-      - icons_dist:/opt/product-opener/html/images/icons/dist:ro
-      - js_dist:/opt/product-opener/html/js/dist:ro
-      - css_dist:/opt/product-opener/html/css/dist:ro
-      - node_modules:/opt/product-opener/node_modules:ro
-
-      # Users, products, product images and orgs files
-      - users:/mnt/podata/users # .sto
-      - products:/mnt/podata/products # .sto
-      - product_images:/opt/product-opener/html/images/products # .jpg
-      - orgs:/mnt/podata/orgs # .sto
-      # all the rest
-      - podata:/mnt/podata
-
-      # Logs
-      - ./logs/apache2:/var/log/apache2
-      - ./logs/apache2:/mnt/podata/logs
-      - ./logs/apache2:/var/log/httpd
-
-      # Apache conf
-      - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
-
-      # Tmpfs
-      - type: tmpfs
-        target: /mnt/podata/mnt
-    networks:
-      - webnet
+  backend: *backend-conf
+  incron:
+    <<: *backend-conf
+    # This service run the incron jobs
+    # Only root can run incron
+    user: root
+    command: ["incrond"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
