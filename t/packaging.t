@@ -363,7 +363,26 @@ my @tests = (
 			lc => "fr",
 			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
 		}
-	],		
+	],
+
+	# Special test for cardboard that can be both a material and a shape
+	[
+		'en-cardboard-box-to-recycle',
+		{
+			lc => "en",
+			packaging => "Cardboard box to recycle",
+		}
+	],
+
+	# in glass container should trigger the glass material, which should then be overriden by its clear glass child
+	[
+		'en-clear-glass-bottle-in-glass-container',
+		{
+			lc => "en",
+			packaging => "Clear glass bottle in glass container",
+		}
+	],	
+
 );
 
 init_packaging_taxonomies_regexps();
