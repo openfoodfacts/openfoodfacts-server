@@ -1,6 +1,4 @@
 {
-    "parent_panel_id": "environment_card",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
@@ -16,7 +14,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "summary",
+                "type": "summary",
                 "html": `
                     <p>[% lang('contains_palm_oil_description') %]</p> 
                     `
