@@ -73,7 +73,7 @@ services:
     # This service run the incron jobs
     # Only root can run incron
     user: root
-    command: ["incrond"]
+    command: ["incrond", "-n"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
