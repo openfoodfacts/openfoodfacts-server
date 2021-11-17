@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-05 18:44\n"
+"PO-Revision-Date: 2021-11-07 14:48\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4177,10 +4177,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "Einige Inhaltsstoffe konnten nicht erkannt werden."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "Alle Daten und ausgewählte Fotos in %s in die Hauptsprache des Produkts verschieben: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "Verschieben Sie alle Daten und ausgewählten Fotos in {language} in die Hauptsprache des Produkts: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5451,8 +5451,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "Inhaltsstoffe, deren Anbau andere Arten bedroht"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "Es wurde kein artengefährdender Inhaltsstoff im Anbau nachgewiesen."
+msgid "No ingredient threatening species"
+msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5556,36 +5556,36 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr "Das Entfernen oder Ändern von bereitgestellten Daten ist nur für erfahrene Mitwirkende auf der Website möglich."
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
-msgstr "Die Verpackung dieses Produkts hat hohe Auswirkungen auf die Umwelt."
+msgid "Packaging with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
-msgstr "Die Verpackung dieses Produkts hat eine durchschnittliche Auswirkung auf die Umwelt."
+msgid "Packaging with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
-msgstr "Die Verpackung dieses Produkts hat eine geringe Auswirkung auf die Umwelt."
+msgid "Packaging with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
-msgstr "Informationen zur Verpackung dieses Produkts fehlen."
+msgid "Missing packaging information for this product"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
-msgstr "Transport und Herkunft der Zutaten haben einen großen Einfluss."
+msgid "Origins of ingredients with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
-msgstr "Transport und Herkunft der Zutaten haben einen mittleren Einfluss."
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
-msgstr "Transport und Herkunft der Zutaten haben einen geringen Einfluss."
+msgid "Origins of ingredients with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
-msgstr "Fehlende Angaben zur Herkunft der Zutaten"
+msgid "Missing origins of ingredients information"
+msgstr ""
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5620,17 +5620,21 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Spenden"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "Keine Etiketten mit Umweltvorteilen"
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
-msgstr "Produktionsmodus mit Vorteilen für die Umwelt"
+msgid "Labels with environmental benefits"
+msgstr "Etiketten mit Umweltvorteilen"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
-msgstr "Produktionsmodus mit großen Vorteilen für die Umwelt"
+msgid "Labels with high environmental benefits"
+msgstr "Etiketten mit starken Umweltvorteilen"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
-msgstr "Produktionsmodus mit sehr großen Vorteilen für die Umwelt"
+msgid "Labels with very high environmental benefits"
+msgstr "Etiketten mit sehr starken Umweltvorteilen"
 
 msgctxt "other"
 msgid "Other"
@@ -5648,4 +5652,86 @@ msgstr "Statistik der Zutaten für alle Produkte"
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
 msgstr "Zutaten für jedes Produkt"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "Produkt gelöscht."
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "CO2-Fußabdruck"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} g CO² pro 100 g des Produkts"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "Entspricht dem Fahren von {kilometers} km in einem Benzinauto"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "Quelle: ADEME Agribalyse-Datenbank"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "Umweltauswirkungen"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "Ernährung & Gesundheit"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "Enthält Palmöl"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "Treibt die Entwaldung an und bedroht Arten wie den Orang-Utan"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "Tropische Wälder in Asien, Afrika und Lateinamerika werden zerstört, um Ölpalmenplantagen anzulegen und zu erweitern. Die Abholzung trägt zum Klimawandel bei und gefährdet Arten wie den Orang-Utan, den Zwergelefanten und das Sumatra-Nashorn."
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
 
