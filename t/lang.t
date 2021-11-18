@@ -94,4 +94,20 @@ foreach my $stringid (sort keys %Lang) {
 	}
 }
 
+# Check that some words like Eco-Score and Nutri-Score are not translated
+
+my @words_that_should_not_be_translated = ("Nutri-Score", "Eco-Score", "NOVA");
+
+foreach my $stringid (sort keys %Lang) {
+	foreach my $word (@words_that_should_not_be_translated) {
+		if ($Lang{$stringid}{'en'} =~ /\b$word\b/) {
+			foreach my $l (keys %{$Lang{$stringid}}) {
+				if ($Lang{$stringid}{$l} !~ /\b$word\b/) {
+					fail("string $stringid in language $l does not contain $word: $Lang{$stringid}{$l}");
+				}
+			}
+		}
+	}
+}
+
 done_testing();
