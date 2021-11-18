@@ -196,10 +196,13 @@ sub parse_packaging_from_text_phrase($$) {
 				foreach my $regexp_ref (@{$packaging_taxonomies_regexps{$tagtype}{$language}}) {
 					
 					my ($tagid, $regexp) = @$regexp_ref;
+
+					my $matched = 0;
 										
 					if ($text =~ /\b($regexp)\b/i) {
 						
 						my $before = $`;
+						$matched = 1;
 						
 						$log->debug("parse_packaging_from_text_phrase - regexp match", { before => $before, text => $text, language => $language, tagid => $tagid, regexp => $regexp }) if $log->is_debug();
 						
@@ -251,6 +254,9 @@ sub parse_packaging_from_text_phrase($$) {
 						}
 					}
 					elsif ($textid =~ /(^|-)($regexp)(-|$)/) {
+
+						$matched = 1;
+
 						if ((not defined $packaging_ref->{$property})
 							or (is_a($tagtype, $tagid, $packaging_ref->{$property}))) {
 							
@@ -260,17 +266,22 @@ sub parse_packaging_from_text_phrase($$) {
 							# The challenge is that $regexp matches the normalized $textid
 							# and we want to remove the corresponding unnormalized part in $text
 							$regexp =~ s/-/\\W/g;
-						}					
+						}		
 					}
 
-					# Remove the string that we have matched, so that when we match the "in the paper bin" recycling instruction,
-					# we don't also match the "paper" material (it could be cardboard)
-					# But don't remove "cardboard" as we do want to possibly match it as both a material and a shape
-					if ($tagid ne "en:cardboard") {
-						$text =~ s/\b($regexp)\b/ MATCHED /i;
-						$textid = get_string_id_for_lang($text_language, $text);
-						$log->debug("parse_packaging_from_text_phrase - removed match", { text => $text, textid => $textid }) if $log->is_debug();
-					}					
+					if ($matched) {
+						# Remove the string that we have matched, so that when we match the "in the paper bin" recycling instruction,
+						# we don't also match the "paper" material (it could be cardboard)
+						# Exceptions:
+						# - Do not remove "cardboard" as we do want to possibly match it as both a material and a shape
+						# - Do not remove materials that begin with a number (e.g. "1 PET" in order to not remove the 1 in "1 PET bottle" which is more likely to be a number)
+						if (($tagid ne "en:cardboard")
+							and not (($regexp =~ /^\d/) and ($regexp =~ /^\d/)) ) {
+							$text =~ s/\b($regexp)\b/ MATCHED /i;
+							$textid = get_string_id_for_lang($text_language, $text);
+							$log->debug("parse_packaging_from_text_phrase - removed match", { text => $text, textid => $textid, tagid => $tagid, regexp => $regexp }) if $log->is_debug();
+						}
+					}	
 				}
 			}
 		}

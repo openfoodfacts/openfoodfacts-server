@@ -381,7 +381,16 @@ my @tests = (
 			lc => "en",
 			packaging => "Clear glass bottle in glass container",
 		}
-	],	
+	],
+
+	[
+		'en-1-pet-plastic-bottle',
+		{
+			lc => "en",
+			packaging => "1 PET plastic bottle",
+		}
+	],
+	
 
 );
 
