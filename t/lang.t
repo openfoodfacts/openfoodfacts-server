@@ -102,7 +102,11 @@ foreach my $stringid (sort keys %Lang) {
 	foreach my $word (@words_that_should_not_be_translated) {
 		if ($Lang{$stringid}{'en'} =~ /\b$word\b/) {
 			foreach my $l (keys %{$Lang{$stringid}}) {
-				if ($Lang{$stringid}{$l} !~ /\b$word\b/) {
+				if (($Lang{$stringid}{$l} !~ /\b$word\b/)
+					# in CJK languages, allow the words to not have a word boundary around them
+					and not (($l =~ /^(ko|ja|zh)$/) and ($Lang{$stringid}{$l} =~ /$word/))				
+				)
+				 {
 					fail("string $stringid in language $l does not contain $word: $Lang{$stringid}{$l}");
 				}
 			}
