@@ -5,11 +5,10 @@ ENV_FILE ?= .env
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
-DOCKER_BUILDKIT=1
-export DOCKER_BUILDKIT
-UID ?= 1000
-USER_UID ?= ${UID}
-export USER_UID
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+UID ?= $(shell id -u)
+export USER_UID:=${UID}
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
@@ -105,7 +104,7 @@ build_lang:
 
 # create some bind mounted dirs, to avoid them from being owned by root
 make_base_dirs:
-	mkdir -p logs/apache2/ logs/nginx/
+	mkdir -p logs/apache2/ logs/nginx/ debug/
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
