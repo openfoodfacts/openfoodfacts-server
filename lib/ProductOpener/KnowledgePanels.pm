@@ -50,8 +50,6 @@ BEGIN
 	@EXPORT_OK = qw(
 
 		&create_knowledge_panels
-		&create_ecoscore_panels
-        &create_environment_card_panel
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -162,8 +160,7 @@ sub create_knowledge_panels($$$$) {
 
     # Add knowledge panels
 
-    create_ecoscore_panel($product_ref, $target_lc, $target_cc);
-
+    create_health_card_panel($product_ref, $target_lc, $target_cc);
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
 
     # Create the root panel that contains the panels we want to show directly on the product page
@@ -251,7 +248,18 @@ sub create_panel_from_json_template ($$$$$$) {
 
     my $panel_json;
 
-    if (not process_template($panel_template, { panel => $panel_data_ref, product => $product_ref }, \$panel_json)) {
+    # We pass several structures to the template:
+    # - panel: this panel data
+    # - panels: the hash of all panels created so far (useful for panels that include previously created panels
+    # only if they have indeed been created)
+    # - product: the product data
+
+    if (not process_template($panel_template, {
+            panel => $panel_data_ref,
+            panels => $product_ref->{"knowledge_panels_" . $target_lc},
+            product => $product_ref,
+        }, 
+        \$panel_json)) {
         # The template is invalid
         $product_ref->{"knowledge_panels_" . $target_lc}{$panel_id} = {
             "template" => $panel_template, 
@@ -507,6 +515,9 @@ sub create_environment_card_panel($$$) {
 
     my $panel_data_ref = {};
 
+    # Create Eco-Score related panels
+    create_ecoscore_panel($product_ref, $target_lc, $target_cc);
+
     # Include the carbon footprint panel if we have data for it
     if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
         $panel_data_ref->{carbon_footprint} = 1;
@@ -604,6 +615,105 @@ sub create_manufacturing_place_panel($$$) {
     }
 
     return 0;  
+}
+
+
+=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel card that contains all knowledge panels related to health.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+We may display country specific recommendations from health authorities, or country specific scores.
+
+=head3 Return value
+
+The return value is a reference to the resulting knowledge panel data structure.
+
+=cut
+
+sub create_health_card_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create health card panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+    my $panel_data_ref = {};
+
+    # Create Nutri-Score panel
+    create_nutriscore_panel($product_ref, $target_lc, $target_cc);
+
+    # Create the health_card panel
+    create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);    
+}
+
+
+=head2 create_nutriscore_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels to describe the Nutri-Score.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=head3 Return value
+
+The return value is 1 if the panel was created, 0 otherwise.
+
+=cut
+
+sub create_nutriscore_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nutriscore panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+	
+    my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
+
+    if ((not $panel_data_ref->{do_not_display})
+        and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
+
+        $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+
+        # We create separate panels for the Nutri-Score score and warnings, so that we can display both
+        # in a panel group, with warnings always shown even if the Nutri-Score panel is not expanded.
+
+        # Nutri-Score panel: score + details
+        create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+        # Nutri-Score warnings
+        if (defined $panel_data_ref->{nutriscore_warnings}) {
+            create_panel_from_json_template("nutriscore_warnings", "api/knowledge-panels/health/nutriscore/nutriscore_warnings.tt.json",
+                $panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+    }
+    
 }
 
 1;

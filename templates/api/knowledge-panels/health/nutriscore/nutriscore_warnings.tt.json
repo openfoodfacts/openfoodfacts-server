@@ -1,0 +1,22 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    // We want the Nutri-Score warning panel to always be expanded and shown
+    "type": "inline",
+    [% IF panel.nutriscore_warnings %]
+    "elements": [
+        
+        [% FOREACH warning IN panel.nutriscore_warnings %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% warning %]
+                `,
+            }
+        },
+        [% END %]
+    ]
+    [% END %]  
+}
