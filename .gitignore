@@ -14,9 +14,10 @@ Thumbs.db
 .vstags
 
 # Logs
+logs/
+debug/
 Store.debug.txt
 *.log
-logs/modperl_error_log
 nytprof*.out
 
 # Local databases

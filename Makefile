@@ -102,17 +102,13 @@ build_lang:
 	# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
-# create some bind mounted dirs, to avoid them from being owned by root
-make_base_dirs:
-	mkdir -p logs/apache2/ logs/nginx/ debug/
-
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
 	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: make_base_dirs build_lang
+init_backend: build_lang
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
