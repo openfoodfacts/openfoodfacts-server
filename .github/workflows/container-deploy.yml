@@ -161,6 +161,7 @@ jobs:
         script: |
           cd ${{ matrix.env }}
           make hdown
+          make build_lang
           make up
           make setup_incron
 
