@@ -27807,18 +27807,22 @@ zh:早餐
 
 en:Cocoa and its products
 fr:Cacao et dérivés
+nl:Cacao en afgeleide producten
 
 <en:Cocoa and its products
 en:Cocoa beans
 fr:Fèves de cacao
+nl:Cacaobonen
 
 <en:Cocoa beans
 en:Roasted cocoa beans
 fr:Fèves de cacao torréfiées
+nl:Geroosterde cacaobonen
 
 <en:Cocoa beans
 en:Raw cocoa beans
 fr:Fèves de cacao crues
+nl:Rauwe cacaobonen
 
 <en:Cocoa beans
 fr:Grué de cacao
@@ -28975,9 +28979,10 @@ protected_name_file_number:en: PGI-IT-02314
 protected_name_type:en: pgi
 origins:en: en:Italy
 
+# This category refers to assorted chocolate squares and bars, not bonbons/pralines
 <en:Chocolates
 en:Assorted chocolates
-de:Verschiedene Pralinen, Pralinensortimente
+de:Verschiedene Schokoladen
 fi:suklaasekoitus
 fr:Assortiments de chocolats, assortiment de chocolat
 hu:Csokoládé válogatás
@@ -29873,7 +29878,7 @@ nl:Melkchocolabonbons
 
 <en:Bonbons
 en:Assorted chocolate candies
-de:Pralinenmischung
+de:Pralinenmischung, Verschiedene Pralinen, Pralinensortimente
 fi:suklaamakeissekoitus
 fr:Assortiments de bonbons de chocolat
 it:Assortimento di cioccolatini
@@ -29933,6 +29938,13 @@ ciqual_food_name:en:Chocolate confectionery, filled with wafer
 ciqual_food_name:fr:Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 <en:Bonbons
+en:Chocolate covered chickpeas
+fr:Pois chiches enrobés de chocolat
+
+<en:Bonbons
+fr:Gingembrettes
+
+<en:Bonbons
 <en:Fruit confectioneries
 en:Chocolate covered fruits
 de:Früchte mit Schokoladenüberzug
@@ -29946,8 +29958,9 @@ wikidata:en:Q15985102
 <en:Chocolate covered fruits
 fr:Orangettes
 
-<en:Bonbons
-fr:Gingembrettes
+<en:Chocolate covered fruits
+en:Chocolate-covered figs
+fr:Figues enrobées de chocolat
 
 <en:Chocolate covered fruits
 en:Chocolate-covered prune
@@ -30041,9 +30054,11 @@ ciqual_food_name:fr:Bonbons, tout type
 en:French candies
 fr:Bonbons français
 
+#should this be in gelified candies?
 <en:Candies
 en:Liquorice candies, Licorice candies
 fr:Bonbons au réglisse, Bonbons à la réglisse
+nl:Drop
 
 <en:French candies
 fr:Bêtises de Cambrai
@@ -30072,10 +30087,6 @@ fi:hunajamakeiset
 fr:Bonbons au miel, bonbon au miel
 it:Caramelle al miele
 nl:Honingbonbons
-
-<en:Candies
-en:Liquorice candies
-fr:Bonbons au réglisse, Bonbons à la réglisse
 
 <en:Candies
 en:Candy meringues, candy meringue
@@ -30115,6 +30126,9 @@ en:Gummy strawberries
 de:Gummi Erdbeeren
 fr:fraises gélifiées
 nl:Gummi-aardbeien
+
+<en:Gelified candies
+nl:Wine gums
 
 <en:Gelified candies
 en:Gummy cola bottles
@@ -30192,8 +30206,6 @@ ciqual_food_code:en:31059
 ciqual_food_name:en:Hard candy and lollipop
 ciqual_food_name:fr:Bonbon dur et sucette
 
-<en:Candies
-nl:Drop
 
 <en:Nut confectioneries
 en:French pralines
@@ -30617,6 +30629,12 @@ de:Spanisches Alfajor
 es:Alfajores españoles
 fr:Alfajores espagnols
 wikidata:en:Q5666489
+
+<en:Christmas sweets
+en:Empiñonadas
+de:Empiñonadas
+es:Empiñonadas
+fr:Empiñonadas
 
 <en:Christmas sweets
 en:Almond creme filled wafers
@@ -32924,6 +32942,15 @@ zh:薯片
 fr:Chips de pois chiches
 
 <en:Salty snacks
+en:Salty roasted peas
+fr:Pois grillés salés
+pnns_group_2:en:Appetizers
+
+<en:Salty roasted peas
+en:Salty roasted chickpeas
+fr:Pois chiches grillés salés
+
+<en:Salty snacks
 en:Vegetables cakes
 fr:Cake aux legumes
 
@@ -35189,7 +35216,7 @@ fr:Fromages à la crème
 he:גבינות שמנת
 hu:Krémsajtok
 it:Formaggi spalmabili, Formaggio spalmabile
-nl:Verse kazen
+nl:Roomkazen, Roomkaas
 ru:Крем-сыры
 wikidata:en:Q426337
 
@@ -35199,6 +35226,7 @@ de:Frischkäse
 es:Queso fresco
 fr:Fromages à pâte fraîche, Fromage frais
 it:Formaggi freschi
+nl:Verse kazen
 wikidata:en:Q3323634
 
 <en:Fresh cheeses
@@ -35206,6 +35234,45 @@ en:Brousse
 es:Brousse
 fr:Brousses
 wikidata:en:Q2926318
+
+#note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
+<en:Fresh cheeses
+en:Cottage cheeses
+af:Maaskaas
+ar:جبن قريش
+cs:Cottage
+da:Hytteost
+de:Hüttenkäse
+el:Τυρί κότατζ
+es:Cottage
+et:Kodujuust
+eu:Gaztanbera
+fa:پنیر کوتاژ
+fi:Raejuusto
+fr:cottage cheeses, fromages cottage
+gl:Requeixo
+he:קוטג'
+id:Cottage
+is:Kotasæla
+ja:カッテージチーズ
+jv:Kèju pondhok
+ko:코티지 치즈
+lt:Grūdėta varškė
+lv:Mājas siers
+ms:Keju kotej
+nl:Hüttenkäsen, Cottage cheeses
+nn:Opplagd mjølk
+no:Hytteost
+pl:Cottage cheese
+pt:Cottage
+ru:Зернёный творог
+sl:Zrnasta skuta
+sv:Keso
+tr:Çökelek peyniri
+uk:Кисломолочний сир
+zh:茅屋起司
+#yue:茅屋芝士
+wikidata:en:Q13221624
 
 <en:French cheeses
 <en:Brousse
@@ -37357,7 +37424,7 @@ protected_name_type:en: pgi
 origins:en: en:Netherlands
 
 <en:Cheeses of the Netherlands
-nl:Boerenkaas
+nl:Boerenkazen, Boerenkaas
 protected_name_file_number:en: TSG-NL-0023
 protected_name_type:en: tsg
 origins:en: en:Netherlands
@@ -38495,6 +38562,7 @@ ciqual_food_name:fr:Boisson lactée aromatisée à la fraise, sucrée, au lait p
 <en:Flavoured milks
 en:Milkshakes, Milk-shakes
 fr:Milkshakes, Milk-shakes
+nl:Milkshakes
 agribalyse_proxy_food_code:en:39001
 agribalyse_proxy_food_name:en:Milkshake, from fast foods restaurant
 agribalyse_proxy_food_name:fr:Milk-shake, provenant de fast food
@@ -38506,6 +38574,11 @@ agribalyse_food_code:en:39001
 ciqual_food_code:en:39001
 ciqual_food_name:en:Milkshake, from fast foods restaurant
 ciqual_food_name:fr:Milk-shake, provenant de fast food
+
+<en:Milkshakes
+en:Weight-loss milkshakes
+fr:Milkshakes minceurs
+nl:Afslankshakes
 
 <en:Dairy drinks
 <en:Coffee drinks
@@ -42438,7 +42511,6 @@ de:Haselnussmus
 es:Mantecas de avellana
 fr:Purées de noisette, Purée de noisette, Purées de noisettes, Beurres de noisettes
 nl:Hazelnootpasta's
-nl_be:Hazelnootpasta's
 wikidata:en:Q5688100
 
 <en:Nut butters
@@ -48382,19 +48454,62 @@ en:Cassava flour
 fr:Farines de manioc
 nl:Maniokmelen
 
-en:Food additives
+en:Food additives, Foos additive
+ar:مضاف غذائي
+az:Qida əlavələri
+ba:Аҙыҡ өҫтәмәләре
+be:Харчовыя дабаўкі
 bg:Хранителни добавки
+bn:খাদ্যে সংযোজনদ্রব্য
 ca:Additius alimentaris
+cs:Přídatná látka
+da:Tilsætningsstof
 de:Lebensmittelzusatzstoff
+el:Πρόσθετο τροφίμων
+eo:Manĝa aldonaĵo
 es:Aditivos alimentarios
-fi:lisäaineet
+et:Toidulisaained
+eu:Elikagai-gehigarri
+fa:افزودنی‌های غذایی
+fi:Lisäaineet, lisäaine
 fr:Additifs alimentaires
+ga:Breiseán
 he:תוספי מזון
-it:Additivi
-nl:Voedingssupplementen
+hi:खाद्य योगज
+hr:Prehrambeni aditivi
+hu:Élelmiszer-adalékanyag
+id:Aditif makanan
+io:Nutrivala adicioneso
+it:Additivi alimentari, additivo alimentare
+ja:食品添加物
+ko:식품 첨가물
+ky:Тамак кошумчалары
+lb:Liewensmëttelzousätz
+mk:Прехранбен адитив
+mn:Хүнсний нэмэлт бүтээгдэхүүн
+ms:Bahan tambahan makanan
+nb:Tilsetningsstoff
+nl:Voedingsadditief, Voedingssupplement
+nn:Tilsetjingsstoff
+pl:Dodatek do żywności
+pt:Aditivo alimentar
+ro:Aditiv alimentar
 ru:Пищевые добавки
+sh:Prehrambeni aditiv
+sk:Prídavná látka v potravinách
+sr:Prehrambeni aditivi, Прехрамбени адитиви
+su:Aditif kadaharan
+sv:Livsmedelstillsats
+tg:Афзуданиҳои ғизоӣ
+th:วัตถุเจือปนอาหาร
+tr:Gıda katkısı
+tt:Азык өстәмәләре
+uk:Харчові додатки
+vi:Phụ gia thực phẩm
 zh:食品添加剂
+#vec:Aditivo ałimentar
 wikidata:en:Q189567
+#description:en:substances added to food to preserve flavor or enhance its taste, appearance, or other qualities
 
 <en:Food additives
 en:Soy lecithin
@@ -60185,6 +60300,7 @@ ciqual_food_name:fr:Soupe à la volaille et aux légumes, déshydratée reconsti
 <en:Soups
 en:Chicken and vermicelli soup
 fr:Soupes à la volaille et aux vermicelles
+nl:Kippensoepen met vermicelli
 
 <en:Chicken and vermicelli soup
 <en:Reheatable soups
@@ -62240,6 +62356,14 @@ en:Buddha Bowl
 fr:Buddha Bowl
 
 <en:Prepared salads
+en:Chicken salads
+nl:Kipsalades
+
+<en:Prepared salads
+en:Egg salads
+nl:Eisalades, Eiersalades
+
+<en:Prepared salads
 <en:Meals with fish
 en:Tuna salad
 de:Thunfischsalat
@@ -62572,8 +62696,7 @@ fr:Viandes
 he:בשרים
 hu:Húsok
 it:Carni
-nl:Vlezen
-nl_be:Vlezen
+nl:Vlezen, Vlees
 pl:Mięsa
 pt:Carnes
 ru:Мясо
@@ -63946,7 +64069,7 @@ es:Preparados de vaca picada
 fi:jauhelihavalmisteet
 fr:Préparations de viande bovine hachée, Préparations hachées de viande bovine, préparations hachées de viande bœuf, préparation de viande de bœuf hachée
 it:Macinato di manzo
-nl:Gehakt vleesproducten
+nl:Gehakt rundvleesproducten
 
 <en:Beef preparations
 en:Roast veal, Roasted veal, Veal roast
@@ -64023,7 +64146,7 @@ nl:Diepvriesrundertartaarsteaks
 en:Frozen ground beef preparations
 de:Gefrorene Rinderhackprodukte, gefrorenes Rinderhackfleisch
 fr:Préparations de viande bovine hachée surgelées, Préparations hachées de viande de bœuf surgelées, préparations de viande de bœuf hachée surgelées, préparations surgelées de viande bovine hachée, préparations hachées surgelées de viande bovine
-nl:Bevroren gehakte vleesproducten
+nl:Bevroren gehakte rundvleesproducten
 
 <en:Meat preparations
 <en:Breaded products
@@ -64197,6 +64320,11 @@ ciqual_food_code:en:8373
 ciqual_food_name:en:Rolled escalope of pork with pistachios
 
 #fr:Roulade au jambon pistachée
+
+<en:Meat preparations
+fr:Paupiettes
+nl:Slavinken
+#wiktionary:nl:slavink
 
 <en:Pork meat
 en:Pork ham escalope
@@ -67768,7 +67896,7 @@ fr:Mousses de canard au porto
 
 <en:Savory mousses
 fr:Mousses de foies, mousses de foie, mousse de foies, mousse de foie
-nl:Levermoussen
+nl:Leverpasteien, Levermoussen
 
 <fr:Mousses de foies
 fr:Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -75252,9 +75380,6 @@ fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumon
 it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
-<en:Smoked salmons
-fr:Saumons Atlantique fumés
-
 <en:British sea products
 <en:Smoked salmons
 en:London Cure Smoked Salmon
@@ -77686,7 +77811,7 @@ fi:suklaa- ja hasselpähkinälevitteet
 fr:Pâtes à tartiner aux noisettes et au cacao, pâtes à tartiner aux noisettes et au chocolat, Pâtes à tartiner au cacao et aux noisettes, Pâtes à tartiner au chocolat et aux noisettes
 hu:Kenhető csokoládé és mogyoró
 it:Crema con nocciole e cacao
-nl:Choco-hazelnootpastas
+nl:Choco-hazelnootpastas, Chocoladehazelnootpastas
 agribalyse_food_code:en:31032
 ciqual_food_code:en:31032
 ciqual_food_name:en:Chocolate spread with hazelnuts
@@ -79368,6 +79493,7 @@ ciqual_food_name:fr:Panais, cuit
 <en:Red kidney beans
 en:Cooked red kidney beans
 fr:Haricots rouges cuits
+nl:Gekookte rode kidneybonen, Gekookte rode kidney bonen
 agribalyse_food_code:en:20503
 ciqual_food_code:en:20503
 ciqual_food_name:en:Red kidney bean, cooked
@@ -79971,6 +80097,10 @@ agribalyse_food_code:en:20014
 ciqual_food_code:en:20014
 ciqual_food_name:en:Red cabbage, raw
 ciqual_food_name:fr:Chou rouge, cru
+
+<en:Red cabbage
+en:Red cabbage with apple
+nl:Rode kolen met appel
 
 <en:Red cabbage
 en:Boiled red cabbage, Red cabbage cooked in water
@@ -83158,7 +83288,7 @@ es:Alubias rojas de riñón, Judías rojas de riñón
 fi:kidneypavut
 fr:Haricots rouges
 it:Fagioli rossi
-nl:Nierbonen
+nl:Rode kidneybonen, Rode kidney bonen, Nierbonen
 wikidata:en:Q18175531
 
 
@@ -83888,7 +84018,6 @@ ciqual_food_code:en:20036
 ciqual_food_name:en:Garden peas, canned, drained
 ciqual_food_name:fr:Petits pois, appertisés, égouttés
 
-<en:Canned legumes
 <en:Canned vegetables
 en:Canned peas and carrots, Canned carrots and peas, Canned garden peas and carrots
 de:Erbsen und Karotten in Dosen, Karotten und Erbsen in Dosen
@@ -88740,19 +88869,54 @@ fr:Terrines de canard aux morilles
 fr:Terrines de canard au muscat
 
 en:Dietary supplements
+af:Diëet aanvulling
+ar:مكمل غذائي
+bs:Prehrambeni suplement
 ca:Suplements dietètics
+cs:Doplněk stravy
 da:Kosttilskud
 de:Nahrungsergänzungsmittel
+el:Συμπλήρωμα διατροφής
+eo:Dieta suplemento
 es:Suplementos dietéticos, Complementos alimenticios
-fi:ravintolisät
+eu:Elikadura-osagarri
+fa:مکمل‌های غذایی طبیعی
+fi:Ravintolisät, Lisäravintoaine
 fr:Compléments alimentaires
+gl:Suplemento dietético
 he:תוספי תזונה
+hi:खाद्य पूरक
+hr:Dodaci prehrani
 hu:Táplálék-kiegészítők
-it:Supplementi dietetici
-nl:Voedingsupplementen
-ro:Suplimente pentru dietă
+id:Suplemen makanan
+it:Supplementi dietetici, integratore alimentare
+ja:サプリメント
+jv:Suplemen panganan
+kk:Биологиялық белсенді қоспалар, Bïologïyalıq belsendi qospalar, بىيولوگىييالىق بەلسەندى قوسپالار
+ko:식이 보충제
+lt:Maisto papildas
+lv:Uztura bagātinātāji
+mk:Додаток во исхраната
+ms:Penokok pemakanan
+nb:Kosttilskudd
+nl:Voedingssupplementen
+nn:Kosttilskot
+pl:Suplement diety
+pt:Suplemento alimentar
+ro:Suplimente pentru dietă, Supliment alimentar
 ru:Биологически активные добавки, БАД
+sh:Dijetetski suplement
+sl:Prehransko dopolnilo
+sr:Дијететски суплемент, Dijetetski suplementi
+sv:Kosttillskott
+ta:உணவுக் குறைநிரப்பி
+th:อาหารเสริม
+tr:Gıda takviyesi
+uk:Біологічно активні добавки
+vi:Chế phẩm bổ sung
 zh:膳食补充剂
+#ast:Suplementu dietéticu
+#ckb:تەواوکەری خۆراکی
 wikidata:en:Q645858
 
 <en:Dietary supplements

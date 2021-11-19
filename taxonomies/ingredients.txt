@@ -253,7 +253,7 @@ hu:karamellizált cukorszirup
 it:sciroppo di zucchero caramellato
 lt:karamelizuotas cukraus sirupas
 lv:karamelizēts cukura sīrups
-nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop
+nl:gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop
 pl:cukier skarmelizowanny
 sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap, karamellsockersirap
 # ingredient/caramelised-sugar-syrup has 56 products @2019-03-09
@@ -8361,7 +8361,7 @@ lt:Išrūgos, išrügų
 lv:Sūkalas
 ms:Whey
 nb:Myse, valle
-nl:Wei, Melkwei
+nl:Wei, Melkwei, melkserum
 nn:Myse
 oc:Lactoserum, leiton, gaspa, lachada
 pa:ਪਨੀਰ ਦਾ ਪਾਣੀ
@@ -14082,6 +14082,10 @@ fr:concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
 <en:salt
+en:black salt
+nl:zwart zout
+
+<en:salt
 en:Himalayan salt
 ca:Sal de l'Himalaya
 de:Himalayasalz
@@ -14092,7 +14096,7 @@ it:Sale dell'Himalaya
 
 
 <en:salt
-en:Pink salt
+en:pink salt
 ca:Sal rosa
 de:Himmalaja-Salz
 es:Sal rosa
@@ -14100,7 +14104,7 @@ fr:Sel rose
 it:Sale rosa
 
 <en:Himalayan salt
-<en:Pink salt
+<en:pink salt
 en:Himalayan pink salt, Pink Himalayan salt
 ca:Sal rosa de l'Himalaya
 de:rosa Himalayasalz, rosa Himalaya-Salz
@@ -14160,6 +14164,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
 <en:salt
 de:Steinsalz
 hu:Kősó
+nl:steenzout
 
 # description:en:SEA SALT - is salt that is produced by the evaporation of seawater
 
@@ -17655,6 +17660,7 @@ fr:charcuterie
 <en:meat
 en:smoked sausages
 fr:saucisses fumées
+nl:rookworst
 
 en:Garlic sausage
 fr:Saucisson à l'ail
@@ -18025,7 +18031,6 @@ wikidata:en:Q715160
 en:arrowroot, arrowroot power, arrowroot starch, arrowroot flour
 de:Pfeilwurzelstärke, Pfeilwurzelmehl
 
-
 <en:starch
 # <en:wheat
 en:wheat starch
@@ -18069,6 +18074,10 @@ sv:modifierad vetestärkelse
 <en:modified starch
 <en:wheat starch
 fr:amidon de blé partiellement modifié
+
+<en:wheat starch
+en:fermented wheat starch
+nl:gefermenteerde tarwezetmeel
 
 <en:wheat starch
 en:pregelatinized wheat starch
@@ -21502,6 +21511,7 @@ en:barley malt vinegar, malt barley vinegar
 de:gerstenmalzessig
 fi:ohramallasetikka
 fr:vinaigre de malt d'orge
+nl:gerstemoutazijn
 sv:kornmaltsvinäger
 allergens:en: en:gluten
 
@@ -25158,7 +25168,7 @@ mk:чад
 ms:Asap
 my:မီးခိုး
 nb:røyk
-nl:rook
+nl:rook, houtrook
 nn:røyk
 oc:Fum
 pl:dym
@@ -25800,6 +25810,10 @@ nl:tarwevezel
 pt:fibras de trigo
 ru:Пшеничные волокна
 sv:vetefiber, Vete fiber
+
+<en:wheat fiber
+en:gluten free wheat fiber
+nl:glutenvrije tarwevezel
 
 <en:wheat
 en:wheat bran
@@ -33494,6 +33508,10 @@ nl:gehydroliseerd soja-eiwit, gehydrolyseerd soja-eiwit
 fr:protéines de soja i.p
 
 <en:vegetable protein
+en:cereal protein
+nl:graneneiwit
+
+<en:vegetable protein
 en:wheat protein
 de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
 es:Proteina de trigo
@@ -33501,7 +33519,7 @@ fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
 hu:búzafehérje
 it:proteine del grano
-nl:graneneiwit
+nl:tarwe-eiwit
 pt:proteína de trigo
 sv:veteprotein
 allergens:en: en:gluten
@@ -37826,7 +37844,7 @@ es:Zumo a partir de concentrado, zumo concentrado, jugo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
-nl:sap uit vruchtensapconcentraat
+nl:sap uit vruchtensapconcentraat, geconcentreerd sap
 ru:концентрированные соки
 # ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
 # concentrated juice:lemon and orange
@@ -38519,7 +38537,7 @@ mk:брусница
 mn:цангис
 mr:क्रॅनबेरी
 nb:tranebær
-nl:veenbessen, cranberry
+nl:veenbessen, cranberry, cranberry's
 nn:tranebær
 os:сырхнæмыг
 pl:żurawina
@@ -45568,8 +45586,12 @@ fr:Jus d'argousier
 sv:havtornsjuice
 wikidata:Q68192318
 
-
-
+<en:fruit
+en:tamarillo
+de:Tamarillo, Baumtomate
+fr:tamarillo
+wikidata:en:Q379747
+wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
 <en:fruit
 en:tamarillo
@@ -45836,13 +45858,13 @@ az:Kişmiş
 be:Разынкі
 bg:Стафида
 bs:Grožđica
-ca:pansa,panses sultanes,panses
+ca:pansa, panses
 cs:rozinka
 da:Rosin
 de:Rosine, Rosinen
 el:Σταφίδα
 eo:sekvinbero
-es:uvas pasas, pasas, pasas sultanas, uvas pasas sultanas, uva desecada
+es:uvas pasas, pasas, uva desecada
 et:Rosin
 eu:Mahaspasa
 fa:کشمش
@@ -45938,14 +45960,43 @@ fr:concentré de raisin
 # maybe it is necessary to split between dried and fresh
 
 <en:grape
-en:sultanas
-de:Sultaninen
-es:Sultanas
+en:sultana, sultanas, Thompson seedless, sultanina
+af:sultana
+ar:العنب الكشمشي
+bg:султанина
+ca:panses sultanes
+da:sultana
+de:Sultana, Sultanine, Sultanina
+el:σουλτανίνα
+eo:sultanino
+es:sultanina, sultana, pasas sultanas, uvas pasas sultanas
+et:sultana
+fa:انگور سلطانی
 fi:sulttaanirusina, sulttaanirusinoita
-fr:raisins secs sultanines
-it:uva sultanina, uvetta sultanina
+fr:sultanine, sultanines
+ga:sabhdánach
+he:סולטנה
+hi:सुल्ताना
+id:sultana
+it:sultanina
+ja:サルタナ
+kn:ಸುಲ್ತಾನ
+ko:설태너
+mk:суво грозје
+ms:sultana
 nl:sultana, sultanas
+pt:sultanina
+ro:sultanină
+ru:белый кишмиш
+sa:द्राक्षा
+si:සුල්තානා
+sl:sultanina
 sv:sultanrussin
+tr:sultaniye üzümü
+uk:кишмиш
+uz:kishmish
+zh:蘇丹娜葡萄
+wikidata:en:Q1898118
 wikipedia:en:https://en.wikipedia.org/wiki/Sultana_(grape)
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 # 46 products in 3 languages @2018-10-02
@@ -50240,7 +50291,7 @@ fi:porkkanauute
 fr:extrait de carotte
 it:estratto di carota, estratto di carote
 ja:人参エキス
-nl:wortelextract
+nl:wortelextract, kleurend wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 <en:carrot
@@ -51170,8 +51221,8 @@ jv:loncang
 kk:жасыл жуа
 ko:파류
 mr:कांदेपात
-ms:daun bawang
-nl:lente-ui, bosui, lenteuitjes
+ms:Daun bawang
+nl:lente-ui, bosui, Lenteuitjes, lenteui
 nn:vårlauk
 no:vårløk
 pl:cebulka zielona
@@ -55803,7 +55854,7 @@ ml:അവര
 ms:Kacang parang
 nb:Hestebønne
 ne:बकुल्ला सिमी
-nl:tuinboon, tuibonen
+nl:tuinboon, tuinbonen
 nn:Hestebønne
 oc:Fava
 os:Бæхы хъæдур
@@ -55882,6 +55933,9 @@ fr:féverole, féverolle
 en:Vicia faba
 la:Vicia faba
 
+<en:vegetable protein
+en:broad bean protein
+nl:tuinbooneiwit
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
@@ -58813,6 +58867,7 @@ de:goldgelbe Leinsaat
 es:semillas de lino dorado, lino dorado
 fr:graines de lin doré, graines de lin jaune
 it:semi di lino giallo
+nl:geel lijnzaad, lijnzaad geel
 pt:sementes de linho amarelo
 wikidata:en:none
 #ingredient/golden-flax-seeds 407 in 7 @2021-08-20
@@ -59718,6 +59773,22 @@ fr:plantes aromatiques déshydratées
 <en:herb
 fr:extraits naturels et aromates
 
+<en:spice
+<en:seed
+en:black cumin, black caraway, nigella
+ca:pebreta, pebretera
+de:Schwarzkümmel
+es:abésoda, agenuz, ajenuz, arañuel
+fr:cumin noir, graine de Nigelle
+it:cumino nero
+la:nigella sativa
+lv:Sējas melnsēklīte
+nl:zwarte komijn, nigellazaad
+ro:Negrilica
+sh:Crni kumin
+sv:Svartkummin
+#vls:Nigelle, zwarte komyn
+wikidata:en:Q104414363
 
 ###################################################################################################
 #
@@ -61156,6 +61227,10 @@ fr:Pâte de gingembre
 #nl:gemberextract
 #vegan:en:yes
 #vegetarian:en:yes
+
+<en:ginger
+en:ginger syrup
+nl:gembersiroop
 
 #category/mustards
 <en:spice
@@ -67959,7 +68034,7 @@ es:extracto de champiñón
 fi:sieniuute, herkkusieniuute
 fr:extrait de champignon, extrait de champignons
 it:estratti di funghi
-nl:champignonextract
+nl:champignonextract, paddestoelenextract
 sv:svampextrakt, champinjonextrakt
 # en:mushroom-extract has 94 products in 4 languages @2018-11-02
 
@@ -69738,6 +69813,7 @@ es:pasta de anchoa
 fi:anjovistahna
 fr:pâte d'anchois
 it:pasta d'acciughe
+nl:ansjovispasta
 pl:pasta z anchois
 wikidata:en:Q3897482
 wikipedia:en:https://en.wikipedia.org/wiki/Anchovy_paste
@@ -71237,6 +71313,7 @@ de:Heringfilet, Heringsfilets
 fi:sillifilee
 fr:filets de harengs
 it:filetti di aringa
+nl:haringfilet
 # 250 in 6 @2021-09-10
 
 # description:en:Atlantic herring (Clupea harengus) is a herring in the family Clupeidae.
@@ -76092,7 +76169,7 @@ fr:fibres de psyllium, psyllium
 he:פסיליום
 hi:isabgol
 it:psyllium
-nl:Psyllium
+nl:Psyllium, psylliumvezels
 pl:Babka
 ro:Psyllium
 ru:Подорожник
@@ -79316,7 +79393,7 @@ fi:ulkomunat
 fr:Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
 it:uova da allevamento a terra, Uova di allevamento all'aperto
 ja:平飼い卵
-nl:vrije uitloop ei
+nl:vrije-uitloopei, vrije uitloop eiutar
 
 <en:eggs
 en:category A eggs
@@ -85130,7 +85207,7 @@ mr:सोया सॉस
 ms:kicap
 mt:zalza tas-soja
 nb:soyasaus
-nl:Sojasaus
+nl:Sojasaus, ketjap
 pa:ਸੋਇਆ ਸੌਸ
 pl:sos sojowy
 pt:molho de soja
@@ -86043,7 +86120,7 @@ es:extracto de frutas, extracto de fruta
 fi:hedelmäuute
 fr:extrait de fruit
 it:Estratto di frutta
-nl:vruchtenextract
+nl:vruchtenextract, vruchtconcentraten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
 

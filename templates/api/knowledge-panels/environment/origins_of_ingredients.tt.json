@@ -3,14 +3,14 @@
     "topics": [
         "environment"
     ],
+    "expanded": false,
 [% IF product.ecoscore_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% lang('ecoscore_origins_of_ingredients_missing_information') %]",
-        "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        "title": "[% lang('ecoscore_origins_of_ingredients') %]",
+        "subtitle": "[% lang('ecoscore_origins_of_ingredients_missing_information') %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
-        "icon_size": "small",
     },
     "elements": [
         {
@@ -28,40 +28,26 @@
     [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% lang('ecoscore_origins_of_ingredients_impact_high') %]",
+        "subtitle": "[% lang('ecoscore_origins_of_ingredients_impact_high') %]",
     [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% lang('ecoscore_origins_of_ingredients_impact_medium') %]",    
+        "subtitle": "[% lang('ecoscore_origins_of_ingredients_impact_medium') %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% lang('ecoscore_origins_of_ingredients_impact_low') %]",
+        "subtitle": "[% lang('ecoscore_origins_of_ingredients_impact_low') %]",
     [% END %]
-        [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value > 0 %]
-            "subtitle": "[% lang('bonus') %][% sep %]: +[% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
-        [% ELSE %]
-            "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
-        [% END %]
+        "title": "[% lang('ecoscore_origins_of_ingredients') %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
-        "icon_size": "small",
     },
-    "elements": [
-        {
-            "element_type": "text",
-            "text_element": {
-                "type": "default",
-                "html": `
-                <strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF product.ecoscore_data.adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(product.ecoscore_data.adjustments.origins_of_ingredients.epi_value) %]</strong><br>
-                <strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF product.ecoscore_data.adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(product.ecoscore_data.adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
-                `
-            }
-        },        
+    "elements": [    
         {
             "element_type": "table",
             "table_element": {
                 "id": "ecoscore_origins_of_ingredients_table",
+                "table_type": "percents",
                 "title": "[% lang('ecoscore_origins_of_ingredients') %]",
                 "columns": [
                     {
