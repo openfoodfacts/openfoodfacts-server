@@ -191,6 +191,8 @@
     <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
 </div>
 
+[% health_card_panel %]
+
 <!-- nutrition table -->
 [% IF nutrition_table == 'defined' %]
     <h2 id="nutrition_data">[% lang("nutrition_data") %]</h2>
@@ -236,11 +238,9 @@
 	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
 [% END %]
 
-[% IF environment_card_panel %]
 
-    [% environment_card_panel %]
+[% environment_card_panel %]
 
-[% END %]
 
 [% IF ecoscore_grade %]
 	<h4>Eco-score

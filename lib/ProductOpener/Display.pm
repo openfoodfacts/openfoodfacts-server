@@ -90,6 +90,8 @@ BEGIN
 		&display_possible_improvement_description
 		&display_properties
 
+		&data_to_display_nutriscore_and_nutrient_levels
+
 		&count_products
 		&add_params_to_query
 
@@ -9078,7 +9080,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 		my @nutriscore_warnings = ();
 
 		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
-			push @nutriscore_warnings, lang("nutriscore_not_applicable");
+			push @nutriscore_warnings, '1' . lang("nutriscore_not_applicable");
 		}
 
 		elsif ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
