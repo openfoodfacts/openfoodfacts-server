@@ -155,7 +155,7 @@ create_external_volumes:
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
 	# local data
-	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/po_data po_data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#
 # Cleanup #
