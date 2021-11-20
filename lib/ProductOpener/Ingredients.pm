@@ -1057,7 +1057,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -3303,6 +3303,7 @@ nl => [
 'gemiddelde voedingswaarde per 100 g',
 'Na openen beperkt houdbaar',
 'Ongeopend, ten minste houdbaar tot:',
+'o.a.',
 'ten minste',
 'ten minste houdbaar tot',
 'Van nature rijk aan vezels',

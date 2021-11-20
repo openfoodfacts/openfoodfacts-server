@@ -1,22 +1,26 @@
 en:General waste
 hu:Kommunális hulladék, kommunális szemét, vegyes hulladék, vegyes szemét
+nl:Restafval, bij restafval
 pt:lixo indiferenciado, indiferenciado, indeferenciados, lixo, contentor de lixo, contentor do lixo, caixote de lixo, caixote do lixo, cesto de lixo, cesto do lixo, lixo doméstico, resíduos indiferenciados
 
 fr:Bac jaune
 
 en:Plastics container
 hu:Műanyag konténer
-nl:PMD-bak, bak voor plastic flessn en flacons - metalen verpakkingen en drinkpakken
+nl:PMD-bak, bak voor plastic flessen en flacons - metalen verpakkingen en drinkpakken, plastic afval, bij plastic afval, in de plastic heroes bak of zak, in de plastic heroes bak, in de plastic heroes zak
 
 #used in Portugal for packages in general (most of them plastic, metal and Tetra Pak) except glass, paper, cardboard, journals, books... but not mixed paper and other materials like Tetra Pak
 <en:Plastics container
 pt:coponto amarelo, contentor azul, contentor do plástico, contentor dos plásticos, contentor das embalagens, contentor de embalagens, contentor do plástico e metal, contentor dos plásticos e metais
 
+#A specific container for drink cartons, like Tetrapak
+nl:Drankenkartons, bij drankenkartons
+
 en:Glass container
 de:Glascontainer, Altglas
 fr:Bac à verre, Cuboverre
 hu:Üveg konténer
-nl:Glasbak
+nl:Glasbak, in de glasbak
 pt:Ecoponto verde, contentor verde, contentor do vidro, contentor dos vidros, contentor de garrafas, contentor das garrafas
 geographic_synonyms:fr_FR:paris:Bac blanc
 geographic_synonyms:fr_NL:Bac vert
@@ -33,19 +37,10 @@ de:Grünglas
 nl:Bruin glas, glasbak voor bruin glas
 de:Braunglas
 
-<en:Glass container
-nl:Wit glas, glasbak voor wit glas
-
-<en:Glass container
-nl:Groen glas, glasbak voor groen glas
-
-<en:Glass container
-nl:Bruin glas, glasbak voor bruin glas
-
 en:Container for paper
-nl:Papierbak
-de:Altpapier, Papiercontainer
 hu:Papír konténer
+de:Altpapier, Papiercontainer
+nl:Oud papier, Papierbak, bij Oud papier
 pt:Ecoponto azul, contentor azul, contentor do papel, contentor dos papéis, contentor do cartão, contentor do cartão de papel, contentor do papel e cartão, contentor dos papéis e cartões
 
 nl:GFT-bak, Groente- Fruit- en tuinafval-bak

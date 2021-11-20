@@ -1,6 +1,4 @@
 {
-    "parent_panel_id": "ecoscore",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
@@ -17,7 +15,7 @@
             {
                 "element_type": "text",
                 "text_element": {
-                    "text_type": "summary",
+                    "type": "summary",
                     "html": `
                     [% lang('ecoscore_ingredients_unknown') %]
                     [% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
@@ -39,7 +37,7 @@
             {
                 "element_type": "text",
                 "text_element": {
-                    "text_type": "summary",
+                    "type": "summary",
                     "html": `
                         <p><strong>[% lang('contains_palm_oil') %]</strong></p> 
                         <p>[% lang('contains_palm_oil_description') %]</p> 
