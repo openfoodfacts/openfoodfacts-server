@@ -47020,6 +47020,7 @@ ciqual_food_name:fr:Flocon d'avoine
 <en:Oat flakes
 en:Pre-cooked oat flakes
 fr:Flocons d'avoine précuits
+nl:Voorgekookte havervlokken
 agribalyse_food_code:en:32140
 ciqual_food_code:en:32140
 ciqual_food_name:en:Oat flakes, pre-cooked, raw
@@ -47028,6 +47029,7 @@ ciqual_food_name:fr:Flocon d'avoine précuit
 <en:Oat flakes
 en:Boiled oat flakes, Oat flakes cooked in water
 fr:Flocons d'avoine bouillis, Flocons d'avoine cuits à l'eau
+nl:Gekookte havervlokken
 agribalyse_food_code:en:9313
 ciqual_food_code:en:9313
 ciqual_food_name:en:Oat flakes, boiled/cooked in water
@@ -80431,7 +80433,7 @@ ja:タマネギ
 lt:svogūnai
 lv:sīpoli
 nb:løk
-nl:ui, uien
+nl:Uien, Ui
 nv:tłʼohchin
 pl:cebula
 pt:cebola
@@ -80458,6 +80460,7 @@ en:Fresh onions
 de:Frische Zwiebeln
 fr:Oignons frais
 he:בצלים טריים
+nl:Verse uien
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 <en:Onions
@@ -80465,12 +80468,14 @@ en:Yellow onions, yellow onion
 de:gelbe Zwiebel
 fi:Keltasipulit, keltasipuli, keltainen sipuli
 fr:Oignons jaunes, oignon jaune
+nl:Gele uien
 wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
 wikidata:en:Q8051898
 
 <en:Onions
 en:White onions, white onion
 fr:Oignons blancs, oignon blanc
+nl:Witte uien
 wikipedia:en:https://en.wikipedia.org/wiki/White_onion
 wikidata:en:Q7995660
 
@@ -80478,11 +80483,13 @@ wikidata:en:Q7995660
 <en:White onions
 en:Fresh white onions
 fr:Oignons blancs frais
+nl:Verse witte uien
 
 <en:Onions
 en:Red onions, red onion, purple onions, Bombay onions
 fi:Punasipulit
 fr:Oignons rouges, oignon rouge
+nl:Rode uien
 wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
 wikidata:en:Q622350
 
@@ -80490,11 +80497,13 @@ wikidata:en:Q622350
 <en:Red onions
 en:Fresh red onions
 fr:Oignons rouges frais
+nl:Verse rode uien
 
 <en:Onions
 <en:Cooked vegetables
 en:Cooked onions
 fr:Oignons cuits
+nl:Gekookte uien
 agribalyse_food_code:en:20035
 ciqual_food_code:en:20035
 ciqual_food_name:en:Onion, cooked
@@ -80518,12 +80527,14 @@ ciqual_food_name:fr:Échalote, crue
 <en:Fresh vegetables
 en:Fresh shallots
 fr:Échalotes fraîches
+nl:Verse sjalotjes
 season_in_country_fr:en: 10,11,12
 
 <en:Shallots
 <en:Cooked vegetables
 en:Cooked shallots
 fr:Échalotes cuites
+nl:Gekookte sjalotjes
 agribalyse_food_code:en:20255
 ciqual_food_code:en:20255
 ciqual_food_name:en:Shallot, cooked
@@ -80532,6 +80543,7 @@ ciqual_food_name:fr:Échalote, cuite
 <en:French vegetables
 <en:Shallots
 fr:Echalote d'Anjou
+nl:Sjalotten uit Anjou
 protected_name_file_number:en: PGI-FR-01253
 protected_name_type:en: pgi
 origins:en: en:France
@@ -80543,7 +80555,7 @@ es:Pimientos
 fi:paprikat
 fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
 la:Capsicum annuum
-nl:Pepers en paprikas
+nl:Paprikas
 agribalyse_food_code:en:20041
 ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
@@ -80553,6 +80565,7 @@ ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 <en:Fresh vegetables
 en:Fresh sweet peppers
 fr:Poivrons frais
+nl:Verse paprikas
 season_in_country_fr:en: 6,7,8,9
 
 <en:Sweet Peppers
@@ -80563,6 +80576,7 @@ fr:Poivrons verts
 nl:Groene paprikas
 
 <en:Cooked vegetables
+<en:Sweet Peppers
 en:Cooked sweet peppers
 agribalyse_proxy_food_code:en:20086
 agribalyse_proxy_food_name:en:Sweet pepper, green, cooked
@@ -80571,6 +80585,7 @@ agribalyse_proxy_food_name:fr:Poivron vert, cuit
 <en:Cooked vegetables
 en:Cooked peppers
 
+<en:Sweet Peppers
 en:Green sweet peppers
 fr:Poivrons verts
 agribalyse_food_code:en:20085
@@ -80579,7 +80594,7 @@ ciqual_food_name:en:Sweet pepper, green, raw
 ciqual_food_name:fr:Poivron vert, cru
 
 <en:Green sweet peppers
-<en:Cooked peppers
+<en:Cooked sweet peppers
 en:Cooked sweet green peppers
 fr:Poivrons verts cuits
 agribalyse_food_code:en:20086
