@@ -433,12 +433,12 @@ var select2_options = {
 JS
 ;
 
-process_template('search_form.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
 	
-	display_new($request_ref);
+	display_page($request_ref);
 
 }
 
@@ -686,7 +686,7 @@ elsif ($action eq 'process') {
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("generate_graph_scatter_plot")  # old parameter, kept for existing links
 		or param("graph")) {
@@ -719,7 +719,7 @@ HTML
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("download")) {
 		# CSV export
@@ -750,7 +750,7 @@ HTML
 </a></div>
 HTML
 ;
-			display_new($request_ref);
+			display_page($request_ref);
 		}
 		else {
 

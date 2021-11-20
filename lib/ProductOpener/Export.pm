@@ -150,7 +150,7 @@ fields will be exported.
 		fields => [qw(code ingredients_text_en additives_tags)] });
 
 
-=head4 include_images_files - optional - Export local file paths to images
+=head4 include_images_paths - optional - Export local file paths to images
 
 If defined and not null, specifies to export local file paths for selected images
 for front, ingredients and nutrition in all languages.
@@ -352,6 +352,10 @@ sub export_csv($) {
 	# Extra fields such as Nova or Nutri-Score that do not originate from users or producers but are computed
 	if (defined $extra_fields_ref) {
 		@sorted_populated_fields = (@sorted_populated_fields, @{$extra_fields_ref});
+	}
+
+	if ($args_ref->{export_owner}) {
+		push @sorted_populated_fields, "owner";
 	}
 
 	# Second pass - output CSV data

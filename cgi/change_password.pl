@@ -89,12 +89,12 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 $template_data_ref->{errors} = \@errors;
 
 my $html;
-process_template('change_password.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/change_password/change_password.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_new( {
+display_page( {
 	title => lang('change_password'),
 	content_ref => \$html,
 });

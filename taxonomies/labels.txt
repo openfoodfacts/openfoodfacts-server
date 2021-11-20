@@ -925,17 +925,29 @@ en:First grade TIS 3-1983, Thai Industrial Standard Institute
 ca:Primer grau TIS 3-1983, Institut d'Estandaritzacions Industrials Thai
 wikidata:en:Q15613582
 
+en:source of fibre
+da:Fiberkilde
+de:Ballaststoffquelle
+es:Fuente de fibra alimentaria
+fi:Kuidun lähde
+fr:Source de fibres alimentaires, Source de fibres, Source naturelle de fibres
+it:Fonte di fibre
+nl:Bron van vezels
+pl:Źródlo blonnika
+se:Fiberkälla
+
+<en:source of fibre
 en:High fibres, high fibers, Rich in fiber
 ca:Alt en fibra, ric en fibra
 de:ballaststoffreich
-es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra
+es:Rico en fibra, Rico en fibras, Alto en Fibra
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
-fr:Riche en fibres, Source naturelle de fibres, Source de fibres, Naturellement riches en fibres
+fr:Riche en fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
-nl:Vezelrijk, Rijk aan vezels, Bron van vezels
+nl:Vezelrijk, Rijk aan vezels
 pl:wysoka zawartość błonnika
 pt:Rico em fibras
 ru:Обогащено клетчаткой
@@ -1783,7 +1795,7 @@ fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
 he:ללא תוספת מלח
 hu:Hozzáadott só nélkül, hozzáadott sót nem tartalmaz, nincs hozzáadott só
 it:Senza aggiunta di sale
-nl:Geen zout toegevoegd
+nl:Geen zout toegevoegd, 0% zout toegevoegd
 pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado
 ru:Без добавления соли
@@ -3156,7 +3168,7 @@ ca:Orgànic,de cultiu ecologic
 cs:Bio
 da:Økologisk, Økologiske
 de:Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
-es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica
+es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica, Procedente e agricultura ecológica
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
@@ -3176,7 +3188,8 @@ description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methode
 description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
 description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
 description:fr:Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L’agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
-
+environmental_benefits:en:Organic agriculture contributes to preserve biodiversity, climate, water quality and soil fertility.
+environmental_benefits:fr:L'agriculture biologique contribue à préserver la biodiversité, le climat, la qualité de l'eau et la fertilité des sols.
 
 # Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
 en:Non-organic, not organic
@@ -16698,6 +16711,13 @@ it:Sicurezza dei Delfini
 nl:dolfijnvriendelijk
 label_categories:en: en:Fishing labels
 
+# Should not be automatically triggered by the MSC label
+# as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
+# From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
+<en:Sustainable fishing
+en:Sustainable fishing method, sustainable fishing technique
+fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
@@ -16718,6 +16738,7 @@ ru:сейнерная рыбалка
 wikidata:en:Q600580
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Angled fish
 ca:Pescat amb canya
 de:Geangelter Fisch
@@ -16725,6 +16746,7 @@ fi:koukulla pyydystettyä kalaa
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
@@ -16772,6 +16794,7 @@ de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Hand fishing
 ca:Pescat manualment
 de:Handfischen
@@ -16814,7 +16837,7 @@ zh:鸬鹚捕鱼
 wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
-en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
+en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
 de:Nachhaltige Fischerei
 es:Pesca sostenible
@@ -17141,44 +17164,6 @@ he:איגוד הצמחונות
 it:Vegetarian Society
 wikidata:en:Q2154954
 
-# non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
-<en:Vegetarian
-en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
-ca:Unió Vegetariana Europea
-cs:V-Label Evropské Vegetariánské Unie
-da:Europæiske Vegetarunion, European Vegetarian Union
-de:Europäische Vegetarier-Union
-eo:Eŭropa vegetarana unuiĝo
-es:Unión Vegetariana Europea
-fi:Euroopan vegetaariliitto
-fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label
-he:איחוד הצמחונות האירופי
-hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
-it:Unione Europea Vegetariani
-nl:Europese vegetarische unie
-sv:Europeiska Vegetariska Unionen
-wikidata:en:Q443112
-
-#https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
-<en:European Vegetarian Union
-en:European Vegetarian Union - Vegetarian
-da:Europæiske Vegetarunion - Vegetarisk, European Vegetarian Union - Vegetarisk
-de:Europäische Vegetarier-Union - Vegetarisch
-es:Unión Vegetariana Europea - Vegetariano, Unión Vegetariana Europea - Vegetariana
-fr:Union Végétarienne Européenne - Végétarien
-sv:Europeiska Vegetariska Unionen - Vegetarisk
-
-#https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
-<en:European Vegetarian Union
-en:European Vegetarian Union - Vegan
-cs:Veganské označení Evropské Vegetariánské Unie
-da:Europæiske Vegetarunion - Vegansk, European Vegetarian Union - Vegansk
-de:Europäische Vegetarier-Union - Vegan
-es:Unión Vegetariana Europea - Vegano, Unión Vegetariana Europea - Vegana
-fr:Union Végétarienne Européenne - Vegan
-it:Unione Vegetariana Europea - Vegano
-sv:Europeiska Vegetariska Unionen - Vegan
-
 en:Ovo-vegetarian
 ca:Ovovegetarià
 de:Ovo-vegetarisch
@@ -17212,17 +17197,47 @@ hu:Lakto-vegetáriánus
 it:Latto-vegetariano
 wikidata:en:Q3496076
 
+# non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
+<en:Vegetarian
+en:European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
+ca:Unió Vegetariana Europea
+cs:V-Label Evropské Vegetariánské Unie
+da:Europæiske Vegetarunion, European Vegetarian Union
+de:Europäische Vegetarier-Union
+eo:Eŭropa vegetarana unuiĝo
+es:Unión Vegetariana Europea
+fi:Euroopan vegetaariliitto
+fr:Union Végétarienne Européenne, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-Label, EU V-Label
+he:איחוד הצמחונות האירופי
+hu:Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
+it:Unione Europea Vegetariani
+nl:Europese vegetarische unie
+sv:Europeiska Vegetariska Unionen
+wikidata:en:Q443112
+
+#https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
+<en:European Vegetarian Union
+en:European Vegetarian Union Vegetarian, European Vegetarian Union - Vegetarian, EVU Vegetarian
+da:Europæiske Vegetarunion Vegetarisk, European Vegetarian Union Vegetarisk, Europæiske Vegetarunion - Vegetarisk, European Vegetarian Union - Vegetarisk, EVU Vegetarian
+de:Europäische Vegetarier-Union Vegetarisch, Europäische Vegetarier-Union - Vegetarisch, EVU Vegetarian
+es:Unión Vegetariana Europea Vegetariano, Unión Vegetariana Europea Vegetariana, Unión Vegetariana Europea - Vegetariano, Unión Vegetariana Europea - Vegetariana, EVU Vegetarian
+fr:Union Végétarienne Européenne Végétarien, Union Végétarienne Européenne - Végétarien, EVU Vegetarian
+sv:Europeiska Vegetariska Unionen Vegetarisk, Europeiska Vegetariska Unionen - Vegetarisk, EVU Vegetarian
+
+#https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
 <en:European Vegetarian Union
 <en:Vegan
-en:European Vegetarian Union Vegan
-ca:Unió Vegana Vegetariana Europea
-cs:Veganské označení Evropské Vegetariánské Unie
-de:Europäische Vegetarier-Union Vegan
-es:Unión Vegetariana y vegana Europea
-fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen
-fr:Union Végétarienne Européenne - Végétalien
-it:Unione Vegetariana Europea - Vegano
-nl:Europese Vegetarische Unie Vegan, EVU Vegan
+en:European Vegetarian Union Vegan, European Vegetarian Union - Vegan, EVU Vegan
+ca:Unió Vegana Vegetariana Europea, EVU Vegan
+cs:Veganské označení Evropské Vegetariánské Unie, EVU Vegan
+da:Europæiske Vegetarunion Vegansk, European Vegetarian Union Vegansk, Europæiske Vegetarunion - Vegansk, European Vegetarian Union - Vegansk, EVU Vegan
+de:Europäische Vegetarier-Union Vegan, Europäische Vegetarier-Union - Vegan, EVU Vegan
+es:Unión Vegetariana y vegana Europea, Unión Vegetariana Europea Vegano, Unión Vegetariana Europea Vegana, Unión Vegetariana Europea - Vegano, Unión Vegetariana Europea - Vegana, EVU Vegan
+fi:Euroopan vegetaariliitto vegaaninen, EVU vegaaninen, EVU Vegan
+fr:Union Végétarienne Européenne Végétalien, Union Végétarienne Européenne Vegan, Union Végétarienne Européenne - Végétalien, Union Végétarienne Européenne - Vegan, EVU Vegan
+it:Unione Vegetariana Europea Vegano, Unione Vegetariana Europea - Vegano, EVU Vegan
+nl:Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Vegan
+sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 
 <en:European Vegetarian Union
 <en:Ovo-lacto-vegetarian
@@ -18964,36 +18979,46 @@ nl:gepasteuriseerd product
 
 en:Health Star Rating, Health Star Rating System, HSR
 it:Health Star Rating, Health Star Rating System, HSR
+xx:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088
 label_categories:en: en:Nutrition Grades
 countries_where_sold:en: en:Australia
 
 <en:Health Star Rating
 en:Health Star Rating 1
+xx:Health Star Rating 1
 
 <en:Health Star Rating
 en:Health Star Rating 1.5
+xx:Health Star Rating 1.5
 
 <en:Health Star Rating
 en:Health Star Rating 2
+xx:Health Star Rating 2
 
 <en:Health Star Rating
 en:Health Star Rating 2.5
+xx:Health Star Rating 2.5
 
 <en:Health Star Rating
 en:Health Star Rating 3
+xx:Health Star Rating 3
 
 <en:Health Star Rating
 en:Health Star Rating 3.5
+xx:Health Star Rating 3.5
 
 <en:Health Star Rating
 en:Health Star Rating 4
+xx:Health Star Rating 4
 
 <en:Health Star Rating
 en:Health Star Rating 4.5
+xx:Health Star Rating 4.5
 
 <en:Health Star Rating
 en:Health Star Rating 5
+xx:Health Star Rating 5
 
 fr:Haute Valeur Environnementale, HVE
 xx:Haute Valeur Environnementale, HVE
@@ -19057,6 +19082,29 @@ en:Nestlé Cocoa Plan, Cocoa Plan
 
 en:EU Ecolabel
 xx:EU Ecolabel
+
+en:Eco-Score
+xx:Eco-Score
+
+<en:Eco-Score
+en:Eco-Score A
+xx:Eco-Score A
+
+<en:Eco-Score
+en:Eco-Score B
+xx:Eco-Score B
+
+<en:Eco-Score
+en:Eco-Score C
+xx:Eco-Score C
+
+<en:Eco-Score
+en:Eco-Score D
+xx:Eco-Score D
+
+<en:Eco-Score
+en:Eco-Score E
+xx:Eco-Score E
 
 en:GLOBALG.A.P.
 xx:GLOBALG.A.P., Global GAP

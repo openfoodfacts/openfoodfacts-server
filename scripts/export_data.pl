@@ -101,7 +101,8 @@ print STDERR "export_data.pl
 
 my $query_ref = {};
 my $request_ref = {};
-$request_ref->{skip_http_headers} =1;
+$request_ref->{skip_http_headers} = 1;
+$request_ref->{batch} = 1;
 
 foreach my $field (sort keys %query_fields_values) {
 	print STDERR "-- $field: $query_fields_values{$field}\n";
@@ -109,8 +110,6 @@ foreach my $field (sort keys %query_fields_values) {
 }
 
 # Construct the MongoDB query
-
-add_params_to_query($request_ref, $query_ref);
 
 use boolean;
 

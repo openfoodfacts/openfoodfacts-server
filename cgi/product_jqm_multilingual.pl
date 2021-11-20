@@ -212,8 +212,12 @@ else {
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if (($User_id eq 'stephane') or ($User_id eq 'teolemon')) {
+	if ($admin) {
 		push @app_fields, "creator";
+	}
+
+	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
+		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -275,10 +279,11 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
+	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
+	# when the corresponding organization has the protect_data checkbox checked
+	my $protected_data = product_data_is_protected($product_ref);
 
-
-
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang') {
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -303,7 +308,7 @@ else {
 		elsif (defined param($field)) {
 
 			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-			if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
 				$log->debug("producer data already exists for field, skip empty value", { field => $field, code => $code, existing_value => $product_ref->{$field} }) if $log->is_debug();
 
 			}
@@ -321,6 +326,12 @@ else {
 						$product_ref->{lc} = $value;
 					}				
 					
+				}
+				elsif ($field eq "ecoscore_extended_data") {
+					# we expect a JSON value
+					if (defined param($field)) {
+						$product_ref->{$field} = decode_json(param($field));
+					}
 				}
 				else {
 					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -342,7 +353,7 @@ else {
 				if (defined param($field_lc)) {
 
 					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-					if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
+					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne "")) {
 						$log->debug("producer data already exists for field, skip empty value", { field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc} }) if $log->is_debug();
 					}
 					else {
@@ -390,7 +401,7 @@ else {
 	# Nutrition data
 
 	# Do not allow nutrition edits through API for data provided by producers
-	if ((has_tag($product_ref,"data_sources","producers")) and (defined $product_ref->{"nutriments"})) {
+	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
 		print STDERR "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {
@@ -574,7 +585,7 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
-	if (store_product($product_ref, $comment)) {
+	if (store_product($User_id, $product_ref, $comment)) {
 		# Notify robotoff
 		send_notification_for_product_change($product_ref, "updated");
 

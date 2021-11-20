@@ -81,6 +81,32 @@ my @tests = (
 			packaging_text => "bouteille PET"
 		}
 	],
+	
+	# container type and instruction
+	#[
+#		'packaging_text_nl_fles_glasbak',
+#		{
+#			lc => "nl",
+#			packaging_text => "fles in glasbak"	
+#		}
+#	],
+#	
+#	[
+#		'packaging_text_nl_doosje_oud_papier',
+#		{
+#			lc => "nl",
+#			packaging_text => "doosje bij oud papier"	
+#		}
+#	],
+#	
+#	[
+#		'packaging_text_nl_over_plastic_afval',
+#		{
+#			lc => "nl",
+#			packaging_text => "overig bij plastic afval"	
+#		}
+#	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
@@ -321,7 +347,23 @@ my @tests = (
 			lc => "fr",
 			packaging => "1 support carton",
 		}
-	],	
+	],
+
+	# New packaging shapes from Citeo
+	[
+		'packaging_en_citeo_shapes',
+		{
+			lc => "en",
+			packaging => "Plastic tumbler, Wooden crate, Cardboard case, Strings, Plastic ties, Plastic blister wrap, paper basket, individual capsules",
+		}
+	],
+	[
+		'packaging_fr_citeo_shapes',
+		{
+			lc => "fr",
+			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
+		}
+	],		
 );
 
 init_packaging_taxonomies_regexps();

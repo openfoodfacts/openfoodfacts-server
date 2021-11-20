@@ -125,14 +125,14 @@ sub compute_main_countries($) {
 	my $path = product_path($product_ref);
 	my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
 	
-	if (defined $scans_ref) {
+	if ((defined $all_products_scans_ref) and (defined $scans_ref)) {
 	
 		# Use the latest available year
 		my $year = 2030;
 		while (not exists $scans_ref->{$year}) {
 			$year--;
 		}
-		if (exists $scans_ref->{$year}) {
+		if ((exists $scans_ref->{$year}) and (exists $all_products_scans_ref->{$year})) {
 		
 			# Check if some of the countries in countries_tags should be removed based on scan data
 			if (defined $product_ref->{countries_tags}) {
@@ -145,13 +145,14 @@ sub compute_main_countries($) {
 					# with the average ratio across all products
 					
 					my $average_cc_to_world_scans_ratio = $all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc}
-						/ $all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"};
+						/ ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 					my $cc_to_world_scans_ratio = ($scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
-						/ $scans_ref->{$year}{unique_scans_n_by_country}{"world"};
+						/ ($scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 						
 					# Check if the product has data in one of the languages of the country
 					my $data_in_country_language = 0;
 					my $product_name_in_country_language = 0;
+					my $ingredients_text_in_country_language = 0;
 					
 					foreach my $country_language (@{$country_languages{$cc}}) {
 						foreach my $field ("product_name", "generic_name", "ingredients_text") {
@@ -160,6 +161,9 @@ sub compute_main_countries($) {
 								$data_in_country_language++;
 								if ($field eq "product_name") {
 									$product_name_in_country_language++;
+								}
+								if ($field eq "ingredients_text") {
+									$ingredients_text_in_country_language++;
 								}
 							}
 						}
@@ -175,9 +179,11 @@ sub compute_main_countries($) {
 							cc_to_world_scans_ratio => $cc_to_world_scans_ratio,
 							average_cc_to_world_scans_ratio => $average_cc_to_world_scans_ratio,
 							data_in_country_language => $data_in_country_language,
-							  } ) if $log->is_debug();						
+							  } ) if $log->is_debug();
+							  
+					defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];			
 					
-					# More than 10 scans, and a scan ratio for the country < 10% of the average scan ratio
+					# More than 10 scans, and a scan ratio for the country < 30% of the average scan ratio
 					if (($scans_ref->{$year}{unique_scans_n_by_country}{"world"} >= 10)
 						and ($cc_to_world_scans_ratio <= 0.3 * $average_cc_to_world_scans_ratio)) {
 						
@@ -188,7 +194,6 @@ sub compute_main_countries($) {
 							data_in_country_language => $data_in_country_language,
 							  } ) if $log->is_debug();
 							  
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-unexpectedly-low-scans";
 						
 						if ($cc_to_world_scans_ratio <= 0.1 * $average_cc_to_world_scans_ratio) {
@@ -210,16 +215,17 @@ sub compute_main_countries($) {
 					}
 					
 					if ($product_name_in_country_language < 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-product-name-not-in-country-language";
-					}					
+					}
+					
+					if ($ingredients_text_in_country_language < 1) {
+						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-ingredients-not-in-country-language";
+					}						
 					
 					if ($data_in_country_language < 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-no-data-in-country-language";
 					}
 					elsif ($data_in_country_language == 1) {
-						defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 						push @{$product_ref->{misc_tags}}, "en:main-countries-$cc-only-1-field-in-country-language";
 					}
 				}

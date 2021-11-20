@@ -177,6 +177,13 @@ foreach my $test_ref (@tests) {
 	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
 ],
 
+# Uppercase all lowercase fields
+
+[
+	{lc => "es", product_name_es => "natillas de soja sabor vainilla"},
+	{lc => "es", product_name_es => "Natillas de soja sabor vainilla"},
+],
+
 # Remove brand at end of product name
 [
 	{lc => "es", product_name_es => "NATILLAS DE SOJA SABOR VAINILLA CARREFOUR", brands => "CARREFOUR"},
@@ -226,8 +233,7 @@ foreach my $test_ref (@tests) {
 	# Test unspecified values
 [
 	{ lc => "en", generic_name_en => "unspecified", labels => "non-specified", origins => "unknown", warning_en => "not specified" },
-	{ lc => "en", product_name_en => '-', generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
-	# product_name_en is missing, so it is copied from generic_name_en
+	{ lc => "en", generic_name_en => "-", labels => "", origins => "", warning_en => "-" },
 ],
 
 [

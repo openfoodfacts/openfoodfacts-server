@@ -833,14 +833,6 @@ sub clean_fields($) {
 
 	$log->debug("clean_fields - start", {  }) if $log->is_debug();
 
-	foreach my $field (keys %{$product_ref}) {
-
-		# If we have generic_name but not product_name, also assign generic_name to product_name
-		if (($field =~ /^generic_name_(\w\w)$/) and (not defined $product_ref->{"product_name_" . $1})) {
-			$product_ref->{"product_name_" . $1} = $product_ref->{"generic_name_" . $1};
-		}
-	}
-
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 	
@@ -976,6 +968,7 @@ sub clean_fields($) {
 		if ($field =~ /^(ingredients_text|product_name|abbreviated_product_name|generic_name|brands)/) {
 			
 			# Lowercase fields in ALL CAPS
+			# Capitalize all lowercase fields
 			
 			# do not count x4 as a lowercase letter
 			# e.g. KINDER COUNTRY BARRE DE CEREALES ENROBEE DE CHOCOLAT 2x9 BARRES
@@ -984,10 +977,8 @@ sub clean_fields($) {
 			$value =~ s/x(\d)/X$1/;
 			$value =~ s/(\d)x/$1X/;
 			
-			if (($value =~ /[A-Z]{4}/)
-				and ($value !~ /[a-z]/)
-				) {
-					
+			if ((($value =~ /[A-Z]{4}/) and ($value !~ /[a-z]/))
+				or (($value =~ /[a-z]{4}/) and ($value !~ /[A-Z]/))	) {
 					
 				# Tag field: uppercase the first letter (e.g. brands)
 				if (defined $tags_fields{$field}) {

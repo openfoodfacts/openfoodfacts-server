@@ -1,0 +1,57 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    [% IF product.ecoscore_data.adjustments.threatened_species.warning.defined %]
+        "evaluation": "neutral",
+        "title_element": {
+            "title": "[% lang('missing_ingredients_list') %]",
+            "icon_color_from_evaluation": true,
+            "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_uncertain.svg",
+            "icon_size": "small",
+        },    
+        "elements": [
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "summary",
+                    "html": `
+                    [% lang('ecoscore_ingredients_unknown') %]
+                    [% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
+                    [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                        `
+                }
+            },
+        ]
+    [% ELSIF product.ecoscore_data.adjustments.threatened_species.value < 0 %]
+        "evaluation": "bad",
+        "title_element": {
+            "title": "[% lang('ecoscore_ingredients_whose_cultivation_threatens_species') %]",
+            "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.threatened_species.value %]",
+            "icon_color_from_evaluation": true,
+            "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_unhappy.svg",
+            "icon_size": "small",
+        },
+        "elements": [
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "summary",
+                    "html": `
+                        <p><strong>[% lang('contains_palm_oil') %]</strong></p> 
+                        <p>[% lang('contains_palm_oil_description') %]</p> 
+                        `
+                }
+            },        
+        ]        
+    [% ELSE %]    
+        "evaluation": "good",
+        "title_element": {
+            "title": "[% lang('ecoscore_no_species_threatening_ingredients') %]",
+            "icon_color_from_evaluation": true,
+            "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_happy.svg",
+            "icon_size": "small",
+        },
+    [% END %]
+}
