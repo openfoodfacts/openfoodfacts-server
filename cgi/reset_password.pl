@@ -74,6 +74,10 @@ if ($action eq 'process') {
 		if ($id =~ /\@/) {
 			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			if (not defined $emails_ref->{$id}) {
+				# not found, try with lower case email
+				$id = lc $id;
+			}
+			if (not defined $emails_ref->{$id}) {
 				push @errors, $Lang{error_reset_unknown_email}{$lang};
 			}
 			else {

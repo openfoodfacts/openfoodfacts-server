@@ -212,8 +212,12 @@ else {
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if (($User_id eq 'stephane') or ($User_id eq 'teolemon')) {
+	if ($admin) {
 		push @app_fields, "creator";
+	}
+
+	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
+		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -279,7 +283,7 @@ else {
 	# when the corresponding organization has the protect_data checkbox checked
 	my $protected_data = product_data_is_protected($product_ref);
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang') {
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -322,6 +326,12 @@ else {
 						$product_ref->{lc} = $value;
 					}				
 					
+				}
+				elsif ($field eq "ecoscore_extended_data") {
+					# we expect a JSON value
+					if (defined param($field)) {
+						$product_ref->{$field} = decode_json(param($field));
+					}
 				}
 				else {
 					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));

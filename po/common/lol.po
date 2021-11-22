@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-06-25 17:46\n"
+"PO-Revision-Date: 2021-11-07 14:50\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2992,8 +2992,16 @@ msgid "Recipe idea"
 msgstr "crwdns166314:0crwdne166314:0"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "crwdns166316:0crwdne166316:0"
+msgid "Origin of the product and/or its ingredients"
+msgstr "crwdns190833:0crwdne190833:0"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "crwdns190835:0crwdne190835:0"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "crwdns190837:0crwdne190837:0"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -4136,10 +4144,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "crwdns166870:0crwdne166870:0"
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "crwdns166872:0%scrwdnd166872:0%scrwdne166872:0"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "crwdns191195:0{language}crwdnd191195:0{main_language}crwdne191195:0"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5320,6 +5328,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "crwdns180760:0crwdne180760:0"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "crwdns180762:0crwdne180762:0"
@@ -5368,9 +5377,9 @@ msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "crwdns180784:0crwdne180784:0"
 
-msgctxt "ecoscore_production_mode"
+msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr "crwdns180786:0crwdne180786:0"
+msgstr "crwdns190639:0crwdne190639:0"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5380,9 +5389,9 @@ msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "crwdns180792:0crwdne180792:0"
 
-msgctxt "ecoscore_origin_of_ingredients"
-msgid "Origin of ingredients"
-msgstr "crwdns180794:0crwdne180794:0"
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr "crwdns190641:0crwdne190641:0"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5409,8 +5418,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "crwdns180858:0crwdne180858:0"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "crwdns180810:0crwdne180810:0"
+msgid "No ingredient threatening species"
+msgstr "crwdns191239:0crwdne191239:0"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5512,4 +5521,184 @@ msgstr "crwdns187460:0crwdne187460:0"
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "crwdns187462:0crwdne187462:0"
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "Packaging with a high impact"
+msgstr "crwdns191241:0crwdne191241:0"
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "Packaging with a medium impact"
+msgstr "crwdns191243:0crwdne191243:0"
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "Packaging with a low impact"
+msgstr "crwdns191245:0crwdne191245:0"
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "Missing packaging information for this product"
+msgstr "crwdns191247:0crwdne191247:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Origins of ingredients with a high impact"
+msgstr "crwdns191249:0crwdne191249:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Origins of ingredients with a medium impact"
+msgstr "crwdns191251:0crwdne191251:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Origins of ingredients with a low impact"
+msgstr "crwdns191253:0crwdne191253:0"
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing origins of ingredients information"
+msgstr "crwdns191255:0crwdne191255:0"
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "crwdns190777:0crwdne190777:0"
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr "crwdns190651:0crwdne190651:0"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "crwdns190655:0crwdne190655:0"
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr "crwdns190669:0%scrwdne190669:0"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "crwdns190813:0crwdne190813:0"
+
+msgctxt "donation_body"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+msgstr "crwdns190815:0crwdne190815:0"
+
+msgctxt "donation_why"
+msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+msgstr "crwdns190817:0crwdne190817:0"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "crwdns190819:0crwdne190819:0"
+
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "crwdns191197:0crwdne191197:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Labels with environmental benefits"
+msgstr "crwdns191199:0crwdne191199:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Labels with high environmental benefits"
+msgstr "crwdns191201:0crwdne191201:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Labels with very high environmental benefits"
+msgstr "crwdns191203:0crwdne191203:0"
+
+msgctxt "other"
+msgid "Other"
+msgstr "crwdns190993:0crwdne190993:0"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "crwdns190995:0crwdne190995:0"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "crwdns190997:0crwdne190997:0"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "crwdns190999:0crwdne190999:0"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "crwdns191205:0crwdne191205:0"
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "crwdns191207:0crwdne191207:0"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "crwdns191209:0{grams}crwdne191209:0"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "crwdns191211:0{kilometers}crwdne191211:0"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "crwdns191213:0crwdne191213:0"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "crwdns191215:0crwdne191215:0"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "crwdns191217:0crwdne191217:0"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "crwdns191219:0crwdne191219:0"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "crwdns191221:0crwdne191221:0"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "crwdns191223:0crwdne191223:0"
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr "crwdns191257:0crwdne191257:0"
+
+msgctxt "malus"
+msgid "Malus"
+msgstr "crwdns191259:0crwdne191259:0"
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr "crwdns191261:0crwdne191261:0"
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr "crwdns191263:0crwdne191263:0"
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr "crwdns191265:0crwdne191265:0"
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr "crwdns191267:0crwdne191267:0"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr "crwdns191269:0crwdne191269:0"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr "crwdns191271:0crwdne191271:0"
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr "crwdns191273:0crwdne191273:0"
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr "crwdns191275:0crwdne191275:0"
 

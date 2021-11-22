@@ -1802,7 +1802,7 @@ fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
 he:ללא תוספת מלח
 hu:Hozzáadott só nélkül, hozzáadott sót nem tartalmaz, nincs hozzáadott só
 it:Senza aggiunta di sale
-nl:Geen zout toegevoegd
+nl:Geen zout toegevoegd, 0% zout toegevoegd
 pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado
 ru:Без добавления соли
@@ -2042,7 +2042,10 @@ nl:Weinig cholesterol
 pt:Reduz o Colesterol
 label_categories:en: en:Health, en:Claim
 
-en:Australian made
+en:Made in Austria
+fr:Fabriqué en Autriche
+
+en:Australian made, Made in Australia
 ca:Fet a Austràlia
 de:In Australien gemacht
 es:Fabricado en Australia
@@ -2057,11 +2060,51 @@ country:en:Australia
 origins:en: en:Australia
 label_categories:en: en:Geographic label
 
+en:Made in Australia from at least 95 % Australian ingredients
+
+en:Made in Australia from at least 90% Australian ingredients
+
+en:Made in Australia from at least 86 % Australian ingredients
+
+en:Made in Australia from at least 80 % Australian ingredients
+
+en:Made in Australia from at least 74 % Australian ingredients
+
+en:Made in Australia from at least 72 % Australian ingredients
+
+en:Made in Australia from at least 61 % Australian ingredients
+
+en:Made in Australia from less than 10 % Australian ingredients
+
+en:Made in Belgium
+ca:Fet a Bèlgica
+da:Fremstillet i Belgien
+de:Hergestellt in Belgien
+es:Hecho en Bélgica
+fi:Valmistettu Belgiassa
+fr:Fabriqué en Belgique
+he:נוצר בבלגיה
+hu:Belgiumban készült
+it:Fatto in Belgio
+nl:Geproduceerd in België
+pl:Wyprodukowano w Belgii
+country:en:Belgium
+label_categories:en: en:Geographic label
+
+en:Made in Cameroon
+fr:Fabriqué au Cameroun
+
+en:Made in Canada
+fr:Fabriqué au Canada
+
 en:Made in Denmark
 da:Fremstillet i Danmark
 fi:Valmistettu Tanskassa
 sv:Tillverkad i Danmark
 country:en:Denmark
+
+en:Made in GB, Made in the United Kingdom, Made in Britain
+fr:Fabriqué au Royaume-Uni
 
 en:Made in Germany
 ca:Fet a Alemanya
@@ -2083,21 +2126,8 @@ th:ผลิตในเยอรมนี
 country:en:Germany
 label_categories:en: en:Geographic label
 
-en:Made in Belgium
-ca:Fet a Bèlgica
-da:Fremstillet i Belgien
-de:Hergestellt in Belgien
-es:Hecho en Bélgica
-fi:Valmistettu Belgiassa
-fr:Fabriqué en Belgique
-he:נוצר בבלגיה
-hu:Belgiumban készült
-it:Fatto in Belgio
-nl:Geproduceerd in België
-pl:Wyprodukowano w Belgii
-pt:Fabricado na Bélgica
-country:en:Belgium
-label_categories:en: en:Geographic label
+en:Made in Finland
+country:en:Finland
 
 en:Made in France
 ca:Fet a França
@@ -2152,6 +2182,33 @@ pt:Embalado em França
 packaging_places:en: en:france
 label_categories:en: en:Geographic label
 
+fr:Fabriqué en Normandie
+
+fr:Fabriqué en Guadeloupe
+
+en:Hungarian Processed Product
+hu:Hazai Feldolgozású Termék
+manufacturing_places:en: en:Hungary
+
+en:Made in Greece
+fr:Fabriqué en Grèce
+
+en:Made in Hungary
+fi:valmistettu Unkarissa
+hu:Magyarországon készült
+sv:Tillverkad i Ungern
+manufacturing_places:en: en:Hungary
+label_categories:en: en:Origins
+
+en:Made in India
+fr:Fabriqué en Inde
+
+en:Made in Iceland
+fr:Fabriqué en Islande
+
+en:Made in Israel
+fr:Fabriqué en Israel
+
 en:Made in Italy, product of Italy
 ca:Fet a Itàlia
 cs:Vyrobeno v Itálii
@@ -2171,12 +2228,37 @@ th:ผลิตในอิตาลี
 country:en:Italy
 label_categories:en: en:Geographic label
 
+en:Made in Japan
+fr:Fabriqué au Japon
+
+en:Made in Latvia
+
 en:Made in Luxembourg
 da:Fremstillet i Luxemburg
 fi:Valmistettu Luxemburgissa
 pt:Produzido no Luxemburgo
 sv:Tillverkad i Luxemburg
 country:en:Luxembourg
+
+en:Made in Morocco
+fr:Fabriqué au Maroc
+
+en:Made in Mexico
+ca:Fet a Mèxic
+de:Hergestellt in Mexiko
+es:Hecho en México
+fi:Valmistettu Meksikossa
+he:מיוצר במקסיקו
+hu:Mexikóban készült
+it:Prodotto in Messico
+nl:Geproduceerd in Mexico
+pl:Wyprodukowano w Meksyku, Wyprodukowano w Mexyku,
+country:en:Mexico
+label_categories:en: en:Geographic label
+
+en:Made in the Netherlands
+
+fr:Fabriqué en Nouvelle-Zélande
 
 en:Made in Poland
 da:Fremstillet i Polen
@@ -2226,6 +2308,9 @@ pt:Fabricado em Espanha
 country:en:Spain
 label_categories:en: en:Geographic label
 
+en:Made in Sri Lanka
+fr:Fabriqué au Sri Lanka
+
 en:Made in Swiss, made in Switzerland
 ca:Fet a Suïssa
 de:Hergestellt in der Schweiz
@@ -2241,18 +2326,32 @@ pt:Fabricado na Suíça
 country:en:Switzerland
 label_categories:en: en:Geographic label
 
-en:Made in Mexico
-ca:Fet a Mèxic
-de:Hergestellt in Mexiko
-es:Hecho en México
-fi:Valmistettu Meksikossa
-he:מיוצר במקסיקו
-hu:Mexikóban készült
-it:Prodotto in Messico
-nl:Geproduceerd in Mexico
-pl:Wyprodukowano w Meksyku, Wyprodukowano w Mexyku,
-country:en:Mexico
-label_categories:en: en:Geographic label
+en:Made in Scotland
+fr:Fabriqué en Ecosse
+
+en:Made in Slovakia
+fr:Fabriqué en Slovaquie
+
+en:Made in Sweden
+fr:Fabriqué en Suède
+
+en:Made in Thailand
+fr:Fabriqué en Thailande
+
+en:Made in Tunisia
+fr:Fabriqué en Tunisie
+
+en:Made in Turkey
+fr:Fabriqué en Turquie
+
+en:Made in USA, Made in the US, Made in the United States
+fr:Fabriqué aux Etats-Unis
+
+en:Made in Vietnam
+fr:Fabriqué au Vietnam
+
+en:Made in Wales
+fr:Fabriqué au Pays de Galles
 
 en:Made in the EU, Made in the European Union
 ca:Fet a la Unió Europea
@@ -3213,7 +3312,8 @@ description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methode
 description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
 description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
 description:fr:Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L’agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
-
+environmental_benefits:en:Organic agriculture contributes to preserve biodiversity, climate, water quality and soil fertility.
+environmental_benefits:fr:L'agriculture biologique contribue à préserver la biodiversité, le climat, la qualité de l'eau et la fertilité des sols.
 
 # Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
 en:Non-organic, not organic
@@ -16776,6 +16876,13 @@ it:Sicurezza dei Delfini
 nl:dolfijnvriendelijk
 label_categories:en: en:Fishing labels
 
+# Should not be automatically triggered by the MSC label
+# as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
+# From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
+<en:Sustainable fishing
+en:Sustainable fishing method, sustainable fishing technique
+fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
@@ -16796,6 +16903,7 @@ ru:сейнерная рыбалка
 wikidata:en:Q600580
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Angled fish
 ca:Pescat amb canya
 de:Geangelter Fisch
@@ -16803,6 +16911,7 @@ fi:koukulla pyydystettyä kalaa
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Trap Fishing
 de:Angeln mit Fallen
 fi:sulkukalastettu
@@ -16850,6 +16959,7 @@ de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
 label_categories:en: en:Fishing method
 
+<en:Sustainable fishing method
 en:Hand fishing
 ca:Pescat manualment
 de:Handfischen
@@ -16892,7 +17002,7 @@ zh:鸬鹚捕鱼
 wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
-en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
+en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
 de:Nachhaltige Fischerei
 es:Pesca sostenible
@@ -18837,17 +18947,6 @@ hu:Tejszív
 
 hu:Minőségi magyar tej
 
-en:Hungarian Processed Product
-hu:Hazai Feldolgozású Termék
-manufacturing_places:en: en:Hungary
-
-en:Made in Hungary
-fi:valmistettu Unkarissa
-hu:Magyarországon készült
-sv:Tillverkad i Ungern
-manufacturing_places:en: en:Hungary
-label_categories:en: en:Origins
-
 en:Free from E number
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
@@ -19058,36 +19157,46 @@ nl:gepasteuriseerd product
 
 en:Health Star Rating, Health Star Rating System, HSR
 it:Health Star Rating, Health Star Rating System, HSR
+xx:Health Star Rating, Health Star Rating System, HSR
 wikidata:en:Q85846088
 label_categories:en: en:Nutrition Grades
 countries_where_sold:en: en:Australia
 
 <en:Health Star Rating
 en:Health Star Rating 1
+xx:Health Star Rating 1
 
 <en:Health Star Rating
 en:Health Star Rating 1.5
+xx:Health Star Rating 1.5
 
 <en:Health Star Rating
 en:Health Star Rating 2
+xx:Health Star Rating 2
 
 <en:Health Star Rating
 en:Health Star Rating 2.5
+xx:Health Star Rating 2.5
 
 <en:Health Star Rating
 en:Health Star Rating 3
+xx:Health Star Rating 3
 
 <en:Health Star Rating
 en:Health Star Rating 3.5
+xx:Health Star Rating 3.5
 
 <en:Health Star Rating
 en:Health Star Rating 4
+xx:Health Star Rating 4
 
 <en:Health Star Rating
 en:Health Star Rating 4.5
+xx:Health Star Rating 4.5
 
 <en:Health Star Rating
 en:Health Star Rating 5
+xx:Health Star Rating 5
 
 fr:Haute Valeur Environnementale, HVE
 xx:Haute Valeur Environnementale, HVE
@@ -19151,6 +19260,29 @@ en:Nestlé Cocoa Plan, Cocoa Plan
 
 en:EU Ecolabel
 xx:EU Ecolabel
+
+en:Eco-Score
+xx:Eco-Score
+
+<en:Eco-Score
+en:Eco-Score A
+xx:Eco-Score A
+
+<en:Eco-Score
+en:Eco-Score B
+xx:Eco-Score B
+
+<en:Eco-Score
+en:Eco-Score C
+xx:Eco-Score C
+
+<en:Eco-Score
+en:Eco-Score D
+xx:Eco-Score D
+
+<en:Eco-Score
+en:Eco-Score E
+xx:Eco-Score E
 
 en:GLOBALG.A.P.
 xx:GLOBALG.A.P., Global GAP

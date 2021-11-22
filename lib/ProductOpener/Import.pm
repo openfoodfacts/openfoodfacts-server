@@ -520,8 +520,6 @@ sub import_csv_file($) {
 					"3013873929306" => "nestle-france",	# Cereal Partners
 					"3011797320001" => "nestle-france",	# Nestlé Waters
 					"3010737870309" => "groupe-bel",	# BEL FRANCE
-					"3700935300011" => "panzani-sa",	# Garofalo France
-					"3012409300206" => "panzani-sa",	# Lustucru Frais
 				);
 				
 				# GLNs can now be stored inside organization profiles (loaded in $glns_ref)
@@ -1053,22 +1051,30 @@ sub import_csv_file($) {
 						and ($Owner_id !~ /^org-database-/)
 						and ($Owner_id !~ /^org-label-/)) {
 						$product_ref->{owner_fields}{$field} = $time;
-					}
+					
+						# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
+						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
+							$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
+							$modified++;
+							defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
+							$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
+						}
 
-					# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
-					if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
-						$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
-						$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
-						$modified++;
-						defined $stats{"products_imported_field_" . $field . "_updated"} or $stats{"products_imported_field_" . $field . "_updated"} = {};
-						$stats{"products_imported_field_" . $field . "_updated"}{$code} = 1;
+						# Skip data that we have already imported before (even if it has been changed)
+						# But do import the field "obsolete"
+						elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+							$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							next;
+						}
 					}
-
-					# Skip data that we have already imported before (even if it has been changed)
-					# But do import the field "obsolete"
-					elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
-						$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
-						next;
+					# For apps, databases, labels: do not overwrite fields provided by the owner
+					else {
+						# Tags field will be added, we can import them
+						if ((not defined $tags_fields{$field}) and (defined $product_ref->{owner_fields}{$field})) {
+							$log->debug("skipping field that was already imported by the owner", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
+							next;
+						}
 					}
 				}
 
