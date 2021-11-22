@@ -39,8 +39,8 @@
 //const corsProxy = "https://pure-63603.herokuapp.com/"; // For dev environment
 const corsProxy = "";                                        // For production
 
-//const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
-const feAPI = corsProxy + "http://api.fe.openfoodfacts.localhost:8000"; // For dev environment
+const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
+//const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
 var feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
@@ -450,14 +450,11 @@ function folskonomy_engine_init() {
         console.log($(_this).parent().text());
         const property = $(_this).parent().parent().children(".property").text();
         const version = $(_this).parent().parent().children(".version").attr("data-version");
-        const del_req = `
+        console.log(`
             curl -X 'DELETE' \\
-            '${feAPI}/product/${code}/${property}?version=${version}' \\
-            -H 'accept: application/json' \\
-            -H 'Authorization: Bearer ${bearer}'`;
-        console.log("Property: " + property);
-        console.log("Version: " + version);
-        console.log(del_req);
+              '${feAPI}/product/${code}/${property}?version=${version}' \\
+              -H 'accept: application/json' \\
+              -H 'Authorization: Bearer ${bearer}'`);
         fetch(feAPI + "/product/" + code + "/" + property + "?version=" + version,{
             method: 'DELETE',
             headers: new Headers({
@@ -576,24 +573,24 @@ function folskonomy_engine_init() {
         const version = $(_this).parent().parent().children(".version").data("version");
 
         // build UI: make value editable
-        $(_this).parent().parent().children(".value").html('<input class="fe_form_value" type="text" maxlength="255" name="value" value="'+oldValue+'"  autofocus required />');
+        $(_this).parent().parent().children(".value").html('<input id="fe_' + property + '_form_value" type="text" maxlength="255" name="value" value="'+oldValue+'"  autofocus required />');
         //$(_this).parent().parent().children(".value").text('<input class="fe_form_value" type="text" maxlength="255" name="value" autofocus required>'+_value+'</input>');
         // replace [Edit] by [Save]
         $(_this).hide();
         $(_this).parent().children(".fe_save_kv").show();
-        console.log($(_this).parent().parent().find(".fe_form_value"));
+        console.log($(_this).parent().parent().find("#fe_" + property + "_form_value"));
 
         // call modifyKV if save button
         $(".fe_save_kv").on("click",
             function() {
                 // Do not save anything if value is empty
-                if (!$("#fe_form_value").val()) {
-                    console.log("No value provided");
+                if (!$("#fe_" + property + "_form_value").val()) {
+                    console.log("FEUS - editPropertyValue() - No value provided!");
     
                     return;
                 }
                 isWellLoggedIn() ?
-                updatePropertyValue(code, property, $(_this).parent().parent().find(".fe_form_value").val(), "", version+1) :
+                updatePropertyValue(code, property, $(_this).parent().parent().find("#fe_" + property + "_form_value").val(), "", version+1) :
                 loginProcess();
             }
         ); 
@@ -821,8 +818,15 @@ function folskonomy_engine_init() {
 
 
     function getCredentialsFromCookie(_cookie, callback) {
-        console.log("FEUS - getCredentialsFromCookie - call " + feAPI + "/auth");
-        console.log("FEUS - getCredentialsFromCookie - cookie: " + _cookie);
+        console.log("FEUS - getCredentialsFromCookie - call " + feAPI + "/auth with callback", callback);
+        console.log(`
+        curl -X 'POST' \\
+          'http://api.fr.openfoodfacts.localhost:8000/auth_by_cookie' \\
+          -H 'accept: application/json' \\
+          -H 'Cookie: ${_cookie}' \\
+          -d ''`
+        );
+        // Cookie should be in the form: session=user_session&1WVzzIhNZgV1WtUtuw2s4vuSkeBqBn3bBC9I4tcRcYX5FlMTnPXSz89Fh0MO4hIR&user_id&charlesnepote'
         fetch(feAPI + '/auth_by_cookie',{
             method: 'POST',
             //credentials: 'same-origin',
