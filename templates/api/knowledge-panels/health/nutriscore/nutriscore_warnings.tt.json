@@ -12,6 +12,7 @@
         {
             "element_type": "text",
             "text_element": {
+                "type": "warning",
                 "html": `[% warning %]
                 `,
             }

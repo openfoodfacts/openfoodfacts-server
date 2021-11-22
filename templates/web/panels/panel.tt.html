@@ -119,11 +119,13 @@
 
                 
                 [% IF text_element.type == "h1" %]
-                    <h4>
+                    <h4 class="panel_title">
                 [% ELSIF text_element.type == "note" %]
-                    <div class="note">→ 
+                    <div class="panel_text panel_text_note">→ 
+                [% ELSIF text_element.type == "warning" %]
+                    <div class="panel_text panel_text_warning">⚠️ 
                 [% ELSE %]
-                    <div>
+                    <div class="panel_text">
                 [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
