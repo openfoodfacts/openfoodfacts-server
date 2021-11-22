@@ -1302,6 +1302,13 @@ sub parse_ingredients_text($) {
 							}
 							$ingredient = $` . ' ' . $';
 							$ingredient =~ s/\s+/ /g;
+
+							# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
+							# then we replace the now empty ingredient by the sub ingredients
+							if (($ingredient =~ /^\s*$/) and (defined $between) and ($between ne "")) {
+								$ingredient = $between;
+								$between = '';
+							}
 							$debug_ingredients and $log->debug("found label", { ingredient => $ingredient, labelid => $labelid }) if $log->is_debug();
 						}
 					}
