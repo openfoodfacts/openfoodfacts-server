@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-warning-comments */
 /* eslint-env jquery */
 /* eslint max-statements-per-line: ["error", { "max": 2 }] */
@@ -33,9 +34,14 @@
 
 // Issues: see https://github.com/openfoodfacts/folksonomy_frontend/issues
 
-const feAPI = "https://api.folksonomy.openfoodfacts.org";
-//const feAPI = "http://127.0.0.1:8000";
-var feAPIProductURL, code, bearer;
+// Cors issues? See: https://stackoverflow.com/a/43268098
+// Deploy a cors proxy: https://elements.heroku.com/buttons/marcus2vinicius/cors-anywhere
+//const corsProxy = "https://pure-63603.herokuapp.com/"; // For dev environment
+const corsProxy = "";                                        // For production
+
+const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
+//const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
+var feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
@@ -43,7 +49,7 @@ const authrenewal = 1 * 5 * 60 * 60 * 1000;
 // eslint-disable-next-line no-unused-vars
 function folskonomy_engine_init() {
     const pageType = isPageType(); // test page type
-    console.log("FEUS - Folksonomy Engine User Script - 2021-09-14T16:54 - mode: " + pageType);
+    console.log("FEUS - Folksonomy Engine User Script - 2021-11-19T16:49 - mode: " + pageType);
 
     console.log("authrenewal: " + authrenewal); // days * hours * minutes * seconds * ms
 
@@ -110,10 +116,8 @@ function folskonomy_engine_init() {
         feAPIProductURL = feAPI + "/product/" + code;
     }
 
-
     if (pageType === "product view") {
         displayFolksonomyPropertyValues();
-        //displayFolksonomyForm();
     }
 
     if (pageType === "edit") {
@@ -130,7 +134,6 @@ function folskonomy_engine_init() {
         const value = results[3];
         displayProductsWithProperty(property, value);
     }
-
 
     if (pageType === "properties") {
         displayAllProperties();
@@ -189,6 +192,9 @@ function folskonomy_engine_init() {
         fetch(feAPI + "/keys").
             then(function(u){ return u.json(); }).
             then(function(json){
+
+            /* [    { "k": "knockoff_brand", "count": 25, "values": 7 },
+                    { "k": "packaging:has_character", "count": 18, "values": 1 }  ] */
             const list = $.map(json, function (value) {
                         return {
                             label: value.k + " (" + value.count + ")",
@@ -204,7 +210,7 @@ function folskonomy_engine_init() {
         // Control new property entry
         $("#fe_form_new_property").on("keyup", function() {
             const kControl = /^[a-z0-9_]+(\\:[a-z0-9_]+)*$/; // a property is made of minus letters + numbers + _ and :
-            if (kControl.test($("#fe_form_new_property").val()) === false) {
+            if ($("#fe_form_new_property").val() && kControl.test($("#fe_form_new_property").val()) === false) {
                 console.log("k syntax is bad!");
                 $("#fe_prop_err").css("visibility", "visible");
             }
@@ -213,8 +219,85 @@ function folskonomy_engine_init() {
             }
         });
 
+        // Suggest values depending on the property
+        $("#fe_form_new_value").on("focus", function() {
+            if (!$("#fe_form_new_property").val()) {
+                console.log("No property provided");
+
+                return;
+            }
+            if ($("#fe_form_new_property").val() === prop) {
+                console.log("Property hasn't changed");
+
+                return;
+            }
+            prop = $("#fe_form_new_property").val();
+            $( "#fe_form_new_value" ).autocomplete();
+            $( "#fe_form_new_value" ).autocomplete('option', 'source', []);
+            // call API. Eg. https://api.folksonomy.openfoodfacts.org/products?k=packaging:has_character
+            fetch(feAPI + "/products?k=" + $("#fe_form_new_property").val()).
+                then(function(u){ return u.json(); }).
+                then(function(json){
+
+                    /* const json = 
+                        [
+                            { "product": "8711327484184", "k": "packaging:has_character", "v": "yes" },
+                            { "product": "9310036071174", "k": "packaging:has_character", "v": "yes" }
+                        ]
+                    */
+                    // @todo: Build following JSON
+                    /*  [
+                            { "label": "yes (95%)", "value": "yes" },
+                            { "label": "no (5%)",   "value": "no" }
+                        ]
+                    */
+                    const list = findOcc(json, "v");
+                    console.log("list: ", list);
+
+                    list.sort(function(a, b) {
+                        return a.occurence < b.occurence;
+                    });
+
+                    const value_list = list.map(function (value) {
+                        // { "label": "yes(2)", "value": "yes" }
+                        const rObj = {};
+                        rObj.label = value.v + "(" + value.occurrence + ")";
+                        rObj.value = value.v;
+                        
+                        return rObj; // { "label": "yes(2)", "value": "yes" }
+                    });
+                    console.log("value_list: ", value_list);
+
+                    return value_list;
+                }).
+                then(function(value_list){
+                    console.log("Data have been read: ", value_list);
+                    //jquery UI autocomplete: https://jqueryui.com/autocomplete/
+                    $("#fe_form_new_value").autocomplete({
+                        source: value_list,
+                        minLength: 0, // Start immediatly
+                    }).focus(function() { //bind('focus', function () {
+                        $(this).autocomplete("search", "");
+                    });
+                    $("#fe_form_new_value").autocomplete("search", ""); // Needed for first focus
+                }
+            );
+            console.log("end");
+        });
+
         // New property (key) / value submit
         $('#new_kv_button').on("click", function() {
+            // Do not submit anything if property or value is empty
+            if (!$("#fe_form_new_property").val()) {
+                console.log("No property provided");
+
+                return;
+            }
+            if (!$("#fe_form_new_value").val()) {
+                console.log("No value provided");
+
+                return;
+            }
             isWellLoggedIn() ?
             addKV(code, $("#fe_form_new_property").val(), $("#fe_form_new_value").val(), ""):
             loginProcess(function () {
@@ -223,6 +306,7 @@ function folskonomy_engine_init() {
         });
 
         // Get all property/value pairs and display it
+        console.log("FEUS - displayFolksonomyPropertyValues() - call: " + feAPIProductURL);
         $.getJSON(feAPIProductURL, function(data) {
             if (data === null) {
                 console.log("FEUS - displayFolksonomyPropertyValues() - No data");
@@ -247,11 +331,11 @@ function folskonomy_engine_init() {
                             '</tr>');
             }
             $("#free_prop_body").prepend(content);
-            $(".fe_del_kv").click( function() {
+            $(".fe_del_kv").on("click", function() {
                 console.log("FEUS - displayFolksonomyPropertyValues() - 'Delete' pressed");
                 isWellLoggedIn() ? delPropertyValue($(this)) : loginProcess(); 
             } );
-            $(".fe_edit_kv").click( function() {
+            $(".fe_edit_kv").on("click", function() {
                 console.log("FEUS - displayFolksonomyPropertyValues() - 'Edit' pressed");
                 isWellLoggedIn() ?
                 editPropertyValue($(this)) :
@@ -287,10 +371,8 @@ function folskonomy_engine_init() {
             //const mainAPI = window.location.origin;
             //$.getJSON(mainAPI +
             content +=
-                //'<p>List of all products with property <strong>' + _property + '</strong></p>' +
                 '<table id="properties_list">' +
                 '<tr>' +
-                //'<th> </th>' +
                 '<th class="product_code">Code</th>' +
                 '<th class="values">Values</th>' +
                 '</tr>' +
@@ -358,16 +440,21 @@ function folskonomy_engine_init() {
 
 
     function delPropertyValue(_this) {
-        // curl -X 'DELETE' \
-        //   'https://api.folksonomy.openfoodfacts.org/product/3760256070970/Test1620205047424?version=1' \
-        //   -H 'accept: application/json' \
-        //   -H 'Authorization: Bearer charlesnepote__U0da47a42-eb96-4386-b2eb-6e1657b7f969'
+
+        /* curl -X 'DELETE' \
+           'https://api.folksonomy.openfoodfacts.org/product/3760256070970/Test1620205047424?version=1' \
+           -H 'accept: application/json' \
+           -H 'Authorization: Bearer charlesnepote__U0da47a42-eb96-4386-b2eb-6e1657b7f969'
+        */
         console.log("FEUS - delPropertyValue() - start");
         console.log($(_this).parent().text());
         const property = $(_this).parent().parent().children(".property").text();
         const version = $(_this).parent().parent().children(".version").attr("data-version");
-        console.log("Property: " + property);
-        console.log("Version: " + version);
+        console.log(`
+            curl -X 'DELETE' \\
+              '${feAPI}/product/${code}/${property}?version=${version}' \\
+              -H 'accept: application/json' \\
+              -H 'Authorization: Bearer ${bearer}'`);
         fetch(feAPI + "/product/" + code + "/" + property + "?version=" + version,{
             method: 'DELETE',
             headers: new Headers({
@@ -391,18 +478,31 @@ function folskonomy_engine_init() {
     }
 
 
+    /**
+     * Add a property-value pair (a declaration) to a product
+     * 
+     * @param {string} _code The product barcode
+     * @param {string} _k  The property to add
+     * @param {string} _v  The value to add
+     * @param {string} _owner The owner or "" if it's a public declaration
+     * @returns {string} Returns values from http POST
+     * @todo returns {string} Returns if yes (0) or no (1) the new declaration has been created ?
+     */
     function addKV(_code, _k, _v, _owner) {
-        // curl -X 'POST' \
-        //         'https://api.folksonomy.openfoodfacts.org/product' \
-        //          -H 'accept: application/json' \
-        //          -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
-        //          -H 'Content-Type: application/json' \
-        //          -d '{
-        //                "product": "3760256070970",
-        //                "k": "test",
-        //                "v": "test1",
-        //                "owner": "charlesnepote"
-        //              }'
+
+        /* curl -X 'POST' \
+                  'https://api.folksonomy.openfoodfacts.org/product' \
+                  -H 'accept: application/json' \
+                  -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
+                  -H 'Content-Type: application/json' \
+                  -d '{
+                        "product": "3760256070970",
+                        "k": "test",
+                        "v": "test1",
+                        "owner": "charlesnepote"
+                      }'
+        */
+        console.log("FEUS - addKV() - addKV(" + _code + "," + _k  + "," + _v  + "," + _owner + ")");
         console.log("FEUS - "+
                     "curl -X 'POST' \\\n" +
                     "        '" + feAPI + "/product' \\\n" +
@@ -473,18 +573,24 @@ function folskonomy_engine_init() {
         const version = $(_this).parent().parent().children(".version").data("version");
 
         // build UI: make value editable
-        $(_this).parent().parent().children(".value").html('<input class="fe_form_value" type="text" maxlength="255" name="value" value="'+oldValue+'"  autofocus required />');
+        $(_this).parent().parent().children(".value").html('<input id="fe_' + property + '_form_value" type="text" maxlength="255" name="value" value="'+oldValue+'"  autofocus required />');
         //$(_this).parent().parent().children(".value").text('<input class="fe_form_value" type="text" maxlength="255" name="value" autofocus required>'+_value+'</input>');
         // replace [Edit] by [Save]
         $(_this).hide();
         $(_this).parent().children(".fe_save_kv").show();
-        console.log($(_this).parent().parent().find(".fe_form_value"));
+        console.log($(_this).parent().parent().find("#fe_" + property + "_form_value"));
 
         // call modifyKV if save button
-        $(".fe_save_kv").click(
+        $(".fe_save_kv").on("click",
             function() {
+                // Do not save anything if value is empty
+                if (!$("#fe_" + property + "_form_value").val()) {
+                    console.log("FEUS - editPropertyValue() - No value provided!");
+    
+                    return;
+                }
                 isWellLoggedIn() ?
-                updatePropertyValue(code, property, $(_this).parent().parent().find(".fe_form_value").val(), "", version+1) :
+                updatePropertyValue(code, property, $(_this).parent().parent().find("#fe_" + property + "_form_value").val(), "", version+1) :
                 loginProcess();
             }
         ); 
@@ -502,16 +608,17 @@ function folskonomy_engine_init() {
         //   "last_edit": "2021-05-06T07:50:53.258Z",
         //   "comment": ""
         // }
-        // curl -X 'PUT' \
-        //         'https://api.folksonomy.openfoodfacts.org/product' \
-        //          -H 'accept: application/json' \
-        //          -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
-        //          -H 'Content-Type: application/json' \
-        //          -d '{
-        //                "product": "3760256070970",
-        //                "k": "test",
-        //                "v": "test1"
-        //              }'
+        /* curl -X 'PUT' \
+                 'https://api.folksonomy.openfoodfacts.org/product' \
+                  -H 'accept: application/json' \
+                  -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
+                  -H 'Content-Type: application/json' \
+                  -d '{
+                        "product": "3760256070970",
+                        "k": "test",
+                        "v": "test1"
+                      }'
+        */
         console.log("FEUS - "+
                     "curl -X 'PUT' \\\n" +
                     "        '" + feAPI + "/product' \\\n" +
@@ -561,7 +668,7 @@ function folskonomy_engine_init() {
 
 
     /**
-     * Display all the free properties created and filed by users.
+     * Display all the free properties created and filed by users (product edition mode).
      * Examples:
      *    * Photo_Front: To be updated
      *
@@ -664,7 +771,7 @@ function folskonomy_engine_init() {
 
     function loginProcess(callback) {
         // Firstly try to athenticate by the OFF cookie
-        const cookie = $.cookie('session') ? $.cookie('session') : "";
+        var cookie = $.cookie('session') ? $.cookie('session') : "";
         if (cookie) {
             console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
             getCredentialsFromCookie(cookie, callback);
@@ -672,7 +779,7 @@ function folskonomy_engine_init() {
            //return;
         }
         else {
-            document.alert("You must be logged in first!");
+            window.alert("You must be logged in first!");
 
             //return;
         }
@@ -711,8 +818,15 @@ function folskonomy_engine_init() {
 
 
     function getCredentialsFromCookie(_cookie, callback) {
-        console.log("FEUS - getCredentialsFromCookie - call " + feAPI + "/auth");
-        console.log("FEUS - getCredentialsFromCookie - cookie: " + _cookie);
+        console.log("FEUS - getCredentialsFromCookie - call " + feAPI + "/auth with callback", callback);
+        console.log(`
+        curl -X 'POST' \\
+          'http://api.fr.openfoodfacts.localhost:8000/auth_by_cookie' \\
+          -H 'accept: application/json' \\
+          -H 'Cookie: ${_cookie}' \\
+          -d ''`
+        );
+        // Cookie should be in the form: session=user_session&1WVzzIhNZgV1WtUtuw2s4vuSkeBqBn3bBC9I4tcRcYX5FlMTnPXSz89Fh0MO4hIR&user_id&charlesnepote'
         fetch(feAPI + '/auth_by_cookie',{
             method: 'POST',
             //credentials: 'same-origin',
@@ -725,10 +839,16 @@ function folskonomy_engine_init() {
             then((resp) => {
             console.log(resp);
             console.log(resp.access_token);
-            bearer = resp.access_token;
-            console.log("FEUS - getCredentialsFromCookie - bearer: " + bearer);
-            localStorage.setItem('bearer',resp.access_token);
-            localStorage.setItem('date',new Date().getTime());
+            if (resp.access_token) {
+                bearer = resp.access_token;
+                console.log("FEUS - getCredentialsFromCookie - bearer: " + bearer);
+                localStorage.setItem('bearer',resp.access_token);
+                localStorage.setItem('date',new Date().getTime());
+            }
+            else {
+                console.log("FEUS - getCredentialsFromCookie - Enable to get credentials!");
+                window.alert("Enable to get credentials!");
+            }
             callback();
         }).
             catch((err) => {
@@ -811,7 +931,7 @@ function folskonomy_engine_init() {
      */
     function isWellLoggedIn() {
         // User is not identified and has never been
-        if (!localStorage.getItem('bearer')) {
+        if (localStorage.getItem('bearer') === null) {
             console.log("FEUS - isWellLoggedIn() - false (bearer does not exist)");
             
             return false;
@@ -827,7 +947,7 @@ function folskonomy_engine_init() {
         }
         else {
             bearer = localStorage.getItem('bearer');
-            //console.log("FEUS - isWellLoggedIn() - true");
+            console.log("FEUS - isWellLoggedIn() - true - Bearer: " + bearer);
 
             return true;
         }
@@ -848,3 +968,41 @@ function folskonomy_engine_init() {
         
     //     return user_name;
     // }
+
+
+/**
+ * Returns an array with the frequency of each value related to a particular key
+ * 
+ * @param {array} arr  Array of objects
+ *                     [
+ *                       {"p": "2567", "v": "yes"},
+ *                       {"p": "5745", "v": "yes"}
+ *                     ]
+ * @param {string} key Name of key
+ * @returns {array}    Array of objects containing the frequency of the key "key"
+ *                     [{key1: 3}, {key2: 5}]
+ */
+function findOcc(arr, key) {
+    const arr2 = [];
+    arr.forEach((x) => {
+    // Checking if there is any object in arr2 which contains the key value
+    if (arr2.some((val) => val[key] == x[key])) {
+        // If yes! then increase the occurrence by 1
+        arr2.forEach((k) => {
+        if (k[key] === x[key]) {
+            k.occurrence++;
+        }
+        });
+    } else {
+        // If not! Then create a new object initialize it with the
+        // present iteration key's value and set the occurrence to 1
+        const a = {};
+        a[key] = x[key];
+        a.occurrence = 1;
+        arr2.push(a);
+    }
+    });
+
+    return arr2; // [{val1: 3}, {val2: 5}]
+}
+    
