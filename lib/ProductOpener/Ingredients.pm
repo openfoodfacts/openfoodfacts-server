@@ -434,7 +434,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc", "en:vegan", "en:vegetarian");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -1642,15 +1642,27 @@ sub parse_ingredients_text($) {
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
 				}
-				if (defined $labels) {
-					$ingredient{labels} = $labels;
-				}
+
 				if (defined $vegan) {
 					$ingredient{vegan} = $vegan;
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
 				}
+
+				if (defined $labels) {
+					$ingredient{labels} = $labels;
+				
+					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
+					if ($labels =~ /\ben:vegan\b/) {
+						$ingredient{vegan}= "en:yes";
+						$ingredient{vegetarian}= "en:yes";
+					}
+					if ($labels =~ /\ben:vegetarian\b/) {
+						$ingredient{vegetarian}= "en:yes";
+					}
+				}
+
 				if ($processing ne "") {
 					$processing =~ s/^,\s?//;
 					$ingredient{processing} = $processing;
