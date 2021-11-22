@@ -82,30 +82,30 @@ my @tests = (
 		}
 	],
 	
-	# container type and instruction
-	#[
-#		'packaging_text_nl_fles_glasbak',
-#		{
-#			lc => "nl",
-#			packaging_text => "fles in glasbak"	
-#		}
-#	],
-#	
-#	[
-#		'packaging_text_nl_doosje_oud_papier',
-#		{
-#			lc => "nl",
-#			packaging_text => "doosje bij oud papier"	
-#		}
-#	],
-#	
-#	[
-#		'packaging_text_nl_over_plastic_afval',
-#		{
-#			lc => "nl",
-#			packaging_text => "overig bij plastic afval"	
-#		}
-#	],
+#	 Dutch container type and instruction
+	[
+		'packaging_text_nl_fles_glasbak',
+		{
+			lc => "nl",
+			packaging_text => "fles in de glasbak"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_doosje_oud_papier',
+		{
+			lc => "nl",
+			packaging_text => "doosje bij oud papier"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_over_plastic_afval',
+		{
+			lc => "nl",
+			packaging_text => "overig bij plastic afval"	
+		}
+	],
 	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
@@ -363,7 +363,35 @@ my @tests = (
 			lc => "fr",
 			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
 		}
-	],		
+	],
+
+	# Special test for cardboard that can be both a material and a shape
+	[
+		'en-cardboard-box-to-recycle',
+		{
+			lc => "en",
+			packaging => "Cardboard box to recycle",
+		}
+	],
+
+	# in glass container should trigger the glass material, which should then be overriden by its clear glass child
+	[
+		'en-clear-glass-bottle-in-glass-container',
+		{
+			lc => "en",
+			packaging => "Clear glass bottle in glass container",
+		}
+	],
+
+	[
+		'en-1-pet-plastic-bottle',
+		{
+			lc => "en",
+			packaging => "1 PET plastic bottle",
+		}
+	],
+	
+
 );
 
 init_packaging_taxonomies_regexps();

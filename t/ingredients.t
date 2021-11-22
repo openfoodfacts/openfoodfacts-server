@@ -345,6 +345,15 @@ my @tests = (
 		}
 	],
 
+	# E471 (niet dierlijk)
+	[
+		"nl-e471-niet-dierlijk",
+		{
+			lc => "nl",
+			ingredients_text => "E471 (niet dierlijk)",
+		}
+	],
+
 );
 
 
