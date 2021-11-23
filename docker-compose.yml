@@ -48,7 +48,7 @@ x-backend-conf: &backend-conf
 
     # Tmpfs
     - type: tmpfs
-      target: /mnt/podata/mnt
+      target: /mnt/podata/tmp
   networks:
     - webnet
 
