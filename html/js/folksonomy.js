@@ -36,8 +36,8 @@
 //const corsProxy = "https://pure-63603.herokuapp.com/"; // For dev environment
 const corsProxy = "";                                        // For production
 
-//const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
-const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
+const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
+//const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
 var feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
