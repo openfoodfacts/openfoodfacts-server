@@ -25562,6 +25562,7 @@ ro:Biscuiți fără gluten
 en:Sprits biscuits, Sprits, spritz biscuits
 de:Spritzgebäck
 fr:Biscuits sprits, Sprits, biscuits spritz
+nl:Sprits
 
 <en:Sprits biscuits
 en:Plain sprits biscuits
@@ -26264,12 +26265,13 @@ ciqual_food_name:fr:Spéculoos
 
 
 # description:en:SPECULAAS is a type of spiced shortcrust biscuit, traditionally baked for consumption on or just before St Nicholas' day in the Netherlands (5 December), Belgium (6 December), and around Christmas in Germany and Austria. Today most speculaas versions are made from white (wheat) flour, brown sugar, butter and spices.
-# comment:en:This is different from speculoos, which is a sugar-based variant (no spices).
+# comment:en:This is different from speculoos, which is a sugar-based variant with only cinnamon.
 
 # mainIngredient:en:wheat
 # <en:compound
 <en:Biscuits
-en:speculaas
+<nl:Sinterklaasproducten
+en:Speculaas
 ar:سبيكولوس
 br:Spekulaas
 cs:Spekulatius
@@ -26295,6 +26297,11 @@ zh:斯派庫魯斯
 # pcd:Spéculaas
 wikidata:en:Q6591
 wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
+
+#decription:en:Small round biscuits (1-2 cm) with a large range spices. Can only be obtained in the months up to 5 december (Saint Nicolas)
+
+<en:Speculaas
+nl:Kruidnoten, Speculaasnoten
 
 en:Breaded products
 bg:Панирани продукти
@@ -28331,6 +28338,7 @@ ciqual_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
 <en:Doughnuts
 en:Doughnuts filled with fruits
 fr:Beignet fourré aux fruits
+nl:Donuts gevuld met fruit
 agribalyse_food_code:en:23884
 ciqual_food_code:en:23884
 ciqual_food_name:en:Doughnut filled with fruits, prepacked
@@ -28339,6 +28347,7 @@ ciqual_food_name:fr:Beignet fourré aux fruits, préemballé
 <en:Doughnuts
 en:Jam doughnuts, Jelly doughnuts, Doughnuts filled with jam
 fr:Beignets à la confiture, Donuts à la confiture
+nl:Donuts gevuld met jam
 agribalyse_food_code:en:23881
 ciqual_food_code:en:23881
 ciqual_food_name:en:Doughnut filled with jam
@@ -28347,12 +28356,18 @@ ciqual_food_name:fr:Beignet à la confiture
 <en:Doughnuts
 en:Doughnuts filled with chocolate
 fr:Beignets fourrés au chocolat, Donuts au chocolat
+nl:Donuts gevuld met chocolade
 agribalyse_food_code:en:23885
 ciqual_food_code:en:23885
 ciqual_food_name:en:Doughnut filled with chocolate, prepacked
 
 <en:Doughnuts filled with fruits
 fr:Beignets fourrés à la framboise
+nl:Donuts gevuld met framboos
+
+<en:Doughnuts
+en:Glazed doughnuts
+nl:Geglazuurde donuts
 
 <en:Cakes
 en:Breton cakes
@@ -30554,7 +30569,7 @@ nl:Sinterklaasproducten
 
 <nl:Sinterklaasproducten
 <en:Cocoa and its products
-Vien:Chocolate letters
+en:Chocolate letters
 nl:Chocoladeletters
 
 en:Christmas foods and drinks
@@ -65558,7 +65573,7 @@ fr:Charcuteries, Charcuterie
 he:בשר מעובד
 hu:Feldolgozott húsok
 it:Carni preparate
-nl:Verwerkte vleesproducten
+nl:Verwerkte vleesproducten, Verwerkte vleeswaren
 pl:Mięsa przetworzone
 pt:Carnes preparadas, carnes processadas
 ru:Предварительно обработанные блюда
@@ -67403,6 +67418,7 @@ ciqual_food_name:en:Spicy pork sausage with red pepper, no precision
 <en:chorizo
 en:Spicy pork sausage in large slices
 fr:Chorizo en tranches, Chiffonade de chorizo
+nl:Gesneden chorizo
 agribalyse_proxy_food_code:en:30317
 
 <en:Spicy pork sausage in large slices
