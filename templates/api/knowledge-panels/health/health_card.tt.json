@@ -1,0 +1,60 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "title": "[% lang('health') %]",
+    },    
+    "elements": [
+        [% IF panels.nutriscore.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "nutriscore",
+                    [% IF panels.nutriscore_warnings.defined %]
+                        "nutriscore_warnings",
+                    [% END %]
+                ],
+            },
+        },
+        [% END %]
+        [% IF panels.nutriscore.nutrition_facts_table.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutrition_facts_table",
+            },
+        },
+        [% END %]
+        [% IF panels.nutriscore.ingredients.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ingredients') %]",
+                "panel_ids": ["ingredients"],
+            },
+        },
+        [% END %]
+        [% IF panels.nutriscore.allergens.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('allergens') %]",
+                "panel_ids": ["allergens"],
+            },
+        },
+        [% END %]
+        [% IF panels.nutriscore.additives.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('additives') %]",
+                "panel_ids": ["additives"],
+            },
+        }, 
+        [% END %]   
+    ],
+}

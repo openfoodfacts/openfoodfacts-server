@@ -1,7 +1,7 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
-[% IF panel.type == "card" %]
-<div class="panel_card" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+[% IF (panel.type == "card") OR (panel.type == "inline") %]
+<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 [% ELSE %]
 <ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 <li class="accordion-navigation">
@@ -71,7 +71,7 @@
     </a>
 
     [% IF panel.elements.defined %]
-    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.type == 'card' %]_card[% END %][% IF panel.expanded %] active[% END %]">
+    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF (panel.type == 'card') OR (panel.type == 'inline') %]_[% panel.type %][% END %][% IF panel.expanded %] active[% END %]">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        
@@ -119,11 +119,13 @@
 
                 
                 [% IF text_element.type == "h1" %]
-                    <h4>
+                    <h4 class="panel_title">
                 [% ELSIF text_element.type == "note" %]
-                    <div class="note">→ 
+                    <div class="panel_text panel_text_note">→ 
+                [% ELSIF text_element.type == "warning" %]
+                    <div class="panel_text panel_text_warning">⚠️ 
                 [% ELSE %]
-                    <div>
+                    <div class="panel_text">
                 [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
