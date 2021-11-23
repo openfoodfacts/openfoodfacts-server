@@ -7763,6 +7763,23 @@ CSS
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
 
+	# Environmental impact and Eco-Score
+	# Limit to the countries for which we have computed the Eco-Score
+	# for alpha test to moderators, display eco-score for all countries
+
+	# Note: the Eco-Score data needs to be localized before we create the knowledge panels.
+
+	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+
+		localize_ecoscore($cc, $product_ref);
+
+		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
+		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
+		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
+		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
+		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+	}	
+
 	# Knowledge panels are in development, they can be activated with the "panels" parameter
 	# for debugging and demonstration purposes
 	# Also activate them for moderators
@@ -8311,21 +8328,6 @@ HTML
 
 	# packagings data structure
 	$template_data_ref->{packagings} = $product_ref->{packagings};
-
-	# Environmental impact and Eco-Score
-	# Limit to the countries for which we have computed the Eco-Score
-	# for alpha test to moderators, display eco-score for all countries
-
-	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
-
-		localize_ecoscore($cc, $product_ref);
-
-		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
-		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
-		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
-		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
-		$template_data_ref->{ecoscore_calculation_details} = display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
-	}
 
 	# Forest footprint
 	# 2020-12-07 - We currently display the forest footprint in France
