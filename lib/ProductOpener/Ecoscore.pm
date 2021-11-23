@@ -646,7 +646,8 @@ sub compute_ecoscore($) {
 		# Compute the final Eco-Score and assign the A to E grade
 		
 		# We need an AgriBalyse category match to compute the Eco-Score
-		if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
+		# Note: the score can be 0
+		if (defined $product_ref->{ecoscore_data}{agribalyse}{score}) {
 			
 			$product_ref->{ecoscore_data}{status} = "known";
 			
