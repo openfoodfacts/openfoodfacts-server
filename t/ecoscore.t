@@ -495,7 +495,17 @@ my @tests = (
 			packaging_text => "1 PET plastic bottle, 1 PEHD bottle cap",
 			ingredients_text => "Milk (England)",
 		},
-	],	
+	],
+
+	# Agribalyse score is 0 (which is valid)
+	[
+		'lamb-leg',
+		{
+			lc => "en",
+			categories_tags=>["en:lamb-leg"],
+			ingredients_text => "Fresh lamb leg (Great Britain)",
+		},
+	],
 
 );
 
