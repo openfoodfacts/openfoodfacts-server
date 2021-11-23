@@ -58,6 +58,7 @@ edit_etc_hosts:
 up:
 	@echo "🥫 Building and starting containers …"
 	${DOCKER_COMPOSE} up -d --build 2>&1
+	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -72,6 +73,7 @@ reset: hdown up
 restart:
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
+	@echo "🥫  started service at http://openfoodfacts.localhost"
 
 restart_db:
 	@echo "🥫 Restarting MongoDB database …"
