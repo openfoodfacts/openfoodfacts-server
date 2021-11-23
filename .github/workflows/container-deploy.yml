@@ -163,7 +163,6 @@ jobs:
           make hdown
           make build_lang
           make up
-          make setup_incron
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
