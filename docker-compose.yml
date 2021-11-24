@@ -46,9 +46,6 @@ x-backend-conf: &backend-conf
     # Apache conf
     - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
 
-    # Tmpfs
-    - type: tmpfs
-      target: /mnt/podata/tmp
   networks:
     - webnet
 
