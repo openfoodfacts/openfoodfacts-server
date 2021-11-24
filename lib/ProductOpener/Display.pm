@@ -70,6 +70,8 @@ BEGIN
 
 		&add_product_nutriment_to_stats
 		&compute_stats_for_products
+		&compare_product_nutrition_facts_to_categories
+		&data_to_display_nutrition_table
 		&display_nutrition_table
 		&display_product
 		&display_product_api
@@ -1459,12 +1461,12 @@ sub display_text($)
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 
 
-	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
+	while ($html =~ /<scripts>(.*?)<\/scripts>/s) {
 		$html = $` . $';
 		$scripts .= $1;
 	}
 
-	if ($html =~ /<initjs>(.*)<\/initjs>/s) {
+	while ($html =~ /<initjs>(.*?)<\/initjs>/s) {
 		$html = $` . $';
 		$initjs .= $1;
 	}
@@ -7369,11 +7371,11 @@ JS
 
 	# Extract initjs code from content
 
-	if ($$content_ref =~ /<initjs>(.*)<\/initjs>/s) {
+	while ($$content_ref =~ /<initjs>(.*?)<\/initjs>/s) {
 		$$content_ref = $` . $';
 		$initjs .= $1;
 	}
-	if ($$content_ref =~ /<scripts>(.*)<\/scripts>/s) {
+	while ($$content_ref =~ /<scripts>(.*?)<\/scripts>/s) {
 		$$content_ref = $` . $';
 		$scripts .= $1;
 	}
@@ -8254,51 +8256,20 @@ HTML
 
 		$template_data_ref->{display_serving_size} = display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
 
-		# Compare nutrition data with categories
-
-		my @comparisons = ();
-
-		if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
-				and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
-
-			my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
-
-			if (defined $categories_nutriments_ref) {
-
-				foreach my $cid (@{$product_ref->{categories_tags}}) {
-
-					if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-
-						push @comparisons, {
-							id => $cid,
-							name => display_taxonomy_tag($lc,'categories', $cid),
-							link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
-							nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-							count => $categories_nutriments_ref->{$cid}{count},
-							n => $categories_nutriments_ref->{$cid}{n},
-						};
-					}
-				}
-
-				if ($#comparisons > -1) {
-					@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
-					$comparisons[0]{show} = 1;
-				}
-			}
-
-		}
+		# Compare nutrition data with stats of the categories and display the nutrition table
 
 		if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 			$template_data_ref->{no_nutrition_data} = 'on';
 		}
 
-		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, \@comparisons);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $cc, undef);
+
+		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref);
 		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight);
 
 		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 			$template_data_ref->{has_tag} = 'categories-en:alcoholic-beverages';
 		}
-
 	}
 
 
@@ -9305,6 +9276,74 @@ sub compute_stats_for_products($$$$$$) {
 }
 
 
+=head2 compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories)
+
+Compares a product nutrition facts to average nutrition facts of each of its categories.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Target country code $target_cc
+
+=head4 Max number of categories $max_number_of_categories
+
+If defined, we will limit the number of categories returned, and keep the most specific categories.
+
+=head3 Return values
+
+Reference to a comparisons data structure that can be passed to the data_to_display_nutrition_table() function.
+
+=cut
+
+sub compare_product_nutrition_facts_to_categories($$$) {
+
+	my $product_ref = shift;
+	my $target_cc = shift;
+	my $max_number_of_categories = shift;
+
+	my @comparisons = ();
+
+	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
+			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
+
+		if (defined $categories_nutriments_ref) {
+
+			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
+
+					push @comparisons, {
+						id => $cid,
+						name => display_taxonomy_tag($lc,'categories', $cid),
+						link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
+						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
+						count => $categories_nutriments_ref->{$cid}{count},
+						n => $categories_nutriments_ref->{$cid}{n},
+					};
+				}
+			}
+
+			if ($#comparisons > -1) {
+				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
+				$comparisons[0]{show} = 1;
+			}
+
+			# Limit the number of categories returned
+			if (defined $max_number_of_categories) {
+				while (@comparisons > $max_number_of_categories) {
+					pop @comparisons;
+				}
+			}
+		}
+	}
+
+	return \@comparisons;
+}
+
+
 =head2 data_to_display_nutrition_table ( $product_ref, $comparisons_ref )
 
 Generates a data structure to display a nutrition table.
@@ -9578,13 +9617,13 @@ CSS
 
 		if ($shown) {
 		
-			# Level of the nutrient: 1 for main nutrients, 2 for sub-nutrients, 3 for sub-sub-nutrients
-			my $level = 1;
+			# Level of the nutrient: 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
+			my $level = 0;
 			
 			if ($nutriment =~ /^-/) {
-				$level = 2;
+				$level = 1;
 				if ($nutriment =~ /^--/) {
-					$level = 3;
+					$level = 2;
 				}
 			}
 
@@ -9896,7 +9935,7 @@ CSS
 				push @{$template_data_ref->{nutrition_table}{rows}}, {
 					name => lang("salt_equivalent"),
 					nid => "salt_equivalent",
-					level => 2,
+					level => 1,
 					columns => \@extra_row_columns,
 				};
 			}
@@ -9906,7 +9945,7 @@ CSS
 				push @{$template_data_ref->{nutrition_table}{rows}}, {
 					name => $Nutriments{sodium}{$lang},
 					nid => "sodium",
-					level => 2,
+					level => 1,
 					columns => \@extra_row_columns,
 				};
 			}
@@ -9916,7 +9955,7 @@ CSS
 				push @{$template_data_ref->{nutrition_table}{rows}}, {
 					name => "Nutri-Score",
 					nid => "nutriscore",
-					level => 2,
+					level => 1,
 					columns => \@extra_row_columns,
 				};
 			}
