@@ -137,11 +137,11 @@ use Log::Any qw($log);
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir (my $dh, "$data_root/index")) {
+if (opendir (my $dh, "$data_root/data/categories_stats")) {
 	foreach my $file (readdir($dh)) {
 		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
 			my $country_cc = $1;
-			$categories_nutriments_per_country{$country_cc} = retrieve("$data_root/index/categories_nutriments_per_country.$country_cc.sto");
+			$categories_nutriments_per_country{$country_cc} = retrieve("$data_root/data/categories_stats/categories_nutriments_per_country.$country_cc.sto");
 		}
 	}
 	closedir $dh;
@@ -581,7 +581,7 @@ sub mmoll_to_unit {
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
-		'carbon-footprint',
+		'carbon-footprint-',
 		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
@@ -694,7 +694,7 @@ sub mmoll_to_unit {
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
-		'carbon-footprint',
+		'carbon-footprint-',
 		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
@@ -807,7 +807,7 @@ sub mmoll_to_unit {
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
-		'carbon-footprint',
+		'carbon-footprint-',
 		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
@@ -922,7 +922,7 @@ sub mmoll_to_unit {
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
-		'carbon-footprint',
+		'carbon-footprint-',
 		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
@@ -1030,7 +1030,7 @@ sub mmoll_to_unit {
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
-		'carbon-footprint',
+		'carbon-footprint-',
 		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
