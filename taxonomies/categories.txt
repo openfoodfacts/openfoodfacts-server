@@ -4805,7 +4805,6 @@ he:מיצי פירות
 hu:Gyümölcslevek és nektárok
 it:Succhi di frutta
 nl:Vruchtensappen, Fruitsappen
-nl_be:Vruchtensap, Fruitsappen
 pl:Soki owocowe
 pt:Sumos de fruta
 ru:Фруктовые соки
@@ -5455,7 +5454,7 @@ de:Gekühlte Direktsäfte
 es:Zumos exprimidos refrigerados
 fi:jäähdytetyt puristetut mehut
 fr:Jus de fruits frais
-nl:Verse vruchtensappen, Verse vruchtensap
+nl:Gekoelde verse vruchtensappen, Gekoelde verse vruchtensap
 
 <en:Orange juices
 <en:Refrigerated squeezed juices
@@ -31603,6 +31602,7 @@ agribalyse_proxy_food_name:fr:Gnocchi à la pomme de terre, cru
 <en:Gnocchi
 en:Cooked gnocchis
 fr:Gnocchis cuits
+nl:Gekookte Gnocchis
 ciqual_food_code:en:25579
 ciqual_food_name:en:Gnocchi, cooked (average)
 ciqual_food_name:fr:Gnocchi, cuit (aliment moyen)
@@ -31625,6 +31625,7 @@ ciqual_food_name:fr:Gnocchi à la pomme de terre, cru
 <en:Potato gnocchi
 en:Cooked gnocchis from potato
 fr:Gnocchi de pommes de terre cuits, Gnocchis à la pomme de terre cuits
+nl:Gekookte aardappelgnocchis
 agribalyse_food_code:en:25510
 ciqual_food_code:en:25510
 ciqual_food_name:en:Gnocchi, from potato, cooked
@@ -35362,17 +35363,17 @@ nl:Goudse Komijnenkazen
 
 # comment:en: ripings process < 4 weeks
 <en:Gouda
-en:Young gouda, Young goudas
+en:Young Goudas, Young Gouda
 de:Junge Goudas, Junger Gouda
 fi:nuori gouda
 fr:Goudas jeunes, Gouda jeune
 it:Gouda giovane
-nl:Jonge Gouda
+nl:Jonge Goudas
 
 # comment:en: ripings process 8 <-> 10 weeks
 <en:Gouda
-en:Young matured Gouda
-nl:Jong belegen Gouda
+en:Young matured Goudas
+nl:Jong belegen Goudas
 
 # comment:en: ripings process 16 <-> 18 weeks
 <en:Gouda
@@ -35393,13 +35394,17 @@ en:Old Goudas
 de:Alter Gouda
 fi:kypsytetyt goudat
 fr:Goudas vieux
-nl:Oude Gouda
+nl:Oude Goudas
 
 # comment:en: ripings process > 12 months
 <en:Gouda
 fr:Goudas extra-vieux, Goudas de Noël
 de:Extra alte Goudas
 nl:Goudas extra oud, Overjarige Gouda
+
+<en:Young Goudas
+en:Young Goudas with herbs
+nl:Jonge Goudas met kruiden
 
 <en:Cheeses of the Netherlands
 en:Edam
@@ -46385,6 +46390,7 @@ it:Cereali estrusi
 <en:Breakfast cereals
 en:Cereals with nuts
 fr:Céréales aux fruits à coques
+nl:Ontbijtgranen met noten
 
 <en:Breakfast cereals
 en:Cereals with fruits
@@ -46412,7 +46418,7 @@ es:Cereales de chocolate
 fi:Suklaa-aamiaismurot
 fr:Céréales au chocolat
 it:Cereali al cioccolato
-nl:Chocolade ontbijtgranen
+nl:Ontbijtgranen met chocola
 
 <en:Chocolate cereals
 <en:Extruded cereals
@@ -46445,14 +46451,6 @@ fr:Céréales fourrées
 it:Cereali ripieni
 nl:Gevulde ontbijtgranen
 
-<en:Filled cereals
-en:Breakfast cereals filled with chocolate
-fr:Céréales pour petit déjeuner fourrées au chocolat
-
-<en:Filled cereals
-en:Breakfast cereals filled with chocolate-hazelnuts
-fr:Céréales pour petit déjeuner fourrées au chocolat-noisettes
-
 <en:Chocolate cereals
 en:Diet chocolate breakfast cereals
 fr:Céréales au chocolat pour petit-déjeuner équilibré
@@ -46460,6 +46458,7 @@ fr:Céréales au chocolat pour petit-déjeuner équilibré
 <en:Breakfast cereals
 en:Breakfast cereals fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner enrichies en vitamines et minéraux
+nl:Ontbijtgranen verrijkt met vitaminen en mineralen
 ciqual_food_code:en:32031
 ciqual_food_name:en:Breakfast cereals, sweet, fortified with vitamins and chemical elements (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et minéraux (aliment moyen)
@@ -46467,6 +46466,7 @@ ciqual_food_name:fr:Céréales pour petit déjeuner, enrichies en vitamines et m
 <en:Breakfast cereals
 en:Breakfast cereals not fortified with vitamins and chemical elements
 fr:Céréales pour petit déjeuner non enrichies en vitamines et minéraux
+nl:Ontbijtgranen onverrijkt met vitaminen en mineralen
 ciqual_food_code:en:32032
 ciqual_food_name:en:Breakfast cereals, sweet, not fortified with vitamins and chemical elements (average)
 ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines et minéraux (aliment moyen)
@@ -46538,15 +46538,16 @@ ciqual_food_code:en:32001
 ciqual_food_name:en:Breakfast cereals, with chocolate, not filled, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
 
-<en:Breakfast cereals
+<en:Filled cereals
 en:Breakfast cereals filled with chocolate
 fr:Céréales pour petit déjeuner fourrées au chocolat
+nl:Ontbijtgranen gevuld met chocola
 agribalyse_food_code:en:32017
 ciqual_food_code:en:32017
 ciqual_food_name:en:Breakfast cereals, filled with chocolate or chocolate-hazelnuts
 ciqual_food_name:fr:Céréales pour petit déjeuner fourrées au chocolat ou chocolat-noisettes
 
-<en:Breakfast cereals
+<en:Filled cereals
 en:Breakfast cereals filled with chocolate-hazelnuts
 fr:Céréales pour petit déjeuner fourrées au chocolat-noisettes
 agribalyse_food_code:en:32017
@@ -55446,6 +55447,7 @@ ciqual_food_name:fr:Sauce basquaise ou Sauce aux poivrons, préemballée
 <en:Sauces
 en:Tomato sauces with vegetables
 fr:Sauces tomate aux petits légumes
+nl:Tomatensauzen met groente
 agribalyse_food_code:en:11207
 ciqual_food_code:en:11207
 ciqual_food_name:en:Tomato sauce, w vegetables, prepacked
@@ -55644,7 +55646,7 @@ fi:currykastikkeet
 fr:Sauces au curry, Sauces curry
 hu:Curry mártások
 it:Salse al curry
-nl:Kerriesaus, Kerriesauzen
+nl:Kerriesauzen, Kerriesaus
 agribalyse_food_code:en:11132
 ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
@@ -55902,7 +55904,9 @@ it:Salse pigmentate
 nl:Pikante sauzen
 
 <en:Pimented sauces
-fr:sauces sriracha
+en:Sriracha sauces
+fr:Sauces sriracha
+nl:Srirachasauzen
 
 <en:Sauces
 en:Hot sauces, Chili sauces
@@ -57630,6 +57634,7 @@ en:Puttanesca sauces
 <en:Tomato sauces
 en:Tomato sauces with onions
 fr:Sauces tomate aux oignons
+nl:Tomatensauzen met ui
 agribalyse_food_code:en:11107
 ciqual_food_code:en:11107
 ciqual_food_name:en:Tomato sauce, with onions, prepacked
@@ -61103,6 +61108,7 @@ ru:Приготовленные овощи
 <en:Prepared vegetables
 en:Cooked vegetables
 fr:Légumes cuits
+nl:Gekookte groenten
 ciqual_food_code:en:20499
 ciqual_food_name:en:Vegetable, cooked (average)
 ciqual_food_name:fr:Légume cuit (aliment moyen)
@@ -70788,7 +70794,7 @@ nl:Volkoren durum tarwespaghettis, Volkorenspaghettis
 
 <en:Spaghetti
 fr:Spaghettis de petit épeautre, spaghetti au petit épeautre, Spaghettis au petit épeautre
-nl:Speltspghettis
+nl:Speltspaghettis
 
 <en:Pastas
 en:Tagliatelle
@@ -79305,17 +79311,20 @@ fr:Betteraves fraîches
 season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Vegetables
-en:Beetroot
-de:Rote Beete
-fr:Betterave rouge
+en:Uncooked beetroots
+de:Ungekochte rote Beete
+fr:Betterave rouge crue
+nl:Ongekookte rode bieten
 agribalyse_food_code:en:20091
 ciqual_food_code:en:20091
 ciqual_food_name:en:Beetroot, raw
 ciqual_food_name:fr:Betterave rouge, crue
 
 <en:Cooked vegetables
+<en:Beet
 en:Cooked beetroots
 fr:Betteraves rouges cuites
+nl:Gekookte rode bieten
 agribalyse_food_code:en:20003
 ciqual_food_code:en:20003
 ciqual_food_name:en:Beetroot, cooked
@@ -79433,6 +79442,7 @@ season_in_country_fr:en: 9,10,11
 <en:Cooked vegetables
 en:Cooked broccoli
 fr:Brocolis cuits
+nl:gekookte broccolis
 agribalyse_food_code:en:20006
 ciqual_food_code:en:20006
 ciqual_food_name:en:Broccoli, cooked
