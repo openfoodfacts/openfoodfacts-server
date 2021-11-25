@@ -83,7 +83,7 @@ The `.env` file also contains some useful Docker Compose variables:
 Instead of modifying `.env` (with the risk commit it inadvertently),
 You can also set needed variables in your shell, they will override `.env` values.
 Consider creating a `.envrc` file that you source each time you need to work on the project.
-On linux and macOS, you can automatically do it if you [use direnv](./use-direnv.md).
+On linux and macOS, you can automatically do it if you [use direnv](../how-to-guides/use-direnv.md).
 
 ## 4. Build your dev environment
 
@@ -107,7 +107,7 @@ The command will run 2 subcommands:
 
 * If docker complains about `ERROR: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network` it can be solved by adding `{"base":"172.80.0.0/16","size":24}, {"base":"172.90.0.0/16","size":24}` to `default-address-pools` in `/etc/docker/daemon.json` and then restarting the docker daemon. Credits to https://theorangeone.net/posts/increase-docker-ip-space/ for this solution._
 
-* For a full description of available make targets, see [docker/README.md](../docker/README.md#makefile-commands)
+* For a full description of available make targets, see [docker/README.md](../../docker/README.md#makefile-commands)
 
 **Hosts file:**
 
