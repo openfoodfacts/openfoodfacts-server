@@ -2,7 +2,7 @@
 
 This guide is for developers and newcomers to help them debug and explore Docker.
 
-This page describes how to test and debug your changes once you have set up the project, Product Opener with Docker using [dev environment quick start guide](./dev-environment-quick-start-guide.md).
+This page describes how to test and debug your changes once you have set up the project, Product Opener with Docker using [dev environment quick start guide](../introduction/dev-environment-quick-start-guide.md).
 
 ## Checking logs
 

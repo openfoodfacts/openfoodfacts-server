@@ -8,7 +8,7 @@
 When contributing to this repository, please first discuss the change you wish to make via issue, or the official [slack channel](https://openfoodfacts.slack.com/).
 
 
-Get started running server in development mode, see [Dev environment quick start guide](./installation/dev-environment-quick-start-guide.md)
+Get started running server in development mode, see [Dev environment quick start guide](./docs/introduction/dev-environment-quick-start-guide.md)
 
 ## Pull Request Process
 
