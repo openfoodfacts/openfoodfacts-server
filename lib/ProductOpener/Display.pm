@@ -9966,7 +9966,7 @@ CSS
 }
 
 
-=head2 data_to_display_nutrition_table ( $product_ref, $comparisons_ref )
+=head2 display_nutrition_table ( $product_ref, $comparisons_ref )
 
 Generates HTML to display a nutrition table.
 
