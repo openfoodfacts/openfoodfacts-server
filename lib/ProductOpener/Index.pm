@@ -36,6 +36,7 @@ BEGIN
 		&normalize
 
 		$memd
+		$lang_dir
 		%texts
 
 		);    # symbols to export on request
@@ -46,8 +47,6 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
@@ -88,7 +87,7 @@ $memd = Cache::Memcached::Fast->new(
 
 %texts = ();
 
-my $lang_dir = "$data_root/lang";
+$lang_dir = "$data_root/lang";
 
 if (not -e $lang_dir) {
 	$lang_dir = "$data_root/lang-default";
@@ -136,9 +135,6 @@ else {
 # called with. (but no "$variable will not stay shared" warning).
 # Converting them to global variables.
 # - better solution: create a class?
-
-use vars qw(
-);
 
 sub normalize($) {
 

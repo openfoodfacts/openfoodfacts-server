@@ -158,6 +158,8 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Index qw/:all/;
+
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
@@ -428,7 +430,7 @@ sub load_tags_hierarchy($$) {
 	defined $synonyms_for{$tagtype}{$lc} or $synonyms_for{$tagtype}{$lc} = {};
 
 
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$lang_dir/$lc/tags/$tagtype.txt")) {
 
 		my $current_tagid;
 		my $current_tag;
@@ -2019,10 +2021,10 @@ sub country_to_cc {
 	return;
 }
 
-# load all tags hierarchies
+# load all tags images
 
-# print STDERR "Tags.pm - loading tags hierarchies\n";
-if (opendir my $DH2, "$data_root/lang") {
+# print STDERR "Tags.pm - loading tags images\n";
+if (opendir my $DH2, $lang_dir) {
 	foreach my $langid (readdir($DH2)) {
 		next if $langid eq '.';
 		next if $langid eq '..';
@@ -2044,7 +2046,7 @@ if (opendir my $DH2, "$data_root/lang") {
 	closedir($DH2);
 }
 else {
-	$log->warn("The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository.") if $log->is_warn();
+	$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
 	$log->warn("Tags images could not be loaded.") if $log->is_warn();	
 }
 
@@ -3669,7 +3671,7 @@ sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
-	if (opendir DH2, "$data_root/lang") {
+	if (opendir DH2, $lang_dir) {
 		foreach my $langid (readdir(DH2)) {
 			next if $langid eq '.';
 			next if $langid eq '..';
@@ -3681,18 +3683,18 @@ sub init_tags_texts {
 
 			defined $tags_texts{$lc} or $tags_texts{$lc} = {};
 
-			if (-e "$data_root/lang/$langid") {
+			if (-e "$lang_dir/$langid") {
 				foreach my $tagtype (sort keys %tag_type_singular) {
 
 					defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
 
 					# this runs number-of-languages * number-of-tag-types times.
-					if (-e "$data_root/lang/$langid/$tagtype") {
-						opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
+					if (-e "$lang_dir/$langid/$tagtype") {
+						opendir DH, "$lang_dir/$langid/$tagtype" or die "Couldn't open the current directory: $!";
 						foreach my $file (readdir(DH)) {
 							next if $file !~ /(.*)\.html/;
 							my $tagid = $1;
-							open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
+							open(my $IN, "<:encoding(UTF-8)", "$lang_dir/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$lang_dir/$langid/$tagtype/$file", error => $! });
 
 							my $text = join("",(<$IN>));
 							close $IN;
@@ -3708,7 +3710,7 @@ sub init_tags_texts {
 		$log->debug("tags texts loaded") if $log->is_debug();
 	}
 	else {
-		$log->warn("The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository.") if $log->is_warn();
+		$log->warn("The $lang_dir could not be opened.") if $log->is_warn();
 		$log->warn("Tags texts could not be loaded.") if $log->is_warn();	
 	}
 	
