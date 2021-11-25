@@ -8,28 +8,24 @@
         "title": "[% lang('health') %]",
     },    
     "elements": [
-        [% IF panels.nutriscore.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
+                "title": "[% lang('nutrition') %]",
                 "panel_ids": [
-                    "nutriscore",
-                    [% IF panels.nutriscore_warnings.defined %]
-                        "nutriscore_warnings",
+                    [% IF panels.nutriscore.defined %]
+                        "nutriscore",
+                        [% IF panels.nutriscore_warnings.defined %]
+                            "nutriscore_warnings",
+                        [% END %]
+                    [% END %]
+                    [% IF panels.nutrition_facts_table.defined %]
+                        "nutrition_facts_table",
                     [% END %]
                 ],
             },
         },
-        [% END %]
-        [% IF panels.nutriscore.nutrition_facts_table.defined %]
-        {
-            "element_type": "panel",
-            "panel_element": {
-                "panel_id": "nutrition_facts_table",
-            },
-        },
-        [% END %]
-        [% IF panels.nutriscore.ingredients.defined %]
+        [% IF panels.ingredients.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -38,7 +34,7 @@
             },
         },
         [% END %]
-        [% IF panels.nutriscore.allergens.defined %]
+        [% IF panels.allergens.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -47,7 +43,7 @@
             },
         },
         [% END %]
-        [% IF panels.nutriscore.additives.defined %]
+        [% IF panels.additives.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {

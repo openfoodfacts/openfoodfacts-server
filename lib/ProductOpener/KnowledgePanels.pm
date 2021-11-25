@@ -619,6 +619,9 @@ sub create_health_card_panel($$$) {
     # Create Nutri-Score panel
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the nutrition facts table panel
+    create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -672,7 +675,47 @@ sub create_nutriscore_panel($$$) {
                 $panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
     }
-    
+}
+
+
+=head2 create_nutrition_facts_table_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panels with the nutrition facts table.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_nutrition_facts_table_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nutrition facts panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+
+    # Generate a panel only for food products that have a nutrition table
+    if ((not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table})))
+        and (not ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
+	
+        # Compare the product nutrition facts to the most specific category
+        my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
+        my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref);
+
+        create_panel_from_json_template("nutrition_facts_table", "api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
 }
 
 1;
