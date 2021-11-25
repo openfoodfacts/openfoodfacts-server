@@ -57,6 +57,10 @@ services:
       - ./html:/opt/product-opener/html/
   mongodb:
     image: mongo:4.4
+    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
     networks:
       - webnet
     ports:
