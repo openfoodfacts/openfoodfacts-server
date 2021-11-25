@@ -9970,11 +9970,7 @@ CSS
 
 Generates HTML to display a nutrition table.
 
-The nutrition table can be the nutrition table of a product, or of a category (stats for the categories).
-
-In the case of a product, extra columns can be added to compare the product nutrition facts to the average for its categories.
-
-The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+Use  data produced by data_to_display_nutrition_table
 
 =head3 Arguments
 
