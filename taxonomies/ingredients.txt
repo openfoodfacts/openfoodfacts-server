@@ -31265,6 +31265,10 @@ wikidata:en:Q1042920
 wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_en_morceaux
 # 4@2019-06-05
 
+<en:sugar
+en:fermented sugar
+nl:gefermenteerde suiker
+
 #################### Sugars from specific sources ##############
 
 <en:sugar
@@ -33269,6 +33273,7 @@ da:textureret hvedeprotein
 de:Texturiertes Weizenprotein
 es:proteína de trigo texturizada
 fr:protéines de blé texturées
+nl:getextuurd tarwe-eiwit
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
 <en:vegetable hydrolysed protein
@@ -77943,7 +77948,8 @@ de:Hühnereier aus Freilandhaltung
 es:huevos de gallinas camperas
 fi:ulkokanan munat, ulkokanan munia, ulkokanojen munia
 fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
-nl:ei van hennen met vrije uitloop
+nl:ei van hennen met vrije uitloop, scharrelkipheelei, scharrelkippene
+
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
@@ -78095,7 +78101,6 @@ nl:extra-verse hele eieren
 fr:œuf entier d'élevage au sol, oeuf entier d'élevage au sol
 de:Vollei aus Bodenhaltung
 it:uovo intero da allevamento al suolo
-nl:scharrelkipheelei
 # ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
 
 <en:whole egg
@@ -78187,7 +78192,7 @@ ko:흰자
 li:eiwit
 ms:putih telur
 nb:eggehvite
-nl:ei-eiwit, eiwit, albumine
+nl:ei-eiwit, albumine
 pl:bialka jaj, białko jaja
 pt:clara do ovo, clara de ovos
 ru:белок
@@ -78254,18 +78259,15 @@ de:Eiweiß aus Freilandhaltung
 nl:scharrelei-eiwit, kippenei-eiwit van scharreleieren
 
 <en:chicken egg white
-nl:scharrelkipeiwit
+nl:scharrelkipeiwit, vrije uitloop kippenei-eiwit
 
 <en:powdered egg white
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder, scharrelkipeiwitpoeder
 
 <en:powdered egg white
 de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnereiweiss-pulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
 fi:kananmunan valkuaisjauhe, kananmunanvalkuaisjauhe
 nl:kippenei-eiwitpoeder
-
-<de:Hühnerei-Trockeneiweiß
-nl:scharrelkipeiwitpoeder
 
 <en:powdered egg white
 en:rehydrated egg white
