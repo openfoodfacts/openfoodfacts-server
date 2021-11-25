@@ -22,7 +22,10 @@ x-backend-conf: &backend-conf
     - memcached
     - postgres
   volumes:
-    - html_data:/opt/product-opener/html/data # Static data (e.g dumps)
+    # pointer to openfoodfacts-web/lang
+    - ${WEB_LANG_PATH}:/mnt/podata/lang
+    # Static data (e.g dumps)
+    - html_data:/opt/product-opener/html/data
 
     # Binds from frontend container (read-only)
     - icons_dist:/opt/product-opener/html/images/icons/dist:ro
