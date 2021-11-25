@@ -10,15 +10,17 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 
 my $testdir = "packaging";
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -81,6 +83,32 @@ my @tests = (
 			packaging_text => "bouteille PET"
 		}
 	],
+	
+#	 Dutch container type and instruction
+	[
+		'packaging_text_nl_fles_glasbak',
+		{
+			lc => "nl",
+			packaging_text => "fles in de glasbak"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_doosje_oud_papier',
+		{
+			lc => "nl",
+			packaging_text => "doosje bij oud papier"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_over_plastic_afval',
+		{
+			lc => "nl",
+			packaging_text => "overig bij plastic afval"	
+		}
+	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
@@ -337,7 +365,35 @@ my @tests = (
 			lc => "fr",
 			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
 		}
-	],		
+	],
+
+	# Special test for cardboard that can be both a material and a shape
+	[
+		'en-cardboard-box-to-recycle',
+		{
+			lc => "en",
+			packaging => "Cardboard box to recycle",
+		}
+	],
+
+	# in glass container should trigger the glass material, which should then be overriden by its clear glass child
+	[
+		'en-clear-glass-bottle-in-glass-container',
+		{
+			lc => "en",
+			packaging => "Clear glass bottle in glass container",
+		}
+	],
+
+	[
+		'en-1-pet-plastic-bottle',
+		{
+			lc => "en",
+			packaging => "1 PET plastic bottle",
+		}
+	],
+	
+
 );
 
 init_packaging_taxonomies_regexps();
@@ -363,7 +419,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

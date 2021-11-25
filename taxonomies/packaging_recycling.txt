@@ -1,3 +1,9 @@
+synonyms:en:bin,container
+
+synonyms:fr:conteneur,container,poubelle,bac,benne
+
+stopwords:fr:le,la
+
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
 de:wiederverwenden, wiederverwendbar, nachfüllbar, mehrfach verwendbar, zum Wiederverwenden
 fr:réutiliser, à réutiliser, réutilisable, consigné, usage multiple, réemployer, à réemployer, réemployable
@@ -10,7 +16,21 @@ fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
 
-en:discard, to discard, throw away, to throw away, non-recyclable
+<en:recycle
+en:recycle in glass bin, recycle with glass, in glass bin
+fr:recycler dans le conteneur à verre, recycler avec le verre, dans le conteneur à verre, avec le verre
+nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
+# If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
+packaging_materials:en: en:glass
+
+<en:recycle
+en:recycle in paper bin, recycle with paper
+fr:recycler dans le conteneur à papier, recycler avec le papier, dans le conteneur à papier, avec le papier
+nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
+# If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
+# it could also be cardboard
+
+en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
 fr:jeter, à jeter, non-recyclable
 hu:eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét

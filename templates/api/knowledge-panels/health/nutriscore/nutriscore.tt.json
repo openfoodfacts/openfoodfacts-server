@@ -1,0 +1,20 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/nutriscore-[% panel.nutriscore_grade %].svg",
+        "title": "[% panel.title %]",
+        "type": "grade",
+        "grade": "[% panel.nutriscore_grade %]",
+    },
+    "elements": [           
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.nutriscore_details %]`,
+            }
+        },
+    ]
+}

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-10-05 18:45\n"
+"PO-Revision-Date: 2021-11-07 14:49\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4177,10 +4177,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "הזיהוי של כמה מהרכיבים לא הצליח."
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "העברת כל הנתונים והתמונות הנבחרות שבתוך %s לשפה העיקרית של המוצר: %s"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "העברת כל הנתונים והתמונות הנבחרים ב{language} לשפה העיקרית של המוצר: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5451,8 +5451,8 @@ msgid "Ingredients whose cultivation threatens species"
 msgstr "רכיבים שגידולם מאיים על מינים"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "לא זוהו רכיבים שגידולם מאיים על מינים כלשהם."
+msgid "No ingredient threatening species"
+msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5556,36 +5556,36 @@ msgid "Removing or changing the provided data will be possible only by experimen
 msgstr "הסרה או שינוי של הנתונים שסופקו תהיה אפשרית רק על ידי מתנדבים מנוסים באתר."
 
 msgctxt "ecoscore_packaging_impact_high"
-msgid "This product's packaging has an high impact on the environment."
-msgstr "לאריזה של המוצר הזה יש השפעה רבה על הסביבה."
+msgid "Packaging with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_medium"
-msgid "This product's packaging has an average impact on the environment."
-msgstr "לאריזה של המוצר הזה יש השפעה בינונית על הסביבה."
+msgid "Packaging with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_impact_low"
-msgid "This product's packaging has a low impact on the environment."
-msgstr "לאריזה של המוצר הזה יש השפעה חלשה על הסביבה."
+msgid "Packaging with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_packaging_missing_information"
-msgid "The information about this product's packaging is missing."
-msgstr "המידע על האריזה של מוצר זה חסר."
+msgid "Missing packaging information for this product"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
-msgid "Transportation and origins of ingredients have a high impact."
-msgstr "לשינוע ולמקורות הרכיבים יש השפעה גבוהה."
+msgid "Origins of ingredients with a high impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
-msgid "Transportation and origins of ingredients have a medium impact."
-msgstr "לשינוע ולמקורות הרכיבים יש השפעה בינונית."
+msgid "Origins of ingredients with a medium impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
-msgid "Transportation and origins of ingredients have a low impact."
-msgstr "לשינוע ולמקורות הרכיבים יש השפעה נמוכה."
+msgid "Origins of ingredients with a low impact"
+msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
-msgid "Missing information about the origins of ingredients"
-msgstr "חסר מידע על מקור הרכיבים"
+msgid "Missing origins of ingredients information"
+msgstr ""
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5620,17 +5620,21 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "תרומה"
 
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "אין תוויות עם יתרונות סביבתיים"
+
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
-msgid "Production mode with environmental benefits"
-msgstr "מצב ייצור עם יתרונות סביבתיים"
+msgid "Labels with environmental benefits"
+msgstr "תוויות עם יתרונות סביבתיים"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
-msgid "Production mode with high environmental benefits"
-msgstr "מצב ייצור עם יתרונות סביבתיים רבים"
+msgid "Labels with high environmental benefits"
+msgstr "תוויות עם יתרונות סביבתיים רבים"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
-msgid "Production mode with very high environmental benefits"
-msgstr "מצב ייצור עם יתרונות סביבתיים רבים מאוד"
+msgid "Labels with very high environmental benefits"
+msgstr "תוויות עם יתרונות סביבתיים רבים מאוד"
 
 msgctxt "other"
 msgid "Other"
@@ -5648,4 +5652,86 @@ msgstr "סטטיסטיקת רכיבים לכל המוצרים"
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
 msgstr "רכיבים לכל מוצר"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "המוצר נמחק."
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "טביעת רגל פחמנית"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "{grams} גרם CO² לכל 100 גרם של מוצר"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "שווה ערך לנסיעה של {kilometers} ק״מ ברכב שמונע בדלק"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "מקור: מסד הנתונים Agribalyse מבית ADEME"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "סביבה"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "תזונה ובריאות"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "מכיל שמן דקלים"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "מניע ביאור יערות ומאיים על מינים כמו האורנגאוטן"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "יערות טרופיים באסיה, אפריקה ואמריקה הדרומית נהרסים כדי ליצור ולהרחיב מטעי עצי דקל לייצור שמן. ביאור היערות תורם לשינויי האקלים ומסכן מינים כמו האורנגאוטן, הפיל הננסי וקרנף סומטרה."
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr ""
+
+msgctxt "malus"
+msgid "Malus"
+msgstr ""
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr ""
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr ""
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr ""
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr ""
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr ""
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
 

@@ -3,6 +3,7 @@
 en:Unknown
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
+nl:overig
 pt:Desconhecido
 
 # For all containers: use singular as the main name, and add plural as synonym
@@ -15,6 +16,7 @@ en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
 fr:Barquette, barquettes, Plateau
 hu:Tálca, tálcák
+nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
 en:Jar, jars
@@ -23,21 +25,34 @@ el:Βάζο
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
-nl:Pot
+nl:Pot, Potten
 pt:Jarro, jarros, jarra, jarras
+#suggest:packaging_materials:nl: en:glass
 
 en:Box, boxes
 de:Kasten
 el:Κουτί
-nl:Boos
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
 it:Scatola, scatole
+nl:Doos, doosje, Dozen, Doosjes, Pak
 pt:Caixa, caixas
+#suggest:packaging_materials:nl: en:paper, en:cardboard
+
+#Boxes for eggs
+<en:Box
+nl:Eierdoos
+#suggest:packaging_materials:nl: en:cardboard
+
+# boxes for pizza's
+<en:Box
+nl:Pizzadoos, pizzadozen
+#suggest:packaging_materials:nl: en:cardboard
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
+nl:Bak
 pt:Engradado, engradados
 
 en:Bottle, bottles
@@ -50,11 +65,13 @@ it:Bottiglia
 nl:Fles
 pt:Garrafa, garrafas
 wikidata:en:Q80228
+#suggest:packaging_materials:nl: en:glass
 
 en:Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
 de:Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr:Brique, briques
 hu:tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
+nl:Drankencarton, Melkpak
 
 # Can (drink or food)
 en:Can, cans
@@ -64,7 +81,7 @@ es:Lata
 fr:Boîte de conserve ou canette, boîtes de conserve ou canettes
 hu:konzervdoboz, konzerv
 it:Lattina, Latta
-nl:Blik
+nl:Blik, Blikje, Blikjes, Bus
 pt:Lata, latas
 
 # Can for drink, not canned food
@@ -75,7 +92,6 @@ es:Lata de bebida
 fr:Canette, cannette, canettes, cannettes
 hu:italos konzerv, italkonzerv, konzervital
 it:Lattina per bevande
-nl:Blikje
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 
 # Can for food, not canned drinks
@@ -93,6 +109,7 @@ en:pot, cup, pots, cups
 de:Kanne
 fr:Pot, pots
 hu:Pohár, fazék, lábas, edény, csésze, kanna
+nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões
 
 <en:pot
@@ -103,11 +120,13 @@ pt:Pote individual, potes individuais, boião individual, boiões individuais
 
 en:Tumbler
 fr:Gobelet
+nl:Beker, Bekers, Koffiebeker, Cup
 
 en:Tube, tubes
 de:Tube, Tuben
 fr:Tube, tubes
 hu:Tubus, tubusok, Cső, csövek, cső alakú
+nl:Tube
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 
 en:Fastener, clip
@@ -126,12 +145,13 @@ el:Σακούλα
 fr:Sachet, sac, sachets, sacs, berlingots, berlingot
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
-nl:Zak
+nl:Zak, Sachet, Tas, verzendzak
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
 en:Crate, crates
 fr:Cagette, cagettes, cageot, cageots
 hu:Láda, lécláda, ketrec
+nl:Krat
 pt:Caixote, caixotes
 
 <en:Bag
@@ -150,8 +170,9 @@ pt:Frasco, frascos
 en:Sleeve, sleeves,  sheath, outer open-end box
 fr:Étui, étuis, Fourreau, Cavalier
 hu:haskötő
+nl:Banderol, huls
 pt:Manga, mangas
-#suggest:packaging_materials:en: en:metal, en:paper, en:carboard, en:other
+#suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:other
 
 en:Mold
 fr:Moule
@@ -164,14 +185,22 @@ hu:Fedél, tető, fedő
 nl:Deksel
 pt:Tampa, tampas
 
-en:Bottle cap, bottle top, cap, top, Wine cork, wine bottle cork, cork, bottle caps, bottle tops, caps, tops, wine corks, wine bottle corks, corks
-fr:Bouchon de bouteille, bouchon, bouchon de bouteille de vin, bouchons de bouteille, bouchons de bouteilles, bouchons
+en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
+fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
+nl:Dop
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 
+<en:Bottle cap
+en:Wine cork, wine bottle cork, cork, wine corks, wine bottle corks, corks
+fr:bouchon de bouteille de vin, bouchons de bouteille,
+nl:Kurk
+
+<en:Bottle cap
 en:Capsule, capsules
 fr:Capsule, capsules
 hu:Kapszula, kapszulák
+nl:Capsule
 pt:Cápsula, cápsulas
 
 en:Coffee capsule, coffee capsules
@@ -230,6 +259,7 @@ weight:en:light
 en:card, cardboard
 fr:carte, cartonnette
 hu:kártya
+nl:Kaart
 pt:papelão, cartão, cartolina, papelões, cartões, cartolinas
 
 en:backing, support, board, stand
@@ -241,6 +271,7 @@ en:Net, nets
 de:Netz
 fr:Filet, filets
 hu:Háló, hálók
+nl:Net, netje
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 #suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
@@ -252,7 +283,7 @@ el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
 hu:Fólia, film
 it:Film, Pellicola
-nl:Film
+nl:Folie, Film
 pt:Película, películas, filme, filmes, filme extensível, filme estirável
 weight:en:light
 
@@ -271,6 +302,7 @@ en:Seal, operculum, seals, peel-off lid
 de:Deckel
 fr:Opercule, opercules
 hu:zárófedő
+nl:Seal
 pt:Tampo, tampos
 # weight:en:light
 
@@ -286,11 +318,13 @@ de:Schüssel
 el:Μπολ
 fr:Bol, bols
 hu:Tál, tálak
+nl:Schaal
 pt:Tigela, taça, tigelas, taças
 
 en:Plate, plates
 fr:Assiette, assiettes
 hu:tányér, tányérok
+nl:Bord
 pt:Prato, pratos
 
 en:Stick, sticks
@@ -307,9 +341,10 @@ en:label, labels
 de:Etikett, Etiketten
 fr:étiquette, étiquettes
 hu:címke, címkék
+nl:Label
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
-#suggest:packaging_materials:en: en:paper, en:carboard, en:other
+#suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 
 en:Applicator
 fr:Applicateur
@@ -320,14 +355,16 @@ fr:Bag-in-box, Cubitainer
 
 en:strip, band
 fr:Bandelette
-#suggest:packaging_materials:en: en:plastic, en:metal, en:carboard, en:other
+#suggest:packaging_materials:en: en:plastic, en:metal, en:cardboard, en:other
 
 en:Ampoule, ampul, ampule
 fr:Ampoule
+nl:Ampulle
 #suggest:packaging_materials:en: en:glass
 
 en:Blister, Blister pack
 fr:Blister
+nl:Blister
 
 #en:shell with cardboard backing
 #fr:coque avec chevalet carton
@@ -368,6 +405,7 @@ fr:enveloppage
 
 en:envelope
 fr:enveloppe
+nl:wikkel, vensterenvelop, sleeve
 #suggest:packaging_materials:en: en:cardboard, en:paper
 
 en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon, gift ribbons
@@ -417,9 +455,11 @@ fr:Tonneau, tonneaux, tonnelet, tonnelets
 
 en:Bubble wrap
 fr:Film à bulles
+nl:Bubbeltjesfilm
 
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
+nl:Cartridge, cartridges
 
 #fr:Bac
 #fr:Bidon
@@ -428,3 +468,14 @@ fr:Cartouche, cartouches
 
 en:Straw, straws
 fr:Paille, pailles
+
+en:Filling
+nl:Opvulmateriaal
+
+nl:Inlay
+
+en:Brochure
+nl:Folder
+
+#as in "verpakking bij plastic afval", meaning the entire packaging
+nl:Verpakking

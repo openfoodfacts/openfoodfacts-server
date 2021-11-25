@@ -94,6 +94,9 @@ jobs:
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml;docker/monitor.yml" >> .env
 
+          echo "PRODUCT_OPENER_EXPOSE=" >> .env
+          echo "ADMIN_EXPOSE=" >> .env
+
           # Set App variables
           echo "TAG=sha-${{ github.sha }}" >> .env
           echo "PRODUCERS_PLATFORM=0" >> .env
@@ -111,6 +114,8 @@ jobs:
           echo "GEOLITE2_PATH=${{ secrets.GEOLITE2_PATH }}" >> .env
           echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
           echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env
+          echo "LOG_LEVEL_ROOT=ERROR" >> .env
+          echo "LOG_LEVEL_MONGODB=ERROR" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ secrets.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
@@ -129,6 +134,20 @@ jobs:
           cd ${{ matrix.env }}
           make create_external_volumes
 
+    - name: init backend
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          make init_backend
+
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
@@ -142,8 +161,8 @@ jobs:
         script: |
           cd ${{ matrix.env }}
           make hdown
+          make build_lang
           make up
-          make setup_incron
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -175,7 +194,7 @@ jobs:
           cd ${{ matrix.env }}
           make prune
 
-    - uses: frankie567/grafana-annotation-action@v1.0.2
+    - uses: frankie567/grafana-annotation-action@v1.0.3
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

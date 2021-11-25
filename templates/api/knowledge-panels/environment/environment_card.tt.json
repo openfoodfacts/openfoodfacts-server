@@ -1,7 +1,6 @@
 {
-    "parent_panel_id": "root",
-    "level": "info",
     "type": "card",
+    "expanded": true,
     "topics": [
         "environment"
     ],
@@ -15,6 +14,7 @@
                 "panel_id": "ecoscore",
             },
         },
+        [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -22,7 +22,8 @@
                 "panel_ids": ["carbon_footprint"],
             },
         },
-        [% IF panel.packaging_recycling %]
+        [% END %]
+        [% IF panels.packaging_recycling.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -32,8 +33,18 @@
                 ],
             },
         },
-        [% END %]   
-        [% IF panel.palm_oil %]
+        [% END %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_transportation') %]",
+                "panel_ids": [
+                    [% IF panels.manufacturing_place.defined %]"manufacturing_place",[% END %]
+                    "origins_of_ingredients",
+                ],
+            },
+        },         
+        [% IF panels.palm_oil.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -44,7 +55,7 @@
             },
         },
         [% END %]        
-        [% IF product.ecoscore_data.adjustments.production_system.value != 0 %]
+        [% IF product.ecoscore_data.adjustments.production_system.value.defined AND product.ecoscore_data.adjustments.production_system.value != 0 %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
