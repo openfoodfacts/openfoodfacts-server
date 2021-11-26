@@ -35,7 +35,7 @@ el:Κουτί
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
 it:Scatola, scatole
-nl:Doos, doosje, Dozen, Doosjes, Pak
+nl:Doos, doosje, Dozen, Doosjes, Pak, Pakje, Pakken, Pakjes
 pt:Caixa, caixas
 #suggest:packaging_materials:nl: en:paper, en:cardboard
 
@@ -52,7 +52,6 @@ nl:Pizzadoos, pizzadozen
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
-nl:Bak
 pt:Engradado, engradados
 
 en:Bottle, bottles
@@ -62,7 +61,7 @@ el:Μπουκάλι
 fr:Bouteille, bouteilles
 hu:Palack, palackok
 it:Bottiglia
-nl:Fles
+nl:Fles, Flessen
 pt:Garrafa, garrafas
 wikidata:en:Q80228
 #suggest:packaging_materials:nl: en:glass
@@ -126,7 +125,7 @@ en:Tube, tubes
 de:Tube, Tuben
 fr:Tube, tubes
 hu:Tubus, tubusok, Cső, csövek, cső alakú
-nl:Tube
+nl:Tube, Tubes
 pt:Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 
 en:Fastener, clip
@@ -145,7 +144,7 @@ el:Σακούλα
 fr:Sachet, sac, sachets, sacs, berlingots, berlingot
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
-nl:Zak, Sachet, Tas, verzendzak
+nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
 en:Crate, crates
@@ -188,7 +187,7 @@ pt:Tampa, tampas
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
-nl:Dop
+nl:Dop, Doppe
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 
 <en:Bottle cap
@@ -200,12 +199,13 @@ nl:Kurk
 en:Capsule, capsules
 fr:Capsule, capsules
 hu:Kapszula, kapszulák
-nl:Capsule
+nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
 
 en:Coffee capsule, coffee capsules
 fr:Capsule de café, Capsules de café, capsules café, capsule café
 hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
+nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
 
 # keep the plural as the main name
@@ -283,7 +283,7 @@ el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
 hu:Fólia, film
 it:Film, Pellicola
-nl:Folie, Film
+nl:Folie, Film, Folies
 pt:Película, películas, filme, filmes, filme extensível, filme estirável
 weight:en:light
 
@@ -318,13 +318,13 @@ de:Schüssel
 el:Μπολ
 fr:Bol, bols
 hu:Tál, tálak
-nl:Schaal
+nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes
 pt:Tigela, taça, tigelas, taças
 
 en:Plate, plates
 fr:Assiette, assiettes
 hu:tányér, tányérok
-nl:Bord
+nl:Bord, Borden, Bordje
 pt:Prato, pratos
 
 en:Stick, sticks
@@ -374,6 +374,7 @@ fr:Rouleau, Bobine, Mandrin
 
 en:Canister
 fr:Bombonne
+nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
 
 en:neck seal
@@ -395,6 +396,7 @@ fr:Cale, Coin, Cornière
 # close to bottle, but also ampoule is translated to vial by citeo
 en:Vial, flask
 fr:Flacon
+nl:Flacon, Flacons
 
 en:Clamping ring
 fr:Collier
