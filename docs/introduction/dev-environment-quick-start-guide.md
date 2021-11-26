@@ -123,7 +123,11 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfood
 
 To learn more about developing with Docker, see the [Docker developer's guide](./docker-developer-guide.md).
 
+To have all site page on your dev instance, see [Using pages from openfoodfacts-web](./using-pages-from-openfoodfacts-web.md)
+
 ## Visual Studio Code
+
+**WARNING**: for now this is deprecated, some work needs to be done.
 
 This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
 

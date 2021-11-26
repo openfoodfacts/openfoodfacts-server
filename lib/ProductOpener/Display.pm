@@ -1420,12 +1420,16 @@ sub display_text($)
 	my $replace_file = sub ($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
-		my $file = "$data_root/lang/$lc/$fileid";
+		$fileid =~ s/^texts\///;
+		my $file = "$data_root/lang/$lc/texts/$fileid";
 		my $html = '';
 		if (-e $file) {
 			open (my $IN, "<:encoding(UTF-8)", "$file");
 			$html .= join('', (<$IN>));
 			close ($IN);
+		}
+		else {
+			$html .= "<!-- file $file not found -->";
 		}
 		return $html;
 	};
@@ -1440,7 +1444,6 @@ sub display_text($)
 			delete $query_ref->{sort_by};
 		}
 		return search_and_display_products( {}, $query_ref, $sort_by, undef, undef );
-
 	};
 
 	if ($file =~ /\/index-pro/) {
@@ -1458,6 +1461,7 @@ sub display_text($)
 
 	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
+	# Replace included texts
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 
 

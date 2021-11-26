@@ -51,8 +51,10 @@ foreach my $link (@links) {
 
 		if ($textid ne $en_links{$link} ) {
 
-			ok ( -e "$data_root/lang/$lang/texts/$textid.html",
-				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
+			# Skip the following test, as the /lang directory now is in a separate openfoodfacts-web repository
+			# We will need to handle local text URLs differently, see https://github.com/openfoodfacts/openfoodfacts-server/issues/1818
+			# ok ( -e "$data_root/lang/$lang/texts/$textid.html",
+			#		"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
 
 		}
 
