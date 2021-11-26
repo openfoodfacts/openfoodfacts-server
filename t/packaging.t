@@ -84,7 +84,8 @@ my @tests = (
 		}
 	],
 	
-#	 Dutch container type and instruction
+# Recycling instructions for the Netherlands
+# Tests for all types of conatiners
 	[
 		'packaging_text_nl_fles_glasbak',
 		{
@@ -114,6 +115,14 @@ my @tests = (
 		{
 			lc => "nl",
 			packaging_text => "blik bij restafval"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_verpakking_bij_drankencartons',
+		{
+			lc => "nl",
+			packaging_text => "verpakking bij drankencartons"	
 		}
 	],
 	
