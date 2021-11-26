@@ -54,6 +54,8 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
     $nid =~ s/^-+//;
     $nid =~ s/-+$//;
 
+    next if $nid =~ /^#/;
+
     my %translations = ();
     my %properties = ();
 
@@ -65,8 +67,22 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
             $new_key .= "_value";
         }
 
+        print "key: $key - new_key: $new_key\n";
+
         if ($new_key =~ /^\w\w(_\w\w)?$/) {
-            $translations{$key} = [$Nutriments{$nid}{$key}];
+
+            my $value = $Nutriments{$nid}{$key};
+
+            # Butyric acid (4:0) -> make main name Butyric acid
+            # Docosahexaenoic acid / DHA (22:6 n-3)
+            $value =~ s/\s+\(\d+:\d+[^\)]*\)\s*//;
+
+            # Vitamin B9 (Folic acid)
+            $value =~ s/ \(([^\)]+)\)/ \/ $1/g;
+
+            $translations{$key} = [split(/ \/ /, $value)];
+
+            print "key: $key - value: $value\n";
         }
         elsif ($new_key =~ /^(\w\w(_\w\w)?)_synonyms$/) {
             my $lc = $1;
@@ -75,44 +91,49 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
         else {
             $properties{$new_key} = $Nutriments{$nid}{$key};
         }
+    }
 
-        # Extra translations / synonyms from the nutrients taxonomy created by @aleene
+    # Extra translations / synonyms from the nutrients taxonomy created by @aleene
 
-        foreach my $lc (sort keys %{$synonyms_for{nutrients}}) {
+    foreach my $lc (sort keys %{$synonyms_for{nutrients_old}}) {
 
-            my $lc_tagid = get_string_id_for_lang($lc, $translations_to{"nutrients"}{"en:$nid"}{$lc});
-            print STDERR "nid: $nid - lc_tagid: $lc_tagid\n";
+        my $lc_tagid = get_string_id_for_lang($lc, $translations_to{"nutrients_old"}{"en:$nid"}{$lc});
 
-            if (defined $synonyms_for{nutrients}{$lc}{$lc_tagid}) {
-                defined $translations{$lc} or $translations{$lc} = [];
+        if (defined $synonyms_for{nutrients_old}{$lc}{$lc_tagid}) {
+            defined $translations{$lc} or $translations{$lc} = [];
 
-                my %current_synonyms = ();
-                foreach my $synonym (@{$translations{$lc}}) {
-                    my $synonym_id = get_string_id_for_lang($lc, $synonym);
+            my %current_synonyms = ();
+            foreach my $synonym (@{$translations{$lc}}) {
+                my $synonym_id = get_string_id_for_lang($lc, $synonym);
+                $current_synonyms{$synonym_id} = 1;
+            }
+
+            # Add synonyms we don't have yet
+            foreach my $synonym (@{$synonyms_for{nutrients_old}{$lc}{$lc_tagid}}) {
+                my $synonym_id = get_string_id_for_lang($lc, $synonym);
+                if (not exists($current_synonyms{$synonym_id})) {
+                    push @{$translations{$lc}}, $synonym;
                     $current_synonyms{$synonym_id} = 1;
-                }
-
-                # Add synonyms we don't have yet
-                foreach my $synonym (@{$synonyms_for{nutrients}{$lc}{$lc_tagid}}) {
-                    print STDERR "synonym: $synonym\n";
-                    my $synonym_id = get_string_id_for_lang($lc, $synonym);
-                    if (not exists($current_synonyms{$synonym_id})) {
-                        push @{$translations{$lc}}, $synonym
-                    }
                 }
             }
         }
         
     }
 
-    print $OUT 'en:' . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
-    print $OUT 'xx:' . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
+    # Add g as the unit if there is no unit
+    defined $properties{"unit"} or $properties{"unit"} = "g";
+
+    print $OUT 'zz:' . $nid . "\n";
+    print $OUT 'en:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
+    print $OUT 'xx:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
 
     foreach my $lc (sort keys %translations) {
         next if $lc eq 'en';
         next if @{$translations{$lc}} == 0;
         # Escape commas to \,
-        print $OUT "$lc:" . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{$lc}}) . "\n";
+        # change " / " to a comma
+        # # Docosahexaenoic acid / DHA (22:6 n-3)
+        print $OUT "$lc:" . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{$lc}}) . "\n";
     }
 
     foreach my $property (sort keys %properties) {
