@@ -50,11 +50,12 @@ nl:plastic afval, bij plastic afval
 en:deposit
 nl:statiegeld
 
+#In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 <en:deposit
 en:PET deposit bottle
 nl:statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
-packaging_shapes:en: en:bottle
+#packaging_shapes:en: en:bottle
 
 #This is green waste
 <en:recycle
