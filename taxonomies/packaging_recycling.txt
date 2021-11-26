@@ -4,6 +4,9 @@ synonyms:fr:conteneur,container,poubelle,bac,benne
 
 stopwords:fr:le,la
 
+#comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
+#comment:en:instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
+
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
 de:wiederverwenden, wiederverwendbar, nachfüllbar, mehrfach verwendbar, zum Wiederverwenden
 fr:réutiliser, à réutiliser, réutilisable, consigné, usage multiple, réemployer, à réemployer, réemployable
@@ -30,8 +33,24 @@ nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papie
 # If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
 # it could also be cardboard
 
+# in the Netherlands for recycling of drink cartons
+<en:recycle
+nl:drankencartons
+
+# in Belgium can be used for recycling of metal, plastics and drink cartons
+<en:recycle
+nl:PMD
+
+<en:recycle
+nl:plastic afval, bij plastic afval
+
+#packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
+<en:recycle
+nl:statiegeld
+
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
 fr:jeter, à jeter, non-recyclable
 hu:eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
+nl:restafval, bij restafval
 pt:descartar, a descartar, para descartar, não-reciclável, não recicláel

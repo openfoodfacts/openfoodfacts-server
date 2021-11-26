@@ -109,6 +109,14 @@ my @tests = (
 		}
 	],
 	
+	[
+		'packaging_text_nl_blik_bij_restafval',
+		{
+			lc => "nl",
+			packaging_text => "blik bij restafval"	
+		}
+	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
