@@ -133,6 +133,15 @@ my @tests = (
 			packaging_text => "koffiepad bij gft"	
 		}
 	],
+	
+	[
+		'packaging_text_nl_statiegeldfles',
+		{
+			lc => "nl",
+			packaging_text => "statiegeldfles"	
+		}
+	],
+	
 	# some free texts in dutch
 	[
 		'packaging_text_nl_plastic_fles',
