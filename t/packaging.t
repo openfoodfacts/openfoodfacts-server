@@ -172,7 +172,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:cardboard',
-				},
+				}
 			]
 		}
 	],
@@ -185,7 +185,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'units' => 2
-				},
+				}
 			]
 		}
 	],
@@ -198,7 +198,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:plastic',
-				},
+				}
 			]
 		}
 	],
@@ -211,7 +211,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:recycled-plastic',
-				},
+				}
 			]
 		}
 	],
