@@ -5371,7 +5371,7 @@ foreach my $key (keys %Nutriments) {
 	if (not exists $Nutriments{$key}{unit}) {
 		$Nutriments{$key}{unit} = 'g';
 	}
-	if (exists $Nutriments{$key}{fr}) {
+	if (0 and exists $Nutriments{$key}{fr}) {
 		foreach my $l (sort @Langs) {
 			next if $l eq 'fr';
 			# we should not use iu and dv as keys for international units and daily values as they are language codes too
