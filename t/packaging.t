@@ -133,6 +133,14 @@ my @tests = (
 			packaging_text => "koffiepad bij gft"	
 		}
 	],
+	# some free texts in dutch
+	[
+		'packaging_text_nl_plastic_fles',
+		{
+			lc => "nl",
+			packaging_text => "plastic fles"	
+		}
+	],
 	
 	
 	# check that we use the most specific material (e.g. PET instead of plastic)
