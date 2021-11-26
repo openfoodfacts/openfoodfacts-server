@@ -106,6 +106,7 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
     }
 
     print $OUT 'en:' . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
+    print $OUT 'xx:' . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
 
     foreach my $lc (sort keys %translations) {
         next if $lc eq 'en';
