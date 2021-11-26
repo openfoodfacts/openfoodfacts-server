@@ -78,7 +78,7 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
             $value =~ s/\s+\(\d+:\d+[^\)]*\)\s*//;
 
             # Vitamin B9 (Folic acid)
-            $value =~ s/ \(([^\)]+)\)/ \/ $1/g;
+            #$value =~ s/ \(([^\)]+)\)/ \/ $1/g;
 
             $translations{$key} = [split(/ \/ /, $value)];
 

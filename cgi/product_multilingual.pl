@@ -1254,30 +1254,22 @@ sub display_input_tabs($$$$$) {
 		my $nidp = $nid . "_prepared";
 		my $enidp = encodeURIComponent($nidp);
 
-		my $label = '';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_lang} =  $Nutriments{$nid}{$lang};
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_en} =  $Nutriments{$nid}{en};
-		}
-		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-		}
-
 		$nutriment_ref->{label_value} =  $product_ref->{nutriments}{$nid . "_label"};
 		$nutriment_ref->{product_add_nutrient} =  $Lang{product_add_nutrient}{$lang};
 		$nutriment_ref->{prefix} = $prefix;
 
-		my $unit = 'g';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
-			$unit = $Nutriments{$nid}{"unit_$cc"};
+		my $unit = "g";
+
+		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			$unit = get_property("nutrients", "zz:$nid", "unit_$cc") || get_property("nutrients", "zz:$nid", "unit") || 'g';
 		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
-			$unit = $Nutriments{$nid}{unit};
+		else {
+			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+				$unit = $product_ref->{nutriments}{$nid . "_unit"};
+			}
 		}
+
 		my $value; # product as sold
 		my $valuep; # prepared product
 
@@ -1412,7 +1404,6 @@ sub display_input_tabs($$$$$) {
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
 		$nutriment_ref->{nid} = $nid;
-		$nutriment_ref->{label} = $label;
 		$nutriment_ref->{class} = $class;
 		$nutriment_ref->{value} = $value;
 		$nutriment_ref->{valuep} = $valuep;
