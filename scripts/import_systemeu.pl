@@ -42,6 +42,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
 
