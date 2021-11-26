@@ -42,9 +42,9 @@ use Storable qw/dclone/;
 # We will then remove the hardcoded values from Food.pm and use the taxonomy instead.
 
 # Load the existing nutrients.txt created by @aleene
-ProductOpener::Tags::retrieve_tags_taxonomy('nutrients');
+ProductOpener::Tags::retrieve_tags_taxonomy('nutrients_old');
 
-open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrients_new.txt");
+open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrients.txt");
 
 # Go over all nutrients defined in Food.pm
 
@@ -55,18 +55,19 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
     $nid =~ s/-+$//;
 
     my %translations = ();
+    my %properties = ();
 
     foreach my $key (sort keys %{$Nutriments{$nid}}) {
+
         if ($key =~ /^\w\w(_\w\w)?$/) {
             $translations{$key} = [$Nutriments{$nid}{$key}];
         }
         elsif ($key =~ /^(\w\w(_\w\w)?)_synonyms$/) {
             my $lc = $1;
-            print STDERR "l: $lc - key: $key\n";
             $translations{$lc} = [ (@{$translations{$lc}}, @{$Nutriments{$nid}{$key}})];
         }
         else {
-            print STDERR "unknown key: $key\n";
+            $properties{$key} = $Nutriments{$nid}{$key};
         }
 
         # Extra translations / synonyms from the nutrients taxonomy created by @aleene
@@ -98,12 +99,17 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
         
     }
 
-    print $OUT 'en:' . join(", ", @{$translations{en}}) . "\n";
+    print $OUT 'en:' . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
 
     foreach my $lc (sort keys %translations) {
         next if $lc eq 'en';
         next if @{$translations{$lc}} == 0;
-        print $OUT "$lc:" . join(", ", @{$translations{$lc}}) . "\n";
+        # Escape commas to \,
+        print $OUT "$lc:" . join(", ", map { local $_ = $_; s/,/\\,/; $_ } @{$translations{$lc}}) . "\n";
+    }
+
+    foreach my $property (sort keys %properties) {
+        print $OUT "$property:en: " . $properties{$property} . "\n";
     }
 
     print $OUT "\n";
