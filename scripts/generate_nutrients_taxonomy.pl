@@ -124,8 +124,8 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
     defined $properties{"unit"} or $properties{"unit"} = "g";
 
     print $OUT 'zz:' . $nid . "\n";
-    print $OUT 'en:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
-    print $OUT 'xx:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{en}}) . "\n";
+    print $OUT 'en:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/g; $_ } @{$translations{en}}) . "\n";
+    print $OUT 'xx:' . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/g; $_ } @{$translations{en}}) . "\n";
 
     foreach my $lc (sort keys %translations) {
         next if $lc eq 'en';
@@ -133,7 +133,7 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
         # Escape commas to \,
         # change " / " to a comma
         # # Docosahexaenoic acid / DHA (22:6 n-3)
-        print $OUT "$lc:" . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/; $_ } @{$translations{$lc}}) . "\n";
+        print $OUT "$lc:" . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/g; $_ } @{$translations{$lc}}) . "\n";
     }
 
     foreach my $property (sort keys %properties) {
