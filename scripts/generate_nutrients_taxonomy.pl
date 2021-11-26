@@ -59,15 +59,21 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
 
     foreach my $key (sort keys %{$Nutriments{$nid}}) {
 
-        if ($key =~ /^\w\w(_\w\w)?$/) {
+        # iu and dv are properties, we change their names so that they are not confused with 2 letter language codes
+        my $new_key = $key;
+        if ($new_key =~ /^(iu|dv)/) {
+            $new_key .= "_value";
+        }
+
+        if ($new_key =~ /^\w\w(_\w\w)?$/) {
             $translations{$key} = [$Nutriments{$nid}{$key}];
         }
-        elsif ($key =~ /^(\w\w(_\w\w)?)_synonyms$/) {
+        elsif ($new_key =~ /^(\w\w(_\w\w)?)_synonyms$/) {
             my $lc = $1;
             $translations{$lc} = [ (@{$translations{$lc}}, @{$Nutriments{$nid}{$key}})];
         }
         else {
-            $properties{$key} = $Nutriments{$nid}{$key};
+            $properties{$new_key} = $Nutriments{$nid}{$key};
         }
 
         # Extra translations / synonyms from the nutrients taxonomy created by @aleene
