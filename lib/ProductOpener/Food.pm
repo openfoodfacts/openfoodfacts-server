@@ -58,8 +58,6 @@ BEGIN
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
 
-		&get_nutrient_label
-
 		&unit_to_g
 		&g_to_unit
 
@@ -91,16 +89,6 @@ BEGIN
 		&compute_carbon_footprint_infocard
 
 		&compare_nutriments
-
-		%packager_codes
-		%geocode_addresses
-		&init_packager_codes
-		&init_geocode_addresses
-		
-		$ec_code_regexp
-		&normalize_packager_codes
-		&localize_packager_code
-		&get_canon_local_authority
 
 		&special_process_product
 
@@ -242,13 +230,13 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 	$product_ref->{nutriments}{$nid . "_value"} = $value;
 	
-	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-		$value = $value * $Nutriments{$nid}{iu} ;
-		$unit = $Nutriments{$nid}{unit};
+	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value"))) {
+		$value = $value * get_property("nutrients", "zz:$nid", "iu_value") ;
+		$unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
 	}
-	elsif  ((uc($unit) eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-		$value = $value / 100 * $Nutriments{$nid}{dv} ;
-		$unit = $Nutriments{$nid}{unit};
+	elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value"))) {
+		$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value");
+		$unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
 	}
 	if ($nid =~ /^water-hardness(_prepared)?$/) {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
@@ -265,23 +253,6 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	return;
 }
 
-sub get_nutrient_label {
-	my $nid = (shift(@_) // undef);
-	my $flang = (shift(@_) // $lang);
-
-	if (not defined $nid) {
-		return;
-	}
-	if (defined $Nutriments{$nid}{$lang}) {
-		return $Nutriments{$nid}{$lang};
-	}
-	elsif (defined $Nutriments{$nid}{$flang}) {
-		return $Nutriments{$nid}{$flang};
-	}
-	else {
-		return;
-	}
-}
 
 =head2 unit_to_kcal($$)
 
@@ -1080,7 +1051,7 @@ sub mmoll_to_unit {
 
 
 
-# fr_synonyms is used to parse plain text nutrition facts value
+
 
 %Nutriments = (
 	alcohol => {
@@ -1676,8 +1647,8 @@ sub mmoll_to_unit {
 		de          => "mehrwertige Alkohole (Polyole)",
 		de_synonyms => ["Polyole"],
 		el          => "Πολυόλες",
-		en          => "Sugar alcohols (Polyols)",
-		en_synonyms => ["Polyols"],
+		en          => "Polyols",
+		en_synonyms => ["Sugar alcohols"],
 		es          => "Azúcares alcohólicos (Polialcoholes)",
 		es_synonyms => ["Polialcoholes"],
 		et          => "Polüoolid",
@@ -2085,7 +2056,8 @@ sub mmoll_to_unit {
 	'omega-9-fat' => {
 		de          => "Omega-9-Fettsäuren",
 		el          => "Ωμέγα-9 λιπαρά",
-		en          => "Omega 9 fatty acids",
+		en          => "Omega 9 fat",
+		en_synonyms          => ["Omega 9 fatty acids"],
 		es          => "Ácidos grasos Omega 9",
 		fi          => "Omega-9-rasvahapot",
 		fr          => "Acides gras Oméga 9",
@@ -2245,7 +2217,8 @@ sub mmoll_to_unit {
 		zh_TW       => "多元不飽和酸",
 	},
 	'omega-3-fat' => {
-		en          => "Omega 3 fatty acids",
+		en          => "Omega 3 fat",
+		en_synonyms          => ["Omega 3 fatty acids"],
 		cs          => "Omega 3 mastné kyseliny",
 		de          => "Omega-3-Fettsäuren",
 		el          => "Ωμέγα-3 λιπαρά",
@@ -2322,7 +2295,8 @@ sub mmoll_to_unit {
 		zh_TW       => "二十二碳六酸 / DHA (22:6 n-3)",
 	},
 	'omega-6-fat' => {
-		en          => "Omega 6 fatty acids",
+		en          => "Omega 6 fat",
+		en_synonyms          => ["Omega 6 fatty acids"],
 		de          => "Omega-6-Fettsäuren",
 		el          => "Ωμέγα-6 λιπαρά",
 		es          => "Ácidos grasos Omega 6",
@@ -2353,7 +2327,7 @@ sub mmoll_to_unit {
 		nl_be => "Linolzuur / LA (18:2 n-6)",
 		pt    => "Ácido linoleico / LA (18:2 n-6)",
 		ro    => "Acid linoleic / LA (18:2 n-6)",
-		ru    => "Линолевая кислота / (ЛК) 18:2 (n−6)",
+		ru    => "Линолевая кислота / (ЛК) (18:2 n−6)",
 		zh    => "亚油酸 / LA (18:2 n-6)",
 		zh_CN => "亚油酸 / LA (18:2 n-6)",
 		zh_HK => "亞油酸 / LA (18:2 n-6)",
@@ -2371,7 +2345,7 @@ sub mmoll_to_unit {
 		pt    => "Ácido araquidônico / AA / ARA (20:4 n-6)",
 		pt_pt => "Ácido araquidónico / AA / ARA (20:4 n-6)",
 		ro    => "Acid arachidonic / AA / ARA (20:4 n-6)",
-		ru    => "Арахидоновая кислота / (АК) 20:4 (n−6)",
+		ru    => "Арахидоновая кислота / (АК) (20:4 n−6)",
 		zh    => "花生四烯酸 / AA / ARA (20:4 n-6)",
 		zh_CN => "花生四烯酸 / AA / ARA (20:4 n-6)",
 		zh_HK => "花生四烯酸 / AA / ARA (20:4 n-6)",
@@ -2389,7 +2363,7 @@ sub mmoll_to_unit {
 		pt          => "Ácido gama-linolênico / GLA (18:3 n-6)",
 		pt_pt       => "Ácido gama-linolénico / GLA (18:3 n-6)",
 		ro          => "Acid gama-linolenic / GLA (18:3 n-6)",
-		ru          => "γ-линоленовая кислота / (GLA) 18:3 (n−6)",
+		ru          => "γ-линоленовая кислота / (GLA) (18:3 n−6)",
 		zh          => "γ-亚麻酸 / GLA (18:3 n-6)",
 		zh_CN       => "γ-亚麻酸 / GLA (18:3 n-6)",
 		zh_HK       => "γ-亞麻酸 / GLA (18:3 n-6)",
@@ -2406,7 +2380,7 @@ sub mmoll_to_unit {
 		pt    => "Ácido dihomo-gama-linolênico / DGLA (20:3 n-6)",
 		pt_pt => "Ácido dihomo-gama-linolénico / DGLA (20:3 n-6)",
 		ro    => "Acid dihomo-gamma-linolenic / DGLA (20:3 n-6)",
-		ru    => "Дигомо-γ-линоленовая кислота / (ДГДК) 20:3 (n−6)",
+		ru    => "Дигомо-γ-линоленовая кислота / (ДГДК) (20:3 n−6)",
 		zh    => "二高-γ-亚麻酸 / DGLA (20:3 n-6)",
 		zh_CN => "二高-γ-亚麻酸 / DGLA (20:3 n-6)",
 		zh_HK => "二高-γ-亞麻酸 / DGLA (20:3 n-6)",
@@ -2461,7 +2435,7 @@ sub mmoll_to_unit {
 		unit  => "mg",
 	},
 	fiber => {
-		en => "Fibers",
+		en => "Fiber",
 		en_synonyms =>
 			[ "Dietary fiber", "Fiber", "fibers", "dietary fibers", "fibers aoac", "fibre", "fibres", "fibres aoac" ],
 		bg          => "Влакнини",
@@ -3934,70 +3908,67 @@ sub mmoll_to_unit {
 );
 
 
-my $daily_values_us = <<XXX
 
-Percent Daily Values
+# Initialize the %Nutriments structure from the nutrients taxonomy
 
-http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&sid=ebf41b28ca63f43546dd9b6bf3f20330&rgn=div5&view=text&node=21:2.0.1.1.2&idno=21#21:2.0.1.1.2.1.1.6
+#%Nutriments = ();
 
-Vitamin A, 5,000 International Units
-# Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene[5][6]
+# Go over all nutrients defined in the taxonomy
 
-Vitamin C, 60 milligrams
+foreach (@{$nutriments_tables{europe}}) {
 
-Calcium, 1,000 milligrams
+	my $nid = $_;	# Copy instead of alias
 
-Iron, 18 milligrams
+	next if $nid =~ /^#/;
 
-Vitamin D, 400 International Units
-# Vitamin D: 1 IU is the biological equivalent of 0.025 μg cholecalciferol/ergocalciferol
+    $nid =~ s/^!//;
+    $nid =~ s/^-+//;
+    $nid =~ s/-+$//;
 
-Vitamin E, 30 International Units
-# Vitamin E: 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 1 mg of dl-alpha-tocopherol acetate
+	# The nutrient ids do not correspond exactly to the English name, so we use zz:[nutrient id]
+	# as the canonical tag id instead of en:[English nutrient name]
+	my $tagid = "zz:" . $nid;
+	my $error = 0;
 
-Vitamin K, 80 micrograms
+	if (not exists_taxonomy_tag("nutrients", $tagid)) {
+		print STDERR "Nutrient $nid is defined in \%nutriments_table but does not exist in the nutrients taxonomy.\n";
+		$error++;
+	}
+	if ($error) {
+		die("Some nutrients are defined in \%nutriments_table but do not exist in the nutrients taxonomy.");
+	}
+}
 
-Thiamin, 1.5 milligrams
+foreach my $key (keys %Nutriments) {
 
-Riboflavin, 1.7 milligrams
-
-Niacin, 20 milligrams
-
-Vitamin B6, 2.0 milligrams
-
-Folate, 400 micrograms
-
-Vitamin B12, 6 micrograms
-
-Biotin, 300 micrograms
-
-Pantothenic acid, 10 milligrams
-
-Phosphorus, 1,000 milligrams
-
-Iodine, 150 micrograms
-
-Magnesium, 400 milligrams
-
-Zinc, 15 milligrams
-
-Selenium, 70 micrograms
-
-Copper, 2.0 milligrams
-
-Manganese, 2.0 milligrams
-
-Chromium, 120 micrograms
-
-Molybdenum, 75 micrograms
-
-Chloride, 3,400 milligrams
-XXX
-;
-
-
-
-
+	if (not exists $Nutriments{$key}{unit}) {
+		$Nutriments{$key}{unit} = 'g';
+	}
+	if (0 and exists $Nutriments{$key}{fr}) {
+		foreach my $l (sort @Langs) {
+			next if $l eq 'fr';
+			# we should not use iu and dv as keys for international units and daily values as they are language codes too
+			# FIXME / TODO : change key names in Food.pm
+			next if $l eq 'iu';
+			next if $l eq 'dv';
+			my $short_l = undef;
+			if ($l =~ /_/) {
+				$short_l = $`;  # pt_pt
+			}
+			if (not exists $Nutriments{$key}{$l}) {
+				if ((defined $short_l) and (exists $Nutriments{$key}{$short_l})) {
+					$Nutriments{$key}{$l} = $Nutriments{$key}{$short_l};
+				}
+				elsif (exists $Nutriments{$key}{en}) {
+					$Nutriments{$key}{$l} = $Nutriments{$key}{en};
+				}
+				else {
+					$Nutriments{$key}{$l} = $Nutriments{$key}{fr};
+				}
+			}
+		}
+	}
+}
 
 
 
@@ -4026,6 +3997,39 @@ foreach my $region (keys %nutriments_tables) {
 	}
 
 }
+
+
+
+# nutrient levels
+
+$log->info("Initializing nutrient levels") if $log->is_info();
+foreach my $l (@Langs) {
+
+	$lc = $l;
+	$lang = $l;
+
+	foreach my $nutrient_level_ref (@nutrient_levels) {
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
+
+		foreach my $level ('low', 'moderate', 'high') {
+			my $fmt = lang("nutrient_in_quantity");
+			my $nutrient_name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			my $level_quantity = lang($level . "_quantity");
+			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
+				next;
+			}
+
+			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
+			my $tagid = get_string_id_for_lang($lc, $tag);
+			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
+			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
+		}
+	}
+}
+
+$log->debug("Nutrient levels initialized") if $log->is_debug();
+
+
 
 sub canonicalize_nutriment($$) {
 
@@ -5366,251 +5370,7 @@ sub compare_nutriments($$) {
 }
 
 
-foreach my $key (keys %Nutriments) {
-
-	if (not exists $Nutriments{$key}{unit}) {
-		$Nutriments{$key}{unit} = 'g';
-	}
-	if (0 and exists $Nutriments{$key}{fr}) {
-		foreach my $l (sort @Langs) {
-			next if $l eq 'fr';
-			# we should not use iu and dv as keys for international units and daily values as they are language codes too
-			# FIXME / TODO : change key names in Food.pm
-			next if $l eq 'iu';
-			next if $l eq 'dv';
-			my $short_l = undef;
-			if ($l =~ /_/) {
-				$short_l = $`;  # pt_pt
-			}
-			if (not exists $Nutriments{$key}{$l}) {
-				if ((defined $short_l) and (exists $Nutriments{$key}{$short_l})) {
-					$Nutriments{$key}{$l} = $Nutriments{$key}{$short_l};
-				}
-				elsif (exists $Nutriments{$key}{en}) {
-					$Nutriments{$key}{$l} = $Nutriments{$key}{en};
-				}
-				else {
-					$Nutriments{$key}{$l} = $Nutriments{$key}{fr};
-				}
-			}
-		}
-	}
-}
-
 Hash::Util::lock_keys(%Nutriments);
-
-$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
-
-sub normalize_packager_codes($) {
-
-	my $codes = shift;
-
-	$codes = uc($codes);
-
-	$codes =~ s/\/\///g;
-
-	$codes =~ s/(^|,|, )(emb|e)(\s|-|_|\.)?(\d+)(\.|-|\s)?(\d+)(\.|_|\s|-)?([a-z]*)/$1EMB $4$6$8/ig;
-
-	# FRANCE -> FR
-	$codes =~ s/(^|,|, )(france)/$1FR/ig;
-
-	# most common forms:
-	# ES 12.06648/C CE
-	# ES 26.00128/SS CE
-	# UK DZ7131 EC (with sometime spaces but not always, can be a mix of letters and numbers)
-
-	my $normalize_fr_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $number = shift;
-		$countrycode = uc($countrycode);
-		$number =~ s/\D//g;
-		$number =~ s/^(\d\d)(\d\d\d)(\d)/$1.$2.$3/;
-		$number =~ s/^(\d\d)(\d\d)/$1.$2/;
-		# put leading 0s at the end
-		$number =~ s/\.(\d)$/\.00$1/;
-		$number =~ s/\.(\d\d)$/\.0$1/;
-		return "$countrycode $number EC";
-	};
-
-	my $normalize_uk_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
-		$countrycode = uc($countrycode);
-		$code = uc($code);
-		$code =~ s/\s|-|_|\.|\///g;
-		return "$countrycode $code EC";
-	};
-
-	my $normalize_es_ce_code = sub ($$$$) {
-		my $countrycode = shift;
-		my $code1 = shift;
-		my $code2 = shift;
-		my $code3 = shift;
-		$countrycode = uc($countrycode);
-		$code3 = uc($code3);
-		return "$countrycode $code1.$code2/$code3 EC";
-	};
-
-	my $normalize_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
-		$countrycode = uc($countrycode);
-		$code = uc($code);
-		return "$countrycode $code EC";
-	};
-
-	my $normalize_lu_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $letters = shift;
-		$letters = uc($letters);
-		my $number = shift;
-		$countrycode = uc($countrycode);
-		return "$countrycode $letters$number EC";
-	};
-
-	my $normalize_rs_ce_code = sub ($$) {
-		my $countrycode = shift;
-		my $code = shift;
-		$code = uc($code);
-		return "$countrycode $code EC";
-	};
-
-	# CE codes -- FR 67.145.01 CE
-	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
-
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
-
-	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
-
-
-	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?($ec_code_regexp)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
-
-	# LU L-2 --> LU L2
-
-	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
-
-	# RS 731 -> RS 731 EC
-	my $start_pat = qr{ (?<start> ^ | [,.] ) }xsm;
-	my $sep_pat   = qr{ \s | - | _ | \. | / }xsm;
-	my $rs_pat    = qr{
-					   $start_pat
-
-					   rs
-
-					   (?: $sep_pat )*
-
-					   (?<code>
-						   (?:
-							   \d+
-							   (?:
-								   -
-								   (?= \d )
-							   )?
-						   )+
-					   )
-
-					   (?: $sep_pat )*
-
-					   (?: $ec_code_regexp )?
-
-					   \b
-			   }ixsm;
-	$codes =~ s{ $rs_pat }
-			   {$+{start} . $normalize_rs_ce_code->('rs', $+{code})}iegxsm;
-
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
-
-	return $codes;
-}
-
-my %local_ec = (
-	DE => "EG",
-	EE => "EÜ",
-	ES => "CE",
-	FI => "EY",
-	FR => "CE",
-	IT => "CE",
-	NL => "EG",
-	PL => "WE",
-	PT => "CE",
-	UK => "EC",
-);
-
-sub localize_packager_code($) {
-
-	my $code = shift;
-
-	my $local_code = $code;
-
-	if ($code =~ /^(\w\w) (.*) EC$/i) {
-
-		my $country_code = uc($1);
-		my $actual_code = $2;
-
-		if (defined $local_ec{$country_code}) {
-			$local_code = $country_code . " " . $actual_code . " " . $local_ec{$country_code};
-		}
-	}
-
-	return $local_code;
-}
-
-
-# Load geocoded addresses
-
-
-sub get_canon_local_authority($) {
-
-	my $local_authority = shift;
-
-	$local_authority =~ s/LB of/London Borough of/;
-	$local_authority =~ s/CC/City Council/;
-	$local_authority =~ s/MBC/Metropolitan Borough Council/;
-	$local_authority =~ s/MDC/Metropolitan District Council/;
-	$local_authority =~ s/BC/Borough Council/;
-	$local_authority =~ s/DC/District Council/;
-	$local_authority =~ s/RB/Regulatory Bureau/;
-	$local_authority =~ s/Co (.*)/$1 Council/;
-
-	my $canon_local_authority = $local_authority;
-	$canon_local_authority =~ s/\b(london borough of|city|of|rb|bc|dc|mbc|mdc|cc|borough|metropolitan|district|county|co|council)\b/ /ig;
-	$canon_local_authority =~ s/ +/ /g;
-	$canon_local_authority =~ s/^ //;
-	$canon_local_authority =~ s/ $//;
-	$canon_local_authority = get_string_id_for_lang("en",$canon_local_authority);
-
-	return $canon_local_authority;
-}
-
-
-sub init_packager_codes() {
-	return if (%packager_codes);
-
-	if (-e "$data_root/packager-codes/packager_codes.sto") {
-		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
-		%packager_codes = %{$packager_codes_ref};
-	}
-
-}
-
-sub init_geocode_addresses() {
-	return if (%geocode_addresses);
-
-	if (-e "$data_root/packager-codes/geocode_addresses.sto") {
-		my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
-		%geocode_addresses = %{$geocode_addresses_ref};
-	}
-
-}
-
-# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
-INIT {
-	init_packager_codes();
-	init_geocode_addresses();
-}
 
 
 sub compute_nova_group($) {

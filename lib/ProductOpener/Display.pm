@@ -162,6 +162,7 @@ use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
+use ProductOpener::PackagerCodes qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -5944,10 +5945,10 @@ sub display_scatter_plot($$) {
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
-			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
-			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
+			$x_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
+			$x_unit = " (" . (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit") || 'g')  . " " . lang("nutrition_data_per_100g") . ")";
 			$x_unit =~ s/\&nbsp;/ /g;
-			$x_unit2 = $Nutriments{$graph_ref->{axis_x}}{unit};
+			$x_unit2 = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
 		}
 		if ($graph_ref->{axis_y} eq 'additives_n') {
 			$y_allowDecimals = "allowDecimals:false,\n";
@@ -5962,10 +5963,10 @@ sub display_scatter_plot($$) {
 			$y_title = escape_single_quote(lang($graph_ref->{axis_y} . "_s"));
 		}
 		else {
-			$y_title = $Nutriments{$graph_ref->{axis_y}}{$lc};
-			$y_unit = " (" . $Nutriments{$graph_ref->{axis_y}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
+			$y_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_y});
+			$y_unit = " (" . (get_property("nutrients", "zz:" . $graph_ref->{axis_y}, "unit") || 'g') . " " . lang("nutrition_data_per_100g") . ")";
 			$y_unit =~ s/\&nbsp;/ /g;
-			$y_unit2 = $Nutriments{$graph_ref->{axis_y}}{unit};
+			$y_unit2 = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_y});
 		}
 
 		my %nutriments = ();
@@ -6062,7 +6063,7 @@ sub display_scatter_plot($$) {
 						$min{$axis} = -15;
 					}
 					else {
-						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, (get_property("nutrients", "zz:$nid", "unit") || 'g') );
 					}
 
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
@@ -6309,10 +6310,10 @@ sub display_histogram($$) {
 			$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
 		}
 		else {
-			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
-			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
+			$x_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
+			$x_unit = " (" . (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit") || 'g') . " " . lang("nutrition_data_per_100g") . ")";
 			$x_unit =~ s/\&nbsp;/ /g;
-			$x_unit2 = $Nutriments{$graph_ref->{axis_x}}{unit};
+			$x_unit2 = (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit") || 'g');
 		}
 
 		$y_allowDecimals = "allowDecimals:false,\n";
@@ -6390,7 +6391,7 @@ sub display_histogram($$) {
 					$value = $product_ref->{nutriments}{"${nid}_100g"};
 				}
 				else {
-					$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+					$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, (get_property("nutrients", "zz:$nid", "unit") || 'g'));
 				}
 
 				if ($value < $min) {
@@ -9158,7 +9159,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nutrient_level => $product_ref->{nutrient_levels}{$nid},
 					nutriment_prepared => sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
-					nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
+					nutriment_quantity => sprintf(lang("nutrient_in_quantity"), "<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")),
 				};
 			}
 		}
@@ -9556,7 +9557,7 @@ CSS
 
 		$nid =~ s/_prepared$//;
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$seen_unknown_nutriments{$nid} = 1;
@@ -9630,27 +9631,19 @@ CSS
 			# Name of the nutrient
 
 			my $name;
+			my $unit = "g";
 
-			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-				$name = $Nutriments{$nid}{$lang};
-
+			if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+				$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+				$unit = get_property("nutrients", "zz:$nid", "unit") || 'g';
 			}
-			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-				$name = $Nutriments{$nid}{en};
-
-			}
-			elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-				$name = $product_ref->{nutriments}{$nid . "_label"};
-			}
-
-			my $unit = 'g';
-
-			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
-				$unit = $Nutriments{$nid}{unit};
-
-			}
-			elsif ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
-				$unit = $product_ref->{nutriments}{$nid . "_unit"};
+			else {
+				if (defined $product_ref->{nutriments}{$nid . "_label"}) {
+					$name = $product_ref->{nutriments}{$nid . "_label"};
+				}
+				if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+					$unit = $product_ref->{nutriments}{$nid . "_unit"};
+				}
 			}
 
 			my $values;
@@ -9943,7 +9936,7 @@ CSS
 			if (($nid eq 'salt') and ($values2 ne '')) {
 
 				push @{$template_data_ref->{nutrition_table}{rows}}, {
-					name => $Nutriments{sodium}{$lang},
+					name => display_taxonomy_tag($lc, "nutrients", "zz:sodium"),
 					nid => "sodium",
 					level => 1,
 					columns => \@extra_row_columns,
