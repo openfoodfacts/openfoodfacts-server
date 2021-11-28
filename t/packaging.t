@@ -142,6 +142,14 @@ my @tests = (
 		}
 	],
 	
+	[
+		'packaging_text_nl_wel_pmd',
+		{
+			lc => "nl",
+			packaging_text => "wel pmd"	
+		}
+	],
+	
 	# some free texts in dutch
 	[
 		'packaging_text_nl_plastic_fles',
