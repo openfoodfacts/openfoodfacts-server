@@ -4,16 +4,18 @@
    "packagings" : [
 	   {
 		   "recycling" : "en:plastics",
+		   "material" : "en:plastic",
 		   "shape" : "en:bowl"
 	   },
 	   {
 		   "recycling" : "en:plastics",
+		   "material" : "en:plastic",
 		   "shape" : "en:film"
 	   },
 	   {
 		   "material" : "en:cardboard",
-	   "recycling" : "en:recycle-in-paper-bin",
-	   "shape" : "en:unknown"
-	}
-   ]
+	 	  "recycling" : "en:recycle-in-paper-bin",
+		   "shape" : "en:unknown"
+	   }
+	]
 }
