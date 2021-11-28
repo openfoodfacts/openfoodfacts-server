@@ -159,6 +159,14 @@ my @tests = (
 		}
 	],
 	
+	# three shapes
+	[
+		'packaging_text_nl_three_instructions',
+		{
+			lc => "nl",
+			packaging_text => "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier"	
+		}
+	],
 	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
