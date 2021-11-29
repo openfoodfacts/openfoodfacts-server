@@ -155,10 +155,10 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -169,10 +169,7 @@ use Log::Any qw($log);
 use GraphViz2;
 use JSON::PP;
 
-
 binmode STDERR, ":encoding(UTF-8)";
-
-
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
@@ -181,8 +178,6 @@ binmode STDERR, ":encoding(UTF-8)";
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
-
-
 
 # Fields that can have different values by language
 %language_fields = (
@@ -3637,34 +3632,6 @@ sub init_emb_codes {
 	return;
 }
 
-# nutrient levels
-
-$log->info("Initializing nutrient levels") if $log->is_info();
-foreach my $l (@Langs) {
-
-	$lc = $l;
-	$lang = $l;
-
-	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-		foreach my $level ('low', 'moderate', 'high') {
-			my $fmt = lang("nutrient_in_quantity");
-			my $nutrient_name = $Nutriments{$nid}{$lc};
-			my $level_quantity = lang($level . "_quantity");
-			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
-				next;
-			}
-
-			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_string_id_for_lang($lc, $tag);
-			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
-			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
-		}
-	}
-}
-
-$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
 sub init_tags_texts {
@@ -4117,6 +4084,8 @@ sub add_users_translations_to_taxonomy($) {
 
 	return;
 }
+
+
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

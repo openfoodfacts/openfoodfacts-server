@@ -66,6 +66,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use JSON::PP;
 use Encode;
