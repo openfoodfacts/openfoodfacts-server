@@ -4955,8 +4955,11 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
 
-				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
-					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
+				my $unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
+				
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for 100g
+				if (($unit eq '') or ($unit =~ /^\%/)) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
@@ -4984,8 +4987,11 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
-				if (($nid eq 'alcohol') or ((exists $Nutriments{$nid . $product_type}) and (exists $Nutriments{$nid . $product_type}{unit})
-					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
+				my $unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
+				
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for the serving quantity
+				if (($unit eq '') or ($unit =~ /^\%/)) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
@@ -5148,7 +5154,7 @@ sub compute_unknown_nutrients($) {
 
 		next if $nid =~ /_/;
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+		if ((not exists_taxonomy_tag("nutrients", "zz:" . $nid)) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 			push @{$product_ref->{unknown_nutrients_tags}}, $nid;
 		}
 	}
@@ -5220,7 +5226,7 @@ sub compute_nutrient_levels($) {
 				$product_ref->{nutrient_levels}{$nid} = 'moderate';
 			}
 			push @{$product_ref->{nutrient_levels_tags}},
-				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
+				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, display_taxonomy_tag("en", "nutrients", "zz:" . $nid), $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
 
 		}
 		else {
@@ -5250,17 +5256,10 @@ sub create_nutrients_level_taxonomy() {
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
-			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
+			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $display_taxonomy_tag("en", "nutrients", "zz:" . $nid), $Lang{$level . "_quantity"}{en}) . "\n";
 			foreach my $l (sort keys %Langs) {
 				next if $l eq 'en';
-				my $nutrient_l;
-				if (defined $Nutriments{$nid}{$l}) {
-					$nutrient_l = $Nutriments{$nid}{$l};
-				}
-				else {
-					$nutrient_l = $Nutriments{$nid}{"en"};
-				}
-				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
+				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, display_taxonomy_tag($l, "nutrients", "zz:" . $nid), $Lang{$level . "_quantity"}{$l}) . "\n";
 			}
 		}
 	}
