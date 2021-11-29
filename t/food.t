@@ -295,7 +295,7 @@ $expected_product_ref = {
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 $product_ref = {
-	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4},
+	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4, "alcohol" => 12, "ph" => 7},
 	nutrition_data_per => "serving",
 	quantity => "100 g",
 	serving_size => "25 g",
@@ -306,9 +306,15 @@ compute_serving_size_data($product_ref);
 $expected_product_ref =
 {
 	'nutriments' => {
+		'alcohol' => 12,
+		'alcohol_100g' => 12,
+		'alcohol_serving' => 12,
 		'nova-group' => 4,
 		'nova-group_100g' => 4,
-		'nova-group_serving' => 4
+		'nova-group_serving' => 4,
+		'ph' => 7,
+		'ph_100g' => 7,
+		'ph_serving' => 7
 	},
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
@@ -322,7 +328,7 @@ is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
 $product_ref = {
-	nutriments => { "sugars" => 4},
+	nutriments => { "sugars" => 4, "salt" => 1},
 	nutrition_data_per => "serving",
 	quantity => "100 g",
 	serving_size => "25 g",
@@ -335,7 +341,10 @@ $expected_product_ref =
 	'nutriments' => {
 		'sugars' => 4,
 		'sugars_100g' => 16,
-		'sugars_serving' => 4
+		'sugars_serving' => 4,
+		'salt' => 1,
+		'salt_100g' => 4,
+		'salt_serving' => 1,
 	},
 	'nutrition_data' => 'on',
 	'nutrition_data_per' => 'serving',
