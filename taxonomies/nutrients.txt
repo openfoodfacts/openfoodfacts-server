@@ -1,3 +1,12 @@
+# Nutrients taxonomy
+#
+# Notes:
+# - The id of the nutrient start with zz: , it should not be changed as this is is used in the database to store nutrition facts
+
+stopwords:en: including, of, which
+
+stopwords:fr: dont
+
 zz:energy-kj
 en:Energy (kJ)
 xx:Energy (kJ)
@@ -193,6 +202,8 @@ zh_TW:能量
 unit:en: kj
 unit_ca:en: kcal
 unit_us:en: kcal
+wikidata:en: Q11379
+wikipedia:en: https://en.wikipedia.org/wiki/Food_energy
 
 zz:energy-from-fat
 en:Energy from fat
@@ -298,6 +309,8 @@ zh_CN:脂肪
 zh_HK:脂肪
 zh_TW:脂肪
 unit:en: g
+wikidata:en: Q127980
+wikipedia:en: https://en.wikipedia.org/wiki/Fat
 
 zz:saturated-fat
 en:Saturated fat, Saturated fatty acids
@@ -356,6 +369,8 @@ zh_CN:饱和脂肪
 zh_HK:飽和脂肪
 zh_TW:飽和脂肪
 unit:en: g
+wikidata:en: Q970537
+wikipedia:en: https://en.wikipedia.org/wiki/Saturated_fat
 
 zz:butyric-acid
 en:Butyric acid
@@ -413,6 +428,8 @@ zh_CN:丁酸
 zh_HK:丁酸
 zh_TW:丁酸
 unit:en: g
+wikidata:en: Q193213
+wikipedia:en: https://en.wikipedia.org/wiki/Butyric_acid
 
 zz:caproic-acid
 en:Caproic acid, Hexanoic acid
@@ -455,6 +472,8 @@ zh_CN:己酸
 zh_HK:己酸
 zh_TW:己酸
 unit:en: g
+wikidata:en: Q422597
+wikipedia:en: https://en.wikipedia.org/wiki/Hexanoic_acid
 
 zz:caprylic-acid
 en:Caprylic acid
@@ -492,6 +511,8 @@ zh_CN:辛酸
 zh_HK:辛酸
 zh_TW:辛酸
 unit:en: g
+wikidata:en: Q409564
+wikipedia:en: https://en.wikipedia.org/wiki/Caprylic_acid
 
 zz:capric-acid
 en:Capric acid
@@ -532,6 +553,8 @@ zh_CN:癸酸
 zh_HK:癸酸
 zh_TW:癸酸
 unit:en: g
+wikidata:en: Q422613
+wikipedia:en: https://en.wikipedia.org/wiki/Decanoic_acid
 
 zz:lauric-acid
 en:Lauric acid
@@ -579,6 +602,8 @@ zh_CN:十二酸
 zh_HK:十二酸
 zh_TW:十二酸
 unit:en: g
+wikidata:en: Q422627
+wikipedia:en: https://en.wikipedia.org/wiki/Lauric_acid
 
 zz:myristic-acid
 en:Myristic acid
@@ -624,6 +649,8 @@ zh_CN:十四酸
 zh_HK:十四酸
 zh_TW:十四酸
 unit:en: g
+wikidata:en: Q422658
+wikipedia:en: https://en.wikipedia.org/wiki/Myristic_acid
 
 zz:palmitic-acid
 en:Palmitic acid
@@ -682,6 +709,8 @@ zh_CN:十六酸
 zh_HK:十六酸
 zh_TW:十六酸
 unit:en: g
+wikidata:en: Q209727
+wikipedia:en: https://en.wikipedia.org/wiki/Palmitic_acid
 
 zz:stearic-acid
 en:Stearic acid
@@ -740,6 +769,8 @@ zh_CN:十八酸
 zh_HK:十八酸
 zh_TW:十八酸
 unit:en: g
+wikidata:en: Q209685
+wikipedia:en: https://en.wikipedia.org/wiki/Stearic_acid
 
 zz:arachidic-acid
 en:Arachidic acid
@@ -780,6 +811,8 @@ zh_CN:二十酸
 zh_HK:二十酸
 zh_TW:二十酸
 unit:en: g
+wikidata:en: Q409608
+wikipedia:en: https://en.wikipedia.org/wiki/Arachidic_acid
 
 zz:behenic-acid
 en:Behenic acid
@@ -821,6 +854,8 @@ zh_CN:二十二酸
 zh_HK:二十二酸
 zh_TW:二十二酸
 unit:en: g
+wikidata:en: Q422590
+wikipedia:en: https://en.wikipedia.org/wiki/Behenic_acid
 
 zz:lignoceric-acid
 en:Lignoceric acid
@@ -857,6 +892,8 @@ zh_CN:二十四酸
 zh_HK:二十四酸
 zh_TW:二十四酸
 unit:en: g
+wikidata:en: Q422634
+wikipedia:en: https://en.wikipedia.org/wiki/Lignoceric_acid
 
 zz:cerotic-acid
 en:Cerotic acid, hexacosanoic acid
@@ -890,6 +927,8 @@ zh_CN:二十六酸
 zh_HK:二十六酸
 zh_TW:二十六酸
 unit:en: g
+wikidata:en: Q903348
+wikipedia:en: https://en.wikipedia.org/wiki/Cerotic_acid
 
 zz:montanic-acid
 en:Montanic acid
@@ -922,6 +961,8 @@ zh_CN:二十八酸
 zh_HK:二十八酸
 zh_TW:二十八酸
 unit:en: g
+wikidata:en: Q911196
+wikipedia:en: https://en.wikipedia.org/wiki/Montanic_acid
 
 zz:melissic-acid
 en:Melissic acid
@@ -953,6 +994,8 @@ zh_CN:三十酸
 zh_HK:三十酸
 zh_TW:三十酸
 unit:en: g
+wikidata:en: Q420731
+wikipedia:en: https://en.wikipedia.org/wiki/Melissic_acid
 
 zz:monounsaturated-fat
 en:Monounsaturated fat
@@ -1003,6 +1046,8 @@ zh_CN:单不饱和脂肪
 zh_HK:單元不飽和脂肪
 zh_TW:單元不飽和脂肪
 unit:en: g
+wikidata:en: Q650973
+wikipedia:en: https://en.wikipedia.org/wiki/Monounsaturated_fat
 
 zz:polyunsaturated-fat
 en:Polyunsaturated fat
@@ -1048,6 +1093,7 @@ zh_CN:多元不饱和酸
 zh_HK:多元不飽和酸
 zh_TW:多元不飽和酸
 unit:en: g
+wikidata:en: Q3604509
 
 zz:omega-3-fat
 en:Omega 3 fat, Omega 3 fatty acids
@@ -1121,6 +1167,8 @@ zh_CN:α-亚麻酸, ALA
 zh_HK:α-亞麻酸, ALA
 zh_TW:α-亞麻酸, ALA
 unit:en: g
+wikidata:en: Q256502
+wikipedia:en: https://en.wikipedia.org/wiki/Alpha-Linolenic_acid
 
 zz:eicosapentaenoic-acid
 en:Eicosapentaenoic acid, EPA
@@ -1162,6 +1210,8 @@ zh_CN:二十碳五酸, EPA
 zh_HK:二十碳五酸, EPA
 zh_TW:二十碳五酸, EPA
 unit:en: g
+wikidata:en: Q409990
+wikipedia:en: https://en.wikipedia.org/wiki/Eicosapentaenoic_acid
 
 zz:docosahexaenoic-acid
 en:Docosahexaenoic acid, DHA
@@ -1207,6 +1257,8 @@ zh_CN:二十二碳六酸, DHA
 zh_HK:二十二碳六酸, DHA
 zh_TW:二十二碳六酸, DHA
 unit:en: g
+wikidata:en: Q423345
+wikipedia:en: https://en.wikipedia.org/wiki/Docosahexaenoic_acid
 
 zz:omega-6-fat
 en:Omega 6 fat, Omega 6 fatty acids
@@ -1276,6 +1328,8 @@ zh_CN:亚油酸, LA
 zh_HK:亞油酸, LA
 zh_TW:亞油酸, LA
 unit:en: g
+wikidata:en: Q407426
+wikipedia:en: https://en.wikipedia.org/wiki/Linoleic_acid
 
 zz:arachidonic-acid
 en:Arachidonic acid, AA, ARA
@@ -1325,6 +1379,8 @@ zh_CN:花生四烯酸, AA, ARA
 zh_HK:花生四烯酸, AA, ARA
 zh_TW:花生四烯酸, AA, ARA
 unit:en: g
+wikidata:en: Q407699
+wikipedia:en: https://en.wikipedia.org/wiki/Arachidonic_acid
 
 zz:gamma-linolenic-acid
 en:Gamma-linolenic acid, GLA, gamolenic acid
@@ -1360,6 +1416,8 @@ zh_CN:γ-亚麻酸, GLA
 zh_HK:γ-亞麻酸, GLA
 zh_TW:γ-亞麻酸, GLA
 unit:en: g
+wikidata:en: Q415885
+wikipedia:en: https://en.wikipedia.org/wiki/Gamma-Linolenic_acid
 
 zz:dihomo-gamma-linolenic-acid
 en:Dihomo-gamma-linolenic acid, DGLA
@@ -1387,6 +1445,8 @@ zh_CN:二高-γ-亚麻酸, DGLA
 zh_HK:二高-γ-亞麻酸, DGLA
 zh_TW:二高-γ-亞麻酸, DGLA
 unit:en: g
+wikidata:en: Q415398
+wikipedia:en: https://en.wikipedia.org/wiki/Dihomo-γ-linolenic_acid
 
 zz:omega-9-fat
 en:Omega 9 fat, Omega 9 fatty acids
@@ -1467,6 +1527,8 @@ zh_CN:油酸
 zh_HK:油酸
 zh_TW:油酸
 unit:en: g
+wikidata:en: Q207688
+wikipedia:en: https://en.wikipedia.org/wiki/Oleic_acid
 
 zz:elaidic-acid
 en:Elaidic acid
@@ -1500,6 +1562,8 @@ zh_CN:反油酸
 zh_HK:反油酸
 zh_TW:反油酸
 unit:en: g
+wikidata:en: Q413491
+wikipedia:en: https://en.wikipedia.org/wiki/Elaidic_acid
 
 zz:gondoic-acid
 en:Gondoic acid
@@ -1529,6 +1593,8 @@ zh_CN:11-二十碳烯酸
 zh_HK:11-二十碳烯酸
 zh_TW:11-二十碳烯酸
 unit:en: g
+wikidata:en: Q416618
+wikipedia:en: https://en.wikipedia.org/wiki/11-Eicosenoic_acid
 
 zz:mead-acid
 en:Mead acid
@@ -1555,6 +1621,8 @@ zh_CN:二十碳三烯酸
 zh_HK:二十碳三烯酸
 zh_TW:二十碳三烯酸
 unit:en: g
+wikidata:en: Q416610
+wikipedia:en: https://en.wikipedia.org/wiki/Mead_acid
 
 zz:erucic-acid
 en:Erucic acid
@@ -1597,6 +1665,8 @@ zh_CN:芥酸
 zh_HK:芥酸
 zh_TW:芥酸
 unit:en: g
+wikidata:en: Q413531
+wikipedia:en: https://en.wikipedia.org/wiki/Erucic_acid
 
 zz:nervonic-acid
 en:Nervonic acid
@@ -1631,6 +1701,7 @@ zh_CN:二十四碳烯酸
 zh_HK:二十四碳烯酸
 zh_TW:二十四碳烯酸
 unit:en: g
+wikipedia:en: https://en.wikipedia.org/wiki/Nervonic_acid
 
 zz:trans-fat
 en:Trans fat, trans fatty acid
@@ -1684,6 +1755,8 @@ zh_CN:反式脂肪
 zh_HK:反式脂肪
 zh_TW:反式脂肪
 unit:en: g
+wikidata:en: Q243465
+wikipedia:en: https://en.wikipedia.org/wiki/Trans_fat
 
 zz:cholesterol
 en:Cholesterol
@@ -1776,6 +1849,8 @@ zh_CN:胆固醇
 zh_HK:膽固醇
 zh_TW:膽固醇
 unit:en: mg
+wikidata:en: Q43656
+wikipedia:en: https://en.wikipedia.org/wiki/Cholesterol
 
 zz:carbohydrates
 en:Carbohydrates, carbohydrate
@@ -1936,6 +2011,8 @@ zh_CN:糖
 zh_HK:糖
 zh_TW:糖
 unit:en: g
+wikidata:en: Q11002
+wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
 zz:sucrose
 en:Sucrose
@@ -2012,6 +2089,8 @@ zh_CN:蔗糖
 zh_HK:蔗糖
 zh_TW:蔗糖
 unit:en: g
+wikidata:en: Q4027534
+wikipedia:en: https://en.wikipedia.org/wiki/Sucrose
 
 zz:glucose
 en:Glucose
@@ -2101,6 +2180,8 @@ zh_CN:葡萄糖
 zh_HK:葡萄糖
 zh_TW:葡萄糖
 unit:en: g
+wikidata:en: Q37525
+wikipedia:en: https://en.wikipedia.org/wiki/Glucose
 
 zz:fructose
 en:Fructose
@@ -2173,6 +2254,8 @@ zh_CN:果糖
 zh_HK:果糖
 zh_TW:果糖
 unit:en: g
+wikidata:en: Q122043
+wikipedia:en: https://en.wikipedia.org/wiki/Fructose
 
 zz:lactose
 en:Lactose
@@ -2243,6 +2326,8 @@ zh_CN:乳糖
 zh_HK:乳糖
 zh_TW:乳糖
 unit:en: g
+wikidata:en: Q127900
+wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 
 zz:maltose
 en:Maltose
@@ -2309,6 +2394,8 @@ zh_CN:麦芽糖
 zh_HK:麥芽糖
 zh_TW:麥芽糖
 unit:en: g
+wikidata:en: Q170002
+wikipedia:en: https://en.wikipedia.org/wiki/Maltose
 
 zz:maltodextrins
 en:Maltodextrins, maltodextrin
@@ -2332,6 +2419,8 @@ zh_CN:麦芽糊精
 zh_HK:麥芽糊精
 zh_TW:麥芽糊精
 unit:en: g
+wikidata:en: Q177570
+wikipedia:en: https://en.wikipedia.org/wiki/Maltodextrin
 
 zz:starch
 en:Starch
@@ -2414,6 +2503,8 @@ zh_CN:淀粉
 zh_HK:澱粉
 zh_TW:澱粉
 unit:en: g
+wikidata:en: Q41534
+wikipedia:en: https://en.wikipedia.org/wiki/Starch
 
 zz:polyols
 en:Polyols, Sugar alcohols
@@ -2648,6 +2739,8 @@ zh_CN:蛋白质
 zh_HK:蛋白質
 zh_TW:蛋白質
 unit:en: g
+wikidata:en: Q8054
+wikipedia:en: https://en.wikipedia.org/wiki/Protein_-nutrient-
 
 zz:casein
 en:casein
@@ -2708,6 +2801,8 @@ kk_latn:en: Kazeïn
 scn:en: Caseina
 sco:en: casein
 unit:en: g
+wikidata:en: Q193970
+wikipedia:en: https://en.wikipedia.org/wiki/Casein
 
 zz:serum-proteins
 en:Serum proteins
@@ -2751,6 +2846,8 @@ zh_CN:核苷酸
 zh_HK:核苷酸
 zh_TW:核苷酸
 unit:en: g
+wikidata:en: Q56058005
+wikipedia:en: https://en.wikipedia.org/wiki/Nucleotide
 
 zz:salt
 en:Salt, table salt, common salt, cooking salt, dry salt
@@ -2851,6 +2948,8 @@ yi:זאלץ
 yo:Iyọ̀
 zh:食盐
 unit:en: g
+wikidata:en: Q11254
+wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
 zz:sodium
 en:Sodium
@@ -2972,6 +3071,8 @@ zh_HK:鈉
 zh_TW:鈉
 unit:en: g
 unit_us:en: mg
+wikidata:en: Q658
+wikipedia:en: https://en.wikipedia.org/wiki/Sodium
 
 zz:alcohol
 en:Alcohol
@@ -3074,6 +3175,8 @@ zh_CN:酒精度
 zh_HK:酒精
 zh_TW:酒精
 unit:en: % vol
+wikidata:en: Q156
+wikipedia:en: https://en.wikipedia.org/wiki/Alcohol
 
 zz:vitamin-a
 en:Vitamin A
@@ -3158,6 +3261,8 @@ iu_value:en: 0.3
 unit:en: µg
 unit_ca:en: % DV
 unit_us:en: % DV
+wikidata:en: Q18225
+wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
 
 zz:beta-carotene
 en:Beta carotene
@@ -3206,6 +3311,8 @@ th:บีตา-แคโรทีน
 vi:Beta-Carotene
 zh:Β-胡萝卜素
 unit:en: g
+wikidata:en: Q306135
+wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
 
 zz:vitamin-d
 en:Vitamin D, D
@@ -3284,6 +3391,8 @@ dv_2016_value:en: 20
 dv_value:en: 40
 iu_value:en: 0.025
 unit:en: µg
+wikidata:en: Q175621
+wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_D
 
 zz:vitamin-e
 en:Vitamin E, Vitamin E, Tocopherol
@@ -3382,6 +3491,8 @@ zh:维生素K
 dv_2016_value:en: 120
 dv_value:en: 80
 unit:en: µg
+wikidata:en: Q182338
+wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
 
 zz:vitamin-c
 en:Vitamin C (ascorbic acid), Vitamin C, Ascorbic acid, E300, E 300
@@ -3466,6 +3577,8 @@ iu_value:en: 0.05
 unit:en: mg
 unit_ca:en: % DV
 unit_us:en: % DV
+wikidata:en: Q199678
+wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
 
 zz:vitamin-b1
 en:Vitamin B1 (Thiamin), Vitamin B1, Thiamin
@@ -3617,6 +3730,8 @@ zh:维生素B6
 dv_2016_value:en: 1.7
 dv_value:en: 2
 unit:en: mg
+wikidata:en: Q205130
+wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
 
 zz:vitamin-b9
 en:Vitamin B9 (Folic acid), Vitamin B9, Folic acid
@@ -3745,6 +3860,8 @@ zh:生物素
 dv_2016_value:en: 30
 dv_value:en: 300
 unit:en: µg
+wikidata:en: Q181354
+wikipedia:en: https://en.wikipedia.org/wiki/Biotin
 
 zz:pantothenic-acid
 en:Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
@@ -3811,6 +3928,8 @@ zh:泛酸
 dv_2016_value:en: 5
 dv_value:en: 10
 unit:en: mg
+wikidata:en: Q179894
+wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
 
 zz:silica
 en:Silica, Silicon dioxide
@@ -3878,6 +3997,8 @@ uk:Діоксид кремнію
 vi:silic điôxít
 zh:二氧化硅
 unit:en: mg
+wikidata:en: Q116269
+wikipedia:en: https://en.wikipedia.org/wiki/Silicon_dioxide
 
 zz:bicarbonate
 en:Bicarbonate
@@ -3907,6 +4028,8 @@ sk:bikarbonát
 sl:bikarbonat
 sv:bikarbonat
 unit:en: mg
+wikidata:en: Q56810858
+wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
 
 zz:potassium
 en:Potassium
@@ -4022,6 +4145,8 @@ yo:Potassium
 za:Gyaz
 zh:钾
 unit:en: mg
+wikidata:en: Q703
+wikipedia:en: https://en.wikipedia.org/wiki/Potassium
 
 zz:chloride
 en:Chloride
@@ -4081,6 +4206,7 @@ zh:氯化物
 dv_2016_value:en: 2300
 dv_value:en: 3400
 unit:en: mg
+wikidata:en: Q108200
 
 zz:calcium
 en:Calcium
@@ -4199,6 +4325,8 @@ dv_2016_value:en: 1300
 dv_value:en: 1000
 unit:en: mg
 unit_ca:en: % DV
+wikidata:en: Q706
+wikipedia:en: https://en.wikipedia.org/wiki/Calcium
 
 zz:phosphorus
 en:Phosphorus
@@ -4315,6 +4443,8 @@ zh:磷
 dv_2016_value:en: 1250
 dv_value:en: 1000
 unit:en: mg
+wikidata:en: Q674
+wikipedia:en: https://en.wikipedia.org/wiki/Phosphorus
 
 zz:iron
 en:Iron
@@ -4449,6 +4579,8 @@ dv_2016_value:en: 18
 dv_value:en: 18
 unit:en: mg
 unit_ca:en: % DV
+wikidata:en: Q677
+wikipedia:en: https://en.wikipedia.org/wiki/Iron
 
 zz:magnesium
 en:Magnesium
@@ -4565,6 +4697,7 @@ zh:鎂, 镁
 dv_2016_value:en: 420
 dv_value:en: 400
 unit:en: mg
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium
 
 zz:zinc
 en:Zinc
@@ -4681,6 +4814,8 @@ zh:鋅, 锌
 dv_2016_value:en: 11
 dv_value:en: 15
 unit:en: mg
+wikidata:en: Q758
+wikipedia:en: https://en.wikipedia.org/wiki/Zinc
 
 zz:copper
 en:Copper
@@ -4810,6 +4945,8 @@ zu:Umthofu
 dv_2016_value:en: 0.9
 dv_value:en: 2
 unit:en: mg
+wikidata:en: Q753
+wikipedia:en: https://en.wikipedia.org/wiki/Copper
 
 zz:manganese
 en:Manganese
@@ -4920,6 +5057,8 @@ zh:锰
 dv_2016_value:en: 2.3
 dv_value:en: 2
 unit:en: mg
+wikidata:en: Q731
+wikipedia:en: https://en.wikipedia.org/wiki/Manganese
 
 zz:fluoride
 en:Fluoride
@@ -4953,6 +5092,8 @@ sk:Fluorid
 sl:Fluorid
 sv:Fluorid
 unit:en: mg
+wikidata:en: Q44793182
+wikipedia:en: https://en.wikipedia.org/wiki/Fluoride
 
 zz:selenium
 en:Selenium
@@ -5063,6 +5204,8 @@ zh:硒
 dv_2016_value:en: 55
 dv_value:en: 70
 unit:en: µg
+wikidata:en: Q876
+wikipedia:en: https://en.wikipedia.org/wiki/Selenium
 
 zz:chromium
 en:Chromium
@@ -5175,6 +5318,8 @@ zh:铬
 dv_2016_value:en: 35
 dv_value:en: 120
 unit:en: µg
+wikidata:en: Q725
+wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
 zz:molybdenum
 en:Molybdenum
@@ -5282,6 +5427,8 @@ zh:钼
 dv_2016_value:en: 45
 dv_value:en: 75
 unit:en: µg
+wikidata:en: Q1053
+wikipedia:en: https://en.wikipedia.org/wiki/Molybdenum
 
 zz:iodine
 en:Iodine
@@ -5394,6 +5541,8 @@ zh:碘
 dv_2016_value:en: 150
 dv_value:en: 150
 unit:en: µg
+wikidata:en: Q1103
+wikipedia:en: https://en.wikipedia.org/wiki/Iodine
 
 zz:caffeine
 en:Caffeine
@@ -5470,6 +5619,8 @@ vi:Caffein
 yi:קאפעין
 zh:咖啡因
 unit:en: mg
+wikidata:en: Q60235
+wikipedia:en: https://en.wikipedia.org/wiki/Caffeine
 
 zz:taurine
 en:Taurine
@@ -5606,6 +5757,8 @@ uz:pH
 vi:pH
 zh:氢离子浓度指数
 unit:en: 
+wikidata:en: Q40936
+wikipedia:en: https://en.wikipedia.org/wiki/PH
 
 zz:fruits-vegetables-nuts
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
@@ -5720,6 +5873,8 @@ uk:вуглецевий слід
 vi:Vết cacbon
 zh:碳足印
 unit:en: g
+wikidata:en: Q310667
+wikipedia:en: https://en.wikipedia.org/wiki/Carbon_footprint
 
 zz:carbon-footprint-from-meat-or-fish
 en:Carbon footprint from meat or fish
@@ -5786,6 +5941,8 @@ uk:Глікемічний індекс
 vi:Chỉ số Glycemic
 zh:升糖指数
 unit:en: 
+wikidata:en: Q273924
+wikipedia:en: https://en.wikipedia.org/wiki/Glycemic_index
 
 zz:water-hardness
 en:Water hardness
@@ -5832,6 +5989,7 @@ vi:Nước cứng
 wa:Durté d' l' aiwe
 zh:水質硬度
 unit:en: mmol/l
+wikidata:en: Q192905
 
 zz:choline
 en:Choline
@@ -5911,6 +6069,8 @@ sv:fyllokinon, fytomenadion
 vi:Phytomenadione
 zh:叶绿基甲萘醌
 unit:en: g
+wikidata:en: Q186093
+wikipedia:en: https://en.wikipedia.org/wiki/Phytomenadione
 
 zz:beta-glucan
 en:Beta-glucan
@@ -5941,6 +6101,8 @@ tr:Beta-glukan
 vi:Beta-glucan
 zh:Β-葡聚醣
 unit:en: g
+wikidata:en: Q2076617
+wikipedia:en: https://en.wikipedia.org/wiki/Beta-glucan
 
 zz:inositol
 en:Inositol
@@ -5982,6 +6144,7 @@ sv:inositol
 uk:Інозитол
 zh:肌醇
 unit:en: g
+wikipedia:en: https://en.wikipedia.org/wiki/Inositol
 
 zz:carnitine
 en:Carnitine
@@ -6029,4 +6192,6 @@ tr:Karnitin
 uk:Карнитин
 zh:肉碱
 unit:en: g
+wikidata:en: Q243309
+wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 

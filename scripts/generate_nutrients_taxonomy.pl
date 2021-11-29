@@ -46,6 +46,19 @@ ProductOpener::Tags::retrieve_tags_taxonomy('nutrients_old');
 
 open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrients.txt");
 
+print $OUT <<TXT
+# Nutrients taxonomy
+#
+# Notes:
+# - The id of the nutrient start with zz: , it should not be changed as this is is used in the database to store nutrition facts
+
+stopwords:en: including, of, which
+
+stopwords:fr: dont
+
+TXT
+;
+
 # Go over all nutrients defined in Food.pm
 
 foreach my $nid (@{$nutriments_tables{europe}}) {
@@ -67,8 +80,6 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
             $new_key .= "_value";
         }
 
-        print "key: $key - new_key: $new_key\n";
-
         if ($new_key =~ /^\w\w(_\w\w)?$/) {
 
             my $value = $Nutriments{$nid}{$key};
@@ -81,8 +92,6 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
             #$value =~ s/ \(([^\)]+)\)/ \/ $1/g;
 
             $translations{$key} = [split(/ \/ /, $value)];
-
-            print "key: $key - value: $value\n";
         }
         elsif ($new_key =~ /^(\w\w(_\w\w)?)_synonyms$/) {
             my $lc = $1;
@@ -136,8 +145,17 @@ foreach my $nid (@{$nutriments_tables{europe}}) {
         print $OUT "$lc:" . join(", ", map { local $_ = $_; s/ \/ /, /; $_ } map { local $_ = $_; s/,/\\,/g; $_ } @{$translations{$lc}}) . "\n";
     }
 
+    # Properties from Food.pm
     foreach my $property (sort keys %properties) {
         print $OUT "$property:en: " . $properties{$property} . "\n";
+    }
+
+    # Properties from the nutrients_old.txt taxonomy
+    foreach my $property_name ("wikidata:en", "wikipedia:en") {
+        my $property_value = get_property("nutrients_old", "en:$nid", $property_name);
+        if (defined $property_value) {
+            print $OUT $property_name . ": " . $property_value . "\n";
+        }
     }
 
     print $OUT "\n";
