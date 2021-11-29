@@ -6,16 +6,13 @@ services:
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
     volumes:
       - dbdata:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME
-      - MONGO_INITDB_ROOT_PASSWORD
     ports:
       - 27017:27017
     networks:
       - db
   mongodb_exporter:
     image: bitnami/mongodb-exporter:0
-    command: mongodb_exporter --discovering-mode --mongodb.uri=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGODB_HOST}:27017/admin?ssl=true
+    command: mongodb_exporter --discovering-mode --mongodb.uri=mongodb://${MONGODB_HOST}:27017/admin?ssl=true
     ports:
       - 9216:9216
     networks:
