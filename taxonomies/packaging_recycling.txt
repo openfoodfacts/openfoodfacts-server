@@ -35,13 +35,14 @@ nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papie
 
 # in the Netherlands for recycling of drink cartons
 <en:recycle
-nl:drankencartons
+en:recycle with drink cartons
+nl:recycle bij drankencartons, drankencartons
 packaging_shapes:en: en:brick
 
 # in Belgium can be used for recycling of metal, plastics and drink cartons
 <en:recycle
-en:plastics - metal and bricks
-nl:Plastic - Metaal en Drankencartons, PMD, wel PMD
+en:recycle with plastics - metal and bricks
+nl:recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
 
 <en:recycle
 en:plastics
@@ -50,13 +51,13 @@ packaging_materials:en: en:plastics
 
 #packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
 <en:recycle
-en:deposit
-nl:statiegeld
+en:recycle-as-deposit
+nl:recycle-als-statiegeld
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 <en:deposit
-en:PET deposit bottle
-nl:statiegeldfles
+en:recycle as PET deposit bottle
+nl:recycle als statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
 #packaging_shapes:en: en:bottle seems not to work
 
