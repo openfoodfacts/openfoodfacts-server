@@ -138,6 +138,15 @@ my @tests = (
 		}
 	],		
 
+	# from vegetal origin
+	[
+		"en-vegetal-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Gelatin (vegetal), Charcoal (not from animals), ferments (from plants), non-animal rennet, flavours (derived from plants)",
+		}
+	],	
+
 	# FR labels
 	[
 		"fr-labels",
