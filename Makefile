@@ -183,6 +183,6 @@ clean_folders:
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
-	( rm logs/* logs/apache2/* logs/nginx/* || true )
+	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
 clean: goodbye hdown prune prune_cache clean_folders
