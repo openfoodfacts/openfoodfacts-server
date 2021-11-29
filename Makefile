@@ -33,7 +33,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello init_backend up import_sample_data refresh_product_tags
+dev: hello build init_backend _up import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -55,10 +55,17 @@ edit_etc_hosts:
 #----------------#
 # Docker Compose #
 #----------------#
-up:
-	@echo "🥫 Building and starting containers …"
-	${DOCKER_COMPOSE} up -d --build 2>&1
+
+build:
+	@echo "🥫 Building containers …"
+	${DOCKER_COMPOSE} build 2>&1
+
+_up:
+	@echo "🥫 Starting containers …"
+	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
+
+up: build _up
 
 down:
 	@echo "🥫 Bringing down containers …"
