@@ -391,4 +391,16 @@ is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
+# Check that nutrients typed in by users in the nutrition table product edit form are recognized
+is(canonicalize_nutriment("en", "saturated"), "saturated-fat");
+is(canonicalize_nutriment("en", "of which saturated"), "saturated-fat");
+is(canonicalize_nutriment("fr", "dont sucre"), "sugars");
+is(canonicalize_nutriment("fr", "dont saturés"), "saturated-fat");
+is(canonicalize_nutriment("fr", "ARA"), "arachidonic-acid");
+is(canonicalize_nutriment("fr", "AGS"), "saturated-fat");
+is(canonicalize_nutriment("en", "some unknown nutrient"), "en-some-unknown-nutrient");
+is(canonicalize_nutriment("fr", "un nutriment inconnu"), "fr-un-nutriment-inconnu");
+
+
+
 done_testing();

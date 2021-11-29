@@ -4030,80 +4030,25 @@ foreach my $l (@Langs) {
 $log->debug("Nutrient levels initialized") if $log->is_debug();
 
 
-
 sub canonicalize_nutriment($$) {
 
-	my $lc = shift;
-	my $label = shift;
-	my $nid = get_string_id_for_lang($lc, $label);
-	if ($lc eq 'fr') {
-		$nid =~ s/^dont-//;
-	}
-	if (defined $nutriments_labels{$lc}) {
-		if (defined $nutriments_labels{$lc}{$nid}) {
-			$nid = $nutriments_labels{$lc}{$nid};
-		}
-		elsif ($nid =~ /linole/) {
-			my $nid2 = $nid;
-			$nid2 =~ s/linolei/linoleni/;
-			if (defined $nutriments_labels{$lc}{$nid2}) {
-				$nid = $nutriments_labels{$lc}{$nid2};
-			}
-			else {
-				$nid2 = $nid;
-				$nid2 =~ s/linoleni/linolei/;
-				if (defined $nutriments_labels{$lc}{$nid2}) {
-					$nid = $nutriments_labels{$lc}{$nid2};
-				}
-			}
-		}
-	}
+	my $target_lc = shift;
+	my $nutrient = shift;
 
-	#$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
+	my $nid = canonicalize_taxonomy_tag($target_lc, "nutrients", $nutrient);
+
+	if ($nid =~ /^zz:/) {
+		# Recognized nutrients start with zz: -> remove zz: to get the nid
+		$nid = $';
+	}
+	else {
+		# Unrecognized nutrients start with the language code (e.g. fr:)
+		# -> turn it to fr-
+		$nid = get_string_id_for_lang($lc, $nid);
+	}
 	return $nid;
-
 }
 
-
-
-$log->info("initialize \%nutriments_labels");
-
-foreach my $nid (keys %Nutriments) {
-
-	foreach my $lc (sort keys %{$Nutriments{$nid}}) {
-
-		# skip non language codes
-
-		next if ($lc =~  /^unit/);
-		next if ($lc =~  /^dv/);
-		next if ($lc =~  /^iu/);
-
-		my $label = $Nutriments{$nid}{$lc};
-		next if not defined $label;
-		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
-		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		#$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
-
-		my @labels = split(/\(|\/|\)/, $label);
-
-		foreach my $sublabel ($label, @labels) {
-			$sublabel = canonicalize_nutriment($lc,$sublabel);
-			if (length($sublabel) >= 2) {
-				$nutriments_labels{$lc}{$sublabel} = $nid;
-				#$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
-			}
-			if ($sublabel =~ /alpha-/) {
-				$sublabel =~ s/alpha-/a-/;
-				$nutriments_labels{$lc}{$sublabel} = $nid;
-			}
-			if ($sublabel =~ /^(acide-gras|acides-gras|acide|fatty-acids|fatty-acid)-/) {
-				$sublabel = $';
-				$nutriments_labels{$lc}{$sublabel} = $nid;
-			}
-		}
-	}
-
-}
 
 my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
 # Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
