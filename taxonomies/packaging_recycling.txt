@@ -46,7 +46,7 @@ nl:recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
 
 <en:recycle
 en:recycle with plastics
-nl:recycle bij plastic afval, bij plastic afval
+nl:recycle bij plastic afval, bij plastic afval, plastic afval
 packaging_materials:en: en:plastics
 
 #packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
@@ -57,14 +57,14 @@ nl:recycle-als-statiegeld
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 <en:deposit
 en:return PET bottle to store, PET deposit bottle
-nl:recycle als statiegeldfles
+nl:recycle als statiegeldfles, statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
-#packaging_shapes:en: en:bottle seems not to work
+packaging_shapes:en: en:bottle
 
 #This is green waste
 <en:recycle
-en:recycle as green waste
-nl:recycle als GFT
+en:recycle as green waste, compost, green waste
+nl:recycle als GFT, gft
 
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
