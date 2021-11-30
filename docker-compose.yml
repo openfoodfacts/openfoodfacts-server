@@ -95,8 +95,8 @@ services:
       # Logs 
       - ./logs/nginx/:/var/log/nginx/
       
-      # Nginx
-      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+      # Nginx, we use templates dir to be able to use environment vars
+      - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
 
       # Node modules
       - node_modules:/opt/product-opener/node_modules
