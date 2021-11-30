@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - main
+    - deploy-*
     paths:
     - docker/mongodb.yml
     - .github/workflows/mongo-deploy.yml
