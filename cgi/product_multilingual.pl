@@ -1418,31 +1418,15 @@ sub display_input_tabs($$$$$) {
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		my $other_nutriment_value;
-		if ((exists $Nutriments{$nid}{$lang}) and ($Nutriments{$nid}{$lang} ne '')) {
-			$other_nutriment_value = $Nutriments{$nid}{$lang};
-		}
-		else {
-			foreach my $olc (@{$country_languages{$cc}}, 'en') {
-				next if $olc eq $lang;
-				if ((exists $Nutriments{$nid}{$olc}) and ($Nutriments{$nid}{$olc} ne '')) {
-					$other_nutriment_value = $Nutriments{$nid}{$olc};
-					last;
-				}
-			}
-		}
-
-		if ((not (defined $other_nutriment_value)) or ($other_nutriment_value eq '')) {
-			$other_nutriment_value = $nid;
-		}
+		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
-			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
+			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 				$supports_iu = "true";
 			}
 
-			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . get_property("nutrients", "zz:$nid", "unit:en") . '", "iu": ' . $supports_iu . '  },' . "\n";
 		}
 		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}
