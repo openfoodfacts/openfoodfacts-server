@@ -14053,6 +14053,7 @@ de:Siedesalz
 en:melting salt
 de:Schmelzsalz, Schmelzsalze
 fr:Sel de fonte
+nl:smeltzout
 
 <en:salt
 en:finegrained salt
@@ -14063,6 +14064,11 @@ fi:hienojakoinen suola
 fr:Sel fin
 nl:Fijn zout
 
+<en:salt
+en:rock salt
+de:Steinsalz
+hu:Kősó
+nl:steenzout
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -14161,10 +14167,6 @@ pt:Sal grosso
 sv:Koshersalt
 wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
 
-<en:salt
-de:Steinsalz
-hu:Kősó
-nl:steenzout
 
 # description:en:SEA SALT - is salt that is produced by the evaporation of seawater
 
@@ -17490,7 +17492,7 @@ en:natural casing
 de:Naturdarm
 fi:luonnonsuoli
 fr:boyau naturel
-nl:natuurlijk omhulsel
+nl:natuurlijk omhulsel, eetbare natuurdarm
 ro:Membrana naturala comestibila
 sv:naturtarm
 # ingredient/fr:boyau-naturel has 176 products in 2 languages @2019-02-12
@@ -17658,12 +17660,14 @@ en:prepared meat, processed meat, cured meat
 fr:charcuterie
 
 <en:meat
-en:smoked sausages
+en:smoked sausage
 fr:saucisses fumées
 nl:rookworst
 
+<en:meat
 en:Garlic sausage
 fr:Saucisson à l'ail
+nl:knoflookworst
 ciqual_food_code:en:30700
 ciqual_food_name:en:Garlic sausage
 ciqual_food_name:fr:Saucisson à l'ail
@@ -17911,7 +17915,7 @@ lt:kukurūzų krakmolas
 lv:kukurūzas ciete
 ms:tepung jagung
 nb:maisstivelse, maisenna
-nl:maïszetmeel, maiszetmeel
+nl:maïszetmeel, maiszetmeel, maïzena
 no:maisstivelse
 pl:skrobia kukurydziana
 pt:amido de milho
@@ -26615,6 +26619,7 @@ en:whole grain barley flakes, wholegrain barley flakes
 de:vollkorn-gerstenflocken, vollkorngerstenflocken, Gerstenvollkornflocken
 fi:täysjyväohrahiutale
 fr:flocons d'orge complète
+nl:volkoren gerstvlokken
 sv:fullkornskornflingor
 # ingredient/fr:flocons-d'orge-complete has 16 products in 4 languages @2020-06-08
 
@@ -27398,8 +27403,8 @@ wikidata:en:Q108654342
 <en:oat fibre
 en:gluten free oat fibre
 de:glutenfreie Haferfaser
-fr:Fibre d'avoine sans gluten
-
+fr:fibre d'avoine sans gluten
+nl:glutenvrije havervezels
 
 
 <en:oat
@@ -28134,6 +28139,7 @@ de:teffmehl
 es:harina de teff
 fr:farine de teff
 it:farina di teff
+nl:teffmeel
 sv:teffmjöl
 
 <en:teff
@@ -29891,6 +29897,7 @@ zh:糯稻
 wikidata:en:Q115443
 # 174 in 11 @2021-09-13
 
+
 ########################### PROCESSING STAGES OF RICES #######################
 
 <en:rice
@@ -30742,6 +30749,9 @@ de:Rundkornreis
 fr:riz pour sushi
 pt:Arroz de sushi
 
+en:rice milk
+nl:rijstmelk
+
 ##################################################################################
 #
 #                        CAROB/LOCUST BEAN
@@ -31264,6 +31274,10 @@ fr:Sucre en morceaux
 wikidata:en:Q1042920
 wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_en_morceaux
 # 4@2019-06-05
+
+<en:sugar
+en:fermented sugar
+nl:gefermenteerde suiker
 
 #################### Sugars from specific sources ##############
 
@@ -33061,7 +33075,7 @@ fi:herneproteiini
 fr:protéines de pois, protéine de pois
 hu:borsófehérje
 it:proteine di piselli
-nl:boneneiwit, erwteiwit, erwteneiwit
+nl:boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
 pl:Białko grochu
 pt:Proteína de ervilha
 ro:proteină de mazăre
@@ -33269,6 +33283,7 @@ da:textureret hvedeprotein
 de:Texturiertes Weizenprotein
 es:proteína de trigo texturizada
 fr:protéines de blé texturées
+nl:getextuurd tarwe-eiwit
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
 <en:vegetable hydrolysed protein
@@ -36064,9 +36079,9 @@ is:Súrdeig
 it:Lievito naturale
 ja:サワードウ
 ko:사워도
-nb:Surdeig
-nl:Zuurdesem, zuurdeeg, desem
-nn:Surdeig
+nb:surdeig
+nl:zuurdesem, zuurdeeg, desem
+nn:surdeig
 pl:Zakwas chlebowy
 pt:Massa lêveda
 ru:Хлебная закваска
@@ -36087,14 +36102,17 @@ fr:levain lactique
 de:Natursauerteig
 
 <en:sourdough
+en:dehydrated sourdough
 de:Sauerteig getrocknet
 fi:kuivattu taikinajuuri
 fr:levain sec, levain déshydraté
 it:lievito naturale secco
-nl:zuurdesempoeder
+nl:zuurdesempoeder, desempoeder
 
-<de:Sauerteig getrocknet
+<en:dehydrated sourdough, sourdough powder
+en:devitalised and dehydrated sourdough
 fr:levain déshydraté et dévitalisé
+nl:geïnactiveerde desempoeder
 
 <en:sourdough
 en:wheat sourdough
@@ -49217,6 +49235,9 @@ de:orange Möhre, orange Karotte
 fi:oranssi porkkana
 fr:carottes oranges
 
+<en:carrot
+nl:winterpeen
+
 # This is mainly used as colorant
 
 <en:anthocyanin
@@ -49415,6 +49436,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 <en:celery
 fr:céleri branche
 de:Stangensellerie
+nl:bleekselderij
 # fr:céleri-branche has 50 products in 3 languages @2018-10-21
 
 <en:celery
@@ -54805,7 +54827,7 @@ fr:petits pois fins
 en:extra fine garden peas
 fr:petits pois très fins, petits pois extra fins
 es:guisantes extrafinos
-nl:extra fijne doperwten
+nl:extra fijne doperwten, erwten zeer fijn
 
 <en:garden peas
 fr:petits pois doux
@@ -58103,7 +58125,7 @@ fr:extrait d'épice, extraits d'épices
 hu:fűszerkivonat, fűszerkivonatok, fűszer kivonat, fűszer kivonatok
 it:Estratto di spezie
 nb:krydderekstrakt, krydder ekstrakt
-nl:specerijenextracten
+nl:specerijenextracten, specerij-extracten
 pl:ekstrakt z przyprawy, ekstrakty przypraw
 sl:začimbni ekstrakti
 vegan:en:yes
@@ -61784,7 +61806,7 @@ mk:мајоран
 ms:marjoram
 mt:merqtux
 nb:merian
-nl:marjolein, marjoraan
+nl:marjolein, majoraan
 nn:merian
 oc:majorana
 pa:ਮਰੂਆ
@@ -61871,6 +61893,7 @@ it:origano
 ja:オレガノ
 lt:raudonėlis, raudonėlių
 lv:raudene
+nl:oregano
 pt:orégãos
 ru:орегано
 sl:origano
@@ -77772,6 +77795,7 @@ da:store æg
 de:große Eier, Eier groß
 fi:suuri muna, suuret munat
 fr:gros oeufs
+nl:grote eieren
 # 3@2019-05-31
 
 <en:eggs
@@ -77934,7 +77958,8 @@ de:Hühnereier aus Freilandhaltung
 es:huevos de gallinas camperas
 fi:ulkokanan munat, ulkokanan munia, ulkokanojen munia
 fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
-nl:ei van hennen met vrije uitloop
+nl:ei van hennen met vrije uitloop, scharrelkipheelei, scharrelkippenei
+
 # ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
 
 <en:free range chicken eggs
@@ -78086,7 +78111,6 @@ nl:extra-verse hele eieren
 fr:œuf entier d'élevage au sol, oeuf entier d'élevage au sol
 de:Vollei aus Bodenhaltung
 it:uovo intero da allevamento al suolo
-nl:scharrelkipheelei
 # ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
 
 <en:whole egg
@@ -78178,7 +78202,7 @@ ko:흰자
 li:eiwit
 ms:putih telur
 nb:eggehvite
-nl:ei-eiwit, eiwit, albumine
+nl:ei-eiwit, albumine
 pl:bialka jaj, białko jaja
 pt:clara do ovo, clara de ovos
 ru:белок
@@ -78245,18 +78269,15 @@ de:Eiweiß aus Freilandhaltung
 nl:scharrelei-eiwit, kippenei-eiwit van scharreleieren
 
 <en:chicken egg white
-nl:scharrelkipeiwit
+nl:scharrelkipeiwit, vrije uitloop kippenei-eiwit
 
 <en:powdered egg white
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder, scharrelkipeiwitpoeder
 
 <en:powdered egg white
 de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnereiweiss-pulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
 fi:kananmunan valkuaisjauhe, kananmunanvalkuaisjauhe
 nl:kippenei-eiwitpoeder
-
-<de:Hühnerei-Trockeneiweiß
-nl:scharrelkipeiwitpoeder
 
 <en:powdered egg white
 en:rehydrated egg white
