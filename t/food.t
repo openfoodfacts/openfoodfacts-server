@@ -394,6 +394,33 @@ $expected_product_ref =
 	'serving_size' => '25 g'
 };
 
+# Unknown nutrient
+
+$product_ref = {
+	nutriments => { "fr-unknown-nutrient" => 10 },
+	nutrition_data_prepared_per => "100g",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+$expected_product_ref = {
+	'nutriments' => {
+		'fr-unknown-nutrient' => 10,
+		'fr-unknown-nutrient_100g' => 10,
+		'fr-unknown-nutrient_serving' => '2.5'
+	},
+	'nutrition_data' => 'on',
+	'nutrition_data_per' => '100g',
+	'nutrition_data_prepared_per' => '100g',
+	'product_quantity' => 100,
+	'quantity' => '100 g',
+	'serving_quantity' => 25,
+	'serving_size' => '25 g'
+};
+
+
 is(default_unit_for_nid("sugars"), "g");
 is(default_unit_for_nid("energy-kj"), "kJ");
 is(default_unit_for_nid("energy-kcal_prepared"), "kcal");

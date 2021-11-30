@@ -6195,3 +6195,11 @@ unit:en: g
 wikidata:en: Q243309
 wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 
+# NOVA group is not a nutrient, but we also store it in the nutrition facts table (as we do for the Nutri-Score)
+# to enable some features like statistics per category
+
+zz:nova-group
+en:NOVA group
+xx:NOVA group
+fr:Groupe NOVA
+unit:en:

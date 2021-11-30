@@ -4955,12 +4955,12 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
 
-				my $unit = get_property("nutrients", "zz:$nid", "unit:en");
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en"); # $unit will be undef if the nutrient is not in the taxonomy
 				print STDERR "nid: $nid - unit: $unit\n";
 				
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
-				if ((not defined $unit) or ($unit eq '') or ($unit =~ /^\%/)) {
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
@@ -4988,11 +4988,11 @@ sub compute_serving_size_data($) {
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
-				my $unit = get_property("nutrients", "zz:$nid", "unit:en");
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en");	# $unit will be undef if the nutrient is not in the taxonomy
 				
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for the serving quantity
-				if ((not defined $unit) or ($unit eq '') or ($unit =~ /^\%/)) {
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
