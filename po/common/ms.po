@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:50\n"
+"PO-Revision-Date: 2021-11-30 09:36\n"
 "Language-Team: Malay\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1539,10 +1539,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "Jadual tersebut menyenaraikan secara lalai nutrimen yang selalunya dinyatakan. Biarkan medan kosong jika ia tiada pada label.<br/>Anda boleh tambah nutrimen extra (vitamin, galian, kolesterol dsb.)\n"
 "dengan menaip huruf pertama namanya ke dalam barisan terakhir jadual."
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Gred pemakanan"
@@ -2616,12 +2612,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Amaran: jumlah buah-buahan, sayur-sayuran dan kekacang tidak dinyatakan, sumbangan positif mereka yang mungkin terhadap gred tidak dapat diambil kira."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Amaran: jumlah buah-buahan, sayur-sayuran dan kekacang tidak dinyatakan pada label, ia dianggarkan dari senarai ramuan: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "Amaran: jumlah buah-buahan, sayur-sayuran dan kekacang tidak dinyatakan pada label, ia dianggarkan dari kategori (%s) produk: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Amaran: jumlah buah-buahan, sayur-sayuran dan kekacang tidak dinyatakan pada label, ia dianggarkan dari senarai ramuan: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -5439,20 +5439,16 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Polisi Alam Sekitar"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Pangangkutan"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Spesies yang terancam"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "Ramuan yang penanamannya mengancam spesies"
+msgid "Ingredients that threatens species"
+msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
+msgid "No ingredients that threaten species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5462,10 +5458,6 @@ msgstr "Maklumat mengenai ramuan produk ini belum diberikan."
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "Untuk pengiraan Skor Eko yang lebih tepat, anda boleh menyunting halaman produk dan menambahkannya."
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "Pembungkusan"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5525,7 +5517,7 @@ msgstr "Skor Eko pada mulanya dibangunkan untuk Perancis dan ia diperluaskan ke 
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "Imbas kod bar untuk mendapatkan Skor Nutri, Skor Eko dan banyak lagi!"
+msgstr "Imbas kod bar untuk mendapatkan Nutri-Score, Eco-Score dan banyak lagi!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5734,5 +5726,21 @@ msgstr ""
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr ""
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "health"
+msgid "Health"
 msgstr ""
 

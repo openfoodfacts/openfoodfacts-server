@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:51\n"
+"PO-Revision-Date: 2021-11-30 09:37\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1538,10 +1538,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "A tabela apresenta, inicialmente, os nutrientes que aparecem com mais frequência. Deixe o campo em branco se não estiver indicado no rótulo.<br />É possível adicionar outros nutrientes (vitaminas, minerais, colesterol, ómega 3, 6, etc.) ao digitar as primeiras letras do nome, na última linha da tabela, e escolher o nutriente da lista de sugestões."
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Classificações nutricionais"
@@ -2613,12 +2609,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Atenção: a quantidade de frutas, legumes e nozes não está especificada, a possível contribuição positiva destes para o grau não pode ser levada em consideração."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da lista de ingredientes: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da categoria (%s) do produto: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da lista de ingredientes: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4178,7 +4178,7 @@ msgstr "Alguns ingredientes não puderam ser reconhecidos."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Mova todos os dados e fotos selecionadas em {language} para o idioma principal do produto: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -5436,21 +5436,17 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Política ambiental"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Transporte"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Espécies ameaçadas"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
+msgid "Ingredients that threatens species"
 msgstr "Ingredientes cujo cultivo ameaça espécies"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
-msgstr ""
+msgid "No ingredients that threaten species"
+msgstr "Sem ingredientes cujo cultivo ameaça espécies"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5459,10 +5455,6 @@ msgstr "A informação sobre os ingredientes deste produto não foi fornecida."
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "Para um cálculo mais preciso do Eco-Score, pode editar a página do produto e adicioná-los."
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "Embalagem"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5555,31 +5547,31 @@ msgstr "A eliminação ou alteração dos dados fornecidos só será possível p
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Embalagem de alto impacto"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Embalagem de médio impacto"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Embalagem de baixo impacto"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Informações de embalagem ausentes para este produto"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Origens dos ingredientes com um alto impacto"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Origens dos ingredientes com um impacto médio"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Origens dos ingredientes com baixo impacto"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
@@ -5654,25 +5646,25 @@ msgstr "Ingredientes para cada produto"
 
 msgctxt "product_deleted"
 msgid "Product deleted."
-msgstr ""
+msgstr "Produto excluído."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Pegada de carbono"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO² per 100g of product"
-msgstr ""
+msgstr "{grams} g CO² por 100g"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
 msgid "Equal to driving {kilometers} km in a petrol car"
-msgstr ""
+msgstr "Igual a dirigir {kilometers} km em um carro movido a gasolina"
 
 msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
-msgstr ""
+msgstr "Fonte: ADEME Agribalyse Database"
 
 msgctxt "environment_card_title"
 msgid "Environment"
@@ -5692,11 +5684,11 @@ msgstr "Impulsiona o desmatamento e ameaça espécies como o orangotango"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
-msgstr ""
+msgstr "As florestas tropicais na Ásia, África e América Latina são destruídas para criar e expandir as plantações de dendezeiros. O desmatamento contribui para as mudanças climáticas e coloca em risco espécies como o orangotango, o elefante pigmeu e o rinoceronte de Sumatra."
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bônus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5704,7 +5696,7 @@ msgstr ""
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Análise do ciclo de vida"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
@@ -5712,7 +5704,7 @@ msgstr ""
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Eco-Score para este produto"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -5728,9 +5720,25 @@ msgstr ""
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Análise da pontuação do ciclo de vida"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr ""
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "health"
+msgid "Health"
 msgstr ""
 

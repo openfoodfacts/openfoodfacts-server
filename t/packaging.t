@@ -84,7 +84,8 @@ my @tests = (
 		}
 	],
 	
-#	 Dutch container type and instruction
+# Recycling instructions for the Netherlands
+# Tests for all types of conatiners
 	[
 		'packaging_text_nl_fles_glasbak',
 		{
@@ -109,6 +110,64 @@ my @tests = (
 		}
 	],
 	
+	[
+		'packaging_text_nl_blik_bij_restafval',
+		{
+			lc => "nl",
+			packaging_text => "blik bij restafval"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_verpakking_bij_drankencartons',
+		{
+			lc => "nl",
+			packaging_text => "verpakking bij drankencartons"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_koffiepad_bij_gft',
+		{
+			lc => "nl",
+			packaging_text => "koffiepad bij gft"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_statiegeldfles',
+		{
+			lc => "nl",
+			packaging_text => "statiegeldfles"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_wel_pmd',
+		{
+			lc => "nl",
+			packaging_text => "wel pmd"	
+		}
+	],
+	
+	# some free texts in dutch
+	[
+		'packaging_text_nl_plastic_fles',
+		{
+			lc => "nl",
+			packaging_text => "plastic fles"	
+		}
+	],
+	
+	# three shapes
+	[
+		'packaging_text_nl_three_instructions',
+		{
+			lc => "nl",
+			packaging_text => "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier"	
+		}
+	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
@@ -129,7 +188,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:cardboard',
-				},
+				}
 			]
 		}
 	],
@@ -142,7 +201,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'units' => 2
-				},
+				}
 			]
 		}
 	],
@@ -155,7 +214,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:plastic',
-				},
+				}
 			]
 		}
 	],
@@ -168,7 +227,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:recycled-plastic',
-				},
+				}
 			]
 		}
 	],
