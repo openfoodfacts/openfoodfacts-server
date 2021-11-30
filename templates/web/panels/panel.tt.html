@@ -147,12 +147,11 @@
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
-                <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %]>
-                    <caption style="text-align:left">[% table_element.title %]</caption>
+                <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
                     <thead>
                         <tr>
                             [% FOREACH column IN table_element.columns %]
-                            <th scope="col">
+                            <th scope="col"[% IF column.style.defined %]style="[% column.style %]"[% END %]>
                                 [% column.text %]
                             </th>
                             [% END %]
@@ -162,7 +161,7 @@
                         [% FOREACH row IN table_element.rows %]
                         <tr[% IF row.id %] id="[% row.id %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
-                                <td>
+                                <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                                     [% IF value.icon_url %]
                                         <span class="icon"><img src="[% value.icon_url %]" alt="icon"></span>
                                     [% END %]
@@ -181,14 +180,21 @@
                                             </div>
                                         </div>
                                         [% value.text %]
-                                    [% ELSIF value.evaluation.defined %]
-                                        <span class="[% IF value.evaluation == 'good' %] green
-                                        [% ELSIF value.evaluation == 'neutral' %] orange
-                                        [% ELSIF value.evaluation == 'bad' %] red
-                                        [% ELSIF value.evaluation == 'unknown' %] grey
-                                        [% END %]">[% value.text %]</span>
                                     [% ELSE %]
-                                        [% value.text %]
+                                        <span
+                                        [% IF value.level.defined %]
+                                            style="padding-left: [% value.level %]rem;"
+                                        [% END %]
+                                        [% IF value.evaluation.defined %]
+                                            class="[% IF value.evaluation == 'good' %] green
+                                            [% ELSIF value.evaluation == 'neutral' %] orange
+                                            [% ELSIF value.evaluation == 'bad' %] red
+                                            [% ELSIF value.evaluation == 'unknown' %] grey
+                                            [% END %]"
+                                        [% END %]
+                                        >
+                                            [% value.text %]
+                                        </span>
                                     [% END %]
                                 </td>                          
                             [% END %]

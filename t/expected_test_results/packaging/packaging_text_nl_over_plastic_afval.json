@@ -3,7 +3,9 @@
    "packaging_text" : "overig bij plastic afval",
    "packagings" : [
       {
-         "shape" : "en:unknown"
+		  "recycling" : "en:recycle-with-plastics",
+		  "material" : "en:plastic",
+		  "shape" : "en:unknown"
       }
    ]
 }

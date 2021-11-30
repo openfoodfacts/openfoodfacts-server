@@ -42,14 +42,16 @@ Data about food is of public interest and has to be open. The complete database 
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 * Developer documentation:
-   * [Quick start guide (Docker)](installation/dev-environment-quick-start-guide.md)
-   * [Developer guide (Docker)](installation/docker-developer-guide.md)
+   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
+   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
    * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
    * Configuration [TBA]
    * Dependencies [TBA]
    * Database configuration [TBA]
    * How to run tests [TBA]
  * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+
+Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
 ## Contribution guidelines
 

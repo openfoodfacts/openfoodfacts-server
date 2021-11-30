@@ -6,6 +6,8 @@ services:
     restart: always
   backend:
     restart: always
+  incron:
+    restart: always
   frontend:
     restart: always
 volumes:
@@ -18,6 +20,8 @@ volumes:
   orgs:
     external: true
   product_images:
+    external: true
+  podata:
     external: true
 
 networks:

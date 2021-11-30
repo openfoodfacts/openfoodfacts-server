@@ -3,13 +3,54 @@
     "topics": [
         "health"
     ],
+    "type": "inline",
+    "expanded": true,
     "elements": [   
         {
-            "element_type": "text",
-            "text_element": {
-                "html": `[ shown only to moderators] -- New knowledge panel coming soon
-                `,
+            "element_type": "table",
+            "table_element": {
+                "id": "nutrition_facts_table",
+                "title": "[% lang('nutrition_data_table') %]",
+                "columns": [
+                    {
+                        "text": "[% panel.nutrition_table.header.name %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    [% FOREACH column IN panel.nutrition_table.header.columns %]
+                        {
+                            "text": "[% column.name %]",
+                            "type": "text",
+                        },
+                    [% END %]
+                ],
+                "rows": [
+                    [% FOREACH row IN panel.nutrition_table.rows %]
+                    {
+                        "values": [
+                            {
+                                // Level is 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
+                                "level": [% row.level %],
+                                "text": "[% row.name %]",
+                                "style": "max-width:15rem",
+                            },
+                            [% FOREACH column IN row.columns %]
+                            {
+                                [% IF column.type == 'normal' %]
+                                    "text": "[% column.value %]",
+                                [% ELSE %]
+                                    // only display the % difference compared to category
+                                    "text": "[% column.percent %]",
+                                [% END %]
+                                // to do: add "evaluation": "good", "bad" etc. based on whether the nutrient is good or not
+                            },
+                            [% END %]
+                        ]
+                    },
+                    [% END %]
+                ]
             }
-        },
+        },        
+
     ]
 }
