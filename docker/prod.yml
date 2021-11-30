@@ -8,6 +8,8 @@ services:
     restart: always
   incron:
     restart: always
+  minion:
+    restart: always
   frontend:
     restart: always
 volumes:

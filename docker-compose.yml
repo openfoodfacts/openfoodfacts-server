@@ -69,6 +69,10 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf
+  minion:
+    <<: *backend-conf
+    # This service run the minion
+    command: ["/opt/product-opener/scripts/minion_producers.pl", "minion", "worker", "-q", "$PRODUCT_OPENER_DOMAIN:80"]
   incron:
     <<: *backend-conf
     # This service run the incron jobs
