@@ -1262,7 +1262,7 @@ sub display_input_tabs($$$$$) {
 
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
-			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") || 'g';
+			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
@@ -1415,10 +1415,17 @@ sub display_input_tabs($$$$$) {
 	
 	$template_data_ref_display->{nutriments} = \@nutriments;
 
+	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
+	# because they are not set for the product, and are not displayed by default in the user's country.
+	# Users will be allowed to add those nutrients, and this list will be used for autocomplete.
+
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
 		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+
+		# Some nutrients cannot be entered directly by users, so don't suggest them
+		next if (get_property("nutrients", "zz:$nid", "automatically_computed:en") eq "yes");
 
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
