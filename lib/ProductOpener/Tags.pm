@@ -322,6 +322,11 @@ sub is_a($$$) {
 	my $child = shift;
 	my $parent = shift;
 
+	if (not defined $tagtype) {
+		$log->error("is_a() function called with undefined $tagtype: should not happen", { child => $child, parent => $parent }) if $log->is_error();
+		return 0;
+	}
+
 	#$log->debug("is_a", { tagtype => $tagtype, child => $child, parent => $parent }) if $log->is_debug();
 
 	my $found = 0;
