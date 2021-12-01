@@ -291,7 +291,7 @@ if ($action eq 'display') {
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
-		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
+		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";

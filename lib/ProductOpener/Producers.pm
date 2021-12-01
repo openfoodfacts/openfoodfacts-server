@@ -868,8 +868,6 @@ sub init_nutrients_columns_names_for_lang($) {
 							}
 						}
 					}
-
-					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
@@ -1362,13 +1360,7 @@ JSON
 
 				my $field = $nid;
 
-				my $name;
-				if (exists $Nutriments{$nid}{$lc}) {
-					$name = $Nutriments{$nid}{$lc};
-				}
-				else {
-					$name = $Nutriments{$nid}{en};
-				}
+				my $name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_100g")};
 				push @{$select2_group_ref->{children}}, { id => $nid . "_serving_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_serving") };

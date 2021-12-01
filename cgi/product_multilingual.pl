@@ -512,7 +512,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		$nid =~ s/_prepared$//;
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:" . $nid)) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
@@ -1202,7 +1202,7 @@ sub display_input_tabs($$$$$) {
 
 		$log->trace("detect unknown nutriment", { nid => $nid }) if $log->is_trace();
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown nutriment detected", { nid => $nid }) if $log->is_debug();
@@ -1345,12 +1345,12 @@ sub display_input_tabs($$$$$) {
 				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 			}
 
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "dv:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "iu:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq 'IU')
 				or (uc($unit) eq 'UI')) {
@@ -1360,12 +1360,12 @@ sub display_input_tabs($$$$$) {
 			my $hide_percent = '';
 			my $hide_select = '';
 
-			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+			if ($unit eq '') {
 				$hide_percent = ' style="display:none"';
 				$hide_select = ' style="display:none"';
 
 			}
-			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+			elsif ($unit eq '%') {
 				$hide_select = ' style="display:none"';
 			}
 			else {
