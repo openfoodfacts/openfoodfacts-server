@@ -727,21 +727,13 @@ sub init_nutrients_columns_names_for_lang($) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
-	# Go through the nutriment table
-	foreach my $nutriment (sort keys %Nutriments) {
+	# Go through all the nutrients in the nutrients taxonomy
+	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
+		my $nid = $nutrient_tagid;
+		$nid =~ s/^zz://g;
 
-		my @synonyms = ();
-		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
-		}
-		if (exists $Nutriments{$nid}{$l}) {
-			unshift @synonyms, $Nutriments{$nid}{$l};
-		}
+		my @synonyms = get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid);
 
 		# Synonyms for each nutrient
 

@@ -146,6 +146,9 @@ BEGIN
 
 		&generate_tags_taxonomy_extract
 
+		&get_all_taxonomy_entries
+		&get_taxonomy_tag_synonyms
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -3266,6 +3269,90 @@ sub spellcheck_taxonomy_tag($$$)
 
 	return ($canon_resultid, $resultid, $correction);
 
+}
+
+=head2 get_taxonomy_tag_synonyms ( $tagtype )
+
+Return all entries in a taxonomy.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded
+- or a list of all tags
+
+=cut
+
+sub get_all_taxonomy_entries($) {
+
+	my $tagtype = shift;
+
+	if (defined $translations_to{$tagtype}) {
+
+		my @list = ();
+		foreach my $tagid (keys %{$translations_to{$tagtype}}) {
+			# Skip entries that are just synonyms	
+			next if (defined $just_synonyms{$tagtype}{$tagid});
+			push @list, $tagid;
+		}
+		return @list;
+	}
+	else {
+		return;
+	}
+}
+
+
+=head2 get_taxonomy_tag_synonyms ( $target_lc, $tagtype, $canon_tagid )
+
+Return all synonyms (including extended synonyms) in a specific language for a taxonomy entry.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded, or if the tag does not exist
+- or a list of all synonyms
+
+=cut
+
+sub get_taxonomy_tag_synonyms($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+
+	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid})) {
+
+		my $target_lc_tagid = get_string_id_for_lang($target_lc, $translations_to{$tagtype}{$tagid}{$target_lc});
+		
+		if (defined $synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}) {
+		 	return (
+				@{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}},
+				sort keys %{$synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}}
+			);
+		}
+		elsif (defined $synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}) {
+			return @{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}};
+		}
+		else {
+			return;
+		}
+	}
+	else {
+		return;
+	}
 }
 
 
