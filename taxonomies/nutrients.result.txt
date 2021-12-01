@@ -5,6 +5,11 @@ stopwords:en:including, of, which
 stopwords:fr:dont
 
 
+zz:added-sugars
+en:Added sugars, Added sugar
+fr:Sucres ajoutés, sucre ajouté
+xx:Added sugars, Added sugar
+
 zz:alcohol
 af:Alkohol
 ak:Mmrosa
@@ -903,6 +908,7 @@ fi:Hiilijalanjälki lihasta tai kalasta
 fr:Empreinte carbone de la viande ou du poisson
 nl:koolstofvoetafdruk voor vlees of vis
 xx:Carbon footprint from meat or fish
+automatically_computed:en: yes
 unit:en: g
 
 zz:carnitine
@@ -2137,6 +2143,15 @@ fr:Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation ma
 it:Frutta‚ verdura‚ noci e olio di colza‚ noci e oliva (stima manuale dalla lista degli ingredienti)
 nl:Fruit‚ groenten en noten (Schat uit ingrediëntenlijst)
 xx:Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)
+unit:en: %
+
+zz:fruits-vegetables-nuts-estimate-from-ingredients
+de:Obst‚ Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
+en:Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)
+fr:Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)
+it:Frutta‚ verdura‚ noci e olio di colza‚ noci e oliva (stima dall'analisi dell'elenco degli ingredienti)
+xx:Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)
+automatically_computed:en: yes
 unit:en: %
 
 zz:gamma-linolenic-acid
@@ -3457,6 +3472,7 @@ zz:nova-group
 en:NOVA group
 fr:Groupe NOVA
 xx:NOVA group
+automatically_computed:en: yes
 unit:en: 
 
 zz:nucleotides
@@ -3486,6 +3502,7 @@ fi:Ravintopisteet - Ranska
 fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 xx:Nutrition score - France
+automatically_computed:en: yes
 unit:en: 
 
 zz:nutrition-score-uk
@@ -3494,6 +3511,7 @@ en:Nutrition score - UK
 fi:Ravintopisteet - UK
 nl:Voedingsscore - UK
 xx:Nutrition score - UK
+automatically_computed:en: yes
 unit:en: 
 
 zz:oleic-acid

@@ -2,6 +2,11 @@
 #
 # Notes:
 # - The id of the nutrient start with zz: , it should not be changed as this is is used in the database to store nutrition facts
+# - The second entry must be the English en: entry
+# - The third entry must be the English entry with the xx: prefix. This entry will be used for languages for which we have no translation.
+# - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
+# - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
+# (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 
 stopwords:en: including, of, which
 
@@ -2013,6 +2018,12 @@ zh_TW:糖
 unit:en: g
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
+
+zz:added-sugars
+en:Added sugars, Added sugar
+xx:Added sugars, Added sugar
+fr:Sucres ajoutés, sucre ajouté
+unit_en: g
 
 zz:sucrose
 en:Sucrose
@@ -5793,6 +5804,15 @@ nl:Fruit\, groenten en noten (Schat uit ingrediëntenlijst)
 nl_be:Fruit\, groenten en noten (Schat uit ingrediëntenlijst)
 unit:en: %
 
+zz:fruits-vegetables-nuts-estimate-from-ingredients
+en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+de:Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
+fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
+it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)    
+unit:en: %
+automatically_computed:en: yes
+
 zz:collagen-meat-protein-ratio
 en:Collagen/Meat protein ratio (maximum)
 xx:Collagen/Meat protein ratio (maximum)
@@ -5883,6 +5903,7 @@ fi:Hiilijalanjälki lihasta tai kalasta
 fr:Empreinte carbone de la viande ou du poisson
 nl:koolstofvoetafdruk voor vlees of vis
 unit:en: g
+automatically_computed:en: yes
 
 zz:nutrition-score-fr
 en:Nutrition score - France
@@ -5892,6 +5913,7 @@ fi:Ravintopisteet - Ranska
 fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 unit:en: 
+automatically_computed:en: yes
 
 zz:nutrition-score-uk
 en:Nutrition score - UK
@@ -5901,6 +5923,7 @@ fi:Ravintopisteet - UK
 nl:Voedingsscore - UK
 nl_be:Voedingsgraad
 unit:en: 
+automatically_computed:en: yes
 
 zz:glycemic-index
 en:Glycemic Index
@@ -6203,3 +6226,4 @@ en:NOVA group
 xx:NOVA group
 fr:Groupe NOVA
 unit:en:
+automatically_computed:en: yes
