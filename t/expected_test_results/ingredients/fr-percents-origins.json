@@ -3,8 +3,8 @@
       {
          "id" : "en:apple-juice",
          "labels" : "en:organic",
-         "percent" : "80",
-         "percent_estimate" : "80",
+         "percent" : 80,
+         "percent_estimate" : 80,
          "text" : "jus de pomme",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -12,8 +12,8 @@
       {
          "id" : "en:quince",
          "labels" : "en:organic",
-         "percent" : "20",
-         "percent_estimate" : "20",
+         "percent" : 20,
+         "percent_estimate" : 20,
          "text" : "coing",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -28,7 +28,7 @@
       {
          "id" : "en:sodium-chloride",
          "origins" : "en:france,en:italy",
-         "percent" : "98",
+         "percent" : 98,
          "percent_estimate" : 0,
          "text" : "chlorure de sodium"
       }
@@ -82,7 +82,8 @@
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "unknown_ingredients_n" : 0
 }

@@ -242,7 +242,7 @@
          "ef_distribution" : "0.0014414118",
          "ef_packaging" : "0.020603751",
          "ef_processing" : "0.035781102999999995",
-         "ef_total" : "0.12836245",
+         "ef_total" : 0.12836245,
          "ef_transportation" : "0.010443509",
          "is_beverage" : 0,
          "name_en" : "Bread, French bread, baguette",
@@ -442,7 +442,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "packagings" : [],
    "unknown_ingredients_n" : 0
