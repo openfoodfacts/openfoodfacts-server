@@ -236,7 +236,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	}
 	elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
 		$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-		$unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
+		$unit = get_property("nutrients", "zz:$nid", "dv_value") || 'g';
 	}
 	if ($nid =~ /^water-hardness(_prepared)?$/) {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;

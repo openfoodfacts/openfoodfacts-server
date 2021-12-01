@@ -1262,7 +1262,7 @@ sub display_input_tabs($$$$$) {
 
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
-			$unit = get_property("nutrients", "zz:$nid", "unit_$cc") || get_property("nutrients", "zz:$nid", "unit") || 'g';
+			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") || 'g';
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
