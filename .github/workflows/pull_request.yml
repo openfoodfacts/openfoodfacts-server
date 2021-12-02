@@ -185,8 +185,8 @@ jobs:
         make status
       env:
         DOCKER_BUILDKIT: 1
-    - run: |
-        make tests
+    # - run: |
+    #     make tests
     - run: |
         make livecheck
     - run: |
