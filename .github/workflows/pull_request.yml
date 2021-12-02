@@ -170,3 +170,16 @@ jobs:
         
         # Run unit tests
         prove -l --jobs 2
+
+  dev:
+    name: Run developer workflow
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - run: |
+        make dev
+        make status
+        make livecheck
+        make hdown
