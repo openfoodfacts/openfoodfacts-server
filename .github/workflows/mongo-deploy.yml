@@ -7,7 +7,7 @@ on:
     - deploy-*
     paths:
     - docker/mongodb.yml
-    - .github/workflows/mongo-deploy.yml
+    - .github/workflows/*.yml
 
 jobs:
   deploy-docker:
