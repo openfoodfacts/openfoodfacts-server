@@ -5,7 +5,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - 8080:8080
+      - ${ADMIN_EXPOSE}8080:8080
     networks:
       - webnet
     environment:
@@ -16,7 +16,7 @@ services:
     depends_on:
       - memcached
     ports:
-      - 8081:8080
+      - ${ADMIN_EXPOSE}8081:8080
     networks:
       - webnet
   adminer:
@@ -24,7 +24,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - 8082:8080
+      - ${ADMIN_EXPOSE}8082:8080
     networks:
       - webnet
     environment:

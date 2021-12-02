@@ -9,6 +9,7 @@ use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
+use File::Basename "dirname";
 use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
@@ -64,11 +65,12 @@ foreach my $tagtype (keys %tags) {
 	}
 }
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "ecoscore";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -495,7 +497,17 @@ my @tests = (
 			packaging_text => "1 PET plastic bottle, 1 PEHD bottle cap",
 			ingredients_text => "Milk (England)",
 		},
-	],	
+	],
+
+	# Agribalyse score is 0 (which is valid)
+	[
+		'lamb-leg',
+		{
+			lc => "en",
+			categories_tags=>["en:lamb-leg"],
+			ingredients_text => "Fresh lamb leg (Great Britain)",
+		},
+	],
 
 );
 
@@ -525,7 +537,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

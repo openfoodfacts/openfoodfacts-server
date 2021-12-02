@@ -1,42 +1,36 @@
 <!-- start templates/[% component.name %] -->
 
+<p>[% beverage_view %]</p>
+
+[% IF is_fat %]
+  <p>[% lang('nutriscore_proteins_is_added_fat') %]</p>
+[% END %]
+
+[% FOREACH group IN points_groups %]
+
+  <p> 
+    <strong>[% lang("nutriscore_${group.type}_points") %][% sep %]: [% group.points %]</strong> 
+  </p>
+
+  <ul>
+    [% FOREACH nutrient IN group.nutrients %]
+      <li>
+        <strong>[% lang("nutriscore_points_for_${nutrient.id}") %][% sep %]:
+[% nutrient.points %]&nbsp;</strong>/&nbsp;[% nutrient.maximum %][% lang("points") %]
+([% lang("nutriscore_source_value") %][% sep %]: [% nutrient.value %], 
+        [% lang('nutriscore_rounded_value') %][% sep %]: [% nutrient.rounded %])
+      </li>
+    [% END %]
+  </ul>
+
+[% END %]
+
+<p>[% nutriscore_protein_info %]</p>
+
 <p>
-  <a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">[% lang('nutriscore_calculation_details') %] &raquo;</a>
+  <strong>[% lang('nutriscore_score') %][% sep %]: [% score %]</strong>
+  ([% negative_points %] - [% positive_points %])
 </p>
-<div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
-
-  <p>[% beverage_view %]</p>
-  
-  [% IF is_fat %]
-    <p>[% lang('nutriscore_proteins_is_added_fat') %]</p>
-  [% END %]
-
-  [% FOREACH group IN points_groups %]
-
-    <p> 
-      <strong>[% lang("nutriscore_${group.type}_points") %][% sep %]: [% group.points %]</strong> 
-    </p>
-
-    <ul>
-      [% FOREACH nutrient IN group.nutrients %]
-        <li>
-          <strong>[% lang("nutriscore_points_for_${nutrient.id}") %][% sep %]:
-	[% nutrient.points %]&nbsp;</strong>/&nbsp;[% nutrient.maximum %][% lang("points") %]
-	([% lang("nutriscore_source_value") %][% sep %]: [% nutrient.value %], 
-          [% lang('nutriscore_rounded_value') %][% sep %]: [% nutrient.rounded %])
-        </li>
-      [% END %]
-    </ul>
-
-  [% END %]
-
-    <p>[% nutriscore_protein_info %] </p>
-    <p>
-      <strong>[% lang('nutriscore_score') %][% sep %]: [% score %]</strong>
-      ([% negative_points %] - [% positive_points %])
-    </p>
-    <p><strong>[% lang('nutriscore_grade') %][% sep %]: [% grade %]</strong></p>
-
-</div>
+<p><strong>[% lang('nutriscore_grade') %][% sep %]: [% grade %]</strong></p>
 
 <!-- end templates/[% component.name %] -->
