@@ -231,11 +231,11 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	
 	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
 		$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
-		$unit = get_property("nutrients", "zz:$nid", "iu_value") || 'g';
+		$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
 	}
 	elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
 		$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-		$unit = get_property("nutrients", "zz:$nid", "dv_value") || 'g';
+		$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
 	}
 	if ($nid =~ /^water-hardness(_prepared)?$/) {
 		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
@@ -1049,33 +1049,6 @@ sub mmoll_to_unit {
 );
 
 
-# Check that the nutrients defined in %nutriments_tables are defined in the nutrients taxonomy
-
-foreach (@{$nutriments_tables{europe}}) {
-
-	my $nid = $_;	# Copy instead of alias
-
-	next if $nid =~ /^#/;
-
-    $nid =~ s/^!//;
-    $nid =~ s/^-+//;
-    $nid =~ s/-+$//;
-
-	# The nutrient ids do not correspond exactly to the English name, so we use zz:[nutrient id]
-	# as the canonical tag id instead of en:[English nutrient name]
-	my $tagid = "zz:" . $nid;
-	my $error = 0;
-
-	if (not exists_taxonomy_tag("nutrients", $tagid)) {
-		print STDERR "Nutrient $nid is defined in \%nutriments_table but does not exist in the nutrients taxonomy.\n";
-		$error++;
-	}
-	if ($error) {
-		die("Some nutrients are defined in \%nutriments_table but do not exist in the nutrients taxonomy.");
-	}
-}
-
-
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
 foreach my $region (keys %nutriments_tables) {
@@ -1099,7 +1072,6 @@ foreach my $region (keys %nutriments_tables) {
 		$nutriment =~ s/-$//g;
 		push @{$nutriments_lists{$region}}, $nutriment;
 	}
-
 }
 
 
@@ -2258,7 +2230,7 @@ sub compute_unknown_nutrients($) {
 
 		next if $nid =~ /_/;
 
-		if ((not exists_taxonomy_tag("nutrients", "zz:" . $nid)) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 			push @{$product_ref->{unknown_nutrients_tags}}, $nid;
 		}
 	}
@@ -2330,7 +2302,7 @@ sub compute_nutrient_levels($) {
 				$product_ref->{nutrient_levels}{$nid} = 'moderate';
 			}
 			push @{$product_ref->{nutrient_levels_tags}},
-				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, display_taxonomy_tag("en", "nutrients", "zz:" . $nid), $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
+				'en:' . get_string_id_for_lang("en", sprintf($Lang{nutrient_in_quantity}{en}, display_taxonomy_tag("en", "nutrients", "zz:$nid"), $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
 
 		}
 		else {
@@ -2360,10 +2332,10 @@ sub create_nutrients_level_taxonomy() {
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 		foreach my $level ('low', 'moderate', 'high') {
-			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, display_taxonomy_tag("en", "nutrients", "zz:" . $nid), $Lang{$level . "_quantity"}{en}) . "\n";
+			$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, display_taxonomy_tag("en", "nutrients", "zz:$nid"), $Lang{$level . "_quantity"}{en}) . "\n";
 			foreach my $l (sort keys %Langs) {
 				next if $l eq 'en';
-				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, display_taxonomy_tag($l, "nutrients", "zz:" . $nid), $Lang{$level . "_quantity"}{$l}) . "\n";
+				$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, display_taxonomy_tag($l, "nutrients", "zz:$nid"), $Lang{$level . "_quantity"}{$l}) . "\n";
 			}
 		}
 	}

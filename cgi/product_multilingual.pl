@@ -512,7 +512,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		$nid =~ s/_prepared$//;
 
-		if ((not exists_taxonomy_tag("nutrients", "zz:" . $nid)) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
@@ -1262,6 +1262,7 @@ sub display_input_tabs($$$$$) {
 
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
 			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		}
 		else {
@@ -1417,7 +1418,7 @@ sub display_input_tabs($$$$$) {
 
 	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
 	# because they are not set for the product, and are not displayed by default in the user's country.
-	# Users will be allowed to add those nutrients, and this list will be used for autocomplete.
+	# Users will be allowed to add those nutrients, and this list will be used for nutrient name autocompletion.
 
 	my $other_nutriments = '';
 	my $nutriments = '';
@@ -1432,8 +1433,12 @@ sub display_input_tabs($$$$$) {
 			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 				$supports_iu = "true";
 			}
-
-			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . get_property("nutrients", "zz:$nid", "unit:en") . '", "iu": ' . $supports_iu . '  },' . "\n";
+			
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value
+				. '", "unit" : "' . $other_nutriment_unit
+				. '", "iu": ' . $supports_iu
+				. '  },'. "\n";
 		}
 		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}

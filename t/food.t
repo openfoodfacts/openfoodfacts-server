@@ -437,6 +437,24 @@ is(canonicalize_nutriment("fr", "AGS"), "saturated-fat");
 is(canonicalize_nutriment("en", "some unknown nutrient"), "en-some-unknown-nutrient");
 is(canonicalize_nutriment("fr", "un nutriment inconnu"), "fr-un-nutriment-inconnu");
 
+# Check that the nutrients defined in %nutriments_tables are defined in the nutrients taxonomy
 
+foreach (@{$nutriments_tables{europe}}) {
+
+	my $nid = $_;	# Copy instead of alias
+
+	next if $nid =~ /^#/;
+
+    $nid =~ s/^!//;
+    $nid =~ s/^-+//;
+    $nid =~ s/-+$//;
+
+	# The nutrient ids do not correspond exactly to the English name, so we use zz:[nutrient id]
+	# as the canonical tag id instead of en:[English nutrient name]
+	my $tagid = "zz:$nid";
+	my $error = 0;
+
+	ok(exists_taxonomy_tag("nutrients", $tagid), "$tagid exists in the nutrients taxonomy");
+}
 
 done_testing();
