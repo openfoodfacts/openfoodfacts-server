@@ -3,7 +3,13 @@
 NAME = "ProductOpener"
 ENV_FILE ?= .env
 MOUNT_POINT ?= /mnt
+DOCKER_LOCAL_DATA ?= /srv/off/docker_data
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+UID ?= $(shell id -u)
+export USER_UID:=${UID}
+
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
@@ -27,7 +33,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello up setup_incron import_sample_data refresh_product_tags
+dev: hello build init_backend _up import_sample_data refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -49,9 +55,17 @@ edit_etc_hosts:
 #----------------#
 # Docker Compose #
 #----------------#
-up:
-	@echo "🥫 Building and starting containers …"
-	${DOCKER_COMPOSE} up -d --build 2>&1
+
+build:
+	@echo "🥫 Building containers …"
+	${DOCKER_COMPOSE} build 2>&1
+
+_up:
+	@echo "🥫 Starting containers …"
+	${DOCKER_COMPOSE} up -d 2>&1
+	@echo "🥫 started service at http://openfoodfacts.localhost"
+
+up: build _up
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -66,6 +80,7 @@ reset: hdown up
 restart:
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
+	@echo "🥫  started service at http://openfoodfacts.localhost"
 
 restart_db:
 	@echo "🥫 Restarting MongoDB database …"
@@ -87,12 +102,22 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-setup_incron:
-	@echo "🥫 Setting up incron jobs defined in conf/incron.conf …"
-	${DOCKER_COMPOSE} exec -T backend sh -c "\
-		echo 'root' >> /etc/incron.allow && \
-		incrontab -u root /opt/product-opener/conf/incron.conf && \
-		incrond"
+
+#----------#
+# Services #
+#----------#
+build_lang:
+	@echo "🥫 Rebuild language"
+	# Run build_lang.pl
+	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+
+# use this in dev if you messed up with permissions or user uid/gid
+reset_owner:
+	@echo "🥫 reset owner"
+	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+
+init_backend: build_lang
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
@@ -101,7 +126,7 @@ refresh_product_tags:
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
-	${DOCKER_COMPOSE} exec --user=www-data backend bash /opt/product-opener/scripts/import_sample_data.sh
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
@@ -123,16 +148,23 @@ front_lint:
 
 checks: front_lint
 
+tests:
+	@echo "🥫 Runing tests …"
+	docker-compose run --rm backend prove -l
+
 #------------#
 # Production #
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
+	# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
+	# local data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#
 # Cleanup #
@@ -146,11 +178,11 @@ prune_cache:
 	docker builder prune -f
 
 clean_folders:
-	rm html/images/products
-	rm -rf node_modules/
-	rm -rf html/data/i18n/
-	rm -rf html/{css,js}/dist/
-	rm -rf tmp/
-	rm -rf logs/
+	( rm html/images/products || true )
+	( rm -rf node_modules/ || true )
+	( rm -rf html/data/i18n/ || true )
+	( rm -rf html/{css,js}/dist/ || true )
+	( rm -rf tmp/ || true )
+	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
 clean: goodbye hdown prune prune_cache clean_folders

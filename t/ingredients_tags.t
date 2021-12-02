@@ -103,7 +103,7 @@ my @tests = (
 	# don't have sub-ingredients
 	[ { lc => "en", ingredients_text => "pure juice (orange juice)"}, [ 'en:pure juice', 'en:orange-juice' ]],
 	# using vegan in case we add "pure juice" as an ingredient at some point
-	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:vegan', 'en:orange-juice' ]],
+	[ { lc => "en", ingredients_text => "vegan (orange juice)"}, [ 'en:orange-juice' ]],
 
 	# Spanish and is "e" before "i" or "hi"
 	[ { lc => "es", ingredients_text => "agua de coco e hielo"} , ['en:coconut-water', 'en:ice']],
@@ -148,7 +148,6 @@ my @tests = (
 	
 	# Russian oil
 	[ { lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"}, ["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]],
-	
 	
 );
 

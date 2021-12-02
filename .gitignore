@@ -14,9 +14,10 @@ Thumbs.db
 .vstags
 
 # Logs
+logs/
+debug/
 Store.debug.txt
 *.log
-logs/modperl_error_log
 nytprof*.out
 
 # Local databases
@@ -35,6 +36,9 @@ html/css/dist
 html/js/dist
 html/images/icons/dist
 html/images/attributes/*.svg
+
+# Images
+html/images/products/*
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
