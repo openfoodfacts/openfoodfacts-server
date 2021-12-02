@@ -1591,6 +1591,7 @@ sub parse_ingredients_text($) {
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
+								'en',
 							],
 
 							'ru' => [
@@ -2890,11 +2891,15 @@ ja => [
 ],
 
 kk => [
-'Курамы',
+'курамы',
+],
+
+ko => [
+'配料',
 ],
 
 ky => [
-'Курамы',
+'курамы',
 ],
 
 lt => [
@@ -2927,7 +2932,7 @@ pt => [
 ],
 
 ro => [
-'ingrediente',
+'(I|i)ngrediente',
 'compoziţie',
 ],
 
@@ -2948,7 +2953,7 @@ sk => [
 
 sl => [
 'vsebuje',
-'sestavine',
+'(S|s)estavine',
 ],
 
 sq => [
@@ -2970,14 +2975,15 @@ tg => [
 
 th => [
 'ส่วนประกอบ',
+'ส่วนประกอบที่สำคัญ',
 ],
 
 tr => [
-'İçindekiler',
+'(İ|i)çindekiler',
 ],
 
 uz => [
-'Tarkib',
+'tarkib',
 ],
 
 zh => [
@@ -3046,12 +3052,21 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
+nl => [
+'INGREDIENSER',
+],
+
+
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
 pt => [
 'INGREDIENTES(\s*)',
+],
+
+ru => [
+'COCTАB',
 ],
 
 si => [
@@ -3063,8 +3078,16 @@ sv => [
 'INNEHÅLL(ER)?',
 ],
 
+uz => [
+'ІHГРЕДІЄНТИ',
+],
+
+uz => [
+'TARKIB',
+],
+
 vi => [
-'THANH PHAN',
+'TH(A|À)NH PH(A|Â)N',
 ],
 
 
