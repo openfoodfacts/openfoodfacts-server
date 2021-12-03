@@ -727,21 +727,13 @@ sub init_nutrients_columns_names_for_lang($) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
-	# Go through the nutriment table
-	foreach my $nutriment (sort keys %Nutriments) {
+	# Go through all the nutrients in the nutrients taxonomy
+	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
+		my $nid = $nutrient_tagid;
+		$nid =~ s/^zz://g;
 
-		my @synonyms = ();
-		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
-		}
-		if (exists $Nutriments{$nid}{$l}) {
-			unshift @synonyms, $Nutriments{$nid}{$l};
-		}
+		my @synonyms = get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid);
 
 		# Synonyms for each nutrient
 
@@ -876,8 +868,6 @@ sub init_nutrients_columns_names_for_lang($) {
 							}
 						}
 					}
-
-					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
@@ -1370,13 +1360,7 @@ JSON
 
 				my $field = $nid;
 
-				my $name;
-				if (exists $Nutriments{$nid}{$lc}) {
-					$name = $Nutriments{$nid}{$lc};
-				}
-				else {
-					$name = $Nutriments{$nid}{en};
-				}
+				my $name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_100g")};
 				push @{$select2_group_ref->{children}}, { id => $nid . "_serving_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_serving") };

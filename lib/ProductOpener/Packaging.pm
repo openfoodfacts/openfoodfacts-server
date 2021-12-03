@@ -112,39 +112,19 @@ sub init_packaging_taxonomies_regexps() {
 		
 		$packaging_taxonomies_regexps{$taxonomy} = {};	# keys: languages
 		
-		foreach my $tagid (keys %{$translations_to{$taxonomy}}) {
-			
-			# Skip entries that are just synonyms	
-			next if (defined $just_synonyms{$taxonomy}{$tagid});
+		foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
 			
 			foreach my $language (keys %{$translations_to{$taxonomy}{$tagid}}) {
 				
 				defined $packaging_taxonomies_regexps{$taxonomy}{$language} or $packaging_taxonomies_regexps{$taxonomy}{$language} = [];
-				
-				# the synonyms also contain the main translation as the first entry
-				
-				my $language_tagid = get_string_id_for_lang($language, $translations_to{$taxonomy}{$tagid}{$language});
 
-				foreach my $synonym (@{$synonyms_for{$taxonomy}{$language}{$language_tagid}}) {
+				foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
 					
 					push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
 					
 					if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
 						
 						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
-					}
-				}				
-				
-				# Also add extended synonyms
-				if (defined $synonyms_for_extended{$taxonomy}{$language}{$language_tagid}) {
-					foreach my $synonym (keys %{$synonyms_for_extended{$taxonomy}{$language}{$language_tagid}}) {
-						
-						push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $synonym];
-						
-						if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-							
-							push @{$packaging_taxonomies_regexps{$taxonomy}{$language}}, [$tagid, $unaccented_synonym];
-						}
 					}
 				}
 			}
@@ -383,10 +363,16 @@ sub analyze_and_combine_packaging_data($) {
 				foreach my $property (sort keys %$packaging_ref) {
 					
 					my $tagtype = $packaging_taxonomies{$property};
+
+					# $tagtype can be shape / material / recycling, or undef if the property is something else (e.g. a number of packagings)
+					if (not defined $tagtype) {
+						$match = 0;
+						last;
+					}
 					
 					# If there is an existing value for the property,
 					# check if it is either a child or a parent of the value extracted from the packaging text
-					if ((defined $existing_packaging_ref->{$property}) and ($existing_packaging_ref->{$property} ne "en:unknown")
+					elsif ((defined $existing_packaging_ref->{$property}) and ($existing_packaging_ref->{$property} ne "en:unknown")
 						and ($existing_packaging_ref->{$property} ne $packaging_ref->{$property})
 						and (not is_a($tagtype, $existing_packaging_ref->{$property}, $packaging_ref->{$property}))
 						and (not is_a($tagtype, $packaging_ref->{$property}, $existing_packaging_ref->{$property})) ) {

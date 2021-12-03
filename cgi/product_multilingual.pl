@@ -512,7 +512,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		$nid =~ s/_prepared$//;
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
@@ -1202,7 +1202,7 @@ sub display_input_tabs($$$$$) {
 
 		$log->trace("detect unknown nutriment", { nid => $nid }) if $log->is_trace();
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown nutriment detected", { nid => $nid }) if $log->is_debug();
@@ -1254,30 +1254,23 @@ sub display_input_tabs($$$$$) {
 		my $nidp = $nid . "_prepared";
 		my $enidp = encodeURIComponent($nidp);
 
-		my $label = '';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_lang} =  $Nutriments{$nid}{$lang};
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_en} =  $Nutriments{$nid}{en};
-		}
-		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-		}
-
 		$nutriment_ref->{label_value} =  $product_ref->{nutriments}{$nid . "_label"};
 		$nutriment_ref->{product_add_nutrient} =  $Lang{product_add_nutrient}{$lang};
 		$nutriment_ref->{prefix} = $prefix;
 
-		my $unit = 'g';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
-			$unit = $Nutriments{$nid}{"unit_$cc"};
+		my $unit = "g";
+
+		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
+			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
-			$unit = $Nutriments{$nid}{unit};
+		else {
+			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+				$unit = $product_ref->{nutriments}{$nid . "_unit"};
+			}
 		}
+
 		my $value; # product as sold
 		my $valuep; # prepared product
 
@@ -1353,12 +1346,12 @@ sub display_input_tabs($$$$$) {
 				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 			}
 
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "dv:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "iu:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq 'IU')
 				or (uc($unit) eq 'UI')) {
@@ -1368,12 +1361,12 @@ sub display_input_tabs($$$$$) {
 			my $hide_percent = '';
 			my $hide_select = '';
 
-			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+			if ($unit eq '') {
 				$hide_percent = ' style="display:none"';
 				$hide_select = ' style="display:none"';
 
 			}
-			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+			elsif ($unit eq '%') {
 				$hide_select = ' style="display:none"';
 			}
 			else {
@@ -1412,7 +1405,6 @@ sub display_input_tabs($$$$$) {
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
 		$nutriment_ref->{nid} = $nid;
-		$nutriment_ref->{label} = $label;
 		$nutriment_ref->{class} = $class;
 		$nutriment_ref->{value} = $value;
 		$nutriment_ref->{valuep} = $valuep;
@@ -1424,34 +1416,29 @@ sub display_input_tabs($$$$$) {
 	
 	$template_data_ref_display->{nutriments} = \@nutriments;
 
+	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
+	# because they are not set for the product, and are not displayed by default in the user's country.
+	# Users will be allowed to add those nutrients, and this list will be used for nutrient name autocompletion.
+
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		my $other_nutriment_value;
-		if ((exists $Nutriments{$nid}{$lang}) and ($Nutriments{$nid}{$lang} ne '')) {
-			$other_nutriment_value = $Nutriments{$nid}{$lang};
-		}
-		else {
-			foreach my $olc (@{$country_languages{$cc}}, 'en') {
-				next if $olc eq $lang;
-				if ((exists $Nutriments{$nid}{$olc}) and ($Nutriments{$nid}{$olc} ne '')) {
-					$other_nutriment_value = $Nutriments{$nid}{$olc};
-					last;
-				}
-			}
-		}
+		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
-		if ((not (defined $other_nutriment_value)) or ($other_nutriment_value eq '')) {
-			$other_nutriment_value = $nid;
-		}
+		# Some nutrients cannot be entered directly by users, so don't suggest them
+		next if (get_property("nutrients", "zz:$nid", "automatically_computed:en") eq "yes");
 
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
-			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
+			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 				$supports_iu = "true";
 			}
-
-			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
+			
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value
+				. '", "unit" : "' . $other_nutriment_unit
+				. '", "iu": ' . $supports_iu
+				. '  },'. "\n";
 		}
 		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}

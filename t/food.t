@@ -271,50 +271,6 @@ special_process_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
-# normalize_fr_ce_code
-is (normalize_packager_codes("france 69.238.010 ec"), "FR 69.238.010 EC", "FR: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("france 69.238.010 ec")), "FR 69.238.010 EC", "FR: normalizing code twice does not change it any more than normalizing once");
-
-# normalize_uk_ce_code
-is (normalize_packager_codes("uk dz7131 eg"), "UK DZ7131 EC", "UK: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("uk dz7131 eg")), "UK DZ7131 EC", "UK: normalizing code twice does not change it any more than normalizing once");
-
-# normalize_es_ce_code
-is (normalize_packager_codes("NO-RGSEAA-21-21552-SE"), "ES 21.21552/SE EC", "ES: normalized NO-code correctly");
-is (normalize_packager_codes("ES 26.06854/T EC"), "ES 26.06854/T EC", "ES I: normalized code correctly");
-is (normalize_packager_codes("ES 26.06854/T C EC"), "ES 26.06854/T C EC", "ES II: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("ES 26.06854/T EC")), "ES 26.06854/T EC", "ES I: normalizing code twice does not change it any more than normalizing once");
-is (normalize_packager_codes(normalize_packager_codes("ES 26.06854/T C EC")), "ES 26.06854/T C EC", "ES II: normalizing code twice does not change it any more than normalizing once");
-
-# normalize_lu_ce_code - currently does not work as commented
-# is (normalize_packager_codes("LU L-2"), "LU L2", "LU: normalized code correctly");
-# is (normalize_packager_codes(normalize_packager_codes("LU L-2")), "LU L2", "LU: normalizing code twice does not change it any more than normalizing once");
-
-# normalize_rs_ce_code
-is (normalize_packager_codes("RS 731"), "RS 731 EC", "RS: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("RS 731")), "RS 731 EC", "RS: normalizing code twice does not change it any more than normalizing once");
-is (normalize_packager_codes("RS-1022"), "RS 1022 EC", "RS: normalized code correctly");
-is (normalize_packager_codes("RS-40-004"), "RS 40-004 EC", "RS: normalized code correctly");
-is (normalize_packager_codes("RS-1"), "RS 1 EC", "RS: normalized code correctly");
-
-# normalize_ce_code
-is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
-
-is (normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
-is (localize_packager_code(normalize_packager_codes("PL 14281601 WE")), "PL 14281601 WE", "PL: normalized code correctly");
-
-is (normalize_packager_codes("FI 4201 EY"), "FI 4201 EC", "FI: normalized code correctly");
-is (normalize_packager_codes("FI 305-1 EY"), "FI 305-1 EC", "FI: normalized code correctly");
-is (normalize_packager_codes("FI F07551 EY"), "FI F07551 EC", "FI: normalized code correctly");
-is (normalize_packager_codes("FI FI219 EY"), "FI FI219 EC", "FI: normalized code correctly");
-is (normalize_packager_codes("FI S837106 EY"), "FI S837106 EC", "FI: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("FI 4201 EY")), "FI 4201 EC", "FI: normalizing code twice does not change it any more than normalizing once");
-is (localize_packager_code(normalize_packager_codes("FI 4201 EY")), "FI 4201 EY", "FI: round-tripped code correctly");
-
-is (normalize_packager_codes("EE 110 EÜ"), "EE 110 EC", "EE: normalized code correctly");
-is (normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")), "EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
-is (localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
 
 $product_ref = {
 	nutriments => { salt => 3, salt_value => 3000, salt_unit => "mg" },
@@ -339,7 +295,7 @@ $expected_product_ref = {
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 $product_ref = {
-	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4},
+	nutriments => { "nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4, "alcohol" => 12, "ph" => 7},
 	nutrition_data_per => "serving",
 	quantity => "100 g",
 	serving_size => "25 g",
@@ -350,9 +306,15 @@ compute_serving_size_data($product_ref);
 $expected_product_ref =
 {
 	'nutriments' => {
+		'alcohol' => 12,
+		'alcohol_100g' => 12,
+		'alcohol_serving' => 12,
 		'nova-group' => 4,
 		'nova-group_100g' => 4,
-		'nova-group_serving' => 4
+		'nova-group_serving' => 4,
+		'ph' => 7,
+		'ph_100g' => 7,
+		'ph_serving' => 7
 	},
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
@@ -366,7 +328,7 @@ is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
 
 
 $product_ref = {
-	nutriments => { "sugars" => 4},
+	nutriments => { "sugars" => 4, "salt" => 1},
 	nutrition_data_per => "serving",
 	quantity => "100 g",
 	serving_size => "25 g",
@@ -379,7 +341,10 @@ $expected_product_ref =
 	'nutriments' => {
 		'sugars' => 4,
 		'sugars_100g' => 16,
-		'sugars_serving' => 4
+		'sugars_serving' => 4,
+		'salt' => 1,
+		'salt_100g' => 4,
+		'salt_serving' => 1,
 	},
 	'nutrition_data' => 'on',
 	'nutrition_data_per' => 'serving',
@@ -429,10 +394,67 @@ $expected_product_ref =
 	'serving_size' => '25 g'
 };
 
+# Unknown nutrient
+
+$product_ref = {
+	nutriments => { "fr-unknown-nutrient" => 10 },
+	nutrition_data_prepared_per => "100g",
+	quantity => "100 g",
+	serving_size => "25 g",
+};
+
+compute_serving_size_data($product_ref);
+
+$expected_product_ref = {
+	'nutriments' => {
+		'fr-unknown-nutrient' => 10,
+		'fr-unknown-nutrient_100g' => 10,
+		'fr-unknown-nutrient_serving' => '2.5'
+	},
+	'nutrition_data' => 'on',
+	'nutrition_data_per' => '100g',
+	'nutrition_data_prepared_per' => '100g',
+	'product_quantity' => 100,
+	'quantity' => '100 g',
+	'serving_quantity' => 25,
+	'serving_size' => '25 g'
+};
+
+
 is(default_unit_for_nid("sugars"), "g");
 is(default_unit_for_nid("energy-kj"), "kJ");
 is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
 
 is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+
+# Check that nutrients typed in by users in the nutrition table product edit form are recognized
+is(canonicalize_nutriment("en", "saturated"), "saturated-fat");
+is(canonicalize_nutriment("en", "of which saturated"), "saturated-fat");
+is(canonicalize_nutriment("fr", "dont sucre"), "sugars");
+is(canonicalize_nutriment("fr", "dont saturés"), "saturated-fat");
+is(canonicalize_nutriment("fr", "ARA"), "arachidonic-acid");
+is(canonicalize_nutriment("fr", "AGS"), "saturated-fat");
+is(canonicalize_nutriment("en", "some unknown nutrient"), "en-some-unknown-nutrient");
+is(canonicalize_nutriment("fr", "un nutriment inconnu"), "fr-un-nutriment-inconnu");
+
+# Check that the nutrients defined in %nutriments_tables are defined in the nutrients taxonomy
+
+foreach (@{$nutriments_tables{europe}}) {
+
+	my $nid = $_;	# Copy instead of alias
+
+	next if $nid =~ /^#/;
+
+    $nid =~ s/^!//;
+    $nid =~ s/^-+//;
+    $nid =~ s/-+$//;
+
+	# The nutrient ids do not correspond exactly to the English name, so we use zz:[nutrient id]
+	# as the canonical tag id instead of en:[English nutrient name]
+	my $tagid = "zz:$nid";
+	my $error = 0;
+
+	ok(exists_taxonomy_tag("nutrients", $tagid), "$tagid exists in the nutrients taxonomy");
+}
 
 done_testing();

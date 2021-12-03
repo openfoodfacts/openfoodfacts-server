@@ -98,6 +98,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -323,8 +324,6 @@ sub import_csv_file($) {
 	my %nutrients_edited = ();
 
 	# Read images if supplied
-
-	my @sorted_nutriments = sort keys %Nutriments;
 
 	my $images_ref = {};
 
@@ -1308,13 +1307,10 @@ sub import_csv_file($) {
 
 		my $seen_salt = 0;
 
-		foreach my $nutriment (@sorted_nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-			next if $nutriment =~ /^\#/;
-
-			my $nid = $nutriment;
-			$nid =~ s/^(-|!)+//g;
-			$nid =~ s/-$//g;
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			# don't set sodium if we have salt
 			next if (($nid eq 'sodium') and ($seen_salt));
