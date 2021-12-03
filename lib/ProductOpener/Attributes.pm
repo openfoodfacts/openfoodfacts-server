@@ -355,8 +355,8 @@ sub initialize_attribute($$) {
 			my $nid = $2;
 			$nid =~ s/_/-/g;
 			
-			$attribute_ref->{name} = $Nutriments{$nid}{$target_lc};
-			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+			$attribute_ref->{name} = display_taxonomy_tag($target_lc, "nutrients", "zz:$nid");
+			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid") ,
 				lang_in_other_lc($target_lc, $level . "_quantity"));
 		}
 		
@@ -1070,7 +1070,7 @@ sub compute_attribute_nutrient_level($$$$) {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-unknown.svg";
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid") ,
 				lang_in_other_lc($target_lc, "unknown_quantity"));
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
 		}		
@@ -1120,7 +1120,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			$attribute_ref->{match} = $match;
 			
 			if ($target_lc ne "data") {
-				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
 				$attribute_ref->{description_short} = sprintf(
 					lang_in_other_lc($target_lc, 'g_per_100g'),

@@ -38,9 +38,9 @@
                "icon_url" : "https://server_domain/images/attributes/nutrient-level-fat-unknown.svg",
                "id" : "low_fat",
                "missing" : "Données nutritionnelles manquantes",
-               "name" : "Matières grasses / Lipides",
+               "name" : "Matières grasses",
                "status" : "unknown",
-               "title" : "Matières grasses / Lipides en quantité inconnue"
+               "title" : "Matières grasses en quantité inconnue"
             },
             {
                "grade" : "unknown",
@@ -665,7 +665,8 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "nutrition_grades_tags" : [
       "unknown"

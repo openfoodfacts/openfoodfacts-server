@@ -17,6 +17,7 @@ use File::Basename "dirname";
 use ProductOpener::Config qw/:all/;
 use ProductOpener::GS1 qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "import_gs1";
@@ -37,7 +38,7 @@ TXT
 
 foreach my $gs1_nutrient (sort keys %{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}}) {
 		
-	if (not exists $Nutriments{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient}}) {
+	if (not exists_taxonomy_tag("nutrients", "zz:" . $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient})) {
 		$log->warn("mapping for GS1 nutrient does not exist in OFF", 
 			{ gs1_nutrient => $gs1_nutrient, mapping => $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient} }) if $log->is_warn();
 	}

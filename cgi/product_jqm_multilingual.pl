@@ -420,7 +420,7 @@ else {
 		my @unknown_nutriments = ();
 		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
 			next if $nid =~ /_/;
-			if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+			if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 				push @unknown_nutriments, $nid;
 				$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
 			}

@@ -74,6 +74,7 @@ use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
+use ProductOpener::PackagerCodes qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

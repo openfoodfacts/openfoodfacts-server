@@ -11,10 +11,10 @@
       },
       {
          "id" : "en:guava",
-         "percent" : "25",
-         "percent_estimate" : "25",
-         "percent_max" : "25",
-         "percent_min" : "25",
+         "percent" : 25,
+         "percent_estimate" : 25,
+         "percent_max" : 25,
+         "percent_min" : 25,
          "processing" : "en:juice",
          "text" : "guava",
          "vegan" : "yes",
@@ -22,30 +22,30 @@
       },
       {
          "id" : "en:cane-sugar",
-         "percent" : "10",
-         "percent_estimate" : "10",
-         "percent_max" : "10",
-         "percent_min" : "10",
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e330",
-         "percent" : "2",
-         "percent_estimate" : "2",
-         "percent_max" : "2",
-         "percent_min" : "2",
+         "percent" : 2,
+         "percent_estimate" : 2,
+         "percent_max" : 2,
+         "percent_min" : 2,
          "text" : "citric acid",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:some unknown ingredient",
-         "percent" : "1",
+         "percent" : 1,
          "percent_estimate" : 1,
-         "percent_max" : "1",
-         "percent_min" : "1",
+         "percent_max" : 1,
+         "percent_min" : 1,
          "text" : "some unknown ingredient"
       }
    ],
@@ -93,7 +93,8 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25
    },
    "recipe" : {
       "en:fruit" : 25,

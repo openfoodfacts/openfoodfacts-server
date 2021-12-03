@@ -29,6 +29,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
@@ -58,7 +59,7 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	my $onid = $nid =~ s/^(\-+)//gr;
 
 	my $current_ref = { id => $onid, important => $important, display_in_edit_form => $default_edit_form };
-	my $name = get_nutrient_label($onid, $lc);
+	my $name = display_taxonomy_tag($lc, "nutrients", "zz:$onid");
 	if (defined $name) {
 		$current_ref->{name} = $name;
 	}

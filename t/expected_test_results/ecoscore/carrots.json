@@ -217,7 +217,7 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : "0",
+                  "ecoscore_shape_ratio" : 0,
                   "material" : "en:unknown",
                   "shape" : "en:bulk"
                }
@@ -250,7 +250,7 @@
          "ef_distribution" : "0.0091483656",
          "ef_packaging" : "0",
          "ef_processing" : "0",
-         "ef_total" : "0.070883164",
+         "ef_total" : 0.070883164,
          "ef_transportation" : "0.013259629",
          "is_beverage" : 0,
          "name_en" : "Carrot, raw",
@@ -452,7 +452,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "packaging_text" : "vrac",
    "packagings" : [
