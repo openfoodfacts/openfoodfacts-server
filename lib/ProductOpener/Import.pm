@@ -267,7 +267,7 @@ sub import_csv_file($) {
 	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id, args_ref => $args_ref }) if $log->is_debug();
 	
 	# Load GS1 GLNs so that we can map products to the owner orgs
-	my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
@@ -625,7 +625,7 @@ sub import_csv_file($) {
 							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 						}
 						set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-						$glns_ref = retrieve("$data_root/orgs_glns.sto");
+						$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 					}
 			
 					store_org($org_ref);
