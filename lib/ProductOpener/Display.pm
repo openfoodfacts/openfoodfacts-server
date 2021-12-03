@@ -9729,6 +9729,10 @@ CSS
 						if ($percent_numeric_value > 0 ) {
 							$percent = "+" . $percent;
 						}
+						# If percent is close to 0, just put "-"
+						if (sprintf ("%.0f", $percent_numeric_value) eq "0") {
+							$percent = "-";
+						}
 					}
 					else {
 						$percent = undef;
