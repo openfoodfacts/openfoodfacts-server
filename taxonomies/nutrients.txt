@@ -51,6 +51,7 @@ zh_CN:能量 (kJ)
 zh_HK:能量 (kJ)
 zh_TW:能量 (kJ)
 unit:en: kj
+evaluation:en: bad
 
 zz:energy-kcal
 en:Energy (kcal), kcal, kilocalories
@@ -91,6 +92,7 @@ zh_CN:能量 (kcal)
 zh_HK:能量 (kcal)
 zh_TW:能量 (kcal)
 unit:en: kcal
+evaluation:en: bad
 
 zz:energy
 en:Energy
@@ -209,6 +211,7 @@ unit_ca:en: kcal
 unit_us:en: kcal
 wikidata:en: Q11379
 wikipedia:en: https://en.wikipedia.org/wiki/Food_energy
+evaluation:en: bad
 
 zz:energy-from-fat
 en:Energy from fat
@@ -229,6 +232,7 @@ zh_TW:來自脂肪的能量
 unit:en: kj
 unit_ca:en: kcal
 unit_us:en: kcal
+evaluation:en: bad
 
 zz:fat
 en:Fat, Total fat, Lipids, fats
@@ -316,6 +320,7 @@ zh_TW:脂肪
 unit:en: g
 wikidata:en: Q127980
 wikipedia:en: https://en.wikipedia.org/wiki/Fat
+evaluation:en: bad
 
 zz:saturated-fat
 en:Saturated fat, Saturated fatty acids, saturated
@@ -376,6 +381,7 @@ zh_TW:飽和脂肪
 unit:en: g
 wikidata:en: Q970537
 wikipedia:en: https://en.wikipedia.org/wiki/Saturated_fat
+evaluation:en: bad
 
 zz:butyric-acid
 en:Butyric acid
@@ -2018,12 +2024,14 @@ zh_TW:糖
 unit:en: g
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
+evaluation:en: bad
 
 zz:added-sugars
 en:Added sugars, Added sugar
 xx:Added sugars, Added sugar
 fr:Sucres ajoutés, sucre ajouté
 unit_en: g
+evaluation:en: bad
 
 zz:sucrose
 en:Sucrose
@@ -2752,6 +2760,7 @@ zh_TW:蛋白質
 unit:en: g
 wikidata:en: Q8054
 wikipedia:en: https://en.wikipedia.org/wiki/Protein_-nutrient-
+evaluation:en: good
 
 zz:casein
 en:casein
@@ -2961,6 +2970,7 @@ zh:食盐
 unit:en: g
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
+evaluation:en: bad
 
 zz:sodium
 en:Sodium
@@ -3084,6 +3094,7 @@ unit:en: g
 unit_us:en: mg
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
+evaluation:en: bad
 
 zz:alcohol
 en:Alcohol
@@ -3188,6 +3199,7 @@ zh_TW:酒精
 unit:en: % vol
 wikidata:en: Q156
 wikipedia:en: https://en.wikipedia.org/wiki/Alcohol
+evaluation:en: bad
 
 zz:vitamin-a
 en:Vitamin A
