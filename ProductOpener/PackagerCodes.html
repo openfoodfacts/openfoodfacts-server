@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::DataQuality</title>
+<html><head><title>ProductOpener::Food</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="blkbluw" type="text/css" href="../_blkbluw.css" media="all" >
 <link rel="alternate stylesheet" title="blkmagw" type="text/css" href="../_blkmagw.css" media="all" >
@@ -38,12 +38,7 @@
 <div class='indexgroup'>
 <ul   class='indexList indexList1'>
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
-  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
-  <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
-  <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#check_quality(_PRODUCT_REF_)'>check_quality( PRODUCT_REF )</a>
-  </ul>
 </ul>
 </div>
 
@@ -51,60 +46,15 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::DataQuality - check the quality of data for products</p>
-
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="SYNOPSIS"
->SYNOPSIS</a></h1>
-
-<p><code>ProductOpener::DataQuality</code> is used to check the quality of the data of products when they are updated.</p>
-
-<pre>    use ProductOpener::DataQuality qw/:all/;
-        check_quality($product_ref);
-
-        if (has_tag($product_ref, &#34;data_quality&#34;, &#34;en:nutrition-value-total-over-105&#34;)) {
-                print STDERR &#34;The nutrition facts values are incorrect.&#34;;
-        }</pre>
-
-<p><code>check_quality()</code> populates the data_quality_[bugs|info|warnings|errors]_tags arrays and sub-facets:</p>
-
-<p>- /data-quality-bugs : data issues that are due to bugs in the software (and not bad data entered by users or supplied by producers)</p>
-
-<p>- /data-quality-info : info about product data that does not indicate that there is an error</p>
-
-<p>- /data-quality-warnings : indications that there may be an error in the data (but it is not certain)</p>
-
-<p>- /data-quality-errors : errors in the product data</p>
-
-<p>The values of all sub-facets are also combined in the data_quality_tags array and /data-quality facet.</p>
-
-<p><code>check_quality()</code> is run each time products are updated. It can also be run through the <code>scripts/update_all_products.pl</code> script.</p>
+<p>ProductOpener::Food - functions related to food products and nutrition</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p><code>ProductOpener::DataQuality</code> uses submodules to check quality issues that can affect different types of products:</p>
+<p><code>ProductOpener::PackagerCodes</code> contains functions specific to packager codes found on products.</p>
 
-<p><code>ProductOpener::DataQualityCommon</code> for all types of products.</p>
-
-<p><code>ProductOpener::DataQualityFood</code> for food products.</p>
-
-<p>The type of product is specified through Config.pm</p>
-
-<pre>    $options{product_type} = &#34;food&#34;;</pre>
-
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="FUNCTIONS"
->FUNCTIONS</a></h1>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="check_quality(_PRODUCT_REF_)"
->check_quality( PRODUCT_REF )</a></h2>
-
-<p><code>check_quality()</code> checks the quality of data for a given product.</p>
-
-<pre>   check_quality($product_ref)</pre>
+<p>..</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
