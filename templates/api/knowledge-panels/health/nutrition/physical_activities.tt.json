@@ -1,0 +1,17 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% f_lang('f_energy_per_100g', { 'kj' => panel.energy }) %]",
+        "subtitle": "[% f_lang('f_equal_to_walking_minutes_or_steps',  { 'minutes' => panel.walking_minutes, 'steps' => panel.walking_steps } ) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/activity-walking.svg",
+        "icon_color_from_evaluation": true,
+    },    
+    "elements": [   
+
+    ]
+}

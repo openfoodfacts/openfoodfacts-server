@@ -19,6 +19,9 @@
                             "nutriscore_warnings",
                         [% END %]
                     [% END %]
+                    [% IF panels.physical_activities.defined %]
+                        "physical_activities",
+                    [% END %]                    
                     [% IF panels.nutrition_facts_table.defined %]
                         "nutrition_facts_table",
                     [% END %]
