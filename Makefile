@@ -125,8 +125,12 @@ refresh_product_tags:
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
-	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
+	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
+
+import_more_sample_data:
+	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh	
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"

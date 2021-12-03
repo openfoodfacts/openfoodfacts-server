@@ -9488,7 +9488,7 @@ sub data_to_display_nutrition_table($$) {
 
 			push @cols, $col_id;
 			$col_class{$col_id} = $col_id;
-			$col_name{$col_id} =  $comparison_ref->{name};
+			$col_name{$col_id} = lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name};
 
 			$log->debug("displaying nutrition table comparison column", { colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 
@@ -9589,6 +9589,9 @@ CSS
 
 		next if $nid eq 'sodium';
 
+		# Skip "energy-kcal" and "energy-kj" as we will display "energy" which has both
+		next if (($nid eq "energy-kcal") or ($nid eq "energy-kj"));
+
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
@@ -9618,6 +9621,9 @@ CSS
 			if (($cc ne $1) and (not ($1 eq 'fr'))) {
 				$shown = 0;
 			}
+
+			# 2021-12: now not displaying the Nutrition scores and Nutri-Score in nutrition facts table (experimental)
+			$shown = 0;
 		}
 
 		if ($shown) {
@@ -9649,22 +9655,21 @@ CSS
 					$unit = $product_ref->{nutriments}{$nid . "_unit"};
 				}
 			}
-
-			my $values;
-			my $values2;
-
 			my @columns;
 			my @extra_row_columns;
 			my @ecological_impact_columns;
 
+			my $extra_row = 0;	# Some rows will trigger an extra row (e.g. Salt adds Sodium)
+
 			foreach my $col (@cols) {
 
-				$values  = '';    # Value for row
-				$values2 = '';    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
+				my $values;    # Value for row
+				my $values2;    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 				my $col_class = '';
-				my $percent   = '';
+				my $percent;
+				my $percent_numeric_value;
 
-				my $rdfa  = '';    # RDFA property for row
+				my $rdfa = '';    # RDFA property for row
 				my $rdfa2 = '';    # RDFA property for extra row
 
 				my $col_type;
@@ -9717,36 +9722,39 @@ CSS
 					$percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 					if ((defined $percent) and ($percent ne '')) {
 
-						my $percent_numeric_value = $percent;
+						$percent_numeric_value = $percent;
 						$percent = $perf->format($percent / 100.0);
 						# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
 						# so just test positivity of numeric value
 						if ($percent_numeric_value > 0 ) {
 							$percent = "+" . $percent;
 						}
+						# If percent is close to 0, just put "-"
+						if (sprintf ("%.0f", $percent_numeric_value) eq "0") {
+							$percent = "-";
+						}
 					}
 					else {
-						$percent = "";
+						$percent = undef;
 					}
 
 					if ($nid eq 'sodium') {
 						if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-							$values2 .= '?';
+							$values2 = '?';
 						}
 						else {
-							$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
+							$values2 = ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit))) . " " . $unit;
 						}
 					}
-					if ($nid eq 'salt') {
+					elsif ($nid eq 'salt') {
 						if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
-							$values2 .= '?';
+							$values2 = '?';
 						}
 						else {
-							$values2 .= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
+							$values2 = ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit))) . " " . $unit;
 						}
 					}
-
-					if ($nid eq 'nutrition-score-fr') {
+					elsif ($nid eq 'nutrition-score-fr') {
 						# We need to know the category in order to select the right thresholds for the nutrition grades
 						# as it depends on whether it is food or drink
 
@@ -9764,7 +9772,7 @@ CSS
 							my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_100g"},
 								is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
-							$values2 .= uc ($nutriscore_grade);
+							$values2 = uc ($nutriscore_grade);
 						}
 					}
 				}
@@ -9838,7 +9846,7 @@ CSS
 						else {
 							$salt = "?";
 						}
-						$values2 .= $salt;
+						$values2 = $salt;
 					}
 					elsif ($nid eq 'salt') {
 						my $sodium;
@@ -9858,7 +9866,7 @@ CSS
 						else {
 							$sodium = "?";
 						}
-						$values2 .= $sodium ;
+						$values2 = $sodium ;
 					}
 					elsif ($nid eq 'nutrition-score-fr') {
 						# We need to know the category in order to select the right thresholds for the nutrition grades
@@ -9880,7 +9888,7 @@ CSS
 								my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
 									is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
-								$values2 .= uc ($nutriscore_grade);
+								$values2 = uc ($nutriscore_grade);
 							}
 						}
 					}
@@ -9898,16 +9906,38 @@ CSS
 						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 					}
 
-					$values .= $value_unit;
+					$values = $value_unit;
 				}
 
-				push (@columns, {
+				my $cell_data_ref = {
 					value => $values,
 					rdfa => $rdfa,
 					class => $col_class,
 					percent => $percent,
 					type => $col_type,
-				});
+				};
+
+				# Add evaluation
+				if (defined $percent_numeric_value) {
+
+					my $nutrient_evaluation = get_property("nutrients", "zz:$nid", "evaluation:en");	# Whether the nutrient is considered good or not
+					
+					# Determine if the value of this nutrient compared to other products is good or not
+
+					if (defined $nutrient_evaluation) {
+						
+						if ((($nutrient_evaluation eq "good") and ($percent_numeric_value >= 10))
+							or (($nutrient_evaluation eq "bad") and ($percent_numeric_value <= -10))) {
+							$cell_data_ref->{evaluation} = "good";
+						}
+						elsif ((($nutrient_evaluation eq "bad") and ($percent_numeric_value >= 10))
+							or (($nutrient_evaluation eq "good") and ($percent_numeric_value <= -10))) {
+							$cell_data_ref->{evaluation} = "bad";
+						}
+					}
+				}
+
+				push (@columns, $cell_data_ref);
 
 				push (@extra_row_columns, {
 					value => $values2,
@@ -9916,6 +9946,10 @@ CSS
 					percent => $percent,
 					type => $col_type,
 				});
+
+				if (defined $values2) {
+					$extra_row = 1;
+				}
 			}
 
 
@@ -9927,34 +9961,37 @@ CSS
 				columns => \@columns,
 			};
 
-			if (($nid eq 'sodium') and ($values2 ne '')) {
+			# Add an extra row for specific nutrients
+			# 2021-12: There may not be a lot of value to display an extra sodium or salt row,
+			# tentatively disabling it. Keeping code in place in case we want to re-enable it under some conditions.
+			if (0 and (defined $extra_row)) {
+				if ($nid eq 'sodium') {
 
-				push @{$template_data_ref->{nutrition_table}{rows}}, {
-					name => lang("salt_equivalent"),
-					nid => "salt_equivalent",
-					level => 1,
-					columns => \@extra_row_columns,
-				};
-			}
+					push @{$template_data_ref->{nutrition_table}{rows}}, {
+						name => lang("salt_equivalent"),
+						nid => "salt_equivalent",
+						level => 1,
+						columns => \@extra_row_columns,
+					};
+				}
+				elsif ($nid eq 'salt') {
 
-			if (($nid eq 'salt') and ($values2 ne '')) {
+					push @{$template_data_ref->{nutrition_table}{rows}}, {
+						name => display_taxonomy_tag($lc, "nutrients", "zz:sodium"),
+						nid => "sodium",
+						level => 1,
+						columns => \@extra_row_columns,
+					};
+				}
+				elsif ($nid eq 'nutrition-score-fr') {
 
-				push @{$template_data_ref->{nutrition_table}{rows}}, {
-					name => display_taxonomy_tag($lc, "nutrients", "zz:sodium"),
-					nid => "sodium",
-					level => 1,
-					columns => \@extra_row_columns,
-				};
-			}
-
-			if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
-
-				push @{$template_data_ref->{nutrition_table}{rows}}, {
-					name => "Nutri-Score",
-					nid => "nutriscore",
-					level => 1,
-					columns => \@extra_row_columns,
-				};
+					push @{$template_data_ref->{nutrition_table}{rows}}, {
+						name => "Nutri-Score",
+						nid => "nutriscore",
+						level => 1,
+						columns => \@extra_row_columns,
+					};
+				}
 			}
 		}
 	}
