@@ -5,6 +5,9 @@ on:
     branches:
     - main
     - deploy-*
+    paths:
+    - docker/mongodb.yml
+    - .github/workflows/*.yml
 
 jobs:
   deploy-docker:
