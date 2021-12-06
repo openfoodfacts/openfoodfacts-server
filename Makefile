@@ -96,7 +96,7 @@ livecheck:
 
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
-	${DOCKER_COMPOSE} logs -f backend frontend
+	${DOCKER_COMPOSE} logs -f
 
 tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"

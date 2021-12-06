@@ -48,7 +48,9 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
+          cp .env ../.env
           git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
+          cp ../.env .env
           make import_prod_data
           make restart_db
 
@@ -73,6 +75,8 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
+          cp .env ../.env
           git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
+          cp ../.env .env
           make refresh_product_tags
           make restart_db

@@ -12,7 +12,7 @@ services:
       - db
   mongodb_exporter:
     image: bitnami/mongodb-exporter:0
-    command: mongodb_exporter --discovering-mode --mongodb.uri=mongodb://${MONGODB_HOST}:27017/admin?ssl=true
+    command: --discovering-mode --mongodb.uri=mongodb://mongodb:27017/admin?ssl=true
     ports:
       - 9216:9216
     networks:
