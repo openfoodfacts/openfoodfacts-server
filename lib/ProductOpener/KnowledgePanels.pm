@@ -730,7 +730,7 @@ for various activities.
 
 Description: https://en.wikipedia.org/wiki/Metabolic_equivalent_of_task
 
-1 MET = 4.2 * kJ / (kg * hour)
+1 MET = (kJ / 4.2) / (kg * hour)
 
 Data: https://sites.google.com/site/compendiumofphysicalactivities/
 
@@ -817,8 +817,9 @@ sub create_physical_activities_panel($$$) {
         };
 
         foreach my $activity (@sorted_activities) {
-            my $minutes = 60 * $energy * 4.2 / ($activities_met{$activity} * $weight);
+            my $minutes = 60 * ($energy / 4.2) / ($activities_met{$activity} * $weight);
             my $activity_ref = {
+                id => $activity,
                 activity => $activity,
                 name => lang("activity_" . $activity),
                 minutes => $minutes,

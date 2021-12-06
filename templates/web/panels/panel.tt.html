@@ -1,9 +1,9 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
 [% ELSE %]
-<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
 <li class="accordion-navigation">
 [% END %]
     <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]">
@@ -112,7 +112,7 @@
                         [% END %]    
                     [% END %]
                 >
-                <div style="float:left">
+                <div style="float:left;[% IF text_element.valign == 'middle' %]line-height:72px;[% END %]">
                 [% ELSE %]
                 <div>
                 [% END %]
@@ -230,7 +230,7 @@
     [% END %]
     </div>
     [% END %]
-[% IF panel.type == "card" %]
+[% IF (panel.type == "card") OR (panel.type == "inline") %]
 </div>
 [% ELSE %]    
 </li>
