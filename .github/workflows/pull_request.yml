@@ -170,3 +170,24 @@ jobs:
         
         # Run unit tests
         prove -l --jobs 2
+
+  dev:
+    name: Run developer workflow
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    # - uses: satackey/action-docker-layer-caching@v0.0.11
+    #   continue-on-error: true
+    - run: |
+        make dev
+        make status
+      env:
+        DOCKER_BUILDKIT: 1
+    # - run: |
+    #     make tests
+    - run: |
+        make livecheck
+    - run: |
+        make hdown

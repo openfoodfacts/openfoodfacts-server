@@ -18,6 +18,7 @@ x-backend-conf: &backend-conf
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
+    - INFLUXDB_HOST
   depends_on:
     - memcached
     - postgres
