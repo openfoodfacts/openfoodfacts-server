@@ -78,6 +78,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -142,6 +143,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -206,6 +208,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -242,7 +245,7 @@
          "ef_distribution" : "0.0096880018",
          "ef_packaging" : "0.015478282000000001",
          "ef_processing" : "0.055903738",
-         "ef_total" : "1.1514725",
+         "ef_total" : 1.1514725,
          "ef_transportation" : "0.013733529",
          "is_beverage" : 0,
          "name_en" : "Butter, 82% fat, unsalted",
@@ -312,6 +315,7 @@
          "uk" : "e",
          "us" : "e",
          "va" : "e",
+         "world" : "e",
          "xk" : "e"
       },
       "missing" : {
@@ -383,6 +387,7 @@
          "uk" : 17,
          "us" : 17,
          "va" : 17,
+         "world" : 17,
          "xk" : 17
       },
       "status" : "known"

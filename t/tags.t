@@ -9,6 +9,8 @@ use Test::More;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
+# Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
+use ProductOpener::Display qw/:all/;
 
 init_emb_codes();
 

@@ -78,6 +78,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -142,6 +143,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -206,6 +208,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -238,7 +241,7 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : "0.55246032",
+         "ef_total" : 0.55246032,
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
@@ -308,6 +311,7 @@
          "uk" : "d",
          "us" : "d",
          "va" : "d",
+         "world" : "d",
          "xk" : "d"
       },
       "missing" : {
@@ -379,6 +383,7 @@
          "uk" : 30,
          "us" : 30,
          "va" : 30,
+         "world" : 30,
          "xk" : 30
       },
       "status" : "known"
@@ -391,20 +396,20 @@
    "ingredients" : [
       {
          "id" : "en:apricot",
-         "percent" : "60",
-         "percent_estimate" : "60",
-         "percent_max" : "60",
-         "percent_min" : "60",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:cane-sugar",
-         "percent" : "30",
-         "percent_estimate" : "30",
-         "percent_max" : "30",
-         "percent_min" : "30",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -464,7 +469,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },
    "packagings" : [],
    "unknown_ingredients_n" : 0

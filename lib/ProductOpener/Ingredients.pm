@@ -434,7 +434,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc", "en:vegan", "en:vegetarian");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -1057,7 +1057,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1302,6 +1302,13 @@ sub parse_ingredients_text($) {
 							}
 							$ingredient = $` . ' ' . $';
 							$ingredient =~ s/\s+/ /g;
+
+							# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
+							# then we replace the now empty ingredient by the sub ingredients
+							if (($ingredient =~ /^\s*$/) and (defined $between) and ($between ne "")) {
+								$ingredient = $between;
+								$between = '';
+							}
 							$debug_ingredients and $log->debug("found label", { ingredient => $ingredient, labelid => $labelid }) if $log->is_debug();
 						}
 					}
@@ -1584,6 +1591,7 @@ sub parse_ingredients_text($) {
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
+								'en',
 							],
 
 							'ru' => [
@@ -1642,15 +1650,27 @@ sub parse_ingredients_text($) {
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
 				}
-				if (defined $labels) {
-					$ingredient{labels} = $labels;
-				}
+
 				if (defined $vegan) {
 					$ingredient{vegan} = $vegan;
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
 				}
+
+				if (defined $labels) {
+					$ingredient{labels} = $labels;
+				
+					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
+					if ($labels =~ /\ben:vegan\b/) {
+						$ingredient{vegan}= "en:yes";
+						$ingredient{vegetarian}= "en:yes";
+					}
+					if ($labels =~ /\ben:vegetarian\b/) {
+						$ingredient{vegetarian}= "en:yes";
+					}
+				}
+
 				if ($processing ne "") {
 					$processing =~ s/^,\s?//;
 					$ingredient{processing} = $processing;
@@ -2871,11 +2891,15 @@ ja => [
 ],
 
 kk => [
-'Курамы',
+'курамы',
+],
+
+ko => [
+'配料',
 ],
 
 ky => [
-'Курамы',
+'курамы',
 ],
 
 lt => [
@@ -2908,7 +2932,7 @@ pt => [
 ],
 
 ro => [
-'ingrediente',
+'(I|i)ngrediente',
 'compoziţie',
 ],
 
@@ -2929,7 +2953,7 @@ sk => [
 
 sl => [
 'vsebuje',
-'sestavine',
+'(S|s)estavine',
 ],
 
 sq => [
@@ -2951,14 +2975,15 @@ tg => [
 
 th => [
 'ส่วนประกอบ',
+'ส่วนประกอบที่สำคัญ',
 ],
 
 tr => [
-'İçindekiler',
+'(İ|i)çindekiler',
 ],
 
 uz => [
-'Tarkib',
+'tarkib',
 ],
 
 zh => [
@@ -3027,12 +3052,21 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
+nl => [
+'INGREDIENSER',
+],
+
+
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
 pt => [
 'INGREDIENTES(\s*)',
+],
+
+ru => [
+'COCTАB',
 ],
 
 si => [
@@ -3044,8 +3078,16 @@ sv => [
 'INNEHÅLL(ER)?',
 ],
 
+uz => [
+'ІHГРЕДІЄНТИ',
+],
+
+uz => [
+'TARKIB',
+],
+
 vi => [
-'THANH PHAN',
+'TH(A|À)NH PH(A|Â)N',
 ],
 
 
@@ -3298,6 +3340,7 @@ nl => [
 'gemiddelde voedingswaarde per 100 g',
 'Na openen beperkt houdbaar',
 'Ongeopend, ten minste houdbaar tot:',
+'o.a.',
 'ten minste',
 'ten minste houdbaar tot',
 'Van nature rijk aan vezels',
@@ -5553,7 +5596,7 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
 
 =cut
 
@@ -5563,6 +5606,7 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"};
 	}
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
@@ -5570,6 +5614,7 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"} = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
 	}
 
 	return;

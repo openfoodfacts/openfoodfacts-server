@@ -422,6 +422,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -486,6 +487,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -550,6 +552,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -652,6 +655,7 @@
          "uk" : "d",
          "us" : "d",
          "va" : "d",
+         "world" : "d",
          "xk" : "d"
       },
       "missing" : {
@@ -723,6 +727,7 @@
          "uk" : 38,
          "us" : 38,
          "va" : 38,
+         "world" : 38,
          "xk" : 38
       },
       "status" : "known"
@@ -815,6 +820,7 @@
       "fat_100g" : 50,
       "fiber_100g" : 5.5,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nova-group" : 1,
       "nova-group_100g" : 1,
       "nova-group_serving" : 1,

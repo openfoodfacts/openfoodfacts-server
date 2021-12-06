@@ -261,7 +261,7 @@ sub set_org_gs1_gln($$) {
 	my $list_of_gs1_gln = shift,
 	
 	# Remove existing GLNs
-	my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 	if (defined $org_ref->{list_of_gs1_gln}) {
 		foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
@@ -281,7 +281,7 @@ sub set_org_gs1_gln($$) {
 			}
 		}
 	}
-	store("$data_root/orgs_glns.sto", $glns_ref);
+	store("$data_root/orgs/orgs_glns.sto", $glns_ref);
 }
 
 

@@ -1,12 +1,12 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
-[% IF panel.type == "card" %]
-<div class="panel_card" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
+[% IF (panel.type == "card") OR (panel.type == "inline") %]
+<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 [% ELSE %]
 <ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:0.5rem;">
 <li class="accordion-navigation">
 [% END %]
-    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.grade %] grade_[% panel.grade %][% END %]">
+    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]">
         [% IF panel.title_element.icon_url.defined %]
         <img src="[% panel.title_element.icon_url %]"
             style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
@@ -71,7 +71,7 @@
     </a>
 
     [% IF panel.elements.defined %]
-    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF panel.type == 'card' %]_card[% END %][% IF panel.expanded == "yes" OR panel.expanded == "always" %] active[% END %]">
+    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF (panel.type == 'card') OR (panel.type == 'inline') %]_[% panel.type %][% END %][% IF panel.expanded %] active[% END %]">
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
        
@@ -119,11 +119,13 @@
 
                 
                 [% IF text_element.type == "h1" %]
-                    <h4>
+                    <h4 class="panel_title">
                 [% ELSIF text_element.type == "note" %]
-                    <div class="note">→ 
+                    <div class="panel_text panel_text_note">→ 
+                [% ELSIF text_element.type == "warning" %]
+                    <div class="panel_text panel_text_warning">⚠️ 
                 [% ELSE %]
-                    <div>
+                    <div class="panel_text">
                 [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
@@ -145,12 +147,11 @@
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
-                <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %]>
-                    <caption style="text-align:left">[% table_element.title %]</caption>
+                <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
                     <thead>
                         <tr>
                             [% FOREACH column IN table_element.columns %]
-                            <th scope="col">
+                            <th scope="col"[% IF column.style.defined %]style="[% column.style %]"[% END %]>
                                 [% column.text %]
                             </th>
                             [% END %]
@@ -160,7 +161,7 @@
                         [% FOREACH row IN table_element.rows %]
                         <tr[% IF row.id %] id="[% row.id %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
-                                <td>
+                                <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                                     [% IF value.icon_url %]
                                         <span class="icon"><img src="[% value.icon_url %]" alt="icon"></span>
                                     [% END %]
@@ -179,14 +180,21 @@
                                             </div>
                                         </div>
                                         [% value.text %]
-                                    [% ELSIF value.evaluation.defined %]
-                                        <span class="[% IF value.evaluation == 'good' %] green
-                                        [% ELSIF value.evaluation == 'neutral' %] orange
-                                        [% ELSIF value.evaluation == 'bad' %] red
-                                        [% ELSIF value.evaluation == 'unknown' %] grey
-                                        [% END %]">[% value.text %]</span>
                                     [% ELSE %]
-                                        [% value.text %]
+                                        <span
+                                        [% IF value.level.defined %]
+                                            style="padding-left: [% value.level %]rem;"
+                                        [% END %]
+                                        [% IF value.evaluation.defined %]
+                                            class="[% IF value.evaluation == 'good' %] green
+                                            [% ELSIF value.evaluation == 'neutral' %] orange
+                                            [% ELSIF value.evaluation == 'bad' %] red
+                                            [% ELSIF value.evaluation == 'unknown' %] grey
+                                            [% END %]"
+                                        [% END %]
+                                        >
+                                            [% value.text %]
+                                        </span>
                                     [% END %]
                                 </td>                          
                             [% END %]
@@ -194,6 +202,26 @@
                         [% END %]
                     </tbody>
                 </table>
+            [% ELSIF element_type == "map" %]
+                [% map_element = element_ref.map_element %]
+                <!-- start templates/[% template.name %] -->
+
+                <div id="tag_map" class="large-9 columns" style="display: none;">
+                    <div id="container" style="height: 300px"></div>
+                </div>
+
+                <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
+                <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
+                <script src="[% static_subdomain %]/js/dist/osmtogeojson.js"></script>
+                <script src="[% static_subdomain %]/js/dist/display-tag.js"></script>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    displayMap([% encode_json(map_element.pointers) %], null);
+                });
+                </script>
+
+                <!-- end templates/[% template.name %] -->
             [% END %]
             
             </div>

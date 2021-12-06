@@ -323,7 +323,7 @@ hu:frissen őrölt
 en:mashed
 hu:pépesített
 
-en:pureed, purée, puréed
+en:pureed, purée, puréed, puree
 da:puré, pure
 de:püree, puree, püree aus, puree aus, pürierte
 es:puré, pure, puré de, pure de, cremogenado, cremogenada
@@ -342,6 +342,7 @@ sv:puré
 # fi:parsing:$sose
 # nb:parsing:$puré
 # sv:parsing:$puré
+
 
 hu:lapított
 
@@ -417,7 +418,7 @@ fi:raaste
 en:grits
 de:schrot, grieß
 fi:rouhe
-nl:gries
+nl:gries, grits
 sv:färs
 
 en:powder, powdered
@@ -522,7 +523,7 @@ wikidata:en:Q36465
 # Processes that split an ingredient into different parts
 
 en:split,broken
-es:partido,partida,partidos,partidas
+es:partido, partida, partidos, partidas
 pt:partido, partida, partidos, partidas
 
 #de:comment:geschält is a generic term and can mean en:peeled or en:shelled
@@ -601,7 +602,7 @@ en:pulp
 ca:polpa do
 cs:dřeň
 de:mark, pulpe, fruchtfleisch
-es:pulpo, pulpa de
+es:pulpo, pulpa de, polpa del
 fi:hedelmäliha
 fr:pulpe, pulpe de, pulpe d', en pulpe
 #fr:false:avec pulpe
@@ -657,22 +658,23 @@ pt:seiva, seivas, seiva de, seivas de
 en:juice, juices, juices of, juice from
 #en:comment:juice and mango pulp, juices and purees of fruit, vegetable juice color, chicken-meat-including-chicken-juices, juice-concentrates, reconstituted-vegetable-juice-blend, tomatoes-in-tomato-juice, chicken-meat-including-natural-chicken-juices, fruit-and-vegetable-juice-color, beet-juice-color
 az:şıresl
-cs:šťáva
+cs:šťáva, štávy z
 da:saft, juice
-de:saft, säfte, saft von, säfte von, saft vom, säfte vom
+de:saft, säfte, saft von, säfte von, saft vom, säfte vom, direktsaft, direktsäfte
 es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
 #en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
-hu:leve
+hu:leve, lé
 it:succo, succo di, succo d'
+nb:juice
 nl:sap
 nn:juice
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
-ro:suc de
+ro:suc de, suc
 ru:сок
+sk:stavy
 sv:juice, saft
-
 
 # fr:jus concentré de, jus concentré d'
 # fr:pur jus
@@ -681,10 +683,7 @@ sv:juice, saft
 #en:description: es:zumo is kept separate from the more generic es:jugo. It is only applicable to fruit.
 es:zumo de, zumo
 
-<en:juice
-de:direktsaft, direktsäfte
-
-<en:juice
+#<en:juice
 de:dicksaft, dicksäfte
 nl:diksap
 
@@ -719,18 +718,19 @@ da:koncentreret
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
+es:concentrado, concentrada, concentrados, concentradas
 fi:tiivistetty, tiiviste
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 de:einfach konzentriert
 hu:sűrítmény, sűrített, koncentrátum
-nl:concentraten, concentraat
+nl:concentraten, concentraat, geconcentreerd, geconcentreerde
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de
+ro:concentrat de
+ru:концентрированный
 sv:koncentrerad
 # en:wiktionary:concentrated
 
-
-<en:concentrated
+#<en:concentrated
 en:double concentrated
 de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes, 2-fach konzentriert, 2-fach konzentrierte, 2-fach konzentrierter, 2-fach konzentriertes
 es:doble concentrado,doble concentrada
@@ -745,12 +745,17 @@ de:200fach konzentriertes
 #en:not from concentrate
 
 #not sure if this interferes with the above
-#en:from concentrate
-#de:aus Konzentrat
-#es:a base de concentrado
-#fi:tiivisteestä
-#fr:à base de concentré
-#nl:op basis van concentraat
+en:from concentrate
+cs:koncentrát z
+de:aus Konzentrat
+es:a base de concentrado, a partir de concentrado, procedente de concentrado, procedente de concentrada
+fi:tiivisteestä
+fr:à base de concentré
+hu:sűrítményből
+lt:iš koncentrąto
+nl:op basis van concentraat
+sk:z koncentrátu
+sv:från koncentrat
 
 # there is a problem with en:cocoa paste
 #en:paste
@@ -1048,12 +1053,11 @@ ca:precuit
 da:forkogte
 de:vorgekocht, vorgekochte, vorgekochter, vorgekochtes
 es:precocido, precocida, precocidos, precocidas
-fi:esikypsennetty, esikypsennetyt
+fi:esikypsennetty, esikypsennetyt, esikypsennetty
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 hu:előfőzött
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
-
 
 # Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
 #<en:pre-cooked
@@ -1074,8 +1078,10 @@ hu:blansírozott
 nl:geblancheerd
 
 en:cooked, boiled
+cs:vařená
+da:kogte
 de:gekocht, gekochte, gekochter, gekochtes
-es:cocido, cocida, cocidos,cocidas
+es:cocido, cocida, cocidos, cocidas
 fi:paistettu, keitetty, kypsennetty, kypsennetyt
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 hu:főtt, főzött
@@ -1083,6 +1089,8 @@ id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 ms:rebus
 nl:gekookt, gekookte
+nn:kogte
+pl:gotowana
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
 sv:kokt, kokta

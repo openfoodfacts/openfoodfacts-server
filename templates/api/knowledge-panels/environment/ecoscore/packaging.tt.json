@@ -1,6 +1,4 @@
 {
-    "parent_panel_id": "ecoscore",
-    "type" : "score",
     "level" :"info",
     "topics": [
         "environment"
@@ -48,7 +46,6 @@
             "element_type": "table",
             "table_element": {
                 "id": "ecoscore_packaging_components",
-                "type": "table",
                 "title": "[% lang('packaging_parts') %]",
                 "columns": [
                     {

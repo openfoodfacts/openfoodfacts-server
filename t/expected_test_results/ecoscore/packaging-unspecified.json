@@ -78,6 +78,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -142,6 +143,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -206,6 +208,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -240,7 +243,7 @@
          "ef_distribution" : "0.004287772",
          "ef_packaging" : "0.014723027999999999",
          "ef_processing" : "0.0014905525",
-         "ef_total" : "0.13351659",
+         "ef_total" : 0.13351659,
          "ef_transportation" : "0.0079906595",
          "is_beverage" : 1,
          "name_en" : "Milk, semi-skimmed, UHT",
@@ -310,6 +313,7 @@
          "uk" : "d",
          "us" : "d",
          "va" : "d",
+         "world" : "d",
          "xk" : "d"
       },
       "missing" : {
@@ -382,6 +386,7 @@
          "uk" : 34,
          "us" : 34,
          "va" : 34,
+         "world" : 34,
          "xk" : 34
       },
       "status" : "known"

@@ -146,6 +146,9 @@ BEGIN
 
 		&generate_tags_taxonomy_extract
 
+		&get_all_taxonomy_entries
+		&get_taxonomy_tag_synonyms
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -155,9 +158,11 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Index qw/:all/;
+
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
@@ -317,6 +322,11 @@ sub is_a($$$) {
 	my $child = shift;
 	my $parent = shift;
 
+	if (not defined $tagtype) {
+		$log->error("is_a() function called with undefined $tagtype: should not happen", { child => $child, parent => $parent }) if $log->is_error();
+		return 0;
+	}
+
 	#$log->debug("is_a", { tagtype => $tagtype, child => $child, parent => $parent }) if $log->is_debug();
 
 	my $found = 0;
@@ -428,7 +438,7 @@ sub load_tags_hierarchy($$) {
 	defined $synonyms_for{$tagtype}{$lc} or $synonyms_for{$tagtype}{$lc} = {};
 
 
-	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$lang_dir/$lc/tags/$tagtype.txt")) {
 
 		my $current_tagid;
 		my $current_tag;
@@ -2019,35 +2029,40 @@ sub country_to_cc {
 	return;
 }
 
-# load all tags hierarchies
+# load all tags images
 
-# print STDERR "Tags.pm - loading tags hierarchies\n";
-opendir my $DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir($DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
-	# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
+# print STDERR "Tags.pm - loading tags images\n";
+if (opendir my $DH2, $lang_dir) {
+	foreach my $langid (readdir($DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
+		# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-	if (-e "$www_root/images/lang/$langid") {
-		opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-		foreach my $tagtype (readdir($DH)) {
-			next if $tagtype =~ /\./;
-			# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-			# print "Tags: loading tagtype images $langid/$tagtype\n";
-			load_tags_images($langid, $tagtype)
+		if (-e "$www_root/images/lang/$langid") {
+			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
+			foreach my $tagtype (readdir($DH)) {
+				next if $tagtype =~ /\./;
+				# print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
+				# print "Tags: loading tagtype images $langid/$tagtype\n";
+				load_tags_images($langid, $tagtype)
+			}
+			closedir($DH);
 		}
-		closedir($DH);
-	}
 
+	}
+	closedir($DH2);
 }
-closedir($DH2);
+else {
+	$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
+	$log->warn("Tags images could not be loaded.") if $log->is_warn();	
+}
 
 
 # It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
-	# print STDERR "loading taxonomy $taxonomyid\n";
+	$log->info("loading taxonomy $taxonomyid");
 	retrieve_tags_taxonomy($taxonomyid);
 
 }
@@ -3261,6 +3276,90 @@ sub spellcheck_taxonomy_tag($$$)
 
 }
 
+=head2 get_taxonomy_tag_synonyms ( $tagtype )
+
+Return all entries in a taxonomy.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded
+- or a list of all tags
+
+=cut
+
+sub get_all_taxonomy_entries($) {
+
+	my $tagtype = shift;
+
+	if (defined $translations_to{$tagtype}) {
+
+		my @list = ();
+		foreach my $tagid (keys %{$translations_to{$tagtype}}) {
+			# Skip entries that are just synonyms	
+			next if (defined $just_synonyms{$tagtype}{$tagid});
+			push @list, $tagid;
+		}
+		return @list;
+	}
+	else {
+		return;
+	}
+}
+
+
+=head2 get_taxonomy_tag_synonyms ( $target_lc, $tagtype, $canon_tagid )
+
+Return all synonyms (including extended synonyms) in a specific language for a taxonomy entry.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded, or if the tag does not exist
+- or a list of all synonyms
+
+=cut
+
+sub get_taxonomy_tag_synonyms($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+
+	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid})) {
+
+		my $target_lc_tagid = get_string_id_for_lang($target_lc, $translations_to{$tagtype}{$tagid}{$target_lc});
+		
+		if (defined $synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}) {
+		 	return (
+				@{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}},
+				sort keys %{$synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}}
+			);
+		}
+		elsif (defined $synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}) {
+			return @{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}};
+		}
+		else {
+			return;
+		}
+	}
+	else {
+		return;
+	}
+}
+
 
 
 
@@ -3630,77 +3729,54 @@ sub init_emb_codes {
 	return;
 }
 
-# nutrient levels
-
-$log->info("Initializing nutrient levels") if $log->is_info();
-foreach my $l (@Langs) {
-
-	$lc = $l;
-	$lang = $l;
-
-	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-		foreach my $level ('low', 'moderate', 'high') {
-			my $fmt = lang("nutrient_in_quantity");
-			my $nutrient_name = $Nutriments{$nid}{$lc};
-			my $level_quantity = lang($level . "_quantity");
-			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
-				next;
-			}
-
-			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_string_id_for_lang($lc, $tag);
-			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
-			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
-		}
-	}
-}
-
-$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
 sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
-	opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-	foreach my $langid (readdir(DH2)) {
-		next if $langid eq '.';
-		next if $langid eq '..';
+	if (opendir DH2, $lang_dir) {
+		foreach my $langid (readdir(DH2)) {
+			next if $langid eq '.';
+			next if $langid eq '..';
 
-		# print STDERR "Tags.pm - reading texts for lang $langid\n";
-		next if ((length($langid) ne 2) and not ($langid eq 'other'));
+			# print STDERR "Tags.pm - reading texts for lang $langid\n";
+			next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
-		my $lc = $langid;
+			my $lc = $langid;
 
-		defined $tags_texts{$lc} or $tags_texts{$lc} = {};
+			defined $tags_texts{$lc} or $tags_texts{$lc} = {};
 
-		if (-e "$data_root/lang/$langid") {
-			foreach my $tagtype (sort keys %tag_type_singular) {
+			if (-e "$lang_dir/$langid") {
+				foreach my $tagtype (sort keys %tag_type_singular) {
 
-				defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
+					defined $tags_texts{$lc}{$tagtype} or $tags_texts{$lc}{$tagtype} = {};
 
-				# this runs number-of-languages * number-of-tag-types times.
-				if (-e "$data_root/lang/$langid/$tagtype") {
-					opendir DH, "$data_root/lang/$langid/$tagtype" or die "Couldn't open the current directory: $!";
-					foreach my $file (readdir(DH)) {
-						next if $file !~ /(.*)\.html/;
-						my $tagid = $1;
-						open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
+					# this runs number-of-languages * number-of-tag-types times.
+					if (-e "$lang_dir/$langid/$tagtype") {
+						opendir DH, "$lang_dir/$langid/$tagtype" or die "Couldn't open the current directory: $!";
+						foreach my $file (readdir(DH)) {
+							next if $file !~ /(.*)\.html/;
+							my $tagid = $1;
+							open(my $IN, "<:encoding(UTF-8)", "$lang_dir/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$lang_dir/$langid/$tagtype/$file", error => $! });
 
-						my $text = join("",(<$IN>));
-						close $IN;
+							my $text = join("",(<$IN>));
+							close $IN;
 
-						$tags_texts{$lc}{$tagtype}{$tagid} = $text;
+							$tags_texts{$lc}{$tagtype}{$tagid} = $text;
+						}
+						closedir(DH);
 					}
-					closedir(DH);
 				}
 			}
 		}
+		closedir(DH2);
+		$log->debug("tags texts loaded") if $log->is_debug();
 	}
-	closedir(DH2);
-	$log->debug("tags texts loaded") if $log->is_debug();
+	else {
+		$log->warn("The $lang_dir could not be opened.") if $log->is_warn();
+		$log->warn("Tags texts could not be loaded.") if $log->is_warn();	
+	}
 	
 	return;
 }
@@ -4105,6 +4181,8 @@ sub add_users_translations_to_taxonomy($) {
 
 	return;
 }
+
+
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

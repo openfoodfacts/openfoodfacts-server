@@ -79,6 +79,7 @@
                "uk" : 68,
                "us" : 0,
                "va" : 29,
+               "world" : 0,
                "xk" : 28
             },
             "transportation_values" : {
@@ -143,6 +144,7 @@
                "uk" : 10,
                "us" : 0,
                "va" : 4,
+               "world" : 0,
                "xk" : 4
             },
             "values" : {
@@ -207,6 +209,7 @@
                "uk" : 14,
                "us" : 4,
                "va" : 8,
+               "world" : 4,
                "xk" : 8
             }
          },
@@ -239,7 +242,7 @@
          "ef_distribution" : "0.0014414118",
          "ef_packaging" : "0.020603751",
          "ef_processing" : "0.035781102999999995",
-         "ef_total" : "0.12836245",
+         "ef_total" : 0.12836245,
          "ef_transportation" : "0.010443509",
          "is_beverage" : 0,
          "name_en" : "Bread, French bread, baguette",
@@ -309,6 +312,7 @@
          "uk" : "b",
          "us" : "b",
          "va" : "b",
+         "world" : "b",
          "xk" : "b"
       },
       "missing" : {
@@ -378,6 +382,7 @@
          "uk" : 79,
          "us" : 79,
          "va" : 79,
+         "world" : 79,
          "xk" : 79
       },
       "status" : "known"
@@ -437,7 +442,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "packagings" : [],
    "unknown_ingredients_n" : 0
