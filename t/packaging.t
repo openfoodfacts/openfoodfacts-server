@@ -159,12 +159,21 @@ my @tests = (
 		}
 	],
 	
-	# three shapes
+	# three recycling instructions
 	[
 		'packaging_text_nl_three_instructions',
 		{
 			lc => "nl",
 			packaging_text => "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier"	
+		}
+	],
+	
+	# sentence glazen pot + deksel
+	[
+		'packaging_text_nl_glazen_pot_met_deksel',
+		{
+			lc => "nl",
+			packaging_text => "1 glazen pot, 1 metalen deksel"	
 		}
 	],
 	

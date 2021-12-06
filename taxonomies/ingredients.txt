@@ -19532,6 +19532,7 @@ es:aceite de coco extra virgen
 fr:huile de coco extra vierge
 
 <en:coconut oil
+en:unhydrogenated coconut oil
 fr:huile de coco non-hydrogénée, huile de coprah non hydrogénée
 
 <en:coconut oil
@@ -19601,11 +19602,17 @@ de:Kokosbutter
 es:manteca de coco
 ro:unt de cocos
 
+<en:unhydrogenated coconut oil
+<en:unhydrogenated palm fat
+en:unhydrogenated palm and coconut oil, unhydrogenated palm and coconut fat
+nl:ongehard plantaardig palm en kokosvet
+
 <en:vegetable oil
 en:oat oil
 cs:ovesný olej
 de:Haferöl, Haferkernöl
 es:aceite vegetal avena
+
 
 <en:vegetable oil
 en:olive oil
@@ -20630,7 +20637,7 @@ lt:Saulėgrąžų aliejus
 mk:Сончогледово масло
 mr:Minyak bunga matahari
 nb:solsikkeolje
-nl:zonnebloemolie
+nl:zonnebloemolie, plantaardige zonnebloemolie
 nn:solsikkeolje
 pl:Olej słonecznikowy
 pt:óleo de girassol, óleo vegetal de girassol
@@ -29334,7 +29341,7 @@ ja:米粉
 lt:ryžių miltai
 lv:rīsu milti
 nb:rismel
-nl:rijstebloem, rijstbloem, rijstmeel
+nl:rijstebloem, rijstbloem, rijstmeel, rijstemeel
 pl:Mąka ryżowa
 pt:farinha de arroz
 ro:făină de orez
@@ -34109,7 +34116,6 @@ en:cocoa fat
 de:Kakaobutter
 es:grasa de cacao
 fr:beurre de cacao
-nl:kokosvet
 ro:grăsime de cacao
 
 <en:cocoa
@@ -81779,6 +81785,16 @@ fr:Pâte sablée cuite
 ciqual_food_code:en:23442
 ciqual_food_name:en:Shortbread dough, cooked
 ciqual_food_name:fr:Pâte sablée, cuite
+
+<en:shortbread
+en:Jodenkoeken
+de:Jodenkoek
+nb:Jødekaker
+nl:Jodenkoeken, Jodekoeken
+nn:Jødekaker
+pt:Jodenkoek
+sv:Judebröd
+th:โยเดิงกุก
 
 #comment:en:not sure about the translations. Some prefer the pepper part, other the ginger-part. Need to split?
 #<en:compound
