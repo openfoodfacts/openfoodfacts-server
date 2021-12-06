@@ -423,7 +423,7 @@ sub mmoll_to_unit {
 	return $value + 0;
 }
 
-# http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
+# For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (
 	['fat', 3, 20 ],
 	['saturated-fat', 1.5, 5],
