@@ -36,7 +36,7 @@
                 "type": "summary",
                 "icon_color_from_evaluation": true,       
                 "html": `
-                    <p>[% f_lang('f_energy_expenditure_for_weight_in_kg_lb', { 'kg' => panel.weight, 'lbs' => round(panel.weight * 2.20462) }) %]</p>
+                    <p>[% f_lang('f_energy_expenditure_for_weight_in_kg_lb', { 'kg' => panel.weight, 'lb' => round(panel.weight * 2.20462) }) %]</p>
                     `
             }
         },        
