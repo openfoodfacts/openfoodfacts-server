@@ -115,9 +115,11 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Hash::Util;
 use Encode;
+use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
