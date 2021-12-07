@@ -99,6 +99,8 @@ BEGIN
 
 		&assign_categories_properties_to_product
 
+		&assign_nutriments_values_from_request_parameters
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -115,6 +117,7 @@ use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
 use Hash::Util;
+use Encode;
 
 use CGI qw/:cgi :form escapeHTML/;
 
@@ -134,41 +137,89 @@ if (opendir (my $dh, "$data_root/data/categories_stats")) {
 	closedir $dh;
 }
 
+# Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
+my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
+
+=head2 normalize_nutriment_value_and_modifier ( $value_ref, $modifier_ref )
+
+Each nutrient value is entered as a string (by users on the product edit form,
+or through the API). The string value may not always be numeric (e.g. it can include a < sign).
+
+This function normalizes the string value to remove signs, and stores extra information in the "modifier" field.
+
+=head3 Arguments
+
+=head4 string value reference $value_ref
+
+Input string value reference. The value will be normalized.
+
+=head4 modifier reference $modifier_ref
+
+Output modifier reference.
+
+=head3 Possible return values
+
+=head4 value
+
+- 0 if the input value indicates traces
+- Number (as a string)
+- undef for 'NaN' (not a number, sometimes sent by broken API clients)
+
+=head4 modifier
+
+<, >, ≤, ≥, ~ character sign, for lesser, greater, lesser or equal, greater or equal, and about
+- (minus sign) character when the input value is - (or other dashes) : indicates that the value is not present on the package
+
+=cut
 
 sub normalize_nutriment_value_and_modifier($$) {
 
 	my $value_ref = shift;
 	my $modifier_ref = shift;
 
+	$$modifier_ref = undef;
+
 	return if not defined ${$value_ref};
 
-	if (lc(${$value_ref}) =~ /nan/) {
-		${$value_ref} = '';
+	# empty or null value
+	if ((${$value_ref} =~ /^\s*$/) or (lc(${$value_ref}) =~ /nan/)) {
+		${$value_ref} = undef;
 	}
-
-	if (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
+	# < , >, etc. signs
+	elsif (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		$modifier_ref = "\N{U+2264}";
+		${$modifier_ref} = "\N{U+2264}";
 	}
-	if (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		${$value_ref} =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
+	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
+		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
 		${$modifier_ref} = '<';
 	}
-	if (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
+	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		$modifier_ref = "\N{U+2265}";
+		${$modifier_ref} = "\N{U+2265}";
 	}
-	if (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	if (${$value_ref} =~ /(env|environ|about|~|≈)/) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	if (${$value_ref} =~ /trace|traces/) {
+	elsif (${$value_ref} =~ /trace|traces/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
+	}
+	# - indicates that there is no value specified on the package
+	elsif (${$value_ref} =~ /^\s*$dashes\s*$/) {
+		${$value_ref} = undef;
+		${$modifier_ref} = '-';
+	}
+
+	# Remove extra spaces
+	if (defined ${$value_ref}) {
+		${$value_ref} =~ s/^\s+//;
+		${$value_ref} =~ s/\s+$//;
 	}
 
 	return;
@@ -213,12 +264,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	my $value = shift;
 	my $unit = shift;
 
-	# empty unit?
-	if ((not defined $unit) or ($unit eq "")) {
-		$unit = default_unit_for_nid($nid);
-	}
-
-	$value = convert_string_to_number($value);
+	# We can have only a modifier with value '-' to indicate that we have no value
 
 	if ((defined $modifier) and ($modifier ne '')) {
 		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -226,27 +272,51 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	else {
 		delete $product_ref->{nutriments}{$nid . "_modifier"};
 	}
-	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
-	$product_ref->{nutriments}{$nid . "_value"} = $value;
-	
-	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
-		$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
-		$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
-	}
-	elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
-		$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-		$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
-	}
-	if ($nid =~ /^water-hardness(_prepared)?$/) {
-		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
-	}
-	elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
 
-		# energy-kcal is stored in kcal
-		$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
+	if ((defined $value) and ($value ne '')) {
+
+		# empty unit?
+		if ((not defined $unit) or ($unit eq "")) {
+			$unit = default_unit_for_nid($nid);
+		}
+
+		$value = convert_string_to_number($value);
+
+		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
+		$product_ref->{nutriments}{$nid . "_value"} = $value;
+		
+		if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
+			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
+			$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
+		}
+		elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
+			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
+			$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
+		}
+		if ($nid =~ /^water-hardness(_prepared)?$/) {
+			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
+		}
+		elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
+
+			# energy-kcal is stored in kcal
+			$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
+		}
+		else {
+			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
+		}
+
 	}
 	else {
-		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
+		# We do not have a value for the nutrient
+		delete $product_ref->{nutriments}{$nid . "_value"};
+		# Delete other fields dervied from the value
+		delete $product_ref->{nutriments}{$nid};
+		delete $product_ref->{nutriments}{$nid . "_100g"};
+		delete $product_ref->{nutriments}{$nid . "_serving"};
+		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
+		if ($modifier ne '-') {
+			delete $product_ref->{nutriments}{$nid . "_modifier"};
+		}
 	}
 	
 	return;
@@ -2762,5 +2832,178 @@ sub assign_categories_properties_to_product($) {
 
 	return;
 }
+
+
+=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table )
+
+This function reads the nutriment values passed to the product edit form, or the product edit API,
+and assigns them to the product.
+
+=cut
+
+sub assign_nutriments_values_from_request_parameters($$) {
+
+	my $product_ref = shift;
+	my $nutriment_table = shift;
+
+	# Nutrition data
+
+	$log->debug("Nutrition data") if $log->is_debug();
+
+	if (defined param("no_nutrition_data")) {
+		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
+	}
+
+	my $no_nutrition_data = 0;
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+		$no_nutrition_data = 1;
+	}
+
+	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+
+	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+
+	# Assign all the nutrient values
+
+	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
+
+	my @unknown_nutriments = ();
+	my %seen_unknown_nutriments = ();
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+
+		$nid =~ s/_prepared$//;
+
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
+			push @unknown_nutriments, $nid;
+			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
+		}
+	}
+
+	my @new_nutriments = ();
+	my $new_max = remove_tags_and_quote(param('new_max'));
+	for (my $i = 1; $i <= $new_max; $i++) {
+		push @new_nutriments, "new_$i";
+	}
+
+	# fix_salt_equivalent always prefers the 'salt' value of the product by default
+	# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
+	# present. Therefore, delete the 'salt' value and let it be fixed by
+	# fix_salt_equivalent afterwards.
+	foreach my $product_type ("", "_prepared") {
+		my $saltnid = "salt${product_type}";
+		my $sodiumnid = "sodium${product_type}";
+
+		my $salt = param("nutriment_${saltnid}");
+		my $sodium = param("nutriment_${sodiumnid}");
+
+		if (((not defined $salt) or ($salt eq ''))
+			and (defined $sodium) and ($sodium ne ''))
+		{
+			delete $product_ref->{nutriments}{$saltnid};
+			delete $product_ref->{nutriments}{$saltnid . "_unit"};
+			delete $product_ref->{nutriments}{$saltnid . "_value"};
+			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
+			delete $product_ref->{nutriments}{$saltnid . "_label"};
+			delete $product_ref->{nutriments}{$saltnid . "_100g"};
+			delete $product_ref->{nutriments}{$saltnid . "_serving"};
+		}
+	}
+
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
+		next if $nutriment =~ /^\#/;
+
+		my $nid = $nutriment;
+		$nid =~ s/^(-|!)+//g;
+		$nid =~ s/-$//g;
+
+		next if $nid =~ /^nutrition-score/;
+
+		# Unit and label are the same for as sold and prepared nutrition table
+		my $enid = encodeURIComponent($nid);
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+
+		# We can have nutrient values for the product as sold, or prepared
+		foreach my $product_type ("", "_prepared") {
+
+			# do not delete values if the nutriment is not provided
+			next if (not defined param("nutriment_${enid}${product_type}"));
+
+			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}${product_type}"));
+
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy${product_type}"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy${product_type}_value"};
+				delete $product_ref->{nutriments}{"energy${product_type}_modifier"};
+				delete $product_ref->{nutriments}{"energy${product_type}_100g"};
+				delete $product_ref->{nutriments}{"energy${product_type}_serving"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			if ($nid eq 'alcohol') {
+				$unit = '% vol';
+			}
+
+			# New label?
+			my $new_nid;
+			if ((defined $label) and ($label ne '')) {
+				$new_nid = canonicalize_nutriment($lc,$label);
+				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
+
+				if ($new_nid ne $nid) {
+					delete $product_ref->{nutriments}{$nid};
+					delete $product_ref->{nutriments}{$nid . "_unit"};
+					delete $product_ref->{nutriments}{$nid . "_label"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_value"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_modifier"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+					$log->debug("unknown nutrient", { nid => $nid, lc => $lc, known_nid => $new_nid }) if $log->is_debug();
+					$nid = $new_nid;
+				}
+				$product_ref->{nutriments}{$nid . "_label"} = $label;
+			}
+
+			# Set the nutrient values
+			my $modifier;
+			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			assign_nid_modifier_value_and_unit($product_ref, $nid . ${product_type}, $modifier, $value, $unit);
+		}
+
+		# If we don't have a value for the product and the prepared product, delete the unit and label
+		if ((not defined $product_ref->{nutriments}{$nid}) and (not defined $product_ref->{nutriments}{$nid . "_prepared"}))  {
+				delete $product_ref->{nutriments}{$nid . "_unit"};
+				delete $product_ref->{nutriments}{$nid . "_label"};
+		}
+	}
+
+	if ($no_nutrition_data) {
+		# Delete all non-carbon-footprint nids.
+		foreach my $key (keys %{$product_ref->{nutriments}}) {
+			next if $key =~ /_/;
+			next if $key eq 'carbon-footprint';
+
+			delete $product_ref->{nutriments}{$key};
+			delete $product_ref->{nutriments}{$key . "_unit"};
+			delete $product_ref->{nutriments}{$key . "_value"};
+			delete $product_ref->{nutriments}{$key . "_modifier"};
+			delete $product_ref->{nutriments}{$key . "_label"};
+			delete $product_ref->{nutriments}{$key . "_100g"};
+			delete $product_ref->{nutriments}{$key . "_serving"};
+		}
+	}	
+}
+
 
 1;
