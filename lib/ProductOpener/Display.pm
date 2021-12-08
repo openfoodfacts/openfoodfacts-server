@@ -9561,9 +9561,9 @@ CSS
 			# Level of the nutrient: 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
 			my $level = 0;
 			
-			if ($nutriment =~ /^-/) {
+			if ($nutriment =~ /^!?-/) {
 				$level = 1;
-				if ($nutriment =~ /^--/) {
+				if ($nutriment =~ /^!?--/) {
 					$level = 2;
 				}
 			}
