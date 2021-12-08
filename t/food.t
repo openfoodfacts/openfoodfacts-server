@@ -517,6 +517,7 @@ is($value, undef);
 is($modifier, undef);
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
 
+# test modifiers are taken into account
 compute_serving_size_data($product_ref);
 
 is_deeply($product_ref,
