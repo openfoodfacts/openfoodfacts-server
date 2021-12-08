@@ -316,7 +316,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 		delete $product_ref->{nutriments}{$nid . "_100g"};
 		delete $product_ref->{nutriments}{$nid . "_serving"};
 		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
-		if ($modifier ne '-') {
+		if ((defined $modifier) and ($modifier ne '-')) {
 			delete $product_ref->{nutriments}{$nid . "_modifier"};
 		}
 	}
