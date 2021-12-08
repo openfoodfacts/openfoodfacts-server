@@ -9525,26 +9525,21 @@ CSS
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
-		# Do not show rows that are optional (id with a trailing -) unless we have non empty data for it
-		if  (($nutriment !~ /-$/)
-			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+		# Check if we have a value for the nutrient
+		my $is_nutrient_with_value = ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_modifier"}) and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
-			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'));
+
+		# Show rows that are not optional (id with a trailing -), or for which we have a value
+		if  (($nutriment !~ /-$/) or $is_nutrient_with_value)) {
 			$shown = 1;
 		}
 
-		# Only show important nutriments (id prefixed with !) if the value is not known
-		# Only show known values for search graph results
+		# Hide rows that are not important when we don't have a value
 		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
-			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-					or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
-					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-					or ((defined $product_ref->{nutriments}{$nid . "_modifier"}) and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-					or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
-					)) {
+			and not ($is_nutrient_with_value)) {
 			$shown = 0;
 		}
 
