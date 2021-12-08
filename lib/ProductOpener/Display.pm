@@ -9533,7 +9533,7 @@ CSS
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'));
 
 		# Show rows that are not optional (id with a trailing -), or for which we have a value
-		if  (($nutriment !~ /-$/) or $is_nutrient_with_value)) {
+		if  (($nutriment !~ /-$/) or $is_nutrient_with_value) {
 			$shown = 1;
 		}
 
