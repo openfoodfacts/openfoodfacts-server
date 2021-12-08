@@ -496,6 +496,8 @@ is_deeply($product_ref,
  }
 ) or diag explain $product_ref;
 
+# test various  modifiers : - (not communicated), >=, etc.
+
 $value = '-';
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, undef);
