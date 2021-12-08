@@ -4,11 +4,11 @@ This explains how we setup docker file for pro platform development.
 For explanations on how to use it, see: [how-to-guides/pro-development](../how-to-guides/pro-development.md)
 
 off is the public facing application (world.openfoodfacts.org)
-off-pro is the pro platform (world.pro.openfoodfacts.org)
+off-pro is the producers platform (world.pro.openfoodfacts.org)
 
 When we work on the pro platform for development we want:
-* off containers to talk between them, and have their own volumes
-* off-pro containers to talk between them, and, generally, have their own volumes
+* off containers to talk between each other, and have their own volumes
+* off-pro containers to talk between each other, and, generally, have their own volumes
 * minion and backend from both app access to the same postgres database
   (which stores tasks queues)
 * off and off-pro backends / minion needs to share some volumes :
@@ -33,12 +33,12 @@ we will use postgres database from off as the common database.
 
 In order to achieve that:
 * we use profiles, so we won't start postgres in pro docker-compose
-* we connect postgres, backend and minion to a shared network, called minion_db
+* we connect `postgres`, `backend` and `minion` services to a shared network, called `minion_db`
 Fortunately this works, but note that there is a pitfall:
-on minion_db network both "backend" service will respond to same name.
+on `minion_db` network both `backend` services (`off` and `off-pro`) will respond to same name.
 For the moment it is not a problem for we don't need to communicate directly
 between instances.
-If it was, we would have to define custom aliases for those services on the minion_db network.
+If it was, we would have to define custom aliases for those services on the `minion_db` network.
 
 network    OFF              network       PRO              network
 po_default containers       minion_db     containers       po_pro_default

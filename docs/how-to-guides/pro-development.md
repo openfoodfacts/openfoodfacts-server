@@ -1,6 +1,6 @@
-# develop on the pro platform
+# Developing on the producers platform
 
-Here is how to develop for the pro platform using docker.
+Here is how to develop for the producers platform using docker.
 
 It suppose [you already have setup docker for dev](../introduction/dev-environment-quick-start-guide.md).
 
@@ -8,10 +8,10 @@ You should have two kind of shell:
 - the shell for openfoodfacts
 - the shell for openfoodfacts-pro, this is a shell where you have source the `setenv-pro.sh`,
   that is you run `. setenv-pro.sh`.
-  Your prompt, should now contains a `(pro)` to recall you you are in pro environment.
+  Your prompt, should now contains a `(pro)` to recall you you are in producers environment.
   (this simply sets some environment variables that will overides the one in .env)
 
-To develop, on pro plateform, you can then us a shell for openfoodfacts-pro and simply do a `make dev` and everything as usual.
+To develop, on producers plateform, you can then us a shell for openfoodfacts-pro and simply do a `make dev` and everything as usual.
 
 If you need to work on product import/export, or interacting with public platform,
 you have to start postgres and the minion on off side.
