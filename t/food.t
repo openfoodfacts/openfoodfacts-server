@@ -551,6 +551,7 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
+# test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
 is_deeply($product_ref,
