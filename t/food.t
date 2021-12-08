@@ -469,6 +469,7 @@ my $unit;
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, "50.1");
 is($modifier, undef);
+# test compute_serving_size_data with various units
 assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
 assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
