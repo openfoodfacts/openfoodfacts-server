@@ -2890,10 +2890,9 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		push @new_nutriments, "new_$i";
 	}
 
-	# fix_salt_equivalent always prefers the 'salt' value of the product by default
-	# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
-	# present. Therefore, delete the 'salt' value and let it be fixed by
-	# fix_salt_equivalent afterwards.
+	# If we have only 1 of the salt and sodium values,
+	# delete any existing values for the other one,
+	# and it will be computed from the one we have
 	foreach my $product_type ("", "_prepared") {
 		my $saltnid = "salt${product_type}";
 		my $sodiumnid = "sodium${product_type}";
@@ -2901,9 +2900,7 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		my $salt = param("nutriment_${saltnid}");
 		my $sodium = param("nutriment_${sodiumnid}");
 
-		if (((not defined $salt) or ($salt eq ''))
-			and (defined $sodium) and ($sodium ne ''))
-		{
+		if ((defined $sodium) and (not defined $salt)) {
 			delete $product_ref->{nutriments}{$saltnid};
 			delete $product_ref->{nutriments}{$saltnid . "_unit"};
 			delete $product_ref->{nutriments}{$saltnid . "_value"};
@@ -2911,6 +2908,15 @@ sub assign_nutriments_values_from_request_parameters($$) {
 			delete $product_ref->{nutriments}{$saltnid . "_label"};
 			delete $product_ref->{nutriments}{$saltnid . "_100g"};
 			delete $product_ref->{nutriments}{$saltnid . "_serving"};
+		}
+		elsif ((defined $salt) and (not defined $sodium)) {
+			delete $product_ref->{nutriments}{$sodiumnid};
+			delete $product_ref->{nutriments}{$sodiumnid . "_unit"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_value"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_modifier"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_label"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_100g"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_serving"};
 		}
 	}
 
