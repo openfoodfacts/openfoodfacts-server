@@ -536,6 +536,7 @@ is_deeply($product_ref,
  }
 ) or diag explain $product_ref;
 
+# test reporting traces
 $value = 'Traces';
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, 0);
