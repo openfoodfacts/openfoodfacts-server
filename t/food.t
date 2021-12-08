@@ -465,9 +465,11 @@ $product_ref = {};
 my $value = "50.1";
 my $modifier;
 my $unit;
+# test we have no modifier
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, "50.1");
 is($modifier, undef);
+# test compute_serving_size_data with various units
 assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
 assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
@@ -495,6 +497,8 @@ is_deeply($product_ref,
  }
 ) or diag explain $product_ref;
 
+# test various  modifiers : - (not communicated), >=, etc.
+
 $value = '-';
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, undef);
@@ -514,6 +518,7 @@ is($value, undef);
 is($modifier, undef);
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
 
+# test modifiers are taken into account
 compute_serving_size_data($product_ref);
 
 is_deeply($product_ref,
@@ -533,6 +538,7 @@ is_deeply($product_ref,
  }
 ) or diag explain $product_ref;
 
+# test reporting traces
 $value = 'Traces';
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, 0);
@@ -547,6 +553,7 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
+# test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
 is_deeply($product_ref,
