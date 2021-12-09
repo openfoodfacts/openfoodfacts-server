@@ -2861,9 +2861,13 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		$no_nutrition_data = 1;
 	}
 
-	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+	if (defined param("nutrition_data")) {
+		$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+	}
 
-	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	if (defined param("nutrition_data_prepared")) {
+		$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	}
 
 	# Assign all the nutrient values
 
