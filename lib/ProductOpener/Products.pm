@@ -129,6 +129,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;

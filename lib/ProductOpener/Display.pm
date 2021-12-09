@@ -47,10 +47,6 @@ BEGIN
 		&init
 		&analyze_request
 
-		&remove_tags
-		&remove_tags_and_quote
-		&remove_tags_except_links
-		&xml_escape
 		&display_form
 		&display_date
 		&display_date_tag
@@ -1134,72 +1130,6 @@ sub analyze_request($)
 
 
 	return 1;
-}
-
-
-sub remove_tags_and_quote($) {
-
-	my $s = shift;
-
-	if (not defined $s) {
-		$s = "";
-	}
-
-	# Remove tags
-	$s =~ s/<(([^>]|\n)*)>//g;
-	$s =~ s/</&lt;/g;
-	$s =~ s/>/&gt;/g;
-	$s =~ s/"/&quot;/g;
-
-	# Remove whitespace
-	$s =~ s/^\s+|\s+$//g;
-
-	return $s;
-}
-
-sub xml_escape($) {
-
-	my $s = shift;
-
-	# Remove tags
-	$s =~ s/<(([^>]|\n)*)>//g;
-	$s =~ s/\&/\&amp;/g;
-	$s =~ s/</&lt;/g;
-	$s =~ s/>/&gt;/g;
-	$s =~ s/"/&quot;/g;
-
-	# Remove whitespace
-	$s =~ s/^\s+|\s+$//g;
-
-	return $s;
-
-}
-
-sub remove_tags($) {
-
-	my $s = shift;
-
-	# Remove tags
-	$s =~ s/</&lt;/g;
-	$s =~ s/>/&gt;/g;
-
-	return $s;
-}
-
-
-sub remove_tags_except_links($) {
-
-	my $s = shift;
-
-	# Transform links
-	$s =~ s/<a href="?'?([^>"' ]+?)"?'?>([^>]+?)<\/a>/\[a href="$1"\]$2\[\/a\]/isg;
-
-	$s = remove_tags($s);
-
-	# Transform back links
-	$s =~ s/\[a href="?'?([^>"' ]+?)"?'?\]([^\]]+?)\[\/a\]/\<a href="$1">$2<\/a>/isg;
-
-	return $s;
 }
 
 
@@ -9595,21 +9525,21 @@ CSS
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
-		# Do not show rows that are optional (id with a trailing -) unless we have non empty data for it
-		if  (($nutriment !~ /-$/)
-			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+		# Check if we have a value for the nutrient
+		my $is_nutrient_with_value = ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
+			or ((defined $product_ref->{nutriments}{$nid . "_modifier"}) and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'));
+
+		# Show rows that are not optional (id with a trailing -), or for which we have a value
+		if  (($nutriment !~ /-$/) or $is_nutrient_with_value) {
 			$shown = 1;
 		}
 
-		# Only show important nutriments (id prefixed with !) if the value is not known
-		# Only show known values for search graph results
+		# Hide rows that are not important when we don't have a value
 		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
-			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-					or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
-					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
+			and not ($is_nutrient_with_value)) {
 			$shown = 0;
 		}
 
@@ -9631,9 +9561,9 @@ CSS
 			# Level of the nutrient: 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
 			my $level = 0;
 			
-			if ($nutriment =~ /^-/) {
+			if ($nutriment =~ /^!?-/) {
 				$level = 1;
-				if ($nutriment =~ /^--/) {
+				if ($nutriment =~ /^!?--/) {
 					$level = 2;
 				}
 			}
@@ -9786,8 +9716,21 @@ CSS
 						$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$1 . "_100g"};
 					}
 
+					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
+					my $prepared = '';
+					if ($col =~ /prepared/) {
+						$prepared = "_prepared";
+					}					
+
 					if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
-						$value_unit = '?';
+						if ((defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"})
+							and ($product_ref->{nutriments}{$nid . $prepared . "_modifier"} eq '-')) {
+							# The nutrient is not indicated on the package, display a minus sign
+							$value_unit = '-';
+						}
+						else {
+							$value_unit = '?';
+						}
 					}
 					else {
 
@@ -9810,8 +9753,8 @@ CSS
 
 						$value_unit = "$value $unit";
 
-						if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
-							$value_unit = $product_ref->{nutriments}{$nid . "_modifier"} . " " . $value_unit;
+						if (defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"}) {
+							$value_unit = $product_ref->{nutriments}{$nid . $prepared . "_modifier"} . " " . $value_unit;
 						}
 
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {

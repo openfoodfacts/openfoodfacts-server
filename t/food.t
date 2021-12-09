@@ -457,4 +457,129 @@ foreach (@{$nutriments_tables{europe}}) {
 	ok(exists_taxonomy_tag("nutrients", $tagid), "$tagid exists in the nutrients taxonomy");
 }
 
+# Test normalize_nutriment_value_and_modifier()
+# and assign_nid_modifier_value_and_unit()
+
+$product_ref = {};
+
+my $value = "50.1";
+my $modifier;
+my $unit;
+# test we have no modifier
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, "50.1");
+is($modifier, undef);
+# test compute_serving_size_data with various units
+assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
+assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
+assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
+
+compute_serving_size_data($product_ref);
+
+is_deeply($product_ref,
+ {
+   'nutriments' => {
+     'fat' => '0.0501',
+     'fat_100g' => '0.0501',
+     'fat_unit' => 'mg',
+     'fat_value' => '50.1',
+     'salt' => '50.1',
+     'salt_100g' => '50.1',
+     'salt_unit' => 'g',
+     'salt_value' => '50.1',
+     'sugars' => '50.1',
+     'sugars_100g' => '50.1',
+     'sugars_unit' => 'g',
+     'sugars_value' => '50.1'
+   },
+   'nutrition_data_per' => '100g',
+   'nutrition_data_prepared_per' => '100g'
+ }
+) or diag explain $product_ref;
+
+# test various  modifiers : - (not communicated), >=, etc.
+
+$value = '-';
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, undef);
+is($modifier, '-');
+assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, "g");
+
+$value = '<= 1';
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, "1");
+is($modifier, "≤");
+assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
+
+# Delete a value, check all derived fields are deleted as well
+$value = '';
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, undef);
+is($modifier, undef);
+assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
+
+# test modifiers are taken into account
+compute_serving_size_data($product_ref);
+
+is_deeply($product_ref,
+ {
+   'nutriments' => {
+     'fat_unit' => 'mg',
+     'salt_modifier' => '-',
+     'salt_unit' => 'g',
+     'sugars' => 1,
+     'sugars_100g' => 1,
+     'sugars_modifier' => "\x{2264}",
+     'sugars_unit' => 'g',
+     'sugars_value' => 1
+   },
+   'nutrition_data_per' => '100g',
+   'nutrition_data_prepared_per' => '100g'
+ }
+) or diag explain $product_ref;
+
+# test reporting traces
+$value = 'Traces';
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, 0);
+is($modifier, '~');
+assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
+
+# Prepared value
+
+$value = '~ 20,5 ';
+normalize_nutriment_value_and_modifier(\$value, \$modifier);
+is($value, '20,5');
+is($modifier, '~');
+assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
+
+# test support of traces, as well as "nearly" and prepared values
+compute_serving_size_data($product_ref);
+
+is_deeply($product_ref,
+ {
+   'nutriments' => {
+     'fat' => 0,
+     'fat_100g' => 0,
+     'fat_modifier' => '~',
+     'fat_unit' => 'g',
+     'fat_value' => 0,
+     'salt_modifier' => '-',
+     'salt_prepared' => '20.5',
+     'salt_prepared_100g' => '20.5',
+     'salt_prepared_modifier' => '~',
+     'salt_prepared_unit' => 'g',
+     'salt_prepared_value' => '20.5',
+     'salt_unit' => 'g',
+     'sugars' => 1,
+     'sugars_100g' => 1,
+     'sugars_modifier' => "\x{2264}",
+     'sugars_unit' => 'g',
+     'sugars_value' => 1
+   },
+   'nutrition_data_per' => '100g',
+   'nutrition_data_prepared_per' => '100g'
+ }
+) or diag explain $product_ref;
+
 done_testing();
