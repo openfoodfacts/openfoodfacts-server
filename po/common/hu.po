@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:34\n"
+"PO-Revision-Date: 2021-12-01 17:39\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -589,11 +589,11 @@ msgstr "email cím"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Termékek, melyeket a következő származási kóddal rendelkező cég csomagol %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Származási kód (EMB vagy EK üzemkód)"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -605,19 +605,19 @@ msgstr "Származási kód (EMB vagy Ek üzemkód)"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "származási kódok (EMB vagy EK üzemkódok)"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Termékek melyek származási kódja %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "származási kód"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Termékek melyek származási kódja nem %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -2608,7 +2608,7 @@ msgstr "Figyelmeztetés: a gyümölcsök, zöldségek és diófélék mennyiség
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Figyelmeztetés: a gyümölcsök, zöldségek és diófélék mennyisége nincs megadva a címkén, ezért az összetevők alapján becsült értékük: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
@@ -4782,7 +4782,7 @@ msgstr "email cím"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Kapcsolati űrlap"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4790,7 +4790,7 @@ msgstr "Egyéb információk"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "pl nyitvatartási idő"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
@@ -4814,11 +4814,11 @@ msgstr "Szervezet törlése"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "Hivatalos weboldal"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Kapcsolati űrlap"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
@@ -4826,7 +4826,7 @@ msgstr "Szerkessze a szervezeti profilját"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Profil szerkesztése"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4961,11 +4961,11 @@ msgstr "Olyan termékek, amelyekről jelenleg hiányzik valamilyen adat, hogy me
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Erdőlábnyom"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "Szóját igénylő összetevők"
 
 msgctxt "type"
 msgid "Type"
@@ -4973,23 +4973,23 @@ msgstr "Típus"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "Feldolgozási tényező"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Szója takarmányfaktor"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Szója hozam"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Erdőirtás veszélye"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Teljes erdőlábnyom"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -4997,15 +4997,15 @@ msgstr "m² / termék kg"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "%-a élelmiszer a feldolgozás után"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "kg szója élelmiszer kilogrammonként"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "kg szója/m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
@@ -5013,23 +5013,23 @@ msgstr "% a termékben"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "Erdőlábnyom osztályzat kiszámításának részletei"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Ön a nyilvános adatbázisban van."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Kezelje az Ön termékeit a gyártói platformon"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "A legutóbbi exportálás óta megváltozott termékek száma"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "Csak a változtatásokkal rendelkező termékek exportálása"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
@@ -5037,24 +5037,24 @@ msgstr "Ez az Ön terméke? Ha igen, akkor a frissítéshez használja a gyárt�
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Arra bátorítjuk a gyártókat, hogy a gyártóknak szóló ingyenes platformunkon keresztül adjanak hozzá vagy módosítsanak termékeik adatait és fotóit, hogy hivatalosnak jelölhessék, és mások általi változtatásokkal szemben védve legyenek."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "A platform megkönnyíti a termékadatok és fényképek importálását Excel vagy CSV fájlokba, bármilyen formátumban."
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "A platform a termékek mélyreható elemzését is biztosítja."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Kiszámol olyan mutatókat, mint a Nutri-Score, a NOVA és az Eco-score, és automatikusan azonosítja a javításukra vonatkozó javaslatokat (például minden olyan terméket, amely enyhe összetételváltozással jobb Nutri-Score osztályzatot kapna)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Erdőlábnyom"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
@@ -5152,16 +5152,16 @@ msgstr "Rövidített terméknév"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
-msgstr ""
+msgstr "Terméknév a nyugtákon feltüntetett rövidítésekkel"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Jövőkép, küldetés, értékek és programok"
 
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5173,7 +5173,7 @@ msgstr "Nem tudjuk alaphelyzetbe állítani a jelszavát, kérjük, forduljon ho
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "Távolítson el minden tápanyagértéket"
 
 msgctxt "delete_user_process"
 msgid "User deleted."
@@ -5189,39 +5189,39 @@ msgstr "Ismeretlen környezeti hatás"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "A GS1 adatok automatikusan hozzá vannak rendelve egy OFF szervezeti azonosítóhoz, amely megfelel a GS1 partyName mezőnek. Az OFF szervezeti azonosító módosításához közvetlenül hozzárendelhet 1 vagy több GS1 GLN azonosítót."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
-msgstr ""
+msgstr "A szervezethez társítandó GS1 GLN azonosítók listája"
 
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
-msgstr ""
+msgstr "A GS1 GLN-azonosítók vesszővel elválasztott listája a szervezettel való társítás kényszerítésére."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
-msgstr ""
+msgstr "Engedélyezze a szervezet tagjainak a termékadatok és fényképek manuális exportálását a nyilvános adatbázisba."
 
 msgctxt "org_enable_manual_export_to_public_platform_note"
 msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
-msgstr ""
+msgstr "A kézi exportálás akkor engedélyezhető, ha az importált adatokat a rendszergazda felülvizsgálta."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr ""
+msgstr "Aktiválja a termékadatok és fényképek automatikus napi exportálását a nyilvános adatbázisba."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr ""
+msgstr "Az automatizált exportálást csak azoknál a szervezeteknél szabad aktiválni, amelyek rendelkeznek automatizált importtal (pl. az Equadis-en keresztül)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "Adminisztrátor mezők"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "Várakozik"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5238,58 +5238,58 @@ msgstr "Sikertelen"
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "Exportálás a gyártói platformról"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
 msgid "Import to the public database"
-msgstr ""
+msgstr "Importálás a nyilvános adatbázisba"
 
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr ""
+msgstr "Az importállapot frissítése a gyártói platformon"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr ""
+msgstr "Az export ütemezése megtörtént. Ez az oldal bezárható."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr ""
+msgstr "Az exportálás ütemezve. Ha elkészült, e-mailt fog kapni."
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
-msgstr ""
+msgstr "Termékoldal a nyilvános adatbázisban"
 
 msgctxt "product_does_not_exist_on_the_public_database"
 msgid "The product does not exist yet on the public database"
-msgstr ""
+msgstr "A termék még nem szerepel a nyilvános adatbázisban"
 
 # product updates = updates to multiple products
 msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
 msgid "Some product updates have not been published on the public database."
-msgstr ""
+msgstr "Néhány termékfrissítés nem került közzétételre a nyilvános adatbázisban."
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
-msgstr ""
+msgstr "Ne importáljon CodeOnline adatokat."
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
-msgstr ""
+msgstr "Írja felül azokat a termékeket, amelyeknek más tulajdonosa van a nyilvános platformon. Ellenkező esetben a másik tulajdonossal rendelkező termékek kimaradnak."
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr ""
+msgstr "%s szorzatára vonatkozó adatok egy része az %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr ""
+msgstr "A gyártók használhatják az Open Food Facts <a href=\"<producers_platform_url>\">ingyenes platformot a termelők számára</a> az adatok eléréséhez és kiegészítéséhez, valamint jelentésekhez, elemzésekhez és termékfejlesztési lehetőségekhez (pl. jobb Nutri-Score)."
 
 msgctxt "data_source_database_equadis"
 msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "A gyártó %s az %s et használja az adatok és fényképek automatikus továbbítására termékeihez."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5298,11 +5298,11 @@ msgstr "A termékfotó típusa"
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr ""
+msgstr "Ha ugyanazt az oszlopot több sorban használja a képek URL-jének megadásához egyetlen termékhez, akkor ezzel a mezővel jelezheti a kép típusát: előlap, összetevők, tápanyag vagy csomagolás."
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "Az erdőlábnyom kiszámításakor figyelembe veszik azokat az összetevőket, amelyek előállításához szójababra van szükség, amelynek termesztése az erdőirtáshoz kapcsolódik."
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
@@ -5440,11 +5440,11 @@ msgstr "Veszélyeztetett fajok"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Összetevők, amelyek termesztése fajokat veszélyeztet"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Nincsenek olyan összetevők, amelyek veszélyeztetik a fajokat"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5520,64 +5520,64 @@ msgstr "Ennél a gyártónál a GS1 terméknevek rövidítve vannak."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "A gyártó által készített GS1 tápanyagok valójában az értékesített termékhez tartoznak."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
-msgstr ""
+msgstr "Ellenőrizze, hogy a gyártó nem gyárt-e olyan termékeket, amelyek valóban tartalmaznak tápanyagokat az elkészített termékhez."
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
-msgstr ""
+msgstr "Egyes gyártók hibás értékeket adnak meg a GS1 egyes mezőiben. Az alábbi funkciók némelyikük javítására használhatók."
 
 # do not remove %s, it will be replaced with the source name
 msgctxt "import_source_string"
 msgid "Import data from %s"
-msgstr ""
+msgstr "Adatok importálása innen %s"
 
 msgctxt "org_protect_data"
 msgid "Protect the data that is provided by the organization."
-msgstr ""
+msgstr "Védje a szervezet által szolgáltatott adatokat."
 
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
-msgstr ""
+msgstr "A megadott adatok eltávolítása vagy módosítása csak a weboldalon jogosult közreműködők számára lesz lehetséges."
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Nagy hatású csomagolás"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Közepes hatású csomagolás"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Alacsony hatású csomagolás"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Hiányzó csomagolási információ ehhez a termékhez"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Nagy hatású összetevők eredete"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Közepes hatású összetevők eredete"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Alacsony hatású összetevők eredete"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Hiányzik az összetevők eredetére vonatkozó információ"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
-msgstr ""
+msgstr "az összetevők %-a"
 
 # medium as in "medium impact"
 msgctxt "medium"
@@ -5596,13 +5596,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Fontos: szükségünk van az Ön támogatására!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr ""
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "Az Open Food Facts egy több tízezer önkéntes által felépített együttműködési projekt, amelyet egy {number_of_employees} alkalmazottat foglalkoztató non-profit szervezet irányít."
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr ""
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "Szükségünk van az Ön adományaira az Open Food Facts {year} költségvetés finanszírozásához és a projekt fejlesztésének folytatásához."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5610,19 +5612,19 @@ msgstr "Adományozás"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Nincsenek környezeti előnyökkel járó címkék"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Környezeti előnyökkel járó címkék"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr ""
+msgstr "Magas környezeti előnyökkel rendelkező címkék"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "Nagyon magas környezeti előnyökkel rendelkező címkék"
 
 msgctxt "other"
 msgid "Other"
@@ -5635,19 +5637,19 @@ msgstr "Középérték"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
-msgstr ""
+msgstr "Összetevők statisztikái minden termékhez"
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
-msgstr ""
+msgstr "Hozzávalók minden termékhez"
 
 msgctxt "product_deleted"
 msgid "Product deleted."
-msgstr ""
+msgstr "Termék törölve."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Ökológiai lábnyom"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
@@ -5669,7 +5671,7 @@ msgstr "Környezet"
 
 msgctxt "health_card_title"
 msgid "Nutrition and health"
-msgstr ""
+msgstr "Táplálkozás és egészség"
 
 msgctxt "contains_palm_oil"
 msgid "Contains palm oil"
@@ -5681,61 +5683,61 @@ msgstr "Elősegíti az erdőirtást és veszélyezteti az olyan fajokat, mint az
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
-msgstr ""
+msgstr "Ázsia, Afrika és Latin-Amerika trópusi erdőit pusztítják el, hogy olajpálmafa-ültetvényeket hozzanak létre és bővítsenek. Az erdőirtás hozzájárul az éghajlatváltozáshoz, és veszélyezteti az olyan fajokat, mint az orangután, a disznó elefánt és a szumátrai orrszarvú."
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bónusz"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr ""
+msgstr "Roszallás"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Életciklus elemzés"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bónuszok és roszallások"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Eco-Score ehhez a termékhez"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Az azonos kategóriába tartozó termékek átlagos hatása"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "A bónuszok és a rosszallások összege"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "A bónuszok és a roszallások összegének felső határa +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Életciklus elemzés pontszáma"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "A nem újrahasznosítható és biológiailag nem lebomló csomagolóanyagot tartalmazó termékek pontszáma 79 (B osztály)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr ""
+msgstr "A Nutri-Score nem alkalmazható erre a termékkategóriára."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "A Nutri-Score kiszámításához meg kell adni a termék kategóriáját."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "A Nutri-Score kiszámításához meg kell adni a termék tápértékét."
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Egészség"
 
