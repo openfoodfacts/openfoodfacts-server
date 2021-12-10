@@ -11,7 +11,7 @@ use File::Basename "dirname";
 
 use ProductOpener::Producers qw(load_csv_or_excel_file);
 
-my $inputs_dir = dirname(__FILE__) . "/inputs/";
+my $inputs_dir = dirname(__FILE__) . "/inputs/load_csv_or_excel_file/";
 
 
 # Ademe excel test
@@ -33,7 +33,7 @@ my @expected_headers = (
 
 # we have headers
 is_deeply(
-    \@{$results_ref->{headers}},
+    $results_ref->{headers},
     \@expected_headers,
 );
 # we have 3 rows
