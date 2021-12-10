@@ -129,6 +129,7 @@ my $mongodb_to_mongodb = '';
 my $compute_ecoscore = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
+my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 
 my $query_ref = {};    # filters for mongodb query
@@ -177,6 +178,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"delete-old-fields" => \$delete_old_fields,
 			"mongodb-to-mongodb" => \$mongodb_to_mongodb,
 			"fix-nutrition-data-per" => \$fix_nutrition_data_per,
+			"fix-nutrition-data" => \$fix_nutrition_data,
 			"compute-main-countries" => \$compute_main_countries,
 			)
   or die("Error in command line arguments:\n\n$usage");
@@ -218,7 +220,7 @@ if (
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
-	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)
+	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)  and (not $fix_nutrition_data)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
 	and (not $mark_as_obsolete_since_date) and (not $compute_main_countries)
@@ -353,6 +355,7 @@ my $fix_rev_not_incremented_fixed = 0;
 my %deleted_fields = ();
 
 my $nutrition_data_per_n = 0;
+my $nutrition_data_n = 0;
 
 while (my $product_ref = $cursor->next) {
 
@@ -491,6 +494,20 @@ while (my $product_ref = $cursor->next) {
 						$product_values_changed = 1;
 						$nutrition_data_per_n++;
 					}
+				}
+			}
+		}
+
+		# Fix nutrition data checkbox: if we have nutrition data, check the checkbox
+		if ($fix_nutrition_data) {
+			if (defined $product_ref->{nutriments}) {
+				foreach my $type ("", "_prepared") {
+					if ((defined $product_ref->{"nutrition_data" . $type}) and ($product_ref->{"nutrition_data" . $type} eq '')
+						and (defined $product_ref->{nutriments}{"energy" . $type . "_100g"})) {
+						$product_ref->{"nutrition_data" . $type} = "on";
+						$product_values_changed = 1;
+						$nutrition_data_n++;
+					} 
 				}
 			}
 		}
@@ -1132,6 +1149,10 @@ if ($fix_rev_not_incremented_fixed) {
 
 if ($fix_nutrition_data_per) {
 	print $nutrition_data_per_n . " nutrition_data_per fixed\n";
+}
+
+if ($fix_nutrition_data) {
+	print $nutrition_data_n . " nutrition_data fixed\n";
 }
 
 if ($restore_values_deleted_by_user) {
