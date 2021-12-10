@@ -10,9 +10,15 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
+export CPU_COUNT=$(shell nproc || 1)
+
+
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
+
+# this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
+_FORCE:
 
 #------#
 # Info #
@@ -155,6 +161,30 @@ checks: front_lint
 tests:
 	@echo "🥫 Runing tests …"
 	docker-compose run --rm backend prove -l
+
+# check perl compiles, (pattern rule) / but only for newer files
+%.pm %.pl: _FORCE
+	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+
+# check all modified (compared to main) perl file compiles
+TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+check_perl_fast:
+	@echo "🥫checking ${TO_CHECK}"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+
+# check all perl files compile (takes time, but needed to check a function rename did not break another module !)
+check_perl:
+	@echo "🥫checking all perl files"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+
+#-------------#
+# Compilation #
+#-------------#
+
+build_taxonomies:
+	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
+	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
+
 
 #------------#
 # Production #
