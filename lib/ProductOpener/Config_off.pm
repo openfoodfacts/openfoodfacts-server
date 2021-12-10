@@ -498,7 +498,7 @@ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements origins packaging_shapes packaging_materials packaging_recycling
-periods_after_opening nutrients
+periods_after_opening nutrients food_groups
 );
 
 
