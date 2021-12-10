@@ -9,6 +9,7 @@ x-backend-conf: &backend-conf
     - PRODUCT_OPENER_FLAVOR
     - PRODUCT_OPENER_FLAVOR_SHORT
     - MONGODB_HOST
+    - POSTGRES_HOST
     - POSTGRES_USER
     - POSTGRES_PASSWORD
     - ROBOTOFF_URL
@@ -21,7 +22,6 @@ x-backend-conf: &backend-conf
     - INFLUXDB_HOST
   depends_on:
     - memcached
-    - postgres
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_LANG_PATH}:/mnt/podata/lang
@@ -50,18 +50,13 @@ x-backend-conf: &backend-conf
     # Apache conf
     - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
 
-  networks:
-    - webnet
-
 services:
   memcached:
     image: memcached:1.6-alpine
-    networks:
-      - webnet
   postgres:
     image: postgres:12-alpine
-    networks:
-      - webnet
+    # we want postgres for off, but not for pro profile
+    profiles: ["off"]
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -69,6 +64,17 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf
+  minion:
+    <<: *backend-conf
+    # This service run the minion, see https://docs.mojolicious.org/Minion/
+    command:
+      - "/opt/product-opener/scripts/minion_producers.pl"
+      - "minion"
+      - "worker"
+      - "-m"
+      - "$MINION_MODE"
+      - "-q"
+      - "$MINION_QUEUE"
   incron:
     <<: *backend-conf
     # This service run the incron jobs
@@ -92,23 +98,20 @@ services:
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
 
-      # Logs 
+      # Logs
       - ./logs/nginx/:/var/log/nginx/
-      
-      # Nginx
-      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+
+      # Nginx, we use templates dir to be able to use environment vars
+      - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
 
       # Node modules
       - node_modules:/opt/product-opener/node_modules
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
-    networks:
-      - webnet
+
 volumes:
   pgdata:
   icons_dist:
   js_dist:
   css_dist:
   node_modules:
-networks:
-  webnet:
