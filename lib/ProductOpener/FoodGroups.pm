@@ -123,7 +123,9 @@ foreach my $group (keys %pnns) {
 
 Compute the PNNS groups of a product from its categories.
 
-This function will ultimately be replaced by compute_food_groups()
+This function will ultimately be replaced by compute_food_groups().
+
+For a time, we will compute both the old PNNS groups and the new food groups, so that we can compare the results.
 
 =head3 Arguments
 
@@ -358,9 +360,6 @@ sub compute_pnns_groups($) {
 }
 
 
-
-=head1 FUNCTIONS
-
 =head2 compute_food_groups ( $product_ref )
 
 Compute the food groups of a product from its categories.
@@ -368,7 +367,6 @@ Compute the food groups of a product from its categories.
 =head3 Arguments
 
 =head4 product reference $product_ref
-
 
 =head3 Return values
 
@@ -384,7 +382,7 @@ sub compute_food_groups($) {
 
     $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
 
-    $product_ref->{food_groups} = "en:unknown";
+    delete $product_ref->{food_groups};
 
     # Find the first category with a defined value for the property
 
@@ -392,13 +390,17 @@ sub compute_food_groups($) {
         foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
             if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"food_groups:en"})) {
                 $product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
+				$log->debug("found food group for category", { category_id => $categoryid, food_groups => $product_ref->{food_groups} }) if $log->is_debug();
                 last;
             }
         }
     }
     
-    compute_field_tags($product_ref, "en", "food_groups");
+	# Compute the food groups tags, including parents, in food_groups_tags
+	$product_ref->{food_groups_tags} = [ gen_tags_hierarchy_taxonomy("en", "food_groups", $product_ref->{food_groups}) ];
 
+	# Compute old PNNS groups tags, for comparison.
+	# Will eventually be removed.
     compute_pnns_groups($product_ref);
 }
 
