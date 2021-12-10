@@ -55,6 +55,8 @@ BEGIN
 		&load_ecoscore_data
 		&compute_ecoscore
 		&localize_ecoscore
+
+		&is_ecoscore_extended_data_more_precise_than_agribalyse
 		
 		%ecoscore_countries
 		@ecoscore_countries_sorted
@@ -1453,8 +1455,70 @@ sub localize_ecoscore ($$) {
 		}
 		
 	}		
-	
 }
+
+
+
+=head2 ecoscore_extended_data_expected_error (  $product_ref)
+
+Expected error of the Eco-Score extended data from the impact estimator,
+based on % of uncharacterized ingredients and standard deviation.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+=cut
+
+sub ecoscore_extended_data_expected_error ($) {
+	
+	my $product_ref = shift;
+
+	# Parameters of the surface
+	my @p = [ 0.16537831,  0.2269159 ,  0.04220039, -0.01991893,  0.44583949,
+       -0.06321924, -0.37268731,  0.12465602, -0.09215003,  0.06000644];
+
+	my $stddev = $product_ref->{ecoscore_extended_data}{ef_single_score_log_stddev};
+	my $unchar = $product_ref->{ecoscore_extended_data}{mass_ratio_uncharacterized};
+
+	return $p[0] +
+		$p[1] * $unchar +
+		$p[2] * $stddev +
+		$p[3] * $unchar * $stddev +
+		$p[4] * $unchar * $unchar +
+		$p[5] * $stddev * $stddev +
+		$p[6] * $unchar * $unchar * $unchar +
+		$p[7] * $unchar * $unchar * $stddev +
+		$p[8] * $unchar * $stddev * $stddev +
+		$p[9] * $stddev * $stddev * $stddev;
+
+}
+
+sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
+
+	my $product_ref = shift;
+
+	# Check that the product has both Agribalyse and Impact Estimator data
+	if ((defined $product_ref->{agribalyse}) and (defined $product_ref->{agribalyse}{ef_agriculture}) 
+		and (defined $product_ref->{ecoscore_extended_data})
+		and (defined $product_ref->{ecoscore_extended_data}{impact})
+		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score})
+	) {
+
+		my $agribalyse_score = $product_ref->{agribalyse}{ef_agriculture};
+		my $estimated_score = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+
+		return (ecoscore_extended_data_expected_error($product_ref) 
+			< abs((log($agribalyse_score) - log($estimated_score)) / log($estimated_score)));
+	}
+	else {
+		return 0;
+	}
+}
+
 
 1;
 

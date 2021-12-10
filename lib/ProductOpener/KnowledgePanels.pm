@@ -445,6 +445,11 @@ sub create_ecoscore_panel($$$) {
 
             $product_ref->{ecoscore_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
 
+            $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
+
+            # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+
+
             create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
                 $panel_data_ref, $product_ref, $target_lc, $target_cc);
         }

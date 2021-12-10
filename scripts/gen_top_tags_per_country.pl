@@ -201,6 +201,15 @@ while (my $product_ref = $cursor->next) {
 			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
 			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
+
+		# Add environmental impact from impact estimator if we have them
+		if ((defined $product_ref->{ecoscore_extended_data}) and (defined $product_ref->{ecoscore_extended_data}{impact})
+			and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+			# Need to add a filter to keep only impacts computed with high confidence
+		) {
+			$products_nutriments{$code}{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+			$products_nutriments{$code}{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+		}
 	}
 
 	# Compute points

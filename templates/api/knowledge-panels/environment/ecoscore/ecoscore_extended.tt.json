@@ -25,6 +25,8 @@
 
                     calculation_time: [% product.ecoscore_extended_data.impact.calculation_time %]
 
+                    ecoscore_extended_data_more_precise_than_agribalyse: [% panel.ecoscore_extended_data_more_precise_than_agribalyse %]
+
                     `
             }
         },
