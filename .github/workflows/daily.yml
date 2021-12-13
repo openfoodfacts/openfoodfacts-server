@@ -31,7 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        env: [mongo-dev]
+        env:
+          - ${{ startsWith(github.ref, 'refs/tags/v') && 'mongo-org' || 'mongo-dev' }}
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
@@ -58,7 +59,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        env: [mongo-dev]
+        env:
+          - ${{ startsWith(github.ref, 'refs/tags/v') && 'mongo-org' || 'mongo-dev' }
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
