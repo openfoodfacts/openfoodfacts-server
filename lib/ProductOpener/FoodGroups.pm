@@ -152,12 +152,149 @@ sub compute_pnns_groups($) {
 		return;
 	}
 
-	# Only add or remove categories tags temporarily for determining the PNNS groups
+	# compute PNNS groups 2 and 1
+
+	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
+
+			# skip the sweetened / unsweetened if it is alcoholic
+			next if ((has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
+				and (
+					($categoryid eq 'en:sweetened-beverages')
+					or ($categoryid eq 'en:artificially-sweetened-beverages')
+					or ($categoryid eq 'en:unsweetened-beverages')
+				)
+				);
+
+
+			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
+			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
+
+			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
+			next if (
+				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
+				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
+
+				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages')
+					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
+
+			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
+			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
+
+			# Let waters and teas take precedence over unsweetened-beverages
+			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
+				last;
+			}
+		}
+	}
+
+	if (defined $product_ref->{pnns_groups_2}) {
+		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
+			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
+			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
+		}
+		else {
+			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
+		}
+	}
+	else {
+		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
+
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
+	}
+}
+
+
+=head2 compute_food_groups ( $product_ref )
+
+Compute the food groups of a product from its categories.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head3 Return values
+
+The lowest level food group is stored in $product_ref->{food_group}
+
+All levels food groups are stored in $product_ref->{food_groups_tags}
+
+=cut
+
+sub compute_food_groups($) {
+
+	my $product_ref = shift;
+
+    $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
+
+	# Temporarily change categories
+	temporarily_change_categories_for_food_groups_computation($product_ref);
+
+    delete $product_ref->{food_groups};
+
+    # Find the first category with a defined value for the property
+
+    if (defined $product_ref->{categories_tags}) {
+        foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+            if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"food_groups:en"})) {
+                $product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
+				$log->debug("found food group for category", { category_id => $categoryid, food_groups => $product_ref->{food_groups} }) if $log->is_debug();
+                last;
+            }
+        }
+    }
+    
+	# Compute the food groups tags, including parents, in food_groups_tags
+	$product_ref->{food_groups_tags} = [ gen_tags_hierarchy_taxonomy("en", "food_groups", $product_ref->{food_groups}) ];
+
+	# Compute old PNNS groups tags, for comparison.
+	# Will eventually be removed.
+    compute_pnns_groups($product_ref);
+
+	# Put back the original categories_tags so that they match what is in the taxonomy field
+	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
+	if (defined $product_ref->{original_categories_tags}) {
+		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
+		delete $product_ref->{original_categories_tags};
+	}	
+}
+
+
+=head2 temporarily_change_categories_for_food_groups_computation ( $product_ref )
+
+Food groups are derived from categories.
+In order to account to some subtleties (categories in OFF are manually entered and may have a broad and imprecise scope:
+e.g. what is a beverage?), this function has some rules to temporarily change categories, so that:
+
+- only products that matche the precise definition of a beverage according to the Nutri-Score formula are counted as beverages
+(e.g. a beverage with more than 80% milk is not counted as beverage)
+- alcoholic beverages with less than 1% alcohol are not counted as alcoholic beverages
+- beverages with sweeteners / added sugar are automatically categorized as artificially sweetened / sweetened beverages
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head3 Return values
+
+Categories can be added or removed in $product_ref->{categories_tags}
+
+Original categories are saved in $product_ref->{original_categories_tags}
+
+=cut
+
+sub temporarily_change_categories_for_food_groups_computation($) {
+
+	my $product_ref = shift;
+
+	# Only add or remove categories tags temporarily for determining the food groups / PNNS groups
 	# save the original value
 
-	my @original_categories_tags = ();
 	if (defined $product_ref->{categories_tags}) {
-		@original_categories_tags = @{$product_ref->{categories_tags}};
+		$product_ref->{original_categories_tags} = [@{$product_ref->{categories_tags}}];
 	}
 
 	# For Open Food Facts, add special categories for beverages that are computed from
@@ -295,114 +432,6 @@ sub compute_pnns_groups($) {
 			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 		}
 	}
-
-
-	# compute PNNS groups 2 and 1
-
-	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
-		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
-
-			# skip the sweetened / unsweetened if it is alcoholic
-			next if ((has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
-				and (
-					($categoryid eq 'en:sweetened-beverages')
-					or ($categoryid eq 'en:artificially-sweetened-beverages')
-					or ($categoryid eq 'en:unsweetened-beverages')
-				)
-				);
-
-
-			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
-			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
-
-			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
-			next if (
-				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
-				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
-
-				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages')
-					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
-
-			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
-
-			# Let waters and teas take precedence over unsweetened-beverages
-			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
-				last;
-			}
-		}
-	}
-
-	if (defined $product_ref->{pnns_groups_2}) {
-		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
-			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
-		}
-		else {
-			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
-		}
-	}
-	else {
-		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
-
-		$product_ref->{pnns_groups_2} = "unknown";
-		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
-		$product_ref->{pnns_groups_1} = "unknown";
-		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
-	}
-
-	# Put back the original categories_tags so that they match what is in the taxonomy field
-	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
-	if (scalar @original_categories_tags) {
-		$product_ref->{categories_tags} = \@original_categories_tags;
-	}
-
 }
-
-
-=head2 compute_food_groups ( $product_ref )
-
-Compute the food groups of a product from its categories.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-=head3 Return values
-
-The lowest level food group is stored in $product_ref->{food_group}
-
-All levels food groups are stored in $product_ref->{food_groups_tags}
-
-=cut
-
-sub compute_food_groups($) {
-
-	my $product_ref = shift;
-
-    $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
-
-    delete $product_ref->{food_groups};
-
-    # Find the first category with a defined value for the property
-
-    if (defined $product_ref->{categories_tags}) {
-        foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
-            if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"food_groups:en"})) {
-                $product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
-				$log->debug("found food group for category", { category_id => $categoryid, food_groups => $product_ref->{food_groups} }) if $log->is_debug();
-                last;
-            }
-        }
-    }
-    
-	# Compute the food groups tags, including parents, in food_groups_tags
-	$product_ref->{food_groups_tags} = [ gen_tags_hierarchy_taxonomy("en", "food_groups", $product_ref->{food_groups}) ];
-
-	# Compute old PNNS groups tags, for comparison.
-	# Will eventually be removed.
-    compute_pnns_groups($product_ref);
-}
-
 
 1;
