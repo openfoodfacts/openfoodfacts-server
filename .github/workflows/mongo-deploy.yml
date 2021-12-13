@@ -3,18 +3,21 @@ name: MongoDB Image Deployment CI
 on:
   push:
     branches:
-    - main
-    - deploy-*
+      - main
+      - deploy-*
     paths:
-    - docker/mongodb.yml
-    - .github/workflows/*.yml
+      - docker/mongodb.yml
+      - .github/workflows/*.yml
+    tags:
+      - v*.*.*
 
 jobs:
   deploy-docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        env: [mongo-dev]
+        env:
+          - ${{ startsWith(github.ref, 'refs/tags/v') && 'mongo-org' || 'mongo-dev' }}
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
@@ -117,78 +120,3 @@ jobs:
         script: |
           cd ${{ matrix.env }}
           make prune
-
-  # deploy-script:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       env: [mongo-dev, mongo-prod]
-  #   steps:
-  #   - name: Install dependencies
-  #     environment: ${{ matrix.env }}
-  #     concurrency: ${{ matrix.env }}
-  #     uses: appleboy/ssh-action@master
-  #     with:
-  #       host: ${{ secrets.HOST }}
-  #       username: ${{ secrets.USERNAME }}
-  #       key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #       proxy_host: ${{ secrets.PROXY_HOST }}
-  #       proxy_username: ${{ secrets.USERNAME }}
-  #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #       script_stop: false
-  #       script: |
-  #         apt update
-  #         apt upgrade -y
-  #         apt install gnupg
-
-  #     - name: Install libcurl13 from Debian 9 Stretch
-  #       environment: ${{ matrix.env }}
-  #       concurrency: ${{ matrix.env }}
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
-  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
-  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         script_stop: false
-  #         script: |
-  #           echo "deb http://deb.debian.org/debian/ stretch main" | sudo tee /etc/apt/sources.list.d/debian-stretch.list
-  #           apt update
-  #           apt install libcurl3
-
-  #     - name: Install MongoDB 4.4
-  #       environment: ${{ matrix.env }}
-  #       concurrency: ${{ matrix.env }}
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
-  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
-  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         script_stop: false
-  #         script: |
-  #           wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-  #           echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-  #           apt update
-  #           apt install -y mongodb-org-mongos mongodb-org-server mongodb-org-shell mongodb-org-tools
-  #           sudo systemctl enable mongodb --now
-
-  #     - name: Check if MongoDB is running
-  #       environment: ${{ matrix.env }}
-  #       concurrency: ${{ matrix.env }}
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
-  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
-  #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         script_stop: false
-  #         script: |
-  #           mongo --version
-  #           mongo --eval 'db.runCommand({ connectionStatus: 1 })'
