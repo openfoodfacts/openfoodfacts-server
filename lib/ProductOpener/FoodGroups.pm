@@ -230,7 +230,7 @@ sub compute_food_groups($) {
 
     $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
 
-	# Temporarily change categories
+	# Temporarily change categories (backup old one in original_categories_tags)
 	temporarily_change_categories_for_food_groups_computation($product_ref);
 
     delete $product_ref->{food_groups};
