@@ -108,7 +108,7 @@ jobs:
           echo "PRODUCT_OPENER_FLAVOR=${{ secrets.PRODUCT_OPENER_FLAVOR }}" >> .env
           echo "PRODUCT_OPENER_FLAVOR_SHORT=${{ secrets.PRODUCT_OPENER_FLAVOR_SHORT }}" >> .env
           echo "MINION_MODE=production" >> .env
-          echo "MINION_QUEUE=openfoodfacts.net" >> .env
+          echo "MINION_QUEUE=${{ secrets.PRODUCT_OPENER_DOMAIN }}" >> .env
           echo "MONGODB_HOST=${{ secrets.MONGODB_HOST }}" >> .env
           echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
