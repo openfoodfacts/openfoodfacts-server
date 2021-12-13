@@ -58,6 +58,10 @@ use ProductOpener::Food qw/:all/;
 
 use Log::Any qw($log);
 
+# Note: the %pnns structure is a hash of sub-groups (aka "PNNS groups 2") to groups (aka "PNNN groups 1").
+# The structure is used by compute_pnns_groups() that will be replaced by compute_food_groups()
+# The %pnns structure will be replaced by the new food_groups taxonomy.
+
 my %pnns = (
 
 	"Fruits" => "Fruits and vegetables",
@@ -303,6 +307,13 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 	# and not to the categories_hierarchy (displayed on the web site and in the product edit form)
 	# Those extra categories are also used to determined the French PNNS food groups
 
+	# Note: the code below is the code that was used to compute PNNS groups.
+	
+	# A lot of it is outdated and may be simplified, especially when we completely remove PNNS groups
+	# and keep only the new food groups.
+
+	# Some of the code may also be removed if we achieve a similar effect through the upcoming product rules.
+
 	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
 
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
@@ -353,22 +364,38 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 				}
 			}
+
 			# fix me: ingredients are now partly taxonomized
+
+			# All the conditions below for sugars will be replaced by only 1 condition on "en:added-sugar"
+			# once https://github.com/openfoodfacts/openfoodfacts-server/pull/6181 is deployed.
 
 			if (
 
-				(has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
-				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne") or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
-				or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne") or has_tag($product_ref, "ingredients", "sucre-bio")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide") or has_tag($product_ref, "ingredients", "sucre-de-betterave")
-				or has_tag($product_ref, "ingredients", "sucre-inverti") or has_tag($product_ref, "ingredients", "canne-sucre")
-				or has_tag($product_ref, "ingredients", "sucre-glucose-fructose") or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
-				or has_tag($product_ref, "ingredients", "sirop-de-glucose") or has_tag($product_ref, "ingredients", "glucose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
-				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
+				(has_tag($product_ref, "ingredients", "sucre")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux")
+				or has_tag($product_ref, "ingredients", "sucre-caramelise")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio")
+				or has_tag($product_ref, "ingredients", "sucres")
+				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne")
+				or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
+				or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne")
+				or has_tag($product_ref, "ingredients", "sucre-bio")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide")
+				or has_tag($product_ref, "ingredients", "sucre-de-betterave")
+				or has_tag($product_ref, "ingredients", "sucre-inverti")
+				or has_tag($product_ref, "ingredients", "canne-sucre")
+				or has_tag($product_ref, "ingredients", "sucre-glucose-fructose")
+				or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
+				or has_tag($product_ref, "ingredients", "sirop-de-glucose")
+				or has_tag($product_ref, "ingredients", "glucose")
+				or has_tag($product_ref, "ingredients", "sirop-de-fructose")
+				or has_tag($product_ref, "ingredients", "saccharose")
+				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose")
+				or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
+				or has_tag($product_ref, "ingredients", "sugar")
+				or has_tag($product_ref, "ingredients", "sugars")
 				or has_tag($product_ref, "ingredients", "en:sugar")
 				or has_tag($product_ref, "ingredients", "en:glucose")
 				or has_tag($product_ref, "ingredients", "en:fructose")
@@ -388,7 +415,6 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 				if (
 					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
 					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
-
 					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
 					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
