@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:29\n"
+"PO-Revision-Date: 2021-12-07 09:03\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2451,7 +2451,7 @@ msgstr "آثار"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "athar"
+msgstr ""
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2523,7 +2523,7 @@ msgstr "المنتجات المضافة بواسطة %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "almousstakhdimoun"
+msgstr ""
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -5599,13 +5599,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "هام: نحن بحاجة إلى دعمك!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts هو مشروع تعاوني أنشأه عشرات الآلاف من المتطوعين وتديره منظمة غير ربحية تضم 3 موظفين."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr ""
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "نحتاج إلى تبرعاتك لتمويل ميزانية Open Food Facts 2021 ولمواصلة تطوير المشروع. <strong>شكرا لك! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"

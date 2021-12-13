@@ -1600,7 +1600,9 @@ sub compute_nutrition_score($) {
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
+		# do not display a warning if fibers are not specified on the product ('-' modifier)
 		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and (not defined $product_ref->{nutriments}{"fiber" . $prepared . "_modifier"})
 			and not (has_tag($product_ref, "categories", "en:sodas"))) {
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
@@ -2583,9 +2585,13 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		$no_nutrition_data = 1;
 	}
 
-	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+	if (defined param("nutrition_data")) {
+		$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+	}
 
-	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	if (defined param("nutrition_data_prepared")) {
+		$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	}
 
 	# Assign all the nutrient values
 

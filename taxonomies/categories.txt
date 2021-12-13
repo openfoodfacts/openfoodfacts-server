@@ -3910,6 +3910,13 @@ protected_name_type:en: gi
 origins:en: en:France
 
 <en:Liqueurs
+fr:Génépi des Alpes
+it:Genepì delle Alpi
+protected_name_file_number:en: PGI-FR+IT-01909
+protected_name_type:en: gi
+origins:en: en:France, en:Italy
+
+<en:Liqueurs
 en:Italian liqueur
 
 <en:Italian liqueur
@@ -47611,6 +47618,13 @@ ciqual_food_name:en:Buckwheat flour
 ciqual_food_name:fr:Farine de sarrasin
 
 <en:Buckwheat flours
+fr:Farine de blé noir de Bretagne, Farine de blé noir de Bretagne
+br:Gwinizh du Breizh
+protected_name_file_number:en: PGI-FR-0555
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Buckwheat flours
 en:T80 buckwheat flour
 fr:Farines de sarrasin T80, Farines de blé noir T80
 nl:Boekweitmelen T80
@@ -50223,6 +50237,7 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:German vegetables
+<en:Tomatoes
 de:Tomaten von der Insel Reichenau
 protected_name_file_number:en: PGI-DE-0319
 protected_name_type:en: pgi
@@ -50262,6 +50277,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Tomatoes
 es:Tomate La Cañada
 protected_name_file_number:en: PGI-ES-0664, PGI-ES-0664-AM01
 protected_name_type:en: pgi
@@ -50274,6 +50290,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Asparagus
 es:Espárrago de Huétor-Tájar
 protected_name_file_number:en: PGI-ES-0056, PGI-ES-0056-AM01
 protected_name_type:en: pgi
@@ -50293,12 +50310,14 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Gordal de Sevilla, Aceituna Gordal Sevillana
 protected_name_file_number:en: PGI-ES-2183
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Manzanilla de Sevilla, Aceituna Manzanilla Sevillana
 protected_name_file_number:en: PGI-ES-2182
 protected_name_type:en: pgi
@@ -50341,6 +50360,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna de Mallorca, Aceituna Mallorquina, Oliva de Mallorca, Oliva Mallorquina
 protected_name_file_number:en: PDO-ES-1051
 protected_name_type:en: pdo
@@ -50377,6 +50397,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Aloreña de Málaga
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
@@ -50590,12 +50611,6 @@ origins:en: en:Spain
 es:Uva de mesa embolsada del Vinalopó
 protected_name_file_number:en: PDO-ES-0075
 protected_name_type:en: pdo
-origins:en: en:Spain
-
-<en:Spanish vegetables
-es:Espárrago de Navarra
-protected_name_file_number:en: PGI-ES-0098
-protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish fruits
@@ -63183,6 +63198,12 @@ zh:牛肉
 wikidata:en:Q192628
 
 <en:Beef
+de:Bayerisches Rindfleisch, Rindfleisch aus Bayern
+protected_name_file_number:en: PGI-DE-0640
+protected_name_type:en: pgi
+origins:en: en:Germany, de:Bayern
+
+<en:Beef
 en:West Country Beef
 protected_name_file_number:en: PGI-GB-0668
 protected_name_type:en: pgi
@@ -65408,6 +65429,13 @@ agribalyse_food_code:en:36201
 ciqual_food_code:en:36201
 ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
+
+<en:French meat products
+<en:Ducks
+fr:Canard à foie gras du Sud-Ouest, Canard à foie gras de Chalosse, Canard à foie gras de Gascogne, Canard à foie gras du Gers, Canard à foie gras des Landes, Canard à foie gras du Périgord, Canard à foie gras du Quercy
+protected_name_file_number:en: PGI-FR-0034
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Ducks
 fr:aiguillettes de canard
@@ -79962,6 +79990,13 @@ agribalyse_food_code:en:20279
 ciqual_food_code:en:20279
 ciqual_food_name:en:Asparagus, green, raw
 ciqual_food_name:fr:Asperge, verte, crue
+
+<en:Spanish vegetables
+<en:Asparagus
+es:Espárrago de Navarra
+protected_name_file_number:en: PGI-ES-0098
+protected_name_type:en: pgi
+origins:en: en:Spain
 
 <en:Green asparagus
 it:Asparago verde di Altedo
