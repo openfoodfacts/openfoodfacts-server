@@ -61630,6 +61630,7 @@ ciqual_food_name:en:European hake, braised
 ciqual_food_name:fr:Merlu, cuit à l'étouffée
 
 <en:Fish dishes
+<en:hake
 en:Hake fillet
 fr:Filet de merlu
 
@@ -61647,7 +61648,8 @@ en:Frozen breaded hake fillet
 fr:Filet de merlu pâné surgelé
 
 <en:Fish dishes
-en:European hake
+<en:Lean fishes
+en:Hake, European hake
 fr:Merlu
 agribalyse_food_code:en:26044
 ciqual_food_code:en:26044
@@ -73563,6 +73565,14 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Fishes
+en:Fat fishes, blue fishes, fat fish, blue fish
+fr:Poissons gras, poissons bleus, poisson gras, poisson bleu
+
+<en:Fishes
+en:Lean fishes, white fishes, lean fish, white fish
+fr:Poissons maigres, poissons blancs, poisson maigre, poisson blanc
+
+<en:Fishes
 en:Tilapia
 fr:Tilapia
 ciqual_food_code:en:27019
@@ -73654,8 +73664,9 @@ ciqual_food_name:en:John dory, raw
 ciqual_food_name:fr:Saint-Pierre, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Golden redfish
-fr:Grand sébaste, Daurade sébaste, Sébaste du nord
+fr:Sébaste, Grand sébaste, Daurade sébaste, Sébaste du nord
 agribalyse_food_code:en:26210
 ciqual_food_code:en:26210
 ciqual_food_name:en:Golden redfish, raw
@@ -73667,6 +73678,7 @@ ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
 #ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
 
 <en:Fishes
+<en:Lean fishes
 en:Pouting
 fr:Tacaud
 agribalyse_food_code:en:26133
@@ -73678,6 +73690,7 @@ ciqual_food_name:fr:Tacaud, cru
 en:Pollan, Irish pollan
 
 <en:Fishes
+<en:Lean fishes
 en:European plaice
 fr:Carrelet crue, Plie, Plie commun
 agribalyse_food_code:en:26204
@@ -74585,6 +74598,7 @@ ciqual_food_name:en:Whiting, breaded
 ciqual_food_name:fr:Merlan, pané
 
 <en:Fishes
+<en:Lean fishes
 en:Whiting
 fr:Merlan
 agribalyse_food_code:en:26095
@@ -74842,6 +74856,7 @@ fr:Filets de colin
 nl:Koolvisfilets
 
 <en:Fishes
+<en:Fat fishes
 en:Anchovy
 de:Sardellen
 es:Anchoa
@@ -75097,6 +75112,7 @@ ciqual_food_name:en:Big-scale sand smelt (whole small fish), to fry, raw
 ciqual_food_name:fr:Joëls (petits poissons entiers) pour friture, crus
 
 <en:Fishes
+<en:Fat fishes
 en:Salmons
 bg:Сьомга
 ca:Salmó
@@ -75216,6 +75232,7 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Fishes
+<en:Fat fishes
 en:Sardines
 ca:Sardines
 da:Sardiner
@@ -75279,6 +75296,7 @@ ciqual_food_name:fr:Congre, cru
 cooking_method:en en:raw
 
 <en:Fishes
+<en:Lean fishes
 en:Roundnose grenadier
 fr:Grenadier, Grenadier de roche
 agribalyse_food_code:en:26128
@@ -75597,6 +75615,7 @@ nl:Gerookte forel
 fr:Filets de truite
 
 <en:Fishes
+<en:Fat fishes
 en:Trouts
 de:Forelle, Forellen
 es:Truchas
@@ -75672,6 +75691,7 @@ ciqual_food_name:en:Carp roasted, carp baked
 ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
 
 <en:Fishes
+<en:Lean fishes
 en:European perch
 fr:Perche
 agribalyse_food_code:en:27010
@@ -75737,6 +75757,7 @@ ciqual_food_code:en:26106
 ciqual_food_name:en:Red gurnard, raw
 
 <en:Fishes
+<en:Fat fishes
 en:Tunas, Thunnus
 bg:Риба тон
 ca:Tonyina
@@ -76024,6 +76045,7 @@ nl:Grootoogtonijn
 wikidata:en:Q1122241
 
 <en:Fishes
+<en:Lean fishes
 en:Bass
 de:Barsche, Barsch
 fr:Bars
@@ -76079,6 +76101,7 @@ ciqual_food_name:en:Spotted wolffish
 ciqual_food_name:fr:Loup tacheté, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Pollocks
 de:Seelachse, Seelachs
 fi:lyyraturskat
@@ -76086,11 +76109,19 @@ fr:Colins
 it:Merlano
 nl:Heek
 
+# Note: bream in English is used for species of freshwater and marine fish
+# Dorade in French is only marine fishes
+
 <en:Fishes
+<en:Lean fishes
 en:Breams
 de:Doraden, Dorade
 fr:Dorades, daurades
 nl:Brasem
+
+<en:Breams
+en:Seabreams, sea breams
+fr:Brèmes de mer
 
 <en:Breams
 en:Gilthead seabream
@@ -76121,6 +76152,7 @@ ciqual_food_name:en:Freshwater bream, raw
 ciqual_food_name:fr:Brème, cru
 
 <en:Fishes
+<en:Fat fishes
 en:Herring
 de:Heringe, Hering
 es:Arenques
@@ -76184,6 +76216,7 @@ ciqual_food_name:en:Atlantic herring, grilled/pan-fried
 ciqual_food_name:fr:Hareng, grillé/poêlé
 
 <en:Herring
+<en:Fat fishes
 en:Atlantic herring
 fr:Hareng
 agribalyse_food_code:en:26011
@@ -76216,6 +76249,7 @@ ciqual_food_name:en:Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Fishes
+<en:Lean fishes
 en:Pike-perch
 fr:Sandre
 ciqual_food_code:en:27024
@@ -76252,6 +76286,7 @@ ciqual_food_name:en:Burbot, raw
 ciqual_food_name:fr:Lotte de rivière, crue
 
 <en:Fishes
+<en:Fat fishes
 en:Mackerels
 bg:Скумрия
 de:Makrelen, Makrele
@@ -76411,6 +76446,7 @@ fr:Filets de maquereaux natures
 nl:Makreelfilets natuur
 
 <en:Fishes
+<en:Lean fishes
 en:Turbot
 fr:Turbot
 agribalyse_food_code:en:26174
@@ -76443,6 +76479,7 @@ ciqual_food_name:en:Turbot, raw, farmed
 ciqual_food_name:fr:Turbot d'élevage, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Brown bullhead
 fr:Pangasius, Poisson-chat
 agribalyse_food_code:en:27017
@@ -76475,6 +76512,7 @@ ciqual_food_name:en:Mullet, roasted/baked
 ciqual_food_name:fr:Mulet, rôti/cuit au four
 
 <en:Fishes
+<en:Lean fishes
 en:Mullet
 fr:Mulet
 agribalyse_food_code:en:26091
@@ -76483,6 +76521,7 @@ ciqual_food_name:en:Mullet, raw
 ciqual_food_name:fr:Mulet, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Cods, Codfishes
 de:Kabeljau
 es:Bacalaos
@@ -76504,6 +76543,7 @@ ciqual_food_name:en:Cod, cooked (average)
 ciqual_food_name:fr:Cabillaud, cuit, sans précision (aliment moyen)
 
 <en:Fishes
+<en:Seabreams
 en:Black seabream
 fr:dorade grise, daurade grise, griset
 agribalyse_food_code:en:26099
@@ -76511,6 +76551,7 @@ ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
 
 <en:Fishes
+<en:Seabreams
 en:Blackspot seabream
 fr:dorade rose, daurade rose
 agribalyse_food_code:en:26109
