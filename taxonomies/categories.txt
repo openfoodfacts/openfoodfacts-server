@@ -1086,6 +1086,7 @@ en:Premixed alcoholic beverages
 
 <en:Premixed alcoholic beverages
 en:Beer-based alcoholic beverages
+fr:Boissons alcoolisées à base de bière
 
 <en:Beer-based alcoholic beverages
 en:Shandy, Beer with lemonade
@@ -1106,13 +1107,15 @@ ciqual_food_name:fr:Panaché préemballé (<1° alc.)
 
 <en:Premixed alcoholic beverages
 en:Rum-based alcoholic beverages
+fr:Boissons alcoolisées à base de Rhum
 
 <en:Premixed alcoholic beverages
 en:Vodka-based alcoholic beverages
+fr:Boissons alcoolisées à base de vodka
 
 <en:Premixed alcoholic beverages
 en:Wine-based alcoholic beverages
-
+fr:Boissons alcoolisées à base de vin
 
 
 # description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
@@ -1308,6 +1311,7 @@ origins:en: en:United States
 
 <en:Beers
 en:Finnish beers, Beers from Finland
+fr:Bières finnoises, bières finlandaises, Bières de Finlande
 
 <en:Finnish beers
 fi:Sahti
@@ -2872,7 +2876,7 @@ origins:en: en:France
 fr:Calvados Pays d'Auge
 protected_name_file_number:en: PGI-FR-02034
 protected_name_type:en: gi
-origins:en: en:France
+origins:en: en:Francep
 
 <fr:Eaux-de-vie
 en:Cognac
@@ -26382,6 +26386,9 @@ ciqual_food_name:en:Bread (average)
 ciqual_food_name:fr:Pain (aliment moyen)
 
 <en:Breads
+en:Ciabatta
+
+<en:Breads
 fr:Pains aux noix
 
 <en:Breads
@@ -27734,7 +27741,7 @@ ciqual_food_name:en:Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), complet, préemballé
 
 <en:Special breads
-en:Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog
+en:Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dot rolls
 de:Hot-Dog-Brötchen
 es:Panecillos para perritos calientes, Panecillo de perrito caliente, Panecillos para hot dogs
 fi:Hot dog -sämpylät
@@ -27764,6 +27771,10 @@ fi:Naanit
 fr:Naans, Naan, Nân
 nl:Naanbroden, Naanbrood, Naan
 wikidata:en:Q689950
+
+<en:Naans
+en:Cheese Naans
+
 
 <en:Special breads
 <en:Flatbreads
@@ -33963,6 +33974,12 @@ de:Reifer Cheddar, Gereifter Cheddar
 fr:Cheddar mûr
 hu:Érett Ceddar sajt
 nl:Rijpe cheddars, Rijpe cheddar
+
+<en:Cheddar cheese
+en:Cheddar with chili
+
+<en:Cheddar cheese
+en:Cheddar with onions
 
 <en:Cheddar cheese
 en:Extra-mature cheddar
@@ -42455,7 +42472,7 @@ fr:Noix fraîches
 season_in_country_fr:en: 9,10
 
 <en:Walnuts
-en:Walnut kernels
+en:Walnut kernels, Walnut pieces
 de:Walnusskerne
 es:Granos de nuez
 fi:saksanpähkinän sydämet
@@ -42758,6 +42775,9 @@ de:Karamellisierte Haselnüsse
 es:Avellanas garrapiñadas, Avellanas caramelizadas
 fr:Noisettes caramélisées
 nl:Suikerhazelnoten
+
+<en:Nut confectioneries
+en:Chocolate-covered hazelnuts, Chocolate-coated hazelnuts
 
 en:Farming products, farm products
 ca:Productes agrícoles
@@ -43584,6 +43604,12 @@ agribalyse_food_code:en:22010
 ciqual_food_code:en:22010
 ciqual_food_name:en:Egg, hard-boiled
 ciqual_food_name:fr:Oeuf, dur
+
+<en:Bird eggs
+en:Scotch eggs
+de:Schottische Eier
+es:Huevos a la escocesa
+wikidata:en:Q1568296
 
 <en:Bird eggs
 en:Egg white
@@ -51247,6 +51273,9 @@ nl:Citroenen
 ro:Lămâi
 ru:Лимоны
 sv:Citroner, citron
+agribalyse_proxy_food_code:en:13009
+agribalyse_proxy_food_name:en:Lemon, pulp, raw
+agribalyse_proxy_food_name:fr:Citron, pulpe, cru
 
 <en:Lemons
 <en:Fresh fruits
@@ -51256,6 +51285,9 @@ es:Limones frescos
 fr:Citrons frais
 nl:Verse citroen
 season_in_country_fr:en: 1,2,11,12
+
+<en:Lemons
+en:Unwaxed lemons
 
 <en:French fruits
 <en:Lemons
@@ -56094,10 +56126,6 @@ ciqual_food_name:en:Cream sauce with herbs
 ciqual_food_name:fr:Sauce à la crème aux herbes
 
 <en:Sauces
-en:Curry sauces
-nl:Currysauzen
-
-<en:Sauces
 en:Cream sauces with mushrooms
 fr:Sauces aux champignons et à la crème
 agribalyse_food_code:en:11192
@@ -56315,11 +56343,14 @@ fi:currykastikkeet
 fr:Sauces au curry, Sauces curry
 hu:Curry mártások
 it:Salse al curry
-nl:Kerriesauzen, Kerriesaus
+nl:Kerriesauzen, Kerriesaus, Currysauzen
 agribalyse_food_code:en:11132
 ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
 ciqual_food_name:fr:Sauce au curry, préemballée
+
+<en:Curry sauces
+en:Madras curry sauce
 
 <en:Sauces
 en:Fried potato sauces
@@ -59900,6 +59931,9 @@ pt:Refeições com frango
 ru:Блюда из курицы
 
 <en:Meals with chicken
+en:Sweet and sour chicken
+
+<en:Meals with chicken
 fr:Parmentiers de poulet
 agribalyse_proxy_food_code:en:25587
 agribalyse_proxy_food_name:en:Shepherd's pie with duck, cooked
@@ -59938,6 +59972,12 @@ fr:Poulets basquaise, Poulet basquaise, Poulets basquaises
 agribalyse_food_code:en:25190
 ciqual_food_code:en:25190
 ciqual_food_name:en:Chicken, Basque style
+
+<en:Meals with chicken
+en:Coronation chicken
+
+<en:Meals with chicken
+en:Chicken tikka masala
 
 <en:Meals with meat
 en:Goat dishes, Goat meals
@@ -61938,6 +61978,24 @@ ciqual_food_name:fr:Pizza (aliment moyen)
 <en:Pizzas pies and quiches
 it:Calzone
 fr:Calzone, Pizzas calzone
+
+<it:Calzone
+fr:Calzones au jambon
+
+<it:Calzone
+fr:Calzones au poulet
+
+<it:Calzone
+fr:Calzones sans gluten
+
+<it:Calzone
+fr:Calzones jambon fromage
+
+<it:Calzone
+fr:Calzones au fromage
+
+<it:Calzone
+fr:Calzones peperoni
 
 <en:Pizzas
 en:Regina pizza, Pizza with ham and cheese and mushrooms
@@ -64692,6 +64750,9 @@ ciqual_food_code:en:28301
 ciqual_food_name:en:Pork, roast, cooked
 ciqual_food_name:fr:Porc, rôti, cuit
 
+<en:Cooked pork meat
+en:Pigs in blankets
+
 <en:Pork
 en:Pork ribs, pork chops, pork ribs
 es:Costillas de cerdo
@@ -64831,15 +64892,11 @@ ciqual_food_name:en:Tongue, pork, raw
 ciqual_food_name:fr:Langue, porc, crue
 
 <en:Pork
-en:Pig heart
-fr:Cœur de porc
+en:Pig heart, Pork heart
+fr:Cœur de porc, Coeur de porc
 hu:Disznó szív
 it:Cuore di maiale
 zh:猪心
-
-<en:Pork
-en:Pork heart
-fr:Coeur de porc
 agribalyse_food_code:en:40060
 ciqual_food_code:en:40060
 ciqual_food_name:en:Heart, pork, raw
@@ -64961,19 +65018,19 @@ origins:en: en:France
 fr:Volailles de Vendée
 protected_name_file_number:en: PGI-FR-0169
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Vendée
 
 <en:Poultries
 fr:Volailles de la Drôme
 protected_name_file_number:en: PGI-FR-0299
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Drôme
 
 <en:Poultries
 fr:Volailles de Gascogne
 protected_name_file_number:en: PGI-FR-0175
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Gascogne
 
 <en:Poultries
 en:Poultries from Janzé
@@ -65018,25 +65075,25 @@ origins:en: en:France
 fr:Volailles d'Alsace
 protected_name_file_number:en: PGI-FR-0158
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Alsace
 
 <en:Poultries
 fr:Volailles d'Auvergne
 protected_name_file_number:en: PGI-FR-0164
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Auvergne
 
 <en:Poultries
 fr:Volailles de Bourgogne
 protected_name_file_number:en: PGI-FR-0151
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Bourgogne
 
 <en:Poultries
 fr:Volailles de Bretagne
 protected_name_file_number:en: PGI-FR-0155
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Bretagne
 
 <en:Poultries
 fr:Volailles de Challans
@@ -65058,13 +65115,13 @@ origins:en: en:France
 
 <en:Poultries
 fr:Volailles de la Drôme
-country:en:France
+origins:en: en:France, fr:Drôme
 
 <en:Poultries
 fr:Volailles de l'Ain
 protected_name_file_number:en: PGI-FR-0146
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Ain
 
 <en:Poultries
 fr:Volailles de Licques
@@ -65122,6 +65179,7 @@ origins:en: en:France
 <en:Chickens
 <fr:Volailles du Gers
 fr:Poulets du Gers
+origins:en: en:France, fr:Gers
 
 <en:Poultries
 fr:Volailles du Maine
@@ -66377,6 +66435,7 @@ origins:en: en:France, fr:Corse
 <en:Prepared meats
 en:French meat products
 fr:Produits carnés français
+origins:en: en:France
 
 <en:French meat products
 fr:Pancetta de l'Ile de Beauté, Panzetta de l'Ile de Beauté
@@ -66517,7 +66576,7 @@ es:jamón cocido, jamón York
 fi:kypsennetyt kinkut
 fr:Jambons blancs, Jambon blanc, jambon cuit, jambons cuits, Jambons de Paris, Jambon de Paris
 hu:Fehér sonka
-it:Prosciutti cotti
+it:Prosciutti cotti, prosciutto cotto
 nl:Gekookte ham
 wikidata:en:Q3820622
 agribalyse_food_code:en:28925
@@ -66598,18 +66657,22 @@ en:French hams
 de:Französischer Schinken
 fr:Jambons français
 it:Prosciutto francese
+origins:en: en:France
 
 <en:Hams
 en:British hams
 fr:Jambons britanniques
+origins:en: en:United Kingdom
 
 <en:Hams
 en:Italian hams
 fr:Jambons italiens
+origins:en: en:Italy
 
 <en:Hams
 en:Spanish hams
 fr:Jambons espagnols
+origins:en: en:Spain
 
 <en:British hams
 en:Carmarthen Ham
@@ -67092,6 +67155,9 @@ zh:香肠
 ciqual_food_code:en:30780
 ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
+
+<en:Sausages
+en:Onion sausages
 
 <en:Sausages
 en:Sausage meat
@@ -69392,9 +69458,11 @@ ciqual_food_name:en:Tomme cheese, from mountain or Savoy
 
 <fr:Tommes
 fr:Tomme de Suisse, Tommes de Suisse
+origins:en: en:Switzerland
 
 <fr:Tommes
 fr:Tomme du Canada, Tommes du Canada
+origins:en: en:Canada
 
 <fr:Tommes
 fr:Tomme du Massif central, Tommes du Massif central
@@ -71269,6 +71337,9 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphin
 <en:Cheese ravioli
 <en:Fresh pasta stuffed with cheese
 fr:Raviolis fraîs au fromage
+
+<en:Cheese ravioli
+en:Cheese ravioli in tomato sauce
 
 <en:Fresh pasta stuffed with cheese
 <fr:Ravioles du Dauphiné
@@ -73194,6 +73265,9 @@ fr:Sandwich jambon crudités fromage
 agribalyse_proxy_food_code:en:25574
 
 <en:Sandwiches filled with cold cuts
+en:Sausage bacon and egg sandwiches
+
+<en:Sandwiches filled with cold cuts
 <en:Sandwich with ham and vegetables and cheese
 en:Sandwich made with wholemeal loaf bread and ham and vegetables and cheese
 fr:Sandwich pain de mie complet jambon crudités fromage
@@ -73384,12 +73458,21 @@ fr:Wraps, Wrap, roulade
 nl:Wraps
 
 <fr:Wraps
+en:Chicken wraps
 fr:Wraps au poulet
 
+<en:Chicken wraps
+en:Jerk chicken wraps
+
+<en:Chicken wraps
+en:Fried chicken wraps
+
 <fr:Wraps
+en:Ham wraps
 fr:Wraps au jambon
 
-<fr:Wraps au jambon
+<en:Ham wraps
+en:Ham and goat cheese wraps
 fr:Wraps Jambon Chèvre
 
 en:Seafood, sea foods
@@ -83382,6 +83465,9 @@ es:Garbanzos de tipo Lechoso, Garbanzos de tipo Blanco lechoso, Garbanzo Lechoso
 en:Escacena chickpeas
 es:Garbanzos de Escacena
 
+#Chickpea stew
+#en:Chana masala
+
 <en:Pulses
 en:Common beans, String beans
 bg:Зелен фасул
@@ -84332,6 +84418,9 @@ en:Puffed legumes, Popped legumes
 es:Leguminosas infladas
 fr:Graines de légumineuses soufflées
 nl:Gepofte peulvruchten
+
+<en:Puffed legumes
+en:Parsnip puffs
 
 <en:Puffed legumes
 en:Puffed soybeans
@@ -89282,7 +89371,7 @@ zh:食品装饰品
 <en:Food decorations
 <en:Pastry helpers
 <en:Bread coverings
-en:Sprinkles, Multi-coloured vermicelli
+en:Sprinkles, Multi-coloured vermicelli, Rainbow sprinkles
 fr:Vermicelles multicolores
 ciqual_food_code:en:11510
 ciqual_food_name:en:Multi-coloured vermicelli
