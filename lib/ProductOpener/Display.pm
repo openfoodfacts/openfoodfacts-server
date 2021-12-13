@@ -9321,12 +9321,13 @@ sub data_to_display_nutrition_table($$) {
 		},
 	};
 
-	my @cols;
+	# List of columns
+	my @cols = ();
 
-	my %col_name = ();
+	# Data for each column
+	my %columns = ();
 
-	# We can have nutrition data for the product as sold, and/or prepared
-
+	# We can have data for the product as sold, and/or prepared
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
@@ -9340,19 +9341,30 @@ sub data_to_display_nutrition_table($$) {
 		$displayed_product_types{prepared} = 1;
 	}
 
-
 	foreach my $product_type (@displayed_product_types) {
 
 		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
 
-		my $col_name = $Lang{product_as_sold}{$lang};
+		my $col_name = lang("product_as_sold");
 		if ($product_type eq 'prepared_') {
-			$col_name = $Lang{prepared_product}{$lang};
+			$col_name = lang("prepared_product");
 		}
-		$col_name{$product_type . "100g"} = $col_name . "<br>" . $Lang{nutrition_data_per_100g}{$lang};
-		$col_name{$product_type . "serving"} = $col_name . "<br>" . $Lang{nutrition_data_per_serving}{$lang};
+
+		$columns{$product_type . "100g"} = {
+			scope => "product",
+			product_type => $product_type,
+			per => "100g",
+			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+		};
+		$columns{$product_type . "serving"} = {
+			scope => "product",
+			product_type => $product_type,
+			per => "serving",
+			name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
+		};		
+
 		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
-			$col_name{$product_type . "serving"} .= ' (' . $product_ref->{serving_size} . ')';
+			$columns{$product_type . "serving"}{name} .= ' (' . $product_ref->{serving_size} . ')';
 		}
 
 		if (not defined $product_ref->{$nutrition_data_per}) {
@@ -9393,14 +9405,6 @@ sub data_to_display_nutrition_table($$) {
 
 	}
 
-	my %col_class = (
-		std => 'stats',
-		min => 'stats',
-		'10' => 'stats',
-		'50' => 'stats',
-		'90' => 'stats',
-		'max' => 'stats',
-	);
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -9417,8 +9421,12 @@ sub data_to_display_nutrition_table($$) {
 			my $col_id = "compare_" . $i;
 
 			push @cols, $col_id;
-			$col_class{$col_id} = $col_id;
-			$col_name{$col_id} = lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name};
+
+			$columns{$col_id} = {
+				"scope" => "comparisons",
+				"name" => lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name},
+				"class" => $col_id,
+			};
 
 			$log->debug("displaying nutrition table comparison column", { colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 
@@ -9454,9 +9462,13 @@ CSS
 
 	if (defined $product_ref->{stats}) {
 
-		foreach my $col ('std', 'min', '10', '50', '90', 'max') {
-			push @cols, $col;
-			$col_name{$col} = lang("nutrition_data_per_$col");
+		foreach my $col_id ('std', 'min', '10', '50', '90', 'max') {
+			push @cols, $col_id;
+			$columns{$col_id} = {
+				"scope" => "categories",
+				"name" => lang("nutrition_data_per_" . $col_id),
+				"class" => "stats",
+			};
 		}
 
 		if ($product_ref->{id} ne 'search') {
@@ -9469,13 +9481,10 @@ CSS
 
 	# Data for the nutrition table header
 
-	foreach my $col (@cols) {
+	foreach my $col_id (@cols) {
 
-		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, {
-			col_id => $col,
-			class => $col_class{$col},
-			name => $col_name{$col},
-		});
+		$columns{$col_id}{col_id} = $col_id;
+		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, $columns{$col_id};
 
 	}
 
