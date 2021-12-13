@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:32\n"
+"PO-Revision-Date: 2021-12-03 09:45\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -597,11 +597,11 @@ msgstr "Sporbarhedskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5411,7 +5411,7 @@ msgstr "Ekstra bonusser og misbrug"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Produktionstype"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5423,7 +5423,7 @@ msgstr "Har dette produkt en etiket, der kendetegner produktionssystemet (organi
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Ingrediensoprindelser"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5599,14 +5599,16 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Vigtigt: Der er behov for din støtte!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "OFF er et samarbejdsprojekt bygget af titusinder af frivillige\n"
-"og administreret af en nonprofitorganisation med 3 ansatte."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "Open Food Facts er et samarbejdsprojekt opbygget af titusinder af frivillige\n"
+"og administreret af en nonprofitorganisation med {number_of_employees} ansatte."
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Der er behov for jeres donationer til finansiering af OFF 2021-budgettet og til fortsat projektudvikling. <strong>Tak! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "Der behøves donationer til at finansiere Open Food Facts' {year}-budget og fortsat at kunne videreudvikle projektet."
 
 msgctxt "donation_cta"
 msgid "Donate"

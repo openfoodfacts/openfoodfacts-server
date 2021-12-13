@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sco\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:38\n"
+"PO-Revision-Date: 2021-12-01 14:44\n"
 "Language-Team: Scots\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1337,7 +1337,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "names"
 msgid "Names"
@@ -2655,7 +2655,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3873,7 +3873,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr "Sodium"
+msgstr ""
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -4709,7 +4709,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4737,7 +4737,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgctxt "contact_address"
 msgid "Address"
@@ -5567,12 +5567,14 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
 msgstr ""
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
 msgstr ""
 
 msgctxt "donation_cta"
