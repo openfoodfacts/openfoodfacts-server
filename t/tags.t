@@ -361,8 +361,10 @@ my @tags = ();
 @tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
 is_deeply (\@tags, [
-	'en:fruit', 
-	'en:sugar', 
+	'en:added-sugar',
+	'en:disaccharide',
+	'en:fruit',
+	'en:sugar',
 	'en:citrus-fruit', 
 	'en:fruit-juice', 
 	'en:salt', 
@@ -389,7 +391,9 @@ is_deeply (\@tags, [
 	'en:orange',
 	'en:orange-juice',
 	'en:sugar',
-	'en:salt',
+	'en:added-sugar',
+	'en:disaccharide',
+	'en:salt'
 ]
 ) or diag explain(\@tags);
 
