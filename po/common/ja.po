@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-01 14:39\n"
+"PO-Revision-Date: 2021-12-14 08:49\n"
 "Language-Team: Japanese\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -68,7 +68,7 @@ msgstr "Slackにご参加ください"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "は、あなたがエネルギー、熱意、そしてアイデアを新製品よりもはるかにもたらすことができる共同プロジェクトです！"
+msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -84,7 +84,7 @@ msgstr "これで、製品を追加および編集し、データと写真をプ
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr "%sという名前の既存の組織が既に存在し%s 。"
+msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
@@ -5743,5 +5743,45 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
+msgstr ""
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr ""
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 
