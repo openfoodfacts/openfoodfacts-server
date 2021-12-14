@@ -146,6 +146,9 @@ BEGIN
 
 		&generate_tags_taxonomy_extract
 
+		&get_all_taxonomy_entries
+		&get_taxonomy_tag_synonyms
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -155,9 +158,9 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::Index qw/:all/;
 
 use Clone qw(clone);
@@ -318,6 +321,11 @@ sub is_a($$$) {
 	my $tagtype = shift;
 	my $child = shift;
 	my $parent = shift;
+
+	if (not defined $tagtype) {
+		$log->error("is_a() function called with undefined $tagtype: should not happen", { child => $child, parent => $parent }) if $log->is_error();
+		return 0;
+	}
 
 	#$log->debug("is_a", { tagtype => $tagtype, child => $child, parent => $parent }) if $log->is_debug();
 
@@ -3268,6 +3276,90 @@ sub spellcheck_taxonomy_tag($$$)
 
 }
 
+=head2 get_taxonomy_tag_synonyms ( $tagtype )
+
+Return all entries in a taxonomy.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded
+- or a list of all tags
+
+=cut
+
+sub get_all_taxonomy_entries($) {
+
+	my $tagtype = shift;
+
+	if (defined $translations_to{$tagtype}) {
+
+		my @list = ();
+		foreach my $tagid (keys %{$translations_to{$tagtype}}) {
+			# Skip entries that are just synonyms	
+			next if (defined $just_synonyms{$tagtype}{$tagid});
+			push @list, $tagid;
+		}
+		return @list;
+	}
+	else {
+		return;
+	}
+}
+
+
+=head2 get_taxonomy_tag_synonyms ( $target_lc, $tagtype, $canon_tagid )
+
+Return all synonyms (including extended synonyms) in a specific language for a taxonomy entry.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+- undef is the taxonomy does not exist or is not loaded, or if the tag does not exist
+- or a list of all synonyms
+
+=cut
+
+sub get_taxonomy_tag_synonyms($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+
+	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid})) {
+
+		my $target_lc_tagid = get_string_id_for_lang($target_lc, $translations_to{$tagtype}{$tagid}{$target_lc});
+		
+		if (defined $synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}) {
+		 	return (
+				@{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}},
+				sort keys %{$synonyms_for_extended{$tagtype}{$target_lc}{$target_lc_tagid}}
+			);
+		}
+		elsif (defined $synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}) {
+			return @{$synonyms_for{$tagtype}{$target_lc}{$target_lc_tagid}};
+		}
+		else {
+			return;
+		}
+	}
+	else {
+		return;
+	}
+}
+
 
 
 
@@ -3637,34 +3729,6 @@ sub init_emb_codes {
 	return;
 }
 
-# nutrient levels
-
-$log->info("Initializing nutrient levels") if $log->is_info();
-foreach my $l (@Langs) {
-
-	$lc = $l;
-	$lang = $l;
-
-	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-		foreach my $level ('low', 'moderate', 'high') {
-			my $fmt = lang("nutrient_in_quantity");
-			my $nutrient_name = $Nutriments{$nid}{$lc};
-			my $level_quantity = lang($level . "_quantity");
-			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
-				next;
-			}
-
-			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_string_id_for_lang($lc, $tag);
-			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
-			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
-		}
-	}
-}
-
-$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 # load all tags texts
 sub init_tags_texts {
@@ -4117,6 +4181,8 @@ sub add_users_translations_to_taxonomy($) {
 
 	return;
 }
+
+
 
 
 $log->info("Tags.pm loaded") if $log->is_info();

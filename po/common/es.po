@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:39\n"
+"PO-Revision-Date: 2021-12-01 17:43\n"
 "Language-Team: Spanish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -2610,7 +2610,7 @@ msgstr "Advertencia: la cantidad de frutas, verduras y nueces no está especific
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Advertencia: la cantidad de frutas, verduras y nueces no se especifica en la etiqueta, se ha calculado manualmente en base a la lista de ingredientes: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
@@ -5442,11 +5442,11 @@ msgstr "Especies amenazadas"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Ingredientes cuyo cultivo amenaza a las especies"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Ningún ingrediente pueda ser amenaza para las especies"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5598,13 +5598,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Importante: ¡necesitamos tu apoyo!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts es un proyecto colaborativo construido por decenas de miles de voluntarios y gestionado por una organización sin ánimo de lucro con tres empleados."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "Open Food Facts es un proyecto colaborativo construido por decenas de miles de voluntarios y administrado por una organización sin fines de lucro con {number_of_employees} empleados."
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Necestamos tus donaciones para financiar el presupuesto de Open Food Facts 2021 y continuar desarrollando el proyecto. <strong>¡Gracias! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "Necesitamos tus donaciones para financiar el presupuesto {year} de Open Food Facts y para continuar desarrollando el proyecto."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5699,7 +5701,7 @@ msgstr "Análisis del ciclo de vida"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonos y malus"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -5711,11 +5713,11 @@ msgstr "Media de impacto de los productos de la misma categoría"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Suma de bonos y malos"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "La suma de bonos y malus está limitada a +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
@@ -5727,17 +5729,17 @@ msgstr "La puntuación de los productos con materiales de embalaje no reciclable
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr ""
+msgstr "Para esta categoría de producto el Nutri-Score no es aplicable."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "La categoría del producto debe ser especificada para calcular el Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Los datos nutricionales del producto deben ser especificados para calcular el Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Salud"
 

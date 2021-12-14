@@ -34,7 +34,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-
+use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -291,7 +292,7 @@ if ($action eq 'display') {
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
-		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
+		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";

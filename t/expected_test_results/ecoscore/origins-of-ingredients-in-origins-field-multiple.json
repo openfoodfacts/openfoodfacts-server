@@ -249,7 +249,7 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : "0.55246032",
+         "ef_total" : 0.55246032,
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
@@ -403,10 +403,10 @@
    "ingredients" : [
       {
          "id" : "en:apricot",
-         "percent" : "60",
-         "percent_estimate" : "60",
-         "percent_max" : "60",
-         "percent_min" : "60",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -414,10 +414,10 @@
       {
          "id" : "en:cane-sugar",
          "origins" : "en:martinique",
-         "percent" : "30",
-         "percent_estimate" : "30",
-         "percent_max" : "30",
-         "percent_min" : "30",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -477,7 +477,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },
    "origins_tags" : [
       "en:france",

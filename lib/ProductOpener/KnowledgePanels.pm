@@ -66,6 +66,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use JSON::PP;
 use Encode;
@@ -622,6 +623,9 @@ sub create_health_card_panel($$$) {
     # Create the nutrition facts table panel
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the physical activities panel
+    create_physical_activities_panel($product_ref, $target_lc, $target_cc);
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -717,5 +721,121 @@ sub create_nutrition_facts_table_panel($$$) {
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
 }
+
+
+=head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel to indicate how much time is needed to burn the calories of a product
+for various activities.
+
+Description: https://en.wikipedia.org/wiki/Metabolic_equivalent_of_task
+
+1 MET = (kJ / 4.2) / (kg * hour)
+
+Data: https://sites.google.com/site/compendiumofphysicalactivities/
+
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=head3 Data
+
+=head4 Activity energy equivalent of task
+
+Data: https://sites.google.com/site/compendiumofphysicalactivities/
+
+=cut
+
+my %activities_met = (
+    'walking' => 3.5,   # walking, 2.8 to 3.2 mph, level, moderate pace, firm surface
+    'swimming' => 5.8,  # swimming laps, freestyle, front crawl, slow, light or moderate effort
+    'bicycling' => 7.5, # bicycling, general
+    'running' => 10,    # running, 6 mph (10 min/mile)
+);
+
+my @sorted_activities = sort ({ $activities_met{$a} <=> $activities_met{$b} } keys %activities_met);
+
+sub create_physical_activities_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create physical_activities panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+
+    # Generate a panel only for food products that have an energy per 100g value
+    if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{energy_100g}) and ($product_ref->{nutriments}{energy_100g} > 0)) {
+
+        my $energy = $product_ref->{nutriments}{energy_100g};
+
+        # Compute energy density: low, moderate, high
+        # We might want to move it to the nutrients level at some point
+
+        my $energy_density = "low";
+        my $evaluation = "good";
+
+        # Values correspond to the 3 points and 6 point thresholds of the Nutri-Score for energy
+        if (has_tag($product_ref, "categories", "en:beverages")) {
+            if ($energy > 180) {
+                $energy_density = "high";
+                $evaluation = "bad";
+            }
+            elsif ($energy > 90) {
+                $energy_density = "moderate";
+                $evaluation = "average";
+            }
+        }
+        else {
+            if ($energy > 2010) {
+                $energy_density = "high";
+                $evaluation = "bad";
+            }
+            elsif ($energy > 1005) {
+                $energy_density = "moderate";
+                $evaluation = "average";
+            }
+        }
+
+        my $weight = 70;
+	
+        my $panel_data_ref = {
+            energy => $energy,
+            energy_density => $energy_density,
+            evaluation => $evaluation,
+            weight => $weight,
+            activities => [],
+        };
+
+        foreach my $activity (@sorted_activities) {
+            my $minutes = 60 * ($energy / 4.2) / ($activities_met{$activity} * $weight);
+            my $activity_ref = {
+                id => $activity,
+                activity => $activity,
+                name => lang("activity_" . $activity),
+                minutes => $minutes,
+            };
+            if ($activity eq "walking") {
+                $activity_ref->{steps} = $minutes * 100;
+                $panel_data_ref->{walking_steps} = $activity_ref->{steps};
+                $panel_data_ref->{walking_minutes} = $activity_ref->{minutes};
+            }
+            push @{$panel_data_ref->{activities}}, $activity_ref;
+        }
+
+        create_panel_from_json_template("physical_activities", "api/knowledge-panels/health/nutrition/physical_activities.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
+    }
+}
+
 
 1;

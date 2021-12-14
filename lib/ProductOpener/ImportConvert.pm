@@ -1897,27 +1897,19 @@ sub extract_nutrition_facts_from_text($$$$$) {
 			}
 		}
 
-		foreach my $nid (sort keys %Nutriments) {
-
-			next if $nid =~ /^#/;
-
-			next if not defined $Nutriments{$nid}{$text_lc};
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
 			# Create a list of synonyms of the nutrient name in the text language
 
-			my $nid_lc = lc($Nutriments{$nid}{$text_lc});
-			my $nid_lc_unaccented = unac_string_perl($nid_lc);
-			my @synonyms = ($nid_lc);
-			if ($nid_lc ne $nid_lc_unaccented) {
-				push @synonyms, $nid_lc_unaccented;
-			}
-			if (defined $Nutriments{$nid}{$text_lc  . "_synonyms"}) {
-				foreach my $synonym (@{$Nutriments{$nid}{$text_lc . "_synonyms"}}) {
-					push @synonyms, $synonym;
-					my $synonym_unaccented = unac_string_perl($synonym);
-					if ($synonym_unaccented ne $synonym) {
-						push @synonyms, $synonym_unaccented;
-					}
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
+
+			my @synonyms = get_taxonomy_tag_synonyms($text_lc, "nutrients", $nutrient_tagid);
+
+			foreach my $synonym (@synonyms) {
+				my $synonym_unaccented = unac_string_perl($synonym);
+				if ($synonym_unaccented ne $synonym) {
+					push @synonyms, $synonym_unaccented;
 				}
 			}
 

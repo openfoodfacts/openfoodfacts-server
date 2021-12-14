@@ -42,7 +42,9 @@
                                     // only display the % difference compared to category
                                     "text": "[% column.percent %]",
                                 [% END %]
-                                // to do: add "evaluation": "good", "bad" etc. based on whether the nutrient is good or not
+                                [% IF column.evaluation.defined %]
+                                    "evaluation": "[% column.evaluation %]",
+                                [% END %]
                             },
                             [% END %]
                         ]

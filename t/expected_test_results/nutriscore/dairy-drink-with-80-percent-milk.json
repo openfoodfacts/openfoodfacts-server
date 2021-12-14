@@ -23,10 +23,10 @@
    "ingredients" : [
       {
          "id" : "en:fresh-milk",
-         "percent" : "80",
-         "percent_estimate" : "80",
-         "percent_max" : "80",
-         "percent_min" : "80",
+         "percent" : 80,
+         "percent_estimate" : 80,
+         "percent_max" : 80,
+         "percent_min" : 80,
          "text" : "Fresh milk",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -85,6 +85,7 @@
       "fat_100g" : 10,
       "fiber_100g" : 2,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nutrition-score-fr" : 14,
       "nutrition-score-fr_100g" : 14,
       "proteins_100g" : 5,

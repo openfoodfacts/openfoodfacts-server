@@ -18,10 +18,26 @@ x-backend-conf: &backend-conf
     # we use this for debugging, from times to times
     - ./debug:/mnt/podata/debug/
 
+x-minion-db-network: &minion-db-network
+  networks:
+    # we need to be on default, but also on a dedicated network (ease sharing with pro in dev)
+    # see also docs/explanations/pro-dev-setup.md
+    minion_db:
+    default:
+
 
 services:
-  backend: *backend-conf
+  postgres:
+    # only turn on for off profile
+    profiles: ["off"]
+    <<: *minion-db-network
+  backend:
+    <<: *backend-conf
+    <<: *minion-db-network
   incron: *backend-conf
+  minion:
+    <<: *backend-conf
+    <<: *minion-db-network
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
@@ -56,16 +72,25 @@ services:
     volumes:
       - ./html:/opt/product-opener/html/
   mongodb:
+    # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
-    networks:
-      - webnet
     ports:
-      - 27017:27017
+      - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 volumes:
   product_images:
   html_data:
-  users:
   products:
+  # those one are volumes shared between off and pro, so we assign hard-coded names
+  # see docs/explanations/pro-dev-setup.md
+  users:
+    name: po_users
   orgs:
-  podata:
+    name: po_orgs
+  podata:  # we also need to share it because users_emails and orgs... are not separated yet
+    name: po_podata
+
+networks:
+  # this is a specific network to enable pro platform to join the postgres db
+  minion_db:
+    name: minion_db

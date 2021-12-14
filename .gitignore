@@ -12,6 +12,9 @@ taxonomies/nutrient_levels.txt
 ehthumbs.db
 Thumbs.db
 .vstags
+# editors
+.~*
+.*.swp
 
 # Logs
 logs/
@@ -25,6 +28,8 @@ data/mongodb
 Lang.open*
 users_emails.sto
 html/data/*
+html/products_countries.js
+products_stats_*.html
 
 # Libraries
 node_modules

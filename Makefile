@@ -10,9 +10,15 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
+export CPU_COUNT=$(shell nproc || 1)
+
+
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
+
+# this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
+_FORCE:
 
 #------#
 # Info #
@@ -96,7 +102,7 @@ livecheck:
 
 log:
 	@echo "🥫 Reading logs (docker-compose) …"
-	${DOCKER_COMPOSE} logs -f backend frontend
+	${DOCKER_COMPOSE} logs -f
 
 tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
@@ -125,8 +131,12 @@ refresh_product_tags:
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
-	@echo "🥫 Importing sample data (~100 products) into MongoDB …"
+	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
+
+import_more_sample_data:
+	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh	
 
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
@@ -151,6 +161,30 @@ checks: front_lint
 tests:
 	@echo "🥫 Runing tests …"
 	docker-compose run --rm backend prove -l
+
+# check perl compiles, (pattern rule) / but only for newer files
+%.pm %.pl: _FORCE
+	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+
+# check all modified (compared to main) perl file compiles
+TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+check_perl_fast:
+	@echo "🥫checking ${TO_CHECK}"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+
+# check all perl files compile (takes time, but needed to check a function rename did not break another module !)
+check_perl:
+	@echo "🥫checking all perl files"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+
+#-------------#
+# Compilation #
+#-------------#
+
+build_taxonomies:
+	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
+	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
+
 
 #------------#
 # Production #

@@ -1086,6 +1086,7 @@ en:Premixed alcoholic beverages
 
 <en:Premixed alcoholic beverages
 en:Beer-based alcoholic beverages
+fr:Boissons alcoolisées à base de bière
 
 <en:Beer-based alcoholic beverages
 en:Shandy, Beer with lemonade
@@ -1106,13 +1107,15 @@ ciqual_food_name:fr:Panaché préemballé (<1° alc.)
 
 <en:Premixed alcoholic beverages
 en:Rum-based alcoholic beverages
+fr:Boissons alcoolisées à base de Rhum
 
 <en:Premixed alcoholic beverages
 en:Vodka-based alcoholic beverages
+fr:Boissons alcoolisées à base de vodka
 
 <en:Premixed alcoholic beverages
 en:Wine-based alcoholic beverages
-
+fr:Boissons alcoolisées à base de vin
 
 
 # description:en:A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
@@ -1308,6 +1311,7 @@ origins:en: en:United States
 
 <en:Beers
 en:Finnish beers, Beers from Finland
+fr:Bières finnoises, bières finlandaises, Bières de Finlande
 
 <en:Finnish beers
 fi:Sahti
@@ -3906,6 +3910,13 @@ protected_name_type:en: gi
 origins:en: en:France
 
 <en:Liqueurs
+fr:Génépi des Alpes
+it:Genepì delle Alpi
+protected_name_file_number:en: PGI-FR+IT-01909
+protected_name_type:en: gi
+origins:en: en:France, en:Italy
+
+<en:Liqueurs
 en:Italian liqueur
 
 <en:Italian liqueur
@@ -4853,7 +4864,7 @@ it:Succo di mandarancio, Succo di clementina
 nl:Clementinesappen, Clementinesap
 
 <en:Clementine juices
-en:Pure clementine juice
+en:Squeezed clementine juices, Pure clementine juice
 fr:Jus de clémentine pur jus
 ciqual_food_code:en:2034
 ciqual_food_name:en:Mandarin or clementine juice, pure juice
@@ -4875,7 +4886,7 @@ ciqual_food_name:en:Lime juice, home-made
 ciqual_food_name:fr:Jus de citron vert, maison
 
 <en:Lime juice
-en:Pure lime juice
+en:Squeezed lime juices, Pure lime juice
 fr:Jus de citron vert pur jus
 ciqual_food_code:en:2031
 ciqual_food_name:en:Lime juice, pure juice
@@ -4904,7 +4915,7 @@ ciqual_food_name:en:Lemon juice, home-made
 ciqual_food_name:fr:Jus de citron, maison
 
 <en:Lemon juice
-en:Pure lemon juice
+en:Squeezed lemon juices, Pure lemon juice
 fr:Jus de citron pur jus
 ciqual_food_code:en:2028
 ciqual_food_name:en:Lemon juice, pure juice
@@ -26250,6 +26261,19 @@ it:Amaretti, amaretto
 wikidata:en:Q3748739
 
 <en:Biscuits
+en:Ricciarelli
+de:Ricciarelli
+es:Ricciarelli
+fr:Ricciarelli
+it:Ricciarelli
+wikidata:en:Q1059643
+
+<en:Ricciarelli
+it:Ricciarelli di Siena
+protected_name_type:en: pgi
+origins:en: en:Italy
+
+<en:Biscuits
 en:Speculoos, Speculoos biscuit
 de:Speculoos
 fr:Spéculoos, spéculos
@@ -26360,6 +26384,9 @@ pnns_group_2:en:Bread
 ciqual_food_code:en:7000
 ciqual_food_name:en:Bread (average)
 ciqual_food_name:fr:Pain (aliment moyen)
+
+<en:Breads
+en:Ciabatta
 
 <en:Breads
 fr:Pains aux noix
@@ -27714,7 +27741,7 @@ ciqual_food_name:en:Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), complet, préemballé
 
 <en:Special breads
-en:Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog
+en:Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dot rolls
 de:Hot-Dog-Brötchen
 es:Panecillos para perritos calientes, Panecillo de perrito caliente, Panecillos para hot dogs
 fi:Hot dog -sämpylät
@@ -27744,6 +27771,10 @@ fi:Naanit
 fr:Naans, Naan, Nân
 nl:Naanbroden, Naanbrood, Naan
 wikidata:en:Q689950
+
+<en:Naans
+en:Cheese Naans
+
 
 <en:Special breads
 <en:Flatbreads
@@ -29919,6 +29950,11 @@ it:Gianduiotti
 wikidata:en:Q1363042
 
 <en:Bonbons
+en:Cremini
+fr:Cremini
+it:Cremini
+
+<en:Bonbons
 en:Peanut butter cups
 wikidata:en:Q7157931
 
@@ -31310,6 +31346,7 @@ fr:Crêpes au jambon
 <en:Crepe filled with cheese
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
 fr:Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
+nl:Boekweitpannekoeken gevuld met kaas en bechamel
 agribalyse_food_code:en:25549
 ciqual_food_code:en:25549
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese and bechamel sauce
@@ -31325,6 +31362,7 @@ nl:Galettes
 <en:Crêpes and galettes
 en:Ham and mushroom pancake in cheese sauce
 fr:Ficelle picarde
+nl:Ham-kaas pannekoeken in kaassaus
 agribalyse_food_code:en:26256
 ciqual_food_code:en:26256
 ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
@@ -31332,14 +31370,17 @@ ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
 <en:Meals
 en:Filled buckwheat crepes
 fr:Galettes fourrées, Galettes de blé noir fourrées
+nl:Gevulde boekweitpannekoeken
 
 <en:Filled buckwheat crepes
-fr:Galettes fourrées sucrées, Galettes de blé noir fourrées sucrées
 en:Sugary filled buckwheat crepes
+fr:Galettes fourrées sucrées, Galettes de blé noir fourrées sucrées
+nl:Zoete gevulde boekweitpannekoeken
 
 <en:Filled buckwheat crepes
-fr:Galettes fourrées salées, Galettes de blé noir fourrées salées
 en:Salty filled buckwheat crepes
+fr:Galettes fourrées salées, Galettes de blé noir fourrées salées
+nl:hartige gevulde boekweitpannekoeken
 
 <en:Salty filled buckwheat crepes
 en:Crepe filled with ham
@@ -31351,6 +31392,7 @@ ciqual_food_name:en:Crepe, filled with ham
 <en:Salty filled buckwheat crepes
 en:buckwheat crepe with cheese and ham, buckwheat crepe with ham and cheese, Crepe filled with cheese ham and bechamel sauce, buckwheat crepe filled with cheese ham and bechamel sauce
 fr:Galettes jambon fromage, Galette fourrée béchamel jambon fromage
+nl:Boekweitpannekoeken gevuld met ham en kaas
 agribalyse_food_code:en:25410
 ciqual_food_code:en:25410
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
@@ -31360,6 +31402,7 @@ fr:Galettes de blé noir champignons lardons emmental
 
 <en:Salty filled buckwheat crepes
 fr:Galettes au chèvre et aux lardons
+nl:Boekweitpannekoeken met geitenkaas en spekjes
 
 <en:Meals
 <en:Salty filled buckwheat crepes
@@ -31787,15 +31830,99 @@ ciqual_food_name:fr:Orge perlée, bouilli/cuite à l'eau, non salée
 
 <en:Cereal grains
 en:Buckwheat, whole buckwheat
+af:bokwiet
+ar:حنطة سوداء
+az:əkin qarabaşağı
+ba:ҡарабойҙай
+be:грэчка
+bg:елда
+bo:བྲ་བོ།
+br:gwinizh-du
+ca:fajol
+cs:pohanka
+cv:хура тулă
+cy:gwenith yr hydd
+da:boghvede
 de:Buchweizen
+el:πολύγονον
 es:Trigo sarraceno, Alforfón
+eo:fagopiro
+et:harilik tatar
+eu:suge-ilar, artobeltz
+fa:گندم سیاه
 fi:tattari
 fr:Sarrasin, blés noirs fourragers, graines de sarrasin, Sarrasin entier cru
+fy:boekweet
+ga:ruán
+gl:trigo mouro
+he:כוסמת
+hi:कूटू
+hr:heljda
+hu:hajdina
+hy:հնդկացորեն ցանովի
+io:saraceno
+is:bókhveiti
 it:Grano saraceno
+ja:ソバ
+kk:егістік қарақұмық
+kn:ಬಕ್‍ಹ್ವೀಟ್
+ko:메밀
+kw:ys du
+ky:кара күрүч
 la:Fagopyrum esculentum
+lt:sėjamasis grikis
+lv:griķi
+mi:witi paka
+mk:елда
+mn:гурвалжин будаа
+ms:gandum kuda
+nb:bokhvete
+ne:फापर
 nl:Boekweit
+nn:bokkveite
+oc:blat negre
+os:сауфагæ
+pl:gryka, gryka zwyczajna
+pt:trigo mourisco
+ro:hrișcă
 ru:Гречиха посевная, Гречиха съедобная, Греча
-zh:荞麦
+sh:heljda
+sk:pohánka jedlá
+sl:ajda, navadna ajda
+sr:heljda, хељда
+sv:bovete
+ta:நெளிகோதுமை
+th:บักวีต
+tl:hayang trigo
+tr:karabuğday
+tt:кара бодай
+uk:гречка
+ur:گندم سیاه
+uz:marjumak
+vi:kiều mạch
+wa:boûkete
+zh:蕎麥, 荞麦
+#azb:اکین قاراباشاغی
+#csb:bùkwita
+#dsb:hejduša
+#dty:फापर
+#hsb:hejduška
+#mrj:шимшӓдӓнгӹ
+#myv:ликша
+#nan:kiô-be̍h
+#nds:boeked
+#pcd:bucalhe
+#sah:гречиха
+#sgs:grėks
+#tyv:мыйырак
+#wuu:荞麦
+#yue:蕎麥
+#zh-cn:荞麦
+#zh-hans:荞麦
+#zh-hant:蕎麥
+#zh-hk:蕎麥
+#zh-sg:荞麦
+#zh-tw:蕎麥
 wikidata:en:Q132734
 agribalyse_food_code:en:9380
 ciqual_food_code:en:9380
@@ -32398,7 +32525,7 @@ es:Arroces Jazmín
 fi:jasmiiniriisi
 fr:Riz thaï, Riz Jasmin
 it:Riso Jasmine
-nl:Thaise rijsten, Thaise rijst, Jasmijnrijst
+nl:Thaise rijsten, Thaise rijsten, Jasmijnrijsten, Pandan, Pandanrijsten
 wikidata:en:Q2733021
 
 <en:Jasmine rice
@@ -33847,6 +33974,12 @@ de:Reifer Cheddar, Gereifter Cheddar
 fr:Cheddar mûr
 hu:Érett Ceddar sajt
 nl:Rijpe cheddars, Rijpe cheddar
+
+<en:Cheddar cheese
+en:Cheddar with chili
+
+<en:Cheddar cheese
+en:Cheddar with onions
 
 <en:Cheddar cheese
 en:Extra-mature cheddar
@@ -42339,7 +42472,7 @@ fr:Noix fraîches
 season_in_country_fr:en: 9,10
 
 <en:Walnuts
-en:Walnut kernels
+en:Walnut kernels, Walnut pieces
 de:Walnusskerne
 es:Granos de nuez
 fi:saksanpähkinän sydämet
@@ -42642,6 +42775,9 @@ de:Karamellisierte Haselnüsse
 es:Avellanas garrapiñadas, Avellanas caramelizadas
 fr:Noisettes caramélisées
 nl:Suikerhazelnoten
+
+<en:Nut confectioneries
+en:Chocolate-covered hazelnuts, Chocolate-coated hazelnuts
 
 en:Farming products, farm products
 ca:Productes agrícoles
@@ -43468,6 +43604,12 @@ agribalyse_food_code:en:22010
 ciqual_food_code:en:22010
 ciqual_food_name:en:Egg, hard-boiled
 ciqual_food_name:fr:Oeuf, dur
+
+<en:Bird eggs
+en:Scotch eggs
+de:Schottische Eier
+es:Huevos a la escocesa
+wikidata:en:Q1568296
 
 <en:Bird eggs
 en:Egg white
@@ -47459,6 +47601,13 @@ ciqual_food_name:en:Buckwheat flour
 ciqual_food_name:fr:Farine de sarrasin
 
 <en:Buckwheat flours
+fr:Farine de blé noir de Bretagne, Farine de blé noir de Bretagne
+br:Gwinizh du Breizh
+protected_name_file_number:en: PGI-FR-0555
+protected_name_type:en: pgi
+origins:en: en:France
+
+<en:Buckwheat flours
 en:T80 buckwheat flour
 fr:Farines de sarrasin T80, Farines de blé noir T80
 nl:Boekweitmelen T80
@@ -48293,14 +48442,37 @@ it:Semola di frumento
 nl:Tarwegrutten
 
 <en:Wheat groats
-en:Bulgur, wheat bulgur
-de:Bulgur
-es:Bulgur
-fi:bulgur
+en:Bulgur, wheat bulgur, bulgur wheat
+ar:برغل
+az:bulqur
+be:булгур
+bg:булгур
+de:Bulgur,  Bulgurweizen
+el:πλιγούρι
+eo:bulguro
+fa:بلغور
+fi:bulgur, bulgurvehnä
 fr:Boulghours, Boulghour, Bulgur, Boulgours, Boulgour de blé
-it:Bulgur
+he:בורגול
+hi:दलिया
+hu:bulgur, török rizs, tört búza
+hy:բլղուր
+ja:ブルグル
+kk:булгур
+ko:불구르
+ku:savar
+la:purgurium
+mk:булгур
 nl:Bulgur, Burghul, Boergoel
-pl:Bulgur
+pt:bulgur, triguilho
+ru:булгур
+uk:булгур
+xx:Bulgur
+# tr:sv:sr:sl:pl:nl:nb:jv:it:id:gl:eu:et:es:da:cs:ca:bulgur
+zh:布格麦
+# azb:یارما
+# ckb:ساوار
+#mai:दलिया
 wikidata:en:Q250432
 agribalyse_food_code:en:9690
 ciqual_food_code:en:9690
@@ -50043,6 +50215,7 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 
 <en:German vegetables
+<en:Tomatoes
 de:Tomaten von der Insel Reichenau
 protected_name_file_number:en: PGI-DE-0319
 protected_name_type:en: pgi
@@ -50082,6 +50255,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Tomatoes
 es:Tomate La Cañada
 protected_name_file_number:en: PGI-ES-0664, PGI-ES-0664-AM01
 protected_name_type:en: pgi
@@ -50094,6 +50268,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Asparagus
 es:Espárrago de Huétor-Tájar
 protected_name_file_number:en: PGI-ES-0056, PGI-ES-0056-AM01
 protected_name_type:en: pgi
@@ -50113,12 +50288,14 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Gordal de Sevilla, Aceituna Gordal Sevillana
 protected_name_file_number:en: PGI-ES-2183
 protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Manzanilla de Sevilla, Aceituna Manzanilla Sevillana
 protected_name_file_number:en: PGI-ES-2182
 protected_name_type:en: pgi
@@ -50161,6 +50338,7 @@ protected_name_type:en: pgi
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna de Mallorca, Aceituna Mallorquina, Oliva de Mallorca, Oliva Mallorquina
 protected_name_file_number:en: PDO-ES-1051
 protected_name_type:en: pdo
@@ -50197,6 +50375,7 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 
 <en:Spanish vegetables
+<en:Olives
 es:Aceituna Aloreña de Málaga
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
@@ -50412,12 +50591,6 @@ protected_name_file_number:en: PDO-ES-0075
 protected_name_type:en: pdo
 origins:en: en:Spain
 
-<en:Spanish vegetables
-es:Espárrago de Navarra
-protected_name_file_number:en: PGI-ES-0098
-protected_name_type:en: pgi
-origins:en: en:Spain
-
 <en:Spanish fruits
 es:Cerezas de la Montaña de Alicante
 protected_name_file_number:en: PGI-ES-0099
@@ -50469,6 +50642,74 @@ fr:Cassis frais
 season_in_country_fr:en: 6,7,8
 
 <en:Fruits
+en:Kumquats, kumquat
+af:koemkwat
+ar:كمكوات
+az:kinkan
+bg:кумкуат
+ca:cumquat
+cs:kumquat
+cv:кумкват
+da:kumquat
+de:Kumquat
+el:κουμκουάτ
+eo:kumkvato
+es:kumquat, cumquat
+et:kinkan
+eu:kumkuat
+fa:پورنج
+fi:kumkvatti, kumkvatit, kääpiöpomeranssi
+fr:kumquat
+gl:kumquat
+he:קומקוואט
+hr:kumkvat
+hu:kumkvat
+id:kumkuat
+is:kúmkvat
+it:kumquat
+ja:キンカン
+ka:კინკანი
+ko:금귤
+kv:кумкват
+la:citrus japonica
+lt:kinkanas
+ml:കുംകാറ്റ് ഓറഞ്ച്
+ms:kumkuat, كومكوات‎
+nb:kumquat
+ne:मुन्तला
+nl:kumquat
+nn:kumquat
+pl:kumkwat
+pt:cunquate, quincã
+ro:kumquat
+ru:кумкват
+sk:kumkvat
+sl:kumkvat
+sr:кумкват, kumkvat
+sv:kumquat
+th:ส้มจี๊ด
+tl:kumquat
+to:kamikuati
+tr:kamkat
+uk:кумкват
+vi:quất
+zh:金橘
+#arz:كمكوات
+#ast:kumquat
+#azb:کینکان
+#ceb:kumkuwat
+#frr:kumquat
+#hsb:kumkwat
+#koi:кумкват
+#lbe:кумкват
+#lzh:金橘
+#mrj:кумкват
+#nds:kumquat
+#udm:кумкват
+#wuu:金柑
+#yue:金桔
+
+<en:Kumquats
 en:Kumquat without pips
 fr:Kumquat sans pépins
 agribalyse_food_code:en:13549
@@ -51006,9 +51247,15 @@ ro:Grepfrut, Grepfruturi
 <en:Grapefruits
 en:Fresh grapefruits
 de:Frische Grapefruits
+
+<en:Citrus
+en:Pomelos
+
+<en:Pomelos
 fr:Pomélos frais, Pomelos frais
 
-<en:Grapefruits
+<en:Fresh pomelos
+en:Corsican pomelos
 fr:Pomelo de Corse
 protected_name_file_number:en: PGI-FR-1085
 protected_name_type:en: pgi
@@ -51026,6 +51273,9 @@ nl:Citroenen
 ro:Lămâi
 ru:Лимоны
 sv:Citroner, citron
+agribalyse_proxy_food_code:en:13009
+agribalyse_proxy_food_name:en:Lemon, pulp, raw
+agribalyse_proxy_food_name:fr:Citron, pulpe, cru
 
 <en:Lemons
 <en:Fresh fruits
@@ -51035,6 +51285,9 @@ es:Limones frescos
 fr:Citrons frais
 nl:Verse citroen
 season_in_country_fr:en: 1,2,11,12
+
+<en:Lemons
+en:Unwaxed lemons
 
 <en:French fruits
 <en:Lemons
@@ -51410,6 +51663,7 @@ ciqual_food_name:fr:Kaki, pulpe, cru
 <en:Fruits
 en:Immature tamarind pulp
 fr:Pulpe de tamarin vert
+nl:Onrijpe tamarinde pulp
 agribalyse_food_code:en:13079
 ciqual_food_code:en:13079
 ciqual_food_name:en:Tamarind, immature fruit, pulp, raw
@@ -51610,10 +51864,58 @@ wikidata:en:Q5031209
 
 <en:Muskmelons
 en:Cantaloupe melons, Cantaloupe
+af:spanspek
+ar:شمام
+bo:ཧ་མི་ཀུབ།
+ca:cantaloup, meló cantaloup
+da:kantalupmelon
+de:Cantaloupe-Melone, Kantalupe, Kantalupmelone, Warzenmelone
+el:κανταλουπένσιος
+eo:kantalupo
 es:Melones Cantalupe, Melones Cantalupo, Melones Cantaloup, Melones Cantaloupe
+fa:طالبی
+fi:cantaloupe-meloni, cantaloupe
 fr:Melons Cantaloup, Cantaloup
+hi:खरबूजा
+ht:kantaloup
+hy:կանտալուպ
+id:blewah
+it:melone di cantalupo
+ja:カンタロープ
+jv:bléwah
+kk:канталупа, Kantalwpa, كانتالۋپا
+kn:ಕರ್ಬೂಜ
+ko:캔털루프
+ku:şemamok
 la:Cucumis melo var. cantalupo
-nl:Kanteloepmeloenen, Kantaloepmeloenen
+lt:raukšlėtasis melionas
+mk:диња
+ml:ഷമാം
+mr:खरबूज
+nb:cantaloupe
+nl:Cantaloupes, Kanteloepmeloenen, Kantaloepmeloenen
+nn:kantalupp
+nv:taʼneeskʼání
+pa:ਖਰਬੂਜਾ
+pl:kantalupa
+pt:melão-cantalupo, meloa
+ro:cantalup
+ru:канталупа
+sv:nätmelon
+te:ఖర్బుజా
+th:แคนตาลูป
+tl:milong kastila
+uk:канталуп
+vi:dưa vàng
+zh:哈密瓜
+# bho:खरबुज्जा
+# chy:mâhöhko
+# ku-arab:شەمامۆک
+# ku-latn:şemamok
+# yue:鈔皮瓜
+# zh-cn:厚皮甜瓜
+# zh-hant:哈密瓜
+# zh-tw:甜瓜
 wikidata:en:Q477179
 agribalyse_food_code:en:13026
 ciqual_food_code:en:13026
@@ -51624,7 +51926,7 @@ ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, c
 en:Charentais melons
 es:Melones Charentais
 fr:Melons Charentais
-nl:Meloenen uit de Charentais in Frankrijk
+nl:Charantais Meloenen
 wikidata:en:Q1063115
 agribalyse_food_code:en:13026
 ciqual_food_code:en:13026
@@ -51650,9 +51952,25 @@ wikidata:en:Q356844
 
 <en:Muskmelons
 en:Honeydew melons, Honeydew
+ar:شمام كوز العسل
+de:Honigmelone
+el:Χάνεϊντιου
 es:Melones Honeydew, Melones verdes
+fa:طالبی
+fi:hunajameloni
 fr:Melons Honeydew
-nl:Gladde meloenen
+hr:Dinja
+it:melone verde
+ja:ハネデューメロン
+jv:Mèlon madu
+la:Cucumis melo var. Inodorus
+ms:Tembikai Susu
+nl:suikermeloenen, honingmeloenen , Honeydew
+ps:خټکی
+ro:Honeydew
+sv:Honungsmelon
+tl:Milong lunti
+vi:Dưa lê
 wikidata:en:Q47801
 
 <en:Muskmelons
@@ -52017,8 +52335,84 @@ ciqual_food_name:en:Lychee, pulp, raw
 ciqual_food_name:fr:Litchi, pulpe, cru
 
 <en:Tropical fruits
-en:Carambola
-fr:Carambole
+En:Carambola, Star Fruit
+Ar:قلنباق
+As:কৰ্দ্দৈ
+Bg:Карамбола
+Bn:কামরাঙা
+Ca:Caramboler
+Ch:Bilembines
+Cs:Karambola, Čínská Hvězdice
+Da:Karambole, Stjernefrugt
+De:Karambole, Baumstachelbeere
+Dv:ކާމަރަނގަ
+El:Καραμπόλα
+Eo:Karambolfrukto
+Es:Carambolo, Fruta de Estrella
+Et:Karamboola
+Fa:میوه ستاره‌سان
+Fi:Karambola
+Fr:Carambole
+Ga:Toradh Réaltúil
+Gl:Carambola
+He:קרמבולה
+Hi:कमरख
+Ht:Karanbòl
+Hu:Csillaggyümölcs, Carambola
+Hy:Կարամբոլա
+Is:Stjörnuávöxtur
+It:Carambola
+Ja:スターフルーツ
+Jv:Belimbing, Carambola, Star Fruit
+Kn:ಕಮರಾಕ್ಷಿ
+Ko:카람볼라
+Kv:Карамбола
+La:Averrhoa Carambola
+Ln:Pakapáka
+Lt:Karambola
+Lv:Karambola
+Ml:ആരംപുളി
+Mr:कमरक
+Ms:Belimbing Besi, ڤوکوق بليمبيڠ بسي‎‎
+My:စောင်းလျားပင်
+Nb:Stjernefrukt
+Ne:कन्तर
+Nl:Stervrucht, Carambola, Sterfruit
+Or:କରମଙ୍ଗା
+Pl:Karambola
+Pt:Caramboleiro, Carambola
+Ro:Carambola
+Ru:Карамбола
+Sd:ڪمرنگو
+Si:කාමරංගා
+Sk:Karambola, Čínska Hviezdica
+Sq:Starfruit
+Sr:Карамбола, Karambola
+Su:Balimbing
+Sv:Carambola
+Ta:விளிம்பிப்பழம்
+Te:నక్షత్ర ఫలం చెట్టు
+Th:มะเฟือง
+Tl:Balimbing
+To:Tapanima
+Tr:Yıldız Meyvesi
+Ty:Raparapa
+Uk:Карамбола
+Vi:Khế
+Zh:楊桃
+#Bcl:Biriran
+#Koi:Карамбола
+#Lbe:Карамбола
+#Lzh:陽桃
+#Mad:Bhlimbhing
+#Bms:Blimbing
+#Mrj:Карамбола
+#Nan:Iûⁿ-tô
+#Pam:Taranati
+#Udm:Карамбола
+#Vep:Karambol
+#Wuu:杨桃
+#Yue:楊桃
 agribalyse_food_code:en:13054
 ciqual_food_code:en:13054
 ciqual_food_name:en:Carambola, pulp, raw
@@ -52063,15 +52457,133 @@ fr:Mangue importée par bateau
 agribalyse_food_code:en:13025_2
 
 <en:Tropical fruits
-en:Papayas
+en:Papayas, papaya, papaw, pawpaw
+af:papaja
+ak:Bofr3
+am:ፓፓያ
+ar:ببايا
+az:papayya
+bg:папая
+bh:पपीता
+bi:popo
+bm:manje
+bn:পেঁপে
+bo:སེ་ཡབ།
+bs:papaja
+ca:papaie, papaies
+ch:papaya
+cs:papája
+da:papaja
 de:Papayas
+ee:adiba
+eo:papajo
 es:Papayas
-fr:Papayes
-nl:Papayas
-nl_be:Papayas
+et:papaia
+eu:papaia
+fa:پاپایا
+fi:papaija
+fj:weleti
+fr:Papayes, papaye
+gl:papaia
+gn:mamóne
+gu:પપૈયું
+ha:gwanda
+he:פפאיה
+hi:पपीता
+hr:papaja
+ht:papay
+hu:papaja
+hy:Պապայա
+ia:papaya
+id:Pepaya
+io:Papayo
+is:sólaldin, papaya
+it:papaia, papaya
+ja:パパイア
+jv:katès
+kg:dilolo
+kk:papaýya, Папайя, پاپاييا
+kn:ಪಪ್ಪಾಯಿ
+ko:파파야
+kv:папайя
+la:Carica papaya
+lg:eppaapaali
+ln:Payipayi
+lo:ໝາກຫຸ່ງ
+lt:papaja
+lv:papaja
+mg:papay
+mi:papaia, папаја
+ml:പപ്പായ
+mr:पपई
+ms:betik, بتيق
+my:သင်္ဘောပင်
+nb:papaya
+nl:Papajas, papayas
+no:papaya
+nv:babáayah
+oc:papaia
+or:ଅମୃତଭଣ୍ଡା
+pl:papają
+pt:mamão, papaia, ababaia
+qu:papaya
+ro:papaya
+ru:папайя
+rw:ipapaya
+sa:मधुकर्कटी
+sg:päpâyë
+sh:papaja
+sk:papája
+sl:papaja
+so:babaay
+sr:papaja
+sv:papaya, papaja
+sw:mpapai
+ta:பப்பாளி
+te:బొప్పాయి
+th:มะละกอ
+tl:papaya
+to:lesi
+tr:papaya
+ts:mpopowa
+ty:’ī’ītā
+uk:папая
+ur:پپیتا
+vi:đu đủ
+wo:pàppaaya
+za:moeggva
+zh:番木瓜
+#arz:بابايا
+#ast:papaya
+#ban:gedang
+#dag:gɔndili
+#dtp:tapayas
+#frr:papaya
+#jbo:rutrpaupau
+#kbp:somboɖe
+#koi:папайя
+#lbe:папайя
+#mai:अरनेबा
+#mrj:папайя
+#ms-arab:بتيق
+#nah:Ochonetli
+#nan:bo̍k-koe
+#nia:bala
+#pnb:پپیتاvvvvv
+# pt-br:mamão
+#sat:ᱡᱟᱰᱟ
+#sco:Papaya
+#sty:agac kavēnē
+#tcy:ಬಪ್ಪಂಗಾಯಿ
+#udm:папайя
+#war:kapaya
+#wuu:木瓜
+#yua:puut
+#yue:木瓜
 agribalyse_proxy_food_code:en:13035
 agribalyse_proxy_food_name:en:Papaya, pulp, raw
 agribalyse_proxy_food_name:fr:Papaye, pulpe, crue
+
 
 <en:Papayas
 <en:Fresh fruits
@@ -53133,22 +53645,94 @@ fr:Basilic en pot
 nl:Basilicums in pot
 
 <en:Aromatic herbs
-en:Chives
+en:Chives, Chive
+af:sprietui
+am:ቀጭን ሽንኩርት
+ar:ثوم معمر
+az:mala soğanı
+be:цыбуля скарада
+bg:сибирски лук
+bo:ཀེའུ།
+bs:vlasac
+ca:cibulet
+cs:pažitka, pažitka pobřežní
+cy:cenhinen syfi
+da:purløg
 de:Schnittlauch
-es:Cebollino
-fi:Ruohosipulit
+el:πρασουλίδα, σχοινόπρασο, άλλιον το σχοινόπρασον
+eo:ŝenoprazo
+es:Cebollino, cebollinos
+et:murulauk
+eu:tipulin
+fa:پیاز کوهی
+fi:Ruohosipulit, ruohosipuli, ruohosipulia, käärmeenlaukka
 fr:Ciboulette, Civette
+ga:síobhas
+gl:ceboliño
+gv:shoushan
+he:שום העירית
+hr:vlasac
+ht:siv
+hu:metélőhagyma
+id:lokio
+is:graslaukur
+it:cippolina, aglio d'india
+ja:チャイブ
+jv:lokio
+kk:шалғын жуа, şalğın jwa, شالعىن جۋا
+ko:차이브
 la:Allium schoenoprasum
-nl:Biesloken
+lb:bratzel
+li:bieslouk
+lt:laiškinis česnakas
+lv:maurloks, maurloki
+mk:власец
+ml:ചൈവ്സ്
+nb:grasløk
+nl:bieslook
+nn:graslauk
+oc:ceboleta
+pl:szczypior, czosnek szczypiorek, szczypiorek
+pt:cebolinho
+ro:arpagic
+ru:лук скорода
+sk:pažítka
+sl:drobnjak
+sv:gräslök
+ta:இனப்பூண்டு
+tr:yaprak soğanı
+uk:цибуля-різанець
+ur:ثوم معمر
+vi:hành tăm
+wa:brele
+zh:蝦夷蔥
+# ang:secglēac
+# csb:łëczk
+# de-ch:Schnittlauch
+# dsb:cybulinka
+# en-ca:chives
+# en-gb:chives
+# hsb:słódny kobołk
+# nds-nl:kreilook
+# pam:chives
+# pcd:chiboléte
+# sco:chives
+# szl:szńitloch
+# vec:ajo de bisi
+# yue:細香蔥
+# zh-cn:蝦夷蔥
+# zh-hans:蝦夷蔥
+# zh-hant:蝦夷蔥
+# zh-tw:細香蔥
 wikidata:en:Q51148
 
 <en:Chives
 <en:Fresh aromatic plants
-en:Fresh chives, Fresh spring onions
+en:Fresh chives
 de:frischer Schnittlauch
 es:Cebollino fresco
-fr:Ciboulette fraîche, Ciboule fraîche
-nl:Verse biesloken
+fr:Ciboulette fraîche
+nl:Verse lenteui
 agribalyse_food_code:en:11003
 ciqual_food_code:en:11003
 ciqual_food_name:en:Chive or spring onion, fresh
@@ -53425,21 +54009,137 @@ wikidata:en:Q161235
 
 <en:Mint
 en:Peppermint
+ar:نعناع فلفلي
+ba:бөтнөк үләне
+ca:menta pebrera
+cs:máta peprná
+cy:mintys poeth
+da:pebermynte
 de:Pfefferminze
+el:μέντα η πεπερώδης, ηδύοσμος ο πεπερώδης
+eo:pipromento
 es:Menta piperita
+et:piparmünt
+eu:mendafin
+fa:نعنای فلفلی
+fi:piparminttu
 fr:Menthe poivrée
+ga:lus an phiobair
+gl:menta común
+he:נענע חריפה
+hi:पिपरमिंट
+hr:paprena metvica
 hu:Borsmenta
+hy:անանուխ
+id:pepermin
+is:piparminta
+it:menta piperita
+ja:ペパーミント
+kk:бұрышты жалбыз
+ko:박하
 la:Mentha x piperita
+lt:pipirmėtė
+lv:piparmētra
+ms:pudina
+nb:peppermynte
 nl:Pepermunt
+pl:mięta pieprzowa
+ps:تور ويلني
+pt:hortelã-pimenta
+ro:izmă bună
+ru:мята перечная
+sh:pitoma metvica
+si:ڦودنو
+sk:mäta pieporná
+sl:poprova meta
+sr:питома нана
+sv:pepparmynta
+ta:மிளகுக்கீரை
+tg:наъно
+th:เปปเปอร์มินต์
+tr:bahçe nanesi
+uk:м'ята перцева
+vi:bạc hà
+zh:胡椒薄荷
+# csb:krziżewé zelé
+# hsb:zahrodna mjetlička
+# kk-arab:بۇرىشتى جالبىز
+# kk-cn:بۇرىشتى جالبىز
+# kk-cyrl:бұрышты жалбыз
+# kk-kz:бұрышты жалбыз
+# kk-latn:burıştı jalbız
+# kk-tr:burıştı jalbız
+# lez:пурни
+# olo:persudušmanku
+# sr-ec:питома нана
+# sr-el:pitoma nana
+# yue:胡椒薄荷
+# zh-cn:胡椒薄荷
+# zh-hans:胡椒薄荷
+# zh-hant:胡椒薄荷
+# zh-hk:胡椒薄荷
+# zh-sg:胡椒薄荷
+# zh-tw:胡椒薄荷
 wikidata:en:Q156037
 
 <en:Mint
 en:Spearmint, Spear mint
-es:Hierbabuena
+af:kruisement
+ar:نعناع مدبب
+az:sünbüllü nanə
+bg:джоджен
+bn:পুদিনা
+ca:menta verda
+cs:máta klasnatá
+cy:mintys ysbigog
+da:grøn mynte
+de:grüne Minze
+el:δυόσμος
+es:Hierbabuena, menta verde
+et:rohemünt
+eu:mendabeltz
+fa:نعناع زینتی
+fi:viherminttu
 fr:Menthe verte, Menthe douce
+ga:cartlainn gharraí
+gl:hortelá verde
+he:נענע קרחת
+hu:fodormenta
+it:menta spicata, menta romana, menta gentile
+ja:スペアミント
+ko:스피어민트
+ku:nane
 la:Mentha spicata
+lt:šaltmėtė
 nl:Groene munt, Aarmunt
+pl:mięta zielona
 pt:Hortelã-verde
+qu:ispiha muña
+ru:мята колосистая
+se:ruonáminta
+sk:mäta klasnatá
+sl:klasasta meta
+sv:spearmint, grönmynta
+te:పుదీనా
+th:สเปียร์มินต์
+uk:м'ята кучерява
+zh:留蘭香
+# aeb-arab:نعناع
+# azb:سونبوللو نانه
+# de-ch:grüne minze
+# hsb:zelena mjetlička
+# ku-arab:نانە
+# ku-latn:nane
+# pms:mentha viridis
+# pt-br:hortelã-verde
+# sco:spearimint
+# yue:綠薄荷
+# zh-cn:留兰香
+# zh-hans:留兰香
+# zh-hant:留蘭香
+# zh-hk:留蘭香
+# zh-sg:留兰香
+# zh-tw:留蘭香
 wikidata:en:Q160114
 
 <en:Spearmint
@@ -55426,10 +56126,6 @@ ciqual_food_name:en:Cream sauce with herbs
 ciqual_food_name:fr:Sauce à la crème aux herbes
 
 <en:Sauces
-en:Curry sauces
-nl:Currysauzen
-
-<en:Sauces
 en:Cream sauces with mushrooms
 fr:Sauces aux champignons et à la crème
 agribalyse_food_code:en:11192
@@ -55647,11 +56343,14 @@ fi:currykastikkeet
 fr:Sauces au curry, Sauces curry
 hu:Curry mártások
 it:Salse al curry
-nl:Kerriesauzen, Kerriesaus
+nl:Kerriesauzen, Kerriesaus, Currysauzen
 agribalyse_food_code:en:11132
 ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
 ciqual_food_name:fr:Sauce au curry, préemballée
+
+<en:Curry sauces
+en:Madras curry sauce
 
 <en:Sauces
 en:Fried potato sauces
@@ -59232,6 +59931,9 @@ pt:Refeições com frango
 ru:Блюда из курицы
 
 <en:Meals with chicken
+en:Sweet and sour chicken
+
+<en:Meals with chicken
 fr:Parmentiers de poulet
 agribalyse_proxy_food_code:en:25587
 agribalyse_proxy_food_name:en:Shepherd's pie with duck, cooked
@@ -59270,6 +59972,12 @@ fr:Poulets basquaise, Poulet basquaise, Poulets basquaises
 agribalyse_food_code:en:25190
 ciqual_food_code:en:25190
 ciqual_food_name:en:Chicken, Basque style
+
+<en:Meals with chicken
+en:Coronation chicken
+
+<en:Meals with chicken
+en:Chicken tikka masala
 
 <en:Meals with meat
 en:Goat dishes, Goat meals
@@ -60977,6 +61685,7 @@ ciqual_food_name:en:European hake, braised
 ciqual_food_name:fr:Merlu, cuit à l'étouffée
 
 <en:Fish dishes
+<en:hake
 en:Hake fillet
 fr:Filet de merlu
 
@@ -60994,7 +61703,8 @@ en:Frozen breaded hake fillet
 fr:Filet de merlu pâné surgelé
 
 <en:Fish dishes
-en:European hake
+<en:Lean fishes
+en:Hake, European hake
 fr:Merlu
 agribalyse_food_code:en:26044
 ciqual_food_code:en:26044
@@ -61270,6 +61980,24 @@ ciqual_food_name:fr:Pizza (aliment moyen)
 <en:Pizzas pies and quiches
 it:Calzone
 fr:Calzone, Pizzas calzone
+
+<it:Calzone
+fr:Calzones au jambon
+
+<it:Calzone
+fr:Calzones au poulet
+
+<it:Calzone
+fr:Calzones sans gluten
+
+<it:Calzone
+fr:Calzones jambon fromage
+
+<it:Calzone
+fr:Calzones au fromage
+
+<it:Calzone
+fr:Calzones peperoni
 
 <en:Pizzas
 en:Regina pizza, Pizza with ham and cheese and mushrooms
@@ -61851,6 +62579,7 @@ ciqual_food_name:fr:Salade de thon et légumes, appertisée, égouttée
 
 <en:Prepared salads
 fr:Salades catalanes
+nl:Catalaanse salades
 
 <en:Prepared salads
 en:Mexican salads
@@ -61862,7 +62591,7 @@ en:Cucumber salads
 de:Gurken Salate
 fi:Kurkkusalaatit
 fr:Salades de concombres
-nl:Kokommersalade
+nl:Komkommersalades
 
 <en:Cucumber salads
 fr:Concombres au fromage blanc
@@ -61874,6 +62603,7 @@ fr:Concombres à la crème
 <en:Bulgur dishes
 en:Bulgur salads
 fr:Salades de boulgour
+nl:Bulgursalades
 
 <en:Prepared salads
 en:Lentil salads
@@ -62463,6 +63193,12 @@ pl:Wołowina, mięso wołowe
 ru:Говядина
 zh:牛肉
 wikidata:en:Q192628
+
+<en:Beef
+de:Bayerisches Rindfleisch, Rindfleisch aus Bayern
+protected_name_file_number:en: PGI-DE-0640
+protected_name_type:en: pgi
+origins:en: en:Germany, de:Bayern
 
 <en:Beef
 en:West Country Beef
@@ -64016,6 +64752,9 @@ ciqual_food_code:en:28301
 ciqual_food_name:en:Pork, roast, cooked
 ciqual_food_name:fr:Porc, rôti, cuit
 
+<en:Cooked pork meat
+en:Pigs in blankets
+
 <en:Pork
 en:Pork ribs, pork chops, pork ribs
 es:Costillas de cerdo
@@ -64155,15 +64894,11 @@ ciqual_food_name:en:Tongue, pork, raw
 ciqual_food_name:fr:Langue, porc, crue
 
 <en:Pork
-en:Pig heart
-fr:Cœur de porc
+en:Pig heart, Pork heart
+fr:Cœur de porc, Coeur de porc
 hu:Disznó szív
 it:Cuore di maiale
 zh:猪心
-
-<en:Pork
-en:Pork heart
-fr:Coeur de porc
 agribalyse_food_code:en:40060
 ciqual_food_code:en:40060
 ciqual_food_name:en:Heart, pork, raw
@@ -64285,19 +65020,19 @@ origins:en: en:France
 fr:Volailles de Vendée
 protected_name_file_number:en: PGI-FR-0169
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Vendée
 
 <en:Poultries
 fr:Volailles de la Drôme
 protected_name_file_number:en: PGI-FR-0299
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Drôme
 
 <en:Poultries
 fr:Volailles de Gascogne
 protected_name_file_number:en: PGI-FR-0175
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Gascogne
 
 <en:Poultries
 en:Poultries from Janzé
@@ -64342,25 +65077,25 @@ origins:en: en:France
 fr:Volailles d'Alsace
 protected_name_file_number:en: PGI-FR-0158
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Alsace
 
 <en:Poultries
 fr:Volailles d'Auvergne
 protected_name_file_number:en: PGI-FR-0164
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Auvergne
 
 <en:Poultries
 fr:Volailles de Bourgogne
 protected_name_file_number:en: PGI-FR-0151
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Bourgogne
 
 <en:Poultries
 fr:Volailles de Bretagne
 protected_name_file_number:en: PGI-FR-0155
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Bretagne
 
 <en:Poultries
 fr:Volailles de Challans
@@ -64382,13 +65117,13 @@ origins:en: en:France
 
 <en:Poultries
 fr:Volailles de la Drôme
-country:en:France
+origins:en: en:France, fr:Drôme
 
 <en:Poultries
 fr:Volailles de l'Ain
 protected_name_file_number:en: PGI-FR-0146
 protected_name_type:en: pgi
-origins:en: en:France
+origins:en: en:France, fr:Ain
 
 <en:Poultries
 fr:Volailles de Licques
@@ -64446,6 +65181,7 @@ origins:en: en:France
 <en:Chickens
 <fr:Volailles du Gers
 fr:Poulets du Gers
+origins:en: en:France, fr:Gers
 
 <en:Poultries
 fr:Volailles du Maine
@@ -64689,6 +65425,13 @@ agribalyse_food_code:en:36201
 ciqual_food_code:en:36201
 ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
+
+<en:French meat products
+<en:Ducks
+fr:Canard à foie gras du Sud-Ouest, Canard à foie gras de Chalosse, Canard à foie gras de Gascogne, Canard à foie gras du Gers, Canard à foie gras des Landes, Canard à foie gras du Périgord, Canard à foie gras du Quercy
+protected_name_file_number:en: PGI-FR-0034
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Ducks
 fr:aiguillettes de canard
@@ -65694,6 +66437,7 @@ origins:en: en:France, fr:Corse
 <en:Prepared meats
 en:French meat products
 fr:Produits carnés français
+origins:en: en:France
 
 <en:French meat products
 fr:Pancetta de l'Ile de Beauté, Panzetta de l'Ile de Beauté
@@ -65834,7 +66578,7 @@ es:jamón cocido, jamón York
 fi:kypsennetyt kinkut
 fr:Jambons blancs, Jambon blanc, jambon cuit, jambons cuits, Jambons de Paris, Jambon de Paris
 hu:Fehér sonka
-it:Prosciutti cotti
+it:Prosciutti cotti, prosciutto cotto
 nl:Gekookte ham
 wikidata:en:Q3820622
 agribalyse_food_code:en:28925
@@ -65915,18 +66659,22 @@ en:French hams
 de:Französischer Schinken
 fr:Jambons français
 it:Prosciutto francese
+origins:en: en:France
 
 <en:Hams
 en:British hams
 fr:Jambons britanniques
+origins:en: en:United Kingdom
 
 <en:Hams
 en:Italian hams
 fr:Jambons italiens
+origins:en: en:Italy
 
 <en:Hams
 en:Spanish hams
 fr:Jambons espagnols
+origins:en: en:Spain
 
 <en:British hams
 en:Carmarthen Ham
@@ -66409,6 +67157,9 @@ zh:香肠
 ciqual_food_code:en:30780
 ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
+
+<en:Sausages
+en:Onion sausages
 
 <en:Sausages
 en:Sausage meat
@@ -67475,6 +68226,7 @@ ciqual_food_name:en:Salami, pork and beef
 en:Pork salami
 fi:Sianlihasalami
 fr:Salami de porc
+nl:Varkensvleessalami
 agribalyse_food_code:en:30351
 ciqual_food_code:en:30351
 ciqual_food_name:en:Salami, pure pork
@@ -68708,9 +69460,11 @@ ciqual_food_name:en:Tomme cheese, from mountain or Savoy
 
 <fr:Tommes
 fr:Tomme de Suisse, Tommes de Suisse
+origins:en: en:Switzerland
 
 <fr:Tommes
 fr:Tomme du Canada, Tommes du Canada
+origins:en: en:Canada
 
 <fr:Tommes
 fr:Tomme du Massif central, Tommes du Massif central
@@ -70585,6 +71339,9 @@ ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphin
 <en:Cheese ravioli
 <en:Fresh pasta stuffed with cheese
 fr:Raviolis fraîs au fromage
+
+<en:Cheese ravioli
+en:Cheese ravioli in tomato sauce
 
 <en:Fresh pasta stuffed with cheese
 <fr:Ravioles du Dauphiné
@@ -72510,6 +73267,9 @@ fr:Sandwich jambon crudités fromage
 agribalyse_proxy_food_code:en:25574
 
 <en:Sandwiches filled with cold cuts
+en:Sausage bacon and egg sandwiches
+
+<en:Sandwiches filled with cold cuts
 <en:Sandwich with ham and vegetables and cheese
 en:Sandwich made with wholemeal loaf bread and ham and vegetables and cheese
 fr:Sandwich pain de mie complet jambon crudités fromage
@@ -72700,12 +73460,21 @@ fr:Wraps, Wrap, roulade
 nl:Wraps
 
 <fr:Wraps
+en:Chicken wraps
 fr:Wraps au poulet
 
+<en:Chicken wraps
+en:Jerk chicken wraps
+
+<en:Chicken wraps
+en:Fried chicken wraps
+
 <fr:Wraps
+en:Ham wraps
 fr:Wraps au jambon
 
-<fr:Wraps au jambon
+<en:Ham wraps
+en:Ham and goat cheese wraps
 fr:Wraps Jambon Chèvre
 
 en:Seafood, sea foods
@@ -72907,6 +73676,14 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Fishes
+en:Fat fishes, blue fishes, fat fish, blue fish
+fr:Poissons gras, poissons bleus, poisson gras, poisson bleu
+
+<en:Fishes
+en:Lean fishes, white fishes, lean fish, white fish
+fr:Poissons maigres, poissons blancs, poisson maigre, poisson blanc
+
+<en:Fishes
 en:Tilapia
 fr:Tilapia
 ciqual_food_code:en:27019
@@ -72998,8 +73775,9 @@ ciqual_food_name:en:John dory, raw
 ciqual_food_name:fr:Saint-Pierre, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Golden redfish
-fr:Grand sébaste, Daurade sébaste, Sébaste du nord
+fr:Sébaste, Grand sébaste, Daurade sébaste, Sébaste du nord
 agribalyse_food_code:en:26210
 ciqual_food_code:en:26210
 ciqual_food_name:en:Golden redfish, raw
@@ -73011,6 +73789,7 @@ ciqual_food_name:fr:Grand sébaste, ou dorade sébaste, ou daurade sébaste, cru
 #ciqual_food_name:fr:Sébaste du nord, ou dorade sébaste, ou daurade sébaste, crue
 
 <en:Fishes
+<en:Lean fishes
 en:Pouting
 fr:Tacaud
 agribalyse_food_code:en:26133
@@ -73022,6 +73801,7 @@ ciqual_food_name:fr:Tacaud, cru
 en:Pollan, Irish pollan
 
 <en:Fishes
+<en:Lean fishes
 en:European plaice
 fr:Carrelet crue, Plie, Plie commun
 agribalyse_food_code:en:26204
@@ -73929,6 +74709,7 @@ ciqual_food_name:en:Whiting, breaded
 ciqual_food_name:fr:Merlan, pané
 
 <en:Fishes
+<en:Lean fishes
 en:Whiting
 fr:Merlan
 agribalyse_food_code:en:26095
@@ -74186,6 +74967,7 @@ fr:Filets de colin
 nl:Koolvisfilets
 
 <en:Fishes
+<en:Fat fishes
 en:Anchovy
 de:Sardellen
 es:Anchoa
@@ -74441,6 +75223,7 @@ ciqual_food_name:en:Big-scale sand smelt (whole small fish), to fry, raw
 ciqual_food_name:fr:Joëls (petits poissons entiers) pour friture, crus
 
 <en:Fishes
+<en:Fat fishes
 en:Salmons
 bg:Сьомга
 ca:Salmó
@@ -74560,6 +75343,7 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 
 <en:Fishes
+<en:Fat fishes
 en:Sardines
 ca:Sardines
 da:Sardiner
@@ -74623,6 +75407,7 @@ ciqual_food_name:fr:Congre, cru
 cooking_method:en en:raw
 
 <en:Fishes
+<en:Lean fishes
 en:Roundnose grenadier
 fr:Grenadier, Grenadier de roche
 agribalyse_food_code:en:26128
@@ -74941,6 +75726,7 @@ nl:Gerookte forel
 fr:Filets de truite
 
 <en:Fishes
+<en:Fat fishes
 en:Trouts
 de:Forelle, Forellen
 es:Truchas
@@ -75016,6 +75802,7 @@ ciqual_food_name:en:Carp roasted, carp baked
 ciqual_food_name:fr:Carpe rôtie, carpe cuite au four
 
 <en:Fishes
+<en:Lean fishes
 en:European perch
 fr:Perche
 agribalyse_food_code:en:27010
@@ -75081,6 +75868,7 @@ ciqual_food_code:en:26106
 ciqual_food_name:en:Red gurnard, raw
 
 <en:Fishes
+<en:Fat fishes
 en:Tunas, Thunnus
 bg:Риба тон
 ca:Tonyina
@@ -75368,6 +76156,7 @@ nl:Grootoogtonijn
 wikidata:en:Q1122241
 
 <en:Fishes
+<en:Lean fishes
 en:Bass
 de:Barsche, Barsch
 fr:Bars
@@ -75423,6 +76212,7 @@ ciqual_food_name:en:Spotted wolffish
 ciqual_food_name:fr:Loup tacheté, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Pollocks
 de:Seelachse, Seelachs
 fi:lyyraturskat
@@ -75430,11 +76220,19 @@ fr:Colins
 it:Merlano
 nl:Heek
 
+# Note: bream in English is used for species of freshwater and marine fish
+# Dorade in French is only marine fishes
+
 <en:Fishes
+<en:Lean fishes
 en:Breams
 de:Doraden, Dorade
 fr:Dorades, daurades
 nl:Brasem
+
+<en:Breams
+en:Seabreams, sea breams
+fr:Brèmes de mer
 
 <en:Breams
 en:Gilthead seabream
@@ -75465,6 +76263,7 @@ ciqual_food_name:en:Freshwater bream, raw
 ciqual_food_name:fr:Brème, cru
 
 <en:Fishes
+<en:Fat fishes
 en:Herring
 de:Heringe, Hering
 es:Arenques
@@ -75528,6 +76327,7 @@ ciqual_food_name:en:Atlantic herring, grilled/pan-fried
 ciqual_food_name:fr:Hareng, grillé/poêlé
 
 <en:Herring
+<en:Fat fishes
 en:Atlantic herring
 fr:Hareng
 agribalyse_food_code:en:26011
@@ -75560,6 +76360,7 @@ ciqual_food_name:en:Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Fishes
+<en:Lean fishes
 en:Pike-perch
 fr:Sandre
 ciqual_food_code:en:27024
@@ -75596,6 +76397,7 @@ ciqual_food_name:en:Burbot, raw
 ciqual_food_name:fr:Lotte de rivière, crue
 
 <en:Fishes
+<en:Fat fishes
 en:Mackerels
 bg:Скумрия
 de:Makrelen, Makrele
@@ -75755,6 +76557,7 @@ fr:Filets de maquereaux natures
 nl:Makreelfilets natuur
 
 <en:Fishes
+<en:Lean fishes
 en:Turbot
 fr:Turbot
 agribalyse_food_code:en:26174
@@ -75787,6 +76590,7 @@ ciqual_food_name:en:Turbot, raw, farmed
 ciqual_food_name:fr:Turbot d'élevage, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Brown bullhead
 fr:Pangasius, Poisson-chat
 agribalyse_food_code:en:27017
@@ -75819,6 +76623,7 @@ ciqual_food_name:en:Mullet, roasted/baked
 ciqual_food_name:fr:Mulet, rôti/cuit au four
 
 <en:Fishes
+<en:Lean fishes
 en:Mullet
 fr:Mulet
 agribalyse_food_code:en:26091
@@ -75827,6 +76632,7 @@ ciqual_food_name:en:Mullet, raw
 ciqual_food_name:fr:Mulet, cru
 
 <en:Fishes
+<en:Lean fishes
 en:Cods, Codfishes
 de:Kabeljau
 es:Bacalaos
@@ -75848,6 +76654,7 @@ ciqual_food_name:en:Cod, cooked (average)
 ciqual_food_name:fr:Cabillaud, cuit, sans précision (aliment moyen)
 
 <en:Fishes
+<en:Seabreams
 en:Black seabream
 fr:dorade grise, daurade grise, griset
 agribalyse_food_code:en:26099
@@ -75855,6 +76662,7 @@ ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
 
 <en:Fishes
+<en:Seabreams
 en:Blackspot seabream
 fr:dorade rose, daurade rose
 agribalyse_food_code:en:26109
@@ -77383,15 +78191,44 @@ nl:Bonenspreads
 <en:Salted spreads
 <en:Dips
 en:Hummus, Houmous
+ar:حمص بطحينة
+az:humus
+be:хумус
 bg:Хумус
+bn:হুম্মুস
+br:houmous
+cy:hwmws
 de:Hummus
-es:Hummus
-fi:hummus
+el:χούμους
+eo:kikerkaĉo
+fa:حمص
 fr:Houmous, hommos, hoummous, houmos, oumos, humus, hummus
 it:Hummus
-nl:Hoemoes, Houmous, Hummus
-pl:Humus, Hummus
+he:חומוס
+hi:हुम्मुस
+hu:hummusz
+hy:հումուս
+ja:フムス
+ka:ჰუმუსი
+kn:ಹುಮುಸ್
+ko:훔무스
+ku:humûs
+lt:humusas
+mk:хумус
+ml:ഹമ്മൂസ്
+ne:हम्मस
+pa:ਹੰਮਸ
+ro:hummus, humus
 ru:Хуммус
+sr:хумус
+th:ฮัมมัส
+tl:humus
+tr:humus
+uk:хумус
+ur:حمص
+xx:hummus
+zh:鹰嘴豆泥
+#xx:hummus ca, cs, da, es, et, fi, it, nl, nn, pl, sv, af, an, ast, ceb, eu, frr, gl, id, is, jv, ms, oc, sq, vi
 wikidata:en:Q241987
 agribalyse_food_code:en:25621
 ciqual_food_code:en:25621
@@ -79162,6 +79999,13 @@ ciqual_food_code:en:20279
 ciqual_food_name:en:Asparagus, green, raw
 ciqual_food_name:fr:Asperge, verte, crue
 
+<en:Spanish vegetables
+<en:Asparagus
+es:Espárrago de Navarra
+protected_name_file_number:en: PGI-ES-0098
+protected_name_type:en: pgi
+origins:en: en:Spain
+
 <en:Green asparagus
 it:Asparago verde di Altedo
 protected_name_file_number:en: PGI-IT-0127-AM01
@@ -79583,11 +80427,41 @@ season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Vegetable rods
 en:Cardoons, Artichoke thistles
-de:Kardone
+ca:card
+da:kardon
+de:Kardone, Cardy
+el:αγριοαγκινάρα
+eo:kardono
 es:Cardos
+fi:kardoni
 fr:Cardons, Cardes
+ga:cardún
+gl:cardo
+gv:cardoon
+hu:kardi
+io:karduno
+it:cardo, cardi
+ja:カルドン
+ko:카르둔
 la:Cynara cardunculus
 nl:Kardoen
+pl:kard, karczoch hiszpański
+pt:cardo, cardo-de-coalho
+ro:cardon
+ru:кардон
+sl:kardij
+sr:гардун, gardun
+sv:kardon
+th:อาร์ทิโชก
+tr:devedikeni
+yi:ארטישאק
+zh:刺苞菜蓟
+#arz:خرشف
+#ast:cardu
+#kab:taga
+#pam:cardoon
+#diq:kenger
+#scn:carduni
 agribalyse_food_code:en:20054
 ciqual_food_code:en:20054
 ciqual_food_name:en:Cardoon, raw
@@ -80326,18 +81200,19 @@ bn:লেটুস
 bo:རྗེན་ཚལ་
 ca:Lletuga, enciam
 cs:locika setá, locika
-cy:Letysen
+cy:letysen
 da:Salat
 de:Lattich, Gartensalat
-eo:Laktuko, Kultiva laktuko
+eo:kultiva, ĝardena laktuko
 es:Lechuga, Lechugas
 et:Salat, Aedsalat
-eu:Uraza
+eu:Uraza, uhaza, letxuga
 fa:لاکتوکا, کاهو
 fi:salaatit, Lehtisalaatti
 fr:Laitues, laitue
 ga:Leitís
 gl:Leituga
+gr:Μαρούλι
 gu:Ka'anakyrỹi
 gv:Glassyr
 he:חסה, חסה תרבותית
@@ -80351,7 +81226,7 @@ is:Salat
 it:Lattuga, lattughe
 ja:アキノノゲシ属, レタス
 ka:ღორისქადა, სალათა
-kk:Ассүттіген, Салат
+kk:Ассүттіген, Салат, Salat latwk, سالات لاتۋك
 kn:ಲೆಟಿಸ್
 ko:왕고들빼기속, 상추
 ku:Kahû
@@ -80365,12 +81240,12 @@ ms:Salad
 my:ဆလတ်ပင်
 nb:Salater
 nl:sla
-nn:Planteslekta salat, hagesalat
+nn:hagesalat, hodesalat
 os:Къæсула
 pa:ਸਲਾਦ
 pl:sałata, Sałata siewna
 pt:alface
-qu:Pilliyuyu
+qu:Pilliyuyu, lichuwa
 ro:salată
 ru:Латук, Салат
 rw:Imboga za leti
@@ -80400,6 +81275,7 @@ zh:莴苣属, 萵苣
 # en-gb:Lettuce
 # hak:Fú-mak
 # kaa:Salat
+#kab:Tamafart
 # lij:Leituga
 # mzn:کهوک
 # nah:Quillechuca
@@ -80442,8 +81318,21 @@ ciqual_food_name:fr:Laitue romaine, crue
 
 <en:Lettuces
 en:Iceberg lettuce
+ca:enciam iceberg
+da:issalat, iceberg-salat
 de:Eisbergsalat
-fr:Laitue iceberg
+eo:glacilaktuko
+es:lechuga iceberg, iceberg
+fi:jäävuorisalaatti
+fr:Laitue iceberg, iceberg
+hu:jégsaláta
+it:insalata iceberg, lattuga iceberg
+la:Lactuca sativa var. capitata
+nb:isbergsalat
+nl:ijsbergsla
+pt:alface americana
+sv:isbergssallat
+# zh-tw:皺葉萵苣
 agribalyse_food_code:en:20200
 ciqual_food_code:en:20200
 ciqual_food_name:en:Iceberg lettuce, raw
@@ -81355,9 +82244,32 @@ ciqual_food_name:fr:Rhubarbe, tige, cuite, sucrée
 
 <en:Leaf vegetables
 en:Romanesco, Romanesco broccoli, Romanesque cauliflower, romanesco cauliflower
+ar:بروكلى رومانسكى
+#arz:بروكلى رومانسكى
+ca:romanesco
+cs:romanesco
+de:Romanesco
+eo:florbrokolo
 es:Romanesco, Romanescu
-fr:Choux romanesco, Brocoli à pomme
-la:Brassica oleracea
+et:romaani lillkapsas
+eu:romanesko
+fa:کلم رومی
+fr:Choux romanesco, Brocoli à pomme, choux romanesco, chou romanesco, romanesco, choux romanesco en fleurettes, fleurettes de chou romanesco
+gl:brócoli romanesco
+hu:pagodakarfiol
+id:romanesko
+it:broccolo romanesco
+ja:ロマネスコ
+kk:романеско қырыққабаты, romanesko qırıqqabatı, رومانەسكو قىرىققاباتى
+la:brassica oleracea convar. botrytis var. botrytis
+mk:римска брокула
+ml:റൊമാനെസ്കോ ബ്രോക്കോളി
+nl:romanesco
+nn:romanesco
+pt:romanesco
+ru:романеско
+uk:капуста романеско
+zh:宝塔花菜
 wikidata:en:Q1775431
 agribalyse_food_code:en:20280
 ciqual_food_code:en:20280
@@ -82487,11 +83399,40 @@ wikidata:en:Q369447
 
 <en:Pulses
 en:Butter beans, Lima beans
+ca:garrofó, fesol de la peladilla, mongeta de Lima
+da:limabønne, månebønne, sukkerbønne
+de:Limabohne, Mondbohne
+el:φασόλι της Lima, φασόλια Lima
+eo:limofazeolo
 es:Garrofones, Garrofón, Habones, Judías de Lima, Habas de Lima
+eu:limako babarruna
+fa:لوبیای عروس
+fi:voipapu, limanpapu, valkoinen voipapu
 fr:Haricots de Lima
+ga:pónaire mhór
+ht:pwachouk
+id:kacang kratok, kacang jawa, kekara
 it:Fagioli di Lima
+ja:ライマメ
+ko:리마콩
 la:Phaseolus lunatus
-nl:Limabonen
+ml:ബട്ടർ ബീൻസ്
+ms:kacang serinding, kacang keratuk, kacang kratok, kacang cina
+nb:limabønne, limabønner
+nl:Limabonen, limaboon, Indische maanboon, wilgenbladboon, olifantsboon
+pl:fasola półksiężycowata
+pt:feijão-de-lima
+ru:фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
+sr:лима пасуљ, lima pasulj
+su:roay, kacang jawa, kekara
+sv:limaböna, smörböna, smörbönor
+sw:mfiwi
+tl:patani
+vi:dâu ngu
+zh:棉豆
+#ban:kara, kekara
+#ilo:patani
+
 wikidata:en:Q1166136
 agribalyse_food_code:en:20126
 ciqual_food_code:en:20126
@@ -82564,6 +83505,9 @@ es:Garbanzos de tipo Lechoso, Garbanzos de tipo Blanco lechoso, Garbanzo Lechoso
 <en:Lechoso chickpeas
 en:Escacena chickpeas
 es:Garbanzos de Escacena
+
+#Chickpea stew
+#en:Chana masala
 
 <en:Pulses
 en:Common beans, String beans
@@ -83465,7 +84409,7 @@ it:Farine di legumi
 nl:Peulvruchtenmelen
 
 <en:Legume flours
-en:Chickpeas flours, Garbanzo flours, Chick pea flours
+en:Chickpea flours, Garbanzo flours, Chick pea flours
 de:Kichererbsenmehle
 es:Harinas de garbanzos
 fr:Farines de pois chiche, Farine de pois chiche
@@ -83515,6 +84459,9 @@ en:Puffed legumes, Popped legumes
 es:Leguminosas infladas
 fr:Graines de légumineuses soufflées
 nl:Gepofte peulvruchten
+
+<en:Puffed legumes
+en:Parsnip puffs
 
 <en:Puffed legumes
 en:Puffed soybeans
@@ -88450,6 +89397,10 @@ nl:Zoete kookhulpmiddelen
 <en:Pastry helpers
 fr:Pâtes à sucre
 
+#Things you put on slices of bread buring meals that consist mainly of bread
+en:Bread coverings
+nl:Broodbeleggen, Broodbeleg
+
 en:Food decorations
 es:Decoraciones alimentarias
 fi:ruuan koristeet
@@ -88460,7 +89411,8 @@ zh:食品装饰品
 
 <en:Food decorations
 <en:Pastry helpers
-en:Sprinkles, Multi-coloured vermicelli
+<en:Bread coverings
+en:Sprinkles, Multi-coloured vermicelli, Rainbow sprinkles
 fr:Vermicelles multicolores
 ciqual_food_code:en:11510
 ciqual_food_name:en:Multi-coloured vermicelli
@@ -88469,7 +89421,7 @@ ciqual_food_name:fr:Vermicelles multicolores
 <en:Sprinkles
 en:Sugar sprinkles
 fr:Vermicelles en sucre
-nl:Suiker hagel
+nl:Suikerhagel
 
 <en:Sprinkles
 en:Chocolate sprinkles

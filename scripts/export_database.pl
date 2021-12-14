@@ -444,11 +444,13 @@ XML
 			}
 		}
 
-		foreach my $nid (keys %Nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			if ((defined $product_ref->{nutriments}{$nid . '_100g'}) and ($product_ref->{nutriments}{$nid . '_100g'} ne '')) {
 				my $property = $nid;
-				next if ($nid =~ /^#/); #   #vitamins and #minerals sometimes filled
 				$property =~ s/-([a-z])/ucfirst($1)/eg;
 				$property .= "Per100g";
 
