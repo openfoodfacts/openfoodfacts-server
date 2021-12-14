@@ -1303,7 +1303,7 @@ sl:Mikrokristalna celuloza
 sv:Mikrokristallin cellulosa
 wikidata:en: Q417374
 wikipedia:en:https://en.wikipedia.org/wiki/Microcrystalline_cellulose
-# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19 # additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
+# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19# additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
 # stabilizzante:cellulosa microcristallina
 
 # E461 is moved to the additives taxonomy
@@ -4688,7 +4688,7 @@ zh:色氨酸
 # azb:تریپتوفان
 # be-tarask:Трыптафан
 # de-ch:Tryptophan
-# en-ca:Tryptophan # en-gb:Tryptophan
+# en-ca:Tryptophan# en-gb:Tryptophan
 # ku-arab:تریپتۆفان
 # ku-latn:Trîptofan
 # nan:Tryptophan
@@ -14382,7 +14382,7 @@ zh:碘化钠
 # zh-cn:碘化钠
 # zh-hans:碘化钠
 # zh-hant:碘化鈉
-# zh-hk:碘化鈉 # zh-sg:碘化钠
+# zh-hk:碘化鈉# zh-sg:碘化钠
 # zh-tw:碘化鈉
 wikidata:en:Q390305
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
@@ -31163,8 +31163,8 @@ it:addensante gomma arabica
 ##################################################################################
 
 #comment:en:Is used as a generic descriptor for (natural) sugar
-en:added sugar, saccharide
-fr:sucre ajouté
+en:added sugar
+fr:sucre ajouté, sucres ajoutés
 nl:toegevoegde suiker
 
 <en:added sugar
@@ -31401,7 +31401,7 @@ wikidata:en:Q9280616
 wikipedia:en:https://en.wikipedia.org/wiki/Muscovado
 
 # nova:en:invert-sugar
-<en:monosaccaride
+<en:monosaccharide
 en:invert sugar, inverted sugar
 ca:sucre invertit
 cs:Inverzní cukr
@@ -31822,7 +31822,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coconut_sugar
 nl:biologische kokosbloesem siroop
 # ingredient/nl:biologische-kokosbloesem-siroop has 1 product @2019-05-24
 
-<en:monosaccaride
+<en:monosaccharide
 en:grape sugar, raisin sugar
 da:druesukker
 de:Traubenzucker
@@ -32258,7 +32258,7 @@ vegetarian:en:yes
 # description:en:GLUCOSE (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6.
 
 # nova:en:glucose
-<en:monosaccaride
+<en:monosaccharide
 en:glucose
 af:Glukose
 ar:جلوكوز
@@ -32474,7 +32474,7 @@ de:Glukosepulver
 
 # description:en:FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
-<en:monosaccaride
+<en:monosaccharide
 en:fructose
 af:fruktose
 ar:فركتوز
@@ -37104,7 +37104,7 @@ sl:Ksantan gumi
 sv:Xantangummi
 zh:黄原胶
 # sco:Xanthan gum
-# zh-cn:黄原胶 # zh-hans:黄原胶
+# zh-cn:黄原胶# zh-hans:黄原胶
 # zh-hant:黃原膠
 # zh-hk:黃原膠
 # zh-sg:黄原胶
@@ -39489,7 +39489,7 @@ zh:黃香李
 # zh-hans:黃香李
 # zh-hant:黃香李
 # zh-hk:黃香李
-# zh-sg:黃香李 # zh-tw:黃香李
+# zh-sg:黃香李# zh-tw:黃香李
 wikidata:en:Q149741
 wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # ingredient/fr:mirabelles has 41 products in french @2018-12-28
@@ -48038,7 +48038,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
 # <en:Vegetable rods
 <en:vegetable
 en:chard, Chards, Swiss chard
-ar:سلق 
+ar:سلق
 bg:Манголд
 bs:Blitva
 ca:bleda
@@ -48083,7 +48083,7 @@ zh:莙薘菜
 # kk-cn:جاپىراقتى قىزىلشا
 # kk-cyrl:Жапырақты қызылша
 # kk-kz:Жапырақты қызылша
-# kk-latn:Japıraqtı qızılşa # kk-tr:Japıraqtı qızılşa
+# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
 # ku-arab:دیو
 # ku-latn:Dîw
 # pcd:Biéte
@@ -65959,8 +65959,8 @@ zh:红花
 # aeb-arab:زعفران
 # ckb:کاخڵی
 # kk-arab:ماقسىر
-# kk-cn:ماقسىر # kk-cyrl:Мақсыр
-# kk-kz:Мақсыр # kk-latn:Maqsır
+# kk-cn:ماقسىر# kk-cyrl:Мақсыр
+# kk-kz:Мақсыр# kk-latn:Maqsır
 # kk-tr:Maqsır
 # lzh:紅花
 # pam:Kasuba
@@ -76265,6 +76265,7 @@ la:Plantago ovata
 
 # nova:en:honey
 
+<en:added sugar
 en:honey
 ab:ацха
 af:Heuning
@@ -78250,7 +78251,7 @@ yi:עופות
 zh:家禽
 description:en:Poultry are domesticated birds kept by humans for their eggs, their meat or their feathers.
 # ast:Ave de corrolada
-# kk-arab:قۇس شارۋاشىلىعى # kk-cn:قۇس شارۋاشىلىعى
+# kk-arab:قۇس شارۋاشىلىعى# kk-cn:قۇس شارۋاشىلىعى
 # kk-cyrl:Құс шаруашылығы
 # kk-kz:Құс шаруашылығы
 # kk-latn:Qus şarwaşılığı
@@ -78265,7 +78266,7 @@ description:en:Poultry are domesticated birds kept by humans for their eggs, the
 # zh-hans:家禽
 # zh-hant:家禽
 # zh-hk:家禽
-# zh-sg:家禽 # zh-tw:家禽
+# zh-sg:家禽# zh-tw:家禽
 wikidata:en:Q178559
 wikipedia:en:https://en.wikipedia.org/wiki/Poultry
 vegan:en:no
@@ -80578,7 +80579,7 @@ zh:纤维
 # war:Paybiru
 # wuu:纤维
 # zh-cn:纤维
-# zh-hans:纤维 # zh-hant:纤维
+# zh-hans:纤维# zh-hant:纤维
 wikidata:en:Q161
 wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
