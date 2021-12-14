@@ -1906,6 +1906,9 @@ sub import_csv_file($) {
 									require LWP::UserAgent;
 
 									my $ua = LWP::UserAgent->new(timeout => 10);
+									
+									# Some platforms such as CloudFlare block the default LWP user agent.
+									$ua->agent("Open Food Facts (https://world.openfoodfacts.org)");
 
 									my $response = $ua->get($image_url);
 
