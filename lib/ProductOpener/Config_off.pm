@@ -946,6 +946,8 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
+	"categories/en:starches" => 2,
+
 
 	# group 3 tags will not be applied to food identified as group 2
 
