@@ -6,12 +6,16 @@ services:
     restart: always
   backend:
     restart: always
+    networks: 
+    - webnet
   incron:
     restart: always
   minion:
     restart: always
   frontend:
     restart: always
+    networks:
+    - webnet
 volumes:
   html_data:
     external: true
