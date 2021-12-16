@@ -77161,7 +77161,9 @@ ru:Соусы
 en:Hoisin sauces
 fr:Sauces hoisin
 
-en:Spreads, spreadable preparations, spreadable products
+
+# "vegan bread spreads" added as a synonym to spreads as some producers send it, but we don't have a specific category for them (which would be too broad)
+en:Spreads, spreadable preparations, spreadable products, bread spreads, vegan bread spreads
 bg:Крем за мазане
 ca:Productes per untar
 da:Smørbare produkter
@@ -88089,11 +88091,11 @@ ru:Мясозаменители
 wikidata:en:Q1343997
 
 <en:Meat analogues
-en:Vegetarian nuggets
+en:Vegetarian nuggets, veggie nuggets, vegan nuggets, plant based nuggets
 de:Vegetarische Nuggets
 es:Nuggets vegetarianos
 fi:Kavisnugetit
-fr:Nuggets végétaux
+fr:Nuggets végétariens, nuggets végétaux, nuggets vegans
 it:Nugget vegetarianeìi
 nl:Vegetarische balletjes
 
@@ -88103,16 +88105,19 @@ de:Gemüsehack, Vegetarisches Hackfleisch
 fr:Hachés végétaux
 
 <en:Meat analogues
-en:Veggie patties, veggie burger patties
+en:Veggie patties, veggie burger patties, Vegetable escalope, vegan cutlet, vegetarian cutlet
 de:Gemüsebratling, Vegetarische Burger
 es:Filetes vegetales para hamburguesas
 fi:kasvishampurilaispihvit
 fr:Steaks végétaux, steaks végétaux pour hamburgers
 it:Hamburger vegetali
 nl:Plantaardige steaks voor hamburgers
+ciqual_food_code:en:20914
+ciqual_food_name:en:Soy burger or vegetable escalope
+ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
-en:Soy steak, Soy burger, Vegetable escalope
+en:Soy steak, Soy burger
 fi:Soijapihvi
 fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
 nl:Sojasteaks
