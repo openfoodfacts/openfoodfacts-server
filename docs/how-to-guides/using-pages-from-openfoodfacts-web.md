@@ -14,4 +14,4 @@ and then:
 - if you are using docker, 
   you can set the `WEB_LANG_PATH` env variable to a relative or absolute path
   leading to openfoodfacts-web lang directory.
-- else, make symlink `lang` points to openfoodfacts-web lang directory.
+- else, make symlink `lang` point to openfoodfacts-web lang directory.
