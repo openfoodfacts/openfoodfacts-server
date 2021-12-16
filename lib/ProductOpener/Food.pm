@@ -2576,6 +2576,10 @@ sub assign_nutriments_values_from_request_parameters($$) {
 
 	$log->debug("Nutrition data") if $log->is_debug();
 
+	# Note: browsers do not send any value for checkboxes that are unchecked.
+	# So in order to be able to uncheck values, there needs to be an hidden field with the same name with a false value before the checkbox
+	# and the server will only keep the last value: either the hidden field, or the checkbox if checked.
+
 	if (defined param("no_nutrition_data")) {
 		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
 	}
