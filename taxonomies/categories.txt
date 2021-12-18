@@ -7882,6 +7882,69 @@ nl:Bergwaters, Bergwater
 fr:Marc
 
 <fr:Marc
+en:Italian grape marc spirit or grape marc
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa della Valle d’Aosta, Grappa de la Vallée d’Aoste
+protected_name_file_number:en: PGI-IT-02479
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa siciliana, Grappa di Sicilia
+protected_name_file_number:en: PGI-IT-01955
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa
+protected_name_file_number:en: PGI-IT-01844
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Südtiroler Grappa, Grappa dell'Alto Adige
+protected_name_file_number:en: PGI-IT-01949
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa di Barolo
+protected_name_file_number:en: PGI-IT-01970
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa trentina, Grappa del Trentino
+protected_name_file_number:en: PGI-IT-01952
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa veneta, Grappa del Veneto
+protected_name_file_number:en: PGI-IT-01950
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa friulana, Grappa del Friuli
+protected_name_file_number:en: PGI-IT-01948
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa piemontese, Grappa del Piemonte
+protected_name_file_number:en: PGI-IT-01956
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<en:Italian grape marc spirit or grape marc
+it:Grappa lombarda, Grappa della Lombardia
+protected_name_file_number:en: PGI-IT-01951
+protected_name_type:en: gi
+origins:en: en:Italy
+
+<fr:Marc
 en:French grape marc spirit or grape marc
 
 <en:French grape marc spirit or grape marc
@@ -9518,9 +9581,9 @@ instanceof:fr:AOP
 <en:Red wines
 fr:Bonnes-mares, Bonnes-mares grand cru, Bonnes mares, Bonnes mares grand cru
 wikidata:en:Q892772
-country:en:France
-region:fr:Bourgogne
-instanceof:fr:AOP
+protected_name_file_number:en: PDO-FR-A0490
+protected_name_type:en: pdo
+origins:en: en:France, fr:Bourgogne
 
 <en:Wines from France
 fr:Bonnezeaux Val de Loire
@@ -11202,12 +11265,18 @@ protected_name_type:en: pdo
 origins:en: en:France
 
 <en:Wines from France
-fr:Coteaux du Layon Chaume Val de Loire, Coteaux du Layon Chaume
-country:en:France
+fr:Coteaux du Layon
+protected_name_file_number:en: PDO-FR-A0826
+protected_name_type:en: pdo
+origins:en: en:France
 
-<en:Wines from France
+<fr:Coteaux du Layon
+fr:Coteaux du Layon Chaume Val de Loire, Coteaux du Layon Chaume
+origins:en: en:France
+
+<fr:Coteaux du Layon
 fr:Coteaux du Layon Val de Loire, Coteaux du Layon
-country:en:France
+origins:en: en:France
 
 <en:Wines from France
 fr:Coteaux du Libron
@@ -11218,7 +11287,7 @@ origins:en: en:France
 
 <en:Wines from France
 fr:Savennières Coulée de Serrant
-protected_name_file_number:en: PDO-FR-A0983-AM01
+protected_name_file_number:en: PDO-FR-A0983-AM01, en:PDO-FR-A0983
 protected_name_type:en: pdo
 origins:en: en:France
 
@@ -11234,7 +11303,9 @@ country:en:France
 
 <en:Wines from France
 fr:Coteaux du Lyonnais
-country:en:France
+protected_name_file_number:en: PDO-FR-A0202
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Coteaux du Pont du Gard
@@ -11362,7 +11433,9 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Côtes de Toul
 wikidata:en:Q3010732
-country:en:France
+protected_name_file_number:en: PDO-FR-A0709
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Côtes du Brulhois
@@ -13677,7 +13750,9 @@ region:fr:Beaujolais
 
 <en:Wines from France
 fr:Moselle
-country:en:France
+protected_name_file_number:en: PDO-FR-A0669
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Moulin-à-Vent
@@ -14525,7 +14600,9 @@ instanceof:fr:IGP
 
 <en:Wines from France
 fr:Quarts de Chaume Val de Loire, Quarts de Chaume
-country:en:France
+protected_name_file_number:en: PDO-FR-A0829
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Wines from France
 fr:Quincy Val de Loire, Quincy
@@ -15243,20 +15320,22 @@ country:en:France
 <en:White wines
 fr:Sauternes
 wikidata:en:Q771636
-country:en:France
+origins:en: en:France
 instanceof:fr:AOP
 
 <en:Wines from France
 fr:Savennières, Savennières Val de Loire
-country:en:France
+origins:en: en:France
 
 <en:Wines from France
 fr:Savennières-Coulée de Serrant, Savennières-Coulée de Serrant Val de Loire
-country:en:France
+origins:en: en:France
 
 <en:Wines from France
-fr:Savennières-Roche-aux-Moines, Savennières-Roche-aux-Moines Val de Loire
-country:en:France
+fr:Savennières-Roche-aux-Moines, Savennières-Roche-aux-Moines Val de Loire, Savennières Roche aux Moines
+protected_name_file_number:en: PDO-FR-A0982
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Burgundy wines
 <en:Red wines
@@ -23423,16 +23502,23 @@ nl:Maltese wijnen, Maltese wijn, Wijn uit Malta
 country:en:Malta
 
 <en:Wines from Malta
-en:Gozo
-country:en:Malta
+mt:Gozo, Għawdex
+protected_name_file_number:en: PDO-MT-A1629
+protected_name_type:en: pdo
+origins:en: en:Malta
 
 <en:Wines from Malta
-en:Malta
-country:en:Malta
+mt:Maltese Islands
+protected_name_file_number:en: PGI-MT-A1631
+protected_name_type:en: pgi
+origins:en: en:Malta
 
 <en:Wines from Malta
-en:Maltese Islands
-country:en:Malta
+mt:Malta
+protected_name_file_number:en: PDO-MT-A1630
+protected_name_type:en: pdo
+origins:en: en:Malta
+
 
 <en:Wines
 en:Wines from Portugal, Portuguese wines
@@ -36927,8 +37013,17 @@ ciqual_food_code:en:19585
 ciqual_food_name:en:Ricotta cheese
 
 <en:Ricotta
+it:Ricotta di Bufala Campana
+protected_name_file_number:en: PDO-IT-0559
+protected_name_type:en: pdo
+origins:en: en:Italy
+#wikidata:en:
+
+<en:Ricotta
 it:Ricotta Romana
-country:en:Italy
+protected_name_file_number:en: PDO-IT-0298
+protected_name_type:en: pdo
+origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
@@ -36959,6 +37054,7 @@ it:Spressa delle Giudicarie
 protected_name_file_number:en: PDO-IT-0252
 protected_name_type:en: pdo
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Italian cheeses
 it:Squacquerone di Romagna
@@ -42995,6 +43091,24 @@ origins:en: en:Belgium
 <en:Honeys
 en:Italian honeys
 fr:Miels italiens
+origins:en: en:Italy
+
+<en:Italian honeys
+it:Miele della Lunigiana
+protected_name_file_number:en: PDO-IT-0195
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian honeys
+it:Miele Varesino
+protected_name_file_number:en: PDO-IT-0990
+protected_name_type:en: pdo
+origins:en: en:Italy
+
+<en:Italian honeys
+it:Miele delle Dolomiti Bellunesi
+protected_name_file_number:en: PDO-IT-0776
+protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Honeys
@@ -55119,6 +55233,16 @@ en:Anglesey Sea Salt, Halen Môn
 protected_name_file_number:en: PDO-GB-1068
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+
+<en:Salts
+en:Italian salts
+origins:en: en:Italy
+
+<en:Italian salts
+it:Sale Marino di Trapani
+protected_name_file_number:en: PGI-IT-0892
+protected_name_type:en: pgi
+origins:en: en:Italy
 
 <en:Salts
 en:French salts
@@ -85132,14 +85256,18 @@ fi:Perinteiset Modenalaiset balsamietikat
 fr:Vinaigre balsamique traditionnel de Modène, Aceto Balsamico Tradizionale di Modena
 it:Aceto Balsamico Tradizionale di Modena
 nl:Traditionele balsamico azijn uit Modena
-country:en:Italy
 wikidata:en:Q2822974
+protected_name_file_number:en: PDO-IT-1565
+protected_name_type:en: pdo
+origins:en: en:Italy
 
 <en:Traditional Balsamic Vinegars
 en:Traditional Balsamic Vinegar of Reggio Emilia, Aceto Balsamico Tradizionale di Reggio Emilia
 fr:Vinaigre balsamique traditionnel de Reggio Emilia, Aceto Balsamico Tradizionale di Reggio Emilia
 it:Aceto Balsamico Tradizionale di Reggio Emilia
-country:en:Italy
+protected_name_file_number:en: PDO-IT-1566
+protected_name_type:en: pdo
+origins:en: en:Italy
 wikidata:en:Q37483505
 
 <en:Vinegars
