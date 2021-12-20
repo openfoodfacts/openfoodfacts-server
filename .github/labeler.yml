@@ -16,7 +16,7 @@ Template::Toolkit:
 Attributes:
 - lib/ProductOpener/Attributes.pm
 
-DataQuality:
+data quality:
 - lib/ProductOpener/DataQuality.pm
 - lib/ProductOpener/DataQualityCommon.pm
 - lib/ProductOpener/DataQualityFood.pm
@@ -24,7 +24,7 @@ DataQuality:
 Display:
 - lib/ProductOpener/Display.pm
 
-Ecoscore:
+ecoscore:
 - lib/ProductOpener/Ecoscore.pm
 
 Export:
@@ -33,10 +33,10 @@ Export:
 Food.pm:
 - lib/ProductOpener/Food.pm
 
-FoodGroups:
+Food groups:
 - lib/ProductOpener/FoodGroups.pm
 
-Forest Footprint:
+forest footprint:
 - lib/ProductOpener/ForestFootprint.pm
 
 GeoIP:
@@ -55,7 +55,7 @@ Import:
 Ingredients:
 - lib/ProductOpener/Ingredients.pm
 
-KnowledgePanels:
+knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 
 Lang:
@@ -76,7 +76,7 @@ NutriScore:
 Orgs:
 - lib/ProductOpener/Orgs.pm
 
-Packager Codes:
+packager codes:
 - lib/ProductOpener/PackagerCodes.pm
 
 Packaging:
