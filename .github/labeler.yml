@@ -1,1 +1,14 @@
+github_actions:
+- .github/**/*
 
+taxonomies:
+- taxonomies/**/*
+
+translations:
+- po/**/*
+
+tests:
+- test/**/*
+
+Template::Toolkit:
+- templates/**/*
