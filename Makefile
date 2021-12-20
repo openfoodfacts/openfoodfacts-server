@@ -114,7 +114,7 @@ tail:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-	# Run build_lang.pl
+# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
@@ -191,13 +191,13 @@ build_taxonomies:
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	# zfs replications
+# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
-	# local data
+# local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#
