@@ -42,7 +42,15 @@ forest footprint:
 geolite:
 - lib/ProductOpener/GeoIP.pm
 
-GS1:
+producers platform:
+- lib/ProductOpener/GS1.pm
+- lib/ProductOpener/Orgs.pm
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+- lib/ProductOpener/Producers.pm
+- lib/ProductOpener/ProducersFood.pm
+
+gs1:
 - lib/ProductOpener/GS1.pm
 
 images:
@@ -52,13 +60,13 @@ data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
 
-Ingredients:
+ingredients:
 - lib/ProductOpener/Ingredients.pm
 
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 
-Lang:
+lang:
 - lib/ProductOpener/Lang.pm
 
 Mail:
