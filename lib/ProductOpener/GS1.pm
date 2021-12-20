@@ -549,6 +549,27 @@ my %gs1_to_off = (
 										],
 									},
 								],
+
+								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
+								["health_related_information:healthRelatedInformationModule", {
+										fields => [
+											["healthRelatedInformation", {
+													fields => [
+														["nutritionalProgram", {
+																match => [
+																	["nutritionalProgramCode","8"],
+																],
+																fields => [
+																	["nutritionalScore", "nutriscore_grade_producer"],
+																],
+															},
+														],
+													],
+												},
+											],
+										],
+									},
+								],
 							
 								["packaging_information:packagingInformationModule", {
 										fields => [
