@@ -3,6 +3,9 @@ name: Label Top Issues
 on:
   schedule:
   - cron:  '15 0-23 * * *'
+  push:
+    branches: [top-issues]
+
 
 jobs:
   labelTopIssues:
