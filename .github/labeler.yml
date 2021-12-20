@@ -45,10 +45,10 @@ GeoIP:
 GS1:
 - lib/ProductOpener/GS1.pm
 
-Images:
+images:
 - lib/ProductOpener/Images.pm
 
-Import:
+data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
 
@@ -70,7 +70,7 @@ MainCountries:
 Numbers:
 - lib/ProductOpener/Numbers.pm
 
-NutriScore:
+nutriscore:
 - lib/ProductOpener/Nutriscore.pm
 
 Orgs:
