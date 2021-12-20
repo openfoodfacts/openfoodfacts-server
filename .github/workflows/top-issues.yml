@@ -2,14 +2,14 @@ name: Label Top Issues
 
 on:
   schedule:
-  #- cron:  '15 0-23 * * *'
-  push:
-  #  branches: [top-issues]
+  # every sunday at 23
+  - cron:  '0 23 * * 0'
 
 
 jobs:
-  labelTopIssues:
+  label_top_issues:
     name: Label Top Issues
+    
     runs-on: ubuntu-latest
     steps:
     - name: Label Issues
