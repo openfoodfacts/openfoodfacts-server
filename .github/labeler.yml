@@ -12,3 +12,99 @@ tests:
 
 Template::Toolkit:
 - templates/**/*
+
+Attributes:
+- lib/ProductOpener/Attributes.pm
+
+DataQuality:
+- lib/ProductOpener/DataQuality.pm
+- lib/ProductOpener/DataQualityCommon.pm
+- lib/ProductOpener/DataQualityFood.pm
+
+Display:
+- lib/ProductOpener/Display.pm
+
+Ecoscore:
+- lib/ProductOpener/Ecoscore.pm
+
+Export:
+- lib/ProductOpener/Export.pm
+
+Food.pm:
+- lib/ProductOpener/Food.pm
+
+FoodGroups:
+- lib/ProductOpener/FoodGroups.pm
+
+Forest Footprint:
+- lib/ProductOpener/ForestFootprint.pm
+
+GeoIP:
+- lib/ProductOpener/GeoIP.pm
+
+GS1:
+- lib/ProductOpener/GS1.pm
+
+Images:
+- lib/ProductOpener/Images.pm
+
+Import:
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+
+Ingredients:
+- lib/ProductOpener/Ingredients.pm
+
+KnowledgePanels:
+- lib/ProductOpener/KnowledgePanels.pm
+
+Lang:
+- lib/ProductOpener/Lang.pm
+
+Mail:
+- lib/ProductOpener/Mail.pm
+
+MainCountries:
+- lib/ProductOpener/MainCountries.pm
+
+Numbers:
+- lib/ProductOpener/Numbers.pm
+
+NutriScore:
+- lib/ProductOpener/Nutriscore.pm
+
+Orgs:
+- lib/ProductOpener/Orgs.pm
+
+Packager Codes:
+- lib/ProductOpener/PackagerCodes.pm
+
+Packaging:
+- lib/ProductOpener/Packaging.pm
+
+Producers:
+- lib/ProductOpener/Producers.pm
+
+ProducersFood:
+- lib/ProductOpener/ProducersFood.pm
+
+Products:
+- lib/ProductOpener/Products.pm
+
+Recipes:
+- lib/ProductOpener/Recipes.pm
+
+Tags:
+- lib/ProductOpener/Tags.pm
+
+Text:
+- lib/ProductOpener/Text.pm
+
+Url:
+- lib/ProductOpener/URL.pm
+
+Users:
+- lib/ProductOpener/Users.pm
+
+Web:
+- lib/ProductOpener/Web.pm
