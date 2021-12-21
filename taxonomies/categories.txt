@@ -9769,6 +9769,7 @@ wikidata:en:Q2922340
 <en:Burgundy wines
 <en:rosé wine
 fr:Bourgogne Clairet
+#wikidata:en:
 
 <fr:Bourgogne Clairet
 fr:Bourgogne Clairet Chitry, Bourgogne Rosé Chitry
@@ -11158,16 +11159,19 @@ instanceof:fr:IGP
 <en:Wines from France
 fr:Coteaux de Pierrevert
 country:en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Pierrevert
 protected_name_file_number:en: PDO-FR-A0918
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Coteaux de Saumur Val de Loire
 country:en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Coteaux de Tannay
@@ -11196,6 +11200,7 @@ origins:en: en:France
 fr:Coteaux du Giennois
 country:en:France
 origins:en: en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Coteaux du Languedoc
@@ -11219,63 +11224,75 @@ wikidata:en:Q43013303
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Cabrières, Cabrières
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Coteaux de la Méjanelle, Coteaux du Languedoc La Méjanelle, Coteaux de la Méjanelle, La Méjanelle
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Coteaux de Saint-Christol, Coteaux du Languedoc Saint-Christol, Coteaux de Saint-Christol, Saint-Christol
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Coteaux de Vérargues, Coteaux du Languedoc Vérargues, Coteaux de Vérargues, Vérargues
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Montpeyroux, Montpeyroux
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Quatourze, Quatourze
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Saint-Drézéry, Saint-Drézéry
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Saint-Georges-d'Orques, Saint-Georges-d'Orques
 country:en:France
+#wikidata:en:
 
 <fr:Coteaux du Languedoc
 fr:Coteaux du Languedoc Saint-Saturnin, Saint-Saturnin
 country:en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Picpoul de Pinet
 protected_name_file_number:en: PDO-FR-N1672
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:La Clape
 protected_name_file_number:en: PDO-FR-02113
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:Wines from France
 fr:Coteaux du Layon
 protected_name_file_number:en: PDO-FR-A0826
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q1136591
 
 <fr:Coteaux du Layon
 fr:Coteaux du Layon Chaume Val de Loire, Coteaux du Layon Chaume
 origins:en: en:France
 
 <fr:Coteaux du Layon
-fr:Coteaux du Layon Val de Loire, Coteaux du Layon
+fr:Coteaux du Layon Val de Loire
 origins:en: en:France
 
 <en:Wines from France
@@ -90218,6 +90235,7 @@ ciqual_food_name:fr:Khatfa feuille de brick, préemballée
 en:Banh Bao
 fr:Banh Bao
 nl:Banh Bao
+#wikidata:en:
 
 <en:Salty snacks
 en:Salty Fritters
@@ -90245,6 +90263,7 @@ nl:Maïskolven
 en:Plum compotes
 fr:Compotes de prunes
 nl:Pruimencompote
+#wikidata:en:
 
 <en:Frozen vegetables
 <en:Salsifis
@@ -90346,10 +90365,12 @@ de:Gemüserisotto
 es:Risottos de verduras
 fr:Risottos aux légumes, Risotto aux légumes
 nl:Groenterisotto
+it:Risotto alle verdure
 agribalyse_food_code:en:25187
 ciqual_food_code:en:25187
 ciqual_food_name:en:Risotto, w vegetables
 ciqual_food_name:fr:Risotto, aux légumes
+wikidata:en:Q54222942
 
 <en:Vegetable risottos
 en:Mushrooms risottos
@@ -90370,11 +90391,24 @@ hu:Kínai ravioli
 nl:Chinese ravioli
 
 <en:Chinese raviolis
+en:Jiaozi
+wikidata:en:Q640769
+
+<en:Chinese raviolis
+en:Shaomai
+wikidata:en:Q2901547
+
+<en:Chinese raviolis
+en:Wonton
+wikidata:en:Q553905
+
+<en:Chinese raviolis
 fr:Ravioli à la crevette
 
 <en:Ravioli
 en:Japanese ravioli, Gyoza
 fr:Ravioli japonais, Gyoza, Gyosa
+wikidata:en:Q107015868
 
 <en:Japanese ravioli
 en:Vegetable gyoza
@@ -90432,6 +90466,7 @@ agribalyse_food_code:en:4041
 ciqual_food_code:en:4041
 ciqual_food_name:en:Mashed potatoes w fresh tome cheese
 ciqual_food_name:fr:Aligot (purée de pomme de terre à la tomme fraîche)
+wikidata:en:Q2724885
 
 <fr:Charcuteries diverses
 en:Pâté, Paté, Pate
@@ -90561,6 +90596,18 @@ fr:Gâteaux aux amandes
 nl:Amandelcake
 ciqual_food_code:en:24665
 ciqual_food_name:en:Almond cake
+
+<en:Almond cakes
+it:tortionata
+wikidata:en:Q3995832
+
+<en:Cakes
+en:Walnut and almond cake
+wikidata:en:Q2005477
+
+<en:Almond cakes
+fr:Misérable
+wikidata:en:Q25060346
 
 <en:Cakes
 en:Soft cake with nuts
