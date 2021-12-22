@@ -58080,6 +58080,7 @@ agribalyse_food_code:en:11210
 ciqual_food_code:en:11210
 ciqual_food_name:en:Sauce, pesto rosso, prepacked
 ciqual_food_name:fr:Sauce pesto rosso, préemballée
+#wikidata:en:
 
 <en:Pestos
 en:Green pestos, Pesto Genovese
@@ -58090,6 +58091,7 @@ fr:Pestos au basilic, Pesto au basilic
 hu:Zöld pestók, Zöld pestó szószok
 it:Pesto alla Genovese, pesto verde
 nl:Groene pesto
+#wikidata:en:
 
 <en:Sauces
 en:Pizza sauces
@@ -58144,6 +58146,7 @@ agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
 <en:Tomato sauces
 fr:Sauces puttanesca
 en:Puttanesca sauces
+wikidata:en:Q60823349
 
 <en:Tomato sauces
 en:Tomato sauces with onions
@@ -58219,6 +58222,7 @@ es:Tamaris, Tamari
 fr:Tamaris, Tamari, Sauces Tamari, Sauce Tamari
 it:Tamaris
 nl:Tamari sojasauzen
+#wikidata:en:
 
 <en:Sauces
 en:Sofritos
@@ -58344,6 +58348,7 @@ ciqual_food_name:fr:Ketchup
 <en:Ketchup
 en:Tomato Ketchup
 fr:Ketchup de tomate
+#wikidata:en:
 
 <en:Tomato sauces
 en:Neapolitan sauces
@@ -58357,6 +58362,7 @@ en:Sicilian sauces
 es:Salsas sicilianas
 fr:Sauces siciliennes
 nl:Siciliaanse sauzen
+#wikidata:en:
 
 <en:Tomato sauces
 en:Fried tomato sauces, Tomate frito
@@ -58733,6 +58739,7 @@ agribalyse_food_code:en:25420
 ciqual_food_code:en:25420
 ciqual_food_name:en:Egg roll or Nem
 ciqual_food_name:fr:Nem ou Pâté impérial
+#wikidata:en:
 
 <en:Nems
 fr:Nems aux légumes
@@ -58779,23 +58786,6 @@ agribalyse_food_code:en:25584
 ciqual_food_code:en:25584
 ciqual_food_name:en:Egg roll or Nem, with shrimp and/or crab, cooked
 ciqual_food_name:fr:Nem ou Pâté impérial aux crevettes et/ou au crabe cuit
-
-<en:Meals
-en:Chinese dumplings, Chinese dumpling
-fi:Kiinalaiset mykyt, Kiinalainen myky
-fr:Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
-agribalyse_food_code:en:25169
-ciqual_food_code:en:25169
-ciqual_food_name:en:Chinese specialty or dumplings
-ciqual_food_name:fr:Spécialité chinoise ou bouchées à la vapeur, cuite
-
-<en:Meals
-en:Cooked steamed shrimp dumplings, Cooked steamed shrimp dumpling
-fr:Ravioli vapeur chinois à la crevette cuit, Raviolis vapeur chinois à la crevette cuits, Ravioli vapeur à la crevette 
-agribalyse_food_code:en:25110
-ciqual_food_code:en:25110
-ciqual_food_name:en:Dumplings, steamed, with shrimps, cooked
-ciqual_food_name:fr:Ravioli chinois à la vapeur à la crevette, cuit
 
 <en:Meals
 en:Spring rolls
@@ -89792,6 +89782,23 @@ nl:Paddenstoelrisotto
 en:Risottos with porcini mushrooms
 fr:Risottos aux cèpes
 #wikidata:en:
+
+<en:Meals
+en:Chinese dumplings, Chinese dumpling
+fi:Kiinalaiset mykyt, Kiinalainen myky
+fr:Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
+agribalyse_food_code:en:25169
+ciqual_food_code:en:25169
+ciqual_food_name:en:Chinese specialty or dumplings
+ciqual_food_name:fr:Spécialité chinoise ou bouchées à la vapeur, cuite
+
+<en:Meals
+en:Cooked steamed shrimp dumplings, Cooked steamed shrimp dumpling
+fr:Ravioli vapeur chinois à la crevette cuit, Raviolis vapeur chinois à la crevette cuits, Ravioli vapeur à la crevette 
+agribalyse_food_code:en:25110
+ciqual_food_code:en:25110
+ciqual_food_name:en:Dumplings, steamed, with shrimps, cooked
+ciqual_food_name:fr:Ravioli chinois à la vapeur à la crevette, cuit
 
 <en:Ravioli
 en:Chinese raviolis
