@@ -61524,18 +61524,6 @@ en:Canned tartiflettes
 fr:Tartiflettes en conserve
 nl:Tartiflette in blik
 
-<en:Gratins
-en:Fish gratin
-fr:Gratins de poisson
-nl:Visovenschotels
-
-<en:Fish gratin
-en:Fish brandade, Fish shepherd's pie
-fr:brandade aux pommes de terre, parmentier de poisson
-agribalyse_food_code:en:25154
-ciqual_food_code:en:25154
-ciqual_food_name:en:Fish brandade or fish shepherd's pie
-
 <en:Prepared vegetables
 fr:Haricots préparés, Haricots cuisinés
 nl:Kant-en-klaar bonen
@@ -76741,6 +76729,7 @@ fr:dorade grise, daurade grise, griset
 agribalyse_food_code:en:26099
 ciqual_food_code:en:26099
 ciqual_food_name:en:Black seabream, raw
+wikidata:en:Q1135606
 
 <en:Fishes
 <en:Seabreams
@@ -76791,6 +76780,7 @@ ciqual_food_name:fr:Morue, salée, sèche
 
 en:Fish livers
 fr:Foies de poissons
+wikidata:en:Q96756315
 
 <en:Cods
 <en:Fish livers
@@ -76802,6 +76792,7 @@ nl:Kabeljauwlevers
 ciqual_food_code:en:26141
 ciqual_food_name:en:Cod liver, raw
 ciqual_food_name:fr:Foie de morue, cru
+wikidata:en:Q33247820
 
 <en:Fish livers
 fr:Foies de lotte
@@ -76853,8 +76844,9 @@ en:Scallop, Noix de Saint-Jacques
 es:Vieira
 fr:Noix de Saint-Jacques
 nl:Scallop
+wikidata:en:Q1249634
 
-<en:Mollusc
+<en:Scallop
 fr:Coquille Saint-Jacques des Côtes d'Armor
 protected_name_file_number:en: PGI-FR-0033
 protected_name_type:en: pgi
@@ -76927,6 +76919,7 @@ ciqual_food_name:fr:Moule de Méditerranée, crue
 
 <en:Mussels
 fr:Moules du Pacifique
+wikidata:en:Q3325554
 
 <en:Mussels
 en:Mussels in a shallot and white wine broth
@@ -76935,6 +76928,7 @@ agribalyse_food_code:en:10082
 ciqual_food_code:en:10082
 ciqual_food_name:en:Mussels, in a shallot and white wine broth
 ciqual_food_name:fr:Moules marinières (oignons et vin blanc)
+wikidata:en:Q3325555
 
 <en:Mussels
 en:Filled mussels, Mussels filled with fat parsley and garlic
@@ -76949,6 +76943,7 @@ fr:Moules de Bouchot
 protected_name_file_number:en: TSG-FR-0048
 protected_name_type:en: tsg
 origins:en: en:France
+wikidata:en:Q760689
 
 <fr:Moules de Bouchot
 fr:Moules de Bouchot de la Baie du Mont-Saint-Michel
@@ -77046,6 +77041,8 @@ fr:Huîtres Marennes Oléron
 protected_name_file_number:en: PGI-FR-0591
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q110263027
+# Carbon footprint article on wikidata:en:Q60560637
 
 <en:Mollusc
 en:Cuttlefish
@@ -77053,6 +77050,7 @@ fr:Seiche
 ciqual_food_code:en:10016
 ciqual_food_name:en:Cuttlefish, raw
 ciqual_food_name:fr:Seiche, crue
+wikidata:en:Q184479
 
 <en:Mollusc
 en:Common octopus
@@ -77062,7 +77060,7 @@ ciqual_food_name:en:Octopus, common, raw
 ciqual_food_name:fr:Poulpe, cru
 
 <en:Mollusc
-en:Common cooked octopus
+en:Cooked common octopus, Common cooked octopus
 fr:Poulpes cuits
 ciqual_food_code:en:10079
 ciqual_food_name:en:Octopus, common, cooked
@@ -77139,23 +77137,53 @@ nl:Zalmcarpaccio
 agribalyse_food_code:en:25537
 ciqual_food_code:en:25537
 ciqual_food_name:en:Salmon carpaccio, w marinade
+wikidata:en:Q110263128
 
 <en:Seafood
-en:Fish au gratin intended to be cooked, Seafood au gratin intended to be cooked
-fr:Gratin de poissons à cuire, Gratin de fruits de mer à cuire, Cassolette de poissons à cuire, Cassolette de fruits de mer à cuire
-agribalyse_food_code:en:25037
-ciqual_food_code:en:25037
-ciqual_food_name:en:Fish or seafood au gratin, intended to be cook
-ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
-
-#TODO Split
-<en:Seafood
-en:Fish and shrimp au gratin previously frozen
-fr:Gratin de poissons cuit, Gratin de fruits de mer cuit, Cassolette de poissons cuit, Cassolette de fruits de mer cuit
+<en:Gratins
+en:Fish gratin, Fish au gratin
+fr:Gratins de poisson, Gratin de poissons
+nl:Visovenschotels
 agribalyse_food_code:en:25038
 ciqual_food_code:en:25038
 ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
 ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, cuit
+
+<en:Fish gratin
+en:Fish brandade, Fish shepherd's pie
+fr:brandade aux pommes de terre, parmentier de poisson
+agribalyse_food_code:en:25154
+ciqual_food_code:en:25154
+ciqual_food_name:en:Fish brandade or fish shepherd's pie
+
+<en:Seafood
+en:Seafood au gratin
+fr:Gratin de fruits de mer
+agribalyse_food_code:en:25038
+ciqual_food_code:en:25038
+ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
+ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, cuit
+
+<en:Seafood
+fr:Cassolette de poissons
+agribalyse_food_code:en:25038
+ciqual_food_code:en:25038
+ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
+ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, cuit
+
+<en:Seafood
+fr:Cassolette de fruits de mer
+agribalyse_food_code:en:25038
+ciqual_food_code:en:25038
+ciqual_food_name:en:Fish and shrimp 'au gratin', previously frozen
+ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, cuit
+
+<fr:Cassolette de fruits de mer
+fr:Cassolette de fruits de mer à cuire
+agribalyse_food_code:en:25037
+ciqual_food_code:en:25037
+ciqual_food_name:en:Fish or seafood au gratin, intended to be cook
+ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
 
 <en:Sauces
 en:Dips, Dipping sauces
@@ -77166,10 +77194,12 @@ fi:dipit
 fr:Trempettes
 nl:Dipsauzen
 ru:Соусы
+wikidata:en:Q2046560
 
 <en:Sauces
 en:Hoisin sauces
 fr:Sauces hoisin
+wikidata:en:Q404114
 
 en:Spreads, spreadable preparations, spreadable products
 bg:Крем за мазане
@@ -77196,6 +77226,7 @@ pt:Geleias de vinho
 <en:Spreads
 en:Beer jams, Beer jellies
 fr:Confits de bière, gelées de bière
+wikidata:en:Q21901286
 
 <en:Spreads
 en:Spreadable fats
