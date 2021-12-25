@@ -31884,6 +31884,7 @@ fi:Japonica-riisit
 fr:Riz de variété japonica
 it:Risi Japonica
 nl:Japonica rijst
+#wikidata:en:
 
 <en:Rices
 en:Long grain rices
@@ -31895,6 +31896,7 @@ fi:pitkäjyväiset riisit
 fr:Riz long grain, riz longs grains, Riz long
 it:Riso a grano lungo
 nl:Langgraanrijst
+#wikidata:en:
 
 <en:Rices
 en:Medium grain rices
@@ -31938,6 +31940,7 @@ fr:Riz pour sushi
 it:Riso per sushi, riso da sushi
 nl:Sushirijsten
 zh:寿司米
+#wikidata:en:
 
 <en:Rices
 en:Unsalted cooked red rice
@@ -58725,6 +58728,10 @@ ciqual_food_code:en:25456
 ciqual_food_name:en:Sushi or maki with seafood products
 ciqual_food_name:fr:Sushi ou Maki aux produits de la mer
 
+<en:Sushi and Maki
+en:Nigiri sushi
+wikidata:en:Q10860102
+
 <en:Meals with salmon
 fr:Chirashi au saumon
 
@@ -58798,6 +58805,7 @@ agribalyse_food_code:en:25419
 ciqual_food_code:en:25419
 ciqual_food_name:en:Spring roll
 ciqual_food_name:fr:Rouleau de printemps
+wikidata:en:Q715525
 
 <en:Meals
 en:Moussaka
@@ -58913,42 +58921,43 @@ nl:Rijstschotels
 ru:Блюда из риса
 
 <en:Meals
-en:Egg scrambled with added fat
-fr:Oeuf brouillé avec matière grasse
+en:Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
+fr:Oeufs brouillés, Oeuf brouillé avec matière grasse
 agribalyse_food_code:en:22502
 ciqual_food_code:en:22502
 ciqual_food_name:en:Egg, scrambled, with added fat
 
 <en:Meals
-en:Egg white cooked
+en:Egg white cooked, cooked egg white
 fr:blanc d'oeuf cuit
 agribalyse_food_code:en:22008
 ciqual_food_code:en:22008
 ciqual_food_name:en:Egg white, cooked
 
 <en:Meals
-en:Egg poached
+en:Poached eggs, Egg poached
 fr:Oeuf poché
 agribalyse_food_code:en:22011
 ciqual_food_code:en:22011
 ciqual_food_name:en:Egg, poached
 
 <en:Meals
-en:Egg soft-boiled
+en:Soft-boiled eggs, Egg soft-boiled
 fr:Oeuf à la coque
 agribalyse_food_code:en:22014
 ciqual_food_code:en:22014
 ciqual_food_name:en:Egg, soft-boiled
 
 <en:Meals
+en:Cooked egg yolk
 fr:jaune d'oeuf cuit
 agribalyse_food_code:en:22009
 ciqual_food_code:en:22009
 ciqual_food_name:en:Egg yolk, cooked
 
 <en:Meals
-en:Egg fried without added fat
-fr:Oeuf au plat sans matière grasse
+en:Fried egg, Egg fried without added fat
+fr:Oeuf au plat, Oeuf au plat sans matière grasse
 agribalyse_food_code:en:22505
 ciqual_food_code:en:22505
 ciqual_food_name:en:Egg, fried without added fat
@@ -59405,6 +59414,7 @@ fr:Döner kebab
 agribalyse_food_code:en:25428
 ciqual_food_code:en:25428
 ciqual_food_name:en:Sandwich made with pita bread, kebab and raw vegetables
+wikidata:en:Q20734
 
 <en:Sandwiches
 en:Baguette kebab with vegetables
@@ -59457,6 +59467,7 @@ nl:Konijnmaaltijden
 en:Jugged rabbits
 fr:Civets de lapin, Civet de lapin
 nl:Gestoofde konijn
+wikidata:en:Q16540064
 
 <en:Rabbit dishes
 fr:Lapin à la liégeoise
@@ -59731,6 +59742,7 @@ fr:Dindes de Noël, Dinde de Noël
 
 <en:Poultry meals
 fr:Poule au pot
+wikidata:en:Q3400256
 
 <en:Poultry meals
 en:Cooked curing salted roast poultry
@@ -59755,6 +59767,7 @@ ru:Блюда из курицы
 
 <en:Meals with chicken
 en:Sweet and sour chicken
+wikidata:en:Q2918637
 
 <en:Meals with chicken
 fr:Parmentiers de poulet
@@ -59795,6 +59808,7 @@ fr:Poulets basquaise, Poulet basquaise, Poulets basquaises
 agribalyse_food_code:en:25190
 ciqual_food_code:en:25190
 ciqual_food_name:en:Chicken, Basque style
+wikidata:en:Q16670835
 
 <en:Meals with chicken
 en:Coronation chicken
@@ -59974,6 +59988,7 @@ ciqual_food_name:fr:Tarte à la tomate
 en:Onion pies
 fr:Tartes à l’oignon
 nl:Uientaart
+wikidata:en:Q3515858
 
 <en:Salted pies
 en:Tuna pies
@@ -60508,6 +60523,7 @@ en:Soups of lentils
 fr:Soupes de lentilles
 he:מרקי עדשים, מרק עדשים
 nl:Linzensoep
+wikidata:en:Q1827035
 
 <en:Vegetable soups
 <en:Reheatable soups
@@ -62310,6 +62326,7 @@ agribalyse_food_code:en:25405
 ciqual_food_code:en:25405
 ciqual_food_name:en:Quiche Lorraine (eggs and lardoons quiche)
 ciqual_food_name:fr:Quiche lorraine
+wikidata:en:Q7882068
 
 <en:Quiches
 en:Quiches with bacon
@@ -62380,10 +62397,13 @@ wikidata:en:Q281278
 <en:Prepared salads
 en:Buddha Bowl
 fr:Buddha Bowl
+wikidata:en:Q60754611
 
 <en:Prepared salads
+<en:Salads with meat
 en:Chicken salads
 nl:Kipsalades
+wikidata:en:Q5096323
 
 <en:Prepared salads
 en:Egg salads
@@ -62391,6 +62411,7 @@ nl:Eisalades, Eiersalades
 
 <en:Prepared salads
 <en:Meals with fish
+<en:Salads with fish
 en:Tuna salad
 de:Thunfischsalat
 es:Ensalada de atún
@@ -62405,13 +62426,21 @@ pl:Sałatka z tuńczykiem, Sałatka z tuńczyka
 en:Canned prepared salads
 fr:Salades préparées en conserve
 
+<en:Prepared salads
+en:Salads with meat
+
+<en:Prepared salads
+en:Salads with fish
+
 <en:Canned prepared salads
+<en:Salads with meat
 en:Prepared and canned salad with meat
 fr:Salades composées en conserve à la viande, Salades de viande en conserve
 ciqual_food_name:en:Prepared mixed meat/ canned, drained salad
 ciqual_food_name:fr:Salade composée avec viande ou poisson, appertisée, égouttée
 
 <en:Canned prepared salads
+<en:Salads with fish
 en:Prepared and canned salad with fish
 fr:Salades composées en conserve au poisson, Salades de poisson en conserve
 agribalyse_food_code:en:25602
@@ -62572,6 +62601,7 @@ agribalyse_food_code:en:25614
 ciqual_food_code:en:25614
 ciqual_food_name:en:Prepared rice salad
 ciqual_food_name:fr:Salade de riz
+wikidata:en:Q3799072
 
 <en:Pasta dishes
 <en:Prepared salads
@@ -62581,6 +62611,7 @@ fi:pastasalaatit
 fr:Salades de pâtes
 it:Insalate di pasta
 nl:Pastasalade
+wikidata:en:Q1052236
 
 <en:Pasta salads
 en:Vegetarian pasta salads
@@ -62619,6 +62650,7 @@ en:Pasta salad with tuna, Tuna and pasta salads
 fr:Salades de pâtes au thon, Salades au thon et aux pâtes
 
 <en:Pasta salads
+<en:Salads with meat
 en:Pasta salad with meat, Prepared vegetable and pasta salad with meat
 fr:Salade de pâtes à la viande, Salade de pâtes aux légumes avec viande
 agribalyse_food_code:en:25619
@@ -62639,10 +62671,12 @@ wikidata:en:Q13360264
 <en:Meat-based products
 en:Meat pies
 fr:Tourtes à la viande
+wikidata:en:Q5367573
 
 <en:salted pies
 <en:meat pies
 en:Pork pies
+wikidata:en:Q3304394
 
 <en:Pork pies
 en:Melton Mowbray Pork Pie
@@ -62659,6 +62693,12 @@ fr:Tourte au porc et riesling
 agribalyse_food_code:en:25560
 ciqual_food_code:en:25560
 ciqual_food_name:en:Riesling wine and pork pie
+
+<en:salted pies
+<en:meat pies
+en:Chicken and mushroom pies
+fr:Tourtes au poulet et aux champignons
+wikidata:en:Q5096289
 
 <en:salted pies
 <en:two-crust pies
@@ -62714,6 +62754,7 @@ nl:Falafelmixes
 en:Chili sin carne
 fr:Chili sin carne
 nl:Chili sin carne
+wikidata:en:Q11680713
 
 en:Meats
 ca:Carns
@@ -62833,8 +62874,8 @@ ciqual_food_name:en:Snails in puff pastry
 ciqual_food_name:fr:Feuilleté aux escargots
 
 <en:Snails
-en:Cooked snail without added fat
-fr:Escargots cuits sans matière grasse ajoutée
+en:Cooked snails, Cooked snail without added fat
+fr:Escargots cuits, Escargots cuits sans matière grasse ajoutée
 ciqual_food_code:en:10099
 ciqual_food_name:en:Snail, without added fat, cooked
 ciqual_food_name:fr:Escargot, sans matière grasse ajoutée, cuit
@@ -62850,6 +62891,7 @@ fi:hyönteiset
 fr:Insectes
 nl:Insecten
 zh:昆虫
+wikidata:en:Q38117921
 
 <en:Insects
 en:Ants
@@ -62875,6 +62917,7 @@ zh:鸵鸟
 ciqual_food_code:en:36800
 ciqual_food_name:en:Ostrich, meat, raw
 ciqual_food_name:fr:Autruche, viande crue
+wikidata:en:Q2354102
 
 <en:Ostrich meat
 en:Cooked ostrich meat
