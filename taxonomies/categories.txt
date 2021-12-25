@@ -33377,13 +33377,15 @@ ciqual_food_name:en:Blue cheese, from cow's milk
 <en:Cow cheeses
 en:Auvergne blue cheese from cow's milk
 de:Bleu d'Auvergne
-fr:Bleus d'Auvergne
+fr:Bleus d'Auvergne, Bleu d'Auvergne
 nl:Bleus d'Auvergne
 wikidata:en:Q883954
 origins:en: en:France
 agribalyse_food_code:en:12521
 ciqual_food_code:en:12521
 ciqual_food_name:en:Auvergne blue cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0107
+protected_name_type:en: pdo
 
 <en:French blue-veined cheeses
 en:Jura blue cheese
@@ -33449,6 +33451,8 @@ origins:en: en:France
 agribalyse_food_code:en:12522
 ciqual_food_code:en:12522
 ciqual_food_name:en:Fourme d'Ambert cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0119
+protected_name_type:en: pdo
 
 <en:French cheeses
 <en:French blue-veined cheeses
@@ -34098,6 +34102,7 @@ origins:en: en:France
 <en:Soft cheeses with bloomy rind
 <en:French cheeses
 fr:Pérail
+wikidata:en:Q1995784
 
 <en:Cheeses
 en:Cypriot cheeses, Cheeses from Cyprus
@@ -34107,6 +34112,7 @@ el:Χαλλούμι, Hellim, Halloumi, Hellim
 protected_name_file_number:en: PDO-CY-01243
 protected_name_type:en: pdo
 origins:en: en:Cyprus
+wikidata:en:Q549793
 
 <en:Cheeses
 en:Greek cheeses, cheeses from Greece
@@ -34318,6 +34324,7 @@ origins:en: en:Cyprus
 <en:Cheeses
 en:Austrian cheeses
 fr:Fromages autrichiens
+wikidata:en:Q3088351
 
 <en:Austrian cheeses
 de:Ennstaler Steirerkas
@@ -34524,6 +34531,12 @@ ciqual_food_code:en:12112
 ciqual_food_name:en:Abondance cheese, from cow's milk
 
 <en:French cheeses
+fr:Abondance
+protected_name_file_number:en: PDO-FR-0105
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:French cheeses
 <en:Soft cheese with a natural rind
 <en:Goat cheeses
 fr:Banon
@@ -34539,12 +34552,24 @@ ciqual_food_name:en:Beaufort cheese, from cow's milk
 origins:en: en:France
 
 <en:French cheeses
+fr:Beaufort
+protected_name_file_number:en: PDO-FR-0106
+protected_name_type:en: pdo
+origins:en: en:France
+
+<en:French cheeses
 en:Causses blue cheeses, Causses blue cheese from cow's milk
 fr:Bleu des Causses
 origins:en: en:France
 agribalyse_food_code:en:12523
 ciqual_food_code:en:12523
 ciqual_food_name:en:Causses blue cheese, from cow's milk
+
+<en:French cheeses
+fr:Bleu des Causses
+protected_name_file_number:en: PDO-FR-0108
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Bries
@@ -34799,6 +34824,13 @@ ciqual_food_code:en:12831
 ciqual_food_name:en:Pélardon cheese, from goat's milk
 ciqual_food_name:fr:Pélardon (fromage de chèvre)
 
+<en:French cheeses
+fr:Pélardon
+protected_name_file_number:en: PDO-FR-9140
+protected_name_type:en: pdo
+origins:en: en:France
+#wikidata:en:
+
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
@@ -34810,6 +34842,12 @@ oqali_family:en: fr:Fromages - Crottin de chevre
 agribalyse_food_code:en:12836
 ciqual_food_code:en:12836
 ciqual_food_name:en:Picodon cheese, from goat's milk
+
+<en:French cheeses
+fr:Picodon
+protected_name_file_number:en: PDO-FR-0298
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -34847,6 +34885,13 @@ agribalyse_food_code:en:12847
 ciqual_food_code:en:12847
 ciqual_food_name:en:Rocamadour cheese, from goat's milk
 
+<en:French cheeses
+fr:Rocamadour
+protected_name_file_number:en: PDO-FR-0026
+protected_name_type:en: pdo
+origins:en: en:France
+#wikidata:en:
+
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
@@ -34859,8 +34904,6 @@ wikidata:en:Q652628
 agribalyse_food_code:en:12842
 ciqual_food_code:en:12842
 ciqual_food_name:en:Sainte Maure cheese, from goat's milk
-
-
 
 # Another proxy for Sainte-Maure de Touraine
 #agribalyse_food_code:en:12807
@@ -34939,6 +34982,8 @@ origins:en: en:France
 agribalyse_food_code:en:12037
 ciqual_food_code:en:12037
 ciqual_food_name:en:Livarot cheese, from cow's milk
+protected_name_file_number:en: PDO-FR-0122
+protected_name_type:en: pdo
 
 <en:Cheeses
 en:Soft cheeses with washed rind, Soft-ripened cheeses with washed rind
@@ -36773,63 +36818,63 @@ de:Portugisischer Käse
 fr:Fromages portugais, Fromages du Portugal
 nl:Portugese kazen
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q3088371
 
 <en:Portuguese cheeses
 pt:Queijo de Azeitão
 protected_name_file_number:en: PDO-PT-0217, PDO-PT-0217-AM01
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q2122633
 
 <en:Portuguese cheeses
 pt:Queijo da Beira Baixa, Queijos da Beira Baixa, Queijo de Castelo Branco, Queijo Amarelo da Beira Baixa, Queijo Picante da Beira Baixa
 protected_name_file_number:en: PDO-PT-0214, PDO-PT-0214-AM02
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q6094372
 
 <en:Portuguese cheeses
 pt:Queijo Terrincho
 protected_name_file_number:en: PDO-PT-0218, PDO-PT-0218-AM01
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q9065153
 
 <en:Portuguese cheeses
 pt:Queijo mestiço de Tolosa
 protected_name_file_number:en: PGI-PT-0078
 protected_name_type:en: pgi
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q9065200
 
 <en:Portuguese cheeses
 pt:Queijo do Pico
 protected_name_file_number:en: PDO-PT-0035
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q1471649
 
 <en:Portuguese cheeses
 pt:Queijo de Cabra Transmontano, Queijo de Cabra Transmontano Velho
 protected_name_file_number:en: PDO-PT-0226
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q9065233
 
 <en:Portuguese cheeses
 pt:Queijo de Évora
 protected_name_file_number:en: PDO-PT-0251
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q3414061
 
 <en:Portuguese cheeses
 pt:Queijo Serpa
 protected_name_file_number:en: PDO-PT-0260
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q2048709
 
 <en:Portuguese cheeses
 pt:Queijo S. Jorge
@@ -36843,26 +36888,26 @@ pt:Queijo de Nisa
 protected_name_file_number:en: PDO-PT-0210
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q3312636
 
 <en:Portuguese cheeses
 pt:Queijo Serra da Estrela
 protected_name_file_number:en: PDO-PT-0213
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q76872
 
 <en:Portuguese cheeses
 pt:Queijo Rabaçal
 protected_name_file_number:en: PDO-PT-0221
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+#wikidata:en:Q2105448
 
 <en:Cheeses
 en:Romanian cheeses, Cheeses from Romania
 fr:Fromages roumains
-#wikidata:en:
+#wikidata:en:Q3088373
 
 <en:Romanian cheeses
 ro:Caşcaval de Săveni
@@ -36883,7 +36928,7 @@ ro:Telemea de Ibăneşti
 protected_name_file_number:en: PDO-RO-01182
 protected_name_type:en: pdo
 origins:en: en:Romania
-#wikidata:en:
+#wikidata:en:Q60838883
 
 <en:Cheeses
 en:Slovakian cheeses, cheeses from Slovakia
@@ -68989,134 +69034,147 @@ en:Orkney lamb
 protected_name_file_number:en: PDO-GB-0273
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Scotch Lamb
 protected_name_file_number:en: PGI-GB-0275
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Shetland Lamb
 protected_name_file_number:en: PDO-GB-0276
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Comeragh Mountain Lamb
 protected_name_file_number:en: PGI-IE-02496
 protected_name_type:en: pgi
 origins:en: en:Ireland
+#wikidata:en:
 
 <en:Lamb meat
 en:Connemara Hill Lamb, Uain Sléibhe Chonamara
 protected_name_file_number:en: PGI-IE-0366
 protected_name_type:en: pgi
 origins:en: en:Ireland
+#wikidata:en:
 
 <en:Lamb meat
 en:Gower Salt Marsh Lamb
 protected_name_file_number:en: PDO-GB-02452
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Cambrian Mountains Lamb
 protected_name_file_number:en: PDO-GB-2285
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Welsh Lamb
 protected_name_file_number:en: PGI-GB-0081, PGI-GB-0081-AM01
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:West Country Lamb
 protected_name_file_number:en: PGI-GB-0667
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 en:Isle of Man Manx Loaghtan Lamb
 protected_name_file_number:en: PDO-GB-0340
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
+#wikidata:en:
 
 <en:Lamb meat
 sv:Hånnlamb
 protected_name_file_number:en: PDO-SE-01327
 protected_name_type:en: pdo
 origins:en: en:Sweden
+#wikidata:en:
 
 <en:Lamb meat
 fr:Agneau de lait des Pyrénées
 protected_name_file_number:en: PGI-FR-0665
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q97187662
 
 <en:Lamb meat
 fr:Agneau de l'Aveyron
-wikidata:en:Q2826914
 protected_name_file_number:en: PGI-FR-0186
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826914
 
 <en:Lamb meat
 fr:Agneau de Lozère
-wikidata:en:Q21426914
 protected_name_file_number:en: PGI-FR-0501
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q21426914
 
 <en:Lamb meat
 fr:Agneau de Pauillac
-wikidata:en:Q2826915
 protected_name_file_number:en: PGI-FR-0178
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826915
 
 <en:Lamb meat
 fr:Agneau de Sisteron
-wikidata:en:Q2826916
 protected_name_file_number:en: PGI-FR-0316
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826916
 
 <en:Lamb meat
 fr:Agneau du Bourbonnais
-wikidata:en:Q21426915
 protected_name_file_number:en: PGI-FR-0182
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q21426915
 
 <en:Lamb meat
 fr:Agneau du Limousin
-wikidata:en:Q2826917
 protected_name_file_number:en: PGI-FR-0064
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826917
 
 <en:Lamb meat
 fr:Agneau du Périgord
 protected_name_file_number:en: PGI-FR-0711
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q52422692
 
 <en:Lamb meat
 fr:Agneau du Poitou-Charentes
-wikidata:en:Q2826918
 protected_name_file_number:en: PGI-FR-9177
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826918
 
 <en:Lamb meat
 fr:Agneau du Quercy
-wikidata:en:Q2826919
 protected_name_file_number:en: PGI-FR-0185
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2826919
 
 # Lamb dishes
 
@@ -69127,6 +69185,7 @@ agribalyse_food_code:en:25124
 ciqual_food_code:en:25124
 ciqual_food_name:en:Stewed lamb garnished with potatoes and other vegetables
 ciqual_food_name:fr:Navarin d'agneau aux légumes
+#wikidata:en:
 
 # Pork
 
@@ -69238,12 +69297,14 @@ fr:Veau du Limousin
 protected_name_file_number:en: PGI-FR-0189
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q21428113
 
 <en:Veal meat
 fr:Veau d'Aveyron et du Ségala
 protected_name_file_number:en: PGI-FR-0187
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q24929297
 
 <en:Meats
 <en:Cooked white meat
@@ -69260,6 +69321,7 @@ agribalyse_food_code:en:40304
 ciqual_food_code:en:40304
 ciqual_food_name:en:Sweetbread, calf, raw
 ciqual_food_name:fr:Ris, veau, cru
+wikidata:en:Q49951
 
 <en:Cooked veal meat
 <en:Calf sweetbread
@@ -69321,6 +69383,7 @@ agribalyse_food_code:en:6590
 ciqual_food_code:en:6590
 ciqual_food_name:en:Veal, neck, raw
 ciqual_food_name:fr:Veau, collier, cru
+#wikidata:en:
 
 <en:Veal meat
 en:Veal chop
@@ -69457,6 +69520,7 @@ agribalyse_food_code:en:6580
 ciqual_food_code:en:6580
 ciqual_food_name:en:Calf, foot, raw
 ciqual_food_name:fr:Veau, pied, cru
+#wikidata:en:
 
 <en:Veal meat
 en:Veal tenderloins
@@ -69465,6 +69529,7 @@ agribalyse_food_code:en:6522
 ciqual_food_code:en:6522
 ciqual_food_name:en:Veal, tenderloin, raw
 ciqual_food_name:fr:Veau, noix, crue
+#wikidata:en:
 
 <en:Cooked veal meat
 <en:Veal tenderloins
@@ -69651,7 +69716,6 @@ ciqual_food_code:en:14007
 ciqual_food_name:en:Venison (hart), roasted/baked
 ciqual_food_name:fr:Cerf, rôti/cuit au four
 
-
 en:Mountain products
 de:Produkte von den Bergen, Bergprodukte, Gebirgsprodukte, Von den Bergen, Aus den Bergen, Aus dem Gebirge
 es:Productos de montaña
@@ -69694,7 +69758,7 @@ fr:Tomme d’Italie, Tommes d'Italie
 en:Tomme cheese from Savoy
 fr:Tomme de Savoie, Tommes de Savoie
 origins:en: en:France
-protected_name_file_number_en: PGI-FR-0177-AM03
+protected_name_file_number_en: PGI-FR-0177-AM03, en: PGI-FR-0177
 protected_name_type:en: pgi
 agribalyse_food_code:en:12759
 ciqual_food_code:en:12759
@@ -69711,79 +69775,61 @@ origins:en: en:Canada
 <fr:Tommes
 fr:Tomme du Massif central, Tommes du Massif central
 
-<fr:Tommes
-<en:French cheeses
-fr:Tomme des Pyrénées, Tommes des Pyrénées
-origins:en: en:France
-protected_name_file_number:en: PGI-FR-0176-AM01
-protected_name_type:en: pgi
-origins:en: en:France
-
 <en:French cheeses
 fr:Raclette de Savoie
 protected_name_file_number:en: PGI-FR-02095
 protected_name_type:en: pgi
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Charolais
 protected_name_file_number:en: PDO-FR-0838
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Saint-Marcellin
 protected_name_file_number:en: PGI-FR-0832
 protected_name_type:en: pgi
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Gruyère
 protected_name_file_number:en: PGI-FR-0612
 protected_name_type:en: pgi
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Mâconnais
 protected_name_file_number:en: PDO-FR-0553
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Banon
 protected_name_file_number:en: PDO-FR-0290
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Valençay
 protected_name_file_number:en: PDO-FR-0076
 protected_name_type:en: pdo
 origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Morbier
 protected_name_file_number:en: PDO-FR-0179
 protected_name_type:en: pdo
 origins:en: en:France
-
-<en:French cheeses
-fr:Pélardon
-protected_name_file_number:en: PDO-FR-9140
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Rocamadour
-protected_name_file_number:en: PDO-FR-0026
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Fourme d'Ambert
-protected_name_file_number:en: PDO-FR-0119
-protected_name_type:en: pdo
-origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Brie de Melun
@@ -69812,12 +69858,6 @@ origins:en: en:France
 <en:French cheeses
 fr:Langres
 protected_name_file_number:en: PDO-FR-0121
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Livarot
-protected_name_file_number:en: PDO-FR-0122
 protected_name_type:en: pdo
 origins:en: en:France
 
@@ -69857,45 +69897,18 @@ protected_name_file_number:en: PDO-FR-0136
 protected_name_type:en: pdo
 origins:en: en:France
 
+<fr:Tommes
 <en:French cheeses
-fr:Abondance
-protected_name_file_number:en: PDO-FR-0105
-protected_name_type:en: pdo
+fr:Tomme des Pyrénées, Tommes des Pyrénées
 origins:en: en:France
-
-<en:French cheeses
-fr:Beaufort
-protected_name_file_number:en: PDO-FR-0106
-protected_name_type:en: pdo
+protected_name_file_number:en: PGI-FR-0176-AM01
+protected_name_type:en: pgi
 origins:en: en:France
-
-<en:French cheeses
-fr:Bleu d'Auvergne
-protected_name_file_number:en: PDO-FR-0107
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Bleu des Causses
-protected_name_file_number:en: PDO-FR-0108
-protected_name_type:en: pdo
-origins:en: en:France
-
-<en:French cheeses
-fr:Picodon
-protected_name_file_number:en: PDO-FR-0298
-protected_name_type:en: pdo
-origins:en: en:France
+#wikidata:en:
 
 <en:French cheeses
 fr:Tomme des Pyrénées
 protected_name_file_number:en: PGI-FR-0176
-protected_name_type:en: pgi
-origins:en: en:France
-
-<en:French cheeses
-fr:Tomme de Savoie
-protected_name_file_number:en: PGI-FR-0177
 protected_name_type:en: pgi
 origins:en: en:France
 
