@@ -1355,6 +1355,7 @@ hu:Bio sörök
 it:Birre biologiche, birre bio
 nl:Biologische bieren
 ro:Beri bio, Bere bio
+labels:en: en:organic
 
 <en:French beers
 en:Brittany Beers
@@ -8103,6 +8104,7 @@ fi:Luomupunaviinit
 fr:Vin rouge bio
 nl:Biologische rode wijn
 zh:有机红葡萄酒, 有机红酒
+labels:en: en:organic
 
 <en:Red wines
 en:10% red wine
@@ -19936,7 +19938,7 @@ origins:en: en:Italy
 <it:Menfi
 it:Menfi Feudo dei Fiori
 origins:en: en:Italy
-#wikidata:en:
+#wikidata:en:Q3854662
 
 <en:Wines from Italy
 it:Merlara
@@ -19948,6 +19950,7 @@ it:Mitterberg
 protected_name_file_number:en: PGI-IT-A0295
 protected_name_type:en: pgi
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Mitterberg tra Cauria e Tel, 
@@ -19966,7 +19969,9 @@ origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
-it:Monferrato whether or not followed by Casalese
+it:Monferrato
+protected_name_file_number:en: PDO-IT-A1210
+protected_name_type:en: pdo
 origins:en: en:Italy
 #wikidata:en:
 
@@ -19978,7 +19983,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Monica di Sardegna
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3320744
 
 <en:Wines from Italy
 it:Monreale
@@ -19996,6 +20001,7 @@ it:Montecastelli
 protected_name_file_number:en: PGI-IT-A1438
 protected_name_type:en: pgi
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Montecompatri-Colonna, Montecompatri, Colonna
@@ -20007,6 +20013,7 @@ it:Montecucco
 protected_name_file_number:en: PDO-IT-A1433
 protected_name_type:en: pdo
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Montefalco
@@ -20036,6 +20043,7 @@ origins:en: en:Italy
 
 <en:Wines from Italy
 it:Montepulciano d'Abruzzo
+wikidata:en:Q1946117
 
 <it:Montepulciano d'Abruzzo
 it:Colline Teramane Montepulciano d'Abruzzo, Montepulciano d'Abruzzo Colline Teramane
@@ -20071,6 +20079,7 @@ it:Monti Lessini, Lessini
 protected_name_file_number:en: PDO-IT-A0462
 protected_name_type:en: pdo
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Morellino di Scansano
@@ -22212,12 +22221,6 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Monferrato
-protected_name_file_number:en: PDO-IT-A1210
-protected_name_type:en: pdo
-origins:en: en:Italy
-
-<en:Wines from Italy
 it:Pomino
 protected_name_file_number:en: PDO-IT-A1453
 protected_name_type:en: pdo
@@ -22797,15 +22800,43 @@ fr:Moselle Luxembourgeoise Rolling
 fr:Moselle Luxembourgeoise Rosport
 
 <fr:Moselle Luxembourgeoise
-fr:Moselle Luxembourgeoise Stadtbredimus followed by Appellati
+fr:Moselle Luxembourgeoise Stadtbredimus Appellati
 origins:en: en:Luxembourg
 
-<en:Wines from Luxembourg
-fr:Moselle Luxembourgeoise followed by Remerschen, Schengen, Schwebsingen, Stadtbredimus, Trintingen, Wasserbilig, Wellenstein, Wintringen or Wormeldingen followed by Appellation contrôlé
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Remerschen
 origins:en: en:Luxembourg
 
-<en:Wines from Luxembourg
-fr:Moselle Luxembourgeoise followed by the name of the vine variety followed by Appellation contrôlée
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Schengen
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Schwebsingen
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Stadtbredimus
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Trintingen
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Wasserbilig
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Wellenstein
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Wintringen
+origins:en: en:Luxembourg
+
+<fr:Moselle Luxembourgeoise
+fr:Moselle Luxembourgeoise Wormeldingen
 origins:en: en:Luxembourg
 
 <en:Wines
@@ -22831,7 +22862,6 @@ mt:Malta
 protected_name_file_number:en: PDO-MT-A1630
 protected_name_type:en: pdo
 origins:en: en:Malta
-
 
 <en:Wines
 en:Wines from Portugal, Portuguese wines
@@ -38303,6 +38333,7 @@ fi:Luomu kevytmaidot
 fr:Laits demi-écrémés biologiques
 it:Latte biologico parzialmente scremato
 nl:Biologische halfvolle melken
+labels:en: en:organic
 
 <en:Semi-skimmed milks
 en:Semi-skimmed milk with reduced lactose
