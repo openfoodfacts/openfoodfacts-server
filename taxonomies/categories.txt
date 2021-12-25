@@ -1388,6 +1388,7 @@ origins:en: en:Italy
 
 <en:Beers
 en:Lithuanian beers
+fr:Bières lituaniennes
 
 <en:Lithuanian beers
 lt:Kaimiškas Jovarų alus
@@ -1471,7 +1472,7 @@ origins:en: en:Belgium
 
 <en:Beers
 en:Bulgarian beers
-fr:Bières bulgariennes
+fr:Bières bulgares, bières bulgariennes
 origins:en: en:Bulgaria
 
 <en:Bulgarian beers
@@ -1576,7 +1577,6 @@ de:Münchener Biere, Münchener Bier
 protected_name_file_number:en: PGI-DE-0516
 protected_name_type:en: pgi
 origins:en: en:Germany
-
 
 <en:Beers from Germany
 en:Bavarian beers
@@ -1901,6 +1901,7 @@ de:Blutwurz
 protected_name_file_number:en: PGI-DE-02061
 protected_name_type:en: gi
 origins:en: en:Germany
+wikidata:en:Q22236356
 
 <en:German liqueur
 de:Bayerischer Kräuterlikör
@@ -55806,6 +55807,7 @@ who_id:en:17
 
 <en:Sauces
 en:Alfredo sauces
+wikidata:en:Q23930012
 
 <en:Sauces
 en:Warm sauces
@@ -55822,6 +55824,16 @@ fi:Jälkiruokakastikkeet
 fr:Sauces dessert
 it:Salse da dessert
 nl:Dessertsaus, Dessertsauzen
+wikidata:en:Q25327021
+
+# Commercial brand
+#<en:Dessert sauces
+#en:Magic Shell
+#wikidata:en:Q17116345
+
+<en:Dessert sauces
+en:Brandy butter
+wikidata:en:Q82509
 
 <en:Dessert sauces
 en:Chocolate sauce, Chocolate sauces
@@ -75000,7 +75012,16 @@ ciqual_food_code:en:26177
 ciqual_food_name:en:Anchovy, in salt (semi-preserved)
 ciqual_food_name:fr:Anchois au sel (anchoité, semi-conserve)
 
+<en:fishes
+en:prepared fish
+
+<en:prepared fish
+en:marinated fish
+fr:poisson mariné
+wikidata:en:Q66246606
+
 <en:Anchovy
+<en:marinated fish
 en:Marinated common anchovy
 fr:Anchois commun mariné
 agribalyse_food_code:en:26187
@@ -75017,6 +75038,7 @@ fi:anjovisfileet
 fr:Filets d’anchois
 it:Filetti di acciuga
 nl:Ansjovisfilets
+wikidata:en:Q56692301
 
 <en:Anchovy fillets
 <en:Semi-preserved foods
@@ -75088,8 +75110,11 @@ fi:turskafileet
 fr:Filets de cabillaud
 it:Filetti di merluzzo
 nl:Kabeljauwfilets
+wikidata:en:Q67880588
 
 <en:Breaded fish
+<en:Cod fillets
+en:Breaded cod fillets
 fr:Filets de cabillaud panés
 
 <en:Fish fillets
@@ -75161,6 +75186,21 @@ agribalyse_food_code:en:26082
 ciqual_food_code:en:26082
 ciqual_food_name:en:Swordfish, raw
 ciqual_food_name:fr:Espadon, cru
+wikidata:en:Q164327
+
+<en:Smoked fishes
+<en:Swordfish
+en:Smoked swordfish
+fr:Espadons fumés, espadon fumé
+nl:Gerookte zwaardvis
+
+<en:Smoked fishes
+<en:Swordfish
+en:Roasted Swordfish, Baked Swordfish
+fr:Espadon rôti, espadon cuit au four
+agribalyse_food_code:en:26093
+ciqual_food_code:en:26093
+ciqual_food_name:en:Swordfish, roasted/baked
 
 <en:fishes
 en:Brown meagre
@@ -75281,7 +75321,7 @@ ciqual_food_name:en:Salmon, raw, farmed
 
 <en:Salmons from farming
 <en:Cooked salmons
-en:Salmons from farming microwaved
+en:Microwaved salmons from farming, Salmons from farming microwaved
 fr:Saumon d'élevage cuit au micro-ondes
 agribalyse_food_code:en:26211
 ciqual_food_code:en:26211
@@ -75326,12 +75366,13 @@ fr:Saumon à l'oseille
 agribalyse_food_code:en:25077
 ciqual_food_code:en:25077
 ciqual_food_name:en:Salmon with sorrel
+wikidata:en:Q1762793
 
 <en:Wild salmons
 en:Scottish Wild Salmon
 protected_name_file_number:en: PGI-GB-0863
 protected_name_type:en: pgi
-origins:en: en:United Kingdom
+origins:en: en:United Kingdom, en:Scotland
 
 <en:Salmons
 en:Wild salmons
@@ -75343,7 +75384,7 @@ ciqual_food_name:en:Salmon, raw, wild
 en:Scottish Farmed Salmon
 protected_name_file_number:en: PGI-GB-0141
 protected_name_type:en: pgi
-origins:en: en:United Kingdom
+origins:en: en:United Kingdom, en:Scotland
 
 <en:Fishes
 <en:Fatty fishes
@@ -75381,6 +75422,7 @@ ciqual_food_code:en:26122
 ciqual_food_name:en:Haddock, raw
 ciqual_food_name:fr:Églefin, cru
 cooking_method:en en:raw
+wikidata:en:Q202406
 
 <en:Haddock
 en:Grilled haddock, Pan-fried haddock
@@ -75408,6 +75450,7 @@ ciqual_food_code:en:26127
 ciqual_food_name:en:Conger, raw
 ciqual_food_name:fr:Congre, cru
 cooking_method:en en:raw
+wikidata:en:Q137144
 
 <en:Fishes
 <en:Lean fishes
@@ -75418,6 +75461,7 @@ ciqual_food_code:en:26128
 ciqual_food_name:en:Roundnose grenadier, raw
 ciqual_food_name:fr:Grenadier (de roche), cru
 cooking_method:en en:raw
+wikidata:en:Q2176319
 
 <en:Fishes
 en:grenadier
@@ -75431,10 +75475,7 @@ cooking_method:en en:raw
 <en:Fishes
 en:Tub gurnard
 fr:Grondin perlon
-
-<en:Fishes
-en:tub gurnard
-fr:Grondin perlon
+wikidata:en:Q630618
 agribalyse_food_code:en:26219
 ciqual_food_code:en:26219
 ciqual_food_name:en:Tub gurnard, raw
@@ -75444,6 +75485,11 @@ cooking_method:en en:raw
 <en:Fishes
 en:Blue shark
 fr:Empereur
+wikidata:en:Q26337
+agribalyse_food_code:en:26241
+ciqual_food_code:en:26241
+ciqual_food_name:en:Blue shark, fillet, without skin, raw
+ciqual_food_name:fr:Empereur, filet, sans peau, cru
 
 <en:Blue shark
 en:Blue shark fillet without skin
@@ -75479,6 +75525,7 @@ la:Mullus surmuletus
 agribalyse_food_code:en:26085
 ciqual_food_code:en:26085
 ciqual_food_name:en:Surmullet or red mullet, raw
+wikidata:en:Q7119
 
 <en:Surmullet
 en:Steamed surmullet, steamed red mullet
@@ -75496,14 +75543,14 @@ ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from
 
 <en:Frozen Surmullet with skin
 en:Frozen Surmullet with skin from Senegal, Frozen red mullet fillet with skin from Senegal
-fr:Filet de Rouget-barbet surgelé avec peau from Sénégal
+fr:Rouget-barbet du Sénégal, Filet de Rouget-barbet surgelé avec peau from Sénégal
 agribalyse_food_code:en:26244
 ciqual_food_code:en:26244
 ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
 
 <en:Frozen Surmullet with skin
 en:Frozen Surmullet with skin from Thailand, Frozen red mullet fillet with skin from Thailand
-fr:Filet de Rouget-barbet surgelé avec peau de Thaïlande
+fr:Rouget-barbet de Thaïlande, Filet de Rouget-barbet surgelé avec peau de Thaïlande
 agribalyse_food_code:en:26244
 ciqual_food_code:en:26244
 ciqual_food_name:en:Surmullet or red mullet, fillet with skin, frozen, raw (from Thailand or Senegal)
@@ -75515,6 +75562,7 @@ agribalyse_food_code:en:26058
 ciqual_food_code:en:26058
 ciqual_food_name:en:Common sole, raw
 cooking_method:en en:raw
+wikidata:en:Q27773
 
 <en:Common sole
 en:Fried common sole
@@ -75540,7 +75588,7 @@ ciqual_food_code:en:26061
 ciqual_food_name:en:Common sole, boiled/cooked in water
 
 <en:Common sole
-en:Common sole grilled
+en:Grilled common sole, Common sole grilled
 fr:Sole poêlée
 agribalyse_food_code:en:26248
 ciqual_food_code:en:26248
@@ -75548,7 +75596,7 @@ ciqual_food_name:en:Common sole, grilled
 cooking_method:en en:grilled
 
 <en:Common sole
-en:Roasted Common sole, Baked Common sole
+en:Roasted common sole, Baked common sole
 fr:Sole rôtie, Sole cuite au four
 agribalyse_food_code:en:26060
 ciqual_food_code:en:26060
@@ -75626,20 +75674,6 @@ fr:Dorade grise rôtie, Dorade grise cuite au four
 agribalyse_food_code:en:26222
 ciqual_food_code:en:26222
 ciqual_food_name:en:Black seabream, roasted/baked
-
-<en:Smoked fishes
-<en:Swordfish
-en:Smoked swordfish
-fr:Espadons fumés, espadon fumé
-nl:Gerookte zwaardvis
-
-<en:Smoked fishes
-<en:Swordfish
-en:Roasted Swordfish, Baked Swordfish
-fr:Espadon rôti, espadon cuit au four
-agribalyse_food_code:en:26093
-ciqual_food_code:en:26093
-ciqual_food_name:en:Swordfish, roasted/baked
 
 <en:Smoked fishes
 <en:Haddock
@@ -76351,6 +76385,14 @@ ciqual_food_code:en:26010
 ciqual_food_name:en:Atlantic herring, marinated, or rollmops
 ciqual_food_name:fr:Hareng mariné ou rollmops
 
+<en:Rollmops
+<en:marinated fish
+en:Marinated Atlantic rollmops
+agribalyse_food_code:en:26010
+ciqual_food_code:en:26010
+ciqual_food_name:en:Atlantic herring, marinated, or rollmops
+ciqual_food_name:fr:Hareng mariné ou rollmops
+
 <en:Herring
 en:Pacific herring
 ru:Сельдь тихоокеанская, тихоокеанская сельдь
@@ -76396,14 +76438,6 @@ agribalyse_food_code:en:26238
 ciqual_food_code:en:26238
 ciqual_food_name:en:Atlantic herring, oily, raw
 ciqual_food_name:fr:Hareng gras, cru
-
-<en:Rollmops
-en:Marinated Atlantic rollmops
-fr:Rollmops
-agribalyse_food_code:en:26010
-ciqual_food_code:en:26010
-ciqual_food_name:en:Atlantic herring, marinated, or rollmops
-ciqual_food_name:fr:Hareng mariné ou rollmops
 
 <en:Fishes
 <en:Lean fishes
@@ -76515,6 +76549,7 @@ ciqual_food_name:en:Mackerel, roasted/baked
 ciqual_food_name:fr:Maquereau, rôti/cuit au four
 
 <en:Mackerels
+<en:marinated fish
 en:Marinated mackerel
 fr:Maquereau mariné
 agribalyse_food_code:en:26186
