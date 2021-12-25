@@ -66102,6 +66102,10 @@ fi:ankan koivet
 fr:Cuisses de canard, cuisses de canards, cuisse de canard, cuisse de canards
 it:Zampe di anatra
 nl:Eendenbouten
+agribalyse_food_code:en:36203
+ciqual_food_code:en:36203
+ciqual_food_name:en:Duck, leg, meat and skin, raw
+ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
 
 <en:Duck legs
 fr:Cuisses de canard confites
@@ -66273,6 +66277,7 @@ agribalyse_food_code:en:8552
 ciqual_food_code:en:8552
 ciqual_food_name:en:Chitterling sausage from Troyes, raw
 ciqual_food_name:fr:Andouillette de Troyes, crue
+wikidata:en:Q2846193
 
 <fr:Andouillettes
 fr:Andouillettes provençales, Andouillettes de Provence
@@ -66341,6 +66346,7 @@ agribalyse_food_code:en:28850
 ciqual_food_code:en:28850
 ciqual_food_name:en:Coppa
 ciqual_food_name:fr:Coppa
+wikidata:en:Q384028
 
 <en:Coppa
 fr:Coppa de l'Ile de Beauté
@@ -66353,6 +66359,7 @@ fr:Coppa de Corse, Coppa de Corse - Coppa di Corsica
 protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
 origins:en: en:France, fr:Corse
+wikidata:en:Q21007645
 
 <en:Prepared meats
 en:French meat products
@@ -66450,7 +66457,7 @@ ciqual_food_name:fr:Jambonneau, cuit
 
 <en:Braised hams
 en:Pork knuckle of ham without rind without fat without bone
-fr:Jambonneau arrière de porc découenné dégraisssé désossé
+fr:Jambonneau de porc, Jambonneau arrière de porc découenné dégraisssé désossé
 agribalyse_food_code:en:28474
 ciqual_food_code:en:28474
 ciqual_food_name:en:Pork, knuckle oh ham, without rind, fat and bone, raw
@@ -66656,36 +66663,42 @@ fr:Jambon sec de Corse, Prisuttu
 protected_name_file_number:en: PDO-FR-0993
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q3404227
 
 <en:Dried hams
 fr:Jambon sec des Ardennes, Noix de Jambon sec des Ardennes
 protected_name_file_number:en: PGI-FR-0101
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q3160848
 
 <en:French hams
 fr:Jambon d'Auvergne
 protected_name_file_number:en: PGI-FR-01348
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q65153692
 
 <en:French hams
 fr:Jambon de Lacaune
 protected_name_file_number:en: PGI-FR-1208
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q24929136
 
 <en:French hams
 fr:Jambon de Vendée
 protected_name_file_number:en: PGI-FR-1135
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q3160845
 
 <en:French hams
 fr:Jambon de l'Ardèche
 protected_name_file_number:en: PGI-FR-0595
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q3160846
 
 <en:French hams
 fr:Jambon du Kintoa
@@ -66704,6 +66717,7 @@ fr:Jambon noir de Bigorre
 protected_name_file_number:en: PDO-FR-02105
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q43013790
 
 <en:Dried hams
 fr:Jambons de Mayence, jambon de Mayence
@@ -66749,6 +66763,7 @@ wikidata:en:Q700026
 <fr:Jambons crus fumés
 en:Westphalian ham
 fr:Jambons de Westphalie, jambon de Westphalie
+wikidata:en:Q1510478
 
 <fr:Jambons crus fumés
 fr:Specks, Speck, Speks, Spek, Speck dell' Alto Adige, Specks dell' Alto Adige
@@ -66759,12 +66774,14 @@ de:Tiroler Speck
 protected_name_file_number:en: PGI-AT-1395
 protected_name_type:en: pgi
 origins:en: en:Austria
+wikidata:en:Q877902
 
 <fr:Jambons crus fumés
 de:Gailtaler Speck
 protected_name_file_number:en: PGI-AT-0192
 protected_name_type:en: pgi
 origins:en: en:Austria
+wikidata:en:Q22675107
 
 <en:German sausages
 fr:Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
@@ -66836,14 +66853,14 @@ agribalyse_proxy_food_code:en:8030
 agribalyse_proxy_food_name:en:Rillettes, goose
 
 <en:Poultry rillettes
-en:Rillettes goose
+en:Goose rillettes, Rillettes goose
 fr:Rillettes d'oie, rillettes à l'oie
 agribalyse_food_code:en:8030
 ciqual_food_code:en:8030
 ciqual_food_name:en:Rillettes, goose
 
 <en:Poultry rillettes
-en:Rillettes pure goose
+en:Pure goose rillettes, Rillettes pure goose
 fr:Rillettes pur oie
 agribalyse_food_code:en:8025
 ciqual_food_code:en:8025
@@ -66858,6 +66875,7 @@ nl:Eendenrillettes
 agribalyse_food_code:en:8026
 ciqual_food_code:en:8026
 ciqual_food_name:en:Rillettes, duck
+wikidata:en:Q47325346
 
 <en:duck rillettes
 fr:Grillons de canard
@@ -66936,6 +66954,7 @@ origins:en: en:France, fr:Tours
 agribalyse_food_code:en:8010
 ciqual_food_code:en:8010
 ciqual_food_name:en:Rillettes from Tours
+wikidata:en:Q16672807
 
 <en:Seafood
 <en:Rillettes
@@ -67133,12 +67152,14 @@ en:Newmarket Sausage
 protected_name_file_number:en: PGI-GB-0882
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+wikidata:en:Q16998891
 
 <en:Sausages
 en:Traditional Cumberland Sausage
 protected_name_file_number:en: PGI-GB-0715
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
+wikidata:en:Q586591
 
 <en:Sausages
 en:Poultry sausages
@@ -67209,6 +67230,7 @@ hu:Csirke kolbász
 it:Salsicce di pollo
 nl:Worst met kip
 zh:鸡肠
+wikidata:en:Q47472153
 
 <en:Poultry sausages
 <en:Turkeys
@@ -67227,6 +67249,7 @@ agribalyse_food_code:en:30150
 ciqual_food_code:en:30150
 ciqual_food_name:en:Merguez sausage, raw
 ciqual_food_name:fr:Merguez, crue
+wikidata:en:Q1754504
 
 <fr:Merguez
 en:Poultry merguez
@@ -67505,6 +67528,7 @@ nl:Worst uit Lyon
 <en:French sausages
 en:Molène sausage
 fr:Saucisses de Molène
+wikidata:en:Q3474156
 
 <en:French sausages
 en:Montbéliard sausages
@@ -67516,6 +67540,7 @@ origins:en: en:France, fr:Montbéliard
 agribalyse_food_code:en:30105
 ciqual_food_code:en:30105
 ciqual_food_name:en:Montbeliard sausage
+wikidata:en:Q3474158
 
 <en:French sausages
 en:Morteau sausages
@@ -67527,6 +67552,7 @@ origins:en: en:France
 agribalyse_food_code:en:30104
 ciqual_food_code:en:30104
 ciqual_food_name:en:Morteaux sausage
+wikidata:en:Q2720622
 
 <fr:Charcuteries cuites
 <en:Morteau sausages
@@ -67546,6 +67572,7 @@ nl:Worst uit Straatsburg
 agribalyse_food_code:en:30742
 ciqual_food_code:en:30742
 ciqual_food_name:en:Strasbourg sausage
+wikidata:en:Q3197958
 
 <fr:Saucisses de Strasbourg
 en:Industrial knacks
