@@ -63145,6 +63145,7 @@ fr:Bœuf de Bazas
 protected_name_file_number:en: PGI-FR-0344
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q21008043
 
 <en:Beef
 en:Beef from Chalosse
@@ -63152,6 +63153,7 @@ fr:Bœuf de Chalosse, Boeuf de Chalosse
 protected_name_file_number:en: PGI-FR-0190
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q2930214
 
 <en:Beef
 en:Beef from Charolles
@@ -63159,6 +63161,7 @@ fr:Bœuf de Charolles
 protected_name_file_number:en: PDO-FR-0873
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q2930215
 
 <en:Beef
 en:Beef from Vendée
@@ -63179,6 +63182,7 @@ fr:Taureau de Camargue
 protected_name_file_number:en: PDO-FR-0041
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q3516171
 
 <en:Beef
 fr:Maine-Anjou
@@ -63191,6 +63195,7 @@ fr:Génisse Fleur d'Aubrac
 protected_name_file_number:en: PGI-FR-0257
 protected_name_type:en: pgi
 origins:en: en:France
+wikidata:en:Q97365348
 
 <en:Beef
 <en:Cooked red meat
@@ -63410,6 +63415,7 @@ agribalyse_food_code:en:6270
 ciqual_food_code:en:6270
 ciqual_food_name:en:Beef, chuck, raw
 ciqual_food_name:fr:Boeuf, paleron, cru
+wikidata:en:Q1365996
 
 <en:Cooked beef meat
 <en:Beef chuck
@@ -63771,6 +63777,7 @@ ciqual_food_name:fr:Cheval, entrecôte, crue
 <en:Meats
 en:Goat meat
 fr:Viande de chèvre
+wikidata:en:Q449506
 
 <en:Fresh meats
 <en:Goat meat
@@ -65405,17 +65412,6 @@ ciqual_food_name:fr:Canard, magret, grillé/poêlé
 fr:Tournedos de magret de canard
 
 <en:Ducks
-fr:Cuisses de canard confites
-
-<en:Ducks
-en:Duck leg meat with skin
-fr:Cuisse de canard desossée avec peau, Cuisse de canard avec peau desossée
-agribalyse_food_code:en:36203
-ciqual_food_code:en:36203
-ciqual_food_name:en:Duck, leg, meat and skin, raw
-ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
-
-<en:Ducks
 en:Duck meat and skin
 fr:Viande de canard avec peau
 agribalyse_food_code:en:36204
@@ -66097,6 +66093,8 @@ nl:Gegrilde kip
 zh:烤鸡
 wikidata:en:Q899640
 
+# TODO - Add proxy
+
 <en:Ducks
 en:Duck legs, duck leg, ducks legs, ducks leg
 de:Entenfüße
@@ -66104,6 +66102,17 @@ fi:ankan koivet
 fr:Cuisses de canard, cuisses de canards, cuisse de canard, cuisse de canards
 it:Zampe di anatra
 nl:Eendenbouten
+
+<en:Duck legs
+fr:Cuisses de canard confites
+
+<en:Duck legs
+en:Duck leg meat with skin
+fr:Cuisse de canard desossée avec peau, Cuisse de canard avec peau desossée
+agribalyse_food_code:en:36203
+ciqual_food_code:en:36203
+ciqual_food_name:en:Duck, leg, meat and skin, raw
+ciqual_food_name:fr:Canard, cuisse avec peau, sans os, crue
 
 <en:Turkeys
 en:Turkey breasts
