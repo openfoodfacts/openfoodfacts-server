@@ -127,7 +127,8 @@ init_backend: build_lang
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-	docker cp scripts/refresh_products_tags.js po_mongodb_1:/data/db
+# get id for mongodb container
+	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
@@ -144,7 +145,7 @@ import_prod_data:
 	@echo "🥫 Downloading full MongoDB dump from production …"
 	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	@echo "🥫 Copying the dump to MongoDB container …"
-	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
+	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
