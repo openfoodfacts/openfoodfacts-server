@@ -38480,7 +38480,7 @@ lt:Lietuviškas varškės sūris
 protected_name_file_number:en: PGI-LT-0853
 protected_name_type:en: pgi
 origins:en: en:Lithuania
-#wikidata:en:
+wikidata:en:Q25496672
 
 <en:Cheeses
 en:Polish cheeses, cheeses from Poland
@@ -38594,11 +38594,11 @@ origins:en: en:Portugal
 wikidata:en:Q2048709
 
 <en:Portuguese cheeses
-pt:Queijo S. Jorge
+pt:Queijo São Jorge, Queijo S. Jorge
 protected_name_file_number:en: PDO-PT-0267
 protected_name_type:en: pdo
 origins:en: en:Portugal
-#wikidata:en:
+wikidata:en:Q2369860
 
 <en:Portuguese cheeses
 pt:Queijo de Nisa
@@ -38785,7 +38785,7 @@ fi:Espanjalaiset juustot, juustot Espanjasta
 fr:Fromages espagnols, Fromages d'Espagne
 it:Formaggi spagnoli
 nl:Spaanse kazen
-#wikidata:en:
+wikidata:en:Q27038733
 
 <en:Spanish cheeses
 <en:sheep's-milk cheeses
@@ -39143,7 +39143,7 @@ hu:Pasztőrözött sajt
 it:Formaggi pastorizzati
 nl:Gepasteuriseerde kazen
 ru:Пастеризованные сыры
-#wikidata:en:
+wikidata:en:Q19341731
 
 <en:Cheeses
 en:Grated cheese
@@ -39156,7 +39156,7 @@ he:גבינה מגוררת, גבינה מפוררת, גבינה מגורדת
 it:Formaggio grattugiato
 nl:Geraspte kazen
 ru:Тертый сыр
-#wikidata:en:
+wikidata:en:Q3088336
 
 <en:French cheeses
 <en:Cow cheeses
@@ -39187,7 +39187,8 @@ en:Raclette, Raclette cheeses, Raclette cheese from cow's milk
 de:Raclettekäse, Raclette-Käse
 es:Queso Raclette, Raclette
 fr:Raclettes
-wikidata:en:Q20748
+wikidata:en:Q57827645
+# dish: wikidata:en:Q20748
 
 <en:Raclette
 <en:Cow cheeses
@@ -39214,6 +39215,10 @@ fr:Raclettes au lait de chèvre
 <en:Cheeses
 en:Argentine cheeses, cheeses from Argentina
 #wikidata:en:
+
+<en:Argentine cheeses
+es:Pategrás
+wikidata:en:Q110273315
 
 <en:Argentine cheeses
 en:Sardo
@@ -40133,25 +40138,40 @@ agribalyse_proxy_food_name:fr:Lait demi-écrémé, UHT
 en:Austrian milks
 fr:Laits autrichiens
 
-<en:Austrian milks
-de:Schaf-Heumilch, Sheep's Haymilk, Latte fieno di pecora, Lait de foin de brebis, Leche de heno de oveja
-protected_name_file_number:en: TSG-AT-2289
-protected_name_type:en: tsg
-origins:en: en:Austria
+#<en:Austrian milks
+<en:milks
+de:Schaf-Heumilch
+en:Sheep's Haymilk
+it:Latte fieno di pecora
+fr:Lait de foin de brebis
+es:Leche de heno de oveja
+#protected_name_file_number:en: TSG-AT-2289
+#protected_name_type:en: tsg
+#origins:en: en:Austria
 #wikidata:en:
 
-<en:Austrian milks
-de:Ziegen-Heumilch, Goat's Haymilk, Latte fieno di capra, Lait de foin de chèvre, Leche de heno de cabra
-protected_name_file_number:en: TSG-AT-2290
-protected_name_type:en: tsg
-origins:en: en:Austria
+#<en:Austrian milks
+<en:milks
+de:Ziegen-Heumilch
+en:Goat's Haymilk
+it:Latte fieno di capra
+fr:Lait de foin de chèvre
+es:Leche de heno de cabra
+#protected_name_file_number:en: TSG-AT-2290
+#protected_name_type:en: tsg
+#origins:en: en:Austria
 #wikidata:en:
 
-<en:Austrian milks
-de:Heumilch, Haymilk, Latte fieno, Lait de foin, Leche de heno
-protected_name_file_number:en: TSG-AT-1035
-protected_name_type:en: tsg
-origins:en: en:Austria
+#<en:Austrian milks
+<en:milks
+de:Heumilch
+en:Haymilk
+it:Latte fieno
+fr:Lait de foin
+es:Leche de heno
+#protected_name_file_number:en: TSG-AT-1035
+#protected_name_type:en: tsg
+#origins:en: en:Austria
 #wikidata:en:
 
 <en:Milks
@@ -40183,6 +40203,7 @@ ru:молочные напитки
 zh:奶饮料, 乳饮料
 food_groups:en: en:Milk and yogurt
 pnns_group_2:en:Milk and yogurt
+wikidata:en:Q1872262
 
 <en:Dairy drinks
 en:Flavoured milks, Flavored milks, Flavoured milks with sugar partially skimmed fortified with vitamins and chemicals elements
@@ -40202,6 +40223,7 @@ en:Renneted milks
 fr:Laits emprésurés
 
 <en:Flavoured milks
+<en:Renneted milks
 en:Flavoured renneted milks
 fr:Laits emprésurés aromatisés
 agribalyse_food_code:en:19678
@@ -40443,8 +40465,15 @@ agribalyse_food_code:en:19250
 ciqual_food_code:en:19250
 ciqual_food_name:en:Sheep milk, whole
 ciqual_food_name:fr:Lait de brebis, entier
+wikidata:en:Q2736146
+
+<en:milks
+en:Mare's milk
+fr:Lait de jument
+wikidata:en:Q2011964
 
 <en:Whole milks
+<en:Mare's milk
 en:Whole mare's milk
 fr:Lait de jument entier
 ciqual_food_code:en:19225
@@ -40497,10 +40526,10 @@ fr:Laits en poudre, farines de lait, laits déshydratés
 it:Latte in polvere
 nl:Melkpoeders
 sv:Mjölkpulver
-wikidata:en:Q496696
 agribalyse_proxy_food_code:en:19054
 agribalyse_proxy_food_name:en:Milk, powder, skimmed
 agribalyse_proxy_food_name:fr:Lait en poudre, écrémé
+wikidata:en:Q496696
 
 <en:Dehydrated beverages
 en:Milk-shakes preparations
@@ -40679,6 +40708,7 @@ en:Coffee milks
 de:Kaffeemilch
 fi:kahvimaidot
 nl:Koffiemelken, Koffiemelk
+#wikidata:en:Q1042811
 
 <en:Dairies
 en:Condensed milks
@@ -40687,6 +40717,7 @@ es:Leche condensada, Leches condensadas
 fi:Kondensoidut maidot
 fr:Laits condensés, Lait condensé
 nl:Gecondenseerde melken
+wikidata:en:Q2830455
 
 <fr:Laits concentrés
 fr:Laits concentrés non sucrés, Lait concentré non sucré
