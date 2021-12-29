@@ -141,8 +141,10 @@ import_more_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
+	@echo "🥫 Removing old archive in case you have one"
+	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
