@@ -40381,6 +40381,7 @@ pt:Leites de vaca
 ro:Laptele de vacă, Lapte de vacă
 ru:Коровье молоко
 sv:Komjölk
+wikidata:en:Q10988133
 
 <en:Milks
 en:Goat milks, goat milk
@@ -40396,6 +40397,7 @@ sv:Getmjölk
 agribalyse_proxy_food_code:en:19200
 agribalyse_proxy_food_name:en:Goat milk, whole, UHT
 agribalyse_proxy_food_name:fr:Lait de chèvre, entier, UHT
+wikidata:en:Q1418287
 
 <en:Goat milks
 en:Whole goat milk
@@ -75480,6 +75482,24 @@ ciqual_food_name:en:Sandwich (average)
 ciqual_food_name:fr:Sandwich (aliment moyen)
 
 <en:Sandwiches
+en:Sandwich made with loaf bread, Club sandwich
+fr:sandwich club, sandwich triangle, sandwich pain de mie
+wikidata:en:Q1093380
+
+<en:Sandwiches
+fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
+
+<en:Sandwiches
+en:French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+fr:Sandwich baguette
+ciqual_food_code:en:25543
+ciqual_food_name:en:Sandwich on french bread (average)
+ciqual_food_name:fr:Sandwich baguette (aliment moyen)
+
+#fr:Tartines fraîches
+#wikidata:en:Q6559431
+
+<en:Sandwiches
 en:Burritos
 de:Burritos
 es:Burritos
@@ -75490,6 +75510,11 @@ wikidata:en:Q390823
 agribalyse_food_code:en:25459
 ciqual_food_code:en:25459
 ciqual_food_name:en:Burritos
+
+
+<en:Sandwiches
+en:Breakfast sandwich
+wikidata:en:Q4959490
 
 <en:Sandwiches
 fr:Canapés
@@ -75660,16 +75685,6 @@ es:Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
 fr:Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
 nl:Vegetarische hotdogs
 
-<en:Sandwiches
-fr:Sandwichs polaires, sandwich polaire, sandwichs au pain polaire
-
-<en:Sandwiches
-en:French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
-fr:Sandwich baguette
-ciqual_food_code:en:25543
-ciqual_food_name:en:Sandwich on french bread (average)
-ciqual_food_name:fr:Sandwich baguette (aliment moyen)
-
 <en:French bread sandwiches
 en:Baguette sandwiches with salami and butter
 fr:Sandwichs baguette salami beurre
@@ -75732,6 +75747,12 @@ agribalyse_food_code:en:25533
 ciqual_food_code:en:25533
 ciqual_food_name:en:Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
 ciqual_food_name:fr:Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
+wikidata:en:Q796270
+
+<en:Sandwiches
+en:Reuben Sandwich
+fr:Sandwich Reuben
+wikidata:en:Q3180957
 
 <en:vegetable sandwiches
 en:Sandwiches with vegetables and mayonnaise
@@ -75842,6 +75863,10 @@ en:Bacon sandwiches
 fr:Sandwichs au bacon
 nl:Speksandwiches
 wikidata:en:Q4839953
+
+<en:Sandwiches
+en:Horseshoe sandwich
+wikidata:en:Q5906095
 
 <en:French bread sandwiches
 <en:Sandwiches filled with cold cuts
@@ -76091,9 +76116,22 @@ en:Surimi sandwiches
 fr:Sandwichs au surimi
 nl:Surimisandwiches
 
+<en:sandwiches
+fr:Sandwich aux œufs
+wikidata:en:Q4304396
+
+<en:sandwiches
+en:Crisp sandwich
+wikidata:en:Q3002792
+
+<en:sandwiches
+en:melt sandwich
+wikidata:en:Q6813732
+
 <en:Sandwiches
 fr:Wraps, Wrap, roulade
 nl:Wraps
+wikidata:en:Q1599125
 
 <fr:Wraps
 en:Chicken wraps
@@ -92014,6 +92052,7 @@ fr:Terrine de poisson
 agribalyse_food_code:en:8291
 ciqual_food_code:en:8291
 ciqual_food_name:en:Fish terrine
+#wikidata:en:
 
 <en:Terrines
 en:Seafood terrine
@@ -92094,6 +92133,10 @@ fr:Terrines de foie de volaille
 fr:Terrines au foie de volaille
 
 <en:Liver terrines
+fr:Terrine de foie gras
+wikidata:en:Q86724104
+
+<en:Liver terrines
 fr:Terrine de foie gras au sauternes
 wikidata:en:Q3518776
 
@@ -92101,6 +92144,7 @@ wikidata:en:Q3518776
 <en:Meat-based products
 en:Pork terrines
 fr:Terrines de porc
+#wikidata:en:
 
 <en:Terrines
 <en:Meat-based products
@@ -92113,6 +92157,7 @@ nl:Konijnterrines, Konijnterrine, Konijnevleespotten
 agribalyse_food_code:en:8242
 ciqual_food_code:en:8242
 ciqual_food_name:en:Rabbit terrine
+#wikidata:en:
 
 <en:Terrines
 <en:Meat-based products
@@ -92120,6 +92165,7 @@ ciqual_food_name:en:Rabbit terrine
 en:Chicken terrines
 fr:Terrines de poulet
 nl:Kipterrines, Kipterrine, Kippevleespotten
+wikidata:en:Q47472157
 
 <en:Terrines
 fr:Terrines de Saint-Jacques, Terrines de St-Jacques
@@ -92133,18 +92179,7 @@ fi:villisikaterriinit
 fr:Terrines de sanglier
 it:Terrine di cinghiale
 nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
-
-<en:Fish terrines
-en:Salmon terrines
-de:Lachssuppen, Fischsuppen mit Lachs
-fi:lohiterriinit
-fr:Terrines de saumon
-nl:Zalmterrines, Zalmterrine, Zalmvleespotten
-
-<en:Fish terrines
-en:Trout terrines
-fr:Terrines de truite
-nl:Forelterinnes, Forelterrine
+#wikidata:en:
 
 <en:Terrines
 <en:Meat-based products
@@ -92154,6 +92189,7 @@ de:Geflügelterrinen
 fi:siipikarjaterriinit
 fr:Terrines de volailles
 nl:Gevogelte terrines, Gevogelte terrine, Gevogelte vleespotten
+#wikidata:en:
 
 <fr:Terrines de volailles
 <en:Meat-based products
@@ -92167,6 +92203,7 @@ nl:Eendterrines, Eendterrine, Eendevleespotten
 agribalyse_food_code:en:8232
 ciqual_food_code:en:8232
 ciqual_food_name:en:Duck terrine
+#wikidata:en:
 
 <en:Duck terrines
 fr:Terrines de canard aux morilles
@@ -92275,6 +92312,7 @@ fi:proteiinijauheet
 fr:Protéines en poudre
 it:Proteine in polvere, Polvere di proteine
 nl:Proteinepoeders
+wikidata:en:Q87589396
 
 <en:Bodybuilding supplements
 en:Protein shakes
@@ -92285,6 +92323,7 @@ fr:Boisson protéinée
 it:Frappè Proteico
 nl:Proteineshakes
 ro:Shake-uri cu proteine, Shake-uri proteice
+#wikidata:en:
 
 <en:Bodybuilding supplements
 en:Protein bars
@@ -92300,6 +92339,7 @@ nl:Proteinerepen
 ro:Batoane proteice
 ru:Протеиновые батончики
 zh:蛋白质棒
+wikidata:en:Q7251457
 
 <en:Protein bars
 <en:Energy bars
@@ -92322,6 +92362,7 @@ he:חטיפים אנרגיה
 it:Barrette energetiche
 nl:Energierepen
 zh:能量棒
+wikidata:en:Q1699821
 
 <en:Bodybuilding supplements
 en:BCAA, Branched-chain amino acids
@@ -92419,6 +92460,7 @@ nl:Zoete kookhulpmiddelen
 
 <en:Pastry helpers
 fr:Pâtes à sucre
+wikidata:en:Q635219
 
 #Things you put on slices of bread buring meals that consist mainly of bread
 en:Bread coverings
@@ -92450,6 +92492,7 @@ nl:Suikerhagel
 en:Chocolate sprinkles
 fr:Vermicelles en chocolat
 nl:Hagelslag, Chocolade hagel
+wikidata:en:Q152547
 
 <en:Chocolate sprinkles
 en:Dark choclate sprinkles
@@ -92472,6 +92515,7 @@ en:Tajine
 fr:Tajine, tagine
 nl:Tajine
 ro:Tajine
+wikidata:en:Q865004
 
 <en:Tajine
 en:Mutton tagine
@@ -92490,6 +92534,7 @@ agribalyse_food_code:en:25073
 ciqual_food_code:en:25073
 ciqual_food_name:en:Chicory w ham
 ciqual_food_name:fr:Endive au jambon
+wikidata:en:Q2963406
 
 <en:Puff pastry meals
 en:Puff pastries with ham and cheese, puff pastry with ham and cheese
@@ -92506,6 +92551,7 @@ agribalyse_food_code:en:25020
 ciqual_food_code:en:25020
 ciqual_food_name:en:Cheese soufflé
 ciqual_food_name:fr:Soufflé au fromage
+wikidata:en:Q47527989
 
 <en:Puff pastry meals
 en:Vegetable puff pastries, Vegetable puff pastry
@@ -92516,12 +92562,14 @@ nl:Soesjes met groente
 en:Friands
 fr:Friands
 nl:Friand
+wikidata:en:Q5503338
 
 <en:Puff pastry meals
 <en:Friands
 en:Sausage friands, Puff pastries with sausage, puff pastry with sausage
 fr:Friands à la saucisse
 nl:Worst friands
+#wikidata:en:
 
 <en:Puff pastry meals
 <en:Friands
@@ -92531,6 +92579,7 @@ agribalyse_food_code:en:25402
 ciqual_food_code:en:25402
 ciqual_food_name:en:Meat in puff pastry
 ciqual_food_name:fr:Feuilleté ou Friand à la viande
+#wikidata:en:
 
 <en:Puff pastry meals
 <en:Friands
@@ -92570,13 +92619,15 @@ en:Cornish Pasty
 protected_name_file_number:en: PGI-GB-0727
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
-#wikidata:en:
+wikidata:en:Q28759404
 
 <en:Meals
 en:Stuffed vine leaves
 de:Gefüllte Weinblätter
 fr:Feuilles de vigne farcies
 nl:Gevulde wijnbladeren
+wikidata:en:Q4820063
+# TODO upstream child proxy
 
 <en:Stuffed vine leaves
 en:Dolmas, Vine leaf stuffed wih rice
@@ -92591,6 +92642,7 @@ nl:Brick vellen
 ciqual_food_code:en:23430
 ciqual_food_name:en:Filo or phyllo pastry sheets, baked, without fat
 ciqual_food_name:fr:Feuille de brick, cuite à sec sans matière grasse
+wikidata:en:Q916971
 
 <en:Meals
 en:Khatfa, Phyllo pastry, Filo pastry
@@ -92599,12 +92651,13 @@ agribalyse_food_code:en:51550
 ciqual_food_code:en:51550
 ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
 ciqual_food_name:fr:Khatfa feuille de brick, préemballée
+#wikidata:en:
 
 <en:Meals
 en:Banh Bao
 fr:Banh Bao
 nl:Banh Bao
-#wikidata:en:
+wikidata:en:Q564271
 
 <en:Salty snacks
 en:Salty Fritters
@@ -92612,6 +92665,7 @@ fi:Suolaiset uppopaistokset
 fr:Beignets salés
 it:Frittelle salate
 nl:Hartige gefrituurde producten
+#wikidata:en:
 
 <en:Sweet snacks
 en:Sweet Fritters
@@ -92621,12 +92675,14 @@ fr:Beignets sucrés
 hu:Édes Fánkok
 it:Frittelle dolci
 nl:Zoete gefrituurde producten
+#wikidata:en:
 
 <en:Cereal grains
 en:Corn on the cob
 fr:Maïs en épi
 it:Pannocchie
 nl:Maïskolven
+wikidata:en:Q5171058
 
 <en:Compotes
 en:Plum compotes
@@ -92654,6 +92710,7 @@ nl:Snijbonen in blik
 en:Watercress soups
 fr:Soupes de cresson
 nl:Waterkerssoep
+wikidata:en:Q28455447
 
 <en:Watercress soups
 en:Reheatable watercress soup
@@ -92747,6 +92804,7 @@ de:Pilzrisotto, Pilz-Risotto
 es:Risottos de champiñones
 fr:Risottos aux champignons
 nl:Paddenstoelrisotto
+#wikidata:en:
 
 <en:Mushrooms risottos
 en:Risottos with porcini mushrooms
@@ -92799,9 +92857,11 @@ wikidata:en:Q107015868
 <en:Japanese ravioli
 en:Vegetable gyoza
 fr:Gyoza aux légumes, Gyosa aux légumes
+#wikidata:en:
 
 <en:Japanese ravioli
 fr:Gyosas aux crevettes, Gyosas aux crevettes, Gyoza à la crevette
+#wikidata:en:
 
 <en:Tortellini
 en:Meat tortellinis
@@ -92827,6 +92887,7 @@ nl:Acra
 agribalyse_food_code:en:25433
 ciqual_food_code:en:25433
 ciqual_food_name:en:Caribbean-style fish fritters, fish acras
+#wikidata:en:
 
 <en:Fish preparations
 <en:Appetizers
@@ -92888,6 +92949,14 @@ nl:Pain surprise
 wikidata:en:Q3360605
 
 <en:Sandwiches
+en:Monte Cristo sandwich
+wikidata:en:Q6904753
+
+<en:Sandwiches
+en:Dagwood sandwich
+wikidata:en:Q5208692
+
+<en:Sandwiches
 en:Paninis, Panninis
 de:Panini
 fr:Paninis
@@ -92901,6 +92970,10 @@ fr:Panini au jambon cru, Panini jambon cru mozzarella tomates
 agribalyse_food_code:en:25434
 ciqual_food_code:en:25434
 ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
+
+<en:Paninis
+fr:Panini au poulet
+#wikidata:en:
 
 <en:Sandwiches
 en:vegetable sandwiches
@@ -92917,6 +92990,7 @@ es:Té kombucha, Kombucha
 fi:Kombutsat, Kombuchat
 fr:Kombuchas, combuchas
 nl:Kombucha
+wikidata:en:Q657032
 
 <en:Cheeses
 en:Double cream cheeses
@@ -92933,6 +93007,7 @@ es:queso semicurado
 en:Abbaye cheeses
 fr:Fromages d’abbaye
 nl:Abdijkazen, Abdijkaas
+wikidata:en:Q2069008
 
 <en:Dairy desserts
 fr:Oeufs au lait
@@ -92964,6 +93039,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
+#wikidata:en:
 
 <en:Stuffed wafers
 en:Stuffed fruits wafers
@@ -92983,6 +93059,7 @@ fr:Gâteaux aux amandes
 nl:Amandelcake
 ciqual_food_code:en:24665
 ciqual_food_name:en:Almond cake
+#wikidata:en:
 
 <en:Almond cakes
 it:tortionata
@@ -93012,6 +93089,7 @@ agribalyse_food_code:en:23941
 ciqual_food_code:en:23941
 ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
 ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
+#wikidata:en:
 
 <en:Sweet mousses
 en:Fruit mousses, Refrigerated fruit mousse
@@ -93022,11 +93100,13 @@ agribalyse_food_code:en:39228
 ciqual_food_code:en:39228
 ciqual_food_name:en:Fruit mousse, refrigerated
 ciqual_food_name:fr:Mousse aux fruits, rayon frais
+#wikidata:en:
 
 <en:Desserts
 en:Vacherins
 fr:Vacherins
 nl:Vacherin
+#wikidata:en:
 
 <en:Pastries
 en:Strudels
@@ -93034,17 +93114,20 @@ de:Strudel
 fr:Strudels
 it:Strudel
 nl:Strudel
+wikidata:en:Q59170
 
 <en:Pastries
 <en:Desserts
 en:Charlottes
 fr:Charlottes
 nl:Charlotte
+wikidata:en:Q12502
 
 <en:Charlottes
 en:Chocolate Charlottes
 fr:Charlottes au chocolat
 nl:Chocola Charlottes
+#wikidata:en:
 
 <en:Charlottes
 en:Fruit Charlottes
@@ -93054,6 +93137,7 @@ agribalyse_food_code:en:23531
 ciqual_food_code:en:23531
 ciqual_food_name:en:Fruit charlotte
 ciqual_food_name:fr:Charlotte aux fruits
+#wikidata:en:
 
 <en:Pastries
 <en:Desserts
@@ -93072,6 +93156,7 @@ agribalyse_food_code:en:23493
 ciqual_food_code:en:23493
 ciqual_food_name:en:Apple crumble
 ciqual_food_name:fr:Crumble aux pommes
+#wikidata:en:
 
 <en:Terrines
 en:Fish terrines
@@ -93081,6 +93166,21 @@ it:Terrine di pesce
 nl:Visterrines
 food_groups:en: en:Fish and seafood
 pnns_group_2:en:Fish and seafood
+#wikidata:en:
+
+<en:Fish terrines
+en:Salmon terrines
+de:Lachssuppen, Fischsuppen mit Lachs
+fi:lohiterriinit
+fr:Terrines de saumon
+nl:Zalmterrines, Zalmterrine, Zalmvleespotten
+#wikidata:en:
+
+<en:Fish terrines
+en:Trout terrines
+fr:Terrines de truite
+nl:Forelterinnes, Forelterrine
+#wikidata:en:
 
 <en:Cheeses
 en:Mexican cheeses, cheeses from Mexico
@@ -93089,11 +93189,13 @@ es:Quesos mexicanos, Quesos de México
 fi:meksikolaiset juustot
 fr:Fromages mexicains, Fromages du Mexique
 it:Formaggio messicano
+wikidata:en:Q5089436
 
 <en:Mexican cheeses
 en:Panela cheeses
 es:Quesos panelas
 fr:Fromages panelas
+#wikidata:en:
 
 en:skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 es:Pinchos, Brochetas
