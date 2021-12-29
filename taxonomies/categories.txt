@@ -36181,13 +36181,9 @@ ciqual_food_name:en:Corsica soft ripened cheese, from ewe's milk
 <en:French cheeses
 en:Abondance
 fr:Abondance
-origins:en: en:France
 agribalyse_food_code:en:12112
 ciqual_food_code:en:12112
 ciqual_food_name:en:Abondance cheese, from cow's milk
-
-<en:French cheeses
-fr:Abondance
 protected_name_file_number:en: PDO-FR-0105
 protected_name_type:en: pdo
 origins:en: en:France
@@ -36247,9 +36243,13 @@ agribalyse_food_code:en:12022
 ciqual_food_code:en:12022
 ciqual_food_name:en:Brie de Melun cheese, from cow's milk
 
+<en:French cheeses
 <en:Cheeses from Corsica
 fr:Brocciu Corse, Brocciu
 origins:en: fr:Corse, en:France
+protected_name_file_number:en: PDO-FR-0136
+protected_name_type:en: pdo
+#wikidata:en:
 
 <en:French cheeses
 <en:Uncooked pressed cheeses
@@ -36897,6 +36897,7 @@ fi:gouda-juustot juustokuminalla
 fr:Goudas au cumin
 it:Gouda con cumino
 nl:Goudse Komijnenkazen
+#wikidata:en:
 
 
 # comment:en: ripings process < 4 weeks
@@ -36959,6 +36960,7 @@ ciqual_food_name:en:Edam cheese, from cow's milk
 <en:Cheeses of the Netherlands
 en:Leerdammer
 xx:Leerdammer
+wikidata:en:Q1423094
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -37369,7 +37371,7 @@ en:Buxton Blue
 protected_name_file_number:en: PDO-GB-0287
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
-#wikidata:en:
+wikidata:en:Q94021
 
 <en:Cheeses from England
 en:The Cheese Shop, Louth
@@ -37456,7 +37458,7 @@ en:Single Gloucester
 protected_name_file_number:en: PDO-GB-0281
 protected_name_type:en: pdo
 origins:en: en:United Kingdom
-#wikidata:en:
+wikidata:en:Q12902123
 
 <en:Cheeses from England
 en:Harbourne Blue
@@ -37535,9 +37537,8 @@ wikidata:en:Q466749
 
 <en:Cheeses from England
 en:Stinking Bishop cheese
-wikidata:en:Q572557
 origins:en: en:United Kingdom
-#wikidata:en:
+wikidata:en:Q572557
 
 <en:Cheeses from England
 en:Suffolk Gold cheese
@@ -37670,7 +37671,7 @@ de:Deutscher Käse
 es:Quesos alemanes, Quesos de Alemania
 fr:Fromages allemands
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q3088353
 
 #Cheese of cow and goat (15% min) milk
 <en:German cheeses
@@ -37685,14 +37686,14 @@ de:Allgäuer Sennalpkäse
 protected_name_file_number:en: PDO-DE-00897
 protected_name_type:en: pdo
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q24636822
 
 <en:German cheeses
 de:Weißlacker, Allgäuer Weißlacker
 protected_name_file_number:en: PDO-DE-0986
 protected_name_type:en: pdo
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q2557248
 
 <en:German cheeses
 de:Holsteiner Tilsiter
@@ -37706,14 +37707,14 @@ de:Hessischer Handkäse, Hessischer Handkäs
 protected_name_file_number:en: PGI-DE-0618
 protected_name_type:en: pgi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q518472
 
 <en:German cheeses
 de:Nieheimer Käse
 protected_name_file_number:en: PGI-DE-0530
 protected_name_type:en: pgi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q283430
 
 <en:German cheeses
 de:Odenwälder Frühstückskäse
@@ -72202,13 +72203,6 @@ protected_name_type:en: pdo
 origins:en: en:France
 #wikidata:en:
 
-<en:French cheeses
-fr:Brocciu Corse, Brocciu
-protected_name_file_number:en: PDO-FR-0136
-protected_name_type:en: pdo
-origins:en: en:France
-#wikidata:en:
-
 <fr:Tommes
 <en:French cheeses
 fr:Tomme des Pyrénées, Tommes des Pyrénées
@@ -92820,6 +92814,16 @@ ciqual_food_code:en:25169
 ciqual_food_name:en:Chinese specialty or dumplings
 ciqual_food_name:fr:Spécialité chinoise ou bouchées à la vapeur, cuite
 
+<en:Ravioli
+en:Chinese raviolis
+fr:Ravioli chinois
+hu:Kínai ravioli
+nl:Chinese ravioli
+agribalyse_food_code:en:25110
+ciqual_food_code:en:25110
+ciqual_food_name:en:Dumplings, steamed, with shrimps, cooked
+ciqual_food_name:fr:Ravioli chinois à la vapeur à la crevette, cuit
+
 <en:Meals
 en:Cooked steamed shrimp dumplings, Cooked steamed shrimp dumpling
 fr:Ravioli vapeur chinois à la crevette cuit, Raviolis vapeur chinois à la crevette cuits, Ravioli vapeur à la crevette 
@@ -92827,12 +92831,6 @@ agribalyse_food_code:en:25110
 ciqual_food_code:en:25110
 ciqual_food_name:en:Dumplings, steamed, with shrimps, cooked
 ciqual_food_name:fr:Ravioli chinois à la vapeur à la crevette, cuit
-
-<en:Ravioli
-en:Chinese raviolis
-fr:Ravioli chinois
-hu:Kínai ravioli
-nl:Chinese ravioli
 
 <en:Chinese raviolis
 en:Jiaozi
@@ -92903,6 +92901,7 @@ agribalyse_proxy_food_name:en:Fish, croquette, fritter or nuggets, fried
 en:Truffades
 fr:Truffades
 nl:Truffade
+wikidata:en:Q3087787
 
 <en:Meals
 en:Aligots, Aligot, Mashed potatoes with fresh tome cheese
