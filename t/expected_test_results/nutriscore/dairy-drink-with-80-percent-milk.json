@@ -20,6 +20,11 @@
       "en:dairies",
       "en:dairy-drinks"
    ],
+   "food_groups" : "en:milk-and-yogurt",
+   "food_groups_tags" : [
+      "en:milk-and-dairy-products",
+      "en:milk-and-yogurt"
+   ],
    "ingredients" : [
       {
          "id" : "en:fresh-milk",
@@ -50,7 +55,9 @@
       "en:fresh-milk",
       "en:dairy",
       "en:milk",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -66,14 +73,16 @@
       "en:fresh-milk",
       "en:dairy",
       "en:milk",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_text" : "Fresh milk 80%, sugar",
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 20,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

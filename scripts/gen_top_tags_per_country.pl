@@ -45,6 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
+use File::Path qw(mkpath);
 use JSON::PP;
 
 # Output will be in the $data_root/data directory
@@ -763,7 +764,9 @@ HTML
 ;
 
 		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-		if (open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html")) {
+		my $stats_dir = "$data_root/lang/$lang/texts";
+		(-e $stats_dir) or mkpath($stats_dir, {"mode" => 0755});
+		if (open (my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
 			close $OUT;
 		} else {

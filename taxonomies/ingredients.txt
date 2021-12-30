@@ -1303,7 +1303,7 @@ sl:Mikrokristalna celuloza
 sv:Mikrokristallin cellulosa
 wikidata:en: Q417374
 wikipedia:en:https://en.wikipedia.org/wiki/Microcrystalline_cellulose
-# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19 # additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
+# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19# additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
 # stabilizzante:cellulosa microcristallina
 
 # E461 is moved to the additives taxonomy
@@ -4688,7 +4688,7 @@ zh:色氨酸
 # azb:تریپتوفان
 # be-tarask:Трыптафан
 # de-ch:Tryptophan
-# en-ca:Tryptophan # en-gb:Tryptophan
+# en-ca:Tryptophan# en-gb:Tryptophan
 # ku-arab:تریپتۆفان
 # ku-latn:Trîptofan
 # nan:Tryptophan
@@ -6542,6 +6542,7 @@ nl:vloeibare melkbestanddelen
 en:lactose-free milk
 de:laktosefreie Milch
 es:leche sin lactosa
+nl:lactosevrije melk
 
 <en:lactose-free milk
 en:whole lactose-free milk
@@ -7858,21 +7859,20 @@ sv:pastöriserad mjölk och grädde
 
 ###################### LACTOSE and MINERALS related stuff ######################
 
-# description:en:LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose.
-
-en:Disaccharide
-ca:Disacàrid
-de:Disaccharid
-es:Disacárido
+<en:added sugar
+en:disaccharide
+ca:disacàrid
+de:disaccharid
+es:disacárido
 fi:disakkaridi
-fr:Disaccharide, diholoside
+fr:disaccharide, diholoside
 hu:diszacharid
-it:Disaccaridi
-nl:Disaccharide
+it:disaccaridi
+nl:disaccharide
 
 # Isomaltulose is a disaccharide carbohydrate composed of glucose and fructose.
 
-<en:Disaccharide
+<en:disaccharide
 en:isomaltulose
 ca:isomaltulosa
 cs:Isomaltulóza
@@ -7922,7 +7922,7 @@ et:Laktoos, piimasuhkur
 eu:Laktosa
 fa:لاکتوز
 fi:Laktoosi, maitosokeri
-fr:Lactose
+fr:Lactose, sucre du lait
 ga:Lachtós
 gl:Lactosa
 he:לקטוז
@@ -7945,7 +7945,7 @@ mk:Лактоза
 ms:Laktosa
 mt:lattosju
 nb:Laktose, melkesukker
-nl:Lactose, Melksuiker
+nl:Lactose, melksuiker
 nn:Laktose, mjølkesukker
 oc:Lactòsa
 pl:Laktoza, laktozą
@@ -14382,7 +14382,7 @@ zh:碘化钠
 # zh-cn:碘化钠
 # zh-hans:碘化钠
 # zh-hant:碘化鈉
-# zh-hk:碘化鈉 # zh-sg:碘化钠
+# zh-hk:碘化鈉# zh-sg:碘化钠
 # zh-tw:碘化鈉
 wikidata:en:Q390305
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_iodide
@@ -18088,6 +18088,7 @@ en:pregelatinized wheat starch
 de:Weizenquellstärke
 
 <en:syrup
+<en:disaccharide
 en:tapioca syrup
 de:Tapiokasirup
 es:sirope de tapioca
@@ -26901,6 +26902,7 @@ fr:extrait de malte d'orge houblonné
 
 <en:barley malt extract
 <en:syrup
+<en:disaccharide
 en:barley malt syrup
 bn:বার্লি মল্ট সিরাপ
 cy:surop heiddfrag
@@ -26919,6 +26921,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Barley_malt_syrup
 fr:sirop de malt d'orge déshydraté
 
 <en:syrup
+<en:disaccharide
 en:malt syrup
 de:Malzsirup
 es:jarabe de malta
@@ -31159,9 +31162,18 @@ it:addensante gomma arabica
 #
 ##################################################################################
 
+#comment:en:Is used as a generic descriptor for (natural) sugar
+en:added sugar
+fr:sucre ajouté, sucres ajoutés
+nl:toegevoegde suiker
+
+<en:added sugar
+en:monosaccharide
+
 # description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
 # nova
+<en:disaccharide
 en:sugar
 af:Suikers
 am:ስኳር
@@ -31389,7 +31401,7 @@ wikidata:en:Q9280616
 wikipedia:en:https://en.wikipedia.org/wiki/Muscovado
 
 # nova:en:invert-sugar
-<en:sugar
+<en:monosaccharide
 en:invert sugar, inverted sugar
 ca:sucre invertit
 cs:Inverzní cukr
@@ -31536,9 +31548,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nib_sugar
 
 <en:sugar
 fr:sucre blond
-
-<en:sugar
-fr:sucre du lait
 
 # description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
 # comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
@@ -31813,7 +31822,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coconut_sugar
 nl:biologische kokosbloesem siroop
 # ingredient/nl:biologische-kokosbloesem-siroop has 1 product @2019-05-24
 
-<en:sugar
+<en:monosaccharide
 en:grape sugar, raisin sugar
 da:druesukker
 de:Traubenzucker
@@ -32248,7 +32257,8 @@ vegetarian:en:yes
 
 # description:en:GLUCOSE (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6.
 
-# nova:en:glucose aleene@2018-10-09
+# nova:en:glucose
+<en:monosaccharide
 en:glucose
 af:Glukose
 ar:جلوكوز
@@ -32464,6 +32474,7 @@ de:Glukosepulver
 
 # description:en:FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
+<en:monosaccharide
 en:fructose
 af:fruktose
 ar:فركتوز
@@ -32552,6 +32563,7 @@ allergens:en: en:gluten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose-de-blé
 # 39 products in 4 languages @2018-09-24
 
+<en:fructose
 en:fructose syrup
 de:Fruktose Sirup, Fruktosesirup
 es:Jarabe de fructosa
@@ -32727,6 +32739,7 @@ hu:invert nádcukorszirup
 en:corevaporated cane syrup
 fr:sirop de sucre de canne evaporé, sirop de canne évaporé
 
+<en:disaccharide
 en:corn syrup
 ar:شراب الذرة
 be:Кукурузны сіроп
@@ -32774,9 +32787,11 @@ fr:sirop d'amidon
 <fr:sirop d'amidon
 fr:sirop d'amidon de maïs
 
+<en:disaccharide
 fr:sirop de candi, sirop de sucre candi
 
 # nova:en:maple-syrup
+<en:disaccharide
 en:maple syrup
 da:ahornsirup
 de:Ahornsirup
@@ -32812,6 +32827,7 @@ fi:luomu vaahterasiirappi
 fr:sirop d'érable biologique
 hu:bio juharszirup
 
+<en:disaccharide
 en:sugar syrup
 de:Zuckersirup
 es:Sirope de azucar,jarabe de azucar
@@ -32837,7 +32853,7 @@ fr:sirop de sucres issus de fruits
 # 22 products @2019-05-30
 
 
-<en:sugar
+<en:disaccharide
 en:wheat syrup
 da:hvedesirup
 de:Weizensirup
@@ -32849,14 +32865,13 @@ nl:tarwestroop
 allergens:en: en:gluten
 # ingredient/fr:sirop-de-ble has 381 products in 4 languages @2020-06-08
 
-<en:sugar
+<en:disaccharide
 en:cane sugar syrup, cane syrup
 de:rohrzuckersirup
 fi:ruokosokerisiirappi
 fr:sirop de sucre de canne
 it:Sciroppo di canna da zucchero
 
-<en:sugar
 <en:invert sugar syrup
 en:partially inverted sugar syrup
 de:teilweise invertierter Zuckersirup
@@ -32867,7 +32882,7 @@ it:sciroppo di zucchero parzialmente invertito
 sv:delvis inverterad sockersirap
 # ingredient/en:partially-inverted-sugar-syrup has 101 products in 2 languages @2020-06-08
 
-<en:sugar
+<en:disaccharide
 fr:sirop de sucre mélassé
 
 en:maltitol syrup
@@ -32877,7 +32892,6 @@ hu:maltit-szirup, maltitol szirup
 it:sciroppo di maltitolo
 nl:Maltitolstroop
 
-
 <en:E420
 fr:sorbitols et glycérol, glycérol et sorbitols
 fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
@@ -32885,11 +32899,13 @@ fi:sorbitolia ja glyserolia, glyserolia ja sorbitolia
 <en:E420(ii)
 fr:sirop de sorbitol de blé
 
+<en:glucose syrup
 en:rice glucose syrup
 de:Reisglukosesirup
 es:sirope de glucosa de arroz
 fr:Sirop de glucose de riz
 
+<en:disaccharide
 en:rice syrup
 de:Reissirup
 es:Sirope de arroz
@@ -32917,6 +32933,7 @@ hu:karamellizált rizsszirup
 
 
 <en:syrup
+<en:disaccharide
 en:sugar beet syrup
 de:zuckerrübensirup
 es:jarabe de remolacha azucarera
@@ -33069,14 +33086,15 @@ nl:tapiocadextrose
 # ingredient/fr:dextrose-de-tapioca has 26 products @2018-09-25
 
 
-# description:en:Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana.
+# description:en:Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana. The carbohydrate composition in agave syrup depends on the species from which the syrup was made
 
+<en:disaccharide
 en:agave syrup, agave nectar
 ar:شراب أغاف
 cs:agávovy sirup
 da:agavesirup
 de:Agavensirup
-es:jarabe de agave, concentrado de agave
+es:jarabe de agave, sirope de agave
 fa:اگاو
 fi:agavesiirappi
 fr:sirop d’agave
@@ -33107,13 +33125,15 @@ nl:biologische agave
 # ingredient/nl:biologische-agave has 2 products @2019-05-24
 
 <en:agave syrup
-es:sirope de agave
+en:concentrated agave syrup
+es:concentrado de agave
 de:Agavendicksaft
 fr:jus d'agave concentré
 it:succo di agave concentrato
 # ingredient/fr:jus-d’agave-concentré has 16 products in 3 languages @2018-12-17
 
-<fr:jus d'agave concentré
+<en:concentrated agave syrup
+en:organic concentrated agave syrup
 fr:sirop d'agave concentré biologique
 es:jarabe de ágave concentrado ecológico
 
@@ -37084,7 +37104,7 @@ sl:Ksantan gumi
 sv:Xantangummi
 zh:黄原胶
 # sco:Xanthan gum
-# zh-cn:黄原胶 # zh-hans:黄原胶
+# zh-cn:黄原胶# zh-hans:黄原胶
 # zh-hant:黃原膠
 # zh-hk:黃原膠
 # zh-sg:黄原胶
@@ -37094,7 +37114,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Xanthan_gum
 
 <en:E415
 fr:épaississant e415
-
 
 en:gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar:صمغ الجيلان
@@ -39470,7 +39489,7 @@ zh:黃香李
 # zh-hans:黃香李
 # zh-hant:黃香李
 # zh-hk:黃香李
-# zh-sg:黃香李 # zh-tw:黃香李
+# zh-sg:黃香李# zh-tw:黃香李
 wikidata:en:Q149741
 wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # ingredient/fr:mirabelles has 41 products in french @2018-12-28
@@ -48019,7 +48038,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
 # <en:Vegetable rods
 <en:vegetable
 en:chard, Chards, Swiss chard
-ar:سلق 
+ar:سلق
 bg:Манголд
 bs:Blitva
 ca:bleda
@@ -48064,7 +48083,7 @@ zh:莙薘菜
 # kk-cn:جاپىراقتى قىزىلشا
 # kk-cyrl:Жапырақты қызылша
 # kk-kz:Жапырақты қызылша
-# kk-latn:Japıraqtı qızılşa # kk-tr:Japıraqtı qızılşa
+# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
 # ku-arab:دیو
 # ku-latn:Dîw
 # pcd:Biéte
@@ -65940,8 +65959,8 @@ zh:红花
 # aeb-arab:زعفران
 # ckb:کاخڵی
 # kk-arab:ماقسىر
-# kk-cn:ماقسىر # kk-cyrl:Мақсыр
-# kk-kz:Мақсыр # kk-latn:Maqsır
+# kk-cn:ماقسىر# kk-cyrl:Мақсыр
+# kk-kz:Мақсыр# kk-latn:Maqsır
 # kk-tr:Maqsır
 # lzh:紅花
 # pam:Kasuba
@@ -76246,6 +76265,7 @@ la:Plantago ovata
 
 # nova:en:honey
 
+<en:added sugar
 en:honey
 ab:ацха
 af:Heuning
@@ -78231,7 +78251,7 @@ yi:עופות
 zh:家禽
 description:en:Poultry are domesticated birds kept by humans for their eggs, their meat or their feathers.
 # ast:Ave de corrolada
-# kk-arab:قۇس شارۋاشىلىعى # kk-cn:قۇس شارۋاشىلىعى
+# kk-arab:قۇس شارۋاشىلىعى# kk-cn:قۇس شارۋاشىلىعى
 # kk-cyrl:Құс шаруашылығы
 # kk-kz:Құс шаруашылығы
 # kk-latn:Qus şarwaşılığı
@@ -78246,7 +78266,7 @@ description:en:Poultry are domesticated birds kept by humans for their eggs, the
 # zh-hans:家禽
 # zh-hant:家禽
 # zh-hk:家禽
-# zh-sg:家禽 # zh-tw:家禽
+# zh-sg:家禽# zh-tw:家禽
 wikidata:en:Q178559
 wikipedia:en:https://en.wikipedia.org/wiki/Poultry
 vegan:en:no
@@ -80559,7 +80579,7 @@ zh:纤维
 # war:Paybiru
 # wuu:纤维
 # zh-cn:纤维
-# zh-hans:纤维 # zh-hant:纤维
+# zh-hans:纤维# zh-hant:纤维
 wikidata:en:Q161
 wikipedia:en:https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
