@@ -29,6 +29,7 @@ jobs:
 
   dev-db-sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     strategy:
       matrix:
         env: [mongo-dev]
@@ -56,11 +57,13 @@ jobs:
 
   refresh-products-tags:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     strategy:
       matrix:
         env: [mongo-dev]
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
+    needs: dev-db-sync
     steps:
     - name: Refresh MongoDB products_tags collection
       uses: appleboy/ssh-action@master
