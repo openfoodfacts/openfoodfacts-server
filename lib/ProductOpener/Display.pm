@@ -9355,12 +9355,14 @@ sub data_to_display_nutrition_table($$) {
 			product_type => $product_type,
 			per => "100g",
 			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+			short_name => "100g",
 		};
 		$columns{$product_type . "serving"} = {
 			scope => "product",
 			product_type => $product_type,
 			per => "serving",
 			name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
+			short_name => lang("nutrition_data_per_serving"),
 		};		
 
 		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
@@ -9402,9 +9404,7 @@ sub data_to_display_nutrition_table($$) {
 				push @cols, $product_type . '100g';
 			}
 		}
-
 	}
-
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -9484,7 +9484,7 @@ CSS
 	foreach my $col_id (@cols) {
 
 		$columns{$col_id}{col_id} = $col_id;
-		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, $columns{$col_id};
+		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, $columns{$col_id});
 
 	}
 
@@ -9535,11 +9535,11 @@ CSS
 		my $shown = 0;
 
 		# Check if we have a value for the nutrient
-		my $is_nutrient_with_value = ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+		my $is_nutrient_with_value = (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_modifier"}) and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'));
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-')));
 
 		# Show rows that are not optional (id with a trailing -), or for which we have a value
 		if  (($nutriment !~ /-$/) or $is_nutrient_with_value) {
@@ -9600,11 +9600,11 @@ CSS
 
 			my $extra_row = 0;	# Some rows will trigger an extra row (e.g. Salt adds Sodium)
 
-			foreach my $col (@cols) {
+			foreach my $col_id (@cols) {
 
 				my $values;    # Value for row
 				my $values2;    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
-				my $col_class = '';
+				my $col_class = $columns{$col_id}{class};
 				my $percent;
 				my $percent_numeric_value;
 
@@ -9613,11 +9613,7 @@ CSS
 
 				my $col_type;
 
-				if (defined $col_class{$col}) {
-					$col_class = ' ' . $col_class{$col} ;
-				}
-
-				if ( $col =~ /compare_(.*)/ ) {    #comparisons
+				if ( $col_id =~ /compare_(.*)/ ) {    #comparisons
 
 					$col_type = "comparison";
 
@@ -9722,16 +9718,16 @@ CSS
 					# Nutriscore: per serving = per 100g
 					if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
 						# same Nutri-Score for 100g / serving and prepared / as sold
-						$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$1 . "_100g"};
+						$product_ref->{nutriments}{$nid . "_" . $col_id} = $product_ref->{nutriments}{$1 . "_100g"};
 					}
 
 					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
 					my $prepared = '';
-					if ($col =~ /prepared/) {
+					if ($col_id =~ /prepared/) {
 						$prepared = "_prepared";
 					}					
 
-					if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
+					if ((not defined $product_ref->{nutriments}{$nid . "_" . $col_id}) or ($product_ref->{nutriments}{$nid . "_" . $col_id} eq '')) {
 						if ((defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"})
 							and ($product_ref->{nutriments}{$nid . $prepared . "_modifier"} eq '-')) {
 							# The nutrient is not indicated on the package, display a minus sign
@@ -9748,16 +9744,16 @@ CSS
 
 						# energy-kcal is already in kcal
 						if ($nid eq 'energy-kcal') {
-							$value = $product_ref->{nutriments}{$nid . "_$col"};
+							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
 						}
 
 						# too small values are converted to e notation: 7.18e-05
 						if (($value . ' ') =~ /e/) {
 							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+							$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
 						}
 
 						$value_unit = "$value $unit";
@@ -9769,12 +9765,12 @@ CSS
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 							# Use the actual value in kcal if we have it
 							my $value_in_kcal;
-							if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
-								$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_$col"};
+							if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id}) {
+								$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id};
 							}
 							# Otherwise convert the value in kj
 							else {
-								$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal');
+								$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, 'kcal');
 							}
 							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 						}
@@ -9782,15 +9778,15 @@ CSS
 
 					if ($nid eq 'sodium') {
 						my $salt;
-						if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
-							$salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.5;
+						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
+							$salt = $product_ref->{nutriments}{$nid . "_" . $col_id} * 2.5;
 						}
-						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
-							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
+						if (exists $product_ref->{nutriments}{"salt" . "_" . $col_id}) {
+							$salt = $product_ref->{nutriments}{"salt" . "_" . $col_id};
 						}
 						if (defined $salt) {
 							$salt = $decf->format(g_to_unit($salt, $unit));
-							if ($col eq '100g') {
+							if ($col_id eq '100g') {
 								$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
 							}
 							$salt .= " " . $unit;
@@ -9802,15 +9798,15 @@ CSS
 					}
 					elsif ($nid eq 'salt') {
 						my $sodium;
-						if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
-							$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.5;
+						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
+							$sodium = $product_ref->{nutriments}{$nid . "_" . $col_id} / 2.5;
 						}
-						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
-							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+						if (exists $product_ref->{nutriments}{"sodium". "_" . $col_id}) {
+							$sodium = $product_ref->{nutriments}{"sodium". "_" . $col_id};
 						}
 						if (defined $sodium) {
 							$sodium = $decf->format(g_to_unit($sodium, $unit));
-							if ($col eq '100g') {
+							if ($col_id eq '100g') {
 								$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 							}
 							$sodium .= " " . $unit;
@@ -9835,27 +9831,27 @@ CSS
 
 						if (defined $product_ref->{categories_tags}) {
 
-							if ($col ne "std") {
+							if ($col_id ne "std") {
 
-								my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
+								my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_" . $col_id},
 									is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
 								$values2 = uc ($nutriscore_grade);
 							}
 						}
 					}
-					elsif ($col eq $product_ref->{nutrition_data_per}) {
+					elsif ($col_id eq $product_ref->{nutrition_data_per}) {
 						# % DV ?
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
 							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
 						}
 					}
 
-					if (($col eq '100g') and (defined $product_ref->{nutriments}{$nid . "_$col"})) {
+					if (($col_id eq '100g') and (defined $product_ref->{nutriments}{$nid . "_" . $col_id})) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
 						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
+						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_" . $col_id} . "\"";
 					}
 
 					$values = $value_unit;
