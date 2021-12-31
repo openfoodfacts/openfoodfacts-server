@@ -20,6 +20,11 @@
       "en:dairies",
       "en:dairy-drinks"
    ],
+   "food_groups" : "en:sweetened-beverages",
+   "food_groups_tags" : [
+      "en:beverages",
+      "en:sweetened-beverages"
+   ],
    "ingredients" : [
       {
          "id" : "en:water",
@@ -47,7 +52,9 @@
    ],
    "ingredients_hierarchy" : [
       "en:water",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -61,14 +68,16 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:water",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_text" : "Water, sugar",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

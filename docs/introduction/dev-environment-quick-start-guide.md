@@ -121,9 +121,9 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfood
 
 ### Going further
 
-To learn more about developing with Docker, see the [Docker developer's guide](./docker-developer-guide.md).
+To learn more about developing with Docker, see the [Docker developer's guide](../how-to-guides/docker-developer-guide.md).
 
-To have all site page on your dev instance, see [Using pages from openfoodfacts-web](./using-pages-from-openfoodfacts-web.md)
+To have all site page on your dev instance, see [Using pages from openfoodfacts-web](../how-to-guides/using-pages-from-openfoodfacts-web.md)
 
 ## Visual Studio Code
 

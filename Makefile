@@ -10,9 +10,15 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
+export CPU_COUNT=$(shell nproc || 1)
+
+
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
+
+# this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
+_FORCE:
 
 #------#
 # Info #
@@ -108,7 +114,7 @@ tail:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-	# Run build_lang.pl
+# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
@@ -135,8 +141,10 @@ import_more_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
+	@echo "🥫 Removing old archive in case you have one"
+	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	@echo "🥫 Copying the dump to MongoDB container …"
 	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
@@ -156,18 +164,42 @@ tests:
 	@echo "🥫 Runing tests …"
 	docker-compose run --rm backend prove -l
 
+# check perl compiles, (pattern rule) / but only for newer files
+%.pm %.pl: _FORCE
+	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+
+# check all modified (compared to main) perl file compiles
+TO_CHECK=$(shell git diff main --name-only | grep  '.*\.\(pl\|pm\)$$')
+check_perl_fast:
+	@echo "🥫checking ${TO_CHECK}"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+
+# check all perl files compile (takes time, but needed to check a function rename did not break another module !)
+check_perl:
+	@echo "🥫checking all perl files"
+	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+
+#-------------#
+# Compilation #
+#-------------#
+
+build_taxonomies:
+	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
+	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
+
+
 #------------#
 # Production #
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	# zfs replications
+# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
-	# local data
+# local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#

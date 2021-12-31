@@ -99,6 +99,8 @@ BEGIN
 
 		&assign_categories_properties_to_product
 
+		&assign_nutriments_values_from_request_parameters
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -113,8 +115,12 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Text qw/:all/;
+use ProductOpener::FoodGroups qw/:all/;
 
 use Hash::Util;
+use Encode;
+use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
@@ -134,41 +140,89 @@ if (opendir (my $dh, "$data_root/data/categories_stats")) {
 	closedir $dh;
 }
 
+# Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
+my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
+
+=head2 normalize_nutriment_value_and_modifier ( $value_ref, $modifier_ref )
+
+Each nutrient value is entered as a string (by users on the product edit form,
+or through the API). The string value may not always be numeric (e.g. it can include a < sign).
+
+This function normalizes the string value to remove signs, and stores extra information in the "modifier" field.
+
+=head3 Arguments
+
+=head4 string value reference $value_ref
+
+Input string value reference. The value will be normalized.
+
+=head4 modifier reference $modifier_ref
+
+Output modifier reference.
+
+=head3 Possible return values
+
+=head4 value
+
+- 0 if the input value indicates traces
+- Number (as a string)
+- undef for 'NaN' (not a number, sometimes sent by broken API clients)
+
+=head4 modifier
+
+<, >, ≤, ≥, ~ character sign, for lesser, greater, lesser or equal, greater or equal, and about
+- (minus sign) character when the input value is - (or other dashes) : indicates that the value is not present on the package
+
+=cut
 
 sub normalize_nutriment_value_and_modifier($$) {
 
 	my $value_ref = shift;
 	my $modifier_ref = shift;
 
+	$$modifier_ref = undef;
+
 	return if not defined ${$value_ref};
 
-	if (lc(${$value_ref}) =~ /nan/) {
-		${$value_ref} = '';
+	# empty or null value
+	if ((${$value_ref} =~ /^\s*$/) or (lc(${$value_ref}) =~ /nan/)) {
+		${$value_ref} = undef;
 	}
-
-	if (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
+	# < , >, etc. signs
+	elsif (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		$modifier_ref = "\N{U+2264}";
+		${$modifier_ref} = "\N{U+2264}";
 	}
-	if (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		${$value_ref} =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
+	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
+		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
 		${$modifier_ref} = '<';
 	}
-	if (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
+	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		$modifier_ref = "\N{U+2265}";
+		${$modifier_ref} = "\N{U+2265}";
 	}
-	if (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	if (${$value_ref} =~ /(env|environ|about|~|≈)/) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	if (${$value_ref} =~ /trace|traces/) {
+	elsif (${$value_ref} =~ /trace|traces/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
+	}
+	# - indicates that there is no value specified on the package
+	elsif (${$value_ref} =~ /^\s*$dashes\s*$/) {
+		${$value_ref} = undef;
+		${$modifier_ref} = '-';
+	}
+
+	# Remove extra spaces
+	if (defined ${$value_ref}) {
+		${$value_ref} =~ s/^\s+//;
+		${$value_ref} =~ s/\s+$//;
 	}
 
 	return;
@@ -213,12 +267,7 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	my $value = shift;
 	my $unit = shift;
 
-	# empty unit?
-	if ((not defined $unit) or ($unit eq "")) {
-		$unit = default_unit_for_nid($nid);
-	}
-
-	$value = convert_string_to_number($value);
+	# We can have only a modifier with value '-' to indicate that we have no value
 
 	if ((defined $modifier) and ($modifier ne '')) {
 		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -226,27 +275,51 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 	else {
 		delete $product_ref->{nutriments}{$nid . "_modifier"};
 	}
-	$product_ref->{nutriments}{$nid . "_unit"} = $unit;
-	$product_ref->{nutriments}{$nid . "_value"} = $value;
-	
-	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
-		$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
-		$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
-	}
-	elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
-		$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-		$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
-	}
-	if ($nid =~ /^water-hardness(_prepared)?$/) {
-		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
-	}
-	elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
 
-		# energy-kcal is stored in kcal
-		$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
+	if ((defined $value) and ($value ne '')) {
+
+		# empty unit?
+		if ((not defined $unit) or ($unit eq "")) {
+			$unit = default_unit_for_nid($nid);
+		}
+
+		$value = convert_string_to_number($value);
+
+		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
+		$product_ref->{nutriments}{$nid . "_value"} = $value;
+		
+		if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (defined get_property("nutrients", "zz:$nid", "iu_value:en"))) {
+			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en") ;
+			$unit = get_property("nutrients", "zz:$nid", "iu_value:en");
+		}
+		elsif  ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
+			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
+			$unit = get_property("nutrients", "zz:$nid", "dv_value:en");
+		}
+		if ($nid =~ /^water-hardness(_prepared)?$/) {
+			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
+		}
+		elsif ( $nid =~ /^energy-kcal(_prepared)?/ ) {
+
+			# energy-kcal is stored in kcal
+			$product_ref->{nutriments}{$nid} = unit_to_kcal( $value, $unit ) + 0;
+		}
+		else {
+			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
+		}
+
 	}
 	else {
-		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
+		# We do not have a value for the nutrient
+		delete $product_ref->{nutriments}{$nid . "_value"};
+		# Delete other fields dervied from the value
+		delete $product_ref->{nutriments}{$nid};
+		delete $product_ref->{nutriments}{$nid . "_100g"};
+		delete $product_ref->{nutriments}{$nid . "_serving"};
+		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
+		if ((defined $modifier) and ($modifier ne '-')) {
+			delete $product_ref->{nutriments}{$nid . "_modifier"};
+		}
 	}
 	
 	return;
@@ -451,10 +524,10 @@ sub mmoll_to_unit {
 	europe => [(
 		'!energy-kj',
 		'!energy-kcal',
-		'energy-',
+		'!energy-',
 		'-energy-from-fat-',
 		'!fat',
-		'-saturated-fat',
+		'!-saturated-fat',
 		'--butyric-acid-',
 		'--caproic-acid-',
 		'--caprylic-acid-',
@@ -490,7 +563,7 @@ sub mmoll_to_unit {
 		'-trans-fat-',
 		'-cholesterol-',
 		'!carbohydrates',
-		'-sugars',
+		'!-sugars',
 		'--sucrose-',
 		'--glucose-',
 		'--fructose-',
@@ -499,14 +572,14 @@ sub mmoll_to_unit {
 		'--maltodextrins-',
 		'-starch-',
 		'-polyols-',
-		'fiber',
+		'!fiber',
 		'-soluble-fiber-',
 		'-insoluble-fiber-',
 		'!proteins',
 		'-casein-',
 		'-serum-proteins-',
 		'-nucleotides-',
-		'salt',
+		'!salt',
 		'sodium',
 		'alcohol',
 		'#vitamins',
@@ -1205,66 +1278,6 @@ sub normalize_serving_size($) {
 }
 
 
-my %pnns = (
-
-	"Fruits" => "Fruits and vegetables",
-	"Dried fruits" => "Fruits and vegetables",
-	"Vegetables" => "Fruits and vegetables",
-	"Soups" => "Fruits and vegetables",
-
-	"Cereals" => "Cereals and potatoes",
-	"Bread" => "Cereals and potatoes",
-	"Potatoes" => "Cereals and potatoes",
-	"Legumes" => "Cereals and potatoes",
-	"Breakfast cereals" => "Cereals and potatoes",
-
-	"Dairy desserts" => "Milk and dairy products",
-	"Cheese" => "Milk and dairy products",
-	"Ice cream" => "Milk and dairy products",
-	"Milk and yogurt" => "Milk and dairy products",
-
-	"Offals" => "Fish Meat Eggs",
-	"Processed meat" => "Fish Meat Eggs",
-	"Eggs" => "Fish Meat Eggs",
-	"Fish and seafood" => "Fish Meat Eggs",
-	"Meat" => "Fish Meat Eggs",
-
-	"Chocolate products" => "Sugary snacks",
-	"Sweets" => "Sugary snacks",
-	"Biscuits and cakes" => "Sugary snacks",
-	"Pastries" => "Sugary snacks",
-
-	"Nuts" => "Salty snacks",
-	"Appetizers" => "Salty snacks",
-	"Salty and fatty products" => "Salty snacks",
-
-	"Fats" => "Fat and sauces",
-	"Dressings and sauces" => "Fat and sauces",
-
-	"Pizza pies and quiches" => "Composite foods",
-	"One-dish meals" => "Composite foods",
-	"Sandwiches" => "Composite foods",
-
-	"Artificially sweetened beverages" => "Beverages",
-	"Unsweetened beverages" => "Beverages",
-	"Sweetened beverages" => "Beverages",
-	"Fruit juices" => "Beverages",
-	"Fruit nectars" => "Beverages",
-	"Waters and flavored waters" => "Beverages",
-	"Teas and herbal teas and coffees" => "Beverages",
-	"Plant-based milk substitutes" => "Beverages",
-
-	"Alcoholic beverages" => "Alcoholic beverages",
-
-	"unknown" => "unknown",
-
-);
-
-foreach my $group (keys %pnns) {
-	$pnns{get_string_id_for_lang("en", $group)} = get_string_id_for_lang("en", $pnns{$group});
-}
-
-
 =head2 is_beverage_for_nutrition_score( $product_ref )
 
 Determines if a product should be considered as a beverage for Nutri-Score computations,
@@ -1330,7 +1343,8 @@ sub is_water_for_nutrition_score($) {
 
 	my $product_ref = shift;
 
-	return ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")));
+	return ((has_tag($product_ref, "categories", "en:spring-waters"))
+		and not (has_tag($product_ref, "categories", "en:flavored-waters") or has_tag($product_ref, "categories", "en:flavoured-waters")));
 }
 
 
@@ -1366,7 +1380,7 @@ sub is_fat_for_nutrition_score($) {
 
 =head2 special_process_product ( $ingredients_ref )
 
-Computes PNNS groups, and whether a product is to be considered a beverage for the Nutri-Score.
+Computes food groups, and whether a product is to be considered a beverage for the Nutri-Score.
 
 Ingredients analysis (extract_ingredients_from_text) needs to be done before calling this function?
 
@@ -1378,229 +1392,10 @@ sub special_process_product($) {
 
 	assign_categories_properties_to_product($product_ref);
 
-	delete $product_ref->{pnns_groups_1};
-	delete $product_ref->{pnns_groups_1_tags};
-	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};
-
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
-		$product_ref->{pnns_groups_2} = "unknown";
-		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
-		$product_ref->{pnns_groups_1} = "unknown";
-		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
-		return;
-	}
-
-	# Only add or remove categories tags temporarily for determining the PNNS groups
-	# save the original value
-
-	my @original_categories_tags = ();
-	if (defined $product_ref->{categories_tags}) {
-		@original_categories_tags = @{$product_ref->{categories_tags}};
-	}
-
-	# For Open Food Facts, add special categories for beverages that are computed from
-	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
-	# those tags are only added to categories_tags (searchable in Mongo)
-	# and not to the categories_hierarchy (displayed on the web site and in the product edit form)
-	# Those extra categories are also used to determined the French PNNS food groups
-
-	$product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
-
-	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
-
-		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
-			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
-				if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-					remove_tag($product_ref, "categories", "en:alcoholic-beverages");
-				}
-
-				if (not has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
-					add_tag($product_ref, "categories", "en:non-alcoholic-beverages");
-				}
-			}
-			else {
-				if (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-					add_tag($product_ref, "categories", "en:alcoholic-beverages");
-				}
-
-				if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
-					remove_tag($product_ref, "categories", "en:non-alcoholic-beverages");
-				}
-			}
-		}
-		else {
-			if ((not has_tag($product_ref, "categories", "en:non-alcoholic-beverages"))
-				and (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) ) {
-				add_tag($product_ref, "categories", "en:non-alcoholic-beverages");
-			}
-		}
-
-		if ((not (has_tag($product_ref,"categories","en:alcoholic-beverages"))
-			or has_tag($product_ref,"categories","en:fruit-juices")
-			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
-
-			if (has_tag($product_ref,"categories","en:sodas") and (not has_tag($product_ref,"categories","en:diet-sodas"))) {
-				if (not has_tag($product_ref,"categories","en:sweetened-beverages"))  {
-					add_tag($product_ref, "categories", "en:sweetened-beverages");
-				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-				}
-			}
-
-			if ($product_ref->{with_sweeteners}) {
-				if (not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
-					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
-				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-				}
-			}
-			# fix me: ingredients are now partly taxonomized
-
-			if (
-
-				(has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
-				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne") or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
-				or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne") or has_tag($product_ref, "ingredients", "sucre-bio")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide") or has_tag($product_ref, "ingredients", "sucre-de-betterave")
-				or has_tag($product_ref, "ingredients", "sucre-inverti") or has_tag($product_ref, "ingredients", "canne-sucre")
-				or has_tag($product_ref, "ingredients", "sucre-glucose-fructose") or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
-				or has_tag($product_ref, "ingredients", "sirop-de-glucose") or has_tag($product_ref, "ingredients", "glucose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
-				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
-				or has_tag($product_ref, "ingredients", "en:sugar")
-				or has_tag($product_ref, "ingredients", "en:glucose")
-				or has_tag($product_ref, "ingredients", "en:fructose")
-				)
-				) {
-
-				if (not has_tag($product_ref,"categories","en:sweetened-beverages")) {
-					add_tag($product_ref, "categories", "en:sweetened-beverages");
-				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-				}
-			}
-			else {
-				# 2019-01-08: adding back the line below which was previously commented
-				# add check that we do have an ingredient list
-				if (
-					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
-					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
-
-					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) and
-
-
-					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
-					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
-
-					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-						add_tag($product_ref, "categories", "en:unsweetened-beverages");
-					}
-				}
-				else {
-					# remove unsweetened-beverages category that may have been added before
-					# we cannot trust it if we do not have a correct ingredients list
-					if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-						remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-					}
-				}
-			}
-		}
-	}
-	else {
-		# remove sub-categories for beverages that are not considered beverages for PNNS / Nutriscore
-		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-			remove_tag($product_ref, "categories", "en:alcoholic-beverages");
-		}
-		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
-			remove_tag($product_ref, "categories", "en:non-alcoholic-beverages");
-		}
-		if (has_tag($product_ref,"categories","en:sweetened-beverages")) {
-			remove_tag($product_ref, "categories", "en:sweetened-beverages");
-		}
-		if (has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
-			remove_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
-		}
-		if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
-			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
-		}
-	}
-
-
-	# compute PNNS groups 2 and 1
-
-	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
-		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
-
-			# skip the sweetened / unsweetened if it is alcoholic
-			next if ((has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
-				and (
-					($categoryid eq 'en:sweetened-beverages')
-					or ($categoryid eq 'en:artificially-sweetened-beverages')
-					or ($categoryid eq 'en:unsweetened-beverages')
-				)
-				);
-
-
-			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
-			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
-
-			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
-			next if (
-				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
-				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
-
-				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages')
-					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
-
-			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
-
-			# Let waters and teas take precedence over unsweetened-beverages
-			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
-				last;
-			}
-		}
-	}
-
-	if (defined $product_ref->{pnns_groups_2}) {
-		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
-			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
-		}
-		else {
-			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
-		}
-	}
-	else {
-		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
-
-		$product_ref->{pnns_groups_2} = "unknown";
-		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
-		$product_ref->{pnns_groups_1} = "unknown";
-		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
-	}
-
-	# Put back the original categories_tags so that they match what is in the taxonomy field
-	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
-	if (scalar @original_categories_tags) {
-		$product_ref->{categories_tags} = \@original_categories_tags;
-	}
+	compute_food_groups($product_ref);
 
 	return;
 }
-
 
 
 sub fix_salt_equivalent($) {
@@ -1784,7 +1579,8 @@ sub compute_nutrition_score($) {
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
-	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters"))
+		and not (has_tag($product_ref, "categories", "en:flavored-waters") or as_tag($product_ref, "categories", "en:flavoured-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
@@ -1806,7 +1602,9 @@ sub compute_nutrition_score($) {
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
+		# do not display a warning if fibers are not specified on the product ('-' modifier)
 		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and (not defined $product_ref->{nutriments}{"fiber" . $prepared . "_modifier"})
 			and not (has_tag($product_ref, "categories", "en:sodas"))) {
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
@@ -2407,22 +2205,6 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group_debug} = "";
 
-	# If we don't have ingredients, only compute score for water
-	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
-
-		# Exclude flavored waters
-		if (has_tag($product_ref, 'categories', 'en:waters')
-		    and (not has_tag($product_ref, 'categories', 'en:flavored-waters'))) {
-			$product_ref->{nova_group} = 1;
-			return;
-
-		} else {
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
-			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
-			return;
-		}
-	}
-
 	# do not compute a score when it is not food
 	if (has_tag($product_ref,"categories","en:non-food-products")) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
@@ -2650,6 +2432,23 @@ sub compute_nova_group($) {
 		}
 	}
 
+	# If we don't have ingredients, only compute score for water, or when we have a group 2 category (e.g. sugars, vinegars, honeys)
+	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
+
+		# Exclude flavored waters
+		if (has_tag($product_ref, 'categories', 'en:waters')
+		    and (not (has_tag($product_ref, 'categories', 'en:flavored-waters') or has_tag($product_ref, 'categories', 'en:flavoured-waters') ))) {
+			$product_ref->{nova_group} = 1;
+			return;
+
+		} elsif ($product_ref->{nova_group} != 2) {
+			delete $product_ref->{nova_group};
+			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
+			return;
+		}
+	}	
+
 	# Make sure that nova_group is stored as a number
 
 	$product_ref->{nova_group} += 0;
@@ -2762,5 +2561,188 @@ sub assign_categories_properties_to_product($) {
 
 	return;
 }
+
+
+=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table )
+
+This function reads the nutriment values passed to the product edit form, or the product edit API,
+and assigns them to the product.
+
+=cut
+
+sub assign_nutriments_values_from_request_parameters($$) {
+
+	my $product_ref = shift;
+	my $nutriment_table = shift;
+
+	# Nutrition data
+
+	$log->debug("Nutrition data") if $log->is_debug();
+
+	if (defined param("no_nutrition_data")) {
+		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
+	}
+
+	my $no_nutrition_data = 0;
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+		$no_nutrition_data = 1;
+	}
+
+	if (defined param("nutrition_data")) {
+		$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
+	}
+
+	if (defined param("nutrition_data_prepared")) {
+		$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	}
+
+	# Assign all the nutrient values
+
+	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
+
+	my @unknown_nutriments = ();
+	my %seen_unknown_nutriments = ();
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+
+		$nid =~ s/_prepared$//;
+
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
+			push @unknown_nutriments, $nid;
+			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
+		}
+	}
+
+	my @new_nutriments = ();
+	my $new_max = remove_tags_and_quote(param('new_max'));
+	for (my $i = 1; $i <= $new_max; $i++) {
+		push @new_nutriments, "new_$i";
+	}
+
+	# If we have only 1 of the salt and sodium values,
+	# delete any existing values for the other one,
+	# and it will be computed from the one we have
+	foreach my $product_type ("", "_prepared") {
+		my $saltnid = "salt${product_type}";
+		my $sodiumnid = "sodium${product_type}";
+
+		my $salt = param("nutriment_${saltnid}");
+		my $sodium = param("nutriment_${sodiumnid}");
+
+		if ((defined $sodium) and (not defined $salt)) {
+			delete $product_ref->{nutriments}{$saltnid};
+			delete $product_ref->{nutriments}{$saltnid . "_unit"};
+			delete $product_ref->{nutriments}{$saltnid . "_value"};
+			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
+			delete $product_ref->{nutriments}{$saltnid . "_label"};
+			delete $product_ref->{nutriments}{$saltnid . "_100g"};
+			delete $product_ref->{nutriments}{$saltnid . "_serving"};
+		}
+		elsif ((defined $salt) and (not defined $sodium)) {
+			delete $product_ref->{nutriments}{$sodiumnid};
+			delete $product_ref->{nutriments}{$sodiumnid . "_unit"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_value"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_modifier"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_label"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_100g"};
+			delete $product_ref->{nutriments}{$sodiumnid . "_serving"};
+		}
+	}
+
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
+		next if $nutriment =~ /^\#/;
+
+		my $nid = $nutriment;
+		$nid =~ s/^(-|!)+//g;
+		$nid =~ s/-$//g;
+
+		next if $nid =~ /^nutrition-score/;
+
+		# Unit and label are the same for as sold and prepared nutrition table
+		my $enid = encodeURIComponent($nid);
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+
+		# We can have nutrient values for the product as sold, or prepared
+		foreach my $product_type ("", "_prepared") {
+
+			# do not delete values if the nutriment is not provided
+			next if (not defined param("nutriment_${enid}${product_type}"));
+
+			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}${product_type}"));
+
+			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+			# 1. if energy-kcal or energy-kj is set, delete existing energy data
+			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
+				delete $product_ref->{nutriments}{"energy${product_type}"};
+				delete $product_ref->{nutriments}{"energy_unit"};
+				delete $product_ref->{nutriments}{"energy_label"};
+				delete $product_ref->{nutriments}{"energy${product_type}_value"};
+				delete $product_ref->{nutriments}{"energy${product_type}_modifier"};
+				delete $product_ref->{nutriments}{"energy${product_type}_100g"};
+				delete $product_ref->{nutriments}{"energy${product_type}_serving"};
+			}
+			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+				$nid = $nid . "-" . lc($unit);
+				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
+			}
+
+			if ($nid eq 'alcohol') {
+				$unit = '% vol';
+			}
+
+			# New label?
+			my $new_nid;
+			if ((defined $label) and ($label ne '')) {
+				$new_nid = canonicalize_nutriment($lc,$label);
+				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
+
+				if ($new_nid ne $nid) {
+					delete $product_ref->{nutriments}{$nid};
+					delete $product_ref->{nutriments}{$nid . "_unit"};
+					delete $product_ref->{nutriments}{$nid . "_label"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_value"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_modifier"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
+					delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+					$log->debug("unknown nutrient", { nid => $nid, lc => $lc, known_nid => $new_nid }) if $log->is_debug();
+					$nid = $new_nid;
+				}
+				$product_ref->{nutriments}{$nid . "_label"} = $label;
+			}
+
+			# Set the nutrient values
+			my $modifier;
+			normalize_nutriment_value_and_modifier(\$value, \$modifier);
+			assign_nid_modifier_value_and_unit($product_ref, $nid . ${product_type}, $modifier, $value, $unit);
+		}
+
+		# If we don't have a value for the product and the prepared product, delete the unit and label
+		if ((not defined $product_ref->{nutriments}{$nid}) and (not defined $product_ref->{nutriments}{$nid . "_prepared"}))  {
+				delete $product_ref->{nutriments}{$nid . "_unit"};
+				delete $product_ref->{nutriments}{$nid . "_label"};
+		}
+	}
+
+	if ($no_nutrition_data) {
+		# Delete all non-carbon-footprint nids.
+		foreach my $key (keys %{$product_ref->{nutriments}}) {
+			next if $key =~ /_/;
+			next if $key eq 'carbon-footprint';
+
+			delete $product_ref->{nutriments}{$key};
+			delete $product_ref->{nutriments}{$key . "_unit"};
+			delete $product_ref->{nutriments}{$key . "_value"};
+			delete $product_ref->{nutriments}{$key . "_modifier"};
+			delete $product_ref->{nutriments}{$key . "_label"};
+			delete $product_ref->{nutriments}{$key . "_100g"};
+			delete $product_ref->{nutriments}{$key . "_serving"};
+		}
+	}	
+}
+
 
 1;

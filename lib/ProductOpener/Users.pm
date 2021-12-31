@@ -89,6 +89,8 @@ use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;

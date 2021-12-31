@@ -1,23 +1,36 @@
 # Basic .gitattributes for a perl repo.
 
+# prefer keeping line ending unix style
+# since most files are used in linux docker containers
+* text=auto eol=lf
+
 # Source files
 # ============
-*.pl text linguist-language=Perl
-*.pm text linguist-language=Perl
+*.pl text linguist-language=Perl eol=lf
+*.pm text linguist-language=Perl eol=lf
 
 # Test files
 # ============
-*.t text linguist-language=Perl
+*.t text linguist-language=Perl eol=lf
 
 # Template::Toolkit
 # =================
-*.tt text linguist-language=HTML
+*.tt text linguist-language=HTML eol=lf
 
 # Scripts
 # =======
 scripts/po-foreground.sh text=auto eol=lf
+# we really need lf to avoid problems at execution time in docker
+*.sh text=auto text=auto eol=lf
 
 # Do not treat .csv.<number> files as Roff programming language files
 # ===================================================================
-*.csv.[0-9] linguist-language=CSV
-*.csv.[0-9][0-9] linguist-language=CSV
+*.csv.[0-9] linguist-language=CSV eol=lf
+*.csv.[0-9][0-9] linguist-language=CSV eol=lf
+
+# keeps sto safe
+*.sto binary
+
+
+[core]
+    autocrlf=false

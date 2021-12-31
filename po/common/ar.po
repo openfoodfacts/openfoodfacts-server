@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:29\n"
+"PO-Revision-Date: 2021-12-14 08:43\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -181,7 +181,7 @@ msgstr "إضافات"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "mouthafat"
+msgstr ""
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -209,7 +209,7 @@ msgstr "المواد المسببة للحساسية"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "moussabib-hassassiya"
+msgstr ""
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -1543,7 +1543,7 @@ msgstr "درجات التغذية"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "درجة التغذية"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -2451,7 +2451,7 @@ msgstr "آثار"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "athar"
+msgstr "يتتبع"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2523,7 +2523,7 @@ msgstr "المنتجات المضافة بواسطة %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "almousstakhdimoun"
+msgstr "شريك"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2611,7 +2611,7 @@ msgstr "تحذير: لم يتم تحديد كمية الفواكه والخضر�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "تحذير: إن كمية الفاكهة والخضراوات غير محددة على الملصق، وهي مقدرة يدويًا من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
@@ -3802,22 +3802,22 @@ msgstr "ويمكنك أيضًا تحديد نوع الصورة في اسم ال�
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "أمام المنتج باللغة الحالية."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "أمام المنتج باللغة الألمانية."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: قائمة المكونات باللغة الفرنسية."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: جدول التغذية باللغة الفرنسية."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3869,23 +3869,23 @@ msgstr "نقاط سلبية"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "تُحسب نقاط البروتينات لأن النقاط السلبية تقل عن 11 نقطة."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "لا تُحسبنقاط البروتينات لأن النقاط السلبية أكبر من أو تساوي 11 نقطة."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "تُحسب نقاط البروتينات لأن نقاط الفاكهة والخصراوات والمكسرات واللفت\\ الجوز\\ زيت الزيتون يبلغون أقصي قيمتهم العظمى."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "تُحسب نقاط البروتينات إذ أن المنتج ينتدرج تحت فئة الجبن."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "يقع المنتج تحت فئة الدهون، قد استبدلت نقاط الدهون المشبعة بنقاط الدهون المشبعة \\ نسبة الدهون المشبعة."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3901,7 +3901,7 @@ msgstr "الدهون المشبعة"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "نسبة الدهون المشبعة \\ الدهون"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3909,7 +3909,7 @@ msgstr "صوديوم"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "الفاكهة والخضراوات والمكسرات واللفت \\ الجوز \\ زيت الزيتون"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
@@ -3925,36 +3925,36 @@ msgstr "قيمة"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "القيمة التقريبية"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "الدرجة الغذائية"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "درجة الجودة الغذائية"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "نتيجة درجة الجودة الغذائية"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "درجة الجودة الغذائية"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "تعد حقائق الأغذية المفتوحة مجانية ومستقلة بنسبة 100%."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\"> نحن بحاجة إلى مساعدتك وتبرعاتك </a> لكي نواصل وننمي المشروع."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3962,25 +3962,25 @@ msgstr ""
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "قيمة المنتج"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "متوسط قيمة الفئة %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "تتغير درجة الجودة الغذائية من %s إلى %s بتغيير قيمة %s من %s إلى %s ( بفرق %s في المئة)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "لا تزال منصة المنتجين تحت التطوير ونقوم بعمليات تفتيش يدوية قبل تصدير المنتجات إلى قاعدة البيانات العامة. يرجى مراسلتنا عبر البريد الإلكتروني <a href=\"mailto:producers@openfoodfacts.org\"> producers@openfoodfacts.org</a> لتطوير قاعدة البيانات العامة."
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "مجموعات"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -3988,67 +3988,67 @@ msgstr "المنتج"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "يجب فقط فحص حسابات المنتجين الذين قاموا بتعديل منتجاتهم الخاصة. سينسب ملكية المنتج للمنتجين عند إضافة أو تعديل منتج."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "قاعدة بيانات"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "من المصادر الخارجية للبيانات، لن تتغير ملكية المنتجات المستوردة."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "تطبيق"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "من أجل التطبيقات."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "روبوت"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "بالنسبة للربوتات والنصوص إلخ."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "مشرف"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "يمكن للمشرفين الوصول إلى ميزات خاصة لتعديل واستعراض المنتجات."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
-msgstr ""
+msgstr "مشرف لمنصة المنتجات"
 
 msgctxt "user_group_pro_moderator_description"
 msgid "Moderators of the producers platform can view and edit the private products of all users and organizations on the producers platform."
-msgstr ""
+msgstr "يمكن للمشرفين على منصة المنتجات أن ينظر ويعدل المنتجات الخاصة لجميع المستخدمين والمنظمات لدى منصة المنتجات."
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "قد تبرعت بالفعل أو لست مهتمًا. إخف هذه اللافتة."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "مشروع مستقل يقوده المواطن لتحقيق الشفافية؟"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "بحث بيانات منتجات الغذاء لتحسين الصحة العامة؟"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "خيارات غذائية أسهل وأفضل وفقًا لمعاييرك الخاصة؟"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "نحتاج لمساعدتك!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
@@ -4060,24 +4060,24 @@ msgstr "الاستهلاك المفرط للكحول ضار بالصحة ، لذ
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
-msgstr ""
+msgstr "اعتدال منصة المنتجين"
 
 msgctxt "pro_moderator_owner_set"
 msgid "You are currently viewing products from %s."
-msgstr ""
+msgstr "تعرض عليا حاليًا المنتجات من %s."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
-msgstr ""
+msgstr "أنت تعرض عليا منتجاتك الخاصة."
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "لمشاهدة منتجات من مستخدم أو منظمة محددة، ادخل رقمه أسفل. اترك المكان فارغًا لإلغاء تعيينه."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Change"
-msgstr ""
+msgstr "تغيير"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4086,11 +4086,11 @@ msgstr ""
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "المستخدم %s غير موجود"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
-msgstr ""
+msgstr "يجب أن يكون التعريف في صورة المستخدم abc أو xyz"
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
@@ -4453,7 +4453,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "درجة الجودة الغذائية"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -5599,13 +5599,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "هام: نحن بحاجة إلى دعمك!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts هو مشروع تعاوني أنشأه عشرات الآلاف من المتطوعين وتديره منظمة غير ربحية تضم 3 موظفين."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr ""
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "نحتاج إلى تبرعاتك لتمويل ميزانية Open Food Facts 2021 ولمواصلة تطوير المشروع. <strong>شكرا لك! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5740,5 +5742,45 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
+msgstr ""
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr ""
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 
