@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-01 14:41\n"
+"PO-Revision-Date: 2021-12-14 08:51\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5711,4 +5711,44 @@ msgstr "crwdns191533:0crwdne191533:0"
 msgctxt "health"
 msgid "Health"
 msgstr "crwdns191535:0crwdne191535:0"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "crwdns191705:0crwdne191705:0"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "crwdns191707:0crwdne191707:0"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "crwdns191709:0crwdne191709:0"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "crwdns191711:0crwdne191711:0"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "crwdns191713:0crwdne191713:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "crwdns191715:0{kj}crwdne191715:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "crwdns191717:0{minutes}crwdnd191717:0{steps}crwdne191717:0"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "crwdns191719:0{kg}crwdnd191719:0{lb}crwdne191719:0"
 

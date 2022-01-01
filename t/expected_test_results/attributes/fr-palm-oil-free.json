@@ -573,6 +573,7 @@
    "ecoscore_tags" : [
       "unknown"
    ],
+   "food_groups_tags" : [],
    "ingredients" : [
       {
          "id" : "en:water",
@@ -623,6 +624,8 @@
       "en:water",
       "en:flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:chocolate"
    ],
    "ingredients_n" : 4,
@@ -641,6 +644,8 @@
       "en:water",
       "en:flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:chocolate"
    ],
    "ingredients_text" : "eau, farine, sucre, chocolat",
@@ -650,7 +655,7 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 6,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -679,6 +684,7 @@
    "nutrition_grades_tags" : [
       "unknown"
    ],
+   "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "no score when the product does not have a category",
    "other_nutritional_substances_tags" : [],
    "packagings" : [],
