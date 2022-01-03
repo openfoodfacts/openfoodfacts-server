@@ -2576,26 +2576,27 @@ sub assign_nutriments_values_from_request_parameters($$) {
 
 	$log->debug("Nutrition data") if $log->is_debug();
 
-	# Note: browsers do not send any value for checkboxes that are unchecked.
-	# So in order to be able to uncheck values, there needs to be an hidden field with the same name with a false value before the checkbox
-	# and the server will only keep the last value: either the hidden field, or the checkbox if checked.
+	# Note: browsers do not send any value for checkboxes that are unchecked,
+	# so the web form also has a field (suffixed with _displayed) to allow us to uncheck the box.
 
-	if (defined param("no_nutrition_data")) {
-		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
-	}
+	# API:
+	# - check: no_nutrition_data is passed "on" or 1
+	# - uncheck: no_nutrition_data is passed an empty value ""
+	# - no action: the no_nutrition_data field is not sent, and no_nutrition_data_displayed is not sent
+	#
+	# Web:
+	# - check: no_nutrition_data is passed "on"
+	# - uncheck: no_nutrition_data is not sent but no_nutrition_data_displayed is sent
 
-	my $no_nutrition_data = 0;
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$no_nutrition_data = 1;
-	}
+	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
-	if (defined param("nutrition_data")) {
-		$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
-	}
-
-	if (defined param("nutrition_data_prepared")) {
-		$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
-	}
+		if (defined param($checkbox)) {
+			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8=>param($checkbox));
+		}
+		elsif (defined param($checkbox . "_displayed")) {
+			$product_ref->{$checkbox} = "";
+		}
+	}	
 
 	# Assign all the nutrient values
 
@@ -2728,7 +2729,8 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		}
 	}
 
-	if ($no_nutrition_data) {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+
 		# Delete all non-carbon-footprint nids.
 		foreach my $key (keys %{$product_ref->{nutriments}}) {
 			next if $key =~ /_/;
