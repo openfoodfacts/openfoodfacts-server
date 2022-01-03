@@ -1317,7 +1317,7 @@ origins:en: en:United States
 <en:Beers
 en:Finnish beers, Beers from Finland
 fr:Bières finnoises, bières finlandaises, Bières de Finlande
-#wikidata:en:
+wikidata:en:Q3655869
 
 <en:Finnish beers
 fi:Sahti
@@ -1337,8 +1337,8 @@ it:Birre francesi, birre dalla Francia
 nl:Franse bieren, Bieren uit Frankrijk
 ro:Beri franțuzești, Beri frantuzesti, Bere franțuzească, Bere frantuzeasca, Bere franta, Bere franța
 ru:Французское пиво
-origins:en: en:France
-#wikidata:en:
+# Disabled for safety: origins:en: en:France
+wikidata:en:Q4880001
 
 <en:French beers
 en:Corsican beers
@@ -1347,7 +1347,7 @@ fr:Bières corses
 hu:Korzikai sörök
 it:Birre corse, Birre della Corsica
 nl:Corsicaanse bieren, Bieren uit Corsica
-origins:en: en:Corsica
+# Disabled for safety: origins:en: en:Corsica
 
 <en:Beers
 en:Organic beers
@@ -1377,7 +1377,7 @@ hu:Ír sörök
 it:Birre irlandesi, Birre dell'Irlanda
 nl:Ierse bieren
 ro:Beri irlandeze, Beri irlanda, Bere irlandeză, Bere irlanda, Bere irlandeza
-origins:en: en:Ireland
+# Disabled for safety: origins:en: en:Ireland
 
 <en:Beers
 en:Italian beers, Beers from Italy
@@ -1388,13 +1388,13 @@ hu:Olasz sörök, Olaszországi sörök
 it:Birre italiane, birre dall'italia
 nl:Italiaanse bieren
 ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
-origins:en: en:Italy
-#wikidata:en:
+# Disabled for safety: origins:en: en:Italy
+wikidata:en:Q3640378
 
 <en:Beers
 en:Lithuanian beers
 fr:Bières lituaniennes
-#wikidata:en:
+wikidata:en:Q5080415
 
 <en:Lithuanian beers
 lt:Kaimiškas Jovarų alus
@@ -1420,7 +1420,7 @@ fr:Bière triple
 hu:Tripel sör
 it:Birra tripla, tripla birra
 nl:Tripel bieren
-#wikidata:en:
+wikidata:en:Q2719638
 
 <en:Beers
 en:Quadruple beer
@@ -1441,8 +1441,8 @@ hu:Belga sörök, Sörök belgumból
 it:Birre belghe, Birre del Belgio
 nl:Belgische bieren, Bieren uit België
 ro:Beri belgiene, Beri Belgia, Bere Belgiană, Bere Belgia, Bere Belgiana
-origins:en: en:Belgium
-#wikidata:en:
+# Disabled for safety: origins:en: en:Belgium
+wikidata:en:Q348229
 
 <en:Belgian beers
 en:Lambic beers
@@ -1487,15 +1487,15 @@ origins:en: en:Belgium
 <en:Beers
 en:Bulgarian beers
 fr:Bières bulgares, bières bulgariennes
-origins:en: en:Bulgaria
-#wikidata:en:
+# Disabled for safety: origins:en: en:Bulgaria
+wikidata:en:Q4879992
 
-<en:Bulgarian beers
-bg:Българско розово масло, Bulgarsko rozovo maslo
-protected_name_file_number:en: PGI-BG-1050
-protected_name_type:en: pgi
-origins:en: en:Bulgaria
-#wikidata:en:
+#<en:Bulgarian beers TODO actually essential oil
+#bg:Българско розово масло, Bulgarsko rozovo maslo
+#protected_name_file_number:en: PGI-BG-1050
+#protected_name_type:en: pgi
+#origins:en: en:Bulgaria
+#wikidata:en:Q18416565
 
 <en:Beers
 en:Beers from Czech republic
@@ -1504,8 +1504,8 @@ fr:Bières de République tchèque
 hu:Cseh sörök, Sörök csehországból
 it:Birre ceche, Birre della Repubblica Ceca
 nl:Tsjechische bieren
-origins:en: en:Czech Republic
-#wikidata:en:
+# Disabled for safety: origins:en: en:Czech Republic
+wikidata:en:Q2749013
 
 <en:Beers from Czech republic
 cz:Březnický ležák
@@ -1585,7 +1585,7 @@ hu:Német sörök, Sörök németországból
 it:Birre tedesche, Birre della Germania
 nl:Duitse bieren
 ro:Beri germane, Beri Germania, Bere germană, Bere Germania, Bere germana
-origins:en: en:Germany
+# Disabled for safety: origins:en: en:Germany
 wikidata:en:Q21153282
 
 <en:Beers from Germany
@@ -1600,7 +1600,7 @@ de:Kulmbacher Bier
 protected_name_file_number:en: PGI-DE-0473
 protected_name_type:en: pgi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q1742438
 
 <en:Beers from Germany
 de:Münchener Biere, Münchener Bier
@@ -1656,7 +1656,7 @@ nl:Keulse bieren
 protected_name_file_number:en: PGI-DE-0655
 protected_name_type:en: pgi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q4626
 
 <en:Beers from Germany
 de:Mainfranken Biere, Mainfranken Bier
@@ -1680,7 +1680,7 @@ origins:en: en:Germany
 <en:Beers from Germany
 de:Wernesgrüner Biere, Wernesgrüner Bier
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q880640
 
 <en:Beers
 en:Beers from United Kingdom
@@ -1688,8 +1688,8 @@ de:Biere aus dem Vereinigten Königreich
 fr:Bières du Royaume Uni
 it:Birre del Regno Unito
 nl:Britse bieren
-origins:en: en:United Kingdom
-#wikidata:en:
+# Disabled for safety: origins:en: en:United Kingdom
+wikidata:en:Q420081
 
 <en:Beers from United Kingdom
 en:Kentish ale, Kentish strong ale
@@ -1701,7 +1701,7 @@ origins:en: en:United Kingdom
 <en:Beers from United Kingdom
 en:Newcastle Brown Ale
 origins:en: en:United Kingdom
-#wikidata:en:
+wikidata:en:Q887730
 
 <en:Beers from United Kingdom
 en:Rutland Bitter
@@ -1731,6 +1731,7 @@ hu:Gyümölcsös sörök
 it:Birre alla frutta
 nl:Vruchtenbieren
 ro:Beri cu fructe, Bere cu fructe
+wikidata:en:Q3510707
 
 <en:Beers with fruits
 en:Cherry beers
@@ -1741,6 +1742,7 @@ hu:Cseresznye ízű sör
 it:Birre alla ciliegia
 nl:Krieken, Kersenbieren
 nl_be:Kriek
+wikidata:en:Q90409424
 
 <en:Beers with fruits
 en:Beers with chestnut
@@ -1824,6 +1826,7 @@ agribalyse_food_code:en:5002
 ciqual_food_code:en:5002
 ciqual_food_name:en:Beer, strong (>8° alcohol)
 ciqual_food_name:fr:Bière forte (>8° alcool)
+wikidata:en:Q1234364
 
 <en:Beers
 en:Red beers
@@ -1874,6 +1877,7 @@ agribalyse_food_code:en:2008
 ciqual_food_code:en:2008
 ciqual_food_name:en:Cocktail, alcohol-free (juices and syrup-based cocktail)
 ciqual_food_name:fr:Cocktail sans alcool (à base de jus de fruits et de sirop)
+wikidata:en:Q969864
 
 <en:Non-Alcoholic beverages
 en:Non-alcoholic beers, non-alcoholic beer, Alcohol-free beer, Alcohol-free beers, Beers with less than 1.2° alcohol
@@ -1912,6 +1916,7 @@ fr:Bières de blé sans alcool
 hu:Alkoholmentes buza sör
 it:Birre bianche analcoliche, Birre di frumento analcoliche
 nl:Alcoholvrije witbieren, Alcoholvrij witbier
+wikidata:en:Q90409425
 
 <en:Alcoholic beverages
 en:Hard liquors, liquors, spirits, hard spirits
@@ -2006,15 +2011,20 @@ en:Spirit drinks
 fr:Boissons spiritueuses
 
 <en:Spirit drinks
+en:Portuguese spirit drinks
+wikidata:en:Q13428821
+
+<en:Spirit drinks
 en:Austrian spirit drinks
 fr:Boissons spiritueuses autrichiennes
+#wikidata:en:
 
 <en:Austrian spirit drinks
 de:Inländerrum
 protected_name_file_number:en: PGI-AT-01915
 protected_name_type:en: gi
 origins:en: en:Austria
-#wikidata:en:
+wikidata:en:Q685382
 
 <en:Spirit drinks
 en:Croatian spirit drinks
@@ -2028,7 +2038,7 @@ origins:en: en:Croatia
 
 <en:Spirit drinks
 en:French spirit drinks
-origins:en: en:France
+# disabled by safety: origins:en: en:France
 #wikidata:en:
 
 <en:French spirit drinks
@@ -2060,9 +2070,13 @@ de:Bayerischer Bärwurz
 protected_name_file_number:en: PGI-DE-02580
 protected_name_type:en: gi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q1019265
 
 <en:German spirit drinks
+de:Bärenfang
+wikidata:en:Q565689
+
+<de:Bärenfang
 de:Ostpreußischer Bärenfang
 protected_name_file_number:en: PGI-DE-02013
 protected_name_type:en: gi
@@ -2086,21 +2100,21 @@ lt:Trauktinė Palanga
 protected_name_file_number:en: PGI-LT-02023
 protected_name_type:en: gi
 origins:en: en:Lithuania
-#wikidata:en:
+wikidata:en:Q25500673
 
 <en:Lithuanian spirit drinks
 lt:Trauktinė Dainava
 protected_name_file_number:en: PGI-LT-02021
 protected_name_type:en: gi
 origins:en: en:Lithuania
-#wikidata:en:
+wikidata:en:Q25500668
 
 <en:Lithuanian spirit drinks
 lt:Trauktinė
 protected_name_file_number:en: PGI-LT-02111
 protected_name_type:en: gi
 origins:en: en:Lithuania
-#wikidata:en:
+#wikidata:en:Q2655726 (also Russian)
 
 <en:Spirit drinks
 en:Slovenian spirit drinks
@@ -2142,7 +2156,7 @@ es:Aperitivo Café de Alcoy
 protected_name_file_number:en: PGI-ES-01891
 protected_name_type:en: gi
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q8254878
 
 <en:Alcoholic beverages
 en:Distilled beverages
@@ -2152,7 +2166,7 @@ fr:boissons spiritueuses
 hu:Égetett szesz
 it:Distillati, Bevande spiritose
 nl:Gedestilleerde dranken
-wikidata:en:Q56139
+wikidata:en:Q56139 #Q17562878
 
 <en:Distilled beverages
 en:distilled anis
@@ -2167,27 +2181,31 @@ en:Greek distilled anis
 fr:Anis distillé grec
 
 <en:Greek distilled anis
-el:Ouzo, Oύζο
+en:Ouzo
+el:Oύζο, Ouzo
 protected_name_file_number:en: PGI-CY+GR-01828
 protected_name_type:en: gi
 origins:en: en:Cyprus, Greece
 wikidata:en:Q122195
 
 <en:Greek distilled anis
-el:Ούζο Μυτιλήνης, Ouzo of Mitilene
+en:Ouzo of Mitilene
+el:Ούζο Μυτιλήνης
 protected_name_file_number:en: PGI-GR-01838
 protected_name_type:en: gi
 origins:en: en:Greece
 #wikidata:en:
 
 <en:Greek distilled anis
-el:Ούζο Πλωμαρίου, Ouzo of Plomari
+en:Ouzo of Plomari
+el:Ούζο Πλωμαρίου
 protected_name_file_number:en: PGI-GR-01839
 protected_name_type:en: gi
 origins:en: en:Greece
 #wikidata:en:
 
 <en:Greek distilled anis
+en:Ouzo of Kalamata
 el:Ούζο Καλαμάτας, Ouzo of Kalamata
 protected_name_file_number:en: PGI-GR-01840
 protected_name_type:en: gi
@@ -2195,6 +2213,7 @@ origins:en: en:Greece
 #wikidata:en:
 
 <en:Greek distilled anis
+en:Ouzo of Thrace
 el:Ούζο Θράκης, Ouzo of Thrace
 protected_name_file_number:en: PGI-GR-01841
 protected_name_type:en: gi
@@ -2202,6 +2221,7 @@ origins:en: en:Greece
 #wikidata:en:
 
 <en:Greek distilled anis
+en:Ouzo of Macedonia
 el:Ούζο Μακεδονίας, Ouzo of Macedonia
 protected_name_file_number:en: PGI-GR-01842
 protected_name_type:en: gi
@@ -2342,7 +2362,7 @@ origins:en: en:Bulgaria
 
 <en:Fruit brandy
 en:Croatian fruit spirit
-origins:en: en:Croatia
+# disabled for safety: origins:en: en:Croatia
 #wikidata:en:
 
 <en:Croatian fruit spirit
@@ -2368,7 +2388,7 @@ origins:en: en:Croatia
 
 <en:Fruit brandy
 en:French fruit spirit
-origins:en: en:France
+# disabled for safety: origins:en: en:France
 #wikidata:en:
 
 <en:French fruit spirit
@@ -2422,7 +2442,7 @@ origins:en: en:Germany
 
 <en:Fruit brandy
 en:German fruit spirit
-origins:en: en:Germany
+# disabled for safety: origins:en: en:Germany
 #wikidata:en:
 
 <en:German fruit spirit
@@ -2582,7 +2602,7 @@ wikidata:en:Q509042
 
 <en:Fruit brandy
 en:Italian fruit spirit
-origins:en: en:Italy
+# disabled for safety: origins:en: en:Italy
 #wikidata:en:
 
 <en:Italian fruit spirit
@@ -2692,7 +2712,7 @@ origins:en: en:Italy
 
 <en:Fruit brandy
 en:Romanian fruit spirit
-origins:en: en:Romania
+# disabled for safety: origins:en: en:Romania
 #wikidata:en:
 
 <en:Romanian fruit spirit
@@ -2725,7 +2745,7 @@ origins:en: en:Romania
 
 <en:Fruit brandy
 en:Slovenian fruit spirit
-origins:en: en:Slovenia
+# disabled for safety: origins:en: en:Slovenia
 #wikidata:en:
 
 <en:Slovenian fruit spirit
@@ -2860,7 +2880,7 @@ en:Belgian Whisky
 de:Belgische Whiskys
 fr:Whisky belge
 nl:Belgische whiskies
-origins:en: en:Belgium
+# disabled for safety: origins:en: en:Belgium
 #wikidata:en:
 
 <en:Whisky
@@ -2931,21 +2951,21 @@ en:Corsican whiskey
 de:Whisky aus Korsika
 fr:Whisky corse
 nl:Corsicaanse whiskies
-origins:en: en:Corsica
+# disabled for safety: origins:en: en:Corsica
 
 <en:French Whisky
 en:Whisky from Lorraine
 de:Whisky aus Lothringen
 fr:Whisky lorrain
 nl:Lotharingse whiskies
-origins:en: fr:Lorraine
+# Disabled for safety: origins:en: fr:Lorraine
 
 <en:French Whisky
 en:Norman Whisky, Whisky from Normandy
 de:Whisky aus der Normandie
 fr:Whisky normand
 nl:Normandische whiskies
-origins:en: fr:Normandie
+# Disabled for safety: origins:en: fr:Normandie
 
 <en:Whisky
 en:Welsh Whisky
@@ -3285,7 +3305,7 @@ de:Branntwein aus Tunesien
 fr:Eaux-de-vie tunisiennes, Eau-de-vie tunisienne, Eaux-de-vie de Tunisie, Eau-de-vie de Tunisine
 it:Acquaviti tunesine, Acquaviti della Tunesia
 nl:Tunesische eau-de-vies
-origins:en: en:Tunisia
+# disabled for safety: origins:en: en:Tunisia
 #wikidata:en:
 
 <en:Tunisian Eaux-de-vie
@@ -3473,7 +3493,7 @@ de:Kubanische Rums
 fr:Rhums cubains,Rhum cubain
 nl:Cubaanse rums, Rum uit Cuba
 ro:Rom cubanez, Rom Cuba
-origins:en: en:Cuba
+# Disabled for safety: origins:en: en:Cuba
 #wikidata:en:
 
 <en:Rums
@@ -3544,7 +3564,7 @@ en:Haitian rums, Rums from Haiti
 de:Haitianische Rums
 fr:Rhums haïtiens
 nl:Haitiaanse rums, Rum uit Haïti
-origins:en: en:Haiti
+# Disabled for safety: origins:en: en:Haiti
 #wikidata:en:
 
 <en:Rums
@@ -3553,7 +3573,7 @@ de:Jamaikanische Rums
 fr:Rhums jamaïcains
 nl:Jamaicaanse rums, Rum uit Jamaica
 ro:Rom jamaican, Rom Jamaica
-origins:en: en:Jamaica
+# Disabled for safety: origins:en: en:Jamaica
 #wikidata:en:
 
 <en:Rums
@@ -3719,7 +3739,7 @@ de:Ukraninische Wodkas
 fi:Ukrainalaiset votkat
 fr:Vodkas ukrainiennes
 nl:Ukraïnse wodkas
-origins:en: en:Ukraine
+# disabled for safety: origins:en: en:Ukraine
 #wikidata:en:
 
 <en:Vodka
@@ -3737,7 +3757,7 @@ en:Latvian vodkas
 de:Litauische Wodkas
 fr:Vodkas lettones
 nl:Letse wodkas
-origins:en: en:Latvia
+# disabled for safety: origins:en: en:Latvia
 #wikidata:en:
 
 <en:Vodka
@@ -3745,7 +3765,7 @@ en:Lettische vodkas
 de:Lettischer Wodka
 fr:Vodkas lithuaniennes
 nl:Litouwse wodkas
-origins:en: en:Lithuania
+# disabled for safety: origins:en: en:Lithuania
 #wikidata:en:
 
 <en:Vodka
@@ -3760,7 +3780,7 @@ en:Czech vodkas
 de:Tschechische Wodkas
 fr:Vodkas tchèques
 nl:Tsjechische wodkas
-origins:en: en:Czech Republic
+# disabled for safety: origins:en: en:Czech Republic
 #wikidata:en:
 
 <en:Vodka
@@ -7471,7 +7491,7 @@ wikidata:en:Q8486
 <en:Coffees
 en:Coffees from the Dominican Republic
 fr:Cafés de république dominicaine
-origins:en: en:Dominican Republic
+# Disabled for safety: origins:en: en:Dominican Republic
 
 <en:Coffees from the Dominican Republic
 es:Café de Valdesia
@@ -10223,7 +10243,7 @@ origins:en: en:France
 <en:Wines from France
 fr:Cabernet d'Anjou, Cabernet d'Anjou Val de Loire
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q2932291
 
 <en:Wines from France
 fr:Cabernet de Saumur, Cabernet de Saumur Val de Loire
@@ -10245,7 +10265,7 @@ grape_variety:fr:sémillon, sauvignon, muscadelle
 <en:Wines from France
 fr:Cahors
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q1025792
 
 #<en:Wines from France
 #fr:Cassis
@@ -11087,7 +11107,7 @@ protected_name_type:en: pgi
 <en:Wines from France
 fr:Clairette de Bellegarde
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q1094843
 
 <en:Wines from France
 fr:Clairette de Languedoc
@@ -11140,6 +11160,18 @@ fr:Collioure
 origins:en: en:France
 #wikidata:en:
 
+<fr:Collioure
+Collioure blanc
+wikidata:en:Q42960539
+
+<fr:Collioure
+Collioure rosé
+wikidata:en:Q42960541
+
+<fr:Collioure
+Collioure rouge
+wikidata:en:Q42960542
+
 <en:Wines from France
 fr:Comté Tolosan
 origins:en: en:France
@@ -11152,7 +11184,6 @@ wikidata:en:Q18745121
 protected_name_file_number:en: PGI-FR-A1230-AM02
 protected_name_type:en: pgi
 origins:en: en:France
-
 
 <en:Wines from France
 fr:Condrieu
@@ -11199,12 +11230,12 @@ origins:en: en:France
 <en:Wines from France
 fr:Corse Porto-Vecchio, Vin de Corse Porto-Vecchio, Porto-Vecchio
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q3399333
 
 <en:Wines from France
 fr:Corse Sartène, Vin de Corse Sartène, Sartène
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q3473740
 
 <en:Wines from France
 fr:Corse, Vin de Corse
@@ -11263,6 +11294,7 @@ protected_name_type:en: pgi
 <en:Wines from France
 fr:Coteaux champenois
 origins:en: en:France, fr:Champagne
+wikidata:en:Q2998542
 
 <en:Bordeaux wines
 <en:Red wines
@@ -11369,16 +11401,11 @@ origins:en: en:France
 protected_name_type:en: pgi
 
 <en:Wines from France
-fr:Coteaux de Pierrevert
-origins:en: en:France
-#wikidata:en:
-
-<en:Wines from France
-fr:Pierrevert
+fr:Pierrevert, Coteaux de Pierrevert
 protected_name_file_number:en: PDO-FR-A0918
 protected_name_type:en: pdo
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q1136597
 
 <en:Wines from France
 fr:Coteaux de Saumur Val de Loire
@@ -11412,7 +11439,7 @@ origins:en: en:France
 fr:Coteaux du Giennois
 origins:en: en:France
 origins:en: en:France
-#wikidata:en:
+wikidata:en:Q1136598
 
 <en:Wines from France
 fr:Coteaux du Languedoc
@@ -16011,7 +16038,7 @@ origins:en: en:United Kingdom
 
 <en:Wines
 en:Swiss wines
-origins:en: en:Switzerland
+# disabled for safety: origins:en: en:Switzerland
 wikidata:en:Q674376
 
 <en:Swiss wines
@@ -16262,7 +16289,7 @@ origins:en: en:Brazil
 
 <en:Wines
 en:Danish wines
-origins:en: en:Denmark
+# disabled for safety: origins:en: en:Denmark
 wikidata:en:Q2367063
 
 <en:Danish wines
@@ -16302,7 +16329,7 @@ origins:en: en:Denmark
 
 <en:Wines
 en:Dutch wines
-origins:en: en:Netherlands
+# disabled for safety: origins:en: en:Netherlands
 wikidata:en:Q767701
 
 <en:Dutch wines
@@ -18562,7 +18589,7 @@ hu:Hajós-Baja
 protected_name_file_number:en: PDO-HU-A1388, PDO-HU-A1388-AM03
 protected_name_type:en: pdo
 origins:en: en:Hungary
-#wikidata:en:
+wikidata:en:Q1032804
 
 <en:Wines from Hungary
 hu:Mátra, Mátrai
@@ -18772,14 +18799,14 @@ hu:Etyek-Buda, Etyek-Budai
 protected_name_file_number:en: PDO-HU-A1350
 protected_name_type:en: pdo
 origins:en: en:Hungary
-#wikidata:en:
+wikidata:en:Q267187
 
 <en:Wines from Hungary
 hu:Csongrád, Csongrádi
 protected_name_file_number:en: PDO-HU-A1383
 protected_name_type:en: pdo
 origins:en: en:Hungary
-#wikidata:en:
+wikidata:en:Q874203
 
 <en:Wines from Hungary
 hu:Sopron, Soproni
@@ -18833,7 +18860,7 @@ it:Aglianico del Vulture Superiore
 protected_name_file_number:en: PDO-IT-A0527
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3606595
 
 <en:Wines from Italy
 it:Albana di Romagna
@@ -18845,7 +18872,7 @@ it:Matera
 protected_name_file_number:en: PDO-IT-A0533
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3851746
 
 <en:Wines from Italy
 it:Venezia
@@ -18866,14 +18893,14 @@ it:Primitivo di Manduria Dolce Naturale
 protected_name_file_number:en: PDO-IT-A0535
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3921815
 
 <en:Wines from Italy
 it:Castel del Monte Bombino Nero
 protected_name_file_number:en: PDO-IT-A0537
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3662173
 
 <en:Wines from Italy
 it:Castel del Monte Nero di Troia Riserva
@@ -18887,14 +18914,14 @@ it:Castel del Monte Rosso Riserva
 protected_name_file_number:en: PDO-IT-A0539
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3662189
 
 <en:Wines from Italy
 it:Tavoliere delle Puglie, Tavoliere
 protected_name_file_number:en: PDO-IT-A0570
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q26882998
 
 <en:Wines from Italy
 it:Barletta
@@ -18908,7 +18935,7 @@ it:Negroamaro di Terra d'Otranto
 protected_name_file_number:en: PDO-IT-A0557
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q25383124
 
 <en:Wines from Italy
 it:Terra d'Otranto
@@ -18922,21 +18949,21 @@ it:Colli Euganei Fior d'Arancio, Fior d'Arancio Colli Euganei
 protected_name_file_number:en: PDO-IT-A0455
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q2983148
 
 <en:Wines from Italy
 it:Piave Malanotte, Malanotte del Piave
 protected_name_file_number:en: PDO-IT-A0463
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q21050761
 
 <en:Wines from Italy
 it:Amarone della Valpolicella
 protected_name_file_number:en: PDO-IT-A0435
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q455219
 
 <en:Wines from Italy
 it:Offida
@@ -18950,42 +18977,42 @@ it:Terre di Offida
 protected_name_file_number:en: PDO-IT-A0479
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q31836491
 
 <en:Wines from Italy
 it:Valpolicella Ripasso
 protected_name_file_number:en: PDO-IT-A0446
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q1973962
 
 <en:Wines from Italy
 it:Lison
 protected_name_file_number:en: PDO-IT-A0457
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q16572904
 
 <en:Wines from Italy
 it:Recioto della Valpolicella
 protected_name_file_number:en: PDO-IT-A0441
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q11226255
 
 <en:Wines from Italy
 it:Bagnoli Friularo, Friularo di Bagnoli
 protected_name_file_number:en: PDO-IT-A0467
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q3632920
 
 <en:Wines from Italy
 it:Montello Rosso, Montello
 protected_name_file_number:en: PDO-IT-A0461
 protected_name_type:en: pdo
 origins:en: en:Italy
-#wikidata:en:
+wikidata:en:Q25384900
 
 <en:Wines from Italy
 it:Castelli di Jesi Verdicchio Riserva
@@ -24800,14 +24827,14 @@ ro:Dealu Mare
 protected_name_file_number:en: PDO-RO-A1062, PDO-RO-A1067, PDO-RO-A1079, PDO-RO-A1079-AM01, PDO-RO-A1336
 protected_name_type:en: pdo
 origins:en: en:Romania
-#wikidata:en:
+wikidata:en:Q5245932
 
 <en:Romanian wines
 ro:Dealurile Sătmarului
 protected_name_file_number:en: PGI-RO-A0107, PGI-RO-A0107-AM01
 protected_name_type:en: pgi
 origins:en: en:Romania
-#wikidata:en:
+wikidata:en:Q51708727
 
 <en:Romanian wines
 ro:Recaş
@@ -25169,14 +25196,15 @@ es:Vera de Estenas
 protected_name_file_number:en: PDO-ES-N1665
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85812962
 
 <en:Wines from Spain
-es:Jerez-Xérès-Sherry, Jerez, Xérès, Sherry
+en:Sherry
+es:Jerez, Xérès, Sherry, Jerez-Xérès-Sherry
 protected_name_file_number:en: PDO-ES-A1483, PDO-ES-A1483-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q16398
 
 <en:Wines from Spain
 es:Manzanilla-Sanlúcar de Barrameda
@@ -25184,7 +25212,7 @@ es:Manzanilla-Sanlúcar de Barrameda
 protected_name_file_number:en: PDO-ES-A1482, PDO-ES-A1482-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q5802762
 
 <en:Wines from Spain
 es:Urbezo
@@ -25198,7 +25226,7 @@ es:El Vicario
 protected_name_file_number:en: PDO-ES-N1634
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85758841
 
 <en:Wines from Spain
 es:Los Cerrillos
@@ -25212,21 +25240,21 @@ es:Vallegarcía
 protected_name_file_number:en: PDO-ES-02085
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85812689
 
 <en:Wines from Spain
 es:La Jaraba
 protected_name_file_number:en: PDO-ES-01895
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85775405
 
 <en:Wines from Spain
 es:Cebreros
 protected_name_file_number:en: PDO-ES-02348
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q104521643
 
 <en:Wines from Spain
 es:Urueña
@@ -25240,49 +25268,49 @@ es:Rioja
 protected_name_file_number:en: PDO-ES-A0117, PDO-ES-A0117-AM06
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q1569384
 
 <en:Wines from Spain
 es:Abadía Retuerta
 protected_name_file_number:en: PDO-ES-02481
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q4663219
 
 <en:Wines from Spain
 es:Ribeiras do Morrazo
 protected_name_file_number:en: PGI-ES-02238
 protected_name_type:en: pgi
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85797078
 
 <en:Wines from Spain
 es:Ribeiro
 protected_name_file_number:en: PDO-ES-A1123, PDO-ES-A1123-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q1473908
 
 <en:Wines from Spain
 es:Tarragona
 protected_name_file_number:en: PDO-ES-A1555, PDO-ES-A1555-AM03
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q3064521
 
 <en:Wines from Spain
 es:Extremadura
 protected_name_file_number:en: PGI-ES-A1300, PGI-ES-A1300-AM02
 protected_name_type:en: pgi
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q5422290
 
 <en:Wines from Spain
 es:Tharsys
 protected_name_file_number:en: PDO-ES-02086
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q6057243
 
 <en:Wines from Spain
 es:Bolandin
@@ -25303,14 +25331,14 @@ es:Islas Canarias
 protected_name_file_number:en: PDO-ES-A1511
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q85770160
 
 <en:Wines from Spain
 es:Aylés
 protected_name_file_number:en: PDO-ES-A1522
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q62091329
 
 <en:Wines from Spain
 es:Los Balagueses
@@ -25324,7 +25352,7 @@ es:Sierra de Salamanca
 protected_name_file_number:en: PDO-ES-A0631
 protected_name_type:en: pdo
 origins:en: en:Spain
-#wikidata:en:
+wikidata:en:Q6127871
 
 <en:Wines from Spain
 es:Calzadilla
@@ -45061,14 +45089,14 @@ fr:Miels d’Alsace
 nl:Honinge nuit de de Alsace
 protected_name_file_number:en: PGI-FR-0150
 protected_name_type:en: pgi
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <fr:Miels d’acacia
 <fr:Miels d’Alsace
 en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
 nl:Acaciahoningen ui tde Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from France
 fr:Miel de Cévennes
@@ -45081,43 +45109,43 @@ origins:en: en:France, fr:Cévennes
 en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
-origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France, fr:Jura
 
 <en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
 nl:Kastanjehoningen uit de Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 <en:Flower honeys
 fr:Miels de fleurs d'Alsace
 nl:Bloemenhoningen uit de Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de forêt d'Alsace
 nl:Boshoningen uit de Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de sapin d'Alsace
 nl:Sparrenhoningen uit de Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from Alsace
 fr:Miels de tilleul d'Alsace
 nl:Lindebloesemhoningen uit de Alsace
-origins:en: en:France, fr:Alsace
+# Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from France
 fr:Miels d'Aquitaine
 nl:Honingen uit de Aquitaine
-origins:en: en:France, fr:Aquitaine
+# Disabled for safety: origins:en: en:France, fr:Aquitaine
 
 <en:Honeys from France
 fr:Miels de Bourgogne
 nl:Honingen uit de Bourgogne
-origins:en: en:France, fr:Bourgogne
+# Disabled for safety: origins:en: en:France, fr:Bourgogne
 
 <en:Mediterannean honeys
 <fr:Miels de pin
@@ -45136,7 +45164,7 @@ origins:en: en:France, en:Corsica
 en:Honey of Biscay
 fr:Miels de Gascogne
 nl:Honingen uit de Gascogne
-origins:en: en:France, fr:Gascogne
+# Disabled for safety: origins:en: en:France, fr:Gascogne
 
 <en:Honeys from France
 en:Mediterannean honeys
@@ -45147,7 +45175,7 @@ nl:Honingen uit de Middellandse Zee
 <en:Honeys from France
 fr:Miels de Poitou-Charentes, Miels du Poitou-Charentes
 nl:Honingen uit de Poitou-Charantes
-origins:en: en:France, fr:Poitou-Charentes
+# Disabled for safety: origins:en: en:France, fr:Poitou-Charentes
 
 <en:Honeys from France
 fr:Miels de Provence
@@ -45177,7 +45205,7 @@ origins:en: en:France, fr:Gatinais
 en:Honeys from Jura
 fr:Miels du Jura
 nl:Honingen uit de Jura
-origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France, fr:Jura
 
 <en:Honeys
 en:Honeys from Romania, Romanian honeys
@@ -45185,7 +45213,7 @@ de:Rumänischer Honig
 fr:Miels roumains, Miels de Roumarie, Miels de Roumanie
 hu:Mézek Romániából
 nl:Roemeense honingen
-origins:en: en:Romania
+# Disabled for safety: origins:en: en:Romania
 #wikidata:en:
 
 <en:Honeys from Romania
@@ -45217,7 +45245,7 @@ nl:Alpenhoningen
 <en:Honeys from the mountains
 fr:Miels des Pyrénées
 nl:Honingen uit de Pyreneeën
-origins:en: fr:Pyrénées
+# Disabled for safety: origins:en: fr:Pyrénées
 
 <en:Honeys
 en:White honeys from Tigrai
@@ -46704,7 +46732,7 @@ fr:Huiles d'olive de France
 hu:Olívaolajok Franciaországból
 it:Olio d'oliva francese
 nl:Olijfoliën uit Frankrijk, Olijfolies uit Frankrijk, Franse olijfoliën, Franse olijfolies
-origins:en: en:France
+# Disabled for safety: origins:en: en:France
 #wikidata:en:
 
 <en:Olive oils from France
@@ -46786,7 +46814,7 @@ fr:Huiles d'olive d'Italie
 hu:Olívaolajok Olaszországból
 it:Oli d'oliva dall'Italia
 nl:Olijfoliën uit Italië, Olijfolies uit Italië, Italiaanse olijfolies, Italiaanse olijfoliën
-origins:en: en:Italy
+# Disabled for safety: origins:en: en:Italy
 #wikidata:en:
 
 <en:Olive oils from Italy
@@ -59659,7 +59687,7 @@ origins:en: en:Croatia
 
 <en:Meat-based products
 en:Cypriot meat products, Meat products from Cyprus
-origins:en: en:Cyprus
+# disabled for safety: origins:en: en:Cyprus
 #wikidata:en:
 
 <en:Cypriot meat products
