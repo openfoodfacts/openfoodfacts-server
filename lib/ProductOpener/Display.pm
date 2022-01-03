@@ -8968,8 +8968,101 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 
 	my $result_data_ref = {};
 
-	# Do not display nutriscore and traffic lights for some categories of products
-	# do not compute a score for baby foods
+	# Populate the data templates needed to display the Nutri-Score and nutrient levels
+
+	# Nutri-Score data
+
+	my @nutriscore_warnings = ();
+
+	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+
+		# Do not display a warning for water
+		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
+			# only when reconstituted with water only (no milk, no sugar)
+			if ((has_tag($product_ref, "categories", "en:tea-bags"))
+				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
+				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_tea_bags_note");
+			}
+
+			# Combined message when we miss both fruits and fiber
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
+			}
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
+			}
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
+			}
+
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"});
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value});
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
+			}
+		}
+	}
+	# The Nutri-Score is unknown
+	else  {
+
+		$result_data_ref->{nutriscore_grade} = "unknown";
+
+		# Category without Nutri-Score: baby food, alcoholic beverages etc.
+		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+				push @nutriscore_warnings, lang("nutriscore_not_applicable");
+				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
+		}		
+		else {
+			# Missing category?
+			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
+				push @nutriscore_warnings, lang("nutriscore_missing_category");
+				$result_data_ref->{nutriscore_unknown_reason} = "missing_category";
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_category_short");
+			}
+
+			# Missing nutrition facts?
+			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
+				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
+				$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data"; # Takes precedence if the category is also missing
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+			}
+		}
+	}
+
+	if (@nutriscore_warnings > 0) {
+		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
+	}
+
+	if (defined $product_ref->{nutriscore_data}) {
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+	}
+	
+
+	# Nutrient levels data
+
+	# Do not display traffic lights for baby foods
 	if (has_tag($product_ref, "categories", "en:baby-foods")) {
 
 		$result_data_ref->{do_not_display} = 1;
@@ -8994,94 +9087,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 		}
 	}
 
-	# If we can display the Nutri-Score and nutrient levels,
-	# populate the data templates will need to display them
-
 	if (not $result_data_ref->{do_not_display}) {
-
-		# Nutri-Score data
-
-		my @nutriscore_warnings = ();
-
-		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
-			push @nutriscore_warnings, '1' . lang("nutriscore_not_applicable");
-		}
-
-		elsif ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
-
-			$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
-
-			# Do not display a warning for water
-			if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
-
-				# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
-				# only when reconstituted with water only (no milk, no sugar)
-				if ((has_tag($product_ref, "categories", "en:tea-bags"))
-					or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
-					# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
-					or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
-					) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_tea_bags_note");
-				}
-
-				# Combined message when we miss both fruits and fiber
-				if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
-					and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-						and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
-				}
-				elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
-				}
-				elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-						and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
-				}
-
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-										$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"});
-				}
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
-										display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-										$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value});
-				}
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
-										$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
-				}
-			}
-		}
-		# The Nutri-Score is unknown
-		else  {
-
-			$result_data_ref->{nutriscore_grade} = "unknown";
-
-			# Missing category?
-			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_category");
-			}
-
-			# Missing nutrition facts?
-			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
-			}
-		}
-
-		if (@nutriscore_warnings > 0) {
-			$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
-		}
-
-		if (defined $product_ref->{nutriscore_data}) {
-			$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
-		}
-		
-
-		# Nutrient levels data
 
 		$result_data_ref->{nutrient_levels} = [];
 
@@ -9098,6 +9104,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 			}
 		}
 	}
+	
 
 	return $result_data_ref;
 }

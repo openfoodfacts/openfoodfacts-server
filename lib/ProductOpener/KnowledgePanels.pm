@@ -666,18 +666,10 @@ sub create_nutriscore_panel($$$) {
 
         $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 
-        # We create separate panels for the Nutri-Score score and warnings, so that we can display both
-        # in a panel group, with warnings always shown even if the Nutri-Score panel is not expanded.
-
         # Nutri-Score panel: score + details
         create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        # Nutri-Score warnings
-        if (defined $panel_data_ref->{nutriscore_warnings}) {
-            create_panel_from_json_template("nutriscore_warnings", "api/knowledge-panels/health/nutriscore/nutriscore_warnings.tt.json",
-                $panel_data_ref, $product_ref, $target_lc, $target_cc);
-        }
     }
 }
 
