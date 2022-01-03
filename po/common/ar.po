@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-14 08:43\n"
+"PO-Revision-Date: 2022-01-01 11:57\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -181,7 +181,7 @@ msgstr "إضافات"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "إضافي"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -209,7 +209,7 @@ msgstr "المواد المسببة للحساسية"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "مسببات الحساسية"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -4081,7 +4081,7 @@ msgstr "تغيير"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "المستخدم بالترتيب abc أو xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
@@ -4094,31 +4094,31 @@ msgstr "يجب أن يكون التعريف في صورة المستخدم abc �
 
 msgctxt "import_products_categories_from_public_database"
 msgid "Import product categories from the public database"
-msgstr ""
+msgstr "استيراد فئات المنتجات من قاعرد البيانات العامة"
 
 msgctxt "import_products_categories_from_public_database_description"
 msgid "Add categories from the public database to the products on the platform for producers."
-msgstr ""
+msgstr "إضافة الفئات من قاعدة البيانات العامة إلى المنتجات على منصة المنتجين."
 
 msgctxt "import_products_categories"
 msgid "Import the categories"
-msgstr ""
+msgstr "استيراد التصنيفات"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "درجة الجودة الغذائية هي نتيجة من المنتج"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "حساب نتيجة درجة الجودة الغذائية"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "مستوى درجة الجودة الغذائية من المنتج"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "حساب مستوى درجة الجودة الغذائية"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4134,11 +4134,11 @@ msgstr "استخدام الرمز السابق"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "يمكنك تحديد القيمة الميدانية التي ستضاف إلى جميع المنتجات وبعد ذلك سترسل صورها."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "أضف مجال"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
@@ -4146,27 +4146,27 @@ msgstr "إزالة جميع المنتجات"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "أزل جميع منتجاتك من منصة المنتجين"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "يمكنك أن تزيل جميع منتجاتك من منصة المنتجين، على سبيل المثال البدء بسجل جديد إذا وجدت بعض المشاكل في الاستيراد سيؤثر على منتجاتك على قاعدة البيانات العامة."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "رجاءًا لا يمكن التراجع عن هذا الإجراء."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "تحذير: لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد من إزالة جميع منتجاتك من منصة المنتجين؟"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "هذه الخاصية غير متاهة."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "لقد أزيلت منتجاتك من منصة المنتجين."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
@@ -4179,7 +4179,7 @@ msgstr "بعض مكونات لا يمكن التعرف عليها."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "انقل جميع البيانات والصور المحددة في {language} غلى اللغة الأساسية للمنتج: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4199,7 +4199,7 @@ msgstr "قائمة مهام"
 
 msgctxt "teams"
 msgid "Teams"
-msgstr ""
+msgstr "فِرق"
 
 msgctxt "optional"
 msgid "optional"
@@ -4207,29 +4207,29 @@ msgstr "اختياري"
 
 msgctxt "teams_p"
 msgid "teams"
-msgstr ""
+msgstr "فِرق"
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "فريق"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "يمكنك الانضمام من فريق إلى ثلاثة فرق. ستحسب المنتجات التي أضفتها أو تعدلها إليك وإلى فرقك. يمكنك تغيير الفرق في اي وقت."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "أسماء الفرق عامة. عدم إنشاء فرق تحتوي على معلومات شخصية (مثل: أسماء العائلات)، العلامات التجارية (عدا التي تمتلكهم)، أو أي شئ مهين."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "فريق %s"
 
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
-msgstr ""
+msgstr "%d منتج مصدر."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4245,28 +4245,28 @@ msgstr "أسماء أطعمة CIQUAL"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr ""
+msgstr "نحتاج مساعدتك!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "يمكنك مساعدتنا في التعرف على المزيد من المكونات وتحليل أفضل لقائمة مكونات هذا المشروع وغيره عن طريق:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "عدل صفحة المنتج لتصحيح الأخطاء الإملائية في قائمة المكونات، و/أو لإزالة المكونات بلغات وجمل أخرى التي لا تتعلق بالمكونات."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "أضف مدخلات أو مرادفات أو ترجمات جديدة إلى قوائم المنتجات متعددة اللغة وطرق معالجة المكونات والعلامات."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "#ingredients انضم إلى قناة المكونات على <a href=\"https://slack.openfoodfacts.org\"> مساحة المناقشة </a> و/أو التعرف على <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\"> تحليل المكونات على موقعنا ويكي </a> إذا أردت مساعدتنا. شكرًا لك!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
@@ -4292,7 +4292,7 @@ msgstr "rtl"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
-msgstr ""
+msgstr "فصل القيم المتعددة باستخدام الفواصل."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
