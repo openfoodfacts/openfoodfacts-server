@@ -113,7 +113,7 @@ use URI;
 use Digest::MD5 qw(md5_hex);
 
 
-# privace function to import images from dir
+# private function to import images from dir
 # args:
 # image_dir: path to image directory
 # stats: stats map
@@ -201,7 +201,7 @@ sub import_images_from_dir($$) {
 
 				my $code = $1;
 				$code = normalize_code($code);
-				my $imagefield = $3;    # front / ingredients / nutrition , optionnaly with _[language code] suffix
+				my $imagefield = $3;    # front / ingredients / nutrition , optionally with _[language code] suffix
 
 				if ((not defined $imagefield) or ($imagefield eq '')) {
 					$imagefield = "front";
