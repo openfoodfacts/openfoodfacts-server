@@ -460,6 +460,15 @@ my @tests = (
 			packaging => "1 PET plastic bottle",
 		}
 	],
+
+	# recycling code should apply to all languages
+	[
+		'en-aa-84-c-pap',
+		{
+			lc => "aa",
+			packaging => "84-C/PAP",
+		}
+	],	
 	
 
 );
