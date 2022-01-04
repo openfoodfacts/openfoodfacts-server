@@ -230,6 +230,20 @@ sub import_images_from_dir($$) {
 	return $images_ref;
 }
 
+# download image at given url parameter
+sub download_image($) {
+	my $image_url = shift;
+
+	require LWP::UserAgent;
+
+	my $ua = LWP::UserAgent->new(timeout => 10);
+
+	# Some platforms such as CloudFlare block the default LWP user agent.
+	$ua->agent(lang('site_name') . " (https://$server_domain)");
+
+	return $ua->get($image_url);
+}
+
 
 # deduplicate column names
 # We may have duplicate columns (e.g. image_other_url),
@@ -470,7 +484,7 @@ sub import_csv_file($) {
 
 	# first line contains headers
 	my $columns_ref = $csv->getline ($io);
-	$csv->column_names (@{deduped_colnames($columns_ref)});
+	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
 	my $j = 0;
@@ -1929,14 +1943,7 @@ sub import_csv_file($) {
 
 									$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-									require LWP::UserAgent;
-
-									my $ua = LWP::UserAgent->new(timeout => 10);
-									
-									# Some platforms such as CloudFlare block the default LWP user agent.
-									$ua->agent(lang('site_name') . " (https://$server_domain)");
-
-									my $response = $ua->get($image_url);
+									my $response = download_image($image_url);
 
 									if ($response->is_success) {
 										$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
@@ -2193,9 +2200,9 @@ sub update_export_status_for_csv_file($) {
 
 	my $args_ref = shift;
 
-	$User_id = $args_ref->{user_id};
-	$Org_id = $args_ref->{org_id};
-	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
+	my $User_id = $args_ref->{user_id};
+	my $Org_id = $args_ref->{org_id};
+	my $Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
 	$log->debug("starting update_export_status_for_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
 

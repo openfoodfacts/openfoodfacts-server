@@ -35,6 +35,7 @@ requires 'Excel::Writer::XLSX', '>= 1.09'; # libexcel-writer-xlsx-perl
 requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
+requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
@@ -79,8 +80,12 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
+  requires 'Test::MockModule';
+  requires 'Mock::Quick';
   requires 'Test::Number::Delta'; # libtest-number-delta-perl
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
+  requires 'IO::Capture::Stdout::Extended';
+  requires 'IO::Capture::Stderr::Extended';
 };
 
 on 'develop' => sub {
