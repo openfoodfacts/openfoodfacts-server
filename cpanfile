@@ -84,7 +84,10 @@ on 'test' => sub {
 };
 
 on 'develop' => sub {
+  requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
-  recommends 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
+  requires 'Devel::REPL';
+  requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
+  requires 'Perl::LanguageServer';
 }
