@@ -84,7 +84,7 @@ my @lists =(
 	["es","colores E (120, 124 y 125)", "colores E120, E124, E125"],
 	["es","Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.","Leche desnatada de vaca, enzima lactasa y vitaminas, vitamina A, vitamina D, vitamina E, ácido fólico."],
 	["es","Leche desnatada, leche desnatada en polvo, zumo de lima, almidón de maíz, extracto de ginseng 0,19%, aromas, fermentos lácticos con Lcasei, colorante: caramelo natural, edulcorantes: sucralosa y acesulfamo K, estabilizante: goma xantana, vitaminas: D, B6, ácido fólico y B12 Origen de la feche. España. Preparación: Agitar antes de abrir.",
-	"Leche desnatada, leche desnatada en polvo, zumo de lima, almidón de maíz, extracto de ginseng 0,19%, aromas, fermentos lácticos con Lcasei, colorante: caramelo natural, edulcorantes: sucralosa y acesulfamo K, estabilizante: goma xantana, vitaminas, vitamina D, vitamina B6, ácido fólico, vitamina B12 Origen de la feche. España. Preparación: Agitar antes de abrir."],
+	"Leche desnatada, leche desnatada en polvo, zumo de lima, almidón de maíz, extracto de ginseng 0.19%, aromas, fermentos lácticos con Lcasei, colorante: caramelo natural, edulcorantes: sucralosa y acesulfamo K, estabilizante: goma xantana, vitaminas, vitamina D, vitamina B6, ácido fólico, vitamina B12 Origen de la feche. España. Preparación: Agitar antes de abrir."],
 	["es","edulcorantes (acesulfamo K y sucralosa) y vitaminas (riboflavina (vitamina B2) y cianocobalamina vitamina B12))",
 	"edulcorantes (acesulfamo K y sucralosa), vitaminas (riboflavina (vitamina B2), cianocobalamina vitamina B12))"],
 	["es","aceites vegetales [aceite de girasol (70%) y aceite de oliva virgen (30%)] y sal",
@@ -168,10 +168,10 @@ my @lists =(
 
 	["fr","p\x{e2}te de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce \x{e9}quitable et de l'agriculture biologique (100% du poids total).","pâte de cacao Commerce équitable Bio de Madagascar 75%, sucre de canne Commerce équitable Bio, beurre de cacao Commerce équitable Bio."],
 
-	["fr","Céleri - rave 21% - Eau, légumes 33,6% (carottes, céleri - rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)","Céleri-rave 21% - Eau, légumes 33,6% (carottes, céleri-rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)"],
+	["fr","Céleri - rave 21% - Eau, légumes 33,6% (carottes, céleri - rave, poivrons rouges 5,8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)","Céleri-rave 21% - Eau, légumes 33.6% (carottes, céleri-rave, poivrons rouges 5.8% - haricots - petits pois bio - haricots verts - courge - radis, pommes de terre - patates - fenouil - cerfeuil tubéreux - persil plat)"],
 	["fr","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel","poudres à lever : carbonates d'ammonium - carbonates de sodium - phosphates de calcium, farine, sel"],
 	["en","FD&C Red #40 Lake and silicon dioxide","FD&C Red #40 Lake and silicon dioxide"],
-	["fr","Lait pasteurisé à 1,1% de Mat. Gr.","Lait pasteurisé à 1,1% de Matières Grasses"],
+	["fr","Lait pasteurisé à 1,1% de Mat. Gr.","Lait pasteurisé à 1.1% de Matières Grasses"],
 	["fr","matière grasse végétale (palme) raffinée","matière grasse végétale de palme raffinée"],
 	["fr","huile d'olive vierge, origan", "huile d'olive vierge, origan"],
 	["fr","huile de tournesol, cacao maigre en poudre 5.2%", "huile de tournesol, cacao maigre en poudre 5.2%"],
@@ -180,8 +180,8 @@ my @lists =(
 
 	["de","Wasser, Kohlensäure, Farbstoff Zuckerkulör E 150d, Süßungsmittel Aspartam* und Acesulfam-K, Säuerungsmittel Phosphorsäure und Citronensäure, Säureregulator Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle", "Wasser, Kohlensäure, Farbstoff : Zuckerkulör e150d, Süßungsmittel : Aspartam* und Acesulfam-K, Säuerungsmittel : Phosphorsäure und Citronensäure, Säureregulator : Natriumcitrat, Aroma Koffein, Aroma. enthält eine Phenylalaninquelle"],
 	["de","Farbstoffe Betenrot, Paprikaextrakt, Kurkumin","farbstoffe : betenrot, paprikaextrakt, kurkumin"],
-	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs, weiß und gelb", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
-	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs (weiß und gelb)", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs, weiß und gelb", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8.5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
+	["de","Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8,5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs (weiß und gelb)", "Zucker, Glukosesirup, Glukose-Fruktose-Sirup, Stärke, 8.5% Süßholzsaft, brauner Zuckersirup, modifizierte Stärke, Aromen, pflanzliches Öl (Sonnenblume), Überzugsmittel: Bienenwachs weiß und gelb"],
 
 	["fr","graisse végétale bio (colza)","graisse végétale bio de colza"],
 	["fr","huiles végétales* (huile de tournesol*, huile de colza*). *Ingrédients issus de l'agriculture biologique","huiles végétales bio (huile de tournesol bio, huile de colza bio )."],
@@ -196,7 +196,7 @@ my @lists =(
 	["fr","riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
 	["fr","cacao (1), sucre (2), beurre de cacao (1). (1) : Commerce équitable. (2) Issue de l'agriculture biologique.", "cacao Commerce équitable, sucre Bio, beurre de cacao Commerce équitable."],
 
-	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63,7% (BLE complet 50,5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3,9% Bio, cacao en poudre 1,7% Bio, sel, arôme naturel."],
+	["fr","Céréales 63,7% (BLE complet 50,5%*, semoule de maïs*), sucre*, sirop de BLE*, cacao maigre en poudre 3,9%*, cacao en poudre 1,7%*, sel, arôme naturel. *Ingrédients issus de l'agriculture biologique.","Céréales 63.7% (BLE complet 50.5% Bio, semoule de maïs Bio ), sucre Bio, sirop de BLE Bio, cacao maigre en poudre 3.9% Bio, cacao en poudre 1.7% Bio, sel, arôme naturel."],
 
 	["fr","émulsifiant : mono - et diglycérides d'acides gras.","émulsifiant : mono- et diglycérides d'acides gras."],
 
@@ -207,7 +207,7 @@ my @lists =(
 
 	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
 
-	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1,8%)."],
+	["fr", "Masse de cacao°, Quinoa° (1,8%). °Produits issus de l'agriculture biologique.", "Masse de cacao Bio, Quinoa Bio (1.8%)."],
 
 	["de", "Emulgator (Sojalecithine, Mono - und Diglyceride von Speisefettsäuren, Sorbitantristearat)", "Emulgator (Sojalecithine, mono- und Diglyceride von Speisefettsäuren, Sorbitantristearat)"],
 
@@ -233,7 +233,7 @@ my @lists =(
 	["es", "Agua, aceite de girasol*. * Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico."],
 	["es", "Agua, aceite de girasol*, arroz* (5 %). (*) Ingredientes ecológicos.", "Agua, aceite de girasol Ecológico, arroz Ecológico (5 %)."],
 	["es", "Tofu* 88% (agua, habas de soja*). *cumple con el reglamento de agricultura ecológica CE 2092/91", "Tofu Ecológico 88% (agua, habas de soja Ecológico )."],
-	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5,5%)."],
+	["es", "agua, almendra* (5,5%). *= procedentes de la agricultura ecológica", "agua, almendra Ecológico (5.5%)."],
 
 	# test for bug #3273 that introduced unwanted separators before natural flavor
 	["en", "non-gmo natural flavor", "non-gmo natural flavor"],
@@ -299,7 +299,7 @@ my @lists =(
 
 	# ¹ and ² symbols
 	["fr", "Sel, sucre², graisse de palme¹, amidons¹ (maïs¹, pomme de terre¹), oignon¹ : 8,9%, ail¹, oignon grillé¹ : 1,4%, épices¹ et aromate¹ (livèche¹ : 0,4%, curcuma¹, noix de muscade¹), carotte¹ : 0,5%. Peut contenir : céleri, céréales contenant du gluten, lait, moutarde, œuf, soja. ¹Ingrédients issus de l'Agriculture Biologique. ² Ingrédients issus du commerce équitable",
-"Sel, sucre Commerce équitable, graisse de palme Bio, amidons Bio (maïs Bio, pomme de terre Bio ), oignon Bio : 8,9%, ail Bio, oignon grillé Bio : 1,4%, épices Bio et aromate Bio (livèche Bio : 0,4%, curcuma Bio, noix de muscade Bio ), carotte Bio : 0,5%. Traces éventuelles : céleri, Traces éventuelles : céréales contenant du gluten, Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : œuf, Traces éventuelles : soja."],
+"Sel, sucre Commerce équitable, graisse de palme Bio, amidons Bio (maïs Bio, pomme de terre Bio ), oignon Bio : 8.9%, ail Bio, oignon grillé Bio : 1.4%, épices Bio et aromate Bio (livèche Bio : 0.4%, curcuma Bio, noix de muscade Bio ), carotte Bio : 0.5%. Traces éventuelles : céleri, Traces éventuelles : céréales contenant du gluten, Traces éventuelles : lait, Traces éventuelles : moutarde, Traces éventuelles : œuf, Traces éventuelles : soja."],
 	# Russian е character
 	["ru", "е322, Куркумины e100, е-1442, (е621)", "e322, куркумины e100, e1442, (e621)"],
 	
@@ -318,6 +318,9 @@ my @lists =(
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
 	["ru", "масло растительное (подсолнечное, соевое)","масло растительное подсолнечное, масло растительное соевое"],
+
+	# grammes -> g
+	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"]
 );
 
 foreach my $test_ref (@lists) {
