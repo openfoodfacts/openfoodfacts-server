@@ -5726,6 +5726,28 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+	}
+
+	# If we have specific ingredients, check if we have a higher fruits / vegetables content
+	if (defined $product_ref->{specific_ingredients}) {
+		my $fruits = 0;
+		foreach my $ingredient_id (keys %{$product_ref->{specific_ingredients}}) {
+			if (defined $product_ref->{specific_ingredients}{$ingredient_id}{percent}) {
+				my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
+
+				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
+					$fruits += $product_ref->{specific_ingredients}{$ingredient_id}{percent};
+				}
+			}
+		}
+
+		if (($fruits > 0) and ((not defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"})
+								or ($fruits > $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}))) {
+			$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = $fruits;
+		}
+	}
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}) {
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"} = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
 	}
 
