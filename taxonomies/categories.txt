@@ -7203,11 +7203,13 @@ origins:en: en:Madagascar
 
 en:Capsules
 fr:Dosettes
+nl:Kapsules, Capsules
 
 <en:Capsules
 <en:Teas
 en:Tea capsules
 fr:Thés en dosettes
+nl:Theecapsules
 
 <en:Capsules
 <en:Coffees
@@ -7323,7 +7325,8 @@ zh:烘焙咖啡豆, 烘烤咖啡豆
 
 <en:Coffees
 en:Arabica coffees
-fr:Café Arabica 
+fr:Café Arabica
+nl:Arabica koffies
 
 <en:Ground coffees
 <en:Arabica coffees
@@ -7334,20 +7337,24 @@ fr:Café Arabica moulu
 <en:Arabica coffees
 en:Arabica coffee beans
 fr:Grains de café arabica
+nl:Arabica koffiebonen
 
 <en:Coffees
 en:Robusta coffees
 fr:Café Robusta
+nl:Robusta koffies
 
 <en:Ground coffees
 <en:Robusta coffees
 en:Robusta ground coffees
 fr:Café Robusta moulu
+nl:Gemalen Robusta koffies
 
 <en:Coffee beans
 <en:Robusta coffees
 en:Robusta coffee beans
 fr:Grains de café robusta
+nl:Gemalen Robustica koffiebonen
 
 <en:Coffees
 <en:Instant beverages
@@ -38146,7 +38153,6 @@ en:sweet cream butters, sweet cream butter
 de:Süßrahmbutter
 fi:kinuskit
 fr:Beurres de crème douce
-nl:Ongezouten roomboters
 ru:Масло сладко-сливочное, Масло сладкосливочное, Масло сливочное сладко-сливочное, Сладко-сливочное масло, Сладкосливочное масло
 
 <en:Butters
@@ -38156,7 +38162,7 @@ es:Mantequila sin sal
 fi:suolattomat voit
 fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
 it:Burro non salato
-nl:Ongezouten roomboter
+nl:Ongezouten roomboters
 agribalyse_proxy_food_code:en:16400
 ciqual_food_code:en:16414
 ciqual_food_name:en:Butter, unknown fat content , unsalted (average)
@@ -53077,6 +53083,7 @@ fr:Figues sèches, Figue sèche
 it:Fichi secchi
 nl:Gedroogde vijgen
 pl:Suszone figi
+pt:Figos secos
 ru:Инжир сушёный, сушёные инжир
 agribalyse_food_code:en:13013
 ciqual_food_code:en:13013
@@ -59116,7 +59123,7 @@ ciqual_food_name:en:Vol-au-vent, with meat/poultry/quenelle
 
 <en:Puff pastry meals
 fr:Paniers feuilletés
-nl:Bladerdeegbakjes
+nl:Bladerdeegbakjes, Bladerdeegpasteitjes
 
 <en:Puff pastry meals
 en:Small cheese chou, Small cheese pastry puff, Gougère
@@ -60362,6 +60369,11 @@ ciqual_food_name:fr:Soupe miso
 #agribalyse_proxy_food_name:fr:Miso
 
 <en:Soups
+en:Mustard soups
+fr:Soupes de moutarde
+nl:Mosterdsoepen
+
+<en:Soups
 en:Moroccan soups
 fr:Soupes marocaine, Harira
 
@@ -60692,7 +60704,7 @@ fr:Soupes de carottes déshydratées
 en:Pumpkin soups
 de:Kürbissuppen
 fr:Soupes de potiron
-nl:Pompoensoep
+nl:Pompoensoepen
 
 <en:Pumpkin soups
 <en:Reheatable soups
@@ -67523,10 +67535,10 @@ ciqual_food_name:fr:Saucisse de foie
 en:Pork liver sausages
 de:Schweineleberwürste, Schweineleberwurst
 fr:Saucisses de foie de porc
-nl:Varkensleverworst
+nl:Varkensleverworsten
 
 <en:Liver sausages
-de:Geflügelleberwürste,Geflügelleberwurst
+de:Geflügelleberwürste, Geflügelleberwurst
 
 <en:Pork liver sausages
 hu:Sertés Májkolbászok
@@ -67551,10 +67563,12 @@ zh:法国香肠
 <fr:Knacks industrielles
 fr:Knacks industrielles à teneur réduite en sel, Knackis à teneur réduite en sel
 
+# Are catalan sausages also from France?
 <en:Sausages from Spain
 <en:French sausages
 fr:Fouets catalans, fuet
 es:Fuet
+nl:Fuet
 
 <fr:Fouets catalans
 fr:Fouets au roquefort
@@ -84979,7 +84993,7 @@ es:Gofres
 fi:vohvelit
 fr:Gaufres
 it:Waffle
-nl:Wavels
+nl:Wafels
 pt:Gofres
 ro:Vafe, Gaufre, Gofre
 ru:Вафли
@@ -84990,7 +85004,7 @@ agribalyse_proxy_food_name:fr:Gaufre moelleuse (type bruxelloise ou liégeoise),
 <en:Waffles
 fr:Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufre de Liège, Gaufre moelleuse nature liégeoise préemballée, Gaufre moelleuse sucrée liégeoise, Gaufre moelleuse nature bruxelloise, Gaufre moelleuse sucrée bruxelloise
 en:Plain Brussels-style soft waffle, Brussels-style soft waffle with sugar
-nl:Luikse wavels
+nl:Luikse wafels
 ro:Vafe din Liège
 agribalyse_food_code:en:23851
 ciqual_food_code:en:23851
@@ -85012,14 +85026,14 @@ de:gefüllte Waffeln
 fi:täytetyt vohvelit
 fr:Gaufres fourrées
 it:Waffle ripieni
-nl:Honing gevulde wavels
+nl:Honing gevulde wafels
 ro:Vafe Umplute
 
 <en:Waffles
 en:Honey stuffed waffles
 de:Honiggefüllte Waffeln, Waffeln mit Honig gefüllt
 fr:Gaufres fourrées au miel, gaufres au miel
-nl:Gevulde wavels
+nl:Gevulde wafels
 ro:Vafe umplute cu miere
 
 <en:Biscuits
@@ -85030,7 +85044,7 @@ fi:vohvelit
 fr:Gaufrettes, gaufrette
 hu:Ostya, ostyák
 it:Wafer
-nl:Waveltjes
+nl:Wafeltjes
 pt:Bolachas
 ro:Napilitane, Napolitană
 wikidata:en:Q1226651
@@ -85063,7 +85077,7 @@ fi:täytetyt vohvelit
 fr:Gaufrettes fourrées
 hu:Töltött ostya, Töltött ostyák
 it:Wafer ripieni
-nl:Gevulde waveltjes
+nl:Gevulde wafeltjes
 ro:Napolitane umplute
 
 <en:Stuffed wafers

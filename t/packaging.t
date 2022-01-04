@@ -159,6 +159,14 @@ my @tests = (
 		}
 	],
 	
+	[
+		'packaging_text_nl_metalen_blikje',
+		{
+			lc => "nl",
+			packaging_text => "metalen blikje"	
+		}
+	],
+	
 	# three recycling instructions
 	[
 		'packaging_text_nl_three_instructions',
