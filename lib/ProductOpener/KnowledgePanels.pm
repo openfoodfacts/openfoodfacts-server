@@ -626,6 +626,9 @@ sub create_health_card_panel($$$) {
     # Create the physical activities panel
     create_physical_activities_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the ingredients panel
+    create_ingredients_panel($product_ref, $target_lc, $target_cc);
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -676,7 +679,7 @@ sub create_nutriscore_panel($$$) {
 
 =head2 create_nutrition_facts_table_panel ( $product_ref, $target_lc, $target_cc )
 
-Creates a knowledge panels with the nutrition facts table.
+Creates a knowledge panel with the nutrition facts table.
 
 =head3 Arguments
 
@@ -829,5 +832,56 @@ sub create_physical_activities_panel($$$) {
     }
 }
 
+
+=head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panels with the list of ingredients.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_ingredients_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create ingredients panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+
+	# try to display ingredients in the requested language if available
+
+	my $ingredients_text = $product_ref->{ingredients_text};
+    my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
+	my $ingredients_text_lc = $product_ref->{lc};
+
+	if ((defined $product_ref->{"ingredients_text" . "_" . $target_lc}) and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $target_lc};
+		$ingredients_text_with_allergens = $product_ref->{"ingredients_text_with_allergens" . "_" . $target_lc};
+		$ingredients_text_lc = $target_lc;
+	}
+
+    my $panel_data_ref = {
+        ingredients_text => $ingredients_text,
+        ingredients_text_with_allergens => $ingredients_text_with_allergens,
+        lc => $target_lc,
+        ingredients_text_lc => $ingredients_text_lc,
+        ingredients_text_language => display_taxonomy_tag($target_lc,'languages',$language_codes{$ingredients_text_lc}),
+    };
+
+    create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+}
 
 1;
