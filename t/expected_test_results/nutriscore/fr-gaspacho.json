@@ -294,12 +294,13 @@
       "soups",
       "known"
    ],
-   "specific_ingredients" : {
-      "en:vegetable" : {
+   "specific_ingredients" : [
+      {
+         "id" : "en:vegetable",
          "ingredient" : "légumes",
          "percent" : "89",
          "text" : "teneur en légumes: 89%"
       }
-   },
+   ],
    "unknown_ingredients_n" : 1
 }

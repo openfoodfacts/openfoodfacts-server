@@ -71,17 +71,19 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "specific_ingredients" : {
-      "en:milk" : {
-         "ingredient" : "milk",
-         "percent" : "75.2",
-         "text" : "Total milk content: 75.2g"
-      },
-      "en:sugar" : {
+   "specific_ingredients" : [
+      {
+         "id" : "en:sugar",
          "ingredient" : "Sugar",
          "percent" : "3",
          "text" : "Sugar content: 3 %."
+      },
+      {
+         "id" : "en:milk",
+         "ingredient" : "milk",
+         "percent" : "75.2",
+         "text" : "Total milk content: 75.2g"
       }
-   },
+   ],
    "unknown_ingredients_n" : 0
 }

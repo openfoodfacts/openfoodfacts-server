@@ -82,7 +82,7 @@ BEGIN
 		&add_tag_prefix_to_link
 		&display_taxonomy_api
 
-		&display_ingredient_analysis
+		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
@@ -10793,7 +10793,7 @@ sub display_icon {
 }
 
 
-=head2 display_ingredient_analysis ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
+=head2 display_nested_list_of_ingredients ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
 
 Recursive function to display how the ingredients were analyzed.
 This function calls itself to display sub-ingredients of ingredients.
@@ -10810,11 +10810,11 @@ Reference to a list of ingredients in text format that we will reconstruct from 
 
 =head4 $ingredients_list_ref (output)
 
-Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
+Reference to an HTML list of ingredients in ordered nested list format that corresponds to the ingredients array.
 
 =cut
 
-sub display_ingredient_analysis($$$) {
+sub display_nested_list_of_ingredients($$$) {
 
 	my $ingredients_ref = shift;
 	my $ingredients_text_ref = shift;
@@ -10852,7 +10852,7 @@ sub display_ingredient_analysis($$$) {
 
 		if (defined $ingredient_ref->{ingredients}) {
 			${$ingredients_text_ref} .= " (";
-			display_ingredient_analysis($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
+			display_nested_list_of_ingredients($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
 			${$ingredients_text_ref} .= ")";
 		}
 
@@ -10864,6 +10864,55 @@ sub display_ingredient_analysis($$$) {
 	return;
 }
 
+
+=head2 display_list_of_specific_ingredients ( $product_ref )
+
+Generate HTML to display how the specific ingredients (e.g. mentions like "Total milk content: 90%")
+were analyzed.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head3 Return value
+
+Empty string if no specific ingredients were detected, or HTML describing the specific ingredients.
+
+=cut
+
+sub display_list_of_specific_ingredients($) {
+
+	my $product_ref = shift;
+
+	if (not defined $product_ref->{specific_ingredients}) {
+		return "";
+	}
+
+	my $html = "<ul id=\"specific_ingredients_list\">\n";
+
+	foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+
+		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
+		my $class = '';
+		if (not $ingredients_exists) {
+			$class = ' class="unknown_ingredient"';
+		}
+
+		$html .= "<li>" . $ingredient_ref->{text} . "<br>" . "<span$class>" . $ingredient_ref->{ingredient} . "</span>" . " -> " . $ingredient_ref->{id};
+
+		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
+			if (defined $ingredient_ref->{$property}) {
+				$html .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+			}
+		}
+
+		$html .= "</li>\n";
+	}
+
+	$html .= "</ul>\n";
+
+	return $html;
+}
 
 
 =head2 display_ingredients_analysis_details ( $product_ref )
@@ -10890,12 +10939,14 @@ sub display_ingredients_analysis_details($) {
 	my $ingredients_text = "";
 	my $ingredients_list = "";
 
-	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+
+	my $specific_ingredients = display_list_of_specific_ingredients($product_ref);
 
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
-	if ($ingredients_text =~ /unknown_ingredient/) {
+	if ($ingredients_text . $specific_ingredients =~ /unknown_ingredient/) {
 		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
 
 		$styles .= <<CSS
@@ -10908,6 +10959,7 @@ CSS
 
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 	$template_data_ref->{ingredients_list} = $ingredients_list;
+	$template_data_ref->{specific_ingredients} = $specific_ingredients;
 
 	my $html;
 

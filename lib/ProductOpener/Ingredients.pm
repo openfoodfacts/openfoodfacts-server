@@ -875,7 +875,7 @@ This function extracts those mentions and adds them to a special specific_ingred
 
 =head4 specific_ingredients structure
 
-Hash of specific ingredients.
+Array of specific ingredients.
 
 =head4 
 
@@ -889,7 +889,7 @@ sub parse_specific_ingredients_text($$$) {
 
 	my $product_lc = $product_ref->{lc};
 
-	$product_ref->{specific_ingredients} = {};
+	$product_ref->{specific_ingredients} = [];
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -976,32 +976,23 @@ sub parse_specific_ingredients_text($$$) {
 		if (defined $ingredient) {
 			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 
-			my $specific_ingredients_ref;
+			$matched_text =~ s/^\s+//;
 
-			if (not defined $product_ref->{specific_ingredients}{$ingredient_id}) {
-				# first time we see this ingredient
-				# we can remove empty spaces at the start of the matched text
-				$matched_text =~ s/^\s+//;
-				$product_ref->{specific_ingredients}{$ingredient_id} = {
-					ingredient => $ingredient,
-					text => $matched_text,
-				};
-				$specific_ingredients_ref = $product_ref->{specific_ingredients}{$ingredient_id};
-			}
-			else {
-				# ingredient specified multiple times (e.g. once for percent, another for origins or labels)
-				$specific_ingredients_ref = $product_ref->{specific_ingredients}{$ingredient_id};
-				$specific_ingredients_ref->{ingredient} .= " - " . $ingredient;
-				$specific_ingredients_ref->{text} .= $matched_text;
-			}
+			my $specific_ingredients_ref = {
+				id => $ingredient_id,
+				ingredient => $ingredient,
+				text => $matched_text,
+			};
 
 			defined $percent and $specific_ingredients_ref->{percent} = $percent;
 			defined $origin and $specific_ingredients_ref->{origin} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin ));
+			
+			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
 		}
 	}
 
 	# Delete specific ingredients if empty
-	if (scalar keys %{$product_ref->{specific_ingredients}} == 0) {
+	if (scalar @{$product_ref->{specific_ingredients}} == 0) {
 		delete $product_ref->{specific_ingredients};
 	}
 
@@ -5774,12 +5765,13 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 	# If we have specific ingredients, check if we have a higher fruits / vegetables content
 	if (defined $product_ref->{specific_ingredients}) {
 		my $fruits = 0;
-		foreach my $ingredient_id (keys %{$product_ref->{specific_ingredients}}) {
-			if (defined $product_ref->{specific_ingredients}{$ingredient_id}{percent}) {
+		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $ingredient_id = $ingredient_ref->{id};
+			if (defined $ingredient_ref->{percent}) {
 				my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
 				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
-					$fruits += $product_ref->{specific_ingredients}{$ingredient_id}{percent};
+					$fruits += $ingredient_ref->{percent};
 				}
 			}
 		}
