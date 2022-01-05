@@ -377,7 +377,8 @@ Teneur totale en sucres : 60 g pour 100 g de produit fini.
 Teneur en lait: minimum 40%.
 Teneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.
 Présence exceptionnelle possible de noyaux ou de morceaux de noyaux.
-Origine des abricots: Provence.",
+Origine des abricots: Provence.
+Teneur en citron de 5,5%",
 		}
 	],
 

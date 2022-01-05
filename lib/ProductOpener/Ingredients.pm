@@ -939,7 +939,6 @@ sub parse_specific_ingredients_text($$$) {
 			# Teneur en lait 25% minimum.
 			# Teneur en lactose < 0,01 g/100 g.
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
-			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 
 			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
 				$percent = $1;	# $percent_regexp
@@ -948,7 +947,10 @@ sub parse_specific_ingredients_text($$$) {
 				# Remove the matched text
 				$text = $` . ' ' . $';
 			}
-			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
+
+			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
+			# Teneur en citron de 100%
+			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
