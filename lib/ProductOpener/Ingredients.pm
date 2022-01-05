@@ -901,6 +901,7 @@ sub parse_specific_ingredients_text($$$) {
 		$ingredient = undef;
 		my $matched_text;
 		my $percent;
+		my $origin;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
@@ -911,8 +912,20 @@ sub parse_specific_ingredients_text($$$) {
 			# examples:
 			# Total Milk Content 73%.
 
-			if ($text =~ /\s*(?:total |min |minimum )?([^,.;-]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
 				$percent = $2;	# $percent_regexp
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Origin of the milk: United Kingdom
+			elsif ($text =~ /\s*(?:origin of (?:the )?)([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origin = $2;
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
@@ -928,32 +941,60 @@ sub parse_specific_ingredients_text($$$) {
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
 			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 
-			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;-]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
 				$percent = $1;	# $percent_regexp
 				$ingredient = $2;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
 			}
-			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;-]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g|gr|grammes)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
 				$percent = $2;	# $percent_regexp
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
 			}
+
+			# Origine du Cacao: Pérou
+			elsif ($text =~ /\s*(?:origine (?:de |du |de la |des |de l'))([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origin = $2;
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
 		}
 
 		# If we found an ingredient, save it in specific_ingredients
 		if (defined $ingredient) {
 			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
 
-			# We might have an ingredient specified multiple times (e.g. once for percent, another for origins or labels)
-			defined $product_ref->{specific_ingredients}{$ingredient_id} or $product_ref->{specific_ingredients}{$ingredient_id} = {};
-			$product_ref->{specific_ingredients}{$ingredient_id}{ingredient} = $ingredient;
-			$product_ref->{specific_ingredients}{$ingredient_id}{text} = $matched_text;
+			my $specific_ingredients_ref;
 
-			defined $percent and $product_ref->{specific_ingredients}{$ingredient_id}{percent} = $percent;
+			if (not defined $product_ref->{specific_ingredients}{$ingredient_id}) {
+				# first time we see this ingredient
+				# we can remove empty spaces at the start of the matched text
+				$matched_text =~ s/^\s+//;
+				$product_ref->{specific_ingredients}{$ingredient_id} = {
+					ingredient => $ingredient,
+					text => $matched_text,
+				};
+				$specific_ingredients_ref = $product_ref->{specific_ingredients}{$ingredient_id};
+			}
+			else {
+				# ingredient specified multiple times (e.g. once for percent, another for origins or labels)
+				$specific_ingredients_ref = $product_ref->{specific_ingredients}{$ingredient_id};
+				$specific_ingredients_ref->{ingredient} .= " - " . $ingredient;
+				$specific_ingredients_ref->{text} .= $matched_text;
+			}
+
+			defined $percent and $specific_ingredients_ref->{percent} = $percent;
+			defined $origin and $specific_ingredients_ref->{origin} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin ));
 		}
 	}
 

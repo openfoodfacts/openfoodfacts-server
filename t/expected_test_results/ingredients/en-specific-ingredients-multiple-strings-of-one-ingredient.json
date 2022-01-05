@@ -60,7 +60,7 @@
       "en:added-sugar",
       "en:disaccharide"
    ],
-   "ingredients_text" : "Milk, cream, sugar. Sugar content: 3 %. Total milk content: 75.2g",
+   "ingredients_text" : "Milk, cream, sugar. Total milk content: 88%. Origin of milk: UK",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
@@ -73,14 +73,10 @@
    },
    "specific_ingredients" : {
       "en:milk" : {
-         "ingredient" : "milk",
-         "percent" : "75.2",
-         "text" : "Total milk content: 75.2g"
-      },
-      "en:sugar" : {
-         "ingredient" : "Sugar",
-         "percent" : "3",
-         "text" : "Sugar content: 3 %."
+         "ingredient" : "milk - milk",
+         "origin" : "en:united-kingdom",
+         "percent" : "88",
+         "text" : "Total milk content: 88%.  Origin of milk: UK"
       }
    },
    "unknown_ingredients_n" : 0
