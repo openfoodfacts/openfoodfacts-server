@@ -8,6 +8,8 @@ on:
     paths:
     - docker/mongodb.yml
     - .github/workflows/*.yml
+    - Makefile
+    - scripts/*.js
 
 jobs:
   deploy-docker:
