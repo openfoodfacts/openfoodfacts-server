@@ -52,9 +52,9 @@ use JSON::PP;
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
 # data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
 
-(-e "$data_root/data") or mkdir("$data_root/data", 0755) or die("Could not create target directory $data_root/data : $!\n");
-(-e "$data_root/data/index") or mkdir("$data_root/data/index", 0755) or die("Could not create target directory $data_root/data/index : $!\n");
-(-e "$data_root/data/categories_stats") or mkdir("$data_root/data/categories_stats", 0755) or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+(-e "$data_root/data") or mkdir("$data_root/data", oct(755)) or die("Could not create target directory $data_root/data : $!\n");
+(-e "$data_root/data/index") or mkdir("$data_root/data/index", oct(755)) or die("Could not create target directory $data_root/data/index : $!\n");
+(-e "$data_root/data/categories_stats") or mkdir("$data_root/data/categories_stats", oct(755)) or die("Could not create target directory $data_root/data/categories_stats : $!\n");
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -765,7 +765,7 @@ HTML
 
 		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
 		my $stats_dir = "$data_root/lang/$lang/texts";
-		(-e $stats_dir) or mkpath($stats_dir, {"mode" => 0755});
+		(-e $stats_dir) or mkpath($stats_dir, {"mode" => oct(755)});
 		if (open (my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
 			close $OUT;
