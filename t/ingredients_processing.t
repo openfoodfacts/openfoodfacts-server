@@ -2,9 +2,7 @@
 
 # Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
