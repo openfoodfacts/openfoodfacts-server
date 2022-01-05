@@ -95,7 +95,7 @@
       "en:fruit-pectin",
       "en:e440a"
    ],
-   "ingredients_text" : "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.\nPréparée avec 50 grammes de fruits pour 100gr de produit fini.\nPréparé avec 32,5 % de légumes -\nPréparés avec 25,2g de tomates.\nPREPARE AVEC 30% DE TRUC INCONNU.\nTeneur totale en sucres : 60 g pour 100 g de produit fini.\nTeneur en lait: minimum 40%.\nTeneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.\nPrésence exceptionnelle possible de noyaux ou de morceaux de noyaux.\nOrigine des abricots: Provence.",
+   "ingredients_text" : "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.\nPréparée avec 50 grammes de fruits pour 100gr de produit fini.\nPréparé avec 32,5 % de légumes -\nPréparés avec 25,2g de tomates.\nPREPARE AVEC 30% DE TRUC INCONNU.\nTeneur totale en sucres : 60 g pour 100 g de produit fini.\nTeneur en lait: minimum 40%.\nTeneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.\nPrésence exceptionnelle possible de noyaux ou de morceaux de noyaux.\nOrigine des abricots: Provence.\nTeneur en citron de 5,5%",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
@@ -103,14 +103,14 @@
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 142.7,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 142.7
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 148.2,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 148.2
    },
    "specific_ingredients" : {
       "en:apricot" : {
          "ingredient" : "abricots",
          "origin" : "en:provence",
-         "text" : "Origine des abricots: Provence"
+         "text" : "Origine des abricots: Provence."
       },
       "en:fruit" : {
          "ingredient" : "fruits",
@@ -121,6 +121,11 @@
          "ingredient" : "jus de fruits",
          "percent" : "35",
          "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
+      },
+      "en:lemon" : {
+         "ingredient" : "citron",
+         "percent" : "5.5",
+         "text" : "Teneur en citron de 5.5%"
       },
       "en:milk" : {
          "ingredient" : "lait",
