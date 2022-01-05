@@ -532,6 +532,7 @@ en:Anti-reflux milk
 ca:Llet contra els refluxs
 fr:Lait anti-reflux
 it:Latte antirigurgito, Latte antireflusso
+wikidata:en:Q16034323
 
 <en:Baby milks
 en:Hypoallergenic milks
@@ -8748,6 +8749,11 @@ protected_name_type:en: pgi
 <en:Wines from France
 fr:Ajaccio
 origins:en: en:France
+wikidata:en:Q411861
+
+<fr:Ajaccio
+fr:Ajaccio rouge
+wikidata:en:Q42300793
 
 <en:Wines from France
 fr:vin des Allobroges
@@ -8779,6 +8785,14 @@ protected_name_type:en: pdo
 fr:Aloxe-Corton La Coutière, Aloxe-Corton premier cru La Coutière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Aloxe-Corton La Coutière
+fr:Aloxe-Corton premier cru La Coutière rouge
+wikidata:en:Q29640424
+
+<fr:Aloxe-Corton La Coutière
+fr:Aloxe-Corton premier cru La Coutière blanc
+wikidata:en:Q29640423
 
 <fr:Aloxe-Corton
 fr:Aloxe-Corton La Maréchaude, Aloxe-Corton premier cru La Maréchaude
@@ -8850,6 +8864,14 @@ protected_name_type:en: pdo
 fr:Aloxe-Corton Les Vercots, Aloxe-Corton premier cru Les Vercots
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Aloxe-Corton Les Vercots
+fr:Aloxe-Corton premier cru Les Vercots rouge
+wikidata:en:Q29640450
+
+<fr:Aloxe-Corton Les Vercots
+fr:Aloxe-Corton premier cru Les Vercots blanc
+wikidata:en:Q29640448
 
 <en:Wines from France
 fr:Alpes de Haute Provence
@@ -9938,6 +9960,10 @@ fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bu
 protected_name_file_number:en: PDO-FR-A0588
 protected_name_type:en: pdo
 origins:en: en:France
+
+<fr:Bugey
+fr:Bugey mousseux blanc
+wikidata:en:Q43013643
 
 <en:Wines from France
 fr:Buzet
@@ -11709,6 +11735,7 @@ protected_name_type:en: pdo
 fr:Gevrey-Chambertin premier cru Clos des Varoilles, Gevrey-Chambertin Clos des Varoilles
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+# wikidata:en:Q42867203	Gevrey-Chambertin premier cru Clos des Varoilles
 
 <fr:Gevrey-Chambertin
 fr:Gevrey-Chambertin premier cru Clos du Chapitre, Gevrey-Chambertin Clos du Chapitre
@@ -12557,6 +12584,7 @@ fr:Marsannay rosé
 origins:en: en:France, fr:Bourgogne
 grape_variety:fr:pinot noir
 protected_name_type:en: pdo
+wikidata:en:Q42869067
 
 <en:Wines from France
 fr:Maures
@@ -12661,6 +12689,10 @@ fr:Mercurey premier cru Griffères, Mercurey Griffères
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
 
+<fr:Mercurey premier cru Griffères
+fr:Mercurey premier cru Griffères blanc
+wikidata:en:Q42864116
+
 <fr:Mercurey
 fr:Mercurey premier cru La Bondue, Mercurey La Bondue
 origins:en: en:France, fr:Bourgogne
@@ -12670,16 +12702,19 @@ protected_name_type:en: pdo
 fr:Mercurey premier cru La Cailloute, Mercurey La Cailloute
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+# wikidata:en:Q42864125	Mercurey premier cru La Cailloute blanc
 
 <fr:Mercurey
 fr:Mercurey premier cru La Chassière, Mercurey La Chassière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+#wikidata:en:Q42880495	Mercurey premier cru La Chassière rouge
 
 <fr:Mercurey
 fr:Mercurey premier cru La Levrière, Mercurey La Levrière
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+#wikidata:en:Q42880498	Mercurey premier cru La Levrière rouge
 
 <fr:Mercurey
 fr:Mercurey premier cru La Mission, Mercurey La Mission
@@ -14677,6 +14712,14 @@ fr:Saint-Sardos
 wikidata:en:Q3463560
 origins:en: en:France
 
+<fr:Saint-Sardos
+fr:Saint-Sardos rosé
+wikidata:en:Q43019232
+
+<fr:Saint-Sardos
+fr:Saint-Sardos rouge
+wikidata:en:Q43019228
+
 <en:Burgundy wines
 <en:white wines
 fr:Saint-Véran
@@ -14703,6 +14746,10 @@ grape_variety:fr:pinot noir, chardonnay
 fr:Santenay premier cru
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
+
+<fr:Santenay premier cru
+fr:Santenay premier cru rouge
+wikidata:en:Q42863350
 
 <fr:Santenay
 fr:Santenay Côte de Beaune
@@ -18093,6 +18140,7 @@ it:Barletta
 protected_name_file_number:en: PDO-IT-A0542
 protected_name_type:en: pdo
 origins:en: en:Italy
+#wikidata:en:
 
 <en:Wines from Italy
 it:Negroamaro di Terra d'Otranto
@@ -18106,6 +18154,8 @@ it:Terra d'Otranto
 protected_name_file_number:en: PDO-IT-A0572
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q26898065
+# Not to be confused with the olive oil
 
 <en:Wines from Italy
 it:Colli Euganei Fior d'Arancio, Fior d'Arancio Colli Euganei
@@ -18187,18 +18237,21 @@ it:Verdicchio di Matelica Riserva
 protected_name_file_number:en: PDO-IT-A0480
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q4009922
 
 <en:Wines from Italy
 it:Vigneti della Serenissima, Serenissima
 protected_name_file_number:en: PDO-IT-A0478
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q25385581
 
 <en:Wines from Italy
 it:Lessini Durello, Durello Lessini
 protected_name_file_number:en: PDO-IT-A0447
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q1820946
 
 <en:Wines from Italy
 it:Portofino, Golfo del Tigullio - Portofino
@@ -18271,6 +18324,7 @@ it:Bardolino Superiore
 protected_name_file_number:en: PDO-IT-A0437
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q2884366
 
 <en:Wines from Italy
 it:Albugnano
@@ -18342,6 +18396,7 @@ origins:en: en:Italy
 <it:Alto Adige
 it:Alto Adige Santa Maddalena, Südtiroler St.Magdalener
 origins:en: en:Italy
+wikidata:en:Q3613242
 
 <it:Alto Adige
 it:Alto Adige Terlano, Alto Adige Südtirol Terlaner
@@ -18368,6 +18423,7 @@ it:Ansonica Costa dell'Argentario
 protected_name_file_number:en: PDO-IT-A1312
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q3618365
 
 <en:Wines from Italy
 it:Aprilia
@@ -18389,6 +18445,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Arghillà
 origins:en: en:Italy
+wikidata:en:Q3622414
 
 <en:Wines from Italy
 it:Assisi
@@ -18416,6 +18473,7 @@ origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0466
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q2879110
 
 <en:Wines from Italy
 it:Barbagia
@@ -18430,6 +18488,7 @@ it:Barbera d'Alba
 protected_name_file_number:en: PDO-IT-A1068
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q807803
 
 <en:Wines from Italy
 it:Barbera d'Asti, Barbera d'Asti Colli Astiani, Barbera d'Asti Colli Astiano
@@ -18438,6 +18497,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Barbera d'Asti Nizza
 origins:en: en:Italy
+wikidata:en:Q3634742
 
 <en:Wines from Italy
 it:Barbera d'Asti Tinella
@@ -18497,6 +18557,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Bianchello del Metauro
 origins:en: en:Italy
+wikidata:en:Q3639419
 
 <en:Wines from Italy
 it:Bianco Capena
@@ -18560,12 +18621,14 @@ it:Bolgheri Sassicaia
 protected_name_file_number:en: PDO-IT-A1671
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q1422405
 
 <en:Wines from Italy
 it:Bosco Eliceo
 protected_name_file_number:en: PDO-IT-A0287
 protected_name_type:en: pdo
 origins:en: en:Italy
+wikidata:en:Q894397
 
 <en:Wines from Italy
 it:Botticino
@@ -18574,6 +18637,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Brachetto d'Acqui, Acqui
 origins:en: en:Italy
+wikidata:en:Q390630
 
 <en:Wines from Italy
 it:Bramaterra
@@ -18596,6 +18660,7 @@ origins:en: en:Italy
 <en:Wines from Italy
 it:Brunello di Montalcino
 origins:en: en:Italy
+wikidata:en:Q26667
 
 <en:Wines from Italy
 it:Cacc'e' mmitte di Lucera
@@ -26738,6 +26803,7 @@ agribalyse_food_code:en:7130
 ciqual_food_code:en:7130
 ciqual_food_name:en:Bread, gluten free
 ciqual_food_name:fr:Pain, sans gluten
+wikidata:en:Q90410085
 
 <en:Breads
 en:Pane carasau
@@ -38138,6 +38204,7 @@ nl:Gezouten roomboters
 agribalyse_food_code:en:16403
 ciqual_food_code:en:16403
 ciqual_food_name:en:Butter, 80% fat, salted
+wikidata:en:Q90011418
 
 <en:Butters
 en:Three-quarter-fat butter
@@ -39618,6 +39685,7 @@ fi:Hasselpähkinäjuomat, Hasselpähkinämaidot
 fr:Boissons végétales de noisette, Laits de noisettes
 it:Latti di mandorle
 nl:Hazelnootdranken
+wikidata:en:Q47472113
 
 <en:Nut milks
 en:Macadamia nut milks, Macadamia nut drinks
@@ -40245,6 +40313,7 @@ it:Yogurt al limone
 nl:Citroenyoghurt, Citroenyoghurts, Yoghurt met citroen, Yoghurts met citroen
 ro:Iaurturi cu lămâie
 zh:柠檬酸奶
+wikidata:en:Q47472099
 
 <en:Fruit yogurts
 en:Strawberry yogurts
@@ -44233,7 +44302,7 @@ ciqual_food_name:fr:Huile d'amandes d'abricot
 <en:Vegetable oils
 en:Argan oils
 es:Aceites de argán
-fr:Huiles d'argan
+fr:Huiles d'argan, Huile d'argane
 it:Olio di argan
 nl:Arganoliën
 sv:Arganoljor, Arganolja
@@ -47310,6 +47379,7 @@ agribalyse_food_code:en:9311
 ciqual_food_code:en:9311
 ciqual_food_name:en:Oatmeal flakes
 ciqual_food_name:fr:Flocon d'avoine
+wikidata:en:Q57656974
 
 <en:Oat flakes
 en:Pre-cooked oat flakes
@@ -47439,6 +47509,7 @@ fi:puffatut jyvät
 fr:Céréales soufflées
 it:Cereali soffiati
 nl:Gepofte ontbijtgranen
+wikidata:en:Q12961445
 
 <en:Plant-based foods
 en:Puffed grains, Popped grains
@@ -48031,6 +48102,7 @@ nl:Gewone tarwemelen, Gewoon tarwemeel
 agribalyse_proxy_food_code:en:9410
 agribalyse_proxy_food_name:en:Wheat flour, type 110
 agribalyse_proxy_food_name:fr:Farine de blé tendre ou froment T110
+wikidata:en:Q47872684
 
 <en:Common wheat flours
 <en:Wheat flour T405
@@ -48325,6 +48397,7 @@ nl:Tarwekiemen
 ciqual_food_code:en:9660
 ciqual_food_name:en:Wheat germ
 ciqual_food_name:fr:Germe de blé
+wikidata:en:Q41103403
 
 <en:Cereals and their products
 en:Cereal semolinas
@@ -51088,6 +51161,7 @@ fr:Abricots rouges du Roussillon
 protected_name_file_number:en: PDO-FR-01328
 protected_name_type:en: pdo
 origins:en: en:France
+wikidata:en:Q42300798
 
 <en:Fruits
 en:Berries, Red berries
@@ -51354,6 +51428,7 @@ it:Ciliegie
 nl:Kersen
 ro:Cireșe
 sv:Körsbär
+wikidata:en:Q196
 
 <en:Cherries
 <en:Fresh fruits
@@ -52111,6 +52186,7 @@ agribalyse_food_code:en:13026
 ciqual_food_code:en:13026
 ciqual_food_name:en:Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
 ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
+wikidata:en:Q61858403
 
 <en:Cantaloupe melons
 en:Charentais melons
@@ -54448,6 +54524,7 @@ it:Prezzemolo
 la:Petroselinum crispum
 nl:Peterselie
 wikidata:en:Q25284
+#wikidata:en:Q65522500
 agribalyse_proxy_food_code:en:11014
 agribalyse_proxy_food_name:en:Parsley, fresh
 agribalyse_proxy_food_name:fr:Persil, frais
@@ -54560,6 +54637,7 @@ fr:Sauge, Sauge officinale
 la:Salvia officinalis
 nl:Echte salie
 wikidata:en:Q1111359
+#wikidata:en:Q96110429
 agribalyse_proxy_food_code:en:11069
 agribalyse_proxy_food_name:en:Sage, fresh
 agribalyse_proxy_food_name:fr:Sauge, fraîche
@@ -56746,6 +56824,7 @@ agribalyse_food_code:en:11194
 ciqual_food_code:en:11194
 ciqual_food_name:en:Nuoc mam sauce or fish sauce, prepacked
 ciqual_food_name:fr:Sauce Nuoc Mâm ou Sauce au poisson, préemballée
+wikidata:en:Q18456374
 
 <en:Sauces
 en:Béarnaise sauce
@@ -57111,6 +57190,14 @@ protected_name_file_number:en: PGI-FR-0503
 protected_name_type:en: pgi
 origins:en: en:France
 wikidata:en:Q21427661
+# Le stockage des graines et la production de la pâte de moutarde doivent avoir lieu sur le territoire de la région Bourgogne, à savoir les quatre départements de la Côte-d'Or, de la Nièvre, de la Saône-et-Loire et de l'Yonne. 
+# La culture des graines doit s'effectuer dans une zone plus restreinte, au cœur de l'aire géographique précitée ; le Morvan et les monts du Mâconnais en sont exclus en raison de sols peu favorables à la culture3. 
+# Le vin blanc utilisé doit être produit en Bourgogne ou dans le Beaujolais.
+# La moutarde de Bourgogne comprend nécessairement des graines de moutarde produites et stockées en Bourgogne, du vin blanc aligoté et/ou chardonnay en proportion de 25 % minimum (et jusqu'à 16 % du produit fini2) à la mise en œuvre, d'eau, de sucre, d'épices, de quelques additifs et de sel
+compulsory_ingredient:fr:graines de moutarde
+minimum_percentage:fr:vin blanc aligoté:25
+minimum_percentage:fr:chardonnay:25
+
 
 <en:Mustards
 en:German mustards
@@ -59140,12 +59227,14 @@ en:Red curry pastes, Red curry paste
 de:Rote Currypasten, Rote Currypaste
 fr:Pâtes de curry rouges
 nl:Rode currypastas
+wikidata:en:Q67201118
 
 <en:Curry pastes
 en:Green curry pastes, Green curry paste
 de:Grüne Currypasten, Grüne Currypaste
 fr:Pâtes de curry verte, Pâtes de curry vert
 nl:Groene Currypastas
+wikidata:en:Q67201120
 
 <en:Curry pastes
 en:Phanaeng curry pastes, Phanaeng curry paste, Panang curry pastes, Panang curry paste, Penang curry pastes, Penang curry paste
@@ -62539,7 +62628,7 @@ de:Chorizo Pizzas
 es:Pizzas de chorizo
 fr:Pizzas au chorizo, Pizzas chorizo, Pizza au chorizo, Pizza au salami
 nl:Chorizopizzas
-#wikidata:en:
+wikidata:en:Q47471931
 agribalyse_food_code:en:25462
 ciqual_food_code:en:25462
 ciqual_food_name:en:Pizza, chorizo or salami
@@ -62938,6 +63027,7 @@ agribalyse_food_code:en:25529
 ciqual_food_code:en:25529
 ciqual_food_name:en:Onion tart
 ciqual_food_name:fr:Tarte à l'oignon
+wikidata:en:Q3515858
 
 <en:Quiches
 en:Quiches with vegetables
@@ -62967,6 +63057,7 @@ agribalyse_food_code:en:25553
 ciqual_food_code:en:25553
 ciqual_food_name:en:Leek tart or pie
 ciqual_food_name:fr:Tarte ou Tourte aux poireaux
+wikidata:en:Q43669693
 
 <en:Quiches
 <en:Quiches with vegetables
@@ -69024,6 +69115,7 @@ fr:Viandes d’agneau, agneau, agneaux
 it:Carne di agnello, Agnello
 nl:Schapevlezen
 zh:羊肉, 羊, 羊羔, 羊羔肉
+wikidata:en:Q643419
 
 <en:Lamb meat
 fr:Souris d'agneau, Souris d'agneau confite
@@ -69530,6 +69622,7 @@ fr:Bacon fumé
 it:Pancetta affumicata
 nl:Gerookte spek
 zh:烟熏培根
+wikidata:en:Q67454425
 
 <en:Bacon
 en:Unsmoked bacon
@@ -69538,6 +69631,7 @@ nl:Ongerookte spek
 
 <en:Bacon
 en:Bacon rashers
+wikidata:en:Q47471901
 
 <en:Bacon
 en:Back bacon
@@ -70408,8 +70502,9 @@ es:Setas shiitake, Shiitake, Setas shitake, Shitake, Lentinula edodes
 fr:Champignons shiitake, Shiitake, Lentins du chêne, Lentinula edodes
 la:Lentinula edodes
 nl:Shiitakes
+wikidata:en:Q105965457
 
-<en:Mushrooms
+<en:Shiitake mushrooms
 en:Cooked shiitake mushrooms
 fr:Lentins cuits, Shiitaké cuits
 ciqual_food_code:en:20212
@@ -70583,6 +70678,7 @@ fr:Lactaires délicieux en conserve, Rudes en conserve, Lactarius deliciosus en 
 nl:Oranjegroene melkzwammen in blik, Smakelijke melkzwammen in blik
 
 <en:Canned mushrooms
+<en:Shiitake mushrooms
 en:Canned shiitake mushrooms, Canned shiitake, Canned Lentinula edodes
 es:Setas shiitake en conserva, Shiitake en conserva, Setas shitake en conserva, Shitake en conserva, Lentinula edodes en conserva
 fr:Champignons shiitake en conserve, Shiitake en conserve, Lentins du chêne en conserve, Lentinula edodes en conserve
@@ -70717,6 +70813,7 @@ fr:Marasmes des Oréades secs, Faux mousserons secs, Cariolettes secs
 nl:Gedroogde weidekringzwammen
 
 <en:Dried mushrooms
+<en:Shiitake mushrooms
 en:Dried shiitake mushrooms, Dried shiitake, Dried Lentinula edodes
 de:Getrocknete Shiitake Pilze
 es:Setas shiitake deshidratadas, Shiitake deshidratadas, Shiitakes deshidratadas, Setas shitake deshidratadas, Lentinula edodes deshidratadas
@@ -72405,6 +72502,7 @@ wikidata:en:Q18679685
 en:Pot noodles
 fr:Box de nouilles
 nl:Noedle dozen
+wikidata:en:Q12859415
 
 <en:Pasta dishes
 de:Maultaschen, Maultasche
@@ -74084,6 +74182,7 @@ th:อาหารทะเล
 zh:海鲜
 food_groups:en: en:Fish and seafood
 pnns_group_2:en:Fish and seafood
+wikidata:en:Q192935
 
 <en:Seafood
 en:Armenian sea products
@@ -74641,6 +74740,7 @@ fr:Homard
 ciqual_food_code:en:10010
 ciqual_food_name:en:Lobster, raw
 ciqual_food_name:fr:Homard, cru
+wikidata:en:Q61864890
 
 <en:Lobsters
 en:Boiled lobster, Lobster cooked in water
@@ -78045,6 +78145,7 @@ it:Confetture di mirtilli
 nl:Bosbessenjams
 pt:Doces de mirtilo
 sv:Blåbärssylter
+wikidata:en:Q89999458
 
 <en:Berry jams
 en:Lingonberries jams
@@ -78207,6 +78308,7 @@ fr:Confitures de fruits tropicaux, Confitures de fruits exotiques
 hu:trópis gyümölcs lekvár
 it:Confetture di frutti tropicali
 nl:Jams van tropische vruchten
+wikidata:en:Q90000103
 
 <en:Tropical fruit jams
 en:Banana jams
@@ -78227,6 +78329,7 @@ hu:Guava dzsem, Guava lekvár
 it:Confetture di guaiava, confetture di guava
 nl:Guavejams
 pt:Doces de goiaba
+wikidata:en:Q17019959
 
 <en:Tropical fruit jams
 en:Lychee jams, Litchi jams
@@ -78467,6 +78570,7 @@ fr:Confitures multifruits
 hu:Vegyes gyümölcslekvár
 it:Confettura di frutta mista
 nl:Multifruitjams
+wikidata:en:Q89999799
 
 <en:Jams
 <en:Onions and their products
@@ -78508,6 +78612,7 @@ fr:Confitures de tomates
 hu:Paradicsom lekvár
 nl:Tomatenjams
 wikidata:en:Q25041585
+### TODO check wikidata:en:Q90000106
 
 <en:Jams
 en:Sweet pepper jams
@@ -79302,6 +79407,11 @@ nl:Ahornsiroop
 <en:Brown sugars
 fr:cassonades, cassonade
 
+<en:Sugars
+fr:vergeoises, vergeoise
+nl:Basterdsuikers
+wikidata:en:Q3555843
+
 <en:Brown sugars
 <en:Cane sugar
 en:Muscovado
@@ -79435,10 +79545,6 @@ fr:Sucres mi-blancs, sucre mi-blanc
 fr:sucres perlés, sucre perlé
 wikidata:en:Q914538
 
-<en:Sugars
-fr:vergeoises, vergeoise
-nl:Basterdsuikers
-wikidata:en:Q3555843
 
 <en:Sugars
 en:Vanilla sugars, Vanilla flavoured sugars
@@ -80350,6 +80456,7 @@ de:Eingelegte Peperoni
 es:Pimientos encurtidos
 fr:Poivrons au vinaigre
 nl:Ingemaakte pepertjes
+wikidata:en:Q7190909
 
 <en:Pickled peppers
 en:Pickled guindilla peppers, Pickled guindilla chillis
@@ -81012,6 +81119,7 @@ agribalyse_food_code:en:20058
 ciqual_food_code:en:20058
 ciqual_food_name:en:Brussels sprout, raw
 ciqual_food_name:fr:Chou de Bruxelles, cru
+wikidata:en:Q104664711
 
 <en:Brussels sprouts
 <en:Fresh vegetables
@@ -81702,6 +81810,7 @@ pl:Czosnek
 agribalyse_proxy_food_code:en:11000
 agribalyse_proxy_food_name:en:Garlic, fresh
 agribalyse_proxy_food_name:fr:Ail, cru
+wikidata:en:Q23400
 
 <en:Garlic
 it:Aglio di Voghiera
@@ -83329,6 +83438,7 @@ it:Pomodori ciliegini
 la:Solanum lycopersicum var. cerasiforme, Lycopersicon lycopersicum var. cerasiforme, Lycopersicon esculentum var. cerasiforme
 nl:Kerstomaten
 wikidata:en:Q6540634
+#wikidata:en:Q67448115
 agribalyse_food_code:en:20172
 ciqual_food_code:en:20172
 ciqual_food_name:en:Tomato, cherry, raw
@@ -89573,6 +89683,7 @@ agribalyse_food_code:en:20261
 ciqual_food_code:en:20261
 ciqual_food_name:en:Carrots, puree
 ciqual_food_name:fr:Carotte, purée
+wikidata:en:Q65059615
 
 <en:Mashed vegetables
 en:Mashed zucchini, Courgettes puree
