@@ -23,8 +23,6 @@
 use Modern::Perl '2017';
 use utf8;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -150,7 +148,12 @@ $fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
-my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }, 'obsolete' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+
+# 300 000 ms timeout so that we can export the whole database
+# 5mins is not enough, 50k docs were exported
+my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query({'empty' => { "\$ne" => 1 }, 'obsolete' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+
+$cursor->immortal(1);
 
 my %products_nutriments = ();
 my %countries_categories = ();
