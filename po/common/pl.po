@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-14 08:53\n"
+"PO-Revision-Date: 2021-12-30 10:28\n"
 "Language-Team: Polish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -598,11 +598,11 @@ msgstr "Kody identyfikujące"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Kod identyfikowalności"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Kod identyfikowalności"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -5120,23 +5120,23 @@ msgstr ""
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr ""
+msgstr "Najczęściej skanowane produkty"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr ""
+msgstr "Produkty z najlepszym wynikiem Nutri-Score"
 
 msgctxt "sort_by_ecoscore_score"
 msgid "Products with the best Eco-Score"
-msgstr ""
+msgstr "Produkty z najlepszym wynikiem Eco-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
-msgstr ""
+msgstr "Ostatnio dodane produkty"
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
-msgstr ""
+msgstr "Ostatnio edytowane produkty"
 
 # %d will be replaced by the number of products
 msgctxt "d_products_per_page"
@@ -5149,7 +5149,7 @@ msgstr "Nie dotyczy"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
-msgstr ""
+msgstr "Skrócona nazwa produktu"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
@@ -5157,7 +5157,7 @@ msgstr ""
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Wizja, Misja, Wartości i Programy"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -5361,19 +5361,19 @@ msgstr ""
 # stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
-msgstr ""
+msgstr "Etap"
 
 msgctxt "ecoscore_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Wpływ"
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Rolnictwo"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
-msgstr ""
+msgstr "Przetwórstwo"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5381,7 +5381,7 @@ msgstr "Opakowania"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "Transport"
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
@@ -5421,11 +5421,11 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Pochodzenie składników"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "Pochodzenie składników tego produktu nie zostało wskazane."
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
@@ -5481,7 +5481,7 @@ msgstr ""
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Wynik końcowy"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
@@ -5489,7 +5489,7 @@ msgstr ""
 
 msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "kg ekwiwalentu CO2/kg produktu"
 
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
@@ -5676,11 +5676,11 @@ msgstr ""
 
 msgctxt "contains_palm_oil"
 msgid "Contains palm oil"
-msgstr ""
+msgstr "Zawiera olej palmowy"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr ""
+msgstr "Prowadzi do wylesiania i zagraża gatunkom takim jak orangutan"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
@@ -5740,45 +5740,45 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Zdrowie"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "W porównaniu z"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Chodzenie"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Pływanie"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Jazda na rowerze"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Bieganie"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} kJ na 100 g"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Odpowiada to spacerowi przez {minutes} minut(y) lub {steps} kroki/ów"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Wydatek energetyczny dla osoby ważącej {kg} kg / {lb} lb"
 

@@ -127,6 +127,10 @@
                 [% ELSE %]
                     <div class="panel_text">
                 [% END %]
+                    [% IF text_element.lc.defined && text_element.lc != lc %]
+                        <!-- text is in a different language than the interface -->
+                        <strong>[% text_element.language %][% sep %]: </strong>
+                    [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
                     </h4>

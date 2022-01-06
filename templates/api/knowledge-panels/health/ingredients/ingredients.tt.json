@@ -3,13 +3,18 @@
     "topics": [
         "health"
     ],
-    "elements": [   
+    "type": "inline",
+    "elements": [
         {
             "element_type": "text",
             "text_element": {
-                "html": `[ shown only to moderators] -- New knowledge panel coming soon
-                `,
-            }
+                "html": `[% panel.ingredients_text_with_allergens %]`,
+                "lc": "[% panel.ingredients_text_lc %]",
+                "language": "[% panel.ingredients_text_language %]",                
+                "edit_field_type": "ingredients_text",
+                "edit_field_id": "ingredients_text_[% panel.ingredients_text_lc %]",
+                "edit_field_value": `[% panel.ingredients_text %]`,
+            },
         },
     ]
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-14 08:44\n"
+"PO-Revision-Date: 2021-12-30 10:23\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -58,7 +58,7 @@ msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Страницата на продукта не е пълна. Можете да помогнете за завършването като я редактирате и добавите повече данни от снимките, които имаме, или като направите повече снимки използвайки приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодарим Ви!"
+msgstr "Страницата на продукта не е пълна. Можеш да помогнеш за завършването като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш повече снимки използвайки приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -90,7 +90,7 @@ msgstr "<a href=\"https://world.openbeautyfacts.org/legal\">Правни</a> -\n
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
-msgstr "Nivea, Нивеа за мъже"
+msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
@@ -150,7 +150,7 @@ msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ �
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"

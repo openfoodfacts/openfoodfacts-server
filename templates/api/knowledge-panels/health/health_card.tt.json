@@ -15,9 +15,6 @@
                 "panel_ids": [
                     [% IF panels.nutriscore.defined %]
                         "nutriscore",
-                        [% IF panels.nutriscore_warnings.defined %]
-                            "nutriscore_warnings",
-                        [% END %]
                     [% END %]
                     [% IF panels.physical_activities.defined %]
                         "physical_activities",
