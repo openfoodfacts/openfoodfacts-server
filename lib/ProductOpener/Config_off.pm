@@ -1346,4 +1346,10 @@ $options{import_sources} = {
 	'database-usda' => "USDA Global Branded Food Products Database",
 };
 
+# Barcode of a sample product returned through the API when the requested code is "example"
+$options{sample_product_code} = "80135463";	# Nutella
+$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
+$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
 1;

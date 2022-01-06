@@ -10144,6 +10144,16 @@ sub display_product_api($) {
 
 	my $request_ref = shift;
 
+	# Is a sample product requested?
+	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
+		
+		$request_ref->{code} = $options{"sample_product_code_country_${cc}_language_${lc}"}
+			||  $options{"sample_product_code_country_${cc}"}
+			||  $options{"sample_product_code_language_${lc}"}
+			||	$options{"sample_product_code"}
+			|| "";
+	}	
+
 	my $code = normalize_code($request_ref->{code});
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
