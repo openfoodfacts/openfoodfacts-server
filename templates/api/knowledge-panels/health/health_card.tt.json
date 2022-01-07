@@ -34,20 +34,11 @@
             },
         },
         [% END %]
-        [% IF panels.allergens.defined %]
-        {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('allergens') %]",
-                "panel_ids": ["allergens"],
-            },
-        },
-        [% END %]
         [% IF panels.additives.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('additives') %]",
+                "title": "[% lang('additives_p').ucfirst %]",
                 "panel_ids": ["additives"],
             },
         }, 

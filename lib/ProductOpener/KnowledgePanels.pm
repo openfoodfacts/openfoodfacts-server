@@ -630,6 +630,9 @@ sub create_health_card_panel($$$) {
     # Create the ingredients panel
     create_ingredients_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the additives panel
+    create_additives_panel($product_ref, $target_lc, $target_cc);
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -836,7 +839,7 @@ sub create_physical_activities_panel($$$) {
 
 =head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc )
 
-Creates a knowledge panels with the list of ingredients.
+Creates a knowledge panel with the list of ingredients.
 
 =head3 Arguments
 
@@ -859,7 +862,7 @@ sub create_ingredients_panel($$$) {
 	my $target_lc = shift;
 	my $target_cc = shift;
 
-	$log->debug("create ingredients panel", { code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data} }) if $log->is_debug();
+	$log->debug("create ingredients panel", { code => $product_ref->{code} }) if $log->is_debug();
 
 	# try to display ingredients in the requested language if available
 
@@ -876,13 +879,60 @@ sub create_ingredients_panel($$$) {
     my $panel_data_ref = {
         ingredients_text => $ingredients_text,
         ingredients_text_with_allergens => $ingredients_text_with_allergens,
-        lc => $target_lc,
         ingredients_text_lc => $ingredients_text_lc,
         ingredients_text_language => display_taxonomy_tag($target_lc,'languages',$language_codes{$ingredients_text_lc}),
     };
 
     create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);
+}
+
+
+=head2 create_additives_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels for additives.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_additives_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create additives panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+    # Create a panel only if the product has additives
+
+    if ((defined $product_ref->{additives_tags}) and (scalar @{$product_ref->{additives_tags}} > 0 )) {
+
+        my $additives_panel_data_ref = {
+        };
+
+        foreach my $additive (@{$product_ref->{additives_tags}}) {
+
+            my $additive_panel_id = "additive_" . $additive;
+
+            my $additive_panel_data_ref = {
+                additive => $additive,
+            };
+
+            create_panel_from_json_template("additive_" . $additive, "api/knowledge-panels/health/ingredients/additive.tt.json",
+                $additive_panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+
+        create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
+            $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+    }
 }
 
 1;
