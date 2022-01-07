@@ -1349,6 +1349,9 @@ $options{import_sources} = {
 # Barcode of a sample product returned through the API when the requested code is "example"
 $options{sample_product_code} = "80135463";	# Nutella
 $options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+$options{sample_product_code_country_es} = "8414696014715"; # flautas de pechuga de pollo
+$options{sample_product_code_country_mx} = "0097339000054"; # salsa de chile
+$options{sample_product_code_country_fr} = "3166352968591"; # lasagnes au boeuf
 $options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 $options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
