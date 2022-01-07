@@ -16,5 +16,25 @@
                 "edit_field_value": `[% panel.ingredients_text %]`,
             },
         },
+        [% IF product.allergens_tags && product.allergens_tags.size %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% lang("allergens") %][% sep %]:</strong> 
+                    [% display_taxonomy_tags_list("allergens", product.allergens_tags) %]
+                `,
+            },
+        },
+        [% END %]
+        [% IF product.traces_tags && product.traces_tags.size %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% lang("traces") %][% sep %]:</strong> 
+                    [% display_taxonomy_tags_list("traces", product.traces_tags) %]
+                `,
+            },
+        },
+        [% END %]        
     ]
 }
