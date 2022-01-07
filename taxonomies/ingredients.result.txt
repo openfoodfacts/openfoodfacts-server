@@ -13,7 +13,7 @@ stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,conten
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
 stopwords:fr:de,d,des,du,le,la,les,a,aux
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -4143,13 +4143,6 @@ fr:mélange de fruits rouges
 sv:bärblandning
 
 < en:Berries
-en:berry preparation
-de:Fruchtzubereitung aus roten Früchten
-fi:marjavalmiste
-fr:préparation de fruits rouges
-sv:bärsprodukt
-
-< en:Berries
 en:blackberry, blackberries
 bg:Къпина
 br:Mouar
@@ -4571,6 +4564,12 @@ ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
+
+en:berry preparation
+de:Fruchtzubereitung aus roten Früchten
+fi:marjavalmiste
+fr:préparation de fruits rouges
+sv:bärsprodukt
 
 < en:Bifidus
 en:Bifidobacterium bifidum
@@ -7105,7 +7104,7 @@ fr:Riz de Camargue long blanc biologique
 
 < en:Camargue rice
 < en:Long grain rice
-en:superioir quality Camargue long grain rice
+en:superior quality Camargue long grain rice
 de:Camargue Premiumqualität Langkornreis
 fr:Riz de Camargue long grain de qualité supérieure
 
@@ -17298,13 +17297,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Isomaltulose
 en:maple syrup
 da:ahornsirup
 de:Ahornsirup
-es:Jarabe de arce, savia de arce
+es:jarabe de arce, savia de arce
 fi:vaahterasiirappi
 fr:sirop d'érable
 hu:juharszirup
-it:Sciroppo d'acero
-nl:ahornsiroop
-ru:Кленовый сироп
+it:sciroppo d'acero
+nl:esdoornsiroop, ahornsiroop
+ru:кленовый сироп
 vegan:en: yes
 vegetarian:en: yes
 
@@ -45420,13 +45419,6 @@ en:fruit puree
 nl:fruitpuree
 
 < en:Fruit
-en:fruits preparation
-de:Fruchtzubereitung
-fr:préparation de fruits
-it:preparazione di frutta
-sv:fruktberedning
-
-< en:Fruit
 en:gooseberry, gooseberries
 af:appelliefie
 ar:عنب الثعلب
@@ -46675,22 +46667,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tamarillo
 en:vine fruit, mixed vine fruit
 
 < en:Fruit
-fr:fruits confits
-de:Früchte kandiert
-es:frutas confitadas
-fi:kandeeratut hedelmät
-it:frutta candita
-
-< en:Fruit
 fr:fruits exotiques
 fi:eksoottiset hedelmät
 
 < en:Fruit
 fr:pulpe de fruits, pulpes de fruits
 fi:hedelmäliha
-
-< en:Fruit
-fr:specialité de fruits pomme poire
 
 en:fruit extract
 de:Fruchtextrakt, Frucht-Extrakt
@@ -46843,6 +46825,18 @@ fr:pectine d'agrumes
 sv:citruspektin
 wikidata:en: Q6889398
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_citrus_pectin
+
+en:fruits and vegetables, vegetables and fruits
+fr:fruits et légumes, légumes et fruits
+nutriscore_fruits_vegetables_nuts:en: yes
+vegan:en: yes
+vegetarian:en: yes
+
+en:fruits preparation
+de:Fruchtzubereitung
+fr:préparation de fruits
+it:preparazione di frutta
+sv:fruktberedning
 
 < en:Fruits preparation
 en:pear preparation
@@ -51154,7 +51148,7 @@ da:Kaliumiodid
 de:Kaliumiodid, Kaliumjodid
 el:ιωδιούχο κάλιο
 eo:kalia jodido
-es:yoduro de potasio
+es:yoduro potásico, yoduro de potasio
 fa:پتاسیم یدید
 fi:Kaliumjodidi
 fr:iodure de potassium
@@ -51536,6 +51530,7 @@ fr:Isomaltose
 hu:izomaltóz
 it:Isomaltosio
 pt:Isomaltose
+wikidata:en: Q28487684
 wikipedia:en: https://en.wikipedia.org/wiki/Isomaltose
 
 < en:Jalapeno
@@ -55037,7 +55032,7 @@ ciqual_food_name:fr: Mangue, pulpe, crue
 < en:Maple syrup
 en:canadian maple syrup
 de:Kanadischer Ahornsirup
-es:Jarabe de arce, savia de arce
+es:jarabe de arce, savia de arce
 fi:kanadalainen vaahterasiirappi
 fr:sirop d'érable canadien
 hu:kanadai juharszirup
@@ -61450,6 +61445,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nut_-fruit-
 < en:Nut
 en:Fruits and nuts, nuts and fruits, fruits & nuts, nuts & fruits
 fr:fruits et noix, noix et fruits, fruits & noix
+nutriscore_fruits_vegetables_nuts:en: yes
+vegan:en: yes
+vegetarian:en: yes
 
 < en:Nut
 en:peanut, peanuts
@@ -90887,10 +90885,6 @@ description:en: ZINC SULFATE has the formula ZnSO4 as well as any of three hydra
 
 es:aceite hidrogenado de colza
 
-es:potassium iodide, yoduro potásico
-hu:kálium-jodid
-wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
-
 < en:Chicken meat
 < fi:Kokolihavalmiste
 fi:kanakokolihatuote
@@ -91090,6 +91084,12 @@ fr:filets de maquereaux cuits au court-bouillon
 
 fr:friture
 
+fr:fruits confits
+de:Früchte kandiert
+es:frutas confitadas
+fi:kandeeratut hedelmät
+it:frutta candita
+
 < fr:Fumet de poisson
 fr:fumet de poisson aromatisé
 
@@ -91277,6 +91277,8 @@ fr:sirop d'amidon
 
 < fr:Sirop d'amidon
 fr:sirop d'amidon de maïs
+
+fr:specialité de fruits pomme poire
 
 fr:surimi à base de protéines de muscles de poisson
 de:Surimi-Krebsfleischimitat aus Fischmuskeleiweiß geformt
