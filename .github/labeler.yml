@@ -9,6 +9,7 @@ translations:
 
 tests:
 - test/**/*
+- t/**/*
 
 Template::Toolkit:
 - templates/**/*
