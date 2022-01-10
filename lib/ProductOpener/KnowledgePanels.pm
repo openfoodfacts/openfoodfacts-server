@@ -946,7 +946,33 @@ sub create_additives_panel($$$) {
 }
 
 
-sub add_taxonomy_properties_in_target_languages_to_object () {
+=head2 add_taxonomy_properties_in_target_languages_to_object ( $object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref )
+
+This function adds to the hash ref $object_ref (for instance a data structure passed to a template) the values
+of selected properties, if they exist in one of the target languages.
+
+For instance for the panel for an additive, we can include a Wikipedia abstract in the requested language if available,
+or in English if not.
+
+=head3 Arguments
+
+=head4 object reference $object_ref
+
+=head4 taxonomy $tagtype
+
+=head4 tag id $tagoid
+
+=head4 list of properties $properties_ref
+
+Properties to add to the resulting object.
+
+=head4 language codes $target_lcs
+
+Reference to an array of preferred languages, with the preferred language first.
+
+=cut
+
+sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
 
     my $object_ref = shift;
     my $tagtype = shift;
