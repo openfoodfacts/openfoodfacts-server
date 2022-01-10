@@ -925,6 +925,16 @@ sub create_additives_panel($$$) {
                 additive => $additive,
             };
 
+            # Wikipedia abstracts, in target language or English
+
+            my $target_lcs_ref = [$target_lc];
+            if ($target_lc ne "en") {
+                push @$target_lcs_ref, "en";
+            }
+
+            add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
+                ["wikipedia_url", "wikipedia_title", "wikipedia_abstract"], $target_lcs_ref);
+
             create_panel_from_json_template("additive_" . $additive, "api/knowledge-panels/health/ingredients/additive.tt.json",
                 $additive_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
@@ -932,6 +942,34 @@ sub create_additives_panel($$$) {
         create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
             $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
 
+    }
+}
+
+
+sub add_taxonomy_properties_in_target_languages_to_object () {
+
+    my $object_ref = shift;
+    my $tagtype = shift;
+    my $tagid = shift;
+
+    my $properties_ref = shift;
+    my $target_lcs_ref = shift;
+
+    foreach my $property (@$properties_ref) {
+        my $property_value;
+        my $property_lc;
+        foreach my $target_lc (@$target_lcs_ref) {
+            $property_value = get_property($tagtype, $tagid, $property . ":" . $target_lc);
+            if (defined $property_value) {
+                $property_lc = $target_lc;
+                last;
+            }
+        }
+        if (defined $property_value) {
+            $object_ref->{$property} = $property_value;
+            $object_ref->{$property . "_lc"} = $property_lc;
+            $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
+        }
     }
 }
 
