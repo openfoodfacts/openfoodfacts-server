@@ -149,6 +149,17 @@
                     <img src="[% image_element.url %]" alt="[% image_element.alt %]">
                 [% IF image_element.link_url.defined %]</a>[% END %]
 
+                [% IF image_element.source_url.defined %]
+                <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
+                    <a href="[% text_element.source_url %]">[% image_element.source_text %]
+                        [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
+                        <!-- source is in a different language than the interface -->
+                        ([% image_element.source_language %])
+                        [% END %]
+                    </a>
+                </div>
+            [% END %]                
+
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
                 <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
