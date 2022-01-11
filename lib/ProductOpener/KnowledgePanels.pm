@@ -984,6 +984,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
     foreach my $property (@$properties_ref) {
         my $property_value;
         my $property_lc;
+        # get property value for first language for which it is defined
         foreach my $target_lc (@$target_lcs_ref) {
             $property_value = get_property($tagtype, $tagid, $property . ":" . $target_lc);
             if (defined $property_value) {
