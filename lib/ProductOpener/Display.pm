@@ -622,7 +622,7 @@ sub init()
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
-	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
+	if (is_admin_user($User_id)) {
 		$admin = 1;
 	}
 
