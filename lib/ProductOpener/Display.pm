@@ -2120,19 +2120,17 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid ne "not-applicable") {
-					my $grade;
-					if ($tagid =~ /^[abcde]$/) {
-						$grade = uc($tagid);
-					}
-					else {
-						$grade = lang("unknown");
-					}
-					$display = "<img src=\"/images/misc/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" style=\"max-height:80px;\">" ;
+				my $grade;
+				if ($tagid =~ /^[abcde]$/) {
+					$grade = uc($tagid);
+				}
+				elsif ($tagid eq "not-applicable") {
+					$grade = lang("not_applicable");
 				}
 				else {
-					$display = lang("not_applicable");
+					$grade = lang("unknown");
 				}
+				$display = "<img src=\"/images/attributes/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 			}
 			elsif ($tagtype eq 'ecoscore') {
 				if ($tagid ne "not-applicable") {
@@ -9040,15 +9038,17 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 	# The Nutri-Score is unknown
 	else  {
 
-		$result_data_ref->{nutriscore_grade} = "unknown";
-
 		# Category without Nutri-Score: baby food, alcoholic beverages etc.
 		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
 				push @nutriscore_warnings, lang("nutriscore_not_applicable");
+				$result_data_ref->{nutriscore_grade} = "not-applicable";
 				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
 				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
 		}		
 		else {
+
+			$result_data_ref->{nutriscore_grade} = "unknown";
+
 			# Missing category?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_category");

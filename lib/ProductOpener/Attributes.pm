@@ -459,6 +459,7 @@ sub compute_attribute_nutriscore($$) {
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
+	# Nutri-Score A, B, C, D or E
 	if (defined $product_ref->{nutriscore_data}) {
 		$attribute_ref->{status} = "known";
 		
@@ -537,6 +538,20 @@ sub compute_attribute_nutriscore($$) {
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-$grade.svg";
 	}
+	
+	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
+	elsif (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
+		$attribute_ref->{match} = 0;
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");		
+		}		
+	}
+
+	# Nutri-Score not computed: missing data
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-unknown.svg";
