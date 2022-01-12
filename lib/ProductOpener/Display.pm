@@ -82,7 +82,7 @@ BEGIN
 		&add_tag_prefix_to_link
 		&display_taxonomy_api
 
-		&display_ingredient_analysis
+		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
@@ -394,8 +394,22 @@ sub process_template($$$) {
 	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
+
+	# Display one taxonomy entry in the target language
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	};
+
+	# Display a list of taxonomy entries in the target language
+	$template_data_ref->{display_taxonomy_tags_list} = sub ($$) {
+		my $tagtype = shift;
+		my $tags_ref = shift;
+		if (defined $tags_ref) {
+			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_) } @$tags_ref) ;
+		}
+		else {
+			return "";
+		}
 	};
 
 	$template_data_ref->{round} = sub($) {
@@ -608,7 +622,7 @@ sub init()
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
-	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
+	if (is_admin_user($User_id)) {
 		$admin = 1;
 	}
 
@@ -8968,8 +8982,101 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 
 	my $result_data_ref = {};
 
-	# Do not display nutriscore and traffic lights for some categories of products
-	# do not compute a score for baby foods
+	# Populate the data templates needed to display the Nutri-Score and nutrient levels
+
+	# Nutri-Score data
+
+	my @nutriscore_warnings = ();
+
+	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+
+		# Do not display a warning for water
+		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
+			# only when reconstituted with water only (no milk, no sugar)
+			if ((has_tag($product_ref, "categories", "en:tea-bags"))
+				or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
+				# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
+				or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
+				) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_tea_bags_note");
+			}
+
+			# Combined message when we miss both fruits and fiber
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
+				and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
+			}
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
+			}
+			elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
+			}
+
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"});
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value});
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
+				push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
+			}
+		}
+	}
+	# The Nutri-Score is unknown
+	else  {
+
+		$result_data_ref->{nutriscore_grade} = "unknown";
+
+		# Category without Nutri-Score: baby food, alcoholic beverages etc.
+		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+				push @nutriscore_warnings, lang("nutriscore_not_applicable");
+				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
+		}		
+		else {
+			# Missing category?
+			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
+				push @nutriscore_warnings, lang("nutriscore_missing_category");
+				$result_data_ref->{nutriscore_unknown_reason} = "missing_category";
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_category_short");
+			}
+
+			# Missing nutrition facts?
+			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
+				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
+				$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data"; # Takes precedence if the category is also missing
+				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_missing_nutrition_data_short");
+			}
+		}
+	}
+
+	if (@nutriscore_warnings > 0) {
+		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
+	}
+
+	if (defined $product_ref->{nutriscore_data}) {
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+	}
+	
+
+	# Nutrient levels data
+
+	# Do not display traffic lights for baby foods
 	if (has_tag($product_ref, "categories", "en:baby-foods")) {
 
 		$result_data_ref->{do_not_display} = 1;
@@ -8994,94 +9101,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 		}
 	}
 
-	# If we can display the Nutri-Score and nutrient levels,
-	# populate the data templates will need to display them
-
 	if (not $result_data_ref->{do_not_display}) {
-
-		# Nutri-Score data
-
-		my @nutriscore_warnings = ();
-
-		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
-			push @nutriscore_warnings, '1' . lang("nutriscore_not_applicable");
-		}
-
-		elsif ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
-
-			$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
-
-			# Do not display a warning for water
-			if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
-
-				# Warning for tea and herbal tea in bags: state that the Nutri-Score applies
-				# only when reconstituted with water only (no milk, no sugar)
-				if ((has_tag($product_ref, "categories", "en:tea-bags"))
-					or (has_tag($product_ref, "categories", "en:herbal-teas-in-tea-bags"))
-					# many tea bags are only under "en:teas", but there are also many tea beverages under "en:teas"
-					or ((has_tag($product_ref, "categories", "en:teas")) and not (has_tag($product_ref, "categories", "en:tea-based-beverages")))
-					) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_tea_bags_note");
-				}
-
-				# Combined message when we miss both fruits and fiber
-				if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)
-					and (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-						and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning");
-				}
-				elsif ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_fiber_warning");
-				}
-				elsif ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-						and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-					push @nutriscore_warnings, lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning");
-				}
-
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-										$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"});
-				}
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
-										display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-										$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value});
-				}
-				if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients})
-						and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} ne '')) {
-					push @nutriscore_warnings, sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"),
-										$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value});
-				}
-			}
-		}
-		# The Nutri-Score is unknown
-		else  {
-
-			$result_data_ref->{nutriscore_grade} = "unknown";
-
-			# Missing category?
-			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_category");
-			}
-
-			# Missing nutrition facts?
-			if (has_tag($product_ref,"misc","en:nutriscore-missing-nutrition-data")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
-			}
-		}
-
-		if (@nutriscore_warnings > 0) {
-			$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
-		}
-
-		if (defined $product_ref->{nutriscore_data}) {
-			$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($product_ref->{nutriscore_data});
-		}
-		
-
-		# Nutrient levels data
 
 		$result_data_ref->{nutrient_levels} = [];
 
@@ -9098,6 +9118,7 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 			}
 		}
 	}
+	
 
 	return $result_data_ref;
 }
@@ -9321,12 +9342,13 @@ sub data_to_display_nutrition_table($$) {
 		},
 	};
 
-	my @cols;
+	# List of columns
+	my @cols = ();
 
-	my %col_name = ();
+	# Data for each column
+	my %columns = ();
 
-	# We can have nutrition data for the product as sold, and/or prepared
-
+	# We can have data for the product as sold, and/or prepared
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
@@ -9340,19 +9362,32 @@ sub data_to_display_nutrition_table($$) {
 		$displayed_product_types{prepared} = 1;
 	}
 
-
 	foreach my $product_type (@displayed_product_types) {
 
 		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
 
-		my $col_name = $Lang{product_as_sold}{$lang};
+		my $col_name = lang("product_as_sold");
 		if ($product_type eq 'prepared_') {
-			$col_name = $Lang{prepared_product}{$lang};
+			$col_name = lang("prepared_product");
 		}
-		$col_name{$product_type . "100g"} = $col_name . "<br>" . $Lang{nutrition_data_per_100g}{$lang};
-		$col_name{$product_type . "serving"} = $col_name . "<br>" . $Lang{nutrition_data_per_serving}{$lang};
+
+		$columns{$product_type . "100g"} = {
+			scope => "product",
+			product_type => $product_type,
+			per => "100g",
+			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+			short_name => "100g",
+		};
+		$columns{$product_type . "serving"} = {
+			scope => "product",
+			product_type => $product_type,
+			per => "serving",
+			name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
+			short_name => lang("nutrition_data_per_serving"),
+		};		
+
 		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
-			$col_name{$product_type . "serving"} .= ' (' . $product_ref->{serving_size} . ')';
+			$columns{$product_type . "serving"}{name} .= ' (' . $product_ref->{serving_size} . ')';
 		}
 
 		if (not defined $product_ref->{$nutrition_data_per}) {
@@ -9390,17 +9425,7 @@ sub data_to_display_nutrition_table($$) {
 				push @cols, $product_type . '100g';
 			}
 		}
-
 	}
-
-	my %col_class = (
-		std => 'stats',
-		min => 'stats',
-		'10' => 'stats',
-		'50' => 'stats',
-		'90' => 'stats',
-		'max' => 'stats',
-	);
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -9417,8 +9442,12 @@ sub data_to_display_nutrition_table($$) {
 			my $col_id = "compare_" . $i;
 
 			push @cols, $col_id;
-			$col_class{$col_id} = $col_id;
-			$col_name{$col_id} = lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name};
+
+			$columns{$col_id} = {
+				"scope" => "comparisons",
+				"name" => lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name},
+				"class" => $col_id,
+			};
 
 			$log->debug("displaying nutrition table comparison column", { colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 
@@ -9454,9 +9483,13 @@ CSS
 
 	if (defined $product_ref->{stats}) {
 
-		foreach my $col ('std', 'min', '10', '50', '90', 'max') {
-			push @cols, $col;
-			$col_name{$col} = lang("nutrition_data_per_$col");
+		foreach my $col_id ('std', 'min', '10', '50', '90', 'max') {
+			push @cols, $col_id;
+			$columns{$col_id} = {
+				"scope" => "categories",
+				"name" => lang("nutrition_data_per_" . $col_id),
+				"class" => "stats",
+			};
 		}
 
 		if ($product_ref->{id} ne 'search') {
@@ -9469,13 +9502,10 @@ CSS
 
 	# Data for the nutrition table header
 
-	foreach my $col (@cols) {
+	foreach my $col_id (@cols) {
 
-		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, {
-			col_id => $col,
-			class => $col_class{$col},
-			name => $col_name{$col},
-		});
+		$columns{$col_id}{col_id} = $col_id;
+		push (@{$template_data_ref->{nutrition_table}{header}{columns}}, $columns{$col_id});
 
 	}
 
@@ -9593,11 +9623,11 @@ CSS
 
 			my $extra_row = 0;	# Some rows will trigger an extra row (e.g. Salt adds Sodium)
 
-			foreach my $col (@cols) {
+			foreach my $col_id (@cols) {
 
 				my $values;    # Value for row
 				my $values2;    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
-				my $col_class = '';
+				my $col_class = $columns{$col_id}{class};
 				my $percent;
 				my $percent_numeric_value;
 
@@ -9606,11 +9636,7 @@ CSS
 
 				my $col_type;
 
-				if (defined $col_class{$col}) {
-					$col_class = ' ' . $col_class{$col} ;
-				}
-
-				if ( $col =~ /compare_(.*)/ ) {    #comparisons
+				if ( $col_id =~ /compare_(.*)/ ) {    #comparisons
 
 					$col_type = "comparison";
 
@@ -9715,16 +9741,16 @@ CSS
 					# Nutriscore: per serving = per 100g
 					if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
 						# same Nutri-Score for 100g / serving and prepared / as sold
-						$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$1 . "_100g"};
+						$product_ref->{nutriments}{$nid . "_" . $col_id} = $product_ref->{nutriments}{$1 . "_100g"};
 					}
 
 					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
 					my $prepared = '';
-					if ($col =~ /prepared/) {
+					if ($col_id =~ /prepared/) {
 						$prepared = "_prepared";
 					}					
 
-					if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
+					if ((not defined $product_ref->{nutriments}{$nid . "_" . $col_id}) or ($product_ref->{nutriments}{$nid . "_" . $col_id} eq '')) {
 						if ((defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"})
 							and ($product_ref->{nutriments}{$nid . $prepared . "_modifier"} eq '-')) {
 							# The nutrient is not indicated on the package, display a minus sign
@@ -9741,16 +9767,16 @@ CSS
 
 						# energy-kcal is already in kcal
 						if ($nid eq 'energy-kcal') {
-							$value = $product_ref->{nutriments}{$nid . "_$col"};
+							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
 						}
 
 						# too small values are converted to e notation: 7.18e-05
 						if (($value . ' ') =~ /e/) {
 							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+							$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
 						}
 
 						$value_unit = "$value $unit";
@@ -9762,12 +9788,12 @@ CSS
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 							# Use the actual value in kcal if we have it
 							my $value_in_kcal;
-							if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_$col"}) {
-								$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_$col"};
+							if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id}) {
+								$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id};
 							}
 							# Otherwise convert the value in kj
 							else {
-								$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal');
+								$value_in_kcal =  g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, 'kcal');
 							}
 							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 						}
@@ -9775,15 +9801,15 @@ CSS
 
 					if ($nid eq 'sodium') {
 						my $salt;
-						if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
-							$salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.5;
+						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
+							$salt = $product_ref->{nutriments}{$nid . "_" . $col_id} * 2.5;
 						}
-						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
-							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
+						if (exists $product_ref->{nutriments}{"salt" . "_" . $col_id}) {
+							$salt = $product_ref->{nutriments}{"salt" . "_" . $col_id};
 						}
 						if (defined $salt) {
 							$salt = $decf->format(g_to_unit($salt, $unit));
-							if ($col eq '100g') {
+							if ($col_id eq '100g') {
 								$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
 							}
 							$salt .= " " . $unit;
@@ -9795,15 +9821,15 @@ CSS
 					}
 					elsif ($nid eq 'salt') {
 						my $sodium;
-						if (defined $product_ref->{nutriments}{$nid . "_$col"}) {
-							$sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.5;
+						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
+							$sodium = $product_ref->{nutriments}{$nid . "_" . $col_id} / 2.5;
 						}
-						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
-							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+						if (exists $product_ref->{nutriments}{"sodium". "_" . $col_id}) {
+							$sodium = $product_ref->{nutriments}{"sodium". "_" . $col_id};
 						}
 						if (defined $sodium) {
 							$sodium = $decf->format(g_to_unit($sodium, $unit));
-							if ($col eq '100g') {
+							if ($col_id eq '100g') {
 								$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 							}
 							$sodium .= " " . $unit;
@@ -9828,27 +9854,27 @@ CSS
 
 						if (defined $product_ref->{categories_tags}) {
 
-							if ($col ne "std") {
+							if ($col_id ne "std") {
 
-								my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_$col"},
+								my $nutriscore_grade = compute_nutriscore_grade($product_ref->{nutriments}{$nid . "_" . $col_id},
 									is_beverage_for_nutrition_score($product_ref), is_water_for_nutrition_score($product_ref));
 
 								$values2 = uc ($nutriscore_grade);
 							}
 						}
 					}
-					elsif ($col eq $product_ref->{nutrition_data_per}) {
+					elsif ($col_id eq $product_ref->{nutrition_data_per}) {
 						# % DV ?
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
 							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
 						}
 					}
 
-					if (($col eq '100g') and (defined $product_ref->{nutriments}{$nid . "_$col"})) {
+					if (($col_id eq '100g') and (defined $product_ref->{nutriments}{$nid . "_" . $col_id})) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
 						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
+						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_" . $col_id} . "\"";
 					}
 
 					$values = $value_unit;
@@ -10131,6 +10157,16 @@ sub display_taxonomy_api($) {
 sub display_product_api($) {
 
 	my $request_ref = shift;
+
+	# Is a sample product requested?
+	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
+		
+		$request_ref->{code} = $options{"sample_product_code_country_${cc}_language_${lc}"}
+			||  $options{"sample_product_code_country_${cc}"}
+			||  $options{"sample_product_code_language_${lc}"}
+			||	$options{"sample_product_code"}
+			|| "";
+	}	
 
 	my $code = normalize_code($request_ref->{code});
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -10793,7 +10829,7 @@ sub display_icon {
 }
 
 
-=head2 display_ingredient_analysis ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
+=head2 display_nested_list_of_ingredients ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
 
 Recursive function to display how the ingredients were analyzed.
 This function calls itself to display sub-ingredients of ingredients.
@@ -10810,11 +10846,11 @@ Reference to a list of ingredients in text format that we will reconstruct from 
 
 =head4 $ingredients_list_ref (output)
 
-Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
+Reference to an HTML list of ingredients in ordered nested list format that corresponds to the ingredients array.
 
 =cut
 
-sub display_ingredient_analysis($$$) {
+sub display_nested_list_of_ingredients($$$) {
 
 	my $ingredients_ref = shift;
 	my $ingredients_text_ref = shift;
@@ -10852,7 +10888,7 @@ sub display_ingredient_analysis($$$) {
 
 		if (defined $ingredient_ref->{ingredients}) {
 			${$ingredients_text_ref} .= " (";
-			display_ingredient_analysis($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
+			display_nested_list_of_ingredients($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
 			${$ingredients_text_ref} .= ")";
 		}
 
@@ -10864,6 +10900,55 @@ sub display_ingredient_analysis($$$) {
 	return;
 }
 
+
+=head2 display_list_of_specific_ingredients ( $product_ref )
+
+Generate HTML to display how the specific ingredients (e.g. mentions like "Total milk content: 90%")
+were analyzed.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head3 Return value
+
+Empty string if no specific ingredients were detected, or HTML describing the specific ingredients.
+
+=cut
+
+sub display_list_of_specific_ingredients($) {
+
+	my $product_ref = shift;
+
+	if (not defined $product_ref->{specific_ingredients}) {
+		return "";
+	}
+
+	my $html = "<ul id=\"specific_ingredients_list\">\n";
+
+	foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+
+		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
+		my $class = '';
+		if (not $ingredients_exists) {
+			$class = ' class="unknown_ingredient"';
+		}
+
+		$html .= "<li>" . $ingredient_ref->{text} . "<br>" . "<span$class>" . $ingredient_ref->{ingredient} . "</span>" . " -> " . $ingredient_ref->{id};
+
+		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
+			if (defined $ingredient_ref->{$property}) {
+				$html .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+			}
+		}
+
+		$html .= "</li>\n";
+	}
+
+	$html .= "</ul>\n";
+
+	return $html;
+}
 
 
 =head2 display_ingredients_analysis_details ( $product_ref )
@@ -10890,12 +10975,14 @@ sub display_ingredients_analysis_details($) {
 	my $ingredients_text = "";
 	my $ingredients_list = "";
 
-	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+
+	my $specific_ingredients = display_list_of_specific_ingredients($product_ref);
 
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
-	if ($ingredients_text =~ /unknown_ingredient/) {
+	if ($ingredients_text . $specific_ingredients =~ /unknown_ingredient/) {
 		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
 
 		$styles .= <<CSS
@@ -10908,6 +10995,7 @@ CSS
 
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 	$template_data_ref->{ingredients_list} = $ingredients_list;
+	$template_data_ref->{specific_ingredients} = $specific_ingredients;
 
 	my $html;
 
