@@ -80,6 +80,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -144,6 +145,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -208,6 +210,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -216,8 +219,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : "0",
-                  "ecoscore_shape_ratio" : "0.1",
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0.1,
                   "material" : "en:plastic",
                   "non_recyclable_and_non_biodegradable" : "maybe",
                   "number" : "1",
@@ -250,7 +253,7 @@
          "ef_distribution" : "0.0091483656",
          "ef_packaging" : "0",
          "ef_processing" : "0",
-         "ef_total" : "0.070883164",
+         "ef_total" : 0.070883164,
          "ef_transportation" : "0.013259629",
          "is_beverage" : 0,
          "name_en" : "Carrot, raw",
@@ -320,6 +323,7 @@
          "uk" : "a",
          "us" : "a",
          "va" : "a",
+         "world" : "a",
          "xk" : "a"
       },
       "missing" : {
@@ -390,6 +394,7 @@
          "uk" : 92,
          "us" : 92,
          "va" : 92,
+         "world" : 92,
          "xk" : 92
       },
       "status" : "known"
@@ -447,7 +452,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "packaging_text" : "1 plastic film",
    "packagings" : [

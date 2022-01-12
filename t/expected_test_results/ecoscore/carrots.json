@@ -78,6 +78,7 @@
                "uk" : 68,
                "us" : 0,
                "va" : 29,
+               "world" : 0,
                "xk" : 28
             },
             "transportation_values" : {
@@ -142,6 +143,7 @@
                "uk" : 10,
                "us" : 0,
                "va" : 4,
+               "world" : 0,
                "xk" : 4
             },
             "values" : {
@@ -206,6 +208,7 @@
                "uk" : 14,
                "us" : 4,
                "va" : 8,
+               "world" : 4,
                "xk" : 8
             }
          },
@@ -214,7 +217,7 @@
             "packagings" : [
                {
                   "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : "0",
+                  "ecoscore_shape_ratio" : 0,
                   "material" : "en:unknown",
                   "shape" : "en:bulk"
                }
@@ -247,7 +250,7 @@
          "ef_distribution" : "0.0091483656",
          "ef_packaging" : "0",
          "ef_processing" : "0",
-         "ef_total" : "0.070883164",
+         "ef_total" : 0.070883164,
          "ef_transportation" : "0.013259629",
          "is_beverage" : 0,
          "name_en" : "Carrot, raw",
@@ -317,6 +320,7 @@
          "uk" : "a",
          "us" : "a",
          "va" : "a",
+         "world" : "a",
          "xk" : "a"
       },
       "missing" : {
@@ -386,6 +390,7 @@
          "uk" : 123,
          "us" : 122,
          "va" : 123,
+         "world" : 122,
          "xk" : 123
       },
       "status" : "known"
@@ -447,7 +452,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "packaging_text" : "vrac",
    "packagings" : [

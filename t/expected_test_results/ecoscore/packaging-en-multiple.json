@@ -79,6 +79,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -143,6 +144,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -207,6 +209,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -215,23 +218,23 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : "92",
-                  "ecoscore_shape_ratio" : "1",
+                  "ecoscore_material_score" : 92,
+                  "ecoscore_shape_ratio" : 1,
                   "material" : "en:cardboard",
                   "number" : "1",
                   "shape" : "en:box"
                },
                {
-                  "ecoscore_material_score" : "0",
-                  "ecoscore_shape_ratio" : "0.1",
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0.1,
                   "material" : "en:plastic",
                   "non_recyclable_and_non_biodegradable" : "maybe",
                   "number" : "1",
                   "shape" : "en:film"
                },
                {
-                  "ecoscore_material_score" : "76",
-                  "ecoscore_shape_ratio" : "1",
+                  "ecoscore_material_score" : 76,
+                  "ecoscore_shape_ratio" : 1,
                   "material" : "en:steel",
                   "number" : "6",
                   "quantity" : "33cl",
@@ -268,7 +271,7 @@
          "ef_distribution" : "0.0088128735",
          "ef_packaging" : "0.014792145999999999",
          "ef_processing" : "0.0056288216",
-         "ef_total" : "0.14687612",
+         "ef_total" : 0.14687612,
          "ef_transportation" : "0.029304117999999997",
          "is_beverage" : 1,
          "name_en" : "Mixed fruits juice, orange based, multivitamin",
@@ -338,6 +341,7 @@
          "uk" : "c",
          "us" : "c",
          "va" : "c",
+         "world" : "c",
          "xk" : "c"
       },
       "missing" : {
@@ -409,6 +413,7 @@
          "uk" : 42,
          "us" : 42,
          "va" : 42,
+         "world" : 42,
          "xk" : 42
       },
       "status" : "known"

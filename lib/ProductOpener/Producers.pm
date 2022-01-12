@@ -161,148 +161,111 @@ sub load_csv_or_excel_file($) {
 	my $extension = $file;
 	$extension =~ s/^(.*)\.//;
 	$extension = lc($extension);
+	my $csv_file = $file;
 
 	my $encoding = "UTF-8";
-	
+
 	# By default, assume the separator is a comma
 	my $separator = ",";
-	
-	# If there are tabs in the first line, assume the separator is tab
-	if (open (my $io, "<:encoding($encoding)", $file)) {
-		my $line = <$io>;
-		if ($line =~ /\t/) {
-			$separator = "\t";
+
+	if ($extension =~ /^xls.?$/) {
+		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
+		$csv_file = $file . ".csv";
+		system("ssconvert", $file, $csv_file);
+		$log->debug("converting Excel file with gnumeric's ssconvert - output", { file => $file, extension => $extension, command => $0, error => $? }) if $log->is_debug();
+	} else {
+		# If there are tabs in the first line, assume the separator is tab
+		if (open (my $io, "<:encoding($encoding)", $file)) {
+			my $line = <$io>;
+			if ($line =~ /\t/) {
+				$separator = "\t";
+			}
 		}
 	}
 
-	if (($extension eq "csv") or ($extension eq "tsv") or ($extension eq "txt")) {
+	$log->debug("opening CSV file", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-		$log->debug("opening CSV file", { file => $file, extension => $extension }) if $log->is_debug();
+	my $csv_options_ref = { binary => 1, sep_char => $separator };    # should set binary attribute.
 
-		my $csv_options_ref = { binary => 1, sep_char => $separator };    # should set binary attribute.
+	$log->debug("opening CSV file with Text::CSV", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-		my $csv = Text::CSV->new ( $csv_options_ref )
-			or die("Cannot use CSV: " . Text::CSV->error_diag ());
+	my $csv = Text::CSV->new ( $csv_options_ref )
+	or die("Cannot use CSV: " . Text::CSV->error_diag ());
 
-		if (open (my $io, "<:encoding($encoding)", $file)) {
+	if (open (my $io, "<:encoding($encoding)", $csv_file)) {
 
-			# @$headers_ref = $csv->header ($io, { detect_bom => 1 });
-			# the header function crashes with some csv files... use getline instead
-			my $row_ref;
+		$log->debug("opened file with Text::CSV", { file => $csv_file, extension => $extension }) if $log->is_debug();
 
-			while ((not defined $row_ref) and ($row_ref = $csv->getline ($io))) {
-			}
+		# Remove completely empty rows and columns
 
-			if (defined $row_ref) {
+		my @original_rows = ();
+		my @non_empty_columns = ();
 
-				@{$headers_ref} = @{$row_ref};
-
-				while ($row_ref = $csv->getline ($io)) {
-					push @{$rows_ref}, $row_ref;
+		while (my $row_ref = $csv->getline ($io)) {
+			my $non_empty_values= 0;
+			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+				if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+					$non_empty_values++;
 				}
 			}
-			else {
-				$results_ref->{error} = "Could not read header line in CSV $file: $!";
+			# Remove rows with a value for only one column, and do not use that value for non empty columns
+			if ($non_empty_values >= 2) {
+				push @original_rows, $row_ref;
+
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+						$non_empty_columns[$i] = 1;
+					}
+				}
 			}
 		}
-		else {
-			$results_ref->{error} = "Could not open CSV $file: $!";
+
+		$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
+
+		# Copy non empty columns and rows
+
+		my $seen_header = 0;
+
+		foreach my $row_ref (@original_rows) {
+			my @new_row = ();
+			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+				if ($non_empty_columns[$i]) {
+					push @new_row, $row_ref->[$i];
+				}
+			}
+
+			$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
+
+			# Is it a header? (column 1 or 2 should not be empty)
+			if (not $seen_header) {
+
+				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
+					$seen_header = 1;
+					@{$headers_ref} = @new_row;
+
+					$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
+				}
+
+				# Otherwise skip the line until we see a header
+			}
+			else {
+				# Skip empty lines or lines without a barcode (at least 8 digits)
+				my $line = join(",", @new_row);
+				# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
+				$line =~ s/ |_|-|\.//g;
+				if ($line !~ /[0-9]{8}/) {
+					$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
+				}
+				else {
+					push @{$rows_ref}, \@new_row;
+				}
+			}
 		}
 	}
 	else {
-		$log->debug("opening Excel file", { file => $file, extension => $extension }) if $log->is_debug();
-
-		# my $csv = Spreadsheet::CSV->new();
-		# Spreadsheet::CSV does not handle well some Excel files (some cells are missing)
-		# use gnumeric's ssconvert to first convert to CSV format
-
-		$log->debug("converting Excel file with gnumeric's ssconvert", { file => $file, extension => $extension }) if $log->is_debug();
-
-		system("ssconvert", $file, $file . ".csv");
-		
-		$log->debug("converting Excel file with gnumeric's ssconvert - output", { file => $file, extension => $extension, command => $0, error => $? }) if $log->is_debug();
-		
-		my $csv_options_ref = { binary => 1, sep_char => "," };    # should set binary attribute.
-
-		$log->debug("opening CSV file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-
-		my $csv = Text::CSV->new ( $csv_options_ref )
-		or die("Cannot use CSV: " . Text::CSV->error_diag ());
-
-		if (open (my $io, "<:encoding($encoding)", $file . ".csv")) {
-
-			$log->debug("opened file with Text::CSV", { file => $file . ".csv", extension => $extension }) if $log->is_debug();
-
-			# Remove completely empty rows and columns
-
-			my @original_rows = ();
-			my @non_empty_columns = ();
-
-			while (my $row_ref = $csv->getline ($io)) {
-				my $non_empty_values= 0;
-				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-						$non_empty_values++;
-					}
-				}
-				# Remove rows with a value for only one column, and do not use that value for non empty columns
-				if ($non_empty_values >= 2) {
-					push @original_rows, $row_ref;
-					
-					for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-						if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-							$non_empty_columns[$i] = 1;
-						}
-					}
-				}
-			}
-			
-			$log->debug("non empty columns", { number_of_original_rows => scalar(@original_rows) , non_empty_columns => \@non_empty_columns}) if $log->is_debug();
-			
-			# Copy non empty columns and rows
-			
-			my $seen_header = 0;
-			
-			foreach my $row_ref (@original_rows) {
-				my @new_row = ();
-				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-					if ($non_empty_columns[$i]) {
-						push @new_row, $row_ref->[$i];
-					}
-				}
-				
-				$log->debug("new_row", { new_row => \@new_row }) if $log->is_debug();
-				
-				# Is it a header? (column 1 or 2 should not be empty)
-				if (not $seen_header) {
-					
-					if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
-						$seen_header = 1;
-						@{$headers_ref} = @new_row;
-						
-						$log->debug("seen header", { headers_ref => $headers_ref}) if $log->is_debug();
-					}
-					
-					# Otherwise skip the line until we see a header
-				}
-				else {
-					# Skip empty lines or lines without a barcode (at least 8 digits)
-					my $line = join(",", @new_row);
-					# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
-					$line =~ s/ |_|-|\.//g;
-					if ($line !~ /[0-9]{8}/) {
-						$log->debug("skipping row without barcode", { new_row => \@new_row, line => $line}) if $log->is_debug();
-					}
-					else {
-						push @{$rows_ref}, \@new_row;
-					}
-				}
-			}
-		}
-		else {
-			$results_ref->{error} = "Could not open CSV $file.csv: $!";
-		}
+		$results_ref->{error} = "Could not open CSV $file.csv: $!";
 	}
+
 
 	if (not $results_ref->{error}) {
 
@@ -727,21 +690,13 @@ sub init_nutrients_columns_names_for_lang($) {
 
 	$nutriment_table = $cc_nutriment_table{default};
 
-	# Go through the nutriment table
-	foreach my $nutriment (sort keys %Nutriments) {
+	# Go through all the nutrients in the nutrients taxonomy
+	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
+		my $nid = $nutrient_tagid;
+		$nid =~ s/^zz://g;
 
-		my @synonyms = ();
-		if (exists $Nutriments{$nid}{$l . "_synonyms"}) {
-			@synonyms = @{$Nutriments{$nid}{$l . "_synonyms"}};
-		}
-		if (exists $Nutriments{$nid}{$l}) {
-			unshift @synonyms, $Nutriments{$nid}{$l};
-		}
+		my @synonyms = get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid);
 
 		# Synonyms for each nutrient
 
@@ -876,8 +831,6 @@ sub init_nutrients_columns_names_for_lang($) {
 							}
 						}
 					}
-
-					# $log->debug("nutrient", { l=>$l, nid=>$nid, nutriment_lc=>$Nutriments{$nid}{$l} }) if $log->is_debug();
 				}
 			}
 		}
@@ -1370,13 +1323,7 @@ JSON
 
 				my $field = $nid;
 
-				my $name;
-				if (exists $Nutriments{$nid}{$lc}) {
-					$name = $Nutriments{$nid}{$lc};
-				}
-				else {
-					$name = $Nutriments{$nid}{en};
-				}
+				my $name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 				push @{$select2_group_ref->{children}}, { id => $nid . "_100g_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_100g")};
 				push @{$select2_group_ref->{children}}, { id => $nid . "_serving_value_unit", text => ucfirst($name) . " " . lang("nutrition_data_per_serving") };

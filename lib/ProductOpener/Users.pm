@@ -89,6 +89,8 @@ use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -180,14 +182,14 @@ sub delete_user($) {
 	
 	# Remove the e-mail
 
-	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~/\@/)) {
 		
 		if (defined $emails_ref->{$email}) {
 			delete $emails_ref->{$email};
-			store("$data_root/users_emails.sto", $emails_ref);
+			store("$data_root/users/users_emails.sto", $emails_ref);
 		}
 	}
 	
@@ -419,7 +421,7 @@ sub check_user_form($$$) {
 	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
 			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
@@ -654,7 +656,7 @@ sub process_user_form($$) {
 	store("$data_root/users/$userid.sto", $user_ref);
 
 	# Update email
-	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~/\@/)) {
@@ -664,7 +666,7 @@ sub process_user_form($$) {
 		delete $emails_ref->{$user_ref->{old_email}};
 		delete $user_ref->{old_email};
 	}
-	store("$data_root/users_emails.sto", $emails_ref);
+	store("$data_root/users/users_emails.sto", $emails_ref);
 
 
 	if ($type eq 'add') {
@@ -713,7 +715,7 @@ sub check_edit_owner($$) {
 	# If the owner id looks like a GLN, see if we have a corresponding org
 	
 	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
-		my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
 		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
 			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
@@ -800,7 +802,7 @@ sub init_user()
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
+			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 			if (not defined $emails_ref->{$user_id}) {
 				# not found, try with lower case email
 				$user_id = lc $user_id;

@@ -129,6 +129,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -2748,6 +2749,12 @@ sub log_change {
 	return;
 }
 
+=head2 compute_changes_diff_text ( $change_ref )
+
+Generates a text that describes the changes made. The text is displayed in the edit history of products.
+
+=cut
+
 sub compute_changes_diff_text {
 
 	my $change_ref = shift;
@@ -2763,19 +2770,6 @@ sub compute_changes_diff_text {
 					if (defined $diffs{$group}{$diff}) {
 						$diffs .= "(" . lang("diff_$diff") . ' ' ;
 						my @diffs = @{$diffs{$group}{$diff}};
-						if ($group eq 'fields') {
-							# @diffs = map( lang($_), @diffs);
-						}
-						elsif ($group eq 'nutriments') {
-							# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
-							# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
-							my @lc_diffs = ();
-							foreach my $nid (@diffs) {
-								if (exists $Nutriments{$nid}) {
-									push @lc_diffs, $Nutriments{$nid}{$lc};
-								}
-							}
-						}
 						$diffs .= join(", ", @diffs) ;
 						$diffs .= ") ";
 					}

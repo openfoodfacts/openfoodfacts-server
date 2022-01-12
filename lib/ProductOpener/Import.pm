@@ -98,6 +98,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -266,7 +267,7 @@ sub import_csv_file($) {
 	$log->debug("starting import_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id, args_ref => $args_ref }) if $log->is_debug();
 	
 	# Load GS1 GLNs so that we can map products to the owner orgs
-	my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
@@ -323,8 +324,6 @@ sub import_csv_file($) {
 	my %nutrients_edited = ();
 
 	# Read images if supplied
-
-	my @sorted_nutriments = sort keys %Nutriments;
 
 	my $images_ref = {};
 
@@ -626,7 +625,7 @@ sub import_csv_file($) {
 							$org_ref->{sources_field}{"org-gs1"}{"partyName"} = $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 						}
 						set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-						$glns_ref = retrieve("$data_root/orgs_glns.sto");
+						$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 					}
 			
 					store_org($org_ref);
@@ -1308,13 +1307,10 @@ sub import_csv_file($) {
 
 		my $seen_salt = 0;
 
-		foreach my $nutriment (@sorted_nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
 
-			next if $nutriment =~ /^\#/;
-
-			my $nid = $nutriment;
-			$nid =~ s/^(-|!)+//g;
-			$nid =~ s/-$//g;
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			# don't set sodium if we have salt
 			next if (($nid eq 'sodium') and ($seen_salt));

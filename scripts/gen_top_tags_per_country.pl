@@ -47,6 +47,14 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
+# Output will be in the $data_root/data directory
+# data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
+# data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
+
+(-e "$data_root/data") or mkdir("$data_root/data", 0755) or die("Could not create target directory $data_root/data : $!\n");
+(-e "$data_root/data/index") or mkdir("$data_root/data/index", 0755) or die("Could not create target directory $data_root/data/index : $!\n");
+(-e "$data_root/data/categories_stats") or mkdir("$data_root/data/categories_stats", 0755) or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+
 # Generate a list of the top brands, categories, users, additives etc.
 
 my @fields = qw (
@@ -83,9 +91,6 @@ entry_dates
 
 # also generate stats for categories
 
-
-
-
 my %countries = ();
 my $total = 0;
 
@@ -97,10 +102,6 @@ my %products = ();
 
 my $l = 'en';
 $lc = $l;
-
-
-
-
 
 my %dates = ();
 
@@ -379,7 +380,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 # Read ambassadors.txt
 my %ambassadors = ();
-if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
+if (open (my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
 	while (<$IN>) {
 		chomp();
 		if (/\s+/) {
@@ -390,7 +391,7 @@ if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
 	}
 }
 else {
-	print STDERR "$data_root/ambassadors.txt does not exist\n";
+	print STDERR "$data_root/data/ambassadors.txt does not exist\n";
 }
 
 my %ambassadors_countries_points = (_all_ => {});
@@ -418,11 +419,11 @@ foreach my $country (keys %countries_points) {
 }
 
 
-store("$data_root/index/countries_points.sto", \%countries_points);
-store("$data_root/index/users_points.sto", \%users_points);
+store("$data_root/data/index/countries_points.sto", \%countries_points);
+store("$data_root/data/index/users_points.sto", \%users_points);
 
-store("$data_root/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$data_root/data/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$data_root/data/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 
 
@@ -474,7 +475,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 
-	store("$data_root/index/categories_nutriments_per_country.$cc.sto", \%categories);
+	store("$data_root/data/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
 
 
 	# Dates

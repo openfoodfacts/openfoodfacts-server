@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:46\n"
+"PO-Revision-Date: 2021-12-07 09:03\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1537,10 +1537,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "يسرد الجدول حسب العناصر الغذائية الافتراضية التي غالبًا ما يتم تحديدها. اترك الحقل فارغًا إذا لم يكن على الملصق. <br/> يمكنك إضافة المزيد من العناصر الغذائية (الفيتامينات والمعادن والكوليسترول وما إلى ذلك)\n"
 "عن طريق كتابة الأحرف الأولى من اسمهم في الصف الأخير من الجدول."
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "درجات التغذية"
@@ -2151,7 +2147,7 @@ msgstr "رابط دائم لهذه النتائج ، قابل للمشاركة �
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "عربية"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2455,7 +2451,7 @@ msgstr "آثار"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "athar"
+msgstr ""
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2527,7 +2523,7 @@ msgstr "المنتجات المضافة بواسطة %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "almousstakhdimoun"
+msgstr ""
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2614,12 +2610,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "تحذير: لم يتم تحديد كمية الفواكه والخضروات والمكسرات ، لا يمكن أخذ مساهمتها الإيجابية المحتملة في التقدير."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، فقد قدرت من قائمة المكونات: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، تم تقديرها من فئة (%s) من المنتج: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "تحذير: كمية الفواكه والخضروات والمكسرات غير محددة على الملصق ، فقد قدرت من قائمة المكونات: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3837,7 +3837,7 @@ msgstr "إغلق"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "إلغاء التحميل"
 
 msgctxt "info"
 msgid "Info"
@@ -5437,20 +5437,16 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr ""
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr ""
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
+msgid "Ingredients that threatens species"
 msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
+msgid "No ingredients that threaten species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5460,10 +5456,6 @@ msgstr ""
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr ""
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "التعبئة والتغليف"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5607,13 +5599,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "هام: نحن بحاجة إلى دعمك!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts هو مشروع تعاوني أنشأه عشرات الآلاف من المتطوعين وتديره منظمة غير ربحية تضم 3 موظفين."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr ""
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "نحتاج إلى تبرعاتك لتمويل ميزانية Open Food Facts 2021 ولمواصلة تطوير المشروع. <strong>شكرا لك! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5732,5 +5726,21 @@ msgstr ""
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr ""
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr ""
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "health"
+msgid "Health"
 msgstr ""
 

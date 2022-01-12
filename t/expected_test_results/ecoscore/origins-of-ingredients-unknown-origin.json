@@ -78,6 +78,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "transportation_values" : {
@@ -142,6 +143,7 @@
                "uk" : 0,
                "us" : 0,
                "va" : 0,
+               "world" : 0,
                "xk" : 0
             },
             "values" : {
@@ -206,6 +208,7 @@
                "uk" : -5,
                "us" : -5,
                "va" : -5,
+               "world" : -5,
                "xk" : -5
             },
             "warning" : "origins_are_100_percent_unknown"
@@ -308,6 +311,7 @@
          "uk" : "d",
          "us" : "d",
          "va" : "d",
+         "world" : "d",
          "xk" : "d"
       },
       "missing" : {
@@ -379,6 +383,7 @@
          "uk" : 34,
          "us" : 34,
          "va" : 34,
+         "world" : 34,
          "xk" : 34
       },
       "status" : "known"
@@ -435,7 +440,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "packagings" : [],
    "unknown_ingredients_n" : 0

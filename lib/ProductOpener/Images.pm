@@ -76,6 +76,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Log::Any qw($log);
 use Encode;

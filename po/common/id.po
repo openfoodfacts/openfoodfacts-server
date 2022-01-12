@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:49\n"
+"PO-Revision-Date: 2021-12-09 09:09\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1538,10 +1538,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "Secara default tabel mendaftar nutrisi yang sering ditetapkan. Kosongkan field isian jika tidak ada dalam label.<br/>Anda dapat menambahkan nutrisi tambahan (vitamin, mineral, kolesterol, dll.)\n"
 "dengan mengetik huruf pertama dari semua nutrisi pada baris terakhir tabel."
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Nilai - nilai gizi"
@@ -2613,12 +2609,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Peringatan: jumlah buah, sayuran, dan kacang-kacangan tidak ditentukan, kemungkinan kontribusi positif terhadap nilai gizi tidak dapat diperhitungkan."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Peringatan: jumlah buah - buahan, sayur - sayuran, dan kacang-kacangan tidak ditentukan pada label, ini diperkirakan dari daftar kandungan bahan: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "Peringatan: jumlah buah - buahan, sayur - sayuran, dan kacang-kacangan tidak ditentukan pada label, ini diperkirakan dari kategori (%s) produk: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Peringatan: jumlah buah - buahan, sayur - sayuran, dan kacang-kacangan tidak ditentukan pada label, ini diperkirakan dari daftar kandungan bahan: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -5436,20 +5436,16 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Kebijakan lingkungan"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Transportasi"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Spesies terancam"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "Bahan yang budidayanya mengancam spesies"
+msgid "Ingredients that threatens species"
+msgstr ""
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
+msgid "No ingredients that threaten species"
 msgstr ""
 
 msgctxt "ecoscore_ingredients_unknown"
@@ -5459,10 +5455,6 @@ msgstr "Informasi tentang bahan produk ini belum diberikan."
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "Untuk penghitungan Eco-Score yang lebih tepat, Anda bisa menyunting halaman produk dan menambahkannya."
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "Kemasan"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5555,35 +5547,35 @@ msgstr "Menghapus atau mengubah data yang disediakan hanya akan mungkin oleh kon
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Kemasan dengan dampak tinggi"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Kemasang dengan dampak sedang"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Kemasan dengan dampak rendah"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Informasi kemasan tidak ada untuk produk ini"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Asal usul bahan dengan dampak tinggi"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Asal usul bahan dengan dampak sedang"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Asal usul bahan dengan dampak rendah"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Informasi asal usul bahan tidak ada"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5606,13 +5598,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Penting: kami membutuhkan dukungan Anda!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "Open Food Facts adalah sebuah proyek kolaboratif yang dibangun oleh puluhan ribu sukarelawan dan dikelola oleh satu organisasi nirlaba dengan 3 karyawan."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr ""
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Kami membutuhkan donasi Anda untuk mendanai anggaran Open Food Facts 2021 dan untuk terus mengembangkan proyek ini. <strong>Terima kasih! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5695,7 +5689,7 @@ msgstr "Hutan tropikal di Asia, Afrika dan Amerika Latin dihancurkan untuk membu
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5703,7 +5697,7 @@ msgstr ""
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Analisis siklus hidup"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
@@ -5711,11 +5705,11 @@ msgstr ""
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Eco-Score untuk produk ini"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Dampak rata - rata produk dari kategori yang sama"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
@@ -5727,9 +5721,25 @@ msgstr ""
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Skor analisis siklus hidup"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr "Skor produk dengan bahan kemasan non-daur ulang dan non-dapat terurai dengan mudah dibatasi pada angka 79 (nilai B)."
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr ""
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr ""
+
+msgctxt "health"
+msgid "Health"
 msgstr ""
 

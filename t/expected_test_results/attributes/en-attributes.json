@@ -449,6 +449,7 @@
                "uk" : 54.5454545454545,
                "us" : 0,
                "va" : 12,
+               "world" : 0,
                "xk" : 14.1818181818182
             },
             "transportation_values" : {
@@ -513,6 +514,7 @@
                "uk" : 8,
                "us" : 0,
                "va" : 2,
+               "world" : 0,
                "xk" : 2
             },
             "values" : {
@@ -577,6 +579,7 @@
                "uk" : 8,
                "us" : 0,
                "va" : 2,
+               "world" : 0,
                "xk" : 2
             }
          },
@@ -693,6 +696,7 @@
          "uk" : "b",
          "us" : "c",
          "va" : "c",
+         "world" : "c",
          "xk" : "c"
       },
       "missing" : {
@@ -763,6 +767,7 @@
          "uk" : 64,
          "us" : 56,
          "va" : 58,
+         "world" : 56,
          "xk" : 58
       },
       "status" : "known"
@@ -772,6 +777,7 @@
    "ecoscore_tags" : [
       "b"
    ],
+   "food_groups_tags" : [],
    "forest_footprint_data" : {
       "footprint_per_kg" : 0.00176767676767677,
       "grade" : "a",
@@ -1042,6 +1048,7 @@
       "fat_100g" : 12,
       "fiber_100g" : 3,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nova-group" : 4,
       "nova-group_100g" : 4,
       "nova-group_serving" : 4,

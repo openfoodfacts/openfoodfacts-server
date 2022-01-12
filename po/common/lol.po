@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:50\n"
+"PO-Revision-Date: 2021-12-01 14:41\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1517,10 +1517,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "crwdns165588:0crwdne165588:0"
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "crwdns165590:0crwdne165590:0"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "crwdns165592:0crwdne165592:0"
@@ -2582,12 +2578,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "crwdns166110:0crwdne166110:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "crwdns166112:0%dcrwdne166112:0"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr "crwdns191525:0%dcrwdne191525:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "crwdns166114:0%scrwdnd166114:0%dcrwdne166114:0"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "crwdns191527:0%dcrwdne191527:0"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -5405,21 +5405,17 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "crwdns180854:0crwdne180854:0"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "crwdns180856:0crwdne180856:0"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "crwdns180804:0crwdne180804:0"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "crwdns180858:0crwdne180858:0"
+msgid "Ingredients that threatens species"
+msgstr "crwdns191277:0crwdne191277:0"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
-msgstr "crwdns191239:0crwdne191239:0"
+msgid "No ingredients that threaten species"
+msgstr "crwdns191279:0crwdne191279:0"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5428,10 +5424,6 @@ msgstr "crwdns180812:0crwdne180812:0"
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "crwdns180814:0crwdne180814:0"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "crwdns180816:0crwdne180816:0"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5575,13 +5567,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "crwdns190813:0crwdne190813:0"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "crwdns190815:0crwdne190815:0"
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "crwdns191623:0{number_of_employees}crwdne191623:0"
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "crwdns190817:0crwdne190817:0"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "crwdns191625:0{year}crwdne191625:0"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5701,4 +5695,20 @@ msgstr "crwdns191273:0crwdne191273:0"
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "crwdns191275:0crwdne191275:0"
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr "crwdns191529:0crwdne191529:0"
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr "crwdns191531:0crwdne191531:0"
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "crwdns191533:0crwdne191533:0"
+
+msgctxt "health"
+msgid "Health"
+msgstr "crwdns191535:0crwdne191535:0"
 

@@ -648,7 +648,8 @@ sub compute_ecoscore($) {
 		# Compute the final Eco-Score and assign the A to E grade
 		
 		# We need an AgriBalyse category match to compute the Eco-Score
-		if ($product_ref->{ecoscore_data}{agribalyse}{score}) {
+		# Note: the score can be 0
+		if (defined $product_ref->{ecoscore_data}{agribalyse}{score}) {
 			
 			$product_ref->{ecoscore_data}{status} = "known";
 			
@@ -657,8 +658,8 @@ sub compute_ecoscore($) {
 			$product_ref->{ecoscore_data}{scores} = {};
 			$product_ref->{ecoscore_data}{grades} = {};			
 			
-			# Compute the Eco-Score for all countries
-			foreach my $cc (@ecoscore_countries_enabled_sorted) {
+			# Compute the Eco-Score for all countries + world (with 0 for the transportation bonus)
+			foreach my $cc (@ecoscore_countries_enabled_sorted, "world") {
 
 				$product_ref->{ecoscore_data}{"scores"}{$cc} = $product_ref->{ecoscore_data}{agribalyse}{score};
 				
@@ -1168,7 +1169,9 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	
 	my @aggregated_origins = ();
 	my %transportation_scores;
-	foreach my $cc (@ecoscore_countries_enabled_sorted) {
+
+	# We will compute a transportation score for all countries, and have a 0 transportation score and bonus for world
+	foreach my $cc (@ecoscore_countries_enabled_sorted, "world") {
 		$transportation_scores{$cc} = 0;
 	}
 	my $epi_score = 0;
@@ -1204,7 +1207,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_values"} = {};
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"values"} = {};
 
-	foreach my $cc (@ecoscore_countries_enabled_sorted) {
+	foreach my $cc (@ecoscore_countries_enabled_sorted, "world") {
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc} = round($transportation_scores{$cc} / 6.66);
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"values"}{$cc} = round($epi_value)
 			+ $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc};
@@ -1518,7 +1521,6 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
 		return 0;
 	}
 }
-
 
 1;
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-07 14:47\n"
+"PO-Revision-Date: 2021-12-03 09:45\n"
 "Language-Team: Danish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -597,11 +597,11 @@ msgstr "Sporbarhedskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhedskode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -1537,10 +1537,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "Tabellen viser som standard næringsstoffer, som ofte angives. Lad feltet være tomt, hvis informationen ikke fremgår af etiketten.<br/>Du kan tilføje ekstra næringsstoffer (vitaminer, mineraler, kolesterol mv.)\n"
 "ved at angive de første bogstaver i deres navn i den sidste række af tabellen."
-
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2614,12 +2610,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "Advarsel: Mængden af ​​frugt, grønsager og nødder er ikke specificeret, deres mulige positive bidrag til kvaliteten kunne ikke tages i betragtning."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke specificeret på etiketten, men er estimeret baseret på ingredienslisten: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke angivet på etiketten, men er estimeret baseret på ingredienslisten: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke specificeret på etiketten, men er estimeret baseret på kategorien (%s) for produktet: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke specificeret på etiketten, men er estimeret baseret på ingredienslisten: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4681,7 +4681,7 @@ msgstr "Lav miljøpåvirkning (Eco-Score)"
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr "Øko-Score %s"
+msgstr "Eco-Score %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -5411,7 +5411,7 @@ msgstr "Ekstra bonusser og misbrug"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Produktionstype"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5423,7 +5423,7 @@ msgstr "Har dette produkt en etiket, der kendetegner produktionssystemet (organi
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Ingrediensoprindelser"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5437,21 +5437,17 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "Miljøpolitik"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "Transport"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "Truede arter"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
+msgid "Ingredients that threatens species"
 msgstr "Ingredienser, hvis dyrkning truer arter"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient threatening species"
-msgstr ""
+msgid "No ingredients that threaten species"
+msgstr "Ingen ingredienser, hvis dyrkning truer arter"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5460,10 +5456,6 @@ msgstr "Oplysninger om produktingredientserne er ikke angivet."
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "For en mere præcis beregning af Eco-Score kan du redigere produktsiden og tilføje disse."
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "Emballage"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5556,35 +5548,35 @@ msgstr "Fjernelse eller ændring af leverede data er kun mulig for erfarne webst
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Emballage med høj indvirkning"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Emballage med medium indvirkning"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Emballage med lav indvirkning"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Manglende emballageoplysninger for dette produkt"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Ingrediensoprindelser med høj indvirkning"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Ingrediensoprindelser med medium indvirkning"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Ingrediensoprindelser med lav indvirkning"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Manglende oplysninger om ingrediensernes oprindelse"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5607,14 +5599,16 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Vigtigt: Der er behov for din støtte!"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "OFF er et samarbejdsprojekt bygget af titusinder af frivillige\n"
-"og administreret af en nonprofitorganisation med 3 ansatte."
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "Open Food Facts er et samarbejdsprojekt opbygget af titusinder af frivillige\n"
+"og administreret af en nonprofitorganisation med {number_of_employees} ansatte."
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "Der er behov for jeres donationer til finansiering af OFF 2021-budgettet og til fortsat projektudvikling. <strong>Tak! ❤️</strong>"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "Der behøves donationer til at finansiere Open Food Facts' {year}-budget og fortsat at kunne videreudvikle projektet."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5697,7 +5691,7 @@ msgstr "Tropiske skove i Asien, Afrika og Latinamerika ødelægges for at skabe 
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
@@ -5705,33 +5699,49 @@ msgstr ""
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Livscyklusanalyse"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Fordele og ulemper"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Øko-score for dette produkt"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Gennemsnitlig effekt af produkter i samme kategori"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Sum af fordele og ulemper"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Summen af fordele og ulemper er begrænset til +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Livscyklusanalysescore"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr "Nutri-Score gælder ikke for denne produktkategori."
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr "Produktkategorien skal angives for at kunne beregne Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "Produktnæringsfakta skal angives for at kunne beregne Nutri-Score."
+
+msgctxt "health"
+msgid "Health"
+msgstr "Sundhed"
 
