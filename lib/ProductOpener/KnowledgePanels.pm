@@ -440,8 +440,9 @@ sub create_ecoscore_panel($$$) {
             # list ingredients for max confidence recipe, sorted by quantity 
             my @ingredients = ();
 
-            foreach my $ingredient (sort { $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$b}
-                <=> $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$a} } keys %{$product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]}) {
+            my @ingredients_by_quantity = sort { $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$b}
+                <=> $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$a} } keys %{$product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]};
+            foreach my $ingredient (@ingredients_by_quantity) {
                 push @ingredients, {
                     id => $ingredient,
                     quantity => $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$ingredient},
