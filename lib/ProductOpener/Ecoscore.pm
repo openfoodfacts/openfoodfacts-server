@@ -1483,6 +1483,8 @@ based on % of uncharacterized ingredients and standard deviation.
 
 =head3 Return values
 
+The expected error as float.
+
 =cut
 
 sub ecoscore_extended_data_expected_error ($) {
