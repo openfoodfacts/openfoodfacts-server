@@ -45,13 +45,10 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
+        command_timeout: 180m
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          cp .env ../.env
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
-          cp ../.env .env
           make import_prod_data
           make restart_db
 
@@ -74,12 +71,9 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
+        command_timeout: 180m
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          cp .env ../.env
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
-          cp ../.env .env
           make refresh_product_tags
           make restart_db
