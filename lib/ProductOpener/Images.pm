@@ -36,21 +36,23 @@ Product images are stored in html/images/products/[product barcode splitted with
 
 For each product, this directory contains:
 
-- [image number].[extension].orig (e.g. 1.jpg.orig, 2.jpg.orig etc.)
+=over
+
+=item [image number].[extension].orig (e.g. 1.jpg.orig, 2.jpg.orig etc.)
 
 Original images uploaded by users or imported
 
-- [image number].jpg
+=item [image number].jpg
 
 Same image saved as JPEG with specific settings, and after some minimal processing (autoorientation, removing EXIF data, flattening PNG images to remove transparency).
 
 Those images are not displayed on the web site (except on the product edit form), but can be selected and cropped.
 
-- [image number].[100|400].jpg
+=item [image number].[100|400].jpg
 
 Same image saved with a maximum width and height of 100 and 400 pixels. Those thumbnails are used in the product edit form to show the available images.
 
-- [image number].json
+=item [image number].json
 
 OCR output from Google Cloud Vision.
 
@@ -59,7 +61,7 @@ When a new image is uploaded, a symbolic link to it is created in /new_images. T
 incrontab -l -u off
 /srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
 
-- [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
+=item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
 
 Cropped and selected image for the front of the product, the ingredients list, the nutrition facts table, and the packaging information / recycling instructions,
 in 4 different sizes (full size, 100 / 200 / 400 pixels maximum width or height).
@@ -75,6 +77,8 @@ When a new image is selected for a given field (e.g. ingredients) and language (
 Previously selected images are shown only when people access old product revisions.
 
 Cropping coordinates for all revisions are stored in the "images" field of the product, so we could regenerate old selected and cropped images on demand.
+
+=back
 
 =cut
 
