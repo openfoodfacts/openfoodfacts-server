@@ -744,83 +744,96 @@ html[dir="rtl"] {
 
 // background colors for attributes and panels
 
+$grade-a-color: #219653;
+$grade-b-color: #60ac0e;
+$grade-c-color: #c88f01;
+$grade-d-color: #e07312;
+$grade-e-color: #eb5757;
+$grade-unknown-color: #4f4f4f;
+
+$evaluation-good-color: #219653;
+$evaluation-average-color: #f2994a;
+$evaluation-bad-color: #eb5757;
+$evaluation-unknown-color: #4f4f4f;
+
+
 .evaluation_good_title {
-  color:rgba(33,150,83,1);
+  color:$evaluation-good-color:;
 }
 
 .evaluation_average_title {
-  color:rgba(222,153,74,1);
+  color:$evaluation-average-color:;
 }
 
 .evaluation_bad_title {
-  color:rgba(235,87,87,1);
+  color:$evaluation-bad-color;
 }
 
 .evaluation_unknown_title {
-  color:rgba(79,79,79,1);
+  color:($evaluation-unknown-color;
 }
 
 .evaluation_neutral_title {
-  color:rgba(79,79,79,1);
+  color:($grade-unknown-color;
 }
 
 .grade_unknown {
-  background-color:rgba(79,79,79,0.1) !important;
+  background-color:rgba($grade-unknown-color,0.1) !important;
 }
 a.grade_unknown:hover {
-  background-color:rgba(79,79,79,0.2) !important;
+  background-color:rgba(($grade-unknown-color,0.2) !important;
 }
 .grade_unknown_tile {
-  color:rgba(79,79,79,1);
+  color:($grade-unknown-color;
 }
 
 .grade_a {
-  background-color:rgba(33,150,83,0.1) !important;
+  background-color:rgba($grade-a-color,0.1) !important;
 }
 a.grade_a:hover {
-  background-color:rgba(33,150,83,0.2) !important;
+  background-color:rgba($grade-a-color,0.2) !important;
 }
 .grade_a_title {
-  color:rgba(33,150,83,1);
+  color:$grade-a-color;
 }
 
 .grade_b {
-  background-color:rgba(96,172,14,0.1) !important;
+  background-color:rgba($grade-b-color,0.1) !important;
 }
 a.grade_b:hover {
-  background-color:rgba(96,172,14,0.2) !important;
+  background-color:rgba($grade-b-color,0.2) !important;
 }
 .grade_b_title {
-  color:rgba(96,172,14,1);
+  color:$grade-b-color;
 }
 
 .grade_c {
-  background-color:rgba(200,143,1,0.1) !important;
+  background-color:rgba($grade-c-color,0.1) !important;
 }
 a.grade_c:hover {
-  background-color:rgba(200,143,1,0.2) !important;
+  background-color:rgba($grade-c-color,0.2) !important;
 }
 .grade_c_title {
-  color:rgba(200,143,1,1);
+  color:$grade-c-color;
 }
 
 .grade_d {
-  background-color:rgba(224,115,18,0.1) !important;
+  background-color:rgba($grade-d-color,0.1) !important;
 }
 a.grade_d:hover {
-  background-color:rgba(224,115,18,0.2) !important;
+  background-color:rgba($grade-d-color,0.2) !important;
 }
 .grade_d_title {
-  color:rgba(224,115,18,1);
+  color:$grade-d-color;
 }
 
 .grade_e {
-  background-color:rgba(235,87,87,0.1) !important;
+  background-color:rgba($grade-e-color,0.1) !important;
 }
 a.grade_e:hover {
-  background-color:rgba(235,87,87,0.2) !important;
+  background-color:rgba($grade-e-color,0.2) !important;
 }
 .grade_e_title {
-  color:rgba(235,87,87,1);
+  color:$grade-e-color;
 }
 
