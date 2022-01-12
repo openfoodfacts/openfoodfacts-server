@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-01 14:48\n"
+"PO-Revision-Date: 2022-01-01 12:03\n"
 "Language-Team: Turkish\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4555,7 +4555,7 @@ msgstr "NOVA grubu"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "Bilinmeyen kuruluş."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
@@ -4721,11 +4721,11 @@ msgstr "%s içermez"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "sahipler"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "sahip"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
@@ -4741,7 +4741,7 @@ msgstr "İsim"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Resmi Websitesine bağlantıyı girin"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4757,7 +4757,7 @@ msgstr ""
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Ticari hizmet"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
@@ -4789,19 +4789,19 @@ msgstr "Diğer bilgiler"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "örneğin açılış saatleri"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "Organizasyon bulunamadı."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Organizasyon ismi eksik."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Organizasyon Profili"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
@@ -4817,15 +4817,15 @@ msgstr ""
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "İletişim formu"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Kuruluş profilinizi düzenleyin"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Kullanıcı profilinizi düzenleyin"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4932,11 +4932,11 @@ msgstr ""
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Tercihlerinizi görün"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Tüm tercihleri sil"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
@@ -5738,5 +5738,45 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
+msgstr ""
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr ""
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr ""
 

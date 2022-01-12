@@ -161,6 +161,9 @@ sub create_knowledge_panels($$$$) {
 
     # Add knowledge panels
 
+    # Create recommendation panels first, as they will be included in cards such has the health card and environment card
+    create_recommendation_panels($product_ref, $target_lc, $target_cc);
+
     create_health_card_panel($product_ref, $target_lc, $target_cc);
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
 
@@ -179,7 +182,8 @@ The function converts the multiline string into a single line string.
 
 sub convert_multiline_string_to_singleline($) {
     my $line = shift;
-    $line =~ s/\n/\\n/sg;
+    # \R will match all Unicode newline sequence
+    $line =~ s/\R/\\n/sg;
     # Escape quotes unless they have been escaped already
     # negative look behind to not convert \" to \\"
     $line =~ s/(?<!\\)"/\\"/g;
@@ -664,6 +668,12 @@ sub create_health_card_panel($$$) {
     # Create the physical activities panel
     create_physical_activities_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the ingredients panel
+    create_ingredients_panel($product_ref, $target_lc, $target_cc);
+
+    # Create the additives panel
+    create_additives_panel($product_ref, $target_lc, $target_cc);
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -704,25 +714,17 @@ sub create_nutriscore_panel($$$) {
 
         $panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 
-        # We create separate panels for the Nutri-Score score and warnings, so that we can display both
-        # in a panel group, with warnings always shown even if the Nutri-Score panel is not expanded.
-
         # Nutri-Score panel: score + details
         create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
-        # Nutri-Score warnings
-        if (defined $panel_data_ref->{nutriscore_warnings}) {
-            create_panel_from_json_template("nutriscore_warnings", "api/knowledge-panels/health/nutriscore/nutriscore_warnings.tt.json",
-                $panel_data_ref, $product_ref, $target_lc, $target_cc);
-        }
     }
 }
 
 
 =head2 create_nutrition_facts_table_panel ( $product_ref, $target_lc, $target_cc )
 
-Creates a knowledge panels with the nutrition facts table.
+Creates a knowledge panel with the nutrition facts table.
 
 =head3 Arguments
 
@@ -875,5 +877,239 @@ sub create_physical_activities_panel($$$) {
     }
 }
 
+
+=head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel with the list of ingredients.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_ingredients_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create ingredients panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+	# try to display ingredients in the requested language if available
+
+	my $ingredients_text = $product_ref->{ingredients_text};
+    my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
+	my $ingredients_text_lc = $product_ref->{lc};
+
+	if ((defined $product_ref->{"ingredients_text" . "_" . $target_lc}) and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $target_lc};
+		$ingredients_text_with_allergens = $product_ref->{"ingredients_text_with_allergens" . "_" . $target_lc};
+		$ingredients_text_lc = $target_lc;
+	}
+
+    my $panel_data_ref = {
+        ingredients_text => $ingredients_text,
+        ingredients_text_with_allergens => $ingredients_text_with_allergens,
+        ingredients_text_lc => $ingredients_text_lc,
+        ingredients_text_language => display_taxonomy_tag($target_lc,'languages',$language_codes{$ingredients_text_lc}),
+    };
+
+    create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
+        $panel_data_ref, $product_ref, $target_lc, $target_cc);
+}
+
+
+=head2 create_additives_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels for additives.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_additives_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create additives panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+    # Create a panel only if the product has additives
+
+    if ((defined $product_ref->{additives_tags}) and (scalar @{$product_ref->{additives_tags}} > 0 )) {
+
+        my $additives_panel_data_ref = {
+        };
+
+        foreach my $additive (@{$product_ref->{additives_tags}}) {
+
+            my $additive_panel_id = "additive_" . $additive;
+
+            my $additive_panel_data_ref = {
+                additive => $additive,
+            };
+
+            # Wikipedia abstracts, in target language or English
+
+            my $target_lcs_ref = [$target_lc];
+            if ($target_lc ne "en") {
+                push @$target_lcs_ref, "en";
+            }
+
+            add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
+                ["wikipedia_url", "wikipedia_title", "wikipedia_abstract"], $target_lcs_ref);
+
+            create_panel_from_json_template("additive_" . $additive, "api/knowledge-panels/health/ingredients/additive.tt.json",
+                $additive_panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+
+        create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
+            $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+    }
+}
+
+
+=head2 add_taxonomy_properties_in_target_languages_to_object ( $object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref )
+
+This function adds to the hash ref $object_ref (for instance a data structure passed to a template) the values
+of selected properties, if they exist in one of the target languages.
+
+For instance for the panel for an additive, we can include a Wikipedia abstract in the requested language if available,
+or in English if not.
+
+=head3 Arguments
+
+=head4 object reference $object_ref
+
+=head4 taxonomy $tagtype
+
+=head4 tag id $tagoid
+
+=head4 list of properties $properties_ref
+
+Properties to add to the resulting object.
+
+=head4 language codes $target_lcs
+
+Reference to an array of preferred languages, with the preferred language first.
+
+=cut
+
+sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
+
+    my $object_ref = shift;
+    my $tagtype = shift;
+    my $tagid = shift;
+
+    my $properties_ref = shift;
+    my $target_lcs_ref = shift;
+
+    foreach my $property (@$properties_ref) {
+        my $property_value;
+        my $property_lc;
+        # get property value for first language for which it is defined
+        foreach my $target_lc (@$target_lcs_ref) {
+            $property_value = get_property($tagtype, $tagid, $property . ":" . $target_lc);
+            if (defined $property_value) {
+                $property_lc = $target_lc;
+                last;
+            }
+        }
+        if (defined $property_value) {
+            $object_ref->{$property} = $property_value;
+            $object_ref->{$property . "_lc"} = $property_lc;
+            $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
+        }
+    }
+}
+
+
+=head2 create_recommendation_panels ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels with recommendations (e.g. related to health or the environment).
+Recommendations can depend on product properties (e.g. categories or ingredients)
+and user properties (e.g. country and language to get country specific recommendations,
+but possibly also user preferences regarding trusted sources of information).
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_recommendation_panels($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create health recommendation panels", { code => $product_ref->{code}, }) if $log->is_debug();
+
+    # The code below defines the conditions to show recommendations (which recommendation for which product and which user)
+    # Those conditions could be implemented at some point in a configuration file, once we have a better idea of usage and the types of conditions.
+
+    # Note: in order to simplify the display logic, we can use the same panel id (e.g. "recommendation_health") for different panels.
+    # If there are multiple panels matching with the same id, only the last one will be kept.
+    # This can be used for instance if we want to have a default worldwide recommendation, and the more precise or relevant recommendations
+    # at the country level.
+
+    # Health
+
+    # Alcohol
+    if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+
+        create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/world/who_alcohol.tt.json",
+            {}, $product_ref, $target_lc, $target_cc);
+    }
+
+    # France - Santé publique France
+
+    if (($target_cc eq 'fr') and ($target_lc eq 'fr')) {
+
+        # Alcohol
+
+        if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+
+            create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/fr/spf_alcohol.tt.json",
+                {}, $product_ref, $target_lc, $target_cc);
+        }
+
+        # Pulses (légumes secs)
+
+         if (has_tag($product_ref, "categories", "en:pulses")) {
+
+            create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json",
+                {}, $product_ref, $target_lc, $target_cc);
+        }       
+
+    }
+}
 
 1;

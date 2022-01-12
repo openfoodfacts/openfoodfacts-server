@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-09 09:06\n"
+"PO-Revision-Date: 2021-12-30 10:23\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -52,11 +52,11 @@ msgstr "Регистрирай се"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "Добре дошли!"
+msgstr "Добре дошъл!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr "Благодарим ви, че се присъединихте към нас!"
+msgstr "Благодарим ти, че се присъедини към нас!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -68,11 +68,11 @@ msgstr "Присъедини се към нас в Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s е съвместен проект, в който можеш да допринесеш с много повече от нови продукти: твоята енергия, ентусиазъм и идеи!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Използваме дискусионна система, наречена Slack, където всички участници в проекта могат да обменят и сътрудничат. Моля, присъедини се! Ще се радваме да те опознаем!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -274,7 +274,7 @@ msgstr "Баркод"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "Баркод номер:"
+msgstr "Номер на баркод:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -370,11 +370,11 @@ msgstr "Хранителни съставки"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "Избрани изображения"
+msgstr "Избрани снимки"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "Качени изображения"
+msgstr "Качени снимки"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -438,7 +438,7 @@ msgstr "коректор"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Държави, където се продават"
+msgstr "Държави, където се продава"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -454,7 +454,7 @@ msgstr "Продукти, продавани в %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "държава"
+msgstr "страна"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -506,7 +506,7 @@ msgstr "Добавено:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Променено:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -627,7 +627,7 @@ msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "В Европа кодът е в елипса с двете инициали на държавата, последвани от число и CE."
+msgstr "В Европа кодът е в елипса с двете инициали на страната, последвани от число и CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -779,7 +779,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Открий проекта"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -841,7 +841,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "Условия за ползване"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -885,7 +885,7 @@ msgstr "Продукт"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Общо име"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -937,32 +937,33 @@ msgstr "Ако снимката е достатъчно чиста, състав
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Снимка с хранителни факти"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Тази снимка вече е изпратена."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Снимката е твърде малка. Моля, не качвай снимки, намерени в интернет, а изпращай само снимки, които си направил сам."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Баркодът на снимката не може да бъде прочетен или снимката не съдържа баркод.\n"
+"Можеш да опиташ с друга снимка или директно да въведеш баркода."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "В снимката не е намерен баркод."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Няма посочен или намерен баркод в снимката или името на файла."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Снимката не може да бъде прочетена."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -970,7 +971,7 @@ msgstr ""
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Пълен размер"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -986,7 +987,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Оригинална снимка)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -994,15 +995,15 @@ msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "Продуктите, които си добавил и трябва да бъдат завършени"
+msgstr "Продукти, които си добавил и трябва да бъдат завършени"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "информатори"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "информатори"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -1014,15 +1015,15 @@ msgstr "Съставки"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Забележка: съставките могат да бъдат изброени с много различни имена, моля, уведоми ни, ако смяташ, че анализът по-горе е неправилен."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "съставки от или които може да са от палмово масло"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "съставка от или която може да е от палмово масло"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
@@ -1034,11 +1035,11 @@ msgstr "съставка от палмово масло"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Брой съставки"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Брой съставки"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
@@ -1054,7 +1055,7 @@ msgstr "съставки"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Продукти, които съдържат съставка %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -1078,15 +1079,15 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "съставки, които може да са от палмово масло"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "съставка, които може да е от палмово масло"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Продукти, които не съдържат съставка %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1115,7 +1116,7 @@ msgstr "Етикети, сертификати, награди"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Био"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -1197,11 +1198,11 @@ msgstr "Зареждане на още резултати"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Влез и добави продукта"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Влез и редактирай продукта"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1247,7 +1248,7 @@ msgstr "Можеш да избереш едно или повече снимки
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Места на производство или обработка"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1255,7 +1256,7 @@ msgstr "Варна, България"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "места на производство или обработка"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1263,11 +1264,11 @@ msgstr "Продукти, произведени или преработени �
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "място на производство или обработка"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "добави място"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1305,7 +1306,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Открийте"
+msgstr "Открий"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1350,7 +1351,7 @@ msgstr ""
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s продукти"
 
 msgctxt "name"
 msgid "Name"
@@ -1370,7 +1371,7 @@ msgstr ""
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Абонирай се за бюлетина (максимум 2 имейла на месец)"
 
 msgctxt "next"
 msgid "Next"
@@ -1511,7 +1512,7 @@ msgstr "Максимум"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Средно"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1604,7 +1605,7 @@ msgstr "Опаковка"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Пресно, консервирано, замразено, бутилка, кутия, стъкло, пластмаса..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -1652,7 +1653,7 @@ msgstr "Нова парола"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Потвърди паролата"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1672,11 +1673,11 @@ msgstr ""
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "фотографи"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "фотограф"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -1732,7 +1733,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "Добавете хранително вещество"
+msgstr "Добави хранително вещество"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1836,7 +1837,7 @@ msgstr ""
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Изтрити снимки"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
@@ -1844,11 +1845,11 @@ msgstr ""
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Преместени снимки"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Снимки в процес на преместване"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -1904,7 +1905,7 @@ msgstr "Град и държава, където е закупено"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr "Посочи къде си закупил или видял продукта (поне държавата)"
+msgstr "Посочи къде си закупил или видял продукта (поне страната)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
@@ -1916,11 +1917,11 @@ msgstr "Продукти, продавани в %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "място на покупка"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "добави място"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -1944,7 +1945,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Нулиране на паролата"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2012,7 +2013,7 @@ msgstr "Запазено."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Запазване."
 
 msgctxt "search"
 msgid "Search"
@@ -2028,11 +2029,11 @@ msgstr "Търсене"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "съдържа"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Избери продукти с конкретни марки, категории, етикети, произход на съставките, места на производство и т. н."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2040,7 +2041,7 @@ msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "не съдържа"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2056,7 +2057,7 @@ msgstr ""
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "XLSX формат"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
@@ -2064,7 +2065,7 @@ msgstr ""
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "CSV формат"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
@@ -2201,11 +2202,11 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Био"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "био"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2277,7 +2278,7 @@ msgstr ""
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Изпращане на снимката"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2361,11 +2362,11 @@ msgstr "Държава"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "държави"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "държава"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2401,7 +2402,7 @@ msgstr "Абониране"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "Принадлежи към:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
@@ -2461,11 +2462,11 @@ msgstr ""
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Отписване"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Можеш да се отпишеш от списъците по всяко време."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
@@ -2505,7 +2506,7 @@ msgstr ""
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "Продукти, добавени от %s"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2513,7 +2514,7 @@ msgstr ""
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Продукти, които не са добавени от %s"
 
 msgctxt "view"
 msgid "view"
@@ -2584,7 +2585,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Предупреждение: количеството влакна не е посочено, техният възможен положителен принос към оценката не може да бъде взет предвид."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2600,11 +2601,11 @@ msgstr "Предупреждение: количеството плодове, �
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, изчислено е от категорията (%s) на продукта: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Предупреждение: количеството плодове, зеленчуци и ядки не е посочено на етикета, беше изчислено от списъка със съставки: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2624,11 +2625,11 @@ msgstr ""
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Изтриване на продукт"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "изтри продукт"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -3038,7 +3039,7 @@ msgstr ""
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Продукти, проверени от %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
@@ -3046,7 +3047,7 @@ msgstr ""
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Продукти, коригирани от %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
@@ -3054,7 +3055,7 @@ msgstr ""
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Продукти, редактирани от %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
@@ -3170,7 +3171,7 @@ msgstr ""
 
 msgctxt "carbon_footprint_note_uncertainty"
 msgid "Carbon footprint calculations have high uncertainty. Values should be looked at with caution and are more intended for relative comparison than as absolute values."
-msgstr ""
+msgstr "Изчисленията на въглеродния отпечатък имат висока несигурност. Стойностите трябва да се разглеждат с повишено внимание и са предназначени повече за относително сравнение, отколкото като абсолютни стойности."
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
@@ -3202,7 +3203,7 @@ msgstr "да бъде преведено"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "Сегашен превод"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3234,7 +3235,7 @@ msgstr "анализ на съставките"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Анализ на съставките"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3370,7 +3371,7 @@ msgstr ""
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Избор на поле"
 
 msgctxt "specify"
 msgid "Specify"
@@ -3709,7 +3710,7 @@ msgstr ""
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Завършено"
 
 msgctxt "job_status_failed"
 msgid "Failed"
@@ -3850,7 +3851,7 @@ msgstr "Положителни точки"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Отрицателни точки"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -4099,7 +4100,7 @@ msgstr ""
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Nutri-Score оценка от производител"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
@@ -4107,7 +4108,7 @@ msgstr ""
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Сканиран код"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
@@ -4123,7 +4124,7 @@ msgstr ""
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Добавяне на поле"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
@@ -4180,7 +4181,7 @@ msgstr "Готово"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Да се направи"
 
 msgctxt "teams"
 msgid "Teams"
@@ -4188,7 +4189,7 @@ msgstr "Отбори"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "по избор"
 
 msgctxt "teams_p"
 msgid "teams"
@@ -4374,23 +4375,23 @@ msgstr ""
 
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr "Надписи"
+msgstr "Етикети"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "Биологично производство"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr "Органичен продукт"
+msgstr "Биологичен продукт"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr "Не е органичен продукт"
+msgstr "Не е биологичен продукт"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Липсваща информация: биологичен продукт?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4410,11 +4411,11 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Продукт за справедлива търговия"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Не е продукт за справедлива търговия"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
@@ -4442,7 +4443,7 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "Добро хранително качество (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
@@ -4629,11 +4630,11 @@ msgstr "1 пластмасова опаковка за изхвърляне, 1 F
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Изброй всички опаковъчни части, разделени със запетая или ред, с тяхното количество (напр. 1 или 6), тип (напр. бутилка, кутия, кен), материал (напр. пластмаса, метал, алуминий) и, ако е наличен, техния размер (напр. 33cl) и инструкции за рециклиране."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Опитай се да бъдеш възможно най-конкретен. За пластмаса, моля, посочи дали е непрозрачна или прозрачна, цветна, PET или PEHD."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4661,7 +4662,7 @@ msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Ниско въздействие върху околната среда (Eco-Score)"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4893,7 +4894,7 @@ msgstr ""
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "Брой"
 
 msgctxt "packaging_shape"
 msgid "Shape"
@@ -4921,15 +4922,15 @@ msgstr ""
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Виж твоите предпочитания"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Изтриване на всички предпочитания"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "Продуктите се зареждат, моля изчакай."
 
 msgctxt "products_match_all"
 msgid "All products"
@@ -4937,19 +4938,19 @@ msgstr "Всички продукти"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "Продукти, които отговарят на твоите предпочитания"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "Продукти, които не отговарят на твоите предпочитания"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Продукти, за които в момента липсват данни, за да определим дали отговарят на твоите предпочитания"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Горски отпечатък"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -4973,15 +4974,15 @@ msgstr ""
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Риск от обезлесяване"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Общ горски отпечатък"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² на кг храна"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
@@ -4989,19 +4990,19 @@ msgstr ""
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "кг соя на кг храна"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "кг соя на m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "% в продукта"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "Подробности за изчисляването на горския отпечатък"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5042,35 +5043,35 @@ msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Горски отпечатък"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
-msgstr ""
+msgstr "Нисък риск от обезлесяване (Горски отпечатък)"
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
-msgstr ""
+msgstr "Много малък горски отпечатък"
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Small forest footprint"
-msgstr ""
+msgstr "Малък горски отпечатък"
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Medium forest footprint"
-msgstr ""
+msgstr "Среден горски отпечатък"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Large forest footprint"
-msgstr ""
+msgstr "Голям горски отпечатък"
 
 msgctxt "attribute_forest_footprint_e_title"
 msgid "Very large forest footprint"
-msgstr ""
+msgstr "Много голям горски отпечатък"
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest footprint not computed"
-msgstr ""
+msgstr "Горският отпечатък не е изчислен"
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "Almost no risk of deforestation"
@@ -5090,20 +5091,20 @@ msgstr "Висок риск от обезлесяване"
 
 msgctxt "attribute_forest_footprint_e_description_short"
 msgid "Very high risk of deforestation"
-msgstr ""
+msgstr "Много висок риск от обезлесяване"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
-msgstr ""
+msgstr "В момента само за продукти с пилешко или яйца"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "Класирай продуктите според твоите предпочитания"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "Класирай %d продукта по-долу според твоите предпочитания"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
@@ -5205,11 +5206,11 @@ msgstr ""
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "Администраторски полета"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "На опашка"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5217,7 +5218,7 @@ msgstr ""
 
 msgctxt "minion_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Завършено"
 
 msgctxt "minion_status_failed"
 msgid "Failed"
@@ -5290,15 +5291,15 @@ msgstr ""
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "Горският отпечатък се изчислява, като се вземат предвид съставките, чието производство изисква соя, чието отглеждане е свързано с обезлесяване."
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "Eco-Score може да се изчисли само ако продуктът има достатъчно точна категория."
 
 msgctxt "ecoscore_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "Можеш да промениш продуктовата страница, за да добавиш по-прецизна категория."
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
@@ -5306,19 +5307,19 @@ msgstr ""
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "Предупреждение: някои нужни информации за изчисляване на Eco-Score с точност, не са предоставени (виж подробностите за изчислението по-долу)."
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "Можеш да редактираш продукта, за да добавиш липсващата информация."
 
 msgctxt "ecoscore_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Базов резултат на продуктовата категория"
 
 msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "Оценка на жизнения цикъл (LCA)"
 
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
@@ -5339,11 +5340,11 @@ msgstr ""
 
 msgctxt "ecoscore_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "включително въздействието върху изменението на климата"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "Подробности за въздействията по етапи от жизнения цикъл"
 
 # stage meaning step
 msgctxt "ecoscore_stage"
@@ -5352,7 +5353,7 @@ msgstr "Етап"
 
 msgctxt "ecoscore_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Въздействие"
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
@@ -5380,7 +5381,7 @@ msgstr "Потребление"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "LCA резултат от 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5472,11 +5473,11 @@ msgstr "Краен резултат"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(колкото по-нисък е резултатът, толкова по-ниско е въздействието)"
 
 msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "кг CO2 екв./кг продукт"
 
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
@@ -5574,7 +5575,7 @@ msgstr "средно"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr ""
+msgstr "Забележка: Nutri-Score за чайове и билкови чайове съответства на продукта, приготвен само с вода, без захар или мляко."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -5592,7 +5593,7 @@ msgstr "Open Food Facts е съвместен проект, изграден о�
 # variable names between { } must not be translated, {year} will be the upcoming year
 msgctxt "donation_why_year"
 msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr ""
+msgstr "Нуждаем се от твоите дарения, за да финансираме {year} и да продължим да развиваме проекта."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5621,7 +5622,7 @@ msgstr "Друго"
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "Средно"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
@@ -5728,4 +5729,44 @@ msgstr "Хранителните стойности на продукта тря
 msgctxt "health"
 msgid "Health"
 msgstr "Здраве"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "В сравнение с"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "Ходене"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "Плуване"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "Колоездене"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "Бягане"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "{kj} kJ на 100 г"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "Равно на {minutes} минути ходене или {steps} крачки"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "Разход на енергия за човек с тегло {kg} kg / {lb} lb"
 

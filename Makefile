@@ -114,7 +114,7 @@ tail:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-	# Run build_lang.pl
+# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
@@ -127,7 +127,8 @@ init_backend: build_lang
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-	docker cp scripts/refresh_products_tags.js po_mongodb_1:/data/db
+# get id for mongodb container
+	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
@@ -141,10 +142,12 @@ import_more_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
+	@echo "🥫 Removing old archive in case you have one"
+	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	@echo "🥫 Copying the dump to MongoDB container …"
-	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
+	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
@@ -191,13 +194,13 @@ build_taxonomies:
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	# zfs replications
+# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
-	# local data
+# local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#

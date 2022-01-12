@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-01 14:43\n"
+"PO-Revision-Date: 2021-12-31 13:15\n"
 "Language-Team: Romanian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5598,12 +5598,12 @@ msgstr "Important: avem nevoie de sprijinul tău!"
 # variable names between { } must not be translated, {number_of_employees} will be a number
 msgctxt "donation_body_employees"
 msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
+msgstr "Open Food Facts este un proiect colaborativ construit de zeci de mii de voluntari și gestionat de o organizație non-profit cu {number_of_employees} angajați."
 
 # variable names between { } must not be translated, {year} will be the upcoming year
 msgctxt "donation_why_year"
 msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr ""
+msgstr "Avem nevoie de donațiile dumneavoastră pentru a finanța bugetul Open Food Facts {year} și pentru a continua dezvoltarea proiectului."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5739,4 +5739,44 @@ msgstr "Valorile nutriționale ale produsului trebuie specificate pentru a calcu
 msgctxt "health"
 msgid "Health"
 msgstr "Sănătate"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr ""
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr ""
 

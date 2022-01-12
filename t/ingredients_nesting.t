@@ -2,9 +2,7 @@
 
 # Tests of parsing nested ingredients, such as "ingredient (component 1, component 2)", etc.
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;

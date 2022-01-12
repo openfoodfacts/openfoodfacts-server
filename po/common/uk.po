@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-09 09:14\n"
+"PO-Revision-Date: 2021-12-23 11:40\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1299,7 +1299,7 @@ msgstr "/додайте продукцію"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Зробіть свій внесок"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -3251,7 +3251,7 @@ msgstr "аналіз компонентів"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Аналіз інгредієнтів"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -4531,11 +4531,11 @@ msgstr "Необроблені або мінімально оброблені п
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "Оброблені кулінарні інгредієнти"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "Напівфабрикати"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
@@ -5747,4 +5747,44 @@ msgstr "Обов’язково вказати властивості харчо
 msgctxt "health"
 msgid "Health"
 msgstr "Здоров’я"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr ""
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr ""
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr ""
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr ""
 

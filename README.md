@@ -3,11 +3,14 @@
 # Open Food Facts - Product Opener (Web Server)
 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://translate.openfoodfacts.org/)
 [![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 [![Backers on Open Collective](https://opencollective.com/openfoodfacts-server/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
+
+## Tests
+[![Perl::Critic](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml)
+[![Pull Requests](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml)
 
 ## What is Product Opener?
 
