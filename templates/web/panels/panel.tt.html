@@ -143,6 +143,8 @@
                 
                 [% IF text_element.type == "h1" %]
                     <h4 class="panel_title">
+                [% ELSIF text_element.type == "quote" %]
+                    <blockquote class="panel_text panel_text_quote">
                 [% ELSIF text_element.type == "note" %]
                     <div class="panel_text panel_text_note">→ 
                 [% ELSIF text_element.type == "warning" %]
@@ -157,6 +159,8 @@
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
                     </h4>
+                [% ELSIF text_element.type == "quote" %]
+                    </blockquote>
                 [% ELSE %]
                     </div>
                 [% END %]
