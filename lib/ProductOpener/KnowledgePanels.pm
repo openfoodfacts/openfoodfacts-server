@@ -437,6 +437,7 @@ sub create_ecoscore_panel($$$) {
                 $i++;
             }
             
+            # list ingredients for max confidence recipe, sorted by quantity 
             my @ingredients = ();
 
             foreach my $ingredient (sort { $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index]{$b}
