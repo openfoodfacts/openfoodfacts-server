@@ -25809,8 +25809,8 @@ es:Ricciarelli
 fr:Ricciarelli
 it:Ricciarelli
 wikidata:en:Q1059643
-# Almond biscuits
 
+# Almond biscuits
 <en:Ricciarelli
 it:Ricciarelli di Siena
 protected_name_file_number:en: PGI-IT-0666
@@ -37787,7 +37787,7 @@ de:Sprühsahne
 fr:Crèmes sous pression
 nl:Slagroomflessen
 
-<en:Liquid cream
+<en:Creams
 en:UHT Creams
 de:H-Sahne,H-Schlagsahne
 fi:Iskukuumennetut kermat
@@ -37813,6 +37813,7 @@ wikidata:en:Q3006045
 
 #Cream that haven't been fermented
 <en:Creams
+en:Unfermented creams, Liquid creams, liquid cream
 fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 it:Panne da cucina, panna da cucina
 
@@ -37858,29 +37859,25 @@ wikidata:en:Q30737789
 
 <en:Creams
 <en:Fermented milk products
-en:Fermented creams
+en:Fermented creams, Thick cream
 de:Fermentierter Rahm, Gesäuerter Rahm
 fi:Fermentoidut kermat
-fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
+fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
 hu:Erjesztett krémek
 it:Creme fermentate
 nl:Gefermenteerde room
 
-<en:Creams
-en:Thick cream
-fr:Crème de lait épaisse
-
-<en:Thick cream
+<en:Fermented creams
 en:Refrigerated 30% fat thick cream
-fr:Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
+fr:Crèmes épaisses entières, Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
 agribalyse_food_code:en:19410
 ciqual_food_code:en:19410
 ciqual_food_name:en:Thick cream 30% fat, refrigerated
 ciqual_food_name:fr:Crème de lait, 30% MG, épaisse, rayon frais
 
+#Liquid cream with thickener
 <en:Creams
-en:Liquid cream
-fr:Crème de lait semi-épaisse
+fr:Crèmes semi-épaisses, Crème de lait semi-épaisse
 
 <en:UHT Creams
 <en:Liquid cream
@@ -56707,6 +56704,13 @@ nl:Fritessauzen, Fritessaus
 fr:Sauce Hannibal
 wikidata:en:Q25388438
 
+<en:Curry sauces
+en:Madras curry sauce
+
+<en:Sauces
+en:Fried potato sauces
+nl:Fritessauzen, Fritessaus
+
 <en:Sauces
 en:Harissa sauces, Hot spicy sauce
 de:Harissa-Soßen
@@ -60543,6 +60547,12 @@ wikidata:en:Q1057649
 en:Butter chicken
 wikidata:en:Q1322549
 
+<en:Meals with chicken
+en:Coronation chicken
+
+<en:Meals with chicken
+en:Chicken tikka masala
+
 <en:Meals with meat
 en:Goat dishes, Goat meals
 fr:Plats à la viande caprine, plats à base de viande caprine
@@ -63098,6 +63108,14 @@ en:Egg salads
 nl:Eisalades, Eiersalades
 
 <en:Prepared salads
+en:Chicken salads
+nl:Kipsalades
+
+<en:Prepared salads
+en:Egg salads
+nl:Eisalades, Eiersalades
+
+<en:Prepared salads
 <en:Meals with fish
 <en:Salads with fish
 en:Tuna salad
@@ -65364,6 +65382,7 @@ wikidata:en:Q104094239
 <en:Cooked pork meat
 en:Pigs in a blanket
 wikidata:en:Q105550816
+
 
 <en:Pork
 en:Pork ribs, pork chops, pork ribs
@@ -90372,6 +90391,10 @@ nl:Zoete kookhulpmiddelen
 <en:Pastry helpers
 fr:Pâtes à sucre
 wikidata:en:Q635219
+
+#Things you put on slices of bread buring meals that consist mainly of bread
+en:Bread coverings
+nl:Broodbeleggen, Broodbeleg
 
 #Things you put on slices of bread buring meals that consist mainly of bread
 en:Bread coverings
