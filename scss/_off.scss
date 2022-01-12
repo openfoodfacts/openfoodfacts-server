@@ -770,21 +770,21 @@ $evaluation-unknown-color: #4f4f4f;
 }
 
 .evaluation_unknown_title {
-  color:($evaluation-unknown-color;
+  color:$evaluation-unknown-color;
 }
 
 .evaluation_neutral_title {
-  color:($grade-unknown-color;
+  color:$grade-unknown-color;
 }
 
 .grade_unknown {
   background-color:rgba($grade-unknown-color,0.1) !important;
 }
 a.grade_unknown:hover {
-  background-color:rgba(($grade-unknown-color,0.2) !important;
+  background-color:rgba($grade-unknown-color,0.2) !important;
 }
 .grade_unknown_tile {
-  color:($grade-unknown-color;
+  color:$grade-unknown-color;
 }
 
 .grade_a {
