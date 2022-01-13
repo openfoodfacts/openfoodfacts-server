@@ -91,8 +91,9 @@ packager codes:
 Packaging:
 - lib/ProductOpener/Packaging.pm
 
-Producers:
+producers platform:
 - lib/ProductOpener/Producers.pm
+- scripts/export_producers_platform_data_to_public_database.sh
 
 ProducersFood:
 - lib/ProductOpener/ProducersFood.pm
