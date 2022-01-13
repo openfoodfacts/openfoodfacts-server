@@ -4,6 +4,21 @@ github_actions:
 taxonomies:
 - taxonomies/**/*
 
+open pet food facts:
+- taxonomies.opff/**/*
+
+open beauty facts:
+- taxonomies.obf/**/*
+
+open products facts:
+- taxonomies.opf/**/*
+
+icons:
+- icons/**/*
+
+css:
+- scss/**/*
+
 translations:
 - po/**/*
 
@@ -11,8 +26,18 @@ tests:
 - test/**/*
 - t/**/*
 
+dependancies:
+- package.json
+- package-lock.json
+
 Template::Toolkit:
 - templates/**/*
+
+documentation:
+- docs/**/*
+
+docker:
+- docker/**/*
 
 Attributes:
 - lib/ProductOpener/Attributes.pm
@@ -27,6 +52,7 @@ Display:
 
 ecoscore:
 - lib/ProductOpener/Ecoscore.pm
+- ecoscore/**/*
 
 Export:
 - lib/ProductOpener/Export.pm
@@ -63,6 +89,16 @@ data import:
 
 ingredients:
 - lib/ProductOpener/Ingredients.pm
+- taxonomies/ingredients.txt
+
+labels:
+- taxonomies/labels.txt
+
+categories:
+- taxonomies/categories.txt
+
+additives:
+- taxonomies/additives.txt
 
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
