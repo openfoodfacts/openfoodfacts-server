@@ -2120,19 +2120,17 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid ne "not-applicable") {
-					my $grade;
-					if ($tagid =~ /^[abcde]$/) {
-						$grade = uc($tagid);
-					}
-					else {
-						$grade = lang("unknown");
-					}
-					$display = "<img src=\"/images/misc/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" style=\"max-height:80px;\">" ;
+				my $grade;
+				if ($tagid =~ /^[abcde]$/) {
+					$grade = uc($tagid);
+				}
+				elsif ($tagid eq "not-applicable") {
+					$grade = lang("not_applicable");
 				}
 				else {
-					$display = lang("not_applicable");
+					$grade = lang("unknown");
 				}
+				$display = "<img src=\"/images/attributes/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 			}
 			elsif ($tagtype eq 'ecoscore') {
 				if ($tagid ne "not-applicable") {
@@ -2143,7 +2141,7 @@ sub display_list_of_tags($$) {
 					else {
 						$grade = lang("unknown");
 					}
-					$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
+					$display = "<img src=\"/images/attributes/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 				}
 				else {
 					$display = lang("not_applicable");
@@ -2305,24 +2303,24 @@ HTML
 			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
 			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
-				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#038141','#85bb2f','#fecb02','#ee8100','#e63e11','#a0a0a0'";
+				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+				foreach my $nutrition_grade ('a','b','c','d','e','not-applicable','unknown') {
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
-				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0'";
+				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $ecoscore_grade ('a','b','c','d','e','unknown') {
+				foreach my $ecoscore_grade ('a','b','c','d','e','not-applicable', 'unknown') {
 					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
 				$categories = "'NOVA 1','NOVA 2','NOVA 3','NOVA 4','" . lang("unknown") . "'";
-				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#808080'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#a0a0a0'";
 				$series_data = '';
 				foreach my $nova_group (
 					"en:1-unprocessed-or-minimally-processed-foods",
@@ -9040,15 +9038,17 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 	# The Nutri-Score is unknown
 	else  {
 
-		$result_data_ref->{nutriscore_grade} = "unknown";
-
 		# Category without Nutri-Score: baby food, alcoholic beverages etc.
 		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
 				push @nutriscore_warnings, lang("nutriscore_not_applicable");
+				$result_data_ref->{nutriscore_grade} = "not-applicable";
 				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
 				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
 		}		
 		else {
+
+			$result_data_ref->{nutriscore_grade} = "unknown";
+
 			# Missing category?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_category");

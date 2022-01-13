@@ -671,6 +671,7 @@ sub create_nutriscore_panel($$$) {
 	
     my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
+    # Do not display the Nutri-Score panel if it is not applicable
     if ((not $panel_data_ref->{do_not_display})
         and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
 
