@@ -17741,10 +17741,6 @@ nl:Lactosevrije room, Lactosevrije romen, Room zonder lactose, Romen zonder lact
 sv:Laktosfri grädde
 
 < en:Creams
-en:Liquid cream
-fr:Crème de lait semi-épaisse
-
-< en:Creams
 en:Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
 fr:Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
 agribalyse_food_code:en: 19433
@@ -17759,8 +17755,20 @@ fr:Crèmes sous pression
 nl:Slagroomflessen
 
 < en:Creams
-en:Thick cream
-fr:Crème de lait épaisse
+en:UHT Creams
+de:H-Sahne, H-Schlagsahne
+fi:Iskukuumennetut kermat
+fr:Crèmes UHT
+it:Creme UHT
+nl:UHT room, UHT romen
+agribalyse_proxy_food_code:en: 19415
+agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
+
+< en:Creams
+en:Unfermented creams, Liquid creams, liquid cream
+fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+it:Panne da cucina, panna da cucina
 
 < en:Creams
 en:Whipped creams
@@ -17807,8 +17815,7 @@ fr:Crèmes fraîches
 fr:Crèmes légères, crèmes fraîches légères, Crème fraîche légère, crème légère
 
 < en:Creams
-fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
-it:Panne da cucina, panna da cucina
+fr:Crèmes semi-épaisses, Crème de lait semi-épaisse
 
 < en:Creamy almond turrón
 es:Turrón de Jijona
@@ -23062,6 +23069,22 @@ fr:Graines de fenugrec entiers
 nl:Hele fenegriekzaden
 
 < en:Fermented creams
+en:Refrigerated 15-20% fat light thick cream
+fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
+agribalyse_food_code:en: 19431
+ciqual_food_code:en: 19431
+ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
+ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
+
+< en:Fermented creams
+en:Refrigerated 30% fat thick cream
+fr:Crèmes épaisses entières, Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
+agribalyse_food_code:en: 19410
+ciqual_food_code:en: 19410
+ciqual_food_name:en: Thick cream 30% fat, refrigerated
+ciqual_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
+
+< en:Fermented creams
 en:Sour creams, Crèmes fraîches
 cs:Zakysaná smetana
 de:Sauerrahm
@@ -23219,10 +23242,10 @@ wikidata:en: Q12740385
 
 < en:Creams
 < en:Fermented milk products
-en:Fermented creams
+en:Fermented creams, Thick cream
 de:Fermentierter Rahm, Gesäuerter Rahm
 fi:Fermentoidut kermat
-fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
+fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
 hu:Erjesztett krémek
 it:Creme fermentate
 nl:Gefermenteerde room
@@ -24754,6 +24777,10 @@ agribalyse_food_code:en: 18028
 ciqual_food_code:en: 18028
 ciqual_food_name:en: Bottled water, flavoured, without sugar and artificial sweeteners
 ciqual_food_name:fr: Boisson à l'eau minérale ou de source, aromatisée, non sucrée, sans édulcorant
+
+< en:Flavored waters
+en:Flavored spring waters, flavored spring water
+fr:Eaux de sources aromatisées, eau de source aromatisée
 
 < en:Flavored waters
 en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavored waters
@@ -39313,17 +39340,6 @@ en:Liquid vegetable bouillons, Liquid vegetable stocks
 es:Caldos de verduras líquidos, Caldos de verduras en brik
 fr:Bouillons de légumes liquides
 nl:Vloeibare groentebouillons
-
-< en:Liquid cream
-en:UHT Creams
-de:H-Sahne, H-Schlagsahne
-fi:Iskukuumennetut kermat
-fr:Crèmes UHT
-it:Creme UHT
-nl:UHT room, UHT romen
-agribalyse_proxy_food_code:en: 19415
-agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
-agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
 < en:Lithuanian beers
 lt:Kaimiškas Jovarų alus
@@ -67208,22 +67224,6 @@ de:Camembert aus thermisierter Milch
 fr:Camemberts au lait thermisé
 nl:Camemberts op basis van gethermiseerde melk
 
-< en:Thick cream
-en:Refrigerated 15-20% fat light thick cream
-fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
-agribalyse_food_code:en: 19431
-ciqual_food_code:en: 19431
-ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
-ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
-
-< en:Thick cream
-en:Refrigerated 30% fat thick cream
-fr:Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
-agribalyse_food_code:en: 19410
-ciqual_food_code:en: 19410
-ciqual_food_name:en: Thick cream 30% fat, refrigerated
-ciqual_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
-
 < en:Thickeners
 en:Gelatin, Gelatine
 de:Gelatine
@@ -68899,24 +68899,6 @@ en:Mushroom pies
 fr:Tourtes aux champignons
 nl:Champignontaarten
 
-< en:Liquid cream
-< en:UHT Creams
-en:Liquid 15-20% fat light cream UHT
-fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
-agribalyse_food_code:en: 19430
-ciqual_food_code:en: 19430
-ciqual_food_name:en: Liquid cream, light, 15-20% fat, UHT
-ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
-
-< en:Liquid cream
-< en:UHT Creams
-en:Liquid 30% fat UHT cream
-fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
-agribalyse_food_code:en: 19415
-ciqual_food_code:en: 19415
-ciqual_food_name:en: Liquid cream 30% fat, UHT
-ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
-
 < en:UHT Milks
 ru:Молоко питьевое ультрапастеризованное (ультравысокотемпературно-обработанное), Молоко питьевое ультрапастеризованное, Молоко ультрапастеризованное питьевое, Молоко питьевое ультравысокотемпературно-обработанное
 wikidata:en: Q26867007
@@ -69115,6 +69097,24 @@ fr:Chevrotins, Chevrotin
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0246
 protected_name_type:en: pdo
+
+< en:UHT Creams
+< en:Unfermented creams
+en:Liquid 15-20% fat light cream UHT
+fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
+agribalyse_food_code:en: 19430
+ciqual_food_code:en: 19430
+ciqual_food_name:en: Liquid cream, light, 15-20% fat, UHT
+ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+
+< en:UHT Creams
+< en:Unfermented creams
+en:Liquid 30% fat UHT cream
+fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
+agribalyse_food_code:en: 19415
+ciqual_food_code:en: 19415
+ciqual_food_name:en: Liquid cream 30% fat, UHT
+ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
 < en:Unleavened breads
 fr:Pains azymes à la farine complète, Pain azyme à la farine complète
