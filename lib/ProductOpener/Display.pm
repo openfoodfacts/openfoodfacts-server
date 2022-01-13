@@ -82,7 +82,7 @@ BEGIN
 		&add_tag_prefix_to_link
 		&display_taxonomy_api
 
-		&display_ingredient_analysis
+		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
@@ -394,8 +394,22 @@ sub process_template($$$) {
 	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
+
+	# Display one taxonomy entry in the target language
 	$template_data_ref->{display_taxonomy_tag} = sub ($$) {
 		return display_taxonomy_tag($lc, $_[0], $_[1]);
+	};
+
+	# Display a list of taxonomy entries in the target language
+	$template_data_ref->{display_taxonomy_tags_list} = sub ($$) {
+		my $tagtype = shift;
+		my $tags_ref = shift;
+		if (defined $tags_ref) {
+			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_) } @$tags_ref) ;
+		}
+		else {
+			return "";
+		}
 	};
 
 	$template_data_ref->{round} = sub($) {
@@ -608,7 +622,7 @@ sub init()
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
-	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
+	if (is_admin_user($User_id)) {
 		$admin = 1;
 	}
 
@@ -10144,6 +10158,16 @@ sub display_product_api($) {
 
 	my $request_ref = shift;
 
+	# Is a sample product requested?
+	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
+		
+		$request_ref->{code} = $options{"sample_product_code_country_${cc}_language_${lc}"}
+			||  $options{"sample_product_code_country_${cc}"}
+			||  $options{"sample_product_code_language_${lc}"}
+			||	$options{"sample_product_code"}
+			|| "";
+	}	
+
 	my $code = normalize_code($request_ref->{code});
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -10805,7 +10829,7 @@ sub display_icon {
 }
 
 
-=head2 display_ingredient_analysis ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
+=head2 display_nested_list_of_ingredients ( $ingredients_ref, $ingredients_text_ref, $ingredients_list_ref )
 
 Recursive function to display how the ingredients were analyzed.
 This function calls itself to display sub-ingredients of ingredients.
@@ -10822,11 +10846,11 @@ Reference to a list of ingredients in text format that we will reconstruct from 
 
 =head4 $ingredients_list_ref (output)
 
-Reference to a list of ingredients in ordered nested list format that corresponds to the ingredients array.
+Reference to an HTML list of ingredients in ordered nested list format that corresponds to the ingredients array.
 
 =cut
 
-sub display_ingredient_analysis($$$) {
+sub display_nested_list_of_ingredients($$$) {
 
 	my $ingredients_ref = shift;
 	my $ingredients_text_ref = shift;
@@ -10864,7 +10888,7 @@ sub display_ingredient_analysis($$$) {
 
 		if (defined $ingredient_ref->{ingredients}) {
 			${$ingredients_text_ref} .= " (";
-			display_ingredient_analysis($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
+			display_nested_list_of_ingredients($ingredient_ref->{ingredients}, $ingredients_text_ref, $ingredients_list_ref);
 			${$ingredients_text_ref} .= ")";
 		}
 
@@ -10876,6 +10900,55 @@ sub display_ingredient_analysis($$$) {
 	return;
 }
 
+
+=head2 display_list_of_specific_ingredients ( $product_ref )
+
+Generate HTML to display how the specific ingredients (e.g. mentions like "Total milk content: 90%")
+were analyzed.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head3 Return value
+
+Empty string if no specific ingredients were detected, or HTML describing the specific ingredients.
+
+=cut
+
+sub display_list_of_specific_ingredients($) {
+
+	my $product_ref = shift;
+
+	if (not defined $product_ref->{specific_ingredients}) {
+		return "";
+	}
+
+	my $html = "<ul id=\"specific_ingredients_list\">\n";
+
+	foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+
+		my $ingredients_exists = exists_taxonomy_tag("ingredients", $ingredient_ref->{id});
+		my $class = '';
+		if (not $ingredients_exists) {
+			$class = ' class="unknown_ingredient"';
+		}
+
+		$html .= "<li>" . $ingredient_ref->{text} . "<br>" . "<span$class>" . $ingredient_ref->{ingredient} . "</span>" . " -> " . $ingredient_ref->{id};
+
+		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
+			if (defined $ingredient_ref->{$property}) {
+				$html .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+			}
+		}
+
+		$html .= "</li>\n";
+	}
+
+	$html .= "</ul>\n";
+
+	return $html;
+}
 
 
 =head2 display_ingredients_analysis_details ( $product_ref )
@@ -10902,12 +10975,14 @@ sub display_ingredients_analysis_details($) {
 	my $ingredients_text = "";
 	my $ingredients_list = "";
 
-	display_ingredient_analysis($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);
+
+	my $specific_ingredients = display_list_of_specific_ingredients($product_ref);
 
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
-	if ($ingredients_text =~ /unknown_ingredient/) {
+	if ($ingredients_text . $specific_ingredients =~ /unknown_ingredient/) {
 		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
 
 		$styles .= <<CSS
@@ -10920,6 +10995,7 @@ CSS
 
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 	$template_data_ref->{ingredients_list} = $ingredients_list;
+	$template_data_ref->{specific_ingredients} = $specific_ingredients;
 
 	my $html;
 

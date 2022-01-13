@@ -68,6 +68,7 @@ BEGIN
 
 		&userpath
 		&create_user
+		&is_admin_user
 		&create_password_hash
 		&check_password_hash
 
@@ -195,6 +196,19 @@ sub delete_user($) {
 	
 	#  re-assign product edits to openfoodfacts-contributors-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
+}
+
+=head2 is_admin_user($user_id)
+
+Simply tells if a user is an admin of the platform
+
+=cut
+sub is_admin_user($) {
+	my $user_id = shift;
+
+	# %admin is defined in Config.pm
+	# admins can change permissions for all users
+	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
 

@@ -16,6 +16,9 @@
                     [% IF panels.nutriscore.defined %]
                         "nutriscore",
                     [% END %]
+                    [% IF panels.recommendation_health.defined %]
+                        "recommendation_health",
+                    [% END %]
                     [% IF panels.physical_activities.defined %]
                         "physical_activities",
                     [% END %]                    
@@ -34,20 +37,11 @@
             },
         },
         [% END %]
-        [% IF panels.allergens.defined %]
-        {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('allergens') %]",
-                "panel_ids": ["allergens"],
-            },
-        },
-        [% END %]
         [% IF panels.additives.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('additives') %]",
+                "title": "[% lang('additives_p').ucfirst %]",
                 "panel_ids": ["additives"],
             },
         }, 

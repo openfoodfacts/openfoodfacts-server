@@ -1,8 +1,7 @@
 #!/usr/bin/perl -w
 
-use utf8;
-
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Test::Number::Delta;

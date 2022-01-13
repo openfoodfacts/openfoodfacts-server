@@ -13,7 +13,7 @@ synonyms:es:zumo, jugo
 synonyms:es:jarabe, sirope
 
 
-# comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
+# comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
@@ -22,7 +22,7 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -37817,9 +37817,19 @@ sv:frö-bärblandning
 <en:nut
 en:Fruits and nuts, nuts and fruits, fruits & nuts, nuts & fruits
 fr:fruits et noix, noix et fruits, fruits & noix, noix et fruits
+vegan:en:yes
+vegetarian:en:yes
+nutriscore_fruits_vegetables_nuts:en:yes
+
+# fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables
+# needed in particular to recognize things like "fruits and vegetables content: 80%"
+en:fruits and vegetables, vegetables and fruits
+fr:fruits et légumes, légumes et fruits
+vegan:en:yes
+vegetarian:en:yes
+nutriscore_fruits_vegetables_nuts:en:yes
 
 # <en:compound
-<en:berries
 en:berry preparation
 de:Fruchtzubereitung aus roten Früchten
 fi:marjavalmiste
@@ -37829,7 +37839,6 @@ sv:bärsprodukt
 # ingredient/fr:preparation-de-fruits-rouges has 5 products in 2 languages @2020-06-08
 
 # <compound:en:This is a compound ingredient
-<en:fruit
 fr:fruits confits
 de:Früchte kandiert
 es:frutas confitadas
@@ -38032,10 +38041,8 @@ it:Concentrati vegetali
 nl:plantconcentraat, plantconcentraten
 sv:växtkoncentrat, plantkoncentrat
 
-<en:fruit
 fr:specialité de fruits pomme poire
 
-<en:fruit
 en:fruits preparation
 de:Fruchtzubereitung
 fr:préparation de fruits
