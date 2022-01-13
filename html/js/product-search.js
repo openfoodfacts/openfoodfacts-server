@@ -261,30 +261,16 @@ function display_product_summary(target, product) {
 	$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
 		
 		// vary the color from green to red
-		var color = "#eee";
+		var grade ="unknown";
 		
 		if (attribute.status == "known") {
-			if (attribute.grade == "e") {
-				color = "hsl(0, 100%, 90%)";
-			}
-			else if (attribute.grade == "d") {
-				color = "hsl(30, 100%, 90%)";
-			}
-			else if (attribute.grade == "c") {
-				color = "hsl(60, 100%, 90%)";
-			}
-			else if (attribute.grade == "b") {
-				color = "hsl(90, 100%, 90%)";
-			}
-			else {
-				color = "hsl(120, 100%, 90%)";
-			}
+			grade = attribute.grade;
 		}
 
 		attributes_html += '<li>'
-		+ '<div style="border-radius:12px;background-color:' + color + ';padding:1rem;min-height:96px;">'
+		+ '<div class="attribute_card grade_' + grade + '">'
 		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;">'
-		+ '<h4>' + attribute.title + '</h4>';
+		+ '<h4 class="grade_' + grade + '_title">' + attribute.title + '</h4>';
 		
 		if (attribute.description_short) {
 			attributes_html += '<span>' + attribute.description_short + '</span>';
