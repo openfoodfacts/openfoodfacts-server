@@ -5,7 +5,7 @@ we moved most pages in
 [openfoodfacts-web repository](https://github.com/openfoodfacts/openfoodfacts-web)
 specificly in the lang/ directory.
 
-This repo as a really minimal lang directory as lang-default.
+This repo only has a really minimal lang directory named lang-default.
 
 If you want to have all contents locally, 
 you should first clone openfoodfacts-web repo locally, 
@@ -14,4 +14,4 @@ and then:
 - if you are using docker, 
   you can set the `WEB_LANG_PATH` env variable to a relative or absolute path
   leading to openfoodfacts-web lang directory.
-- else, make symlink `lang` pointing to openfoodfacts-web lang directory.
+- else, make symlink `lang` point to openfoodfacts-web lang directory.

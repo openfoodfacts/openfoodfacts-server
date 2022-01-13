@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-30 09:36\n"
+"PO-Revision-Date: 2021-12-22 21:36\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5567,13 +5567,15 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "crwdns190813:0crwdne190813:0"
 
-msgctxt "donation_body"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with 3 employees."
-msgstr "crwdns190815:0crwdne190815:0"
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "crwdns191623:0{number_of_employees}crwdne191623:0"
 
-msgctxt "donation_why"
-msgid "We need your donations to fund the Open Food Facts 2021 budget and to continue to develop the project. <strong>Thank you! ❤️</strong>"
-msgstr "crwdns190817:0crwdne190817:0"
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "crwdns191625:0{year}crwdne191625:0"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5709,4 +5711,44 @@ msgstr "crwdns191533:0crwdne191533:0"
 msgctxt "health"
 msgid "Health"
 msgstr "crwdns191535:0crwdne191535:0"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "crwdns191705:0crwdne191705:0"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "crwdns191707:0crwdne191707:0"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "crwdns191709:0crwdne191709:0"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "crwdns191711:0crwdne191711:0"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "crwdns191713:0crwdne191713:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "crwdns191715:0{kj}crwdne191715:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "crwdns191717:0{minutes}crwdnd191717:0{steps}crwdne191717:0"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "crwdns191719:0{kg}crwdnd191719:0{lb}crwdne191719:0"
 

@@ -244,7 +244,7 @@
          "ef_distribution" : "0.0091648653",
          "ef_packaging" : "0.056809478",
          "ef_processing" : "0.041272627",
-         "ef_total" : "0.55246032",
+         "ef_total" : 0.55246032,
          "ef_transportation" : "0.02822842",
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
@@ -399,20 +399,20 @@
       {
          "id" : "en:apricot",
          "origins" : "en:france",
-         "percent" : "60",
-         "percent_estimate" : "60",
-         "percent_max" : "60",
-         "percent_min" : "60",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
          "text" : "apricots",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:cane-sugar",
-         "percent" : "30",
-         "percent_estimate" : "30",
-         "percent_max" : "30",
-         "percent_min" : "30",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -436,6 +436,8 @@
       "en:apricot",
       "en:fruit",
       "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sugar",
       "en:lemon-juice",
       "en:fruit-juice"
@@ -455,6 +457,8 @@
       "en:apricot",
       "en:fruit",
       "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sugar",
       "en:lemon-juice",
       "en:fruit-juice"
@@ -464,7 +468,7 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
-   "known_ingredients_n" : 6,
+   "known_ingredients_n" : 8,
    "lc" : "en",
    "misc_tags" : [
       "en:ecoscore-extended-data-not-computed",
@@ -472,7 +476,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },
    "packagings" : [],
    "unknown_ingredients_n" : 0

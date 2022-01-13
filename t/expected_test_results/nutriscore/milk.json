@@ -22,6 +22,11 @@
       "en:dairies",
       "en:milks"
    ],
+   "food_groups" : "en:milk-and-yogurt",
+   "food_groups_tags" : [
+      "en:milk-and-dairy-products",
+      "en:milk-and-yogurt"
+   ],
    "ingredients" : [
       {
          "id" : "en:milk",
@@ -72,6 +77,7 @@
       "fat_100g" : 10,
       "fiber_100g" : 2,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nutrition-score-fr" : 14,
       "nutrition-score-fr_100g" : 14,
       "proteins_100g" : 5,

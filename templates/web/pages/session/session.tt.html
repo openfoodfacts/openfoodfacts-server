@@ -8,6 +8,14 @@
         <p>[% lang('bottom_content') %]</p>
     [% END %]
 
+    [% IF admin and server_options_producers %]
+        <p>
+            <a href="https://docs.google.com/document/d/106LAPvseRcMA_6mBj0uNXZcEDiiCKWH9SKzg0JMeg0w/edit">
+                [% lang('producers_administration_manual') %]
+            </a>
+        </p>
+    [% END %]
+
 [% ELSE %]
 
     <p>[% lang('goodbye') %]</p>

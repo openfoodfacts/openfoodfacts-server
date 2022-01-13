@@ -676,7 +676,7 @@ function displayFolksonomyForm() {
     $(".details").before(
         '<div id="free_properties" style="background-color: ">' +
         '<h2>User properties</h2>' +
-        '<p>This properties are created and filed by users for any kind of usages.</p>' +
+        '<p>These properties are created and filled by users for any kind of usages.</p>' +
         '<div id="product_free_properties" class="fieldset">' +
         '</div>' +
         '</div>');

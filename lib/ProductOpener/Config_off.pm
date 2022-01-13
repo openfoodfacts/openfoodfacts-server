@@ -498,7 +498,7 @@ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens
 nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
 data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 improvements origins packaging_shapes packaging_materials packaging_recycling
-periods_after_opening
+periods_after_opening nutrients food_groups
 );
 
 
@@ -946,6 +946,8 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
+	"categories/en:starches" => 2,
+
 
 	# group 3 tags will not be applied to food identified as group 2
 
@@ -1343,5 +1345,11 @@ $options{import_sources} = {
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
 };
+
+# Barcode of a sample product returned through the API when the requested code is "example"
+$options{sample_product_code} = "80135463";	# Nutella
+$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
+$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
 1;

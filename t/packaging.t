@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -159,12 +158,29 @@ my @tests = (
 		}
 	],
 	
-	# three shapes
+	[
+		'packaging_text_nl_metalen_blikje',
+		{
+			lc => "nl",
+			packaging_text => "metalen blikje"	
+		}
+	],
+	
+	# three recycling instructions
 	[
 		'packaging_text_nl_three_instructions',
 		{
 			lc => "nl",
 			packaging_text => "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier"	
+		}
+	],
+	
+	# sentence glazen pot + deksel
+	[
+		'packaging_text_nl_glazen_pot_met_deksel',
+		{
+			lc => "nl",
+			packaging_text => "1 glazen pot, 1 metalen deksel"	
 		}
 	],
 	
@@ -451,6 +467,15 @@ my @tests = (
 			packaging => "1 PET plastic bottle",
 		}
 	],
+
+	# recycling code should apply to all languages
+	[
+		'en-aa-84-c-pap',
+		{
+			lc => "aa",
+			packaging => "84-C/PAP",
+		}
+	],	
 	
 
 );

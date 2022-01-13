@@ -852,15 +852,152 @@ my %min_regexp = (
 
 # Words that can be ignored after a percent
 # e.g. 50% du poids total, 30% of the total weight
+# groups need to be non-capturing: prefixed with (?: 
 
 my %ignore_strings_after_percent = (
-	en => "of (the )?(?:total weight|grain is wholegrain rye)",
-	es => "(en el chocolate( con leche)?)",
+	en => "of (?:the )?(?:total weight|grain is wholegrain rye)",
+	es => "(?:en el chocolate(?: con leche)?)",
 	fi => "jauhojen määrästä",
-	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
 	sv => "fetthalt",
 );
 
+
+
+=head2 parse_specific_ingredients_text ( product_ref, $text )
+
+Lists of ingredients sometime include extra mentions for specific ingredients
+at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
+
+This function extracts those mentions and adds them to a special specific_ingredients structure.
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub parse_specific_ingredients_text($$$) {
+
+	my $product_ref = shift;
+	my $text = shift;
+	my $percent_regexp = shift;
+
+	my $product_lc = $product_ref->{lc};
+
+	$product_ref->{specific_ingredients} = [];
+
+	# Go through the ingredient lists multiple times
+	# as long as we have one match
+	my $ingredient = "start";
+
+	while ($ingredient) {
+
+		# Initialize values
+		$ingredient = undef;
+		my $matched_text;
+		my $percent;
+		my $origin;
+
+		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
+		# for all groups, except groups that capture actual data: ingredient name, percent, origins
+
+		# Regexps should match until we reach a . ; or the end of the text
+
+		if ($product_lc eq "en") {
+			# examples:
+			# Total Milk Content 73%.
+
+			if ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+				$percent = $2;	# $percent_regexp
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Origin of the milk: United Kingdom
+			elsif ($text =~ /\s*(?:origin of (?:the )?)([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origin = $2;
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+		}
+		elsif ($product_lc eq "fr") {
+
+			# examples:
+			# Teneur en lait 25% minimum.
+			# Teneur en lactose < 0,01 g/100 g.
+			# Préparée avec 50 g de fruits pour 100 g de produit fini.
+
+			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+				$percent = $1;	# $percent_regexp
+				$ingredient = $2;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
+			# Teneur en citron de 100%
+			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
+				$percent = $2;	# $percent_regexp
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Origine du Cacao: Pérou
+			elsif ($text =~ /\s*(?:origine (?:de |du |de la |des |de l'))([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origin = $2;
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+		}
+
+		# If we found an ingredient, save it in specific_ingredients
+		if (defined $ingredient) {
+			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+
+			$matched_text =~ s/^\s+//;
+
+			my $specific_ingredients_ref = {
+				id => $ingredient_id,
+				ingredient => $ingredient,
+				text => $matched_text,
+			};
+
+			defined $percent and $specific_ingredients_ref->{percent} = $percent;
+			defined $origin and $specific_ingredients_ref->{origin} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin ));
+			
+			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+		}
+	}
+
+	# Delete specific ingredients if empty
+	if (scalar @{$product_ref->{specific_ingredients}} == 0) {
+		delete $product_ref->{specific_ingredients};
+	}
+
+	return $text;
+}
 
 
 =head2 parse_ingredients_text ( product_ref )
@@ -918,14 +1055,6 @@ sub parse_ingredients_text($) {
 
 	my $level = 0;
 
-	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
-	# 56 g -> 56%
-	$text =~ s/(\d| )g(\*)/$1g/ig;
-
-	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
-	$text =~ s/—/-/g;
-
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
 	# replace by a lower comma ‚
@@ -943,7 +1072,10 @@ sub parse_ingredients_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 	
-	my $percent_regexp = '(<|' . $min_regexp . '|\s|\.|:)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+	my $percent_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*(\d+(?:(?:\,|\.)\d+)?)\s*(?:\%|g)\s*(?:' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+
+	# Extract phrases related to specific ingredients at the end of the ingredients list
+	$text = parse_specific_ingredients_text($product_ref, $text, $percent_regexp);
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -1022,7 +1154,7 @@ sub parse_ingredients_text($) {
 
 					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
 						
-						$percent = $2;
+						$percent = $1;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients and $log->debug("separator found after percent", { between => $between, percent => $percent }) if $log->is_debug();
@@ -1048,7 +1180,7 @@ sub parse_ingredients_text($) {
 
 						if ($between =~ /^$percent_regexp$/i) {
 
-							$percent = $2;
+							$percent = $1;
 							$debug_ingredients and $log->debug("between is a percent", { between => $between, percent => $percent }) if $log->is_debug();
 							$between = '';
 						}
@@ -1146,7 +1278,7 @@ sub parse_ingredients_text($) {
 			}
 
 			if ($after =~ /^$percent_regexp($separators|$)/i) {
-				$percent = $2;
+				$percent = $1;
 				$after = $';
 				$debug_ingredients and $log->debug("after started with a percent", { after => $after, percent => $percent }) if $log->is_debug();
 			}
@@ -1243,7 +1375,7 @@ sub parse_ingredients_text($) {
 
 				# Strawberry 10.3%
 				if ($ingredient =~ /\s$percent_regexp$/i) {
-					$percent = $2;
+					$percent = $1;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
 				}
@@ -1591,6 +1723,7 @@ sub parse_ingredients_text($) {
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
+								'en',
 							],
 
 							'ru' => [
@@ -2890,11 +3023,15 @@ ja => [
 ],
 
 kk => [
-'Курамы',
+'курамы',
+],
+
+ko => [
+'配料',
 ],
 
 ky => [
-'Курамы',
+'курамы',
 ],
 
 lt => [
@@ -2927,7 +3064,7 @@ pt => [
 ],
 
 ro => [
-'ingrediente',
+'(I|i)ngrediente',
 'compoziţie',
 ],
 
@@ -2948,7 +3085,7 @@ sk => [
 
 sl => [
 'vsebuje',
-'sestavine',
+'(S|s)estavine',
 ],
 
 sq => [
@@ -2970,14 +3107,15 @@ tg => [
 
 th => [
 'ส่วนประกอบ',
+'ส่วนประกอบที่สำคัญ',
 ],
 
 tr => [
-'İçindekiler',
+'(İ|i)çindekiler',
 ],
 
 uz => [
-'Tarkib',
+'tarkib',
 ],
 
 zh => [
@@ -3046,12 +3184,21 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
+nl => [
+'INGREDIENSER',
+],
+
+
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
 pt => [
 'INGREDIENTES(\s*)',
+],
+
+ru => [
+'COCTАB',
 ],
 
 si => [
@@ -3063,8 +3210,16 @@ sv => [
 'INNEHÅLL(ER)?',
 ],
 
+uz => [
+'ІHГРЕДІЄНТИ',
+],
+
+uz => [
+'TARKIB',
+],
+
 vi => [
-'THANH PHAN',
+'TH(A|À)NH PH(A|Â)N',
 ],
 
 
@@ -4274,6 +4429,20 @@ sub preparse_ingredients_text($$) {
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
 	$text =~ s/ \& /$and/g;
+
+	# number + gr / grams -> g 
+	$text =~ s/(\d\s*)(gr|gram|grams)\b/$1g/ig;
+	if ($product_lc eq 'fr') {
+		$text =~ s/(\d\s*)(gramme|grammes)\b/$1g/ig;
+	}
+
+	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
+	# 56 g -> 56%
+	$text =~ s/(\d| )g(\*)/$1g/ig;
+
+	# transform 0,2% into 0.2%
+	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	$text =~ s/—/-/g;	
 
 	# abbreviations, replace language specific abbreviations first
 	foreach my $abbreviations_lc ($product_lc, "all") {
@@ -5573,7 +5742,7 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
 
 =cut
 
@@ -5583,6 +5752,7 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"};
 	}
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
@@ -5590,6 +5760,30 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+	}
+
+	# If we have specific ingredients, check if we have a higher fruits / vegetables content
+	if (defined $product_ref->{specific_ingredients}) {
+		my $fruits = 0;
+		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $ingredient_id = $ingredient_ref->{id};
+			if (defined $ingredient_ref->{percent}) {
+				my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
+
+				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
+					$fruits += $ingredient_ref->{percent};
+				}
+			}
+		}
+
+		if (($fruits > 0) and ((not defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"})
+								or ($fruits > $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}))) {
+			$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = $fruits;
+		}
+	}
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}) {
+		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"} = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
 	}
 
 	return;

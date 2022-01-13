@@ -30,6 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -69,7 +70,7 @@ if (defined param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 		if (defined $emails_ref->{$userid}) {
 			$userid = $emails_ref->{$userid}[0];
 		}

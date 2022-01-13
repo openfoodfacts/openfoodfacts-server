@@ -1400,6 +1400,10 @@ as we take transportation to the consumer into account.
 We compute the Eco-Score for all countries, and this function copies the values
 for a specific country to the main Eco-Score fields.
 
+Note: even if we could not compute the Eco-Score (because of a missing category),
+we still localize the origins of ingredients, so that it can be displayed
+in separate knowledge panels.
+
 =head3 Arguments
 
 =head4 Country code of the request $cc
@@ -1420,14 +1424,20 @@ sub localize_ecoscore ($$) {
 
 	# Localize the Eco-Score fields that depends on the country of the request
 
-	if ((defined $product_ref->{ecoscore_data}) and (defined  $product_ref->{ecoscore_data}{"scores"}{$cc})) {
-		
-		$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"scores"}{$cc};
-		$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grades"}{$cc};
+	if (defined $product_ref->{ecoscore_data}) {
 
-		$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
-		$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
-		$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
+		# Localize the final score
+		
+		if (defined  $product_ref->{ecoscore_data}{"scores"}{$cc}) {
+			$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"scores"}{$cc};
+			$product_ref->{ecoscore_data}{"grade"} = $product_ref->{ecoscore_data}{"grades"}{$cc};
+
+			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"score"};
+			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
+			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
+		}
+
+		# Localize the origins of ingredients data
 
 		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {
 	

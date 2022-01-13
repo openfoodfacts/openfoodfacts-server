@@ -2,9 +2,7 @@
 
 # Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -350,7 +348,7 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" },
 		[
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:sliced',
 				'text' => 'passionsfrucht'
 			}
@@ -400,7 +398,7 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:gegart',
 				'text' => 'passionsfrucht'
 			},
@@ -453,7 +451,7 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungepökelt',
 				'text' => 'passionsfrucht'
 			}
@@ -475,12 +473,12 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
@@ -512,7 +510,7 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungeschält',
 				'text' => 'passionsfrucht'
 			},
@@ -539,7 +537,7 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungeschwefelt',
 				'text' => 'passionsfrucht'
 			},
@@ -586,7 +584,7 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungezuckert',
 				'text' => 'passionsfrucht'
 			}
@@ -687,7 +685,7 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:zerkleinert',
 				'text' => 'passionsfrucht'
 			},

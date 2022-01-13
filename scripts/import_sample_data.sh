@@ -18,3 +18,6 @@ rm products.images.tar.gz
 
 echo "\033[32m------------------ 3/ Import products -------------------\033[0m";
 perl -I/opt/product-opener/lib /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
+
+echo "\033[32m------------------ 4/ Compute category stats -------------------\033[0m";
+perl -I/opt/product-opener/lib /opt/product-opener/scripts/gen_top_tags_per_country.pl

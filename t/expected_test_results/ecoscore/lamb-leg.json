@@ -241,7 +241,7 @@
          "ef_distribution" : "0.011179692",
          "ef_packaging" : "0.022105737",
          "ef_processing" : "0.010538729",
-         "ef_total" : "4.7927723",
+         "ef_total" : 4.7927723,
          "ef_transportation" : "0.019104515000000002",
          "is_beverage" : 0,
          "name_en" : "Lamb, leg, raw",
@@ -454,7 +454,8 @@
       "en:ecoscore-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "packagings" : [],
    "unknown_ingredients_n" : 1
