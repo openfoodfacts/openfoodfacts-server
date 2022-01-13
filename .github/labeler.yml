@@ -69,14 +69,6 @@ forest footprint:
 geolite:
 - lib/ProductOpener/GeoIP.pm
 
-producers platform:
-- lib/ProductOpener/GS1.pm
-- lib/ProductOpener/Orgs.pm
-- lib/ProductOpener/Import.pm
-- lib/ProductOpener/ImportConvert.pm
-- lib/ProductOpener/Producers.pm
-- lib/ProductOpener/ProducersFood.pm
-
 gs1:
 - lib/ProductOpener/GS1.pm
 
@@ -128,10 +120,14 @@ Packaging:
 - lib/ProductOpener/Packaging.pm
 
 producers platform:
+- lib/ProductOpener/GS1.pm
+- lib/ProductOpener/Orgs.pm
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+- lib/ProductOpener/Producers.pm
+- lib/ProductOpener/ProducersFood.pm
 - lib/ProductOpener/Producers.pm
 - scripts/export_producers_platform_data_to_public_database.sh
-
-ProducersFood:
 - lib/ProductOpener/ProducersFood.pm
 
 Products:
