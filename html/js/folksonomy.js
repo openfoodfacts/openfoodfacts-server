@@ -315,7 +315,7 @@ function displayFolksonomyPropertyValues() {
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        while (index--) {
+        while (index-=) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
                         '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
@@ -374,7 +374,7 @@ function displayProductsWithProperty(_property, _value) {
             '<th class="values">Values</th>' +
             '</tr>' +
             '<tbody id="free_prop_body">';
-        while (index--) {
+        while (index-=) {
             content += ('<tr>' +
                         '<td class="product_code">' +
                         '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
@@ -422,7 +422,7 @@ function displayAllProperties() {
         let content = "";
         // sort by count
         const d = data.sort(function(a,b){ return a.count >b.count ?1 :-1; });
-        while (index--) {
+        while (index-=) {
             content += ('<tr class="property">' +
                         '<td> </td>' +
                         '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
@@ -687,7 +687,7 @@ function displayFolksonomyForm() {
         let index = data.length;
         let content = "";
         const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        while (index--) {
+        while (index-=) {
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
                         '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
