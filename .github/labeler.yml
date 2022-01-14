@@ -39,6 +39,9 @@ documentation:
 docker:
 - docker/**/*
 
+folksonomy project:
+- html/js/folksonomy.js
+
 Attributes:
 - lib/ProductOpener/Attributes.pm
 
@@ -94,6 +97,7 @@ additives:
 
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
+- templates/api/knowledge-panels/**/*
 
 lang:
 - lib/ProductOpener/Lang.pm
