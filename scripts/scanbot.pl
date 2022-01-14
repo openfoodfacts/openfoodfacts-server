@@ -97,6 +97,13 @@ my $j = 0;    # API calls (or scans if logs have been filtered to keep only scan
 
 print STDERR "Loading scan logs\n";
 
+# Save scan product data in /data
+# This scan data can then be filtered and used as input for other scripts such as add_nutriscore_to_scanbot_csv.pl
+my $output_dir = "$data_root/data/scanbot.$year";
+if (! -e $output_dir) {
+	mkdir($output_dir, oct(755)) or die("Could not create $output_dir : $!\n");
+}
+
 my %ips = ();
 
 while (<STDIN>)
@@ -257,8 +264,8 @@ print STDERR "Process and update all products\n";
 
 # Log products scan counts
 
-open (my $PRODUCTS, ">:encoding(UTF-8)", "scanbot.$year.products.csv") or die("Cannot create scanbot.$year.products.csv: $!\n");
-open (my $LOG, ">:encoding(UTF-8)", "scanbot.log") or die("Cannot create scanbot.log: $!\n");
+open (my $PRODUCTS, ">:encoding(UTF-8)", "$output_dir/scanbot.$year.products.csv") or die("Cannot create scanbot.$year.products.csv: $!\n");
+open (my $LOG, ">:encoding(UTF-8)", "$output_dir/scanbot.log") or die("Cannot create scanbot.log: $!\n");
 
 my $cumulative_scans = 0;    # cumulative total of scans so that we can compute which top products represent 95% of the scans
 
@@ -279,11 +286,14 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$bot .= "product code $code scanned $scans_n times (from $unique_scans_n ips) - ";
 	
-	my %countries = %{$countries_for_products{$code}};	
+	my %countries = %{$countries_for_products{$code}};
+
+	my $countries_list = "";
 
 	foreach my $cc (sort { $countries{$b} <=> $countries{$a} } keys %countries) {
 		print "$cc:$countries{$cc} ";
 		$bot .= "$cc:$countries{$cc} ";
+		$countries_list .= "country:$cc ";	# for grepping a particular country
 	}
 	print "\n";
 
@@ -481,8 +491,8 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 
 	$added_countries_list =~ s/,$//;
 
-	print $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
-	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\n";
+	print $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\t" . $countries_list . "\n";
+	print $PRODUCTS $code . "\t" . $scans_n . "\t" . $unique_scans_n . "\t" . $found . "\t" . $source . "\t" . $added_countries_list . "\"" . $countries_list . "\n";
 
 	print $LOG $bot . "\n";
 
