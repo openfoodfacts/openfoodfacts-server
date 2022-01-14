@@ -310,6 +310,13 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 	if ((defined $product_ref) and ($code ne '') and (defined $product_ref->{code}) and (defined $product_ref->{lc})) {
 
 		my $path = product_path($product_ref);
+
+		$found = "FOUND";
+
+		if ((defined $product_ref->{data_sources}) 
+			and ($product_ref->{data_sources} =~ /producer/i)) {
+			$source = "producers";
+		}
 		
 		# Update scans.json
 		
@@ -333,13 +340,6 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 		# Update popularity_tags + add countries
 		
 		if ($update_popularity) {
-
-			$found = "FOUND";
-
-			if ((defined $product_ref->{data_sources}) 
-				and ($product_ref->{data_sources} =~ /producer/i)) {
-				$source = "producers";
-			}
 
 			$product_ref->{unique_scans_n} = $unique_scans_n + 0;
 			$product_ref->{scans_n} = $scans_n + 0;
@@ -393,7 +393,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 				$existing{$countryid} = 1;
 			}
 
-			$bot .= " current countries: $current_countries -- adding ";
+			$bot .= " current countries: $current_countries ";
 
 			my $top_country;
 
@@ -479,6 +479,7 @@ foreach my $code (sort { $codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $c
 					}
 				}
 
+				print "adding countries for $code - $bot\n";
 				store_product('scanbot', $product_ref, $comment);
 			}
 			else {
