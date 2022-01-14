@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-22 21:37\n"
+"PO-Revision-Date: 2022-01-12 08:25\n"
 "Language-Team: Norwegian Bokmal\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -279,6 +279,10 @@ msgstr "Strekkodenummer:"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "Du kan også bidra til finansieringen av Open Food Facts prosjektet"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -602,7 +606,7 @@ msgstr "Pakkekode"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Sporbarhetskode"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -2585,7 +2589,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Advarsel: mengden fiberer ikke spesifisert, deres mulige positive bidrag til karakteren kunne ikke tas med i betraktningen."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2605,7 +2609,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Advarsel: mengden frukt, grønnsaker og nøtter er ikke spesifisert på etiketten, det ble anslått fra ingredienslisten: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4509,7 +4513,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Ubearbeidet eller minimalt bearbeidet mat"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -5768,5 +5772,22 @@ msgstr ""
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr ""
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr ""
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
 msgstr ""
 

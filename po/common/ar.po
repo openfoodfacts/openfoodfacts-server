@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-01 11:57\n"
+"PO-Revision-Date: 2022-01-12 08:19\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -278,6 +278,10 @@ msgstr "رقم الرمز الشريطي:"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "يمكنك أيضًا المساعدة في تمويل مشروع حقائق الغذاء المفتوح"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -4296,39 +4300,39 @@ msgstr "فصل القيم المتعددة باستخدام الفواصل."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "إذا كانت عبوة المنتج بلغات متعددة، يرجى تحديد اللغة الأكثر وضوحًا للمنتج."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "أدخل نعم أو Y أو 1 إذا نفذ المنتج من المتجر."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "حدد كلا من القيمة والوحدة أو استخدم الوحدة الإفتراضية: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "حدد كلًا من القيمة والوحدة."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "تحميل ملفات النماذج XLSX لربنامج Excel أو LibreOffice مع الحقول التي يمكن استيرادها."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "الباركود كما يظهر على المنتج."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "يستخدم المنتج الرمز الداخلي لتعريف المنتج، يختلف عن باركود المنتج."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr " يستخدم المنتج كود داخلي لتحديد إصدار المنتج المعين عندما يتغير."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "يعد توفير فئة مهم للغاية اتسهيل البحث عن المنتج ولحساب درجة الجودة الغذائية"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -5081,7 +5085,7 @@ msgstr ""
 
 msgctxt "attribute_forest_footprint_e_title"
 msgid "Very large forest footprint"
-msgstr ""
+msgstr "عربي"
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest footprint not computed"
@@ -5782,5 +5786,22 @@ msgstr ""
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr ""
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "حقائق غذائية مفقودة"
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
 msgstr ""
 
