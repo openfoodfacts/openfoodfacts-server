@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-12 08:19\n"
+"PO-Revision-Date: 2022-01-14 08:51\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4266,7 +4266,7 @@ msgstr "أضف مدخلات أو مرادفات أو ترجمات جديدة إ�
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr "#ingredients انضم إلى قناة المكونات على <a href=\"https://slack.openfoodfacts.org\"> مساحة المناقشة </a> و/أو التعرف على <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\"> تحليل المكونات على موقعنا ويكي </a> إذا أردت مساعدتنا. شكرًا لك!"
+msgstr ""
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4473,12 +4473,20 @@ msgid "Nutri-Score %s"
 msgstr ""
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score غير محسوبة"
+msgid "Nutri-Score unknown"
+msgstr ""
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "قيمة غذائية غير معروفة"
+msgid "Missing data to compute the Nutri-Score"
+msgstr ""
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr ""
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5799,6 +5807,18 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr ""
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr ""
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr ""
 
 # "source" as in "source of the information"
 msgctxt "source"

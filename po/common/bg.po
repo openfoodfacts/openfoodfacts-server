@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-12 08:20\n"
+"PO-Revision-Date: 2022-01-14 08:52\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -841,7 +841,7 @@ msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -941,7 +941,7 @@ msgstr "Ако снимката е достатъчно чиста, състав
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "Снимка с хранителни факти"
+msgstr "Снимка с хранителни стойности"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -1108,11 +1108,11 @@ msgstr "https://apps.apple.com/bg/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "известни хранителни вещества"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "известно хранително вещество"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -1194,7 +1194,7 @@ msgstr ""
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Списък с/със %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1301,7 +1301,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Допринеси"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1367,11 +1367,11 @@ msgstr "Имена"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Ако баркодът не е правилен, моля, коригирай го тук:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "За продукти без баркод автоматично се задава вътрешен код."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
@@ -1387,7 +1387,7 @@ msgstr "Продукт без баркод"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "Хранителните факти не са посочени върху продукта."
+msgstr "Хранителните стойности не са посочени върху продукта."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1407,7 +1407,7 @@ msgstr "Няма продукти."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Грешка при запазването, моля опитай отново."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1456,11 +1456,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Хранителни факти"
+msgstr "Хранителни стойности"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Хранителни факти"
+msgstr "Хранителни стойности"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1532,7 +1532,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Хранителни факти"
+msgstr "Хранителни стойности"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1725,7 +1725,7 @@ msgstr "Класиране"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Класация на сътрудниците и страните"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
@@ -1741,7 +1741,7 @@ msgstr "Добави хранително вещество"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr ""
+msgstr "Добавен продукт на"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
@@ -1789,19 +1789,19 @@ msgstr ""
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Извличане на съставките"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Нормализирай цветовете"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Отвори снимката в оригинален размер в нов прозорец"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "Снимката е получена"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
@@ -2053,7 +2053,7 @@ msgstr "Изтегляне"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Изтегли резултатите"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
@@ -2077,15 +2077,15 @@ msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Промяна на критериите за търсене"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Генериране на графика"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Генерирай картата"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2182,7 +2182,7 @@ msgstr ""
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Резултати от търсенето"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2234,7 +2234,7 @@ msgstr ""
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Търси продукт, марка, съставка, хранителен продукт и т. н."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2262,7 +2262,7 @@ msgstr "Без"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "Виж продуктовата страница"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2310,7 +2310,7 @@ msgstr "Сподели"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Показване на подробна статистика"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -2490,7 +2490,7 @@ msgstr "Потребителско име или имейл адрес"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Продукти, добавени от потребител %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
@@ -2498,15 +2498,15 @@ msgstr ""
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Продукти, редактирани от потребител %s"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Продукти, които не са редактирани от потребител %s"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "сътрудници"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2514,7 +2514,7 @@ msgstr "Продукти, добавени от %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "сътрудник"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2534,7 +2534,7 @@ msgstr ""
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Виж резултати от целия свят"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
@@ -2693,7 +2693,7 @@ msgstr "Одобрени (думи)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "Брой гласове"
 
 msgctxt "minerals_p"
 msgid "added minerals"
@@ -2823,7 +2823,7 @@ msgstr "3 до 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "От 36 месеца до 9 годишна възраст включително"
 
 msgctxt "toddlers"
 msgid "Toddlers"
@@ -2939,7 +2939,7 @@ msgstr "Функции"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Проверка на снимки и данни"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
@@ -2951,11 +2951,11 @@ msgstr ""
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Проверих снимките и данните."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Проверих отново снимките и данните."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
@@ -2963,7 +2963,7 @@ msgstr ""
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Дата на последната проверка"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -3011,7 +3011,7 @@ msgstr ""
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
-msgstr ""
+msgstr "Идея за рецепта"
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
@@ -3039,7 +3039,7 @@ msgstr "Инструкции за рециклиране — За рецикли
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
-msgstr ""
+msgstr "Инструкции за рециклиране - за изхвърляне"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3087,7 +3087,7 @@ msgstr ""
 
 msgctxt "obsolete"
 msgid "Product taken off the market"
-msgstr ""
+msgstr "Изтеглен продукт от пазара"
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
@@ -3331,7 +3331,7 @@ msgstr "Съставки"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "Хранителни факти"
+msgstr "Хранителни стойности"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3343,7 +3343,7 @@ msgstr "Друга информация"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Снимки на продукта"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -3363,7 +3363,7 @@ msgstr ""
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Специфичен етикет"
 
 msgctxt "categories_specific"
 msgid "Specific category"
@@ -3907,7 +3907,7 @@ msgstr "Хранителните влакнини"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "Протеини"
+msgstr "Белтъци"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3948,7 +3948,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr "Благодарим Ви!"
+msgstr "Благодаря!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4459,12 +4459,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score не е изчислен"
+msgid "Nutri-Score unknown"
+msgstr ""
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Неизвестно хранително качество"
+msgid "Missing data to compute the Nutri-Score"
+msgstr ""
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr ""
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4881,7 +4889,7 @@ msgstr "Липсващ списък на съставките"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Липсващи хранителни стойности"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -5776,18 +5784,30 @@ msgstr "Разход на енергия за човек с тегло {kg} kg /
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
-msgstr ""
+msgstr "Не е приложимо за този продукт"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Липсваща категория"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
+msgstr "Липсващи хранителни стойности"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr ""
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr ""
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
 msgstr ""
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Източник"
 
