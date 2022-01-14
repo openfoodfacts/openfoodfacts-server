@@ -4604,12 +4604,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score not computed"
+msgid "Nutri-Score unknown"
+msgstr "Nutri-Score unknown"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Unknown nutritional quality"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "Missing data to compute the Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Score not-applicable"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "Exempted category"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5935,6 +5943,18 @@ msgstr "Missing category"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Missing nutrition facts"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "Reduce or stop drinking alcohol"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "Less is better"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
 
 # "source" as in "source of the information"
 msgctxt "source"

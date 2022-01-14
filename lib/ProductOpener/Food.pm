@@ -1580,7 +1580,7 @@ sub compute_nutrition_score($) {
 	# do not display warnings about missing fiber and fruits
 
 	if (not ((has_tag($product_ref, "categories", "en:spring-waters"))
-		and not (has_tag($product_ref, "categories", "en:flavored-waters") or as_tag($product_ref, "categories", "en:flavoured-waters")))) {
+		and not (has_tag($product_ref, "categories", "en:flavored-waters") or has_tag($product_ref, "categories", "en:flavoured-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known

@@ -161,6 +161,9 @@ sub create_knowledge_panels($$$$) {
 
     # Add knowledge panels
 
+    # Create recommendation panels first, as they will be included in cards such has the health card and environment card
+    create_recommendation_panels($product_ref, $target_lc, $target_cc);
+
     create_health_card_panel($product_ref, $target_lc, $target_cc);
     create_environment_card_panel($product_ref, $target_lc, $target_cc);
 
@@ -668,6 +671,7 @@ sub create_nutriscore_panel($$$) {
 	
     my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
+    # Do not display the Nutri-Score panel if it is not applicable
     if ((not $panel_data_ref->{do_not_display})
         and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
 
@@ -997,6 +1001,77 @@ sub add_taxonomy_properties_in_target_languages_to_object ($$$$$) {
             $object_ref->{$property . "_lc"} = $property_lc;
             $object_ref->{$property . "_language"} = display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
         }
+    }
+}
+
+
+=head2 create_recommendation_panels ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels with recommendations (e.g. related to health or the environment).
+Recommendations can depend on product properties (e.g. categories or ingredients)
+and user properties (e.g. country and language to get country specific recommendations,
+but possibly also user preferences regarding trusted sources of information).
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_recommendation_panels($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create health recommendation panels", { code => $product_ref->{code}, }) if $log->is_debug();
+
+    # The code below defines the conditions to show recommendations (which recommendation for which product and which user)
+    # Those conditions could be implemented at some point in a configuration file, once we have a better idea of usage and the types of conditions.
+
+    # Note: in order to simplify the display logic, we can use the same panel id (e.g. "recommendation_health") for different panels.
+    # If there are multiple panels matching with the same id, only the last one will be kept.
+    # This can be used for instance if we want to have a default worldwide recommendation, and the more precise or relevant recommendations
+    # at the country level.
+
+    # Health
+
+    # Alcohol
+    if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+
+        create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/world/who_alcohol.tt.json",
+            {}, $product_ref, $target_lc, $target_cc);
+    }
+
+    # France - Santé publique France
+
+    if (($target_cc eq 'fr') and ($target_lc eq 'fr')) {
+
+        # Alcohol
+
+        if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+
+            create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/fr/spf_alcohol.tt.json",
+                {}, $product_ref, $target_lc, $target_cc);
+        }
+
+        # Pulses (légumes secs)
+
+         if (has_tag($product_ref, "categories", "en:pulses")) {
+
+            create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json",
+                {}, $product_ref, $target_lc, $target_cc);
+        }       
+
     }
 }
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-01 11:59\n"
+"PO-Revision-Date: 2022-01-12 08:23\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -279,6 +279,10 @@ msgstr "מספר ברקוד:"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -643,7 +647,7 @@ msgstr "שגיאה"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "שם המשתמש או הססמה שגויים. <a href=\"/cgi/reset_password.pl\">שכחת את הססמה?</a>"
+msgstr "שם המשתמש או הסיסמה שגויים. <a href=\"/cgi/reset_password.pl\">שכחת את הסיסמה?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -651,11 +655,11 @@ msgstr "אירעה שגיאה בעת קריאת הנתונים, נא לנסות 
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "הססמה ואימות הססמה אינם זהים."
+msgstr "הסיסמה ואימות הסיסמה שונים."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "כתובת הדוא״ל כבר בשימוש על־ידי משתמש אחר. אולי כבר יש לך חשבון? ניתן <a href=\"/cgi/reset_password.pl\">לאפס את הססמה</a> לחשבון שלך."
+msgstr "כתובת הדוא״ל כבר בשימוש על־ידי משתמש אחר. אולי כבר יש לך חשבון? ניתן <a href=\"/cgi/reset_password.pl\">לאפס את הסיסמה</a> לחשבון שלך."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -667,7 +671,7 @@ msgstr "כתובת הדוא״ל שגויה"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "הססמה חייבת להיות באורך של 6 תווים לפחות."
+msgstr "הסיסמה חייבת להיות באורך של 6 תווים לפחות."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -699,7 +703,7 @@ msgstr "כבר נכנסת."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "הקישור לאיפוס הססמה שגוי או שתוקפו פג."
+msgstr "הקישור לאיפוס הסיסמה שגוי או שתוקפו פג."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -1650,15 +1654,15 @@ msgstr "עמודים:"
 
 msgctxt "password"
 msgid "Password"
-msgstr "ססמה"
+msgstr "סיסמה"
 
 msgctxt "password_new"
 msgid "New password"
-msgstr "ססמה חדשה"
+msgstr "סיסמה חדשה"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr "אימות הססמה"
+msgstr "אימות הסיסמה"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1950,7 +1954,7 @@ msgstr "שמירת מקור הרכישה ואת החנות להוספות המו
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr "איפוס הססמה"
+msgstr "איפוס הסיסמה"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1963,10 +1967,10 @@ msgid "Hello <NAME>,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 msgstr "שלום <NAME>,\n\n"
-"ביקשת לאפס את הססמה שלך באתר https://openfoodfacts.org\n\n"
+"ביקשת לאפס את הסיסמה שלך באתר https://openfoodfacts.org\n\n"
 "עבור שם המשתמש: <USERID>\n\n"
-"כדי להמשיך באיפוס הססמה עליך ללחוץ על הקישור להלן.\n"
-"אם לא ביקשת לאפס את הססמה, ניתן להתעלם מהודעה זו.\n\n"
+"כדי להמשיך באיפוס הסיסמה עליך ללחוץ על הקישור להלן.\n"
+"אם לא ביקשת לאפס את הסיסמה, ניתן להתעלם מהודעה זו.\n\n"
 "<RESET_URL>\n\n"
 "נתראה בקרוב,\n\n"
 "סטפן\n"
@@ -1974,23 +1978,23 @@ msgstr "שלום <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr "איפוס הססמה שלך ב־<<site_name>>"
+msgstr "איפוס הסיסמה שלך ב־<<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr "הססמה שלך הוחלפה. מעתה ניתן להיכנס עם ססמה זו."
+msgstr "הסיסמה שלך הוחלפה. מעתה ניתן להיכנס עם סיסמה זו."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr "נא לרשום ססמה חדשה."
+msgstr "נא למלא סיסמה חדשה."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "הודעה עם קישור לאיפוס הססמה שלך נשלחה לכתובת הדוא״ל המשויכת עם החשבון שלך."
+msgstr "הודעה עם קישור לאיפוס הסיסמה שלך נשלחה לכתובת הדוא״ל המשויכת עם החשבון שלך."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "אם שכחת את הססמה שלך, נא למלא את שם המשתמש או את כתובת הדוא״ל שלך כדי לקבל הנחיות לאיפוס הססמה שלך."
+msgstr "אם שכחת את הסיסמה שלך, נא למלא את שם המשתמש או את כתובת הדוא״ל שלך כדי לקבל הנחיות לאיפוס הסיסמה שלך."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -5169,11 +5173,11 @@ msgstr "https://il.openfoodfacts.org/open-food-facts-vision-mission-values-and-p
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
-msgstr "שכחת ססמה?"
+msgstr "שכחת סיסמה?"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr "לא הצלחנו לאפס את הססמה שלך, נא ליצור אתנו קשר לעזרה."
+msgstr "לא הצלחנו לאפס את הסיסמה שלך, נא ליצור אתנו קשר לעזרה."
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
@@ -5784,4 +5788,21 @@ msgstr "שווה ערך ל־{minutes} דקות או {steps} צעדים"
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "הוצאה אנרגטית לאדם במשקל {kg} ק״ג / {lb} פאונד"
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr ""
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr ""
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "עובדות תזונתיות חסרות"
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
+msgstr ""
 

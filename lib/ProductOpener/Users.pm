@@ -208,7 +208,7 @@ sub is_admin_user($) {
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
-	return (%admins) and (defined $user_id) and (exists $admins{$user_id});
+	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
 

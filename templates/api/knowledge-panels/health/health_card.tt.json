@@ -16,6 +16,9 @@
                     [% IF panels.nutriscore.defined %]
                         "nutriscore",
                     [% END %]
+                    [% IF panels.recommendation_health.defined %]
+                        "recommendation_health",
+                    [% END %]
                     [% IF panels.physical_activities.defined %]
                         "physical_activities",
                     [% END %]                    
