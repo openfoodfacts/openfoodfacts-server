@@ -14,6 +14,14 @@
                 "panel_id": "ecoscore",
             },
         },
+        [% IF panels.ecoscore_extended.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "carbon_extended",
+            },
+        },
+        [% END %]           
         [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
@@ -22,7 +30,7 @@
                 "panel_ids": ["carbon_footprint"],
             },
         },
-        [% END %]
+        [% END %]     
         [% IF panels.packaging_recycling.defined %]
         {
             "element_type": "panel_group",
