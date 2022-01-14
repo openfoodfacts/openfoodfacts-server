@@ -170,6 +170,11 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 COPY --from=builder /tmp/local/ /opt/perl/local/
 ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
 ENV PATH="/opt/perl/local/bin:${PATH}"
+# Set up apache2 to use npm prefork
+RUN \
+    a2dismod mpm_event && \
+    a2enmod mpm_prefork
+
 # Create writable dirs and change ownership to www-data
 RUN \
     mkdir -p var/run/apache2/ && \
