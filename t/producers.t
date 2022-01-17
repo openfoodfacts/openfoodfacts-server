@@ -18,7 +18,9 @@ init_fields_columns_names_for_lang("es");
 my @tests = (
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
 ["fr", "nom-produit", { field=>"product_name", lc=>"fr"}],
+["fr", "Nom du produit", {field => 'product_name', lc => 'fr'}],
 ["fr", "marque", { field=>"brands"}],
+["fr", "Liste des ingrédients", {field => 'product_name', lc => 'fr'}],
 ["fr", "liste-ingredients", { field=>"ingredients_text", lc =>"fr"}],
 ["fr", "bio", { field=>"labels_specific", tag=>"Bio"}],
 
