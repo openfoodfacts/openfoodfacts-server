@@ -41,7 +41,6 @@ db.products.createIndex({ingredients_n_tags:1,"last_modified_t": -1}, { backgrou
 db.products.createIndex({pnns_groups_1_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({pnns_groups_2_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({misc_tags:1,"last_modified_t": -1}, { background: true });
-db.products.createIndex({quality_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({unknown_nutrients_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({last_image_dates_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({cities_tags:1,"last_modified_t": -1}, { background: true });
@@ -61,7 +60,4 @@ db.products.createIndex({nutriscore_score_opposite: -1}, { background: true });
 db.products.createIndex({ecoscore_score: -1}, { background: true });
 db.products.createIndex({popularity_key: -1}, { background: true });
 db.products.createIndex({countries_tags:1,"last_modified_t": -1}, { background: true });
-
-
-# for off-pro only:
 db.products.createIndex({owner:1, countries_tags:1, "last_modified_t": -1}, { background: true });
