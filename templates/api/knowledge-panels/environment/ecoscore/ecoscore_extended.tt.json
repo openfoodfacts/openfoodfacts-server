@@ -7,7 +7,8 @@
         "title": "Eco-Score extended",
         "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
         "type": "grade",
-        "grade": "[% panel.agribalyse_grade %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+        "icon_color_from_evaluation": true,        
     },
     "elements": [
         {
@@ -16,12 +17,13 @@
                 "text_type": "summary",
                 "html": `eco-score extended panel
 
-                ecoscore_extended_data: {
-                    impact: {
+                climate_change: [% panel.climate_change %]
+                ef_score: [% panel.ef_score %]
 
-                    calculation_time: [% product.ecoscore_extended_data.impact.calculation_time %]
-
-                    ecoscore_extended_data_more_precise_than_agribalyse: [% panel.ecoscore_extended_data_more_precise_than_agribalyse %]
+                [% IF panel.ecoscore_extended_data_for_category.defined %]
+                    category_id: [% panel.ecoscore_extended_data_for_category.category_id %]
+                    climate_change average: [% panel.ecoscore_extended_data_for_category.climate_change %]
+                [% END %]
 
                     `
             }

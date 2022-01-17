@@ -422,11 +422,16 @@ sub create_ecoscore_panel($$$) {
 
         if (defined $product_ref->{ecoscore_extended_data}) {
 
-            # FIXME : check version of ecoscore_extended_data (needs to be 2 or 3)
+            # Copy data from product data (which format may change) to panel data to make it easier to use in the template
+
+            $panel_data_ref->{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+            $panel_data_ref->{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+
             # Compute the index of the recipe with the maximum confidence
             my $max_confidence = 0;
             my $max_confidence_index;
             my $i = 0;
+
 
             foreach my $confidence (@{$product_ref->{ecoscore_extended_data}{impact}{confidence_score_distribution}}) {
                 if ($confidence > $max_confidence) {
@@ -455,6 +460,27 @@ sub create_ecoscore_panel($$$) {
 
             # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
 
+            # Comparison to other products
+
+            my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
+
+            if (defined $categories_nutriments_ref) {
+
+                foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+                    if ((defined $categories_nutriments_ref->{$cid})
+                        and (defined $categories_nutriments_ref->{$cid}{nutriments})
+                        and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change})) {
+
+                        $panel_data_ref->{ecoscore_extended_data_for_category} = {
+                            category_id => $cid,
+                            climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
+                        };
+
+                        last;
+                    }
+                }
+            }
 
             create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
                 $panel_data_ref, $product_ref, $target_lc, $target_cc);
