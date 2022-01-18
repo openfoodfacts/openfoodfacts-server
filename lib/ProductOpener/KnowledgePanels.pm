@@ -466,7 +466,7 @@ sub create_ecoscore_panel($$$) {
 
             if (defined $categories_nutriments_ref) {
 
-                foreach my $cid (@{$product_ref->{categories_tags}}) {
+                foreach my $cid (reverse @{$product_ref->{categories_tags}}) {
 
                     if ((defined $categories_nutriments_ref->{$cid})
                         and (defined $categories_nutriments_ref->{$cid}{nutriments})
@@ -475,15 +475,16 @@ sub create_ecoscore_panel($$$) {
                         $panel_data_ref->{ecoscore_extended_data_for_category} = {
                             category_id => $cid,
                             climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
+                            ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
                         };
 
                         last;
                     }
                 }
-            }
 
-            create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
-                $panel_data_ref, $product_ref, $target_lc, $target_cc);
+                create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+                    $panel_data_ref, $product_ref, $target_lc, $target_cc);
+            }
         }
 
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
