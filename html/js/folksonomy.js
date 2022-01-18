@@ -374,7 +374,7 @@ function displayProductsWithProperty(_property, _value) {
             '<th class="values">Values</th>' +
             '</tr>' +
             '<tbody id="free_prop_body">';
-        while (index-=) {
+        while (index-=1) {
             content += ('<tr>' +
                         '<td class="product_code">' +
                         '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
