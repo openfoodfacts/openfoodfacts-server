@@ -422,7 +422,7 @@ function displayAllProperties() {
         let content = "";
         // sort by count
         const d = data.sort(function(a,b){ return a.count >b.count ?1 :-1; });
-        while (index-=) {
+        while (index-=1) {
             content += ('<tr class="property">' +
                         '<td> </td>' +
                         '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
