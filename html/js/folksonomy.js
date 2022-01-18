@@ -315,7 +315,7 @@ function displayFolksonomyPropertyValues() {
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        while (index-=) {
+        while (index-=1) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
                         '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
