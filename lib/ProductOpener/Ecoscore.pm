@@ -77,6 +77,7 @@ use ProductOpener::Packaging qw/:all/;
 use Storable qw(dclone freeze);
 use Text::CSV();
 use Math::Round;
+use Hash::DeepAccess;
 
 my %agribalyse = ();
 
@@ -1517,15 +1518,12 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
 	my $product_ref = shift;
 
 	# Check that the product has both Agribalyse and Impact Estimator data
-	if ((defined $product_ref->{agribalyse}) and (defined $product_ref->{agribalyse}{ef_agriculture}) 
-		and (defined $product_ref->{ecoscore_extended_data})
-		and (defined $product_ref->{ecoscore_extended_data}{impact})
-		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
-		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score})
-	) {
 
-		my $agribalyse_score = $product_ref->{agribalyse}{ef_agriculture};
-		my $estimated_score = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+	my $agribalyse_score = deep($product_ref, qw(agribalyse ef_agriculture));
+	my $estimated_score = deep($product_ref, qw(ecoscore_extended_data impact likeliest_impacts EF_single_score))	
+
+	
+	if ((defined $agribalyse_score) and (defined $estimated_score)) {
 
 		return (ecoscore_extended_data_expected_error($product_ref) 
 			< abs((log($agribalyse_score) - log($estimated_score)) / log($estimated_score)));

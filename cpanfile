@@ -60,6 +60,7 @@ requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 requires 'Devel::Size'; # deps: libdevel-size-perl
 requires 'JSON::Create';
 requires 'JSON::Parse';
+requires 'Hash::DeepAccess';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
