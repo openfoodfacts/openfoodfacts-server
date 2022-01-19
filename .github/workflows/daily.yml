@@ -49,8 +49,15 @@ jobs:
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          make import_prod_data
-          make restart_db
+          # We can put a file to avoid running db update
+          if [[ ! -e ./NO_DAILY ]]
+          then
+            make import_prod_data
+            make restart_db
+          else
+            # make task fail intentionally
+            false
+          fi
 
   refresh-products-tags:
     runs-on: ubuntu-latest
