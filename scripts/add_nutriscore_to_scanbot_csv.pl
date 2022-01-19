@@ -75,9 +75,9 @@ while (<STDIN>)
 	my $nutriscore_unique_scans = 0;
 	my $nutriscore_status = 0;
 
-        my $ecoscore_scans = 0;
-        my $ecoscore_unique_scans = 0;
-        my $ecoscore_status = 0;
+	my $ecoscore_scans = 0;
+	my $ecoscore_unique_scans = 0;
+	my $ecoscore_status = 0;
 
  	if ($source eq "producers") {
 		$total{producers_products}++;
@@ -115,12 +115,12 @@ while (<STDIN>)
 				$total{nutriscore_products}++;
 			}
 			if ((defined $product_ref->{ecoscore_grade})
-                                and ($product_ref->{ecoscore_grade} =~ /^[a-e]$/)) {
-                                $ecoscore_scans = $scans;
-                                $ecoscore_unique_scans = $unique_scans;
-                                $ecoscore_status = 1;
-                                $total{ecoscore_products}++;
-                        }
+				and ($product_ref->{ecoscore_grade} =~ /^[a-e]$/)) {
+				$ecoscore_scans = $scans;
+				$ecoscore_unique_scans = $unique_scans;
+				$ecoscore_status = 1;
+				$total{ecoscore_products}++;
+			}
 		}
 	}
 	
@@ -131,13 +131,13 @@ while (<STDIN>)
 	$total{found_unique_scans} += $found_unique_scans;
 
 	$total{producers_scans} += $producers_scans;
-        $total{producers_unique_scans} += $producers_unique_scans;
+	$total{producers_unique_scans} += $producers_unique_scans;
 
 	$total{nutriscore_scans} += $nutriscore_scans;
 	$total{nutriscore_unique_scans} += $nutriscore_unique_scans;
 
-        $total{ecoscore_scans} += $ecoscore_scans;
-        $total{ecoscore_unique_scans} += $ecoscore_unique_scans;
+	$total{ecoscore_scans} += $ecoscore_scans;
+	$total{ecoscore_unique_scans} += $ecoscore_unique_scans;
 	
 	print join("\t", $code, $scans, $unique_scans, $found, $source, $found_status, $found_scans, $found_unique_scans, $nutriscore_status, $nutriscore_scans, $nutriscore_unique_scans) . "\n";
 }
