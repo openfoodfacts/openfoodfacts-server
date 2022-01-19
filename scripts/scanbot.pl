@@ -82,6 +82,18 @@ but they are taken into account to compute some values of the popularity facets 
 
 The --year parameter and at least one of --update-popularity or --update-scans is required.
 
+e.g. sample usage to compute scan statistics for a full year, without adding new countries to products:
+
+./scanbot.pl --year 2021 --update-popularity --update-scans < /srv/off/logs/*.log.scan.2021
+
+The popularity_key needs to be recomputed with the new popularity data:
+
+./update_all_products.pl --compute-sort
+
+To compute scan data with Nutri-Score information, for one country:
+
+grep country:fr ../data/scanbot.2021/scanbot.2021.products.csv  | ./add_nutriscore_to_scanbot_csv.pl > ../data/scanbot.2021/scanbot.with-nutriscore.csv
+
 USAGE
 ;
 	exit();
