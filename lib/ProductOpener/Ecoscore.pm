@@ -1520,7 +1520,7 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
 	# Check that the product has both Agribalyse and Impact Estimator data
 
 	my $agribalyse_score = deep($product_ref, qw(agribalyse ef_agriculture));
-	my $estimated_score = deep($product_ref, qw(ecoscore_extended_data impact likeliest_impacts EF_single_score))	
+	my $estimated_score = deep($product_ref, qw(ecoscore_extended_data impact likeliest_impacts EF_single_score));
 
 	
 	if ((defined $agribalyse_score) and (defined $estimated_score)) {
