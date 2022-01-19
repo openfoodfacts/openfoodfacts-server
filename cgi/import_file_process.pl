@@ -110,7 +110,11 @@ foreach my $field (keys %$columns_fields_ref) {
 	delete $columns_fields_ref->{$field}{max};
 	delete $columns_fields_ref->{$field}{n};
 
-	$all_columns_fields_ref->{get_string_id_for_lang("no_language", normalize_column_name($field))} = $columns_fields_ref->{$field};
+	my $column_id = get_string_id_for_lang("no_language", normalize_column_name($field));
+
+	$all_columns_fields_ref->{$column_id} = $columns_fields_ref->{$field};
+
+	$log->debug("Field in columns_field_json", { field => $field, column_id => $column_id, value =>  $columns_fields_ref->{$field}}) if $log->is_debug();
 }
 
 defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = {};
