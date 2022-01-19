@@ -222,6 +222,51 @@ my @tests = (
 		]
 	],
 
+	[ { lc => "fr", ingredients_text => "crème fraîche pasteurisée, bananes fraiches, fromage frais, crème (dont lait) fraîche, ananas (frais), pâtes fraîches cuites, SUCRE BLOND DE CANNE NON RAFFINE"},
+		[
+			{
+				'id' => 'en:pasteurized-creme-fraiche',
+				'text' => "cr\x{e8}me fra\x{ee}che pasteuris\x{e9}e"
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:fresh',
+				'text' => 'bananes'
+			},
+			{
+				'id' => 'en:soft-white-cheese',
+				'text' => 'fromage frais'
+			},
+			{
+				'id' => 'en:cream',
+				'ingredients' => [
+				{
+					'id' => 'en:milk',
+					'text' => 'dont lait'
+				}
+				],
+				'text' => "cr\x{e8}me"
+			},
+			{
+				'id' => "fr:fra\x{ee}che",
+				'text' => "fra\x{ee}che"
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:fresh',
+				'text' => 'ananas'
+			},
+			{
+				'id' => 'en:cooked-fresh-pasta',
+				'text' => "p\x{e2}tes fra\x{ee}ches cuites"
+			},
+			{
+				'id' => 'en:blonde-cane-sugar',
+				'processing' => 'en:raw',
+				'text' => 'SUCRE BLOND DE CANNE'
+			}
+		]
+	],		
 
 # test for jus and concentré with extra "de"
 #	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},

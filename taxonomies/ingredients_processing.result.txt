@@ -9,6 +9,9 @@ de:aus Früchten
 
 de:dampfgegart, dampfgegarte, dampfgegarter
 
+de:dicksaft, dicksäfte
+nl:diksap
+
 de:dreifach konzentriert
 
 de:edelholzrauch
@@ -181,21 +184,19 @@ en:concentrated, concentrate, concentrates
 ca:concentrat
 da:koncentreret
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
-es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
+es:concentrado, concentrada, concentrados, concentradas
 fi:tiivistetty, tiiviste
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 hu:sűrítmény, sűrített, koncentrátum
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de
+ro:concentrat de
+ru:концентрированный
 sv:koncentrerad
 
-< en:Concentrated
-en:double concentrated
-de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes
-es:doble concentrado, doble concentrada
-it:doppio concentrato, doppio concentrato di
-
 en:cooked, boiled
+cs:vařená
+da:kogte
 de:gekocht, gekochte, gekochter, gekochtes
 es:cocido, cocida, cocidos, cocidas
 fi:paistettu, keitetty, kypsennetty, kypsennetyt
@@ -205,6 +206,8 @@ id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 ms:rebus
 nl:gekookt, gekookte
+nn:kogte
+pl:gotowana
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
 sv:kokt, kokta
@@ -289,6 +292,11 @@ fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 hu:kockázott, kockázva, kockára vágva, kockára vágott
 nl:blokjes, in blokjes, blokje
 sv:tärnad
+
+en:double concentrated
+de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes
+es:doble concentrado, doble concentrada
+it:doppio concentrato, doppio concentrato di
 
 en:double smoked
 es:doble ahumado, doble ahumada, doble ahumados, doble ahumadas
@@ -429,6 +437,7 @@ pt:liofilizado, liofilizados, liofilizada, liofilizadas
 en:fresh
 de:frisch, frische, frischer, frisches
 es:fresco, fresca, frescos, frescas
+fr:frais, fraîche, fraîches
 hu:friss
 it:fresco, fresca, fresche, freschi
 nl:verse, vers
@@ -448,17 +457,20 @@ it:fritto, fritta, fritti, fritte
 pt:frito, frita, fritos, fritas
 sv:friterad, stekt
 
-en:from-concentrate
+en:from concentrate
+cs:koncentrát z
 da:fra koncentrat, fra koncentrater
 de:aus Konzentrat, aus Konzentraten
-es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
+es:a base de concentrado, a partir de concentrado, procedente de concentrado, procedente de concentrada, a base de concentrada, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
-nl:uit concentraat, van concentraat
+lt:iš koncentrąto
+nl:op basis van concentraat
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
+sk:z koncentrátu
 sv:från koncentrat
 
 en:frozen
@@ -571,27 +583,22 @@ fr:irradié, irradiée, irradiés, irradiées
 
 en:juice, juices, juices of, juice from
 az:şıresl
-cs:šťáva
+cs:šťáva, štávy z
 da:saft, juice
-de:saft, säfte, saft von, säfte von, saft vom, säfte vom
+de:saft, säfte, saft von, säfte von, saft vom, säfte vom, direktsaft, direktsäfte
 es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
-hu:leve
+hu:leve, lé
 it:succo, succo di, succo d'
+nb:juice
 nl:sap
 nn:juice
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
-ro:suc de
+ro:suc de, suc
 ru:сок
+sk:stavy
 sv:juice, saft
-
-< en:Juice
-de:dicksaft, dicksäfte
-nl:diksap
-
-< en:Juice
-de:direktsaft, direktsäfte
 
 < en:Juice
 es:zumo de, zumo
@@ -903,7 +910,7 @@ en:pulp
 ca:polpa do
 cs:dřeň
 de:mark, pulpe, fruchtfleisch
-es:pulpo, pulpa de
+es:pulpo, pulpa de, polpa del
 fi:hedelmäliha
 fr:pulpe, pulpe de, pulpe d', en pulpe
 hu:bél, velő
