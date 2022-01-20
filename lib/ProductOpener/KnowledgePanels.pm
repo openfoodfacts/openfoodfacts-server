@@ -366,7 +366,7 @@ sub extract_data_from_impact_estimator_best_recipe($$) {
     # list ingredients for max confidence recipe, sorted by quantity 
     my @ingredients = ();
 
-    my @ingredients_by_quantity = sort { $best_recipe_ref->{$b} <=> $best_recipe_ref->{$a} } keys %{$best_recipe_ref->};
+    my @ingredients_by_quantity = sort { $best_recipe_ref->{$b} <=> $best_recipe_ref->{$a} } keys %{$best_recipe_ref};
     foreach my $ingredient (@ingredients_by_quantity) {
         push @ingredients, {
             id => $ingredient,
@@ -382,7 +382,7 @@ sub extract_data_from_impact_estimator_best_recipe($$) {
 }
 
 
-=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref)
+=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
 
 gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
 extended ecoscore impacts computed by the impact estimator.
@@ -391,10 +391,11 @@ For a specific product, this function finds the most specific category for which
 
 =cut
 
-sub compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref) {
+sub compare_impact_estimator_data_to_category_average($$$) {
 
     my $product_ref = shift;
-    my $panel_da
+    my $panel_data_ref = shift;
+    my $target_cc = shift;
 
     # Comparison to other products
 
@@ -517,7 +518,7 @@ sub create_ecoscore_panel($$$) {
 
             extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
 
-            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref);
+            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
 
             # Display a panel only if we can compare the product extended impact
             if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
