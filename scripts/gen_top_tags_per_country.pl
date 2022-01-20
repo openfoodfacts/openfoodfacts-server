@@ -217,7 +217,7 @@ while (my $product_ref = $cursor->next) {
 	# Add environmental impact from impact estimator if we have them
 	if ((defined $product_ref->{ecoscore_extended_data}) and (defined $product_ref->{ecoscore_extended_data}{impact})
 		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
-		# Need to add a filter to keep only impacts computed with high confidence
+		# TODO: Need to add a filter to keep only impacts computed with high confidence
 	) {
 		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
 		$products_nutriments{$code}{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
@@ -479,7 +479,6 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		if ($n >= $min_products) {
 
-			($cc eq 'fr') and ($tagid =~ /plant/) and print "compute_stats_for_products - fr - $tagid - n: $n - count: $count - min: $min_products\n";
 			$categories{$tagid} = {};
 			compute_stats_for_products($categories{$tagid}, \%nutriments, $count, $n, $min_products, $tagid);
 
