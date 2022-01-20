@@ -1756,8 +1756,11 @@ sub generate_tags_taxonomy_extract ($$$$) {
 	my $options_ref = shift;
 	my $lcs_ref = shift;
 
+	$log->debug("generate_tags_taxonomy_extract", {tagtype => $tagtype, tags_ref => $tags_ref, options_ref => $options_ref, lcs_ref => $lcs_ref }) if $log->is_debug();
+
 	# Return empty hash if the taxonomy does not exist
 	if (not defined $translations_to{$tagtype}) {
+		$log->debug("taxonomy not found", {tagtype => $tagtype}) if $log->is_debug();
 		return {};
 	}
 

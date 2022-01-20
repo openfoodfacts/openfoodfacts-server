@@ -134,6 +134,8 @@ use ProductOpener::Text qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
+use Hash::DeepAccess;
+use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
@@ -1476,21 +1478,36 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+=head2 get_change_userid_or_uuid ( $change_ref )
+
+For a specific change, analyze change identifiers (comment, user agent, userid etc.)
+to determine if the change was done through an app, the OFF userid, or an app specific UUID
+
+=cut
+
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
 
 	my $userid = $change_ref->{userid};
 
-	my $app = "";
+	my $app;
+	my $app_userid_prefix;
 	my $uuid;
 
+	# If the userid is an an account for an app, set the app field and unset the userid,
+	# so that it can be replaced by the app + an app uuid if provided
 	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
-		$app = $options{apps_userids}{$userid} . "\.";
+		$app = $options{apps_userids}{$userid};
+		$userid = undef;
 	}
+	# Set the app field for the Open Food Facts app
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
-		$app = $options{official_app_id} . "\.";
+		$app = $options{official_app_id};
 	}
+
+	# If we do not have a user specific userid (e.g. a logged in user using the Open Food Facts app),
+	# try to identify the UUID passed in the comment by some apps
 
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
@@ -1501,20 +1518,44 @@ sub get_change_userid_or_uuid($) {
 	#
 	# but not:
 	# (app)Updated via Power User Script
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
-		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
-		$uuid = $';
-	}
-
-	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
-		$userid = $app . $uuid;
-	}
 
 	if ((not defined $userid) or ($userid eq '')) {
-		$userid = "openfoodfacts-contributors";
+
+		$app_userid_prefix = deep_get(\%options, "apps_uuid_prefix", $app);
+
+		if ((defined $app_userid_prefix)
+			and ($change_ref->{comment} =~ /$app_userid_prefix/i)) {
+			$uuid = $';
+
+			# Remove any app specific suffix
+			my $app_userid_suffix = deep_get(\%options, "apps_uuid_suffix", $app);
+			if (defined $app_userid_suffix) {
+				$uuid =~ s/$app_userid_suffix(\s|\(|\[])*$//i;
+			}
+
+			$uuid =~ s/^(-|_|\s|\(|\[])+//;
+			$uuid =~ s/(-|_|\s|\)|\])+$//;
+		}
+
+		# If we have a uuid from an app, make the userid a combination of app + uuid
+		if ((defined $uuid) and ($uuid !~ /^(-|_|\s|-|_|\.)*$/)) {
+			$userid = $app . '.' . $uuid;
+		}
+		# otherwise use the original userid used for the API if any
+		elsif (defined $change_ref->{userid}) {
+			$userid = $change_ref->{userid};
+		}
+		else {
+			$userid = "openfoodfacts-contributors";
+		}		
 	}
+
+	# Add the app to the change structure if we identified one, this will be used to populate the data sources field
+	if (defined $app) {
+		$change_ref->{app} = $app;
+	}
+
+	$log->debug("get_change_userid_or_uuid", { change_ref => $change_ref, app => $app, app_userid_prefix => $app_userid_prefix, uuid => $uuid, userid => $userid } ) if $log->is_debug();
 
 	return $userid;
 }

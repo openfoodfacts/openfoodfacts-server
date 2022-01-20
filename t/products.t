@@ -92,10 +92,16 @@ foreach my $field (@string_fields) {
 
 compute_and_test_completeness($product_ref, 1.0, 'product all fields');
 
+# Test the function that recognizes the app and app uuid from changes and sets the app and userid
+
 my @get_change_userid_or_uuid_tests = (
-["real-user", "some random comment", "real-user"],
-["stephane", "Updated via Power User Script", "stephane"],
-["kiliweb", "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ", "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ"],
+
+# format: [ input userid, comment passed to the API, resulting app id, resulting userid]
+["real-user", "some random comment", undef, "real-user"],
+["stephane", "Updated via Power User Script", undef, "stephane"],
+["kiliweb", "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ", "yuka", "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ"],
+["prepperapp", "Edited by a user of https://speisekammer-app.de", "speisekammer", "prepperapp"],
+["scanfood", "96ce87ae-2f2b-4fd6-90d2-7bfc4388d173-ScanFood", "scanfood", "scanfood.96ce87ae-2f2b-4fd6-90d2-7bfc4388d173"]
 );
 
 foreach my $test_ref (@get_change_userid_or_uuid_tests) {
@@ -103,8 +109,11 @@ foreach my $test_ref (@get_change_userid_or_uuid_tests) {
 	my $change_ref = { userid => $test_ref->[0], comment => $test_ref->[1] };
 
 	my $userid = get_change_userid_or_uuid($change_ref);
+	# the app may have been added to the change data
+	my $app = $change_ref->{app};
 
-	is ($userid, $test_ref->[2]) or diag explain $test_ref;
+	is ($app, $test_ref->[2]) or diag explain $test_ref;
+	is ($userid, $test_ref->[3]) or diag explain $test_ref;
 
 }
 
