@@ -1093,6 +1093,8 @@ sub store_product($$$) {
 	push @{$changes_ref}, {
 		userid => $user_id,
 		ip => remote_addr(),
+		# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
+		user_agent => remove_tags_and_quote(decode utf8=>param("User-Agent")) || remove_tags_and_quote(decode utf8=>param("user-agent")) || user_agent(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
 		rev => $rev,
@@ -1108,7 +1110,7 @@ sub store_product($$$) {
 
 	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
-	compute_data_sources($product_ref);
+	compute_data_sources($product_ref, $changes_ref);
 	
 	compute_main_countries($product_ref);
 
@@ -1169,13 +1171,21 @@ sub store_product($$$) {
 	return 1;
 }
 
-# Update the data-sources tag from the sources field
-# This function is for historic products, new sources should set the data_sources_tags field directly
-# through import_csv_file.pl / upload_photos.pl etc.
 
-sub compute_data_sources($) {
+=head2 compute_data_sources ( $product_ref, $changes_ref )
+
+Analyze the sources field of the product, as well as the changes to add to the data_sources field.
+
+Sources allows to add some producers imports that were done before the producers platform was created.
+
+The changes structure allows to add apps.
+
+=cut
+
+sub compute_data_sources($$) {
 
 	my $product_ref = shift;
+	my $changes_ref = shift;
 
 	my %data_sources = ();
 
@@ -1243,16 +1253,14 @@ sub compute_data_sources($) {
 
 	# Add a data source for apps
 
-	if (defined $product_ref->{editors_tags}) {
-		foreach my $editor (@{$product_ref->{editors_tags}}) {
+	foreach my $change_ref (@$changes_ref) {
+	
+		if (defined $change_ref->{app}) {
 
-			if ($editor =~ /\./) {
+			my $app_name = deep_get(\%options, "apps_names", $change_ref->{app}) || $change_ref->{app};
 
-				my $app = $`;
-
-				$data_sources{"Apps"} = 1;
-				$data_sources{"App - $app"} = 1;
-			}
+			$data_sources{"Apps"} = 1;
+			$data_sources{"App - " . $app_name} = 1;
 		}
 	}
 

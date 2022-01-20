@@ -526,7 +526,7 @@ while (my $product_ref = $cursor->next) {
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
 					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
-					compute_data_sources($product_ref);
+					compute_data_sources($product_ref, $changes_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
 				else {
@@ -831,7 +831,11 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_data_sources) {
-			compute_data_sources($product_ref);
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+			compute_data_sources($product_ref, $changes_ref);
 		}
 
 		if ($compute_nova) {
@@ -1016,7 +1020,7 @@ while (my $product_ref = $cursor->next) {
 			}
 			my $blame_ref =  {};
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
-			compute_data_sources($product_ref);
+			compute_data_sources($product_ref, $changes_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
 

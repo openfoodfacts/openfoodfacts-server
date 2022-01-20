@@ -902,6 +902,21 @@ $options{display_tag_additives} = [
 
 ];
 
+# Used in the data_sources field (e.g. "App - Open Food Facts")
+$options{apps_names} = {
+
+	"elcoco" => "El CoCo",
+	"ethic-advisor" => "Ethic-Advisor",
+	"horizon" => "Horizon",
+	"infood" => "InFood",
+	"isve" => "IsVe",
+	"labeleat" => "LabelEat",
+	"off" => "Open Food Facts",
+	"scanfood" => "Scanfood",
+	"speisekammer" => "Speisekammer",
+	"waistline" => "Waistline",
+	"yuka" => "Yuka"
+};
 
 # Specific users used by apps
 $options{apps_userids} = {
