@@ -144,6 +144,21 @@ my @get_change_userid_or_uuid_tests = (
 		expected_app => "scanfood",
 		expected_userid => "scanfood.96ce87ae-2f2b-4fd6-90d2-7bfc4388d173",
 	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		expected_app => "some-app",
+		expected_userid => "someuser",
+	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		app_uuid => "423T42fFST423",
+		expected_app => "some-app",
+		expected_userid => "some-app.423T42fFST423",
+	},	
 );
 
 foreach my $change_ref (@get_change_userid_or_uuid_tests) {

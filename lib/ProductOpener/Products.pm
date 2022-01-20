@@ -1090,15 +1090,33 @@ sub store_product($$$) {
 		delete $product_ref->{owners_tags};
 	}
 
-	push @{$changes_ref}, {
+	my $change_ref = {
 		userid => $user_id,
 		ip => remote_addr(),
-		# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
-		user_agent => remove_tags_and_quote(decode utf8=>param("User-Agent")) || remove_tags_and_quote(decode utf8=>param("user-agent")) || user_agent(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
 		rev => $rev,
 	};
+
+	# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
+	my $user_agent = remove_tags_and_quote(decode utf8=>param("User-Agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user-agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user_agent"))
+		|| user_agent();
+
+	if ((defined $user_agent) and ($user_agent ne "")) {
+		$change_ref->{user_agent} = $user_agent;
+	}
+
+	# Allow apps to send app_name, app_version and app_uuid parameters
+	foreach my $field (qw(app_name app_version app_uuid)) {
+		my $value = remove_tags_and_quote(decode utf8=>param($field));
+		if ((defined $value) and ($value ne "")) {
+			$change_ref->{$field} = $value;
+		}
+	}
+
+	push @{$changes_ref}, $change_ref; 
 
 	add_user_teams($product_ref);
 
@@ -1136,7 +1154,7 @@ sub store_product($$$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
-	my $change_ref = $changes_ref->[-1];
+	$change_ref = $changes_ref->[-1];
 	my $diffs = $change_ref->{diffs};
 	my %diffs = %{$diffs};
 	if ((!$diffs) or (!keys %diffs)) {
@@ -1503,10 +1521,18 @@ sub get_change_userid_or_uuid($) {
 	my $app_userid_prefix;
 	my $uuid;
 
-	# If the userid is an an account for an app, set the app field and unset the userid,
+	# Is it an app that sent a app_name?
+	if (defined $change_ref->{app_name}) {
+		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
+	}
+	# or is the userid specific to an app?
+	elsif (defined $userid) {
+		$app = deep_get(\%options, "apps_userids", $userid);
+	}
+
+	# If the userid is an an account for an app, unset the userid,
 	# so that it can be replaced by the app + an app uuid if provided
-	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
-		$app = $options{apps_userids}{$userid};
+	if (defined $app) {
 		$userid = undef;
 	}
 	# Set the app field for the Open Food Facts app
@@ -1527,13 +1553,21 @@ sub get_change_userid_or_uuid($) {
 	# but not:
 	# (app)Updated via Power User Script
 
-	if ((not defined $userid) or ($userid eq '')) {
+	if ((defined $app) and ((not defined $userid) or ($userid eq ''))) {
 
 		$app_userid_prefix = deep_get(\%options, "apps_uuid_prefix", $app);
 
-		if ((defined $app_userid_prefix)
+		# Check if the app passed the app_uuid parameter
+		if (defined $change_ref->{app_uuid}) {
+			$uuid = $change_ref->{app_uuid};
+		}
+		# Extract UUID from comment
+		elsif ((defined $app_userid_prefix)
 			and ($change_ref->{comment} =~ /$app_userid_prefix/i)) {
 			$uuid = $';
+		}
+
+		if (defined $uuid) {
 
 			# Remove any app specific suffix
 			my $app_userid_suffix = deep_get(\%options, "apps_uuid_suffix", $app);
@@ -1552,11 +1586,12 @@ sub get_change_userid_or_uuid($) {
 		# otherwise use the original userid used for the API if any
 		elsif (defined $change_ref->{userid}) {
 			$userid = $change_ref->{userid};
-		}
-		else {
-			$userid = "openfoodfacts-contributors";
-		}		
+		}	
 	}
+
+	if (not defined $userid) {
+		$userid = "openfoodfacts-contributors";
+	}	
 
 	# Add the app to the change structure if we identified one, this will be used to populate the data sources field
 	if (defined $app) {
