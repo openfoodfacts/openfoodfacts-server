@@ -6,12 +6,15 @@ taxonomies:
 
 open pet food facts:
 - taxonomies.opff/**/*
+- po/openpetfoodfacts/**/*
 
 open beauty facts:
 - taxonomies.obf/**/*
+- po/openbeautyfacts/**/*
 
 open products facts:
 - taxonomies.opf/**/*
+- po/openproductsfacts/**/*
 
 icons:
 - icons/**/*
@@ -21,6 +24,11 @@ css:
 
 translations:
 - po/**/*
+- po/common/**/*
+- po/openfoodfacts/**/*
+- po/openbeautyfacts/**/*
+- po/openpetfoodfacts/**/*
+- po/openproductsfacts/**/*
 
 tests:
 - test/**/*
