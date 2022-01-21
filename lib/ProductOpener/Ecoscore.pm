@@ -1525,8 +1525,18 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
 	
 	if ((defined $agribalyse_score) and (defined $estimated_score)) {
 
-		return (ecoscore_extended_data_expected_error($product_ref) 
-			< abs((log($agribalyse_score) - log($estimated_score)) / log($estimated_score)));
+		my $expected_error = ecoscore_extended_data_expected_error($product_ref);
+		my $relative_difference = (log($estimated_score) - log($agribalyse_score)) / log($estimated_score);
+
+		$log->debug("is_ecoscore_extended_data_more_precise_than_agribalyse", {
+			agribalyse_score => $agribalyse_score,
+			estimated_score => $estimated_score,
+			expected_error => $expected_error,
+			relative_difference => $relative_difference,
+			more_precise => ($expected_error < abs($difference))
+		}) if $log->is_debug();
+
+		return ($expected_error < abs($difference));
 	}
 	else {
 		return 0;
