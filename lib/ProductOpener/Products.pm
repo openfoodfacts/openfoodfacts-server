@@ -134,7 +134,6 @@ use ProductOpener::Text qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
-use Hash::DeepAccess;
 use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
