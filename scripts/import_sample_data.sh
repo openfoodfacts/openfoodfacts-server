@@ -7,7 +7,7 @@ cd /tmp
 echo "\033[32m------------------ 1/ Retrieve products -----------------\033[0m";
 # explicitly specify the wget output file name so that wget does not append .1 if already present
 # e.g. if the tar command failed and the script was stopped
-wget -O products.tar.gz https://static.openfoodfacts.org/exports/products.random-modulo-10000.data.tar.gz 2>&1
+wget -O products.tar.gz https://static.openfoodfacts.org/exports/products.random-modulo-10000.tar.gz 2>&1
 tar -xzvf products.tar.gz -C /mnt/podata/products
 rm products.tar.gz
 
