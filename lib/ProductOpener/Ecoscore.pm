@@ -1533,10 +1533,10 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($) {
 			estimated_score => $estimated_score,
 			expected_error => $expected_error,
 			relative_difference => $relative_difference,
-			more_precise => ($expected_error < abs($difference))
+			more_precise => ($expected_error < abs($relative_difference))
 		}) if $log->is_debug();
 
-		return ($expected_error < abs($difference));
+		return ($expected_error < abs($relative_difference));
 	}
 	else {
 		return 0;
