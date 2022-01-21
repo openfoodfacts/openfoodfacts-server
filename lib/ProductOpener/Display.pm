@@ -183,6 +183,7 @@ use Excel::Writer::XLSX;
 use Template;
 use Data::Dumper;
 use Devel::Size qw(size total_size);
+use Data::DeepAccess qw(deep_get);
 use Log::Log4perl;
 
 use Log::Any '$log', default_adapter => 'Stderr';
@@ -3879,6 +3880,19 @@ HTML
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
 			}
+		}
+		elsif ($tagid =~ /\./) {
+			# App user (format "[app id].[app uuid]")
+
+			my $appid = $`;
+			my $uuid = $';
+
+			my $app_name = deep_get(\%options, "apps_names", $appid) || $appid;
+			my $app_user = f_lang("f_app_user", { app_name => $app_name });
+
+			$title = $app_user;
+			$products_title = $app_user;
+			$display_tag = $app_user;
 		}
 		else {
 

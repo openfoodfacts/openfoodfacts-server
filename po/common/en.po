@@ -5988,3 +5988,8 @@ msgstr "This might not be the answer people want to hear, but there is no safe l
 msgctxt "source"
 msgid "Source"
 msgstr "Source"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "A user of the {app_name} app"
