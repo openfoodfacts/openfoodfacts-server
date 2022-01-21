@@ -10188,13 +10188,6 @@ fr:Flocons de sarrasin
 nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
-< en:Cereal flakes
-en:Cereal flakes with nuts, Wheat flakes with almonds fortified with vitamins and chemical elements, Wheat flakes with hazelnuts fortified with vitamins and chemical elements, Wheat flakes with walnuts fortified with vitamins and chemical elements
-fr:Pétales de céréales aux fruits à coques, Pétales de blé avec amandes enrichis en vitamines et minéraux, Pétales de blé avec noix enrichis en vitamines et minéraux, Pétales de blé avec noisettes enrichis en vitamines et minéraux
-agribalyse_food_code:en: 32123
-ciqual_food_code:en: 32123
-ciqual_food_name:en: Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
-
 < en:Cereal flours
 en:Barley flours, Barley flour
 ar:دقيق الشعير
@@ -15610,6 +15603,10 @@ fr:Boissons lactées au café
 it:Caffè-latte, Latte al caffè
 nl:Koffiedranken met melk
 ro:Lapte pentru cafea
+
+< en:Coffee milks
+en:Dried Coffee milks
+nl:Koffiecreamers
 
 < en:Coffees
 en:Arabica coffees
@@ -22555,6 +22552,13 @@ nl:Verdikte melken met suiker
 wikidata:en: Q2830455
 
 < en:Extruded cereals
+en:Cereal flakes with nuts, Wheat flakes with almonds fortified with vitamins and chemical elements, Wheat flakes with hazelnuts fortified with vitamins and chemical elements, Wheat flakes with walnuts fortified with vitamins and chemical elements
+fr:Pétales de céréales aux fruits à coques, Pétales de blé avec amandes enrichis en vitamines et minéraux, Pétales de blé avec noix enrichis en vitamines et minéraux, Pétales de blé avec noisettes enrichis en vitamines et minéraux
+agribalyse_food_code:en: 32123
+ciqual_food_code:en: 32123
+ciqual_food_name:en: Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
+
+< en:Extruded cereals
 en:Filled cereals
 de:Gefüllte Cerealien
 es:Cereales rellenos
@@ -22614,9 +22618,9 @@ ca:Barreja de flocs de cereals
 de:gemischte Getreideflocken
 es:Mezclas de copos de cereales
 fi:hiutalesekoitus
-fr:Pétales multicéréales, mélanges de flocons de céréales
+fr:Pétales multicéréales
 hu:Vegyes gabonapelyhek
-it:Fiocchi di cereali misti
+it:Fiocchi multicereali, Fiocchi di cereali misti
 nl:Gemengde granenvlokken
 ru:Мультизерновые хлопья
 
@@ -38557,9 +38561,10 @@ nl:Lupinemelen
 
 < en:Legume flours
 en:Soybean flours, Soya flour
+da:Sojabønnemel
 es:Harinas de soja
 fr:Farines de soja
-nl:Sojaboonmelen
+nl:Sojaboonmelen, Sojabonenmelen
 agribalyse_food_code:en: 20900
 ciqual_food_code:en: 20900
 ciqual_food_name:en: Soya flour
@@ -44903,6 +44908,11 @@ agribalyse_proxy_food_code:en: 15202
 agribalyse_proxy_food_name:en: Peanut butter or peanut paste
 agribalyse_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
 
+< en:Chocolate covered nuts
+< en:Nut confectioneries
+en:Chocolate covered hazelnuts, Chocolate-coated hazelnuts
+fr:Noisettes enrobées de chocolat
+
 < en:Nut confectioneries
 en:Caramelized almonds
 es:Almendras caramelizadas
@@ -44930,9 +44940,6 @@ hu:Karamellizált földimogyoró, Karamellizált mogyoró
 nl:Suikerpinda's, gesuikerde pinda's
 oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
 wikidata:en: Q5875513
-
-< en:Nut confectioneries
-en:Chocolate-covered hazelnuts, Chocolate-coated hazelnuts
 
 < en:Nut confectioneries
 en:French pralines
@@ -56694,6 +56701,11 @@ en:Barley flakes
 es:Copos de cebada
 fr:Flocons d'orge
 nl:Gerstevlokken
+
+< en:Cereal flakes
+< en:Rolled flakes
+en:Blend of rolled cereal flakes
+fr:Mélanges de flocons de céréales
 
 < en:Cereal flakes
 < en:Rolled flakes
