@@ -330,6 +330,98 @@ sub create_panel_from_json_template ($$$$$$) {
 }
 
 
+=head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
+
+The impact estimator adds a lot of data to products. This function extracts the data we need to display knowledge panels.
+
+=cut
+
+sub extract_data_from_impact_estimator_best_recipe($$) {
+
+    my $product_ref = shift;
+    my $panel_data_ref = shift;
+
+    # Copy data from product data (which format may change) to panel data to make it easier to use in the template
+
+    $panel_data_ref->{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+    $panel_data_ref->{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+
+    # Compute the index of the recipe with the maximum confidence
+    my $max_confidence = 0;
+    my $max_confidence_index;
+    my $i = 0;
+
+
+    foreach my $confidence (@{$product_ref->{ecoscore_extended_data}{impact}{confidence_score_distribution}}) {
+        if ($confidence > $max_confidence) {
+
+            $max_confidence_index = $i;
+            $max_confidence = $confidence;
+        }
+        $i++;
+    }
+
+    my $best_recipe_ref = $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index];
+    
+    # list ingredients for max confidence recipe, sorted by quantity 
+    my @ingredients = ();
+
+    my @ingredients_by_quantity = sort { $best_recipe_ref->{$b} <=> $best_recipe_ref->{$a} } keys %{$best_recipe_ref};
+    foreach my $ingredient (@ingredients_by_quantity) {
+        push @ingredients, {
+            id => $ingredient,
+            quantity => $best_recipe_ref->{$ingredient},
+        }
+    }
+
+    $product_ref->{ecoscore_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
+
+    $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
+
+    # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+}
+
+
+=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
+
+gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
+extended ecoscore impacts computed by the impact estimator.
+
+For a specific product, this function finds the most specific category for which we have impact stats to compare with.
+
+=cut
+
+sub compare_impact_estimator_data_to_category_average($$$) {
+
+    my $product_ref = shift;
+    my $panel_data_ref = shift;
+    my $target_cc = shift;
+
+    # Comparison to other products
+
+    my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
+
+    if (defined $categories_nutriments_ref) {
+
+        foreach my $cid (reverse @{$product_ref->{categories_tags}}) {
+
+            if ((defined $categories_nutriments_ref->{$cid})
+                and (defined $categories_nutriments_ref->{$cid}{nutriments})
+                and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change})) {
+
+                $panel_data_ref->{ecoscore_extended_data_for_category} = {
+                    category_id => $cid,
+                    climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
+                    ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
+                };
+
+                last;
+            }
+        }
+    }
+}
+
+
 =head2 create_ecoscore_panel ( $product_ref, $target_lc, $target_cc )
 
 Creates a knowledge panel to describe the Eco-Score, including sub-panels
@@ -419,6 +511,21 @@ sub create_ecoscore_panel($$$) {
 
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+        # Create an extra panel for products that have extended ecoscore data from the impact estimator
+
+        if (defined $product_ref->{ecoscore_extended_data}) {
+
+            extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
+
+            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+
+            # Display a panel only if we can compare the product extended impact
+            if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
+                create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+                    $panel_data_ref, $product_ref, $target_lc, $target_cc);
+            }
+        }
 
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            

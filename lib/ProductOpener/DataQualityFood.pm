@@ -54,6 +54,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Ecoscore qw(:all);
 
 use Log::Any qw($log);
 
@@ -1135,6 +1136,22 @@ sub check_ecoscore_data($) {
 				push @{$product_ref->{data_quality_warnings_tags}}, 'en:ecoscore-' . $warning ;
 			}
 		}
+	}
+
+	# Extended Eco-Score data from impact estimator
+	if (defined $product_ref->{ecoscore_extended_data}) {
+
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+
+		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+		}
+	}
+	else {
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
 	}
 
 	return;

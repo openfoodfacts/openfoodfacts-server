@@ -33,7 +33,9 @@
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% lang('life_cycle_analysis') %]",
-                "panel_ids": [ "ecoscore_agribalyse"],
+                "panel_ids": [
+                    "ecoscore_agribalyse",
+                ],
             },
         },               
         {
