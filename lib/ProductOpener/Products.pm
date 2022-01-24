@@ -1862,7 +1862,7 @@ sub compute_product_history_and_completeness($$$$) {
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
-			$log->warn("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_warn();
+			$log->debug("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_debug();
 		}
 
 		if (defined $product_ref) {
@@ -2014,7 +2014,7 @@ sub compute_product_history_and_completeness($$$$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
-					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
+					$log->debug("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_debug();
 					$diff = 'change';
 				}
 
