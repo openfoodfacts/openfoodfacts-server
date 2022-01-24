@@ -32334,6 +32334,11 @@ fr:Riz Roma
 it:Riso Roma
 
 <en:Rices
+en:Originario rices
+fr:Riz Originario
+it:Riso Originario
+
+<en:Rices
 en:Ribe rices
 fr:Riz Ribe
 it:Riso Ribe
@@ -36020,7 +36025,10 @@ origins:en: en:United Kingdom
 wikidata:en:Q3566692
 
 <en:Cheeses from England
-en:Wensleydale cheese, Yorkshire Wensleydale
+en:Wensleydale cheese
+
+<en:Wensleydale cheese
+en:Yorkshire Wensleydale
 protected_name_file_number:en: PGI-GB-0652
 protected_name_type:en: pgi
 origins:en: en:United Kingdom, en:England, en:Yorkshire
@@ -56311,6 +56319,12 @@ wikidata:en:Q178359
 who_id:en:17
 
 <en:Sauces
+en:Peanut sauces, Satay sauces
+de:Erdnusssauce
+fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
+wikidata:en:Q107310187
+
+<en:Sauces
 en:Alfredo sauces
 wikidata:en:Q23930012
 
@@ -56448,9 +56462,6 @@ ciqual_food_name:fr:Sauce au yaourt
 
 <en:Yogurt sauce
 en:Blue cheese yogurt dressings
-
-<en:Sauces
-fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 
 <en:Sauces
 en:Grand veneur sauce, Reduction of red wine with garlic shallots and red currant jelly
@@ -58778,11 +58789,6 @@ protected_name_file_number:en: PGI-ES-0103
 protected_name_type:en: pgi
 origins:en: en:Spain
 wikidata:en:Q5759904
-
-<en:Meat-based products
-<en:Prepared salads
-de:Fleischsalat, Fleischsalate
-wikidata:en:Q185457
 
 <en:Meat-based products
 en:Meat-based sauces
@@ -63222,6 +63228,7 @@ fr:Salades de boulgour
 nl:Bulgursalades
 
 <en:Prepared salads
+<en:Lentil dishes
 en:Lentil salads
 fr:Salades de lentilles
 nl:Linzensalade
@@ -63771,6 +63778,10 @@ en:Meat balls
 fi:Lihapullat, Lihapyörykät
 fr:Boulettes de viande
 pt:Almôndegas
+
+<en:Meat balls
+en:Chicken meat balls
+fr:Boulettes au poulet
 
 <en:Meat balls
 <en:Beef
@@ -68750,6 +68761,14 @@ ro:Pateu de rață
 <fr:Pâté
 fr:Pâtés de Taureau
 
+#Do not put in prepared salads, Fleischsalat is not a meal
+<en:Meat-based products
+<en:Spreads
+de:Fleischsalat, Fleischsalate
+fr:Salades de viande
+nl:Vleessalades
+wikidata:en:Q185457
+
 <en:Prepared meats
 <en:Salted spreads
 en:Nduja
@@ -71772,6 +71791,10 @@ fi:Riisipasta
 fr:Pâtes de riz, Pâte de riz
 it:Pasta di riso
 nl:Rijstpastas
+
+<en:Pastas
+en:Chickpea pasta
+fr:Pâtes de pois chiche
 
 <en:Pastas
 en:Lentil pasta
