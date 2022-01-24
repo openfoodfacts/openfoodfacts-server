@@ -10444,7 +10444,7 @@ sub display_product_history($$) {
 			my ($uid) = @_;
 			return display_tag_link('editors', $uid);
 		},
-		product_url => product_url($product_ref),
+		this_product_url => product_url($product_ref),
 		revisions => \@revisions
 	};
 
