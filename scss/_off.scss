@@ -1,3 +1,17 @@
+// background colors for attributes and panels
+
+$grade-a-color: #219653;
+$grade-b-color: #60ac0e;
+$grade-c-color: #c88f01;
+$grade-d-color: #e07312;
+$grade-e-color: #eb5757;
+$grade-unknown-color: #4f4f4f;
+
+$evaluation-good-color: #219653;
+$evaluation-average-color: #f2994a;
+$evaluation-bad-color: #eb5757;
+$evaluation-unknown-color: #4f4f4f;
+
 hr.floatclear {
   background: none;
   border: 0;
@@ -384,7 +398,6 @@ h4 > .icon {
 }
 
 .ingredients_analysis {
-  color: white;
   font-size: 1rem;
   padding-left: 0.2rem;
   padding-right: 1rem;
@@ -396,36 +409,36 @@ h4 > .icon {
   }
 
   &.red {
-    background-color: #ec5656;
+    background-color: $evaluation-bad-color;
   }
 
   &.orange {
-    background-color: #f9904c;
+    background-color: $evaluation-average-color; 
   }
 
   &.green {
-    background-color: #47a647;
+    background-color: $evaluation-good-color;
   }
 
   &.grey {
-    background-color: #444444;
+    background-color: $evaluation-unknown-color;
   }
 }
 
 .red {
-  color: #ec5656;
+  color: $evaluation-bad-color;
 }
 
 .orange {
-  color: #f9904c;
+  color: $evaluation-average-color; 
 }
 
 .green {
-  color: #47a647;
+  color: $evaluation-good-color;
 }
 
 .grey {
-  color: #444444;
+  color: $evaluation-unknown-color;
 }
 
 .percent_bar {
@@ -433,15 +446,15 @@ h4 > .icon {
 }
 
 .percent_bar.red {
-  background-color: #ec5656;
+  background-color: $evaluation-bad-color; 
 }
 
 .percent_bar.orange {
-  background-color: #f9904c;
+  background-color: $evaluation-average-color;
 }
 
 .percent_bar.green {
-  background-color: #47a647;
+  background-color: $evaluation-good-color;
 }
 
 
@@ -742,19 +755,6 @@ html[dir="rtl"] {
   text-decoration:none;
 }
 
-// background colors for attributes and panels
-
-$grade-a-color: #219653;
-$grade-b-color: #60ac0e;
-$grade-c-color: #c88f01;
-$grade-d-color: #e07312;
-$grade-e-color: #eb5757;
-$grade-unknown-color: #4f4f4f;
-
-$evaluation-good-color: #219653;
-$evaluation-average-color: #f2994a;
-$evaluation-bad-color: #eb5757;
-$evaluation-unknown-color: #4f4f4f;
 
 
 .evaluation_good_title {
