@@ -11036,10 +11036,6 @@ sub display_ingredients_analysis($) {
 	if (defined $product_ref->{ingredients_analysis_tags}) {
 
 		my $template_data_ref = {
-			lang => \&lang,
-			display_icon => \&display_icon,
-			title => lang("ingredients_analysis") . separator_before_colon($lc) . ':',
-			disclaimer => lang("ingredients_analysis_disclaimer"),
 			ingredients_analysis_tags => [],
 		};
 
@@ -11059,6 +11055,9 @@ sub display_ingredients_analysis($) {
 					$ingredients_analysis_tag = "en:palm-oil-free";
 					$color = 'green';
 					
+				}
+				elsif ($ingredients_analysis_tag =~ /unknown/) {
+					$color = 'grey';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
 					$color = 'orange';
@@ -11097,13 +11096,13 @@ sub display_ingredients_analysis($) {
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
 					$color = 'orange';
 				}
+				elsif ($ingredients_analysis_tag =~ /unknown/) {
+					$color = 'grey';
+				}
 				else {
 					$color = 'green';
 				}
 			}
-
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
 
 			if ($icon ne "") {
 				$icon = display_icon($icon);
