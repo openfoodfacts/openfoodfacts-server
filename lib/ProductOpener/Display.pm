@@ -10996,8 +10996,8 @@ sub display_ingredients_analysis_details($) {
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
-	if ($ingredients_text . $specific_ingredients =~ /unknown_ingredient/) {
-		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
+	if (($ingredients_text . $specific_ingredients) =~ /unknown_ingredient/) {
+		$template_data_ref->{unknown_ingredients} = 1;
 
 		$styles .= <<CSS
 .unknown_ingredient {
