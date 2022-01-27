@@ -120,6 +120,37 @@ my @tests = (
 		]
 	],
 
+	# en:hydrated etc.
+	[ { lc => "en", ingredients_text => "partially rehydrated egg white, hydrated silica, dehydrated cane juice, hydrated chia seeds, rehydrated tomatoes"},
+		[
+			{
+				'id' => 'en:egg-white',
+				'processing' => 'en:partially-rehydrated',
+				'text' => 'egg white'
+			},
+			{
+				'id' => 'en:e551',
+				'processing' => 'en:hydrated',
+				'text' => 'silica'
+			},
+			{
+				'id' => 'en:sugarcane-juice',
+				'processing' => 'en:dehydrated',
+				'text' => 'cane juice'
+			},
+			{
+				'id' => 'en:chia-seed',
+				'processing' => 'en:hydrated',
+				'text' => 'chia seeds'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:rehydrated',
+				'text' => 'tomatoes'
+			}
+		]
+	],
+
 ##################################################################
 #
 #                           S P A N I S H   ( E S )
@@ -266,7 +297,33 @@ my @tests = (
 				'text' => 'SUCRE BLOND DE CANNE'
 			}
 		]
-	],		
+	],
+
+	# en:hydrated etc.
+	[ { lc => "fr", ingredients_text => "tomates séchées partiellement réhydratées, lait écrémé partiellement déshydraté, graines de chia hydratées, haricots blancs semi-hydratés"},
+		[
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:partially-rehydrated, en:dried',
+				'text' => 'tomates'
+			},
+			{
+				'id' => 'en:skimmed-milk',
+				'processing' => 'en:partially-dehydrated',
+				'text' => "lait \x{e9}cr\x{e9}m\x{e9}"
+			},
+			{
+				'id' => 'en:chia-seed',
+				'processing' => 'en:hydrated',
+				'text' => 'graines de chia'
+			},
+			{
+				'id' => 'en:white-beans',
+				'processing' => 'en:partially-hydrated',
+				'text' => 'haricots blancs'
+			}
+		]
+	],	
 
 # test for jus and concentré with extra "de"
 #	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
