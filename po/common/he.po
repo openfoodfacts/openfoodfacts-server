@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-12 08:23\n"
+"PO-Revision-Date: 2022-01-14 10:41\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -282,7 +282,7 @@ msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "מדריך הניהול ליצרנים"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -4474,12 +4474,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score לא מחושב"
+msgid "Nutri-Score unknown"
+msgstr "ה־Nutri-Score לא ידוע"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "האיכות התזונתית אינה ידועה"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "חסרים נתונים לחישוב Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Score לא ניתן ליישום"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "קטגוריה מוחרגת"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5791,18 +5799,30 @@ msgstr "הוצאה אנרגטית לאדם במשקל {kg} ק״ג / {lb} פאו�
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
-msgstr ""
+msgstr "לא תקף למוצר הזה"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "חסרה קטגוריה"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
 
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "מומלץ להפחית או להפסיק לשתות אלכוהול"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "כמה שפחות עדיף"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "זאת אולי לא התשובה שאנשים רוצים לשמוע אך אין רמה בטוחה של שתיית אלכוהול. כמובן שיש אפשרות לשתות בצורה שאינה מסכנת אך מי מאתנו לא מגדיר מגבלות מסוימות, העדויות מראות שהמצב המיטבי לבריאות הוא לא לשתות כלל. אלכוהול מקושר ישירות לבערך 60 אבחנות שונות וכמעט בכולן יש קשר מובהק בין כמות לאחריות, כך שככל ששותים יותר, סיכויי התחלואה עולים. עדיף כמה שפחות."
+
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "מקור"
 

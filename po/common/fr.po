@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-12 08:22\n"
+"PO-Revision-Date: 2022-01-14 11:52\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -1383,7 +1383,7 @@ msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -4477,12 +4477,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score non calculé"
+msgid "Nutri-Score unknown"
+msgstr "Nutri-Score inconnu"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Qualité nutritionnelle inconnue"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "Données manquantes pour calculer le Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Score non applicable"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "Catégorie exemptée"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5794,18 +5802,30 @@ msgstr "Dépenses énergétiques pour une personne pesant {kg} kg / {lb} lb"
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
-msgstr ""
+msgstr "Non applicable à ce produit"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Catégorie manquante"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
 
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "Réduire ou arrêter de boire de l'alcool"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "Moins c'est mieux"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "Ce n’est peut-être pas la réponse que vous souhaitez entendre, mais il n’existe pas de consommation d’alcool sans risque. Bien sûr, il est possible de boire à moindre risque, mais l’OMS n’impose pas de limites spécifiques car il est démontré que la solution idéale pour rester en bonne santé est de ne pas boire du tout. L’alcool est étroitement impliqué dans environ 60 diagnostics différents et, dans la quasi-majorité des cas, on observe une étroite relation dose-effet. En d’autres termes, plus vous buvez, plus vous risquez d’être malade. Moins l’on boit, mieux c’est."
+
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
