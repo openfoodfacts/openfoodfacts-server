@@ -6,6 +6,7 @@ nginx:
 
 mongodb:
 - conf/mongodb/create_indexes.js
+- scripts/refresh_products_tags.js
 
 taxonomies:
 - taxonomies/**/*
