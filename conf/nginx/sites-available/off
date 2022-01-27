@@ -163,6 +163,9 @@ server {
 	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
 		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
 		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
+    # optimize gzip compressed content (like OCR .json stored next to .jpg files)
+    gzip_static always;
+    gunzip on;
 	}
 
         if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
