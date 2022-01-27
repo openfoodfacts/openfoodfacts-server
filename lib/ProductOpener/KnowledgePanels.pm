@@ -199,14 +199,16 @@ The template is thus responsible for all the display logic (what to display and 
 
 Some special features that are not included in the JSON format are supported:
 
-1. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
+1. Relative links are converted to absolute links using the requested country / language subdomain
+
+2. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
 - The multiline strings will be converted to a single string.
 - Quotes " are automatically escaped unless they are already escaped
 
-2. Comments can be included by starting a line with //
+3. Comments can be included by starting a line with //
 - Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
 
-3. Trailing commas are removed
+4. Trailing commas are removed
 - For each loops in templates can result in trailing commas when separating items in a list with a comma
 (e.g. if want to generate a list of labels)
 
@@ -276,6 +278,9 @@ sub create_panel_from_json_template ($$$$$$) {
         # /m modifier: ^ and $ match the start and end of each line
         $panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
+        # Turn relative links to absolute links using the requested country / language subdomain
+        $panel_json =~ s/href="\//href="$formatted_subdomain\//g;        
+
         # Convert multilines strings between backticks `` into single line strings
         # In the template, we use multiline strings for readability
         # e.g. when we want to generate HTML
@@ -300,6 +305,9 @@ sub create_panel_from_json_template ($$$$$$) {
         # So we remove them here.
 
         $panel_json =~ s/,(\s*)(\]|\})/$2/sg;
+
+        # Transform the JSON in a Perl structure
+
         $panel_json =  encode('UTF-8', $panel_json);
 
         eval {
