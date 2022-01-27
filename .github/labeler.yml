@@ -1,6 +1,9 @@
 github_actions:
 - .github/**/*
 
+nginx:
+- conf/nginx/**/*
+
 taxonomies:
 - taxonomies/**/*
 
