@@ -61,3 +61,4 @@ db.products.createIndex({ecoscore_score: -1}, { background: true });
 db.products.createIndex({popularity_key: -1}, { background: true });
 db.products.createIndex({countries_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({owner:1, countries_tags:1, "last_modified_t": -1}, { background: true });
+db.products.createIndex({food_groups_tags:1,"last_modified_t": -1}, { background: true });
