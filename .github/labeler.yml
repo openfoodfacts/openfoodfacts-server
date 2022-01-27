@@ -4,6 +4,9 @@ github_actions:
 nginx:
 - conf/nginx/**/*
 
+mongodb:
+- conf/mongodb/create_indexes.js
+
 taxonomies:
 - taxonomies/**/*
 
