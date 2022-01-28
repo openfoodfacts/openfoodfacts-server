@@ -152,6 +152,19 @@ my @tests = (
 			ingredients_text => "tapioca starch, palm oil, enzyme",
 		}
 	],
+
+	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
+	[
+		'en-ecoscore-score-at-20-threshold',
+		{
+			lc => "en",
+			categories => "Cocoa and hazelnuts spreads",
+			categories_tags => ["en:cocoa-and-hazelnuts-spreads"],
+			ingredients_text => "",
+		}
+	],		
+
+	# 
 );
 
 foreach my $test_ref (@tests) {
