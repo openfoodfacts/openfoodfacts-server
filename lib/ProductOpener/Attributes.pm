@@ -595,8 +595,11 @@ The return value is a reference to the resulting attribute data structure.
 To differentiate products more finely, the match is based on the Eco-Score score
 that is used to define the Eco-Score grade from A to E.
 
-- Eco-Score A: 80 to 100%
-- Eco-Score B: 61 to 80%
+- Eco-Score A: 80 to 100
+- Eco-Score B: 60 to 79
+- Eco-Score C: 40 to 59
+- Eco-Score D: 20 to 39
+- Eco-Score E: 0 to 19
 
 =cut
 
@@ -630,9 +633,9 @@ sub compute_attribute_ecoscore($$$) {
 		my $match = 0;
 		
 		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
-		# Warning: a score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
-		# So we substract 1 to the Eco-Score score to compute the match.
-		$match = $score - 1;
+		# Warning: a Eco-Score score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
+		# So we add 1 to the Eco-Score score to compute the match.
+		$match = $score + 1;
 
 		if ($score < 0) {
 			$match = 0;
