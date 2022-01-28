@@ -650,6 +650,7 @@ periods_after_opening nutrients food_groups
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
+	food_groups
 	states
 	brand_owner
 	ecoscore_score_fr
