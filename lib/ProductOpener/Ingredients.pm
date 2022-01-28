@@ -2502,17 +2502,17 @@ sub analyze_ingredients($) {
 
 	my $product_ref = shift;
 
-	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 
-	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+	my $ingredients_analysis_properties_ref = {};
 
-		$product_ref->{ingredients_analysis_tags} = {};
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
 		foreach my $property (@properties) {
 
+			# Ingredient values for the property
 			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
 			
 			# Traverse the ingredients tree, breadth first
@@ -2578,6 +2578,9 @@ sub analyze_ingredients($) {
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
 			}
 
+			# Compute the resulting property value for the product
+			my $property_value;
+
 			if ($property =~ /^from_/) {
 
 				my $from_what = $';
@@ -2590,19 +2593,19 @@ sub analyze_ingredients($) {
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
-					$product_ref->{ingredients_analysis}{$property} =  "en:" . $from_what ; # en:palm-oil
+					$property_value =  "en:" . $from_what ; # en:palm-oil
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+					$property_value = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
 				}
 				elsif ($values{unknown_ingredients} > 0) {
 					# Some ingredients were not recognized
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
+					$property_value = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
 				}
 				else {
 					# no yes, maybe or unknown ingredients
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $from_what . "-free"; # en:palm-oil-free
+					$property_value = "en:" . $from_what . "-free"; # en:palm-oil-free
 				}
 			}
 			else {
@@ -2614,69 +2617,62 @@ sub analyze_ingredients($) {
 
 				if (defined $values{no}) {
 					# One no ingredient -> no for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:non-" . $property ; # en:non-vegetarian
+					$property_value = "en:non-" . $property ; # en:non-vegetarian
 				}
 				elsif (defined $values{undef}) {
 					# Some ingredients were not recognized or we do not have a property value for them
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
+					$property_value = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:maybe-" . $property ; # en:maybe-vegetarian
+					$property_value = "en:maybe-" . $property ; # en:maybe-vegetarian
 				}
 				else {
 					# all ingredients known and with a value, no no or maybe value -> yes
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $property ; # en:vegetarian
+					$property_value = "en:" . $property ; # en:vegetarian
 				}
 			}
 
-			$product_ref->{ingredients_analysis}{$property} =~ s/_/-/g;
+			$property_value =~ s/_/-/g;
+
+			$ingredients_analysis_properties_ref->{$property} = $property_value;
 		}
 	}
 
 	# Apply labels overrides
 	# also apply labels overrides if we don't have ingredients at all
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{from_palm_oil} = "en:palm-oil-free";
-
+		$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegan")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegan} = "en:vegan";
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:vegetarian";
+		$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegan")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegan} = "en:non-vegan";
+		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:vegetarian";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:non-vegetarian";
-		$product_ref->{ingredients_analysis}{vegan} = "en:non-vegan";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:non-vegetarian";
+		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	# Create ingredients_analysis_tags array
 
-	if (defined $product_ref->{ingredients_analysis}) {
+	if (scalar keys %$ingredients_analysis_properties_ref) {
 		$product_ref->{ingredients_analysis_tags} = [];
 
 		foreach my $property (@properties) {
-			if (defined $product_ref->{ingredients_analysis}{$property}) {
-				push @{$product_ref->{ingredients_analysis_tags}}, $product_ref->{ingredients_analysis}{$property};
+			my $property_value = $ingredients_analysis_properties_ref->{$property};
+			if (defined $property_value) {
+				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
 			}
 		}
-
-		delete $product_ref->{ingredients_analysis};
 	}
-
-	return;
 }
 
 
