@@ -535,6 +535,9 @@ sub load_ecoscore_data_packaging() {
 		
 		$ecoscore_data{packaging_shapes}{"en:label"} = $ecoscore_data{packaging_shapes}{"en:sheet"};
 		$properties{"packaging_shapes"}{"en:label"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:sheet"}{ratio};
+
+		$ecoscore_data{packaging_shapes}{"en:spout"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"};
+		$properties{"packaging_shapes"}{"en:spout"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"}{ratio};		
 	}
 	else {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
@@ -1189,7 +1192,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		
 		$epi_score += $ecoscore_data{origins}{$origin_id}{epi_score} * $percent / 100;
 		foreach my $cc (@ecoscore_countries_enabled_sorted) {
-			$transportation_scores{$cc} += $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc} * $percent / 100;
+			$transportation_scores{$cc} += ($ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0) * $percent / 100;
 		}
 	}
 	
