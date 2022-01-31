@@ -92,6 +92,14 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:mozzarella"
+      ],
+      "en:non-vegan" : [
+         "en:mozzarella"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",

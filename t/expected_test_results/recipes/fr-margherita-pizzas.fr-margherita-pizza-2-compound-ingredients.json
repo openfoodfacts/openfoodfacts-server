@@ -76,6 +76,15 @@
          "text" : "Pâte à pizza"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:cheese"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:feuilles de basilic",
+         "en:pizza-dough"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:non-vegan",

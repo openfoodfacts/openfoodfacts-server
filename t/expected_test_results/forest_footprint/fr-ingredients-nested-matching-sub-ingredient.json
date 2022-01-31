@@ -65,6 +65,16 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "fr:viande-de-poulet-traitee-en-salaison",
+         "en:chicken-meat"
+      ],
+      "en:non-vegetarian" : [
+         "fr:viande-de-poulet-traitee-en-salaison",
+         "en:chicken-meat"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
