@@ -11162,6 +11162,18 @@ country_code_2:en: GI
 country_code_3:en: GIB
 languages:en: en:english
 
+< en:Great Britain
+en:England
+fr:Angleterre
+
+< en:Great Britain
+en:Scotland
+fr:Écosse
+
+< en:Great Britain
+en:Wales
+fr:Pays de Galles
+
 en:Greece, Hellenic Republic, Hellas, GR, GRC
 ab:Барзентәыла
 af:Griekeland
@@ -29930,20 +29942,12 @@ languages:en: en:english,en:welsh,en:irish,en:scottish-gaelic
 official_country_code_2:en: GB
 
 < en:United Kingdom
-en:England
-fr:Angleterre
+en:Great Britain, Britain
+fr:Grande Bretagne
 
 < en:United Kingdom
 en:Northern Ireland
 fr:Irlande du Nord
-
-< en:United Kingdom
-en:Scotland
-fr:Écosse
-
-< en:United Kingdom
-en:Wales
-fr:Pays de Galles
 
 en:United States, United States of America, USA, America, the States, U.S., U.S.A., US, 🇺🇸
 ab:Америка Еиду Аштатқәа
