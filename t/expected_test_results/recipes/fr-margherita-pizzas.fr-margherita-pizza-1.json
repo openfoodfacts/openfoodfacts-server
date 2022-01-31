@@ -31,13 +31,16 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fr:mozzarella râpée",
+         "id" : "en:mozzarella",
          "labels" : "en:organic",
          "percent" : "17",
          "percent_estimate" : "17",
          "percent_max" : "17",
          "percent_min" : "17",
-         "text" : "mozzarella râpée"
+         "processing" : "en:grated",
+         "text" : "mozzarella",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
       },
       {
          "from_palm_oil" : "no",
@@ -90,9 +93,9 @@
       }
    ],
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_hierarchy" : [
       "en:wheat-flour",
@@ -105,7 +108,9 @@
       "en:tomato",
       "en:chopped-tomatoes",
       "en:water",
-      "fr:mozzarella râpée",
+      "en:mozzarella",
+      "en:dairy",
+      "en:cheese",
       "en:sunflower-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
@@ -124,7 +129,7 @@
       "en:wheat-flour",
       "en:crushed-tomato",
       "en:water",
-      "fr:mozzarella râpée",
+      "en:mozzarella",
       "en:sunflower-oil",
       "en:yeast",
       "en:salt",
@@ -143,7 +148,9 @@
       "en:tomato",
       "en:chopped-tomatoes",
       "en:water",
-      "fr:mozzarella-rapee",
+      "en:mozzarella",
+      "en:dairy",
+      "en:cheese",
       "en:sunflower-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
@@ -158,19 +165,19 @@
    "ingredients_with_specified_percent_sum" : 43,
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 57,
-   "known_ingredients_n" : 18,
+   "known_ingredients_n" : 21,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26
    },
    "recipe" : {
-      "en:cheese" : 0,
+      "en:cheese" : 17,
       "en:flour" : 33,
       "en:tomato" : 26,
       "en:water" : 21.5,
       "other" : 2.5,
-      "unknown" : 17
+      "unknown" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

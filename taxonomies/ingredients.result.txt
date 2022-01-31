@@ -9263,7 +9263,7 @@ ca:formatge de vaca
 de:Käse aus Kuhmilch
 es:queso de vaca
 fi:lehmänmaitojuusto, lehmänmaidosta valmistettu juusto
-fr:fromage de vache
+fr:fromage de vache, fromage au lait de vache
 hu:tehénsajt
 nl:koekaas
 
@@ -9901,29 +9901,29 @@ description:nl: Morbier is een halfharde Franse kaas met gewassen korst gemaakt 
 wikidata:en: Q177727
 
 < en:Cheese
-en:mozzarella, mozzarella cheese
+en:mozzarella, mozzarella cheese, mozzarella soft cheese
 ar:موتزاريلا
 be:Мацарэла
 bg:Моцарела
 bn:মজারেলা পনির
 bo:མོ་ཟ་རེལ་ལ།
 bs:mocarela
-ca:formatge mozzarella
-cs:sýr mozzarella
+ca:mozzarella, formatge mozzarella
+cs:mozzarella, sýr mozzarella
 cv:Моцарелла
 cy:Mosarela
-da:mozzarella ost
+da:mozzarella, mozzarella ost
 el:Μοτσαρέλα, τυρι Μοτσαρέλλα
 eo:Mocarelo
-es:queso mozzarella, queso mozarella
+es:mozzarella, queso mozzarella, queso mozarella
 fa:موزارلا
 fi:mozzarellajuustoa, mozzarella-juusto
-fr:fromage mozzarella
+fr:mozzarella, fromage mozzarella, mozzarelle, fromage mozzarelle
 he:מוצרלה
 hi:मोत्ज़ारेला
 hr:mocarela
 hy:Մոցարելա
-it:formaggio mozzarella, formaggi di mozzarella
+it:mozzarella, formaggio mozzarella, formaggi di mozzarella
 ja:モッツァレッラ
 ka:მოცარელა
 kk:Моцарелла
@@ -9933,19 +9933,19 @@ lt:Mocarela
 lv:mocarella
 mk:Моцарела
 mr:मोजारेला
-nl:mozzarella kaas
-nn:mozzarella ost
+nl:mozzarella, mozzarella kaas
+nn:mozzarella, mozzarella ost
 or:ମୋଜ୍ଜରେଲା
 pa:ਮੋਜ਼ਾਰੇਲਾ
-pl:ser mozzarella
-pt:mozarela, queijo mozzarella
+pl:mozzarella, ser mozzarella
+pt:mozzarella, queijo mozzarella
 ru:моцарелла
 sh:Mocarela
-sk:syr mozzarella
+sk:mozzarella, syr mozzarella
 sl:Mocarela
 sq:mocarela
 sr:моцарела
-sv:mozzarellaost, mozzarella-ost
+sv:mozzarella, mozzarellaost, mozzarella-ost
 th:มอซซาเรลลา
 uk:Моцарела
 ur:موزاریلا
@@ -54243,6 +54243,14 @@ ca:iogurt magre en pols
 de:Magermilch-Joghurtpulver
 es:yogur magro en polvo
 
+< en:Low moisture mozzarella
+< en:Part skim mozzarella
+en:low moisture part skim mozzarella
+
+< en:Low moisture mozzarella
+< en:Whole milk mozzarella
+en:low moisture whole milk mozzarella
+
 < en:Lukuma
 en:Lukuma powder
 de:Lucuma-Pulver, lucumapulver
@@ -59215,6 +59223,25 @@ fr:miel de montagne de France, miel de montagne recolte en France
 < en:Honey from Spain
 < en:Mountain honey
 fr:miel de montagne d'Espagne
+
+< en:Mozzarella
+en:buffalo mozzarella, buffalo milk mozzarella
+fr:mozzarella de bufflonne, mozzarella au lait de bufflonne
+it:mozzarella di bufala
+
+< en:Mozzarella
+en:cow mozzarella, cow milk mozzarella
+fr:mozzarella de vache, mozzarella au lait de vache
+it:mozzarella di vacca
+
+< en:Mozzarella
+en:low moisture mozzarella
+
+< en:Mozzarella
+en:part skim mozzarella
+
+< en:Mozzarella
+en:whole milk mozzarella
 
 en:müesli, Mueslis, Granola
 af:Muesli
@@ -89819,13 +89846,6 @@ fr:oeufs entiers reconstitués
 fr:œufs entiers extra-frais
 nl:extra-verse hele eieren
 
-< en:Whole goat milk
-en:goat's milk yogurt
-fr:Yaourt au lait de chèvre
-ciqual_food_code:en: 19556
-ciqual_food_name:en: Yogurt, goat's milk, plain, around 5% fat
-ciqual_food_name:fr: Yaourt au lait de chèvre, nature, 5% MG environ
-
 < en:Whole grain oat flakes
 en:british wholegrain oat flakes
 
@@ -90563,6 +90583,13 @@ sv:yoghurtpulver
 en:british yogurt
 de:britischer Joghurt
 fr:yaourt britannique
+
+< en:Yogurt
+en:goat's milk yogurt
+fr:Yaourt au lait de chèvre
+ciqual_food_code:en: 19556
+ciqual_food_name:en: Yogurt, goat's milk, plain, around 5% fat
+ciqual_food_name:fr: Yaourt au lait de chèvre, nature, 5% MG environ
 
 < en:Yogurt
 en:greek yogurt
