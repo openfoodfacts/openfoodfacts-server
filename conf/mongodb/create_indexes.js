@@ -6,6 +6,7 @@ db.products.createIndex({categories_properties_tags:1,"last_modified_t": -1}, { 
 db.products.createIndex({categories_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({checkers_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({cities_tags:1,"last_modified_t": -1}, { background: true });
+db.products.createIndex({code: 1}, { background: true });
 db.products.createIndex({codes_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({correctors_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({countries_tags:1,"last_modified_t": -1}, { background: true });
