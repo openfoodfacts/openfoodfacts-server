@@ -508,6 +508,17 @@ my @tests = (
 		},
 	],
 
+	# FR: verseur en plastique
+	[
+		'fr-verseur-en-plastique',
+		{
+			lc => "fr",
+			categories_tags=>["en:olive-oils"],
+			ingredients_text => "Huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques.",
+			packaging_text => "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g"
+		},
+	],
+
 );
 
 
