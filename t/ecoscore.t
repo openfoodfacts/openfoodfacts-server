@@ -450,7 +450,7 @@ my @tests = (
 			lc => "fr",
 			categories_tags=>["en:energy-drinks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
-			ingredients_text => "Water",
+			ingredients_text => "Eau, caféine",
 		},
 	],
 
@@ -505,6 +505,17 @@ my @tests = (
 			lc => "en",
 			categories_tags=>["en:lamb-leg"],
 			ingredients_text => "Fresh lamb leg (Great Britain)",
+		},
+	],
+
+	# FR: verseur en plastique
+	[
+		'fr-verseur-en-plastique',
+		{
+			lc => "fr",
+			categories_tags=>["en:olive-oils"],
+			ingredients_text => "Huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques.",
+			packaging_text => "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g"
 		},
 	],
 

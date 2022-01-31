@@ -909,6 +909,16 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:egg",
+         "en:milk-proteins",
+         "en:e120"
+      ],
+      "en:non-vegetarian" : [
+         "en:e120"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",

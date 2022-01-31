@@ -2502,18 +2502,23 @@ sub analyze_ingredients($) {
 
 	my $product_ref = shift;
 
+	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 
+	# Structure to store the result of the ingredient analysis for each property
 	my $ingredients_analysis_properties_ref = {};
+
+	# Store the lists of ingredients that resulted in a product being non vegetarian/vegan/palm oil free
+	my $ingredients_analysis_ref = {};
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
 		foreach my $property (@properties) {
 
 			# Ingredient values for the property
-			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
+			my %values = ();
 			
 			# Traverse the ingredients tree, breadth first
 			
@@ -2526,24 +2531,21 @@ sub analyze_ingredients($) {
 			
 			while (@ingredients) {
 				
+				# Remove and process the first ingredient
 				my $ingredient_ref = shift @ingredients;
+				my $ingredientid = $ingredient_ref->{id};
 								
+				# Add sub-ingredients at the beginning of the ingredients array
 				if (defined $ingredient_ref->{ingredients}) {
 					
-					for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
-						
-						push @ingredients, $ingredient_ref->{ingredients}[$i];
-					}			
+					unshift @ingredients, @{$ingredient_ref->{ingredients}};	
 				}
-
-				$values{all_ingredients}++;
 
 				# We may already have a value. e.g. for "matières grasses d'origine végétale" or "gélatine (origine végétale)"
 				my $value = $ingredient_ref->{$property};
 
 				if (not defined $value) {
 
-					my $ingredientid = $ingredient_ref->{id};
 					$value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
 
 					if (defined $value) {
@@ -2551,7 +2553,8 @@ sub analyze_ingredients($) {
 					}
 					else {
 						if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
-							$values{unknown_ingredients}++;
+							$values{unknown_ingredients} or $values{unknown_ingredients} = [];
+							push @{$values{unknown_ingredients}}, $ingredientid;
 						}
 
 						# additives classes in ingredients are functions of a more specific ingredient
@@ -2572,8 +2575,8 @@ sub analyze_ingredients($) {
 
 				not defined $value and $value = "undef";
 
-				defined $values{$value} or $values{$value} = 0;
-				$values{$value}++;
+				defined $values{$value} or $values{$value} = [];
+				push @{$values{$value}}, $ingredientid;
 
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
 			}
@@ -2594,14 +2597,17 @@ sub analyze_ingredients($) {
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
 					$property_value =  "en:" . $from_what ; # en:palm-oil
+					$ingredients_analysis_ref->{$property_value} = $values{yes};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
 					$property_value = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
-				elsif ($values{unknown_ingredients} > 0) {
+				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
 					$property_value = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
@@ -2618,14 +2624,17 @@ sub analyze_ingredients($) {
 				if (defined $values{no}) {
 					# One no ingredient -> no for the whole product
 					$property_value = "en:non-" . $property ; # en:non-vegetarian
+					$ingredients_analysis_ref->{$property_value} = $values{no};
 				}
 				elsif (defined $values{undef}) {
 					# Some ingredients were not recognized or we do not have a property value for them
 					$property_value = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{undef};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
 					$property_value = "en:maybe-" . $property ; # en:maybe-vegetarian
+					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
 				else {
 					# all ingredients known and with a value, no no or maybe value -> yes
@@ -2665,11 +2674,18 @@ sub analyze_ingredients($) {
 
 	if (scalar keys %$ingredients_analysis_properties_ref) {
 		$product_ref->{ingredients_analysis_tags} = [];
+		$product_ref->{ingredients_analysis} = {};
 
 		foreach my $property (@properties) {
 			my $property_value = $ingredients_analysis_properties_ref->{$property};
 			if (defined $property_value) {
+				# Store the property value in the ingredients_analysis_tags list
 				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
+				# Store the list of ingredients that caused a product to be non vegan/vegetarian/palm oil free
+				# (no list when a product is vegan/vegetarian/palm oil free)
+				if (defined $ingredients_analysis_ref->{$property_value}) {
+					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
+				}
 			}
 		}
 	}
