@@ -751,6 +751,9 @@ sub create_health_card_panel($$$) {
     # Create the additives panel
     create_additives_panel($product_ref, $target_lc, $target_cc);
 
+    # Create the additives panel
+    create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);    
+
     # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -1054,13 +1057,61 @@ sub create_additives_panel($$$) {
             add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
                 ["wikipedia_url", "wikipedia_title", "wikipedia_abstract"], $target_lcs_ref);
 
-            create_panel_from_json_template("additive_" . $additive, "api/knowledge-panels/health/ingredients/additive.tt.json",
+            create_panel_from_json_template($additive_panel_id, "api/knowledge-panels/health/ingredients/additive.tt.json",
                 $additive_panel_data_ref, $product_ref, $target_lc, $target_cc);
         }
 
         create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
             $additives_panel_data_ref, $product_ref, $target_lc, $target_cc);
 
+    }
+}
+
+
+=head2 create_ingredients_analysis_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates a knowledge panel with the results of ingredients analysis.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_ingredients_analysis_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create ingredients analysis panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+    my $ingredients_analysis_data_ref = data_to_display_ingredients_analysis($product_ref);
+
+    if (defined $ingredients_analysis_data_ref) {
+
+        my $ingredients_analysis_panel_data_ref = {
+        };
+
+        foreach my $property_panel_data_ref (@{$ingredients_analysis_data_ref->{ingredients_analysis_tags}}) {
+
+            my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{property};
+
+            create_panel_from_json_template($property_panel_id, "api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json",
+                $property_panel_data_ref, $product_ref, $target_lc, $target_cc);
+        }
+
+        create_panel_from_json_template("ingredients_analysis", "api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
+            $ingredients_analysis_panel_data_ref, $product_ref, $target_lc, $target_cc);
     }
 }
 
