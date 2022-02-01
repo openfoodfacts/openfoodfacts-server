@@ -77,7 +77,7 @@ use ProductOpener::Packaging qw/:all/;
 use Storable qw(dclone freeze);
 use Text::CSV();
 use Math::Round;
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_exists);
 
 my %agribalyse = ();
 
@@ -594,7 +594,10 @@ sub compute_ecoscore($) {
 
 	remove_tag($product_ref,"misc","en:ecoscore-computed");
 	remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-	remove_tag($product_ref,"misc","en:ecoscore-missing-data-packaging");
+	remove_tag($product_ref,"misc","en:ecoscore-missing-data-no-packagings");
+	foreach my $missing (qw(labels origins packagings)) {
+		remove_tag($product_ref,"misc","en:ecoscore-missing-data-" . $missing);
+	}
 	remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 	remove_tag($product_ref,"misc","en:ecoscore-not-applicable");
 
@@ -752,10 +755,21 @@ sub compute_ecoscore($) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
 				add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
 
+				# add facets for missing data
+				foreach my $missing (qw(labels origins packagings)) {
+					if (deep_exists($product_ref, "ecoscore_data", "missing", $missing)) {
+						add_tag($product_ref,"misc","en:ecoscore-missing-data-" . $missing);
+					}
+				}
+				
+				# ecoscore-missing-data-packagings will also be triggered when we have some packaging data that is not complete
+				# e.g. we have a shape like "bottle" but no associated material
+				# also add a facet when we have no packaging information at all
 				my $packaging_warning = deep_get($product_ref, qw(ecoscore_data adjustments packaging warning));
 				if ((defined $packaging_warning) and ($packaging_warning eq "packaging_data_missing")) {
-					add_tag($product_ref,"misc","en:ecoscore-missing-data-packaging");
+					add_tag($product_ref,"misc","en:ecoscore-missing-data-no-packagings");
 				}
+
 			}
 			
 			add_tag($product_ref,"misc","en:ecoscore-computed");
