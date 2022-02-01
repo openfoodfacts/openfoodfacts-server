@@ -26462,6 +26462,18 @@ ciqual_food_name:fr:Boulgour de blé, cru
 #nl:gekookte bulgur
 #141 @2021-10-07
 
+<en:bulgur
+en:wheat bulgur
+fr:boulgour de blé
+
+<en:bulgur
+en:whole wheat bulgur, wholewheat bulgur, wholemeal wheat bulgur
+fr:boulgour de blé complet
+
+<en:bulgur
+en:durum wheat bulgur
+fr:boulgour de blé dur
+
 ##################################################################################
 #
 #                        Emmer
@@ -27814,6 +27826,7 @@ et:kinoa, tšiili hanemalts
 eu:kinoa
 fa:کینوآ
 fi:kvinoa
+fr:quinoa
 ga:cuineo
 he:קינואה
 hi:क्विन्वा
@@ -27862,9 +27875,6 @@ ciqual_food_name:fr:Quinoa, cru
 # 425 products in 6 languages @2018-09-22
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:quinoa
-de:Quinoa gepufft
-
 <en:seed
 <en:quinoa
 en:quinoa seeds
@@ -27891,19 +27901,12 @@ nl:zwarte quinoa
 pt:quinoa preta
 #97 in 6 @2021-09-21
 
-# ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
-<en:red quinoa
-fr:quinoa rouge précuit
-de:Quinoa gegart
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
-# 115 products in 2 languages @2018-09-22
-
 <en:quinoa
 en:white quinoa
 de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
-fr:quinoa blanc
+fr:quinoa blanc, quinoa blond
 hu:fehér kinoa
 pt:quinoa branco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
@@ -27915,18 +27918,9 @@ de:weißes Quinoamehl, weißes Quinoa-Mehl
 es:harina de quinoa blanca
 fr:Farine de quinoa blanche
 
-<en:white quinoa
-en:cooked white quinoa
-
-<en:quinoa
-en:cooked quinoa
-da:kogt quinoa
-fr:quinoa cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
-# 99 in 1 language @2021-09-21
-
 <en:red quinoa
 <en:white quinoa
+en:red and white quinoa, white and red quinoa
 fr:quinoa rouge et blanc, quinoa blanc et rouge
 
 ##################################################################################
