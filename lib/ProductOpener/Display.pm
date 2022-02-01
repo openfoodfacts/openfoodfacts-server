@@ -11041,75 +11041,51 @@ sub display_ingredients_analysis($) {
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
-			my $color;
+			my $evaluation;
 			my $icon = "";
-
-			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
 				$icon = "palm-oil";
 
-				if (has_tag($product_ref, "labels", "en:palm-oil-free")
-					or ($ingredients_analysis_tag =~ /-free$/)) {
-					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = 'green';
-					
+				if ($ingredients_analysis_tag =~ /-free$/) {
+					$evaluation = 'good';
 				}
 				elsif ($ingredients_analysis_tag =~ /unknown/) {
-					$color = 'grey';
+					$evaluation = 'unknown';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = 'orange';
+					$evaluation = 'average';
 				}
 				else {
-					$color = 'red';
+					$evaluation = 'bad';
 				}
-
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
 					$icon = "leaf";
-					if (has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegan";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegan")
-						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegan";
-					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
 					$icon = "egg";
-					if (has_tag($product_ref, "labels", "en:vegetarian")
-						or has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegetarian";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegetarian";
-					}
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = 'red';
+					$evaluation = 'bad';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = 'orange';
+					$evaluation = 'average';
 				}
 				elsif ($ingredients_analysis_tag =~ /unknown/) {
-					$color = 'grey';
+					$evaluation = 'unknown';
 				}
 				else {
-					$color = 'green';
+					$evaluation = 'good';
 				}
-			}
-
-			if ($icon ne "") {
-				$icon = display_icon($icon);
 			}
 
 			push @{$template_data_ref->{ingredients_analysis_tags}}, {
-				color => $color,
+				evaluation => $evaluation,
 				icon => $icon,
 				text => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
 			};
