@@ -592,6 +592,12 @@ sub compute_ecoscore($) {
 		adjustments => {},
 	};
 
+	remove_tag($product_ref,"misc","en:ecoscore-computed");
+	remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
+	remove_tag($product_ref,"misc","en:ecoscore-missing-data-packaging");
+	remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+	remove_tag($product_ref,"misc","en:ecoscore-not-applicable");
+
 	# Check if we have extended ecoscore_data from the impact estimator
 	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
 	if (defined $product_ref->{misc_tags}) {
@@ -631,13 +637,8 @@ sub compute_ecoscore($) {
 		
 		add_tag($product_ref,"misc","en:ecoscore-not-applicable");
 		add_tag($product_ref,"misc","en:ecoscore-not-computed");
-		remove_tag($product_ref,"misc","en:ecoscore-computed");
-		remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-		remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 	}
 	else {
-		remove_tag($product_ref,"misc","en:ecoscore-not-applicable");
-		
 		# Compute the LCA Eco-Score based on AgriBalyse
 		
 		compute_ecoscore_agribalyse($product_ref);
@@ -750,15 +751,14 @@ sub compute_ecoscore($) {
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
 				add_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-				remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
-			}
-			else {
-				remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-				add_tag($product_ref,"misc","en:ecoscore-no-missing-data");
+
+				my $packaging_warning = deep_get($product_ref, qw(ecoscore_data adjustments packaging warning));
+				if ((defined $packaging_warning) and ($packaging_warning eq "packaging_data_missing")) {
+					add_tag($product_ref,"misc","en:ecoscore-missing-data-packaging");
+				}
 			}
 			
 			add_tag($product_ref,"misc","en:ecoscore-computed");
-			remove_tag($product_ref,"misc","en:ecoscore-not-computed");		
 		}
 		else {
 			# No AgriBalyse category match
@@ -768,9 +768,6 @@ sub compute_ecoscore($) {
 			$product_ref->{ecoscore_grade} = "unknown";
 			
 			add_tag($product_ref,"misc","en:ecoscore-not-computed");
-			remove_tag($product_ref,"misc","en:ecoscore-computed");
-			remove_tag($product_ref,"misc","en:ecoscore-missing-data-warning");
-			remove_tag($product_ref,"misc","en:ecoscore-no-missing-data");
 		}
 	}
 }
