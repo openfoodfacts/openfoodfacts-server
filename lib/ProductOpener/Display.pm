@@ -11106,7 +11106,8 @@ sub data_to_display_ingredients_analysis($) {
 			elsif ($evaluation ne "good") {
 				# convert en:non-vegetarian property to non_vegetarian_ingredients string id
 				$ingredients_title_id = lc($ingredients_analysis_tag) . "_ingredients";
-				$ingredients_analysis_tag =~ s/\en://;
+				$ingredients_title_id =~ s/^en://;
+				$ingredients_title_id =~ s/-/_/g;
 			}
 
 			push @{$result_data_ref->{ingredients_analysis_tags}}, {

@@ -1,0 +1,31 @@
+[% SET property = panel.property %]
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% panel.title %]",
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/[% panel.icon %].svg",
+        "icon_size": "small",
+    },    
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                [% IF panel.ingredients_title_id.defined %]
+                    <strong>[% lang(panel.ingredients_title_id) %][% sep %]:</strong>
+                    [% FOREACH ingredient IN product.ingredients_analysis.$property %]
+                        [% display_taxonomy_tag("ingredients", ingredient) %],
+                    [% END %]
+                [% END %]
+                    `
+            }
+        },
+    ]
+}
