@@ -2,6 +2,11 @@
 
 # For labels that indicate the absence of something, in English, always make "No something" the first entry, and make "Something-free", "Without something" synonyms
 
+# Supported and used properties:
+
+# When a label has both an "ingredients:en:" property + an "origins:en:" property (e.g. French eggs),
+# the information is used to populate the origins of the ingredient when doing ingredients analysis.
+
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
@@ -212,6 +217,7 @@ fi:ranskalaisia munia, munien alkuperä Ranska
 fr:Oeufs de France, Oeufs français
 he:ביצים צרפתיות, ביצים מצרפת
 it:Uova francesi, Uova dalla Francia
+ingredients:en: en:egg
 origins:en: en:france
 
 <en:Free range
@@ -2291,8 +2297,9 @@ en:Egg laid in France
 ca:Ous posats a França
 de:in Frankreich gelegte Eier
 fi:munittu Ranskassa
-fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
+fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France, oeufs pondus en France
 it:Uova deposte in Francia
+ingredients:en: en:egg
 origins:en: en:france
 label_categories:en: en:Geographic label
 
@@ -17480,6 +17487,7 @@ he:חלב צרפתי
 it:Latte francese
 nl:Franse melk
 pt:Leite francês
+ingredients:en: en:milk
 origins:en: en:france
 
 en:Produced in Brittany, Produced in Bretagne
@@ -17602,6 +17610,7 @@ origins:en: en:france
 
 <fr:Viande Française
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
+ingredients:en: en:rabbit
 origins:en: en:france
 
 <fr:Viande Française
@@ -17613,6 +17622,7 @@ fr:Canard Français, Canard de France, Canard Origine France, Viande de canard f
 he:ברווז צרפתי
 it:Anatra francese
 pt:Pato francês
+ingredients:en: en:duck
 origins:en: en:france
 
 <fr:Viande Française
@@ -17639,10 +17649,12 @@ ingredients:en: en:beef
 <fr:Viande Française
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
 origins:en: en:france
+ingredients:en: en:lamb
 
 <fr:Viande Française
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
 origins:en: en:france
+ingredients:en: en:veal
 
 <fr:Viande Française
 en:French poultry
@@ -17653,10 +17665,12 @@ ingredients:en: en:poultry
 <fr:Viande Française
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
 origins:en: en:france
+ingredients:en: en:chicken
 
 <fr:Viande Française
 fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
 origins:en: en:france
+ingredients:en: en:horse
 
 it:DOC, D.O.C, Denominazione di origine controllata
 wikidata:en:Q654824
@@ -18690,13 +18704,16 @@ origins:en: en:france
 
 fr:Maïs de France
 origins:en: en:france
+ingredients:en: en:corn
 
 fr:Tomates de France
 origins:en: en:france
+ingredients:en: en:tomato
 
 <fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français
 origins:en: en:france
+ingredients:en: en:fruits
 
 en:Potatoes from France
 ca:Patates de França
@@ -18707,6 +18724,7 @@ fr:Pommes de terre de France
 it:Patate francesi, Patate dalla Francia
 nl:Aardappelen uit Frankrijk
 origins:en: en:france
+ingredients:en: en:potato
 
 en:Apples from France
 de:Äpfel aus Frankreich
@@ -18716,6 +18734,7 @@ fr:Pommes de France
 it:Mele francesi
 pt:Maçãs da França
 origins:en: en:france
+ingredients:en: en:apple
 
 en:Honey from France
 de:Honig aus Frankreich
@@ -18724,7 +18743,7 @@ fr:Miel de France, miel français
 he:דבש מצרפת
 origins:en: en:france
 label_categories:en: en:Honey
-
+ingredients:en: en:honey
 
 en:Products for professional use
 ca:Producte per ús professional

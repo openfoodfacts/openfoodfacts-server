@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:milk",
+         "origins" : "en:united-kingdom",
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
@@ -87,7 +88,7 @@
       {
          "id" : "en:milk",
          "ingredient" : "milk",
-         "origin" : "en:united-kingdom",
+         "origins" : "en:united-kingdom",
          "text" : "Origin of milk: UK"
       }
    ],

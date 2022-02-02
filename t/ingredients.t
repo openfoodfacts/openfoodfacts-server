@@ -422,7 +422,7 @@ foreach my $test_ref (@tests) {
 	# Run the test
 
 	if (defined $product_ref->{labels}) {
-		compute_field_tags($product_ref, $product_ref->{lc}, $product_ref->{labels});
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 	}
 	
 	extract_ingredients_from_text($product_ref);
