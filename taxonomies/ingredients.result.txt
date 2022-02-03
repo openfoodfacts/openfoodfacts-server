@@ -6097,6 +6097,18 @@ fi:pastöroitu puhvelinmaito
 fr:lait de bufflonne pasteurisé
 hu:pasztőrözött bivalytej
 
+< en:Bulgur
+en:durum wheat bulgur
+fr:boulgour de blé dur
+
+< en:Bulgur
+en:wheat bulgur
+fr:boulgour de blé
+
+< en:Bulgur
+en:whole wheat bulgur, wholewheat bulgur, wholemeal wheat bulgur
+fr:boulgour de blé complet
+
 en:Bulking agent, filler
 bg:Пълнител
 ca:Incrementador de volum
@@ -45682,6 +45694,12 @@ wikidata:en: Q3181909
 wikipedia:en: https://en.wikipedia.org/wiki/Guava
 
 < en:Fruit
+en:jackfruit
+de:Jackfrucht
+fr:fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, jaquier
+wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
+
+< en:Fruit
 en:kiwi, kiwifruit, kiwi fruit
 af:kiwivrug
 ar:كيوي
@@ -49825,6 +49843,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mentha
 en:oregano
 bg:риган
 ca:orenga, herba musca, roca morera
+de:oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
@@ -59860,7 +59879,7 @@ la:agaricus brunnescens
 
 < en:Mushroom
 en:shiitake, lentinula edodes, lentinus edodes, shiitake mushrooms
-de:shiitake, schwarzer Pilz
+de:shiitake, schwarzer Pilz, shittakepilze
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
@@ -68710,6 +68729,7 @@ et:kinoa, tšiili hanemalts
 eu:kinoa
 fa:کینوآ
 fi:kvinoa
+fr:quinoa
 ga:cuineo
 he:קינואה
 hi:क्विन्वा
@@ -68747,9 +68767,6 @@ wikidata:en: Q139925
 wikipedia:en: https://en.wikipedia.org/wiki/Quinoa
 
 < en:Quinoa
-de:Quinoa gepufft
-
-< en:Quinoa
 en:black quinoa
 de:schwarzes Quinoa, schwarzer Quinoa, Quinoa schwarz
 es:quinoa negra
@@ -68757,11 +68774,6 @@ fr:quinoa noir
 it:quinoa nera
 nl:zwarte quinoa
 pt:quinoa preta
-
-< en:Quinoa
-en:cooked quinoa
-da:kogt quinoa
-fr:quinoa cuit
 
 < en:Flour
 < en:Quinoa
@@ -68795,7 +68807,7 @@ en:white quinoa
 de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
-fr:quinoa blanc
+fr:quinoa blanc, quinoa blond
 hu:fehér kinoa
 pt:quinoa branco
 
@@ -69301,14 +69313,6 @@ fr:pomelo ruby red
 en:modified red port
 de:modifizierter roter Portwein
 fr:porto rouge modifié
-
-< en:Red quinoa
-fr:quinoa rouge précuit
-de:Quinoa gegart
-
-< en:Red quinoa
-< en:White quinoa
-fr:quinoa rouge et blanc, quinoa blanc et rouge
 
 en:Red radish
 fr:Radis rouge
@@ -74755,7 +74759,7 @@ wikidata:en: Q27658833
 
 < en:Seed
 en:hemp seed
-de:Hanfsamen
+de:Hanfsamen, hanfsaat
 es:Semilla de cáñamo, semillas de Cáñamo Sativa L
 fi:hampunsiemen, hampunsiemenet
 fr:graines de chanvre
@@ -82078,7 +82082,7 @@ vegetarian:en: yes
 
 < en:Bourbon vanilla
 < en:Vanilla pod
-en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean
+en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon vanilla pods
 de:Bourbon-Vanilleschote
 fi:bourbon-vaniljakodat
 fr:gousses de vanille bourbon, fève de vanille bourbon
@@ -84882,9 +84886,9 @@ sv:ananasfiber
 
 < en:Potato
 < en:Vegetable fiber
-en:potato fibre
+en:potato fiber, potato fibre
 da:kartoffelfibre
-de:Kartoffelfasern, Kartoffelballaststoffe
+de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
 es:fibra de patata
 fi:perunakuitu
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
@@ -85906,6 +85910,7 @@ ro:proteină de cartofi
 
 < en:Vegetable protein
 en:rapeseed protein
+de:Rapseiweiß
 fi:rapsiproteiini
 fr:protéine de colza, protéines de colza
 sv:rapsprotein
@@ -88521,6 +88526,10 @@ nl:dextrose van tarwe of maïs
 en:gluten free wheat fiber
 nl:glutenvrije tarwevezel
 
+< en:Wheat fiber
+en:wheat stalk fiber
+de:Weizenhalmfaser
+
 < en:Wheat flakes
 de:Weizenvollkornflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot
 fr:flocons de blé complet
@@ -89678,8 +89687,10 @@ it:Pepe nero e bianco
 nl:zwarte een witte peper
 ru:перец белый
 
+< en:Red quinoa
 < en:White quinoa
-en:cooked white quinoa
+en:red and white quinoa, white and red quinoa
+fr:quinoa rouge et blanc, quinoa blanc et rouge
 
 < en:Long grain rice
 < en:White rice

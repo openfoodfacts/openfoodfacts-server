@@ -25863,6 +25863,10 @@ sv:vetefiber, Vete fiber
 en:gluten free wheat fiber
 nl:glutenvrije tarwevezel
 
+<en:wheat fiber
+en:wheat stalk fiber
+de:Weizenhalmfaser
+
 <en:wheat
 en:wheat bran
 de:Weizenkleie, Weizenspeisekleie
@@ -33956,6 +33960,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
 <en:vegetable protein
 en:rapeseed protein
+de:Rapseiweiß
 fi:rapsiproteiini
 fr:protéine de colza, protéines de colza
 sv:rapsprotein
@@ -38535,6 +38540,7 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 ###################################################################################################
 # description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
+<en:fruit
 en:breadfruit
 az:Çörək ağacı
 bi:Bredfrut
@@ -38553,6 +38559,12 @@ ty:Ùru
 wikidata:en:Q5869893
 wikipedia:en:https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
+
+<en:fruit
+en:jackfruit
+de:Jackfrucht
+fr:fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, jaquier
+wikipedia:en:https://en.wikipedia.org/wiki/Jackfruit
 
 
 ###################################################################################################
@@ -53189,9 +53201,9 @@ fr:flocons de pomme de terre réhydratés
 
 <en:potato
 <en:vegetable fiber
-en:potato fibre
+en:potato fiber, potato fibre
 da:kartoffelfibre
-de:Kartoffelfasern, Kartoffelballaststoffe
+de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
 es:fibra de patata
 fi:perunakuitu
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
@@ -58739,7 +58751,7 @@ fr:pignons de pin décortiqués
 
 <en:seed
 en:hemp seed
-de:Hanfsamen
+de:Hanfsamen, hanfsaat
 es:Semilla de cáñamo,semillas de Cáñamo Sativa L
 fi:hampunsiemen, hampunsiemenet
 fr:graines de chanvre
@@ -63548,6 +63560,7 @@ ciqual_food_name:fr:Herbes de Provence, séchées
 en:oregano
 bg:риган
 ca:orenga, herba musca, roca morera
+de:oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
@@ -66989,7 +67002,7 @@ nl:gemalen geëxtraheerde vanillestokjes
 
 <en:vanilla pod
 <en:Bourbon vanilla
-en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean
+en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon vanilla pods
 de:Bourbon-Vanilleschote
 fi:bourbon-vaniljakodat
 fr:gousses de vanille bourbon, fève de vanille bourbon
@@ -68878,7 +68891,7 @@ wikidata:en:Q1142857
 
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes,shiitake mushrooms
-de:shiitake, schwarzer Pilz
+de:shiitake, schwarzer Pilz, shittakepilze
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
