@@ -536,6 +536,8 @@ sub init_ingredients_processing_regexps() {
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
 			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
+				# Make spaces match dashes and the reverse
+				$synonym =~ s/( |-)/\(\?: \|-\)/g;
 				push @{ $ingredients_processing_regexps{$l} },
 					[ $ingredients_processing, $synonym ];
 
@@ -1018,7 +1020,7 @@ sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
-	my $debug_ingredients = 0;
+	my $debug_ingredients = 1;
 
 	delete $product_ref->{ingredients};
 
@@ -1516,6 +1518,8 @@ sub parse_ingredients_text($) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
+								$debug_ingredients and $log->trace("checking processing regexps", { new_ingredient => $new_ingredient, regexp => $regexp }) if $log->is_trace();
+
 								if (
 									# English, French etc. match before or after the ingredient, require a space
 									(
