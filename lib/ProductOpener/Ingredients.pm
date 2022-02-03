@@ -986,7 +986,7 @@ sub parse_specific_ingredients_text($$$) {
 				text => $matched_text,
 			};
 
-			defined $percent and $specific_ingredients_ref->{percent} = $percent;
+			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
 			defined $origin and $specific_ingredients_ref->{origin} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
@@ -1020,7 +1020,7 @@ sub parse_ingredients_text($) {
 
 	my $product_ref = shift;
 
-	my $debug_ingredients = 1;
+	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
 
@@ -1781,7 +1781,7 @@ sub parse_ingredients_text($) {
 				);
 
 				if (defined $percent) {
-					$ingredient{percent} = $percent;
+					$ingredient{percent} = $percent + 0;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
