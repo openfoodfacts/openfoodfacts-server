@@ -891,7 +891,7 @@ sub has_specific_ingredient_property($$$) {
 
 	my $value;
 
-	# If we have specific ingredients, check if we have a higher fruits / vegetables content
+	# If we have specific ingredients, check if we have a parent of searched ingredient
 	if (defined $product_ref->{specific_ingredients}) {
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $specific_ingredient_id = $ingredient_ref->{id};
