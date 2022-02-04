@@ -6,13 +6,15 @@
 
 # When a label has both an "ingredients:en:" property + an "origins:en:" property (e.g. French eggs),
 # the information is used to populate the origins of the ingredient when doing ingredients analysis.
+# Note: ingredients:en: should list only 1 ingredient, while origins:en: can list multiple origins.
+# Supporting multiple ingredients is doable but would require code changes.
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
-stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
+stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv:certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
@@ -3274,6 +3276,10 @@ ca:Vi biodinàmic
 en:India Organic
 country:en:India
 wikidata:en:Q17055995
+
+<en:organic
+<en:fair trade
+fr:Bio équitable en France
 
 <en:Organic
 en:EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
@@ -16735,6 +16741,10 @@ it:Sicurezza dei Delfini
 nl:dolfijnvriendelijk
 label_categories:en: en:Fishing labels
 
+fr:Pêche française
+ingredients:en: en:fish
+origins:en: en:france
+
 # Should not be automatically triggered by the MSC label
 # as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
 # From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
@@ -17482,7 +17492,7 @@ ca:Llet francesa
 de:Milch aus Frankreich
 es:Leche francesa
 fi:ranskalaista maitoa, maidon alkuperä Ranska
-fr:Lait Français, Lait de France, Lait Origine France
+fr:Lait Français, Lait de France, Lait Origine France, lait collecté et conditionné en France
 he:חלב צרפתי
 it:Latte francese
 nl:Franse melk
@@ -17590,14 +17600,16 @@ ca:Carn francesa
 de:Fleisch aus Frankreich
 es:Carne francesa
 fi:Ranskalaista lihaa, lihan alkuperä Ranska
-fr:Viande Française, VF
+fr:Viande Française, VF, viandes françaises, viande origine France, viandes origine France
 he:בשר צרפתי
 it:Carne francese
 nl:Frans vlees
+ingredients:en: en:meat
 origins:en: en:france
 
 <fr:Viande Française
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
+ingredients:en: en:lamb
 origins:en: en:france
 
 <fr:Viande Française
@@ -17649,7 +17661,7 @@ ingredients:en: en:beef
 <fr:Viande Française
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
 origins:en: en:france
-ingredients:en: en:lamb
+ingredients:en: en:sheep
 
 <fr:Viande Française
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France

@@ -6,7 +6,7 @@ stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
-stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
+stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv:certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
@@ -13619,6 +13619,10 @@ fr:Bio-équitable, bioéquitable
 
 < en:Fair trade
 < en:Organic
+fr:Bio équitable en France
+
+< en:Fair trade
+< en:Organic
 fr:Biopartenaire, Bio partenaire
 xx:Biopartenaire
 
@@ -13748,10 +13752,11 @@ ca:Carn francesa
 de:Fleisch aus Frankreich
 es:Carne francesa
 fi:Ranskalaista lihaa, lihan alkuperä Ranska
-fr:Viande Française, VF
+fr:Viande Française, VF, viandes françaises, viande origine France, viandes origine France
 he:בשר צרפתי
 it:Carne francese
 nl:Frans vlees
+ingredients:en: en:meat
 origins:en: en:france
 
 < en:French meat
@@ -13810,6 +13815,7 @@ origins:en: en:france
 
 < en:French meat
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
+ingredients:en: en:lamb
 origins:en: en:france
 
 < en:French meat
@@ -13827,7 +13833,7 @@ origins:en: en:france
 
 < en:French meat
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
-ingredients:en: en:lamb
+ingredients:en: en:sheep
 origins:en: en:france
 
 en:French milk
@@ -13835,7 +13841,7 @@ ca:Llet francesa
 de:Milch aus Frankreich
 es:Leche francesa
 fi:ranskalaista maitoa, maidon alkuperä Ranska
-fr:Lait Français, Lait de France, Lait Origine France
+fr:Lait Français, Lait de France, Lait Origine France, lait collecté et conditionné en France
 he:חלב צרפתי
 it:Latte francese
 nl:Franse melk
@@ -18816,6 +18822,10 @@ label_categories:en: en:Fishing method
 
 fr:Pêché au toc
 label_categories:en: en:Fishing method
+
+fr:Pêche française
+ingredients:en: en:fish
+origins:en: en:france
 
 fr:PIL, Produit de l'Industrie Locale
 
