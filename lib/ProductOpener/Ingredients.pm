@@ -865,14 +865,24 @@ my %ignore_strings_after_percent = (
 );
 
 
-=head2 has_specific_ingredient_property ( product_ref, ingredient_id, property )
+=head2 has_specific_ingredient_property ( product_ref, searched_ingredient_id, property )
 
 Check if the specific ingredients structure (extracted from the end of the ingredients list and product labels)
 contains a property for an ingredient. (e.g. do we have an origin specified for a specific ingredient)
 
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 searched_ingredient_id
+
 If the ingredient_id parameter is undef, then we return the value for any specific ingredient.
 (useful for products for which we do not have ingredients, but for which we have a label like "French eggs":
 we can still derive the origin of the ingredients, e.g. for the Eco-Score)
+
+=head4 property
+
+e.g. "origins"
 
 =head3 Return values
 
@@ -886,21 +896,25 @@ we can still derive the origin of the ingredients, e.g. for the Eco-Score)
 sub has_specific_ingredient_property($$$) {
 
 	my $product_ref = shift;
-	my $ingredient_id = shift;
+	my $searched_ingredient_id = shift;
 	my $property = shift;
 
 	my $value;
 
 	# If we have specific ingredients, check if we have a parent of searched ingredient
 	if (defined $product_ref->{specific_ingredients}) {
-		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
-			my $specific_ingredient_id = $ingredient_ref->{id};
-            if ((defined $ingredient_ref->{origins}) # we have an origin for specific ingredient
+		foreach my $specific_ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $specific_ingredient_id = $specific_ingredient_ref->{id};
+            if ((defined $specific_ingredient_ref->{$property}) # we have a value for the property for the specific ingredient
                 # and we did not target a specific ingredient, or this is equivalent to the searched ingredient
-				and ((not defined $ingredient_id) or (is_a("ingredients", $ingredient_id, $specific_ingredient_id)))) {
+				and ((not defined $searched_ingredient_id) or (is_a("ingredients", $searched_ingredient_id, $specific_ingredient_id)))) {
 
-				$value = $ingredient_ref->{origins};
-				last;
+				if (not defined $value) {
+					$value = $specific_ingredient_ref->{$property};
+				}
+				elsif ($specific_ingredient_ref->{$property} ne $value) {
+					$log->warn("has_specific_ingredient_property: different values for property", { searched_ingredient_id => $searched_ingredient_id, property => $property, current_value => $value, specific_ingredient_id => $specific_ingredient_id, new_value => $specific_ingredient_ref->{$property}}) if $log->is_warn();
+				}
 			}
 		}
 	}
