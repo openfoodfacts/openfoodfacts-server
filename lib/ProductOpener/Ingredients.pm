@@ -98,6 +98,8 @@ BEGIN
 		&add_milk
 		&estimate_milk_percent_from_ingredients
 
+		&has_specific_ingredient_property
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -863,13 +865,113 @@ my %ignore_strings_after_percent = (
 );
 
 
+=head2 has_specific_ingredient_property ( product_ref, searched_ingredient_id, property )
 
-=head2 parse_specific_ingredients_text ( product_ref, $text )
+Check if the specific ingredients structure (extracted from the end of the ingredients list and product labels)
+contains a property for an ingredient. (e.g. do we have an origin specified for a specific ingredient)
 
-Lists of ingredients sometime include extra mentions for specific ingredients
-at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
+=head3 Arguments
 
-This function extracts those mentions and adds them to a special specific_ingredients structure.
+=head4 product_ref
+
+=head4 searched_ingredient_id
+
+If the ingredient_id parameter is undef, then we return the value for any specific ingredient.
+(useful for products for which we do not have ingredients, but for which we have a label like "French eggs":
+we can still derive the origin of the ingredients, e.g. for the Eco-Score)
+
+=head4 property
+
+e.g. "origins"
+
+=head3 Return values
+
+=head4 value
+
+- undef if we don't have a specific ingredient with the requested property matching the requested ingredient
+- otherwise the value for the matching specific ingredient
+
+=cut
+
+sub has_specific_ingredient_property($$$) {
+
+	my $product_ref = shift;
+	my $searched_ingredient_id = shift;
+	my $property = shift;
+
+	my $value;
+
+	# If we have specific ingredients, check if we have a parent of searched ingredient
+	if (defined $product_ref->{specific_ingredients}) {
+		foreach my $specific_ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $specific_ingredient_id = $specific_ingredient_ref->{id};
+            if ((defined $specific_ingredient_ref->{$property}) # we have a value for the property for the specific ingredient
+                # and we did not target a specific ingredient, or this is equivalent to the searched ingredient
+				and ((not defined $searched_ingredient_id) or (is_a("ingredients", $searched_ingredient_id, $specific_ingredient_id)))) {
+
+				if (not defined $value) {
+					$value = $specific_ingredient_ref->{$property};
+				}
+				elsif ($specific_ingredient_ref->{$property} ne $value) {
+					$log->warn("has_specific_ingredient_property: different values for property", { searched_ingredient_id => $searched_ingredient_id, property => $property, current_value => $value, specific_ingredient_id => $specific_ingredient_id, new_value => $specific_ingredient_ref->{$property}}) if $log->is_warn();
+				}
+			}
+		}
+	}
+
+	return $value;
+}
+
+
+=head2 add_properties_from_specific_ingredients ( product_ref )
+
+Go through the ingredients structure, and ad properties to ingredients that match specific ingredients
+for which we have extra information (e.g. origins from a label).
+
+=cut
+
+sub add_properties_from_specific_ingredients($) {
+
+	my $product_ref = shift;
+
+	# Traverse the ingredients tree, breadth first
+	
+	my @ingredients = @{$product_ref->{ingredients}};
+	
+	while (@ingredients) {
+		
+		# Remove and process the first ingredient
+		my $ingredient_ref = shift @ingredients;
+		my $ingredientid = $ingredient_ref->{id};
+						
+		# Add sub-ingredients at the beginning of the ingredients array
+		if (defined $ingredient_ref->{ingredients}) {
+			
+			unshift @ingredients, @{$ingredient_ref->{ingredients}};	
+		}
+
+		foreach my $property (qw(origins)) {
+			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, "origins");
+			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
+				$ingredient_ref->{$property} = $property_value;
+			}
+		}
+	}
+}
+
+
+=head2 add_specific_ingredients_from_labels ( product_ref )
+
+Check if the product has labels that indicate properties (e.g. origins) for specific ingredients.
+
+e.g.
+
+en:French pork
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France
+origins:en: en:france
+ingredients:en: en:pork
+
+This function extracts those mentions and adds them to the specific_ingredients structure.
 
 =head3 Return values
 
@@ -881,15 +983,61 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_text($$$) {
+sub add_specific_ingredients_from_labels($) {
+
+	my $product_ref = shift;
+
+	my $product_lc = $product_ref->{lc};
+
+	if (defined $product_ref->{labels_tags}) {
+		foreach my $labelid (@{$product_ref->{labels_tags}}) {
+			my $ingredients = get_property("labels", $labelid, "ingredients:en");
+			if (defined $ingredients) {
+				my $origins = get_property("labels", $labelid, "origins:en");
+
+				if (defined $origins) {
+
+					my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $ingredients);
+
+					my $specific_ingredients_ref = {
+						id => $ingredient_id,
+						ingredient => $ingredients,
+						label => $labelid,
+						origins => join(",", map {canonicalize_taxonomy_tag("en", "origins", $_)} split(/,/, $origins ))
+					};
+					
+					push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+				}
+			}
+		}
+	}
+}
+
+
+=head2 parse_specific_ingredients_from_text ( product_ref, $text )
+
+Lists of ingredients sometime include extra mentions for specific ingredients
+at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
+
+This function extracts those mentions and adds them to the specific_ingredients structure.
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub parse_specific_ingredients_from_text($$$) {
 
 	my $product_ref = shift;
 	my $text = shift;
 	my $percent_regexp = shift;
 
 	my $product_lc = $product_ref->{lc};
-
-	$product_ref->{specific_ingredients} = [];
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -901,7 +1049,7 @@ sub parse_specific_ingredients_text($$$) {
 		$ingredient = undef;
 		my $matched_text;
 		my $percent;
-		my $origin;
+		my $origins;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
@@ -925,7 +1073,7 @@ sub parse_specific_ingredients_text($$$) {
 				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
 				# in order to not overmatch something like "Origin of milk: UK, some other mention."
 				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origin = $2;
+				$origins = $2;
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
@@ -963,7 +1111,7 @@ sub parse_specific_ingredients_text($$$) {
 				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
 				# in order to not overmatch something like "Origin of milk: UK, some other mention."
 				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-				$origin = $2;
+				$origins = $2;
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
@@ -985,15 +1133,10 @@ sub parse_specific_ingredients_text($$$) {
 			};
 
 			defined $percent and $specific_ingredients_ref->{percent} = $percent;
-			defined $origin and $specific_ingredients_ref->{origin} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origin ));
+			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
 		}
-	}
-
-	# Delete specific ingredients if empty
-	if (scalar @{$product_ref->{specific_ingredients}} == 0) {
-		delete $product_ref->{specific_ingredients};
 	}
 
 	return $text;
@@ -1049,6 +1192,7 @@ sub parse_ingredients_text($) {
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
 
+	# initialize the structure to store the parsed ingredients and specific ingredients
 	$product_ref->{ingredients} = [];
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
@@ -1075,7 +1219,7 @@ sub parse_ingredients_text($) {
 	my $percent_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*(\d+(?:(?:\,|\.)\d+)?)\s*(?:\%|g)\s*(?:' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	# Extract phrases related to specific ingredients at the end of the ingredients list
-	$text = parse_specific_ingredients_text($product_ref, $text, $percent_regexp);
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp);
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -1930,12 +2074,7 @@ sub compute_ingredients_tags($) {
 	
 	# Traverse the ingredients tree, breadth first
 	
-	my @ingredients = ();
-
-	for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
-		
-		push @ingredients, $product_ref->{ingredients}[$i];
-	}
+	my @ingredients = @{$product_ref->{ingredients}};
 	
 	while (@ingredients) {
 		
@@ -1945,10 +2084,7 @@ sub compute_ingredients_tags($) {
 		
 		if (defined $ingredient_ref->{ingredients}) {
 			
-			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
-				
-				push @ingredients, $ingredient_ref->{ingredients}[$i];
-			}			
+			push @ingredients, @{$ingredient_ref->{ingredients}};
 		}
 		else {
 			# Count specified percent only for ingredients that do not have sub ingredients
@@ -2028,9 +2164,17 @@ sub extract_ingredients_from_text($) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
+	$product_ref->{specific_ingredients} = [];
+
 	parse_ingredients_text($product_ref);
 
+	# Add specific ingredients from labels
+	add_specific_ingredients_from_labels($product_ref);	
+
 	if (defined $product_ref->{ingredients}) {
+
+		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+		add_properties_from_specific_ingredients($product_ref);
 
 		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
@@ -2059,6 +2203,11 @@ sub extract_ingredients_from_text($) {
 	# and compute the resulting value for the complete product
 
 	analyze_ingredients($product_ref);
+
+	# Delete specific ingredients if empty
+	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
+		delete $product_ref->{specific_ingredients};
+	}	
 
 	return;
 }
@@ -2522,12 +2671,7 @@ sub analyze_ingredients($) {
 			
 			# Traverse the ingredients tree, breadth first
 			
-			my @ingredients = ();
-
-			for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
-				
-				push @ingredients, $product_ref->{ingredients}[$i];
-			}
+			my @ingredients = @{$product_ref->{ingredients}};
 			
 			while (@ingredients) {
 				
