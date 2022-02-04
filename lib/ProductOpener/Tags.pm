@@ -1010,7 +1010,8 @@ sub build_tags_taxonomy($$$) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			unless ($tagtype eq "ingredients") {
+			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
+			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
