@@ -492,7 +492,7 @@ my @tests = (
 		'en-fr-taxonomized-packagings',
 		{
 			lc => "fr",
-			packaging => "en:carboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
+			packaging => "en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
 		}
 	],
 
