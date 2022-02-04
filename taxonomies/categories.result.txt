@@ -12927,11 +12927,7 @@ origins:en: en:united-kingdom
 wikidata:en: Q3566692
 
 < en:Cheeses from England
-en:Wensleydale cheese, Yorkshire Wensleydale
-origins:en: en:united-kingdom,en:england,en:Yorkshire
-protected_name_file_number:en: PGI-GB-0652
-protected_name_type:en: pgi
-wikidata:en: Q1972540
+en:Wensleydale cheese
 
 < en:Cheeses from England
 en:Wrekin White
@@ -38898,6 +38894,12 @@ ciqual_food_code:en: 25010
 ciqual_food_name:en: Salt-cured pork belly with lentils
 ciqual_food_name:fr: Petit salé ou saucisse aux lentilles
 
+< en:Lentil dishes
+< en:Prepared salads
+en:Lentil salads
+fr:Salades de lentilles
+nl:Linzensalade
+
 < en:Fresh legume sprouts
 < en:Lentil sprouts
 en:Fresh lentil sprouts
@@ -41909,6 +41911,10 @@ ciqual_food_code:en: 25186
 ciqual_food_name:en: Meat balls, pork and beef, -Swedish-style-
 ciqual_food_name:fr: Boulettes au porc et au bœuf -à la suédoise-, crues
 
+< en:Meat balls
+en:Chicken meat balls
+fr:Boulettes au poulet
+
 < en:Meat-based pasta sauces
 en:Barese bolognaise
 
@@ -42071,6 +42077,13 @@ ca:Productes carnis espanyols
 de:Spanische Fleischprodukte
 fi:Espanjalaiset lihatuotteet
 fr:Produits carnés espagnols
+
+< en:Meat-based products
+< en:Spreads
+de:Fleischsalat, Fleischsalate
+fr:Salades de viande
+nl:Vleessalades
+wikidata:en: Q185457
 
 < en:Meat fritters
 en:Poultry fritters
@@ -47703,6 +47716,10 @@ de:Capellini
 fr:Capellini
 it:Capellini
 wikidata:en: Q20029
+
+< en:Pastas
+en:Chickpea pasta
+fr:Pâtes de pois chiche
 
 < en:Pastas
 en:Chinese pasta
@@ -53810,11 +53827,6 @@ en:Egg salads
 nl:Eisalades, Eiersalades
 
 < en:Prepared salads
-en:Lentil salads
-fr:Salades de lentilles
-nl:Linzensalade
-
-< en:Prepared salads
 en:Mexican salads
 fr:Salades mexicaines
 nl:Mexicaanse salades
@@ -53845,11 +53857,6 @@ nl:Catalaanse salades
 < en:Prepared salads
 fr:Salades nicoises
 wikidata:en: Q209486
-
-< en:Meat-based products
-< en:Prepared salads
-de:Fleischsalat, Fleischsalate
-wikidata:en: Q185457
 
 < en:Pasta dishes
 < en:Prepared salads
@@ -56339,6 +56346,11 @@ agribalyse_food_code:en: 9121
 ciqual_food_code:en: 9121
 ciqual_food_name:en: Rice, mix of species -white, wholegrain, wild, red,etc.-, raw
 ciqual_food_name:fr: Riz, mélange de variétés -blanc, complet, rouge, sauvage, etc.-, cru
+
+< en:Rices
+en:Originario rices
+fr:Riz Originario
+it:Riso Originario
 
 < en:Rices
 en:Paddy rices
@@ -59352,6 +59364,12 @@ it:Sughi per pasta
 nl:Pastasauzen
 
 < en:Sauces
+en:Peanut sauces, Satay sauces
+de:Erdnusssauce
+fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
+wikidata:en: Q107310187
+
+< en:Sauces
 en:Pepper sauces
 de:Pfeffersaucen
 fi:chilikastikkeet
@@ -59626,9 +59644,6 @@ fr:Sauces au vin
 agribalyse_proxy_food_code:en: 11164
 agribalyse_proxy_food_name:en: Red wine sauce
 agribalyse_proxy_food_name:fr: Sauce au vin rouge
-
-< en:Sauces
-fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 
 < en:Sauces
 fr:Sauces blanches
@@ -71955,6 +71970,13 @@ en:Weight-loss Teas
 fr:Thés minceur, Thé minceur
 it:Tè dimagranti, Tè snellenti, The dimagranti, The snellenti
 nl:Afslank theeën, Afslank thee
+
+< en:Wensleydale cheese
+en:Yorkshire Wensleydale
+origins:en: en:united-kingdom,en:england,en:Yorkshire
+protected_name_file_number:en: PGI-GB-0652
+protected_name_type:en: pgi
+wikidata:en: Q1972540
 
 < en:Cat food
 < en:Wet pet food
