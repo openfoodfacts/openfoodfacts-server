@@ -895,7 +895,8 @@ sub has_specific_ingredient_property($$$) {
 	if (defined $product_ref->{specific_ingredients}) {
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $specific_ingredient_id = $ingredient_ref->{id};
-			if ((defined $ingredient_ref->{origins})
+            if ((defined $ingredient_ref->{origins}) # we have an origin for specific ingredient
+                # and we did not target a specific ingredient, or this is equivalent to the searched ingredient
 				and ((not defined $ingredient_id) or (is_a("ingredients", $ingredient_id, $specific_ingredient_id)))) {
 
 				$value = $ingredient_ref->{origins};
