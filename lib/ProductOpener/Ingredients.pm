@@ -538,6 +538,8 @@ sub init_ingredients_processing_regexps() {
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
 			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
+				# Make spaces match dashes and the reverse
+				$synonym =~ s/( |-)/\(\?: \|-\)/g;
 				push @{ $ingredients_processing_regexps{$l} },
 					[ $ingredients_processing, $synonym ];
 
@@ -1132,7 +1134,7 @@ sub parse_specific_ingredients_from_text($$$) {
 				text => $matched_text,
 			};
 
-			defined $percent and $specific_ingredients_ref->{percent} = $percent;
+			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
 			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
 			
 			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
@@ -1660,6 +1662,8 @@ sub parse_ingredients_text($) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
+								$debug_ingredients and $log->trace("checking processing regexps", { new_ingredient => $new_ingredient, regexp => $regexp }) if $log->is_trace();
+
 								if (
 									# English, French etc. match before or after the ingredient, require a space
 									(
@@ -1921,7 +1925,7 @@ sub parse_ingredients_text($) {
 				);
 
 				if (defined $percent) {
-					$ingredient{percent} = $percent;
+					$ingredient{percent} = $percent + 0;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;

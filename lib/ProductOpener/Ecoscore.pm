@@ -142,20 +142,20 @@ sub load_agribalyse_data() {
 				name_en => $row_ref->[5], # LCI Name
 				dqr => $row_ref->[6], # DQR (data quality rating)
 				# warning: the AGB file has a hidden H column
-				ef_agriculture => $row_ref->[8], # Agriculture
-				ef_processing => $row_ref->[9], # Transformation
-				ef_packaging => $row_ref->[10], # Emballage
-				ef_transportation => $row_ref->[11], # Transport
-				ef_distribution => $row_ref->[12], # Supermarché et distribution
-				ef_consumption => $row_ref->[13], # Consommation
-				ef_total => $row_ref->[14], # Total
-				co2_agriculture => $row_ref->[15], # Agriculture
-				co2_processing => $row_ref->[16], # Transformation
-				co2_packaging => $row_ref->[17], # Emballage
-				co2_transportation => $row_ref->[18], # Transport
-				co2_distribution => $row_ref->[19], # Supermarché et distribution
-				co2_consumption => $row_ref->[20], # Consommation
-				co2_total => $row_ref->[21], # Total				
+				ef_agriculture => $row_ref->[8] + 0, # Agriculture
+				ef_processing => $row_ref->[9] + 0, # Transformation
+				ef_packaging => $row_ref->[10] + 0, # Emballage
+				ef_transportation => $row_ref->[11] + 0, # Transport
+				ef_distribution => $row_ref->[12] + 0, # Supermarché et distribution
+				ef_consumption => $row_ref->[13] + 0, # Consommation
+				ef_total => $row_ref->[14] + 0, # Total
+				co2_agriculture => $row_ref->[15] + 0, # Agriculture
+				co2_processing => $row_ref->[16] + 0, # Transformation
+				co2_packaging => $row_ref->[17] + 0, # Emballage
+				co2_transportation => $row_ref->[18] + 0, # Transport
+				co2_distribution => $row_ref->[19] + 0, # Supermarché et distribution
+				co2_consumption => $row_ref->[20] + 0, # Consommation
+				co2_total => $row_ref->[21] + 0, # Total				
 			};
 		}
 	}
@@ -1307,7 +1307,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 				
 				my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "ecoscore_ratio:en");
 				if (defined $ratio) {
-					$packaging_ref->{ecoscore_shape_ratio} = $ratio;
+					$packaging_ref->{ecoscore_shape_ratio} = $ratio + 0;
 				}
 				else {
 					if (not defined $warning) {
@@ -1354,7 +1354,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 				
 				my $score = get_inherited_property("packaging_materials", $packaging_ref->{material}, "ecoscore_score:en");
 				if (defined $score) {
-					$packaging_ref->{ecoscore_material_score} = $score;
+					$packaging_ref->{ecoscore_material_score} = $score + 0;
 				}
 				else {
 					if (not defined $warning) {
@@ -1366,7 +1366,7 @@ sub compute_ecoscore_packaging_adjustment($) {
 				if (defined $packaging_ref->{shape}) {
 					my $shape_specific_score = get_inherited_property("packaging_materials", $packaging_ref->{material} . '.' . $packaging_ref->{shape} , "ecoscore_score:en");
 					if (defined $shape_specific_score) {
-						$packaging_ref->{ecoscore_material_score} = $shape_specific_score;
+						$packaging_ref->{ecoscore_material_score} = $shape_specific_score + 0;
 						$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
 					}
 				}
