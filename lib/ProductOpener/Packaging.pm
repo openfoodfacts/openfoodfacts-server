@@ -149,6 +149,22 @@ sub init_packaging_taxonomies_regexps() {
 This function parses a single phrase (e.g. "5 25cl transparent PET bottles")
 and returns a packaging object with properties like units, quantity, material, shape etc.
 
+=head3 Parameters
+
+=head4 $text text
+
+If the text is prefixed by a 2-letter language code followed by : (e.g. fr:),
+the language overrides the $text_language parameter (often set to the product language).
+
+This is useful in particular for packaging tags fields added by Robotoff that are prefixed with the language.
+
+It will also be useful when we taxonomize the packaging tags (not taxonomized as of 2022/03/04):
+existing packaging tags will be prefixed by the product language.
+
+=head4 $text_language default text language
+
+Can be overriden if the text is prefixed with a language code (e.g. fr:boite en carton)
+
 =cut
 
 sub parse_packaging_from_text_phrase($$) {
@@ -157,6 +173,11 @@ sub parse_packaging_from_text_phrase($$) {
 	my $text_language = shift;
 	
 	$log->debug("parse_packaging_from_text_phrase - start", { text => $text, text_language => $text_language }) if $log->is_debug();
+
+	if ($text =~ /^([a-z]{2}):/) {
+		$text_language = $1;
+		$text = $';
+	}
 	
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);	
