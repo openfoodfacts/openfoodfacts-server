@@ -519,6 +519,28 @@ my @tests = (
 		},
 	],
 
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			categories => "endives au jambon",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	],
+
+	# Label that indicates the origin of an ingredient, but no ingredient list
+	# (common for products with only 1 ingredient like eggs)
+	[
+		"fr-oeufs-de-france",
+		{
+			lc => "fr",
+			categories => "oeufs",
+			labels => "oeufs de France",
+		}
+	],	
+
 );
 
 
@@ -530,6 +552,14 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
+
+	if (defined $product_ref->{categories}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+	}		
 	
 	# Parse the ingredients (and extract the origins), and compute the ingredients percent
 	extract_ingredients_from_text($product_ref);

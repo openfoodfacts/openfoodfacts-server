@@ -475,8 +475,34 @@ my @tests = (
 			lc => "aa",
 			packaging => "84-C/PAP",
 		}
-	],	
+	],
+
+	# Robotoff sends fields prefixed with the language code even though packagings is not taxonomized yet
+	[
+		'fr-robotoff-packagings',
+		{
+			lc => "fr",
+			packaging => "fr:Boite carton,fr:Triman,fr:Boite à recycler,fr:Point vert,Boite carton",
+		}
+	],
 	
+	# check the results if we taxonomize the packaging fields without having a complete taxonomy in place
+	# with a mix of entries that are not all in the language of the product
+	[
+		'en-fr-taxonomized-packagings',
+		{
+			lc => "fr",
+			packaging => "en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
+		}
+	],
+
+	[
+		'en-fr-taxonomized-packagings-other-language',
+		{
+			lc => "en",
+			packaging => "fr:Couvercle en métal",
+		}
+	],	
 
 );
 

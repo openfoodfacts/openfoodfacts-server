@@ -73,6 +73,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
@@ -1161,7 +1162,17 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 		}
 	}
 	
-	if (scalar @origins_from_origins_field == 0) {
+	# If we don't have ingredients, check if we have an origin for a specific ingredient
+	# (e.g. we have the label "French eggs" even though we don't have ingredients)
+	if ((scalar @origins_from_origins_field == 0) 
+		and ((not defined $product_ref->{ingredients}) or (scalar @{$product_ref->{ingredients}} == 0))) {
+		my $origin_id = has_specific_ingredient_property($product_ref, undef, "origins");
+		if ((defined $origin_id) and (defined $ecoscore_data{origins}{$origin_id})) {
+			push @origins_from_origins_field, $origin_id;
+		}
+	}
+
+	if (scalar @origins_from_origins_field == 0) {	
 		@origins_from_origins_field = ("en:unknown");
 	}
 	
@@ -1177,6 +1188,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment($) {
 	else {
 		# If we don't have ingredients listed, apply the origins from the origins field
 		# using a dummy ingredient
+
 		aggregate_origins_of_ingredients(\@origins_from_origins_field, \%aggregated_origins , [ { percent_estimate => 100} ]);
 	}
 	
@@ -1479,9 +1491,7 @@ sub localize_ecoscore ($$) {
 					$origin_ref->{transportation_score} = $ecoscore_data{origins}{$origin_id}{"transportation_score_" . $cc};
 				}
 			}
-
 		}
-		
 	}		
 }
 
