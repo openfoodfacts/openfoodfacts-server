@@ -1,6 +1,6 @@
 {
    "lc" : "fr",
-   "packaging" : "en:carboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
+   "packaging" : "en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
    "packagings" : [
       {
          "material" : "en:metal",
@@ -9,6 +9,14 @@
       {
          "material" : "en:plastic",
          "shape" : "en:fastener"
+      },
+      {
+         "material" : "en:cardboard",
+         "shape" : "en:box"
+      },
+      {
+         "material" : "en:glass",
+         "shape" : "en:jar"
       },
       {
          "shape" : "en:sleeve"
