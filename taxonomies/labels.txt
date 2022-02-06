@@ -10,6 +10,7 @@
 # Supporting multiple ingredients is doable but would require code changes.
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
+stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт 
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
@@ -31,6 +32,7 @@ synonyms:ru:вкус, запах, сдабривать, приправлять, 
 synonyms:es:sabor, saborizante
 
 synonyms:en:GMOs, Genetically Modified Organisms, GMO
+synonyms:bg:ГМО, Генетично модифицирани организми
 synonyms:fi:GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
 synonyms:ru:ГМО, Генетически Модифицированные Организмы
 synonyms:OGMs, Organismes génétiquement modifiés, OGM
@@ -60,6 +62,7 @@ synonyms:ru:дары моря, морепродукты
 
 
 synonyms:en:without, 0%, free
+synonyms:bg:Без, 0%
 synonyms:es:sin, 0%, libre de
 synonyms:fi:ilman, 0%, vapaa
 synonyms:fr:sans, 0%
@@ -122,6 +125,7 @@ it:1% per il pianeta
 nl:1% voor de planeet
 
 en:100% natural
+bg:100% натурално
 ca:100% natural
 de:100% natürlich
 es:100% natural
@@ -752,6 +756,7 @@ de:Ohne Weizen
 nl:Zonder graan
 
 en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
+bg:Без глутен
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
 da:Glutenfri
@@ -796,6 +801,7 @@ wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
 
 en:Contains gluten
+bg:Съдържа глутен
 ca:Conté gluten
 de:Enthält Gluten
 es:Contiene gluten
@@ -844,6 +850,7 @@ fr:Sans addition de polyphosphates, Sans addition de polyphosphate, Sans polypho
 ru:Без добавления полифосфатов
 
 en:Green Dot, The Green Dot
+bg:Зелена точка
 ca:Punt verd
 cs:Zelený bod
 de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
@@ -979,6 +986,7 @@ ru:Обогащено клетчаткой
 th:ใยอาหารสูง
 
 en:Omega-3
+bg:Омега-3
 ca:Omega-3
 de:Omega-3
 es:Omega-3
@@ -995,6 +1003,7 @@ wikidata:en:Q191756
 
 <en:Omega-3
 en:High in Omega 3, Rich in Omega 3
+bg:Богат на Омега-3
 ca:Alt en Omega 3, Ric en Omega 3
 de:Hoher Omega-3-Gehalt
 es:Rico en Omega 3, Alto en Omega 3
@@ -1182,6 +1191,7 @@ pt:Fonte de vitamina
 ru:Источник витамина E
 
 en:Source of iron
+bg:Източник на желязо
 ca:Font de ferro
 de:Eisenquelle
 es:Fuente de hierro
@@ -1812,6 +1822,7 @@ nl:50% minder zout
 
 <en:Low or no salt
 en:No added salt
+bg:Без добавена сол
 ca:Sense sal afegida
 de:Ohne Salzzusatz
 es:Sin sal añadida, 0% sal añadida
@@ -1828,6 +1839,7 @@ th:ไม่เติมเกลือ
 
 <en:Low or no salt
 en:No salt, salt-free
+bg:Без сол
 ca:Sense sal
 de:ohne Salz, salzfrei, 0% Salz
 es:Sin sal
@@ -2015,6 +2027,7 @@ it:60% in meno di zucchero
 pt:60% menos açúcar
 
 en:No added sugar, no sugar added, no added sugars
+bg:Без добавена захар
 ca:Sense sucre afegit, sense sucres afegits
 cs:Bez přidaného cukru
 de:Ohne Zuckerzusatz, Ohne zugesetzten Zucker
@@ -2033,6 +2046,7 @@ zh:无添糖
 
 <en:Low or no sugar
 en:No sugar, sugar-free
+bg:Без захар
 ca:Sense sucre, lliure de sucre
 de:Ohne Zucker
 es:Sin azúcar, Libre de azúcar, Cero azúcar
@@ -2060,6 +2074,7 @@ pt:Reduz o Colesterol
 label_categories:en: en:Health, en:Claim
 
 en:Australian made
+bg:Произведено в Австралия
 ca:Fet a Austràlia
 de:In Australien gemacht
 es:Fabricado en Australia
@@ -2075,12 +2090,14 @@ origins:en: en:Australia
 label_categories:en: en:Geographic label
 
 en:Made in Denmark
+bg:Произведено в Дания
 da:Fremstillet i Danmark
 fi:Valmistettu Tanskassa
 sv:Tillverkad i Danmark
 country:en:Denmark
 
 en:Made in Germany
+bg:Произведено в Германия
 ca:Fet a Alemanya
 cs:Vyrobeno v Německu
 da:Fremstillet i Tyskland
@@ -2101,6 +2118,7 @@ country:en:Germany
 label_categories:en: en:Geographic label
 
 en:Made in Belgium
+bg:Произведено в Белгия
 ca:Fet a Bèlgica
 da:Fremstillet i Belgien
 de:Hergestellt in Belgien
@@ -2116,6 +2134,7 @@ country:en:Belgium
 label_categories:en: en:Geographic label
 
 en:Made in France
+bg:Произведено във Франция
 ca:Fet a França
 de:Hergestellt in Frankreich
 es:Hecho en Francia
@@ -2168,6 +2187,7 @@ packaging_places:en: en:france
 label_categories:en: en:Geographic label
 
 en:Made in Italy, product of Italy
+bg:Произведено в Италия
 ca:Fet a Itàlia
 cs:Vyrobeno v Itálii
 da:Fremstillet i Italien
@@ -2187,6 +2207,7 @@ country:en:Italy
 label_categories:en: en:Geographic label
 
 en:Made in Luxembourg
+bg:Произведено в Люксембург
 da:Fremstillet i Luxemburg
 fi:Valmistettu Luxemburgissa
 pt:Produzido no Luxemburgo
@@ -2194,12 +2215,14 @@ sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 
 en:Made in Poland
+bg:Произведено в Полша
 da:Fremstillet i Polen
 fi:Valmistettu Puolassa
 sv:Tillverkad i Polen
 country:en:Poland
 
 en:Made in Portugal
+bg:Произведено в Португалия
 de:Hergestellt in Portugal
 es:Hecho en Portugal
 fi:Valmistettu Portugalissa
@@ -2214,6 +2237,7 @@ country:en:Portugal
 label_categories:en: en:Geographic label
 
 en:Made in Russia
+bg:Произведено в Русия
 de:Hergestellt in Russland
 es:Hecho en Rusia
 fi:Valmistettu Venäjällä
@@ -2227,6 +2251,7 @@ country:en:Russia
 label_categories:en: en:Geographic label
 
 en:Made in Spain
+bg:Произведено в Испания
 ca:Fet a Espanya
 de:Hergestellt in Spanien
 es:Hecho en España
@@ -2241,6 +2266,7 @@ country:en:Spain
 label_categories:en: en:Geographic label
 
 en:Made in Swiss, made in Switzerland
+bg:Произведено в Швейцария
 ca:Fet a Suïssa
 de:Hergestellt in der Schweiz
 es:Hecho en Suiza
@@ -2256,6 +2282,7 @@ country:en:Switzerland
 label_categories:en: en:Geographic label
 
 en:Made in Mexico
+bg:Произведено в Мексико
 ca:Fet a Mèxic
 de:Hergestellt in Mexiko
 es:Hecho en México
@@ -2269,6 +2296,8 @@ country:en:Mexico
 label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
+
+bg:Произведено в Европейския съюз
 ca:Fet a la Unió Europea
 cs:Vyrobeno v EU
 de:Hergestellt in der EU, Hergestellt in der Europäischen Union
@@ -2468,6 +2497,7 @@ it:Senza gelatina
 nl:Zonder gelatine, Gelatinevrij
 
 en:No additives, without additives
+bg:Без добавки
 ca:Sense additius
 de:Ohne Zusätze
 es:Sin aditivos
@@ -2483,6 +2513,8 @@ th:ไม่มีสารเติมแต่ง
 label_categories:en: en:Health, en:Additives
 
 en:No artificial additives
+
+bg:Без изкуствени добавки
 ca:Sense additius artificials
 de:Ohne künstliche Zusätze
 es:Sin aditivos artificiales
@@ -2535,6 +2567,7 @@ fr:Sans colorants azoïques
 label_categories:en: en:Health, en:Additives
 
 en:No artificial flavors, free of artificial flavor, No artificial flavours
+bg:Без изкуствени аромати
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
 es:Sin aromas artificiales
@@ -2664,6 +2697,7 @@ th:ไม่มีคอเลสเตอรอล
 label_categories:en: en:Health
 
 en:No colorings, no added colorings
+bg:Без оцветители
 ca:Sense colorants, sense colorants afegits
 cs:Bez přidaných barviv
 de:Ohne Farbstoffzusatz, Ohne Zusatz von Farbstoffen, Ohne Farbstoffe
@@ -2801,6 +2835,7 @@ label_categories:en: en:Health, en:Additives
 ########################## GMO ###############
 
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
+bg:Без ГМО, Не съдържа ГМО
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 cs:Bez GMO
 de:gentechnikfrei
@@ -2954,6 +2989,7 @@ ru:Содержит молоко
 th:มีส่วนผสมของนม
 
 en:No preservatives, no added preservatives, preservatives free
+bg:Без консерванти
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
 cs:Bez konzervantů
 da:Uden konserveringsmiddel
@@ -2976,6 +3012,7 @@ zh:无防腐剂
 <en: No colorings
 <en: No preservatives
 en:Without dyes or preservatives
+bg:Без оцветители и консерванти
 ca:Sense colorants ni conservants
 de:Ohne Farb- oder Konservierungsstoffe
 es:Sin colorantes o conservadores, Sin colorantes o conservantes
@@ -3006,6 +3043,7 @@ label_categories:en: en:Environment, en:Health, en:Soy
 opposite:en: en:contains-soy
 
 en:Contains soy
+bg:Съдържа соя
 ca:Conté soja
 de:Enthält Soja
 es:Contiene soja, Contiene soya
@@ -16107,6 +16145,8 @@ it:Classe II
 ru:высший сорт, сорт высший
 
 en:No palm oil, Palm oil free, Without palm oil
+
+bg:Без палмово масло
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
 de:Ohne Palmöl
@@ -16126,6 +16166,7 @@ zh:不含棕榈油
 opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
+bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
 opposite:en: en:no-palm-oil
 
@@ -16713,6 +16754,7 @@ en:Tierra de Sabor
 es:Tierra de Sabor
 
 en:Suitable for diabetics
+bg:Подходящо за диабетици
 de:Für Diabetiker geeignet
 fi:Soveltuu diabeetikoille
 fr:Convient aux diabétiques
@@ -16951,6 +16993,7 @@ sv:garanterad traditionell specialitet, GTS
 wikidata:en:Q2751813
 
 en:Sustainable farming
+bg:Устойчиво земеделие
 ca:Agricultura Sostenible
 cs:Udržitelné zemědělství
 de:Nachhaltige Agrikultur
@@ -17000,6 +17043,7 @@ it:Caffè certificato UTZ, Caffe certificato UTZ
 pl:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
+bg:Вегетарианско, Подходящо за вегетарианци
 ca:Vegetarià, Adequat per persones vegetarianes
 cs:Vegetariánské
 da:Vegetarisk, Velegnet for vegetarer
@@ -17035,6 +17079,7 @@ wikidata:en:Q7918353
 <en:Vegetarian
 en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source
 an:vegano
+bg:Веган
 ca:Vegà, Adequat per persones veganes
 cs:Veganské
 da:Vegansk, Velegnet til veganere
@@ -17301,6 +17346,7 @@ es:VP, V.P., Vino de Pago
 wikidata:en:Q2527141
 
 en:With sulfites, Contains sulfites
+bg:Със сулфити
 ca:Amb sulfits, Conté sulfits
 de:Enthält Sulfite
 es:Con sulfitos, Contiene sulfitos
@@ -17329,6 +17375,7 @@ hu:Szulfitok és SO2 > 10ppm
 it:Solfiti e SO2 > 10ppm
 
 en:Without sulfites
+bg:Без сулфити
 de:Ohne Sulfite
 es:Sin sulfitos, Sin sulfito
 fi:sulfiititon, ei sulfiitteja
@@ -17351,6 +17398,7 @@ fr:Association des vins naturels, AVN
 fr:Vins S.A.I.N.S.
 
 en:With Sunflower oil
+bg:Със слънчогледово олио
 ca:Amb oli de gira-sol
 de:Mit Sonnenblumenöl
 es:Con aceite de girasol
@@ -17364,6 +17412,7 @@ pl:Z olejem słonecznikowym, Zawiera olej słonecznikowy
 pt:Com óleo de girassol
 
 en:With sweeteners
+bg:С подсладители
 ca:Amb edulcorants
 da:Indeholder sødestoffer
 de:Mit Süßstoffen
@@ -17380,6 +17429,7 @@ sv:Innehåller sötningsmedel
 th:ใช้น้ำตาลเทียม
 
 en:Without sweeteners
+bg:Без подсладители
 ca:Sense edulcorants
 de:Ohne Süßungsmittel
 es:Sin edulcorantes, Sin endulzantes
@@ -17488,6 +17538,7 @@ fr:Fumage naturel, fumé naturellement
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
 en:French milk
+bg:Френско мляко
 ca:Llet francesa
 de:Milch aus Frankreich
 es:Leche francesa
@@ -18540,6 +18591,7 @@ ru:Новинка
 th:สินค้าใหม่
 
 en:New recipe
+bg:Нова рецепта
 ca:Nova recepta
 de:Neues Rezept
 es:Nueva receta
@@ -19019,6 +19071,7 @@ en:Ethical Tea Partnership, ETP
 label_categories:en: en:Faitrade
 
 en:pasteurized product
+bg:Пастьоризиран продукт
 ca:Producte pasteuritzat
 de:Pasteurisiertes Produkt
 es:Producto pasteurizado
