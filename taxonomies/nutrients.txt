@@ -9,8 +9,8 @@
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 
 stopwords:en: including, of, which
-
 stopwords:fr: dont
+stopwords:nl: waarvan
 
 zz:energy-kj
 en:Energy (kJ)
@@ -2030,6 +2030,7 @@ zz:added-sugars
 en:Added sugars, Added sugar
 xx:Added sugars, Added sugar
 fr:Sucres ajoutés, sucre ajouté
+nl:Toegevoegde suikers
 unit_en: g
 evaluation:en: bad
 
@@ -2971,6 +2972,14 @@ zh:食盐
 unit:en: g
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
+evaluation:en: bad
+
+zz:added-salt
+en:Added salt
+xx:Added alt
+fr:Sel ajouté
+nl:Toegevoegd xout
+unit_en: g
 evaluation:en: bad
 
 zz:sodium
