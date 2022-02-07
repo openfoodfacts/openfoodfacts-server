@@ -979,7 +979,7 @@ sub build_tags_taxonomy($$$) {
 							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
 								my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
 								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
-								. " - $lc:$current_tagid cannot be mapped to entry $canon_tagid\n";
+								. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$current_tagid\n";
 								$errors .= "ERROR - " . $msg;
 								next;
 							}
