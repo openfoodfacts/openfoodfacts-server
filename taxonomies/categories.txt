@@ -39058,20 +39058,16 @@ ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
+#  is this the same as condesed milks?
 <en:Dairies
 en:Evaporated milks, evaporated milk
 ca:Llet evaporada
-de:Kondensmilch
 es:Leches evaporadas, Leche evaporada
 fi:maitotiivisteet
 fr:Laits concentrés, Lait concentré
 it:Latti evaporati
 nl:Verdikte melken
-sv:Kondenserad mjölk
 wikidata:en:Q13417087
-agribalyse_proxy_food_code:en:19026
-agribalyse_proxy_food_name:en:Condensed milk, without sugar, whole
-agribalyse_proxy_food_name:fr:Lait concentré non sucré, entier
 
 <en:Evaporated milks
 en:Coffee milks
@@ -39091,7 +39087,11 @@ es:Leche condensada, Leches condensadas
 fi:Kondensoidut maidot
 fr:Laits condensés, Lait condensé
 nl:Gecondenseerde melken
+sv:Kondenserad mjölk
 wikidata:en:Q2830455
+agribalyse_proxy_food_code:en:19026
+agribalyse_proxy_food_name:en:Condensed milk, without sugar, whole
+agribalyse_proxy_food_name:fr:Lait concentré non sucré, entier
 
 <fr:Laits concentrés
 fr:Laits concentrés non sucrés, Lait concentré non sucré
