@@ -1895,20 +1895,6 @@ it:Birre bianche analcoliche, Birre di frumento analcoliche
 nl:Alcoholvrije witbieren, Alcoholvrij witbier
 wikidata:en:Q90409425
 
-<en:Alcoholic beverages
-en:Hard liquors, liquors, spirits, hard spirits
-bg:Твърд алкохол
-de:Stark alkoholische Getränke
-es:Bebidas destiladas
-fi:viinat
-fr:Alcools forts, alcool fort
-hu:Égetett szeszek, likőrök, rövidek
-it:Superalcolici
-nl:Sterke alcoholica
-ro:Băuturi spirtoase
-ru:Крепкие алкогольные напитки
-zh:硬酒
-wikidata:en:Q2832208
 
 <en:Alcoholic beverages
 en:German liqueur
@@ -1975,8 +1961,25 @@ agribalyse_food_code:en:1014
 ciqual_food_code:en:1014
 ciqual_food_name:en:Pure alcohol
 
-<en:Alcoholic beverages
+<en:Distilled beverages
+en:Hard liquors, liquors, spirits, hard spirits
+bg:Твърд алкохол
+de:Stark alkoholische Getränke
+es:Bebidas destiladas
+fi:viinat
+fr:Alcools forts, alcool fort
+hu:Égetett szeszek, likőrök, rövidek
+it:Superalcolici
+nl:Sterke alcoholica
+ro:Băuturi spirtoase
+ru:Крепкие алкогольные напитки
+zh:硬酒
+wikidata:en:Q2832208
+
+# not sure this is a separate category. According to wikioedia they are synonyms.
+<en:Distilled beverages
 en:Spirit drinks
+de:Spirituosen, Spirituose
 fr:Boissons spiritueuses
 
 <en:Spirit drinks
@@ -2119,9 +2122,8 @@ wikidata:en:Q8254878
 
 <en:Alcoholic beverages
 en:Distilled beverages
-de:Spirituosen, Spirituose
 es:Bebidas destiladas
-fr:boissons spiritueuses
+fr:boissons distillés
 hu:Égetett szesz
 it:Distillati, Bevande spiritose
 nl:Gedestilleerde dranken
