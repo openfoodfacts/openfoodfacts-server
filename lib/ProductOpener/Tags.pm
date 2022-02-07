@@ -1671,7 +1671,9 @@ sub build_tags_taxonomy($$$) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			unless ($tagtype eq "ingredients") {
+			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
+			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
+			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
