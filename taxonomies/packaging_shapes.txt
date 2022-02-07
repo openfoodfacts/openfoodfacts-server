@@ -9,8 +9,10 @@ pt:Desconhecido
 # For all containers: use singular as the main name, and add plural as synonym
 
 # in English, "carton" can be any container: "a light box or container, typically one made of waxed cardboard or plastic in which drinks or foodstuffs are packaged."
-en:Container, carton, containers, cartons
-fr:Conteneur, conteneurs
+# note: container is already a synonym of bin in the packaging_recycling taxonomy, it should not be listed here.
+# e.g. carton of eggs, carton of milk
+# en:Carton, cartons
+# Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
 en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
@@ -191,9 +193,10 @@ hu:Kupak, borosdugó, dugó
 nl:Dop, Doppe
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 
+# Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
-en:Wine cork, wine bottle cork, cork, wine corks, wine bottle corks, corks
-fr:bouchon de bouteille de vin, bouchons de bouteille,
+en:Wine cork, wine bottle cork, wine corks, wine bottle corks
+fr:bouchon de bouteille de vin, bouchons de bouteille
 nl:Kurk
 
 <en:Bottle cap
@@ -263,12 +266,12 @@ hu:fólia, fóliák, lap, lapok
 pt:Folha, folhas
 weight:en:light
 
-# cardboard is both a shape and a material
-en:card, cardboard
+# cardboard is listed in materials, not shapes
+en:card
 fr:carte, cartonnette
 hu:kártya
 nl:Kaart
-pt:papelão, cartão, cartolina, papelões, cartões, cartolinas
+pt:cartolina, cartolinas
 
 en:backing, support, board, stand
 fr:support, plaque
