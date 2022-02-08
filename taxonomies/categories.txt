@@ -22331,7 +22331,7 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 
 <en:Wines from Italy
-it:Piave
+it:vini di Piave
 protected_name_file_number:en: PDO-IT-A0464
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -33069,7 +33069,7 @@ de:Milchprodukte
 es:Lácteos, Productos lácteos
 fi:Maitotuotteet
 fr:Produits laitiers, produit laitier, laitage, laitages, crèmerie, crèmeries
-he:חלב, מוצרי חלב
+he:מוצרי חלב, מַחלָבָה
 hu:Tejtermékek, Tejtermék
 it:Latticini, prodotti caseari
 nl:Zuivelproducten, Melkproducten, Zuivelproduct
@@ -36679,10 +36679,7 @@ wikidata:en:Q3901812
 
 <en:Italian cheeses
 en:Piave
-fi:Piave
-fr:Piave
-it:Piave
-nl:Piave
+xx:Piave
 protected_name_file_number:en: PDO-IT-0686-AM02
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -38101,7 +38098,6 @@ nl:Milde zure boter
 <en:Butters
 en:sweet cream butters, sweet cream butter
 de:Süßrahmbutter
-fi:kinuskit
 fr:Beurres de crème douce
 ru:Масло сладко-сливочное, Масло сладкосливочное, Масло сливочное сладко-сливочное, Сладко-сливочное масло, Сладкосливочное масло
 
@@ -38383,10 +38379,11 @@ en:Buttermilk quark, Quark from buttermilk
 de:Buttermilchquark
 fr:Quark au babeurre, quark au lait ribot, quark au lait battu
 
-<en:Fermented milk products
-en:Tvorog
-fr:Tvorog
-ru:Творог
+#has been put under quark, as closest international product
+#<en:Fermented milk products
+#en:Tvorog
+#fr:Tvorog
+#ru:Творог
 
 <en:Dairies
 en:whey powder
@@ -38586,7 +38583,7 @@ es:Leches aromatizadas
 fi:maustetut maidot
 fr:Laits aromatisés, lait aromatisé, Boissons lactées aromatisées sucrées au lait partiellement écrémé enrichies en vitamines et minéraux
 it:Latte aromatizzato
-nl:Zuiveldranken
+nl:Gearomatiseerde zuiveldranken
 ciqual_food_code:en:19120
 ciqual_food_name:en:Flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
 ciqual_food_name:fr:Boisson lactée aromatisée (arôme inconnu), sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux (aliment moyen)
@@ -39061,20 +39058,16 @@ ciqual_food_name:fr:Lait, teneur en matière grasse inconnue, UHT (aliment moyen
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
+#  is this the same as condesed milks?
 <en:Dairies
 en:Evaporated milks, evaporated milk
 ca:Llet evaporada
-de:Kondensmilch
 es:Leches evaporadas, Leche evaporada
 fi:maitotiivisteet
 fr:Laits concentrés, Lait concentré
 it:Latti evaporati
 nl:Verdikte melken
-sv:Kondenserad mjölk
 wikidata:en:Q13417087
-agribalyse_proxy_food_code:en:19026
-agribalyse_proxy_food_name:en:Condensed milk, without sugar, whole
-agribalyse_proxy_food_name:fr:Lait concentré non sucré, entier
 
 <en:Evaporated milks
 en:Coffee milks
@@ -39094,7 +39087,11 @@ es:Leche condensada, Leches condensadas
 fi:Kondensoidut maidot
 fr:Laits condensés, Lait condensé
 nl:Gecondenseerde melken
+sv:Kondenserad mjölk
 wikidata:en:Q2830455
+agribalyse_proxy_food_code:en:19026
+agribalyse_proxy_food_name:en:Condensed milk, without sugar, whole
+agribalyse_proxy_food_name:fr:Lait concentré non sucré, entier
 
 <fr:Laits concentrés
 fr:Laits concentrés non sucrés, Lait concentré non sucré
@@ -39375,7 +39372,6 @@ ciqual_food_name:fr:Boisson à base de riz, nature
 en:Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks, Plain rice-based drinks
 de:Natürliche Reismilch, Natürliche Reisgetränke, Einfache Reismilch, Einfache Reisgetränke
 es:Bebidas de arroz naturales, Leches de arroz naturales
-fi:riisijuomat
 fr:Boissons végétales de riz nature, Laits de riz nature, Boissons à base de riz nature
 it:Latte di riso naturale
 nl:Natuurlijke rijstdranken
@@ -40728,7 +40724,7 @@ fi:Jälkiruoat
 fr:Desserts
 he:קינוחים
 hu:Desszertek
-it:Dolci
+it:Dessert
 nl:Desserts, Nagerechten
 nl_be:Desserts, Nagerechten, Toetjes
 pl:Desery
@@ -41159,6 +41155,7 @@ fr:Compotes pommes myrtille
 it:Composte mela e mirtillo
 nl:Blauwe bessen appelcompotes
 
+#what is the difference with en:Apple compotes?
 <en:Apple compotes
 en:Applesauces, Apple sauces
 de:Apfelmus, Apfelbrei
@@ -41167,7 +41164,7 @@ fr:Compotes pommes nature
 it:Salse di mele
 nl:Pure appelcompotes
 se:omenasose
-sv:Äppelmos
+#sv:Äppelmos
 
 <en:Apple compotes
 en:Peach applesauce
@@ -41764,7 +41761,7 @@ de:Einfacher Soja-Joghurt, Natürlicher Soja-Joghurt
 es:Yogures de soja naturales, Yogures de soja natural
 fr:Yaourts soja natures
 hu:Természetes szójatej
-it:Yogurt di soia
+it:Yogurt di soia semplice
 nl:Naturel sojayoghurts
 agribalyse_food_code:en:19693
 
@@ -41923,7 +41920,7 @@ fi:pähkinät
 fr:Fruits à coques, Fruit à coque, Fruits à coque, Fruits à éclacle
 he:אגוזים
 hu:Diófélék
-it:Noci, Frutti a noce, Frutti a guscio, Frutta a guscio
+it:Frutti a guscio, Frutti a noce, Frutta a guscio
 nl:Noten
 pt:Nozes, Nozes de frutos
 ro:Nuci
@@ -42341,7 +42338,7 @@ en:Unshelled peanuts
 de:ungeschälte Erdnüsse
 es:Cacahuetes sin cascara
 fr:Cacahuètes décortiquées
-hu:Héjas mogyoró, Nogyoró héjjal, Héjas földimogyoró
+hu:Nogyoró héjjal, Héjas földimogyoró
 nl:Ongepelde pinda's
 
 <en:Peanuts
@@ -42571,7 +42568,8 @@ agribalyse_proxy_food_code:en:15023
 agribalyse_proxy_food_name:en:Walnut, fresh
 agribalyse_proxy_food_name:fr:Noix, fraîche
 
-en:French nuts
+<en:Nuts
+en:French nuts, Nuts from France
 fr:Noix françaises
 
 <en:French nuts
@@ -42595,22 +42593,13 @@ fr:Noix fraîches
 season_in_country_fr:en: 9,10
 
 <en:Walnuts
-en:Walnut kernels, Walnut pieces
-de:Walnusskerne
-es:Granos de nuez
-fi:saksanpähkinän sydämet
-fr:Cerneaux de noix
-it:Gherigli di noci
-nl:Gepelde walnoten
-
-<en:Walnuts
 <en:Shelled nuts
-en:Shelled walnuts
-de:geschälte Walnüss
-es:Nueces mondadas, Nueces peladas, Nueces sin cáscara
-fi:kuorelliset saksanpähkinät
-fr:Noix décortiquées
-it:Noci con guscio
+en:Walnut kernels, Walnut piecesShelled walnuts
+de:Walnusskerne, geschälte Walnüss
+es:Granos de nuez, Nueces mondadas, Nueces peladas, Nueces sin cáscara
+fi:saksanpähkinän sydämet, kuorelliset saksanpähkinät
+fr:Cerneaux de noix, Noix décortiquées
+it:Gherigli di noci
 nl:Gepelde walnoten
 zh:带壳核桃
 
@@ -45336,18 +45325,6 @@ protected_name_type:en: pdo
 origins:en: en:Greece
 
 <en:Greek oils and fats
-el:Εξαιρετικό Παρθένο Ελαιόλαδο Σέλινο Κρήτης, Exeretiko Partheno Eleolado Selino Kritis
-protected_name_file_number:en: PDO-GR-0515
-protected_name_type:en: pdo
-origins:en: en:Greece
-
-<en:Greek oils and fats
-el:Εξαιρετικό παρθένο ελαιόλαδο Τροιζηνία, Exeretiko partheno eleolado ""Trizinia""
-protected_name_file_number:en: PDO-GR-0206
-protected_name_type:en: pdo
-origins:en: en:Greece
-
-<en:Greek oils and fats
 el:Άγιος Ματθαίος Κέρκυρας, Agios Mattheos Kerkyras
 protected_name_file_number:en: PGI-GR-0214
 protected_name_type:en: pgi
@@ -45356,12 +45333,6 @@ origins:en: en:Greece
 <en:Greek oils and fats
 el:Ελαιόλαδ Φοινίκι Λακωνίας, Elaiolado Finiki Lakonias
 protected_name_file_number:en: PDO-GR-0361
-protected_name_type:en: pdo
-origins:en: en:Greece
-
-<en:Greek oils and fats
-el:Εξαιρετικό παρθένο ελαιόλαδο Θραψανό, Exeretiko partheno eleolado Thrapsano
-protected_name_file_number:en: PDO-GR-0125
 protected_name_type:en: pdo
 origins:en: en:Greece
 
@@ -45875,6 +45846,7 @@ origins:en: en:Spain
 
 ### OLIVE OILS FROM GREECE
 
+<en:Greek oils and fats
 <en:Olive oils
 en:Olive oils from Greece, Greek olive oils, Olive oils from Greece, Greek olive oil
 de:Olivenöle aus Griechenland
@@ -45920,7 +45892,7 @@ origins:en: en:Greece
 
 <en:Olive oils from Greece
 en:Olive oils from Exeretiko Partheno Eleolado Selino Kritis
-el:Εξαιρετικό Παρθένο Ελαιόλαδο Σέλινο Κρήτης
+el:Εξαιρετικό Παρθένο Ελαιόλαδο Σέλινο Κρήτης, Exeretiko Partheno Eleolado Selino Kritis
 fr:Huile d'olive de Exeretiko Partheno Eleolado Selino Kritis
 it:Olio di oliva Exeretiko Partheno Eleolado Selino Kritis
 nl:Olijfoliën uit Exeretiko Partheno Eleolado Selino Kritis, Olijfolies uit Exeretiko Partheno Eleolado Selino Kritis
@@ -45931,7 +45903,7 @@ origins:en: en:Greece
 
 <en:Olive oils from Greece
 en:Olive oils from Exeretiko partheno eleolado "Trizinia"
-el:Εξαιρετικό παρθένο ελαιόλαδο Τροιζηνία
+el:Εξαιρετικό παρθένο ελαιόλαδο Τροιζηνία, Exeretiko partheno eleolado ""Trizinia""
 fr:Huile d'olive de Exeretiko partheno eleolado "Trizinia"
 it:Olio di oliva Exeretiko partheno eleolado "Trizinia"
 nl:Olijfoliën uit Exeretiko partheno eleolado "Trizinia", Olijfolies uit Exeretiko partheno eleolado "Trizinia"
@@ -45953,7 +45925,7 @@ origins:en: en:Greece
 
 <en:Olive oils from Greece
 en:Olive oils from Exeretiko partheno eleolado Thrapsano
-el:Εξαιρετικό παρθένο ελαιόλαδο Θραψανό
+el:Εξαιρετικό παρθένο ελαιόλαδο Θραψανό, Exeretiko partheno eleolado Thrapsano
 fr:Huile d'olive de Exeretiko partheno eleolado Thrapsano
 it:Olio di oliva Exeretiko partheno eleolado Thrapsano
 nl:Olijfoliën uit Exeretiko partheno eleolado Thrapsano, Olijfolies uit Exeretiko partheno eleolado Thrapsano
@@ -46448,7 +46420,7 @@ origins:en: en:Croatia
 
 <en:Rapeseed oils
 en:Canola oils
-de:Rapsöle
+de:Canola-öle
 es:Aceites de canola
 fr:Huiles de canola
 it:Olio di canola
@@ -46664,7 +46636,7 @@ en:Breakfast cereals
 bg:Зърнени закуски
 ca:Cereals per esmorzar
 cs:Snídaňové cereálie
-da:Morgenmad, Morgenmadsprodukter
+da:Morgenmadskorn
 de:Frühstückscerealien, Frühstückszerealien
 es:Cereales para el desayuno, Cereales para desayunar, Cereales desayuno
 fi:Aamiaismurot
