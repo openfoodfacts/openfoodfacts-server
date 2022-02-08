@@ -1213,6 +1213,33 @@ while (my $product_ref = $cursor->next) {
 
 }
 
+if ($prefix_packaging_tags_with_language) {
+
+	print "Results of --prefixy-packaging-tags-with-language:\n\n";
+
+	# List all packaging tags
+	foreach my $tag (sort {$prefix_packaging_tags{$a} <=> $prefix_packaging_tags{$b}} keys %prefix_packaging_tags) {
+
+		next if ($prefix_packaging_tags_language{$tag} ne "unrecognized_language");
+
+		print $tag . "\t" . $prefix_packaging_tags{$tag} . "\t" . $prefix_packaging_tags_language{$tag} . "\t" . $prefix_packaging_tags_properties{$tag} . "\t";
+
+		# List the main languages of the products associated with the tag
+		foreach my $l (sort {$prefix_packaging_tags_product_languages{$tag}{$b} <=> $prefix_packaging_tags_product_languages{$tag}{$a}} keys %{$prefix_packaging_tags_product_languages{$tag}}) {
+			print $l . ' ' . $prefix_packaging_tags_product_languages{$tag}{$l} . ', ';
+		}
+
+		print "\n";
+	}
+
+	print "\n";
+
+	print "stats for --prefix-packaging-tags-with-language\n\n";
+	print "prefix_packaging_already_prefixed: $prefix_packaging_already_prefixed" . "\n";
+	print "prefix_packaging_language_found: $prefix_packaging_language_found" . "\n";
+	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";	
+}
+
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
 
 if ($fix_rev_not_incremented_fixed) {
@@ -1232,25 +1259,6 @@ if ($restore_values_deleted_by_user) {
 	print STDERR "\n\ndeleted fields:\n";
 	foreach my $field (sort keys %deleted_fields) {
 		print STDERR "$deleted_fields{$field}\t$field\n";
-	}
-}
-
-if ($prefix_packaging_tags_with_language) {
-	print "stats for --prefix-packaging-tags-with-language\n\n";
-	print "prefix_packaging_already_prefixed: $prefix_packaging_already_prefixed" . "\n";
-	print "prefix_packaging_language_found: $prefix_packaging_language_found" . "\n";
-	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";
-
-	# List all packaging tags
-	foreach my $tag (sort {$prefix_packaging_tags{$a} <=> $prefix_packaging_tags{$b}} keys %prefix_packaging_tags) {
-		print $tag . "\t" . $prefix_packaging_tags{$tag} . "\t" . $prefix_packaging_tags_language{$tag} . "\t" . $prefix_packaging_tags_properties{$tag} . "\t";
-
-		# List the main languages of the products associated with the tag
-		foreach my $l (sort {$prefix_packaging_tags_product_languages{$tag}{$b} <=> $prefix_packaging_tags_product_languages{$tag}{$a}} keys %{$prefix_packaging_tags_product_languages{$tag}}) {
-			print $l . ' ' . $prefix_packaging_tags_product_languages{$tag}{$l} . ', ';
-		}
-
-		print "\n";
 	}
 }
 

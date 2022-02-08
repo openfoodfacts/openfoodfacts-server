@@ -14,6 +14,10 @@ pt:Desconhecido
 # en:Carton, cartons
 # Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
+# undefined packaging shape: (e.g. "plastic packaging")
+en:packaging
+fr:emballage
+
 # e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
 en:pack, paquet
 fr:paquet, pack
@@ -38,6 +42,7 @@ pt:Jarro, jarros, jarra, jarras
 en:Box, boxes
 de:Kasten
 el:Κουτί
+es:caja, cajas
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
 it:Scatola, scatole
@@ -114,7 +119,7 @@ pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, l
 
 en:pot, cup, pots, cups
 de:Kanne
-es:Bote
+es:Bote, botes
 fr:Pot, pots
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
