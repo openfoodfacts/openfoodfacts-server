@@ -53737,22 +53737,22 @@ ciqual_food_name:fr:Sirop léger pour fruits appertisés au sirop
 
 #Generic word for anything that adds flavor to a dish
 <en:Groceries
-en:Condiments
+en:Condiments, Seasonings
 ca:Condiments
 da:Krydderier
-de:Gewürzmittel
-es:Condimentos
+de:Gewürzmittel, Würzen, Würze
+es:Condimentos, Aderezos
 fi:mausteet
-fr:Condiments
-he:מתבלים, מטבלים
+fr:Condiments, Assaisonnements, assaisonnement
+he:מתבלים, מטבלים, תיבול
 hu:Fűszerek
 it:Condimenti
 nl:Smaakmakers
-pl:Przyprawy
+pl:Przyprawy, przyprawa
 pt:Condimentos
 zh:调味品, 调料
 #ru:Вкусовые добавки, Приправы, Пряности
-# Russian does not seem to make a difference between condiment and seasoning
+wikidata:en:Q773108
 
 <en:Condiments
 en:Gomasio, Gomashio
@@ -55001,19 +55001,6 @@ agribalyse_food_code:en:11060
 ciqual_food_code:en:11060
 ciqual_food_name:en:Provence herbs, dried
 ciqual_food_name:fr:Herbes de Provence, séchées
-
-<en:Condiments
-en:Seasonings
-de:Würzen, Würze
-es:Aderezos
-fi:mausteet
-fr:Assaisonnements, assaisonnement
-he:תיבול
-it:Condimenti
-nl:Kruiderijen
-pl:Przyprawy, przyprawa
-ru:Приправы
-wikidata:en:Q773108
 
 <en:Condiments
 en:Salts, Salt
