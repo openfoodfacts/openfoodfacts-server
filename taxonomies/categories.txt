@@ -42568,7 +42568,8 @@ agribalyse_proxy_food_code:en:15023
 agribalyse_proxy_food_name:en:Walnut, fresh
 agribalyse_proxy_food_name:fr:Noix, fraîche
 
-en:French nuts
+<en:Nuts
+en:French nuts, Nuts from France
 fr:Noix françaises
 
 <en:French nuts
@@ -42592,22 +42593,13 @@ fr:Noix fraîches
 season_in_country_fr:en: 9,10
 
 <en:Walnuts
-en:Walnut kernels, Walnut pieces
-de:Walnusskerne
-es:Granos de nuez
-fi:saksanpähkinän sydämet
-fr:Cerneaux de noix
-it:Gherigli di noci
-nl:Gepelde walnoten
-
-<en:Walnuts
 <en:Shelled nuts
-en:Shelled walnuts
-de:geschälte Walnüss
-es:Nueces mondadas, Nueces peladas, Nueces sin cáscara
-fi:kuorelliset saksanpähkinät
-fr:Noix décortiquées
-it:Noci con guscio
+en:Walnut kernels, Walnut piecesShelled walnuts
+de:Walnusskerne, geschälte Walnüss
+es:Granos de nuez, Nueces mondadas, Nueces peladas, Nueces sin cáscara
+fi:saksanpähkinän sydämet, kuorelliset saksanpähkinät
+fr:Cerneaux de noix, Noix décortiquées
+it:Gherigli di noci
 nl:Gepelde walnoten
 zh:带壳核桃
 
