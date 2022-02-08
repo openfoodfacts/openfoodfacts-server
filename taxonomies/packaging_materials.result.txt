@@ -42,14 +42,18 @@ en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
 fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
-en:Cardboard
+en:Cardboard, fiberboard, fibreboard
 da:Pap
 de:Pappe, Wellpappe
-fr:Carton, carton ondulé, carton standard, cartonné, cartonnée, cartonnette
+fr:Carton, carton standard, cartonné, cartonnée
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
 it:Cartone, cartone ondulato
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
+
+< en:Cardboard
+en:Corrugated cardboard
+fr:Carton ondulé
 xx:20 C PAP, 20 C PCB
 
 < en:Cardboard
@@ -58,6 +62,20 @@ de:FSC-Karton
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+
+< en:Cardboard
+en:Non-corrugated cardboard
+fr:Carton non ondulé
+xx:21 PAP
+
+< en:Cardboard
+en:Paperboard
+de:Karton
+fr:Papier cartonné
+hu:Kartonpapír, Karton, Papírkarton
+it:Cartoncino
+pt:Papel cartonado
+xx:23 PBD, 23 PPB, PPB, PBD
 
 < en:Cardboard
 < en:Recycled material
@@ -105,6 +123,7 @@ wikidata:en: Q8231603
 en:Glass
 da:Glas
 de:Glas
+es:Vidrio
 fr:Verre
 hu:Üveg
 it:Vetro
@@ -265,14 +284,6 @@ pt:Bateria de níquel-hidreto metálico, bateria de hidreto metálico de níquel
 xx:11 NiMH
 wikidata:en: Q308567
 
-en:Other paper
-de:Sonstige Pappe
-fr:Autres papiers, autre papier
-hu:Egyéb papír, más papír
-nl:Ander karton
-pt:Outro papel, outros papéis
-xx:21 PAP
-
 < en:Other plastics
 < en:Plastic
 en:PLA - Polylactic acid, Polylactic acid, PLA
@@ -297,6 +308,7 @@ da:Papir
 de:Papier
 fr:Papier, papier standard
 hu:Papír
+it:Carta
 ja:紙
 nl:Papier
 pt:Papel
@@ -318,6 +330,14 @@ nl:Kraft-papier
 pt:Papel kraft, kraft
 
 < en:Paper
+en:Other paper
+de:Sonstige Pappe
+fr:Autres papiers, autre papier
+hu:Egyéb papír, más papír
+nl:Ander karton
+pt:Outro papel, outros papéis
+
+< en:Paper
 en:Recycled paper, 100% recycled paper
 da:Genbrugspapir
 de:Recyclingpapier, Recyceltes Papier
@@ -336,14 +356,6 @@ hu:Papír és műanyag
 nl:Papier en plastic
 pt:Papel e plástico, Papel + plástico
 xx:81 PapPet
-
-en:Paperboard
-de:Karton
-fr:Papier cartonné
-hu:Kartonpapír, Karton, Papírkarton
-it:Cartoncino
-pt:Papel cartonado
-xx:23 PBD, 23 PPB, PPB, PBD
 
 < en:PET - Polyethylene terephthalate
 en:Biobased PET
@@ -378,7 +390,8 @@ pt:PET transparente
 
 en:Plastic
 da:Plast
-de:Kunststoff
+de:Kunststoff, plastik
+es:Plástico
 fr:Plastique
 hu:Műanyag
 it:Plastica
@@ -577,6 +590,7 @@ wikidata:en: Q900791
 
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
+nl:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 pt:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 

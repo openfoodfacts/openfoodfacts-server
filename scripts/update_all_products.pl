@@ -81,6 +81,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
 use Log::Any::Adapter 'TAP';
 
@@ -131,6 +132,7 @@ my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
+my $prefix_packaging_tags_with_language = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -180,6 +182,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"fix-nutrition-data-per" => \$fix_nutrition_data_per,
 			"fix-nutrition-data" => \$fix_nutrition_data,
 			"compute-main-countries" => \$compute_main_countries,
+			"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -227,6 +230,7 @@ if (
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $compute_forest_footprint) and (not $process_packagings)
 	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
+	and (not $prefix_packaging_tags_with_language)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -357,6 +361,21 @@ my %deleted_fields = ();
 my $nutrition_data_per_n = 0;
 my $nutrition_data_n = 0;
 
+# Stats for --prefix-packaging-tags-with-language
+
+my $prefix_packaging_already_prefixed = 0;
+my $prefix_packaging_language_found = 0;
+my $prefix_packaging_language_not_found = 0;
+
+my %prefix_packaging_tags = ();
+my %prefix_packaging_tags_language = ();
+my %prefix_packaging_tags_properties = ();
+my %prefix_packaging_tags_product_languages = ();
+
+if ($prefix_packaging_tags_with_language) {
+	init_packaging_taxonomies_regexps();
+}
+
 while (my $product_ref = $cursor->next) {
 
 	my $productid = $product_ref->{_id};
@@ -399,6 +418,55 @@ while (my $product_ref = $cursor->next) {
 			)) {
 				
 				defined $product_ref->{$field} and delete $product_ref->{$field};
+			}
+		}
+
+		# Prefix untaxonomized packaging tags values with the most likely language
+		if ($prefix_packaging_tags_with_language and (defined $product_ref->{packaging}) and ($product_ref->{packaging} ne '')) {
+			my $current_packaging = $product_ref->{packaging};
+			my @new_tags = ();
+			foreach my $tag (split(/,/, $current_packaging)) {
+				$tag =~ s/\s+$//g;
+				$tag =~ s/^\s+//g;
+				my $new_tag = $tag;
+				# skip tags that are already prefixed with a a language
+				if ($tag =~ /^[a-z]{2}:/) {
+					$prefix_packaging_already_prefixed++;
+				}
+				else {
+					# first try the language of the product, then languages that are the most represented on OFF
+					my @potential_languages = ($product_ref->{lc}, "fr", "en", "de", "es", "it", "nl", "pt", "pl", "se", "ar", "cz", "ro", "bg", "nb", "da", "ru", "hu", "ca" );
+					my $l = guess_language_of_packaging_text($tag, \@potential_languages);
+					my $properties = "unrecognized_properties";
+
+					if (defined $l) {
+						$new_tag = $l . ':' . $tag;
+						$prefix_packaging_language_found++;
+						my $packaging_ref = parse_packaging_from_text_phrase($tag, $l);
+						$properties = "shape: " . ($packaging_ref->{shape} // "unknown") . " - material: " . ($packaging_ref->{material} // "unknown") . " - recycling: " . ($packaging_ref->{recycling} // "unknown")
+					}
+					else {
+						$prefix_packaging_language_not_found++;
+					}
+
+					# keep track of the language found and of the properties extracted
+					deep_set(\%prefix_packaging_tags_properties, $tag, $properties);
+					deep_set(\%prefix_packaging_tags_language, $tag, $l // "unrecognized_language");
+
+					# increment a counter for the tag
+					my $count = deep_get(\%prefix_packaging_tags, $tag) // 0;
+					deep_set(\%prefix_packaging_tags, $tag, $count + 1);
+
+					# increment a counter for each product language for the tag
+					my $language_count = deep_get(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}) // 0;
+					deep_set(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}, $language_count + 1);
+				}
+				push @new_tags, $new_tag;
+			}
+			my $new_packaging = join(',', @new_tags);
+			if ($new_packaging ne $current_packaging) {
+				$product_ref->{packaging} = $new_packaging;
+				$product_values_changed = 1;
 			}
 		}
 
@@ -1164,6 +1232,25 @@ if ($restore_values_deleted_by_user) {
 	print STDERR "\n\ndeleted fields:\n";
 	foreach my $field (sort keys %deleted_fields) {
 		print STDERR "$deleted_fields{$field}\t$field\n";
+	}
+}
+
+if ($prefix_packaging_tags_with_language) {
+	print "stats for --prefix-packaging-tags-with-language\n\n";
+	print "prefix_packaging_already_prefixed: $prefix_packaging_already_prefixed" . "\n";
+	print "prefix_packaging_language_found: $prefix_packaging_language_found" . "\n";
+	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";
+
+	# List all packaging tags
+	foreach my $tag (sort {$prefix_packaging_tags{$a} <=> $prefix_packaging_tags{$b}} keys %prefix_packaging_tags) {
+		print $tag . "\t" . $prefix_packaging_tags{$tag} . "\t" . $prefix_packaging_tags_language{$tag} . "\t" . $prefix_packaging_tags_properties{$tag} . "\t";
+
+		# List the main languages of the products associated with the tag
+		foreach my $l (sort {$prefix_packaging_tags_product_languages{$tag}{$b} <=> $prefix_packaging_tags_product_languages{$tag}{$a}} keys %{$prefix_packaging_tags_product_languages{$tag}}) {
+			print $l . ' ' . $prefix_packaging_tags_product_languages{$tag}{$l} . ', ';
+		}
+
+		print "\n";
 	}
 }
 

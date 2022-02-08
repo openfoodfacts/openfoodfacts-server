@@ -14,6 +14,10 @@ pt:Desconhecido
 # en:Carton, cartons
 # Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
+# e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
+en:pack, paquet
+fr:paquet, pack
+
 en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
 fr:Barquette, barquettes, Plateau
@@ -97,11 +101,12 @@ it:Lattina per bevande
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 
 # Can for food, not canned drinks
+# Note: "canned", "conserve" : already used in the preservation taxonomy
 <en:can
 en:Food can, tin, tin can
 de:Konservendose
 es:Lata de comida
-fr:Boîte de conserve, conserve, boîtes de conserves, conserves
+fr:Boîte de conserve, boîtes de conserves
 hu:ételes konzerv, ételkonzerv, konzervétel
 nl:Conservenblik
 it:Lattina di cibo
@@ -109,6 +114,7 @@ pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, l
 
 en:pot, cup, pots, cups
 de:Kanne
+es:Bote
 fr:Pot, pots
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
@@ -142,9 +148,9 @@ weight:en:light
 
 en:Bag, bags
 da:Taske, tasker
-de:Tüte, Sack
+de:Tüte, Sack, beutel
 el:Σακούλα
-fr:Sachet, sac, sachets, sacs, berlingots, berlingot
+fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
@@ -272,6 +278,8 @@ fr:carte, cartonnette
 hu:kártya
 nl:Kaart
 pt:cartolina, cartolinas
+# default material
+packaging_materials:en: en:cardboard
 
 en:backing, support, board, stand
 fr:support, plaque
@@ -469,6 +477,9 @@ fr:Tonneau, tonneaux, tonnelet, tonnelets
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
+packaging_materials:en: en:plastic
+
+xx:cellophane
 
 en:Cartridge, cartridges
 fr:Cartouche, cartouches

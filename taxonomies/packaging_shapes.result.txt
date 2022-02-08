@@ -21,9 +21,9 @@ pt:suporte, placa, suportes, placas
 
 en:Bag, bags
 da:Taske, tasker
-de:Tüte, Sack
+de:Tüte, Sack, beutel
 el:Σακούλα
-fr:Sachet, sac, sachets, sacs, berlingots, berlingot
+fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
@@ -77,7 +77,7 @@ nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
 
 < en:Bottle cap
-en:Wine cork, wine bottle cork, cork, wine corks, wine bottle corks, corks
+en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 fr:bouchon de bouteille de vin, bouchons de bouteille
 nl:Kurk
 
@@ -116,6 +116,7 @@ nl:Folder
 en:Bubble wrap
 fr:Film à bulles
 nl:Bubbeltjesfilm
+packaging_materials:en: en:plastic
 
 en:Bucket, buckets
 fr:Seau, seaux
@@ -151,7 +152,7 @@ pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata
 en:Food can, tin, tin can
 de:Konservendose
 es:Lata de comida
-fr:Boîte de conserve, conserve, boîtes de conserves, conserves
+fr:Boîte de conserve, boîtes de conserves
 hu:ételes konzerv, ételkonzerv, konzervétel
 it:Lattina di cibo
 nl:Conservenblik
@@ -161,11 +162,12 @@ en:Canister
 fr:Bombonne
 nl:Spuitbus, spuitbussen
 
-en:card, cardboard
+en:card
 fr:carte, cartonnette
 hu:kártya
 nl:Kaart
-pt:papelão, cartão, cartolina, papelões, cartões, cartolinas
+pt:cartolina, cartolinas
+packaging_materials:en: en:cardboard
 
 en:Cartridge, cartridges
 fr:Cartouche, cartouches
@@ -187,9 +189,6 @@ pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de café
 
 en:Coffee pad
 nl:Koffiepad
-
-en:Container, carton, containers, cartons
-fr:Conteneur, conteneurs
 
 en:Cosmetic stick
 fr:Stick cosmétique
@@ -316,6 +315,9 @@ fr:Suremballage, sur-emballage, suremballages, sur-emballages
 hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
 pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens
 
+en:pack, paquet
+fr:paquet, pack
+
 en:Plate, plates
 fr:Assiette, assiettes
 hu:tányér, tányérok
@@ -324,6 +326,7 @@ pt:Prato, pratos
 
 en:pot, cup, pots, cups
 de:Kanne
+es:Bote
 fr:Pot, pots
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
@@ -442,4 +445,6 @@ fr:enveloppage
 nl:Inlay
 
 nl:Verpakking
+
+xx:cellophane
 

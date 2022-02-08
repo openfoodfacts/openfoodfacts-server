@@ -27,7 +27,8 @@ non_recyclable_and_non_biodegradable:en:maybe
 
 en:Plastic
 da:Plast
-de:Kunststoff
+de:Kunststoff, plastik
+es:Plástico
 fr:Plastique
 hu:Műanyag
 it:Plastica
@@ -311,15 +312,24 @@ pt:Bateria de zinco-carbono, pilha de zinco-carbono
 xx:14 CZ
 wikidata:en:Q28765
 
-en:Cardboard
+en:Cardboard, fiberboard, fibreboard
 da:Pap
 de:Pappe, Wellpappe
-fr:Carton, carton ondulé, carton standard, cartonné, cartonnée
+fr:Carton, carton standard, cartonné, cartonnée
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
 it:Cartone, cartone ondulato
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
+
+<en:cardboard
+en:Corrugated cardboard
+fr:Carton ondulé
 xx:20 C PAP, 20 C PCB
+
+<en:cardboard
+en:Non-corrugated cardboard
+fr:Carton non ondulé
+xx:21 PAP
 
 <en:Cardboard
 <en:Recycled material
@@ -338,19 +348,20 @@ fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
 
+<en:paper
 en:Other paper
 de:Sonstige Pappe
 fr:Autres papiers, autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
 pt:Outro papel, outros papéis
-xx:21 PAP
 
 en:Paper
 da:Papir
 de:Papier
 fr:Papier, papier standard
 hu:Papír
+it:Carta
 nl:Papier
 ru:Бумага
 ja:紙
@@ -380,6 +391,16 @@ fr:Papier kraft, kraft
 nl:Kraft-papier
 pt:Papel kraft, kraft
 
+# thick cardboard (e.g. book covers)
+<en:cardboard
+en:Paperboard
+de:Karton
+fr:Papier cartonné
+hu:Kartonpapír, Karton, Papírkarton
+it:Cartoncino
+pt:Papel cartonado
+xx:23 PBD, 23 PPB, PPB, PBD
+
 en:Wax
 da:Voks
 de:Wachs
@@ -388,14 +409,6 @@ hu:Viasz
 nl:Was
 pt:Papel cera, papel de cera
 wikidata:en:Q124695
-
-en:Paperboard
-de:Karton
-fr:Papier cartonné
-hu:Kartonpapír, Karton, Papírkarton
-it:Cartoncino
-pt:Papel cartonado
-xx:23 PBD, 23 PPB, PPB, PBD
 
 en:Metal, Metals
 da:Metal, Metaller
@@ -513,6 +526,7 @@ xx:62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 en:Glass
 da:Glas
 de:Glas
+es:Vidrio
 fr:Verre
 hu:Üveg
 it:Vetro

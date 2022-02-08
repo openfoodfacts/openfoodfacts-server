@@ -67,7 +67,7 @@ elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($op
 
 elsif (($tagtype eq "packaging")) {
 
-	@files = ("packaging_materials", "packaging_shapes", "packaging_recycling");
+	@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 }
 	
 
