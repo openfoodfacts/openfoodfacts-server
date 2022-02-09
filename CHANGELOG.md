@@ -2,7 +2,6 @@
 
 ## 1.0.0 (2022-02-09)
 
-
 ### Features
 
 * add allergens and traces to ingredients panel ([#6266](https://github.com/openfoodfacts/openfoodfacts-server/issues/6266)) ([686f4fd](https://github.com/openfoodfacts/openfoodfacts-server/commit/686f4fdf5d2b26209581c91050c7c7fc08845814))
