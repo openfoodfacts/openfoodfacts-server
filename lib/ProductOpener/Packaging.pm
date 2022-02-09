@@ -338,7 +338,8 @@ sub guess_language_of_packaging_text($$) {
 		my $packaging_ref = parse_packaging_from_text_phrase($text, $l);
 		my $properties = scalar keys %$packaging_ref;
 
-		# No properties recognized: try to see if the entry exists in the packaging taxonomy
+		# if no property was recognized and we still have no candidate,
+		# try to see if the entry exists in the packaging taxonomy
 		# (which includes preservation which will not be parsed by parse_packaging_from_text_phrase)
 
 		if (($max_properties == 0) and ($properties == 0)) {
