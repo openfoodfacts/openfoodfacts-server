@@ -14,6 +14,9 @@ pt:Desconhecido
 # en:Carton, cartons
 # Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
+en:container, carton
+fr:récipient
+
 # undefined packaging shape: (e.g. "plastic packaging")
 en:packaging
 fr:emballage
@@ -25,10 +28,9 @@ es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
 
 # adding French "fond" as a synonym of tray, used for some candy packs: "couvercle en métal, fond en plastique"
-# todo: add French "bac" as a synonym too (but currently not possible as it is also in the recycling taxonomy)
 en:Tray, trays, tray with indents, shell, shells
 de:Tablettverpackung, Tablett, Schale
-fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs
+fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs, bac, bacs
 hu:Tálca, tálcák
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
