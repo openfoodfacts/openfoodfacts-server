@@ -449,7 +449,7 @@ while (my $product_ref = $cursor->next) {
 						$prefix_packaging_language_not_found++;
 					}
 
-					# keep track of the language found and of the properties extracted
+					# statistics: keep track of the language found and of the properties extracted
 					deep_set(\%prefix_packaging_tags_properties, $tag, $properties);
 					deep_set(\%prefix_packaging_tags_language, $tag, $l // "unrecognized_language");
 
