@@ -494,7 +494,8 @@ sub load_ecoscore_data_packaging() {
 			
 			my $shape = $row_ref->[0];
 			
-			next if ((not defined $shape) or ($shape eq ""));
+			# skip empty lines and comments
+			next if ((not defined $shape) or ($shape eq "")) or ($shape =~ /^#/);
 			
 			# Special cases
 			
@@ -502,6 +503,11 @@ sub load_ecoscore_data_packaging() {
 			next if ($shape eq "Carton ondulé");
 			
 			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
+
+			# Handle special cases that are not recognized by the packaging shapes taxonomy
+			if ($shape_id =~ /^fr:conserve/i) {
+				$shape_id = "en:can";
+			}
 			
 			if (not exists_taxonomy_tag("packaging_shapes", $shape_id)) {
 				$log->error("ecoscore shape does not exist in taxonomy", { shape => $shape, shape_id => $shape_id}) if $log->is_error();

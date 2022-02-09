@@ -341,11 +341,10 @@ sub guess_language_of_packaging_text($$) {
 		# No properties recognized: try to see if the entry exists in the packaging taxonomy
 		# (which includes preservation which will not be parsed by parse_packaging_from_text_phrase)
 
-		if ($properties == 0) {
+		if (($max_properties == 0) and ($properties == 0)) {
 			my $tagid = canonicalize_taxonomy_tag($l, "packaging", $text);
 			if (exists_taxonomy_tag("packaging", $tagid)) {
 				$properties = 1;
-				last;
 			}
 		}
 
@@ -444,7 +443,7 @@ sub analyze_and_combine_packaging_data($) {
 
 		# If we have a material without a shape, check if there is a default shape for the material
 		# e.g. "en:tetra-pak" has the shape "en:brick"
-		if ((defined $packaging_ref->{"shape"}) and (not defined $packaging_ref->{"material"})) {
+		if ((defined $packaging_ref->{"material"}) and (not defined $packaging_ref->{"shape"})) {
 			my $shape = get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
 			if (defined $shape) {
 				$packaging_ref->{"shape"} = $shape;

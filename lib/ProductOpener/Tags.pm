@@ -273,21 +273,26 @@ sub get_inherited_property($$$) {
 	my %seen = ();
 
  	foreach my $tagid (@parents) {
-		defined $seen{$tagid} and next;
-		$seen{$tagid} = 1;
-		if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
-
-			if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
-				# stop the propagation to parents of this tag, but continue with other parents
-			}
-			else {
-				#Return only one occurence of the property if several are defined in ingredients.txt
-				return $properties{$tagtype}{$tagid}{$property};
-			}
+		if (not defined $tagid) {
+			$log->warn("undefined parent for tag", { parent_tagid => $tagid, canon_tagid => $canon_tagid }) if $log->is_warn();
 		}
-		elsif (exists $direct_parents{$tagtype}{$tagid}) {
-			# check if one of the parents has the property
-			push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
+		else {
+			defined $seen{$tagid} and next;
+			$seen{$tagid} = 1;
+			if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
+
+				if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
+					# stop the propagation to parents of this tag, but continue with other parents
+				}
+				else {
+					#Return only one occurence of the property if several are defined in ingredients.txt
+					return $properties{$tagtype}{$tagid}{$property};
+				}
+			}
+			elsif (exists $direct_parents{$tagtype}{$tagid}) {
+				# check if one of the parents has the property
+				push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
+			}
 		}
 	}
 	return;
