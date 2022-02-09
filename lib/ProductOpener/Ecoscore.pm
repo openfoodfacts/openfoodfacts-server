@@ -505,6 +505,7 @@ sub load_ecoscore_data_packaging() {
 			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
 
 			# Handle special cases that are not recognized by the packaging shapes taxonomy
+            # conserve is used in preservation taxonomy, but it may be a packaging
 			if ($shape_id =~ /^fr:conserve/i) {
 				$shape_id = "en:can";
 			}
