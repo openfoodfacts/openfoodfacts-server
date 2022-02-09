@@ -457,7 +457,7 @@ while (my $product_ref = $cursor->next) {
 					my $count = deep_get(\%prefix_packaging_tags, $tag) // 0;
 					deep_set(\%prefix_packaging_tags, $tag, $count + 1);
 
-					# increment a counter for each product language for the tag
+					# statistics: increment a counter for each product language for the tag
 					my $language_count = deep_get(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}) // 0;
 					deep_set(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}, $language_count + 1);
 				}
