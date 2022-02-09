@@ -544,7 +544,10 @@ sub load_ecoscore_data_packaging() {
 		$properties{"packaging_shapes"}{"en:label"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:sheet"}{ratio};
 
 		$ecoscore_data{packaging_shapes}{"en:spout"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"};
-		$properties{"packaging_shapes"}{"en:spout"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"}{ratio};		
+		$properties{"packaging_shapes"}{"en:spout"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"}{ratio};
+
+		$ecoscore_data{packaging_shapes}{"xx:elo-pak"} = $ecoscore_data{packaging_shapes}{"en:tetra-pak"};
+		$properties{"packaging_shapes"}{"xx:elo-pak"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:tetra-pak"}{ratio};				
 	}
 	else {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");
