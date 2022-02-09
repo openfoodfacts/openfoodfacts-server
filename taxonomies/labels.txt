@@ -1054,7 +1054,7 @@ hu:Kalciumforrás
 it:Fonte di calcio
 nl:Bron van Calcium
 pt:Fonte de calcio
-ru:Обогащено кальцием, источник кальция
+ru:источник кальция
 th:แหล่งของแคลเซียม
 
 en:Phosphore source
@@ -1451,7 +1451,7 @@ it:Pochi o niente grassi, Basso o nessun grasso
 nl:Geen vet of vetarm
 pt:Com pouca ou sem gordura
 ru:Низкожирный или обезжиренный
-th:ไขมันต่ำ
+th:ไขมันต่ำหรือไม่มีเลย
 
 <en:Low or no fat
 en:Low fat, low in fat
@@ -1467,7 +1467,7 @@ it:Basso contenuto di grassi, A basso contenuto di grassi
 nb:Lavt fettinnhold, Naturlig lavt fettinnhold
 nl:Vetarm
 pt:Baixo teor de gordura
-ru:Низкожирный или обезжиренный
+ru:низкожирный
 sv:Låg fetthalt, Naturligt låg fetthalt
 th:ไขมันต่ำ
 
@@ -1483,7 +1483,6 @@ hu:Csökkentett zsírtartalmú
 it:Ridotto contenuto di grassi
 nl:Minder vet
 pt:Gordura reduzida, menos gordura
-ru:Низкожирный
 th:ลดไขมัน
 
 <en:Reduced fat
@@ -1680,7 +1679,7 @@ hu:Alacsony sótartalmú vagy sótlan
 it:Con poco sale o senza sale
 nl:Geen of weinig zout
 pt:Baixo ou sem sal
-th:โซเดียมต่ำ
+th:เกลือต่ำหรือไม่มีเลย
 
 <en:Low or no salt
 en:Low salt
@@ -1689,7 +1688,7 @@ de:Salzarm
 es:Bajo en sal
 fi:vähäsuolainen, matalasuolainen, vähän suolaa
 fr:Peu de sel, peu salé, faible teneur en sel, pauvre en sel, très pauvre en sel
-he:מופחת מלח
+he:דל במלח
 hu:Alacsony sótartalmú
 it:Basso contenuto di sale
 nl:Weinig zout
@@ -1873,7 +1872,7 @@ nl:Weinig suiker
 pl:Niska zawartość cukru, Mała zawartość cukru
 pt:Pouco açucar
 ru:Низкое содержание сахара
-th:น้ำตาลต่ำ
+th:น้ำตาลต่ำหรือไม่มีเลย
 
 <en:Low sugar
 en:Reduced sugar, Less sugar
@@ -2389,7 +2388,6 @@ it:Aromi naturali
 nl:Natuurlijke aromas
 pl:aromat naturalny
 pt:Sabores naturais
-th:ใช้สีธรรมชาติ
 
 en:Never frozen
 ca:No congelar mai
@@ -2841,18 +2839,16 @@ it:Progetto non OGM
 pt:Non GMO project, Projeto não OGM
 wikidata:en:Q7754286
 
+# German specific label - Do not translate
 <en:No GMOs
-en:Ohne Gentechnik
-cs:Ohne Gentechnik
 de:Ohne Gentechnik
-it:Senza OGM
-nl:Zonder gentechnologie
+xx:Ohne Gentechnik
 # dedicated, widely used symbol of VLOG in Germany https://www.ohnegentechnik.org
 
+# German specific label - Do not translate
 <en:No GMOs
-en:Ohne Gentechnik hergestellt
 de:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
-it:Prodotto Senza Ingegneria Genetica
+xx:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 <en:No GMOs
@@ -3144,17 +3140,14 @@ ca:No recomanat per embarassades
 de:Für Schwangere ungeeignet
 es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
 fi:Ei suositella raskauden aikana
-fr:Non recommandé aux femmes enceintes, non conseillé aux femmes enceintes
+fr:Non recommandé aux femmes enceintes, non conseillé aux femmes enceintes, Déconseillé aux femmes enceintes
 hu:Nem ajánlott várandós nők számára, Nem ajánlott terhes nők számára, várandós nők számára nem ajánlott
 it:Non consigliato per le donne in gravidanza, non raccomandato per le donne in gravidanza
 nl:Niet aanbevolen voor zwangere vrouwen
 pt:Não recomendado para mulheres grávidas
-th:ไม่แนะนำสำหรับคนท้อง
-
-fr:Déconseillé aux femmes enceintes
-nl:Niet aanbevolen voor zwangere vrouwen
 ru:Не рекомендовано для беременных женщин
 se:Recommanderas ej till gravida
+th:ไม่แนะนำสำหรับคนท้อง
 
 <en:Not advised for specific people
 en:Not advised for children and pregnant women
@@ -16234,7 +16227,6 @@ he:בקר טהור
 hu:100% marhahús, Tiszta marhahús
 it:Puro manzo
 nl:puur rund
-pl:Wieprzowina bez domieszek
 
 en:Pure butter
 ca:Mantega pura
@@ -17606,6 +17598,7 @@ it:Carne francese
 nl:Frans vlees
 ingredients:en: en:meat
 origins:en: en:france
+# Note: putting 
 
 <fr:Viande Française
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
@@ -18218,7 +18211,7 @@ en:2017 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2017
 fi:Saksan maatalousyhdistyksen pronssimitali 2017
 fr:Médaille de bronze 2017 de la Société Allemande d'Agriculture
-it:Medaglia di bronzo della Società Agricola Tedesca
+it:Medaglia di bronzo 2017 della Società Agricola Tedesca
 
 <en:Bronze medal of the German Agricultural Society
 en:2018 Bronze medal of the German Agricultural Society
@@ -18918,10 +18911,6 @@ en:Quality food from hungary
 fi:laaturuokaa Unkarista
 hu:Kiváló Magyar Termék
 image:en:Quality-food-from-hungary.90x90.jpg
-
-hu:Hazai termék
-
-hu:Hazai feldolgozású termék
 
 hu:Magyar baromfi, Hatósági állatorvos ellenőrizte
 

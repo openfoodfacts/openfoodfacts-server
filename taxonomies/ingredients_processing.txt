@@ -31,7 +31,6 @@ el:ακατέργαστο
 es:crudo, cruda, crudos, crudas
 fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
-es:crudo, cruda, crudos, crudas
 hu:nyers, nyersen
 nl:rauwe
 pt:cru, crus
@@ -206,7 +205,7 @@ da:hakket, hakkede
 de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
-fr:hâché, hâchée, hâchés, hâchées, hachées
+fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -246,11 +245,8 @@ fi:murskattu, murskatut
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 hu:zúzott, összetörve, összetört
 nl:gebroken
-pt:triturado, triturada, triturados, triturados, esmagado, esmagada, esmagados, esmagadas
+pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
-
-#en:blended
-#es:triturado,triturada,triturados,trituradas
 
 en:rolled
 de:gerollt, gerollte, gerollter, gerolltes
@@ -533,8 +529,12 @@ de:geschält, geschälte, geschälter, geschälten, geschältes
 de:ungeschält, ungeschälte, ungeschälter, ungeschältes
 
 #es:comment:deshuesadas is a generic term and can mean en:pitted or en:boned
-es:deshuesado
-pt:desossado, sem osso
+#process of removing the bone from meat
+en:boned
+es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
+fr:désossé, désossée, désossés, désossées, sans os
+hu:csontozott, kicsontozott
+pt:desensoçado, desossado, sem osso
 
 #en:description:To remove the outer covering or shell of something
 en:shelled
@@ -649,9 +649,6 @@ de:teilentfettet, teilentfettetes
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
 
-# <es:deshuesado
-en:boned
-
 #en:description:Sap is the fluid that comes from trees
 en:sap
 pt:seiva, seivas, seiva de, seivas de
@@ -745,19 +742,6 @@ de:200fach konzentriertes
 
 #en:not from concentrate
 
-#not sure if this interferes with the above
-en:from concentrate
-cs:koncentrát z
-de:aus Konzentrat
-es:a base de concentrado, a partir de concentrado, procedente de concentrado, procedente de concentrada
-fi:tiivisteestä
-fr:à base de concentré
-hu:sűrítményből
-lt:iš koncentrąto
-nl:op basis van concentraat
-sk:z koncentrátu
-sv:från koncentrat
-
 # there is a problem with en:cocoa paste
 #en:paste
 #ca:pasta d'
@@ -774,7 +758,8 @@ de:eingekochter
 nl:ingekookt
 
 #en:description:Water has been added to concentrate
-en:from-concentrate
+en:from concentrate
+cs:koncentrát z
 da:fra koncentrat, fra koncentrater
 de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
@@ -782,9 +767,11 @@ fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
-nl:uit concentraat, van concentraat
+lt:iš koncentrąto
+nl:uit concentraat, van concentraat, op basis van concentraat
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
+sk:z koncentrátu
 sv:från koncentrat
 
 en:dried
@@ -797,7 +784,7 @@ de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form, Tr
 es:seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et:kuivatatud
 fi:kuivattu, kuivatut
-fr:séché, séchée, séchés, séchées, sèches, secche
+fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
@@ -1072,7 +1059,7 @@ ca:precuit
 da:forkogte
 de:vorgekocht, vorgekochte, vorgekochter, vorgekochtes
 es:precocido, precocida, precocidos, precocidas
-fi:esikypsennetty, esikypsennetyt, esikypsennetty
+fi:esikypsennetty, esikypsennetyt
 fr:pré-cuit, pré-cuite, pré-cuits, pré-cuites, précuit, précuite, précuits, précuites
 hu:előfőzött
 it:precotto, precotta, precotti, precotte
@@ -1136,15 +1123,14 @@ hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
 pt:caramelizado, caramelizada, caramelizados, caramelizadas
 
-en:puffed
+en:puffed, inflated
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es:hinchado,hinchada,hinchados,hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
-hu:puffasztott
+hu:puffasztott, felfújt
 nl:gepoft, gepofte
 se:puffat
-
 
 en:pre-fried
 es:prefrito,prefrita,prefritos,prefritas
@@ -1600,17 +1586,6 @@ hu:tölgyfán füstölt
 en:not smoked, unsmoked
 
 #en:fibers
-
-#process of removing the bone from meat
-en:boned
-es:deshuesado
-es:sin hueso
-hu:csontozott, kicsontozott
-pt:desensoçado
-
-en:inflated
-es:hinchado,hinchada,hinchados,hinchadas
-hu:felfújt
 
 #en:for color, added for color, colored with
 

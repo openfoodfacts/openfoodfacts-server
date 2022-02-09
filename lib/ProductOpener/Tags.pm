@@ -959,6 +959,12 @@ sub build_tags_taxonomy($$$) {
 					$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
 					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
 				}
+				elsif ($translations_from{$tagtype}{"$lc:$current_tagid"} ne $canon_tagid) {
+					my $msg = "$lc:$current_tagid already is associated to " . $translations_from{$tagtype}{"$lc:$current_tagid"}
+						. " - $lc:$current_tagid cannot be mapped to entry $canon_tagid\n";
+						$errors .= "ERROR - " . $msg;
+						next;
+				}
 
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
 
@@ -977,18 +983,17 @@ sub build_tags_taxonomy($$$) {
 					my $tagid = get_string_id_for_lang($lc, $tag);
 					next if $tagid eq '';
 
-					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
-						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
+					# Check if the synonym is already associated with another tag
+					if ((defined $synonyms{$tagtype}{$lc}{$tagid})
+						and ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						if (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
-							if ($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) {
-								my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
+						and (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/))) {
+
+						my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
 								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
 								. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$current_tagid\n";
-								$errors .= "ERROR - " . $msg;
-								next;
-							}
-						}
+						$errors .= "ERROR - " . $msg;
+						next;
 					}
 
 					push @{$synonyms_for{$tagtype}{$lc}{$current_tagid}}, $tag;
@@ -1010,7 +1015,8 @@ sub build_tags_taxonomy($$$) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			unless ($tagtype eq "ingredients") {
+			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
+			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1670,7 +1676,9 @@ sub build_tags_taxonomy($$$) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			unless ($tagtype eq "ingredients") {
+			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
+			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
+			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
