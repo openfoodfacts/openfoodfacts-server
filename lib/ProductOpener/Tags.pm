@@ -172,10 +172,9 @@ use Log::Any qw($log);
 use GraphViz2;
 use JSON::PP;
 
+use Data::DeepAccess qw(deep_get deep_exists);
 
 binmode STDERR, ":encoding(UTF-8)";
-
-
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
@@ -184,8 +183,6 @@ binmode STDERR, ":encoding(UTF-8)";
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
-
-
 
 # Fields that can have different values by language
 %language_fields = (
@@ -213,7 +210,6 @@ ingredients_infocard => 1,
 nutrition_infocard => 1,
 environment_infocard => 1,
 );
-
 
 %canon_tags = ();
 
@@ -279,14 +275,15 @@ sub get_inherited_property($$$) {
 		else {
 			defined $seen{$tagid} and next;
 			$seen{$tagid} = 1;
-			if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
+			my $property_value = deep_get(\%properties, $tagtype, $tagid, $property);
+			if (defined $property_value) {
 
-				if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
+				if ($property_value eq "undef") {
 					# stop the propagation to parents of this tag, but continue with other parents
 				}
 				else {
 					#Return only one occurence of the property if several are defined in ingredients.txt
-					return $properties{$tagtype}{$tagid}{$property};
+					return $property_value;
 				}
 			}
 			elsif (exists $direct_parents{$tagtype}{$tagid}) {
