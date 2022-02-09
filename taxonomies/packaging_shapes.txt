@@ -26,9 +26,9 @@ fr:paquet, pack, paquets, packs, packet, packets
 
 # adding French "fond" as a synonym of tray, used for some candy packs: "couvercle en métal, fond en plastique"
 # todo: add French "bac" as a synonym too (but currently not possible as it is also in the recycling taxonomy)
-en:Tray, trays, tray with indents
-de:Tablettverpackung, Tablett
-fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds
+en:Tray, trays, tray with indents, shell, shells
+de:Tablettverpackung, Tablett, Schale
+fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs
 hu:Tálca, tálcák
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
@@ -93,7 +93,7 @@ nl:Drankencarton, Melkpak, Drankencartons
 en:small brick, small bricks
 fr:briquette, briquettes
 
-# Can (drink or food)
+# Can (drink or food) made with metal
 en:Can, cans
 da:Dåse, dåser
 de:Dose, Dosen
@@ -157,8 +157,8 @@ fr:Attache
 hu:Rögzítő, kapocs, csipesz
 pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
 
-en:Tie
-fr:Lien
+en:Tie, knot
+fr:Lien, noeud
 weight:en:light
 
 en:Bag, bags
@@ -219,7 +219,7 @@ pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garraf
 <en:Bottle cap
 en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 fr:bouchon de bouteille de vin, bouchons de bouteille
-nl:Kurk
+nl:Wijn kurk
 
 <en:Bottle cap
 en:Capsule, capsules
@@ -316,7 +316,7 @@ da:Film
 de:Folie, Film
 el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
-hu:Fólia, film
+hu:Film
 it:Film, Pellicola
 nl:Folie, Film, Folies
 pt:Película, películas, filme, filmes, filme extensível, filme estirável
@@ -334,7 +334,7 @@ hu:Csoportosító csomag, egyesítő csomag
 pt:Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embalagens de agrupagem, embalagem agrupadora, embalagens agrupadoras
 
 en:Seal, operculum, seals, peel-off lid
-de:Deckel
+de:Dichtung, Dichtungen
 fr:Opercule, opercules
 hu:zárófedő
 nl:Seal

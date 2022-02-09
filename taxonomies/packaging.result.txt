@@ -120,7 +120,7 @@ pt:Cápsula, cápsulas
 < en:Bottle cap
 en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 fr:bouchon de bouteille de vin, bouchons de bouteille
-nl:Kurk
+nl:Wijn kurk
 
 en:Bowl, bows
 de:Schüssel
@@ -376,6 +376,9 @@ en:envelope
 fr:enveloppe
 nl:wikkel, vensterenvelop, sleeve
 
+en:fabric, fabrics
+fr:tissu, tissus
+
 en:Fastener, clip
 fr:Attache
 hu:Rögzítő, kapocs, csipesz
@@ -389,7 +392,7 @@ da:Film
 de:Folie, Film
 el:Μεμβράνη
 fr:Film, pellicule, films, pellicules, film de regroupement
-hu:fólia, fóliák, lap, lapok, film
+hu:Film
 it:Film, Pellicola
 nl:Folie, Film, Folies
 pt:Película, películas, filme, filmes, filme extensível, filme estirável
@@ -606,7 +609,7 @@ de:Nickel–Cadmium-Batterie
 fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
 hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
-pt:Bateria de níquel cádmio, pilha de níquel cádmio
+pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
 xx:10 NiCD
 wikidata:en: Q898377
 
@@ -616,7 +619,7 @@ fr:Accumulateur nickel-hydrure métallique, batterie nickel-hydrure métallique
 hu:Nikkel-fémhidrid akkumulátor, Nikkel-metál-hidrid akkumulátor
 nl:nikkel-metaalhydride-accu, NiMH-accu
 pt:Bateria de níquel-hidreto metálico, bateria de hidreto metálico de níquel, pilha de níquel-hidreto metálico, pilha de hidreto metálico de níquel
-xx:11 NiMH
+xx:11 NiMH, 11-NiMH
 wikidata:en: Q308567
 
 < en:Other plastics
@@ -641,7 +644,7 @@ xx:62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 en:Overpack, overpacks
 fr:Suremballage, sur-emballage, suremballages, sur-emballages
 hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
-pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens
+pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
 en:pack, packet, packs, packets
 de:Packung
@@ -738,7 +741,7 @@ pt:PET transparente
 
 en:Plastic
 da:Plast
-de:Kunststoff, plastik
+de:Kunststoff, Kunstoff, plastik
 es:Plástico
 fr:Plastique
 hu:Műanyag
@@ -785,7 +788,7 @@ hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:Polietilene a bassa densità
 nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
 pt:LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
-xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
+xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
 non_recyclable_and_non_biodegradable:en: no
 wikidata:en: Q2033818
 
@@ -799,7 +802,7 @@ it:Altre plastiche
 nl:Andere plastics
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
-xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹
+xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7
 non_recyclable_and_non_biodegradable:en: yes
 
 < en:Plastic
@@ -845,12 +848,12 @@ wikidata:en: Q146243
 en:PVC - Polyvinyl chloride, Polyvinyl chloride
 de:Polyvinylchlorid
 fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
-hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid
+hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
 it:Cloruro di polivinile, polivinilcloruro
 nl:PVC - Polyvinylchloride, polychlooretheen
 pt:PVC - Policloreto de vinil, Policloreto de vinil
 ru:ПВХ, Поливинилхлорид
-xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7
+xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7, ♵
 wikidata:en: Q146368
 
 en:Plate, plates
@@ -1023,7 +1026,7 @@ nl:rPET transparant, Transparant rPET
 pt:rPET transparente
 
 en:Seal, operculum, seals, peel-off lid
-de:Deckel
+de:Dichtung, Dichtungen
 fr:Opercule, opercules
 hu:zárófedő
 nl:Seal
@@ -1031,7 +1034,7 @@ pt:Tampo, tampos
 
 en:sheet, sheets
 fr:feuille, feuilles
-hu:fólia, fóliák, lap, lapok, film
+hu:fólia, fóliák, lap, lapok
 pt:Folha, folhas
 weight:en: light
 
@@ -1051,9 +1054,6 @@ pt:Manga, mangas
 
 en:small brick, small bricks
 fr:briquette, briquettes
-
-en:sous-vide
-fr:sous-vide
 
 en:spout, pouring spout, pour spout
 fr:verseur, bec verseur
@@ -1097,13 +1097,13 @@ en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
 fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
-en:Tie
-fr:Lien
+en:Tie, knot
+fr:Lien, noeud
 weight:en: light
 
-en:Tray, trays, tray with indents
-de:Tablettverpackung, Tablett
-fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds
+en:Tray, trays, tray with indents, shell, shells
+de:Tablettverpackung, Tablett, Schale
+fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs
 hu:Tálca, tálcák
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
@@ -1122,12 +1122,15 @@ nl:Beker, Bekers, Koffiebeker, Cup
 en:unfrozen
 fr:décongelé, décongelés, décongelée, décongelées
 
-en:Unknown
-fr:Inconnu, inconnue, inconnus, inconnues
-hu:Ismeretlen
+en:Unknown, Unknown
+fr:Inconnu, inconnue, inconnus, inconnues, Inconnu, inconnue, inconnus, inconnues
+hu:Ismeretlen, Ismeretlen
 nl:Onbekend
 pt:Desconhecido
 non_recyclable_and_non_biodegradable:en: maybe
+
+en:vacuum-packed, sous-vide
+fr:sous-vide
 
 en:Vial, flask
 fr:Flacon
