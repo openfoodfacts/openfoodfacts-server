@@ -64,7 +64,7 @@ da:Taske, tasker
 de:Tüte, Sack, beutel
 el:Σακούλα
 es:bolsa, bolsas
-fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches
+fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
@@ -205,6 +205,8 @@ fr:Bombonne
 nl:Spuitbus, spuitbussen
 
 en:canned, appertized
+de:Konserve
+es:conserva, en conserva
 fr:conserve, en conserve, appertisé, appertisés, appertisée, appertisées
 
 en:card
@@ -382,7 +384,7 @@ pt:Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura
 en:Filling
 nl:Opvulmateriaal
 
-en:Film, wrap, films, wraps, film wrap, film wraps
+en:Film, wrap, films, wraps, film wrap, film wraps, foil
 da:Film
 de:Folie, Film
 el:Μεμβράνη
@@ -397,6 +399,7 @@ en:fresh
 fr:frais, fraîche, fraîches
 
 en:frozen
+es:congelado, congelada, congelados, congeladas
 fr:surgelé, surgelés, surgelée, surgelées, congelé, congelés, congelée, congelées
 
 en:Glass
@@ -491,7 +494,7 @@ hu:Biobázisú HDPE
 pt:Bioplástico PEHD
 
 en:individual dose, Individual capsule
-fr:dose invididuelle
+fr:dose invididuelle, doses individuelles, dosette, dosettes
 
 en:Jar, jars
 de:Krug
@@ -501,6 +504,9 @@ hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
 nl:Pot, Potten
 pt:Jarro, jarros, jarra, jarras
+
+en:Jug, jugs
+fr:Bidon, bidons
 
 en:Jute
 de:Jute
@@ -547,9 +553,9 @@ wikidata:en: Q899079
 en:Metal, Metals
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux
+fr:Métal, Métaux, métallique, métalliques
 hu:Fém, fémek
-it:Metalli
+it:Metallo, Metalli
 nl:Metaal, Metalen
 pt:Metais
 ru:Металл
@@ -639,6 +645,7 @@ pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembal
 
 en:pack, packet, packs, packets
 de:Packung
+es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
 
 en:packaging
@@ -855,7 +862,7 @@ pt:Prato, pratos
 en:pot, cup, pots, cups
 de:Kanne, Becher
 es:Bote, botes
-fr:Pot, pots, coupelle, coupelles
+fr:Pot, pots, coupelle, coupelles, verrine, verrines
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões
@@ -875,8 +882,9 @@ pt:Frasco, frascos
 en:Protection cover
 fr:Housse, housses, housse de protection, housses de protection
 
-en:protective gas
-fr:sous atmosphère protectrice, atmosphère protectrice
+en:protective gas, protective atmosphere
+de:schutzatmosphäre
+fr:sous atmosphère protectrice, atmosphère protectrice, conditionné sous atmosphère protectrice
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
@@ -912,7 +920,7 @@ ja:アルミ
 nl:Aluminium
 pt:Alumínio
 ru:Алюминий
-xx:41 ALU, ALU 41
+xx:41 ALU, ALU 41, ALU
 wikidata:en: Q663
 
 en:recycle, to recycle, to be recycled, recyclable
@@ -987,6 +995,7 @@ pt:rPET - Tereftalato de polietileno reciclado, PET reciclado, Tereftalato de po
 xx:rPET
 
 en:refrigerated
+es:refrigerado, refrigerada, refrigerados, refrigeradas
 fr:réfrigéré, réfrigérés, réfrigérée, réfrigérées
 
 < en:Return to store

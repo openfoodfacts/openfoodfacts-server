@@ -21,9 +21,11 @@ fr:emballage
 # e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
 en:pack, packet, packs, packets
 de:Packung
+es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
 
 # adding French "fond" as a synonym of tray, used for some candy packs: "couvercle en métal, fond en plastique"
+# todo: add French "bac" as a synonym too (but currently not possible as it is also in the recycling taxonomy)
 en:Tray, trays, tray with indents
 de:Tablettverpackung, Tablett
 fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds
@@ -66,6 +68,9 @@ en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
 pt:Engradado, engradados
+
+en:Jug, jugs
+fr:Bidon, bidons
 
 en:Bottle, bottles
 da:Flaske, flasker
@@ -125,7 +130,7 @@ pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, l
 en:pot, cup, pots, cups
 de:Kanne, Becher
 es:Bote, botes
-fr:Pot, pots, coupelle, coupelles
+fr:Pot, pots, coupelle, coupelles, verrine, verrines
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões
@@ -161,7 +166,7 @@ da:Taske, tasker
 de:Tüte, Sack, beutel
 el:Σακούλα
 es:bolsa, bolsas
-fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches
+fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons
 hu:Zacskó, zacskók, tasak, tasakos
 it:Sacco
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
@@ -306,7 +311,7 @@ pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 #suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
 
-en:Film, wrap, films, wraps, film wrap, film wraps
+en:Film, wrap, films, wraps, film wrap, film wraps, foil
 da:Film
 de:Folie, Film
 el:Μεμβράνη
@@ -444,7 +449,7 @@ en:String, strings, ribbon, ribbons, adhesive tape, adhesive tapes, gift ribbon,
 fr:ficelle, ficelles, ruban, rubans
 
 en:individual dose, Individual capsule
-fr:dose invididuelle
+fr:dose invididuelle, doses individuelles, dosette, dosettes
 #suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 
 en:Protection cover
