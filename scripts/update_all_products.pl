@@ -453,7 +453,7 @@ while (my $product_ref = $cursor->next) {
 					deep_set(\%prefix_packaging_tags_properties, $tag, $properties);
 					deep_set(\%prefix_packaging_tags_language, $tag, $l // "unrecognized_language");
 
-					# increment a counter for the tag
+					# statistics: increment a counter for the tag
 					my $count = deep_get(\%prefix_packaging_tags, $tag) // 0;
 					deep_set(\%prefix_packaging_tags, $tag, $count + 1);
 
