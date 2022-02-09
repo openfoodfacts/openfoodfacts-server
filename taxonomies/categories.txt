@@ -6199,7 +6199,7 @@ wikidata:en:Q1543811
 <en:Herbal teas
 en:Dandelion herbal tea
 
-<en:Herbs
+<en:Aromatic herbs
 en:Dandelion, Common dandelion
 af:perdeblom
 ar:Խատուտիկ սովորական
@@ -53631,22 +53631,6 @@ fi:ananasta omassa mehussaan
 fr:Ananas au jus
 nl:Ananas op sap
 
-en:Groceries, Grocery
-ca:Espècies
-da:Dagligvarer
-de:Lebensmittel
-es:Comestibles
-fi:ostokset
-fr:Epicerie
-he:מצרכים, מכולת
-hu:Élelmiszer
-it:Generi alimentari
-nl:Kruidenierswaren
-pt:Alimentos, Mantimenros
-ru:Продовольственные товары
-sv:Skafferi, Skafferimat
-zh:副食
-
 <en:Fruits in syrup
 en:Syrup for canned fruits
 fr:Sirop pour fruits appertisés
@@ -53663,23 +53647,23 @@ ciqual_food_code:en:20919
 ciqual_food_name:en:Light syrup for canned fruits in syrup
 ciqual_food_name:fr:Sirop léger pour fruits appertisés au sirop
 
-<en:Groceries
-en:Condiments
+#Generic word for anything that adds flavor to a dish
+en:Condiments, Seasonings
 ca:Condiments
 da:Krydderier
-de:Gewürzmittel
-es:Condimentos
+de:Gewürzmittel, Würzen, Würze
+es:Condimentos, Aderezos
 fi:mausteet
-fr:Condiments
-he:מתבלים, מטבלים
+fr:Condiments, Assaisonnements, assaisonnement
+he:מתבלים, מטבלים, תיבול
 hu:Fűszerek
 it:Condimenti
 nl:Smaakmakers
-pl:Przyprawy
+pl:Przyprawy, przyprawa
 pt:Condimentos
 zh:调味品, 调料
 #ru:Вкусовые добавки, Приправы, Пряности
-# Russian does not seem to make a difference between condiment and seasoning
+wikidata:en:Q773108
 
 <en:Condiments
 en:Gomasio, Gomashio
@@ -53725,6 +53709,7 @@ de:Geriebener Meerrettich
 fr:Raifort râpé
 nl:Geraspte rammenassen
 
+<en:Culinary plants
 en:Fresh horseradish
 fr:Raifort
 agribalyse_food_code:en:11016
@@ -53734,7 +53719,7 @@ ciqual_food_name:fr:Raifort, cru
 
 <en:Culinary plants
 en:Aromatic plants
-ca:Herbes aromàtiques, plantes aromàtiques
+ca:Plantes aromàtiques
 de:Gewürzpflanzen
 es:Plantas aromáticas
 fi:aromaattiset kasvit
@@ -53811,7 +53796,7 @@ bg:Ароматични пресни подправки
 ca:Herbes aromàtiques
 de:Kräuter
 es:Hierbas aromáticas
-fi:mausteyrtit
+fi:mausteyrtit, vihreitä kasvinosia mausteita
 fr:Herbes aromatiques, Herbes aromatiques fraîches
 it:Erbe aromatiche
 nl:Kruiden
@@ -54929,19 +54914,6 @@ ciqual_food_name:en:Provence herbs, dried
 ciqual_food_name:fr:Herbes de Provence, séchées
 
 <en:Condiments
-en:Seasonings
-de:Würzen, Würze
-es:Aderezos
-fi:mausteet
-fr:Assaisonnements, assaisonnement
-he:תיבול
-it:Condimenti
-nl:Kruiderijen
-pl:Przyprawy, przyprawa
-ru:Приправы
-wikidata:en:Q773108
-
-<en:Condiments
 en:Salts, Salt
 bg:Сол
 ca:Sal, sals
@@ -55269,17 +55241,17 @@ en:Spices
 bg:Подправки
 ca:Espècies
 cs:Koření
-da:Krydderier
+da:Ikke-grønne plantedele krydderier
 de:Gewürze
 es:Especias
-fi:mausteet
+fi:ei-vihreät kasvinosat mausteet
 fr:Epices
 he:תבלינים
-hu:Fűszerek
+hu:Nem zöld növényi rész fűszerek
 it:Spezie
 nl:Specerijen
 nl_be:Specerijen
-pl:Przyprawy, przyprawa
+pl:przyprawy z niezielonych części roślin
 pt:Temperos
 ru:Специи
 sv:Kryddor
@@ -56221,7 +56193,6 @@ ciqual_food_code:en:11056
 ciqual_food_name:en:Mix of 4 spices
 ciqual_food_name:fr:Quatre épices
 
-<en:Groceries
 en:Sauces
 bg:Сосове
 ca:Salses
@@ -56566,7 +56537,7 @@ ciqual_food_name:fr:Sauce crudités ou Sauce salade, allégée en matière grass
 en:Salad dressings, dressings, Salad sauce
 ca:Amaniments, Salses per amanides
 de:Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
-es:Aderezos
+es:Aderezos para ensaladas
 fi:Salaattikastikkeet
 fr:Sauces salades, sauce salade, sauce pour salade
 he:תיבול לסלט
@@ -56663,10 +56634,6 @@ wikidata:en:Q25388438
 
 <en:Curry sauces
 en:Madras curry sauce
-
-<en:Sauces
-en:Fried potato sauces
-nl:Fritessauzen, Fritessaus
 
 <en:Sauces
 en:Harissa sauces, Hot spicy sauce
@@ -56918,31 +56885,22 @@ nl:Groene sauzen
 wikidata:en:Q699382
 
 <en:Sauces
-en:Pimented sauces
-de:Scharfe Sauce, Piment Soßen
-es:Salsas picadas
-fi:tuliset kastikkeet
-fr:Sauces pimentées, Sauce pimentée, Sauces au piment, Sauce au piment
-it:Salse pigmentate
-nl:Pikante sauzen
+en:Hot sauces, Chili sauces, Pimented sauces
+de:Scharfe Saucen, Chilisaucen, Chili Saucen, Scharfe Sauce, Piment Soßen
+es:Salsas de chiles, Salsas picadas
+fi:Tuliset kastikkeet
+fr:Sauces chili, sauce chili, Sauces pimentées, Sauce pimentée, Sauces au piment, Sauce au piment
+he:רטבים חריפים
+hu:Csilimártások, CSípős mártások
+it:Salse piccanti, Salse pigmentate
+nl:Chilisauzen, Pikante sauzen
+wikidata:en:Q522171
 
-<en:Pimented sauces
+<en:Hot sauces
 en:Sriracha sauces
 fr:Sauces sriracha
 nl:Srirachasauzen
 wikidata:en:Q1392674
-
-<en:Sauces
-en:Hot sauces, Chili sauces
-de:Scharfe Saucen, Chilisaucen, Chili Saucen
-es:Salsas de chiles
-fi:Tuliset kastikkeet
-fr:Sauces chili, sauce chili
-he:רטבים חריפים
-hu:Csilimártások, CSípős mártások
-it:Salse piccanti
-nl:Chilisauzen
-wikidata:en:Q522171
 
 <en:Hot sauces
 nl:Sambals
@@ -57243,7 +57201,7 @@ es:Mostazas dulces
 fi:Makeat sinapit
 fr:Moutardes douces
 hu:Édes mustár
-it:Senapi
+it:Senapi dolci
 nl:Zoete mosterds
 
 <en:Mustards
@@ -57285,7 +57243,6 @@ fi:Arrabbiata-kastikkeet
 fr:Sauces Arrabiata, sauce arrabiata, Arrabiata
 it:Salsa all'arrabbiata
 nl:Arrabiatasauzen
-ru:Томатные соусы, Томатный соус, Соус томатный, Соусы томатные
 wikidata:en:Q1891043
 
 <en:Meat-based sauces
@@ -58608,7 +58565,6 @@ wikidata:en:Q6023589
 <en:Dried hams
 en:Serrano ham, Dry-cured Serrano ham, Jamón serrano
 ca:Pernil salat, Pernil serrà
-de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
 es:Jamón Serrano
 fi:Vuoristokinkku, Serranokinkku, Serranon kinkku, Jamón serrano
 fr:Jambons Serrano, jambon serrano, Jambon sec Serrano
@@ -58937,7 +58893,7 @@ it:Salse di pomodoro
 nl:Tomatensauzen
 pt:Molhos de tomate
 ro:Sosuri de roșii
-ru:Томатные соусы
+ru:Томатные соусы, Томатный соус, Соус томатный, Соусы томатные
 sv:Tomatsåser, Tomatsås
 zh:番茄酱
 wikidata:en:Q3596097
@@ -59564,7 +59520,7 @@ ciqual_food_name:fr:Gougère
 <en:Fresh foods
 en:Fresh meals, Fresh prepared meals, Fresh prepared dishes
 bg:Пресни ястия
-ca:Aliments frescs, Aliments preparats frescs, Plats preparats frescs
+ca:Plats preparats frescs
 de:Frische Gerichte, Frisch zubereitete Gerichte
 es:Comidas preparadas frescas, Platos preparados frescos
 fi:tuoreateriat
@@ -60629,7 +60585,6 @@ ciqual_food_name:fr:Tarte aux noix de Saint-Jacques
 
 <en:Salted pies
 en:Cheese pies, Cheese tarts
-de:Käsekuchen
 fi:Juustopiirakat, Juustotortut
 fr:Tartes au fromage, Tartes aux trois fromages, Tarte au fromage
 nl:Kaastaarten
@@ -60707,7 +60662,7 @@ ciqual_food_code:en:7814
 ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
 
 <en:Salted savoury cake
-en:Savoury cake with cheese
+en:Savoury cake with cheese, Cheese savoury cake
 fr:Cake salé au fromage
 agribalyse_food_code:en:7814
 ciqual_food_code:en:7814
@@ -60723,13 +60678,6 @@ ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,e
 <en:Salted savoury cake
 en:Savoury cake with meat
 fr:Cake salé à la viande
-agribalyse_food_code:en:7814
-ciqual_food_code:en:7814
-ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-<en:Salted savoury cake
-en:Cheese savoury cake
-fr:Cake salé au fromage
 agribalyse_food_code:en:7814
 ciqual_food_code:en:7814
 ciqual_food_name:en:Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
@@ -61129,7 +61077,7 @@ ciqual_food_name:fr:Soupe aux poireaux et pommes de terre, préemballée à réc
 
 <en:Vegetable soups
 en:Tomato soups
-de:Tomatensuppen
+de:Tomatensuppen, Paradeissuppen
 es:Sopas de tomate
 fi:tomaattikeitot
 fr:soupes de tomate
@@ -61451,7 +61399,7 @@ nl:Pompoencrèmesoepen
 <en:Tomatoes and their products
 <en:Cream of vegetable soups
 en:Cream of tomato soups
-de:Tomatensuppen,Paradeissuppen
+de:Tomatencremesuppen
 es:Cremas de tomate
 fi:tomaattikeitto
 fr:Veloutés de tomates
@@ -61469,7 +61417,6 @@ fr:Veloutés de légumes du soleil
 
 # description:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
 
-<en:Groceries
 en:broths, broths, stock, bouillon, Stocks
 af:bouillon
 ar:زومات
@@ -61678,8 +61625,8 @@ ciqual_food_name:fr:Bouillon de viande et légumes type pot-au-feu, prêt à con
 
 <en:Bouillon pots
 <en:Dehydrated broths
-en:Dehydrated broth stock, Dehydrated bouillon beef
-fr:Bouillon de boeuf déshydraté
+en:Rehydrated broth stock, Rehydrated bouillon beef
+fr:Bouillon de boeuf déshydraté reconstitué
 agribalyse_food_code:en:25930
 ciqual_food_code:en:25930
 ciqual_food_name:en:Broth, stock or bouillon, beef, dehydrated and reconstituted
@@ -61765,7 +61712,6 @@ ru:Блюда из бобов
 <en:Bean dishes
 <en:Meals with meat
 en:Cassoulets, Canned white bean stew
-de:Eintöpfe, Eintopf
 fr:Cassoulets, Cassoulet aux haricots blancs appertisé, Cassoulets en conserve
 nl:Cassoulets, Cassoulet
 agribalyse_food_code:en:25002
@@ -61891,7 +61837,7 @@ fi:alkupalat
 fr:Entrées, Entrée
 it:Antipasti
 nl:Voorgerechten, Voorgerecht
-ru:Закуски
+ru:предястия
 wikidata:en:Q6545590
 
 <fr:Entrées
