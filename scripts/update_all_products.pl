@@ -422,7 +422,9 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		# Prefix untaxonomized packaging tags values with the most likely language
-		if ($prefix_packaging_tags_with_language and (defined $product_ref->{packaging}) and ($product_ref->{packaging} ne '')) {
+		# Skip products that have already been taxonomized (products which have a packaging_hierarchy field)
+		if ($prefix_packaging_tags_with_language and (defined $product_ref->{packaging}) and ($product_ref->{packaging} ne '')
+			and (not defined $product_ref->{packaging_hierarchy})) {
 			my $current_packaging = $product_ref->{packaging};
 			my @new_tags = ();
 			foreach my $tag (split(/,/, $current_packaging)) {
@@ -860,14 +862,14 @@ while (my $product_ref = $cursor->next) {
 					) {
 					# we do not know the language of the current value of $product_ref->{$field}
 					# so regenerate it in the main language of the product
-					my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-					# Remove tags
-					$value =~ s/<(([^>]|\n)*)>//g;
-
-					$product_ref->{$field} = $value;
+					
+					$product_ref->{$field} = list_taxonomy_tags_in_language($lc, $field, $product_ref->{$field . "_hierarchy"});
 				}
 
 				compute_field_tags($product_ref, $lc, $field);
+				if ($product_ref->{$field} ne $product_ref->{$field . "_old"}) {
+					$product_values_changed = 1;
+				}
 			}
 			else {
 			}
