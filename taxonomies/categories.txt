@@ -25,8 +25,6 @@ synonyms:en:Sandwich made with French bread, Baguette sandwich
 
 synonyms:ru:икра овощная, овощная икра
 
-synonyms:ru:икра из кабачков, кабачковая икра, икра кабачковая
-
 synonyms:ru:икра из баклажанов, баклажанная икра, икра баклажанная
 
 synonyms:ru:макаронные изделия, изделия макаронные
@@ -25426,7 +25424,7 @@ ciqual_food_name:fr:Palmier, artisanal
 <en:Biscuits
 en:Dry biscuits
 bg:Суши бисквити
-de:Geflügelfleischaufstriche, Geflügel-Rilletten, Geflügel-Pottsusen
+de:trockene Kekse
 es:Galletas secas
 fi:kuivat keksit
 fr:Biscuits secs, biscuit sec
@@ -34587,6 +34585,9 @@ wikidata:en:Q659277
 agribalyse_food_code:en:12848
 ciqual_food_code:en:12848
 ciqual_food_name:en:Valençay cheese, from goat's milk
+protected_name_file_number:en: PDO-FR-0076
+protected_name_type:en: pdo
+origins:en: en:France
 
 <en:French cheeses
 <en:Goat cheeses
@@ -34675,6 +34676,7 @@ ciqual_food_name:en:Brie de Meaux cheese, from cow's milk
 <en:Bries
 en:Brie de Melun, Brie de Melun cheeses, Brie de Melun cheese from cow's milk
 fr:Brie de Melun, Bries de Melun
+protected_name_file_number:en: PDO-FR-0111
 protected_name_file_number:en: PDO-FR-0111-AM01
 protected_name_type:en: pdo
 origins:en: en:France
@@ -34711,6 +34713,7 @@ ciqual_food_code:en:12722
 ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
 ciqual_food_name:fr:Cantal entre-deux
 origins:en: en:France
+protected_name_file_number:en: PDO-FR-0113
 protected_name_file_number:en: PDO-FR-0113-AM02
 protected_name_type:en: pdo
 origins:en: en:France
@@ -35016,6 +35019,9 @@ oqali_family:en: fr:Fromages - Saint marcellin et assimiles
 agribalyse_food_code:en:12049
 ciqual_food_code:en:12049
 ciqual_food_name:en:Saint-Marcellin cheese, from cow's milk
+protected_name_file_number:en: PGI-FR-0832
+protected_name_type:en: pgi
+origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -60265,7 +60271,7 @@ ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
 en:Pork meals
 bg:Ястия със свинско
 ca:Aliments del porc
-da:Svin, svinekød, gris, grisekød
+da:Svinekød måltider
 de:Schweinefleischgerichte
 es:Comidas con cerdo
 fi:Possu-ateriat
@@ -60274,7 +60280,7 @@ it:Piatti a base di carne di maiale
 nl:Varkensvleesmaaltijden
 pl:Danie z wieprzowiną, Dania z wieprzowiny, Danie z wieprzowiny
 pt:Refeiçoes com porco
-ru:Свинина
+ru:блюда из свинины
 zh:猪肉餐
 
 <en:Pork meals
@@ -60300,7 +60306,7 @@ ciqual_food_name:fr:Museau de porc vinaigrette
 
 <en:Meals with meat
 en:Poultry meals
-ca:Aus de corral
+ca:Menjars d'aus de corral
 de:Geflügelgerichte, Pouletgerichte
 es:Comidas de aves
 fi:Siipikarja-ateriat
@@ -60308,7 +60314,7 @@ fr:Plats à la volaille, plats à base de volaille, plats préparés à base de 
 hu:Baromfihúsok
 it:Pollame
 nl:Gevogelte maaltijden
-ru:Мясо птицы
+ru:Мясо птицы, Блюда из птицы
 th:ผลิตภัณฑ์จากสัตว์ปีก
 agribalyse_proxy_food_code:en:25190
 ciqual_proxy_food_code:en:25190
@@ -61650,8 +61656,8 @@ ciqual_food_name:fr:Bouillon de boeuf, déshydraté reconstitué
 
 <en:Bouillon pots
 <en:Dehydrated broths
-en:Dehydrated broth stock with poultry, Dehydrated bouillon with poultry
-fr:Bouillon de volaille déshydraté
+en:Rehydrated broth stock with poultry, Rehydrated bouillon with poultry
+fr:Bouillon de volaille déshydraté reconstitué
 agribalyse_food_code:en:25947
 ciqual_food_code:en:25947
 ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated and reconstituted
@@ -62315,7 +62321,7 @@ ciqual_food_name:fr:Légume cuit (aliment moyen)
 
 <en:Prepared vegetables
 en:Grated carrots
-de:geriebene Karotten, geraspelte Karotten
+de:Geriebene Karotten, geraspelte Karotten
 es:Zanahorias ralladas
 fi:raastetut porkkanat
 fr:Carottes râpées
@@ -62328,8 +62334,8 @@ agribalyse_proxy_food_name:en:Carrot, raw
 agribalyse_proxy_food_name:fr:Carotte, crue
 
 <en:Grated carrots
-en:Seasoned shredded carrots, Seasoned grated carrots
-de:Geriebene Karotten, Karottensalat
+en:Seasoned grated carrots, Seasoned shredded carrots
+de:Gewürzte geriebene Karotten
 fi:maustetut raastetut porkkanat
 fr:Carottes râpées assaisonnées
 nl:Aangemaakte geraspte wortels
@@ -62433,12 +62439,12 @@ ciqual_food_name:fr:Focaccia, garnie
 en:Pizzas pies and quiches, Pizza pies and quiches
 bg:Пица и киш
 ca:Pizzes i quiches
-de:Pizzas, Kuchen und Quiches
-es:Pizzas, empanadas y quiches
+de:Pizzas - Kuchen und Quiches
+es:Pizzas - empanadas y quiches
 fi:pizzat ja piirakat
 fr:Pizzas tartes salées et quiches
 it:Pizze e torte salate
-nl:Pizzas hartige taarten en quiches
+nl:Pizzas - hartige taarten en quiches
 ru:Пицца и солёные открытые пироги
 food_groups:en: en:Pizza pies and quiches
 pnns_group_2:en:Pizza pies and quiches
@@ -62757,7 +62763,7 @@ nl:Kant-en-klaarmaaltijden met minder vet
 <en:Meals
 en:Microwave meals, TV dinners, prepackaged meals, ready-made meals, ready meals
 ca:Aliments per microones
-de:Fertiggerichte, Fertiggericht
+de:Mikrowellengerichte
 es:Comidas para microondas
 fi:mikroaaltouuniateriat
 fr:plats préparés à réchauffer au micro-ondes, plats préparés au micro-onde, plat-préparé au micro-onde, plat au micro-onde, plats à réchauffer au micro-onde
@@ -62917,7 +62923,7 @@ de:Quiches
 es:Quiche
 fi:suolaiset piirakat
 fr:Quiches, Quiches salées, Quiche salée, Quiche
-it:Torte salate, quiche
+it:Quiches
 nl:Quiches
 wikidata:en:Q722595
 ciqual_food_code:en:25573
@@ -63980,7 +63986,7 @@ ciqual_food_name:fr:Boeuf, côte, crue
 
 <en:Beef meat
 en:Beef short ribs
-fr:côtes de boeuf, Plats de côtes de boeuf
+fr:Plats de côtes de boeuf
 agribalyse_food_code:en:6122
 ciqual_food_code:en:6122
 ciqual_food_name:en:Beef, short ribs, raw
@@ -64539,7 +64545,7 @@ es:Preparados de carne
 fi:lihavalmisteet
 fr:Préparations de viande
 it:Preparazioni a base di carne
-nl:Vleesproducten
+nl:Vleesbereidingen
 
 <en:Meat preparations
 <en:Skewers
@@ -64680,9 +64686,9 @@ ciqual_food_name:fr:Bresaola
 <en:Beef steaks
 <en:Ground steaks
 en:Ground beef steaks
-de:Hackfleischsteaks
+de:Hackfleischrindsteaks
 es:Filetes de carne picada
-fi:jauhelihapihvit
+fi:Naudan jauhelihapihvit
 fr:Steaks de bœuf hachés, steaks hachés de bœuf, Steak de bœuf haché, steak haché de bœuf
 it:Hamburger di manzo
 nl:Rundertartaarsteaks
@@ -64777,7 +64783,7 @@ ciqual_food_name:fr:Boeuf, steak ou bifteck, grillé
 en:Ground beef preparations, ground beef meat preparations
 de:Rinderhackprodukte, Rinderhackfleisch
 es:Preparados de vaca picada
-fi:jauhelihavalmisteet
+fi:Naudan jauhelihavalmisteet
 fr:Préparations de viande bovine hachée, Préparations hachées de viande bovine, préparations hachées de viande bœuf, préparation de viande de bœuf hachée
 it:Macinato di manzo
 nl:Gehakt rundvleesproducten
@@ -64823,7 +64829,7 @@ es:Preparados de carne congelada
 fi:Lihavalmistepakasteet
 fr:Préparations de viande surgelées
 it:Preparazioni surgelate a base di carne
-nl:Bevroren vleesproducten
+nl:Bevroren vleesbereidingen
 
 <en:Frozen steaks
 <en:Ground steaks
@@ -64847,9 +64853,9 @@ nl:Bevroren vleesproducten
 <en:Ground beef steaks
 <en:Frozen ground steaks
 en:Frozen ground beef steaks
-fi:pakastetut jauhelihapihvit
+fi:Pakastetut naudanjauhelihapihvit
 fr:Steaks hachés de bœuf surgelés
-it:Hamburger surgelati, Hamburger congelati
+it:Bistecche di manzo macinate congelate
 nl:Diepvriesrundertartaarsteaks
 
 <en:Ground beef preparations
@@ -64935,7 +64941,7 @@ nl:Verse gehakte vleesproducten
 <en:Ground beef steaks
 <en:Fresh ground steaks
 en:Fresh ground beef steaks
-fi:tuoreet jauhelihapihvit
+fi:tuoreet naudanjauhelihapihvit
 fr:Steaks hachés de bœuf frais, steaks de bœuf hachés frais
 nl:Verse rundertartaarsteaks
 
@@ -65501,7 +65507,7 @@ nl:Gevogelten
 pl:Mięso drobiowe, Drób
 pt:Avícolas
 ru:Мясо сельскохозяйственных птиц
-sv:Kycklingkött
+sv:Fjäderfän
 th:สัตว์ปีก
 zh:家禽
 food_groups:en: en:Poultry
@@ -66631,7 +66637,7 @@ de:Hähnchen-brustfilet in Scheiben
 es:Fiambre de pechuga de pollo, Pechuga de pollo cocida en lonchas
 fi:kanaleikkele
 fr:Blancs de poulet en tranches, Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
-nl:Kippendijen, Kippendij
+nl:Gekookte gesneden kippenborsten
 zh:鸡火腿
 agribalyse_food_code:en:28963
 ciqual_food_code:en:28963
@@ -66760,7 +66766,7 @@ es:Pechuga de pavo
 fi:kalkkunan rinnat
 fr:Blancs de dinde, blancs de dindes, blanc de dindes, blanc de dinde
 it:Petti di tacchino
-nl:Kalkoenfilets
+nl:Kalkoenborsten
 agribalyse_food_code:en:28964
 ciqual_food_code:en:28964
 ciqual_food_name:en:Turkey cooked ham, in slices
@@ -67067,8 +67073,8 @@ fr:Steak hâché de porc, Steak hâché de porc
 
 <en:Hams
 en:Braised hams
-de:geschmorter Schinken
-es:jamón braceado
+de:Geschmorter Schinken
+es:Jamón braceado
 fr:Jambons braisés
 hu:Párolt sonka
 it:Prosciutti brasati
@@ -67252,7 +67258,7 @@ fr:Jambon de derrière
 
 <en:Hams
 en:cured ham
-de:Schinken
+de:Unbehandelte Schinken
 es:jamón de país, jamón salado
 fr:Jambons crus, jambon cru
 it:Prosciutti crudi
@@ -67271,7 +67277,7 @@ es:Jamones secos
 fi:kuivatut kinkut
 fr:Jambons secs, jambon sec
 hu:Szárított sonkák
-it:Prosciutti crudi, prosciutto crudo
+it:Prosciutti secci, prosciutto secco
 nl:Gedroogde hammen, Gedroogde ham
 pt:Presuntos secos
 agribalyse_food_code:en:28812
@@ -67474,7 +67480,7 @@ nl:Potjesvlezen, Potjesvlees
 
 <en:Potted meats
 en:white meat rillettes
-de:Geflügelfleischaufstriche, Geflügel-Rilletten, Geflügel-Pottsusen
+de:Rillettes aus weißem Fleisch
 fr:Rillettes de viande blanche
 it:Rillettes di carni bianche
 nl:Wit vleesriletten
@@ -68476,7 +68482,7 @@ fr:Allumettes de porc
 
 <fr:Allumettes de porc
 en:Lardons, pork lardons, lardoons, lardings
-de:Speck, Schweinespeck
+de:Speckwürfel
 fi:laardi
 fr:Lardons de porc, Lardons
 nl:Spekjes
@@ -70104,11 +70110,6 @@ protected_name_file_number:en: PDO-FR-0838
 protected_name_type:en: pdo
 origins:en: en:France
 
-<en:French cheeses
-fr:Saint-Marcellin
-protected_name_file_number:en: PGI-FR-0832
-protected_name_type:en: pgi
-origins:en: en:France
 
 <en:French cheeses
 fr:Gruyère
@@ -70116,11 +70117,6 @@ protected_name_file_number:en: PGI-FR-0612
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:French cheeses
-fr:Valençay
-protected_name_file_number:en: PDO-FR-0076
-protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French cheeses
 fr:Morbier
@@ -70128,17 +70124,7 @@ protected_name_file_number:en: PDO-FR-0179
 protected_name_type:en: pdo
 origins:en: en:France
 
-<en:French cheeses
-fr:Brie de Melun
-protected_name_file_number:en: PDO-FR-0111
-protected_name_type:en: pdo
-origins:en: en:France
 
-<en:French cheeses
-fr:Cantal, fourme de Cantal, cantalet
-protected_name_file_number:en: PDO-FR-0113
-protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French cheeses
 fr:Comté
