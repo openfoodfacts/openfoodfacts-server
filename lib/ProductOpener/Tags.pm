@@ -74,6 +74,7 @@ BEGIN
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
 		&build_tags_taxonomy
+		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
 		&canonicalize_taxonomy_tag_linkeddata
@@ -2805,6 +2806,24 @@ sub get_tag_image($$$) {
 }
 
 
+=head2 display_tags_hierarchy_taxonomy ( $target_lc, $tagtype, $tags_ref )
+
+Generates a comma separated list of tags in the target language, with links and images.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+Reference to a list of tags. (usually the *_tags field corresponding to the tag type)
+
+=cut
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2841,6 +2860,41 @@ HTML
 }
 
 
+=head2 list_taxonomy_tags_in_language ( $target_lc, $tagtype, $tags_ref )
+
+Generates a comma separated (with a space after the comma) list of tags in the target language.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+Reference to a list of tags. (usually the *_tags field corresponding to the tag type)
+
+The tags are expected to be in their canonical format.
+
+=cut
+
+sub list_taxonomy_tags_in_language($$$) {
+
+	my $target_lc = shift; $target_lc =~ s/_.*//;
+	my $tagtype = shift;
+	my $tags_ref = shift;
+
+	if (defined $tags_ref) {
+		return join(', ', map( display_taxonomy_tag($target_lc, $tagtype, $_), @{$tags_ref}) );
+	}
+	else {
+		return "";
+	}
+}
+
+
 sub canonicalize_saint($) {
 	my $s = shift;
 	return "Saint-" . ucfirst($s);
@@ -2856,8 +2910,6 @@ sub capitalize_tag($)
 	$tag =~ s/(?<=_)(de|du|des|au|aux|des|à|a|en|le|la|les)(?=_)/lcfirst($1)/eig;
 	return $tag;
 }
-
-
 
 
 sub canonicalize_tag2($$)
@@ -3843,11 +3895,8 @@ sub add_tags_to_field($$$$) {
 		if (defined $taxonomy_fields{$field}) {
 			# we do not know the language of the current value of $product_ref->{$field}
 			# so regenerate it in the current language used by the interface / caller
-			$value = display_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
+			$value = list_taxonomy_tags_in_language($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
 			print STDERR "add_tags_to_fields value: $value\n";
-			
-			# Remove tags
-			$value =~ s/<(([^>]|\n)*)>//g;
 		}
 		else {
 			$value = $product_ref->{$field};
