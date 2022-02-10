@@ -468,6 +468,7 @@ while (my $product_ref = $cursor->next) {
 			my $new_packaging = join(',', @new_tags);
 			if ($new_packaging ne $current_packaging) {
 				$product_ref->{packaging} = $new_packaging;
+				$product_ref->{packaging_old_before_taxonomization} = $current_packaging;
 				compute_field_tags($product_ref, $product_ref->{lc}, "packaging");
 				$product_values_changed = 1;
 			}
