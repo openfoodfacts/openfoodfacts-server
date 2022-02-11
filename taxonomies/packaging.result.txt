@@ -65,7 +65,7 @@ el:Σακούλα
 es:bolsa, bolsas
 fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons
 hu:Zacskó, zacskók, tasak, tasakos
-it:Sacco
+it:Sacco, sacchetto, sacchettino
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
@@ -96,6 +96,7 @@ en:Bottle, bottles
 da:Flaske, flasker
 de:Flasche, Flaschen
 el:Μπουκάλι
+es:botella, botellas
 fr:Bouteille, bouteilles
 hu:Palack, palackok
 it:Bottiglia
@@ -135,7 +136,7 @@ el:Κουτί
 es:caja, cajas
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
-it:Scatola, scatole
+it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pak, Pakje, Pakken, Pakjes
 pt:Caixa, caixas
 
@@ -205,7 +206,7 @@ nl:Spuitbus, spuitbussen
 
 en:canned, appertized
 de:Konserve
-es:conserva, en conserva
+es:conserva, en conserva, enlatado, enlatada
 fr:conserve, en conserve, appertisé, appertisés, appertisée, appertisées
 
 en:card
@@ -292,6 +293,7 @@ en:Coffee pad
 nl:Koffiepad
 
 en:container, carton
+es:recipiente
 fr:récipient
 
 en:Cork
@@ -375,7 +377,9 @@ hu:kanál, kanalak
 pt:Colher, colheres
 
 en:envelope
+es:sobre
 fr:enveloppe
+it:busta
 nl:wikkel, vensterenvelop, sleeve
 
 en:fabric, fabrics
@@ -401,16 +405,18 @@ pt:Película, películas, filme, filmes, filme extensível, filme estirável
 weight:en: light
 
 en:fresh
+es:fresco, frescos, fresca, frescas
 fr:frais, fraîche, fraîches
 
 en:frozen
-es:congelado, congelada, congelados, congeladas
+es:congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
 fr:surgelé, surgelés, surgelée, surgelées, congelé, congelés, congelée, congelées
+it:surgelato
 
 en:Glass
 da:Glas
 de:Glas
-es:Vidrio
+es:Vidrio, cristal
 fr:Verre
 hu:Üveg
 it:Vetro
@@ -421,7 +427,7 @@ wikidata:en: Q11469
 < en:Glass
 en:Brown Glass
 fr:Verre brun
-xx:72 GL, 72 GLS
+xx:72 GL, 72 GLS, 72GL, GL72
 
 < en:Glass
 en:Clear Glass
@@ -431,7 +437,7 @@ fr:Verre transparent
 hu:Fehér üveg
 nl:transparant glas
 pt:Vidro transparente
-xx:70 GL, 70 GLS
+xx:70 GL, 70 GLS, GL 70, 70GL, GL70
 
 < en:Glass
 en:Copper Mixed/Copper Backed Glass, Copper Mixed Glass, Copper Backed Glass
@@ -443,7 +449,7 @@ de:Dunkles Sortierglas
 fr:Verre sombre
 hu:Sötét válogatott üveg
 nl:Donker glas
-xx:73 GL, 73 GLS
+xx:73 GL, 73 GLS, GL73, GL 73
 
 < en:Glass
 en:Gold Mixed/Gold Backed Glass, Gold Mixed Glass, Gold Backed Glass
@@ -457,7 +463,7 @@ fr:Verre vert
 hu:Zöld üveg
 nl:Groen glas
 pt:Vidro verde
-xx:71 GL, 71 GLS
+xx:71 GL, 71 GLS, 71GL, GL71, GL 71
 
 < en:Glass
 en:Leaded Glass
@@ -504,10 +510,11 @@ fr:dose invididuelle, doses individuelles, dosette, dosettes
 en:Jar, jars
 de:Krug
 el:Βάζο
+es:Tarro
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
-nl:Pot, Potten
+nl:Pot, Potten, Bokaal, Bokaalen
 pt:Jarro, jarros, jarra, jarras
 
 en:Jug, jugs
@@ -584,7 +591,7 @@ ja:スチール
 nl:Staal
 pt:Aço
 ru:Сталь
-xx:40 FE
+xx:40 FE, FE 40
 wikidata:en: Q11427
 
 en:Mold
@@ -648,10 +655,11 @@ fr:Suremballage, sur-emballage, suremballages, sur-emballages
 hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
 pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
-en:pack, packet, packs, packets
+en:pack, packet, packs, packets, package
 de:Packung
 es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
+it:pacchetto
 
 en:packaging
 fr:emballage
@@ -804,7 +812,7 @@ it:Altre plastiche
 nl:Andere plastics
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
-xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7
+xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7, O-7, O-07
 non_recyclable_and_non_biodegradable:en: yes
 
 < en:Plastic
@@ -866,8 +874,8 @@ pt:Prato, pratos
 
 en:pot, cup, pots, cups
 de:Kanne, Becher
-es:Bote, botes
-fr:Pot, pots, coupelle, coupelles, verrine, verrines
+es:Bote, botes, vaso, vasos
+fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões
@@ -889,7 +897,9 @@ fr:Housse, housses, housse de protection, housses de protection
 
 en:protective gas, protective atmosphere
 de:schutzatmosphäre
+es:atmósfera protectora, Envasado en atmósfera protectora
 fr:sous atmosphère protectrice, atmosphère protectrice, conditionné sous atmosphère protectrice
+it:atmosfera protettiva, in atmosfera protettiva, confezionato in atmosfera protettiva
 
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
@@ -925,7 +935,7 @@ ja:アルミ
 nl:Aluminium
 pt:Alumínio
 ru:Алюминий
-xx:41 ALU, ALU 41, ALU
+xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en: Q663
 
 en:recycle, to recycle, to be recycled, recyclable
@@ -1062,6 +1072,9 @@ fr:briquette, briquettes
 en:spout, pouring spout, pour spout
 fr:verseur, bec verseur
 
+en:squeeze bottle
+fr:flacon souple, flacon pressable, flacon à presser, squeezer
+
 < en:Steel
 en:Tin-plated steel
 fr:Fer blanc
@@ -1087,6 +1100,7 @@ en:Tea bag
 nl:Theezakje
 
 en:Terrine pot, terrine pots
+es:Tarrina, tarrinas
 fr:Terrine, terrines
 
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
@@ -1109,6 +1123,7 @@ en:Tray, trays, tray with indents, shell, shells
 de:Tablettverpackung, Tablett, Schale
 fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs, bac, bacs
 hu:Tálca, tálcák
+it:Vaschetta
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
@@ -1133,8 +1148,10 @@ nl:Onbekend
 pt:Desconhecido
 non_recyclable_and_non_biodegradable:en: maybe
 
-en:vacuum-packed, sous-vide
+en:vacuum-packed, vacuum-sealed, sous-vide, vacuum
+es:al vacío, envasado al vacío
 fr:sous-vide
+it:sottovuoto
 
 en:Vial, flask
 fr:Flacon
@@ -1171,6 +1188,7 @@ xx:50 FOR
 wikidata:en: Q287
 
 en:wrapper, wrapping
+es:envoltorio
 fr:enveloppage
 
 en:Zinc–carbon battery

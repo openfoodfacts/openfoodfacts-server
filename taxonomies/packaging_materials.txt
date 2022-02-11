@@ -228,7 +228,7 @@ it:Altre plastiche
 nl:Andere plastics
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
-xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7
+xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7, O-7, O-07
 non_recyclable_and_non_biodegradable:en:yes
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
@@ -440,7 +440,7 @@ nl:Staal
 pt:Aço
 ru:Сталь
 ja:スチール
-xx:40 FE
+xx:40 FE, FE 40
 wikidata:en:Q11427
 
 <en:steel
@@ -458,7 +458,7 @@ nl:Aluminium
 pt:Alumínio
 ru:Алюминий
 ja:アルミ
-xx:41 ALU, ALU 41, ALU
+xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
 
 <en:Aluminium
@@ -531,7 +531,7 @@ xx:62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 en:Glass
 da:Glas
 de:Glas
-es:Vidrio
+es:Vidrio, cristal
 fr:Verre
 hu:Üveg
 it:Vetro
@@ -547,7 +547,7 @@ fr:Verre transparent
 hu:Fehér üveg
 nl:transparant glas
 pt:Vidro transparente
-xx:70 GL, 70 GLS
+xx:70 GL, 70 GLS, GL 70, 70GL, GL70
 
 <en:Glass
 en:Green Glass
@@ -557,12 +557,12 @@ fr:Verre vert
 hu:Zöld üveg
 nl:Groen glas
 pt:Vidro verde
-xx:71 GL, 71 GLS
+xx:71 GL, 71 GLS, 71GL, GL71, GL 71
 
 <en:Glass
 en:Brown Glass
 fr:Verre brun
-xx:72 GL, 72 GLS
+xx:72 GL, 72 GLS, 72GL, GL72
 
 <en:Glass
 en:Dark Sort Glass
@@ -570,7 +570,7 @@ de:Dunkles Sortierglas
 fr:Verre sombre
 hu:Sötét válogatott üveg
 nl:Donker glas
-xx:73 GL, 73 GLS
+xx:73 GL, 73 GLS, GL73, GL 73
 
 <en:Glass
 en:Light Sort Glass

@@ -15,6 +15,7 @@ pt:Desconhecido
 # Currently removed to avoid confusion with the French carton (cardboard). Can be added back later once packagings are fully taxonomized.
 
 en:container, carton
+es:recipiente
 fr:récipient
 
 # undefined packaging shape: (e.g. "plastic packaging")
@@ -22,26 +23,29 @@ en:packaging
 fr:emballage
 
 # e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
-en:pack, packet, packs, packets
+en:pack, packet, packs, packets, package
 de:Packung
 es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
+it:pacchetto
 
 # adding French "fond" as a synonym of tray, used for some candy packs: "couvercle en métal, fond en plastique"
 en:Tray, trays, tray with indents, shell, shells
 de:Tablettverpackung, Tablett, Schale
 fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs, bac, bacs
 hu:Tálca, tálcák
+it:Vaschetta
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
 en:Jar, jars
 de:Krug
 el:Βάζο
+es:Tarro
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
-nl:Pot, Potten
+nl:Pot, Potten, Bokaal, Bokaalen
 pt:Jarro, jarros, jarra, jarras
 #suggest:packaging_materials:nl: en:glass
 
@@ -51,7 +55,7 @@ el:Κουτί
 es:caja, cajas
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
-it:Scatola, scatole
+it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pak, Pakje, Pakken, Pakjes
 pt:Caixa, caixas
 #suggest:packaging_materials:nl: en:paper, en:cardboard
@@ -78,6 +82,7 @@ en:Bottle, bottles
 da:Flaske, flasker
 de:Flasche, Flaschen
 el:Μπουκάλι
+es:botella, botellas
 fr:Bouteille, bouteilles
 hu:Palack, palackok
 it:Bottiglia
@@ -131,8 +136,8 @@ pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, l
 
 en:pot, cup, pots, cups
 de:Kanne, Becher
-es:Bote, botes
-fr:Pot, pots, coupelle, coupelles, verrine, verrines
+es:Bote, botes, vaso, vasos
+fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
 pt:Pote, potes, boião, boiões
@@ -170,7 +175,7 @@ el:Σακούλα
 es:bolsa, bolsas
 fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons
 hu:Zacskó, zacskók, tasak, tasakos
-it:Sacco
+it:Sacco, sacchetto, sacchettino
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
@@ -439,11 +444,14 @@ en:Clamping ring
 fr:Collier
 
 en:wrapper, wrapping
+es:envoltorio
 fr:enveloppage
 #suggest:packaging_materials:en: en:metal, en:paper, en:other
 
 en:envelope
+es:sobre
 fr:enveloppe
+it:busta
 nl:wikkel, vensterenvelop, sleeve
 #suggest:packaging_materials:en: en:cardboard, en:paper
 
@@ -460,6 +468,9 @@ fr:Housse, housses, housse de protection, housses de protection
 en:pump bottle, spray, spray bottle, applicator bottle
 fr:Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
 #suggest:packaging_materials:en: en:plastic, en:metal, en:glass
+
+en:squeeze bottle
+fr:flacon souple, flacon pressable, flacon à presser, squeezer
 
 en:Aerosol can, aerosol cans
 fr:Aérosol, aérosols
@@ -485,8 +496,8 @@ fr:Seau, seaux
 
 # CITEO only translates it by pot
 en:Terrine pot, terrine pots
+es:Tarrina, tarrinas
 fr:Terrine, terrines
-#suggest:packaging_materials:en: en:stoneware, en:ceramic
 
 en:Barrel, barrels, drum, drums, keg, kegs
 fr:Tonneau, tonneaux, tonnelet, tonnelets
