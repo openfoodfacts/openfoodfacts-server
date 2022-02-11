@@ -118,7 +118,7 @@ fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
 hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
 it:coloranti naturali, colorante naturale
-nl:Natuurlijke kleurstoffen
+nl:natuurlijke kleurstoffen, natuurlijk kleurstof
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
 <en:colour
@@ -8600,7 +8600,7 @@ lv:Krējums
 mr:साय
 ms:Krim
 nb:Fløte
-nl:room
+nl:room, melkroom
 nn:Kremfløyte
 pl:Śmietanka
 pt:nata, creme de leite, natas
@@ -27124,6 +27124,10 @@ fr:flocons de sarrasin complets
 nl:volle boekweitvlokken
 
 <en:buckwheat
+en:buckwheat grit
+nl:boekweitgrut
+
+<en:buckwheat
 <en:flour
 en:buckwheat flour
 da:boghvedemel
@@ -29245,12 +29249,6 @@ ciqual_food_code:en:20900
 ciqual_food_name:en:Soya flour
 ciqual_food_name:fr:Farine de soja
 
-<en:corn
-en:Maize bran, Corn bran
-fr:Son de maïs
-ciqual_food_code:en:9641
-ciqual_food_name:en:Maize/corn bran
-ciqual_food_name:fr:Son de maïs
 
 <en:soya flour
 fr:farine de soja degraissée
@@ -29345,6 +29343,7 @@ fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
 # ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
+
 
 #category/rice-flours
 <en:flour
@@ -29726,6 +29725,13 @@ fr:Fibre de maïs
 nl:maïsvezel
 sk:kukuričná vláknina
 
+<en:corn
+en:Maize bran, Corn bran
+fr:Son de maïs
+ciqual_food_code:en:9641
+ciqual_food_name:en:Maize/corn bran
+ciqual_food_name:fr:Son de maïs
+
 <en:corn fiber
 en:soluble corn fiber
 
@@ -29768,7 +29774,7 @@ fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
-nl:Maïsgrits
+nl:Maïsgrits, maisgrut
 pl:grys kukurydziany, kasza kukurydziana
 pt:grãos de milho
 ro:porumb boabe
@@ -47974,7 +47980,7 @@ es:extracto de achicoria
 fi:sikuriuute
 fr:extrait de chicorée, extraits de chicorée
 it:estratto di cicoria, Estratti di cicoria
-nl:cichorei-extract
+nl:cichorei-extract, chicorei extract
 # ingredient/extract-of-chicory has 31 products @2019-04-04
 
 <en:vegetable
@@ -55888,6 +55894,10 @@ ciqual_food_code:en:20534
 ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
+
+<en:lupin
+en:lupin grit
+nl:lupinegrut
 
 #processing:en: en:flour
 <en:flour
@@ -80034,6 +80044,7 @@ es:proteína de huevo
 fi:munaproteiini
 fr:protéine d'œuf, protéine d'oeuf
 it:proteina dell'uovo, proteine dell'uovo
+nl:ei-proteine
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
 # <en:compound
