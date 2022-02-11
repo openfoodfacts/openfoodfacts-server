@@ -1,4 +1,4 @@
-/*global exports */
+/*global test exports */
 
 const { src, dest, series, parallel, watch } = require("gulp");
 const concat = require("gulp-concat");
