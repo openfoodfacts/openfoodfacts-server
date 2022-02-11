@@ -4593,12 +4593,12 @@ msgid "Missing information: fair trade product?"
 msgstr "Missing information: fair trade product?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
-msgid "Helps producers in developping countries."
-msgstr "Helps producers in developping countries."
+msgid "Helps producers in developing countries."
+msgstr "Helps producers in developing countries."
 
 msgctxt "attribute_labels_fair_trade_description_short"
-msgid "Fair trade products help producers in developping countries."
-msgstr "Fair trade products help producers in developping countries."
+msgid "Fair trade products help producers in developing countries."
+msgstr "Fair trade products help producers in developing countries."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4626,12 +4626,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score not computed"
+msgid "Nutri-Score unknown"
+msgstr "Nutri-Score unknown"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Unknown nutritional quality"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "Missing data to compute the Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Score not-applicable"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "Exempted category"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5980,3 +5988,16 @@ msgstr "This might not be the answer people want to hear, but there is no safe l
 msgctxt "source"
 msgid "Source"
 msgstr "Source"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "A user of the {app_name} app"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "food groups"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "food group"

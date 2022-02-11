@@ -450,7 +450,7 @@ my @tests = (
 			lc => "fr",
 			categories_tags=>["en:energy-drinks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
-			ingredients_text => "Water",
+			ingredients_text => "Eau, caféine",
 		},
 	],
 
@@ -508,6 +508,39 @@ my @tests = (
 		},
 	],
 
+	# FR: verseur en plastique
+	[
+		'fr-verseur-en-plastique',
+		{
+			lc => "fr",
+			categories_tags=>["en:olive-oils"],
+			ingredients_text => "Huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques.",
+			packaging_text => "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g"
+		},
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			categories => "endives au jambon",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	],
+
+	# Label that indicates the origin of an ingredient, but no ingredient list
+	# (common for products with only 1 ingredient like eggs)
+	[
+		"fr-oeufs-de-france",
+		{
+			lc => "fr",
+			categories => "oeufs",
+			labels => "oeufs de France",
+		}
+	],	
+
 );
 
 
@@ -519,6 +552,14 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
+
+	if (defined $product_ref->{categories}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+	}		
 	
 	# Parse the ingredients (and extract the origins), and compute the ingredients percent
 	extract_ingredients_from_text($product_ref);

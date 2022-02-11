@@ -25,7 +25,7 @@
       {
          "id" : "en:wheat-flour",
          "origins" : "en:france",
-         "percent" : "33",
+         "percent" : 33,
          "percent_estimate" : 25,
          "text" : "farine de blé",
          "vegan" : "yes",
@@ -42,13 +42,21 @@
          "from_palm_oil" : "maybe",
          "id" : "en:butterfat",
          "origins" : "en:france",
-         "percent" : "6.5",
+         "percent" : 6.5,
          "percent_estimate" : 0,
          "text" : "beurre concentré",
          "vegan" : "no",
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:flavouring"
+      ],
+      "en:non-vegan" : [
+         "en:butterfat"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:may-contain-palm-oil",
       "en:non-vegan",

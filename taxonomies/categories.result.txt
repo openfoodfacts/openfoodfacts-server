@@ -10188,13 +10188,6 @@ fr:Flocons de sarrasin
 nl:Boekweitvlokken
 ro:Fulgi de hrișcă
 
-< en:Cereal flakes
-en:Cereal flakes with nuts, Wheat flakes with almonds fortified with vitamins and chemical elements, Wheat flakes with hazelnuts fortified with vitamins and chemical elements, Wheat flakes with walnuts fortified with vitamins and chemical elements
-fr:Pétales de céréales aux fruits à coques, Pétales de blé avec amandes enrichis en vitamines et minéraux, Pétales de blé avec noix enrichis en vitamines et minéraux, Pétales de blé avec noisettes enrichis en vitamines et minéraux
-agribalyse_food_code:en: 32123
-ciqual_food_code:en: 32123
-ciqual_food_name:en: Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
-
 < en:Cereal flours
 en:Barley flours, Barley flour
 ar:دقيق الشعير
@@ -12934,11 +12927,7 @@ origins:en: en:united-kingdom
 wikidata:en: Q3566692
 
 < en:Cheeses from England
-en:Wensleydale cheese, Yorkshire Wensleydale
-origins:en: en:united-kingdom,en:england,en:Yorkshire
-protected_name_file_number:en: PGI-GB-0652
-protected_name_type:en: pgi
-wikidata:en: Q1972540
+en:Wensleydale cheese
 
 < en:Cheeses from England
 en:Wrekin White
@@ -15611,6 +15600,10 @@ it:Caffè-latte, Latte al caffè
 nl:Koffiedranken met melk
 ro:Lapte pentru cafea
 
+< en:Coffee milks
+en:Dried Coffee milks
+nl:Koffiecreamers
+
 < en:Coffees
 en:Arabica coffees
 fr:Café Arabica
@@ -17741,10 +17734,6 @@ nl:Lactosevrije room, Lactosevrije romen, Room zonder lactose, Romen zonder lact
 sv:Laktosfri grädde
 
 < en:Creams
-en:Liquid cream
-fr:Crème de lait semi-épaisse
-
-< en:Creams
 en:Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
 fr:Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
 agribalyse_food_code:en: 19433
@@ -17759,8 +17748,20 @@ fr:Crèmes sous pression
 nl:Slagroomflessen
 
 < en:Creams
-en:Thick cream
-fr:Crème de lait épaisse
+en:UHT Creams
+de:H-Sahne, H-Schlagsahne
+fi:Iskukuumennetut kermat
+fr:Crèmes UHT
+it:Creme UHT
+nl:UHT room, UHT romen
+agribalyse_proxy_food_code:en: 19415
+agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
+
+< en:Creams
+en:Unfermented creams, Liquid creams, liquid cream
+fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
+it:Panne da cucina, panna da cucina
 
 < en:Creams
 en:Whipped creams
@@ -17807,8 +17808,7 @@ fr:Crèmes fraîches
 fr:Crèmes légères, crèmes fraîches légères, Crème fraîche légère, crème légère
 
 < en:Creams
-fr:Crèmes liquides, crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
-it:Panne da cucina, panna da cucina
+fr:Crèmes semi-épaisses, Crème de lait semi-épaisse
 
 < en:Creamy almond turrón
 es:Turrón de Jijona
@@ -22548,6 +22548,13 @@ nl:Verdikte melken met suiker
 wikidata:en: Q2830455
 
 < en:Extruded cereals
+en:Cereal flakes with nuts, Wheat flakes with almonds fortified with vitamins and chemical elements, Wheat flakes with hazelnuts fortified with vitamins and chemical elements, Wheat flakes with walnuts fortified with vitamins and chemical elements
+fr:Pétales de céréales aux fruits à coques, Pétales de blé avec amandes enrichis en vitamines et minéraux, Pétales de blé avec noix enrichis en vitamines et minéraux, Pétales de blé avec noisettes enrichis en vitamines et minéraux
+agribalyse_food_code:en: 32123
+ciqual_food_code:en: 32123
+ciqual_food_name:en: Breakfast cereals, wheat flakes with walnuts, hazelnuts or almonds, fortified with vitamins and chemical elements
+
+< en:Extruded cereals
 en:Filled cereals
 de:Gefüllte Cerealien
 es:Cereales rellenos
@@ -22607,9 +22614,9 @@ ca:Barreja de flocs de cereals
 de:gemischte Getreideflocken
 es:Mezclas de copos de cereales
 fi:hiutalesekoitus
-fr:Pétales multicéréales, mélanges de flocons de céréales
+fr:Pétales multicéréales
 hu:Vegyes gabonapelyhek
-it:Fiocchi di cereali misti
+it:Fiocchi multicereali, Fiocchi di cereali misti
 nl:Gemengde granenvlokken
 ru:Мультизерновые хлопья
 
@@ -23062,6 +23069,22 @@ fr:Graines de fenugrec entiers
 nl:Hele fenegriekzaden
 
 < en:Fermented creams
+en:Refrigerated 15-20% fat light thick cream
+fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
+agribalyse_food_code:en: 19431
+ciqual_food_code:en: 19431
+ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
+ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
+
+< en:Fermented creams
+en:Refrigerated 30% fat thick cream
+fr:Crèmes épaisses entières, Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
+agribalyse_food_code:en: 19410
+ciqual_food_code:en: 19410
+ciqual_food_name:en: Thick cream 30% fat, refrigerated
+ciqual_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
+
+< en:Fermented creams
 en:Sour creams, Crèmes fraîches
 cs:Zakysaná smetana
 de:Sauerrahm
@@ -23219,10 +23242,10 @@ wikidata:en: Q12740385
 
 < en:Creams
 < en:Fermented milk products
-en:Fermented creams
+en:Fermented creams, Thick cream
 de:Fermentierter Rahm, Gesäuerter Rahm
 fi:Fermentoidut kermat
-fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse
+fr:Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
 hu:Erjesztett krémek
 it:Creme fermentate
 nl:Gefermenteerde room
@@ -24754,6 +24777,10 @@ agribalyse_food_code:en: 18028
 ciqual_food_code:en: 18028
 ciqual_food_name:en: Bottled water, flavoured, without sugar and artificial sweeteners
 ciqual_food_name:fr: Boisson à l'eau minérale ou de source, aromatisée, non sucrée, sans édulcorant
+
+< en:Flavored waters
+en:Flavored spring waters, flavored spring water
+fr:Eaux de sources aromatisées, eau de source aromatisée
 
 < en:Flavored waters
 en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavored waters
@@ -38530,9 +38557,10 @@ nl:Lupinemelen
 
 < en:Legume flours
 en:Soybean flours, Soya flour
+da:Sojabønnemel
 es:Harinas de soja
 fr:Farines de soja
-nl:Sojaboonmelen
+nl:Sojaboonmelen, Sojabonenmelen
 agribalyse_food_code:en: 20900
 ciqual_food_code:en: 20900
 ciqual_food_name:en: Soya flour
@@ -38865,6 +38893,12 @@ agribalyse_food_code:en: 25010
 ciqual_food_code:en: 25010
 ciqual_food_name:en: Salt-cured pork belly with lentils
 ciqual_food_name:fr: Petit salé ou saucisse aux lentilles
+
+< en:Lentil dishes
+< en:Prepared salads
+en:Lentil salads
+fr:Salades de lentilles
+nl:Linzensalade
 
 < en:Fresh legume sprouts
 < en:Lentil sprouts
@@ -39313,17 +39347,6 @@ en:Liquid vegetable bouillons, Liquid vegetable stocks
 es:Caldos de verduras líquidos, Caldos de verduras en brik
 fr:Bouillons de légumes liquides
 nl:Vloeibare groentebouillons
-
-< en:Liquid cream
-en:UHT Creams
-de:H-Sahne, H-Schlagsahne
-fi:Iskukuumennetut kermat
-fr:Crèmes UHT
-it:Creme UHT
-nl:UHT room, UHT romen
-agribalyse_proxy_food_code:en: 19415
-agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
-agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
 < en:Lithuanian beers
 lt:Kaimiškas Jovarų alus
@@ -41888,6 +41911,10 @@ ciqual_food_code:en: 25186
 ciqual_food_name:en: Meat balls, pork and beef, -Swedish-style-
 ciqual_food_name:fr: Boulettes au porc et au bœuf -à la suédoise-, crues
 
+< en:Meat balls
+en:Chicken meat balls
+fr:Boulettes au poulet
+
 < en:Meat-based pasta sauces
 en:Barese bolognaise
 
@@ -42050,6 +42077,13 @@ ca:Productes carnis espanyols
 de:Spanische Fleischprodukte
 fi:Espanjalaiset lihatuotteet
 fr:Produits carnés espagnols
+
+< en:Meat-based products
+< en:Spreads
+de:Fleischsalat, Fleischsalate
+fr:Salades de viande
+nl:Vleessalades
+wikidata:en: Q185457
 
 < en:Meat fritters
 en:Poultry fritters
@@ -44887,6 +44921,11 @@ agribalyse_proxy_food_code:en: 15202
 agribalyse_proxy_food_name:en: Peanut butter or peanut paste
 agribalyse_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
 
+< en:Chocolate covered nuts
+< en:Nut confectioneries
+en:Chocolate covered hazelnuts, Chocolate-coated hazelnuts
+fr:Noisettes enrobées de chocolat
+
 < en:Nut confectioneries
 en:Caramelized almonds
 es:Almendras caramelizadas
@@ -44914,9 +44953,6 @@ hu:Karamellizált földimogyoró, Karamellizált mogyoró
 nl:Suikerpinda's, gesuikerde pinda's
 oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
 wikidata:en: Q5875513
-
-< en:Nut confectioneries
-en:Chocolate-covered hazelnuts, Chocolate-coated hazelnuts
 
 < en:Nut confectioneries
 en:French pralines
@@ -47680,6 +47716,10 @@ de:Capellini
 fr:Capellini
 it:Capellini
 wikidata:en: Q20029
+
+< en:Pastas
+en:Chickpea pasta
+fr:Pâtes de pois chiche
 
 < en:Pastas
 en:Chinese pasta
@@ -53787,11 +53827,6 @@ en:Egg salads
 nl:Eisalades, Eiersalades
 
 < en:Prepared salads
-en:Lentil salads
-fr:Salades de lentilles
-nl:Linzensalade
-
-< en:Prepared salads
 en:Mexican salads
 fr:Salades mexicaines
 nl:Mexicaanse salades
@@ -53822,11 +53857,6 @@ nl:Catalaanse salades
 < en:Prepared salads
 fr:Salades nicoises
 wikidata:en: Q209486
-
-< en:Meat-based products
-< en:Prepared salads
-de:Fleischsalat, Fleischsalate
-wikidata:en: Q185457
 
 < en:Pasta dishes
 < en:Prepared salads
@@ -56318,6 +56348,11 @@ ciqual_food_name:en: Rice, mix of species -white, wholegrain, wild, red,etc.-, r
 ciqual_food_name:fr: Riz, mélange de variétés -blanc, complet, rouge, sauvage, etc.-, cru
 
 < en:Rices
+en:Originario rices
+fr:Riz Originario
+it:Riso Originario
+
+< en:Rices
 en:Paddy rices
 de:Ungedroschener Reis
 es:Arroces en cáscara, Arroces con cáscara, Arroces cáscara, Arroces paddy
@@ -56678,6 +56713,11 @@ en:Barley flakes
 es:Copos de cebada
 fr:Flocons d'orge
 nl:Gerstevlokken
+
+< en:Cereal flakes
+< en:Rolled flakes
+en:Blend of rolled cereal flakes
+fr:Mélanges de flocons de céréales
 
 < en:Cereal flakes
 < en:Rolled flakes
@@ -59324,6 +59364,12 @@ it:Sughi per pasta
 nl:Pastasauzen
 
 < en:Sauces
+en:Peanut sauces, Satay sauces
+de:Erdnusssauce
+fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
+wikidata:en: Q107310187
+
+< en:Sauces
 en:Pepper sauces
 de:Pfeffersaucen
 fi:chilikastikkeet
@@ -59598,9 +59644,6 @@ fr:Sauces au vin
 agribalyse_proxy_food_code:en: 11164
 agribalyse_proxy_food_name:en: Red wine sauce
 agribalyse_proxy_food_name:fr: Sauce au vin rouge
-
-< en:Sauces
-fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 
 < en:Sauces
 fr:Sauces blanches
@@ -67208,22 +67251,6 @@ de:Camembert aus thermisierter Milch
 fr:Camemberts au lait thermisé
 nl:Camemberts op basis van gethermiseerde melk
 
-< en:Thick cream
-en:Refrigerated 15-20% fat light thick cream
-fr:Crème de lait légère épaisse avec 15 à 20% de matières grasses rayon frais
-agribalyse_food_code:en: 19431
-ciqual_food_code:en: 19431
-ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
-ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
-
-< en:Thick cream
-en:Refrigerated 30% fat thick cream
-fr:Crème de lait épaisse à 30% de matières grasses, Crème de lait épaisse à 30% MG
-agribalyse_food_code:en: 19410
-ciqual_food_code:en: 19410
-ciqual_food_name:en: Thick cream 30% fat, refrigerated
-ciqual_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
-
 < en:Thickeners
 en:Gelatin, Gelatine
 de:Gelatine
@@ -68899,24 +68926,6 @@ en:Mushroom pies
 fr:Tourtes aux champignons
 nl:Champignontaarten
 
-< en:Liquid cream
-< en:UHT Creams
-en:Liquid 15-20% fat light cream UHT
-fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
-agribalyse_food_code:en: 19430
-ciqual_food_code:en: 19430
-ciqual_food_name:en: Liquid cream, light, 15-20% fat, UHT
-ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
-
-< en:Liquid cream
-< en:UHT Creams
-en:Liquid 30% fat UHT cream
-fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
-agribalyse_food_code:en: 19415
-ciqual_food_code:en: 19415
-ciqual_food_name:en: Liquid cream 30% fat, UHT
-ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
-
 < en:UHT Milks
 ru:Молоко питьевое ультрапастеризованное (ультравысокотемпературно-обработанное), Молоко питьевое ультрапастеризованное, Молоко ультрапастеризованное питьевое, Молоко питьевое ультравысокотемпературно-обработанное
 wikidata:en: Q26867007
@@ -69115,6 +69124,24 @@ fr:Chevrotins, Chevrotin
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0246
 protected_name_type:en: pdo
+
+< en:UHT Creams
+< en:Unfermented creams
+en:Liquid 15-20% fat light cream UHT
+fr:Crème de lait légère semi-épaisse avec 15 à 20% de matières grasses UHT
+agribalyse_food_code:en: 19430
+ciqual_food_code:en: 19430
+ciqual_food_name:en: Liquid cream, light, 15-20% fat, UHT
+ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+
+< en:UHT Creams
+< en:Unfermented creams
+en:Liquid 30% fat UHT cream
+fr:Crème de lait semi-épaisse à 30% de matières grasses UHT
+agribalyse_food_code:en: 19415
+ciqual_food_code:en: 19415
+ciqual_food_name:en: Liquid cream 30% fat, UHT
+ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
 < en:Unleavened breads
 fr:Pains azymes à la farine complète, Pain azyme à la farine complète
@@ -71943,6 +71970,13 @@ en:Weight-loss Teas
 fr:Thés minceur, Thé minceur
 it:Tè dimagranti, Tè snellenti, The dimagranti, The snellenti
 nl:Afslank theeën, Afslank thee
+
+< en:Wensleydale cheese
+en:Yorkshire Wensleydale
+origins:en: en:united-kingdom,en:england,en:Yorkshire
+protected_name_file_number:en: PGI-GB-0652
+protected_name_type:en: pgi
+wikidata:en: Q1972540
 
 < en:Cat food
 < en:Wet pet food

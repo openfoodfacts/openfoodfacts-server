@@ -2,8 +2,8 @@
    "ingredients" : [
       {
          "id" : "en:flour",
-         "percent" : "12",
-         "percent_estimate" : "12",
+         "percent" : 12,
+         "percent_estimate" : 12,
          "text" : "jauho",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -13,16 +13,16 @@
          "ingredients" : [
             {
                "id" : "en:cocoa-butter",
-               "percent" : "15",
-               "percent_estimate" : "15",
+               "percent" : 15,
+               "percent_estimate" : 15,
                "text" : "kaakaovoi",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:sugar",
-               "percent" : "10",
-               "percent_estimate" : "10",
+               "percent" : 10,
+               "percent_estimate" : 10,
                "text" : "sokeri",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -36,7 +36,7 @@
             },
             {
                "id" : "en:chicken-egg",
-               "percent" : "1",
+               "percent" : 1,
                "percent_estimate" : 9.5,
                "text" : "kananmuna",
                "vegan" : "no",
@@ -142,6 +142,19 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:e432",
+         "en:e472",
+         "en:e322",
+         "en:e474",
+         "en:e475"
+      ],
+      "en:non-vegan" : [
+         "en:milk-proteins",
+         "en:chicken-egg"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:may-contain-palm-oil",
       "en:non-vegan",

@@ -54,6 +54,9 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Ecoscore qw(:all);
+
+use Data::DeepAccess qw(deep_exists);
 
 use Log::Any qw($log);
 
@@ -1137,6 +1140,46 @@ sub check_ecoscore_data($) {
 		}
 	}
 
+	# Extended Eco-Score data from impact estimator
+	if (defined $product_ref->{ecoscore_extended_data}) {
+
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+
+		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+		}
+	}
+	else {
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
+	}
+
+	return;
+}
+
+
+=head2 check_food_groups( PRODUCT_REF )
+
+Add info tags about food groups.
+
+=cut
+
+sub check_food_groups($) {
+
+	my $product_ref = shift;
+
+	for (my $level = 1; $level <= 3; $level++) {
+
+		if (deep_exists($product_ref, "food_groups_tags", $level - 1)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-known';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-unknown';
+		}
+	}
+
 	return;
 }
 
@@ -1163,6 +1206,7 @@ sub check_quality_food($) {
 	check_categories($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
+	check_food_groups($product_ref);
 
 	return;
 }

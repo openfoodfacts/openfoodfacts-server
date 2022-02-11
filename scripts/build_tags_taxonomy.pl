@@ -62,6 +62,13 @@ elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($op
 
 	@files = ("additives_classes", "additives", "minerals", "vitamins", "nucleotides", "other_nutritional_substances", "ingredients");
 }
+
+# Packaging
+
+elsif (($tagtype eq "packaging")) {
+
+	@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+}
 	
 
 # Concatenate taxonomy files if needed

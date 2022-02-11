@@ -199,14 +199,16 @@ The template is thus responsible for all the display logic (what to display and 
 
 Some special features that are not included in the JSON format are supported:
 
-1. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
+1. Relative links are converted to absolute links using the requested country / language subdomain
+
+2. Multiline strings can be included using backticks ` at the start and end of the multinine strings.
 - The multiline strings will be converted to a single string.
 - Quotes " are automatically escaped unless they are already escaped
 
-2. Comments can be included by starting a line with //
+3. Comments can be included by starting a line with //
 - Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
 
-3. Trailing commas are removed
+4. Trailing commas are removed
 - For each loops in templates can result in trailing commas when separating items in a list with a comma
 (e.g. if want to generate a list of labels)
 
@@ -276,6 +278,9 @@ sub create_panel_from_json_template ($$$$$$) {
         # /m modifier: ^ and $ match the start and end of each line
         $panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
+        # Turn relative links to absolute links using the requested country / language subdomain
+        $panel_json =~ s/href="\//href="$formatted_subdomain\//g;        
+
         # Convert multilines strings between backticks `` into single line strings
         # In the template, we use multiline strings for readability
         # e.g. when we want to generate HTML
@@ -300,6 +305,9 @@ sub create_panel_from_json_template ($$$$$$) {
         # So we remove them here.
 
         $panel_json =~ s/,(\s*)(\]|\})/$2/sg;
+
+        # Transform the JSON in a Perl structure
+
         $panel_json =  encode('UTF-8', $panel_json);
 
         eval {
@@ -325,6 +333,98 @@ sub create_panel_from_json_template ($$$$$$) {
                 "json" => $panel_json,
                 "json_debug_url" => $static_subdomain . $target_file
             };            
+        }
+    }
+}
+
+
+=head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
+
+The impact estimator adds a lot of data to products. This function extracts the data we need to display knowledge panels.
+
+=cut
+
+sub extract_data_from_impact_estimator_best_recipe($$) {
+
+    my $product_ref = shift;
+    my $panel_data_ref = shift;
+
+    # Copy data from product data (which format may change) to panel data to make it easier to use in the template
+
+    $panel_data_ref->{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+    $panel_data_ref->{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+
+    # Compute the index of the recipe with the maximum confidence
+    my $max_confidence = 0;
+    my $max_confidence_index;
+    my $i = 0;
+
+
+    foreach my $confidence (@{$product_ref->{ecoscore_extended_data}{impact}{confidence_score_distribution}}) {
+        if ($confidence > $max_confidence) {
+
+            $max_confidence_index = $i;
+            $max_confidence = $confidence;
+        }
+        $i++;
+    }
+
+    my $best_recipe_ref = $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index];
+    
+    # list ingredients for max confidence recipe, sorted by quantity 
+    my @ingredients = ();
+
+    my @ingredients_by_quantity = sort { $best_recipe_ref->{$b} <=> $best_recipe_ref->{$a} } keys %{$best_recipe_ref};
+    foreach my $ingredient (@ingredients_by_quantity) {
+        push @ingredients, {
+            id => $ingredient,
+            quantity => $best_recipe_ref->{$ingredient},
+        }
+    }
+
+    $product_ref->{ecoscore_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
+
+    $panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse} = is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
+
+    # TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
+}
+
+
+=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
+
+gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
+extended ecoscore impacts computed by the impact estimator.
+
+For a specific product, this function finds the most specific category for which we have impact stats to compare with.
+
+=cut
+
+sub compare_impact_estimator_data_to_category_average($$$) {
+
+    my $product_ref = shift;
+    my $panel_data_ref = shift;
+    my $target_cc = shift;
+
+    # Comparison to other products
+
+    my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
+
+    if (defined $categories_nutriments_ref) {
+
+        foreach my $cid (reverse @{$product_ref->{categories_tags}}) {
+
+            if ((defined $categories_nutriments_ref->{$cid})
+                and (defined $categories_nutriments_ref->{$cid}{nutriments})
+                and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change})) {
+
+                $panel_data_ref->{ecoscore_extended_data_for_category} = {
+                    category_id => $cid,
+                    climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
+                    ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
+                };
+
+                last;
+            }
         }
     }
 }
@@ -419,6 +519,21 @@ sub create_ecoscore_panel($$$) {
 
         create_panel_from_json_template("ecoscore_agribalyse", "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);
+
+        # Create an extra panel for products that have extended ecoscore data from the impact estimator
+
+        if (defined $product_ref->{ecoscore_extended_data}) {
+
+            extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
+
+            compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
+
+            # Display a panel only if we can compare the product extended impact
+            if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
+                create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
+                    $panel_data_ref, $product_ref, $target_lc, $target_cc);
+            }
+        }
 
         create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
             $panel_data_ref, $product_ref, $target_lc, $target_cc);            
@@ -671,6 +786,7 @@ sub create_nutriscore_panel($$$) {
 	
     my $panel_data_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
+    # Do not display the Nutri-Score panel if it is not applicable
     if ((not $panel_data_ref->{do_not_display})
         and (not $panel_data_ref->{nutriscore_grade} eq "not-applicable")) {
 

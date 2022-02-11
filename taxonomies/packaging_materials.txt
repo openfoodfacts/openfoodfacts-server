@@ -27,7 +27,8 @@ non_recyclable_and_non_biodegradable:en:maybe
 
 en:Plastic
 da:Plast
-de:Kunststoff
+de:Kunststoff, Kunstoff, plastik
+es:Plástico
 fr:Plastique
 hu:Műanyag
 it:Plastica
@@ -227,7 +228,7 @@ it:Altre plastiche
 nl:Andere plastics
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
-xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹
+xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7
 non_recyclable_and_non_biodegradable:en:yes
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
@@ -311,15 +312,24 @@ pt:Bateria de zinco-carbono, pilha de zinco-carbono
 xx:14 CZ
 wikidata:en:Q28765
 
-en:Cardboard
+en:Cardboard, fiberboard, fibreboard
 da:Pap
 de:Pappe, Wellpappe
-fr:Carton, carton ondulé, carton standard, cartonné, cartonnée, cartonnette
+fr:Carton, carton standard, cartonné, cartonnée
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
 it:Cartone, cartone ondulato
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
+
+<en:cardboard
+en:Corrugated cardboard
+fr:Carton ondulé
 xx:20 C PAP, 20 C PCB
+
+<en:cardboard
+en:Non-corrugated cardboard
+fr:Carton non ondulé
+xx:21 PAP
 
 <en:Cardboard
 <en:Recycled material
@@ -338,19 +348,20 @@ fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
 
+<en:paper
 en:Other paper
 de:Sonstige Pappe
 fr:Autres papiers, autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
 pt:Outro papel, outros papéis
-xx:21 PAP
 
 en:Paper
 da:Papir
 de:Papier
 fr:Papier, papier standard
 hu:Papír
+it:Carta
 nl:Papier
 ru:Бумага
 ja:紙
@@ -380,6 +391,16 @@ fr:Papier kraft, kraft
 nl:Kraft-papier
 pt:Papel kraft, kraft
 
+# thick cardboard (e.g. book covers)
+<en:cardboard
+en:Paperboard
+de:Karton
+fr:Papier cartonné
+hu:Kartonpapír, Karton, Papírkarton
+it:Cartoncino
+pt:Papel cartonado
+xx:23 PBD, 23 PPB, PPB, PBD
+
 en:Wax
 da:Voks
 de:Wachs
@@ -389,20 +410,12 @@ nl:Was
 pt:Papel cera, papel de cera
 wikidata:en:Q124695
 
-en:Paperboard
-de:Karton
-fr:Papier cartonné
-hu:Kartonpapír, Karton, Papírkarton
-it:Cartoncino
-pt:Papel cartonado
-xx:23 PBD, 23 PPB, PPB, PBD
-
 en:Metal, Metals
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux
+fr:Métal, Métaux, métallique, métalliques
 hu:Fém, fémek
-it:Metalli
+it:Metallo,Metalli
 nl:Metaal, Metalen
 pt:Metais
 ru:Металл
@@ -415,11 +428,12 @@ it:Metalli riciclabili
 nl:Recyclebaar metaal
 pt:Metais recicláveis
 
+# Adding iron as a synonym of steel, as most "iron" packaging is in fact steel
 <en:Metals
-en:Steel
+en:Steel, iron
 de:Stahl
 da:Stål
-fr:Acier
+fr:Acier, fer
 hu:Acél
 it:Acciaio
 nl:Staal
@@ -428,6 +442,10 @@ ru:Сталь
 ja:スチール
 xx:40 FE
 wikidata:en:Q11427
+
+<en:steel
+en:Tin-plated steel
+fr:Fer blanc
 
 <en:Recyclable Metals
 en:Aluminium
@@ -440,7 +458,7 @@ nl:Aluminium
 pt:Alumínio
 ru:Алюминий
 ja:アルミ
-xx:41 ALU
+xx:41 ALU, ALU 41, ALU
 wikidata:en:Q663
 
 <en:Aluminium
@@ -513,6 +531,7 @@ xx:62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 en:Glass
 da:Glas
 de:Glas
+es:Vidrio
 fr:Verre
 hu:Üveg
 it:Vetro
@@ -606,9 +625,14 @@ xx:87 CSL
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
-nl:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak, pak
+nl:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 pt:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
+packaging_shapes:en: en:brick
 
+xx:Elo-Pak, Pure-Pak, EloPak, PurePak
+packaging_shapes:en: en:brick
+
+<en:Tetra pak
 en:Biobased Tetra Pak
 de:Biobasiertes Tetra Pak
 fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
@@ -628,3 +652,6 @@ nl:Keramiek
 pt:Cerâmica
 wikidata:en:Q45621
 non_recyclable_and_non_biodegradable:en:yes
+
+en:fabric, fabrics
+fr:tissu, tissus

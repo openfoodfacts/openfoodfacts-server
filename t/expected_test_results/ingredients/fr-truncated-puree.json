@@ -2,15 +2,15 @@
    "ingredients" : [
       {
          "id" : "en:crushed-tomato",
-         "percent" : "19",
-         "percent_estimate" : "19",
+         "percent" : 19,
+         "percent_estimate" : 19,
          "text" : "purée de tomate",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:beef",
-         "percent" : "90",
+         "percent" : 90,
          "percent_estimate" : 81,
          "text" : "boeuf",
          "vegan" : "no",
@@ -18,7 +18,7 @@
       },
       {
          "id" : "en:fruit-juice",
-         "percent" : "100",
+         "percent" : 100,
          "percent_estimate" : 0,
          "text" : "jus de fruit",
          "vegan" : "yes",
@@ -27,13 +27,21 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:oil-and-fat",
-         "percent" : "45",
+         "percent" : 45,
          "percent_estimate" : 0,
          "text" : "matière grasses",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:beef"
+      ],
+      "en:non-vegetarian" : [
+         "en:beef"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:may-contain-palm-oil",
       "en:non-vegan",

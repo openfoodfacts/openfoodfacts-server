@@ -49,6 +49,7 @@ x-backend-conf: &backend-conf
 
     # Apache conf
     - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+    - ./conf/apache-mpm_prefork.conf:/etc/apache2/mods-avalable/mpm_prefork.conf
 
 services:
   memcached:

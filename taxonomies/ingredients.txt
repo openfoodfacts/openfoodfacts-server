@@ -7171,7 +7171,7 @@ ciqual_food_name:en:Goat milk, whole, raw
 ciqual_food_name:fr:Lait de chèvre, entier, cru
 # 97 in 3 @2021-08-25
 
-<en:whole goat milk
+<en:yogurt
 en:goat's milk yogurt
 fr:Yaourt au lait de chèvre
 ciqual_food_code:en:19556
@@ -9495,7 +9495,7 @@ ca:formatge de vaca
 de:Käse aus Kuhmilch
 es:queso de vaca
 fi:lehmänmaitojuusto, lehmänmaidosta valmistettu juusto
-fr:fromage de vache
+fr:fromage de vache, fromage au lait de vache
 hu:tehénsajt
 nl:koekaas
 
@@ -11248,29 +11248,29 @@ description:nl:Morbier is een halfharde Franse kaas met gewassen korst gemaakt i
 
 #category/mozzarella
 <en:cheese
-en:mozzarella, mozzarella cheese
+en:mozzarella, mozzarella cheese, mozzarella soft cheese
 ar:موتزاريلا
 be:Мацарэла
 bg:Моцарела
 bn:মজারেলা পনির
 bo:མོ་ཟ་རེལ་ལ།
 bs:mocarela
-ca:formatge mozzarella
-cs:sýr mozzarella
+ca:mozzarella, formatge mozzarella
+cs:mozzarella, sýr mozzarella
 cv:Моцарелла
 cy:Mosarela
-da:mozzarella ost
+da:mozzarella, mozzarella ost
 el:Μοτσαρέλα, τυρι Μοτσαρέλλα
 eo:Mocarelo
-es:queso mozzarella, queso mozarella
+es:mozzarella, queso mozzarella, queso mozarella
 fa:موزارلا
 fi:mozzarellajuustoa, mozzarella-juusto
-fr:fromage mozzarella
+fr:mozzarella, fromage mozzarella, mozzarelle, fromage mozzarelle
 he:מוצרלה
 hi:मोत्ज़ारेला
 hr:mocarela
 hy:Մոցարելա
-it:formaggio mozzarella, formaggi di mozzarella
+it:mozzarella, formaggio mozzarella, formaggi di mozzarella
 ja:モッツァレッラ
 ka:მოცარელა
 kk:Моцарелла
@@ -11280,19 +11280,19 @@ lt:Mocarela
 lv:mocarella
 mk:Моцарела
 mr:मोजारेला
-nl:mozzarella kaas
-nn:mozzarella ost
+nl:mozzarella, mozzarella kaas
+nn:mozzarella, mozzarella ost
 or:ମୋଜ୍ଜରେଲା
 pa:ਮੋਜ਼ਾਰੇਲਾ
-pl:ser mozzarella
-pt:mozarela, queijo mozzarella
+pl:mozzarella, ser mozzarella
+pt:mozzarella, queijo mozzarella
 ru:моцарелла
 sh:Mocarela
-sk:syr mozzarella
+sk:mozzarella, syr mozzarella
 sl:Mocarela
 sq:mocarela
 sr:моцарела
-sv:mozzarellaost, mozzarella-ost
+sv:mozzarella, mozzarellaost, mozzarella-ost
 th:มอซซาเรลลา
 uk:Моцарела
 ur:موزاریلا
@@ -11333,6 +11333,32 @@ description:pt:A mozarela ou muçarela é uma variedade de queijo de massa filad
 #ca:mozzarella ratllada
 #es:mozzarella rallada
 
+<en:mozzarella
+en:cow mozzarella, cow milk mozzarella
+fr:mozzarella de vache, mozzarella au lait de vache
+it:mozzarella di vacca
+
+<en:mozzarella
+en:buffalo mozzarella, buffalo milk mozzarella
+fr:mozzarella de bufflonne, mozzarella au lait de bufflonne
+it:mozzarella di bufala
+
+<en:mozzarella
+en:low moisture mozzarella
+
+<en:mozzarella
+en:part skim mozzarella
+
+<en:mozzarella
+en:whole milk mozzarella
+
+<en:part skim mozzarella
+<en:low moisture mozzarella
+en:low moisture part skim mozzarella
+
+<en:whole milk mozzarella
+<en:low moisture mozzarella
+en:low moisture whole milk mozzarella
 
 #category/munsters
 <en:cheese
@@ -25837,6 +25863,10 @@ sv:vetefiber, Vete fiber
 en:gluten free wheat fiber
 nl:glutenvrije tarwevezel
 
+<en:wheat fiber
+en:wheat stalk fiber
+de:Weizenhalmfaser
+
 <en:wheat
 en:wheat bran
 de:Weizenkleie, Weizenspeisekleie
@@ -26435,6 +26465,18 @@ ciqual_food_name:fr:Boulgour de blé, cru
 #hu:főtt bulgur
 #nl:gekookte bulgur
 #141 @2021-10-07
+
+<en:bulgur
+en:wheat bulgur
+fr:boulgour de blé
+
+<en:bulgur
+en:whole wheat bulgur, wholewheat bulgur, wholemeal wheat bulgur
+fr:boulgour de blé complet
+
+<en:bulgur
+en:durum wheat bulgur
+fr:boulgour de blé dur
 
 ##################################################################################
 #
@@ -27792,6 +27834,7 @@ et:kinoa, tšiili hanemalts
 eu:kinoa
 fa:کینوآ
 fi:kvinoa
+fr:quinoa
 ga:cuineo
 he:קינואה
 hi:क्विन्वा
@@ -27840,9 +27883,6 @@ ciqual_food_name:fr:Quinoa, cru
 # 425 products in 6 languages @2018-09-22
 nutriscore_fruits_vegetables_nuts:en:no
 
-<en:quinoa
-de:Quinoa gepufft
-
 <en:seed
 <en:quinoa
 en:quinoa seeds
@@ -27869,19 +27909,12 @@ nl:zwarte quinoa
 pt:quinoa preta
 #97 in 6 @2021-09-21
 
-# ingredient/red-quinoa has 115 products in 2 languages @2018-09-22
-<en:red quinoa
-fr:quinoa rouge précuit
-de:Quinoa gegart
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
-# 115 products in 2 languages @2018-09-22
-
 <en:quinoa
 en:white quinoa
 de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
-fr:quinoa blanc
+fr:quinoa blanc, quinoa blond
 hu:fehér kinoa
 pt:quinoa branco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
@@ -27893,18 +27926,9 @@ de:weißes Quinoamehl, weißes Quinoa-Mehl
 es:harina de quinoa blanca
 fr:Farine de quinoa blanche
 
-<en:white quinoa
-en:cooked white quinoa
-
-<en:quinoa
-en:cooked quinoa
-da:kogt quinoa
-fr:quinoa cuit
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa-cuit
-# 99 in 1 language @2021-09-21
-
 <en:red quinoa
 <en:white quinoa
+en:red and white quinoa, white and red quinoa
 fr:quinoa rouge et blanc, quinoa blanc et rouge
 
 ##################################################################################
@@ -31592,6 +31616,15 @@ nl:gefermenteerde suiker
 
 #################### Sugars from specific sources ##############
 
+en:sugarcane, sugar cane
+fr:canne à sucre, cannes à sucre
+vegan:en:yes
+vegetarian:en:yes
+
+<en:sugarcane
+en:sugarcane juice, cane juice
+fr:jus de canne à sucre, jus de canne
+
 <en:sugar
 nl:Arenga bossuiker
 # ingredient/nl:arenga-bossuiker has 1 product @2019-05-24
@@ -31599,7 +31632,7 @@ nl:Arenga bossuiker
 # description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 
 <en:sugar
-en:cane sugar, pure cane sugar, sugar cane
+en:cane sugar, pure cane sugar
 bg:захар от захарна тръстика
 ca:Sucre de canya
 cs:třtinový cukr
@@ -31608,7 +31641,7 @@ de:Rohrzucker
 el:ζάχαρη από ζαχαροκάλαμο
 es:azúcar de caña
 fi:ruokosokeri
-fr:sucre de canne, pur sucre de canne, canne à sucre, sucre pure canne, sucre 100 pure canne
+fr:sucre de canne, pur sucre de canne, sucre pure canne, sucre 100 pure canne
 ga:siúcra cána
 he:סוכר קנים
 hu:nádcukor
@@ -33933,6 +33966,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
 
 <en:vegetable protein
 en:rapeseed protein
+de:Rapseiweiß
 fi:rapsiproteiini
 fr:protéine de colza, protéines de colza
 sv:rapsprotein
@@ -38512,6 +38546,7 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 ###################################################################################################
 # description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
+<en:fruit
 en:breadfruit
 az:Çörək ağacı
 bi:Bredfrut
@@ -38530,6 +38565,12 @@ ty:Ùru
 wikidata:en:Q5869893
 wikipedia:en:https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
+
+<en:fruit
+en:jackfruit
+de:Jackfrucht
+fr:fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, jaquier
+wikipedia:en:https://en.wikipedia.org/wiki/Jackfruit
 
 
 ###################################################################################################
@@ -53166,9 +53207,9 @@ fr:flocons de pomme de terre réhydratés
 
 <en:potato
 <en:vegetable fiber
-en:potato fibre
+en:potato fiber, potato fibre
 da:kartoffelfibre
-de:Kartoffelfasern, Kartoffelballaststoffe
+de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
 es:fibra de patata
 fi:perunakuitu
 fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
@@ -55192,7 +55233,7 @@ el:χλωρά φασόλια, πράσινα φασόλια
 es:judía verde, judías verdes, alubias verdes
 eu:leka
 fa:لوبیا سبز
-fr:haricot vert, haricots verts
+fr:haricot vert, haricots verts, haricot princesse, haricots princesses
 he:שעועית ירוקה
 hr:grah mahunar
 id:buncis
@@ -55204,7 +55245,7 @@ la:phaseolus vulgaris
 lv:zaļās pupiņas
 mk:боранија
 ms:pokok kacang buncis
-nl:sperzieboon, sperziebonen, groene bonen, prinsessenboon, slaboon
+nl:sperzieboon, sperziebonen, groene bonen, prinsessenboon, slaboon, prinsessenbonen
 nn:brekkbønne
 pl:fasolka szparagowa zielona, fasolka szparagowa
 pt:feijão-verde, vagem
@@ -58720,7 +58761,7 @@ fr:pignons de pin décortiqués
 
 <en:seed
 en:hemp seed
-de:Hanfsamen
+de:Hanfsamen, hanfsaat
 es:Semilla de cáñamo,semillas de Cáñamo Sativa L
 fi:hampunsiemen, hampunsiemenet
 fr:graines de chanvre
@@ -63529,6 +63570,7 @@ ciqual_food_name:fr:Herbes de Provence, séchées
 en:oregano
 bg:риган
 ca:orenga, herba musca, roca morera
+de:oregano
 el:ρίξανη
 es:orégano
 et:pune, oregaano
@@ -66970,7 +67012,7 @@ nl:gemalen geëxtraheerde vanillestokjes
 
 <en:vanilla pod
 <en:Bourbon vanilla
-en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean
+en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon vanilla pods
 de:Bourbon-Vanilleschote
 fi:bourbon-vaniljakodat
 fr:gousses de vanille bourbon, fève de vanille bourbon
@@ -68859,7 +68901,7 @@ wikidata:en:Q1142857
 
 <en:mushroom
 en:shiitake, lentinula edodes, lentinus edodes,shiitake mushrooms
-de:shiitake, schwarzer Pilz
+de:shiitake, schwarzer Pilz, shittakepilze
 es:shiitake, hongo de shiitake
 fi:siitake, lentinula edodes
 fr:shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké

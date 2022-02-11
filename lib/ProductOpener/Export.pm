@@ -474,9 +474,7 @@ sub export_csv($) {
 					elsif (defined $taxonomy_fields{$field}) {
 						# we do not know the language of the current value of $product_ref->{$field}
 						# so regenerate it in the main language of the product
-						$value = display_tags_hierarchy_taxonomy($product_ref->{lc}, $field, $product_ref->{$field . "_hierarchy"});
-						# Remove tags
-						$value =~ s/<(([^>]|\n)*)>//g;
+						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field, $product_ref->{$field . "_hierarchy"});
 					}
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
