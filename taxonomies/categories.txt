@@ -30999,26 +30999,6 @@ ciqual_food_code:en:22508
 ciqual_food_name:en:Omelette, with mushrooms
 ciqual_food_name:fr:Omelette aux champignons
 
-<en:Meals
-fr:Crêpes fourrées
-en:Filled crêpes
-
-<fr:Crêpes fourrées
-en:Sugary filled crêpes 
-fr:Crêpes fourrées sucrées
-
-<fr:Crêpes fourrées
-en:Salty filled crêpes
-fr:Crêpes fourrées salées
-
-<en:Meals
-en:Crepe filled with cheese
-de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
-fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage, Galettes au fromage
-agribalyse_proxy_food_code:en:25549
-
-<en:Meals
-fr:Crêpes au jambon
 
 <en:Crepe filled with cheese
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
@@ -88398,13 +88378,6 @@ fr:Civet de tangue
 fr:Civet de zourites
 wikidata:en:Q16540075
 
-en:Pancakes
-de:Pfannkuchen
-es:Tortitas
-fi:pannukakut
-fr:Pancakes
-it:Pancake
-nl:Pancakes
 
 en:Crêpes and galettes
 ca:Creps i coques
@@ -88415,6 +88388,15 @@ fr:Crêpes et galettes
 it:Crêpe e galette
 nl:Pannekoeken en galettes
 ru:Блины
+
+<en:Crêpes and galettes
+en:Pancakes
+de:Pfannkuchen
+es:Tortitas
+fi:pannukakut
+fr:Pancakes
+it:Pancake
+nl:Pancakes
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
 # comment:en:A separate category for the dutch category pannenkoek, might be needed. A french crepe is seen as a special pannenkoek, een flensje
@@ -88517,7 +88499,7 @@ ciqual_food_code:en:23799
 ciqual_food_name:en:Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr:Crêpe, nature, préemballée, rayon frais
 
-<en:Crêpes
+<en:Sweet filled crêpes
 en:Crepes filled with sugar
 fr:Crêpes fourrées au sucre
 agribalyse_food_code:en:23815
@@ -88550,6 +88532,25 @@ it:Crepes ripiene
 nl:Gevulde pannekoeken
 
 <en:Filled crêpes
+en:Sweet filled crêpes 
+fr:Crêpes fourrées sucrées
+nl:Zoete gevulde pannekoeken
+
+<en:Filled crêpes
+en:Savoury filled crêpes
+fr:Crêpes fourrées salées
+nl:Hartige gevulde pannekoeken
+
+<en:Savoury filled crêpes
+en:Crepe filled with cheese
+de:Käsepfannkuchen, Käse Pfannkuchen, Pfannkuchen mit Käse
+fr:Crêpes au fromage, Crêpes garnies au fromage, Crêpes garnie au fromage, Crêpe au fromage, Crêpes fourrées au fromage, Crêpe fourrée au fromage, Galettes au fromage
+agribalyse_proxy_food_code:en:25549
+
+<en:Savoury filled crêpes
+fr:Crêpes au jambon
+
+<en:Sweet filled crêpes
 en:Filled crêpes with chocolate, Home-made crepes filled with chocolate spread
 de:Crêpes gefüllt mit Schokolade
 fr:Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
@@ -88560,7 +88561,7 @@ ciqual_food_code:en:23829
 ciqual_food_name:en:Crepe filled with chocolate, prepacked
 ciqual_food_name:fr:Crêpe préemballée, fourrée chocolat
 
-<en:Filled crêpes
+<en:Sweet filled crêpes
 en:Crepes filled with chocolate and hazelnut spread
 fr:Crêpes fourrées à la pâte à tartiner chocolat et noisettes, Crêpes chocolat noisettes, Crêpes choco-noisettes
 agribalyse_food_code:en:23821
@@ -88568,13 +88569,13 @@ ciqual_food_code:en:23821
 ciqual_food_name:en:Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr:Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
 
-<en:Filled crêpes
+<en:Sweet filled crêpes
 en:Prepacked Crepes filled with chocolate
 fr:Crêpes préemballées fourrées au chocolat
 ciqual_food_code:en:23829
 ciqual_food_name:en:Crepe filled with chocolate, prepacked
 
-<en:Filled crêpes
+<en:Sweet filled crêpes
 en:Filled crêpes with jam, Home-made crepes filled with jam
 fr:Crêpes fourrées à la confiture, Crêpes maison fourrées à la confiture, Crêpes à la confiture
 nl:Pannenkoeken gevuld met jam
@@ -88583,7 +88584,7 @@ ciqual_food_code:en:23820
 ciqual_food_name:en:Crepe, filled with jam, home-made
 ciqual_food_name:fr:Crêpe maison, fourrée à la confiture
 
-<en:Filled crêpes
+<en:Sweet filled crêpes
 en:Crepe filled with strawberries
 fr:Crêpes fourrées aux fraises
 agribalyse_food_code:en:23830
