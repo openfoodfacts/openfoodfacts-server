@@ -96,7 +96,7 @@ foreach my $stringid (sort keys %Lang) {
 
 # Check that some words like Eco-Score and Nutri-Score are not translated
 
-my @words_that_should_not_be_translated = ("Nutri-Score", "Eco-Score", "NOVA");
+my @words_that_should_not_be_translated = ("Nutri-Score", "Eco-Score", "NOVA", "openfoodfacts", "openbeautyfacts", "openpetfoodfacts", "openproductsfacts", "Open Pet Food Facts", "Open Products Facts", "Open Food Facts", "Open Beauty Facts");
 
 foreach my $stringid (sort keys %Lang) {
 	foreach my $word (@words_that_should_not_be_translated) {
