@@ -74,6 +74,7 @@ BEGIN
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
 		&build_tags_taxonomy
+		&list_taxonomy_tags_in_language
 
 		&canonicalize_taxonomy_tag
 		&canonicalize_taxonomy_tag_linkeddata
@@ -172,10 +173,9 @@ use Log::Any qw($log);
 use GraphViz2;
 use JSON::PP;
 
+use Data::DeepAccess qw(deep_get deep_exists);
 
 binmode STDERR, ":encoding(UTF-8)";
-
-
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
  allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
@@ -184,8 +184,6 @@ binmode STDERR, ":encoding(UTF-8)";
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
-
-
 
 # Fields that can have different values by language
 %language_fields = (
@@ -213,7 +211,6 @@ ingredients_infocard => 1,
 nutrition_infocard => 1,
 environment_infocard => 1,
 );
-
 
 %canon_tags = ();
 
@@ -273,21 +270,27 @@ sub get_inherited_property($$$) {
 	my %seen = ();
 
  	foreach my $tagid (@parents) {
-		defined $seen{$tagid} and next;
-		$seen{$tagid} = 1;
-		if ((exists $properties{$tagtype}{$tagid}) and (exists $properties{$tagtype}{$tagid}{$property})) {
-
-			if ($properties{$tagtype}{$tagid}{$property} eq "undef") {
-				# stop the propagation to parents of this tag, but continue with other parents
-			}
-			else {
-				#Return only one occurence of the property if several are defined in ingredients.txt
-				return $properties{$tagtype}{$tagid}{$property};
-			}
+		if (not defined $tagid) {
+			$log->warn("undefined parent for tag", { parent_tagid => $tagid, canon_tagid => $canon_tagid }) if $log->is_warn();
 		}
-		elsif (exists $direct_parents{$tagtype}{$tagid}) {
-			# check if one of the parents has the property
-			push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
+		else {
+			defined $seen{$tagid} and next;
+			$seen{$tagid} = 1;
+			my $property_value = deep_get(\%properties, $tagtype, $tagid, $property);
+			if (defined $property_value) {
+
+				if ($property_value eq "undef") {
+					# stop the propagation to parents of this tag, but continue with other parents
+				}
+				else {
+					#Return only one occurence of the property if several are defined in ingredients.txt
+					return $property_value;
+				}
+			}
+			elsif (exists $direct_parents{$tagtype}{$tagid}) {
+				# check if one of the parents has the property
+				push @parents, sort keys %{$direct_parents{$tagtype}{$tagid}};
+			}
 		}
 	}
 	return;
@@ -985,8 +988,8 @@ sub build_tags_taxonomy($$$) {
 						and (not ($tagtype =~ /^additives(|_prev|_next|_debug)$/))) {
 
 						my $msg = "$lc:$tagid already is a synonym of $lc:" . $synonyms{$tagtype}{$lc}{$tagid}
-						. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
-						. " - $lc:$current_tagid cannot be mapped to entry $canon_tagid\n";
+								. " for entry " . $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+								. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$current_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
 					}
@@ -1671,7 +1674,9 @@ sub build_tags_taxonomy($$$) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			unless ($tagtype eq "ingredients") {
+			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
+			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
+			unless (($tagtype eq "ingredients") or ($tagtype eq "categories")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2801,6 +2806,24 @@ sub get_tag_image($$$) {
 }
 
 
+=head2 display_tags_hierarchy_taxonomy ( $target_lc, $tagtype, $tags_ref )
+
+Generates a comma separated list of tags in the target language, with links and images.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+Reference to a list of tags. (usually the *_tags field corresponding to the tag type)
+
+=cut
+
 sub display_tags_hierarchy_taxonomy($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -2837,6 +2860,41 @@ HTML
 }
 
 
+=head2 list_taxonomy_tags_in_language ( $target_lc, $tagtype, $tags_ref )
+
+Generates a comma separated (with a space after the comma) list of tags in the target language.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+Reference to a list of tags. (usually the *_tags field corresponding to the tag type)
+
+The tags are expected to be in their canonical format.
+
+=cut
+
+sub list_taxonomy_tags_in_language($$$) {
+
+	my $target_lc = shift; $target_lc =~ s/_.*//;
+	my $tagtype = shift;
+	my $tags_ref = shift;
+
+	if (defined $tags_ref) {
+		return join(', ', map( display_taxonomy_tag($target_lc, $tagtype, $_), @{$tags_ref}) );
+	}
+	else {
+		return "";
+	}
+}
+
+
 sub canonicalize_saint($) {
 	my $s = shift;
 	return "Saint-" . ucfirst($s);
@@ -2852,8 +2910,6 @@ sub capitalize_tag($)
 	$tag =~ s/(?<=_)(de|du|des|au|aux|des|à|a|en|le|la|les)(?=_)/lcfirst($1)/eig;
 	return $tag;
 }
-
-
 
 
 sub canonicalize_tag2($$)
@@ -3839,11 +3895,8 @@ sub add_tags_to_field($$$$) {
 		if (defined $taxonomy_fields{$field}) {
 			# we do not know the language of the current value of $product_ref->{$field}
 			# so regenerate it in the current language used by the interface / caller
-			$value = display_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
+			$value = list_taxonomy_tags_in_language($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
 			print STDERR "add_tags_to_fields value: $value\n";
-			
-			# Remove tags
-			$value =~ s/<(([^>]|\n)*)>//g;
 		}
 		else {
 			$value = $product_ref->{$field};
