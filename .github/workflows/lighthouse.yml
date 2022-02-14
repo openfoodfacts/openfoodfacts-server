@@ -1,0 +1,16 @@
+name: Audit live site
+on: push
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Audit live URL
+      uses: jakejarvis/lighthouse-action@master
+      with:
+        url: 'https://jarv.is/'
+    - name: Upload results as an artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: report
+        path: './report'
