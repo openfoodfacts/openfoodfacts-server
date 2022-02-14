@@ -494,7 +494,8 @@ sub load_ecoscore_data_packaging() {
 			
 			my $shape = $row_ref->[0];
 			
-			next if ((not defined $shape) or ($shape eq ""));
+			# skip empty lines and comments
+			next if ((not defined $shape) or ($shape eq "")) or ($shape =~ /^#/);
 			
 			# Special cases
 			
@@ -502,6 +503,12 @@ sub load_ecoscore_data_packaging() {
 			next if ($shape eq "Carton ondulé");
 			
 			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
+
+			# Handle special cases that are not recognized by the packaging shapes taxonomy
+            # conserve is used in preservation taxonomy, but it may be a packaging
+			if ($shape_id =~ /^fr:conserve/i) {
+				$shape_id = "en:can";
+			}
 			
 			if (not exists_taxonomy_tag("packaging_shapes", $shape_id)) {
 				$log->error("ecoscore shape does not exist in taxonomy", { shape => $shape, shape_id => $shape_id}) if $log->is_error();
@@ -538,7 +545,10 @@ sub load_ecoscore_data_packaging() {
 		$properties{"packaging_shapes"}{"en:label"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:sheet"}{ratio};
 
 		$ecoscore_data{packaging_shapes}{"en:spout"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"};
-		$properties{"packaging_shapes"}{"en:spout"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"}{ratio};		
+		$properties{"packaging_shapes"}{"en:spout"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:bottle-cap"}{ratio};
+
+		$ecoscore_data{packaging_shapes}{"xx:elo-pak"} = $ecoscore_data{packaging_shapes}{"en:tetra-pak"};
+		$properties{"packaging_shapes"}{"xx:elo-pak"}{"ecoscore_ratio:en"} = $ecoscore_data{packaging_shapes}{"en:tetra-pak"}{ratio};				
 	}
 	else {
 		die("Could not open ecoscore shapes CSV $csv_file: $!");

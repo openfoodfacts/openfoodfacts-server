@@ -29,6 +29,14 @@ The directory will be created if it does not already exist.
 TXT
 ;
 
+init_packaging_taxonomies_regexps();
+
+# Tests for guess_language_of_packaging_text
+
+is(guess_language_of_packaging_text("boîte", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("surgelé", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), undef);
+
 my $resultsdir;
 
 GetOptions ("results=s"   => \$resultsdir)
@@ -505,8 +513,6 @@ my @tests = (
 	],	
 
 );
-
-init_packaging_taxonomies_regexps();
 
 my $json = JSON->new->allow_nonref->canonical;
 

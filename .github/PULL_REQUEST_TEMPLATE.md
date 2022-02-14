@@ -1,4 +1,4 @@
-**Checklist:**
+### Checklist
 
 Make sure you've done all the following (You can delete the checklist before submitting)
 
@@ -8,8 +8,13 @@ Make sure you've done all the following (You can delete the checklist before sub
 - [ ] If you have multiple commits please combine them into one commit by squashing them.
 - [ ] Read and understood the [contribution guidelines](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/CONTRIBUTING.md)
 
-**Description:**
+### Description
 
 Describe the changes made and why they were made instead of how they were made.
 
-**Related issues and discussion:** #[ISSUE NUMBER]
+### Screenshot
+(Optional, you can delete if not relevant)
+
+### Related issue(s) and discussion
+- Fixes #[ISSUE NUMBER]
+
