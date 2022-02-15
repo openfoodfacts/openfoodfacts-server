@@ -11103,7 +11103,7 @@ sub data_to_display_ingredients_analysis($) {
 			if ($evaluation eq "unknown") {
 				$ingredients_title_id = "unrecognized_ingredients";
 			}
-			elsif ($evaluation ne "good") {
+			else {
 				# convert en:non-vegetarian property to non_vegetarian_ingredients string id
 				$ingredients_title_id = lc($ingredients_analysis_tag) . "_ingredients";
 				$ingredients_title_id =~ s/^en://;

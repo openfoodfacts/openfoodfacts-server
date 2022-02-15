@@ -297,7 +297,7 @@ sub create_panel_from_json_template ($$$$$$) {
         # As it is a trailing comma inside a string, it's not a terrible issue, the string will be valid,
         # but it will have an unneeded trailing comma.
         # The group (\W) at the end is to avoid removing commas before an opening quote (e.g. for "field": true, "other_field": ..)
-        $panel_json =~ s/(?<!("|'|\]|\}|\d))\s*,\s*"(\W)/"$2/g;
+        $panel_json =~ s/(?<!("|'|\]|\}|\d))\s*,\s*"(\W)/"$2/sg;
 
         # Remove trailing commas after the last element of a array or hash, as they will make the JSON invalid
         # It makes things much simpler in templates if they can output a trailing comma though

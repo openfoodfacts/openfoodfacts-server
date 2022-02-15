@@ -18,11 +18,11 @@
             "text_element": {
                 "type": "summary",
                 "html": `
-                [% IF panel.ingredients_title_id.defined %]
+                [% IF panel.evaluation == "good" %]
+                    [% lang(panel.ingredients_title_id) %]
+                [% ELSIF product.ingredients_analysis.$property.defined %]
                     <strong>[% lang(panel.ingredients_title_id) %][% sep %]:</strong>
-                    [% FOREACH ingredient IN product.ingredients_analysis.$property %]
-                        [% display_taxonomy_tag("ingredients", ingredient) %],
-                    [% END %]
+                    [% display_taxonomy_tags_list("ingredients", product.ingredients_analysis.$property) %]
                 [% END %]
                     `
             }
