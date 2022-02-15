@@ -39,7 +39,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello build init_backend _up import_sample_data refresh_product_tags
+dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -124,6 +124,11 @@ reset_owner:
 	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: build_lang
+
+create_mongodb_indexes:
+	@echo "🥫 Creating MongoDB indexes …"
+	docker cp conf/mongodb/create_indexes.js $(shell docker-compose ps -q mongodb):/data/db
+	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"

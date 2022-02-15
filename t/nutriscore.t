@@ -83,6 +83,12 @@ my @tests = (
 
 ],
 
+# spring waters
+["spring-water-no-nutrition", { lc=>"en", categories=>"spring water", nutriments=>{}}],
+["flavored-spring-water-no-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{}}],
+["flavored-spring-with-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{energy_100g=>378, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>3, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}],
+
+
 );
 
 

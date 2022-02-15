@@ -1,17 +1,53 @@
 github_actions:
 - .github/**/*
 
+nginx:
+- conf/nginx/**/*
+
+mongodb:
+- conf/mongodb/create_indexes.js
+- scripts/refresh_products_tags.js
+
 taxonomies:
 - taxonomies/**/*
+
+open pet food facts:
+- taxonomies.opff/**/*
+
+open beauty facts:
+- taxonomies.obf/**/*
+
+open products facts:
+- taxonomies.opf/**/*
+
+icons:
+- icons/**/*
+
+css:
+- scss/**/*
 
 translations:
 - po/**/*
 
 tests:
 - test/**/*
+- t/**/*
+
+dependancies:
+- package.json
+- package-lock.json
 
 Template::Toolkit:
 - templates/**/*
+
+documentation:
+- docs/**/*
+
+docker:
+- docker/**/*
+
+folksonomy project:
+- html/js/folksonomy.js
 
 Attributes:
 - lib/ProductOpener/Attributes.pm
@@ -26,6 +62,7 @@ Display:
 
 ecoscore:
 - lib/ProductOpener/Ecoscore.pm
+- ecoscore/**/*
 
 Export:
 - lib/ProductOpener/Export.pm
@@ -42,14 +79,6 @@ forest footprint:
 geolite:
 - lib/ProductOpener/GeoIP.pm
 
-producers platform:
-- lib/ProductOpener/GS1.pm
-- lib/ProductOpener/Orgs.pm
-- lib/ProductOpener/Import.pm
-- lib/ProductOpener/ImportConvert.pm
-- lib/ProductOpener/Producers.pm
-- lib/ProductOpener/ProducersFood.pm
-
 gs1:
 - lib/ProductOpener/GS1.pm
 
@@ -62,9 +91,23 @@ data import:
 
 ingredients:
 - lib/ProductOpener/Ingredients.pm
+- taxonomies/ingredients.txt
+
+ingredients analysis:
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+
+labels:
+- taxonomies/labels.txt
+
+categories:
+- taxonomies/categories.txt
+
+additives:
+- taxonomies/additives.txt
 
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
+- templates/api/knowledge-panels/**/*
 
 lang:
 - lib/ProductOpener/Lang.pm
@@ -89,11 +132,39 @@ packager codes:
 
 Packaging:
 - lib/ProductOpener/Packaging.pm
-
-Producers:
+- taxonomies/packaging_materials.txt
+- t/packaging.t
+- cgi/packaging.pl
+- icons/packaging.svg
+- taxonomies/old/packagings.txt
+- taxonomies/packaging.result.sto
+- taxonomies/packaging.result.txt
+- taxonomies/packaging_shapes.txt
+- taxonomies/packaging_materials.txt
+- taxonomies/packaging_recycling.txt
+- taxonomies/packaging_shapes.result.sto
+- taxonomies/packaging_shapes.result.txt
+- html/images/lang/en/packaging/**/*
+- html/images/icons/packaging-shapes/README
+- taxonomies/packaging_materials.result.sto
+- taxonomies/packaging_materials.result.txt
+- taxonomies/packaging_recycling.result.sto
+- taxonomies/packaging_recycling.result.txt
+- html/images/icons/packaging-shapes/LICENCE
+- html/images/lang/jp/packaging/**/*
+- html/images/lang/de/packaging/**/*
+- t/expected_test_results/packaging/**/*
+- html/images/icons/packaging-shapes/dark-mode/**/*
+  
+producers platform:
+- lib/ProductOpener/GS1.pm
+- lib/ProductOpener/Orgs.pm
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
 - lib/ProductOpener/Producers.pm
-
-ProducersFood:
+- lib/ProductOpener/ProducersFood.pm
+- lib/ProductOpener/Producers.pm
+- scripts/export_producers_platform_data_to_public_database.sh
 - lib/ProductOpener/ProducersFood.pm
 
 Products:

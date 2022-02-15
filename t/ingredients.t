@@ -396,7 +396,17 @@ Teneur en citron de 5,5%",
 			lc => "en",
 			ingredients_text => "Milk, cream, sugar. Total milk content: 88%. Origin of milk: UK",
 		},
-	]	
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	]
 
 );
 
@@ -410,6 +420,10 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
 	
 	extract_ingredients_from_text($product_ref);
 	

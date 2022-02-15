@@ -114,6 +114,8 @@ my %true_end = (); # 0;
 my %true_start = (); # 100000000000000000;
 my $complete = 0;
 
+# Add in $fields_ref all the fields we need to retrieve from MongoDB
+
 foreach my $tagtype (@fields) {
 	$fields_ref->{$tagtype . "_tags"} = 1;
 }
@@ -145,6 +147,7 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
+$fields_ref->{ecoscore_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
@@ -178,6 +181,7 @@ my %nutrition_grades_to_n = (
 	e => 5,
 );
 
+# Go through all products
 while (my $product_ref = $cursor->next) {
 	$total++;
 
@@ -189,6 +193,8 @@ while (my $product_ref = $cursor->next) {
 		$codes{$code} += 1;
 		#print STDERR "code $code seen $codes{$code} times!\n";
 	}
+
+	# Populate $products_nutriments{$code} with values for fields that we are going to compute stats on
 
 	# Products with nutriments
 	if ((defined $code) and (defined $product_ref->{nutriments})
@@ -206,6 +212,16 @@ while (my $product_ref = $cursor->next) {
 			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
 			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
+	}
+
+	# Add environmental impact from impact estimator if we have them
+	if ((defined $product_ref->{ecoscore_extended_data}) and (defined $product_ref->{ecoscore_extended_data}{impact})
+		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+		# TODO: Need to add a filter to keep only impacts computed with high confidence
+	) {
+		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
+		$products_nutriments{$code}{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+		$products_nutriments{$code}{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 	}
 
 	# Compute points
@@ -463,7 +479,6 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		if ($n >= $min_products) {
 
-			($cc eq 'fr') and ($tagid =~ /taboul/) and print "compute_stats_for_products - fr - $tagid - n: $n - count: $count - min: $min_products\n";
 			$categories{$tagid} = {};
 			compute_stats_for_products($categories{$tagid}, \%nutriments, $count, $n, $min_products, $tagid);
 

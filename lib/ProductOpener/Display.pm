@@ -183,6 +183,7 @@ use Excel::Writer::XLSX;
 use Template;
 use Data::Dumper;
 use Devel::Size qw(size total_size);
+use Data::DeepAccess qw(deep_get);
 use Log::Log4perl;
 
 use Log::Any '$log', default_adapter => 'Stderr';
@@ -2120,19 +2121,17 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid ne "not-applicable") {
-					my $grade;
-					if ($tagid =~ /^[abcde]$/) {
-						$grade = uc($tagid);
-					}
-					else {
-						$grade = lang("unknown");
-					}
-					$display = "<img src=\"/images/misc/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" style=\"max-height:80px;\">" ;
+				my $grade;
+				if ($tagid =~ /^[abcde]$/) {
+					$grade = uc($tagid);
+				}
+				elsif ($tagid eq "not-applicable") {
+					$grade = lang("not_applicable");
 				}
 				else {
-					$display = lang("not_applicable");
+					$grade = lang("unknown");
 				}
+				$display = "<img src=\"/images/attributes/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " .$grade . "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 			}
 			elsif ($tagtype eq 'ecoscore') {
 				if ($tagid ne "not-applicable") {
@@ -2143,7 +2142,7 @@ sub display_list_of_tags($$) {
 					else {
 						$grade = lang("unknown");
 					}
-					$display = "<img src=\"/images/icons/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
+					$display = "<img src=\"/images/attributes/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} " . $grade . "\" title=\"$Lang{ecoscore}{$lc} " . $grade . "\" style=\"max-height:80px;\">" ;
 				}
 				else {
 					$display = lang("not_applicable");
@@ -2305,24 +2304,24 @@ HTML
 			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
 			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
-				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#038141','#85bb2f','#fecb02','#ee8100','#e63e11','#a0a0a0'";
+				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+				foreach my $nutrition_grade ('a','b','c','d','e','not-applicable','unknown') {
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
-				$categories = "'A','B','C','D','E','" . lang("unknown") . "'";
-				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0'";
+				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $ecoscore_grade ('a','b','c','d','e','unknown') {
+				foreach my $ecoscore_grade ('a','b','c','d','e','not-applicable', 'unknown') {
 					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
 				$categories = "'NOVA 1','NOVA 2','NOVA 3','NOVA 4','" . lang("unknown") . "'";
-				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#808080'";
+				$colors = "'#00ff00','#ffff00','#ff6600','#ff0000','#a0a0a0'";
 				$series_data = '';
 				foreach my $nova_group (
 					"en:1-unprocessed-or-minimally-processed-foods",
@@ -3881,6 +3880,19 @@ HTML
 			if (not defined $user_or_org_ref) {
 				display_error(lang("error_unknown_org"), 404);
 			}
+		}
+		elsif ($tagid =~ /\./) {
+			# App user (format "[app id].[app uuid]")
+
+			my $appid = $`;
+			my $uuid = $';
+
+			my $app_name = deep_get(\%options, "apps_names", $appid) || $appid;
+			my $app_user = f_lang("f_app_user", { app_name => $app_name });
+
+			$title = $app_user;
+			$products_title = $app_user;
+			$display_tag = $app_user;
 		}
 		else {
 
@@ -9040,15 +9052,17 @@ sub data_to_display_nutriscore_and_nutrient_levels($) {
 	# The Nutri-Score is unknown
 	else  {
 
-		$result_data_ref->{nutriscore_grade} = "unknown";
-
 		# Category without Nutri-Score: baby food, alcoholic beverages etc.
 		if (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
 				push @nutriscore_warnings, lang("nutriscore_not_applicable");
+				$result_data_ref->{nutriscore_grade} = "not-applicable";
 				$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
 				$result_data_ref->{nutriscore_unknown_reason_short} = lang("nutriscore_not_applicable_short");
 		}		
 		else {
+
+			$result_data_ref->{nutriscore_grade} = "unknown";
+
 			# Missing category?
 			if (has_tag($product_ref,"misc","en:nutriscore-missing-category")) {
 				push @nutriscore_warnings, lang("nutriscore_missing_category");
@@ -10430,7 +10444,7 @@ sub display_product_history($$) {
 			my ($uid) = @_;
 			return display_tag_link('editors', $uid);
 		},
-		product_url => product_url($product_ref),
+		this_product_url => product_url($product_ref),
 		revisions => \@revisions
 	};
 
@@ -10982,8 +10996,8 @@ sub display_ingredients_analysis_details($) {
 	my $unknown_ingredients_html = '';
 	my $unknown_ingredients_help_html = '';
 
-	if ($ingredients_text . $specific_ingredients =~ /unknown_ingredient/) {
-		$template_data_ref->{ingredients_text_comp} = 'unknown_ingredient';
+	if (($ingredients_text . $specific_ingredients) =~ /unknown_ingredient/) {
+		$template_data_ref->{unknown_ingredients} = 1;
 
 		$styles .= <<CSS
 .unknown_ingredient {
@@ -11022,81 +11036,56 @@ sub display_ingredients_analysis($) {
 	if (defined $product_ref->{ingredients_analysis_tags}) {
 
 		my $template_data_ref = {
-			lang => \&lang,
-			display_icon => \&display_icon,
-			title => lang("ingredients_analysis") . separator_before_colon($lc) . ':',
-			disclaimer => lang("ingredients_analysis_disclaimer"),
 			ingredients_analysis_tags => [],
 		};
 
 		foreach my $ingredients_analysis_tag (@{$product_ref->{ingredients_analysis_tags}}) {
 
-			my $color;
+			my $evaluation;
 			my $icon = "";
-
-			# Override ingredient analysis if we have vegan / vegetarian / palm oil free labels
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
 				$icon = "palm-oil";
 
-				if (has_tag($product_ref, "labels", "en:palm-oil-free")
-					or ($ingredients_analysis_tag =~ /-free$/)) {
-					$ingredients_analysis_tag = "en:palm-oil-free";
-					$color = 'green';
-					
+				if ($ingredients_analysis_tag =~ /-free$/) {
+					$evaluation = 'good';
+				}
+				elsif ($ingredients_analysis_tag =~ /unknown/) {
+					$evaluation = 'unknown';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:may-/) {
-					$color = 'orange';
+					$evaluation = 'average';
 				}
 				else {
-					$color = 'red';
+					$evaluation = 'bad';
 				}
-
 			}
 			else {
 
 				if ($ingredients_analysis_tag =~ /vegan/) {
 					$icon = "leaf";
-					if (has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegan";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegan")
-						or has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegan";
-					}
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
 					$icon = "egg";
-					if (has_tag($product_ref, "labels", "en:vegetarian")
-						or has_tag($product_ref, "labels", "en:vegan")) {
-						$ingredients_analysis_tag = "en:vegetarian";
-					}
-					elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-						$ingredients_analysis_tag = "en:non-vegetarian";
-					}
 				}
 
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
-					$color = 'red';
+					$evaluation = 'bad';
 				}
 				elsif ($ingredients_analysis_tag =~ /^en:maybe-/) {
-					$color = 'orange';
+					$evaluation = 'average';
+				}
+				elsif ($ingredients_analysis_tag =~ /unknown/) {
+					$evaluation = 'unknown';
 				}
 				else {
-					$color = 'green';
+					$evaluation = 'good';
 				}
-			}
-
-			# Skip unknown
-			next if $ingredients_analysis_tag =~ /unknown/;
-
-			if ($icon ne "") {
-				$icon = display_icon($icon);
 			}
 
 			push @{$template_data_ref->{ingredients_analysis_tags}}, {
-				color => $color,
+				evaluation => $evaluation,
 				icon => $icon,
 				text => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
 			};

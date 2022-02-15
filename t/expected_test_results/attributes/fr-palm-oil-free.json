@@ -15,14 +15,14 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Qualité nutritionnelle inconnue",
+               "description_short" : "Données manquantes pour calculer le Nutri-Score",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutriscore-unknown.svg",
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
                "status" : "unknown",
-               "title" : "Nutri-Score non calculé"
+               "title" : "Nutri-Score inconnu"
             },
             {
                "grade" : "unknown",
@@ -612,6 +612,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:chocolate"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:maybe-vegan",

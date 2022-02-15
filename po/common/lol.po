@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-22 21:36\n"
+"PO-Revision-Date: 2022-01-14 08:58\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -264,6 +264,10 @@ msgstr "crwdns164972:0crwdne164972:0"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "crwdns164974:0crwdne164974:0"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr "crwdns192001:0crwdne192001:0"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -4404,11 +4408,11 @@ msgid "Missing information: fair trade product?"
 msgstr "crwdns166996:0crwdne166996:0"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
-msgid "Helps producers in developping countries."
+msgid "Helps producers in developing countries."
 msgstr "crwdns166998:0crwdne166998:0"
 
 msgctxt "attribute_labels_fair_trade_description_short"
-msgid "Fair trade products help producers in developping countries."
+msgid "Fair trade products help producers in developing countries."
 msgstr "crwdns167000:0crwdne167000:0"
 
 msgctxt "attribute_labels_fair_trade_description"
@@ -4437,12 +4441,20 @@ msgid "Nutri-Score %s"
 msgstr "crwdns167012:0%scrwdne167012:0"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "crwdns167014:0crwdne167014:0"
+msgid "Nutri-Score unknown"
+msgstr "crwdns192011:0crwdne192011:0"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "crwdns167016:0crwdne167016:0"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "crwdns192013:0crwdne192013:0"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "crwdns192015:0crwdne192015:0"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "crwdns192017:0crwdne192017:0"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5751,4 +5763,33 @@ msgstr "crwdns191717:0{minutes}crwdnd191717:0{steps}crwdne191717:0"
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
 msgstr "crwdns191719:0{kg}crwdnd191719:0{lb}crwdne191719:0"
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr "crwdns192003:0crwdne192003:0"
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr "crwdns192005:0crwdne192005:0"
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "crwdns192007:0crwdne192007:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "crwdns192019:0crwdne192019:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "crwdns192021:0crwdne192021:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "crwdns192023:0crwdne192023:0"
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
+msgstr "crwdns192009:0crwdne192009:0"
 

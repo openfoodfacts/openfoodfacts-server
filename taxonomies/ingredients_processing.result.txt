@@ -9,6 +9,9 @@ de:aus Früchten
 
 de:dampfgegart, dampfgegarte, dampfgegarter
 
+de:dicksaft, dicksäfte
+nl:diksap
+
 de:dreifach konzentriert
 
 de:edelholzrauch
@@ -100,9 +103,10 @@ de:gebleicht, gebleichte, gebleichter, gebleichtes
 hu:fehérített
 
 en:boned
-es:deshuesado
+es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
+fr:désossé, désossée, désossés, désossées, sans os
 hu:csontozott, kicsontozott
-pt:desensoçado
+pt:desensoçado, desossado, sem osso
 
 en:brined
 de:gepökelt, gepökelte, gepökelter, gepökeltes
@@ -152,7 +156,7 @@ da:hakket, hakkede
 de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
-fr:hâché, hâchée, hâchés, hâchées
+fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -181,21 +185,19 @@ en:concentrated, concentrate, concentrates
 ca:concentrat
 da:koncentreret
 de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
-es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
+es:concentrado, concentrada, concentrados, concentradas
 fi:tiivistetty, tiiviste
 fr:concentré, concentrée, concentrés, concentrées, concentré de
 hu:sűrítmény, sűrített, koncentrátum
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de
+ro:concentrat de
+ru:концентрированный
 sv:koncentrerad
 
-< en:Concentrated
-en:double concentrated
-de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes
-es:doble concentrado, doble concentrada
-it:doppio concentrato, doppio concentrato di
-
 en:cooked, boiled
+cs:vařená
+da:kogte
 de:gekocht, gekochte, gekochter, gekochtes
 es:cocido, cocida, cocidos, cocidas
 fi:paistettu, keitetty, kypsennetty, kypsennetyt
@@ -205,6 +207,8 @@ id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 ms:rebus
 nl:gekookt, gekookte
+nn:kogte
+pl:gotowana
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
 sv:kokt, kokta
@@ -222,7 +226,7 @@ fi:murskattu, murskatut
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 hu:zúzott, összetörve, összetört
 nl:gebroken
-pt:triturado, triturada, triturados, esmagado, esmagada, esmagados, esmagadas
+pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
 
 en:cubes, cubed
@@ -279,7 +283,7 @@ pt:desodorizado, desodorizada, desodorizados, desodorizadas
 ro:deodorizat
 
 en:desalted
-fr:dessalée
+fr:dessalée, dessalee
 
 en:diced
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
@@ -289,6 +293,11 @@ fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 hu:kockázott, kockázva, kockára vágva, kockára vágott
 nl:blokjes, in blokjes, blokje
 sv:tärnad
+
+en:double concentrated
+de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes, 2-fach konzentriert, 2-fach konzentrierte, 2-fach konzentrierter, 2-fach konzentriertes
+es:doble concentrado, doble concentrada
+it:doppio concentrato, doppio concentrato di
 
 en:double smoked
 es:doble ahumado, doble ahumada, doble ahumados, doble ahumadas
@@ -303,7 +312,7 @@ de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form, Tr
 es:seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et:kuivatatud
 fi:kuivattu, kuivatut
-fr:séché, séchée, séchés, séchées, secche
+fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
@@ -429,6 +438,7 @@ pt:liofilizado, liofilizados, liofilizada, liofilizadas
 en:fresh
 de:frisch, frische, frischer, frisches
 es:fresco, fresca, frescos, frescas
+fr:frais, fraîche, fraiche, fraîches, fraiches
 hu:friss
 it:fresco, fresca, fresche, freschi
 nl:verse, vers
@@ -448,7 +458,8 @@ it:fritto, fritta, fritti, fritte
 pt:frito, frita, fritos, fritas
 sv:friterad, stekt
 
-en:from-concentrate
+en:from concentrate
+cs:koncentrát z
 da:fra koncentrat, fra koncentrater
 de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
@@ -456,9 +467,11 @@ fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
-nl:uit concentraat, van concentraat
+lt:iš koncentrąto
+nl:uit concentraat, van concentraat, op basis van concentraat
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
+sk:z koncentrátu
 sv:från koncentrat
 
 en:frozen
@@ -539,7 +552,7 @@ ru:дробленое
 sl:mleti
 sv:mald, malda, malen
 
-en:half salted
+en:half salted, half-salted
 pt:com meio-sal
 
 en:halved, halves
@@ -552,6 +565,16 @@ fr:fumé au bois de caryer
 
 en:hickory smoked cured with water
 
+en:hydrated
+ca:hidratada
+de:hydriert, hydrierte, hydrierter, hydriertes
+es:hidritado, hidritada, hidritados, hidritadas
+fr:hydraté, hydratée, hydratés, hydratées
+hu:hidratált
+it:idratato, idratata, idratati, idratate
+pt:idratado, idratada, idratados, idratadas
+sv:hydrerat, hydrerad
+
 en:hydrogenated
 de:Gehärtetes
 es:hidrogenado
@@ -562,36 +585,27 @@ it:idrogenato
 nl:Gehydrogeneerde
 sv:hårdat
 
-en:inflated
-es:hinchado, hinchada, hinchados, hinchadas
-hu:felfújt
-
 en:irradiated, treated with irradiation
 fr:irradié, irradiée, irradiés, irradiées
 
 en:juice, juices, juices of, juice from
 az:şıresl
-cs:šťáva
+cs:šťáva, štávy z
 da:saft, juice
-de:saft, säfte, saft von, säfte von, saft vom, säfte vom
+de:saft, säfte, saft von, säfte von, saft vom, säfte vom, direktsaft, direktsäfte
 es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
-hu:leve
+hu:leve, lé
 it:succo, succo di, succo d'
+nb:juice
 nl:sap
 nn:juice
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
-ro:suc de
+ro:suc de, suc
 ru:сок
+sk:stavy
 sv:juice, saft
-
-< en:Juice
-de:dicksaft, dicksäfte
-nl:diksap
-
-< en:Juice
-de:direktsaft, direktsäfte
 
 < en:Juice
 es:zumo de, zumo
@@ -637,7 +651,7 @@ en:malted
 de:gemälzt, gemälzte, gemälzter, gemälztes
 es:malteado, malteada, malteados, malteadas
 fi:mallastettu
-fr:malté, maltée, maltés, maltées
+fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
 it:maltato, maltata
 nl:gemout, gemoute
 pt:maltado, maltada
@@ -735,8 +749,17 @@ de:teilentfettet, teilentfettetes
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
 
+en:partially dehydrated
+fr:semi-déshydraté, semi-déshydratée, semi-déshydratés, semi-déshydratées, partiellement déshydraté, partiellement déshydratée, partiellement déshydratés, partiellement déshydratées
+
+en:partially hydrated
+fr:semi-hydraté, semi-hydratée, semi-hydratés, semi-hydratées, partiellement hydraté, partiellement hydratée, partiellement hydratés, partiellement hydratées
+
 en:partially reconstituted
 pt:parcialmente reconstituído, parcialmente reconstituída, parcialmente reconstituídos, parcialmente reconstituídas
+
+en:partially rehydrated
+fr:semi-réhydraté, semi-réhydratée, semi-réhydratés, semi-réhydratées, partiellement réhydraté, partiellement réhydratée, partiellement réhydratés, partiellement réhydratées
 
 en:pasteurised, pasteurized
 ca:pasteuritzada, pasteuritada
@@ -890,12 +913,12 @@ it:spremuto di
 pt:espremido, espremida, espremidos, espremidas
 sv:presset
 
-en:puffed
+en:puffed, inflated
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es:hinchado, hinchada, hinchados, hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
-hu:puffasztott
+hu:puffasztott, felfújt
 nl:gepoft, gepofte
 se:puffat
 
@@ -903,7 +926,7 @@ en:pulp
 ca:polpa do
 cs:dřeň
 de:mark, pulpe, fruchtfleisch
-es:pulpo, pulpa de
+es:pulpo, pulpa de, polpa del
 fi:hedelmäliha
 fr:pulpe, pulpe de, pulpe d', en pulpe
 hu:bél, velő
@@ -915,10 +938,10 @@ de:Purer
 es:pura
 fr:pur
 
-en:pureed, purée
+en:pureed, purée, puréed, puree
 da:puré, pure
 de:püree, puree, püree aus, puree aus, pürierte
-es:puré, puré de, cremogenado, cremogenada
+es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
 hu:püré, pürésített
@@ -982,7 +1005,7 @@ en:salted
 de:gesalzen, gesalzene, gesalzenes, gesalzener
 es:salado, salada, salados, saladas
 fi:suolattu
-fr:salé, salée, salés, salées
+fr:salé, salée, salés, salées, sales, salees
 hu:sózott
 it:salato, salata, salate, salati
 nl:gezouten
@@ -1021,12 +1044,12 @@ es:segmento, segmenta, segmentos, segmentas
 en:selected
 fr:sélectionnées, sélectionnée
 
-en:semi candied
+en:semi candied, semi-candied
 
 en:semi-dried
 de:halbgetrocknet, halbgetrocknete, halbgetrockneter, halbgetrocknetes, halb getrocknet
 es:semiseco
-fr:semi-séchées, semi-déshydratées
+fr:semi séché, semi-séchée, semi-séchés, semi-séchées
 nl:halfgedroogd, halfgedroogde
 pt:semi-seco, semi-seca, semi-secos, semi-secas
 
@@ -1086,7 +1109,7 @@ en:sugared
 de:gezuckert, gezuckerte, gezuckerter, gezuckertes
 es:azucarado, azucarada, azucarados, azucaradas
 fi:sokeroitu, sokeroidut, sokeroitua, sokeroituja
-fr:sucré, sucrée, sucrés, sucrées
+fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 hu:cukrozott
 nl:gesuikerd, gesuikerde
 pt:açucarado, açucarada, açucarados, açucaradas
@@ -1096,7 +1119,7 @@ en:sundried, sun dried
 de:sonnengetrocknet, sonnengetrocknete, sonnengetrockneter, sonnengetrocknetes, an der Sonne getrocknet, an der Sonne getrocknete, an der Sonne getrockneter, an der Sonne getrocknetes
 es:secados al sol
 fi:aurinkokuivattu, aurinkokuivatut
-fr:séchées au soleil
+fr:séché au soleil, séchée au soleil, séchés au soleil, séchées au soleil
 hu:napon szárított
 it:essiccati al sole
 nl:zongedroogd, zongedroogde
@@ -1158,7 +1181,7 @@ nl:ongekookt, ongekookte
 
 en:unenriched
 
-en:unflavoured
+en:unflavoured, unflavoured
 
 en:unfrozen
 de:ungefroren, ungefrorene, ungefrorener, ungefrorenes
@@ -1175,7 +1198,7 @@ pt:não pasteurizado, não pasteurizados, não pasteurizada, não pasteurizadas
 en:unsalted, un-salted
 de:ungesalzen, ungesalzene
 es:sin sal
-fr:non salée
+fr:non salée, non-salée
 nl:ongezouten
 pt:sem sal, não salgado
 
@@ -1211,9 +1234,6 @@ es:humo de leña
 pt:fumado a lenha, fumada a lenha, fumados a lenha, fumadas a lenha, defumado a lenha, defumada a lenha, defumados a lenha, defumadas a lenha
 
 en:zest
-
-es:deshuesado
-pt:desossado, sem osso
 
 fr:extrait naturel de, extrait naturel d'
 pt:extrato natural, extratos naturais, extracto natural, extractos naturais, extrato natural de, extratos naturais de, extracto natural de, extractos naturais de, extrato natural da, extratos naturais da, extracto natural da, extractos naturais da

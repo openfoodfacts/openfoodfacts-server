@@ -60,6 +60,15 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:raw-milk",
+         "en:raw-ham"
+      ],
+      "en:non-vegetarian" : [
+         "en:raw-ham"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",

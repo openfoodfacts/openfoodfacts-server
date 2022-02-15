@@ -493,12 +493,17 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 # (e.g. additives_classes are referenced in additives)
 
 
-@taxonomy_fields = qw(states countries languages labels categories additives_classes additives
-vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
-data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements origins packaging_shapes packaging_materials packaging_recycling
-periods_after_opening nutrients food_groups
+@taxonomy_fields = qw(
+	states countries languages labels categories food_groups
+	ingredients ingredients_processing
+	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+	origins
+	ingredients_analysis
+	nutrients nutrient_levels misc nova_groups
+	packaging packaging_shapes packaging_materials packaging_recycling
+	periods_after_opening
+	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+	improvements
 );
 
 
@@ -650,6 +655,7 @@ periods_after_opening nutrients food_groups
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
+	food_groups
 	states
 	brand_owner
 	ecoscore_score_fr
@@ -902,36 +908,62 @@ $options{display_tag_additives} = [
 
 ];
 
+# Used in the data_sources field (e.g. "App - Open Food Facts")
+$options{apps_names} = {
+
+	"elcoco" => "El CoCo",
+	"ethic-advisor" => "Ethic-Advisor",
+	"horizon" => "Horizon",
+	"infood" => "InFood",
+	"isve" => "IsVe",
+	"labeleat" => "LabelEat",
+	"off" => "Open Food Facts",
+	"scanfood" => "Scanfood",
+	"speisekammer" => "Speisekammer",
+	"waistline" => "Waistline",
+	"yuka" => "Yuka"
+};
 
 # Specific users used by apps
 $options{apps_userids} = {
 
-	"ethic-advisor" => "ethic-advisor",
+	"averment" => "isve",
 	"elcoco" => "elcoco",
+	"ethic-advisor" => "ethic-advisor",
+	"inf" => "infood",
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
+	"prepperapp" => "speisekammer",
+	"scanfood" => "scanfood",
+	"swipe-studio" => "horizon",
 	"waistline-app" => "waistline",
-	"inf" => "infood",
 };
+
+$options{official_app_id} = "off";
+$options{official_app_comment} = "(official (off|open food facts|openfoodfacts)|(off|open food facts|openfoodfacts) (official )?(android |ios )?(official )?app)";
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 # (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-# (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)EthicAdvisorApp-production-2.6.3-user_17cf91e3-52ee-4431-aebf-7d455dd610f0
 # (app)El Coco - user b0e8d6a858034cc750136b8f19a8953d
 
+# app_uuid_prefix must be present to recognize the uuid, if the comment starts with the uuid, put an empty string
 $options{apps_uuid_prefix} = {
 
 	"elcoco" => " user ",
 	"ethic-advisor" => "user_",
-	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
-	"waistline-app" => "Waistline:",
+	"off" => "added by",	
+	"scanfood" => "",
+	"waistline" => "Waistline:",
+	"yuka" => "User :",
 };
 
-$options{official_app_id} = "off";
-$options{official_app_comment} = "(official android app|off app)";
+$options{apps_uuid_suffix} = {
+
+	"scanfood" => "scanfood",
+};
 
 
 $options{nova_groups_tags} = {
@@ -1347,9 +1379,12 @@ $options{import_sources} = {
 };
 
 # Barcode of a sample product returned through the API when the requested code is "example"
-$options{sample_product_code} = "80135463";	# Nutella
-$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
-$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
-$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+$options{sample_product_code} = "093270067481501";	# A good product for you - fake good product
+
+# We can also send back a different product based on country or language, with the following syntax:
+
+#$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+#$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
+#$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
 1;

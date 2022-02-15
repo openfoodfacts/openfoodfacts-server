@@ -689,7 +689,7 @@ sub import_csv_file($) {
 		}
 
 		# add data_source "Producers"
-		if (($Org_id !~ /^app-/) and ( $Org_id !~ /^database-/ ) and ($Org_id !~ /^label-/)) {
+		if ((defined $Org_id) and ($Org_id !~ /^app-/) and ( $Org_id !~ /^database-/ ) and ($Org_id !~ /^label-/)) {
 			if (defined $imported_product_ref->{data_sources}) {
 				$imported_product_ref->{data_sources} .= ", Producers, Producer - " . $Org_id;
 			}
@@ -699,17 +699,17 @@ sub import_csv_file($) {
 		}
 
 		if (not defined $imported_product_ref->{lc})  {
-			$log->error("Error - missing language code lc in csv file or global field values", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
-			next;
+			$log->warning("Warning - missing language code lc in csv file or global field values", { i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_warning();
 		}
+		else {
+			if ($imported_product_ref->{lc} !~ /^\w\w$/) {
+				$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
+				next;
+			}
 
-		if ($imported_product_ref->{lc} !~ /^\w\w$/) {
-			$log->error("Error - lc is not a 2 letter language code", { lc => $lc, i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref }) if $log->is_error();
-			next;
+			# Set the $lang field to $lc
+			$imported_product_ref->{lang} = $imported_product_ref->{lc};
 		}
-
-		# Set the $lang field to $lc
-		$imported_product_ref->{lang} = $imported_product_ref->{lc};
 
 		# Clean the input data, populate some fields from other fields (e.g. split quantity found in product name)
 
