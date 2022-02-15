@@ -38,18 +38,18 @@ fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
 
-en:Biobased Tetra Pak
-de:Biobasiertes Tetra Pak
-fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
-
-en:Cardboard
+en:Cardboard, fiberboard, fibreboard
 da:Pap
 de:Pappe, Wellpappe
-fr:Carton, carton ondulé, carton standard, cartonné, cartonnée, cartonnette
+fr:Carton, carton standard, cartonné, cartonnée
 hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
 it:Cartone, cartone ondulato
 nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
 pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso
+
+< en:Cardboard
+en:Corrugated cardboard
+fr:Carton ondulé
 xx:20 C PAP, 20 C PCB
 
 < en:Cardboard
@@ -58,6 +58,20 @@ de:FSC-Karton
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+
+< en:Cardboard
+en:Non-corrugated cardboard
+fr:Carton non ondulé
+xx:21 PAP
+
+< en:Cardboard
+en:Paperboard
+de:Karton
+fr:Papier cartonné
+hu:Kartonpapír, Karton, Papírkarton
+it:Cartoncino
+pt:Papel cartonado
+xx:23 PBD, 23 PPB, PPB, PBD
 
 < en:Cardboard
 < en:Recycled material
@@ -102,9 +116,13 @@ ru:Хлопок
 xx:60 COT
 wikidata:en: Q8231603
 
+en:fabric, fabrics
+fr:tissu, tissus
+
 en:Glass
 da:Glas
 de:Glas
+es:Vidrio
 fr:Verre
 hu:Üveg
 it:Vetro
@@ -212,9 +230,9 @@ wikidata:en: Q899079
 en:Metal, Metals
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux
+fr:Métal, Métaux, métallique, métalliques
 hu:Fém, fémek
-it:Metalli
+it:Metallo, Metalli
 nl:Metaal, Metalen
 pt:Metais
 ru:Металл
@@ -228,10 +246,10 @@ nl:Recyclebaar metaal
 pt:Metais recicláveis
 
 < en:Metal
-en:Steel
+en:Steel, iron
 da:Stål
 de:Stahl
-fr:Acier
+fr:Acier, fer
 hu:Acél
 it:Acciaio
 ja:スチール
@@ -252,7 +270,7 @@ de:Nickel–Cadmium-Batterie
 fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
 hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
-pt:Bateria de níquel cádmio, pilha de níquel cádmio
+pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
 xx:10 NiCD
 wikidata:en: Q898377
 
@@ -262,16 +280,8 @@ fr:Accumulateur nickel-hydrure métallique, batterie nickel-hydrure métallique
 hu:Nikkel-fémhidrid akkumulátor, Nikkel-metál-hidrid akkumulátor
 nl:nikkel-metaalhydride-accu, NiMH-accu
 pt:Bateria de níquel-hidreto metálico, bateria de hidreto metálico de níquel, pilha de níquel-hidreto metálico, pilha de hidreto metálico de níquel
-xx:11 NiMH
+xx:11 NiMH, 11-NiMH
 wikidata:en: Q308567
-
-en:Other paper
-de:Sonstige Pappe
-fr:Autres papiers, autre papier
-hu:Egyéb papír, más papír
-nl:Ander karton
-pt:Outro papel, outros papéis
-xx:21 PAP
 
 < en:Other plastics
 < en:Plastic
@@ -297,6 +307,7 @@ da:Papir
 de:Papier
 fr:Papier, papier standard
 hu:Papír
+it:Carta
 ja:紙
 nl:Papier
 pt:Papel
@@ -318,6 +329,14 @@ nl:Kraft-papier
 pt:Papel kraft, kraft
 
 < en:Paper
+en:Other paper
+de:Sonstige Pappe
+fr:Autres papiers, autre papier
+hu:Egyéb papír, más papír
+nl:Ander karton
+pt:Outro papel, outros papéis
+
+< en:Paper
 en:Recycled paper, 100% recycled paper
 da:Genbrugspapir
 de:Recyclingpapier, Recyceltes Papier
@@ -336,14 +355,6 @@ hu:Papír és műanyag
 nl:Papier en plastic
 pt:Papel e plástico, Papel + plástico
 xx:81 PapPet
-
-en:Paperboard
-de:Karton
-fr:Papier cartonné
-hu:Kartonpapír, Karton, Papírkarton
-it:Cartoncino
-pt:Papel cartonado
-xx:23 PBD, 23 PPB, PPB, PBD
 
 < en:PET - Polyethylene terephthalate
 en:Biobased PET
@@ -378,7 +389,8 @@ pt:PET transparente
 
 en:Plastic
 da:Plast
-de:Kunststoff
+de:Kunststoff, Kunstoff, plastik
+es:Plástico
 fr:Plastique
 hu:Műanyag
 it:Plastica
@@ -424,7 +436,7 @@ hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
 it:Polietilene a bassa densità
 nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
 pt:LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
-xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
+xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
 non_recyclable_and_non_biodegradable:en: no
 wikidata:en: Q2033818
 
@@ -438,7 +450,7 @@ it:Altre plastiche
 nl:Andere plastics
 pt:Outros plásticos, Todos os outros plásticos, outro plástico
 ru:Другие пластики, Другие пластмассы
-xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹
+xx:07 OTHER, 7 OTHER, 07 O, 7 O, ♹, O 7
 non_recyclable_and_non_biodegradable:en: yes
 
 < en:Plastic
@@ -484,12 +496,12 @@ wikidata:en: Q146243
 en:PVC - Polyvinyl chloride, Polyvinyl chloride
 de:Polyvinylchlorid
 fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
-hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid
+hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
 it:Cloruro di polivinile, polivinilcloruro
 nl:PVC - Polyvinylchloride, polychlooretheen
 pt:PVC - Policloreto de vinil, Policloreto de vinil
 ru:ПВХ, Поливинилхлорид
-xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7
+xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7, ♵
 wikidata:en: Q146368
 
 en:Recyclable material
@@ -523,7 +535,7 @@ ja:アルミ
 nl:Aluminium
 pt:Alumínio
 ru:Алюминий
-xx:41 ALU
+xx:41 ALU, ALU 41, ALU
 wikidata:en: Q663
 
 en:Recycled material
@@ -575,10 +587,21 @@ pt:Bateria de óxido de prata, bateria prata-óxido, pilha de óxido de prata, p
 xx:13 SO(Z), 13 SO
 wikidata:en: Q900791
 
+< en:Steel
+en:Tin-plated steel
+fr:Fer blanc
+
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
+nl:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 pt:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
+packaging_shapes:en: en:brick
+
+< en:Tetra Pak
+en:Biobased Tetra Pak
+de:Biobasiertes Tetra Pak
+fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Unknown
 fr:Inconnu, inconnue, inconnus, inconnues
@@ -614,4 +637,7 @@ nl:Zink-koolstofcel
 pt:Bateria de zinco-carbono, pilha de zinco-carbono
 xx:14 CZ
 wikidata:en: Q28765
+
+xx:Elo-Pak, Pure-Pak, EloPak, PurePak
+packaging_shapes:en: en:brick
 
