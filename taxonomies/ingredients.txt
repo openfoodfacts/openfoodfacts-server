@@ -14093,8 +14093,12 @@ nl:Fijn zout
 <en:salt
 en:rock salt
 de:Steinsalz
+es:sal de roca
 hu:Kősó
 nl:steenzout
+ciqual_food_code:en:11017
+ciqual_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
+ciqual_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 
@@ -14232,6 +14236,9 @@ zh:海盐
 # yue:海鹽
 # zh-min-nan:Hái-iâm
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
+ciqual_food_code:en:11082
+ciqual_food_name:en:Pure sea salt, no enrichment
+ciqual_food_name:fr:Fleur de sel, non iodée, non fluorée
 
 # Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is
 # also commonly used on ingredient list
@@ -14317,6 +14324,9 @@ fr:sel gris, sel marin gris, sel gris marin
 it:Sale grigio
 wikipedia:en:https://en.wikipedia.org/wiki/Sel_gris
 wikidata:en:Q5493196
+ciqual_food_code:en:11083
+ciqual_food_name:en:Sea salt, grey, no enrichment
+ciqual_food_name:fr:Sel marin gris, non iodé, non fluoré
 # ingredient/fr:sel-gris-marin has 32 products in french @2020-04-03
 
 <en:sel gris
@@ -40029,10 +40039,12 @@ fi:omenamehu, omenatäysmehu
 fr:jus de pomme, jus de pommes
 ga:sú úill
 he:מיץ תפוחים
+hr:sok od jabuke
 hu:almalé, almaszörp, almadzsúsz
 hy:խնձորի հյութ
 it:succo di mela, succo di mele
 ja:リンゴジュース
+kk:aлма шырыны
 ko:사과 주스
 lt:obuolių sultys
 nb:eplemost
@@ -42042,39 +42054,69 @@ it:acerola in polvere con fecola di manioca, acerola in polvere con amido di man
 
 <en:berries
 en:blackberry, blackberries
-bg:Къпина
-br:Mouar
-bs:Kupina
-ca:Mora
+ar:توت العليق الأسود
+bg:къпина
+bn:ব্ল্যাকবেরি
+br:mouar
+bs:kupina
+ca:mora
 da:brombær
-de:Brombeeren, Brombeere, Brombeer
-es:Mora, moras
-eu:Masusta
+de:brombeeren, brombeere, brombeer
+el:μούρο
+eo:Kultivitaj rubusoj
+es:mora, moras, zarzamora
+eu:masusta
+fa:تمشک
 fi:karhunvatukka, karhunvadelma
 fr:mûre, mûres
-hr:Kupina
+ga:sméar dhubh
+gl:Amora
+he:פטל שחור
+hr:kupina
+hy:մոշ
 it:more
-kk:Қара бүлдірген
+ja:ブラックベリー
+jv:Blèkbéri
+kk:қара бүлдірген
 ko:블랙베리
-ku:Tûreşk
-mk:Капина
+ku:tûreşk
+lv:kazene
+mk:капина
 ml:ബ്ളാക്ക്ബെറി
+mt:tuta tal-għollieq
 nl:braam, bramen
+oc:Amora
+os:Дзедыр
+pl:jeżyna
 ps:تورتوت
 pt:amora
-ru:Ежевика
+ro:mură
+ru:ежевика
 sd:ڪاريون ٻيريون
+sk:černica
+sr:Kupina
 sv:björnbär
 ta:நாகப்பழம்
-tr:Böğürtlen
+th:แบล็กเบอร์รี
+tr:böğürtlen
+ud:Лыз эмезь
+uk:ожина
 ur:سیاہ توت
-wa:Meumeure
+vi:Mâm xôi
+wa:meumeure
 zh:黑莓
-# bar:Mur
-# roa-rup:Amurâ
-# udm:Лыз эмезь
+# ang:Blæcberige
+# bar:mur
+# kab:Tizwal
+# roa-rup:amurâ
+# scn:Amuredda
+# tuk:Böwürslen
+# udm:лыз эмезь
 # yue:黑啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mûre
+wikidata:en:Q19842373
+ciqual_food_code:en:13029
+ciqual_food_name:en:Blackberry, raw
+ciqual_food_name:fr:Mûre (de ronce), crue
 # 404 products in 7 languages @21018-10-01
 
 en:Black mulberry
