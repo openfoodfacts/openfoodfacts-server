@@ -158,6 +158,12 @@ for front, ingredients and nutrition in all languages.
 This option is used in particular for exporting from the producers platform
 and importing to the public database.
 
+=head4 Return value
+
+Count of the exported documents.
+
+Note: if the max_count parameter is passed
+
 =cut
 
 sub export_csv($) {
@@ -165,6 +171,9 @@ sub export_csv($) {
 	my $args_ref = shift;
 
 	my $filehandle = $args_ref->{filehandle};
+	my $filename = $args_ref->{filename};
+	my $send_http_headers = $args_ref->{send_http_headers};
+	my $format = $args_ref->{format} || "csv";
 	my $separator = $args_ref->{separator} || "\t";
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
@@ -360,17 +369,68 @@ sub export_csv($) {
 
 	# Second pass - output CSV data
 
-	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
-		or die "Cannot use CSV: ".Text::CSV->error_diag ();
+	# Initialize the XLSX or CSV modules, optionally send HTTP headers (if called from the website)
+	# and output the header row
+	my $csv;
+	my $workbook;
+	my $worksheet;
 
-	# Print the header line with fields names
-	$csv->print ($filehandle, \@sorted_populated_fields);
-	print $filehandle "\n";
+	if ($format eq "xlsx") {
+
+		# Send HTTP headers, unless search_and_export_products() is called from a script
+		if ($send_http_headers) {
+			require Apache2::RequestRec;
+			my $r = Apache2::RequestUtil->request();
+			$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+			$r->headers_out->set("Content-disposition" => "attachment;filename=$filename");
+			print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n\r\n";
+
+			binmode($filehandle);
+		}
+		
+		$workbook = Excel::Writer::XLSX->new($filehandle);
+		$worksheet = $workbook->add_worksheet();
+		my $workbook_format = $workbook->add_format();
+		$workbook_format->set_bold();
+		$worksheet->write_row( 0, 0, \@sorted_populated_fields, $workbook_format);
+
+		# Set the width of the columns
+		for (my $i = 0; $i <= $#sorted_populated_fields; $i++) {
+			my $width = length($sorted_populated_fields[$i]);
+			($width < 20) and $width = 20;
+			$worksheet->set_column( $i , $i, $width );
+		}
+	}
+	else {
+
+		if ($send_http_headers) {
+			require Apache2::RequestRec;
+			my $r = Apache2::RequestUtil->request();
+			$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
+			$r->headers_out->set("Content-disposition" => "attachment;filename=$filename");
+			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
+
+			binmode($filehandle, ":encoding(UTF-8)");			
+		}
+
+		$csv = Text::CSV->new ({
+			eol => "\n",
+			sep => $separator,
+			quote_space => 0,
+			binary => 1
+		}) or die "Cannot use CSV: ".Text::CSV->error_diag ();
+
+		# Print the header line with fields names
+		$csv->print ($filehandle, \@sorted_populated_fields);
+	}
 
 	$cursor->reset();
 
+	my $j = 0;    # Row number
+
 	while (my $product_ref = $cursor->next) {
 
+		$j++;
 		my @values = ();
 
 		my $added_images_urls = 0;
@@ -511,11 +571,17 @@ sub export_csv($) {
 			push @values, $value;
 		}
 
-		$csv->print ($filehandle, \@values);
-		print $filehandle "\n";
+		if ($format eq "xlsx") {
+			$worksheet->write_row( $j, 0, \@values);
+		}
+		else {
+			$csv->print (*STDOUT, \@values);
+		}
+
 	}
 
-	return;
+	# Return the count of products exported
+	return $j;
 }
 
 

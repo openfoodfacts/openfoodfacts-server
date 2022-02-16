@@ -646,10 +646,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	no_nutriments
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
 	nutriscore_score
 	nutriscore_grade
 	nova_group
@@ -658,8 +654,10 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	food_groups
 	states
 	brand_owner
-	ecoscore_score_fr
-	ecoscore_grade_fr
+	ecoscore_score
+	ecoscore_grade
+	ecoscore_data.agribalyse.code
+	ecoscore_data.adjustments.packaging.value
 );
 
 
