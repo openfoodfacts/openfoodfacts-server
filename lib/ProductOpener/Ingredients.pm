@@ -2839,6 +2839,9 @@ sub analyze_ingredients($) {
 			}
 		}
 	}
+
+	# Uncomment the following line to add an extra field with more data for debugging purposes
+	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
 }
 
 
