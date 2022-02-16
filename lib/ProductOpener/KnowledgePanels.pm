@@ -751,7 +751,7 @@ sub create_health_card_panel($$$) {
     # Create the additives panel
     create_additives_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the additives panel
+    # Create the ingredients analysis panel
     create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);    
 
     # Create the health_card panel
