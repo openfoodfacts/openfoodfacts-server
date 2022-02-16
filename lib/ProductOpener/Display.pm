@@ -11104,7 +11104,8 @@ sub data_to_display_ingredients_analysis($) {
 				$ingredients_title_id = "unrecognized_ingredients";
 			}
 			else {
-				# convert en:non-vegetarian property to non_vegetarian_ingredients string id
+				# convert analysis tag to a string id
+				# eg. en:non-vegetarian property to non_vegetarian_ingredients string id
 				$ingredients_title_id = lc($ingredients_analysis_tag) . "_ingredients";
 				$ingredients_title_id =~ s/^en://;
 				$ingredients_title_id =~ s/-/_/g;
