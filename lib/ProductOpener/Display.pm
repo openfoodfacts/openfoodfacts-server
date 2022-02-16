@@ -11081,7 +11081,7 @@ sub data_to_display_ingredients_analysis($) {
 					$icon = "leaf";
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = "egg";
+					$icon = "vegetarian";
 				}
 
 				# Evaluation
