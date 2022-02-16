@@ -78812,17 +78812,6 @@ de:Hühnerfleisch einschließlich natürlicher Hühnersäfte, Hühnerfleisch und
 <en:chicken meat including chicken juices
 en:cooked chicken with natural juices
 
-<en:broth
-<en:chicken
-en:Chicken Stock
-ca:brou de pollastre
-de:Hühnerbrühe
-es:caldo de pollo
-fi:kanaliemi
-fr:bouillon de poulet, fond de poulet
-nl:kippenbouillon
-sv:kycklingfond
-# ingredient/fr:fond-de-poulet has 79 products in 4 languages @2019-05-18
 
 <en:chicken meat
 en:chicken fillet
@@ -83978,19 +83967,20 @@ ciqual_food_name:fr:Fond de volaille pour sauces et cuisson, déshydraté
 # description:en:Chicken broth is broth made from chicken.
 
 <en:poultry broth
-<en:chickens
-en:chicken broth
+<en:chicken
+en:chicken broth, Chicken Stock
 ca:brou de pollastre
 da:Kyllingebouillon
-de:Hühnersuppe
+de:Hühnerbrühe
 es:Caldo de pollo
 fi:kanaliemi
-fr:Bouillon de poulet
+fr:Bouillon de poulet, fond de poulet
 it:brodo di pollo
 ja:鶏汁
 nl:Kippenbouillon
 pl:Rosół z kurczaka
-sv:kycklingbuljong
+sv:kycklingbuljong, kycklingfond
+# ingredient/fr:fond-de-poulet has 79 products in 4 languages @2019-05-18
 
 # description:en:VEGETABLE BROTH is made exclusively from vegetables.
 
