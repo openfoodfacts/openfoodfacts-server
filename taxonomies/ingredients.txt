@@ -6825,7 +6825,7 @@ de:frische entrahmte Bio-Milch pasteurisiert
 es:leche fresca semidesnatada, leche fresca parcialmente desnatada
 fr:lait frais demi-écrémé
 
-<en:organic semi-skimmed milk
+#<en:organic semi-skimmed milk
 <en:fresh milk
 fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
 
@@ -25729,7 +25729,7 @@ it:frumento soffiato
 # 55 in 5 @2021-10-22
 
 <en:wheat
-<en:whole grain
+#<en:whole grain
 en:whole wheat, whole grain wheat, wholegrain wheat, wholewheat
 ar:قمح كامل
 bg:пълнозърнест пшеничен
@@ -30273,7 +30273,7 @@ fr:Riz brun complet
 nl:volkoren rijst
 
 <en:brown rice
-<en:organic rice
+#<en:organic rice
 en:organic brown rice, organic full grain rice
 fi:luomu tumma riisi, luomu täysjyväriisi
 fr:riz complet bio, riz complet biologique, riz complet issu de l'agriculture biologique
@@ -30370,7 +30370,7 @@ nl:langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
 <en:superior quality long grain rice
-<en:organic rice
+#<en:organic rice
 en:superior quality organic long grain rice
 fr:riz long grain biologique de qualite superieure
 
@@ -30397,7 +30397,7 @@ fr:riz long blanc bio
 fr:riz long semi complet
 
 <fr:riz long semi complet
-<en:organic rice
+#<en:organic rice
 fr:riz long semi complet issu de l'agriculture-biologique:
 
 <en:long grain rice
@@ -30444,7 +30444,7 @@ sv:långkornigt parboil ris
 fr:riz long italien étuvé
 
 <en:parboiled long grain rice
-<en:organic rice
+#<en:organic rice
 en:parboiled organic long grain rice
 da:økologisk parboiled langkornede ris
 de:Parboiled Bio-Langkornreis
@@ -30479,7 +30479,7 @@ hu:kerek rizs
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
 
 <en:round rice
-<en:organic rice
+#<en:organic rice
 en:organic round rice
 fi:luomu pyöreäjyväinen riisi
 fr:riz rond biologique
@@ -30510,7 +30510,7 @@ fr:riz rond de qualité supérieure
 # ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
 <fr:riz rond de qualité supérieure
-<en:organic rice
+#<en:organic rice
 fr:riz rond biologique de qualité supérieure
 
 <en:rice
@@ -36466,14 +36466,14 @@ fr:levain lactique
 de:Natursauerteig
 
 <en:sourdough
-en:dehydrated sourdough
+en:dehydrated sourdough, sourdough powder
 de:Sauerteig getrocknet
 fi:kuivattu taikinajuuri
 fr:levain sec, levain déshydraté
 it:lievito naturale secco
 nl:zuurdesempoeder, desempoeder
 
-<en:dehydrated sourdough, sourdough powder
+<en:dehydrated sourdough
 en:devitalised and dehydrated sourdough
 fr:levain déshydraté et dévitalisé
 nl:geïnactiveerde desempoeder
@@ -38270,14 +38270,14 @@ fr:demi-abricots, demi abricots
 
 #processing:en: en:dried
 <en:apricot
-#en:dried apricots
-#da:tørret abrikos, tørrede abrikoser
-#de:getrocknete Aprikosen
-#es:albaricoques deshidratados
-#fi:kuivattu aprikoosi, kuivatut aprikoosit
-#fr:abricots secs, abricots séchés
-#it:albicocche secche
-#nl:gedroogde abrikozen
+en:dried apricots
+da:tørret abrikos, tørrede abrikoser
+de:getrocknete Aprikosen
+es:albaricoques deshidratados
+fi:kuivattu aprikoosi, kuivatut aprikoosit
+fr:abricots secs, abricots séchés
+it:albicocche secche
+nl:gedroogde abrikozen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots-secs
 # 138 products in 5 languages @2018-09-29
 
@@ -51640,8 +51640,6 @@ ciqual_food_name:fr:Oignon, séché
 #wikidata:en:Q7093931
 # 24139 in 36 @2021-09-10
 
-<en:onion powder
-de:Röstzwiebelpulver
 
 <en:onion
 fr:oignons coupés
@@ -51720,7 +51718,8 @@ sv:lök brynt i solrosolja
 # fr:oignons-grillés is a compound ingredient, eg:Zwiebeln gegrillt (Zwiebeln, Palmöl, Weizenmehl, Kochsalz)
 
 <en:onion
-de:Zwiebeln gegrillt, Röstzwiebeln
+en:Baked onion
+de:Zwiebeln gegrillt, Röstzwiebeln, Röstzwiebel
 fi:paahdettu sipuli
 fr:oignon grillé, oignons grillés
 it:cipolle grigliate
@@ -52860,8 +52859,8 @@ ciqual_food_name:fr:Manioc, racine crue
 #650 in 10 @2021-10-18
 
 <en:flour
-<en:cassave
-en:cassave flour
+<en:cassava
+en:cassava flour
 de:Maniokmehl
 fr:farine de manioc
 hu:maniókaliszt
@@ -55508,7 +55507,7 @@ vegetarian:en:yes
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
 #category/butter-beans
-<en:legumes
+<en:legume
 en:lima bean, butter bean
 ca:garrofó, fesol de la peladilla, mongeta de Lima
 da:limabønne, månebønne, sukkerbønne
@@ -55557,13 +55556,13 @@ en:large lima beans
 <en:lima beans
 en:baby lima beans
 
-<en:legumes
+<en:legume
 en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
-<en:legumes
+<en:legume
 en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
 de:weiße Bohnen
@@ -55577,10 +55576,10 @@ ru:фасоль белая
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
-<en:legumes
+<en:legume
 fr:haricots coco roses, haricots cocos roses
 
-<en:legumes
+<en:legume
 fr:haricots chevriers verts
 
 <en:white beans
@@ -55597,7 +55596,8 @@ fr:haricots blancs précuits
 
 <en:white beans
 fr:haricots blancs réhydratés
-<en:legumes
+
+<en:legume
 en:black beans
 da:sorte bønner
 de:schwarze Bohnen
@@ -55608,7 +55608,7 @@ it:Fagioli neri
 nl:Zwarte bonen
 sv:svarta bönor
 
-<en:legumes
+<en:legume
 en:red beans, red kidney beans, kidney beans
 da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen, Kidneybohnen
@@ -55641,14 +55641,14 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
-<en:legumes
+<en:legume
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
 wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
-<en:legumes
+<en:legume
 en:mung bean, mungbean
 ar:بقلة الماش
 bg:папуда, птичи боб, бебриджа
@@ -55762,7 +55762,7 @@ ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 #en:Mungbean powder
 #zh:緣豆粉
 
-<en:legumes
+<en:legume
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -79025,8 +79025,8 @@ ciqual_food_name:fr:Gésier, poulet, cru
 #46 in 2 @2021-09-12
 
 # <en:compound
-<fr:gésiers de canard
-fr:Gésiers de canard maigre traités en salaison
+<en:duck gizzard
+fr:Gésier de canard maigre traités en salaison
 # usage:fr:Gésiers de canard maigre traités en salaison 85% (gésiers de canard, sel, arômes naturels, conservateur : nitrite de sodium)
 
 <en:duck
