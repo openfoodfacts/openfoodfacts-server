@@ -1,6 +1,13 @@
 github_actions:
 - .github/**/*
 
+nginx:
+- conf/nginx/**/*
+
+mongodb:
+- conf/mongodb/create_indexes.js
+- scripts/refresh_products_tags.js
+
 taxonomies:
 - taxonomies/**/*
 
@@ -86,6 +93,9 @@ ingredients:
 - lib/ProductOpener/Ingredients.pm
 - taxonomies/ingredients.txt
 
+ingredients analysis:
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+
 labels:
 - taxonomies/labels.txt
 
@@ -122,7 +132,30 @@ packager codes:
 
 Packaging:
 - lib/ProductOpener/Packaging.pm
-
+- taxonomies/packaging_materials.txt
+- t/packaging.t
+- cgi/packaging.pl
+- icons/packaging.svg
+- taxonomies/old/packagings.txt
+- taxonomies/packaging.result.sto
+- taxonomies/packaging.result.txt
+- taxonomies/packaging_shapes.txt
+- taxonomies/packaging_materials.txt
+- taxonomies/packaging_recycling.txt
+- taxonomies/packaging_shapes.result.sto
+- taxonomies/packaging_shapes.result.txt
+- html/images/lang/en/packaging/**/*
+- html/images/icons/packaging-shapes/README
+- taxonomies/packaging_materials.result.sto
+- taxonomies/packaging_materials.result.txt
+- taxonomies/packaging_recycling.result.sto
+- taxonomies/packaging_recycling.result.txt
+- html/images/icons/packaging-shapes/LICENCE
+- html/images/lang/jp/packaging/**/*
+- html/images/lang/de/packaging/**/*
+- t/expected_test_results/packaging/**/*
+- html/images/icons/packaging-shapes/dark-mode/**/*
+  
 producers platform:
 - lib/ProductOpener/GS1.pm
 - lib/ProductOpener/Orgs.pm

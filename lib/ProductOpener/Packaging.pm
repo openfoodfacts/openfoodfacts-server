@@ -46,6 +46,8 @@ BEGIN
 		&extract_packaging_from_image
 		&init_packaging_taxonomies_regexps
 		&analyze_and_combine_packaging_data
+		&parse_packaging_from_text_phrase
+		&guess_language_of_packaging_text
 
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -144,10 +146,31 @@ sub init_packaging_taxonomies_regexps() {
 	#store("packaging_taxonomies_regexps.sto", \%packaging_taxonomies_regexps);
 }
 
+
 =head2 parse_packaging_from_text_phrase($text, $text_language)
 
 This function parses a single phrase (e.g. "5 25cl transparent PET bottles")
 and returns a packaging object with properties like units, quantity, material, shape etc.
+
+=head3 Parameters
+
+=head4 $text text
+
+If the text is prefixed by a 2-letter language code followed by : (e.g. fr:),
+the language overrides the $text_language parameter (often set to the product language).
+
+This is useful in particular for packaging tags fields added by Robotoff that are prefixed with the language.
+
+It will also be useful when we taxonomize the packaging tags (not taxonomized as of 2022/03/04):
+existing packaging tags will be prefixed by the product language.
+
+=head4 $text_language default text language
+
+Can be overriden if the text is prefixed with a language code (e.g. fr:boite en carton)
+
+=head3 Return value
+
+Packaging object (hash) reference with optional properties: recycling, material, shape
 
 =cut
 
@@ -157,6 +180,11 @@ sub parse_packaging_from_text_phrase($$) {
 	my $text_language = shift;
 	
 	$log->debug("parse_packaging_from_text_phrase - start", { text => $text, text_language => $text_language }) if $log->is_debug();
+
+	if ($text =~ /^([a-z]{2}):/) {
+		$text_language = $1;
+		$text = $';
+	}
 	
 	# Also try to match the canonicalized form so that we can match the extended synonyms that are only available in canonicalized form
 	my $textid = get_string_id_for_lang($text_language, $text);	
@@ -273,6 +301,68 @@ sub parse_packaging_from_text_phrase($$) {
 }
 
 
+=head2 guess_language_of_packaging_text($text, \@potential_lcs)
+
+Given a text like "couvercle en métal", this function tries to guess the language of the text based
+on how well it matches the packaging taxonomies.
+
+One use is to convert packaging tags for which we don't have a language to a version prefixed by the language.
+
+Candidate languages are provided in an ordered list, and the function returns the one that matches more
+properties (material, shape, recycling). In case of a draw, the priority is given according to the order of the list.
+
+=head3 Parameters
+
+=head4 $text text
+
+=head4 \@potential_lcs reference to an ordered list of language codes
+
+=head3 Return value
+
+- undef if no match was found
+- or language code of the better matching language
+
+=cut
+
+sub guess_language_of_packaging_text($$) {
+	
+	my $text = shift;
+	my $potential_lcs_ref = shift;
+	
+	$log->debug("guess_language_of_packaging_text - start", { text => $text, potential_lcs_ref => $potential_lcs_ref }) if $log->is_debug();
+
+	my $max_lc;
+	my $max_properties = 0;
+
+	foreach my $l (@$potential_lcs_ref) {
+		my $packaging_ref = parse_packaging_from_text_phrase($text, $l);
+		my $properties = scalar keys %$packaging_ref;
+
+		# if no property was recognized and we still have no candidate,
+		# try to see if the entry exists in the packaging taxonomy
+		# (which includes preservation which will not be parsed by parse_packaging_from_text_phrase)
+
+		if (($max_properties == 0) and ($properties == 0)) {
+			my $tagid = canonicalize_taxonomy_tag($l, "packaging", $text);
+			if (exists_taxonomy_tag("packaging", $tagid)) {
+				$properties = 1;
+			}
+		}
+
+		if ($properties > $max_properties) {
+			$max_lc = $l;
+			$max_properties = $properties;
+			# If we have all properties, bail out
+			if ($properties == 3) {
+				last;
+			}
+		}
+	}
+	
+	return $max_lc;
+}	
+
+
 =head2 analyze_and_combine_packaging_data($product_ref)
 
 This function analyzes all the packaging information available for the product:
@@ -341,6 +431,24 @@ sub analyze_and_combine_packaging_data($) {
 		if ((defined $packaging_ref->{"shape"}) and ($packaging_ref->{"shape"} eq "en:capsule")
 			and (has_tag($product_ref, "categories", "en:coffees"))) {
 			$packaging_ref->{"shape"} = "en:coffee-capsule";
+		}
+
+		# If we have a shape without a material, check if there is a default material for the shape
+		# e.g. "en:Bubble wrap" has the property packaging_materials:en: en:plastic
+		if ((defined $packaging_ref->{"shape"}) and (not defined $packaging_ref->{"material"})) {
+			my $material = get_inherited_property("packaging_shapes", $packaging_ref->{"shape"}, "packaging_materials:en");
+			if (defined $material) {
+				$packaging_ref->{"material"} = $material;
+			}
+		}
+
+		# If we have a material without a shape, check if there is a default shape for the material
+		# e.g. "en:tetra-pak" has the shape "en:brick"
+		if ((defined $packaging_ref->{"material"}) and (not defined $packaging_ref->{"shape"})) {
+			my $shape = get_inherited_property("packaging_materials", $packaging_ref->{"material"}, "packaging_shapes:en");
+			if (defined $shape) {
+				$packaging_ref->{"shape"} = $shape;
+			}
 		}
 		
 		# For phrases corresponding to the packaging text field, mark the shape as en:unknown if it was not identified
