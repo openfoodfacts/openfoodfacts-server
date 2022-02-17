@@ -31086,7 +31086,7 @@ ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
 de:Carobin, Carobpulver, Johannisbrot, Johannisbrote
-es:Harina de algarroba, harina de garrofin, Algarroba, garrofon
+es:Harina de algarroba, harina de garrofin
 et:Jaanileivapuujahu
 fi:carob
 fr:caroube, farine de caroube
@@ -53242,19 +53242,18 @@ an:pimiento
 ar:فلفل حلو
 bg:пипер, чушка
 ca:pebrot morro de bou
-cs:paprika
-da:paprika, peberfrugt
-de:Paprika, Gemüsepaprika
+da:peberfrugt
+de:Gemüsepaprika
 eo:kapsiko
 es:pimiento, morrón, pimiento morrón, pimiento dulce, pimientos dulces
 et:paprika, paprikad
 eu:pipermorro
 fa:فلفل دلمه‌ای
-fi:paprika, paprikaa, makea paprika, makeat paprikat
+fi:paprikaa, makea paprika, makeat paprikat
 fr:poivron, poivrons
 ha:barkono
 he:גמבה, פלפל
-hu:bell paprika, paprika
+hu:bell paprika
 id:paprika
 is:paprika
 it:peperone, peperoni, peperoni dolci, peperone dolce
@@ -53264,7 +53263,6 @@ kk:бұрыш, паприка
 kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
 ko:단고추
 lt:saldžioji paprika
-lv:paprika
 mg:sakaibe
 mk:бабура
 mr:ढोबळी मिरची
@@ -53273,10 +53271,8 @@ mt:bżar ħelu
 my:ငရုပ်ပွ
 nb:paprika
 ne:भेडे खुर्सानी
-nl:paprika, paprika's
-nn:paprika
+nl:paprika's
 oc:pebron
-pl:papryka
 ps:خواږه مرچ
 pt:pimentão
 ro:ardei gras
@@ -53285,7 +53281,6 @@ sa:महामरीचिका
 sk:paprika
 sl:paprika
 sr:Бабура, paprika
-sv:paprika
 ta:குடைமிளகாய்
 te:కూరమిరప
 th:พริกหยวก
@@ -53376,7 +53371,6 @@ es:pimiento italiano
 <en:bell pepper
 en:red bell pepper, red pepper
 ar:فلفل أحمر
-bg:Червен пипер
 ca:pebrot vermell,pebrot roig
 cs:červená paprika
 da:rød peberfrugt, rød peber
@@ -53864,47 +53858,36 @@ fr:pili-pili, pili pili
 nl:pili pili
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
-<en:pepper
 <en:spice
 en:paprika
 ar:بابريكا
 az:paprika
-bg:червен пипер
 br:paprika
 bs:paprika
 ca:piment vermell
-cs:paprika
 cy:Paprica
 da:paprika
-de:Paprika
 el:πάπρικα
 eo:papriko
 es:pimentón,paprika
 eu:piperrauts
 fa:پاپریکا
-fi:paprika
 fr:paprika
 ga:pemento
 he:פפריקה
-hu:fűszerpaprika-őrlemény, paprika
+hu:fűszerpaprika-őrlemény
 io:papriko
 it:paprika
 ja:パプリカ
 ko:파프리카
 lt:paprika
-lv:paprika
 mk:црвен пипер
 ms:paprika
-nb:paprika
-nl:Paprika
-no:paprika
-pl:papryka
 pt:paprica
 ro:boia
 ru:паприка
 sl:paprika
 sr:паприка
-sv:Paprika
 tg:паприка
 tl:Paprika
 uk:паприка
@@ -53915,12 +53898,9 @@ zh:辣椒粉
 # en-gb:paprika
 # fi:paprikaa is already under en:pepper
 # lad:Paprika
-# nl:paprika is already under en:pepper
-# nn:paprika is already under en:pepper
 # pam:paprika
 # pt-br:páprica
 # sco:paprika
-# sv:paprika is already under en:pepper
 # yue:紅甜椒粉
 # zh-cn:烟熏红椒
 # zh-hant:烟熏红椒
@@ -53956,6 +53936,23 @@ fr:Pâte de paprika
 en:sweet paprika
 de:Paprika edelsüß
 es:pimienta roja dulce
+
+<en:bell pepper
+<en:spice
+en:spice or bell pepper
+bg:червен-пипер
+cs:paprika
+da:paprika
+de:Paprika
+fi:paprika
+hu:paprika
+lv:paprika
+nb:paprika
+nl:paprika
+no:paprika
+nn:paprika
+pl:papryka
+sv:paprika
 
 <en:vegetable
 en:tomato, tomatoes
@@ -54227,14 +54224,13 @@ de:Organische Tomatenwürfel in organischem Tomatensaft
 fr:purée de tomates avec morceaux
 nl:tomatenblokjes in tomatensap van biologische oorsprong
 
+#This is probably the same as pulp
 <en:chopped tomatoes
 en:crushed tomato
 da:flåede tomater
 de:stückige Tomaten, Tomaten stückig
 el:πουρές τομάτας
-es:Puré de tomate
 fi:tomaattimurska, tomaattimurskaa
-fr:Purée de tomate
 it:Pomodoro schiacciato
 nb:knust tomat
 pl:Przecier pomidorowy
@@ -54267,7 +54263,6 @@ fr:pulpe de tomate
 it:polpa di pomodoro
 nl:tomatenpulp
 pt:polpa de tomate
-sv:krossade tomater, passerade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:pulpe-de-tomate has 501 products in 6 languages @2018-12-26
@@ -54283,6 +54278,7 @@ nl:gezeefde tomaten
 nn:mosede tomater
 pt:tomates passados
 se:mosade tomater
+sv:passerade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:coulis-de-tomates has 165 products in 4 languages @2018-12-26
@@ -54298,7 +54294,6 @@ fr:purée de tomate, purée de tomates, puree de tomate
 he:מחית עגבניות
 hu:paradicsompüré
 is:tómatpúrra
-it:passata di pomodoro
 nb:tomatpuré
 nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 sv:tomatpuré, tomatpyré, tomatpure, mosade tomater
@@ -55067,16 +55062,10 @@ sv:Raps, rapsfrön
 wikidata:en:Q177932
 wikipedia:en:https://en.wikipedia.org/wiki/Rapeseed
 
+#This should denote only the american variety
 <en:Rapeseed
 en:Canola
-de:Raps
-es:Canola
-fi:Rypsi
-fr:canola
-it:Canola
-nl:canola
-pl:Rzepak
-sv:Raps
+xx:Canola
 
 <en:root vegetable
 en:turnip-rape, turnip rape, field mustard
@@ -55231,12 +55220,9 @@ fa:لوبیا سبز
 fr:haricot vert, haricots verts, haricot princesse, haricots princesses
 he:שעועית ירוקה
 hr:grah mahunar
-id:buncis
 it:fagiolino, fagiolo verde, fagiolini, fagioli verdi, Fagiolini verdi
 ja:いんげん豆, サヤインゲン
-jv:buncis
 ko:풋강낭콩
-la:phaseolus vulgaris
 lv:zaļās pupiņas
 mk:боранија
 ms:pokok kacang buncis
@@ -55247,15 +55233,12 @@ pt:feijão-verde, vagem
 ro:fasole pastai verde
 ru:фасоль стручковая, спаржевая фасоль, зелёностручковая фасоль
 sa:निष्पावप्रभेदः
-sh:mahuna
-sk:fazuľa záhradná
 sq:mashurka
 sr:боранија
 sv:brytböna, brytbönor, gröna bönor
 ta:பச்சை அவரை
 tl:sitaw
 uk:стручкова квасоля
-vi:đậu cô ve
 zh:豆角
 #arz:فاصوليا خضرا
 #bcl:balatong
@@ -55337,7 +55320,6 @@ fi:romanopapu, romanopavut
 fr:haricot vert plat, haricots verts plats, haricots plats
 nl:snijboon
 nn:snittebønne
-ru:фасоль стручковая
 sv:romanabönor
 # nds_nl:klemboon, sniejboon
 #pap:sneibonchi
@@ -55720,7 +55702,6 @@ ja:もやし, 萌やし
 jv:kecambah
 km:សណ្ដែកបណ្
 ko:숙주나물
-la:vigna radiata
 ms:tauge halus, kecambah
 nl:taugé, mungboonscheut
 nn:mungbonnespirer
@@ -55758,7 +55739,6 @@ description:en:The borlotti bean is a variety of common bean (Phaseolus vulgaris
 
 <en:legume
 en:black-eyed pea, blackeye peas, black eye beans, black eyed beans
-bg:Папуда
 de:Augenbohnen
 dv:ލޫބިޔާ
 fi:lehmäpapu, pitkäpapu
@@ -56130,7 +56110,6 @@ pa:ਮਟਰ
 pl:Groch zwyczajny, groszek
 pt:Ervilha, ervilhas
 qu:Allwirha
-ro:Mazăre
 ru:горох
 rw:Ishaza
 sa:हरेणुः
@@ -56235,7 +56214,7 @@ io:garbanzo
 is:kjúklingabaun
 it:cece, ceci
 ja:ヒヨコマメ
-jv:Coklat, kacang polong
+jv:kacang polong
 kk:нұт
 kn:ಕಡಲೆ
 ko:병아리콩
@@ -56427,7 +56406,7 @@ en:besan
 en:green peas
 bg:зелен грах
 da:Grønne ærter
-de:grüne Erbsen, grüne Bohnen
+de:grüne Erbsen
 es:guisante verde, guisantes verdes
 fi:vihreät herneet, vihreä herne
 fr:pois vert
@@ -59667,6 +59646,7 @@ fr:pâte miso rouge
 #                                Spices (general)
 #
 ###################################################################################################
+<en:condiment
 en:spice, spices
 ca:Espècies
 cs:Koření
@@ -59679,7 +59659,6 @@ fi:mauste, mausteet
 fr:épice, épices, aromate
 he:תבלין
 hr:Začin
-hu:fűszer, fűszerek
 is:krydd
 it:spezie
 nb:krydder, krydderi, krydderier
