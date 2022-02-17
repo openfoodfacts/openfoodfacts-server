@@ -23713,11 +23713,6 @@ sv:smakberedning
 # ingredient/fr:préparation-aromatique has 64 products in 3 languages @2019-04-11
 # usage:fr: préparation aromatique (arôme naturel, colorants : caramel, curcumine, extrait de paprika, céleri)
 
-<en:flavouring preparation
-de:Würze, Speisewürze, Suppenwürze
-hu:fűszer, fűszerek
-# liquid, pasty or dry product found in 132 German products products @2019-09-15
-wikidata:en:Q2596994
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
@@ -53295,7 +53290,6 @@ ta:குடைமிளகாய்
 te:కూరమిరప
 th:พริกหยวก
 tl:siling-pula
-tr:biber
 uk:овочевий перець
 uz:shirin qalampir, paprika
 vi:ớt chuông
@@ -53835,10 +53829,10 @@ de:Kirschpaprika
 fi:pimento, pimento-chili
 hu:pimiento paprika
 id:cabai ceri
-it:Pepe
+it:peperoncino
 ja:ピメント
 ko:체리고추
-nl:pimentpasta
+nl:piment
 sv:pimento, pimento chili
 uk:пім'єнто
 vi:ớt pimiento
@@ -55220,12 +55214,6 @@ et:idudega
 lt:šparaginės pupelės
 lv:diedzētas pupinas
 
-<en:bean
-en:Snap pea, sugar snap peas
-de:Zuckererbse, Zuckererbsen
-fr:Pois sucré
-vegan:en:yes
-vegetarian:en:yes
 
 <en:legume
 en:green bean, green beans
@@ -56507,7 +56495,7 @@ de:Junge Markerbsen
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
 <en:pea
-en:snow pea, mangetout, snow peas
+en:snow pea, mangetout, snow peas, Snap pea, sugar snap peas
 ca:tirabec
 da:sukkerært
 de:Kefen, Zuckerschoten, Zuckererbse
@@ -56515,7 +56503,7 @@ el:γλυκομπίζελα, ζαχαρομπίζελο
 eo:sukerpizo
 es:guisante mollar, guisante azucarado
 fi:sokeriherne
-fr:pois mange-tout, pois croquants, pois gourmand
+fr:pois mange-tout, pois croquants, pois gourmand, Pois sucré
 gl:tirabeque
 id:kapri
 it:taccole
@@ -56537,6 +56525,8 @@ ciqual_food_code:en:20173
 ciqual_food_name:en:Snow pea, raw
 ciqual_food_name:fr:Pois mange-tout ou pois gourmand, cru
 # 202 @2021-10-05
+vegan:en:yes
+vegetarian:en:yes
 
 
 # description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
@@ -57126,12 +57116,6 @@ pt:amêndoas em pó
 sv:mandelpulver
 # ingredient/fr:amande-en-poudre has 233 products in 8 languages @2018-10-06
 
-<en:almond
-en:almond paste
-de:Mandelmasse
-es:pasta de almendra
-fr:Pâte d'amandes, pâte d'amande
-pt:Pasta de amêndoa
 
 <en:almond paste
 en:prepacked Almond paste
@@ -57184,7 +57168,7 @@ es:trozos de almendras, almendras en trozos
 fi:mantelipala, mantelipalat
 fr:éclats d'amandes
 it:mandorle spezzate
-nl:amandelschilfers
+nl:amandelstukjes
 # ingredient/fr:éclats-d'amandes has 73 products in 4 languages @2018-10-06
 
 <en:almond
@@ -57233,11 +57217,13 @@ sv:sötmandel
 # fr:pâte d'amande can be a compound ingredient
 
 <en:almond
+en:almond paste
 fr:pâte d'amande, pâte d'amandes
-de:Mandelpaste
-es:masa fina de mazapán
+de:Mandelpaste, Mandelmasse
+es:masa fina de mazapán, pasta de almendra
 fi:mantelitahna
 it:pasta di mandorle
+pt:Pasta de amêndoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
 # 216 products in 5 languages @2018-10-06
 
@@ -57799,7 +57785,7 @@ ga:Cnó talún, piseanna
 gu:મગફળી
 ha:Gyaɗa
 he:בוטן, בוטנים, חמאת בוטנים
-hu:mogyoró, földimogyoró
+hu:földimogyoró
 ia:cacahuete
 it:arachide, arachidi
 ja:ラッカセイ
@@ -58123,7 +58109,6 @@ fa:مغز گردو
 fi:saksanpähkinä, saksanpähkinät
 fr:noix
 ga:Gallchnó, gallchnónna
-gl:Noz
 hu:dió
 id:Kacang kenari
 io:Nuco
@@ -58502,7 +58487,6 @@ ciqual_food_name:fr:Fenouil, graine
 
 en:chia
 es:chía negra
-ja:チアシード
 la:Salvia hispanica
 xx:chia
 wikidata:en:Q27688832
@@ -58585,7 +58569,7 @@ fr:cumin
 ga:cuimín
 gl:comiño
 gu:જીરું
-he:זרעי כמון
+he:כמון
 hi:जीरा
 hr:kumin
 hu:kömény, római kömény
@@ -58617,10 +58601,10 @@ nn:kummin, spisskummen, spisskum
 or:ଜିରା
 os:зира
 pa:ਜੀਰਾ
-pl:nasiona kminku, kmin rzymski
+pl:kmin rzymski
 pt:cominho
 ro:chimion
-ru:зёрна кумина, зира, кумин, тмин
+ru:зира, кумин, тмин
 sa:जीरकम्
 #sco:cumin
 sd:اڇو جيرو
@@ -59105,8 +59089,7 @@ de:schwarzer und weißer Pfeffer
 fi:musta- ja valkopippuri
 fr:Poivres noir et blanc
 it:Pepe nero e bianco
-nl:zwarte een witte peper
-ru:перец белый
+nl:zwarte en witte peper
 
 <en:pepper
 en:long pepper
@@ -59171,7 +59154,7 @@ es:pimienta verde
 fi:viherpippuri
 fr:poivre vert
 it:Peperone verde
-nl:groene paprika
+nl:groene peper
 sv:grönpeppar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-vert
 # 193 products @2018-10-08
@@ -59564,7 +59547,7 @@ ko:조미료
 ms:Bumbu
 nn:smakstilsetjing
 oc:condiment
-pl:przyprawa
+pl:przyprawa, przyprawy
 pt:condimento
 ro:Mirodenie
 ru:приправы
@@ -59688,7 +59671,7 @@ en:spice, spices
 ca:Espècies
 cs:Koření
 da:krydderi, krydderier
-de:Gewürze
+de:Gewürze, Würze, Speisewürze, Suppenwürze
 el:Μπαχαρικό, μπαχαρικά
 es:especias
 et:vürtsid
@@ -59699,11 +59682,9 @@ hr:Začin
 hu:fűszer, fűszerek
 is:krydd
 it:spezie
-ja:調味料
 nb:krydder, krydderi, krydderier
 nl:specerijen, specerij
 no:krydder
-pl:Przyprawa, przyprawy
 ru:Специи, пряности
 sl:začimbe
 sv:krydda, kryddor, kryddört
@@ -59715,10 +59696,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Épices
 carbon_footprint_fr_foodges_value:fr:2.2
 # 903 products in 4 languages @2018-10-08
 nutriscore_fruits_vegetables_nuts:en:no
+wikidata:en:Q2596994
 
 <en:spices
 en:natural spices
-de:Gewürze
+de:natürliche Gewürze
 es:especias naturales
 fr:Épices naturelles
 ru:пряности натуральные
@@ -59771,7 +59753,6 @@ es:hierbas y especias
 fi:yrtit ja mausteet
 fr:épices et plantes aromatique, épice et plante aromatique, épices et plantes aromatiques, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
 it:Erbe e spezie
-ja:ハーブ
 nl:kruiden en specerijen
 pl:Zioła i przyprawy
 pt:Ervas e especiarias
@@ -59789,7 +59770,6 @@ fi:mausteuute, mausteuutteet
 fr:extrait d'épice, extraits d'épices
 hu:fűszerkivonat, fűszerkivonatok, fűszer kivonat, fűszer kivonatok
 it:Estratto di spezie
-nb:krydderekstrakt, krydder ekstrakt
 nl:specerijenextracten, specerij-extracten
 pl:ekstrakt z przyprawy, ekstrakty przypraw
 sl:začimbni ekstrakti
