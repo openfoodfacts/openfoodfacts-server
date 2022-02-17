@@ -21046,7 +21046,7 @@ de:Thymianöl
 
 <en:oil
 # from:en:fish
-en:fish oil
+en:fish oil, marine oil
 ar:زيت السمك
 az:Balıq yağı
 cs:Rybí tuk
@@ -21056,7 +21056,7 @@ eo:fiŝoleo
 es:Aceite de pescado,aceite de pescado azul
 fa:روغن ماهی
 fi:Kalaöljy
-fr:huile de poisson
+fr:huile de poisson, huile marine
 he:שמן דגים
 hi:मछली का तेल
 hr:Riblje ulje
@@ -21088,14 +21088,6 @@ vegan:en:no
 vegetarian:en:no
 from_palm_oil:en:no
 allergens:en: en:fish
-
-<en:oil
-en:marine oil
-de:Fischöl
-fr:huile marine
-vegan:en:no
-vegetarian:en:no
-from_palm_oil:en:no
 
 <en:animal fat
 en:poultry fat
@@ -65142,7 +65134,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malva_sylvestris
 # the plant that the sweet of the same name is no longer made from.
 <en:plant
 en:marsh-mallow
-es:malvavisco, altea, bismalva, hierba cañamera
+es:altea, bismalva, hierba cañamera
 fr:guimauve officinale, mauve blanche
 la:althaea officinalis
 wikidata:en:Q158496
@@ -65722,6 +65714,7 @@ it:piantaggine lanciuola
 ja:ヘラオオバコ
 ko:창질경이
 ku:Hevîzar
+la:Plantago lanceolata
 li:Smale waegbrei
 lt:Siauralapis gyslotis
 nb:Smalkjempe
@@ -65755,12 +65748,6 @@ zh:长叶车前
 # zh-sg:长叶车前
 # zh-tw:長葉車前草
 wikidata:en:Q157408
-
-<en:ribwort plantain
-en:Plantago lanceolata
-de:Spitzwegerich (Plantago lanceolata)
-fr:Plantain lancéolé
-la:Plantago lanceolata
 wikipedia:en:https://en.wikipedia.org/wiki/Plantago_lanceolata
 
 
@@ -66556,7 +66543,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
 
 <en:black tea
 en:black tea leaf, black tea leaves
-de:Schwarztee
 fr:feuilles de thé noir
 
 <en:black tea
@@ -66863,7 +66849,6 @@ ru:натуральная ваниль
 
 <en:vanilla
 en:pure vanilla
-de:Vanille
 fr:Vanille pure
 
 <en:vanilla
@@ -66885,7 +66870,6 @@ fr:vanille en poudre, poudre de vanille, vanille moulue
 it:vaniglia in polvere
 nl:vanillepoeder
 pt:vanille em pó
-ro:vanilie
 sv:vaniljpulver
 # ingredient/fr:vanille-en-poudre has 110 products in 10 languages @2019-02-24
 
@@ -67652,7 +67636,6 @@ da:Blæretang-slægten
 de:Tang
 es:fucus
 fr:fucus
-io:Fuko
 ja:ヒバマタ属
 ko:푸쿠스
 la:Fucus
@@ -68260,9 +68243,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 
 <en:golden chanterelle
 en:cantharellus cibarius
-de:Echter Pfifferling (cantharellus cibarius)
-es:Cantharellus cibarius, rebozuelo, anacate
-fr:Cantharellus cibarius, Girolle, Girole, Chanterelle
+de:Echter Pfifferling, cantharellus cibarius
+es:rebozuelo, anacate, Cantharellus cibarius
+fr:Girolle, Girole, Chanterelle, Cantharellus cibarius
 la:cantharellus cibarius
 
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
@@ -68516,7 +68499,6 @@ cs:ryzec
 da:Mælkehat
 de:Milchlinge
 et:Riisikas
-eu:Esneki
 fi:Rouskut
 fr:lactaire, lactaires
 hy:Կաթնասնկեր
@@ -69609,7 +69591,6 @@ carbon_footprint_fr_foodges_value:fr:11.5
 # Fish are classified as while or oily
 <en:fish
 en:oily fish
-de:Fischöl
 es:pescado azul
 fr:Poisson gras
 it:Pesce oleoso
@@ -69792,7 +69773,6 @@ ru:Морская рыба
 sv:saltvattensfisk
 th:ปลาน้ำเค็ม
 vi:Cá biển
-yi:ים–פיש
 zh:海水魚
 # sco:Sea fish
 # wuu:海水鱼
@@ -69864,7 +69844,6 @@ ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
 <en:alaska pollock
 en:Alaskan Pollock fillet
 de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
-es:abadejo de Alaska
 fi:alaskanseitifilee
 fr:filet de colin d'Alaska, filets de colin d'alaska,Portions de bloc de filets de COLIN d'Alaska MSC
 it:filetti di merluzzo d'alaska
@@ -70025,11 +70004,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/European_anchovy
 # ingredient/fr:Engraulis-encrasicolus has 32 products @2019-01-12
 # ingredient/fr:Engraulis-encrasicholus has 1 product @2019-01-12
 
-
-
 <en:fish
 <en:white fish
-en:Anglerfish, angler fish
+en:Anglerfish, angler fish, monkfish
 ar:عفريت البحر
 az:Dəniz şeytanı
 bg:морски дявол
@@ -70039,10 +70016,10 @@ co:Rospu
 cs:ďas mořský
 cy:Cythraul y Môr
 da:Havtaske
-de:Seeteufel
+de:Seeteufel, Angler, Lotte, Lophius
 el:πεσκανδρίτσα
 eo:Lofio
-es:Rape común
+es:Rape común, rape
 et:Euroopa merikurat
 eu:Zapo zuri
 fa:ماهی‌گیر
@@ -70400,7 +70377,6 @@ fr:cabillaud, morue
 ga:trosc, troisc
 hu:tőkehal
 id:Ikan kod
-it:merluzzo
 ja:コッド
 ka:ಕಾಡ್ ಮೀನು
 lv:Menca
@@ -70479,7 +70455,6 @@ bg:треска, Gadus morhua
 cs:treska obecná, Gadus morhua
 de:atlantischer Kabeljau, Gadus morhua
 el:Μπακαλιάρος του Ατλαντικού, Gadus morhua
-es:bacalao
 fi:Atlantin turska, Gadus morhua
 fr:morue de l'Atlantique, Gadus morhua
 hu:Atlanti tőkehal, Gadus morhua
@@ -70507,7 +70482,6 @@ fa:روغن‌ماهی خاکستری
 fi:tyynenmerenturska
 fr:Morue du Pacifique
 is:Kyrrahafsþorskur
-it:Merluzzo nordico
 ja:マダラ
 ko:대구
 la:Gadus macrocephalus
@@ -70756,7 +70730,6 @@ it:Pesce persico
 la:Perca fluviatilis
 lt:Ešerys
 lv:Asaris
-nl:baars
 nn:Åbor
 pl:Okoń europejski
 ro:biban european
@@ -70959,7 +70932,6 @@ la:Sprattus sprattus balticus
 <en:fish
 <en:white fish
 en:European plaice, plaice
-ar:سمك موسى
 az:Dəniz kambalası
 bg:европейска камбала
 br:Plaisenn
@@ -71147,8 +71119,8 @@ ciqual_food_name:fr:Églefin, cru
 
 # en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
 
-<en:fish
 <en:white fish
+<en:cod
 en:hake
 bg:мерлуз
 ca:lluç
@@ -71477,7 +71449,6 @@ et:räim
 eu:Sardinzar arrunt
 fa:شاه‌ماهی اطلسی
 fi:tyynenmerensilli
-fr:Hareng
 he:מליח אטלנטי
 hi:हेरिंग साटन
 hy:Ատլանտյան տառեխ
@@ -71521,13 +71492,6 @@ ciqual_food_code:en:26135
 ciqual_food_name:en:Lemon sole, raw
 ciqual_food_name:fr:Limande-sole, crue
 
-<en:fish
-<en:white fish
-en:monkfish
-de:Seeteufel, Angler, Lotte, Lophius
-es:rape
-fr:Lophius
-wikipedia:en:https://en.wikipedia.org/wiki/Lophius
 
 <en:fish
 en:oarfish
@@ -71896,7 +71860,6 @@ br:Eog
 ca:Salmó europeu
 cs:losos obecný
 cy:Eog
-da:laks
 de:Atlantischer Lachs
 el:Σολομός του Ατλαντικού
 eo:atlantika salmo
@@ -71909,7 +71872,6 @@ fr:saumon atlantique, saumon salmo salar
 ga:Bradán Atlantach
 gl:Salmón atlántico
 he:סלמון אטלנטי
-hu:Lazac
 is:Atlantshafslax
 it:salmone atlantico
 ja:タイセイヨウサケ
@@ -72337,11 +72299,9 @@ ca:llenguado
 cs:jazyk obecný
 cy:Lleden Chwithig
 da:Søtunge
-de:Seezunge
 es:Lenguado común
 eu:Mihi-arrain
 fa:حلوای دوور
-fi:Meriantura
 fr:Sole commune
 ga:Sól coiteann
 gl:linguado
