@@ -78930,13 +78930,17 @@ fr:Escalopes de poulet
 <en:chicken
 <en:animal protein
 en:chicken protein
-de:Hühnereiweiß
 es:proteina de pollo
 
 <en:chicken
 en:chicken wing
 fr:aile de poulet
 
+#for languages that do not differentiate
+<en:chicken protein
+<en:chicken egg white
+en:chick egg white or protein
+de:Hühnereiweiß, Hühnereieiweiß, Hühnereiklar, Hühnerei-Eiweiß
 
 ###################################################################################################
 #
@@ -79194,7 +79198,7 @@ ciqual_food_name:fr:Foie, dinde, cru
 <en:turkey
 en:turkey meat
 ca:Carn de gall dindi
-da:kalkun
+da:kalkunkød
 de:Trutenfleisch, Truthahnfleisch
 eo:meleagraĵo
 es:carne de pavo
@@ -79953,7 +79957,6 @@ ciqual_food_name:fr:Oeuf, blanc (blanc d'oeuf), cuit
 
 <en:egg white
 en:chicken egg white
-de:Hühnereiweiß, Hühnereieiweiß, Hühnereiklar, Hühnerei-Eiweiß
 es:Clara de huevo de gallina
 fi:kananmunan valkuainen, kananmunanvalkuainen
 fr:Blanc d’œuf de poules
