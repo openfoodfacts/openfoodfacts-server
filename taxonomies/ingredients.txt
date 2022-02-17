@@ -69619,10 +69619,12 @@ nb:feit fisk, fet fisk. oljete fisk
 en:white fish
 de:Weißfisch, weißer Fisch
 es:pescado blanco
-fr:Poisson blanc
+fr:poisson blanc, poissons blancs
 it:Pesce bianco
 nb:hvit fisk
 nl:witte vis
+# ingredient/fr:poisson-blanc has 59 products @2019-03-11
+# Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 
 <en:fish
 fr:extrait de poisson
@@ -73825,11 +73827,6 @@ ciqual_food_code:en:26063
 ciqual_food_name:en:Spiny scorpionfish, raw
 ciqual_food_name:fr:Rascasse, crue
 
-<en:fish
-fr:poisson blanc, poissons blancs
-# ingredient/fr:poisson-blanc has 59 products @2019-03-11
-# Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
-# description:fr:Les Œufs de Cyclopterus lumpus (lump, lompe), poisson de l'Atlantique Nord, sont des œufs de poisson présentés comme succédané du caviar d'esturgeon.
 
 fr:œufs de lompe, oeufs de lompe
 vegetarian:en:no
@@ -73975,7 +73972,7 @@ pl:mięczaki
 pt:moluscos
 qu:Llamp'uka
 ro:moluște
-ru:моллюск, моллюски
+# has not a specific russian translation ru:моллюск, моллюски
 rw:Ikinyamushongo
 sh:Mekušci
 sk:mäkkýše
