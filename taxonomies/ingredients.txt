@@ -78114,7 +78114,6 @@ bg:краставица
 ca:cogombre
 cs:Okurek
 da:agurk, agurker
-de:Gurke
 el:Αγγούρι
 eo:serpentkukumo
 es:pepino
@@ -78180,8 +78179,7 @@ ciqual_food_name:fr:Concombre, pulpe, cru
 en:gherkin
 bg:корнишон
 da:cornichon
-de:Gurken, Cornichons
-el:Gurke
+de:Cornichons
 es:pepinillos
 fi:cocktailkurkku, pikkukurkku
 fr:cornichon, cornichons
@@ -78253,6 +78251,11 @@ fr:jus de concombre à base de concentré
 nl:komkommersap uit concentraat
 # ingredient/cucumber-juice-from-concentrate has 1 product @2019-05-15
 
+#For languages that do not differentiate between the two
+<en:cucumber
+<en:gherkin
+en:cumcumber or gherkin
+de:Gurke
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
