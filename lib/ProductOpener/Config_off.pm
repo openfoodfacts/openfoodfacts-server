@@ -718,6 +718,7 @@ $options{off_export_fields_groups} = [
 			"nutriscore_score",
 			"ecoscore_grade",
 			"ecoscore_score",
+			"ecoscore_data.agribalyse.code"
 		]
 	],
 ];

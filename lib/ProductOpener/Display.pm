@@ -5521,6 +5521,7 @@ sub search_and_export_products($$$) {
 		send_http_headers => 1,
 		query => $query_ref,
 		max_count => $max_count,
+		include_computed_fields => 1,
 	};
 
 	# Extra parameters

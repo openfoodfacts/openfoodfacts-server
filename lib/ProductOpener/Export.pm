@@ -103,6 +103,9 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Products qw/:all/;
 
 use Text::CSV;
+use Excel::Writer::XLSX;
+use Data::DeepAccess qw(deep_get deep_exists);
+
 
 
 =head1 FUNCTIONS
@@ -172,11 +175,12 @@ sub export_csv($) {
 
 	my $filehandle = $args_ref->{filehandle};
 	my $filename = $args_ref->{filename};
-	my $send_http_headers = $args_ref->{send_http_headers};
+	my $send_http_headers = $args_ref->{send_http_headers};	# Used for downloads of CSV / Excel results on the OFF website
 	my $format = $args_ref->{format} || "csv";
 	my $separator = $args_ref->{separator} || "\t";
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
+	my $include_computed_fields = $args_ref->{include_computed_fields};	# Fields like the Nutri-Score score computed by OFF
 	my $extra_fields_ref = $args_ref->{extra_fields};
 
 	$log->debug("export_csv - start", { args_ref=>$args_ref }) if $log->is_debug();
@@ -205,11 +209,16 @@ sub export_csv($) {
 
 			# Possible fields to export are listed in $options{import_export_fields_groups}
 
-			my $fields_groups_ref = $options{import_export_fields_groups};
+			my @fields_groups = @{$options{import_export_fields_groups}};
+
+			# Add fields computed by OFF if requested
+			if (($include_computed_fields) and (defined $options{off_export_fields_groups})) {
+				push @fields_groups, @{$options{off_export_fields_groups}};
+			}
 
 			my $group_number = 0;
 
-			foreach my $group_ref (@{$fields_groups_ref}) {
+			foreach my $group_ref (@fields_groups) {
 
 				$group_number++;
 				my $item_number = 0;
@@ -328,7 +337,14 @@ sub export_csv($) {
 								}
 							}
 						}
-						elsif ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+						# Allow returning fields that are not at the root of the product structure
+						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+						elsif ($field =~ /\./) {
+							if (deep_exists($product_ref, split(/\./, $field))) {
+								$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
+							}
+						}
+						elsif (defined $product_ref->{$field}) {
 							$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
 						}
 					}
@@ -538,20 +554,8 @@ sub export_csv($) {
 					}
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
-					elsif ($field =~ /^([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)$/) {
-						if ((defined $product_ref->{$1}) and (defined $product_ref->{$1}{$2}) and (defined $product_ref->{$1}{$2}{$3})) {
-							$value = $product_ref->{$1}{$2}{$3}{$4};
-						}
-					}
-					elsif ($field =~ /^([^\.]+)\.([^\.]+)\.([^\.]+)$/) {
-						if ((defined $product_ref->{$1}) and (defined $product_ref->{$1}{$2})) {
-							$value = $product_ref->{$1}{$2}{$3};
-						}
-					}
-					elsif ($field =~ /^([^\.]+)\.([^\.]+)$/) {
-						if (defined $product_ref->{$1}) {
-							$value = $product_ref->{$1}{$2};
-						}
+					elsif ($field =~ /\./) {
+						$value = deep_get($product_ref, split(/\./, $field));
 					}
 					# Fields like "obsolete" : output 1 for true values or 0
 					elsif ($field eq "obsolete") {
