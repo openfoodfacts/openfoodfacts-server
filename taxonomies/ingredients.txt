@@ -23863,11 +23863,11 @@ hu:természetes édes lime aroma, édes természetes lime aroma
 
 <en:flavouring
 # derivedFrom:en:lemon
-en:lemon flavouring
+en:lemon flavouring, lemon scent
 de:ZitronenAroma
-es:Sabor a limón
+es:sabor a limón, aroma de limon
 fi:sitruuna-aromi
-fr:arôme de citron, arôme citron
+fr:arôme de citron, arôme citron, odeur de citron
 hu:citromaroma, citrom aroma
 is:sítrónubragðefni
 it:aroma di limone
@@ -31776,7 +31776,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Panela
 <en:sugar
 en:beet sugar
 de:Rübenzucker
-es:azúcar de remolacha
 fi:juurikassokeri
 fr:sucre de betterave
 hu:répacukor
@@ -40839,10 +40838,8 @@ sv:citronskalextract
 <en:lemon
 en:lemon zest
 de:Zitronenzeste
-es:cáscara de limón, ralladura de limón
-fi:Sitruunankuori
+es:ralladura de limón
 fr:zestes de citron, zeste de citron
-it:scorza di limone
 nl:citroenrasp, geraspte citroenschil, citroenzest
 ru:цедра лимона
 sv:citronzest
@@ -40995,34 +40992,43 @@ wikidata:en:Q206496
 # 1 entry @ 2019-10-31
 
 <en:lemon
-en:concentrated lemon juice, lemon extract
-ca:Suc de llimona concentrat
-cs:Citronová šťáva z koncentrátu
-da:citronsaftkonsentrat, citronjuicekoncentrat
-de:Zitronensaftkonzentrat, Zitronenkonzentrat, Zitronenextrakt
-es:zumo concentrado de limón, extracto de limón, zumo de limón concentrado, jugo de limón concentrado
-et:sidrunimahla kontsentraat
-fi:sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunauute, sitruunatiiviste
-fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de citron, extrait de citron, concentré de jus de citron
-hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
-hr:koncentrirani limunov sok
-it:succo di limone concentrato, concentrato di limone, estratto di limone
-lt:citrinų sulčių koncentratas
-nb:sitronjuicekonsentrat
-nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
-pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny
-ru:Концентрированный лимонный сок
-sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat, citronextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
-# 170 products @2018-10-01
+en:lemon extract
+de:Zitronenextrakt
+es:extracto de limón
+fi:sitruunauute
+fr:concentré de citron, extrait de citron
+it:estratto di limone, concentrato di limone
+nl:citroenconcentraat
+sv:citronextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-extract
 # 137 products @2018-10-01
 
-
-<en:lemon
+<en:lemon extrat
 fr:extrait naturel de citron, extraits naturels de citron
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-naturel-de-citron
 # 40 products in 1 language @2018-10-01
+
+<en:lemon juice
+en:concentrated lemon juice, Lemon juice concentrate
+ca:Suc de llimona concentrat, Concentrat de suc de llimona
+cs:Citronová šťáva z koncentrátu
+da:citronsaftkonsentrat, citronjuicekoncentrat
+de:Zitronensaftkonzentrat, Zitronenkonzentrat
+es:zumo concentrado de limón, zumo de limón concentrado, jugo de limón concentrado, Concentrado de zumo de limón
+et:sidrunimahla kontsentraat
+fi:sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunatiiviste
+fr:jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de jus de citron, jus concentré pulpé de citron
+hu:Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
+hr:koncentrirani limunov sok
+it:succo di limone concentrato,
+lt:citrinų sulčių koncentratas
+nb:sitronjuicekonsentrat
+nl:citroenextract, geconcentreerd citroensap, citroensapconcentraat
+pl:Zagęszczony sok cytrynowy, koncentrat soku z cytryny
+ru:Концентрированный лимонный сок
+sv:citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré-de-citron
+# 170 products @2018-10-01
 
 <en:lemon juice
 en:lemon juice from concentrate
@@ -41039,16 +41045,6 @@ pl:sok cytrynowy z koncentratu
 sv:citronjuice från koncentrat, citronsaft från koncentrat
 
 
-<en:lemon
-en:Lemon juice concentrate
-ca:Concentrat de suc de llimona
-de:Zironensaftkonzentrat
-es:Concentrado de zumo de limón
-fr:jus concentré pulpé de citron
-it:Succo di limone concentrato
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-pulpé-de-citron
-# 12 products in 1 language @2018-10-02
-
 <en:lemon juice from concentrate
 fr:jus de citron bio concentré
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-bio-concentré
@@ -41059,14 +41055,6 @@ en:concentrated lemon extract
 de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
-
-
-<en:flavourings
-<en:lemon
-en:lemon scent
-de:Zitronenaroma
-es:aroma de limon
-fr:Odeur de citron
 
 <en:lemon
 en:lemon marmalade
@@ -42749,10 +42737,8 @@ de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 en:sweet cherry
 ar:كرز حلو
 az:Gilas
-be:Чарэшня
 bg:дива череша
 bo:ཁམ་ཤིང་།
-bs:Trešnja
 ca:cirerer
 cs:třešeň ptačí
 cy:Coeden geirios du
@@ -42768,7 +42754,6 @@ fr:bigarreaux, merisier
 ga:Silín fiáin
 gl:Cerdeira
 gv:Shillish
-hr:Trešnja
 hu:Vadcseresznye
 hy:կեռասենի
 is:Fuglakirsuber
@@ -42780,24 +42765,18 @@ ko:양벚나무
 ku:Gelyaz
 lt:Trešnė
 lv:saldais ķirsis
-mk:цреша
 nb:Morell
 nl:Zoete kers
 nn:Morell
 oc:Cerièr
 os:Гуырдзиаг бал
 pl:Czereśnia
-qu:Rinda
 ro:Cireș
 ru:Черешня
 sc:Cariasa
-sh:Trešnja
 sk:čerešňa vtáčia
-sl:Češnja
-sr:Трешња
 sv:Sötkörsbär
 tg:Гелос
-tr:Kiraz
 tt:Төче чия
 uk:Черешня
 uz:Gilos
@@ -43359,7 +43338,6 @@ de:Holunderbeer, Holunderbeere, Holunderbeeren
 es:bayas del sauco
 fi:seljanmarja
 fr:baie de sureau, baies de sureau
-it:sambuco
 nl:vlierbes
 sv:fläderbär
 ciqual_food_code:en:13126
@@ -47774,7 +47752,6 @@ fi:endiivi
 fr:scarole, chicorée endive
 ga:searbhán muc
 gl:endivia
-he:עולש
 hr:endivija
 hu:endívia
 id:endive
@@ -47891,7 +47868,6 @@ hu:vörös cikória
 it:radicchio
 ja:ラディッキオ
 ko:라디키오
-la:Cichorium intybus var., Cichorium intybus var. foliosum
 nl:roodlof
 pt:radicchio
 ru:радиккьо
