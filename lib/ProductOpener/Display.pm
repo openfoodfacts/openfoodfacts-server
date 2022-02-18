@@ -11099,13 +11099,14 @@ sub data_to_display_ingredients_analysis($) {
 				}
 			}
 
+			# Generate the translation string id for the list of ingredients we will display
 			my $ingredients_title_id;
 			if ($evaluation eq "unknown") {
 				$ingredients_title_id = "unrecognized_ingredients";
 			}
 			else {
-				# convert analysis tag to a string id
-				# eg. en:non-vegetarian property to non_vegetarian_ingredients string id
+				# convert analysis tag to a translation string id
+				# eg. en:non-vegetarian property to non_vegetarian_ingredients translation string id
 				$ingredients_title_id = lc($ingredients_analysis_tag) . "_ingredients";
 				$ingredients_title_id =~ s/^en://;
 				$ingredients_title_id =~ s/-/_/g;

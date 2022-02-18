@@ -736,25 +736,18 @@ sub create_health_card_panel($$$) {
 
     my $panel_data_ref = {};
 
-    # Create Nutri-Score panel
     create_nutriscore_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the nutrition facts table panel
     create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the physical activities panel
     create_physical_activities_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the ingredients panel
     create_ingredients_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the additives panel
     create_additives_panel($product_ref, $target_lc, $target_cc);
 
-    # Create the ingredients analysis panel
     create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);    
 
-    # Create the health_card panel
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
 }
@@ -1099,9 +1092,6 @@ sub create_ingredients_analysis_panel($$$) {
 
     if (defined $ingredients_analysis_data_ref) {
 
-        my $ingredients_analysis_panel_data_ref = {
-        };
-
         foreach my $property_panel_data_ref (@{$ingredients_analysis_data_ref->{ingredients_analysis_tags}}) {
 
             my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{property};
@@ -1111,7 +1101,7 @@ sub create_ingredients_analysis_panel($$$) {
         }
 
         create_panel_from_json_template("ingredients_analysis", "api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
-            $ingredients_analysis_panel_data_ref, $product_ref, $target_lc, $target_cc);
+            {}, $product_ref, $target_lc, $target_cc);
     }
 }
 
