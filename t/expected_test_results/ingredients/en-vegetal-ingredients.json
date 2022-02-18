@@ -51,7 +51,11 @@
          "vegetarian" : "en:yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:Charcoal"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:vegan",
