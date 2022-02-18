@@ -660,7 +660,8 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	ecoscore_data.adjustments.packaging.value
 );
 
-
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
@@ -704,6 +705,19 @@ $options{import_export_fields_groups} = [
 	],
 	[   "images",
 		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[   "off",
+		[
+			"nutriscore_grade",
+			"nutriscore_score",
+			"ecoscore_grade",
+			"ecoscore_score",
 		]
 	],
 ];
