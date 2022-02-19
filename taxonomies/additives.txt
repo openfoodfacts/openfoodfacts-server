@@ -8458,14 +8458,14 @@ vegetarian:en:yes
 en:E338, Phosphoric acid, Orthophosphoric acid, phosphoric(V) acid
 bg:E338, Фосфорна киселина, Ортофосфорна киселина
 ca:E338, Àcid fosfòric, acid fosforic
-cs:E338, Kyselina fosforečná, Kyselina orthofosforečná, E 338, Kyselina ortofosforečná, Kyselina orto-fosforečná, Kyselina trihydrogenfosforečná, H3PO4, Kyselina ortho-fosforečná
-da:E338, Phosphorsyre, Orthophosphorsyre, Fosforsyre, E-338
-de:E338, Phosphorsäure, ortho-Phosphorsäure, E 338, H3PO4, Orthophosphorsäure
+cs:E338, Kyselina fosforečná, Kyselina orthofosforečná, Kyselina ortofosforečná, Kyselina orto-fosforečná, Kyselina trihydrogenfosforečná, H3PO4, Kyselina ortho-fosforečná
+da:E338, Phosphorsyre, Orthophosphorsyre, Fosforsyre
+de:E338, Phosphorsäure, ortho-Phosphorsäure, Orthophosphorsäure
 el:E338, Φωσφορικο οξυ
-es:E338, Ácido fosfórico, Ácido ortofosfórico, E 338, H3PO4, Ortofosforico, Fosfato monoamónico, Fosforico
+es:E338, Ácido fosfórico, Ácido ortofosfórico, Ortofosforico, Fosfato monoamónico, Fosforico
 et:E338, Fosforhape, Ortofosforhape
 fi:E338, Fosforihappo, Ortofosforihappo, Divetyfosfaatti, Vetyfosfaatti, H3PO4, Fosforihappoa, Ortofosforihappoa, Divetyfosfaattia, Vetyfosfaattia
-fr:E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, H3PO4, 7664-38-2, Acide phophorique, Hydrogénophosphate
+fr:E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, Acide phophorique, Hydrogénophosphate
 hu:E338, Foszforsav, Ortofoszforsav
 it:E338, Acido fosforico, Acido ortofosforico, Acido tetraossofosforico(V), H3PO4
 lt:E338, Fosforo rūgštis, Ortofosforo rūgštis
@@ -8664,7 +8664,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
 # additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 description:en:TRISODIUM PHOSPHATE is the inorganic compound with the chemical formula Na3PO4.
 
-en:E340, Potassium phosphates, potassium phosphate, KH2PO4, K2HPO4, K3PO4
+en:E340, Potassium phosphates, potassium phosphate
 bg:E340, E340 food additive
 ca:E340, Fosfat de potassi
 cs:E340, E340 food additive
@@ -8674,7 +8674,7 @@ el:E340, E340 food additive
 es:E340, Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
 et:E340, E340 food additive
 fi:E340, Kaliumfosfaatti, Kaliumfosfaattia
-fr:E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, K3PO4, E 340, Dihydrogénophosphate de potassium, Phosphate de monopotassium
+fr:E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, Dihydrogénophosphate de potassium, Phosphate de monopotassium
 hu:E340, Kálium-foszfátok, kálium-foszfát
 it:E340, E340 food additive
 lt:E340, E340 food additive
@@ -8933,6 +8933,7 @@ additives_classes:en: en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:Is in plural, as it can be any specific variant
 en:E343, Magnesium phosphates
 bg:E343, E343 food additive
 ca:E343, Fosfat de magnesi
@@ -8969,34 +8970,43 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E343
-en:E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic
+en:E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, magnesium phosphate
+ar:فوسفات المغنسيوم
 bg:E343(i), Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен
 cs:E343(i), Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý
 da:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat
-de:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat
+de:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat, Magnesiumphosphat
 el:E343(i), Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό
-es:E343(i), Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio
+es:E343(i), Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio, Fosfato de magnesio
 et:E343(i), Magneesiumdivesinikfosfaat
-fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, Monomagnesiumfosfaattia, Magnesiumdivetyfosfaattia
-fr:E343(i), Phosphate monomagnésique
-hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú
+fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, Monomagnesiumfosfaattia, Magnesiumdivetyfosfaattia, magnesiumfosfaatti, magnesiumfosfaattia
+fr:E343(i), Phosphate monomagnésique, phosphate de magnésium
+hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú, Magnézium-foszfát
 it:E343(i), Fosfato di magnesio, Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico
 lt:E343(i), Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis
 lv:E343(i), Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts
 mt:E343(i), Fosfat monomanjeżiku
-nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat
+nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat, Magnesiumfosfaat
 pl:E343(i), Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy
 pt:E343(i), Fosfato de monomagnési
 ro:E343(i), Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic
+sh:Magnezijum fosfat
 sk:E343(i), Fosforečnan horečnatý
 sl:E343(i), Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični
-sv:E343(i), Monomagnesiumfosfat, Magnesiumdivätefosfat
+sv:E343(i), Monomagnesiumfosfat, Magnesiumdivätefosfat, Magnesiumfosfat
+ta:மக்னீசியம் பாசுபேட்டு
 e_number:en:343
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 wikidata:en:Q2634889
 additives_classes:en: en:stabilizer, en:thickener
+# fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
+# mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
+
+# This is the unspecified magnesium phosphate in singular. Mostly used for the mineral of magnesium
+
 
 <en:E343
-en:E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate, dibasic, Dimagnesium orthophosphate
+en:E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate - dibasic, Dimagnesium orthophosphate
 bg:E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
 cs:E343(ii), Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
 da:E343(ii), Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat

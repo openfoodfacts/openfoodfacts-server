@@ -8,8 +8,6 @@ synonyms:en:hydrolysed, hydrolyzed
 
 synonyms:en:pasteurised, pasteurized
 
-synonyms:es:zumo, jugo
-
 synonyms:es:jarabe, sirope
 
 
@@ -4763,7 +4761,6 @@ es:fermentos
 fi:hapate, hapatteet, käyte, käyteaine
 fr:ferment, ferments
 hu:fermentált, erjesztett, kovászolt
-it:lievito
 kk:Ферменттер
 ky:Фермент
 lt:fermentas
@@ -23201,7 +23198,7 @@ id:brendi
 io:brandio
 is:brandí
 it:brandy
-ja:ブランデー
+ja:ブランデー, 麩
 ka:ბრენდი
 ko:브랜디
 lb:wäibrand
@@ -26195,7 +26192,6 @@ he:סייטן
 hr:Sejtan
 hu:szejtán, búzahús, búzasikér
 it:Seitan
-ja:麩
 ko:밀고기
 lt:Kvietinė mėsa
 nl:Seitan
@@ -35914,7 +35910,6 @@ fi:vehnägluteeni
 fr:gluten de blé, gluten de froment
 hu:Búzaglutén
 it:glutine di grano, glutine di frumento
-ja:麩
 nb:hvetegluten
 nl:tarwegluten
 pl:gluten pszenny
@@ -36198,13 +36193,11 @@ sv:torrjäst, jästpulver
 en:baking powder
 da:Bagepulver
 de:Backpulver
-es:Levadura en polvo
 et:küpsetuspulber
 fi:leivinjauhe
 fr:levure chimique
 he:אבקת אפייה, אבקת אפיה
 hu:sütőpor
-it:Lievito in polvere
 nb:bakepulver
 nl:bakpoeder
 pl:Proszek do pieczenia
@@ -36245,7 +36238,6 @@ he:שמר האפייה
 hr:Pivski kvasac
 hu:Élesztőgomba
 is:Pressuger, Ölger
-it:lievito di birra
 ja:出芽酵母
 lt:Alaus mieliagrybis
 mk:Лебен квасец
@@ -36389,7 +36381,6 @@ he:מחמצת שאור
 hu:Kovász
 id:Adonan asam
 is:Súrdeig
-it:Lievito naturale
 ja:サワードウ
 ko:사워도
 nb:surdeig
@@ -36591,7 +36582,7 @@ hu:Kálium-foszfátok, kálium-foszfát
 it:fosfati di potassio
 ms:Kalium Fosfat
 nl:Kaliumorthofosfaten
-pl:Fosforany potasu, fosforan potasu
+pl:Fosforany potasu
 sv:kaliumfosfat
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_phosphate
 # en:potassium phosphate has 260 products in 8 languages @2018-11-06
@@ -36943,24 +36934,6 @@ ta:இருமக்னீசியம் பாசுபேட்டு
 wikipedia:en:https://en.wikipedia.org/wiki/Dimagnesium_phosphate
 # additive/e343ii-dimagnesium-phosphate has 32 products in 2 languages @2018-11-07
 
-# This is the unspecified magnesium phosphate in singular. Mostly used for the mineral of magnesium
-
-<en:magnesium phosphates
-en:magnesium phosphate
-ar:فوسفات المغنسيوم
-de:Magnesiumphosphat
-es:Fosfato de magnesio
-fi:magnesiumfosfaatti, magnesiumfosfaattia
-fr:phosphate de magnésium
-hu:Magnézium-foszfát
-it:Fosfato di magnesio
-nl:Magnesiumfosfaat
-sh:Magnezijum fosfat
-sv:Magnesiumfosfat
-ta:மக்னீசியம் பாசுபேட்டு
-wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
-# fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
-# mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
 
 
 
@@ -39863,7 +39836,6 @@ sv:torkade äppelbitar
 
 <en:apple
 fr:compote de pommes
-de:Apfelmus
 fi:omenasose
 nl:appelcompote
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote-de-pommes
