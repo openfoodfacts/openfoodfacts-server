@@ -22,7 +22,7 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:bell-pepper",
+               "id" : "en:spice-or-bell-pepper",
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -78,6 +78,7 @@
       "en:turmeric",
       "en:ginger",
       "en:spice-or-bell-pepper",
+	  "en:bell-pepper",
       "en:vegetable",
       "en:garlic",
       "en:root-vegetable",
@@ -103,10 +104,12 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:spice",
+	  "en:condiment",
       "en:turmeric",
       "en:ginger",
       "en:spice-or-bell-pepper",
       "en:vegetable",
+	  "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
       "en:coriander",
