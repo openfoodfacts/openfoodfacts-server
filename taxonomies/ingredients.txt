@@ -21360,7 +21360,6 @@ ca:vinagre d'alcohol
 da:lagereddike
 de:Alkoholessig
 es:vinagre de alcohol
-fi:väkiviinaetikka
 fr:vinaigre d’alcool
 hu:alkoholecet
 it:aceto di alcool
@@ -21411,7 +21410,7 @@ en:apple cider vinegar
 bn:আপেল সিডার ভিনেগার
 bg:ябълков оцет
 da:æblecidereddike, æbleeddike
-de:Apfelessig, Apfelweinessig
+de:Apfelweinessig
 es:vinagre de sidra de manzana
 fi:omenasiiderietikka
 fr:vinaigre de cidre de pomme
@@ -21419,7 +21418,7 @@ he:חומץ תפוחים
 hu:almaecet
 it:aceto di mele
 ko:사과식초
-nl:appelazijn
+nl:appelciderazijn
 nn:eplecidereddik
 pl:ocet jabłkowy
 sr:јабуково сирће
@@ -21620,7 +21619,6 @@ sv:rödvinsvinäger
 en:spirit vinegar
 cs:Ovocný ocet
 de:Branntweinessig
-es:Vinagre de alcohol
 fi:väkiviinaetikka
 fr:vinaigre d'eau-de-vie
 hu:szeszecet
@@ -29419,9 +29417,6 @@ en:whole green pea flour
 de:ganzes grünes Erbsenmehl
 
 <en:flour
-fr:farine de châtaigne
-
-<en:flour
 <en:coconut
 en:coconut flour
 de:kokosmehl, kokosnussmehl
@@ -31023,9 +31018,9 @@ nl:ontkiemde zwarte rijst
 <en:rice
 fr:riz riceberry mélangé
 
+# is this the same as round rice?
 <en:rice
 en:sushi rice
-de:Rundkornreis
 fr:riz pour sushi
 pt:Arroz de sushi
 
@@ -33145,8 +33140,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomaltooligosaccharide
 en:Fructooligosaccharide, fructo-oligosaccharide
 ar:قليل السكاريد الفركتوزي
 ca:Fructooligosacàrid
-de:Oligofructose
-es:Fructooligosacárido,Fructoligosacáridos
+es:Fructooligosacárido, Fructoligosacáridos
 et:Frukto-oligosahhariidid, Fruktooligosahhariidid
 eu:Fruktooligosakarido
 fi:frukto-oligosakkaridi
@@ -34021,7 +34015,7 @@ fr:Crème de cacao
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 <en:cocoa
-en:cocoa butter,cacao butter
+en:cocoa butter, cacao butter, cocoa fat
 ar:زبدة الكاكاو
 bg:какаово масло
 ca:mantega de cacau
@@ -34030,7 +34024,7 @@ da:kakaosmør
 de:Kakaobutter
 el:βούτυρο κακάου
 eo:kakaa butero
-es:manteca de cacao,manteca de cacao pura
+es:manteca de cacao, manteca de cacao pura, grasa de cacao
 et:kakaovõi, Kakaoõli, kakaovōi
 eu:Kakao-gurin
 fa:کره کاکائو
@@ -34055,7 +34049,7 @@ nb:kakaosmør
 nl:cacaoboter
 pl:masło kakaowe, tłuszcz kakaowy
 pt:manteiga de cacau
-ro:unt de cacao, unt cacao
+ro:unt de cacao, unt cacao, grăsime de cacao
 ru:масло какао, какао-масло
 sk:kakaové maslo
 sl:Kakavovo maslo
@@ -34109,12 +34103,6 @@ fr:beurre de cacao bio
 fr:beurre de cacao émulsifiant
 # ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
 
-<en:cocoa
-en:cocoa fat
-de:Kakaobutter
-es:grasa de cacao
-fr:beurre de cacao
-ro:grăsime de cacao
 
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
@@ -34288,7 +34276,6 @@ nl:cacao-extract
 <en:cocoa
 en:cocoa bean, cocoa beans, cacao bean
 af:Kakaoboon
-ar:كاكاو
 ca:gra de cacau
 de:Kakaobohne, Kakaobohnen
 es:Cacao en grano
@@ -35358,7 +35345,6 @@ nl:Bruisend mineraalwater, gashoudendmineraalwater
 <en:carbonated water
 en:carbonated natural mineral water, natural sparkling mineral water
 de:natürliches Mineralwasser mit Kohlensäure versetzt
-es:Agua mineral carbonatada
 fi:hiilihapotettu luontainen kivennäisvesi
 fr:eau minérale naturelle gazeuse
 nl:gashoudend natuurlijk mineraalwater
