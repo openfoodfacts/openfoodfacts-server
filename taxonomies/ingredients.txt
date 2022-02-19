@@ -22204,29 +22204,17 @@ it:Marc de Champagne
 
 <en:alcohol
 en:kirsch
-af:Kirsch
+xx:kirsch
 be:Кіршвасэр
-ca:kirsch
-cv:kirsch
 de:Kirschwasser
 eo:kirŝo
-es:kirsch
-eu:Kirsch
 fa:کیرش
 fi:kirsch, kirsikkaviina
-fr:kirsch
-gl:Kirsch
 he:קירשווסר
-hu:cseresznye
-id:Kirsch
 io:Kirsho
-it:kirsch
 ja:キルシュヴァッサー
 ko:키르시바서
 nb:Kirschwasser
-nl:kirsch
-pl:kirsch
-pt:kirsch
 ru:Киршвассер
 sv:kirschwasser
 zh:櫻桃白蘭地
@@ -38599,7 +38587,7 @@ cy:llugaeron
 da:tranebær
 de:Moosbeeren, Cranberry, Cranberrys, Cranberries
 eo:oksikoko
-es:arándano rojo, arándano
+es:arándano rojo
 et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
@@ -39886,10 +39874,11 @@ fr:compote de pommes allégée en sucres
 # This can be a compound ingredient
 
 <en:apple
+en:apple pulp
 fr:pulpe de pomme
 de:Apfelmark
 it:polpa di mele
-nl:appelmoes, appelpuree
+nl:appelpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe-de-pomme
 # 46 products @2018-10-04
 ciqual_food_code:en:13050
@@ -40377,7 +40366,6 @@ da:grapefrugt, grape
 de:Grapefruit, Grapefruits
 el:γκρέιπφρουτ
 eo:grapfrukto
-es:pomelo
 et:greip
 eu:arabisagarra, pomeloa, panplemuza
 fa:گریپ‌فروت
@@ -40567,6 +40555,7 @@ nl:roze pompelmoessap uit sapconcentraat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-rose-à-base-de-concentré
 # 30 products @2018-09-30
 
+
 <en:syrup
 en:grapefruit syrup
 de:Grapefruitsirup
@@ -40587,7 +40576,6 @@ da:pomelo
 de:Pomelo
 el:φράπα
 eo:Pumelo
-#es:pomelo already listed under grapefruit
 et:pomel
 fr:pomelo, pomelos
 ga:pomaló
@@ -40633,12 +40621,23 @@ fr:jus de pomelo
 <en:pomelo
 fr:extrait naturel de pomelo
 
-<en:pomelo
-es:zumo de pomelo a partir de concentrado
+<en:pomelo juice
+en:pomelo juice from concentrate
 fr:jus de pomelo à base de concentré
 
-<en:pomelo
+<en:pomelo juice from concentrate
+en:french pomelo juice from concentrate
 fr:jus de pomelo de France à base de concentré
+
+<en:pomelo
+<en:grapefruit
+en:grapefruit or pomelo
+es:pomelo
+
+<en:pomelo juice
+<en:grapefruit juice
+en:grapefruit or pomelo juice from concentrate
+es:zumo de pomelo a partir de concentrado
 
 ###################################################################################################
 #
@@ -41855,7 +41854,6 @@ la:aurantium
 lt:karčiavaisis citrinmedis
 lv:rūgtais apelsīns
 nb:pomerans
-ne:मुन्तला
 nl:zure sinaasappel
 nn:pomerans
 oc:bigaradièr
@@ -43413,10 +43411,11 @@ nl:vlierbloesem
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
 # 51 products @2018-09-29
 
+#comment:en:Be sure it refers to the flower
 <en:elderflower
 en:elderflower extract
 de:Holunderblütenextrakt
-es:extracto de sauco, extracto de flor del sauco, extracto de flor de sauco
+es:extracto de flor del sauco, extracto de flor de sauco
 fi:seljankukkauute
 fr:Extraits de fleurs de sureau
 it:Estratto di sanbuco
@@ -44377,10 +44376,8 @@ ar:شمام كوز العسل
 de:Honigmelone
 el:Χάνεϊντιου
 es:melón verde, melón blanco, casaba, melón rocío de miel
-fa:طالبی
 fi:hunajameloni
 fr:melon miel
-hr:Dinja
 it:melone verde
 ja:ハネデューメロン
 jv:Mèlon madu
