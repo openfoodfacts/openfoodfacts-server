@@ -534,7 +534,7 @@ my @tests = (
 				'text' => 'piment'
 			},
 			{
-				'id' => 'en:cumin-seeds',
+				'id' => 'en:cumin',
 				'percent' => '0.4',
 				'percent_estimate' => '0.4',
 				'text' => 'cumin'

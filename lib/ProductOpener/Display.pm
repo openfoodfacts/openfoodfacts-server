@@ -89,6 +89,7 @@ BEGIN
 		&display_properties
 
 		&data_to_display_nutriscore_and_nutrient_levels
+		&data_to_display_ingredients_analysis
 
 		&count_products
 		&add_params_to_query
@@ -11019,23 +11020,33 @@ CSS
 }
 
 
-=head2 display_ingredients_analysis ( $product_ref )
+=head2 data_to_display_ingredients_analysis ( $product_ref )
 
-Generates HTML code with icons that show if the product is vegetarian, vegan and without palm oil.
+Generates a data structure to display the results of ingredients analysis.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head3 Return values
+
+Reference to a data structure with needed data to display.
 
 =cut
 
-sub display_ingredients_analysis($) {
+sub data_to_display_ingredients_analysis($) {
 
 	my $product_ref = shift;
 
-	# Ingredient analysis
+	my $result_data_ref;
 
-	my $html = "";
+	# Populate the data templates needed to display the Nutri-Score and nutrient levels
 
 	if (defined $product_ref->{ingredients_analysis_tags}) {
 
-		my $template_data_ref = {
+		$result_data_ref = {
 			ingredients_analysis_tags => [],
 		};
 
@@ -11046,8 +11057,10 @@ sub display_ingredients_analysis($) {
 
 			if ($ingredients_analysis_tag =~ /palm/) {
 
+				# Icon
 				$icon = "palm-oil";
 
+				# Evaluation
 				if ($ingredients_analysis_tag =~ /-free$/) {
 					$evaluation = 'good';
 				}
@@ -11063,13 +11076,15 @@ sub display_ingredients_analysis($) {
 			}
 			else {
 
+				# Icon
 				if ($ingredients_analysis_tag =~ /vegan/) {
 					$icon = "leaf";
 				}
 				elsif ($ingredients_analysis_tag =~ /vegetarian/) {
-					$icon = "egg";
+					$icon = "vegetarian";
 				}
 
+				# Evaluation
 				if ($ingredients_analysis_tag =~ /^en:non-/) {
 					$evaluation = 'bad';
 				}
@@ -11084,18 +11099,56 @@ sub display_ingredients_analysis($) {
 				}
 			}
 
-			push @{$template_data_ref->{ingredients_analysis_tags}}, {
+			# Generate the translation string id for the list of ingredients we will display
+			my $ingredients_title_id;
+			if ($evaluation eq "unknown") {
+				$ingredients_title_id = "unrecognized_ingredients";
+			}
+			else {
+				# convert analysis tag to a translation string id
+				# eg. en:non-vegetarian property to non_vegetarian_ingredients translation string id
+				$ingredients_title_id = lc($ingredients_analysis_tag) . "_ingredients";
+				$ingredients_title_id =~ s/^en://;
+				$ingredients_title_id =~ s/-/_/g;
+			}
+
+			push @{$result_data_ref->{ingredients_analysis_tags}}, {
+				property => $ingredients_analysis_tag,
 				evaluation => $evaluation,
 				icon => $icon,
-				text => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+				title => display_taxonomy_tag($lc, "ingredients_analysis", $ingredients_analysis_tag),
+				ingredients_title_id => $ingredients_title_id,
 			};
 		}
+	}
 
+	return $result_data_ref;
+}
+
+
+=head2 display_ingredients_analysis ( $product_ref )
+
+Generates HTML code with icons that show if the product is vegetarian, vegan and without palm oil.
+
+=cut
+
+sub display_ingredients_analysis($) {
+
+	my $product_ref = shift;
+
+	# Ingredient analysis
+
+	my $html = "";
+
+	my $template_data_ref = data_to_display_ingredients_analysis($product_ref);
+
+	if (defined $template_data_ref) {
 		process_template('web/pages/product/includes/ingredients_analysis.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	}
 
 	return $html;
 }
+
 
 sub _format_comment {
 	my ($comment) = @_;
@@ -11107,7 +11160,7 @@ sub _format_comment {
 		$comment = q{};
 	}
 
-	$comment =~ s/\new image \d+( -)?//;
+	$comment =~ s/new image \d+( -)?//;
 
 	return $comment;
 }

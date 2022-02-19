@@ -120,7 +120,14 @@ elsif (defined $request{mission}) {
 	display_mission(\%request);
 }
 elsif (defined $request{product}) {
-	display_product(\%request);
+	# if we are passed the field parameter, make the request an API request
+	# this is so that we can easily add ?fields=something at the end of a product url
+	if (defined param("fields")) {
+		display_product_api(\%request);
+	}
+	else {
+		display_product(\%request);
+	}
 }
 elsif (defined $request{points}) {
 	display_points(\%request);

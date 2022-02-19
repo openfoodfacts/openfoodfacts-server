@@ -118,7 +118,7 @@ fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
 fr:colorant naturel, colorants naturels
 hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
 it:coloranti naturali, colorante naturale
-nl:Natuurlijke kleurstoffen
+nl:natuurlijke kleurstoffen, natuurlijk kleurstof
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
 <en:colour
@@ -6825,7 +6825,7 @@ de:frische entrahmte Bio-Milch pasteurisiert
 es:leche fresca semidesnatada, leche fresca parcialmente desnatada
 fr:lait frais demi-écrémé
 
-<en:organic semi-skimmed milk
+#<en:organic semi-skimmed milk
 <en:fresh milk
 fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
 
@@ -8430,7 +8430,7 @@ vegan:en:no
 vegetarian:en:yes
 
 <nl:vegetarisch weipoeder
-nl:gezoet vegetarisch weipoeder
+nl:gezoet vegetarisch weipoeder, vegetarische zoete weipoeder
 vegan:en:no
 vegetarian:en:yes
 
@@ -8600,7 +8600,7 @@ lv:Krējums
 mr:साय
 ms:Krim
 nb:Fløte
-nl:room
+nl:room, melkroom
 nn:Kremfløyte
 pl:Śmietanka
 pt:nata, creme de leite, natas
@@ -14222,7 +14222,7 @@ nl:zeezout
 pl:Sól morska
 pt:Sal marinho
 ro:Sare de mare
-ru:Морская соль
+ru:Морская соль, Соль морская
 sd:سامونڊي لوڻ
 sv:Havssalt
 th:เกลือสมุทร
@@ -18640,7 +18640,7 @@ fi:naudanrasva
 fr:gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hu:marhazsír
 it:grasso di manzo
-nl:rundvet
+nl:rundvet, rundervet
 # ingredient/fr:gras-de-bœuf has 365 products in 5 languages @2019-07-10
 
 <en:beef fat
@@ -20489,11 +20489,11 @@ from_palm_oil:en:no
 #nl:zonnebloemvet gedeeltelijk gehard
 # ingredient/partially-hydrogenated-sunflower-fat has no products @2019-04-16
 
-#<en:sunflower fat
-#en:fully hydrogenated sunflower fat
-#de:ganz gehärtetes Sonnenblumenfett
-#fr:graisse de tournesol entièrement hydrogénée
-#nl:zonnebloemvet geheel gehard
+<en:sunflower fat
+en:fully hydrogenated sunflower fat
+de:ganz gehärtetes Sonnenblumenfett
+fr:graisse de tournesol entièrement hydrogénée
+nl:zonnebloemvet geheel gehard, geheel geharde zonnebloem
 # ingredient/fully-hydrogenated-sunflower-fat has no products @2019-04-16
 
 #<en:sunflower fat
@@ -21312,6 +21312,11 @@ fr:Vinaigre blanc distillé
 it:Aceto bianco
 
 <en:vinegar
+en:buffered vinegar
+nl:gebufferde azijn, gebufferd azijn
+
+<en:buffered vinegar
+en:buffered vinegar powder
 nl:gebufferde azijnpoeder
 
 <en:vinegar
@@ -25347,7 +25352,7 @@ it:cereali
 nl:granen, gemaakt van granen
 pl:płatki zbożewe
 pt:cereais
-ru:Зерновые культуры, зерновые продукты
+ru:Зерновые культуры, зерновые продукты, злаков
 sv:spannmål, sädesslag
 vegan:en:yes
 vegetarian:en:yes
@@ -25724,7 +25729,7 @@ it:frumento soffiato
 # 55 in 5 @2021-10-22
 
 <en:wheat
-<en:whole grain
+#<en:whole grain
 en:whole wheat, whole grain wheat, wholegrain wheat, wholewheat
 ar:قمح كامل
 bg:пълнозърнест пшеничен
@@ -25856,7 +25861,7 @@ hu:búzarost
 it:fibra di frumento, fibre di frumento
 nl:tarwevezel
 pt:fibras de trigo
-ru:Пшеничные волокна
+ru:Пшеничные волокна, пищевые волокна пшеничные
 sv:vetefiber, Vete fiber
 
 <en:wheat fiber
@@ -27122,6 +27127,10 @@ en:whole buckwheat flakes
 es:copos de trigo sarraceno integral
 fr:flocons de sarrasin complets
 nl:volle boekweitvlokken
+
+<en:buckwheat
+en:buckwheat grit
+nl:boekweitgrut
 
 <en:buckwheat
 <en:flour
@@ -29245,12 +29254,6 @@ ciqual_food_code:en:20900
 ciqual_food_name:en:Soya flour
 ciqual_food_name:fr:Farine de soja
 
-<en:corn
-en:Maize bran, Corn bran
-fr:Son de maïs
-ciqual_food_code:en:9641
-ciqual_food_name:en:Maize/corn bran
-ciqual_food_name:fr:Son de maïs
 
 <en:soya flour
 fr:farine de soja degraissée
@@ -29345,6 +29348,7 @@ fi:täysjyvämaissijauho
 fr:farine de mais compléte
 sv:fullkornsmajsmjöl
 # ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
+
 
 #category/rice-flours
 <en:flour
@@ -29726,6 +29730,13 @@ fr:Fibre de maïs
 nl:maïsvezel
 sk:kukuričná vláknina
 
+<en:corn
+en:Maize bran, Corn bran
+fr:Son de maïs
+ciqual_food_code:en:9641
+ciqual_food_name:en:Maize/corn bran
+ciqual_food_name:fr:Son de maïs
+
 <en:corn fiber
 en:soluble corn fiber
 
@@ -29768,7 +29779,7 @@ fi:maissisuurimo
 fr:semoule de maïs, semoule de mais
 hu:kukoricadara
 it:spezzato di mais, semolino di granoturco
-nl:Maïsgrits
+nl:Maïsgrits, maisgrut
 pl:grys kukurydziany, kasza kukurydziana
 pt:grãos de milho
 ro:porumb boabe
@@ -30262,7 +30273,7 @@ fr:Riz brun complet
 nl:volkoren rijst
 
 <en:brown rice
-<en:organic rice
+#<en:organic rice
 en:organic brown rice, organic full grain rice
 fi:luomu tumma riisi, luomu täysjyväriisi
 fr:riz complet bio, riz complet biologique, riz complet issu de l'agriculture biologique
@@ -30359,7 +30370,7 @@ nl:langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
 <en:superior quality long grain rice
-<en:organic rice
+#<en:organic rice
 en:superior quality organic long grain rice
 fr:riz long grain biologique de qualite superieure
 
@@ -30386,7 +30397,7 @@ fr:riz long blanc bio
 fr:riz long semi complet
 
 <fr:riz long semi complet
-<en:organic rice
+#<en:organic rice
 fr:riz long semi complet issu de l'agriculture-biologique:
 
 <en:long grain rice
@@ -30433,7 +30444,7 @@ sv:långkornigt parboil ris
 fr:riz long italien étuvé
 
 <en:parboiled long grain rice
-<en:organic rice
+#<en:organic rice
 en:parboiled organic long grain rice
 da:økologisk parboiled langkornede ris
 de:Parboiled Bio-Langkornreis
@@ -30468,7 +30479,7 @@ hu:kerek rizs
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
 
 <en:round rice
-<en:organic rice
+#<en:organic rice
 en:organic round rice
 fi:luomu pyöreäjyväinen riisi
 fr:riz rond biologique
@@ -30499,7 +30510,7 @@ fr:riz rond de qualité supérieure
 # ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
 <fr:riz rond de qualité supérieure
-<en:organic rice
+#<en:organic rice
 fr:riz rond biologique de qualité supérieure
 
 <en:rice
@@ -31462,6 +31473,7 @@ it:zucchero caramellato
 nl:gekarameliseerde suiker, gebrande suiker
 pl:cukier karmelizowany
 ro:zahăr caramelizat
+ru:карамелизованный сахар
 sv:karamelliserat socker
 
 <en:caramelised sugar
@@ -33576,6 +33588,7 @@ es:Aislado de proteína de soja
 fi:soijaproteiini-isolaatti
 fr:isolat de protéine de soja
 it:Proteine isolate della soia
+ru:изолированный белок сои
 
 <en:soy protein
 en:hydrolysed soy protein, hydrolyzed soy protein
@@ -33644,7 +33657,7 @@ es:proteína hidrolizada de trigo
 fi:vehnäproteiinihydrolysaatti
 fr:protéine de blé hydrolysée, protéines de blé hydrolysées
 hu:hidrolizált búzafehérje
-nl:gehydroliseerd tarwe-eiwit
+nl:gehydroliseerd tarwe-eiwit, gehydrolyseerd tarweeiwit
 
 <en:vegetable hydrolysed protein
 en:hydrolysed corn protein
@@ -34832,7 +34845,8 @@ pl:kawalki czekolady mlecznej
 pt:pepitas de chocolate de leite
 sv:bitar av mjölkchoklad
 # ingredient/fr:pépites-de-chocolat-au-lait has 108 products in 7 languages @2019-05-25
-# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, weipoeder, emulgator (zonnebloemlecithine))
+# usage:nl:stukjes melkchocolade (suiker, volle melkpoeder, cacaomassa, cacaoboter, 
+, emulgator (zonnebloemlecithine))
 
 <en:milk chocolate
 de:Feine Milchschokolade, Vollmilchschokolade, Edel-Vollmilchschokolade
@@ -36452,14 +36466,14 @@ fr:levain lactique
 de:Natursauerteig
 
 <en:sourdough
-en:dehydrated sourdough
+en:dehydrated sourdough, sourdough powder
 de:Sauerteig getrocknet
 fi:kuivattu taikinajuuri
 fr:levain sec, levain déshydraté
 it:lievito naturale secco
 nl:zuurdesempoeder, desempoeder
 
-<en:dehydrated sourdough, sourdough powder
+<en:dehydrated sourdough
 en:devitalised and dehydrated sourdough
 fr:levain déshydraté et dévitalisé
 nl:geïnactiveerde desempoeder
@@ -38173,7 +38187,7 @@ ps:خوبانۍ
 pt:damasco
 rm:apricosa
 ro:caisă
-ru:абрикос
+ru:абрикос, абрикосы
 sd:زردالو
 se:aprikosa
 sh:кајсија
@@ -38256,14 +38270,14 @@ fr:demi-abricots, demi abricots
 
 #processing:en: en:dried
 <en:apricot
-#en:dried apricots
-#da:tørret abrikos, tørrede abrikoser
-#de:getrocknete Aprikosen
-#es:albaricoques deshidratados
-#fi:kuivattu aprikoosi, kuivatut aprikoosit
-#fr:abricots secs, abricots séchés
-#it:albicocche secche
-#nl:gedroogde abrikozen
+en:dried apricots
+da:tørret abrikos, tørrede abrikoser
+de:getrocknete Aprikosen
+es:albaricoques deshidratados
+fi:kuivattu aprikoosi, kuivatut aprikoosit
+fr:abricots secs, abricots séchés
+it:albicocche secche
+nl:gedroogde abrikozen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots-secs
 # 138 products in 5 languages @2018-09-29
 
@@ -38462,6 +38476,10 @@ ciqual_food_code:en:13005
 ciqual_food_name:en:Banana, pulp, raw
 ciqual_food_name:fr:Banane, pulpe, crue
 # 1538 products in 10 languages @2018-09-26
+
+<en:banana
+en:green banana flour
+ru: Мука зелёных бананов
 
 #<en:banana
 #en:Plantain bananas
@@ -47974,7 +47992,7 @@ es:extracto de achicoria
 fi:sikuriuute
 fr:extrait de chicorée, extraits de chicorée
 it:estratto di cicoria, Estratti di cicoria
-nl:cichorei-extract
+nl:cichorei-extract, chicorei extract
 # ingredient/extract-of-chicory has 31 products @2019-04-04
 
 <en:vegetable
@@ -50406,6 +50424,7 @@ fi:porkkanajauhe
 <en:carrot
 de:Karottengranulat
 fi:porkkanaraaste
+ru:морковь гранулы
 
 <en:carrot
 <en:vegetable fiber
@@ -51621,8 +51640,6 @@ ciqual_food_name:fr:Oignon, séché
 #wikidata:en:Q7093931
 # 24139 in 36 @2021-09-10
 
-<en:onion powder
-de:Röstzwiebelpulver
 
 <en:onion
 fr:oignons coupés
@@ -51701,7 +51718,8 @@ sv:lök brynt i solrosolja
 # fr:oignons-grillés is a compound ingredient, eg:Zwiebeln gegrillt (Zwiebeln, Palmöl, Weizenmehl, Kochsalz)
 
 <en:onion
-de:Zwiebeln gegrillt, Röstzwiebeln
+en:Baked onion
+de:Zwiebeln gegrillt, Röstzwiebeln, Röstzwiebel
 fi:paahdettu sipuli
 fr:oignon grillé, oignons grillés
 it:cipolle grigliate
@@ -51784,7 +51802,7 @@ sr:Пашканат
 sv:Palsternacka
 th:พาซนิพ
 tl:Pastinaca
-tr:sos, Yabani havuç
+tr:yabani havuç
 uk:Пастернак
 ur:شقاقل
 vi:Củ cải vàng
@@ -52841,8 +52859,8 @@ ciqual_food_name:fr:Manioc, racine crue
 #650 in 10 @2021-10-18
 
 <en:flour
-<en:cassave
-en:cassave flour
+<en:cassava
+en:cassava flour
 de:Maniokmehl
 fr:farine de manioc
 hu:maniókaliszt
@@ -53790,7 +53808,7 @@ fr:piment de la jamaïque, piment de jamaïque
 it:Pepe di Giamaica, pepe garofanato, pimento, pimenteira
 nb:allehånde
 nl:Jamaicaanse peper
-ru:перец душистый, перец душистый молотый
+ru:перец душистый, перец душистый молотый, душистый перец
 sv:kryddpeppar
 wikidata:en:Q158468
 wikipedia:en:https://en.wikipedia.org/wiki/Allspice
@@ -53987,7 +54005,7 @@ pl:Pomidor, pomidory
 pt:tomate, tomates
 rn:Tomati
 ro:roșie, roșii, tomată, tomate
-ru:помидор, помидоры, томаты
+ru:томат, помидор, помидоры, томаты
 rw:Inyanya
 sa:वार्तकी
 sc:Tamata
@@ -54267,10 +54285,11 @@ carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/fr:pulpe-de-tomate has 501 products in 6 languages @2018-12-26
 
 <en:tomato
+en:sifted tomato
 fr:coulis de tomates, coulis de tomate
 de:Passierte Tomaten
 es:tomates tamizados
-fi:Tomaattikastike
+fi:seulotut tomaatit
 it:passata di pomodoro
 nl:gezeefde tomaten
 nn:mosede tomater
@@ -55489,7 +55508,7 @@ vegetarian:en:yes
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
 #category/butter-beans
-<en:legumes
+<en:legume
 en:lima bean, butter bean
 ca:garrofó, fesol de la peladilla, mongeta de Lima
 da:limabønne, månebønne, sukkerbønne
@@ -55538,13 +55557,13 @@ en:large lima beans
 <en:lima beans
 en:baby lima beans
 
-<en:legumes
+<en:legume
 en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
 
-<en:legumes
+<en:legume
 en:white beans, navy beans, great northern beans, haricot beans
 da:hvide bønner
 de:weiße Bohnen
@@ -55558,10 +55577,10 @@ ru:фасоль белая
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 
-<en:legumes
+<en:legume
 fr:haricots coco roses, haricots cocos roses
 
-<en:legumes
+<en:legume
 fr:haricots chevriers verts
 
 <en:white beans
@@ -55578,7 +55597,8 @@ fr:haricots blancs précuits
 
 <en:white beans
 fr:haricots blancs réhydratés
-<en:legumes
+
+<en:legume
 en:black beans
 da:sorte bønner
 de:schwarze Bohnen
@@ -55589,7 +55609,7 @@ it:Fagioli neri
 nl:Zwarte bonen
 sv:svarta bönor
 
-<en:legumes
+<en:legume
 en:red beans, red kidney beans, kidney beans
 da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen, Kidneybohnen
@@ -55598,7 +55618,7 @@ fi:punaiset kidneypavut
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
 ja:金時豆
-ru:фасоль красная, красная фасоль
+ru:фасоль красная, красная фасоль, Фасоль крупа красная
 sv:röda kidneybönor, kidneybönor
 wikidata:en:Q1828227
 wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
@@ -55622,14 +55642,14 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
-<en:legumes
+<en:legume
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
 wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
-<en:legumes
+<en:legume
 en:mung bean, mungbean
 ar:بقلة الماش
 bg:папуда, птичи боб, бебриджа
@@ -55743,7 +55763,7 @@ ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 #en:Mungbean powder
 #zh:緣豆粉
 
-<en:legumes
+<en:legume
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -55888,6 +55908,10 @@ ciqual_food_code:en:20534
 ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
+
+<en:lupin
+en:lupin grit
+nl:lupinegrut
 
 #processing:en: en:flour
 <en:flour
@@ -56396,6 +56420,7 @@ nl:kikkererwtenmeel, besan, gram-meel
 nn:kikertmel
 pa:ਬੇਸਨ
 pl:mąka z ciecierzycy
+ru:нутовая мука
 sa:चणकपिष्टम्
 sk:mleté cicerové bôby
 sl:čičerikina moka
@@ -58386,6 +58411,7 @@ fi:anis
 fr:graine d'anis vert, anis vert, graine d'anis, anis
 it:Anice
 nl:anijszaad
+ru:семена аниса
 sv:anis, anisfrö
 te:సోపు
 tt:әнис орлыгы
@@ -58537,7 +58563,7 @@ ciqual_food_name:fr:Chia, graine, séchée
 # The plant is only used for the seeds, so cumin implies cumin seeds
 
 <en:seed
-en:cumin seeds, cumin
+en:cumin
 af:komyn
 #ang:cymen
 ar:كمون
@@ -58602,7 +58628,7 @@ pa:ਜੀਰਾ
 pl:nasiona kminku, kmin rzymski
 pt:cominho
 ro:chimion
-ru:зёрна кумина, зира, кумин
+ru:зёрна кумина, зира, кумин, тмин
 sa:जीरकम्
 #sco:cumin
 sd:اڇو جيرو
@@ -59260,7 +59286,7 @@ es:extracto de pimienta negra
 fi:mustapippuriuute
 fr:extrait de poivre noir
 it:Estratto di pepe nero
-nl:zwarte peperextract
+nl:zwarte peperextract, zwartepeperextract
 sv:svartpepparextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/black-pepper-extract
 # 66 products in 3 languages @2018-10-08
@@ -79000,8 +79026,8 @@ ciqual_food_name:fr:Gésier, poulet, cru
 #46 in 2 @2021-09-12
 
 # <en:compound
-<fr:gésiers de canard
-fr:Gésiers de canard maigre traités en salaison
+<en:duck gizzard
+fr:Gésier de canard maigre traités en salaison
 # usage:fr:Gésiers de canard maigre traités en salaison 85% (gésiers de canard, sel, arômes naturels, conservateur : nitrite de sodium)
 
 <en:duck
@@ -80034,6 +80060,7 @@ es:proteína de huevo
 fi:munaproteiini
 fr:protéine d'œuf, protéine d'oeuf
 it:proteina dell'uovo, proteine dell'uovo
+nl:ei-proteine
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
 # <en:compound
@@ -84923,8 +84950,8 @@ gl:ketchup
 he:קטשופ
 hu:ketchup
 hy:կետչուպ
-id:saus tomat
-is:tómatsósa
+id:saus tomat ketchup
+is:tómatsósa ketchup
 it:ketchup
 ja:ケチャップ
 jv:saos tomat
@@ -84935,7 +84962,7 @@ ko:케첩
 ku:ketçap, کەتچاپ
 la:lycopersici liquamen
 lt:kečupas
-lv:tomātu mērce
+lv:kečups
 mk:кечап
 ms:sos tomato
 nb:ketchup
@@ -85897,7 +85924,7 @@ description:nl:Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel 
 
 <en:béarnaise sauce
 en:prepacked Bearnaise sauce 
-fr:Sauce béarnaise
+fr:Sauce béarnaise préemballée
 ciqual_food_code:en:11102
 ciqual_food_name:en:Bearnaise sauce, prepacked
 ciqual_food_name:fr:Sauce béarnaise, préemballée
