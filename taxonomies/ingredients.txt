@@ -31052,7 +31052,6 @@ vegetarian:en:yes
 #comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 <en:carob
 <en:flour
-<en:E410
 en:carob seed flour, carob kernel flour, carob flour
 cs:Karobová mouka
 da:Johannesbrødkernemel
@@ -31068,9 +31067,7 @@ pl:Mączka chleba świętojańskiego
 pt:farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba
 sv:fruktkärnmjöl
 
-<en:E410
-en:peruvian carob gum
-es:goma garrofín peruana
+
 
 
 # This identical the the flour variant
@@ -31436,32 +31433,23 @@ it:Zucchero liquido
 sv:sockerlösning
 
 <en:sugar
-en:icing sugar
-de:Puderzucker
+en:icing sugar, powdered sugar
+de:Puderzucker, Azucar en polvo
 es:Azúcar glasé
 fi:tomusokeri
-fr:sucre glace
+fr:sucre glace, sucre en poudre
+hu:porcukor
 it:zucchero a velo
-nl:glazuursuiker
-ru:сахарная пудра
+nl:poedersuiker, glazuursuiker, bloemsuiker
+pt:Açúcar em pó
+ru:сахарная пудра, пудра сахарная
 sv:florsocker
+wikidata:en:Q151070
+wikipedia:en:https://en.wikipedia.org/wiki/Powdered_sugar
 
 <en:sugar
 fr:sucre caramélisé en poudre
 
-# comment:en:powdered sugar and icing sugar may be the same thing.
-<en:sugar
-en:powdered sugar
-de:Puderzucker
-es:Azucar en polvo
-fi:jauhettu sokeri
-fr:sucre en poudre, sucre en grains
-hu:porcukor
-nl:poedersuiker, bloemsuiker
-pt:Açúcar em pó
-ru:пудра сахарная
-wikidata:en:Q151070
-wikipedia:en:https://en.wikipedia.org/wiki/Powdered_sugar
 
 <en:sugar
 fr:sucre candi
