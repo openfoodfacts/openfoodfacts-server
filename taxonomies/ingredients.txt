@@ -2,14 +2,11 @@
 #comment:en:These are synonyms of ingredients
 
 #synonyms need to be separated with an empty line.
-#If a term is also in the taxonomy, it must come first. e.g. "es:jarabe"
+#If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
 
 synonyms:en:hydrolysed, hydrolyzed
 
 synonyms:en:pasteurised, pasteurized
-
-synonyms:es:jarabe, sirope
-
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
@@ -31638,7 +31635,6 @@ de:Brauner Rohrzucker
 es:Azúcar moreno de caña
 fr:sucre de canne brun
 hu:barna nádcukor
-it:zucchero di canna grezzo
 nl:Bruine rietsuiker
 wikipedia:fr:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 
