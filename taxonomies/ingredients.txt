@@ -25418,24 +25418,26 @@ nova:en:4
 #
 ##################################################################################
 # no gluten
+# do not mix with en:millet
 <en:cereal
-en:Sorghum
-de:Hirse
-es:Sorgo
+en:sorghum
+de:Sorghumhirsen
+es:sorgo
 fr:sorgho
 hu:cirok
-it:Sorgo
+it:sorgo
+nl:kafferkoren
 sk:cirok
 wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
 ciqual_food_code:en:9360
 ciqual_food_name:en:Sorghum, whole, raw
 ciqual_food_name:fr:Sorgho entier, cru
 
-<en:Sorghum
+<en:sorghum
 de:Goldhirse, geschälte Hirse
 
 <en:cereal flour
-<en:Sorghum
+<en:sorghum
 en:sorghum flour
 de:Sorghummehl, Sorghum-Mehl
 es:harina de sorgo, harina de maicillo
@@ -27256,6 +27258,7 @@ ciqual_food_code:en:9330
 ciqual_food_name:en:Millet, whole
 ciqual_food_name:fr:Mil entier, cru
 # 2479 in 16 @2021-10-13
+#description:en:Millets are a group of highly variable small-seeded grasses, widely grown around the world as cereal crops or grains for fodder and human food
 
 <en:millet
 en:sprouted millet
