@@ -1,7 +1,7 @@
 {
    "ingredients" : [
       {
-         "id" : "en:crushed-tomato",
+         "id" : "en:tomato-puree",
          "percent" : 19,
          "percent_estimate" : 19,
          "text" : "purée de tomate",
@@ -51,10 +51,9 @@
       "en:non-vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:vegetable",
       "en:tomato",
-      "en:chopped-tomatoes",
       "en:beef",
       "en:animal",
       "en:fruit-juice",
@@ -67,17 +66,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:beef",
       "en:fruit-juice",
       "en:oil-and-fat"
    ],
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:vegetable",
       "en:tomato",
-      "en:chopped-tomatoes",
       "en:beef",
       "en:animal",
       "en:fruit-juice",
@@ -89,7 +87,7 @@
    "ingredients_with_specified_percent_sum" : 254,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 8,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 119,
