@@ -14679,16 +14679,13 @@ description:pt:A quenelle é um bolinho feito com carne ou peixe muito condiment
 
 <en:animal
 en:beef, steers
-ca:carn de vaca
 cs:Hovězí
 da:oksekød
 de:Rind
-es:carne de vaca
 fi:nauta, naudan, härkä, härän
 fr:bœuf, boeuf, Boeufs
 hu:marha
 it:manzo
-nl:rund
 pl:Wołowina
 ro:vită
 ru:Говядина
@@ -14734,7 +14731,7 @@ es:res puro
 
 <en:beef
 en:beef extract
-ca:extracte de res,extracte de bou
+ca:extracte de res, extracte de bou
 de:Rindfleischextrakt
 es:extracto de res
 fi:naudanlihauute, häränlihauute
@@ -14762,8 +14759,6 @@ ja:牛肉
 nb:kjøtt av storfe
 nl:Rundvlees
 pl:Mięso wołowe
-ru:Говядина
-sv:Nötkött
 tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
@@ -14901,9 +14896,7 @@ ciqual_food_name:fr:Coeur, boeuf, cuit
 
 <en:beef meat
 en:beef meat extract
-ca:extracte de res, extracte de vedella
 de:Rindfleisch-Extrakt
-es:extracto de res, extracto de ternera
 fi:Naudanlihatiiviste
 fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
 hu:marhahúskivonat
@@ -16158,7 +16151,6 @@ id:patty
 it:hamburger
 jv:patty
 ko:패티
-sv:pannbiff
 # lmo:svizzera
 wikidata:en:Q3200265
 wikipedia:en:https://en.wikipedia.org/wiki/Patty
@@ -16279,15 +16271,15 @@ fr:porc
 he:חזיר
 hu:sertés, disznó, malac
 it:suino
-ja:豚肉
-nb:svin, svinekjøtt, flesk
+ja:豚
+nb:svin, flesk
 nl:varken
 pl:Wieprzowina
 pt:Porco
 ro:porc
 ru:Свинина
 sv:gris
-zh:猪肉
+zh:猪
 vegan:en:no
 vegetarian:en:no
 
@@ -16304,12 +16296,11 @@ fr:viande de porc, viande porc
 hu:sertéshús, disznóhús
 it:carne di suino, carne di maiale, carne suina
 ja:豚肉
-nb:svinekjøtt, kjøtt av svin, flesk
+nb:svinekjøtt, kjøtt av svin
 nl:Varkensvlees
 pl:mięso wieprzowe
 pt:carne de suíno, carne de porco
 ro:carne de porc, carne porc
-ru:Свинина
 sv:fläskkött, griskött, svinkött, fläsk, kött från gris
 zh:猪肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de porc
@@ -16378,7 +16369,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dewlap
 en:lean pork
 de:mageres Schweinefleisch
 es:magra de cerdo
-fr:Maigre de porc
+fr:maigre de porc
 
 <en:pork meat
 en:british pork
@@ -16506,13 +16497,13 @@ en:bacon
 ar:باكون
 be:Бекон
 br:Kig-sall
-ca:cansalada,cansalada de porc
+ca:cansalada, cansalada de porc
 cs:slanina
 cv:Бекон
 cy:Bacwn
 da:Bacon
 de:Speck, Schweinespeck
-el:Μπέικον, χοιρινό λίπος
+el:Μπέικον
 eo:lardo
 es:panceta, bacon, tocineta
 eu:Hirugihar
@@ -16540,7 +16531,7 @@ nl:spek
 nn:flesk
 pa:ਬੇਕਨ
 pl:Boczek
-pt:toucinho, gordura de porco
+pt:toucinho
 ro:bacon
 ru:бекон
 sh:Slanina
@@ -16636,8 +16627,7 @@ fr:lardons, lardons supérieurs
 he:לארדון
 it:Lardo
 ja:ラードン
-nl:spek, spekjes, spekreepjes
-pt:toucinho
+nl:spekjes, spekreepjes
 uk:Шпиковање меса
 wikidata:en:Q3217888
 wikipedia:en:https://en.wikipedia.org/wiki/Lardon
@@ -16654,7 +16644,7 @@ de:geräucherte Speckwürfel
 es:mechas de tocino ahumadas
 fr:lardon fumé, lardons fumés
 it:Lardi affumicati
-nl:gerookt spek
+nl:gerookte spekjes
 pt:toucinho fumado
 ciqual_food_code:en:28720
 ciqual_food_name:en:Smoked lardoons, raw
@@ -16664,7 +16654,7 @@ ciqual_food_name:fr:Lardon fumé, cru
 <en:lardon
 en:cooked lardoons
 de:gekochte Speckwürfel
-es:jamón cocido, mechas de tocino cocidas
+es:mechas de tocino cocidas
 fr:lardons cuits
 pt:toucinho cozido
 
@@ -16714,8 +16704,6 @@ fr:noix de jambon de porc
 
 <en:pork meat
 fr:filet et pointe de porc
-ca:llom de porc,llom de Porc Ibèric
-es:lomo de cerdo
 
 <en:pork meat
 fr:palette de porc
@@ -16979,9 +16967,7 @@ fr:jambon cuit de qualité supérieure avec couenne jambon de porc
 <en:ham
 pt:presunto
 
-<en:ham
-en:cured ham
-es:jamon serrano,jamon curado
+
 
 <en:ham
 en:smoked ham with natural juices
@@ -17022,14 +17008,14 @@ en:pork loin
 ca:Llom de porc
 de:Schweinelende
 es:Lomo de cerdo
-eu:Txerri-solomo
+eu:txerri-solomo
 fr:longe de porc
 gl:lombo de porco
-it:Lonza di maiale
+it:lonza di maiale
 ko:등심
-pt:Lombo
-# pt-br:Lombo de porco
-ru:Корейка
+pt:lombo
+# pt-br:lombo de porco
+ru:корейка
 zh:猪里脊
 wikidata:en:Q7230136
 wikipedia:en:https://en.wikipedia.org/wiki/Pork_loin
@@ -17131,7 +17117,6 @@ ciqual_food_name:fr:Foie, porc, cru
 
 <en:pork meat
 en:pork belly, pork bellies
-ca:cansalada de porc
 da:Slag
 de:Schweinebauch
 el:χοιρινό στήθος
@@ -17145,7 +17130,6 @@ ja:ポークベリー
 jv:weteng babi
 ko:삼겹살
 nl:varkensbuik, buikspek
-pl:boczek
 ru:пашина
 sv:sidfläsk
 vi:thịt ba chỉ
@@ -17274,9 +17258,6 @@ fr:maigre de tête de porc
 
 <en:pork meat
 fr:gras et couenne de porc
-
-<en:pork meat
-fr:maigre de porc
 
 <en:broth
 <en:pork
