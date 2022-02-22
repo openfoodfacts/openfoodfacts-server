@@ -19590,7 +19590,7 @@ en:coconut fat
 ca:greix de coco
 da:kokosfedt
 de:Kokosfett
-es:Grasa de coco,grasa vegetal de coco # ,manteca de coco
+es:Grasa de coco, grasa vegetal de coco
 et:kookosrasv
 fi:kookosrasva, kookosrasvaa
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
@@ -19605,6 +19605,13 @@ sv:kokosfett
 from_palm_oil:en:no
 
 <en:coconut fat
+en:coconut butter
+de:Kokosbutter
+es:manteca de coco,
+it:Burro cocco, Burro cocco puro
+ro:unt de cocos
+
+<en:coconut fat
 en:fully hydrogenated coconut fat
 da:fuldhærdet kokosfett
 de:ganz gehärtetes kokosfett
@@ -19617,11 +19624,6 @@ nl:geheel gehard kokosvet
 sv:fullhärdat kokosfett
 # ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
-<en:coconut fat
-en:coconut butter
-de:Kokosbutter
-es:manteca de coco
-ro:unt de cocos
 
 <en:unhydrogenated coconut oil
 <en:unhydrogenated palm fat
@@ -19869,17 +19871,17 @@ description:en:Rapeseed (Brassica napus), also known as rape, or oilseed rape, i
 <en:rapeseed oil
 en:british rapeseed oil
 
+# Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 <en:rapeseed oil
 en:canola oil
 ca:Oli de canola
 de:Ölrübsenöl
 es:aceite de canola
-fr:huile de navette, huile de canola
+fr:huile de canola
 hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
 ja:キャノーラ油
 nl:canola olie
-sv:rybsolja, rypsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 from_palm_oil:en:no
 nutriscore_fruits_vegetables_nuts:en:yes
@@ -34042,10 +34044,9 @@ fr:Beurre de cacao brut
 <en:cocoa butter
 en:pure cocoa butter
 de:reine Kakaobutter
-es:manteca de coco pura
+es:manteca de cocoa pura
 fi:puhdas kaakaovoi
 fr:pur beurre de cacao
-it:Burro cocco puro
 nl:puur cacaoboter
 # ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
 
