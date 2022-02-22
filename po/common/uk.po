@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-14 09:05\n"
+"PO-Revision-Date: 2022-02-22 17:23\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -283,7 +283,7 @@ msgstr "Ви також можете допомогти фінансувати �
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Управління ручним виробництвом"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -3235,7 +3235,7 @@ msgstr "Ні"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Пропустити"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -4445,11 +4445,11 @@ msgstr "Інформація, яка була пропущена: товар, щ
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr "Допомагають виробникам розвивати країни."
+msgstr "Допомагає виробникам у країнах, що розвиваються."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr "Товари, що призначені для справедливої торгівлі допомагають виробникам розвивати країни."
+msgstr "Товари чесної торгівлі допомагають виробникам у країнах, що розвиваються."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4457,7 +4457,7 @@ msgstr "Коли ви хочете придбати товари для спра
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Харчова якість\n"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4478,19 +4478,19 @@ msgstr "Система Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Nutri-Score невідомий"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Дані для обчислення Nutri-Score відсутні"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "Nutri-Score не є відповідним"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Exempted category"
-msgstr ""
+msgstr "Вилучена категорія"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5763,50 +5763,50 @@ msgstr "Здоров’я"
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "Порівняно з"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Ходьба"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Плавання"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Їзда на велосипеді"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Біг"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} кДж на 100 г"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Дорівнює ходьбі {minutes} хвилин або {steps} крокам"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Використання енергії для людини вагою кг/ фунт"
 
 msgctxt "nutriscore_not_applicable_short"
 msgid "Not applicable for this product"
-msgstr ""
+msgstr "Не є придатним для цього продукту"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Відсутня категорія"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
@@ -5814,18 +5814,71 @@ msgstr "Пропущені факти харчування"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "Зменшити або перестати вживати алкоголь"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
-msgstr ""
+msgstr "Чим менше, тим краще"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "Можливо, це не та відповідь, яку люди хочуть почути, але безпечного рівня вживання алкоголю не існує. Звичайно, існує низький ризик вживання, але ВООЗ не встановлює конкретні ліміти, оскільки доведено, що для здоров’я найкращим виходом буде зовсім не вживати алкоголь. Алкоголь пов’язаний із близько 60 різними діагнозами, і майже для кожного існує крива доза-ефект, тож, чим більше ви вживаєте, тим вище ризик захворювання. Чим менше, тим краще."
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
+msgstr "Джерело"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "Користувач додатку"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "групи продуктів харчування"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "продукти харчування"
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr ""
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr ""
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr ""
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr ""
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr ""
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr ""
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr ""
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
 msgstr ""
 
