@@ -16824,7 +16824,6 @@ fr:chipolatas aux herbes
 <en:pork
 en:pork skin
 de:Schweinehaut
-es:tripa de cerdo, tripa natural de cerdo, tripa natural de cerdo de calibre estrecho
 fr:Peau de porc
 
 # <en:compound
@@ -17394,11 +17393,11 @@ carbon_footprint_fr_foodges_value:fr:20.5
 <en:beef
 en:veal
 de:Kalb
-es:Ternera
+es:ternera
 fi:vasikka
 fr:veau
 hu:borjú
-it:Vitello
+it:vitello
 nl:kalf
 vegan:en:no
 vegetarian:en:no
@@ -17538,7 +17537,7 @@ nl:rundercollageen
 <en:pork
 en:pork collagen, pork casing, pork gut
 de:Schweinedarm
-es:Tripa de cerdo
+es:Tripa de cerdo, tripa natural de cerdo, tripa natural de cerdo de calibre estrecho
 fi:siansuoli, porsaansuoli, porsaan suolessa
 fr:boyau de porc
 hu:sertésbél, disznóbél
@@ -18416,87 +18415,87 @@ ciqual_food_name:fr:Huile pour friture, sans précision
 
 <en:oil and fat
 #  nova:en:fats
-en:fat, fats
-af:Vet
+en:fat, fats, shortening
+af:vet
 ak:sradeɛ
-an:Graixa
+an:graixa
 ar:دهن
-ay:Lik'i
-bg:Мазнина, мазнини
+ay:lik'i
+bg:мазнина, мазнини
 bn:স্নেহ পদার্থ
-br:Druzoni
+br:druzoni
 ca:greix
 cs:tuky, tuk
-cy:Braster
-da:Fedtstof, fed
+cy:braster
+da:fedtstof, fed
 de:Fett
 el:λίπος, λιπαρός
 eo:graso
-es:gordo, grasa
-et:Rasvad
+es:gordo, grasa, reduccion
+et:rasvad
 eu:koipe
 fa:چربی
 fi:rasva, rasvat
-fr:Graisse
-ga:Saill
+fr:graisse, graisse alimentaire
+ga:saill
 gl:greix
 gu:ચરબી
 he:שומן
 hi:वसा
-hr:Masti
-ht:Kò gra
+hr:masti
+ht:kò gra
 hu:zsír, zsírok
-id:Lemak
-it:grasso, grassi
-ja:脂肪
-jv:Gajih
+id:lemak
+it:grasso, grassi, grasso alimentare
+ja:脂肪, ショートニング
+jv:gajih
 ka:ცხიმი
-kk:Май
+kk:май
 kn:ಕೊಬ್ಬು
 ko:지방
-la:Pingue
-li:Vèt
-lv:Tauki
+la:pingue
+li:vèt
+lv:tauki
 mk:масти
 ml:കൊഴുപ്പ്
 mr:चरबी
-ms:Lemak
+ms:lemak
 mt:xaħam
 nb:fett
 nl:vet
 nn:feitt
 pl:tłuszcz
 pt:gordura
-qu:Wira
-ro:Grăsime
-ru:жиры, жир, жир специального назначения
+qu:wira
+ro:grăsime
+ru:жиры, жир, жир специального назначения, жир кондитерский, кондитерский жир, жир кондитрерский
 sd:چرٻي
-sh:Mast
+sh:mast
 si:මේදය
-sl:Maščobe, maščoba
-so:Dux
-sq:Yndyra
-sr:Масти
-su:Lemak
-sv:Fett, fet, matfett
+sl:maščobe, maščoba
+so:dux
+sq:yndyra
+sr:масти
+su:lemak
+sv:fett, fet, matfett
 ta:கொழுப்பு
 te:కొలెస్టరాల్‌
 th:ไขมัน
-tr:Yağ
-uk:Жири
+tr:şişman
+uk:жири
 ur:شحم
 vi:chất béo
 zh:脂肪
-# ast:Grasa
-# bjn:Lamak
-# frr:Fäät
-# nan:Jī-nn̂g
-# nds-nl:Vet
+# ast:grasa
+# bjn:lamak
+# frr:fäät
+# nan:jī-nn̂g
+# nds-nl:vet
 # new:दाः
-# nrm:Matyire grasse
-# pam:Taba
-# rue:Тукы
-# rup:Grâsimi
+# nrm:matyire grasse
+# pam:taba
+# rue:тукы
+# rup:grâsimi
 # sco:fat
 # wuu:脂肪
 # xmf:ციმუ
@@ -18513,18 +18512,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fat
 vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
-
-# description:en:Any fat that is solid at room temperature and used to make crumbly pastry and other food products. Not guaranteed to be from any particular source.
-<en:fat
-en:shortening
-de:Backfett
-es:Reduccion, Manteca, grasa
-fr:graisse alimentaire
-ru:жир кондитерский, кондитерский жир, жир кондитрерский
-it:Grasso alimentare
-ja:ショートニング
-wikidata:en:Q1194601
-wikipedia:en:https://en.wikipedia.org/wiki/Shortening
 
 <en:fat
 en:hydrogenated fat
@@ -18701,7 +18688,7 @@ ko:유지방
 ms:lemak mentega, lemak susu
 nb:vannfritt melkefett
 nl:boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
-pl:tłuszcz mlecny, bezwodny tłuszcz mleczny
+pl:bezwodny tłuszcz mleczny
 pt:gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
 ro:grasimi din unt, grăsime din unt
 ru:Молочный жир, топленое масло, жир-молочный
