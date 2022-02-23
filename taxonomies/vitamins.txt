@@ -146,26 +146,56 @@ sk:Vitamín D
 sv:D-vitamin
 wikidata:en:Q175621
 
-<en:Vitamin D
-en:ergocalciferol, Vitamin D2
+# description:en:Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
+
+<en:vitamin D
+en:Ergocalciferol, Vitamin D2, D2
+ar:إرغوكالسيفيرول
+ca:Ergocalciferol, vitamina D2, D2
 bg:Ергокалциферол
-cs:ergokalciferol
+cs:ergokalciferol, Vitamín D2
+cy:ergocalcifferol
+de:Ergocalciferol, Vitamin D2
 el:εργοκαλσιφερόλη
-es:ergocalciferol
+eo:Ergokalciferolo
+es:ergocalciferol, vitamina D2, D2
 et:ergokaltsiferool
-fi:ergokalsiferoli, D2-vitamiini
-fr:ergocalciférol, Vitamine D2
-hu:ergokalciferol, D2-vitamin
-it:ergocalciferolo
+fa:ارگوکالسیفرول
+fi:Ergokalsiferoli, D2-vitamiini
+fr:ergocalciférol, vitamine D2
+hi:एर्गोकैल्सिफेरॉल
+hu:D2-vitamin, Ergokalciferol, D2
+it:Ergocalciferolo, Vitamina D2
+ja:エルゴカルシフェロール
 lt:ergokalciferolis
 lv:ergokalciferols
 mt:ergokalċiferol
 nb:ergokalsiferol, Vitamin D2
-nl:Vitamine D2 (ergocalciferol)
-pl:ergokalcyferol
-sk:ergokalciferol
+nl:Ergocalciferol, vitamine D2
+nn:ergokalsiferol, vitamin D2
+oc:Ergocalciferol
+or:ଏର୍ଗୋକ୍ୟାଲସିଫେରଲ
+pl:Ergokalcyferol, Witamina D2
+pt:ergocalciferol
+ro:Ergocalciferol, Vitamina D2
+ru:эргокальциферол, Витамин D2
+sh:Ergokalciferol
+sk:Ergokalciferol, Vitamín D2
 sl:ergokalciferol
-sv:ergokalciferol
+sr:ергокалциферол
+sv:vitamin D2, D2, ergokalciferol
+uk:Ергокальциферол
+zh:麦角钙化醇, 维生素D2
+# sr-ec:ергокалциферол
+# sr-el:Ergokalciferol
+# zh-cn:维生素D2
+# zh-hans:维生素D2
+# zh-hant:维生素D2
+# zh-hk:维生素D2
+# zh-sg:维生素D2
+# zh-tw:维生素D2
+wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
+# vitamin/ergocalciferol has 690 products @2018-11-21
 wikidata:en:Q139200
 vegan:en:yes
 vegetarian:en:yes
@@ -1033,7 +1063,7 @@ az:B12 vitamini
 bg:витамин В12
 bn:সায়ানোকোবালেমিন
 bs:Vitamin B12
-ca:cobalamina, vitamina B12, cianocobalamina, B12
+ca:cobalamina, vitamina B12, B12
 cs:kobalamin, vitamín B12
 cy:cobalamin, Fitamin B12
 da:Vitamin B12
@@ -1041,7 +1071,7 @@ de:Cobalamine, Vitamin B12
 dv:ވިޓަމިން ބީ12
 el:Βιταμίνη B12
 eo:Kobalamino, Vitamino B12
-es:cobalamina, vitamina B12, cianocobalamina, B12
+es:cobalamina, vitamina B12, B12
 et:B12-vitamiin, Vitamiin B12
 eu:Kobalamina, B12 bitamina
 fa:ویتامین ب۱۲
@@ -1067,32 +1097,32 @@ mk:Кобаламин
 mn:Витамин В12
 ms:Vitamin B12
 mt:Vitamina B12
-nb:Kobalamin, Cyanocobalamin, Vitamin B12
+nb:Kobalamin, Vitamin B12
 ne:भिटामिन बी-१२
 nl:Cobalamine, vitamine B12
 nn:kobalamin, B12-vitamin, vitamin B12
-oc:Cobalamina, Cianocobalamina, Vitamina B12
-pl:Kobalamina, Cyjanokobalamina, witamina B12
-pt:Cobalamina, Cianocobalamina, vitamina B12
-ro:Cobalamină, Cianocobalamină, Vitamina B12
+oc:Cobalamina, Vitamina B12
+pl:Kobalamina, witamina B12
+pt:Cobalamina, vitamina B12
+ro:Cobalamină, Vitamina B12
 ru:витамин B12
 rw:Vitamini B12
 sh:Vitamin B12
 sk:Kobalamín, Vitamín B12
 sl:Vitamin B12
-sr:kobalamin, cijanokobalamin, vitamin B12
+sr:kobalamin, vitamin B12
 sv:Kobalamin, vitamin B12, B12
 ta:உயிர்ச்சத்து பி12
 te:విటమిన్ బీ12
 th:วิตามินบี12
-tr:Siyanokobalamin, B12 vitamini, Vitamin B12
+tr:B12 vitamini, Vitamin B12
 uk:Кобаламін
 vi:Vitamin B12
 zh:维生素B12
 # azb:ویتامین ب۱۲
 # sco:Vitamin B12
-# sr-ec:Кобаламин, Цијанокобаламин, витамин Б12
-# sr-el:kobalamin, cijanokobalamin, vitamin B12
+# sr-ec:Кобаламин, витамин Б12
+# sr-el:kobalamin, vitamin B12
 # zh-cn:维生素B12
 # zh-hans:维生素B12
 # zh-hant:维生素B12
@@ -1116,13 +1146,17 @@ it:cianocobalamina
 lt:cianokobalaminas
 lv:ciānkobalamīns
 mt:ċjanokobalamina
+nb:Cyanocobalamin
 nl:cyanocobalamine
+oc:Cianocobalamina
 pl:cyjanokobalamina
 pt:cianocobalamine
 ro:cianocobalamină
 sk:kyanokobalamín
 sl:cianokobalamin
+sr:Цијанокобаламин, cijanokobalamin
 sv:cyanokobalamin
+tr:Siyanokobalamin
 
 <en:Vitamin B12
 en:hydroxocobalamin
