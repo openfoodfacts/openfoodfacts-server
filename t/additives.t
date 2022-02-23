@@ -53,9 +53,7 @@ is_deeply(
 	$product_ref->{additives_original_tags},
 	[
 		"en:e330",
-		"en:seed",
-		"en:e570",    # detected wrongly because of the bogus data after the ingredients list
-		"en:sugared"
+		"en:e570"    # detected wrongly because of the bogus data after the ingredients list
 	],
 ) or diag explain $product_ref;
 
