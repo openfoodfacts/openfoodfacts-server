@@ -1134,30 +1134,88 @@ sk:Folát
 sl:Folat
 sv:Folat
 
+# description:en:Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
+
 <en:Folate
-en:folic acid, pteroylmonoglutamic acid,Vitamin B9
+en:folic acid, pteroylmonoglutamic acid, Vitamin B9, B9, vitamin M
+ar:حمض الفوليك
+be:Фоліевая кіслата
 bg:Фолиева киселина, птероилмоноглутаминова киселина, Витамин B9
-cs:kyselina listová, kyselina pteroylmonoglutamová
+bn:ফলিক এসিড
+bs:Folna kiselina
+ca:àcid fòlic, vitamina B9, B9, vitamina M
+cs:kyselina listová, kyselina pteroylmonoglutamová, vitamín B9
+cy:Asid Ffolig
+da:Folsyre, folinsyre
 de:Folsäure, Pteroylmonoglutaminsäure, Vitamin B9
-el:φολικό οξύ, πτεροϋλομονογλουταμικό οξύ
-es:ácido fólico, ácido pteroilmonoglutámico, Vitamina B9
+dv:ވިޓަމިން ބީ9
+el:φολικό οξύ, πτεροϋλομονογλουταμικό οξύ, Βιταμίνη Β9
+eo:foliata acido
+es:ácido fólico, ácido pteroilmonoglutámico, Vitamina B9, vitamina M
 et:foolhape, pteroüülmonoglutaamhape
-fi:foolihappo, pteroyylimonoglutamiinihappo
-fr:acide folique, acide ptéroylmonoglutamique,Vitamine B9
+eu:Azido foliko
+fa:اسید فولیک
+fi:foolihappo, pteroyylimonoglutamiinihappo, B9-vitamiini, B9, M-vitamiini
+fr:acide folique, acide ptéroylmonoglutamique, Vitamine B9, folacine
+ga:Aigéad fólach
+gd:Searbhag dhuilleagach
+gl:Ácido fólico
+he:חומצה פולית
+hi:फोलिक एसिड
 hu:folsav, pteroil-monoglutaminsav, B9-vitamin
+hy:Վիտամին B9
+id:Asam folat
+is:Fólínsýra
 it:acido folico, acido pteroil-monoglutammico, Vitamina B9
-ja:葉酸
+ja:葉酸, B9
+kk:Птероилглютамин
+ko:엽산
+ky:Фоли кычкылы
+lb:Folsaier
 lt:folio rūgštis, pteroilmonoglutamo rūgštis
 lv:Folijskābe, pteroilmonoglutamīnskābe
+mk:Фолна киселина
+ml:ഫോളിക് ആസിഡ്
+ms:Asid folik
 mt:aċidu foliku, aċidu pterojlmonoglutamiku
-nl:foliumzuur, pteroylmonoglutaminezuur, Vitamine B9
-pl:kwas foliowy, kwas pteroilomonoglutaminowy, Witamina B9
-pt:ácido fólico, ácido pteroilmonoglutâmico, Vitamina B9
+nb:Folsyre
+nl:foliumzuur, pteroylmonoglutaminezuur, Vitamine B9, B9/M
+nn:folsyre, vitamin B9
+oc:Vitamina B9
+or:ଫୋଲିକ ଏସିଡ
+pl:kwas foliowy, kwas pteroilomonoglutaminowy, Witamina B9, B9/M
+pt:ácido fólico, ácido pteroilmonoglutâmico, Vitamina B9, B9/M
 ro:acid folic, acid pteroilmonoglutamic, Vitamina B9
+ru:фолиевая кислота, Витамин B9, b9
+sh:Vitamin B9
 sk:kyselina listová, kyselina pteroylmonoglutámová
 sl:folna kislina, pteroilmonoglutaminska kislina
+sq:Acidi folik
+sr:фолна киселина
 sv:folsyra, pteroylmonoglutaminsyra
-zh:维生素B9,叶酸
+ta:இலைக்காடி
+te:ఫోలిక్ ఆమ్లం
+th:กรดโฟลิก
+tr:Folik asit
+uk:Фолієва кислота
+ur:فولک تیزاب
+vi:axit folic
+zh:维生素B9, 叶酸
+# ast:Ácidu fólicu
+# en-ca:Folic acid
+# en-gb:Folic acid
+# frr:Folsüren
+# lmo:Acid foleg
+# pt-br:Ácido fólico
+# scn:Àcitu fòlicu
+# sco:folic acid
+# sr-ec:фолна киселина
+# yue:葉酸
+wikipedia:en:https://en.wikipedia.org/wiki/Folate
+wikidata:en:Q127060
+# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
+# ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
+# ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
 
 <en:Folate
 en:calcium-L-methylfolate
@@ -1309,10 +1367,10 @@ sv:hydroxykobalamin
 en:Biotin
 bg:Биотин
 el:Βιοτίνη
-es:Biotina, Vitamina B7,vitamina B8
+es:Biotina, Vitamina B7
 et:Biotiin
 fi:Biotiini
-fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
+fr:Biotine, Vitamine B7, Vitamine H
 hu:Biotin, B7-vitamin, H-vitamin
 it:Biotina
 lt:Biotinas
@@ -1327,6 +1385,20 @@ sk:Biotín
 <en:Biotin
 en:D-Biotin
 hu:D-biotin
+
+# description:en:Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
+
+<en:vitamins
+en:vitamin b8, B8
+ca:vitamina B8, B8
+de:Vitamin B8
+es:vitamina b8, B8
+fi:B8-vitamiini, B8
+fr:vitamine b8, b8
+hu:B8-vitamin, B8
+it:vitamina b8, B8
+pl:witamina B8, B8
+# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
 en:Pantothenic Acid, Vitamin B5
 bg:Пантотенова киселина
@@ -1432,4 +1504,9 @@ fi:A- ja D-vitamiini
 fr:vitamines A et D, A et D
 nl:vitamine A en D, A en D
 sv:vitamin A och D, vitamin A och vitamin D
+
+
+<en:vitamin B2
+<en:vitamin B9
+nl:Vitamines B2 en B9
 
