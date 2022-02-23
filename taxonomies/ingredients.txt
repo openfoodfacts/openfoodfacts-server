@@ -13877,50 +13877,6 @@ wikidata:en:Q182338
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_K
 # ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
 
-
-# description:en:Phytomenadione, also known as vitamin K1 or PHYLLOQUINONE, is a vitamin found in food and used as a dietary supplement. As a supplement it is used to treat certain bleeding disorders. Vitamin K is required for bone protein formation.
-
-<en:vitamin K
-en:phylloquinone, vitamin K1, K1
-ar:فايتوميناديون
-bg:Филохинон, фитоменадион
-ca:filloquinona, Vitamina K1, K1
-cs:fyllochinon, fytomenadion, Vitamin K1
-da:Fyllokinon
-de:Phyllochinon, Phytomenadion, Vitamin K1
-el:φυλλοκινόνη, φυτομεναδιόνη
-es:filoquinona, fitomenadiona, vitamina K1, K1
-et:füllokinoon, fütomenadioon
-fa:فیلوکینون
-fi:fyllokinoni, fytomenadioni, K1-vitamiini
-fr:phylloquinone, phytoménadione, phytonadione,  vitamine K1
-hu:fillokinon, fitomenadion, K1-vitamin
-it:fillochinone, vitamina K1
-ja:フィロキノン
-ko:필로퀴논
-ky:Филлохинон
-lt:filochinonas, fitomenadionas
-lv:filohinons, fitomenadions
-mt:fillokinona, fitomenadjona
-nl:fyllochinon, fytomenadion, Vitamine K1
-or:ଫାଇଟୋମେନାଡିଓନ
-pl:filochinon, fitomenadion
-pt:filoquinona, fitomenadiona
-ro:filochinonă, fitomenadionă
-ru:Филлохинон
-sh:Filohinon
-sk:fylochinón, fytomenadion, Vitamín K
-sl:filokinon, fitomenadion
-sr:Filohinon
-sv:fyllokinon, fytomenadion
-vi:Phytomenadione
-zh:叶绿基甲萘醌
-# sr-el:Filohinon
-wikidata:en:Q186093
-wikipedia:en:https://en.wikipedia.org/wiki/Phytomenadione
-# ingredient/fr:k1 has 79 products@2019-04-16
-# vitamin/phylloquinone has 180 products in 8 languages @2019-4-16
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                                  S A L T     S E C T I O N
@@ -14140,7 +14096,6 @@ en:Himalayan sea salt
 ca:Sal de mar de l'Himalaya
 de:Himalaya Meeressalz
 es:Sal de mar del Himalaya
-fr:Sel de l’Himalaya
 
 <en:salt
 en:refined salt
@@ -14669,7 +14624,7 @@ description:it:La quenelle è una pietanza d'origine francese composta di crema 
 description:nl:Een quenelle is een langwerpig balletje gemaakt van deeg en gepureerde (traditioneel) vis. Quenelles lijken op knoedels en worden ook van vlees of gevogelte gemaakt.
 description:pt:A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
 
-# comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate.
+# comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
 
 <en:animal
 en:beef, steers
@@ -14684,7 +14639,7 @@ pl:Wołowina
 ro:vită
 ru:Говядина
 sv:nötkött
-zh:牛肉
+zh:牛
 vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
