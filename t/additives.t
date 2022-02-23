@@ -992,7 +992,7 @@ diag explain $product_ref->{additives};
 is_deeply($product_ref->{additives_original_tags}, [
 		"en:e472c",
 		"en:e304i",
-		"en:e307c",
+		"en:e306",
 	],
 );
 
