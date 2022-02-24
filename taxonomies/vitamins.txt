@@ -918,7 +918,7 @@ sv:L-askorbyl-6-palmitat
 
 # description:en:Thiamine, also known as thiamin or vitamin B1, is a vitamin found in food, and manufactured as a dietary supplement and medication.
 
-en:Thiamine, vitamin b1, B1
+en:Thiamin, vitamin b1, B1
 af:Tiamien
 ar:فيتامين ب1
 az:Tiamin, B1 vitamini
@@ -945,7 +945,7 @@ ga:Tiaimín
 gl:Tiamina, Vitamina B1
 he:ויטמין B1
 hi:विटामिन बी१
-hr:Tiamin, vitamin B1, tiamin-hidroklorid
+hr:Tiamin, vitamin B1
 hu:Tiamin, B1-vitamin
 hy:Թիամին, Վիտամին B1
 id:Tiamina, Vitamin B1
@@ -974,9 +974,9 @@ ru:тиамин, Витамин B1
 rw:Vitamini B1
 sh:Tiamin, Vitamin B1
 sk:Tiamín, Vitamín B1
-sl:Tiamin, vitamin B1, tiamin hidroklorid
+sl:Tiamin, vitamin B1
 sq:Tiamina, Vitamina B1
-sr:vitamin B1, tiamin-hidrohlorid
+sr:vitamin B1
 su:Tiamin
 sw:Tiamin, B1-vitamin
 ta:தயமின்
@@ -994,14 +994,13 @@ zh:硫胺,維他命B1
 # pt-br:Tiamina
 # sco:Thiamine
 # sr-ec:Тиамин, витамин Б1
-#sr-el:vitamin B1, tiamin-hidrohlorid
 # tyv:Витамин B1
 # yue:維他命B1
 wikidata:en:Q83187
 wikipedia:en:https://en.wikipedia.org/wiki/Thiamine
 # ingredient/vitamin-b1 has 4607 products in 11 languages @2018-11-23
 
-<en:Thiamine
+<en:Thiamin
 en:Thiamin mononitrate, thiamine mononitrate
 ca:mononitrat de tiamina
 da:thiamin-mononitrat
@@ -1022,6 +1021,7 @@ es:clorhidrato de tiamina
 et:tiamiinhüdrokloriid
 fi:tiamiinihydrokloridi
 fr:chlorhydrate de thiamine
+hr:tiamin-hidroklorid
 hu:tiamin-hidroklorid
 it:cloridrato di tiamina
 lt:tiamino hidrochloridas
@@ -1033,6 +1033,7 @@ pt:cloridrato de tiamina
 ro:clorhidrat de tiamină
 sk:tiamínhydrochlorid
 sl:tiamin hidroklorid
+sr:tiamin-hidrohlorid
 sv:tiaminhydroklorid
 
 <en:Thiamin
@@ -1251,7 +1252,7 @@ et:foolhape, pteroüülmonoglutaamhape
 eu:Azido foliko
 fa:اسید فولیک
 fi:foolihappo, pteroyylimonoglutamiinihappo, B9-vitamiini, B9, M-vitamiini
-fr:acide folique, acide ptéroylmonoglutamique, Vitamine B9, folacine
+fr:acide folique, acide ptéroylmonoglutamique, Vitamine B9
 ga:Aigéad fólach
 gd:Searbhag dhuilleagach
 gl:Ácido fólico
@@ -1334,6 +1335,12 @@ ro:L-metilfolat de calciu
 sk:L- metylfolát vápenatý
 sl:kalcijev-L-metilfolat
 sv:kalcium-L-metylfolat
+
+<en:folic acid
+en:folacin
+de:Folsäure
+es:folacina
+fr:Folacine
 
 # description:en:Vitamin B12, also called cobalamin, is a water-soluble vitamin
 # that is involved in the metabolism of every cell of the human body:
