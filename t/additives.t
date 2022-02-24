@@ -791,6 +791,7 @@ is_deeply($product_ref->{vitamins_tags}, [
 		"en:folic-acid",
 		"en:phylloquinone",
 		"en:biotin",
+		"en:vitamin-b8",
 		"en:ergocalciferol",
 		"en:vitamin-e",
 	],
