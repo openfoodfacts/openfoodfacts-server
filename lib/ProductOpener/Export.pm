@@ -180,8 +180,9 @@ sub export_csv($) {
 	my $separator = $args_ref->{separator} || "\t";
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
-	my $include_computed_fields = $args_ref->{include_computed_fields};	# Fields like the Nutri-Score score computed by OFF
 	my $extra_fields_ref = $args_ref->{extra_fields};
+	my $export_computed_fields = $args_ref->{export_computed_fields};	# Fields like the Nutri-Score score computed by OFF
+	my $export_canonicalized_tags_fields = $args_ref->{export_canonicalized_tags_fields};	# e.g. include "categories_tags" and not only "categories"
 
 	$log->debug("export_csv - start", { args_ref=>$args_ref }) if $log->is_debug();
 
@@ -212,7 +213,7 @@ sub export_csv($) {
 			my @fields_groups = @{$options{import_export_fields_groups}};
 
 			# Add fields computed by OFF if requested
-			if (($include_computed_fields) and (defined $options{off_export_fields_groups})) {
+			if (($export_computed_fields) and (defined $options{off_export_fields_groups})) {
 				push @fields_groups, @{$options{off_export_fields_groups}};
 			}
 
@@ -315,6 +316,12 @@ sub export_csv($) {
 
 					foreach my $field (@{$group_ref->[1]}) {
 
+						# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
+						my $group_prefix = "";
+						if ($group_id eq "off") {
+							$group_prefix = "off:";
+						}
+
 						$item_number++;
 
 						if ($field =~ /_value_unit$/) {
@@ -324,7 +331,12 @@ sub export_csv($) {
 
 						if (defined $tags_fields{$field}) {
 							if ((defined $product_ref->{$field . "_tags"}) and (scalar @{$product_ref->{$field . "_tags"}} > 0)) {
-								$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
+								# Export the tags field in the main language of the product
+								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
+								# Also possibly export the canonicalized tags
+								if ($export_canonicalized_tags_fields ) {
+									$populated_fields{$group_prefix . $field . "_tags"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_tags";
+								}
 							}
 						}
 						elsif (defined $language_fields{$field}) {
@@ -332,7 +344,7 @@ sub export_csv($) {
 								foreach my $l (keys %{$product_ref->{languages_codes}}) {
 									if ((defined $product_ref->{$field . "_$l"}) and ($product_ref->{$field . "_$l"} ne "")) {
 										# Add language code to sort key
-										$populated_fields{$field . "_$l"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_$l";
+										$populated_fields{$group_prefix . $field . "_$l"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_$l";
 									}
 								}
 							}
@@ -341,11 +353,11 @@ sub export_csv($) {
 						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
 						elsif ($field =~ /\./) {
 							if (deep_exists($product_ref, split(/\./, $field))) {
-								$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
+								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
 							}
 						}
 						elsif (defined $product_ref->{$field}) {
-							$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
+							$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
 						}
 					}
 				}
@@ -459,6 +471,9 @@ sub export_csv($) {
 			my $nutriment_field = 0;
 
 			my $value;
+
+			# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
+			$field =~ s/^off://;
 			
 			# Scans must be loaded separately
 			if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
