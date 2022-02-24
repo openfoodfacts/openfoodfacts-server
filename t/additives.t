@@ -29,6 +29,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 is_deeply($product_ref->{vitamins_tags}, [
 		"en:thiamin",
+		"en:vitamin-c",
 		"en:vitamin-e",
 		"en:riboflavin",
 	],
@@ -52,7 +53,7 @@ is_deeply(
 	$product_ref->{additives_original_tags},
 	[
 		"en:e330",
-		"en:e570"    # detected wrongly because of the bogus data after the ingredients list
+		"en:e570",    # detected wrongly because of the bogus data after the ingredients list
 	],
 ) or diag explain $product_ref;
 
@@ -80,7 +81,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is($product_ref->{additives},
-' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ vitamine-c -> en:vitamin-c  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
 );
 
 # vitamine C is not used as an additive (no fuction)
@@ -262,6 +263,7 @@ extract_ingredients_classes_from_text($product_ref);
 is_deeply($product_ref->{additives_original_tags}, [
 		'en:e14xx',
 		'en:e412',
+		'en:e410',
 		'en:e415',
 		'en:e334',
 		'en:e330',
@@ -335,6 +337,7 @@ diag explain $product_ref->{additives};
 
 is_deeply(
 	$product_ref->{additives_original_tags}, [
+		'en:e300',
 	],
 );
 
@@ -349,6 +352,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
+		'en:e300',
 	],
 );
 
@@ -361,7 +365,8 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is_deeply($product_ref->{additives_original_tags}, [
-		'en:e330'
+		'en:e300',
+		'en:e330',
 	],
 );
 
@@ -445,6 +450,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
+		"en:vitamin-c",
 		"en:niacin",
 		"en:folic-acid",
 		"en:vitamin-e",
@@ -774,6 +780,7 @@ is_deeply($product_ref->{minerals_tags}, [
 
 is_deeply($product_ref->{vitamins_tags}, [
 		"en:sodium-l-ascorbate",
+		"en:vitamin-c",
 		"en:vitamin-b12",
 		"en:niacin",
 		"en:pantothenic-acid",
@@ -785,7 +792,6 @@ is_deeply($product_ref->{vitamins_tags}, [
 		"en:folic-acid",
 		"en:phylloquinone",
 		"en:biotin",
-		"en:vitamin-b8",
 		"en:ergocalciferol",
 		"en:vitamin-e",
 	],
@@ -830,6 +836,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
+		"en:e300",
 	],
 );
 
@@ -862,6 +869,7 @@ extract_ingredients_classes_from_text($product_ref);
 diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
+		"en:e300",
 		"en:e334",
 		"en:e440",
 		"en:e337",
@@ -985,7 +993,7 @@ diag explain $product_ref->{additives};
 is_deeply($product_ref->{additives_original_tags}, [
 		"en:e472c",
 		"en:e304i",
-		"en:e306",
+		"en:e307c",
 	],
 );
 
@@ -1257,7 +1265,8 @@ is_deeply($product_ref->{additives_original_tags}, [
 		'en:e450',
 		'en:e336',
 		'en:e150a',
-		'en:e100'
+		'en:e100',
+		'en:e300'
 	],
 );
 
@@ -1435,7 +1444,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is( $product_ref->{additives},
-	' [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:vitamin-c  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
+	' [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
 );
 
 is_deeply(
