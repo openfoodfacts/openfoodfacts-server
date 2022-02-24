@@ -45,6 +45,15 @@
                 "panel_ids": ["additives"],
             },
         }, 
-        [% END %]   
+        [% END %]
+        [% IF panels.ingredients_analysis.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang("ingredients_analysis") %]",
+                "panel_ids": ["ingredients_analysis"],
+            },
+        }, 
+        [% END %]        
     ],
 }

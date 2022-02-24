@@ -361,10 +361,10 @@ my @tags = ();
 
 is_deeply (\@tags, [
 	'en:added-sugar',
-	'en:disaccharide',
 	'en:fruit',
-	'en:sugar',
 	'en:citrus-fruit', 
+	'en:disaccharide',
+	'en:sugar',
 	'en:fruit-juice', 
 	'en:salt', 
 	'en:orange', 

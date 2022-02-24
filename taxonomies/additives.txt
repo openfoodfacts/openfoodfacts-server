@@ -2073,7 +2073,6 @@ lt:E160a(iii), Beta karotenas iš blakeslea trispora, Gaunamas rauginimo būdu
 lv:E160a(iii), Beta-karotīns no blakeslea trispora, Iegūst fermentācijas procesā
 mt:E160a(iii), Beta-karotên minn blakeslea trispora
 nl:E160a(iii), Bèta-caroteen uit blakeslea trispora
-nl_be:E160a(iii), Bèta-caroteen uit blakeslea trispora
 pl:E160a(iii), Beta-karoten otrzymywany z blakeslea trispora
 pt:E160a(iii), Beta-caroteno de blakeslea trispora
 ro:E160a(iii), Beta-caroten din blakeslea trispora
@@ -2105,7 +2104,6 @@ lt:E160a(iv), Dumblių karotenai
 lv:E160a(iv), Aļģu karotīni
 mt:E160a(iv), Karoteni mill-alga
 nl:E160a(iv), Caroteen uit algen
-nl_be:E160a(iv), Caroteen uit algen
 pl:E160a(iv), Karoteny otrzymywane z alg
 pt:E160a(iv), Carotenos provenientes de algas
 ro:E160a(iv), Caroten din alge
@@ -2138,7 +2136,7 @@ lt:E160b, Anatas, biksinas, norbiksinas
 lv:E160b, Annato, biksīns, norbiksīns
 mt:E160b, Annatto, biksin, norbiksin
 nb:E160b, Annatto
-nl:E160b, — annatto, Anatto, Annato, annatto norbixine, annatto bixine
+nl:E160b, annatto, Anatto, Annato, annatto norbixine, annatto bixine
 pl:E160b, Annato, biksyna, norbiksyna, Annatto
 pt:E160b, Anato, bixina, norbixina, Colorau, Coloral, Urucu
 ro:E160b, Annatto, bixină, norbixină (i)
@@ -2689,6 +2687,7 @@ nl:E162, Betanine, Bietenrood
 pl:E162, Czerwień buraczana, betanina
 pt:E162, Vermelho de beterraba, betanina, vermelho beterraba
 ro:E162, Roșu de sfeclă, betanină
+ru:E162, краситель красный свекольный, краситель пищевой красный свекольный
 sh:E162, Betanin
 sk:E162, Cviklová červená, betanín
 sl:E162, Betalain, betanin
@@ -3097,12 +3096,12 @@ vegetarian:en:yes
 
 en:E170, Calcium carbonates
 ca:E170, Carbonats de calci
-de:E170, Calciumcarbonate, Calciumcarbonat
+de:E170, Calciumcarbonate
 es:E170, Carbonatos de calcio
 fi:E170, Kalsiumkarbonaatit
 fr:E170, Carbonates de calcium
 hu:E170, Kalcium-karbonátok
-it:Carbonato di calcio
+it:E170, Carbonati di calcio
 nl:E170, Calciumcarbonaten
 pl:E170
 pt:E170
@@ -3161,7 +3160,7 @@ oc:E170(i), Carbonat de calci
 pl:E170(i), Węglan wapnia, CI Pigment biały 18
 pt:E170(i), Carbonato de cálcio, Pigmento branco CI 18
 ro:E170(i), Carbonat de calciu, Pigment alb CI 18
-ru:E170(i), карбонат кальция
+ru:E170(i), карбонат кальция, стабилизатор кальция карбонат
 sh:E170(i), Kalcijum karbonat
 si:E170(i), කැල්සියම් කාබනේට්
 sk:E170(i), Uhličitan vápenatý, CI pigment biely 18
@@ -7335,7 +7334,7 @@ es:E322, Lecitinas, Fosfátidos
 et:E322, Letsitiinid, Fosfatiidid
 fi:E322, Lesitiinit, Fosfatidit, Lesitiinejä, Fosfatidejä
 fr:E322, Lécithines, Phosphatidylcholine, Phosphatides, Phospholipides, Phospho lutéines
-he:E322, לציטינים, לציטין, פוספטידים, תרכובות שומניות
+he:E322, לציטינים, פוספטידים, תרכובות שומניות
 hu:E322, Lecitinek, Foszfatidek
 it:E322, Lecitine, Fosfatidi
 lt:E322, Lecitinai, Fosfatidai
@@ -7350,7 +7349,7 @@ ru:E322, Лецитины, е322, соевый лецитин-e322
 sk:E322, Lecitíny, Fosfatidy
 sl:E322, Lecitini, fosfatidi
 sv:E322, Lecitiner, Fosfatider
-tr:E322, Lesitin
+tr:E322
 e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
@@ -7747,7 +7746,7 @@ pa:E330, ਸਿਟਰਿਕ ਤੇਜ਼ਾਬ
 pl:E330, Kwas cytrynowy, Kwasek cytrynowy, Cytrynian
 pt:E330, Ácido cítrico, Ins 330
 ro:E330, Acid citric, Sare de lămâie
-ru:E330, Лимонная кислота, Бензилоранж, Цитраты, Лимонная кислота моногидрат, Кислота лимонная моногидрат, Кислота лимонная
+ru:E330, Лимонная кислота, Бензилоранж, Цитраты, Лимонная кислота моногидрат, Кислота лимонная моногидрат, Кислота лимонная, регулятор кислотности лимонная кислота
 sh:E330, Limunska kiselina
 sk:E330, Kyselina citrónová
 sl:E330, Citronska kislina
@@ -8459,14 +8458,14 @@ vegetarian:en:yes
 en:E338, Phosphoric acid, Orthophosphoric acid, phosphoric(V) acid
 bg:E338, Фосфорна киселина, Ортофосфорна киселина
 ca:E338, Àcid fosfòric, acid fosforic
-cs:E338, Kyselina fosforečná, Kyselina orthofosforečná, E 338, Kyselina ortofosforečná, Kyselina orto-fosforečná, Kyselina trihydrogenfosforečná, H3PO4, Kyselina ortho-fosforečná
-da:E338, Phosphorsyre, Orthophosphorsyre, Fosforsyre, E-338
-de:E338, Phosphorsäure, ortho-Phosphorsäure, E 338, H3PO4, Orthophosphorsäure
+cs:E338, Kyselina fosforečná, Kyselina orthofosforečná, Kyselina ortofosforečná, Kyselina orto-fosforečná, Kyselina trihydrogenfosforečná, H3PO4, Kyselina ortho-fosforečná
+da:E338, Phosphorsyre, Orthophosphorsyre, Fosforsyre
+de:E338, Phosphorsäure, ortho-Phosphorsäure, Orthophosphorsäure
 el:E338, Φωσφορικο οξυ
-es:E338, Ácido fosfórico, Ácido ortofosfórico, E 338, H3PO4, Ortofosforico, Fosfato monoamónico, Fosforico
+es:E338, Ácido fosfórico, Ácido ortofosfórico, Ortofosforico, Fosfato monoamónico, Fosforico
 et:E338, Fosforhape, Ortofosforhape
 fi:E338, Fosforihappo, Ortofosforihappo, Divetyfosfaatti, Vetyfosfaatti, H3PO4, Fosforihappoa, Ortofosforihappoa, Divetyfosfaattia, Vetyfosfaattia
-fr:E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, H3PO4, 7664-38-2, Acide phophorique, Hydrogénophosphate
+fr:E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, Acide phophorique, Hydrogénophosphate
 hu:E338, Foszforsav, Ortofoszforsav
 it:E338, Acido fosforico, Acido ortofosforico, Acido tetraossofosforico(V), H3PO4
 lt:E338, Fosforo rūgštis, Ortofosforo rūgštis
@@ -8665,7 +8664,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
 # additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
 description:en:TRISODIUM PHOSPHATE is the inorganic compound with the chemical formula Na3PO4.
 
-en:E340, Potassium phosphates, potassium phosphate, KH2PO4, K2HPO4, K3PO4
+en:E340, Potassium phosphates, potassium phosphate
 bg:E340, E340 food additive
 ca:E340, Fosfat de potassi
 cs:E340, E340 food additive
@@ -8675,7 +8674,7 @@ el:E340, E340 food additive
 es:E340, Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
 et:E340, E340 food additive
 fi:E340, Kaliumfosfaatti, Kaliumfosfaattia
-fr:E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, K3PO4, E 340, Dihydrogénophosphate de potassium, Phosphate de monopotassium
+fr:E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, Dihydrogénophosphate de potassium, Phosphate de monopotassium
 hu:E340, Kálium-foszfátok, kálium-foszfát
 it:E340, E340 food additive
 lt:E340, E340 food additive
@@ -8934,6 +8933,7 @@ additives_classes:en: en:stabilizer, en:thickener
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:Is in plural, as it can be any specific variant
 en:E343, Magnesium phosphates
 bg:E343, E343 food additive
 ca:E343, Fosfat de magnesi
@@ -8970,34 +8970,43 @@ vegan:en:yes
 vegetarian:en:yes
 
 <en:E343
-en:E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic
+en:E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, magnesium phosphate
+ar:فوسفات المغنسيوم
 bg:E343(i), Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен
 cs:E343(i), Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý
 da:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat
-de:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat
+de:E343(i), Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat, Magnesiumphosphat
 el:E343(i), Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό
-es:E343(i), Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio
+es:E343(i), Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio, Fosfato de magnesio
 et:E343(i), Magneesiumdivesinikfosfaat
-fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, Monomagnesiumfosfaattia, Magnesiumdivetyfosfaattia
-fr:E343(i), Phosphate monomagnésique
-hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú
+fi:E343(i), Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, Monomagnesiumfosfaattia, Magnesiumdivetyfosfaattia, magnesiumfosfaatti, magnesiumfosfaattia
+fr:E343(i), Phosphate monomagnésique, phosphate de magnésium
+hu:E343(i), Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú, Magnézium-foszfát
 it:E343(i), Fosfato di magnesio, Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico
-lt:E343(i), Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis
+lt:E343(i), Monomagnio fosfatas, magnio fosfatas vienbazis
 lv:E343(i), Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts
 mt:E343(i), Fosfat monomanjeżiku
-nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat
+nl:E343(i), Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat, Magnesiumfosfaat
 pl:E343(i), Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy
 pt:E343(i), Fosfato de monomagnési
 ro:E343(i), Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic
+sh:Magnezijum fosfat
 sk:E343(i), Fosforečnan horečnatý
 sl:E343(i), Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični
-sv:E343(i), Monomagnesiumfosfat, Magnesiumdivätefosfat
+sv:E343(i), Monomagnesiumfosfat, Magnesiumdivätefosfat, Magnesiumfosfat
+ta:மக்னீசியம் பாசுபேட்டு
 e_number:en:343
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 wikidata:en:Q2634889
 additives_classes:en: en:stabilizer, en:thickener
+# fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
+# mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
+
+# This is the unspecified magnesium phosphate in singular. Mostly used for the mineral of magnesium
+
 
 <en:E343
-en:E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate, dibasic, Dimagnesium orthophosphate
+en:E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate - dibasic, Dimagnesium orthophosphate
 bg:E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
 cs:E343(ii), Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
 da:E343(ii), Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat
@@ -10512,19 +10521,19 @@ e_number:en:411
 vegan:en:yes
 vegetarian:en:yes
 
-en:E412, Guar gum, Gum cyamopsis
+en:E412, Guar gum, Gum cyamopsis, guar flour
 bg:E412, Гума гуар, Гума циамопсис, Гуарова гума
 ca:E412, Goma de guar
-cs:E412, Guma guar, Guma cyamopsis, Guarová guma, E 412, Guaranová guma
+cs:E412, Guma guar, Guma cyamopsis, Guarová guma, Guaranová guma
 da:E412, Guargummi
-de:E412, Guarkernmehl, Cyamopsis-Gummi, Guaran, Guakernmehl, E 412
+de:E412, Guarkernmehl, Cyamopsis-Gummi, Guaran, Guakernmehl, Guarkernmehl
 el:E412, Κομμι γκουαρ, Κόμμι κυάμοψης
-es:E412, Goma guar, Goma de guar, Goma de Cyamopsis, Goma de jaguar, E 412
+es:E412, Goma guar, Goma de guar, Goma de Cyamopsis, Goma de jaguar, Harina de guar
 et:E412, Guarkummi
-fi:E412, Guarkumi, Cyamopsiskumi, E 412, Guarkumia, Cyamopsiskumia
-fr:E412, Gomme de guar, gomme guar, gommes de guar, gomme de jaguar, Gomme cyamopsis, Farine de guar, CAS 9000-30-0, Farine Galligum de Guar, GALLIGUM G, Gyamopsis Tetragonolobus, farine de graines de guar, guar, 9000-30-0, farine de graine de guar
-hu:E412, Guargumi, Gum cyamopsis, guarenyv, guargyanta, guarmézga
-it:E412, Gomma di guar, Farina di semi di guar, Gomma cyamopsis, Guarano
+fi:E412, Guarkumi, Cyamopsiskumi, Guarkumia, Cyamopsiskumia, guarjauho
+fr:E412, Gomme de guar, gomme guar, gommes de guar, gomme de jaguar, Gomme cyamopsis, Farine de guar, CAS 9000-30-0, Farine Galligum de Guar, GALLIGUM G, Gyamopsis Tetragonolobus, farine de graines de guar, guar, farine de graine de guar, farine de guar
+hu:E412, Guargumi, Gum cyamopsis, guarenyv, guargyanta, guarmézga, guarliszt, guar liszt
+it:E412, Gomma di guar, Farina di semi di guar, Gomma cyamopsis, Guarano, Farina di guar
 lt:E412, Pupenių derva, Cyamopsis derva, Pupenių lipai
 lv:E412, Guāra sveķi, Ciamopsis sveķi
 mt:E412, Gomma tal-guar, Gomma cyamopsis
@@ -10533,10 +10542,10 @@ nl:E412, Guarpitmeel, Cyamopsisgom, Guargom
 pl:E412, Guma guar, Guma cyamopsis
 pt:E412, Goma de guar, Goma de cyamopsis, Goma guar
 ro:E412, Gumă de guar, Gumă de Cyamopsis
-ru:E412, Гуаровая камедь, Е412, Гуаран
+ru:E412, Гуаровая камедь,Гуаран
 sk:E412, Guarová guma, Guma cyamopsis
 sl:E412, Guar gumi, guma cyamopsis
-sv:E412, Guarkärnmjöl, Guargummi, Guarmjöl, E 412, Guarkärnsmjöl
+sv:E412, Guarkärnmjöl, Guargummi, Guarmjöl, Guarkärnsmjöl
 tr:E412, Guar zamkı, Guar gam, Guar gum, Guar gamı
 e_number:en:412
 wikidata:en:Q422071
@@ -11025,6 +11034,7 @@ nl:E425(i), Konjacgom
 pl:E425(i), Guma konjac
 pt:E425(i), Goma de konjac
 ro:E425(i), Gumă konjac
+ru:E425(i), загуститель конжаковая камедь
 sk:E425(i), Konjaková guma
 sl:E425(i), Konjac gumi
 sv:E425(i), Konjakgummi
@@ -14405,7 +14415,7 @@ es:E500, Carbonatos de sodio
 et:E500, E500 food additive
 fi:E500, natriumkarbonaatit
 fr:E500, Carbonates de sodium
-he:E500, קרבונטים של נתרן, נתרן קרבונט, נתרן ביקרבונט, נתרן מימן-קרבונט, נתרן ססקויקרבונט, נתרן פחמתי, סודיום קרבונטים, סודיום קרבונט, חומר מווסת חומציות, חומר התפחה, מווסת חומציות
+he:E500, קרבונטים של נתרן, נתרן קרבונט, נתרן ביקרבונט, נתרן מימן-קרבונט, נתרן ססקויקרבונט, נתרן פחמתי, סודיום קרבונטים, סודיום קרבונט,
 hu:E500, nátrium-karbonátok
 it:E500, Carbonati di sodio
 lt:E500, E500 food additive
@@ -14421,7 +14431,7 @@ ru:E500, Карбонаты натрия
 sk:E500, E500 food additive
 sl:E500, E500 food additive
 sv:E500, natriumkarbonater
-tr:E500, Sodyum karbonat
+tr:E500
 e_number:en:500
 mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q190227
