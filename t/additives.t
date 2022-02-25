@@ -263,7 +263,6 @@ extract_ingredients_classes_from_text($product_ref);
 is_deeply($product_ref->{additives_original_tags}, [
 		'en:e14xx',
 		'en:e412',
-		'en:e410',
 		'en:e415',
 		'en:e334',
 		'en:e330',
@@ -792,6 +791,7 @@ is_deeply($product_ref->{vitamins_tags}, [
 		"en:folic-acid",
 		"en:phylloquinone",
 		"en:biotin",
+		"en:vitamin-b8",
 		"en:ergocalciferol",
 		"en:vitamin-e",
 	],
