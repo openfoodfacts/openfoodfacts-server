@@ -594,7 +594,7 @@ sub export_csv($) {
 			$worksheet->write_row( $j, 0, \@values);
 		}
 		else {
-			$csv->print (*STDOUT, \@values);
+			$csv->print ($filehandle, \@values);
 		}
 
 	}
