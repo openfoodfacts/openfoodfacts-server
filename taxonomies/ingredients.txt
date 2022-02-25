@@ -4834,7 +4834,7 @@ ca:Ferments làctics
 da:yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el:γαλακτικά ένζυμα
-es:fermentos lácticos, fermentos lácteos, cultivos lácticos, fermentos lácticos seleccionados, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
+es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
@@ -5552,7 +5552,7 @@ vegetarian:en:no
 
 <en:animal-based rennet
 en:calf rennet
-de:Lab, Kälberlab
+de:Kälberlab
 es:cuajo bovino
 fi:vasikanjuoksute, naudanjuoksute, vasikkaperäinen juoksute, nautaperäinen juoksute
 fr:présure de veau
@@ -5561,9 +5561,13 @@ nl:kalfsstremsel
 # fr:présure-de-veau has 40 products in 2 languages @2019-07-08
 
 <en:rennet
-en:vegetarian rennet
-fr:Présure végétarienne
+en:vegetarian rennet, vegetable rennet
+da:vegetabilsk osteløbe
+de:vegetarisches Lab
+fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
+fr:Présure végétarienne, présure végétale
 it:Caglio vegetale
+sv:vegetabiliskt ystenzym
 vegan:en:yes
 vegetarian:en:yes
 
@@ -5585,18 +5589,6 @@ sv:mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
 vegan:en:yes
 vegetarian:en:yes
-
-<en:vegetarian rennet
-en:vegetable rennet
-da:vegetabilsk osteløbe
-de:vegetarisches Lab
-fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
-fr:présure végétale
-it:Caglio vegetale
-sv:vegetabiliskt ystenzym
-vegan:en:yes
-vegetarian:en:yes
-# ingredient/en:vegetable-rennet has 133 products in 1 language @2020-06-08
 
 <en:coagulating enzyme
 en:sheep rennet
@@ -6599,18 +6591,6 @@ wikidata:en:Q1616491
 
 # description:en:LOW-FAT MILK is a 1% fat milk, sold in the United States
 
-<en:milk
-en:low-fat milk, 1% fat milk, lowfat milk
-ca:llet baixa en greixos
-de:fettarme Milch
-es:Leche baja en grasa
-fi:Vähärasvainen maito
-fr:lait maigre
-hu:alacsony zsírtartalmú tej
-it:latte magro
-nl:magere melk
-pt:leite magro
-
 # description:en:Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
 # description:en:Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
@@ -6621,29 +6601,29 @@ pt:leite magro
 # a maximum of 0.5% fat
 
 <en:milk
-en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk
+en:skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk, low-fat milk, 1% fat milk, lowfat milk
 ar:حليب منزوع الدسم
-ca:llet descremada, llet desnatada, llet sense greix
+ca:llet descremada, llet desnatada, llet sense greix, llet baixa en greixos
 da:skummetmælk
-de:Magermilch, entrahmte Milch
-es:Leche descremada, Leche desnatada, leche sin grasas
+de:Magermilch, entrahmte Milch, fettarme Milch
+es:Leche descremada, Leche desnatada, leche sin grasas, Leche baja en grasa
 et:Lõss
 fa:شیر خشک بدون چربی
-fi:rasvaton maito
-fr:lait écrémé
+fi:rasvaton maito, Vähärasvainen maito
+fr:lait écrémé, lait maigre
 gl:Leite desnatado
 he:חלב רזה
-hu:sovány tej, fölözött tej
+hu:sovány tej, fölözött tej, alacsony zsírtartalmú tej
 id:Susu skim
 is:Undanrenna
-it:Latte scremato, latte senza grassi
+it:Latte scremato, latte senza grassi, latte magro
 lt:Nugriebtas pienas
 ms:Susu skim
 nb:Skummet melk
 nl:Magere melk, Taptemelk, ondermelk, afgeroomde melk, vetvrije melk
 pa:ਸਪਰੇਟਾ
 pl:Odtłuszczone mleko
-pt:Leite desnatado
+pt:Leite desnatado, leite magro
 ru:Обезжиренное молоко, молоко обезжиренное
 sv:Skummjölk, lättmjölk
 uk:Знежирене молоко
