@@ -11,6 +11,20 @@ mongodb:
 taxonomies:
 - taxonomies/**/*
 
+taxonomies rebuild:
+- taxonomies/additives.result.sto
+- taxonomies/additives.result.txt
+- taxonomies/allergens.result.sto
+- taxonomies/allergens.result.txt
+- taxonomies/categories.result.sto
+- taxonomies/categories.result.txt
+- taxonomies/countries.result.sto
+- taxonomies/countries.result.txt
+- taxonomies/ingredients.result.sto
+- taxonomies/ingredients.result.txt
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+
 open pet food facts:
 - taxonomies.opff/**/*
 
