@@ -105,6 +105,9 @@ categories:
 additives:
 - taxonomies/additives.txt
 
+origins:
+- taxonomies/origins.txt
+
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
