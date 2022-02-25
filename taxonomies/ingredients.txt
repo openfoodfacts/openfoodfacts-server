@@ -69,19 +69,6 @@ fr:additifs alimentaires
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
-# also in additives_classes.txt
-# <en:function
-en:coagulant, coagulum, coagulating agent
-ca:Agent coagulant, agents coagulants
-de:Koagulat, Gerinnungsmittel
-en:agente coagulante, agentes coagulantes,coagulante
-es:Agente coagulante, agentes coagulantes
-fi:hyydyte, koagulantti
-fr:agent de coagulation, coagulant
-hu:koagulálószer, koaguláló, koaguláns
-it:agente coagulante, coagulante, agenti coagulanti, coagulanti
-# ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
-
 
 # nova:en:anti-bulking-agent
 # <en:function
@@ -6524,7 +6511,6 @@ fr:lait thermisé
 <en:milk
 en:milk solids
 da:mælketørstoffer
-de:Molkepulver
 es:solidos lacteos,solidos de la leche
 he:מוצקי חלב
 it:Solidi di latte
@@ -7126,7 +7112,6 @@ hy:այծի կաթ
 id:susu kambing
 it:latte di capra, latte caprino
 ja:ヤギ乳
-jv:susu wedhus
 kk:ешкі сүті
 ko:염소젖
 lt:ožkos pienas
@@ -7256,7 +7241,6 @@ hy:ոչխարի կաթ
 id:Susu domba
 it:latte di pecora
 ja:羊乳
-jv:susu wedhus
 ka:ცხვრის რძე
 kk:қой сүті
 ko:양젖
@@ -7276,6 +7260,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sheep_milk
 wiktionary:en:sheep_milk
 description:de:Schafmilch oder Schafsmilch ist die Milch von Schafen.
 description:en:Sheep's milk (or ewes' milk) is the milk of domestic sheep.
+
+<en:sheeps milk
+<en:goat milk
+en:Sheeps or goat milk
+jv:susu wedhus
 
 <en:sheeps milk
 en:whole sheep milk
@@ -10478,7 +10467,7 @@ es:queso emmental francés rallado, queso emmenthal francés rallado
 # en:description:FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium.
 # en:comment:This cheese has translation issues as it is very similar to other fresh cheeses
 
-<en:cheese
+<en:fresh cheese
 en:fromage blanc
 af:Fromage blanc
 ca:formatge fresc
@@ -10486,7 +10475,6 @@ es:Fromage frais, queso fresco
 fr:fromage blanc
 ga:Fromage frais
 is:Fromage frais
-it:formaggio fresco
 ja:フレッシュチーズ
 ko:프로마주 프레
 ms:Fromage blanc
