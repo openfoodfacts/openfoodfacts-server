@@ -1152,7 +1152,7 @@ fr:pectine de fruit, pectines de fruits
 hu:gyümölcspektin
 it:pectina di frutta
 nl:vruchtenpectine, fruitpectine
-pl:Pektyna, pektyna owocowa, pektyna z owoców
+pl:pektyna owocowa, pektyna z owoców
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
 <en:fruit pectin
@@ -6557,7 +6557,7 @@ ciqual_food_name:fr:Lait écrémé, UHT
 en:semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk, part skim milk
 ca:llet parcialment desnatada, llet semidesnatada
 da:letmælk
-de:fettarme Milch, teilentrahmte milch
+de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
@@ -7211,7 +7211,6 @@ ca:llet evaporada
 de:evaporierte Milch, evaporierte Kondensmilch
 es:leche evaporada
 eu:Esne lurrundu
-fa:شیر تغلیظ‌شده
 fi:Maitotiiviste
 fr:lait concentré non sucré
 hu:édesítetlen sűrített tej
@@ -7329,12 +7328,12 @@ wikidata:en:Q57271749
 <en:sweetened condensed milk
 en:sweetened condensed skimmed milk
 da:sukret kondenseret skummetmælk
-de:gezuckerte kondensmagermilch
 et:magustatud kooritud kondenspiim
 fi:makeutettu rasvaton maitotiiviste, sokeroitu rasvaton maitotiiviste
 fr:lait écrémé concentré sucré
 lt:saldintas sutirštintas nugriebtas pienas
 lv:saldināts iebiezināts vājpiens
+nl:gesuikerde gecondenseerde halfvolle melk
 sv:sockrad kondenserad skummjölk, söt kondenserad skummjölk
 # ingredient/fr:lait-ecreme-concentre-sucre has 398 products in 8 languages @2020-05-21
 
@@ -7943,7 +7942,6 @@ de:Vollmilchjoghurt, Joghurt mit natürlichem Fettgehalt, Joghurt aus Vollmilch
 es:yogur de leche entera
 fi:täysmaitojogurtti
 fr:yogourt au lait entier, yaourt au lait entier
-hu:teljes joghurt
 nl:volle melk yoghurt
 
 <en:yogurt
@@ -7997,15 +7995,11 @@ nl:milde yogurt
 
 <en:mild yogurt
 en:skimmed mild yogurt
-ca:iogurt descremat, iogurt desnatat
-da:skummetmælksyoghurt
-de:Joghurt mild aus entrahmter Milch, Joghurt mild aus Magermilch
-es:yogur descremado, yogur desnatado
+de:Joghurt mild aus entrahmter Milch, Joghurt mild aus Magermilch, Fettarmer Joghurt mild
 fr:yaourt doux écrémé
 
 <en:mild yogurt
 en:semi-skimmed mild yogurt
-de:Fettarmer Joghurt mild
 fr:Yaourt doux semi-écrémé
 
 <en:mild yogurt
@@ -8221,7 +8215,6 @@ vegetarian:en:maybe
 
 <en:whey
 en:acid whey
-de:Milchsäure
 fr:Lactosérum acide
 vegan:en:no
 vegetarian:en:yes
@@ -12281,7 +12274,7 @@ eu:A bitamina
 fa:ویتامین آ
 fi:A-vitamiini
 fo:A vitamin
-fr:vitamine A, Vitamine A (rétinol), rétinol
+fr:vitamine A, Vitamine A (rétinol)
 gl:Vitamina A
 he:A ויטמין
 hi:विटामिन ए
@@ -81701,7 +81694,7 @@ description:nl:Cake is een eenvoudig soort gebak. Cake heeft een eenvoudig basis
 
 <en:cake
 en:Plain soft cake
-fr:Gâteau moelleux nature, Génoise
+#fr:Gâteau moelleux nature, Génoise
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
