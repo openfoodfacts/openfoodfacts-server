@@ -34,6 +34,8 @@ BEGIN
 		&get_ascii_fileid
 		&store
 		&retrieve
+		&store_json
+		&retrieve_json
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
@@ -50,6 +52,8 @@ use Encode::Punycode;
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
+use JSON::Create qw(write_json);
+use JSON::Parse qw(read_json);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -254,6 +258,31 @@ sub retrieve {
 	}
 	my $return = undef;
 	eval {$return = lock_retrieve($file);};
+
+	if ($@ ne '')
+	{
+		require Carp;
+		Carp::carp("cannot retrieve $file : $@");
+ 	}
+
+	return $return;
+}
+
+sub store_json {
+	my $file = shift @_;
+	my $ref = shift @_;
+
+	return write_json ($file, $ref);
+}
+
+sub retrieve_json {
+	my $file = shift @_;
+	# If the file does not exist, return undef.
+	if (! -e $file) {
+		return;
+	}
+	my $return = undef;
+	eval {$return = read_json($file);};
 
 	if ($@ ne '')
 	{

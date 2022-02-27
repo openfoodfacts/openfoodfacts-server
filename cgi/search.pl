@@ -34,7 +34,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-
+use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -44,9 +45,7 @@ use JSON::PP;
 use Log::Any qw($log);
 
 # Passing values to the template
-my $template_data_ref = {
-	lang => \&lang,
-};
+my $template_data_ref = {};
 
 my $html;
 
@@ -293,7 +292,7 @@ if ($action eq 'display') {
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
-		$axis_labels{$nid} = ucfirst($Nutriments{$nid}{$lc} || $Nutriments{$nid}{en});
+		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", { nid => $nid, value => $axis_labels{$nid} }) if $log->is_debug();
 	}
 	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
@@ -435,13 +434,12 @@ var select2_options = {
 JS
 ;
 
-
-$tt->process('search_form.tt.html', $template_data_ref, \$html);
+process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
 	
-	display_new($request_ref);
+	display_page($request_ref);
 
 }
 
@@ -689,7 +687,7 @@ elsif ($action eq 'process') {
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("generate_graph_scatter_plot")  # old parameter, kept for existing links
 		or param("graph")) {
@@ -722,7 +720,7 @@ HTML
 HTML
 ;
 
-		display_new($request_ref);
+		display_page($request_ref);
 	}
 	elsif (param("download")) {
 		# CSV export
@@ -753,7 +751,7 @@ HTML
 </a></div>
 HTML
 ;
-			display_new($request_ref);
+			display_page($request_ref);
 		}
 		else {
 

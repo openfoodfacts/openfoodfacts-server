@@ -42,6 +42,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -477,7 +479,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
 					delete $product_ref->{countries_hierarchy};
-					store_product($product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
+					store_product($User_id, $product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment );
 				}
 
 			}
@@ -534,7 +536,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-								eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+								eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 								# $modified++;
 
 							}
@@ -547,7 +549,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and (exists $product_ref->{images}{$imagefield . "_fr"})
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-									eval { process_image_crop("org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
+									eval { process_image_crop($User_id, "org-systeme-u/" . $code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1, "full"); };
 									# $modified++;
 								}
 
@@ -1502,31 +1504,6 @@ TXT
 
 			}
 
-
-
-			foreach my $nid (sort keys %Nutriments) {
-
-				next if $nid =~ /^#/;
-				next if $nid eq 'sodium';
-				next if $nid eq 'cocoa';
-				next if $nid =~ /fruits-vegetables-nuts/;
-
-				if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (not defined $found_nids{$nid})) {
-					next if $code eq "3368952723253";
-					next if $code eq "3256220063371";
-					next if $code eq "3256220064651";
-					next if $code eq "3256224251828";
-					next if $code eq "3256220358026";
-					next if $code eq "3256224252009";
-					next if $code eq "3256220275033";
-					next if $code eq "3256226154851";
-					next if $code eq "3256224406433";
-					print STDERR "product code $code - missing nid $nid\n" . $imported_product_ref->{UGC_nutritionalValues} . "\n";
-					#exit;
-				}
-			}
-
-
 			} # if nutrient are not empty in the csv
 
 			# Skip further processing if we have not modified any of the fields
@@ -1697,7 +1674,7 @@ TXT
 				$product_ref->{owner} = "org-systeme-u";
 				$product_ref->{owners_tags} = ["org-systeme-u"];
 
-				store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+				store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
 
 				push @edited, $code;
 				$edited{$code}++;

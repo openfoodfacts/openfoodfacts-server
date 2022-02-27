@@ -1,0 +1,16 @@
+<!-- start templates/[% template.name %] -->
+
+[%  IF display_random_sample_of_products_after_edits_options.defined && display_random_sample_of_products_after_edits_options %]
+
+[% ELSIF type == 'delete' %]
+
+    <p>[% lang("product_deleted") %]</p>
+
+[% ELSE %]
+
+    <p>[% lang("product_changes_saved") %]</p>
+    <p>&rarr; <a href="[% edited_product_url %]">[% lang("see_product_page") %]</a></p>
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->

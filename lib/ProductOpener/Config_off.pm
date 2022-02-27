@@ -33,6 +33,7 @@ BEGIN
 
 		$server_domain
 		@ssl_subdomains
+		$conf_root
 		$data_root
 		$www_root
 		$geolite2_path
@@ -40,9 +41,6 @@ BEGIN
 		$contact_email
 		$admin_email
 		$producers_email
-
-		$facebook_app_id
-		$facebook_app_secret
 
 		$google_cloud_vision_api_key
 
@@ -148,6 +146,7 @@ use ProductOpener::Config2;
 );
 
 %admins = map { $_ => 1 } qw(
+	alex-off
 	charlesnepote
 	hangy
 	raphael0202
@@ -326,11 +325,9 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
-
-$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
-$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
@@ -424,28 +421,28 @@ XML
 ;
 
 
-# Nutriscore: milk and drinkable yogurts are not considered beverages
-# list only categories that are under en:beverages
+# Nutriscore: categories that are never considered beverages for Nutri-Score computation
 $options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
 	en:plant-milks
 	en:milks
-	en:dairy-drinks
 	en:meal-replacement
 	en:dairy-drinks-substitutes
 	en:chocolate-powders
 	en:soups
-	en:coffees
-	en:tea-bags
-	en:herbal-teas
 )];
 
-# exceptions
+# categories that are considered as beverages
+# unless they have 80% milk (which we will determine through ingredients analysis)
 $options{categories_considered_as_beverages_for_nutriscore} = [qw(
 	en:tea-based-beverages
 	en:iced-teas
 	en:herbal-tea-beverages
 	en:coffee-beverages
 	en:coffee-drinks
+
+	en:coffees
+	en:herbal-teas
+	en:teas		
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -454,10 +451,7 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:baby-foods
 	en:baby-milks
 	en:chewing-gum
-	en:coffees
 	en:food-additives
-	en:herbal-teas
-	en:honeys
 	en:meal-replacements
 	en:salts
 	en:spices
@@ -465,8 +459,14 @@ $options{categories_exempted_from_nutriscore} = [qw(
 	en:vinegars
 	en:pet-food
 	en:non-food-products
-
 )];
+
+#	Coffees, teas and herbal teas can have a Nutri-Score if they have
+#	a nutrition facts table
+#
+#	en:coffees
+#	en:herbal-teas
+#	en:teas	
 
 # exceptions
 $options{categories_not_exempted_from_nutriscore} = [qw(
@@ -489,12 +489,21 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 )];
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
-vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-nutrient_levels misc ingredients ingredients_analysis nova_groups ingredients_processing
-data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
-improvements origins packaging_shapes packaging_materials packaging_recycling
+
+@taxonomy_fields = qw(
+	states countries languages labels categories food_groups
+	ingredients ingredients_processing
+	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+	origins
+	ingredients_analysis
+	nutrients nutrient_levels misc nova_groups
+	packaging packaging_shapes packaging_materials packaging_recycling
+	periods_after_opening
+	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+	improvements
 );
 
 
@@ -535,6 +544,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	data_sources
 	obsolete
 	obsolete_since_date
+	periods_after_opening
 );
 
 
@@ -566,6 +576,7 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	recipe_idea
 	warning
 	conservation_conditions
+	periods_after_opening
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
 	customer_service
@@ -644,8 +655,11 @@ improvements origins packaging_shapes packaging_materials packaging_recycling
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
+	food_groups
 	states
 	brand_owner
+	ecoscore_score_fr
+	ecoscore_grade_fr
 );
 
 
@@ -663,7 +677,8 @@ $options{import_export_fields_groups} = [
 			"categories",                "categories_specific",
 			"labels",                    "labels_specific",
 			"countries",                 "stores",
-			"obsolete",                  "obsolete_since_date"
+			"obsolete",                  "obsolete_since_date",
+			"periods_after_opening"	# included for OBF imports via the producers platform
 		]
 	],
 	[   "origins",
@@ -690,7 +705,7 @@ $options{import_export_fields_groups} = [
 		]
 	],
 	[   "images",
-		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url"
+		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
 		]
 	],
 ];
@@ -777,7 +792,7 @@ $options{import_export_fields_importance} = {
 	categories => "mandatory",
 	labels => "mandatory",
 	countries => "recommended",
-	obsolete => "mandatory",
+	obsolete => "recommended",
 	obsolete_since_date => "recommended",
 	
 	origins => "mandatory",
@@ -893,36 +908,62 @@ $options{display_tag_additives} = [
 
 ];
 
+# Used in the data_sources field (e.g. "App - Open Food Facts")
+$options{apps_names} = {
+
+	"elcoco" => "El CoCo",
+	"ethic-advisor" => "Ethic-Advisor",
+	"horizon" => "Horizon",
+	"infood" => "InFood",
+	"isve" => "IsVe",
+	"labeleat" => "LabelEat",
+	"off" => "Open Food Facts",
+	"scanfood" => "Scanfood",
+	"speisekammer" => "Speisekammer",
+	"waistline" => "Waistline",
+	"yuka" => "Yuka"
+};
 
 # Specific users used by apps
 $options{apps_userids} = {
 
-	"ethic-advisor" => "ethic-advisor",
+	"averment" => "isve",
 	"elcoco" => "elcoco",
+	"ethic-advisor" => "ethic-advisor",
+	"inf" => "infood",
 	"kiliweb" => "yuka",
 	"labeleat" => "labeleat",
+	"prepperapp" => "speisekammer",
+	"scanfood" => "scanfood",
+	"swipe-studio" => "horizon",
 	"waistline-app" => "waistline",
-	"inf" => "infood",
 };
+
+$options{official_app_id} = "off";
+$options{official_app_comment} = "(official (off|open food facts|openfoodfacts)|(off|open food facts|openfoodfacts) (official )?(android |ios )?(official )?app)";
 
 # (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)Labeleat1.0-SgP5kUuoerWvNH3KLZr75n6RFGA0
 # (app)Contributed using: OFF app for iOS - v3.0 - user id: 3C0154A0-D19B-49EA-946F-CC33A05E404A
-# (app)Official Android app 3.1.5 ( Added by 58abc55ceb98da6625cee5fb5feaf81 )
 # (app)EthicAdvisorApp-production-2.6.3-user_17cf91e3-52ee-4431-aebf-7d455dd610f0
 # (app)El Coco - user b0e8d6a858034cc750136b8f19a8953d
 
+# app_uuid_prefix must be present to recognize the uuid, if the comment starts with the uuid, put an empty string
 $options{apps_uuid_prefix} = {
 
 	"elcoco" => " user ",
 	"ethic-advisor" => "user_",
-	"kiliweb" => "User :",
 	"labeleat" => "Labeleat([^-]*)-",
-	"waistline-app" => "Waistline:",
+	"off" => "added by",	
+	"scanfood" => "",
+	"waistline" => "Waistline:",
+	"yuka" => "User :",
 };
 
-$options{official_app_id} = "off";
-$options{official_app_comment} = "(official android app|off app)";
+$options{apps_uuid_suffix} = {
+
+	"scanfood" => "scanfood",
+};
 
 
 $options{nova_groups_tags} = {
@@ -937,6 +978,8 @@ $options{nova_groups_tags} = {
 	"categories/en:sugars" => 2,
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
+	"categories/en:starches" => 2,
+
 
 	# group 3 tags will not be applied to food identified as group 2
 
@@ -1133,6 +1176,14 @@ $options{nova_groups_tags} = {
 	"additives/en:e181" => 4, #Tannin
 	"additives/en:e182" => 4, #Orcein
 
+	# emulsifiers
+	"additives/en:e322" => 4, # Lecithins
+	"additives/en:e325" => 4,
+	"additives/en:e326" => 4,
+	"additives/en:e327" => 4,
+	"additives/en:e328" => 4,
+	"additives/en:e329" => 4,
+
 	# flavour enhancers
 
 	"additives/en:e620" => 4, #Glutamic acid, L(+)-
@@ -1315,6 +1366,25 @@ $options{nova_groups_tags} = {
 
 };
 
+# List of sources from which product data can be imported
+# The product data is first imported on the producers platform
+# If the organization for a product already exists, product data from the source
+# will be imported only if the source is authorized (checkbox in org profile).
+# Otherwise the org will be created and the source authorized for that org.
 
+$options{import_sources} = {
+	'codeonline' => "CodeOnline Food",
+	'equadis' => "Equadis",
+	'database-usda' => "USDA Global Branded Food Products Database",
+};
+
+# Barcode of a sample product returned through the API when the requested code is "example"
+$options{sample_product_code} = "093270067481501";	# A good product for you - fake good product
+
+# We can also send back a different product based on country or language, with the following syntax:
+
+#$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
+#$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
+#$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
 1;

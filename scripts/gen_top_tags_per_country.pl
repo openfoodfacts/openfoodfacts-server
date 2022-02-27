@@ -23,8 +23,6 @@
 use Modern::Perl '2017';
 use utf8;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -45,7 +43,16 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
+use File::Path qw(mkpath);
 use JSON::PP;
+
+# Output will be in the $data_root/data directory
+# data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
+# data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
+
+(-e "$data_root/data") or mkdir("$data_root/data", oct(755)) or die("Could not create target directory $data_root/data : $!\n");
+(-e "$data_root/data/index") or mkdir("$data_root/data/index", oct(755)) or die("Could not create target directory $data_root/data/index : $!\n");
+(-e "$data_root/data/categories_stats") or mkdir("$data_root/data/categories_stats", oct(755)) or die("Could not create target directory $data_root/data/categories_stats : $!\n");
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -83,9 +90,6 @@ entry_dates
 
 # also generate stats for categories
 
-
-
-
 my %countries = ();
 my $total = 0;
 
@@ -98,10 +102,6 @@ my %products = ();
 my $l = 'en';
 $lc = $l;
 
-
-
-
-
 my %dates = ();
 
 
@@ -113,6 +113,8 @@ my %codes = ();
 my %true_end = (); # 0;
 my %true_start = (); # 100000000000000000;
 my $complete = 0;
+
+# Add in $fields_ref all the fields we need to retrieve from MongoDB
 
 foreach my $tagtype (@fields) {
 	$fields_ref->{$tagtype . "_tags"} = 1;
@@ -145,10 +147,16 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
+$fields_ref->{ecoscore_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
-my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }, 'obsolete' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+
+# 300 000 ms timeout so that we can export the whole database
+# 5mins is not enough, 50k docs were exported
+my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query({'empty' => { "\$ne" => 1 }, 'obsolete' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+
+$cursor->immortal(1);
 
 my %products_nutriments = ();
 my %countries_categories = ();
@@ -173,6 +181,7 @@ my %nutrition_grades_to_n = (
 	e => 5,
 );
 
+# Go through all products
 while (my $product_ref = $cursor->next) {
 	$total++;
 
@@ -184,6 +193,8 @@ while (my $product_ref = $cursor->next) {
 		$codes{$code} += 1;
 		#print STDERR "code $code seen $codes{$code} times!\n";
 	}
+
+	# Populate $products_nutriments{$code} with values for fields that we are going to compute stats on
 
 	# Products with nutriments
 	if ((defined $code) and (defined $product_ref->{nutriments})
@@ -201,6 +212,16 @@ while (my $product_ref = $cursor->next) {
 			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
 			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
+	}
+
+	# Add environmental impact from impact estimator if we have them
+	if ((defined $product_ref->{ecoscore_extended_data}) and (defined $product_ref->{ecoscore_extended_data}{impact})
+		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+		# TODO: Need to add a filter to keep only impacts computed with high confidence
+	) {
+		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
+		$products_nutriments{$code}{climate_change} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+		$products_nutriments{$code}{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 	}
 
 	# Compute points
@@ -370,7 +391,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 # Read ambassadors.txt
 my %ambassadors = ();
-if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
+if (open (my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
 	while (<$IN>) {
 		chomp();
 		if (/\s+/) {
@@ -381,7 +402,7 @@ if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
 	}
 }
 else {
-	print STDERR "$data_root/ambassadors.txt does not exist\n";
+	print STDERR "$data_root/data/ambassadors.txt does not exist\n";
 }
 
 my %ambassadors_countries_points = (_all_ => {});
@@ -409,11 +430,11 @@ foreach my $country (keys %countries_points) {
 }
 
 
-store("$data_root/index/countries_points.sto", \%countries_points);
-store("$data_root/index/users_points.sto", \%users_points);
+store("$data_root/data/index/countries_points.sto", \%countries_points);
+store("$data_root/data/index/users_points.sto", \%users_points);
 
-store("$data_root/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$data_root/data/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$data_root/data/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 
 
@@ -458,14 +479,13 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		if ($n >= $min_products) {
 
-			($cc eq 'fr') and ($tagid =~ /taboul/) and print "compute_stats_for_products - fr - $tagid - n: $n - count: $count - min: $min_products\n";
 			$categories{$tagid} = {};
 			compute_stats_for_products($categories{$tagid}, \%nutriments, $count, $n, $min_products, $tagid);
 
 		}
 	}
 
-	store("$data_root/index/categories_nutriments_per_country.$cc.sto", \%categories);
+	store("$data_root/data/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
 
 
 	# Dates
@@ -762,7 +782,9 @@ HTML
 ;
 
 		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-		if (open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html")) {
+		my $stats_dir = "$data_root/lang/$lang/texts";
+		(-e $stats_dir) or mkpath($stats_dir, {"mode" => oct(755)});
+		if (open (my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
 			close $OUT;
 		} else {
