@@ -2,8 +2,8 @@
    "ingredients" : [
       {
          "id" : "en:flour",
-         "percent" : "12",
-         "percent_estimate" : "12",
+         "percent" : 12,
+         "percent_estimate" : 12,
          "text" : "farine",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -13,16 +13,16 @@
          "ingredients" : [
             {
                "id" : "en:cocoa-butter",
-               "percent" : "15",
-               "percent_estimate" : "15",
+               "percent" : 15,
+               "percent_estimate" : 15,
                "text" : "beurre de cacao",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:sugar",
-               "percent" : "10",
-               "percent_estimate" : "10",
+               "percent" : 10,
+               "percent_estimate" : 10,
                "text" : "sucre",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -36,7 +36,7 @@
             },
             {
                "id" : "en:egg",
-               "percent" : "1",
+               "percent" : 1,
                "percent_estimate" : 9.5,
                "text" : "oeuf",
                "vegan" : "no",
@@ -142,6 +142,23 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:e432",
+         "en:e472"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:e432",
+         "en:e472",
+         "en:e322",
+         "en:e474",
+         "en:e475"
+      ],
+      "en:non-vegan" : [
+         "en:milk-proteins",
+         "en:egg"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:may-contain-palm-oil",
       "en:non-vegan",
@@ -161,6 +178,8 @@
       "en:cocoa-butter",
       "en:cocoa",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:milk-proteins",
       "en:protein",
       "en:animal-protein",
@@ -212,6 +231,8 @@
       "en:cocoa-butter",
       "en:cocoa",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:milk-proteins",
       "en:protein",
       "en:animal-protein",
@@ -223,10 +244,15 @@
       "en:e338"
    ],
    "ingredients_text" : "farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel",
-   "known_ingredients_n" : 22,
+   "ingredients_with_specified_percent_n" : 4,
+   "ingredients_with_specified_percent_sum" : 38,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 53.5,
+   "known_ingredients_n" : 24,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

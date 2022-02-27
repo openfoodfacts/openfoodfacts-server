@@ -20,6 +20,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:pasteurised-whole-cow-s-milk"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -29,8 +34,8 @@
       "en:pasteurised-whole-cow-s-milk",
       "en:dairy",
       "en:milk",
-      "en:cow-s-milk",
       "en:whole-milk",
+      "en:cow-s-milk",
       "en:whole-cow-s-milk",
       "en:kefir-lactic-ferments",
       "en:ferment",
@@ -52,8 +57,8 @@
       "en:pasteurised-whole-cow-s-milk",
       "en:dairy",
       "en:milk",
-      "en:cow-s-milk",
       "en:whole-milk",
+      "en:cow-s-milk",
       "en:whole-cow-s-milk",
       "en:kefir-lactic-ferments",
       "en:ferment",
@@ -62,10 +67,15 @@
       "en:kefir-ferments"
    ],
    "ingredients_text" : "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 11,
    "lc" : "es",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

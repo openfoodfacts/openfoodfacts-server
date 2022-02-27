@@ -2,12 +2,20 @@
 
 # For labels that indicate the absence of something, in English, always make "No something" the first entry, and make "Something-free", "Without something" synonyms
 
+# Supported and used properties:
+
+# When a label has both an "ingredients:en:" property + an "origins:en:" property (e.g. French eggs),
+# the information is used to populate the origins of the ingredient when doing ingredients analysis.
+# Note: ingredients:en: should list only 1 ingredient, while origins:en: can list multiple origins.
+# Supporting multiple ingredients is doable but would require code changes.
+
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
+stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт 
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
-stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
+stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv:certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
@@ -24,6 +32,7 @@ synonyms:ru:вкус, запах, сдабривать, приправлять, 
 synonyms:es:sabor, saborizante
 
 synonyms:en:GMOs, Genetically Modified Organisms, GMO
+synonyms:bg:ГМО, Генетично модифицирани организми
 synonyms:fi:GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
 synonyms:ru:ГМО, Генетически Модифицированные Организмы
 synonyms:OGMs, Organismes génétiquement modifiés, OGM
@@ -53,6 +62,7 @@ synonyms:ru:дары моря, морепродукты
 
 
 synonyms:en:without, 0%, free
+synonyms:bg:Без, 0%
 synonyms:es:sin, 0%, libre de
 synonyms:fi:ilman, 0%, vapaa
 synonyms:fr:sans, 0%
@@ -115,6 +125,7 @@ it:1% per il pianeta
 nl:1% voor de planeet
 
 en:100% natural
+bg:100% натурално
 ca:100% natural
 de:100% natürlich
 es:100% natural
@@ -175,6 +186,21 @@ wikidata:en:Q3406760
 en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
 wikidata:en:Q4969906
 
+nl:Beter Leven
+label_categories:en: en:Animal welfare
+
+<nl:Beter Leven
+nl:Beter Leven 1 ster
+label_categories:en: en:Animal welfare
+
+<nl:Beter Leven
+nl:Beter Leven 2 ster, Beter Leven 2 sterren
+label_categories:en: en:Animal welfare
+
+<nl:Beter Leven
+nl:Beter Leven 3 ster, Beter Leven 3 sterren
+label_categories:en: en:Animal welfare
+
 en:Free range
 ca:Rang lliure
 de:Freiland
@@ -197,6 +223,7 @@ fi:ranskalaisia munia, munien alkuperä Ranska
 fr:Oeufs de France, Oeufs français
 he:ביצים צרפתיות, ביצים מצרפת
 it:Uova francesi, Uova dalla Francia
+ingredients:en: en:egg
 origins:en: en:france
 
 <en:Free range
@@ -729,6 +756,7 @@ de:Ohne Weizen
 nl:Zonder graan
 
 en:No gluten, Gluten-free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free, ni gluten
+bg:Без глутен
 ca:Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs:Bez lepku
 da:Glutenfri
@@ -773,6 +801,7 @@ wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
 
 en:Contains gluten
+bg:Съдържа глутен
 ca:Conté gluten
 de:Enthält Gluten
 es:Contiene gluten
@@ -785,6 +814,8 @@ nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contem gluten
 opposite:en: en:no-gluten
+
+nl:Korst is niet eetbaar
 
 en:No thickening agent, No thickeners
 ca:Sense agent espessidor, Sense espessidors
@@ -819,6 +850,7 @@ fr:Sans addition de polyphosphates, Sans addition de polyphosphate, Sans polypho
 ru:Без добавления полифосфатов
 
 en:Green Dot, The Green Dot
+bg:Зелена точка
 ca:Punt verd
 cs:Zelený bod
 de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
@@ -954,6 +986,7 @@ ru:Обогащено клетчаткой
 th:ใยอาหารสูง
 
 en:Omega-3
+bg:Омега-3
 ca:Omega-3
 de:Omega-3
 es:Omega-3
@@ -970,6 +1003,7 @@ wikidata:en:Q191756
 
 <en:Omega-3
 en:High in Omega 3, Rich in Omega 3
+bg:Богат на Омега-3
 ca:Alt en Omega 3, Ric en Omega 3
 de:Hoher Omega-3-Gehalt
 es:Rico en Omega 3, Alto en Omega 3
@@ -1001,7 +1035,7 @@ he:עשיר בחלבונים
 hu:Magas fehérjetartalom, Fehérjékben gazdag
 it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
-nl:Rijk aan protéines
+nl:Eiwitrijk, Rijk aan protéines
 pt:Proteínas altas, fonte de proteínas
 ru:Обогащено протеинами
 th:โปรตีนสูง
@@ -1029,7 +1063,7 @@ hu:Kalciumforrás
 it:Fonte di calcio
 nl:Bron van Calcium
 pt:Fonte de calcio
-ru:Обогащено кальцием, источник кальция
+ru:источник кальция
 th:แหล่งของแคลเซียม
 
 en:Phosphore source
@@ -1157,6 +1191,7 @@ pt:Fonte de vitamina
 ru:Источник витамина E
 
 en:Source of iron
+bg:Източник на желязо
 ca:Font de ferro
 de:Eisenquelle
 es:Fuente de hierro
@@ -1426,7 +1461,7 @@ it:Pochi o niente grassi, Basso o nessun grasso
 nl:Geen vet of vetarm
 pt:Com pouca ou sem gordura
 ru:Низкожирный или обезжиренный
-th:ไขมันต่ำ
+th:ไขมันต่ำหรือไม่มีเลย
 
 <en:Low or no fat
 en:Low fat, low in fat
@@ -1442,7 +1477,7 @@ it:Basso contenuto di grassi, A basso contenuto di grassi
 nb:Lavt fettinnhold, Naturlig lavt fettinnhold
 nl:Vetarm
 pt:Baixo teor de gordura
-ru:Низкожирный или обезжиренный
+ru:низкожирный
 sv:Låg fetthalt, Naturligt låg fetthalt
 th:ไขมันต่ำ
 
@@ -1458,7 +1493,6 @@ hu:Csökkentett zsírtartalmú
 it:Ridotto contenuto di grassi
 nl:Minder vet
 pt:Gordura reduzida, menos gordura
-ru:Низкожирный
 th:ลดไขมัน
 
 <en:Reduced fat
@@ -1655,7 +1689,7 @@ hu:Alacsony sótartalmú vagy sótlan
 it:Con poco sale o senza sale
 nl:Geen of weinig zout
 pt:Baixo ou sem sal
-th:โซเดียมต่ำ
+th:เกลือต่ำหรือไม่มีเลย
 
 <en:Low or no salt
 en:Low salt
@@ -1664,7 +1698,7 @@ de:Salzarm
 es:Bajo en sal
 fi:vähäsuolainen, matalasuolainen, vähän suolaa
 fr:Peu de sel, peu salé, faible teneur en sel, pauvre en sel, très pauvre en sel
-he:מופחת מלח
+he:דל במלח
 hu:Alacsony sótartalmú
 it:Basso contenuto di sale
 nl:Weinig zout
@@ -1787,6 +1821,7 @@ nl:50% minder zout
 
 <en:Low or no salt
 en:No added salt
+bg:Без добавена сол
 ca:Sense sal afegida
 de:Ohne Salzzusatz
 es:Sin sal añadida, 0% sal añadida
@@ -1795,7 +1830,7 @@ fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
 he:ללא תוספת מלח
 hu:Hozzáadott só nélkül, hozzáadott sót nem tartalmaz, nincs hozzáadott só
 it:Senza aggiunta di sale
-nl:Geen zout toegevoegd
+nl:Geen zout toegevoegd, 0% zout toegevoegd
 pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado
 ru:Без добавления соли
@@ -1803,6 +1838,7 @@ th:ไม่เติมเกลือ
 
 <en:Low or no salt
 en:No salt, salt-free
+bg:Без сол
 ca:Sense sal
 de:ohne Salz, salzfrei, 0% Salz
 es:Sin sal
@@ -1848,7 +1884,7 @@ nl:Weinig suiker
 pl:Niska zawartość cukru, Mała zawartość cukru
 pt:Pouco açucar
 ru:Низкое содержание сахара
-th:น้ำตาลต่ำ
+th:น้ำตาลต่ำหรือไม่มีเลย
 
 <en:Low sugar
 en:Reduced sugar, Less sugar
@@ -1990,6 +2026,7 @@ it:60% in meno di zucchero
 pt:60% menos açúcar
 
 en:No added sugar, no sugar added, no added sugars
+bg:Без добавена захар
 ca:Sense sucre afegit, sense sucres afegits
 cs:Bez přidaného cukru
 de:Ohne Zuckerzusatz, Ohne zugesetzten Zucker
@@ -1999,7 +2036,7 @@ fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he:ללא תוספת סוכר
 hu:Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
-nl:Zonder toegevoegde suikers
+nl:Zonder toegevoegde suikers, Geen suiker toegevoegd
 pl:bez dodatku cukru, nie zawiera cukru
 pt:Sem açúcares adicionados, Sem adição de açúcares
 sv:Inget tillsat socker, Utan tillsatt socker
@@ -2008,6 +2045,7 @@ zh:无添糖
 
 <en:Low or no sugar
 en:No sugar, sugar-free
+bg:Без захар
 ca:Sense sucre, lliure de sucre
 de:Ohne Zucker
 es:Sin azúcar, Libre de azúcar, Cero azúcar
@@ -2016,7 +2054,7 @@ fr:Sans sucre, Zero sucre
 he:ללא סוכר, נטול סוכר
 hu:Cukormentes, Minimális cukortartalom
 it:Senza zucchero
-nl:Zonder suiker, sukervrij
+nl:Suikervrij, Zonder suiker
 pl:bez cukru
 pt:Sem açúcar
 ru:Без сахара
@@ -2035,6 +2073,7 @@ pt:Reduz o Colesterol
 label_categories:en: en:Health, en:Claim
 
 en:Australian made
+bg:Произведено в Австралия
 ca:Fet a Austràlia
 de:In Australien gemacht
 es:Fabricado en Australia
@@ -2050,12 +2089,14 @@ origins:en: en:Australia
 label_categories:en: en:Geographic label
 
 en:Made in Denmark
+bg:Произведено в Дания
 da:Fremstillet i Danmark
 fi:Valmistettu Tanskassa
 sv:Tillverkad i Danmark
 country:en:Denmark
 
 en:Made in Germany
+bg:Произведено в Германия
 ca:Fet a Alemanya
 cs:Vyrobeno v Německu
 da:Fremstillet i Tyskland
@@ -2076,6 +2117,7 @@ country:en:Germany
 label_categories:en: en:Geographic label
 
 en:Made in Belgium
+bg:Произведено в Белгия
 ca:Fet a Bèlgica
 da:Fremstillet i Belgien
 de:Hergestellt in Belgien
@@ -2091,6 +2133,7 @@ country:en:Belgium
 label_categories:en: en:Geographic label
 
 en:Made in France
+bg:Произведено във Франция
 ca:Fet a França
 de:Hergestellt in Frankreich
 es:Hecho en Francia
@@ -2143,6 +2186,7 @@ packaging_places:en: en:france
 label_categories:en: en:Geographic label
 
 en:Made in Italy, product of Italy
+bg:Произведено в Италия
 ca:Fet a Itàlia
 cs:Vyrobeno v Itálii
 da:Fremstillet i Italien
@@ -2162,6 +2206,7 @@ country:en:Italy
 label_categories:en: en:Geographic label
 
 en:Made in Luxembourg
+bg:Произведено в Люксембург
 da:Fremstillet i Luxemburg
 fi:Valmistettu Luxemburgissa
 pt:Produzido no Luxemburgo
@@ -2169,12 +2214,14 @@ sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 
 en:Made in Poland
+bg:Произведено в Полша
 da:Fremstillet i Polen
 fi:Valmistettu Puolassa
 sv:Tillverkad i Polen
 country:en:Poland
 
 en:Made in Portugal
+bg:Произведено в Португалия
 de:Hergestellt in Portugal
 es:Hecho en Portugal
 fi:Valmistettu Portugalissa
@@ -2189,6 +2236,7 @@ country:en:Portugal
 label_categories:en: en:Geographic label
 
 en:Made in Russia
+bg:Произведено в Русия
 de:Hergestellt in Russland
 es:Hecho en Rusia
 fi:Valmistettu Venäjällä
@@ -2202,6 +2250,7 @@ country:en:Russia
 label_categories:en: en:Geographic label
 
 en:Made in Spain
+bg:Произведено в Испания
 ca:Fet a Espanya
 de:Hergestellt in Spanien
 es:Hecho en España
@@ -2216,6 +2265,7 @@ country:en:Spain
 label_categories:en: en:Geographic label
 
 en:Made in Swiss, made in Switzerland
+bg:Произведено в Швейцария
 ca:Fet a Suïssa
 de:Hergestellt in der Schweiz
 es:Hecho en Suiza
@@ -2231,6 +2281,7 @@ country:en:Switzerland
 label_categories:en: en:Geographic label
 
 en:Made in Mexico
+bg:Произведено в Мексико
 ca:Fet a Mèxic
 de:Hergestellt in Mexiko
 es:Hecho en México
@@ -2244,6 +2295,8 @@ country:en:Mexico
 label_categories:en: en:Geographic label
 
 en:Made in the EU, Made in the European Union
+
+bg:Произведено в Европейския съюз
 ca:Fet a la Unió Europea
 cs:Vyrobeno v EU
 de:Hergestellt in der EU, Hergestellt in der Europäischen Union
@@ -2274,8 +2327,9 @@ en:Egg laid in France
 ca:Ous posats a França
 de:in Frankreich gelegte Eier
 fi:munittu Ranskassa
-fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
+fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France, oeufs pondus en France
 it:Uova deposte in Francia
+ingredients:en: en:egg
 origins:en: en:france
 label_categories:en: en:Geographic label
 
@@ -2363,7 +2417,6 @@ it:Aromi naturali
 nl:Natuurlijke aromas
 pl:aromat naturalny
 pt:Sabores naturais
-th:ใช้สีธรรมชาติ
 
 en:Never frozen
 ca:No congelar mai
@@ -2442,6 +2495,7 @@ it:Senza gelatina
 nl:Zonder gelatine, Gelatinevrij
 
 en:No additives, without additives
+bg:Без добавки
 ca:Sense additius
 de:Ohne Zusätze
 es:Sin aditivos
@@ -2457,6 +2511,8 @@ th:ไม่มีสารเติมแต่ง
 label_categories:en: en:Health, en:Additives
 
 en:No artificial additives
+
+bg:Без изкуствени добавки
 ca:Sense additius artificials
 de:Ohne künstliche Zusätze
 es:Sin aditivos artificiales
@@ -2509,6 +2565,7 @@ fr:Sans colorants azoïques
 label_categories:en: en:Health, en:Additives
 
 en:No artificial flavors, free of artificial flavor, No artificial flavours
+bg:Без изкуствени аромати
 ca:Sense aromes artificials, Lliure d'aromes artificials
 de:Ohne künstliche Aromen
 es:Sin aromas artificiales
@@ -2638,6 +2695,7 @@ th:ไม่มีคอเลสเตอรอล
 label_categories:en: en:Health
 
 en:No colorings, no added colorings
+bg:Без оцветители
 ca:Sense colorants, sense colorants afegits
 cs:Bez přidaných barviv
 de:Ohne Farbstoffzusatz, Ohne Zusatz von Farbstoffen, Ohne Farbstoffe
@@ -2775,6 +2833,7 @@ label_categories:en: en:Health, en:Additives
 ########################## GMO ###############
 
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
+bg:Без ГМО, Не съдържа ГМО
 ca:Sense transgènics, Lliure de transgènics, Sense organismes modificats genèticament
 cs:Bez GMO
 de:gentechnikfrei
@@ -2815,18 +2874,16 @@ it:Progetto non OGM
 pt:Non GMO project, Projeto não OGM
 wikidata:en:Q7754286
 
+# German specific label - Do not translate
 <en:No GMOs
-en:Ohne Gentechnik
-cs:Ohne Gentechnik
 de:Ohne Gentechnik
-it:Senza OGM
-nl:Zonder gentechnologie
+xx:Ohne Gentechnik
 # dedicated, widely used symbol of VLOG in Germany https://www.ohnegentechnik.org
 
+# German specific label - Do not translate
 <en:No GMOs
-en:Ohne Gentechnik hergestellt
 de:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
-it:Prodotto Senza Ingegneria Genetica
+xx:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 <en:No GMOs
@@ -2927,7 +2984,8 @@ pt:Contem leite
 ru:Содержит молоко
 th:มีส่วนผสมของนม
 
-en:No preservatives, no added preservatives
+en:No preservatives, no added preservatives, preservatives free
+bg:Без консерванти
 ca:Sense conservants, sense conservants afegits, lliure de conservants artificials
 cs:Bez konzervantů
 da:Uden konserveringsmiddel
@@ -2950,6 +3008,7 @@ zh:无防腐剂
 <en: No colorings
 <en: No preservatives
 en:Without dyes or preservatives
+bg:Без оцветители и консерванти
 ca:Sense colorants ni conservants
 de:Ohne Farb- oder Konservierungsstoffe
 es:Sin colorantes o conservadores, Sin colorantes o conservantes
@@ -2980,6 +3039,7 @@ label_categories:en: en:Environment, en:Health, en:Soy
 opposite:en: en:contains-soy
 
 en:Contains soy
+bg:Съдържа соя
 ca:Conté soja
 de:Enthält Soja
 es:Contiene soja, Contiene soya
@@ -3118,17 +3178,14 @@ ca:No recomanat per embarassades
 de:Für Schwangere ungeeignet
 es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
 fi:Ei suositella raskauden aikana
-fr:Non recommandé aux femmes enceintes, non conseillé aux femmes enceintes
+fr:Non recommandé aux femmes enceintes, non conseillé aux femmes enceintes, Déconseillé aux femmes enceintes
 hu:Nem ajánlott várandós nők számára, Nem ajánlott terhes nők számára, várandós nők számára nem ajánlott
 it:Non consigliato per le donne in gravidanza, non raccomandato per le donne in gravidanza
 nl:Niet aanbevolen voor zwangere vrouwen
 pt:Não recomendado para mulheres grávidas
-th:ไม่แนะนำสำหรับคนท้อง
-
-fr:Déconseillé aux femmes enceintes
-nl:Niet aanbevolen voor zwangere vrouwen
 ru:Не рекомендовано для беременных женщин
 se:Recommanderas ej till gravida
+th:ไม่แนะนำสำหรับคนท้อง
 
 <en:Not advised for specific people
 en:Not advised for children and pregnant women
@@ -3188,7 +3245,8 @@ description:nl:Biologische voeding is voedsel dat wordt geproduceerd met methode
 description:de:Bio-Lebensmittel müssen aus ökologisch kontrolliertem Anbau stammen, dürfen nicht gentechnisch verändert sein und werden ohne Einsatz von chemisch-synthetischen Pflanzenschutzmitteln, Kunstdünger oder Klärschlamm angebaut.
 description:es:Se denomina alimento orgánico, alimento ecológico o alimento biológico al producto agrícola o agroindustrial que se produce bajo un conjunto de procedimientos denominados “ecológicos”: evitan el uso de productos sintéticos, como pesticidas, herbicidas y fertilizantes artificiales.
 description:fr:Un aliment biologique est un aliment produit suivant les principes de l'agriculture biologique. L’agriculture biologique est une méthode de production agricole qui exclut le recours à la plupart des produits chimiques de synthèse, les organismes génétiquement modifiés par transgénèse et la conservation des cultures par irradiation.
-
+environmental_benefits:en:Organic agriculture contributes to preserve biodiversity, climate, water quality and soil fertility.
+environmental_benefits:fr:L'agriculture biologique contribue à préserver la biodiversité, le climat, la qualité de l'eau et la fertilité des sols.
 
 # Negative label, used to differentiate products for which we don't have the information yet, versus the ones we know are not organic
 en:Non-organic, not organic
@@ -3249,6 +3307,10 @@ ca:Vi biodinàmic
 en:India Organic
 country:en:India
 wikidata:en:Q17055995
+
+<en:organic
+<en:fair trade
+fr:Bio équitable en France
 
 <en:Organic
 en:EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
@@ -16076,6 +16138,8 @@ it:Classe II
 ru:высший сорт, сорт высший
 
 en:No palm oil, Palm oil free, Without palm oil
+
+bg:Без палмово масло
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
 de:Ohne Palmöl
@@ -16095,6 +16159,7 @@ zh:不含棕榈油
 opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
+bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
 opposite:en: en:no-palm-oil
 
@@ -16203,7 +16268,6 @@ he:בקר טהור
 hu:100% marhahús, Tiszta marhahús
 it:Puro manzo
 nl:puur rund
-pl:Wieprzowina bez domieszek
 
 en:Pure butter
 ca:Mantega pura
@@ -16682,6 +16746,7 @@ en:Tierra de Sabor
 es:Tierra de Sabor
 
 en:Suitable for diabetics
+bg:Подходящо за диабетици
 de:Für Diabetiker geeignet
 fi:Soveltuu diabeetikoille
 fr:Convient aux diabétiques
@@ -16709,6 +16774,10 @@ fr:Protection des dauphins
 it:Sicurezza dei Delfini
 nl:dolfijnvriendelijk
 label_categories:en: en:Fishing labels
+
+fr:Pêche française
+ingredients:en: en:fish
+origins:en: en:france
 
 # Should not be automatically triggered by the MSC label
 # as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
@@ -16916,6 +16985,7 @@ sv:garanterad traditionell specialitet, GTS
 wikidata:en:Q2751813
 
 en:Sustainable farming
+bg:Устойчиво земеделие
 ca:Agricultura Sostenible
 cs:Udržitelné zemědělství
 de:Nachhaltige Agrikultur
@@ -16965,6 +17035,7 @@ it:Caffè certificato UTZ, Caffe certificato UTZ
 pl:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
+bg:Вегетарианско, Подходящо за вегетарианци
 ca:Vegetarià, Adequat per persones vegetarianes
 cs:Vegetariánské
 da:Vegetarisk, Velegnet for vegetarer
@@ -16998,21 +17069,22 @@ en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en:Q7918353
 
 <en:Vegetarian
-en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans
+en:Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source
 an:vegano
+bg:Веган
 ca:Vegà, Adequat per persones veganes
 cs:Veganské
 da:Vegansk, Velegnet til veganere
 de:Vegan
 es:Vegano, Producto vegano, Vegan
 fi:vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
-fr:Végétalien, Végan, végétal
+fr:Végétalien, Végan, végétal, végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
 gl:vegano
 he:טבעוני, מתאים לטבעונים
 hu:Vegán
 it:Vegano, Vegan
 nb:Vegan, Vegansk
-nl:Veganistisch, plantaardig
+nl:Veganistisch, plantaardig, niet dierlijk
 pl:Wegańskie, przyjazne weganom
 pt:Vegano, Producto vegano, Vegan
 sq:vegan
@@ -17028,8 +17100,8 @@ descrption:nl:Veganisme is een levenswijze waarin gestreefd wordt naar het vermi
 wikipedia:en:Veganism
 wikidata:en:Q7918273
 
-en:Non-vegan, not vegan, not suitable for vegans
-fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans
+en:Non-vegan, not vegan, not suitable for vegans, from animal origin, derived from animals, from animal source
+fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans, d'origine animale, de source animale
 opposite:en: en:vegan
 
 <en:organic
@@ -17266,6 +17338,7 @@ es:VP, V.P., Vino de Pago
 wikidata:en:Q2527141
 
 en:With sulfites, Contains sulfites
+bg:Със сулфити
 ca:Amb sulfits, Conté sulfits
 de:Enthält Sulfite
 es:Con sulfitos, Contiene sulfitos
@@ -17294,6 +17367,7 @@ hu:Szulfitok és SO2 > 10ppm
 it:Solfiti e SO2 > 10ppm
 
 en:Without sulfites
+bg:Без сулфити
 de:Ohne Sulfite
 es:Sin sulfitos, Sin sulfito
 fi:sulfiititon, ei sulfiitteja
@@ -17316,6 +17390,7 @@ fr:Association des vins naturels, AVN
 fr:Vins S.A.I.N.S.
 
 en:With Sunflower oil
+bg:Със слънчогледово олио
 ca:Amb oli de gira-sol
 de:Mit Sonnenblumenöl
 es:Con aceite de girasol
@@ -17329,6 +17404,7 @@ pl:Z olejem słonecznikowym, Zawiera olej słonecznikowy
 pt:Com óleo de girassol
 
 en:With sweeteners
+bg:С подсладители
 ca:Amb edulcorants
 da:Indeholder sødestoffer
 de:Mit Süßstoffen
@@ -17345,6 +17421,7 @@ sv:Innehåller sötningsmedel
 th:ใช้น้ำตาลเทียม
 
 en:Without sweeteners
+bg:Без подсладители
 ca:Sense edulcorants
 de:Ohne Süßungsmittel
 es:Sin edulcorantes, Sin endulzantes
@@ -17453,15 +17530,17 @@ fr:Fumage naturel, fumé naturellement
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
 en:French milk
+bg:Френско мляко
 ca:Llet francesa
 de:Milch aus Frankreich
 es:Leche francesa
 fi:ranskalaista maitoa, maidon alkuperä Ranska
-fr:Lait Français, Lait de France, Lait Origine France
+fr:Lait Français, Lait de France, Lait Origine France, lait collecté et conditionné en France
 he:חלב צרפתי
 it:Latte francese
 nl:Franse melk
 pt:Leite francês
+ingredients:en: en:milk
 origins:en: en:france
 
 en:Produced in Brittany, Produced in Bretagne
@@ -17501,6 +17580,9 @@ he:ללא בוטנים
 hu:Földimogyorómentes, földimogyoró nélkül
 it:Senza arachidi, Non contiene arachidi
 th:ไม่มีส่วนผสมของถั่วลิสงค์
+
+en:No nuts, nut free
+nl:Zonder noten
 
 # French label
 fr:Saveurs de l'Année
@@ -17556,19 +17638,42 @@ fr:Triman, tri-man
 fr:Tidy man
 wikidata:en:Q3528198
 
+en:Animal welfare
+nl:Dierenwelzijn
+
+<en:Animal welfare
+en:Chicken welfare
+nl:Kippenwelzijn
+
+en:Dutch meat
+nl:Nederlands vlees
+
+# Nieuwe Standaard Kip is een bedrijfslogo van de supermarktketen Jumbo
+# er wordt een langzaam groeiend ras gebruikt dat slachtrijp is met 49 dagen, i.p.v. 35-42 bij de plofkip. 
+# De kippen hebben ook meer leefruimte: er zijn 13,5 kippen per m² in plaats van 21. 
+# In de stallen is natuurlijk daglicht en kippen hebben afleidingsmateriaal zoals strobalen om mee te spelen. 
+# Er wordt gestrooid met graan
+<en:Dutch meat
+<en:Chicken welfare
+en:New standard chicken
+nl:Nieuwe standaard kip
+
 en:French meat
 ca:Carn francesa
 de:Fleisch aus Frankreich
 es:Carne francesa
 fi:Ranskalaista lihaa, lihan alkuperä Ranska
-fr:Viande Française, VF
+fr:Viande Française, VF, viandes françaises, viande origine France, viandes origine France
 he:בשר צרפתי
 it:Carne francese
 nl:Frans vlees
+ingredients:en: en:meat
 origins:en: en:france
+# Note: putting 
 
 <fr:Viande Française
 fr:Viande d'agneau français, VAF, Viande d'agneau Origine France, Agneau 100% Français, Viande d'agneau Française, Agneau 100% France, Agneau Origine France
+ingredients:en: en:lamb
 origins:en: en:france
 
 <fr:Viande Française
@@ -17581,6 +17686,7 @@ origins:en: en:france
 
 <fr:Viande Française
 fr:Lapin Français, Lapin de France, Lapin Origine France, Viande de lapin français, Viande de lapin française, Viande de Lapin origine France
+ingredients:en: en:rabbit
 origins:en: en:france
 
 <fr:Viande Française
@@ -17592,6 +17698,7 @@ fr:Canard Français, Canard de France, Canard Origine France, Viande de canard f
 he:ברווז צרפתי
 it:Anatra francese
 pt:Pato francês
+ingredients:en: en:duck
 origins:en: en:france
 
 <fr:Viande Française
@@ -17618,10 +17725,12 @@ ingredients:en: en:beef
 <fr:Viande Française
 fr:Viande Ovine Française, Viande ovine Origine France, Ovin 100% Français, Viande d'ovin Française, Ovin 100% France, ovin Origine France
 origins:en: en:france
+ingredients:en: en:sheep
 
 <fr:Viande Française
 fr:Viande de veau français, Viande de veau Origine France, Veau 100% Français, Viande de veau Française, Veau 100% France, Veau Origine France
 origins:en: en:france
+ingredients:en: en:veal
 
 <fr:Viande Française
 en:French poultry
@@ -17632,10 +17741,12 @@ ingredients:en: en:poultry
 <fr:Viande Française
 fr:Poulet Français, Viande de poulet origine France, Poulet 100% Français, Viande de poulet français, Viande de poulet française, Poulet Origine France, Poulet 100% France
 origins:en: en:france
+ingredients:en: en:chicken
 
 <fr:Viande Française
 fr:Viande Chevaline Française, Viande chevaline origine France, Cheval 100% Français, Viande de cheval française, Viande de cheval français, Cheval Origine France, Cheval 100% France
 origins:en: en:france
+ingredients:en: en:horse
 
 it:DOC, D.O.C, Denominazione di origine controllata
 wikidata:en:Q654824
@@ -18171,7 +18282,7 @@ en:2017 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2017
 fi:Saksan maatalousyhdistyksen pronssimitali 2017
 fr:Médaille de bronze 2017 de la Société Allemande d'Agriculture
-it:Medaglia di bronzo della Società Agricola Tedesca
+it:Medaglia di bronzo 2017 della Società Agricola Tedesca
 
 <en:Bronze medal of the German Agricultural Society
 en:2018 Bronze medal of the German Agricultural Society
@@ -18493,6 +18604,7 @@ ru:Новинка
 th:สินค้าใหม่
 
 en:New recipe
+bg:Нова рецепта
 ca:Nova recepta
 de:Neues Rezept
 es:Nueva receta
@@ -18669,13 +18781,16 @@ origins:en: en:france
 
 fr:Maïs de France
 origins:en: en:france
+ingredients:en: en:corn
 
 fr:Tomates de France
 origins:en: en:france
+ingredients:en: en:tomato
 
 <fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français
 origins:en: en:france
+ingredients:en: en:fruits
 
 en:Potatoes from France
 ca:Patates de França
@@ -18686,6 +18801,7 @@ fr:Pommes de terre de France
 it:Patate francesi, Patate dalla Francia
 nl:Aardappelen uit Frankrijk
 origins:en: en:france
+ingredients:en: en:potato
 
 en:Apples from France
 de:Äpfel aus Frankreich
@@ -18695,6 +18811,7 @@ fr:Pommes de France
 it:Mele francesi
 pt:Maçãs da França
 origins:en: en:france
+ingredients:en: en:apple
 
 en:Honey from France
 de:Honig aus Frankreich
@@ -18703,7 +18820,7 @@ fr:Miel de France, miel français
 he:דבש מצרפת
 origins:en: en:france
 label_categories:en: en:Honey
-
+ingredients:en: en:honey
 
 en:Products for professional use
 ca:Producte per ús professional
@@ -18867,10 +18984,6 @@ fi:laaturuokaa Unkarista
 hu:Kiváló Magyar Termék
 image:en:Quality-food-from-hungary.90x90.jpg
 
-hu:Hazai termék
-
-hu:Hazai feldolgozású termék
-
 hu:Magyar baromfi, Hatósági állatorvos ellenőrizte
 
 hu:Magyar baromfi
@@ -18967,6 +19080,7 @@ en:Ethical Tea Partnership, ETP
 label_categories:en: en:Faitrade
 
 en:pasteurized product
+bg:Пастьоризиран продукт
 ca:Producte pasteuritzat
 de:Pasteurisiertes Produkt
 es:Producto pasteurizado

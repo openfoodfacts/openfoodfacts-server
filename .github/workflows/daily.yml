@@ -24,13 +24,17 @@ jobs:
   #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #       script_stop: false
   #       script: |
-  #         cd openfoodfacts-server/
+  #         cd ${{ matrix.env }}/
   #         sudo sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
 
   dev-db-sync:
     runs-on: ubuntu-latest
-    environment: mongo-dev
-    concurrency: mongo-dev
+    timeout-minutes: 180
+    strategy:
+      matrix:
+        env: [mongo-dev]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
     steps:
     - name: Sync prod db data to dev MongoDB
       uses: appleboy/ssh-action@master
@@ -41,18 +45,29 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
+        command_timeout: 180m
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
-          make import_prod_data
-          make restart_db
+          cd ${{ matrix.env }}
+          # We can put a file to avoid running db update
+          if [[ ! -e ./NO_DAILY ]]
+          then
+            make import_prod_data
+            make restart_db
+          else
+            # make task fail intentionally
+            false
+          fi
 
   refresh-products-tags:
     runs-on: ubuntu-latest
-    environment: mongo-dev
-    concurrency: mongo-dev
+    timeout-minutes: 180
+    strategy:
+      matrix:
+        env: [mongo-dev]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
+    needs: dev-db-sync
     steps:
     - name: Refresh MongoDB products_tags collection
       uses: appleboy/ssh-action@master
@@ -63,10 +78,9 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
+        command_timeout: 180m
         script_stop: false
         script: |
-          cd openfoodfacts-server/
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
+          cd ${{ matrix.env }}
           make refresh_product_tags
           make restart_db

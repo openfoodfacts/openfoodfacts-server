@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -10,15 +9,17 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 
 my $testdir = "packaging";
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -27,6 +28,14 @@ The directory will be created if it does not already exist.
 
 TXT
 ;
+
+init_packaging_taxonomies_regexps();
+
+# Tests for guess_language_of_packaging_text
+
+is(guess_language_of_packaging_text("boîte", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("surgelé", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), undef);
 
 my $resultsdir;
 
@@ -81,6 +90,108 @@ my @tests = (
 			packaging_text => "bouteille PET"
 		}
 	],
+	
+# Recycling instructions for the Netherlands
+# Tests for all types of conatiners
+	[
+		'packaging_text_nl_fles_glasbak',
+		{
+			lc => "nl",
+			packaging_text => "fles in de glasbak"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_doosje_oud_papier',
+		{
+			lc => "nl",
+			packaging_text => "doosje bij oud papier"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_over_plastic_afval',
+		{
+			lc => "nl",
+			packaging_text => "overig bij plastic afval"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_blik_bij_restafval',
+		{
+			lc => "nl",
+			packaging_text => "blik bij restafval"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_verpakking_bij_drankencartons',
+		{
+			lc => "nl",
+			packaging_text => "verpakking bij drankencartons"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_koffiepad_bij_gft',
+		{
+			lc => "nl",
+			packaging_text => "koffiepad bij gft"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_statiegeldfles',
+		{
+			lc => "nl",
+			packaging_text => "statiegeldfles"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_wel_pmd',
+		{
+			lc => "nl",
+			packaging_text => "wel pmd"	
+		}
+	],
+	
+	# some free texts in dutch
+	[
+		'packaging_text_nl_plastic_fles',
+		{
+			lc => "nl",
+			packaging_text => "plastic fles"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_metalen_blikje',
+		{
+			lc => "nl",
+			packaging_text => "metalen blikje"	
+		}
+	],
+	
+	# three recycling instructions
+	[
+		'packaging_text_nl_three_instructions',
+		{
+			lc => "nl",
+			packaging_text => "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier"	
+		}
+	],
+	
+	# sentence glazen pot + deksel
+	[
+		'packaging_text_nl_glazen_pot_met_deksel',
+		{
+			lc => "nl",
+			packaging_text => "1 glazen pot, 1 metalen deksel"	
+		}
+	],
+	
 	# check that we use the most specific material (e.g. PET instead of plastic)
 	[
 		'packaging_text_fr_bouteille_plastique_pet',
@@ -101,7 +212,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:cardboard',
-				},
+				}
 			]
 		}
 	],
@@ -114,7 +225,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'units' => 2
-				},
+				}
 			]
 		}
 	],
@@ -127,7 +238,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:plastic',
-				},
+				}
 			]
 		}
 	],
@@ -140,7 +251,7 @@ my @tests = (
 				{
 					'shape' => 'en:box',
 					'material' => 'en:recycled-plastic',
-				},
+				}
 			]
 		}
 	],
@@ -337,10 +448,71 @@ my @tests = (
 			lc => "fr",
 			packaging => "Gobelet en plastique, cageots en bois, caisse en carton, ficelle, liens plastiques, blister en plastique, panier en papier, capsules individuelles",
 		}
-	],		
-);
+	],
 
-init_packaging_taxonomies_regexps();
+	# Special test for cardboard that can be both a material and a shape
+	[
+		'en-cardboard-box-to-recycle',
+		{
+			lc => "en",
+			packaging => "Cardboard box to recycle",
+		}
+	],
+
+	# in glass container should trigger the glass material, which should then be overriden by its clear glass child
+	[
+		'en-clear-glass-bottle-in-glass-container',
+		{
+			lc => "en",
+			packaging => "Clear glass bottle in glass container",
+		}
+	],
+
+	[
+		'en-1-pet-plastic-bottle',
+		{
+			lc => "en",
+			packaging => "1 PET plastic bottle",
+		}
+	],
+
+	# recycling code should apply to all languages
+	[
+		'en-aa-84-c-pap',
+		{
+			lc => "aa",
+			packaging => "84-C/PAP",
+		}
+	],
+
+	# Robotoff sends fields prefixed with the language code even though packagings is not taxonomized yet
+	[
+		'fr-robotoff-packagings',
+		{
+			lc => "fr",
+			packaging => "fr:Boite carton,fr:Triman,fr:Boite à recycler,fr:Point vert,Boite carton",
+		}
+	],
+	
+	# check the results if we taxonomize the packaging fields without having a complete taxonomy in place
+	# with a mix of entries that are not all in the language of the product
+	[
+		'en-fr-taxonomized-packagings',
+		{
+			lc => "fr",
+			packaging => "en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
+		}
+	],
+
+	[
+		'en-fr-taxonomized-packagings-other-language',
+		{
+			lc => "en",
+			packaging => "fr:Couvercle en métal",
+		}
+	],	
+
+);
 
 my $json = JSON->new->allow_nonref->canonical;
 
@@ -363,7 +535,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

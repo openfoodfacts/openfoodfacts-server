@@ -11,10 +11,10 @@
       },
       {
          "id" : "en:guava",
-         "percent" : "25",
-         "percent_estimate" : "25",
-         "percent_max" : "25",
-         "percent_min" : "25",
+         "percent" : 25,
+         "percent_estimate" : 25,
+         "percent_max" : 25,
+         "percent_min" : 25,
          "processing" : "en:juice",
          "text" : "guava",
          "vegan" : "yes",
@@ -22,33 +22,44 @@
       },
       {
          "id" : "en:cane-sugar",
-         "percent" : "10",
-         "percent_estimate" : "10",
-         "percent_max" : "10",
-         "percent_min" : "10",
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
          "text" : "cane sugar",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:e330",
-         "percent" : "2",
-         "percent_estimate" : "2",
-         "percent_max" : "2",
-         "percent_min" : "2",
+         "percent" : 2,
+         "percent_estimate" : 2,
+         "percent_max" : 2,
+         "percent_min" : 2,
          "text" : "citric acid",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:some unknown ingredient",
-         "percent" : "1",
+         "percent" : 1,
          "percent_estimate" : 1,
-         "percent_max" : "1",
-         "percent_min" : "1",
+         "percent_max" : 1,
+         "percent_min" : 1,
          "text" : "some unknown ingredient"
       }
    ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:some unknown ingredient"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:some unknown ingredient"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:some unknown ingredient"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:vegan-status-unknown",
@@ -59,6 +70,8 @@
       "en:guava",
       "en:fruit",
       "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sugar",
       "en:e330",
       "en:some unknown ingredient"
@@ -81,15 +94,22 @@
       "en:guava",
       "en:fruit",
       "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sugar",
       "en:e330",
       "en:some-unknown-ingredient"
    ],
    "ingredients_text" : "Water, guava juice 25%, cane sugar 10%, citric acid 2%, some unknown ingredient 1%",
-   "known_ingredients_n" : 6,
+   "ingredients_with_specified_percent_n" : 4,
+   "ingredients_with_specified_percent_sum" : 38,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 62,
+   "known_ingredients_n" : 8,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25
    },
    "recipe" : {
       "en:fruit" : 25,

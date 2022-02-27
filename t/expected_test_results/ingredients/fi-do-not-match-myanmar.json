@@ -4,7 +4,7 @@
          "id" : "en:spice",
          "ingredients" : [
             {
-               "id" : "en:e100",
+               "id" : "en:turmeric",
                "percent_estimate" : 58.3333333333333,
                "percent_max" : 100,
                "percent_min" : 16.6666666666667,
@@ -22,7 +22,7 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:bell-pepper",
+               "id" : "en:spice-or-bell-pepper",
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -66,6 +66,7 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -73,10 +74,12 @@
    ],
    "ingredients_hierarchy" : [
       "en:spice",
-      "en:e100",
+	  "en:condiment",
+      "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:vegetable",
+	  "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
       "en:coriander",
@@ -91,9 +94,9 @@
    ],
    "ingredients_original_tags" : [
       "en:spice",
-      "en:e100",
+      "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:garlic",
       "en:coriander",
       "en:mustard-seed"
@@ -101,10 +104,12 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:spice",
-      "en:e100",
+	  "en:condiment",
+      "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:vegetable",
+	  "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
       "en:coriander",
@@ -113,10 +118,15 @@
       "en:mustard"
    ],
    "ingredients_text" : "mausteet (mm. kurkuma, inkivääri, paprika, valkosipuli, korianteri, sinapinsiemen)",
-   "known_ingredients_n" : 11,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 13,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

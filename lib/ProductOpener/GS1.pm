@@ -234,6 +234,7 @@ my %unknown_entries_in_gs1_maps = ();
 	
 	packagingTypeCode => {
 		"AE" => "Aérosol",
+		"BA" => "Tonneau",
 		"BG" => "Sac",
 		"BK" => "Barquette",
 		"BO" => "Bouteille",
@@ -242,6 +243,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"BX" => "Boite",
 		"CNG" => "Canette",
 		"CR" => "Caisse",
+		"CT" => "Conteneur",
 		"CU" => "Pot",
 		"EN" => "Enveloppe",
 		"JR" => "Bocal",
@@ -252,6 +254,7 @@ my %unknown_entries_in_gs1_maps = ();
 	
 	packagingTypeCode_unused_not_taxonomized_yet => {
 		"AE" => "en:aerosol",
+		"BA" => "en:barrel",
 		"BG" => "en:bag",
 		"BK" => "en:tray",
 		"BO" => "en:bottle",
@@ -260,6 +263,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"BX" => "en:box",
 		"CNG" => "en:can",
 		"CR" => "en:crate",
+		"CT" => "en:container",
 		"EN" => "en:envelope",
 		"JR" => "en:jar",
 		"PO" => "en:bag",
@@ -539,6 +543,27 @@ my %gs1_to_off = (
 													],
 													fields => [
 														["nutritionalScore", "nutriscore_grade_producer"],
+													],
+												},
+											],
+										],
+									},
+								],
+
+								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
+								["health_related_information:healthRelatedInformationModule", {
+										fields => [
+											["healthRelatedInformation", {
+													fields => [
+														["nutritionalProgram", {
+																match => [
+																	["nutritionalProgramCode","8"],
+																],
+																fields => [
+																	["nutritionalScore", "nutriscore_grade_producer"],
+																],
+															},
+														],
 													],
 												},
 											],

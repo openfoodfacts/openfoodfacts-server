@@ -68,6 +68,7 @@ BEGIN
 
 		&userpath
 		&create_user
+		&is_admin_user
 		&create_password_hash
 		&check_password_hash
 
@@ -89,6 +90,8 @@ use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -180,19 +183,32 @@ sub delete_user($) {
 	
 	# Remove the e-mail
 
-	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~/\@/)) {
 		
 		if (defined $emails_ref->{$email}) {
 			delete $emails_ref->{$email};
-			store("$data_root/users_emails.sto", $emails_ref);
+			store("$data_root/users/users_emails.sto", $emails_ref);
 		}
 	}
 	
 	#  re-assign product edits to openfoodfacts-contributors-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
+}
+
+=head2 is_admin_user($user_id)
+
+Simply tells if a user is an admin of the platform
+
+=cut
+sub is_admin_user($) {
+	my $user_id = shift;
+
+	# %admin is defined in Config.pm
+	# admins can change permissions for all users
+	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
 
@@ -419,7 +435,7 @@ sub check_user_form($$$) {
 	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$data_root/users_emails.sto");
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
 			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
@@ -654,7 +670,7 @@ sub process_user_form($$) {
 	store("$data_root/users/$userid.sto", $user_ref);
 
 	# Update email
-	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~/\@/)) {
@@ -664,7 +680,7 @@ sub process_user_form($$) {
 		delete $emails_ref->{$user_ref->{old_email}};
 		delete $user_ref->{old_email};
 	}
-	store("$data_root/users_emails.sto", $emails_ref);
+	store("$data_root/users/users_emails.sto", $emails_ref);
 
 
 	if ($type eq 'add') {
@@ -713,7 +729,7 @@ sub check_edit_owner($$) {
 	# If the owner id looks like a GLN, see if we have a corresponding org
 	
 	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
-		my $glns_ref = retrieve("$data_root/orgs_glns.sto");
+		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
 		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
 			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
@@ -799,11 +815,15 @@ sub init_user()
 		$user_id = remove_tags_and_quote($param_user_id) ;
 
 		if ($user_id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+			if (not defined $emails_ref->{$user_id}) {
+				# not found, try with lower case email
+				$user_id = lc $user_id;
+			}
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
-				$log->info("bad user e-mail") if $log->is_info();
+				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
 				return ($Lang{error_bad_login_password}{$lang}) ;
 			}

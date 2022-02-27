@@ -1,22 +1,30 @@
-﻿version: "3.7"
+version: "3.7"
 services:
   memcached:
     restart: always
+    networks:
+    - webnet
   postgres:
     restart: always
+    networks:
+    - webnet
   backend:
     restart: always
+    networks: 
+    - webnet
+  incron:
+    restart: always
+    networks:
+    - webnet
+  minion:
+    restart: always
+    networks:
+    - webnet
   frontend:
     restart: always
+    networks:
+    - webnet
 volumes:
-  icons_dist:
-    external: true
-  js_dist:
-    external: true
-  css_dist: 
-    external: true
-  node_modules:
-    external: true
   html_data:
     external: true
   users:
@@ -27,3 +35,12 @@ volumes:
     external: true
   product_images:
     external: true
+  podata:
+    external: true
+
+networks:
+  webnet:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.30.0.0/16

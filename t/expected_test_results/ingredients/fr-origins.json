@@ -41,6 +41,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:unsalted-butter"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -83,10 +88,15 @@
       "en:apple"
    ],
    "ingredients_text" : "Fraises de Bretagne, beurre doux de Normandie, tomates cerises (Bretagne), pommes (origine : Normandie)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25
    },
    "unknown_ingredients_n" : 0
 }

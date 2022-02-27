@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -10,6 +8,7 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -17,11 +16,12 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Recipes qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "recipes";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -62,9 +62,49 @@ my @recipes_tests = (
                     lc => "en",
                     ingredients_text => "Water, strawberry juice 20%, sugar 5%",
                 },
-            ],            
+            ],
+            [
+                 'missing-ingredients',
+                {
+                    lc => "en",
+                    ingredients_text => "",
+                },               
+            ],
+            [
+                 'impossible-ingredients',
+                {
+                    lc => "en",
+                    ingredients_text => "Orange juice 50%, water, sugar 30%",
+                },               
+            ],             
         ],
     },
+
+    # Margherita pizzas
+    {
+        testid => 'fr-margherita-pizzas',
+        lc => "fr",
+        parent_ingredients =>   [
+            "farine", "tomate", "fromage", "eau"
+        ],
+        products => [
+            [
+                'fr-margherita-pizza-1',
+                {
+                    lc => "fr",
+                    ingredients_text => "Farine de blé*, purée de tomates* 26%, eau, mozzarella râpée* 17%, huile de tournesol*, levure, sel, plantes aromatiques*, épices*. Traces de poissons et fruits à coque. * Ingrédients issus de l'agriculture biologique.",
+                },
+            ],
+            [
+                'fr-margherita-pizza-2-compound-ingredients',
+                {
+                    lc => "fr",
+                    ingredients_text => "Garniture 70% (tomates concassées, fromage râpé, feuilles de basilic), Pâte à pizza 30% (farine de blé, eau, sel)",
+                },
+            ],                
+        ],
+    },    
+
 );
 
 
@@ -108,7 +148,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
         
         # Compare the result with the expected result
         
-        if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$recipes_testid.$testid.json")) {
+        if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.$testid.json")) {
 
             local $/; #Enable 'slurp' mode
             my $expected_product_ref = $json->decode(<$expected_result>);
@@ -132,7 +172,7 @@ foreach my $recipes_test_ref (@recipes_tests) {
     
     # Compare the result with the expected result
     
-    if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$recipes_testid.json")) {
+    if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$recipes_testid.json")) {
 
         local $/; #Enable 'slurp' mode
         my $expected_analysis_ref = $json->decode(<$expected_result>);

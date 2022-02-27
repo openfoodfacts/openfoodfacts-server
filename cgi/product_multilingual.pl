@@ -43,6 +43,9 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Web qw(get_languages_options_list);
+use ProductOpener::Text qw/:all/;
+
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -397,17 +400,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			if ($field eq "lang") {
 				my $value = remove_tags_and_quote(decode utf8=>param($field));
-				
+
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
 				$value = lc($value);
-				
+
 				# skip unrecognized languages (keep the existing lang & lc value)
 				if (defined $lang_lc{$value}) {
 					$product_ref->{lang} = $value;
 					$product_ref->{lc} = $value;
-				}				
-				
+				}
+
 			}
 			else {
 				# infocards set by admins can contain HTML
@@ -471,206 +474,24 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_carbon_footprint_from_ingredients($product_ref);
 	compute_carbon_footprint_from_meat_or_fish($product_ref);
 	
-	# Food category rules for sweeetened/sugared beverages
+	# Food category rules for sweetened/sugared beverages
 	# French PNNS groups from categories
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		$log->debug("Food::special_process_product") if $log->is_debug();
 		ProductOpener::Food::special_process_product($product_ref);
-	}	
+	}
 
-	# Nutrition data
-
-	$log->debug("Nutrition data") if $log->is_debug();
-
-	my $params_ref = Vars;
-
-	# FIXME : there is no way to know if we get an unchecked value because the field was not there, or if the box is unchecked
-	# the browser does not send anything when a box is unchecked...
-	# this is an issue because we can't have the API check or uncheck a box
-
-	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
-
-	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
-
-	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
+	# Obsolete products
 
 	if (($User{moderator} or $Owner_id) and (defined param('obsolete_since_date'))) {
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
 	}
 
+	# Update the nutrients
 
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
-
-		$nid =~ s/_prepared$//;
-
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid})) {
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
-		}
-	}
-
-	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(param('new_max'));
-	for (my $i = 1; $i <= $new_max; $i++) {
-		push @new_nutriments, "new_$i";
-	}
-
-	# fix_salt_equivalent always prefers the 'salt' value of the product by default
-	# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
-	# present. Therefore, delete the 'salt' value and let it be fixed by
-	# fix_salt_equivalent afterwards.
-	foreach my $product_type ("", "_prepared") {
-		my $saltnid = "salt${product_type}";
-		my $sodiumnid = "sodium${product_type}";
-
-		my $salt = param("nutriment_${saltnid}");
-		my $sodium = param("nutriment_${sodiumnid}");
-
-		if (((not defined $salt) or ($salt eq ''))
-			and (defined $sodium) and ($sodium ne ''))
-		{
-			delete $product_ref->{nutriments}{$saltnid};
-			delete $product_ref->{nutriments}{$saltnid . "_unit"};
-			delete $product_ref->{nutriments}{$saltnid . "_value"};
-			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
-			delete $product_ref->{nutriments}{$saltnid . "_label"};
-			delete $product_ref->{nutriments}{$saltnid . "_100g"};
-			delete $product_ref->{nutriments}{$saltnid . "_serving"};
-		}
-	}
-
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-		next if $nutriment =~ /^\#/;
-
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
-
-		next if $nid =~ /^nutrition-score/;
-
-		my $enid = encodeURIComponent($nid);
-
-		# for prepared product
-		my $nidp = $nid . "_prepared";
-		my $enidp = encodeURIComponent($nidp);
-
-		# do not delete values if the nutriment is not provided
-		next if ((not defined param("nutriment_${enid}")) and (not defined param("nutriment_${enidp}"))) ;
-
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
-		my $valuep = remove_tags_and_quote(decode utf8=>param("nutriment_${enidp}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
-
-		# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
-		# 1. if energy-kcal or energy-kj is set, delete existing energy data
-		if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
-			delete $product_ref->{nutriments}{"energy"};
-			delete $product_ref->{nutriments}{"energy_unit"};
-			delete $product_ref->{nutriments}{"energy_label"};
-			delete $product_ref->{nutriments}{"energy_value"};
-			delete $product_ref->{nutriments}{"energy_modifier"};
-			delete $product_ref->{nutriments}{"energy_100g"};
-			delete $product_ref->{nutriments}{"energy_serving"};
-			delete $product_ref->{nutriments}{"energy_prepared_value"};
-			delete $product_ref->{nutriments}{"energy_prepared_modifier"};
-			delete $product_ref->{nutriments}{"energy_prepared_100g"};
-			delete $product_ref->{nutriments}{"energy_prepared_serving"};
-		}
-		# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-		elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-			$nid = $nid . "-" . lc($unit);
-			$nidp = $nid . "_prepared";
-			$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
-		}
-
-		if ($nid eq 'alcohol') {
-			$unit = '% vol';
-		}
-
-		my $modifier = undef;
-		my $modifierp = undef;
-
-		(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
-		(defined $valuep) and normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
-
-		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep, unit => $unit }) if $log->is_debug();
-
-		# New label?
-		my $new_nid = undef;
-		if ((defined $label) and ($label ne '')) {
-			$new_nid = canonicalize_nutriment($lc,$label);
-			$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
-
-			if ($new_nid ne $nid) {
-				delete $product_ref->{nutriments}{$nid};
-				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
-				delete $product_ref->{nutriments}{$nid . "_value"};
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};
-				delete $product_ref->{nutriments}{$nid . "_prepared_value"};
-				delete $product_ref->{nutriments}{$nid . "_prepared_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_prepared_100g"};
-				delete $product_ref->{nutriments}{$nid . "_prepared_serving"};
-				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, known_nid => $new_nid }) if $log->is_debug();
-				$nid = $new_nid;
-				$nidp = $new_nid . "_prepared";
-			}
-			$product_ref->{nutriments}{$nid . "_label"} = $label;
-		}
-
-		if (defined param("nutriment_${enid}")) {
-			if (($nid eq '') or (not defined $value) or ($value eq '')) {
-					delete $product_ref->{nutriments}{$nid};
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-					delete $product_ref->{nutriments}{$nid . "_100g"};
-					delete $product_ref->{nutriments}{$nid . "_serving"};
-			}
-			else {
-				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
-			}
-		}
-
-		if (defined param("nutriment_${enidp}")) {
-			if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
-					delete $product_ref->{nutriments}{$nidp};
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-					delete $product_ref->{nutriments}{$nidp . "_100g"};
-					delete $product_ref->{nutriments}{$nidp . "_serving"};
-			}
-			else {
-				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
-			}
-		}
-
-		if (($nid eq '') or (not defined $value) or ($value eq '')) {
-			delete $product_ref->{nutriments}{$nid . "_value"};
-			delete $product_ref->{nutriments}{$nid . "_modifier"};
-		}
-
-		if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
-			delete $product_ref->{nutriments}{$nidp . "_value"};
-			delete $product_ref->{nutriments}{$nidp . "_modifier"};
-		}
-
-		if (($nid eq '') or
-			(((not defined $value) or ($value eq '')) and ((not defined $valuep) or ($valuep eq ''))))  {
-				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
-		}
-
-	}
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
 
 	# product check
 
@@ -716,14 +537,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 
 	compute_unknown_nutrients($product_ref);
-	
+
 	# Until we provide an interface to directly change the packaging data structure
 	# erase it before reconstructing it
 	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];	
-	
+	$product_ref->{packagings} = [];
+
 	analyze_and_combine_packaging_data($product_ref);
-	
+
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		compute_ecoscore($product_ref);
 		compute_forest_footprint($product_ref);
@@ -901,7 +722,7 @@ CSS
 	 and (defined $Org_id)) {
 
 		# Display a link to the producers platform
-		
+
 		my $producers_platform_url = $formatted_subdomain . '/';
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 
@@ -937,26 +758,14 @@ CSS
 	}
 
 	# Main language
-	my @lang_options;
-	my @lang_values = sort { display_taxonomy_tag($lc,'languages',$language_codes{$a}) cmp display_taxonomy_tag($lc,'languages',$language_codes{$b})} @Langs;
-
-	my %lang_labels = ();
-	foreach my $l (@lang_values) {
-		next if (length($l) > 2);
-		$lang_labels{$l} = display_taxonomy_tag($lc,'languages',$language_codes{$l});
-		push(@lang_options, {
-			value => $l,
-			label => $lang_labels{$l},
-		});
-	}
-
 	my $lang_value = $lang;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
 
 	$template_data_ref_display->{product_lang_value} = $lang_value;
-	$template_data_ref_display->{lang_options} = \@lang_options;
+	# List of all languages for the template to display a dropdown for fields that are language specific
+	$template_data_ref_display->{lang_options} = get_languages_options_list($lc);
 	$template_data_ref_display->{display_select_manage} = display_select_manage($product_ref);
 
 	# sort function to put main language first, other languages by alphabetical order, then add new language tab
@@ -1052,9 +861,10 @@ sub display_input_tabs($$$$$) {
 		# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
 		if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-			my $msg = sprintf(lang("move_data_and_photos_to_main_language"),
-				'<span class="tab_language">' . $language . '</span>',
-				'<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>');
+			my $msg = f_lang("f_move_data_and_photos_to_main_language", {
+				language => '<span class="tab_language">' . $language . '</span>',
+				main_language => '<span class="main_language">' . lang("lang_" . $product_ref->{lc}) . '</span>'
+			});
 
 			my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
@@ -1212,7 +1022,7 @@ sub display_input_tabs($$$$$) {
 
 		$log->trace("detect unknown nutriment", { nid => $nid }) if $log->is_trace();
 
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
 			$log->debug("unknown nutriment detected", { nid => $nid }) if $log->is_debug();
@@ -1241,6 +1051,9 @@ sub display_input_tabs($$$$$) {
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_modifier"}) and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"}) and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
 		}
@@ -1264,30 +1077,23 @@ sub display_input_tabs($$$$$) {
 		my $nidp = $nid . "_prepared";
 		my $enidp = encodeURIComponent($nidp);
 
-		my $label = '';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_lang} =  $Nutriments{$nid}{$lang};
-		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
-			$nutriment_ref->{nutriments_nid} =  $Nutriments{$nid};
-			$nutriment_ref->{nutriments_nid_en} =  $Nutriments{$nid}{en};
-		}
-		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
-			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
-		}
-
 		$nutriment_ref->{label_value} =  $product_ref->{nutriments}{$nid . "_label"};
 		$nutriment_ref->{product_add_nutrient} =  $Lang{product_add_nutrient}{$lang};
 		$nutriment_ref->{prefix} = $prefix;
 
-		my $unit = 'g';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
-			$unit = $Nutriments{$nid}{"unit_$cc"};
+		my $unit = "g";
+
+		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
+			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en") // get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		}
-		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
-			$unit = $Nutriments{$nid}{unit};
+		else {
+			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+				$unit = $product_ref->{nutriments}{$nid . "_unit"};
+			}
 		}
+
 		my $value; # product as sold
 		my $valuep; # prepared product
 
@@ -1305,29 +1111,47 @@ sub display_input_tabs($$$$$) {
 			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
 
-		# user unit and value ? (e.g. DV for vitamins in US)
+		# If we have a user specified unit and value, use it instead of the default unit of the field
 		if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
 			$unit = $product_ref->{nutriments}{$nid . "_unit"};
 			if (defined $product_ref->{nutriments}{$nid . "_value"}) {
 				$value = $product_ref->{nutriments}{$nid . "_value"};
-				if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
-					$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
-					$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
-					$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
-					$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
-					$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
-				}
 			}
+
 			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
 				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
-				if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
-					$product_ref->{nutriments}{$nidp . "_modifier"} eq '<' and $valuep = "&lt; $valuep";
-					$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2264}" and $valuep = "&le; $valuep";
-					$product_ref->{nutriments}{$nidp . "_modifier"} eq '>' and $valuep = "&gt; $valuep";
-					$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2265}" and $valuep = "&ge; $valuep";
-					$product_ref->{nutriments}{$nidp . "_modifier"} eq '~' and $valuep = "~ $valuep";
-				}
 			}
+		}
+
+		# Add modifiers
+		if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
+
+			if ($value ne '') {
+				$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
+			}
+			elsif ($product_ref->{nutriments}{$nid . "_modifier"} eq '-') {
+				# The - minus sign indicates that there is no value specified on the product
+				$value = '-';
+			}		
+		}
+
+		if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
+
+			if ($valuep ne '') {
+				$product_ref->{nutriments}{$nidp . "_modifier"} eq '<' and $valuep = "&lt; $valuep";
+				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2264}" and $valuep = "&le; $valuep";
+				$product_ref->{nutriments}{$nidp . "_modifier"} eq '>' and $valuep = "&gt; $valuep";
+				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2265}" and $valuep = "&ge; $valuep";
+				$product_ref->{nutriments}{$nidp . "_modifier"} eq '~' and $valuep = "~ $valuep";
+			}
+			elsif ($product_ref->{nutriments}{$nidp . "_modifier"} eq '-') {
+				# The - minus sign indicates that there is no value specified on the product
+				$valuep = '-';
+			}		
 		}
 
 		if (lc($unit) eq "mcg") {
@@ -1363,12 +1187,12 @@ sub display_input_tabs($$$$$) {
 				@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 			}
 
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "dv:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq '% DV')) {
 				push @units, '% DV';
 			}
-			if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+			if ((defined get_property("nutrients", "zz:$nid", "iu:en"))
 				or ($nid =~ /^new_/)
 				or (uc($unit) eq 'IU')
 				or (uc($unit) eq 'UI')) {
@@ -1378,12 +1202,12 @@ sub display_input_tabs($$$$$) {
 			my $hide_percent = '';
 			my $hide_select = '';
 
-			if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
+			if ($unit eq '') {
 				$hide_percent = ' style="display:none"';
 				$hide_select = ' style="display:none"';
 
 			}
-			elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
+			elsif ($unit eq '%') {
 				$hide_select = ' style="display:none"';
 			}
 			else {
@@ -1422,7 +1246,6 @@ sub display_input_tabs($$$$$) {
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
 		$nutriment_ref->{nid} = $nid;
-		$nutriment_ref->{label} = $label;
 		$nutriment_ref->{class} = $class;
 		$nutriment_ref->{value} = $value;
 		$nutriment_ref->{valuep} = $valuep;
@@ -1434,34 +1257,29 @@ sub display_input_tabs($$$$$) {
 	
 	$template_data_ref_display->{nutriments} = \@nutriments;
 
+	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
+	# because they are not set for the product, and are not displayed by default in the user's country.
+	# Users will be allowed to add those nutrients, and this list will be used for nutrient name autocompletion.
+
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		my $other_nutriment_value;
-		if ((exists $Nutriments{$nid}{$lang}) and ($Nutriments{$nid}{$lang} ne '')) {
-			$other_nutriment_value = $Nutriments{$nid}{$lang};
-		}
-		else {
-			foreach my $olc (@{$country_languages{$cc}}, 'en') {
-				next if $olc eq $lang;
-				if ((exists $Nutriments{$nid}{$olc}) and ($Nutriments{$nid}{$olc} ne '')) {
-					$other_nutriment_value = $Nutriments{$nid}{$olc};
-					last;
-				}
-			}
-		}
+		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
-		if ((not (defined $other_nutriment_value)) or ($other_nutriment_value eq '')) {
-			$other_nutriment_value = $nid;
-		}
+		# Some nutrients cannot be entered directly by users, so don't suggest them
+		next if (get_property("nutrients", "zz:$nid", "automatically_computed:en") eq "yes");
 
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
-			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
+			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 				$supports_iu = "true";
 			}
-
-			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
+			
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value
+				. '", "unit" : "' . $other_nutriment_unit
+				. '", "iu": ' . $supports_iu
+				. '  },'. "\n";
 		}
 		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}
@@ -1530,7 +1348,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 }
 elsif ($action eq 'process') {
 
-	my $template_data_ref_process = {};
+	my $template_data_ref_process = { type => $type };
 
 	$log->debug("phase 2", { code => $code }) if $log->is_debug();
 
@@ -1548,14 +1366,11 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $product_url = product_url($product_ref);
-
-
-	$template_data_ref_process->{product_ref_server} = $product_ref->{server};
+	my $edited_product_url = product_url($product_ref);
 
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
+		$edited_product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);
 	}
 	elsif ($type eq 'delete') {
 
@@ -1595,7 +1410,7 @@ MAIL
 		}
 	}
 
-	$template_data_ref_process->{product_url} = $product_url;
+	$template_data_ref_process->{edited_product_url} = $edited_product_url;
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html) or $html = "<p>" . $tt->error() . "</p>";
 
 }

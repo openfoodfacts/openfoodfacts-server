@@ -2,9 +2,7 @@
 
 # Tests of Ingredients::compute_ingredients_percent_values()
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -536,7 +534,7 @@ my @tests = (
 				'text' => 'piment'
 			},
 			{
-				'id' => 'en:cumin-seeds',
+				'id' => 'en:cumin',
 				'percent' => '0.4',
 				'percent_estimate' => '0.4',
 				'text' => 'cumin'

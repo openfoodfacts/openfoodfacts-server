@@ -59,7 +59,7 @@ my $po_domain = $ENV{PRODUCT_OPENER_DOMAIN};
 my $po_port = $ENV{PRODUCT_OPENER_PORT};
 my $is_localhost = index($po_domain, 'localhost') != -1;
 
-$server_domain = $is_localhost ? "$po_domain:$po_port" : $po_domain;
+$server_domain = $is_localhost && $po_port != '80' ? "$po_domain:$po_port" : $po_domain;
 @ssl_subdomains = $is_localhost ? qw() : qw(*);
 $producers_platform = $ENV{PRODUCERS_PLATFORM} || "0";
 
@@ -80,10 +80,11 @@ $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
-my $postgres_db = "postgres";
+my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
-my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_db}/minion";
+my $postgres_db = $ENV{POSTGRES_DB} || "minion";
+my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_host}/${postgres_db}";
 
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
@@ -97,6 +98,10 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 		minion_export_queue => $server_domain,
 		cookie_domain => $po_domain,
 		export_servers => { public => "off", experiment => "off-exp"},
-		ip_whitelist_session_cookie => ["", ""]
+		ip_whitelist_session_cookie => ["", ""],
+		export_data_root => "/mnt/podata/export",
+		minion_daemon_server_and_port => "http://0.0.0.0:3001",
+		# this one does not seems to be used
+		minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
 1;

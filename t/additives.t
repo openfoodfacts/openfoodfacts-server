@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -1474,7 +1473,7 @@ is(canonicalize_taxonomy_tag("fi", "additives", "sitruunahappo"), "en:e330");
 $product_ref = {
 	lc => "fi",
 	ingredients_text =>
-		"sakeuttamisaine arabikumi, makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, väriaine kurkuma, pintakäsittelyaine mehiläisvaha"
+		"sakeuttamisaine arabikumi, makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, pintakäsittelyaine mehiläisvaha"
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -1485,7 +1484,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 		'en:e965ii',
 		'en:e950',
 		'en:e330',
-		'en:e100',
 		'en:e901',
 	],
 );

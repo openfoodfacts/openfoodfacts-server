@@ -2,9 +2,7 @@
 
 # Tests of ImportConvert::clean_fields()
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;

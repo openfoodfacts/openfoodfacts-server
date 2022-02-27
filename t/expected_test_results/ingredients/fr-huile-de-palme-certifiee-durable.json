@@ -34,6 +34,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil",
       "en:vegan",
@@ -71,6 +76,10 @@
       "en:rapeseed-oil"
    ],
    "ingredients_text" : "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 8,
    "labels" : "en:sustainable-palm-oil",
    "labels_hierarchy" : [
@@ -82,7 +91,8 @@
    ],
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

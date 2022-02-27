@@ -2,9 +2,7 @@
 
 # Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -122,6 +120,37 @@ my @tests = (
 		]
 	],
 
+	# en:hydrated etc.
+	[ { lc => "en", ingredients_text => "partially rehydrated egg white, hydrated silica, dehydrated cane juice, hydrated chia seeds, rehydrated tomatoes"},
+		[
+			{
+				'id' => 'en:egg-white',
+				'processing' => 'en:partially-rehydrated',
+				'text' => 'egg white'
+			},
+			{
+				'id' => 'en:e551',
+				'processing' => 'en:hydrated',
+				'text' => 'silica'
+			},
+			{
+				'id' => 'en:sugarcane-juice',
+				'processing' => 'en:dehydrated',
+				'text' => 'cane juice'
+			},
+			{
+				'id' => 'en:chia-seed',
+				'processing' => 'en:hydrated',
+				'text' => 'chia seeds'
+			},
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:rehydrated',
+				'text' => 'tomatoes'
+			}
+		]
+	],
+
 ##################################################################
 #
 #                           S P A N I S H   ( E S )
@@ -224,6 +253,77 @@ my @tests = (
 		]
 	],
 
+	[ { lc => "fr", ingredients_text => "crème fraîche pasteurisée, bananes fraiches, fromage frais, crème (dont lait) fraîche, ananas (frais), pâtes fraîches cuites, SUCRE BLOND DE CANNE NON RAFFINE"},
+		[
+			{
+				'id' => 'en:pasteurized-creme-fraiche',
+				'text' => "cr\x{e8}me fra\x{ee}che pasteuris\x{e9}e"
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:fresh',
+				'text' => 'bananes'
+			},
+			{
+				'id' => 'en:soft-white-cheese',
+				'text' => 'fromage frais'
+			},
+			{
+				'id' => 'en:cream',
+				'ingredients' => [
+				{
+					'id' => 'en:milk',
+					'text' => 'dont lait'
+				}
+				],
+				'text' => "cr\x{e8}me"
+			},
+			{
+				'id' => "fr:fra\x{ee}che",
+				'text' => "fra\x{ee}che"
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:fresh',
+				'text' => 'ananas'
+			},
+			{
+				'id' => 'en:cooked-fresh-pasta',
+				'text' => "p\x{e2}tes fra\x{ee}ches cuites"
+			},
+			{
+				'id' => 'en:blonde-cane-sugar',
+				'processing' => 'en:raw',
+				'text' => 'SUCRE BLOND DE CANNE'
+			}
+		]
+	],
+
+	# en:hydrated etc.
+	[ { lc => "fr", ingredients_text => "tomates séchées partiellement réhydratées, lait écrémé partiellement déshydraté, graines de chia hydratées, haricots blancs semi-hydratés"},
+		[
+			{
+				'id' => 'en:tomato',
+				'processing' => 'en:partially-rehydrated, en:dried',
+				'text' => 'tomates'
+			},
+			{
+				'id' => 'en:skimmed-milk',
+				'processing' => 'en:partially-dehydrated',
+				'text' => "lait \x{e9}cr\x{e9}m\x{e9}"
+			},
+			{
+				'id' => 'en:chia-seed',
+				'processing' => 'en:hydrated',
+				'text' => 'graines de chia'
+			},
+			{
+				'id' => 'en:white-beans',
+				'processing' => 'en:partially-hydrated',
+				'text' => 'haricots blancs'
+			}
+		]
+	],	
 
 # test for jus and concentré with extra "de"
 #	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
@@ -350,7 +450,7 @@ my @tests = (
 	[ { lc => "de", ingredients_text => "gehobelt passionsfrucht" },
 		[
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:sliced',
 				'text' => 'passionsfrucht'
 			}
@@ -382,7 +482,7 @@ my @tests = (
 
 # de:gegart and variants
 	[ { lc => "de", ingredients_text => "Schalotte gegart, gegarte haselnüsse, gegarter mandeln, gegartes passionsfrucht,
-			gurken dampfgegart, dampfgegarte acerola, dampfgegarter spinat" },
+			sellerie dampfgegart, dampfgegarte acerola, dampfgegarter spinat" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -400,14 +500,14 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:gegart',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:dampfgegart',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			},
 			{
 				'id' => 'en:acerola',
@@ -453,7 +553,7 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungepökelt',
 				'text' => 'passionsfrucht'
 			}
@@ -462,7 +562,7 @@ my @tests = (
 
 # de:gepoppt and variants
 	[ { lc => "de", ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse,
-			passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes gurken" },
+			passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes sellerie" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -475,26 +575,26 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'en:puffed',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'en:puffed',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
 
 # de:geschält and variants
 	[ { lc => "de", ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln,
-			passionsfrucht ungeschält, ungeschälte gurken" },
+			passionsfrucht ungeschält, ungeschälte sellerie" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -512,21 +612,21 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungeschält',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:ungeschält',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
 
 # de:geschwefelt and variants
 	[ { lc => "de", ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse,
-			passionsfrucht ungeschwefelt, geschwefelte gurken" },
+			passionsfrucht ungeschwefelt, geschwefelte sellerie" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -539,14 +639,14 @@ my @tests = (
 				'text' => "haselnüsse"
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungeschwefelt',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:geschwefelt',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
@@ -586,7 +686,7 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:ungezuckert',
 				'text' => 'passionsfrucht'
 			}
@@ -664,7 +764,7 @@ my @tests = (
 
 # de:zerkleinert and variants
 	[ { lc => "de", ingredients_text => "Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht,
-			gurken grob zerkleinert,
+			sellerie grob zerkleinert,
 			acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
 			zwiebel zum teil fein zerkleinert,
 			haselnüsse feinst zerkleinert,
@@ -687,14 +787,14 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passion-fruit',
+				'id' => 'en:passionfruit',
 				'processing' => 'de:zerkleinert',
 				'text' => 'passionsfrucht'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:grob-zerkleinert',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			},
 			{
 				'id' => 'en:acerola',
@@ -749,7 +849,7 @@ my @tests = (
 
 # Test for de:gemahlen and synonyms
 	[ { lc => "de", ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel,
-			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen gurken" },
+			fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen sellerie" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -777,16 +877,16 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:frischgemahlen',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
 
 	# Test for de:getrocknet and synonyms
 	[ { lc => "de", ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
-			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet gurken, Feigen halb getrocknet,
+			 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet sellerie, Feigen halb getrocknet,
 			 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
 			 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
 			 Traube sprühgetrocknet, sprühgetrockneter Tamarinde" },
@@ -817,9 +917,9 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'en:semi-dried',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			},
 			{
 				'id' => 'en:fig',
@@ -1036,7 +1136,7 @@ my @tests = (
 
 # All variants of de:mariniert
 	[ { lc => "de", ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter,
-		mariniertes gurken" },
+		mariniertes sellerie" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -1054,16 +1154,16 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'en:marinated',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
 
 # All variants of de:geschnitten
 	[ { lc => "de", ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten,
-			fein geschnittenen gurken, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
+			fein geschnittenen sellerie, feingeschnittener Mandeln, handgeschnittene haselnüsse" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -1081,9 +1181,9 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'de:feingeschnitten',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			},
 			{
 				'id' => 'en:almond',
@@ -1099,7 +1199,7 @@ my @tests = (
 	],
 
 
-	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, gurkenmark" },
+	[ { lc => "de", ingredients_text => "Schalottepüree, zwiebel püree, spinat-püree, selleriemark" },
 		[
 			{
 				'id' => 'en:shallot',
@@ -1117,9 +1217,9 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'en:pulp',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			}
 		]
 	],
@@ -1146,7 +1246,7 @@ my @tests = (
 	],
 
 # de würfel and synonyms tests
-	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte gurken,
+	[ { lc => "de", ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte sellerie,
 			zwiebel in würfel geschnitten, mandeln in würfel" },
 		[
 			{
@@ -1160,9 +1260,9 @@ my @tests = (
 				'text' => 'spinat'
 			},
 			{
-				'id' => 'en:gherkin',
+				'id' => 'en:celery',
 				'processing' => 'en:diced',
-				'text' => 'gurken'
+				'text' => 'sellerie'
 			},
 			{
 				'id' => 'en:onion',

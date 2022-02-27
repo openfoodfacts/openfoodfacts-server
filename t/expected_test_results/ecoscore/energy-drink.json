@@ -13,35 +13,54 @@
    ],
    "ingredients" : [
       {
-         "id" : "fr:Water",
-         "percent_estimate" : 100,
+         "id" : "en:water",
+         "percent_estimate" : 75,
          "percent_max" : 100,
-         "percent_min" : 100,
-         "text" : "Water"
+         "percent_min" : 50,
+         "text" : "Eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:caffeine",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "caféine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "fr:Water"
+      "en:water",
+      "en:caffeine"
    ],
-   "ingredients_n" : 1,
+   "ingredients_n" : 2,
    "ingredients_n_tags" : [
-      "1",
+      "2",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "fr:Water"
+      "en:water",
+      "en:caffeine"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "fr:water"
+      "en:water",
+      "en:caffeine"
    ],
-   "ingredients_text" : "Water",
-   "known_ingredients_n" : 0,
+   "ingredients_text" : "Eau, caféine",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
       "en:ecoscore-extended-data-not-computed",
@@ -49,7 +68,8 @@
       "en:ecoscore-not-computed"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "packaging_text" : "1 bouteille en plastique PET, 1 bouchon PEHD",
    "packagings" : [
@@ -64,5 +84,5 @@
          "shape" : "en:bottle-cap"
       }
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

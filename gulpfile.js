@@ -16,6 +16,8 @@ const jsSrc = [
 
 const sassSrc = "./scss/**/*.scss";
 
+const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: "expanded",
@@ -60,7 +62,9 @@ function attributesIcons() {
 }
 
 function css() {
-  return src(sassSrc).
+  console.log("(re)building css");
+  
+return src(sassSrc).
     pipe(sourcemaps.init()).
     pipe(sass(sassOptions).on("error", sass.logError)).
     pipe(minifyCSS()).
@@ -98,7 +102,9 @@ function copyJs() {
 }
 
 function buildJs() {
-  return src(jsSrc).
+  console.log("(re)building js");
+  
+return src(jsSrc).
   pipe(sourcemaps.init()).
   pipe(terser()).
   pipe(sourcemaps.write(".")).
@@ -155,8 +161,24 @@ function copyCss() {
 }
 
 function copyImages() {
-  return src(["./node_modules/leaflet/dist/**/*.png"]).
+  return src(imagesSrc).
     pipe(dest("./html/css/dist"));
+}
+
+function buildAll() {
+  return new Promise(
+    parallel(
+      copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes,
+      series(icons, attributesIcons, css)
+    )
+  );
+}
+
+function watchAll () {
+  watch(jsSrc, { delay: 500 }, buildJs);
+  watch(sassSrc, { delay: 500 }, css);
+  watch(imagesSrc, { delay: 500 }, copyImages);
+  // do we want to watch everything to support checkout of a branch with new libs ?
 }
 
 exports.copyJs = copyJs;
@@ -164,8 +186,11 @@ exports.buildJs = buildJs;
 exports.css = css;
 exports.icons = icons;
 exports.attributesIcons = attributesIcons;
-exports.default = parallel(copyJs, buildJs, buildjQueryUi, copyCss, copyImages, jQueryUiThemes, series(icons, attributesIcons, css));
-exports.watch = function () {
-  watch(jsSrc, { delay: 500 }, buildJs);
-  watch(sassSrc, { delay: 500 }, css);
+exports.default = buildAll;
+exports.watch = watchAll;
+exports.dynamic = function () {
+  buildAll().then(() => {
+    console.log("Build succeeded start watching for css and js changes");
+    watchAll();
+  });
 };

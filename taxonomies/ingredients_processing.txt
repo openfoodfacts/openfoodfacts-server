@@ -31,7 +31,6 @@ el:ακατέργαστο
 es:crudo, cruda, crudos, crudas
 fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
-es:crudo, cruda, crudos, crudas
 hu:nyers, nyersen
 nl:rauwe
 pt:cru, crus
@@ -42,6 +41,7 @@ pt:cru, crus
 en:fresh
 de:frisch, frische, frischer, frisches
 es:fresco, fresca, frescos, frescas
+fr:frais, fraîche, fraiche, fraîches, fraiches
 hu:friss
 it:fresco, fresca, fresche, freschi
 # de:frisch is found in front and in the ingredients
@@ -65,7 +65,16 @@ es:pura
 fr:pur
 
 en:selected
-fr:sélectionnées
+fr:sélectionnées, sélectionnée
+
+#en:superior quality
+#de:hochwertiger
+#es:de calidad superior
+#fr:de qualité supérieure, supérieure
+#it:di qualità superiore
+#nl:van hoge kwaliteit
+#pt:de qualidade superior
+
 
 #######################################################################
 #
@@ -105,9 +114,12 @@ zh:籽
 en:leaf, leaves
 cs:listová
 de:blatt, blätter
-es:hojas de
+es:hojas de, hoja de
+fi:lehti, lehdet
+fr:feuille de, feuille d'
 hr:list
 hu:levél
+nl:blad, bladeren
 pl:natka
 ro:frunze de
 sr:list
@@ -193,7 +205,7 @@ da:hakket, hakkede
 de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
-fr:hâché, hâchée, hâchés, hâchées, hachées
+fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 nb:hakkede
@@ -232,11 +244,9 @@ es:aplastada, aplastado, aplastadas, aplastados,triturado,triturada,triturados,t
 fi:murskattu, murskatut
 fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
 hu:zúzott, összetörve, összetört
-pt:triturado, triturada, triturados, triturados, esmagado, esmagada, esmagados, esmagadas
+nl:gebroken
+pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
-
-#en:blended
-#es:triturado,triturada,triturados,trituradas
 
 en:rolled
 de:gerollt, gerollte, gerollter, gerolltes
@@ -310,7 +320,7 @@ hu:frissen őrölt
 en:mashed
 hu:pépesített
 
-en:pureed, purée, puréed
+en:pureed, purée, puréed, puree
 da:puré, pure
 de:püree, puree, püree aus, puree aus, pürierte
 es:puré, pure, puré de, pure de, cremogenado, cremogenada
@@ -329,6 +339,7 @@ sv:puré
 # fi:parsing:$sose
 # nb:parsing:$puré
 # sv:parsing:$puré
+
 
 hu:lapított
 
@@ -404,7 +415,7 @@ fi:raaste
 en:grits
 de:schrot, grieß
 fi:rouhe
-nl:gries
+nl:gries, grits
 sv:färs
 
 en:powder, powdered
@@ -426,7 +437,7 @@ fa:پودر
 fi:jauhe
 fr:en poudre, poudre de, poudre d'
 he:אבקה
-hi:चूर्ण
+hi:चूर्ण, पाउडर
 hr:Prah
 ht:Poud
 hu:porított, por
@@ -452,6 +463,7 @@ sk:v prahu, sušená
 sl:v prahu
 sr:прах
 sv:pulver
+te:పొడి
 tr:pudra, tozu
 uk:порошок
 vi:Bột
@@ -508,7 +520,7 @@ wikidata:en:Q36465
 # Processes that split an ingredient into different parts
 
 en:split,broken
-es:partido,partida,partidos,partidas
+es:partido, partida, partidos, partidas
 pt:partido, partida, partidos, partidas
 
 #de:comment:geschält is a generic term and can mean en:peeled or en:shelled
@@ -517,8 +529,12 @@ de:geschält, geschälte, geschälter, geschälten, geschältes
 de:ungeschält, ungeschälte, ungeschälter, ungeschältes
 
 #es:comment:deshuesadas is a generic term and can mean en:pitted or en:boned
-es:deshuesado
-pt:desossado, sem osso
+#process of removing the bone from meat
+en:boned
+es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
+fr:désossé, désossée, désossés, désossées, sans os
+hu:csontozott, kicsontozott
+pt:desensoçado, desossado, sem osso
 
 #en:description:To remove the outer covering or shell of something
 en:shelled
@@ -585,18 +601,23 @@ en:zest
 # en:description:The soft center of a fruit
 en:pulp
 ca:polpa do
-cs:dřeň
+cs:dřeň, dužina
 de:mark, pulpe, fruchtfleisch
-es:pulpo, pulpa de
+eo:Pulpo
+es:pulpo, pulpa de, polpa del, Pulpa
 fi:hedelmäliha
 fr:pulpe, pulpe de, pulpe d', en pulpe
 #fr:false:avec pulpe
+gl:Polpa
+he:בקבוקון מיץ
 hu:bél, velő
 it:polpa, polpa di
-#nl:pulp (what was the issue here?)
+nl:pulp, vruchtvlees
 #nl:false:met pulp
 pt:polpa, polpas, polpa de, polpas de
-# en:wiktionary:pulp
+sk:Dužnina
+sv:Fruktkött
+wikidata:en:Q1470757
 
 #<en:pulp
 fr:sans pulpe
@@ -633,31 +654,30 @@ de:teilentfettet, teilentfettetes
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
 
-# <es:deshuesado
-en:boned
-
 #en:description:Sap is the fluid that comes from trees
 en:sap
 pt:seiva, seivas, seiva de, seivas de
 
 en:juice, juices, juices of, juice from
 #en:comment:juice and mango pulp, juices and purees of fruit, vegetable juice color, chicken-meat-including-chicken-juices, juice-concentrates, reconstituted-vegetable-juice-blend, tomatoes-in-tomato-juice, chicken-meat-including-natural-chicken-juices, fruit-and-vegetable-juice-color, beet-juice-color
-cs:šťáva
+az:şıresl
+cs:šťáva, štávy z
 da:saft, juice
-de:saft, säfte, saft von, säfte von, saft vom, säfte vom
+de:saft, säfte, saft von, säfte von, saft vom, säfte vom, direktsaft, direktsäfte
 es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
 #en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
-hu:leve
+hu:leve, lé
 it:succo, succo di, succo d'
+nb:juice
 nl:sap
 nn:juice
 pt:suco, sucos, sumo, sumos, suco de, sucos de, sumo de, sumos de, em suco, em sumos
-ro:suc de
+ro:suc de, suc
 ru:сок
+sk:stavy
 sv:juice, saft
-
 
 # fr:jus concentré de, jus concentré d'
 # fr:pur jus
@@ -666,10 +686,7 @@ sv:juice, saft
 #en:description: es:zumo is kept separate from the more generic es:jugo. It is only applicable to fruit.
 es:zumo de, zumo
 
-<en:juice
-de:direktsaft, direktsäfte
-
-<en:juice
+#<en:juice
 de:dicksaft, dicksäfte
 nl:diksap
 
@@ -699,23 +716,30 @@ nl:vloeibaar
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
+ar:مركز
 ca:concentrat
-da:koncentreret
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate
+da:koncentreret, koncentrat
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate,  einfach konzentriert
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
-es:concentrado, concentrada, concentrados, concentradas, procedente de concentrado, procedente de concentrada
-fi:tiivistetty, tiiviste
+es:concentrado, concentrada, concentrados, concentradas
+fa:کنسانتره
+fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-de:einfach konzentriert
 hu:sűrítmény, sűrített, koncentrátum
-nl:concentraten, concentraat
-pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de
-sv:koncentrerad
+it:concentrato
+ko:농축물
+nl:concentraten, concentraat, geconcentreerd, geconcentreerde
+pl:koncentrat, koncentraty
+pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de, concentratos
+ro:concentrat de
+ru:концентрированный
+sr:Концентрат
+sv:koncentrerad, Koncentrat, koncentrat från
 # en:wiktionary:concentrated
+wikidata:en:Q1355665
 
-
-<en:concentrated
+#<en:concentrated
 en:double concentrated
 de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes, 2-fach konzentriert, 2-fach konzentrierte, 2-fach konzentrierter, 2-fach konzentriertes
 es:doble concentrado,doble concentrada
@@ -728,14 +752,6 @@ de:dreifach konzentriert
 de:200fach konzentriertes
 
 #en:not from concentrate
-
-#not sure if this interferes with the above
-#en:from concentrate
-#de:aus Konzentrat
-#es:a base de concentrado
-#fi:tiivisteestä
-#fr:à base de concentré
-#nl:op basis van concentraat
 
 # there is a problem with en:cocoa paste
 #en:paste
@@ -753,7 +769,8 @@ de:eingekochter
 nl:ingekookt
 
 #en:description:Water has been added to concentrate
-en:from-concentrate
+en:from concentrate
+cs:koncentrát z
 da:fra koncentrat, fra koncentrater
 de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
@@ -761,9 +778,11 @@ fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
-nl:uit concentraat, van concentraat
+lt:iš koncentrąto
+nl:uit concentraat, van concentraat, op basis van concentraat
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
+sk:z koncentrátu
 sv:från koncentrat
 
 en:dried
@@ -776,7 +795,7 @@ de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form, Tr
 es:seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et:kuivatatud
 fi:kuivattu, kuivatut
-fr:séché, séchée, séchés, séchées, sèches, secche
+fr:séché, séchée, séchés, séchées, sèches
 he:מיובשים, מיובש
 hu:szárított
 it:secco, secca, secchi, secche, essiccati
@@ -789,7 +808,7 @@ nn:tørket
 pl:suszony, suszona, suszone
 pt:seco, seca, secos, secas
 ro:uscate
-ru:сушеный, Сушеное
+ru:сушеный, Сушеное, сушёная, сушёный
 sk:sušené
 sv:torkad
 th:ตาก, ออบแห้ง
@@ -799,7 +818,7 @@ uk:сушена
 en:semi-dried
 de:halbgetrocknet, halbgetrocknete, halbgetrockneter, halbgetrocknetes, halb getrocknet
 es:semiseco
-fr:semi-séchées, semi-déshydratées
+fr:semi séché, semi-séchée, semi-séchés, semi-séchées
 nl:halfgedroogd, halfgedroogde
 pt:semi-seco, semi-seca, semi-secos, semi-secas
 
@@ -819,7 +838,7 @@ en:sundried, sun dried
 de:sonnengetrocknet, sonnengetrocknete, sonnengetrockneter, sonnengetrocknetes, an der Sonne getrocknet, an der Sonne getrocknete, an der Sonne getrockneter, an der Sonne getrocknetes
 es:secados al sol
 fi:aurinkokuivattu, aurinkokuivatut
-fr:séchées au soleil
+fr:séché au soleil, séchée au soleil, séchés au soleil, séchées au soleil
 hu:napon szárított
 it:essiccati al sole
 nl:zongedroogd, zongedroogde
@@ -868,6 +887,9 @@ it:disidratato, disidratata, disidratati, disidratate
 pt:desidratado, desidratada, desidratados, desidratadas
 ro:deshidratată
 
+en:partially dehydrated
+fr:semi-déshydraté, semi-déshydratée, semi-déshydratés, semi-déshydratées, partiellement déshydraté, partiellement déshydratée, partiellement déshydratés, partiellement déshydratées
+
 en:rehydrated
 ca:rehidratada
 es:rehidritado, rehidritada, rehidritados, rehidritadas
@@ -878,6 +900,21 @@ it:reidratato, reidratata, reidratati, reidratate
 pt:reidratado, reidratada, reidratados, reidratadas
 sv:rehydrerat, rehydrerad
 
+en:partially rehydrated
+fr:semi-réhydraté, semi-réhydratée, semi-réhydratés, semi-réhydratées, partiellement réhydraté, partiellement réhydratée, partiellement réhydratés, partiellement réhydratées
+
+en:hydrated
+ca:hidratada
+es:hidritado, hidritada, hidritados, hidritadas
+de:hydriert, hydrierte, hydrierter, hydriertes
+fr:hydraté, hydratée, hydratés, hydratées
+hu:hidratált
+it:idratato, idratata, idratati, idratate
+pt:idratado, idratada, idratados, idratadas
+sv:hydrerat, hydrerad
+
+en:partially hydrated
+fr:semi-hydraté, semi-hydratée, semi-hydratés, semi-hydratées, partiellement hydraté, partiellement hydratée, partiellement hydratés, partiellement hydratées
 
 en:reconstituted
 ca:reconstituida
@@ -888,6 +925,7 @@ en:partially reconstituted
 pt:parcialmente reconstituído, parcialmente reconstituída, parcialmente reconstituídos, parcialmente reconstituídas
 
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
+bg:екстракт от
 ca:xtracte, extracte
 da:ekstrakt
 de:extrakt, extrakte, extrakt aus, extrakte aus
@@ -971,6 +1009,11 @@ hu:mechanikai úton leválasztott
 pt:separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
 sv:maskinurbenat
 
+en:solids
+es:sólidos de
+fr:Solides du
+it:Solidi di
+
 #######################################################################
 #
 #                T E M P E R A T U R E   P R O C E S S E S
@@ -1033,7 +1076,6 @@ hu:előfőzött
 it:precotto, precotta, precotti, precotte
 nl:voorgekookt, voorgekookte
 
-
 # Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
 #<en:pre-cooked
 en:parboiled
@@ -1053,8 +1095,10 @@ hu:blansírozott
 nl:geblancheerd
 
 en:cooked, boiled
+cs:vařená
+da:kogte
 de:gekocht, gekochte, gekochter, gekochtes
-es:cocido, cocida, cocidos,cocidas
+es:cocido, cocida, cocidos, cocidas
 fi:paistettu, keitetty, kypsennetty, kypsennetyt
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 hu:főtt, főzött
@@ -1062,6 +1106,8 @@ id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
 ms:rebus
 nl:gekookt, gekookte
+nn:kogte
+pl:gotowana
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
 sv:kokt, kokta
@@ -1088,15 +1134,14 @@ hu:karamellizált
 nl:gekarameliseerde, gekaramelliseerde
 pt:caramelizado, caramelizada, caramelizados, caramelizadas
 
-en:puffed
+en:puffed, inflated
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es:hinchado,hinchada,hinchados,hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
-hu:puffasztott
+hu:puffasztott, felfújt
 nl:gepoft, gepofte
 se:puffat
-
 
 en:pre-fried
 es:prefrito,prefrita,prefritos,prefritas
@@ -1391,6 +1436,13 @@ es:nixtamalizado, nixtamalizada
 pt:nixtamalizado, nixtamalizada, nixtamalizados, nixtamalizadas
 wikipedia:en:https://en.wikipedia.org/wiki/Nixtamalization
 
+# Ingredients like spices and herbs can be irradiated
+en:irradiated, treated with irradiation
+fr:irradié, irradiée, irradiés, irradiées
+
+en:non-irradiated, not treated with irradiation, without irradiation
+fr:non irradié, non irradiée, non irradiés, non irradiées, sans irradiation
+
 #######################################################################
 #
 #                P R E P A R I N G   P R O C E S S E S
@@ -1545,17 +1597,6 @@ hu:tölgyfán füstölt
 en:not smoked, unsmoked
 
 #en:fibers
-
-#process of removing the bone from meat
-en:boned
-es:deshuesado
-es:sin hueso
-hu:csontozott, kicsontozott
-pt:desensoçado
-
-en:inflated
-es:hinchado,hinchada,hinchados,hinchadas
-hu:felfújt
 
 #en:for color, added for color, colored with
 

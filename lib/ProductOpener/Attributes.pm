@@ -355,8 +355,8 @@ sub initialize_attribute($$) {
 			my $nid = $2;
 			$nid =~ s/_/-/g;
 			
-			$attribute_ref->{name} = $Nutriments{$nid}{$target_lc};
-			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+			$attribute_ref->{name} = display_taxonomy_tag($target_lc, "nutrients", "zz:$nid");
+			$attribute_ref->{setting_name} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid") ,
 				lang_in_other_lc($target_lc, $level . "_quantity"));
 		}
 		
@@ -459,6 +459,7 @@ sub compute_attribute_nutriscore($$) {
 	
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	
+	# Nutri-Score A, B, C, D or E
 	if (defined $product_ref->{nutriscore_data}) {
 		$attribute_ref->{status} = "known";
 		
@@ -537,6 +538,20 @@ sub compute_attribute_nutriscore($$) {
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-$grade.svg";
 	}
+	
+	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
+	elsif (has_tag($product_ref,"misc","en:nutriscore-not-applicable")) {
+		$attribute_ref->{status} = "known";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
+		$attribute_ref->{match} = 0;
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");		
+			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description");
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");		
+		}		
+	}
+
+	# Nutri-Score not computed: missing data
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-unknown.svg";
@@ -580,8 +595,11 @@ The return value is a reference to the resulting attribute data structure.
 To differentiate products more finely, the match is based on the Eco-Score score
 that is used to define the Eco-Score grade from A to E.
 
-- Eco-Score A: 80 to 100%
-- Eco-Score B: 61 to 80%
+- Eco-Score A: 80 to 100
+- Eco-Score B: 60 to 79
+- Eco-Score C: 40 to 59
+- Eco-Score D: 20 to 39
+- Eco-Score E: 0 to 19
 
 =cut
 
@@ -600,12 +618,12 @@ sub compute_attribute_ecoscore($$$) {
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 		$attribute_ref->{status} = "known";
 		
-		my $score = $product_ref->{ecoscore_data}{score};
-		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $score = $product_ref->{ecoscore_score} // 0;
+		my $grade = $product_ref->{ecoscore_grade};
 		
-		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
-			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
-			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};			
+		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$cc})) {
+			$score = $product_ref->{ecoscore_data}{"scores"}{$cc} // 0;
+			$grade = $product_ref->{ecoscore_data}{"grades"}{$cc};
 		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();
@@ -615,15 +633,15 @@ sub compute_attribute_ecoscore($$$) {
 		my $match = 0;
 		
 		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
-		
+		# Warning: a Eco-Score score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
+		# So we add 1 to the Eco-Score score to compute the match.
+		$match = $score + 1;
+
 		if ($score < 0) {
 			$match = 0;
 		}
 		elsif ($score > 100) {
 			$match = 100;
-		}
-		else {
-			$match = $score;
 		}
 		
 		$attribute_ref->{match} = $match;
@@ -1070,7 +1088,7 @@ sub compute_attribute_nutrient_level($$$$) {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-unknown.svg";
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid") ,
 				lang_in_other_lc($target_lc, "unknown_quantity"));
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
 		}		
@@ -1120,7 +1138,7 @@ sub compute_attribute_nutrient_level($$$$) {
 			$attribute_ref->{match} = $match;
 			
 			if ($target_lc ne "data") {
-				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), $Nutriments{$nid}{$target_lc} ,
+				$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "nutrient_in_quantity"), display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity"));
 				$attribute_ref->{description_short} = sprintf(
 					lang_in_other_lc($target_lc, 'g_per_100g'),
@@ -1335,7 +1353,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$status = "known";
 		}
 		elsif (has_tag($product_ref, "ingredients_analysis", "en:may-contain-$ingredient")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "may-contain-$ingredient";
 			$status = "known";
 		}
@@ -1360,7 +1378,7 @@ sub compute_attribute_ingredients_analysis($$$) {
 		}
 		elsif (has_tag($product_ref, "labels", "en:maybe-$analysis")
 			or has_tag($product_ref, "ingredients_analysis", "en:maybe-$analysis")) {
-			$match = 20;
+			$match = 50;
 			$analysis_tag = "maybe-$analysis";
 			$status = "known";
 		}		
@@ -1375,10 +1393,11 @@ sub compute_attribute_ingredients_analysis($$$) {
 			$analysis_tag = "$analysis-status-unknown";
 		}		
 	}
-	
+
 	if (defined $match) {
 		$attribute_ref->{match} = $match;
 	}
+
 	$attribute_ref->{status} = $status;	
 	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
@@ -1429,6 +1448,31 @@ sub add_attribute_to_group($$$$) {
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
 		delete $attribute_ref->{setting_name};
 		delete $attribute_ref->{setting_note};
+
+		# Compute a 5 level grade from the match score
+		# We do it server side to be sure that clients do it the same way
+		# and that a Nutri-Score E match of 20 has a grade "e".
+		if ($attribute_ref->{status} eq "known") {
+			
+			if ($attribute_ref->{match} <= 20) {
+				$attribute_ref->{grade} = 'e';
+			}
+			elsif ($attribute_ref->{match} <= 40) {
+				$attribute_ref->{grade} = 'd';
+			}
+			elsif ($attribute_ref->{match} <= 60) {
+				$attribute_ref->{grade} = 'c';
+			}
+			elsif ($attribute_ref->{match} <= 80) {
+				$attribute_ref->{grade} = 'b';
+			}
+			else {
+				$attribute_ref->{grade} = 'a';
+			}
+		}
+		else {
+			$attribute_ref->{grade} = 'unknown';
+		}		
 		
 		my $group_ref;
 		# Select the requested group

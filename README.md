@@ -3,11 +3,14 @@
 # Open Food Facts - Product Opener (Web Server)
 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://translate.openfoodfacts.org/)
 [![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 [![Backers on Open Collective](https://opencollective.com/openfoodfacts-server/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/openfoodfacts-server/sponsors/badge.svg)](#sponsors)
+
+## Tests
+[![Perl::Critic](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/perlcritic.yml)
+[![Pull Requests](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml/badge.svg)](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pull_request.yml)
 
 ## What is Product Opener?
 
@@ -42,14 +45,16 @@ Data about food is of public interest and has to be open. The complete database 
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 * Developer documentation:
-   * [Quick start guide (Docker)](installation/dev-environment-quick-start-guide.md)
-   * [Developer guide (Docker)](installation/docker-developer-guide.md)
+   * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
+   * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
    * [Manual installation](https://wiki.openfoodfacts.org/Product_Opener/Installation)
    * Configuration [TBA]
    * Dependencies [TBA]
    * Database configuration [TBA]
    * How to run tests [TBA]
  * [API Documentation](https://openfoodfacts.github.io/api-documentation/)
+
+Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
 
 ## Contribution guidelines
 

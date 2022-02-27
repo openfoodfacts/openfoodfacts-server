@@ -98,6 +98,8 @@ BEGIN
 		&add_milk
 		&estimate_milk_percent_from_ingredients
 
+		&has_specific_ingredient_property
+
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -434,7 +436,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
-my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc");
+my @labels = ("en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc", "fr:aoc", "en:vegan", "en:vegetarian");
 my %labels_regexps = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
@@ -536,6 +538,8 @@ sub init_ingredients_processing_regexps() {
 			my $l_ingredients_processing = get_string_id_for_lang($l, $translations_to{ingredients_processing}{$ingredients_processing}{$l});
 
 			foreach my $synonym ( @{$synonyms_for{ingredients_processing}{$l}{$l_ingredients_processing}} ) {
+				# Make spaces match dashes and the reverse
+				$synonym =~ s/( |-)/\(\?: \|-\)/g;
 				push @{ $ingredients_processing_regexps{$l} },
 					[ $ingredients_processing, $synonym ];
 
@@ -852,17 +856,308 @@ my %min_regexp = (
 
 # Words that can be ignored after a percent
 # e.g. 50% du poids total, 30% of the total weight
+# groups need to be non-capturing: prefixed with (?: 
 
 my %ignore_strings_after_percent = (
-	en => "of (the )?(?:total weight|grain is wholegrain rye)",
-	es => "(en el chocolate( con leche)?)",
+	en => "of (?:the )?(?:total weight|grain is wholegrain rye)",
+	es => "(?:en el chocolate(?: con leche)?)",
 	fi => "jauhojen määrästä",
-	fr => "(dans le chocolat( (blanc|noir|au lait))?)|(du poids total|du poids)",
+	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
 	sv => "fetthalt",
 );
 
 
+=head2 has_specific_ingredient_property ( product_ref, searched_ingredient_id, property )
 
+Check if the specific ingredients structure (extracted from the end of the ingredients list and product labels)
+contains a property for an ingredient. (e.g. do we have an origin specified for a specific ingredient)
+
+=head3 Arguments
+
+=head4 product_ref
+
+=head4 searched_ingredient_id
+
+If the ingredient_id parameter is undef, then we return the value for any specific ingredient.
+(useful for products for which we do not have ingredients, but for which we have a label like "French eggs":
+we can still derive the origin of the ingredients, e.g. for the Eco-Score)
+
+=head4 property
+
+e.g. "origins"
+
+=head3 Return values
+
+=head4 value
+
+- undef if we don't have a specific ingredient with the requested property matching the requested ingredient
+- otherwise the value for the matching specific ingredient
+
+=cut
+
+sub has_specific_ingredient_property($$$) {
+
+	my $product_ref = shift;
+	my $searched_ingredient_id = shift;
+	my $property = shift;
+
+	my $value;
+
+	# If we have specific ingredients, check if we have a parent of searched ingredient
+	if (defined $product_ref->{specific_ingredients}) {
+		foreach my $specific_ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $specific_ingredient_id = $specific_ingredient_ref->{id};
+            if ((defined $specific_ingredient_ref->{$property}) # we have a value for the property for the specific ingredient
+                # and we did not target a specific ingredient, or this is equivalent to the searched ingredient
+				and ((not defined $searched_ingredient_id) or (is_a("ingredients", $searched_ingredient_id, $specific_ingredient_id)))) {
+
+				if (not defined $value) {
+					$value = $specific_ingredient_ref->{$property};
+				}
+				elsif ($specific_ingredient_ref->{$property} ne $value) {
+					$log->warn("has_specific_ingredient_property: different values for property", { searched_ingredient_id => $searched_ingredient_id, property => $property, current_value => $value, specific_ingredient_id => $specific_ingredient_id, new_value => $specific_ingredient_ref->{$property}}) if $log->is_warn();
+				}
+			}
+		}
+	}
+
+	return $value;
+}
+
+
+=head2 add_properties_from_specific_ingredients ( product_ref )
+
+Go through the ingredients structure, and ad properties to ingredients that match specific ingredients
+for which we have extra information (e.g. origins from a label).
+
+=cut
+
+sub add_properties_from_specific_ingredients($) {
+
+	my $product_ref = shift;
+
+	# Traverse the ingredients tree, breadth first
+	
+	my @ingredients = @{$product_ref->{ingredients}};
+	
+	while (@ingredients) {
+		
+		# Remove and process the first ingredient
+		my $ingredient_ref = shift @ingredients;
+		my $ingredientid = $ingredient_ref->{id};
+						
+		# Add sub-ingredients at the beginning of the ingredients array
+		if (defined $ingredient_ref->{ingredients}) {
+			
+			unshift @ingredients, @{$ingredient_ref->{ingredients}};	
+		}
+
+		foreach my $property (qw(origins)) {
+			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, "origins");
+			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
+				$ingredient_ref->{$property} = $property_value;
+			}
+		}
+	}
+}
+
+
+=head2 add_specific_ingredients_from_labels ( product_ref )
+
+Check if the product has labels that indicate properties (e.g. origins) for specific ingredients.
+
+e.g.
+
+en:French pork
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France
+origins:en: en:france
+ingredients:en: en:pork
+
+This function extracts those mentions and adds them to the specific_ingredients structure.
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub add_specific_ingredients_from_labels($) {
+
+	my $product_ref = shift;
+
+	my $product_lc = $product_ref->{lc};
+
+	if (defined $product_ref->{labels_tags}) {
+		foreach my $labelid (@{$product_ref->{labels_tags}}) {
+			my $ingredients = get_property("labels", $labelid, "ingredients:en");
+			if (defined $ingredients) {
+				my $origins = get_property("labels", $labelid, "origins:en");
+
+				if (defined $origins) {
+
+					my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $ingredients);
+
+					my $specific_ingredients_ref = {
+						id => $ingredient_id,
+						ingredient => $ingredients,
+						label => $labelid,
+						origins => join(",", map {canonicalize_taxonomy_tag("en", "origins", $_)} split(/,/, $origins ))
+					};
+					
+					push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+				}
+			}
+		}
+	}
+}
+
+
+=head2 parse_specific_ingredients_from_text ( product_ref, $text )
+
+Lists of ingredients sometime include extra mentions for specific ingredients
+at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
+
+This function extracts those mentions and adds them to the specific_ingredients structure.
+
+=head3 Return values
+
+=head4 specific_ingredients structure
+
+Array of specific ingredients.
+
+=head4 
+
+=cut
+
+sub parse_specific_ingredients_from_text($$$) {
+
+	my $product_ref = shift;
+	my $text = shift;
+	my $percent_regexp = shift;
+
+	my $product_lc = $product_ref->{lc};
+
+	# Go through the ingredient lists multiple times
+	# as long as we have one match
+	my $ingredient = "start";
+
+	while ($ingredient) {
+
+		# Initialize values
+		$ingredient = undef;
+		my $matched_text;
+		my $percent;
+		my $origins;
+
+		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
+		# for all groups, except groups that capture actual data: ingredient name, percent, origins
+
+		# Regexps should match until we reach a . ; or the end of the text
+
+		if ($product_lc eq "en") {
+			# examples:
+			# Total Milk Content 73%.
+
+			if ($text =~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+				$percent = $2;	# $percent_regexp
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Origin of the milk: United Kingdom
+			elsif ($text =~ /\s*(?:origin of (?:the )?)([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origins = $2;
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+		}
+		elsif ($product_lc eq "fr") {
+
+			# examples:
+			# Teneur en lait 25% minimum.
+			# Teneur en lactose < 0,01 g/100 g.
+			# Préparée avec 50 g de fruits pour 100 g de produit fini.
+
+			if ($text =~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i) {
+				$percent = $1;	# $percent_regexp
+				$ingredient = $2;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
+			# Teneur en citron de 100%
+			elsif ($text =~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i) {
+				$percent = $2;	# $percent_regexp
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+			# Origine du Cacao: Pérou
+			elsif ($text =~ /\s*(?:origine (?:de |du |de la |des |de l'))([^,.;]+?)(?::| )+([^,.;]+?)\s*(?:;|\.| - |$)/i) {
+				# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+				# in order to not overmatch something like "Origin of milk: UK, some other mention."
+				# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+				$origins = $2;
+				$ingredient = $1;
+				$matched_text = $&;
+				# Remove the matched text
+				$text = $` . ' ' . $';
+			}
+
+		}
+
+		# If we found an ingredient, save it in specific_ingredients
+		if (defined $ingredient) {
+			my $ingredient_id = canonicalize_taxonomy_tag($product_lc, "ingredients", $ingredient);
+
+			$matched_text =~ s/^\s+//;
+
+			my $specific_ingredients_ref = {
+				id => $ingredient_id,
+				ingredient => $ingredient,
+				text => $matched_text,
+			};
+
+			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
+			defined $origins and $specific_ingredients_ref->{origins} = join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,/, $origins ));
+			
+			push @{$product_ref->{specific_ingredients}}, $specific_ingredients_ref;
+		}
+	}
+
+	return $text;
+}
+
+
+=head2 parse_ingredients_text ( product_ref )
+
+Parse the ingredients_text field to extract individual ingredients.
+
+=head3 Return values
+
+=head4 ingredients structure
+
+Nested structure of ingredients and sub-ingredients
+
+=head4 
+
+=cut
 
 sub parse_ingredients_text($) {
 
@@ -870,7 +1165,9 @@ sub parse_ingredients_text($) {
 
 	my $debug_ingredients = 0;
 
-	return if not defined $product_ref->{ingredients_text};
+	delete $product_ref->{ingredients};
+
+	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
 	my $text = $product_ref->{ingredients_text};
 
@@ -897,23 +1194,12 @@ sub parse_ingredients_text($) {
 	# remove ending . and ending whitespaces
 	$text =~ s/(\s|\.)+$//;
 
-	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
-	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ?
-
+	# initialize the structure to store the parsed ingredients and specific ingredients
 	$product_ref->{ingredients} = [];
-	$product_ref->{'ingredients_tags'} = [];
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
 
 	my $level = 0;
-
-	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
-	# 56 g -> 56%
-	$text =~ s/(\d| )g(\*)/$1g/ig;
-
-	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
-	$text =~ s/—/-/g;
 
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
@@ -923,7 +1209,6 @@ sub parse_ingredients_text($) {
 
 	my $and = $and{$product_lc} || " and ";
 
-	
 	my $min_regexp = "";
 	if (defined $min_regexp{$product_lc}) {
 		$min_regexp = $min_regexp{$product_lc};
@@ -933,7 +1218,10 @@ sub parse_ingredients_text($) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 	
-	my $percent_regexp = '(<|' . $min_regexp . '|\s|\.|:)*(\d+((\,|\.)\d+)?)\s*(\%|g)\s*(' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+	my $percent_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*(\d+(?:(?:\,|\.)\d+)?)\s*(?:\%|g)\s*(?:' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+
+	# Extract phrases related to specific ingredients at the end of the ingredients list
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp);
 
 	my $analyze_ingredients_function = sub($$$$) {
 
@@ -1012,7 +1300,7 @@ sub parse_ingredients_text($) {
 
 					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
 						
-						$percent = $2;
+						$percent = $1;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients and $log->debug("separator found after percent", { between => $between, percent => $percent }) if $log->is_debug();
@@ -1038,7 +1326,7 @@ sub parse_ingredients_text($) {
 
 						if ($between =~ /^$percent_regexp$/i) {
 
-							$percent = $2;
+							$percent = $1;
 							$debug_ingredients and $log->debug("between is a percent", { between => $between, percent => $percent }) if $log->is_debug();
 							$between = '';
 						}
@@ -1047,7 +1335,7 @@ sub parse_ingredients_text($) {
 							# origin? (origine : France)
 
 							# try to remove the origin and store it as property
-							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i) {
 								$between = '';
 								my $origin_string = $2;
 								# d'origine végétale -> not a geographic origin, add en:vegan
@@ -1136,7 +1424,7 @@ sub parse_ingredients_text($) {
 			}
 
 			if ($after =~ /^$percent_regexp($separators|$)/i) {
-				$percent = $2;
+				$percent = $1;
 				$after = $';
 				$debug_ingredients and $log->debug("after started with a percent", { after => $after, percent => $percent }) if $log->is_debug();
 			}
@@ -1233,7 +1521,7 @@ sub parse_ingredients_text($) {
 
 				# Strawberry 10.3%
 				if ($ingredient =~ /\s$percent_regexp$/i) {
-					$percent = $2;
+					$percent = $1;
 					$debug_ingredients and $log->debug("percent found after", { ingredient => $ingredient, percent => $percent, new_ingredient => $`}) if $log->is_debug();
 					$ingredient = $`;
 				}
@@ -1292,6 +1580,13 @@ sub parse_ingredients_text($) {
 							}
 							$ingredient = $` . ' ' . $';
 							$ingredient =~ s/\s+/ /g;
+
+							# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
+							# then we replace the now empty ingredient by the sub ingredients
+							if (($ingredient =~ /^\s*$/) and (defined $between) and ($between ne "")) {
+								$ingredient = $between;
+								$between = '';
+							}
 							$debug_ingredients and $log->debug("found label", { ingredient => $ingredient, labelid => $labelid }) if $log->is_debug();
 						}
 					}
@@ -1367,6 +1662,8 @@ sub parse_ingredients_text($) {
 							$matching = 0;
 							foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$product_lc}}) {
 								my $regexp = $ingredient_processing_regexp_ref->[1];
+								$debug_ingredients and $log->trace("checking processing regexps", { new_ingredient => $new_ingredient, regexp => $regexp }) if $log->is_trace();
+
 								if (
 									# English, French etc. match before or after the ingredient, require a space
 									(
@@ -1574,6 +1871,7 @@ sub parse_ingredients_text($) {
 								'in wisselende verhoudingen',
 								'harde fractie',
 								'o\.a\.',
+								'en',
 							],
 
 							'ru' => [
@@ -1627,20 +1925,32 @@ sub parse_ingredients_text($) {
 				);
 
 				if (defined $percent) {
-					$ingredient{percent} = $percent;
+					$ingredient{percent} = $percent + 0;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
 				}
-				if (defined $labels) {
-					$ingredient{labels} = $labels;
-				}
+
 				if (defined $vegan) {
 					$ingredient{vegan} = $vegan;
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
 				}
+
+				if (defined $labels) {
+					$ingredient{labels} = $labels;
+				
+					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
+					if ($labels =~ /\ben:vegan\b/) {
+						$ingredient{vegan}= "en:yes";
+						$ingredient{vegetarian}= "en:yes";
+					}
+					if ($labels =~ /\ben:vegetarian\b/) {
+						$ingredient{vegetarian}= "en:yes";
+					}
+				}
+
 				if ($processing ne "") {
 					$processing =~ s/^,\s?//;
 					$ingredient{processing} = $processing;
@@ -1723,7 +2033,16 @@ sub flatten_sub_ingredients($) {
 
 =head2 compute_ingredients_tags ( product_ref )
 
-Go through the nested ingredients and compute ingredients_original_tags and ingredients_tags
+Go through the nested ingredients and:
+
+Compute ingredients_original_tags and ingredients_tags.
+
+Compute the total % of "leaf" ingredients (without sub-ingredients) with a specified %, and unspecified %.
+
+- ingredients_with_specified_percent_n : number of "leaf" ingredients with a specified %
+- ingredients_with_specified_percent_sum : % sum of "leaf" ingredients with a specified %
+- ingredients_with_unspecified_percent_n
+- ingredients_with_unspecified_percent_sum	
 
 =cut
 
@@ -1731,16 +2050,35 @@ sub compute_ingredients_tags($) {
 
 	my $product_ref = shift;
 	
+	# Delete ingredients related fields
+	# They will be recreated, unless the ingredients list was deleted
+
+	delete $product_ref->{ingredients_tags};
+	delete $product_ref->{ingredients_original_tags};
+
+	delete $product_ref->{ingredients_n};
+	delete $product_ref->{known_ingredients_n};
+	delete $product_ref->{unknown_ingredients_n};
+	delete $product_ref->{ingredients_n_tags};
+
+	delete $product_ref->{ingredients_with_specified_percent_n};
+	delete $product_ref->{ingredients_with_unspecified_percent_n};
+	delete $product_ref->{ingredients_with_specified_percent_sum};
+	delete $product_ref->{ingredients_with_unspecified_percent_sum};	
+
+	return if not defined $product_ref->{ingredients};
+
 	$product_ref->{ingredients_tags} = [];
+	$product_ref->{ingredients_original_tags} = [];	
+
+	$product_ref->{ingredients_with_specified_percent_n} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_n} = 0;
+	$product_ref->{ingredients_with_specified_percent_sum} = 0;
+	$product_ref->{ingredients_with_unspecified_percent_sum} = 0;	
 	
 	# Traverse the ingredients tree, breadth first
 	
-	my @ingredients = ();
-
-	for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
-		
-		push @ingredients, $product_ref->{ingredients}[$i];
-	}
+	my @ingredients = @{$product_ref->{ingredients}};
 	
 	while (@ingredients) {
 		
@@ -1750,9 +2088,19 @@ sub compute_ingredients_tags($) {
 		
 		if (defined $ingredient_ref->{ingredients}) {
 			
-			for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
-				
-				push @ingredients, $ingredient_ref->{ingredients}[$i];
+			push @ingredients, @{$ingredient_ref->{ingredients}};
+		}
+		else {
+			# Count specified percent only for ingredients that do not have sub ingredients
+			if (defined $ingredient_ref->{percent}) {
+				$product_ref->{ingredients_with_specified_percent_n} += 1;
+				$product_ref->{ingredients_with_specified_percent_sum} += $ingredient_ref->{percent};
+			}
+			else {
+				$product_ref->{ingredients_with_unspecified_percent_n} += 1;
+				if (defined $ingredient_ref->{percent_estimate}) {
+					$product_ref->{ingredients_with_unspecified_percent_sum} += $ingredient_ref->{percent_estimate};
+				}
 			}			
 		}
 	}
@@ -1792,12 +2140,6 @@ sub compute_ingredients_tags($) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
-	else {
-		delete $product_ref->{ingredients_n};
-		delete $product_ref->{known_ingredients_n};
-		delete $product_ref->{unknown_ingredients_n};
-		delete $product_ref->{ingredients_n_tags};
-	}
 }
 
 
@@ -1823,33 +2165,38 @@ sub extract_ingredients_from_text($) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
-	if (not defined $product_ref->{ingredients_text}) {
-		# Run analyze_ingredients() so that we can still get labels overrides
-		# if we don't have ingredients but if we have a label like "Vegan", "Vegatarian" or "Palm oil free".
-		analyze_ingredients($product_ref);
-		return;
-	}
-
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
+	$product_ref->{specific_ingredients} = [];
+
 	parse_ingredients_text($product_ref);
 
-	# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+	# Add specific ingredients from labels
+	add_specific_ingredients_from_labels($product_ref);	
 
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+	if (defined $product_ref->{ingredients}) {
 
-		# The computation yielded seemingly impossible values, delete the values
-		delete_ingredients_percent_values($product_ref->{ingredients});
-		$product_ref->{ingredients_percent_analysis} = -1;
+		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+		add_properties_from_specific_ingredients($product_ref);
+
+		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
+
+		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+			# The computation yielded seemingly impossible values, delete the values
+			delete_ingredients_percent_values($product_ref->{ingredients});
+			$product_ref->{ingredients_percent_analysis} = -1;
+		}
+		else {
+			$product_ref->{ingredients_percent_analysis} = 1;
+		}
+		
+		compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
+
+		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
+
 	}
-	else {
-		$product_ref->{ingredients_percent_analysis} = 1;
-	}
-	
-	compute_ingredients_percent_estimates(100,  $product_ref->{ingredients});
-
-	estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
 	# that expect a flat list of ingredients
@@ -1860,6 +2207,11 @@ sub extract_ingredients_from_text($) {
 	# and compute the resulting value for the complete product
 
 	analyze_ingredients($product_ref);
+
+	# Delete specific ingredients if empty
+	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
+		delete $product_ref->{specific_ingredients};
+	}	
 
 	return;
 }
@@ -2308,43 +2660,40 @@ sub analyze_ingredients($) {
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 
-	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+	# Structure to store the result of the ingredient analysis for each property
+	my $ingredients_analysis_properties_ref = {};
 
-		$product_ref->{ingredients_analysis_tags} = {};
+	# Store the lists of ingredients that resulted in a product being non vegetarian/vegan/palm oil free
+	my $ingredients_analysis_ref = {};
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
 		foreach my $property (@properties) {
 
-			my %values = ( all_ingredients => 0, unknown_ingredients => 0);
+			# Ingredient values for the property
+			my %values = ();
 			
 			# Traverse the ingredients tree, breadth first
 			
-			my @ingredients = ();
-
-			for (my $i = 0; $i < @{$product_ref->{ingredients}}; $i++) {
-				
-				push @ingredients, $product_ref->{ingredients}[$i];
-			}
+			my @ingredients = @{$product_ref->{ingredients}};
 			
 			while (@ingredients) {
 				
+				# Remove and process the first ingredient
 				my $ingredient_ref = shift @ingredients;
+				my $ingredientid = $ingredient_ref->{id};
 								
+				# Add sub-ingredients at the beginning of the ingredients array
 				if (defined $ingredient_ref->{ingredients}) {
 					
-					for (my $i = 0; $i < @{$ingredient_ref->{ingredients}}; $i++) {
-						
-						push @ingredients, $ingredient_ref->{ingredients}[$i];
-					}			
+					unshift @ingredients, @{$ingredient_ref->{ingredients}};	
 				}
-
-				$values{all_ingredients}++;
 
 				# We may already have a value. e.g. for "matières grasses d'origine végétale" or "gélatine (origine végétale)"
 				my $value = $ingredient_ref->{$property};
 
 				if (not defined $value) {
 
-					my $ingredientid = $ingredient_ref->{id};
 					$value = get_inherited_property("ingredients", $ingredientid, $property . ":en");
 
 					if (defined $value) {
@@ -2352,7 +2701,8 @@ sub analyze_ingredients($) {
 					}
 					else {
 						if (not (exists_taxonomy_tag("ingredients", $ingredientid))) {
-							$values{unknown_ingredients}++;
+							$values{unknown_ingredients} or $values{unknown_ingredients} = [];
+							push @{$values{unknown_ingredients}}, $ingredientid;
 						}
 
 						# additives classes in ingredients are functions of a more specific ingredient
@@ -2373,15 +2723,20 @@ sub analyze_ingredients($) {
 
 				not defined $value and $value = "undef";
 
-				defined $values{$value} or $values{$value} = 0;
-				$values{$value}++;
+				defined $values{$value} or $values{$value} = [];
+				push @{$values{$value}}, $ingredientid;
 
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
 			}
 
+			# Compute the resulting property value for the product
+			my $property_value;
+
 			if ($property =~ /^from_/) {
 
 				my $from_what = $';
+				my $from_what_with_dashes = $from_what;
+				$from_what_with_dashes =~ s/_/-/g;
 
 				# For properties like from_palm, one positive ingredient triggers a positive result for the whole product
 				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
@@ -2391,19 +2746,22 @@ sub analyze_ingredients($) {
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
-					$product_ref->{ingredients_analysis}{$property} =  "en:" . $from_what ; # en:palm-oil
+					$property_value =  "en:" . $from_what_with_dashes ; # en:palm-oil
+					$ingredients_analysis_ref->{$property_value} = $values{yes};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+					$property_value = "en:may-contain-" . $from_what_with_dashes ; # en:may-contain-palm-oil
+					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
-				elsif ($values{unknown_ingredients} > 0) {
+				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
+					$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $from_what . "-free"; # en:palm-oil-free
+					$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
 				}
 			}
 			else {
@@ -2415,69 +2773,75 @@ sub analyze_ingredients($) {
 
 				if (defined $values{no}) {
 					# One no ingredient -> no for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:non-" . $property ; # en:non-vegetarian
+					$property_value = "en:non-" . $property ; # en:non-vegetarian
+					$ingredients_analysis_ref->{$property_value} = $values{no};
 				}
 				elsif (defined $values{undef}) {
 					# Some ingredients were not recognized or we do not have a property value for them
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
+					$property_value = "en:" . $property . "-status-unknown"; # en:vegetarian-status-unknown
+					$ingredients_analysis_ref->{$property_value} = $values{undef};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$product_ref->{ingredients_analysis}{$property} = "en:maybe-" . $property ; # en:maybe-vegetarian
+					$property_value = "en:maybe-" . $property ; # en:maybe-vegetarian
+					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
 				else {
 					# all ingredients known and with a value, no no or maybe value -> yes
-					$product_ref->{ingredients_analysis}{$property} = "en:" . $property ; # en:vegetarian
+					$property_value = "en:" . $property ; # en:vegetarian
 				}
 			}
 
-			$product_ref->{ingredients_analysis}{$property} =~ s/_/-/g;
+			$property_value =~ s/_/-/g;
+
+			$ingredients_analysis_properties_ref->{$property} = $property_value;
 		}
 	}
 
 	# Apply labels overrides
 	# also apply labels overrides if we don't have ingredients at all
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{from_palm_oil} = "en:palm-oil-free";
-
+		$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegan")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegan} = "en:vegan";
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:vegetarian";
+		$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegan")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegan} = "en:non-vegan";
+		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:vegetarian";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
-		(defined $product_ref->{ingredients_analysis}) or $product_ref->{ingredients_analysis} = {};
-		$product_ref->{ingredients_analysis}{vegetarian} = "en:non-vegetarian";
-		$product_ref->{ingredients_analysis}{vegan} = "en:non-vegan";
+		$ingredients_analysis_properties_ref->{vegetarian} = "en:non-vegetarian";
+		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	# Create ingredients_analysis_tags array
 
-	if (defined $product_ref->{ingredients_analysis}) {
+	if (scalar keys %$ingredients_analysis_properties_ref) {
 		$product_ref->{ingredients_analysis_tags} = [];
+		$product_ref->{ingredients_analysis} = {};
 
 		foreach my $property (@properties) {
-			if (defined $product_ref->{ingredients_analysis}{$property}) {
-				push @{$product_ref->{ingredients_analysis_tags}}, $product_ref->{ingredients_analysis}{$property};
+			my $property_value = $ingredients_analysis_properties_ref->{$property};
+			if (defined $property_value) {
+				# Store the property value in the ingredients_analysis_tags list
+				push @{$product_ref->{ingredients_analysis_tags}}, $property_value;
+				# Store the list of ingredients that caused a product to be non vegan/vegetarian/palm oil free
+				# (no list when a product is vegan/vegetarian/palm oil free)
+				if (defined $ingredients_analysis_ref->{$property_value}) {
+					$product_ref->{ingredients_analysis}{$property_value} = $ingredients_analysis_ref->{$property_value};
+				}
 			}
 		}
-
-		delete $product_ref->{ingredients_analysis};
 	}
 
-	return;
+	# Uncomment the following line to add an extra field with more data for debugging purposes
+	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
 }
 
 
@@ -2824,11 +3188,15 @@ ja => [
 ],
 
 kk => [
-'Курамы',
+'курамы',
+],
+
+ko => [
+'配料',
 ],
 
 ky => [
-'Курамы',
+'курамы',
 ],
 
 lt => [
@@ -2861,7 +3229,7 @@ pt => [
 ],
 
 ro => [
-'ingrediente',
+'(I|i)ngrediente',
 'compoziţie',
 ],
 
@@ -2882,7 +3250,7 @@ sk => [
 
 sl => [
 'vsebuje',
-'sestavine',
+'(S|s)estavine',
 ],
 
 sq => [
@@ -2904,14 +3272,15 @@ tg => [
 
 th => [
 'ส่วนประกอบ',
+'ส่วนประกอบที่สำคัญ',
 ],
 
 tr => [
-'İçindekiler',
+'(İ|i)çindekiler',
 ],
 
 uz => [
-'Tarkib',
+'tarkib',
 ],
 
 zh => [
@@ -2980,12 +3349,21 @@ nl => [
 'INGREDI(E|Ë)NTEN(\s*)',
 ],
 
+nl => [
+'INGREDIENSER',
+],
+
+
 pl => [
 'SKŁADNIKI(\s*)',
 ],
 
 pt => [
 'INGREDIENTES(\s*)',
+],
+
+ru => [
+'COCTАB',
 ],
 
 si => [
@@ -2997,8 +3375,16 @@ sv => [
 'INNEHÅLL(ER)?',
 ],
 
+uz => [
+'ІHГРЕДІЄНТИ',
+],
+
+uz => [
+'TARKIB',
+],
+
 vi => [
-'THANH PHAN',
+'TH(A|À)NH PH(A|Â)N',
 ],
 
 
@@ -3251,6 +3637,7 @@ nl => [
 'gemiddelde voedingswaarde per 100 g',
 'Na openen beperkt houdbaar',
 'Ongeopend, ten minste houdbaar tot:',
+'o.a.',
 'ten minste',
 'ten minste houdbaar tot',
 'Van nature rijk aan vezels',
@@ -4208,6 +4595,20 @@ sub preparse_ingredients_text($$) {
 	# turn & to and
 	$text =~ s/ \& /$and/g;
 
+	# number + gr / grams -> g 
+	$text =~ s/(\d\s*)(gr|gram|grams)\b/$1g/ig;
+	if ($product_lc eq 'fr') {
+		$text =~ s/(\d\s*)(gramme|grammes)\b/$1g/ig;
+	}
+
+	# Farine de blé 56 g* ; beurre concentré 25 g* (soit 30 g* en beurre reconstitué); sucre 22 g* ; œufs frais 2 g
+	# 56 g -> 56%
+	$text =~ s/(\d| )g(\*)/$1g/ig;
+
+	# transform 0,2% into 0.2%
+	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	$text =~ s/—/-/g;	
+
 	# abbreviations, replace language specific abbreviations first
 	foreach my $abbreviations_lc ($product_lc, "all") {
 		if (defined $abbreviations{$abbreviations_lc}) {
@@ -4864,13 +5265,16 @@ sub extract_ingredients_classes_from_text($) {
 						and (not $spellcheck)) {
 
 						# try to shorten the ingredient to make it less specific, to see if it matches then
+						# in last resort, try with the first (in French, Spanish) or last (in English) word only
 
 						if (($product_ref->{lc} eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
-							# soy lecithin -> lecithin
+							# soy-lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
-						elsif (($product_ref->{lc} eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
-							# lécithine de soja -> lécithine de -> lécithine
+						elsif ((($product_ref->{lc} eq 'es') or ($product_ref->{lc} eq 'fr'))
+							 and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+							# lecitina-de-girasol -> lecitina-de -> lecitina
+							# lecithine-de-soja -> lecithine-de -> lecithine
 							$ingredient_id_copy = $`;
 						}
 						else {
@@ -5503,7 +5907,7 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
 
 =cut
 
@@ -5513,6 +5917,7 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 
 	if (defined $product_ref->{nutriments}) {
 		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
+		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"};
 	}
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
@@ -5520,6 +5925,30 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($) {
 		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = add_fruits($product_ref->{ingredients});
+	}
+
+	# If we have specific ingredients, check if we have a higher fruits / vegetables content
+	if (defined $product_ref->{specific_ingredients}) {
+		my $fruits = 0;
+		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $ingredient_id = $ingredient_ref->{id};
+			if (defined $ingredient_ref->{percent}) {
+				my $nutriscore_fruits_vegetables_nuts = get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
+
+				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
+					$fruits += $ingredient_ref->{percent};
+				}
+			}
+		}
+
+		if (($fruits > 0) and ((not defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"})
+								or ($fruits > $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}))) {
+			$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = $fruits;
+		}
+	}
+
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}) {
+		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"} = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
 	}
 
 	return;

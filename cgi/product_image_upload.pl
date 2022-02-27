@@ -34,6 +34,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
