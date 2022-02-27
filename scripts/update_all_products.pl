@@ -73,12 +73,15 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
+use ProductOpener::MainCountries qw(:all);
+use ProductOpener::PackagerCodes qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
 use Log::Any::Adapter 'TAP';
 
@@ -127,6 +130,9 @@ my $mongodb_to_mongodb = '';
 my $compute_ecoscore = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
+my $fix_nutrition_data = '';
+my $compute_main_countries = '';
+my $prefix_packaging_tags_with_language = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -174,6 +180,9 @@ GetOptions ("key=s"   => \$key,      # string
 			"delete-old-fields" => \$delete_old_fields,
 			"mongodb-to-mongodb" => \$mongodb_to_mongodb,
 			"fix-nutrition-data-per" => \$fix_nutrition_data_per,
+			"fix-nutrition-data" => \$fix_nutrition_data,
+			"compute-main-countries" => \$compute_main_countries,
+			"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
 			)
   or die("Error in command line arguments:\n\n$usage");
 
@@ -214,13 +223,14 @@ if (
 	and (not $compute_data_sources) and (not $compute_history)
 	and (not $run_ocr) and (not $autorotate)
 	and (not $fix_missing_lc) and (not $fix_serving_size_mg_to_ml) and (not $fix_zulu_lang) and (not $fix_rev_not_incremented) and (not $fix_yuka_salt)
-	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)
+	and (not $fix_spanish_ingredientes) and (not $fix_nutrition_data_per)  and (not $fix_nutrition_data)
 	and (not $compute_sort_key)
 	and (not $remove_team) and (not $remove_label) and (not $remove_nutrient)
-	and (not $mark_as_obsolete_since_date)
+	and (not $mark_as_obsolete_since_date) and (not $compute_main_countries)
 	and (not $assign_categories_properties) and (not $restore_values_deleted_by_user) and not ($delete_debug_tags)
 	and (not $compute_codes) and (not $compute_carbon) and (not $compute_ecoscore) and (not $compute_forest_footprint) and (not $process_packagings)
 	and (not $check_quality) and (scalar @fields_to_update == 0) and (not $count) and (not $just_print_codes)
+	and (not $prefix_packaging_tags_with_language)
 ) {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -235,6 +245,10 @@ if ($compute_ecoscore) {
 if ($compute_forest_footprint) {
 
 	load_forest_footprint_data();
+}
+
+if ($compute_main_countries) {
+	load_scans_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -345,6 +359,22 @@ my $fix_rev_not_incremented_fixed = 0;
 my %deleted_fields = ();
 
 my $nutrition_data_per_n = 0;
+my $nutrition_data_n = 0;
+
+# Stats for --prefix-packaging-tags-with-language
+
+my $prefix_packaging_already_prefixed = 0;
+my $prefix_packaging_language_found = 0;
+my $prefix_packaging_language_not_found = 0;
+
+my %prefix_packaging_tags = ();
+my %prefix_packaging_tags_language = ();
+my %prefix_packaging_tags_properties = ();
+my %prefix_packaging_tags_product_languages = ();
+
+if ($prefix_packaging_tags_with_language) {
+	init_packaging_taxonomies_regexps();
+}
 
 while (my $product_ref = $cursor->next) {
 
@@ -388,6 +418,59 @@ while (my $product_ref = $cursor->next) {
 			)) {
 				
 				defined $product_ref->{$field} and delete $product_ref->{$field};
+			}
+		}
+
+		# Prefix untaxonomized packaging tags values with the most likely language
+		# Skip products that have already been taxonomized (products which have a packaging_hierarchy field)
+		if ($prefix_packaging_tags_with_language and (defined $product_ref->{packaging}) and ($product_ref->{packaging} ne '')
+			and (not defined $product_ref->{packaging_hierarchy})) {
+			my $current_packaging = $product_ref->{packaging};
+			my @new_tags = ();
+			foreach my $tag (split(/,/, $current_packaging)) {
+				$tag =~ s/\s+$//g;
+				$tag =~ s/^\s+//g;
+				my $new_tag = $tag;
+				# skip tags that are already prefixed with a a language
+				if ($tag =~ /^[a-z]{2}:/) {
+					$prefix_packaging_already_prefixed++;
+				}
+				else {
+					# first try the language of the product, then languages that are the most represented on OFF
+					my @potential_languages = ($product_ref->{lc}, "fr", "en", "de", "es", "it", "nl", "pt", "pl", "se", "ar", "cz", "ro", "bg", "nb", "da", "ru", "hu", "ca" );
+					my $l = guess_language_of_packaging_text($tag, \@potential_languages);
+					my $properties = "unrecognized_properties";
+
+					if (defined $l) {
+						$new_tag = $l . ':' . $tag;
+						$prefix_packaging_language_found++;
+						my $packaging_ref = parse_packaging_from_text_phrase($tag, $l);
+						$properties = "shape: " . ($packaging_ref->{shape} // "unknown") . " - material: " . ($packaging_ref->{material} // "unknown") . " - recycling: " . ($packaging_ref->{recycling} // "unknown")
+					}
+					else {
+						$prefix_packaging_language_not_found++;
+					}
+
+					# statistics: keep track of the language found and of the properties extracted
+					deep_set(\%prefix_packaging_tags_properties, $tag, $properties);
+					deep_set(\%prefix_packaging_tags_language, $tag, $l // "unrecognized_language");
+
+					# statistics: increment a counter for the tag
+					my $count = deep_get(\%prefix_packaging_tags, $tag) // 0;
+					deep_set(\%prefix_packaging_tags, $tag, $count + 1);
+
+					# statistics: increment a counter for each product language for the tag
+					my $language_count = deep_get(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}) // 0;
+					deep_set(\%prefix_packaging_tags_product_languages, $tag, $product_ref->{lc}, $language_count + 1);
+				}
+				push @new_tags, $new_tag;
+			}
+			my $new_packaging = join(',', @new_tags);
+			if ($new_packaging ne $current_packaging) {
+				$product_ref->{packaging} = $new_packaging;
+				$product_ref->{packaging_old_before_taxonomization} = $current_packaging;
+				compute_field_tags($product_ref, $product_ref->{lc}, "packaging");
+				$product_values_changed = 1;
 			}
 		}
 
@@ -487,6 +570,20 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		# Fix nutrition data checkbox: if we have nutrition data, check the checkbox
+		if ($fix_nutrition_data) {
+			if (defined $product_ref->{nutriments}) {
+				foreach my $type ("", "_prepared") {
+					if ((defined $product_ref->{"nutrition_data" . $type}) and ($product_ref->{"nutrition_data" . $type} eq '')
+						and (defined $product_ref->{nutriments}{"energy" . $type . "_100g"})) {
+						$product_ref->{"nutrition_data" . $type} = "on";
+						$product_values_changed = 1;
+						$nutrition_data_n++;
+					} 
+				}
+			}
+		}
+
 		if ($fix_rev_not_incremented) { # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
 
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
@@ -501,7 +598,7 @@ while (my $product_ref = $cursor->next) {
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
 					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
-					compute_data_sources($product_ref);
+					compute_data_sources($product_ref, $changes_ref);
 					store("$data_root/products/$path/changes.sto", $changes_ref);
 				}
 				else {
@@ -731,8 +828,6 @@ while (my $product_ref = $cursor->next) {
 						and ((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
 						) {
 						print STDERR "rotating image $imgid by " .  (- $product_ref->{images}{$imgid}{orientation}) . "\n";
-						my $User_id_copy = $User_id;
-						$User_id = "autorotate-bot";
 
 						# Save product so that OCR results now:
 						# autorotate may call image_process_crop which will read the product file on disk and
@@ -742,9 +837,8 @@ while (my $product_ref = $cursor->next) {
 						eval {
 
 							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop($code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
+							$product_ref = process_image_crop("autorotate-bot", $code, $imgid, $product_ref->{images}{$imgid}{imgid}, - $product_ref->{images}{$imgid}{orientation}, undef, undef, -1, -1, -1, -1, "full");
 						};
-						$User_id = $User_id_copy;
 					}
 				}
 			}
@@ -770,14 +864,14 @@ while (my $product_ref = $cursor->next) {
 					) {
 					# we do not know the language of the current value of $product_ref->{$field}
 					# so regenerate it in the main language of the product
-					my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-					# Remove tags
-					$value =~ s/<(([^>]|\n)*)>//g;
-
-					$product_ref->{$field} = $value;
+					
+					$product_ref->{$field} = list_taxonomy_tags_in_language($lc, $field, $product_ref->{$field . "_hierarchy"});
 				}
 
 				compute_field_tags($product_ref, $lc, $field);
+				if ($product_ref->{$field} ne $product_ref->{$field . "_old"}) {
+					$product_values_changed = 1;
+				}
 			}
 			else {
 			}
@@ -809,7 +903,11 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_data_sources) {
-			compute_data_sources($product_ref);
+			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			if (not defined $changes_ref) {
+				$changes_ref = [];
+			}
+			compute_data_sources($product_ref, $changes_ref);
 		}
 
 		if ($compute_nova) {
@@ -981,6 +1079,10 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_forest_footprint) {
 			compute_forest_footprint($product_ref);
+		}
+		
+		if ($compute_main_countries) {
+			compute_main_countries($product_ref);
 		}	
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
@@ -990,7 +1092,7 @@ while (my $product_ref = $cursor->next) {
 			}
 			my $blame_ref =  {};
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
-			compute_data_sources($product_ref);
+			compute_data_sources($product_ref, $changes_ref);
 			store("$data_root/products/$path/changes.sto", $changes_ref);
 		}
 
@@ -1083,7 +1185,7 @@ while (my $product_ref = $cursor->next) {
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
-				store_product($product_ref, "update_all_products.pl - " . $comment );
+				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment );
 				$m++;
 			}
 
@@ -1115,6 +1217,33 @@ while (my $product_ref = $cursor->next) {
 
 }
 
+if ($prefix_packaging_tags_with_language) {
+
+	print "Results of --prefixy-packaging-tags-with-language:\n\n";
+
+	# List all packaging tags
+	foreach my $tag (sort {$prefix_packaging_tags{$a} <=> $prefix_packaging_tags{$b}} keys %prefix_packaging_tags) {
+
+		next if ($prefix_packaging_tags_language{$tag} ne "unrecognized_language");
+
+		print $tag . "\t" . $prefix_packaging_tags{$tag} . "\t" . $prefix_packaging_tags_language{$tag} . "\t" . $prefix_packaging_tags_properties{$tag} . "\t";
+
+		# List the main languages of the products associated with the tag
+		foreach my $l (sort {$prefix_packaging_tags_product_languages{$tag}{$b} <=> $prefix_packaging_tags_product_languages{$tag}{$a}} keys %{$prefix_packaging_tags_product_languages{$tag}}) {
+			print $l . ' ' . $prefix_packaging_tags_product_languages{$tag}{$l} . ', ';
+		}
+
+		print "\n";
+	}
+
+	print "\n";
+
+	print "stats for --prefix-packaging-tags-with-language\n\n";
+	print "prefix_packaging_already_prefixed: $prefix_packaging_already_prefixed" . "\n";
+	print "prefix_packaging_language_found: $prefix_packaging_language_found" . "\n";
+	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";	
+}
+
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
 
 if ($fix_rev_not_incremented_fixed) {
@@ -1123,6 +1252,10 @@ if ($fix_rev_not_incremented_fixed) {
 
 if ($fix_nutrition_data_per) {
 	print $nutrition_data_per_n . " nutrition_data_per fixed\n";
+}
+
+if ($fix_nutrition_data) {
+	print $nutrition_data_n . " nutrition_data fixed\n";
 }
 
 if ($restore_values_deleted_by_user) {

@@ -82,7 +82,7 @@ my $removed = 0;
 				print STDERR "removing product code $code\n";
 				$removed++;
 				if ($lc ne 'xx') {
-					store_product($product_ref, $comment);
+					store_product($User_id, $product_ref, $comment);
 				}
 			}
 		}

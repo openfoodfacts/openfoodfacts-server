@@ -1,11 +1,13 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
 # date tests

@@ -5,29 +5,26 @@
          "percent_estimate" : 62.125,
          "percent_max" : 68,
          "percent_min" : 56.25,
-         "rank" : 1,
          "text" : "Tomate",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:bell-pepper",
-         "percent" : "12",
-         "percent_estimate" : "12",
-         "percent_max" : "12",
-         "percent_min" : "12",
-         "rank" : 2,
+         "percent" : 12,
+         "percent_estimate" : 12,
+         "percent_max" : 12,
+         "percent_min" : 12,
          "text" : "pimiento",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:tuna",
-         "percent" : "10",
-         "percent_estimate" : "10",
-         "percent_max" : "10",
-         "percent_min" : "10",
-         "rank" : 3,
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
          "text" : "atún",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -35,33 +32,30 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
-         "percent" : "4",
-         "percent_estimate" : "4",
-         "percent_max" : "4",
-         "percent_min" : "4",
-         "rank" : 4,
+         "percent" : 4,
+         "percent_estimate" : 4,
+         "percent_max" : 4,
+         "percent_min" : 4,
          "text" : "aceite de oliva virgen extra",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:egg",
-         "percent" : "3",
-         "percent_estimate" : "3",
-         "percent_max" : "3",
-         "percent_min" : "3",
-         "rank" : 5,
+         "percent" : 3,
+         "percent_estimate" : 3,
+         "percent_max" : 3,
+         "percent_min" : 3,
          "text" : "huevo",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:onion",
-         "percent" : "3",
-         "percent_estimate" : "3",
-         "percent_max" : "3",
-         "percent_min" : "3",
-         "rank" : 6,
+         "percent" : 3,
+         "percent_estimate" : 3,
+         "percent_max" : 3,
+         "percent_min" : 3,
          "text" : "cebolla",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -69,9 +63,8 @@
       {
          "id" : "en:sugar",
          "percent_estimate" : 1.5,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
-         "rank" : 7,
          "text" : "azúcar",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -79,9 +72,8 @@
       {
          "id" : "en:corn-starch",
          "percent_estimate" : 1.5,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
-         "rank" : 8,
          "text" : "almidón de maíz",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -89,15 +81,13 @@
       {
          "id" : "en:salt",
          "percent_estimate" : 1.4375,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
-         "rank" : 9,
          "text" : "sal",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "has_sub_ingredients" : "yes",
          "id" : "en:acid",
          "ingredients" : [
             {
@@ -105,25 +95,26 @@
                "percent_estimate" : 1.4375,
                "percent_max" : 2.75,
                "percent_min" : 0,
-               "text" : "ácido cítrico"
+               "text" : "ácido cítrico",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent_estimate" : 1.4375,
          "percent_max" : 2.75,
          "percent_min" : 0,
-         "rank" : 10,
          "text" : "acidulante"
-      },
-      {
-         "id" : "en:e330",
-         "percent_estimate" : 1.4375,
-         "percent_max" : 2.75,
-         "percent_min" : 0,
-         "text" : "ácido cítrico",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:tuna",
+         "en:egg"
+      ],
+      "en:non-vegetarian" : [
+         "en:tuna"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -145,6 +136,8 @@
       "en:onion",
       "en:root-vegetable",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:corn-starch",
       "en:starch",
       "en:salt",
@@ -186,6 +179,8 @@
       "en:onion",
       "en:root-vegetable",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:corn-starch",
       "en:starch",
       "en:salt",
@@ -193,10 +188,15 @@
       "en:e330"
    ],
    "ingredients_text" : "Tomate, pimiento (12%), atún (10%), aceite de oliva virgen extra (4%), huevo (3%), cebolla (3%), azúcar, almidón de maíz, sal y acidulante: ácido cítrico.",
-   "known_ingredients_n" : 20,
+   "ingredients_with_specified_percent_n" : 5,
+   "ingredients_with_specified_percent_sum" : 32,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 68,
+   "known_ingredients_n" : 22,
    "lc" : "es",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75.25
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75.25,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75.25
    },
    "unknown_ingredients_n" : 0
 }

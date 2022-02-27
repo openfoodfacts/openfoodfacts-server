@@ -1,0 +1,19 @@
+<!-- start templates/[% template.name %] -->
+
+<ul>
+    [% FOREACH change IN changes %]
+            [% FOREACH cumulate_change IN change.cumulate_changes_display %]
+                <details class='recent'>
+                    <summary> [% lang('collapsed_changes') %]
+                    </summary>
+                    [% cumulate_change.display_change %]
+                </details>
+            [% END %]
+
+        [% change.display_change %]
+    [% END %]
+</ul>
+<hr>
+[% display_pagination %]
+
+<!-- end templates/[% template.name %] -->

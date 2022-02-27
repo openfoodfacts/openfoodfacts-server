@@ -32,3 +32,9 @@ To display the status of the locally downloaded files as compared to the remote:
 ````shell script
 python packager_codes.py status packager_codes_data
 ````
+
+To extract codes
+````
+find . -name "*.pdf"
+python ./pdf_extraction.py    
+````

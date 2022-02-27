@@ -1,8 +1,7 @@
 #!/usr/bin/perl -w
 
-use utf8;
-
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Test::Number::Delta;
@@ -18,9 +17,11 @@ init_fields_columns_names_for_lang("es");
 
 my @tests = (
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
-["fr", "nom-produit", { field=>"product_name_fr"}],
+["fr", "nom-produit", { field=>"product_name", lc=>"fr"}],
+["fr", "Nom du produit", {field => 'product_name', lc => 'fr'}],
 ["fr", "marque", { field=>"brands"}],
-["fr", "liste-ingredients", { field=>"ingredients_text_fr"}],
+["fr", "Liste des ingrédients", {field => 'ingredients_text', lc => 'fr'}],
+["fr", "liste-ingredients", { field=>"ingredients_text", lc =>"fr"}],
 ["fr", "bio", { field=>"labels_specific", tag=>"Bio"}],
 
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
@@ -33,6 +34,10 @@ my @tests = (
 ["fr", "glucides-prepare-par-portion", { field=>"carbohydrates_prepared_serving_value_unit"}],
 ["fr", "fer-mg-par-portion", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
 ["fr", "Fer (portion) mg", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
+
+# Did not work following change to the nutrients taxonomy
+["fr", "Matières grasses / Lipides pour 100 g / 100 ml", {}],
+
 ["en", "energy-kj_prepared", { field=>"energy-kj_prepared_100g_value_unit", value_unit=>'value_in_kj'}],
 ["en", "energy-kcal_prepared", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value_in_kcal'}],
 ["en", "energy-kcal_prepared_value", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value'}],
@@ -56,47 +61,53 @@ my @tests = (
 ["es", "Valor Energético KJ por porción", { field=>"energy-kj_serving_value_unit", value_unit=>'value_in_kj'}],
 
 ["en", "vitamin c (µg)", { field=>"vitamin-c_100g_value_unit", value_unit=>"value_in_mcg"}],
-["en", "folates_ug_100g", { 'field' => 'folates_100g_value_unit', 'value_unit' => 'value_in_mcg' }],
-["en", "vitamin-a_iu_100g", { 'field' => 'vitamin-a_100g_value_unit', 'value_unit' => 'value_in_iu' }],
-["en", "soluble-fiber_g_100g", { 'field' => 'soluble-fiber_100g_value_unit', 'value_unit' => 'value_in_g' }],
+["en", "folates_ug_100g", { field => 'folates_100g_value_unit', value_unit => 'value_in_mcg' }],
+["en", "vitamin-a_iu_100g", { field => 'vitamin-a_100g_value_unit', value_unit => 'value_in_iu' }],
+["en", "soluble-fiber_g_100g", { field => 'soluble-fiber_100g_value_unit', value_unit => 'value_in_g' }],
 
-# English fields in another language
-["fr", "name", {'field' => 'product_name_fr'}],
-["fr", "product name", {'field' => 'product_name_fr'}],
+# English field names, in another language
+["fr", "name", {field => 'product_name', lc => 'fr'}],
+["fr", "product name", {field => 'product_name', lc => 'fr'}],
+["fr", "product name (French)", {field => 'product_name', lc => 'fr'}],
+["fr", "product name (Français)", {field => 'product_name', lc => 'fr'}],
+["fr", "product name - fr", {field => 'product_name', lc => 'fr'}],
+["fr", "nom du produit - fr", {field => 'product_name', lc => 'fr'}],
+["fr", "nom du produit - nl", {field => 'product_name', lc => 'nl'}],
+["en", "product_name_it", {field => 'product_name', lc => 'it'}],
 
 # nutrient in unit
-["en", "energy in kJ", { 'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj'}],
-["en", "carbohydrates in mg", { 'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_mg' }],
-["fr", "énergie en kJ", {  'field' => 'energy-kj_100g_value_unit', 'value_unit' => 'value_in_kj' }],
+["en", "energy in kJ", { field => 'energy-kj_100g_value_unit', value_unit => 'value_in_kj'}],
+["en", "carbohydrates in mg", { field => 'carbohydrates_100g_value_unit', value_unit => 'value_in_mg' }],
+["fr", "énergie en kJ", {  field => 'energy-kj_100g_value_unit', value_unit => 'value_in_kj' }],
 
-["fr", "% Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit', 'value_unit' => 'value_in_percent'}],
-["fr", "Fruits et Légumes", {'field' => 'fruits-vegetables-nuts_100g_value_unit'}],
-["fr", "Glucides (%)", {'field' => 'carbohydrates_100g_value_unit', 'value_unit' => 'value_in_percent'}],
-["fr", "Fibres (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
-["fr", "Fibres 100g", { 'field' => 'fiber_100g_value_unit'}],
-["fr", "Fibres (en g) / 100g", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
-["fr", "Fibres / 100g (en g)", {'field' => 'fiber_100g_value_unit', 'value_unit' => 'value_in_g'}],
+["fr", "% Fruits et Légumes", {field => 'fruits-vegetables-nuts_100g_value_unit', value_unit => 'value_in_percent'}],
+["fr", "Fruits et Légumes", {field => 'fruits-vegetables-nuts_100g_value_unit'}],
+["fr", "Glucides (%)", {field => 'carbohydrates_100g_value_unit', value_unit => 'value_in_percent'}],
+["fr", "Fibres (en g)", {field => 'fiber_100g_value_unit', value_unit => 'value_in_g'}],
+["fr", "Fibres 100g", { field => 'fiber_100g_value_unit'}],
+["fr", "Fibres (en g) / 100g", {field => 'fiber_100g_value_unit', value_unit => 'value_in_g'}],
+["fr", "Fibres / 100g (en g)", {field => 'fiber_100g_value_unit', value_unit => 'value_in_g'}],
 
-["es", "azucar", {'field' => 'sugars_100g_value_unit'}],
-["es", "hidratos de carbono", {'field' => 'carbohydrates_100g_value_unit'}],
-["es", "grasas saturadas (g)", {'field' => 'saturated-fat_100g_value_unit', 'value_unit' => 'value_in_g'}],
-["es", "fibra alimenticia", {'field' => 'fiber_100g_value_unit'}],
-["en", "energy per 100g or 100ml", { 'field' => 'energy_100g_value_unit'}],
-["fr", "énergie (100g / 100ml)", { 'field' => 'energy_100g_value_unit'}],
+["es", "azucar", {field => 'sugars_100g_value_unit'}],
+["es", "hidratos de carbono", {field => 'carbohydrates_100g_value_unit'}],
+["es", "grasas saturadas (g)", {field => 'saturated-fat_100g_value_unit', value_unit => 'value_in_g'}],
+["es", "fibra alimenticia", {field => 'fiber_100g_value_unit'}],
+["en", "energy per 100g or 100ml", { field => 'energy_100g_value_unit'}],
+["fr", "énergie (100g / 100ml)", { field => 'energy_100g_value_unit'}],
 
-["fr", "Fibres (g) pour 100 g / 100 ml", {'field' => 'fiber_100g_value_unit','value_unit' => 'value_in_g'}],
+["fr", "Fibres (g) pour 100 g / 100 ml", {field => 'fiber_100g_value_unit',value_unit => 'value_in_g'}],
 
-["es", "Energía", {'field' => 'energy_100g_value_unit'}],
-["es", "Energía (kJ) ", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
-["es", "Energía / 100 g", {'field' => 'energy_100g_value_unit'}],
-["es", "Energía por 100g", {'field' => 'energy_100g_value_unit'}],
-["es", "Energía por 100 g", {'field' => 'energy_100g_value_unit'}],
-["es", "Energía (kJ) por 100 g", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
+["es", "Energía", {field => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) ", {field => 'energy-kj_100g_value_unit',value_unit => 'value_in_kj'}],
+["es", "Energía / 100 g", {field => 'energy_100g_value_unit'}],
+["es", "Energía por 100g", {field => 'energy_100g_value_unit'}],
+["es", "Energía por 100 g", {field => 'energy_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g", {field => 'energy-kj_100g_value_unit',value_unit => 'value_in_kj'}],
 
-["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
-["es", "Azúcares por 100 g / 100 ml", {'field' => 'sugars_100g_value_unit'}],
-["es", "Energía (kJ) por 100 g / 100 ml", {'field' => 'energy-kj_100g_value_unit','value_unit' => 'value_in_kj'}],
-["es", "Grasas saturadas preparado por 100 g / 100 ml", {'field' => 'saturated-fat_prepared_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g / 100 ml", {field => 'energy-kj_100g_value_unit',value_unit => 'value_in_kj'}],
+["es", "Azúcares por 100 g / 100 ml", {field => 'sugars_100g_value_unit'}],
+["es", "Energía (kJ) por 100 g / 100 ml", {field => 'energy-kj_100g_value_unit',value_unit => 'value_in_kj'}],
+["es", "Grasas saturadas preparado por 100 g / 100 ml", {field => 'saturated-fat_prepared_100g_value_unit'}],
 
 );
 
