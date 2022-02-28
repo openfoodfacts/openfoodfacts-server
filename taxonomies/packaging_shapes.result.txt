@@ -26,7 +26,7 @@ el:Σακούλα
 es:bolsa, bolsas
 fr:Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons
 hu:Zacskó, zacskók, tasak, tasakos
-it:Sacco
+it:Sacco, sacchetto, sacchettino
 nl:Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt:Saco, sacos, saquinho, saquinhos, saqueta, saquetas
 
@@ -57,6 +57,7 @@ en:Bottle, bottles
 da:Flaske, flasker
 de:Flasche, Flaschen
 el:Μπουκάλι
+es:botella, botellas
 fr:Bouteille, bouteilles
 hu:Palack, palackok
 it:Bottiglia
@@ -96,7 +97,7 @@ el:Κουτί
 es:caja, cajas
 fr:Boîte, boîtes, boitier, boitiers
 hu:Doboz, dobozok
-it:Scatola, scatole
+it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pak, Pakje, Pakken, Pakjes
 pt:Caixa, caixas
 
@@ -193,6 +194,7 @@ en:Coffee pad
 nl:Koffiepad
 
 en:container, carton
+es:recipiente
 fr:récipient
 
 en:Cosmetic stick
@@ -243,7 +245,9 @@ hu:kanál, kanalak
 pt:Colher, colheres
 
 en:envelope
+es:sobre
 fr:enveloppe
+it:busta
 nl:wikkel, vensterenvelop, sleeve
 
 en:Fastener, clip
@@ -280,14 +284,17 @@ fr:dose invididuelle, doses individuelles, dosette, dosettes
 en:Jar, jars
 de:Krug
 el:Βάζο
+es:Tarro
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
-nl:Pot, Potten
+nl:Pot, Potten, Bokaal, Bokaalen
 pt:Jarro, jarros, jarra, jarras
+ro:Borcan
 
 en:Jug, jugs
 fr:Bidon, bidons
+pt:garrafão
 
 en:label, labels
 de:Etikett, Etiketten
@@ -323,10 +330,12 @@ fr:Suremballage, sur-emballage, suremballages, sur-emballages
 hu:gyűjtőcsomag, gyűjtőcsomagolás, overpack
 pt:Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
-en:pack, packet, packs, packets
+en:pack, packet, packs, packets, package
 de:Packung
 es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
+it:pacchetto
+pt:pacote
 
 en:packaging
 fr:emballage
@@ -339,11 +348,11 @@ pt:Prato, pratos
 
 en:pot, cup, pots, cups
 de:Kanne, Becher
-es:Bote, botes
-fr:Pot, pots, coupelle, coupelles, verrine, verrines
+es:Bote, botes, vaso, vasos
+fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
-pt:Pote, potes, boião, boiões
+pt:Pote, potes, boião, boiões, copo
 
 < en:Pot
 en:individual pot, individual cup, individual pots, individual cups
@@ -391,6 +400,9 @@ fr:briquette, briquettes
 en:spout, pouring spout, pour spout
 fr:verseur, bec verseur
 
+en:squeeze bottle
+fr:flacon souple, flacon pressable, flacon à presser, squeezer
+
 en:Stick, sticks
 fr:Batonnet, bâtonnets
 hu:rúd, rudak
@@ -412,6 +424,7 @@ en:Tea bag
 nl:Theezakje
 
 en:Terrine pot, terrine pots
+es:Tarrina, tarrinas
 fr:Terrine, terrines
 
 en:Tie, knot
@@ -422,6 +435,7 @@ en:Tray, trays, tray with indents, shell, shells
 de:Tablettverpackung, Tablett, Schale
 fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs, bac, bacs
 hu:Tálca, tálcák
+it:Vaschetta
 nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
@@ -456,7 +470,9 @@ en:Wire cage and cap
 fr:Muselet, Muselet et plaque
 
 en:wrapper, wrapping
+es:envoltorio
 fr:enveloppage
+pt:invólucro
 
 nl:Inlay
 

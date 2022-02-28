@@ -11,7 +11,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:crushed-tomato",
+         "id" : "en:tomato-puree",
          "labels" : "en:organic",
          "percent" : 26,
          "percent_estimate" : 26,
@@ -111,10 +111,9 @@
       "en:flour",
       "en:wheat",
       "en:cereal-flour",
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:vegetable",
       "en:tomato",
-      "en:chopped-tomatoes",
       "en:water",
       "en:mozzarella",
       "en:dairy",
@@ -126,7 +125,8 @@
       "en:yeast",
       "en:salt",
       "en:herb",
-      "en:spice"
+      "en:spice",
+	  "en:condiment"
    ],
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
@@ -135,7 +135,7 @@
    ],
    "ingredients_original_tags" : [
       "en:wheat-flour",
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:water",
       "en:mozzarella",
       "en:sunflower-oil",
@@ -151,10 +151,9 @@
       "en:flour",
       "en:wheat",
       "en:cereal-flour",
-      "en:crushed-tomato",
+      "en:tomato-puree",
       "en:vegetable",
       "en:tomato",
-      "en:chopped-tomatoes",
       "en:water",
       "en:mozzarella",
       "en:dairy",
@@ -166,7 +165,8 @@
       "en:yeast",
       "en:salt",
       "en:herb",
-      "en:spice"
+      "en:spice",
+	  "en:condiment"
    ],
    "ingredients_text" : "Farine de blé*, purée de tomates* 26%, eau, mozzarella râpée* 17%, huile de tournesol*, levure, sel, plantes aromatiques*, épices*. Traces de poissons et fruits à coque. * Ingrédients issus de l'agriculture biologique.",
    "ingredients_with_specified_percent_n" : 2,
