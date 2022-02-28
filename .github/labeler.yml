@@ -7,6 +7,7 @@ nginx:
 mongodb:
 - conf/mongodb/create_indexes.js
 - scripts/refresh_products_tags.js
+- .github/workflows/mongo-deploy.yml
 
 taxonomies:
 - taxonomies/**/*
@@ -126,6 +127,9 @@ categories:
 
 additives:
 - taxonomies/additives.txt
+
+origins:
+- taxonomies/origins.txt
 
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
