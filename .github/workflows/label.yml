@@ -17,7 +17,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/labeler@v3.0.2
+    - uses: actions/labeler@v3.1.0
       if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
