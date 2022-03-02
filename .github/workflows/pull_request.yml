@@ -9,7 +9,7 @@ jobs:
     name: Gulp
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v3
@@ -22,7 +22,7 @@ jobs:
     name: NPM lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v3
@@ -35,7 +35,7 @@ jobs:
     name: Perl unit tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 50
     
@@ -176,7 +176,7 @@ jobs:
     name: Run developer workflow
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
     # - uses: satackey/action-docker-layer-caching@v0.0.11

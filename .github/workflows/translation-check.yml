@@ -6,7 +6,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Validate .po files
         uses: Tar-Minyatur/gettext-validation@master
         with:
