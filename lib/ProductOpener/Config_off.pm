@@ -718,7 +718,12 @@ $options{off_export_fields_groups} = [
 			"nutriscore_score",
 			"ecoscore_grade",
 			"ecoscore_score",
-			"ecoscore_data.agribalyse.code"
+			"ecoscore_data.agribalyse.code",
+			"ecoscore_data.adjustments.origins_of_ingredients.value",
+			"ecoscore_data.adjustments.packaging.value",
+			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"ecoscore_data.adjustments.production_system.value",
+			"ecoscore_data.adjustments.threatened_species.value",
 		]
 	],
 ];

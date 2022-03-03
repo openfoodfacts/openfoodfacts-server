@@ -5516,6 +5516,7 @@ sub search_and_export_products($$$) {
 	}
 
 	my $args_ref = {
+		cc => $cc,	# used to localize Eco-Score fields
 		format => $format,
 		filehandle => \*STDOUT,
 		filename => "openfoodfacts_export." . $format,

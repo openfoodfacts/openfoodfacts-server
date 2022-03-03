@@ -101,6 +101,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Ecoscore qw/localize_ecoscore/;
 
 use Text::CSV;
 use Excel::Writer::XLSX;
@@ -183,6 +184,7 @@ sub export_csv($) {
 	my $extra_fields_ref = $args_ref->{extra_fields};
 	my $export_computed_fields = $args_ref->{export_computed_fields};	# Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields = $args_ref->{export_canonicalized_tags_fields};	# e.g. include "categories_tags" and not only "categories"
+	my $export_cc = $args_ref->{cc} || "world";	# used to localize Eco-Score fields
 
 	$log->debug("export_csv - start", { args_ref=>$args_ref }) if $log->is_debug();
 
@@ -351,11 +353,20 @@ sub export_csv($) {
 						}
 						# Allow returning fields that are not at the root of the product structure
 						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+
+						# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
+						# which is only present if the Eco-Score fields have been localized (done only once after)
+						elsif ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+							if (deep_exists($product_ref, split(/\./, "ecoscore_data.adjustments.origins_of_ingredients.values"))) {
+								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
+							}
+						}
 						elsif ($field =~ /\./) {
 							if (deep_exists($product_ref, split(/\./, $field))) {
 								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
 							}
 						}
+
 						elsif (defined $product_ref->{$field}) {
 							$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
 						}
@@ -466,6 +477,9 @@ sub export_csv($) {
 		
 		my $scans_ref;
 
+		# If an ecoscore_* field is requested, we will localize all the Eco-Score fields once
+		my $ecoscore_localized = 0;
+
 		foreach my $field (@sorted_populated_fields) {
 
 			my $nutriment_field = 0;
@@ -474,6 +488,12 @@ sub export_csv($) {
 
 			# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
 			$field =~ s/^off://;
+
+			# Localize the Eco-Score fields that depend on the country of the request
+			if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
+				localize_ecoscore($export_cc, $product_ref);
+				$ecoscore_localized = 1;
+			}
 			
 			# Scans must be loaded separately
 			if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
