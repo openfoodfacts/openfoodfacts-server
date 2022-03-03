@@ -198,9 +198,11 @@ my $separator = "\t";
 my $exported_csv_file = "/tmp/export.csv";
 open (my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
-my $export_args_ref = {filehandle=>$exported_csv, separator=>$separator, query=>$query_ref };
+my $export_args_ref = {filehandle=>$exported_csv, separator=>$separator, query=>$query_ref, cc => "fr" };
 
 export_csv($export_args_ref);
+
+close($exported_csv);
 
 compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export", $update_expected_results);
 
@@ -214,6 +216,8 @@ $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
 
 export_csv($export_args_ref);
+
+close($exported_csv);
 
 compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export_more_fields", $update_expected_results);
 
