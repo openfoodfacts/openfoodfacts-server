@@ -19,7 +19,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Data qw/execute_query get_products_collection/;
+use ProductOpener::Test qw/:all/;
 
 use File::Path qw/make_path remove_tree/;
 use File::Basename "dirname";
@@ -28,27 +28,7 @@ use Getopt::Long;
 use JSON;
 
 
-sub remove_all_products () {
-    # check we are not on a prod database, by checking there are not more than 100 products
-    my $products_count = execute_query(sub {
-		return get_products_collection()->count_documents({});
-	});
-    unless ((0 <= $products_count) && ($products_count < 1000)) {
-        die("Refusing to run destructive test on a DB of more than 100 items");
-    }
-    # clean database
-    execute_query(sub {
-		return get_products_collection()->delete_many({});
-	});
-    # clean files
-    remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
-    if (@$err) {
-        die("not able to remove some products directories: ". join(":", @$err));
-    }
-}
-
-
-=head2 compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results);
+=head2 compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results)
 
 Compare a CSV file containing product data (e.g. the result of a CSV export) to expected results.
 
@@ -165,7 +145,7 @@ GetOptions ("update-expected-results"   => \$update_expected_results)
   
 # Remove all products
 
-remove_all_products();
+ProductOpener::Test::remove_all_products();
 
 # Import test products
 
