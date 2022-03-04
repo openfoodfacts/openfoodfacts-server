@@ -160,6 +160,7 @@ use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
+use ProductOpener::Export qw(:all);
 
 use Cache::Memcached::Fast;
 use Encode;
@@ -5497,7 +5498,7 @@ sub search_and_export_products($$$) {
 	my $sort_by = shift;
 
 	my $format = "csv";
-	if (defined $request_ref->{format}) {
+	if ((defined $request_ref->{format}) and ($request_ref->{format} eq "xlsx")) {
 		$format = $request_ref->{format};
 	}
 
@@ -5507,16 +5508,33 @@ sub search_and_export_products($$$) {
 
 	$log->debug("search_and_export_products - MongoDB query", { format => $format, query => $query_ref }) if $log->is_debug();
 
-	my $count;
+	my $max_count = $export_limit;
 
-	eval {
-		$log->debug("Counting MongoDB documents for query", { query => $query_ref }) if $log->is_debug();
-		$count = execute_query(sub {
-							return get_products_collection()->count_documents($query_ref);
-		});
-		$log->info("MongoDB count query ok", { error => $@, count => $count }) if $log->is_info();
+	# Allow admins to change the export limit
+	if (($admin) and (defined param("export_limit"))) {
+		$max_count = param("export_limit");
+	}
 
+	my $args_ref = {
+		cc => $cc,	# used to localize Eco-Score fields
+		format => $format,
+		filehandle => \*STDOUT,
+		filename => "openfoodfacts_export." . $format,
+		send_http_headers => 1,
+		query => $query_ref,
+		max_count => $max_count,
+		export_computed_fields => 1,
+		export_canonicalized_tags_fields => 1,
 	};
+
+	# Extra parameters
+	foreach my $parameter (qw(fields extra_fields separator)) {
+		if (defined $request_ref->{$parameter}) {
+			$args_ref->{$parameter} = $request_ref->{$parameter};
+		}
+	}
+
+	my $count = export_csv($args_ref);
 
 	my $html = '';
 
@@ -5526,10 +5544,15 @@ sub search_and_export_products($$$) {
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
-
-	if ((not defined $request_ref->{batch}) and ($count > $export_limit)) {
+	elsif ($count > $max_count) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
 	}
+	else {
+		# export_csv has already output HTTP headers and the export file, we can return
+		return;
+	}
+
+	# Display an error message
 
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -5537,306 +5560,9 @@ sub search_and_export_products($$$) {
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if ((not defined $request_ref->{batch}) and (($count <= 0) or ($count > $export_limit))) {
-		# $request_ref->{content_html} = $html;
-		$request_ref->{title} = lang("search_results");
-		$request_ref->{content_ref} = \$html;
-		display_page($request_ref);
-		return;
-	}
-	else {
-
-		# Count is greater than 0
-
-		my $cursor;
-
-		eval {
-			$cursor = execute_query(sub {
-				# disabling sort for CSV export, as we get memory errors
-				# MongoDB::DatabaseError: Runner error: Overflow sort stage buffered data usage of 33572508 bytes exceeds internal limit of 33554432 bytes
-				# return get_products_collection()->query($query_ref)->sort($sort_ref);
-				return get_products_collection()->query($query_ref);
-			});
-		};
-		if ($@) {
-			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
-		}
-		else {
-			$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
-		}
-
-		$cursor->immortal(1);
-
-		$request_ref->{count} = $count;
-
-		# Send the CSV file line by line
-
-		my $workbook;
-		my $worksheet;
-
-		my $csv;
-
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
-
-		# Output header
-
-		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
-
-		my @row = ();
-		
-		my @fields_to_export = @export_fields;
-		if (defined $request_ref->{fields}) {
-			@fields_to_export = @{$request_ref->{fields}};
-		}
-
-		foreach my $field (@fields_to_export) {
-
-			# skip additives field and put only additives_tags
-			if ($field ne 'additives') {
-				push @row, $field;
-			}
-
-			if ($field eq 'code') {
-				push @row, "url";
-			}
-
-			if (defined $tags_fields{$field}) {
-				push @row, $field . '_tags';
-			}
-
-		}
-		
-		# Do not add images and nutrients if the fields to export are specified
-		if (not defined $request_ref->{fields}) {
-
-			push @row, "main_category";
-			push @row, "image_url";
-			push @row, "image_small_url";
-			push @row, "image_front_url";
-			push @row, "image_front_small_url";
-			push @row, "image_ingredients_url";
-			push @row, "image_ingredients_small_url";
-			push @row, "image_nutrition_url";
-			push @row, "image_nutrition_small_url";
-
-			foreach (@{$nutriments_tables{$nutriment_table}}) {
-
-				my $nid = $_;    # Copy instead of alias
-
-				$nid =~/^#/ and next;
-
-				$nid =~ s/!//g;
-				$nid =~ s/^-//g;
-				$nid =~ s/-$//g;
-
-				push @row, "${nid}_100g";
-			}
-		}
-		
-		if (defined $request_ref->{extra_fields}) {
-			foreach my $field (@{$request_ref->{extra_fields}}) {
-				push @row, $field;
-			}
-		}		
-
-		if ($format eq "xlsx") {
-			
-			# Send HTTP headers, unless search_and_export_products() is called from a script
-			if (not defined $request_ref->{skip_http_headers}) {
-				require Apache2::RequestRec;
-				my $r = Apache2::RequestUtil->request();
-				$r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-				$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.xlsx");
-				print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
-			}
-			binmode( STDOUT );
-
-			$workbook = Excel::Writer::XLSX->new( \*STDOUT );
-			$worksheet = $workbook->add_worksheet();
-			my $format = $workbook->add_format();
-			$format->set_bold();
-			$worksheet->write_row( 0, 0, \@row, $format);
-
-			# Set the width of the columns
-			for (my $i = 0; $i <= $#row; $i++) {
-				my $width = length($row[$i]);
-				($width < 20) and $width = 20;
-				$worksheet->set_column( $i , $i, $width );
-			}
-		}
-		else {
-			# Send HTTP headers, unless search_and_export_products() is called from a script
-			if (not defined $request_ref->{skip_http_headers}) {
-				require Apache2::RequestRec;
-				my $r = Apache2::RequestUtil->request();
-				$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
-				$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
-				print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
-			}
-			binmode(STDOUT, ":encoding(UTF-8)");
-			
-			my $separator = ",";
-			if (defined $request_ref->{separator}) {
-				$separator = $request_ref->{separator};
-			}
-
-			$csv = Text::CSV->new ({
-				eol => "\n",
-				sep => $separator,
-				quote_space => 0,
-				binary => 1
-			});
-
-			$csv->print (*STDOUT, \@row);
-		}
-
-		my $uri = format_subdomain($subdomain);
-
-		my $j = 0;    # Row number
-
-		while (my $product_ref = $cursor->next) {
-
-			$j++;
-
-			@row = ();
-
-			# Normal fields
-
-			foreach my $field (@export_fields) {
-
-				# skip additives field and put only additives_tags
-				if ($field ne 'additives') {
-					my $value = $product_ref->{$field};
-					if (defined $value) {
-						$value =~ s/(\r|\n|\t)/ /g;
-						push @row, $value;
-					}
-					else {
-						push @row, '';
-					}
-				}
-
-				if ($field eq 'code') {
-
-					push @row, $uri . product_url($product_ref->{code});
-
-				}
-
-				if (defined $tags_fields{$field}) {
-					if (defined $product_ref->{$field . '_tags'}) {
-						push @row, join(',', @{$product_ref->{$field . '_tags'}});
-					}
-					else {
-						push @row, '';
-					}
-				}
-			}
-
-			# Do not add images and nutrients if the fields to export are specified
-			if (not defined $request_ref->{fields}) {
-
-				# "main" category: lowest level category
-
-				my $main_cid = '';
-				my $main_cid_lc = '';
-
-				if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
-
-					$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
-
-					$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
-				}
-
-				push @row, $main_cid;
-
-				$product_ref->{main_category} = $main_cid;
-
-				add_images_urls_to_product($product_ref);
-
-				# image_url = image_front_url
-				foreach my $id ('front', 'front','ingredients','nutrition') {
-					push @row, $product_ref->{"image_" . $id . "_url"};
-					push @row, $product_ref->{"image_" . $id . "_small_url"};
-				}
-
-				# Nutriments
-
-				foreach (@{$nutriments_tables{$nutriment_table}}) {
-
-					my $nid = $_;    # Copy instead of alias
-
-					$nid =~/^#/ and next;
-
-					$nid =~ s/!//g;
-					$nid =~ s/^-//g;
-					$nid =~ s/-$//g;
-					if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
-						my $value = $product_ref->{nutriments}{"${nid}_100g"};
-						push @row, $value;
-					}
-					else {
-						push @row, '';
-					}
-				}
-			}
-			
-			# Extra fields
-			
-			my $scans_ref;
-			
-			if (defined $request_ref->{extra_fields}) {
-				foreach my $field (@{$request_ref->{extra_fields}}) {
-					
-					my $value;
-					
-					# Scans must be loaded separately
-					if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
-						
-						my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
-						
-						if (not defined $scans_ref) {
-							# Load the scan data
-							my $product_path = product_path($product_ref);
-							$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
-						}
-						if (not defined $scans_ref) {
-							$scans_ref = {};
-						}
-						if ((defined $scans_ref->{$scan_year}) and (defined $scans_ref->{$scan_year}{$scan_field})
-							and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc})) {
-							$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
-						}
-						else {
-							$value =  "";
-						}
-					}
-					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
-						$value = join(",", @{$product_ref->{$field}});
-					}
-					else {
-						$value = $product_ref->{$field};
-					}
-								
-					if (defined $value) {
-						$value =~ s/(\r|\n|\t)/ /g;
-						push @row, $value;
-					}
-					else {
-						push @row, '';
-					}
-				}
-			}				
-
-			if ($format eq "xlsx") {
-				$worksheet->write_row( $j, 0, \@row);
-			}
-			else {
-				$csv->print (*STDOUT, \@row);
-			}
-		}
-	}
-
-	return;
+	$request_ref->{title} = lang("search_results");
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 

@@ -42,6 +42,11 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.7.0
+      with:
+        mongodb-version: 4.4
     
     - run: npm install
     

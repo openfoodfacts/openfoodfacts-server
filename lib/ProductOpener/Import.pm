@@ -1655,7 +1655,7 @@ sub import_csv_file($) {
 			# Food category rules for sweeetened/sugared beverages
 			# French PNNS groups from categories
 
-			if ($server_domain =~ /openfoodfacts/) {
+			if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
 
@@ -2391,7 +2391,7 @@ sub import_products_categories_from_public_database($) {
 				if ((not defined $current_field) or ($current_field ne $product_ref->{$field})) {
 					$log->debug("import_product_categories - new categories", { categories => $product_ref->{$field} } ) if $log->is_debug();
 					compute_field_tags($product_ref, $product_ref->{lc}, $field);
-					if ($server_domain =~ /openfoodfacts/) {
+					if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}

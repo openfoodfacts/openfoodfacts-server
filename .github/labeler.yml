@@ -89,6 +89,7 @@ ecoscore:
 
 Export:
 - lib/ProductOpener/Export.pm
+- t/expected_test_results/export/**/*
 
 Food.pm:
 - lib/ProductOpener/Food.pm
