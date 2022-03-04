@@ -356,20 +356,16 @@ sub export_csv($) {
 
 						# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
 						# which is only present if the Eco-Score fields have been localized (done only once after)
-						elsif ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
-							if (deep_exists($product_ref, split(/\./, "ecoscore_data.adjustments.origins_of_ingredients.values"))) {
-								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
-							}
-						}
-						elsif ($field =~ /\./) {
-							if (deep_exists($product_ref, split(/\./, $field))) {
+						else {
+						  my $key = $field;
+						  if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+						    $key = $key . "s"
+						  }
+						  if ($deep_exists($product_ref, split(/\./, $key))) {
 								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
 							}
 						}
 
-						elsif (defined $product_ref->{$field}) {
-							$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
-						}
 					}
 				}
 			}
