@@ -21,106 +21,10 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 
-use File::Path qw/make_path remove_tree/;
 use File::Basename "dirname";
 
 use Getopt::Long;
 use JSON;
-
-
-=head2 compare_csv_file_to_expected_results($csv_file, $expected_results_dir, $update_expected_results)
-
-Compare a CSV file containing product data (e.g. the result of a CSV export) to expected results.
-
-The expected results are stored as individual JSON files for each of the product,
-in files named [barcode].json, with a flat key/value pairs structure corresponding to the CSV columns.
-
-This is so that we can easily see diffs with git diffs:
-- we know how many products are affected
-- we see individual diffs with the field name
-
-=head3 Arguments
-
-=head4 $csv_file - CSV file to compare
-
-=head4 $expected_results_dir - directory containing the individual JSON files
-
-=head4 $update_expected_results - flag to indicate to save test results as expected results
-
-Tests will pass when this flag is passed, and the new expected results can be diffed / commited in GitHub.
-
-=cut
-
-sub compare_csv_file_to_expected_results($$$) {
-
-    my $csv_file = shift;
-    my $expected_results_dir = shift;
-    my $update_expected_results = shift;
-
-    # Create the expected results dir
-    if ($update_expected_results) {
-        if (-e $expected_results_dir) {
-            remove_tree("$expected_results_dir", {error => \my $err});
-            if (@$err) {
-                die("not able to remove some products directories: ". join(":", @$err));
-            }
-        }
-        make_path($expected_results_dir);
-    }
-
-    # Read the CSV file
-
-    my $csv = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
-                or die "Cannot use CSV: ".Text::CSV->error_diag ();
-
-    open (my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open " . $csv_file . ": $!");
-
-    # first line contains headers
-    my $columns_ref = $csv->getline ($io);
-    $csv->column_names (@{$columns_ref});
-
-    my $json = JSON->new->allow_nonref->canonical;
-    my %codes = ();
-
-    while (my $product_ref = $csv->getline_hr ($io)) {
-
-        my $code = $product_ref->{code};
-        $codes{$code} = 1;
-
-        # Update the expected results if the --update parameter was set
-        
-        if (defined $update_expected_results) {
-            open (my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json") or die("Could not create $expected_results_dir/$code.json: $!\n");
-            print $result $json->pretty->encode($product_ref);
-            close ($result);
-        }
-
-        # Otherwise compare the result with the expected result
-        
-        elsif (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
-
-            local $/; #Enable 'slurp' mode
-            my $expected_product_ref = $json->decode(<$expected_result>);
-            is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
-        }
-        else {
-            diag explain $product_ref;
-            fail("could not load $expected_results_dir/$code.json");
-        }    
-    }
-
-    # Check that we are not missing products
-
-    opendir (my $dh, $expected_results_dir) or die("Could not open the $expected_results_dir directory: $!\n");
-
-    foreach my $file (sort(readdir($dh))) {
-        
-        if ($file =~ /(\d+)\.json$/) {
-            my $code = $1;
-            ok(exists $codes{$code}, "product code $code exists in CSV export $csv_file");
-        }
-    }
-}
 
 
 my $test_id = "export";
@@ -184,7 +88,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export", $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export", $update_expected_results);
 
 # Export more fields
 
@@ -199,7 +103,7 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export_more_fields", $update_expected_results);
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $test_dir . "/expected_test_results/export_more_fields", $update_expected_results);
 
 
 done_testing();
