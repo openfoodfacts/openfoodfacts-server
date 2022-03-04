@@ -117,7 +117,7 @@ sub compare_csv_file_to_expected_results($$$) {
 
         # Compare the result with the expected result
         
-        if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
+        elif (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
 
             local $/; #Enable 'slurp' mode
             my $expected_product_ref = $json->decode(<$expected_result>);
