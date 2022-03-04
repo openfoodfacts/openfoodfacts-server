@@ -261,6 +261,7 @@ sub export_csv($) {
 						}
 
 						$item_number++;
+						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
 
 						$nid =~ s/^(-|!)+//g;
 						$nid =~ s/-$//g;
@@ -268,12 +269,12 @@ sub export_csv($) {
 						# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
 
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and ($product_ref->{nutriments}{$nid . "_value"} ne "")) {
-							$populated_fields{$nid . "_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_1";
-							$populated_fields{$nid . "_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_2";
+							$populated_fields{$nid . "_value"} = $field_sort_key . "_1";
+							$populated_fields{$nid . "_unit"} = $field_sort_key . "_2";
 						}
 						if ((defined $product_ref->{nutriments}{$nid . "_prepared_value"}) and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne "")) {
-							$populated_fields{$nid . "_prepared_value"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_3";
-							$populated_fields{$nid . "_prepared_unit"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_4";
+							$populated_fields{$nid . "_prepared_value"} = $field_sort_key . "_3";
+							$populated_fields{$nid . "_prepared_unit"} = $field_sort_key . "_4";
 						}
 					}
 				}
@@ -325,6 +326,7 @@ sub export_csv($) {
 						}
 
 						$item_number++;
+						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
 
 						if ($field =~ /_value_unit$/) {
 							# Column can contain value + unit, value, or unit for a specific field
@@ -334,10 +336,10 @@ sub export_csv($) {
 						if (defined $tags_fields{$field}) {
 							if ((defined $product_ref->{$field . "_tags"}) and (scalar @{$product_ref->{$field . "_tags"}} > 0)) {
 								# Export the tags field in the main language of the product
-								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
+								$populated_fields{$group_prefix . $field} = $field_sort_key;
 								# Also possibly export the canonicalized tags
 								if ($export_canonicalized_tags_fields ) {
-									$populated_fields{$group_prefix . $field . "_tags"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_tags";
+									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
 								}
 							}
 						}
@@ -346,26 +348,25 @@ sub export_csv($) {
 								foreach my $l (keys %{$product_ref->{languages_codes}}) {
 									if ((defined $product_ref->{$field . "_$l"}) and ($product_ref->{$field . "_$l"} ne "")) {
 										# Add language code to sort key
-										$populated_fields{$group_prefix . $field . "_$l"} = sprintf("%08d", $group_number * 1000 + $item_number) . "_$l";
+										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
 									}
 								}
 							}
 						}
-						# Allow returning fields that are not at the root of the product structure
-						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
-
-						# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
-						# which is only present if the Eco-Score fields have been localized (done only once after)
 						else {
-						  my $key = $field;
-						  if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
-						    $key = $key . "s"
-						  }
-						  if ($deep_exists($product_ref, split(/\./, $key))) {
-								$populated_fields{$group_prefix . $field} = sprintf("%08d", $group_number * 1000 + $item_number);
+							my $key = $field;
+						  	# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
+							# which is only present if the Eco-Score fields have been localized (done only once after)
+							# we check for .values (with an s) instead
+						  	if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+						    	$key = $key . "s"
+						  	}
+							# Allow returning fields that are not at the root of the product structure
+							# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+						  	if (deep_exists($product_ref, split(/\./, $key))) {
+								$populated_fields{$group_prefix . $field} = $field_sort_key;
 							}
 						}
-
 					}
 				}
 			}

@@ -107,7 +107,7 @@ sub compare_csv_file_to_expected_results($$$) {
         my $code = $product_ref->{code};
         $codes{$code} = 1;
 
-        # Update the expected results
+        # Update the expected results if the --update parameter was set
         
         if (defined $update_expected_results) {
             open (my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json") or die("Could not create $expected_results_dir/$code.json: $!\n");
@@ -115,9 +115,9 @@ sub compare_csv_file_to_expected_results($$$) {
             close ($result);
         }
 
-        # Compare the result with the expected result
+        # Otherwise compare the result with the expected result
         
-        elif (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
+        elsif (open (my $expected_result, "<:encoding(UTF-8)", "$expected_results_dir/$code.json")) {
 
             local $/; #Enable 'slurp' mode
             my $expected_product_ref = $json->decode(<$expected_result>);
