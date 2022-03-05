@@ -9,6 +9,14 @@ mongodb:
 - scripts/refresh_products_tags.js
 - .github/workflows/mongo-deploy.yml
 
+tagline:
+- html/files/app/tagline/tagline-off-ios.json
+- html/files/tagline-off.json
+- html/files/tagline.txt
+- html/files/tagline-obf.json
+- html/files/tagline-opf.json
+- html/files/tagline-opff.json
+  
 taxonomies:
 - taxonomies/**/*
 
