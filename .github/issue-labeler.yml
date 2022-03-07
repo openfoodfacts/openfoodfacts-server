@@ -63,12 +63,6 @@ automatic-data-augmentation:
 automation:
     - '(automation)'
 
-autorelease: pending:
-    - '(autorelease: pending)'
-
-autorelease: tagged:
-    - '(autorelease: tagged)'
-
 autosuggest:
     - '(autosuggest)'
 
@@ -138,9 +132,8 @@ Checked products:
 China:
     - '(China)'
 
-ci
-Continuous integration:
-    - '(Continuous integration)'
+ci:
+    - '(ci|Continuous integration)'
 
 ciqual:
     - '(ciqual)'
@@ -157,7 +150,9 @@ contribution journey:
 CORS:
     - '(CORS)'
 
-CRON
+CRON:
+    - '(CRON)'
+
 cropping:
     - '(cropping)'
 
@@ -578,11 +573,15 @@ nodejs:
 non tech:
     - '(non tech)'
 
-not done
+not done:
+    - '(not done)'
+    
 nova:
     - '(nova)'
 
-nutrient-levels
+nutrient-levels:
+    - '(nutrient-levels)'
+    
 nutrients:
     - '(nutrients)'
 
@@ -880,7 +879,9 @@ special-diets:
 spellcheck:
     - '(spellcheck)'
 
-Sprint
+Sprint:
+    - '(Sprint)'
+    
 Stale:
     - '(Stale)'
 
@@ -1016,4 +1017,5 @@ wine:
 wontfix:
     - '(wontfix)'
 
-XML
+XML:
+    - '(XML)'
