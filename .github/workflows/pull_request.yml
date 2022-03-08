@@ -9,10 +9,10 @@ jobs:
     name: Gulp
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.5.1
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
     - run: npm install
@@ -22,10 +22,10 @@ jobs:
     name: NPM lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.5.1
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
     - run: npm install
@@ -35,13 +35,18 @@ jobs:
     name: Perl unit tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 50
     
-    - uses: actions/setup-node@v2.5.1
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.7.0
+      with:
+        mongodb-version: 4.4
     
     - run: npm install
     
@@ -176,7 +181,7 @@ jobs:
     name: Run developer workflow
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
     # - uses: satackey/action-docker-layer-caching@v0.0.11

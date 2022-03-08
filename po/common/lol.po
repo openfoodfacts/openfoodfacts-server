@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-14 08:58\n"
+"PO-Revision-Date: 2022-02-22 17:19\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -4409,11 +4409,11 @@ msgstr "crwdns166996:0crwdne166996:0"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr "crwdns166998:0crwdne166998:0"
+msgstr "crwdns192269:0crwdne192269:0"
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr "crwdns167000:0crwdne167000:0"
+msgstr "crwdns192271:0crwdne192271:0"
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -5792,4 +5792,57 @@ msgstr "crwdns192023:0crwdne192023:0"
 msgctxt "source"
 msgid "Source"
 msgstr "crwdns192009:0crwdne192009:0"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "crwdns192273:0{app_name}crwdne192273:0"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "crwdns192307:0crwdne192307:0"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "crwdns192309:0crwdne192309:0"
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr "crwdns192352:0crwdne192352:0"
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr "crwdns192354:0crwdne192354:0"
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr "crwdns192356:0crwdne192356:0"
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr "crwdns192358:0crwdne192358:0"
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr "crwdns192360:0crwdne192360:0"
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr "crwdns192362:0crwdne192362:0"
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr "crwdns192364:0crwdne192364:0"
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr "crwdns192366:0crwdne192366:0"
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr "crwdns192368:0crwdne192368:0"
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
+msgstr "crwdns192370:0crwdne192370:0"
 

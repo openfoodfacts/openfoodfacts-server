@@ -1296,6 +1296,9 @@ sub compute_ecoscore_packaging_adjustment($) {
 			value => -15,
 			non_recyclable_and_non_biodegradable_materials => 1,
 		};
+		# indicate that we are missing key data
+		# this is to indicate to 3rd party that the computed Eco-Score should not be displayed without warnings
+		$product_ref->{ecoscore_data}{missing_key_data} = 1;
 		$warning = "packaging_data_missing";
 	}
 	else {

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-01-14 08:58\n"
+"PO-Revision-Date: 2022-02-22 17:19\n"
 "Language-Team: Marathi\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5791,5 +5791,58 @@ msgstr ""
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr ""
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr ""
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr ""
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr ""
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr ""
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr ""
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr ""
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr ""
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr ""
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr ""
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
 msgstr ""
 

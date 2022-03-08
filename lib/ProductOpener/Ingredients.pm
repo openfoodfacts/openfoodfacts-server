@@ -2735,6 +2735,8 @@ sub analyze_ingredients($) {
 			if ($property =~ /^from_/) {
 
 				my $from_what = $';
+				my $from_what_with_dashes = $from_what;
+				$from_what_with_dashes =~ s/_/-/g;
 
 				# For properties like from_palm, one positive ingredient triggers a positive result for the whole product
 				# We assume that all the positive ingredients have been marked as yes or maybe in the taxonomy
@@ -2744,22 +2746,22 @@ sub analyze_ingredients($) {
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
-					$property_value =  "en:" . $from_what ; # en:palm-oil
+					$property_value =  "en:" . $from_what_with_dashes ; # en:palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{yes};
 				}
 				elsif (defined $values{maybe}) {
 					# One maybe ingredient -> maybe for the whole product
-					$property_value = "en:may-contain-" . $from_what ; # en:may-contain-palm-oil
+					$property_value = "en:may-contain-" . $from_what_with_dashes ; # en:may-contain-palm-oil
 					$ingredients_analysis_ref->{$property_value} = $values{maybe};
 				}
 				elsif (defined $values{unknown_ingredients}) {
 					# Some ingredients were not recognized
-					$property_value = "en:" . $from_what . "-content-unknown"; # en:palm-oil-content-unknown
+					$property_value = "en:" . $from_what_with_dashes . "-content-unknown"; # en:palm-oil-content-unknown
 					$ingredients_analysis_ref->{$property_value} = $values{unknown_ingredients};
 				}
 				else {
 					# no yes, maybe or unknown ingredients
-					$property_value = "en:" . $from_what . "-free"; # en:palm-oil-free
+					$property_value = "en:" . $from_what_with_dashes . "-free"; # en:palm-oil-free
 				}
 			}
 			else {
@@ -2837,6 +2839,9 @@ sub analyze_ingredients($) {
 			}
 		}
 	}
+
+	# Uncomment the following line to add an extra field with more data for debugging purposes
+	#$product_ref->{ingredients_analysis_debug} = $ingredients_analysis_ref;
 }
 
 
