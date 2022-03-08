@@ -6,6 +6,15 @@
 
 taxonomies: $(wildcard *.result.txt)
 
-.DEFAULT_GOAL := taxonomies
+all_taxonomies: _reset_taxonomies taxonomies
 
+_reset_taxonomies:
+
+_reset_taxonomies:
+# touch taxonomies sources, then launch build
+	for f in *.txt; do if [[ ! "$$f" =~ "result" ]]; then touch  $$f; fi; done
+
+
+.DEFAULT_GOAL := taxonomies
+SHELL := /bin/bash
 
