@@ -718,7 +718,7 @@ $options{off_export_fields_groups} = [
 			"nutriscore_score",
 			"ecoscore_grade",
 			"ecoscore_score",
-			"ecoscore_score.missing_key_data",
+			"ecoscore_data.missing_key_data",
 			"ecoscore_data.agribalyse.code",
 			"ecoscore_data.adjustments.origins_of_ingredients.value",
 			"ecoscore_data.adjustments.packaging.value",
