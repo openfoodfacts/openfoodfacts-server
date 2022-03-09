@@ -579,9 +579,11 @@ sub export_csv($) {
 					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
 						$value = join(",", @{$product_ref->{$field}});
 					}
-					elsif (defined $taxonomy_fields{$field}) {
+					elsif ((defined $taxonomy_fields{$field}) and (defined $product_ref->{$field . "_hierarchy"})) {
 						# we do not know the language of the current value of $product_ref->{$field}
 						# so regenerate it in the main language of the product
+						# Note: some fields like nova_groups and food_groups do not have a _hierarchy subfield,
+						# but they are not entered directly, but computed from other fields, so we can take their values as is.
 						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field, $product_ref->{$field . "_hierarchy"});
 					}
 					# Allow returning fields that are not at the root of the product structure
