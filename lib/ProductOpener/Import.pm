@@ -1552,7 +1552,10 @@ sub import_csv_file($) {
 				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
 					$imported_nutrition_data_per_value = "100g";
 				}
-				# otherwise -> assign the per serving value, and assign serving size
+				elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
+					$imported_nutrition_data_per_value = "serving";
+				}
+				# otherwise, assign the per serving value, and assign serving size
 				else {
 					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
 					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
