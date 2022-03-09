@@ -71,7 +71,7 @@ open (my $converted_csv, ">:encoding(UTF-8)", $converted_csv_file) or die("Could
 
 my @files = ();
 opendir(my $dh, $test_dir . "/inputs/import_convert_carrefour_france") or die("Cannot read $test_dir" . "/inputs/import_convert_carrefour_france");
-foreach my $file (sort(readdir($dh))) {
+foreach my $file (sort { $a cmp $b } readdir($dh)) {
     
     if ($file =~ /\.xml$/) {
         push @files, $test_dir . "/inputs/import_convert_carrefour_france/" . $file;

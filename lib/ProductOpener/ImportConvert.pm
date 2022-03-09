@@ -292,7 +292,7 @@ sub assign_countries_for_product($$$) {
 	my $lcs_ref = shift;
 	my $default_country = shift;
 
-	foreach my $possible_lc (keys %{$lcs_ref}) {
+	foreach my $possible_lc (sort keys %{$lcs_ref}) {
 		if (defined $product_ref->{"product_name_" . $possible_lc}) {
 			assign_value($product_ref,"countries", $lcs_ref->{$possible_lc});
 			$log->info("assign_countries_for_product: found lc - assigning value", { lc => $possible_lc, countries => $lcs_ref->{$possible_lc}}) if $log->is_info();
@@ -1385,7 +1385,7 @@ sub load_xml_file($$$$) {
 			# multiple values in different languages
 
 			elsif ($source_tag eq '*') {
-				foreach my $tag ( keys %{$current_tag}) {
+				foreach my $tag ( sort keys %{$current_tag}) {
 					my $tag_target = $target;
 
 					# special case where we have something like allergens.nuts = traces
