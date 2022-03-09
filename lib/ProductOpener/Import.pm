@@ -1070,7 +1070,10 @@ sub import_csv_file($) {
 						$product_ref->{owner_fields}{$field} = $time;
 					
 						# Save the imported value, before it is cleaned etc. so that we can avoid reimporting data that has been manually changed afterwards
-						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})) {
+						if ((not defined $product_ref->{$field . "_imported"}) or ($product_ref->{$field . "_imported"} ne $imported_product_ref->{$field})
+							# we had a bug that caused serving_size to be set to "serving": change it
+							or (($field eq "serving_size") and ($product_ref->{$field} eq "serving"))
+							) {
 							$log->debug("setting _imported field value", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 							$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
 							$modified++;
@@ -1552,7 +1555,10 @@ sub import_csv_file($) {
 				if ($imported_nutrition_data_per_value =~ /^100\s?(g|ml)$/i) {
 					$imported_nutrition_data_per_value = "100g";
 				}
-				# otherwise -> assign the per serving value, and assign serving size
+				elsif ($imported_nutrition_data_per_value =~ /^serving$/i) {
+					$imported_nutrition_data_per_value = "serving";
+				}
+				# otherwise, assign the per serving value, and assign serving size
 				else {
 					$log->debug("nutrition_data_per_field corresponds to serving size", { code => $code, nutrition_data_per_field => $nutrition_data_per_field, $imported_nutrition_data_per_value => $imported_nutrition_data_per_value }) if $log->is_debug();				
 					if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value)) {
