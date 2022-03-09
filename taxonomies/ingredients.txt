@@ -60,7 +60,7 @@ fr:additifs alimentaires
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                           F U N C T I O N     S E C T I O N
+#                                           N O N - C L A S S I F I E D    S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -70,64 +70,65 @@ fr:additifs alimentaires
 # usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
-
+# in additive classes
 # nova:en:anti-bulking-agent
 # <en:function
-en:anti-bulking agent
+# en:anti-bulking agent
 
+# in additive classes
 # nova:en:carbonating-agent
 # <en:function
-en:carbonating agent
-de:Karbonisierungsmittel, Karbonisiermittel
-es:agente de carbonatación
+#en:carbonating agent
+# de:Karbonisierungsmittel, Karbonisiermittel
+#es:agente de carbonatación
 
 # nova:en:colour
 # <en:additive_classes:en:colour for translations
-en:colour
-hu:színezék, színezékek, színezőanyagok, színező anyag
+#en:colour
+#hu:színezék, színezékek, színezőanyagok, színező anyag
 
-<en:colour
-en:concentrated plant colour
-de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
-es:colorante vegetal concentrado
+#<en:colour
+#en:concentrated plant colour
+#de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
+#es:colorante vegetal concentrado
 
-<en:colour
-en:natural colours
-ca:Color natural, colors naturals
-da:naturlig farve
-de:natürliche Farbstoffe
-es:Color natural, colores naturales, colorante natural, colorantes naturales
-fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
-fr:colorant naturel, colorants naturels
-hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
-it:coloranti naturali, colorante naturale
-nl:natuurlijke kleurstoffen, natuurlijk kleurstof
+#<en:colour
+#en:natural colours
+#ca:Color natural, colors naturals
+#da:naturlig farve
+#de:natürliche Farbstoffe
+#es:Color natural, colores naturales, colorante natural, colorantes naturales
+#fi:luontainen väriaine, luontainen väri, luontainen elintarvikeväri
+#fr:colorant naturel, colorants naturels
+#hu:természetes színezék, természetes színezékek, természetes színezőanyag, természetes színezőanyagok
+#it:coloranti naturali, colorante naturale
+#nl:natuurlijke kleurstoffen, natuurlijk kleurstof
 # ingredient/fr:colorant-naturel has 283 products in 5 languages @2019-04-20
 
-<en:colour
-fr:denrée alimentaire colorante, denrées alimentaires colorantes
-ca:colorant alimentari, colorants alimentaris
-de:färbendes Lebensmittel
-es:colorante alimenticio, colorantes alimenticios
-hu:élelmiszer színezék
-it:sostanze alimentari coloranti
+#<en:colour
+#fr:denrée alimentaire colorante, denrées alimentaires colorantes
+#ca:colorant alimentari, colorants alimentaris
+#de:färbendes Lebensmittel
+#es:colorante alimenticio, colorantes alimenticios
+#hu:élelmiszer színezék
+#it:sostanze alimentari coloranti
 # ingredient/fr:denrée-alimentaire-colorante has 202 products in 3 languages @2019-03-27
 # denrées alimentaires colorantes: concentrés de spriruline et de carthame
 
-<en:colour
-fr:colorant de la croûte, colorants de croûte, colorants de la croûte
+#<en:colour
+#fr:colorant de la croûte, colorants de croûte, colorants de la croûte
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
 
 
 # also in additives_classes.txt
 # <en:function
-en:salt substitute
-bg:заместител на сол
-de:Speisesalzersatz, kochsalzersatz
-fr:substitut du sel
-hu:Sópótló
-it:sostituto del sale
+#en:salt substitute
+#bg:заместител на сол
+#de:Speisesalzersatz, kochsalzersatz
+#fr:substitut du sel
+#hu:Sópótló
+#it:sostituto del sale
 # ingredient/fr:substitut-du-sel has 23 products in 3 languages @2019-02-21
 # substitut du sel (chlorure de potassium)
 
@@ -135,47 +136,47 @@ it:sostituto del sale
 # also in additives_classes.txt
 # <en:function
 # <en:compound
-fr:agent crémeux
+# fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
 # <en:function
-fr:poudre de fleurage
+#fr:poudre de fleurage
 # ingredient/fr:poudre-de-fleurage has 80 products in french @2019-02-25
 # poudre de fleurage : carbonate de calcium, talc
 
 
 # also in additives_classes.txt
 # <en:function
-fr:conservateur de surface
+#fr:conservateur de surface
 # ingredient/fr:conservateur-de-surface has 43 products in french @2019-03-02
 
 
 # also in additives_classes.txt
 # <en:function
-en:enhancer
-bg:подобрител
-es:Potenciador
-fi:vahvenne
-fr:améliorant, améliorants
-hu:javító
-it:miglioranti, migliorante, agente migliorante, agenti miglioranti
-nl:verbeteraar
+#en:enhancer
+#bg:подобрител
+#es:Potenciador
+#fi:vahvenne
+#fr:améliorant, améliorants
+#hu:javító
+#it:miglioranti, migliorante, agente migliorante, agenti miglioranti
+#nl:verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
 
 # also in additives_classes.txt
-<en:enhancer
-en:bread improver
-de:Backmittel
-it:miglioranti per panificazione
-ru:улучшитель хлебопекарный
+#<en:enhancer
+#en:bread improver
+#de:Backmittel
+#it:miglioranti per panificazione
+#ru:улучшитель хлебопекарный
 
 # also in additives_classes.txt
-<en:enhancer
-en:cooking enhancer
-de:Kochverstärker
-fr:améliorant de cuisson
-it:esaltatore di cottura
+#<en:enhancer
+#en:cooking enhancer
+#de:Kochverstärker
+#fr:améliorant de cuisson
+#it:esaltatore di cottura
 # ingredient/fr:améliorant-de-cuisson has 51 products in 4 languages @2019-04-16
 # usage:en: acerola powder with cassava starch (cooking enhancer)
 

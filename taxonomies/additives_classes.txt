@@ -1477,8 +1477,8 @@ it:agente coagulante, coagulante, agenti coagulanti, coagulanti
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 
-# also in ingredients.txt
 en:salt substitute
+bg:заместител на сол
 de:Speisesalzersatz, kochsalzersatz
 fr:substitut du sel
 hu:Sópótló
@@ -1492,7 +1492,7 @@ fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
 #<en:anti-caking agent
-#fr:poudre de fleurage
+fr:poudre de fleurage
 # ingredient/fr:poudre-de-fleurage has 80 products in french @2019-02-25
 # poudre de fleurage : carbonate de calcium, talc
 
@@ -1505,6 +1505,7 @@ fr:conservateur de surface
 # also in ingredients.txt
 #comment:en:This is very generic. It is not specified what is enhanced.
 en:enhancer
+bg:подобрител
 es:Potenciador
 fi:vahvenne
 fr:améliorant, améliorants
@@ -1519,6 +1520,7 @@ nl:verbeteraar
 en:bread improver
 de:Backmittel
 it:miglioranti per panificazione
+ru:улучшитель хлебопекарный
 
 # also in ingredients.txt
 <en:enhancer
