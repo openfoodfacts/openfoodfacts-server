@@ -114,6 +114,7 @@ use Time::Local;
 use Data::Dumper;
 use Text::CSV;
 use HTML::Entities qw(decode_entities);
+use XML::Rules;
 
 %fields = ();
 @fields = ();
@@ -1776,12 +1777,14 @@ sub get_list_of_files(@) {
 
 
 
-sub print_csv_file() {
+sub print_csv_file($) {
 
-	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t" } )  # should set binary attribute.
+	my $file_handle = shift;
+
+	my $csv_out = Text::CSV->new ( { binary => 1 , sep_char => "\t", eol => "\n", quote_space => 0 } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
-	print join("\t", @fields) . "\n";
+	$csv_out->print ($file_handle, \@fields) ;
 
 	foreach my $code (sort keys %products) {
 
@@ -1797,8 +1800,7 @@ sub print_csv_file() {
 			}
 		}
 
-		$csv_out->print (*STDOUT, \@values) ;
-		print "\n";
+		$csv_out->print ($file_handle, \@values) ;
 
 		print STDERR "code: $code\n";
 	}
