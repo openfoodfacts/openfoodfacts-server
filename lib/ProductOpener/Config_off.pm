@@ -656,8 +656,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	brand_owner
 	ecoscore_score
 	ecoscore_grade
-	ecoscore_data.agribalyse.code
-	ecoscore_data.adjustments.packaging.value
 );
 
 # List of fields that can be imported on the producers platform
@@ -714,10 +712,13 @@ $options{import_export_fields_groups} = [
 $options{off_export_fields_groups} = [
 	[   "off",
 		[
+			"food_groups",
+			"nova_groups",
 			"nutriscore_grade",
 			"nutriscore_score",
 			"ecoscore_grade",
 			"ecoscore_score",
+			"ecoscore_data.missing_key_data",
 			"ecoscore_data.agribalyse.code",
 			"ecoscore_data.adjustments.origins_of_ingredients.value",
 			"ecoscore_data.adjustments.packaging.value",

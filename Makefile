@@ -193,6 +193,9 @@ build_taxonomies:
 	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
 	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
 
+rebuild_taxonomies:
+	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"
+	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
 
 #------------#
 # Production #
