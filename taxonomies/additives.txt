@@ -10397,32 +10397,53 @@ ciqual_food_name:en:Seaweed, agar, raw
 ciqual_food_name:fr:Agar (algue), cru
 # ingredient/fr:agar has 213 products in 5 languages @2018-12-4
 
-en:E407, Carrageenan
+en:E407, Carrageenan, e407 stabilizer
 bg:E407, Карагенан
-ca:E407, Carragahen
+ca:E407, Carragahen, Carragenat, carragenina, carragenines
 cs:E407, Karagenan, Karagen, E 407
 da:E407, Carrageenan
-de:E407, Carrageen, Karragheen, Carrageene, Carragaheen, Karrageen, E 407
+de:E407, Carrageen, Karragheen, Carrageene, Carragaheen, Karrageen, Stabilisator E407
 el:E407, Καραγενανη
-es:E407, Carragenatos, Carragenato, Carragenanos, Carragenano, Carragenina, Carragenana, E 407
-et:E407, Karrageen
-fi:E407, Karrageeni, Karrageeniä
-fr:E407, Carraghénanes, Carraghénane, Mousse d'Irlande, Eucheuman (d'Eucheuma spp.), Iridophycan (d'Iridaea spp.) Hypnean (d'Hypnea spp.), Furcellaran, mousse du Danemark (de Furcellaria fastigiata), Carraghénane (de Chondrus et Gigartina spp.), 9064-57-7, 11114-20-8, 9000-07-1, E-407, 9062-07-1, Carraghénine
-hu:E407, Karragén
+eo:E407, Karageno
+es:E407, Carragenatos, Carragenato, Carragenanos, Carragenano, Carragenina, Carragenana, carrageninas, carragen, estabilizante E407
+et:E407, Karrageen, Karraginaanid, karrageenid
+fa:E407, کاراگینان
+fi:E407, Karrageeni, Karrageeniä, karrageenit
+fr:E407, Carraghénanes, Carraghénane, Mousse d'Irlande, Eucheuman (d'Eucheuma spp.), Iridophycan (d'Iridaea spp.) Hypnean (d'Hypnea spp.), Furcellaran, mousse du Danemark (de Furcellaria fastigiata), Carraghénane (de Chondrus et Gigartina spp.), Carraghénine, stabilisant e407, épaississant carraghénane, gélifiant e407
+hu:E407, Karragén, karragének
+id:E407, Karagenan
 it:E407, Carragenina, Carraghenina
+ja:E407, カラギーナン
+jv:E407, Karagenan
 lt:E407, Karageninas
 lv:E407, Karagināns
 mt:E407, Carrageenan
 nb:E407, Karragenan
 nl:E407, Carrageen
+nn:E407, Karragenan
 pl:E407, Karagen
 pt:E407, Carragenina, Carragenano, Carragenanos
 ro:E407, Caragenan
 ru:E407, Каррагинан и его соли, Каррагинан, Ирландский мох, Карраген
 sk:E407, Karagénan, Karagén
 sl:E407, Karagenan
-sv:E407, Karragenan, E 407
+sv:E407, Karragenan
+sw:E407, Karragenan
+ta:E407, கராகீனன்
 tr:E407, Karagenan, Karragenan
+uk:E407, Каррагінан
+vi:E407, Carrageenan
+zh:E407, 卡拉胶
+# de-ch:E407, Carrageen
+# en-ca:E407, Carrageenan
+# en-gb:E407, Carrageenan
+# pt-br:E407, Carragenina
+# zh-cn:E407, 卡拉胶
+# zh-hans:E407, 卡拉胶
+# zh-hant:E407, 卡拉膠
+# zh-hk:E407, 卡拉膠
+# zh-sg:E407, 卡拉胶
+# zh-tw:E407, 卡拉膠
 e_number:en:407
 wikidata:en:Q421991
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5238
@@ -10436,6 +10457,10 @@ additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabilizer, en
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Carrageenan
+#description:en:CARRAGEENAN or carrageenins are a family of linear sulfated polysaccharides that are extracted from red edible seaweeds.
+# fr:carraghénane has 4521 products in 9 languages @2108-11-03
+
 
 en:E407a, Processed eucheuma seaweed
 bg:E407a, Обработени eucheuma водорасли
@@ -10446,8 +10471,8 @@ el:E407a, Τροποποιημενα φυκη eucheuma
 es:E407a, Alga eucheuma transformada
 et:E407a, Tselluloosi sisaldav karrageen
 fi:E407a, Käsitelty eucheuma-levä, Käsiteltyä eucheuma-levää
-fr:E407a, Algues euchema transformées, Algues euchema traitées, PES, Processed Eucheuma Seaweed, Algue eucheuma transformée
-hu:E407a, Feldolgozott euchema moszat
+fr:E407a, Algues euchema transformées, Algues euchema traitées, PES, Processed Eucheuma Seaweed, Algue eucheuma transformée, Carraghénane semi-raffinée, Algues Eucheuma transformée
+hu:E407a, Feldolgozott euchema moszat, feldolgozott eucheuma alga
 it:E407a, Alga eucheuma trasformata
 lt:E407a, Apdoroti raudondumbliai
 lv:E407a, Apstrādātas eucheuma jūraszāles
@@ -10472,6 +10497,7 @@ e_number:en:407a
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+# fr:e407a has 325 products in 4 languages @2018-11-03
 
 en:E408, Bakers yeast glycan
 bg:E408, E408 food additive
