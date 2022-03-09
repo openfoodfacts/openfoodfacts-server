@@ -299,7 +299,7 @@ sub assign_countries_for_product($$$) {
 		}
 	}
 
-	if (not defined $product_ref->{countries}) {
+	if ((not defined $product_ref->{countries}) or ($product_ref->{countries} eq "")) {
 		assign_value($product_ref,"countries", $default_country);
 		$log->info("assign_countries_for_product: assigning default value", { countries => $default_country}) if $log->is_info();
 	}
@@ -537,14 +537,15 @@ sub remove_quantity_from_field($$) {
 		my $quantity = $product_ref->{quantity};
 		my $quantity_value = $product_ref->{quantity_value};
 		my $quantity_unit = $product_ref->{quantity_unit};
-
-		$quantity =~ s/\(/\\\(/g;
-		$quantity =~ s/\)/\\\)/g;
-		$quantity =~ s/\[/\\\[/g;
-		$quantity =~ s/\]/\\\]/g;
 		
-		if ((defined $quantity) and ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i)) {
-			$product_ref->{$field} = $`;
+		if (defined $quantity) {
+			$quantity =~ s/\(/\\\(/g;
+			$quantity =~ s/\)/\\\)/g;
+			$quantity =~ s/\[/\\\[/g;
+			$quantity =~ s/\]/\\\]/g;
+			if ($product_ref->{$field} =~ /\s*(\b|\s+)($quantity|(\(|\[)$quantity(\)|\]))\s*$/i) {
+				$product_ref->{$field} = $`;
+			}
 		}
 		elsif ((defined $quantity_value) and (defined $quantity_unit) and ($product_ref->{$field} =~ /\s*\b\(?$quantity_value $quantity_unit\)?\s*$/i)) {
 			$product_ref->{$field} = $`;
@@ -870,6 +871,11 @@ sub clean_fields($) {
 	foreach my $field (keys %{$product_ref}) {
 
 		$log->debug("clean_fields", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+		if (not defined $product_ref->{$field}) {
+			print STDERR "undefined value for field $field\n";
+			next;
+		}
 
 		# HTML entities
 		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma

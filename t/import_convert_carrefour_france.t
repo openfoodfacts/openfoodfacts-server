@@ -80,6 +80,8 @@ foreach my $file (sort { $a cmp $b } readdir($dh)) {
 
 convert_carrefour_france_files($converted_csv, \@files);
 
+close($converted_csv);
+
 
 my $import_args_ref = {
 	user_id => "carrefour-france",
