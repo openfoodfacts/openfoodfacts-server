@@ -1346,44 +1346,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shellac
 # ingredient/fr:gomme-laque has 48 products in 4 languages @2019-02-17
 
 
-# en:Argon, E938, E-938, E 938
-# fr:Argon
-# nl:Argon
-# additive/e938-argon has no products @2019-04-20
-
-# <en:Argon
-# en:propellent gas E938
-# de:Treibgas E938
-# es:drijfgas E938
-# fr:gaz propulseur E938
-# nl:drijfgas E938
-# ingredient/propellent-gas-e938 has no products @2019-04-20
-
-# en:helium, E939, E-939, E 939
-# fr:Helium
-# nl:Helium
-# additive/e939-helium has no products @2019-04-20
-
-# <en:propellent gas
-# en:propellent gas E939
-# de:Treibgas E939
-# es:drijfgas E939
-# fr:gaz propulseur E939
-# nl:drijfgas E939
-# ingredient/propellent-gas-e939 has no products @2019-04-20
-
-# en:dichlorodifluoromethane, E940, E-940, E 940
-# nl:dichlordifluormethaan
-# additive/e940-dichlorodifluoromethane has no products @2019-04-20
-
-# <en:dichlorodifluoromethane
-# en:propellent gas E940
-# de:Treibgas E940
-# es:drijfgas E940
-# fr:gaz propulseur E940
-# nl:drijfgas E940
-# ingredient/propellent-gas-e940 has no products @2019-04-20
-
 # description:en:NITROGEN is a chemical element with symbol N and atomic number 7. Nitrogen can be used as a replacement, or in combination with, carbon dioxide to pressurise kegs of some beers, particularly stouts and British ales, due to the smaller bubbles it produces, which makes the dispensed beer smoother and headier.
 
 en:nitrogen, E941, E-941, E 941, nitrogen E941
@@ -1571,15 +1533,8 @@ de:Stickstoff zum Aufschlagen
 <en:nitrogen
 it:agente di carica E941
 
-# en:propellent gas E941
-# de:Treibgas E941
-# es:drijfgas E941
-# fr:gaz propulseur E941
-# nl:drijfgas E941, stikstof
-# fr:gaz propulseur E941 has no products @2019-04-20
-
-<en:nitrogen
-<en:nitrous oxide
+<en:E942
+<en:E941
 nl:E942 en E941
 
 # description:en:NITROUS OXIDE, commonly known as laughing gas or nitrous, is a chemical compound, an oxide of nitrogen with the formula N2O.
