@@ -13877,7 +13877,7 @@ from_palm_oil:en:maybe
 
 
 # origin:en:pork:en:maybe
-en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester
+en:E473, Sucrose esters of fatty acids, Sucroesters, sugar ester, sucrose esters
 bg:E473, Естери на мастни киселини и захароза, Сукроестери
 ca:E473, Sucroèster d'àcids grassos
 cs:E473, Estery sacharosy s mastnými kyselinami, Estery sacharosy
@@ -13889,11 +13889,12 @@ et:E473, Rasvhapete sahharoosestrid
 fi:E473, Rasvahappojen sakkaroosiesterit, Sakkaroosiesterit, Rasvahappojen sakkaroosiestereitä, Sakkaroosiestereitä
 fr:E473, Sucroester, sucroesters, Esters de saccharose d'acides gras, Saccharoesters, sucroesters d'acides gras, sucroesters d'acide gras
 hu:E473, Zsírsavak szacharóz-észterei, Szacharóz-észterek
-it:E473, Esteri di saccarosio degli acidi grassi, Sucresteri, sucrestere
+it:E473, Esteri di saccarosio degli acidi grassi, Sucresteri, esteri del saccarosio con acidi grassi, sucrestere
 lt:E473, Riebalų rūgščių sacharozės esteriai, Sacharozės esteriai
 lv:E473, Taukskābju saharozes esteri, Saharozes esteri
 mt:E473, Esteri tas-sukrożju tal-aċidi grassi, Sukroesteri
 nl:E473, Sucrose-esters van vetzuren, Sucro-esters
+nn:E473, sukroseestere av fettsyrer
 pl:E473, Estry kwasów tłuszczowych i sacharozy, Cukroestry
 pt:E473, Ésteres de sacarose de ácidos gordos, Ésteres de sacarose
 ro:E473, Esteri ai zaharozei cu acizi grași, Zaharoesteri, Sucroesteri
@@ -13913,6 +13914,11 @@ additives_classes:en: en:emulsifier, en:stabilizer
 vegan:en:maybe
 vegetarian:en:maybe
 comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
+#description:en:SUCROSE ESTERS OR SUCROSE FATTY ACID ESTERS   are a group of surfactants chemically synthesized from esterification of sucrose and fatty acids (or glycerides).
+wikidata:en: Q55648666
+wikipedia:en:https://en.wikipedia.org/wiki/Sucrose_esters
+# ingredient/fr:sucroesters-d’acide-gras has 39 products in french @2019-02-26
+# additive/e473-sucrose-esters-of-fatty-acids has 438 products in 11 languages @2019-02-26
 
 en:E473a, E473a food additive
 bg:E473a, E473a food additive
