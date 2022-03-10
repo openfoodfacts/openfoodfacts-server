@@ -16826,90 +16826,78 @@ wikidata:en:Q416365
 vegan:en:yes
 vegetarian:en:yes
 
-en:E553, Magnesium silicates or Talc
-bg:E553, E553 food additive
-cs:E553, E553 food additive
-da:E553, E553 food additive
-de:E553, E553 food additive
-el:E553, E553 food additive
-es:E553, E553 food additive
-et:E553, E553 food additive
-fi:E553, E553 food additive
-fr:E553, Silicate de magnésium ou Talc
-hu:E553, Magnézium-szilikátok vagy talkum
-it:E553, E553 food additive
-lt:E553, E553 food additive
-lv:E553, E553 food additive
-mt:E553, E553 food additive
-nl:E553, Magnesiumsilicaten en Talc
-pl:E553, E553 food additive
-pt:E553, E553 food additive
-ro:E553, E553 food additive
-sk:E553, E553 food additive
-sl:E553, E553 food additive
-sv:E553, E553 food additive
+#comment:en:E553 is a natural OR synthetic form of magnesium silicate
+en:E553, Magnesium silicates, magnesium silicate
+fr:E553, Silicates de magnésium
+bg:E553, Магнезиев силикат
+cs:E553, Křemičitan hořečnatý
+da:E553, Magnesiumsilicat
+de:E553), Magnesiumsilicat, Florisil, Magnesiumsilicat, Magnesiumsilikathydrat
+el:E553, Πυριτικο μαγνησιο
+es:E553, Silicato magnésico
+et:E553, Magneesiumsilikaat
+fi:E553, Magnesiumsilikaatti, Magnesiumsilikaattia
+fr:E553, Silicate de magnésium
+hu:E553, Magnézium-szilikát, Magnézium-szilikátok
+it:E553, Silicato di magnesio
+lt:E553, Magnio silikatas
+lv:E553, Magnija silikāts
+mt:E553, Silikat tal-manjeżju
+nl:E553, Magnesiumsilicaat, Magnesiumsilicaten
+pl:E553, Krzemian magnezu
+pt:E553, Silicato de magnésio
+ro:E553, Silicat de magneziu
+sk:E553, Kremičitan horečnatý
+sl:E553, Magnezijev silikat
+
 e_number:en:553
 additives_classes:en: en:thickener
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+wikipedia:en:https://en.wikipedia.org/wiki/Talc
+# ingredient/fr:talc has 121 products in 4 languages @2019-04-16
+# additive/e553b-talc has 219 products in 9 languages @2019-04-16
 
+#comment:en:E553a is a synthetic form of magnesium silicates (plural)
 <en:E553
-en:E553a, Magnesium silicates
+en:E553a, synthetic magnesium silicates
 bg:E553a, E553a food additive
 cs:E553a, E553a food additive
 da:E553a, E553a food additive
-de:E553a, Magnesiumsilikaten
+de:E553a, E553a food additive
 el:E553a, E553a food additive
 es:E553a, E553a food additive
 et:E553a, E553a food additive
-fi:E553a, Magnesiumsilikaattit
-fr:E553a, Silicates de magnésium
-hu:E553a, Magnézium-szilikátok
+fi:E553a, E553a food additive
+fr:E553a, E553a food additive
+hu:E553a, E553a food additive
 it:E553a, E553a food additive
 lt:E553a, E553a food additive
 lv:E553a, E553a food additive
 mt:E553a, E553a food additive
-nl:E553a, Magnesiumsilicaten
+nl:E553a, E553a food additive
 pl:E553a, E553a food additive
 pt:E553a, E553a food additive
-ro:E553a, Silicați de magneziu
+ro:E553a, E553a food additive
 sk:E553a, E553a food additive
 sl:E553a, E553a food additive
-sv:E553a, Magnesiumsilikater
+sv:E553a, E553a food additive
 additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 
+#comment:en:E553a(i) is a specific synthetic form of magnesium silicate (singular)
 <en:E553a
-en:E553a(i), Magnesium silicate, Synthetic magnesium silicate
-bg:E553a(i), Магнезиев силикат
-cs:E553a(i), Křemičitan hořečnatý
-da:E553a(i), Magnesiumsilicat
-de:E553a(i), Magnesiumsilicat, Florisil, Magnesiumtrisilikat, Magnesiumsilicat
-el:E553a(i), Πυριτικο μαγνησιο
-es:E553a(i), Silicato magnésico
-et:E553a(i), Magneesiumsilikaat
-fi:E553a(i), Magnesiumsilikaatti, Magnesiumsilikaattia
-fr:E553a(i), Silicate de magnésium
-hu:E553a(i), Magnézium-szilikát
-it:E553a(i), Silicato di magnesio
-lt:E553a(i), Magnio silikatas
-lv:E553a(i), Magnija silikāts
-mt:E553a(i), Silikat tal-manjeżju
-nl:E553a(i), Magnesiumsilicaat
-pl:E553a(i), Krzemian magnezu
-pt:E553a(i), Silicato de magnésio
-ro:E553a(i), Silicat de magneziu
-sk:E553a(i), Kremičitan horečnatý
-sl:E553a(i), Magnezijev silikat
-sv:E553a(i), Magnesiumsilikat
+en:E553a(i), Synthetic magnesium silicate
+sv:E553a(i), syntetisk Magnesiumsilikat
 additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 
+#comment:en:E553a(i) is the synthetic form of magnesium trisilicate (singular)
 <en:E553a
 en:E553a(ii), Magnesium trisilicate
 bg:E553a(ii), Магнезиев трисиликат
@@ -16937,35 +16925,90 @@ additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 
+#comment:en:Talc is a natural form of magnesium silicate
 <en:E553
-en:E553b, Talc, talcum
+en:E553b, Talc, talcum, hydrated magnesium silicate
+af:E553b, Talk
+ar:E553b, تالك
+az:E553b, Talk
+be:E553b, Тальк
 bg:E553b, Талк
-ca:E553b, Talc
+bs:E553b, Тальк
+ca:E553b, talc
 cs:E553b, Talek, Mastek, Steatit
+cv:E553b, Тальк
 da:E553b, Talkum, Fedtsten, Steatit, Klæbersten
-de:E553b, Talkum, Talk, Talcum, Magnesiumsilikathydrat
+de:E553b, Talkum, Talk, Talcum
 el:E553b, Ταλκησ, Τάλκης
+eo:E553b, talko
 es:E553b, Talco, Talcoso, Esteatita
 et:E553b, Talk
+eu:E553b, Talko
+fa:E553b, تالک
 fi:E553b, Talkki, Talkkia
 fr:E553b, Talc
+ga:E553b, Talc
+gl:E553b, Talco
+he:E553b, טלק
+hi:E553b, टाल्क
+hr:E553b, Talkum
 hu:E553b, Talkum, Zsírkő
+hy:E553b, Տալկ
+id:E553b, Talek
+io:E553b, Talko
+is:E553b, Talk
 it:E553b, Talco
+ja:E553b, 滑石
+ka:E553b, ტალკი
+ko:E553b, 활석
+ky:E553b, Тальк
+la:E553b, Talcum
 lt:E553b, Talkas
 lv:E553b, Talks
 mt:E553b, Terra
+ml:E553b, ടാൽക്
+ms:E553b, Talkum
+mt:E553b, Terra
+nb:E553b, talk
 nl:E553b, Talk, Steatiet, Speksteen, Talkpoeder
+oc:E553b, Talc
 pl:E553b, Talk, Kamień mydlany
 pt:E553b, Talco, Pedra sabão, Esteatite, Esteatita
 ro:E553b, Talc
 ru:E553b, Тальк
+sh:E553b, Talk
 sk:E553b, Mastenec, Mastenec, Talk
 sl:E553b, Smukec, Lojevec
+sr:E553b, талк
 sv:E553b, Talk
+ta:E553b, டால்க்
+th:E553b, ทัลก์
+tr:E553b, Talk
+uk:E553b, Тальк
+uz:E553b, Talk
+vi:E553b, Tan
+yo:E553b, Talc
+zh:E553b, 滑石
+# ast:E553b, Talco
+# be-tarask:E553b, Тальк
+# glk:E553b, talc
+# pnb:E553b, ٹالک
+# sco:E553b, talc
+# sr-ec:E553b, талк
+# sr-el:E553b, Talk
+# wuu:E553b, 滑石
+# zh-cn:E553b, 滑石
+# zh-hans:E553b, 滑石
+# zh-hant:E553b, 滑石
+# zh-hk:E553b, 滑石
+# zh-sg:E553b, 滑石
+# zh-tw:E553b, 滑石
 additives_classes:en: en:thickener
 e_number:en:553b
 vegan:en:yes
 vegetarian:en:yes
+# description:en:TALC is a clay mineral composed of hydrated magnesium silicate with the chemical formula Mg3Si4O10(OH)2. This mineral is used as a thickening agent. The United States Food and Drug Administration considers talc (magnesium silicate) generally recognized as safe (GRAS) to use as an anticaking agent in table salt in concentrations smaller than 2%.
+wikidata:en:Q134583
 
 en:E554, Sodium aluminium silicate, Sodium silicoaluminate, Sodium aluminosilicate
 bg:E554, Натриевоалуминиев силикат, Натриев силикоалуминат, натриев алуминосиликат
