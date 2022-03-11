@@ -1084,6 +1084,8 @@ sub import_csv_file($) {
 						# Skip data that we have already imported before (even if it has been changed)
 						# But do import the field "obsolete"
 						elsif (($field ne "obsolete") and (defined $product_ref->{$field . "_imported"}) and ($product_ref->{$field . "_imported"} eq $imported_product_ref->{$field})) {
+							# we had a bug that caused serving_size to be set to "serving", this value should be overridden
+							next if (($field eq "serving_size") and ($product_ref->{"serving_size"} eq "serving"));
 							$log->debug("skipping field that was already imported", { field => $field, imported_value => $imported_product_ref->{$field}, current_value => $product_ref->{$field} }) if $log->is_debug();
 							next;
 						}
@@ -1771,7 +1773,7 @@ sub import_csv_file($) {
 
 				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
-				store_product($user_id, $product_ref, "Editing product (import) - " . $product_comment );
+				store_product($user_id, $product_ref, "Editing product (import) - " . ($product_comment || "") );
 
 				push @edited, $code;
 				$edited{$code}++;
