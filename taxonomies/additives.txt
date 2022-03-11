@@ -19759,35 +19759,59 @@ vegetarian:en:yes
 
 
 
-en:E920, L-cysteine hydrochloride, L-Cysteine, L-2-Amino-3-mercaptopropionic acid, L-Cys, (R)-2-Amino-3-mercaptopropanoic acid, (2R)-2-amino-3-sulfanylpropanoic acid, (2R)-2-amino-3-mercaptopropanoic acid
+en:E920, l-cysteine, L-cysteine hydrochloride, L-Cysteine, L-2-Amino-3-mercaptopropionic acid, L-Cys, (R)-2-Amino-3-mercaptopropanoic acid, (2R)-2-amino-3-sulfanylpropanoic acid, (2R)-2-amino-3-mercaptopropanoic acid
 bg:E920, L-цистеин
+bs:E920, L-cisteina
 ca:E920, L-cisteïna, L-cisteina
 cs:E920, L-cystein, Cystein
 da:E920, L-cystein, Cystein
-de:E920, L-cystein, Cystein, D-Cystein, Cysteinhydrochlorid-Monohydrat, Zystein, E 920
+de:E920, L-cystein, Cystein, D-Cystein, Cysteinhydrochlorid-Monohydrat, Zystein
 el:E920, L-κυστεϊνη, Κυστεΐνη
 es:E920, L-cisteína, Cisteína
 et:E920, L-tsüsteiin
+eu:E920, L-Zisteina
 fi:E920, L-kysteiini, Kysteiini, L-kysteiiniä, Kysteiiniä
-fr:E920, L-Cystéine et ses chlorhydrates, L-Cystéine, Cystéine, 52-90-4, C3H7NO2S, 921-01-7, 3374-22-9
+fr:E920, L-Cystéine et ses chlorhydrates, L-Cystéine, Cystéine, C3H7NO2S
+gl:E920, L-Cisteína
+hr:E920, S-cistein
 hu:E920, L-cisztein, Cisztein
+hy:E920, L-ցիստեին
 it:E920, L-cisteina, cisteina, C3H7NO2S, Cisteine, Acido α-ammino-β-mercaptopropionico
+ja:E920, L-システイン
 lt:E920, L-cisteinas, Cisteinas
 lv:E920, L cisteīns, Cisteīns, C3h7no2s
 mt:E920, L-ċisteina
 nl:E920, L-cysteïne, cysteïne
+nn:E920, L-cystein
 pl:E920, L-cysteina, Cysteina
 pt:E920, L-cisteína, Cisteína
 ro:E920, L-cisteină, Cisteină, Cisteina hidrolorică și sărurile ei de sodiu și potasiu
+ru:E920, L-Цистеин
+sh:E920, L-Cistein
 sk:E920, L-cysteín, Cysteín
 sl:E920, L-cistein, Cistein
-sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
+sr:E920, L-Cistein
+sv:E920, L-cystein, Cystein, E 910, Cysteiner
+ta:E920, L-சிஸ்டீன்
+tr:E920, L-Sistein
+uk:E920, L-Цистеїн
+vi:E920, L-Cystein
+# nan:E920, L-cysteine.
+# sco:E920, L-Cysteine
 e_number:en:920
 mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
 vegan:en:maybe
 vegetarian:en:maybe
 # comment:en: E920 can be obtained from animal sources, including pork. It should thus be avoided by Muslims, Jews, Hindus and vegans.
+# description:en:CYSTEINE is a semiessential proteinogenic amino acid with the formula HO2CCH(NH2)CH2SH. One of the largest applications is the production of flavors. For example, the reaction of cysteine with sugars in a Maillard reaction yields meat flavors. L-Cysteine is also used as a processing aid for baking. The animal-originating sources of L-cysteine as a food additive are a point of contention for people following dietary restrictions such as kosher, halal, vegan or vegetarian.
+# comment:en:The wikidata translation only translates the cystein part, not the chirality L. I tried to repair the wikidata-entry based on wikipedia as much as possible.
+wikipedia:en:https://en.wikipedia.org/wiki/Cysteine
+# ingredient/fr:l-cystéine has 58 products in 6 languages @2019-04-09
+# ingredient/fr:cystéine has 207 products in 6 languages @2019-04-10
+# additive/e920-l-cysteine-hydrochloride has 393 products @2019-04-09
+# usage:en:Flour treatment agent (l - cysteine)
+# en:source-material:en:animal or synthetic
 
 
 en:E921, L-cysteine hydrochloride monohydrate
