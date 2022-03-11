@@ -1770,7 +1770,7 @@ sub import_csv_file($) {
 
 				$log->debug("storing product", { code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
-				store_product($user_id, $product_ref, "Editing product (import) - " . $product_comment );
+				store_product($user_id, $product_ref, "Editing product (import) - " . ($product_comment || "") );
 
 				push @edited, $code;
 				$edited{$code}++;
