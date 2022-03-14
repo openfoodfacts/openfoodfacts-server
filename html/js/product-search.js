@@ -140,9 +140,13 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 }
 
 
-function display_products(target, product_groups, use_user_product_preferences_for_ranking ) {
+function product_edit_url(product) {
+	return `/cgi/product.pl?type=edit&code=${product.code}`;
+}
+
+function display_products(target, product_groups, user_prefs) {
 		
-	if (use_user_product_preferences_for_ranking) {
+	if (user_prefs.ranking) {
 		$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
 		+ '<div id="products_tabs_content" class="tabs-content"></div>');
 	}
@@ -151,7 +155,7 @@ function display_products(target, product_groups, use_user_product_preferences_f
 	}
 	
 	$.each(product_groups, function(product_group_id, product_group) {
-	
+		const user_product_preferences = user_prefs.prefs;
 		var products_html = [];
 		
 		$.each( product_group, function(key, product) {
@@ -159,12 +163,11 @@ function display_products(target, product_groups, use_user_product_preferences_f
 			var product_html = "";
 			
 			// Show the green / grey / colors for matching products only if we are using the user preferences
-			if (use_user_product_preferences_for_ranking) {
-				product_html += '<li><a href="' + product.url + '" class="list_product_a list_product_a_match_' + product.match_status + '">';
+			let css_classes = 'list_product_a';
+			if (user_prefs.ranking) {
+				css_classes += ' list_product_a_match_' + product.match_status;
 			}
-			else {
-				product_html += '<li><a href="' + product.url + '" class="list_product_a">';
-			}
+			product_html += `<li><a href=${product.url}" class="${css_classes}">`;
 			product_html += '<div class="list_product_img_div">';
 			
 			if (product.image_front_thumb_url) {
@@ -199,8 +202,20 @@ function display_products(target, product_groups, use_user_product_preferences_f
 					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '">';
 				}
 			});
-			
-			product_html += "</a></li>";
+			// add some specific fields
+			if (user_product_preferences.display_barcode === "yes") {
+				product_html += `<span class="list_display_barcode">${product.code}</span>`;
+			}
+			product_html += "</a>";
+			if (user_product_preferences.edit_link === "yes") {
+				const edit_url = product_edit_url(product);
+				product_html += `
+				  <a class="list_edit_link" alt="Edit ${product.product_display_name}" href="${edit_url}">
+				    <img src="/images/attributes/edit_link.svg">
+				  </a>
+				`;
+			}
+			product_html += "</li>";
 				
 			products_html.push(product_html);		
 		});
@@ -217,11 +232,11 @@ function display_products(target, product_groups, use_user_product_preferences_f
 			}
 		}
 		else {
-			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
+			text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
 			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
-		if (use_user_product_preferences_for_ranking) {
+		if (user_prefs.ranking) {
 			$("#products_tabs_titles").append(
 				'<li class="tabs tab-title tab_products-title' + active + '">'
 				+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
@@ -300,8 +315,11 @@ function rank_and_display_products (target, products) {
 	var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 	
 	var ranked_products = rank_products(products, user_product_preferences, use_user_product_preferences_for_ranking);
-			
-	display_products(target, ranked_products, use_user_product_preferences_for_ranking);
+	const user_prefs = {
+		ranking: use_user_product_preferences_for_ranking,
+		prefs: user_product_preferences,
+	};
+	display_products(target, ranked_products, user_prefs);
 			
 	$(document).foundation('equalizer', 'reflow');
 }

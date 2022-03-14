@@ -3,7 +3,7 @@
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 
 var attribute_groups;	// All supported attribute groups and attributes + translated strings
-var preferences;	// All supported preferences + translated strings
+var default_preferences;	// All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 
 function get_user_product_preferences () {
@@ -43,20 +43,21 @@ function display_selected_preferences (target_selected_summary, product_preferen
 		
 		$.each(attribute_group.attributes, function(key, attribute) {
 			
-			if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
+			// we have a value and it is one we care of
+			if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] in selected_preference_groups)) {
+				// add to html for this class of importance
 				var attribute_html = '<li>' + attribute.setting_name + '</li>';
 				selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
 			}
 		});
-	});	
+	});
 
 	var selected_preferences_html = '';
 
 	$.each(selected_preference_groups, function(selected_preference, selected_preference_group) {
 		
 		var selected_preference_name;
-		
-		$.each(preferences, function (key, preference) {
+		$.each(default_preferences, function (key, preference) {
 					
 			if (selected_preference == preference.id) {
 				selected_preference_name = preference.name;
@@ -144,6 +145,25 @@ function display_use_preferences_switch_and_edit_preferences_button (target_sele
 	$(document).foundation('reflow');
 }
 
+/**
+ * transform preferences to options list
+ * @param {Array} preferences - list of Objects
+ * @return {Array} list of Objects with label / value
+ */
+function options_from_preferences(preferences) {
+	var options = preferences.map((preference) => ({
+		label: preference.name,
+		value: preference.id,
+	}));
+	// "not_important" is default and must be first
+	const default_idx = options.findIndex((option) => option.value === "not_important");
+	if (default_idx > 0) {
+		// put in first position
+		options.splice(0, 0, options.splice(default_idx, 1)[0]);
+	}
+
+	return options;
+}
 
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
@@ -165,19 +185,21 @@ function display_user_product_preferences (target_selected, target_selection_for
 		});
 	}
 	
-	if (! preferences) {
+	if (! default_preferences) {
 		
 		$.getJSON( "/api/v0/preferences", function( data ) {
 		
-			preferences = data;
+			default_preferences = data;
 		
 			display_user_product_preferences(target_selected, target_selection_form, change);
 		});		
 	}
 	
-	if (attribute_groups && preferences && ! displayed_user_product_preferences) {
+	if (attribute_groups && default_preferences && ! displayed_user_product_preferences) {
 		
 		displayed_user_product_preferences = true;
+
+		var default_options = options_from_preferences(default_preferences);
 		
 		var user_product_preferences = get_user_product_preferences();
 		
@@ -204,20 +226,24 @@ function display_user_product_preferences (target_selected, target_selection_for
 				
 				attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>"
 				+ "<fieldset style='margin:0;padding:0;border:none'>"
-				+ "<div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>"
+				+ "<div style='width:96px;float:left;margin-right:1em;text-align:center'>"
+				+ "  <img src='" + attribute.icon_url + "' class='match_icons' alt=''>"
+				+ "</div>"
 				+ "<span class='attribute_name'>" + attribute.setting_name + "</span><br>";
-							
-				$.each(preferences, function (key, preference) {
+
+				const options = attribute.options || default_options;
+
+				$.each(options, function (index, option) {
 					
 					var checked = '';
-					
-					if ((! user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
+					// if there is no value, we use the one at index 0
+					if ((! user_product_preferences[attribute.id] && index === 0) || (user_product_preferences[attribute.id] == option.value)) {
 						checked = ' checked';
 					}
 					
-					attribute_group_html += "<input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id
-					+ "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">"
-					+ "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label>"
+					attribute_group_html += "<input class='attribute_radio' id='attribute_" + attribute.id + "_" + option.value
+					+ "' value='" + option.value + "' type='radio' name='" + attribute.id + "'" + checked + ">"
+					+ "<label for='attribute_" + attribute.id + "_" + option.value + "'>" + option.label + "</label>"
 					+ "</input>";
 				});
 				

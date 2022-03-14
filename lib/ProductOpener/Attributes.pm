@@ -246,6 +246,9 @@ The initialization values for the fields are not dependent on a specific product
 Some of them may be overridden later (e.g. the title and description) based
 on how the attribute matches for the specific product.
 
+Also some attributes may contains possible values separated by '__'
+otherwise the one from display_preferences_api applies.
+
 =head3 Arguments
 
 =head4 attribute id $attribute_id
@@ -268,18 +271,35 @@ A reference to the created attribute object.
 - Warning
 - Short description
 - Description
+- Options - if there are specific options
 
 =cut
 
 sub initialize_attribute($$) {
-	
+
 	my $attribute_id = shift;
 	my $target_lc = shift;
-	
+	my @options = ();
+
+	# unpack eventual options, separated by double underscores
+	($attribute_id, @options) = split /__/, $attribute_id;
+
 	my $attribute_ref = {id => $attribute_id};
-	
+
+	# Eventually initialize options
+	if (scalar @options) {
+		my $options_ref = [];
+		foreach my $option (@options) {
+			push @{$options_ref}, {
+				label => $option,
+				value => $option,
+			};
+		}
+		$attribute_ref->{options} = $options_ref;
+	}
+
 	# Initialize icon for the attribute
-	
+
 	if ($attribute_id eq "nutriscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-a.svg";
 	}
@@ -316,6 +336,10 @@ sub initialize_attribute($$) {
 		$tag =~ s/_/-/g;
 		
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";	
+	}
+	# else just take attribute_id
+	else {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${attribute_id}.svg";
 	}
 	
 	# Initialize name and setting name if a language is requested
@@ -367,6 +391,15 @@ sub initialize_attribute($$) {
 			my $value = lang_in_other_lc($target_lc, "attribute_" . $attribute_id . "_" . $field);
 			if ((defined $value) and ($value ne "")) {
 				$attribute_ref->{$field} = $value;
+			}
+		}
+
+		foreach my $option_ref (@{$attribute_ref->{options}}) {
+			my $label = lang_in_other_lc(
+				$target_lc, "attribute_value_" . $option_ref->{value} . "_label"
+			);
+			if ((defined $label) and ($label ne "")) {
+				$option_ref->{label} = $label;
 			}
 		}
 		

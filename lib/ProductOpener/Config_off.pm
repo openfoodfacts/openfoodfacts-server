@@ -778,6 +778,14 @@ $options{attribute_groups} = [
 			"forest_footprint",
 		]
 	],
+	[
+		"search",
+		[
+			# '__' separate possible values, first is default
+			"display_barcode__no__yes",
+			"edit_link__no__yes",
+		]
+	]
 ];
 
 # default preferences for attributes
@@ -786,6 +794,7 @@ $options{attribute_default_preferences} = {
 	"nova" => "important",
 	"ecoscore" => "important",
 };
+
 
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.

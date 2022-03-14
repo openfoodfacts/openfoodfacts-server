@@ -4532,6 +4532,7 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Pas ou peu de transformation des aliments (groupe NOVA)"
 
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -5126,6 +5127,26 @@ msgstr "Très haut risque de déforestation"
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
 msgstr "Pour l'instant seulement pour les produits avec du poulet ou des oeufs"
+
+msgctxt "attribute_group_search_name"
+msgid "Search preferences"
+msgstr "Paramètres de recherche"
+
+msgctxt "attribute_display_barcode_setting_name"
+msgid "Display barcode in search results"
+msgstr "Afficher le code barre dans les résultats de recherche"
+
+msgctxt "attribute_edit_link_setting_name"
+msgid "Add an edit link in search results"
+msgstr "Ajouter un lien d'édition de chaque résultat"
+
+msgctxt "attribute_value_yes_label"
+msgid "Yes"
+msgstr "Oui"
+
+msgctxt "attribute_value_no_label"
+msgid "No"
+msgstr "Non"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
