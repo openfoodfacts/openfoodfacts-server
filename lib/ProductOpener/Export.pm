@@ -384,6 +384,7 @@ sub export_csv($) {
 		@sorted_populated_fields = sort ({ $populated_fields{$a} cmp $populated_fields{$b} } keys %populated_fields);
 
 		push @sorted_populated_fields, "data_sources";
+		
 		if (not defined $populated_fields{"obsolete"}) {
 			# Always output the "obsolete" field so that obsolete products can be unobsoleted
 			push @sorted_populated_fields, "obsolete";
