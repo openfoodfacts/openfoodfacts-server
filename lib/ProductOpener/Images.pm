@@ -363,14 +363,9 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
-    right:0;
-    bottom:0;
-    top:0;
-    cursor:pointer;
-    opacity:0;
-    font-size:40px;"/>
+<a class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id"
+	style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
 </a>
 </div>
 
