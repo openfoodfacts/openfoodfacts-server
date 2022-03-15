@@ -394,12 +394,14 @@ sub initialize_attribute($$) {
 			}
 		}
 
-		foreach my $option_ref (@{$attribute_ref->{options}}) {
-			my $label = lang_in_other_lc(
-				$target_lc, "attribute_value_" . $option_ref->{value} . "_label"
-			);
-			if ((defined $label) and ($label ne "")) {
-				$option_ref->{label} = $label;
+		if (defined $attribute_ref->{options}) {
+			foreach my $option_ref (@{$attribute_ref->{options}}) {
+				my $label = lang_in_other_lc(
+					$target_lc, "attribute_value_" . $option_ref->{value} . "_label"
+				);
+				if ((defined $label) and ($label ne "")) {
+					$option_ref->{label} = $label;
+				}
 			}
 		}
 		
