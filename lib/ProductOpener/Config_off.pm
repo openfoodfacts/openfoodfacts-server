@@ -639,6 +639,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
 	allergens
 	traces
 	serving_size
