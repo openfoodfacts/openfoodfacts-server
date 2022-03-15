@@ -14,6 +14,8 @@ export CPU_COUNT=$(shell nproc || 1)
 
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+# we run tests in a specific project name to be separated from dev instances
+DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
@@ -117,6 +119,10 @@ build_lang:
 # Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
+build_lang_test:
+# Run build_lang.pl in test env
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
@@ -164,11 +170,15 @@ import_prod_data:
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
 
-checks: front_lint
+checks: front_lint check_perl_fast
 
-tests:
+
+tests: build_lang_test
 	@echo "🥫 Runing tests …"
-	docker-compose run --rm backend prove -l
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend prove -l
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 test success"
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
