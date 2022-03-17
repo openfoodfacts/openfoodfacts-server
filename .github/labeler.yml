@@ -94,6 +94,7 @@ Display:
 ecoscore:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
 
 Export:
 - lib/ProductOpener/Export.pm
@@ -143,6 +144,7 @@ origins:
 knowledge-panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
 
 lang:
 - lib/ProductOpener/Lang.pm
