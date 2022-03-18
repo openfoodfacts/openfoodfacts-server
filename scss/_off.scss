@@ -723,6 +723,15 @@ html[dir="rtl"] {
 .attribute_card {
   border-radius:8px;
   padding:1rem;min-height:96px;
+  display:block;
+}
+
+a.attribute_card {
+  color: $body-font-color;
+}
+
+a.attribute_card:hover {
+  text-decoration:none;
 }
 
 // Knowledge panels
