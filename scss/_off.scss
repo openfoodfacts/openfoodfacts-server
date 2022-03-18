@@ -558,6 +558,9 @@ html[dir="rtl"] {
 
 
 // List of products with cards (e.g. search results, facets)
+.search_results li {
+  position: relative;
+}
 
 .list_product_a {
   border-radius:8px;
@@ -587,6 +590,27 @@ html[dir="rtl"] {
   background-color:#faa;
 }
 
+.search_results .list_display_barcode {
+  color: black;
+  font-size: .8em;
+  display: block; // one line for barcode, to keep thing homogeneous
+}
+
+.search_results .list_edit_link img {
+  height: 1em;
+}
+
+.search_results .list_edit_link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  border-radius: .3em;
+}
+
+.search_results .list_edit_link:hover {
+  background-color: #aaf;
+}
 
 // Horizontally and vertically center images
 .list_product_img_div {

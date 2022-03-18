@@ -71,6 +71,10 @@ services:
         USER_GID: ${USER_GID:-1000}
     volumes:
       - ./html:/opt/product-opener/html/
+      - ./icons:/opt/product-opener/icons
+      - ./scss:/opt/product-opener/scss
+      - ./gulpfile.js:/opt/product-opener/
+      - ./snyk:/opt/product-opener/
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4

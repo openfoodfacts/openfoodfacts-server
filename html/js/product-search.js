@@ -140,9 +140,14 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 }
 
 
-function display_products(target, product_groups, use_user_product_preferences_for_ranking ) {
+function product_edit_url(product) {
+	return `/cgi/product.pl?type=edit&code=${product.code}`;
+}
+
+
+function display_products(target, product_groups, user_prefs ) {
 		
-	if (use_user_product_preferences_for_ranking) {
+	if (user_prefs.use_ranking) {
 		$( target ).html('<ul id="products_tabs_titles" class="tabs" data-tab></ul>'
 		+ '<div id="products_tabs_content" class="tabs-content"></div>');
 	}
@@ -157,52 +162,66 @@ function display_products(target, product_groups, use_user_product_preferences_f
 		$.each( product_group, function(key, product) {
 		
 			var product_html = "";
-			
+
 			// Show the green / grey / colors for matching products only if we are using the user preferences
-			if (use_user_product_preferences_for_ranking) {
-				product_html += '<li><a href="' + product.url + '" class="list_product_a list_product_a_match_' + product.match_status + '">';
+			let css_classes = 'list_product_a';
+			if (user_prefs.use_ranking) {
+				css_classes += ' list_product_a_match_' + product.match_status;
 			}
-			else {
-				product_html += '<li><a href="' + product.url + '" class="list_product_a">';
-			}
+			product_html += `<li><a href=${product.url}" class="${css_classes}">`;
 			product_html += '<div class="list_product_img_div">';
-			
-			if (product.image_front_thumb_url) {
-				product_html += '<img src="' + product.image_front_thumb_url + '" class="list_product_img">';
-			}
-			else {
-				product_html += '<img src="/images/icons/product-silhouette-transparent.svg" class="list_product_img">';
-			}
-			
+
+			const img_src =
+				product.image_front_thumb_url ||
+				"/images/icons/product-silhouette-transparent.svg"
+			;
+			product_html += `<img src="${img_src}" class="list_product_img">`;
+
 			product_html += "</div>";
-			
+
 			if (product.product_display_name) {
 				product_html += '<div class="list_product_name">' + product.product_display_name + "</div>";
 			}
 			else {
 				product_html += '<div class="list_product_name">' + product.code + "</div>";
 			}
-									
+
 			$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
-				
+
 				if (attribute.icon_url) {
 					var title = attribute.title;
-				
+
 					if (attribute.description_short) {
 						title += ' - ' + attribute.description_short;
 					}
 
 					if (attribute.missing) {
 						title += " - " + attribute.missing;
-					}		
-					
+					}
+
 					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '">';
 				}
 			});
-			
-			product_html += "</a></li>";
-				
-			products_html.push(product_html);		
+			// add some specific fields
+			if (user_prefs.display.display_barcode) {
+				product_html += `<span class="list_display_barcode">${product.code}</span>`;
+			}
+			product_html += "</a>";
+			if (user_prefs.display.edit_link) {
+				const edit_url = product_edit_url(product);
+				const edit_title = lang().edit_product_page;
+				product_html += `
+				<a class="list_edit_link" 
+				    alt="Edit ${product.product_display_name}" 
+				    href="${edit_url}"
+				    title="${edit_title}">
+					<img src="/images/icons/dist/edit.svg">
+				</a>
+				`;
+			}
+			product_html += "</li>";
+
+			products_html.push(product_html);
 		});
 		
 		var active = "";
@@ -217,11 +236,11 @@ function display_products(target, product_groups, use_user_product_preferences_f
 			}
 		}
 		else {
-			text_or_icon = '<img src="/images/icons/match-' + product_group_id + '.svg" class="icon">'
+			text_or_icon = '<img src="/images/attributes/match-' + product_group_id + '.svg" class="icon">'
 			+ ' <span style="color:grey">' + product_group.length + "</span>";
 		}
 		
-		if (use_user_product_preferences_for_ranking) {
+		if (user_prefs.use_ranking) {
 			$("#products_tabs_titles").append(
 				'<li class="tabs tab-title tab_products-title' + active + '">'
 				+ '<a  id="tab_products_' + product_group_id + '" href="#products_' + product_group_id + '" title="' + lang()["products_match_" + product_group_id] +  '">'
@@ -298,20 +317,21 @@ function display_product_summary(target, product) {
 }
 
 
-function rank_and_display_products (target, products) {
-	
+function rank_and_display_products (target, products, contributor_prefs) {
+
+
 	// Retrieve user preferences from local storage
 
-	var user_product_preferences = get_user_product_preferences();
-	
+	var user_prefs = {
+		use_ranking: JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking')),
+		product: get_user_product_preferences(),
+		display: contributor_prefs,
+	};
+
 	// Retrieve whether we should use the preferences for ranking, or only for displaying the products
-	
-	var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
-	
-	var ranked_products = rank_products(products, user_product_preferences, use_user_product_preferences_for_ranking);
-			
-	display_products(target, ranked_products, use_user_product_preferences_for_ranking);
-			
+	var ranked_products = rank_products(products, user_prefs.product, user_prefs.use_ranking);
+	display_products(target, ranked_products, user_prefs);
+
 	$(document).foundation('equalizer', 'reflow');
 }
 
