@@ -2202,6 +2202,7 @@ sub compute_nova_group($) {
 	delete $product_ref->{nova_group};
 	delete $product_ref->{nova_groups};
 	delete $product_ref->{nova_groups_tags};
+	delete $product_ref->{nova_groups_markers};
 
 	$product_ref->{nova_group_debug} = "";
 
@@ -2219,6 +2220,9 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group} = 1;
 
+	# Record the "markers" (e.g. categories or ingredients) that indicate a specific NOVA group
+	my %nova_groups_markers = ();
+	my %seen_markers = ();
 
 	# $options{nova_groups_tags} = {
 	#
@@ -2227,7 +2231,6 @@ sub compute_nova_group($) {
 	# # 1st try to identify group 2 processed culinary ingredients
 	#
 	# "categories/en:fats" => 2,
-
 
 	if (defined $options{nova_groups_tags}) {
 
@@ -2240,16 +2243,19 @@ sub compute_nova_group($) {
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
 
-					if ($options{nova_groups_tags}{$tag} > $product_ref->{nova_group}) {
+					my $nova_group = $options{nova_groups_tags}{$tag};
+					if ($nova_group > $product_ref->{nova_group}) {
 
-						# only move group 1 product to group 3, not group 2
-						if (not (($product_ref->{nova_group} == 2) and ($options{nova_groups_tags}{$tag} == 3))) {
-							$product_ref->{nova_group_debug} .= " -- $tag : " . $options{nova_groups_tags}{$tag} ;
-							$product_ref->{nova_group} = $options{nova_groups_tags}{$tag};
+						# only move group 1 product to group 3. group 2 products like fats should stay in group 2 (unless they are group 4)
+						if (not (($product_ref->{nova_group} == 2) and ($nova_group == 3))
+							and ($product_ref->{nova_group} <= $nova_group)) {
+							$product_ref->{nova_group} = $nova_group;
+							defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
+							push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
+							$seen_markers{$tagtype . ':' . $tagid} = 1;
 						}
 					}
 				}
-
 			}
 		}
 	}
@@ -2259,20 +2265,26 @@ sub compute_nova_group($) {
 	# Group 2 foods should then not be moved to group 3
 	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
 	
-	foreach my $tag_type ("categories", "ingredients") {
+	foreach my $tagtype ("categories", "ingredients") {
 
-		if ((defined $product_ref->{$tag_type . "_tags"}) and (defined $properties{$tag_type})) {
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (defined $properties{$tagtype})) {
 
-			foreach my $tag (@{$product_ref->{$tag_type . "_tags"}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 
-				if ( (defined $properties{$tag_type}{$tag})
-					and (defined $properties{$tag_type}{$tag}{"nova:en"})
-					and ($properties{$tag_type}{$tag}{"nova:en"} > $product_ref->{nova_group})
+				my $nova_group = get_property($tagtype, $tagid, "nova:en");
+
+				if ( (defined $nova_group)
+					and ($nova_group > $product_ref->{nova_group})
 					# don't move group 2 to group 3
-					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
+					and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
 					) {
-					$product_ref->{nova_group_debug} .= " --- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
-					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
+					$product_ref->{nova_group} = $nova_group;
+					defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
+					# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
+					if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+						push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
+						$seen_markers{$tagtype . ':' . $tagid} = 1;
+					}
 				}
 			}
 		}
@@ -2409,6 +2421,7 @@ sub compute_nova_group($) {
 			delete $product_ref->{nova_group};
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
+			$product_ref->{nova_group_error} = "missing_ingredients";
 			return;
 		}
 	}
@@ -2425,6 +2438,7 @@ sub compute_nova_group($) {
 				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
+				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
 				return;
 		}
 
@@ -2433,6 +2447,7 @@ sub compute_nova_group($) {
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
 					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
+				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
 				return;
 		}
 
@@ -2441,9 +2456,10 @@ sub compute_nova_group($) {
 				delete $product_ref->{nova_group};
 				$product_ref->{nova_group_tags} = [ "not-applicable" ];
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
+				$product_ref->{nova_group_error} = "missing_category";
 				return;
 		}
-	}	
+	}
 
 	# Make sure that nova_group is stored as a number
 
@@ -2458,6 +2474,9 @@ sub compute_nova_group($) {
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
 	$product_ref->{nova_groups} .= "";
 	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
+
+	# Keep the ingredients / categories markers for the resulting nova group
+	$product_ref->{nova_groups_markers} = \%nova_groups_markers;
 
 	return;
 }
