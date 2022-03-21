@@ -2274,7 +2274,7 @@ sub compute_nova_group($) {
 				my $nova_group = get_property($tagtype, $tagid, "nova:en");
 
 				if ( (defined $nova_group)
-					and ($nova_group > $product_ref->{nova_group})
+					and ($nova_group >= $product_ref->{nova_group})
 					# don't move group 2 to group 3
 					and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
 					) {

@@ -1043,8 +1043,26 @@
       "en:forest-footprint-a"
    ],
    "nova_group" : 4,
-   "nova_group_debug" : " -- ingredients/en:salt : 3 -- additives/en:e102 : 4",
+   "nova_group_debug" : "",
    "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:salt"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e102"
+         ],
+         [
+            "ingredients",
+            "en:milk-proteins"
+         ]
+      ]
+   },
    "nova_groups_tags" : [
       "en:4-ultra-processed-food-and-drink-products"
    ],

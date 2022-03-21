@@ -1,338 +1,358 @@
 {
-   "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
-   "additives_original_tags" : [],
-   "additives_tags" : [],
+   "additives_n" : 1,
+   "additives_old_n" : 1,
+   "additives_old_tags" : [
+      "en:e412"
+   ],
+   "additives_original_tags" : [
+      "en:e412"
+   ],
+   "additives_tags" : [
+      "en:e412"
+   ],
    "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
-   "allergens_tags" : [],
+   "allergens_from_ingredients" : "en:milk",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [
+      "en:milk"
+   ],
+   "allergens_tags" : [
+      "en:milk"
+   ],
    "amino_acids_tags" : [],
-   "attribute_groups_fr" : [
+   "attribute_groups_en" : [
       {
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Données manquantes pour calculer le Nutri-Score",
+               "description_short" : "Missing data to compute the Nutri-Score",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutriscore-unknown.svg",
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
                "status" : "unknown",
-               "title" : "Nutri-Score inconnu"
+               "title" : "Nutri-Score unknown"
             },
             {
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutrient-level-salt-unknown.svg",
                "id" : "low_salt",
-               "missing" : "Données nutritionnelles manquantes",
-               "name" : "Sel",
+               "missing" : "Missing nutrition facts",
+               "name" : "Salt",
                "status" : "unknown",
-               "title" : "Sel en quantité inconnue"
+               "title" : "Salt in unknown quantity"
             },
             {
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutrient-level-fat-unknown.svg",
                "id" : "low_fat",
-               "missing" : "Données nutritionnelles manquantes",
-               "name" : "Matières grasses",
+               "missing" : "Missing nutrition facts",
+               "name" : "Fat",
                "status" : "unknown",
-               "title" : "Matières grasses en quantité inconnue"
+               "title" : "Fat in unknown quantity"
             },
             {
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutrient-level-sugars-unknown.svg",
                "id" : "low_sugars",
-               "missing" : "Données nutritionnelles manquantes",
-               "name" : "Sucres",
+               "missing" : "Missing nutrition facts",
+               "name" : "Sugars",
                "status" : "unknown",
-               "title" : "Sucres en quantité inconnue"
+               "title" : "Sugars in unknown quantity"
             },
             {
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutrient-level-saturated-fat-unknown.svg",
                "id" : "low_saturated_fat",
-               "missing" : "Données nutritionnelles manquantes",
-               "name" : "Acides gras saturés",
+               "missing" : "Missing nutrition facts",
+               "name" : "Saturated fat",
                "status" : "unknown",
-               "title" : "Acides gras saturés en quantité inconnue"
+               "title" : "Saturated fat in unknown quantity"
             }
          ],
          "id" : "nutritional_quality",
-         "name" : "Qualité nutritionnelle"
+         "name" : "Nutritional quality"
       },
       {
          "attributes" : [
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-gluten.svg",
                "id" : "allergens_no_gluten",
                "match" : 100,
                "name" : "Gluten",
                "status" : "known",
-               "title" : "Ne contient pas : Gluten"
+               "title" : "Does not contain: Gluten"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-milk.svg",
+               "debug" : "en:milk in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/contains-milk.svg",
                "id" : "allergens_no_milk",
-               "match" : 100,
-               "name" : "Lait",
+               "match" : 0,
+               "name" : "Milk",
                "status" : "known",
-               "title" : "Ne contient pas : Lait"
+               "title" : "Contains: Milk"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-eggs.svg",
                "id" : "allergens_no_eggs",
                "match" : 100,
-               "name" : "Œufs",
+               "name" : "Eggs",
                "status" : "known",
-               "title" : "Ne contient pas : Œufs"
+               "title" : "Does not contain: Eggs"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-nuts.svg",
                "id" : "allergens_no_nuts",
                "match" : 100,
-               "name" : "Fruits à coque",
+               "name" : "Nuts",
                "status" : "known",
-               "title" : "Ne contient pas : Fruits à coque"
+               "title" : "Does not contain: Nuts"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-peanuts.svg",
                "id" : "allergens_no_peanuts",
                "match" : 100,
-               "name" : "Arachides",
+               "name" : "Peanuts",
                "status" : "known",
-               "title" : "Ne contient pas : Arachides"
+               "title" : "Does not contain: Peanuts"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-sesame-seeds.svg",
                "id" : "allergens_no_sesame_seeds",
                "match" : 100,
-               "name" : "Graines de sésame",
+               "name" : "Sesame seeds",
                "status" : "known",
-               "title" : "Ne contient pas : Graines de sésame"
+               "title" : "Does not contain: Sesame seeds"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-soybeans.svg",
                "id" : "allergens_no_soybeans",
                "match" : 100,
-               "name" : "Soja",
+               "name" : "Soybeans",
                "status" : "known",
-               "title" : "Ne contient pas : Soja"
+               "title" : "Does not contain: Soybeans"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-celery.svg",
                "id" : "allergens_no_celery",
                "match" : 100,
-               "name" : "Céleri",
+               "name" : "Celery",
                "status" : "known",
-               "title" : "Ne contient pas : Céleri"
+               "title" : "Does not contain: Celery"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-mustard.svg",
                "id" : "allergens_no_mustard",
                "match" : 100,
-               "name" : "Moutarde",
+               "name" : "Mustard",
                "status" : "known",
-               "title" : "Ne contient pas : Moutarde"
+               "title" : "Does not contain: Mustard"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-lupin.svg",
                "id" : "allergens_no_lupin",
                "match" : 100,
                "name" : "Lupin",
                "status" : "known",
-               "title" : "Ne contient pas : Lupin"
+               "title" : "Does not contain: Lupin"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-fish.svg",
                "id" : "allergens_no_fish",
                "match" : 100,
-               "name" : "Poisson",
+               "name" : "Fish",
                "status" : "known",
-               "title" : "Ne contient pas : Poisson"
+               "title" : "Does not contain: Fish"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-crustaceans.svg",
                "id" : "allergens_no_crustaceans",
                "match" : 100,
-               "name" : "Crustacés",
+               "name" : "Crustaceans",
                "status" : "known",
-               "title" : "Ne contient pas : Crustacés"
+               "title" : "Does not contain: Crustaceans"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-molluscs.svg",
                "id" : "allergens_no_molluscs",
                "match" : 100,
-               "name" : "Mollusques",
+               "name" : "Molluscs",
                "status" : "known",
-               "title" : "Ne contient pas : Mollusques"
+               "title" : "Does not contain: Molluscs"
             },
             {
-               "debug" : "3 ingredients (0 unknown)",
+               "debug" : "7 ingredients (0 unknown)",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/no-sulphur-dioxide-and-sulphites.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                "match" : 100,
-               "name" : "Anhydride sulfureux et sulfites",
+               "name" : "Sulphur dioxide and sulphites",
                "status" : "known",
-               "title" : "Ne contient pas : Anhydride sulfureux et sulfites"
+               "title" : "Does not contain: Sulphur dioxide and sulphites"
             }
          ],
          "id" : "allergens",
-         "name" : "Allergènes",
-         "warning" : "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
+         "name" : "Allergens",
+         "warning" : "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
       },
       {
          "attributes" : [
             {
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/vegan.svg",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/non-vegan.svg",
                "id" : "vegan",
-               "match" : 100,
-               "name" : "Végétalien",
+               "match" : 0,
+               "name" : "Vegan",
                "status" : "known",
-               "title" : "Végétalien"
-            },
-            {
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/vegetarian.svg",
-               "id" : "vegetarian",
-               "match" : 100,
-               "name" : "Végétarien",
-               "status" : "known",
-               "title" : "Végétarien"
+               "title" : "Non-vegan"
             },
             {
                "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/may-contain-palm-oil.svg",
-               "id" : "palm_oil_free",
+               "icon_url" : "https://server_domain/images/attributes/maybe-vegetarian.svg",
+               "id" : "vegetarian",
                "match" : 50,
-               "name" : "Sans huile de palme",
+               "name" : "Vegetarian",
                "status" : "known",
-               "title" : "Pourrait contenir de l'huile de palme"
-            }
-         ],
-         "id" : "ingredients_analysis",
-         "name" : "Ingrédients"
-      },
-      {
-         "attributes" : [
-            {
-               "description" : "",
-               "description_short" : "Degré de transformation des aliments inconnu",
-               "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/nova-group-unknown.svg",
-               "id" : "nova",
-               "match" : 0,
-               "name" : "Groupe NOVA",
-               "status" : "unknown",
-               "title" : "NOVA non calculé"
+               "title" : "Maybe vegetarian"
             },
             {
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/0-additives.svg",
-               "id" : "additives",
+               "icon_url" : "https://server_domain/images/attributes/palm-oil-free.svg",
+               "id" : "palm_oil_free",
                "match" : 100,
-               "name" : "Additifs",
+               "name" : "Palm oil free",
                "status" : "known",
-               "title" : "Sans additives"
+               "title" : "Palm oil free"
             }
          ],
-         "id" : "processing",
-         "name" : "Transformation des aliments"
+         "id" : "ingredients_analysis",
+         "name" : "Ingredients"
       },
       {
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Impact environnemental inconnu",
-               "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/ecoscore-unknown.svg",
-               "id" : "ecoscore",
+               "description_short" : "Ultra processed foods",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/nova-group-4.svg",
+               "id" : "nova",
                "match" : 0,
-               "name" : "Éco-Score",
-               "status" : "unknown",
-               "title" : "Eco-Score non calculé"
+               "name" : "NOVA group",
+               "status" : "known",
+               "title" : "NOVA 4"
+            },
+            {
+               "grade" : "b",
+               "icon_url" : "https://server_domain/images/attributes/1-additives.svg",
+               "id" : "additives",
+               "match" : 80,
+               "name" : "Additives",
+               "status" : "known",
+               "title" : "1 additive"
+            }
+         ],
+         "id" : "processing",
+         "name" : "Food processing"
+      },
+      {
+         "attributes" : [
+            {
+               "description" : "",
+               "description_short" : "High environmental impact",
+               "grade" : "d",
+               "icon_url" : "https://server_domain/images/attributes/ecoscore-d.svg",
+               "id" : "ecoscore",
+               "match" : 35,
+               "name" : "Eco-Score",
+               "status" : "known",
+               "title" : "Eco-Score D"
             },
             {
                "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
+               "description_short" : "Currently only for products with chicken or eggs",
                "grade" : "e",
                "icon_url" : "https://server_domain/images/attributes/forest-footprint-not-computed.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Empreinte forêt",
+               "name" : "Forest footprint",
                "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "title" : "Forest footprint not computed"
             }
          ],
          "id" : "environment",
-         "name" : "Environnement"
+         "name" : "Environment"
       },
       {
          "attributes" : [
             {
-               "description" : "L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.",
-               "description_short" : "Les produits bios encouragent la durabilité écologique et la biodiversité.",
+               "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
+               "description_short" : "Organic products promote ecological sustainability and biodiversity.",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/organic-unknown.svg",
                "id" : "labels_organic",
-               "name" : "Agriculture biologique",
+               "name" : "Organic farming",
                "status" : "unknown",
-               "title" : "Information manquante : produit bio ?"
+               "title" : "Missing information: organic product?"
             },
             {
-               "description" : "Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.",
-               "description_short" : "Les produits du commerce équitable aident les producteurs des pays en voie de développement.",
+               "description" : "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
+               "description_short" : "Fair trade products help producers in developing countries.",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/fair-trade-unknown.svg",
                "id" : "labels_fair_trade",
-               "name" : "Commerce équitable",
+               "name" : "Fair trade",
                "status" : "unknown",
-               "title" : "Information manquante : produit de commerce équitable ?"
+               "title" : "Missing information: fair trade product?"
             }
          ],
          "id" : "labels",
          "name" : "Labels"
       }
    ],
-   "categories_properties" : {},
+   "categories" : "Cheeses",
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "12001",
+      "ciqual_food_code:en" : "12999"
+   },
    "categories_properties_tags" : [
       "all-products",
-      "categories-unknown",
+      "categories-known",
       "agribalyse-food-code-unknown",
-      "agribalyse-proxy-food-code-unknown",
-      "ciqual-food-code-unknown",
-      "agribalyse-unknown"
+      "agribalyse-proxy-food-code-12001",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-12999",
+      "ciqual-food-code-known",
+      "agribalyse-known",
+      "agribalyse-12001"
+   ],
+   "categories_tags" : [
+      "en:cheeses"
    ],
    "ecoscore_data" : {
       "adjustments" : {
@@ -558,153 +578,396 @@
          "threatened_species" : {}
       },
       "agribalyse" : {
-         "warning" : "missing_agribalyse_match"
+         "agribalyse_proxy_food_code" : "12001",
+         "co2_agriculture" : 4.7126103,
+         "co2_consumption" : 0.0047993021,
+         "co2_distribution" : 0.029050683,
+         "co2_packaging" : 0.26662691,
+         "co2_processing" : 0.22452742,
+         "co2_total" : 5.4920327,
+         "co2_transportation" : 0.25844052,
+         "code" : "12001",
+         "dqr" : "1.81",
+         "ef_agriculture" : 0.41632179,
+         "ef_consumption" : 0.0024293397,
+         "ef_distribution" : 0.0088270864,
+         "ef_packaging" : 0.019721226,
+         "ef_processing" : 0.028839787,
+         "ef_total" : 0.49584622,
+         "ef_transportation" : 0.020064567,
+         "is_beverage" : 0,
+         "name_en" : "Camembert cheese, from cow's milk",
+         "name_fr" : "Camembert, sans précision",
+         "score" : 54
+      },
+      "grade" : "d",
+      "grades" : {
+         "ad" : "d",
+         "al" : "d",
+         "at" : "d",
+         "ax" : "d",
+         "ba" : "d",
+         "be" : "d",
+         "bg" : "d",
+         "ch" : "d",
+         "cy" : "d",
+         "cz" : "d",
+         "de" : "d",
+         "dk" : "d",
+         "dz" : "d",
+         "ee" : "d",
+         "eg" : "d",
+         "es" : "d",
+         "fi" : "d",
+         "fo" : "d",
+         "fr" : "d",
+         "gg" : "d",
+         "gi" : "d",
+         "gr" : "d",
+         "hr" : "d",
+         "hu" : "d",
+         "ie" : "d",
+         "il" : "d",
+         "im" : "d",
+         "is" : "d",
+         "it" : "d",
+         "je" : "d",
+         "lb" : "d",
+         "li" : "d",
+         "lt" : "d",
+         "lu" : "d",
+         "lv" : "d",
+         "ly" : "d",
+         "ma" : "d",
+         "mc" : "d",
+         "md" : "d",
+         "me" : "d",
+         "mk" : "d",
+         "mt" : "d",
+         "nl" : "d",
+         "no" : "d",
+         "pl" : "d",
+         "ps" : "d",
+         "pt" : "d",
+         "ro" : "d",
+         "rs" : "d",
+         "se" : "d",
+         "si" : "d",
+         "sj" : "d",
+         "sk" : "d",
+         "sm" : "d",
+         "sy" : "d",
+         "tn" : "d",
+         "tr" : "d",
+         "ua" : "d",
+         "uk" : "d",
+         "us" : "d",
+         "va" : "d",
+         "world" : "d",
+         "xk" : "d"
       },
       "missing" : {
-         "categories" : 1,
          "labels" : 1,
          "origins" : 1,
          "packagings" : 1
       },
-      "missing_agribalyse_match_warning" : 1,
+      "missing_data_warning" : 1,
       "missing_key_data" : 1,
-      "status" : "unknown"
+      "score" : 34,
+      "scores" : {
+         "ad" : 34,
+         "al" : 34,
+         "at" : 34,
+         "ax" : 34,
+         "ba" : 34,
+         "be" : 34,
+         "bg" : 34,
+         "ch" : 34,
+         "cy" : 34,
+         "cz" : 34,
+         "de" : 34,
+         "dk" : 34,
+         "dz" : 34,
+         "ee" : 34,
+         "eg" : 34,
+         "es" : 34,
+         "fi" : 34,
+         "fo" : 34,
+         "fr" : 34,
+         "gg" : 34,
+         "gi" : 34,
+         "gr" : 34,
+         "hr" : 34,
+         "hu" : 34,
+         "ie" : 34,
+         "il" : 34,
+         "im" : 34,
+         "is" : 34,
+         "it" : 34,
+         "je" : 34,
+         "lb" : 34,
+         "li" : 34,
+         "lt" : 34,
+         "lu" : 34,
+         "lv" : 34,
+         "ly" : 34,
+         "ma" : 34,
+         "mc" : 34,
+         "md" : 34,
+         "me" : 34,
+         "mk" : 34,
+         "mt" : 34,
+         "nl" : 34,
+         "no" : 34,
+         "pl" : 34,
+         "ps" : 34,
+         "pt" : 34,
+         "ro" : 34,
+         "rs" : 34,
+         "se" : 34,
+         "si" : 34,
+         "sj" : 34,
+         "sk" : 34,
+         "sm" : 34,
+         "sy" : 34,
+         "tn" : 34,
+         "tr" : 34,
+         "ua" : 34,
+         "uk" : 34,
+         "us" : 34,
+         "va" : 34,
+         "world" : 34,
+         "xk" : 34
+      },
+      "status" : "known"
    },
-   "ecoscore_grade" : "unknown",
+   "ecoscore_grade" : "d",
+   "ecoscore_score" : 34,
    "ecoscore_tags" : [
-      "unknown"
+      "d"
    ],
-   "food_groups_tags" : [],
+   "food_groups" : "en:cheese",
+   "food_groups_tags" : [
+      "en:milk-and-dairy-products",
+      "en:cheese"
+   ],
    "ingredients" : [
       {
-         "id" : "en:corn-flour",
-         "percent_estimate" : 66.6666666666667,
+         "id" : "en:cow-s-milk",
+         "percent_estimate" : 57.1428571428571,
          "percent_max" : 100,
-         "percent_min" : 33.3333333333333,
-         "text" : "farine de maïs",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "from_palm_oil" : "maybe",
-         "id" : "en:vegetable-oil",
-         "percent_estimate" : 16.6666666666667,
-         "percent_max" : 50,
-         "percent_min" : 0,
-         "text" : "huiles végétales",
-         "vegan" : "yes",
+         "percent_min" : 14.2857142857143,
+         "text" : "Cow milk",
+         "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:salt",
-         "percent_estimate" : 16.6666666666667,
+         "percent_estimate" : 21.4285714285714,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:microbial-culture",
+         "percent_estimate" : 10.7142857142857,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "sel",
+         "text" : "microbial culture",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:garlic-flavouring",
+         "percent_estimate" : 5.35714285714286,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "garlic flavouring",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:e412",
+         "percent_estimate" : 2.67857142857143,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "guar gum",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:high-fructose-corn-syrup",
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "high fructose corn syrup",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:may-contain-palm-oil" : [
-         "en:vegetable-oil"
+      "en:maybe-vegetarian" : [
+         "en:microbial-culture",
+         "en:garlic-flavouring"
+      ],
+      "en:non-vegan" : [
+         "en:cow-s-milk"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:may-contain-palm-oil",
-      "en:vegan",
-      "en:vegetarian"
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 1,
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
    "ingredients_from_palm_oil_n" : 0,
    "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
-      "en:corn-flour",
-      "en:cereal",
-      "en:flour",
-      "en:corn",
-      "en:vegetable-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:salt"
+      "en:cow-s-milk",
+      "en:dairy",
+      "en:milk",
+      "en:salt",
+      "en:microbial-culture",
+      "en:ferment",
+      "en:garlic-flavouring",
+      "en:flavouring",
+      "en:e412",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:high-fructose-corn-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup"
    ],
-   "ingredients_n" : 3,
+   "ingredients_n" : 7,
    "ingredients_n_tags" : [
-      "3",
+      "7",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:corn-flour",
-      "en:vegetable-oil",
-      "en:salt"
+      "en:cow-s-milk",
+      "en:salt",
+      "en:microbial-culture",
+      "en:garlic-flavouring",
+      "en:e412",
+      "en:sugar",
+      "en:high-fructose-corn-syrup"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:corn-flour",
-      "en:cereal",
-      "en:flour",
-      "en:corn",
-      "en:vegetable-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:salt"
+      "en:cow-s-milk",
+      "en:dairy",
+      "en:milk",
+      "en:salt",
+      "en:microbial-culture",
+      "en:ferment",
+      "en:garlic-flavouring",
+      "en:flavouring",
+      "en:e412",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:high-fructose-corn-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup"
    ],
-   "ingredients_text" : "farine de maïs, huiles végétales, sel",
-   "ingredients_that_may_be_from_palm_oil_n" : 1,
-   "ingredients_that_may_be_from_palm_oil_tags" : [
-      "huile-vegetale"
-   ],
+   "ingredients_text" : "Cow milk, salt, microbial culture, garlic flavouring, guar gum, sugar, high fructose corn syrup",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 8,
+   "known_ingredients_n" : 18,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
    "languages_tags" : [
       "en:0"
    ],
-   "lc" : "fr",
+   "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-not-computed",
-      "en:nutriscore-missing-category",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutrition-no-saturated-fat",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
       "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-missing-data-labels",
+      "en:ecoscore-missing-data-origins",
+      "en:ecoscore-missing-data-packagings",
+      "en:ecoscore-missing-data-no-packagings",
+      "en:ecoscore-computed"
    ],
-   "nova_group_debug" : "no nova group when the product does not have a category",
-   "nova_group_error" : "missing_category",
-   "nova_group_tags" : [
-      "not-applicable"
+   "nova_group" : 4,
+   "nova_group_debug" : "",
+   "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "categories",
+            "en:cheeses"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e412"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:4-ultra-processed-food-and-drink-products"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nova-group" : 4,
+      "nova-group_100g" : 4,
+      "nova-group_serving" : 4
    },
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category",
+   "nutrition_score_debug" : "missing energy",
    "other_nutritional_substances_tags" : [],
    "packagings" : [],
-   "pnns_groups_1" : "unknown",
+   "pnns_groups_1" : "Milk and dairy products",
    "pnns_groups_1_tags" : [
-      "unknown",
-      "missing-category"
+      "milk-and-dairy-products",
+      "known"
    ],
-   "pnns_groups_2" : "unknown",
+   "pnns_groups_2" : "Cheese",
    "pnns_groups_2_tags" : [
-      "unknown",
-      "missing-category"
+      "cheese",
+      "known"
    ],
    "traces" : "",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
+   "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
