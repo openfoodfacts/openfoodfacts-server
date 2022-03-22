@@ -31438,6 +31438,10 @@ agribalyse_food_code:en:25546
 ciqual_food_code:en:25546
 ciqual_food_name:en:Cheese and ham, breaded
 
+<en:Breaded products
+<en:Meat alternatives
+fr:Galettes de légumes panées
+
 <en:Cereals and potatoes
 en:Breads
 bg:Хляб
@@ -54777,7 +54781,7 @@ fr:Purées de sésame demi-complet, Purées de sésame semi-complet
 nl:Half-volkoren sesampastas
 
 <en:Cereals and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:Seitan
 de:Seitan
 es:Seitanes, Seitán
@@ -68408,8 +68412,9 @@ fr:Samoussas aux légumes, samossas aux légumes
 nl:Groentesamosa
 #wikidata:en:
 
-<en:Prepared vegetables
-en:Vegetable cakes, vegetable patties
+# Patties that often replace meat in vegeterian meals
+<en:Meat alternatives
+en:Vegetable patties
 de:Gemüsefrikadellen
 fi:kasvispihvit
 fr:Galettes de légumes
@@ -68417,7 +68422,7 @@ it:Torte vegetali
 nl:Groentencakes
 #wikidata:en:
 
-<en:Prepared vegetables
+<en:Meat alternatives
 <en:Frozen foods
 en:Frozen vegetable rosti, Frozen pre-fried vegetable rosti
 fr:Palets de légumes préfrits surgelés, Galettes de légumes préfrites surgelées
@@ -70100,7 +70105,7 @@ wikidata:en:Q3807565
 <en:Meat preparations
 de:Fleischkäse
 
-<en:Plant-based foods
+<en:Meat alternatives
 en:Vegetarian balls
 fr:Boulettes végétariennes
 
@@ -91983,7 +91988,7 @@ nl:Sojaboonpastas
 # description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 
 <en:Legumes and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:tofu, Tofus, bean curds
 an:Tofu
 ar:توفو
@@ -92090,7 +92095,7 @@ en:Smoked tofu
 fr:Tofu fumé
 
 <en:Legumes and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:Tempeh
 de:Tempeh
 es:Tempeh
@@ -95545,7 +95550,13 @@ nl:Foie gras moussen
 en:Foies gras pâtés
 fr:Pâtés de foie gras
 
+# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu...
 <en:Plant-based foods
+en:Meat alternatives
+fr:Alternatives à la viande
+
+# Meat alternatives that are created to look replace meat and often look like it. E.g. vegetarian sausages, nuggets...
+<en:Meat alternatives
 en:Meat analogues, Meat substitutes, Mock meats
 ca:Substitutius de carn
 de:Fleisch-Ersatzprodukte
