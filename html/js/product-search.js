@@ -267,20 +267,29 @@ function display_product_summary(target, product) {
 			grade = attribute.grade;
 		}
 
-		attributes_html += '<li>'
-		+ '<div class="attribute_card grade_' + grade + '">'
+		// card_html will be either a <div> or a <a> element, depending on whether it is linked to a knowledge panel
+		var card_html = 'class="attribute_card grade_' + grade + '">'
 		+ '<img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;">'
 		+ '<h4 class="grade_' + grade + '_title">' + attribute.title + '</h4>';
 		
 		if (attribute.description_short) {
-			attributes_html += '<span>' + attribute.description_short + '</span>';
+			card_html += '<span>' + attribute.description_short + '</span>';
 		}
 		
 		if (attribute.missing) {
-			attributes_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
-		}		
+			card_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
+		}
 
-		attributes_html += '</div></li>';
+		// check if the product attribute has an associated knowledge panel that exists
+		if ((attribute.panel_id) && (document.getElementById("panel_" + attribute.panel_id))) {
+			// onclick : open the panel content + reflow to make sur all column content is shown
+			card_html = '<a href="#panel_' + attribute.panel_id + '" onclick="document.getElementById(\'panel_' + attribute.panel_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+		}
+		else {
+			card_html = '<div ' + card_html + '</div>';
+		}
+
+		attributes_html += '<li>' + card_html + '</li>';
 	});
 	
 	$( target ).html('<ul id="attributes_grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">' + attributes_html + '</ul>');
