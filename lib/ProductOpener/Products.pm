@@ -134,6 +134,7 @@ use ProductOpener::Text qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
@@ -634,7 +635,7 @@ sub init_product($$$$) {
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	else {
+	elsif (defined $countryid) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}
@@ -1088,13 +1089,33 @@ sub store_product($$$) {
 		delete $product_ref->{owners_tags};
 	}
 
-	push @{$changes_ref}, {
+	my $change_ref = {
 		userid => $user_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
 		rev => $rev,
 	};
+
+	# Allow apps to send the user agent as a form parameter instead of a HTTP header, as some web based apps can't change the User-Agent header sent by the browser
+	my $user_agent = remove_tags_and_quote(decode utf8=>param("User-Agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user-agent"))
+		|| remove_tags_and_quote(decode utf8=>param("user_agent"))
+		|| user_agent();
+
+	if ((defined $user_agent) and ($user_agent ne "")) {
+		$change_ref->{user_agent} = $user_agent;
+	}
+
+	# Allow apps to send app_name, app_version and app_uuid parameters
+	foreach my $field (qw(app_name app_version app_uuid)) {
+		my $value = remove_tags_and_quote(decode utf8=>param($field));
+		if ((defined $value) and ($value ne "")) {
+			$change_ref->{$field} = $value;
+		}
+	}
+
+	push @{$changes_ref}, $change_ref; 
 
 	add_user_teams($product_ref);
 
@@ -1106,7 +1127,7 @@ sub store_product($$$) {
 
 	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
 
-	compute_data_sources($product_ref);
+	compute_data_sources($product_ref, $changes_ref);
 	
 	compute_main_countries($product_ref);
 
@@ -1132,7 +1153,7 @@ sub store_product($$$) {
 	# make sure nutrient values are numbers
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
-	my $change_ref = $changes_ref->[-1];
+	$change_ref = $changes_ref->[-1];
 	my $diffs = $change_ref->{diffs};
 	my %diffs = %{$diffs};
 	if ((!$diffs) or (!keys %diffs)) {
@@ -1167,13 +1188,21 @@ sub store_product($$$) {
 	return 1;
 }
 
-# Update the data-sources tag from the sources field
-# This function is for historic products, new sources should set the data_sources_tags field directly
-# through import_csv_file.pl / upload_photos.pl etc.
 
-sub compute_data_sources($) {
+=head2 compute_data_sources ( $product_ref, $changes_ref )
+
+Analyze the sources field of the product, as well as the changes to add to the data_sources field.
+
+Sources allows to add some producers imports that were done before the producers platform was created.
+
+The changes structure allows to add apps.
+
+=cut
+
+sub compute_data_sources($$) {
 
 	my $product_ref = shift;
+	my $changes_ref = shift;
 
 	my %data_sources = ();
 
@@ -1241,16 +1270,14 @@ sub compute_data_sources($) {
 
 	# Add a data source for apps
 
-	if (defined $product_ref->{editors_tags}) {
-		foreach my $editor (@{$product_ref->{editors_tags}}) {
+	foreach my $change_ref (@$changes_ref) {
+	
+		if (defined $change_ref->{app}) {
 
-			if ($editor =~ /\./) {
+			my $app_name = deep_get(\%options, "apps_names", $change_ref->{app}) || $change_ref->{app};
 
-				my $app = $`;
-
-				$data_sources{"Apps"} = 1;
-				$data_sources{"App - $app"} = 1;
-			}
+			$data_sources{"Apps"} = 1;
+			$data_sources{"App - " . $app_name} = 1;
 		}
 	}
 
@@ -1476,21 +1503,44 @@ sub compute_completeness_and_missing_tags($$$) {
 }
 
 
+=head2 get_change_userid_or_uuid ( $change_ref )
+
+For a specific change, analyze change identifiers (comment, user agent, userid etc.)
+to determine if the change was done through an app, the OFF userid, or an app specific UUID
+
+=cut
+
 sub get_change_userid_or_uuid($) {
 
 	my $change_ref = shift;
 
 	my $userid = $change_ref->{userid};
 
-	my $app = "";
+	my $app;
+	my $app_userid_prefix;
 	my $uuid;
 
-	if ((defined $userid) and (defined $options{apps_userids}) and (defined $options{apps_userids}{$userid})) {
-		$app = $options{apps_userids}{$userid} . "\.";
+	# Is it an app that sent a app_name?
+	if (defined $change_ref->{app_name}) {
+		$app = get_string_id_for_lang("no_language", $change_ref->{app_name});
 	}
+	# or is the userid specific to an app?
+	elsif (defined $userid) {
+		$app = deep_get(\%options, "apps_userids", $userid);
+	}
+
+	# If the userid is an an account for an app, unset the userid,
+	# so that it can be replaced by the app + an app uuid if provided
+	if (defined $app) {
+		$userid = undef;
+	}
+	# Set the app field for the Open Food Facts app
 	elsif ((defined $options{official_app_comment}) and ($change_ref->{comment} =~ /$options{official_app_comment}/i)) {
-		$app = $options{official_app_id} . "\.";
+		$app = $options{official_app_id};
 	}
+
+	# If we do not have a user specific userid (e.g. a logged in user using the Open Food Facts app),
+	# try to identify the UUID passed in the comment by some apps
 
 	# use UUID provided by some apps like Yuka
 	# UUIDs are mix of [a-zA-Z0-9] chars, they must not be lowercased by getfile_id
@@ -1501,20 +1551,53 @@ sub get_change_userid_or_uuid($) {
 	#
 	# but not:
 	# (app)Updated via Power User Script
-	if ((defined $userid) and (defined $options{apps_uuid_prefix}) and (defined $options{apps_uuid_prefix}{$userid})
-		and ($change_ref->{comment} =~ /$options{apps_uuid_prefix}{$userid}/i)) {
-		$uuid = $';
+
+	if ((defined $app) and ((not defined $userid) or ($userid eq ''))) {
+
+		$app_userid_prefix = deep_get(\%options, "apps_uuid_prefix", $app);
+
+		# Check if the app passed the app_uuid parameter
+		if (defined $change_ref->{app_uuid}) {
+			$uuid = $change_ref->{app_uuid};
+		}
+		# Extract UUID from comment
+		elsif ((defined $app_userid_prefix)
+			and ($change_ref->{comment} =~ /$app_userid_prefix/i)) {
+			$uuid = $';
+		}
+
+		if (defined $uuid) {
+
+			# Remove any app specific suffix
+			my $app_userid_suffix = deep_get(\%options, "apps_uuid_suffix", $app);
+			if (defined $app_userid_suffix) {
+				$uuid =~ s/$app_userid_suffix(\s|\(|\[])*$//i;
+			}
+
+			$uuid =~ s/^(-|_|\s|\(|\[])+//;
+			$uuid =~ s/(-|_|\s|\)|\])+$//;
+		}
+
+		# If we have a uuid from an app, make the userid a combination of app + uuid
+		if ((defined $uuid) and ($uuid !~ /^(-|_|\s|-|_|\.)*$/)) {
+			$userid = $app . '.' . $uuid;
+		}
+		# otherwise use the original userid used for the API if any
+		elsif (defined $change_ref->{userid}) {
+			$userid = $change_ref->{userid};
+		}	
 	}
 
-	if ((defined $uuid) and ($uuid !~ /^(\s|-|_|\.)*$/)) {
-		$uuid =~ s/^(\s*)//;
-		$uuid =~ s/(\s*)$//;
-		$userid = $app . $uuid;
-	}
-
-	if ((not defined $userid) or ($userid eq '')) {
+	if (not defined $userid) {
 		$userid = "openfoodfacts-contributors";
+	}	
+
+	# Add the app to the change structure if we identified one, this will be used to populate the data sources field
+	if (defined $app) {
+		$change_ref->{app} = $app;
 	}
+
+	$log->debug("get_change_userid_or_uuid", { change_ref => $change_ref, app => $app, app_userid_prefix => $app_userid_prefix, uuid => $uuid, userid => $userid } ) if $log->is_debug();
 
 	return $userid;
 }
@@ -1779,7 +1862,7 @@ sub compute_product_history_and_completeness($$$$) {
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
-			$log->warn("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_warn();
+			$log->debug("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_debug();
 		}
 
 		if (defined $product_ref) {
@@ -1931,7 +2014,7 @@ sub compute_product_history_and_completeness($$$$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
-					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
+					$log->debug("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_debug();
 					$diff = 'change';
 				}
 

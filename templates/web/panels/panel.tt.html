@@ -1,12 +1,30 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
+<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]"
+    [% IF panel.size == "small" %]
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    [% ELSE %]
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    [% END %]
+>
 [% ELSE %]
-<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
+<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]"
+    [% IF panel.size == "small" %]
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    [% ELSE %]
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    [% END %]
+>
 <li class="accordion-navigation">
 [% END %]
-    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]">
+
+    [% IF panel.title_element.defined %]
+    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]"
+        [% IF panel.size == "small" %]
+            style="padding:0.1rem;padding-left:1rem;"
+        [% END %]
+    >
         [% IF panel.title_element.icon_url.defined %]
         <img src="[% panel.title_element.icon_url %]"
             style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
@@ -17,7 +35,7 @@
                 [% ELSIF panel.evaluation == "bad" %]
                     class="filter-red"
                 [% ELSIF panel.evaluation == "average" %]
-                    class="filter-darkorange"                 
+                    class="filter-orange"                 
                 [% ELSIF panel.evaluation == "neutral" %]
                     class="filter-grey"
                 [% ELSIF panel.evaluation == "unknown" %]
@@ -26,41 +44,24 @@
             [% END %]
         >
         [% END %]
-        <h3 
-            [% IF panel.evaluation == "good" %]
-                style="color:green"
-            [% ELSIF panel.evaluation == "bad" %]
-                style="color:red"
-            [% ELSIF panel.evaluation == "average" %]
-                style="color:darkorange"
-            [% ELSIF panel.evaluation == "neutral" %]
-                style="color:grey"
-            [% ELSIF panel.evaluation == "unknown" %]
-               style="color:grey"
-            [% END %]
+        <h3 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
+            [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
+            [% IF panel.size == "small" %]style="font-size:1.1rem;"[% END %]
         >
             [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
+                <span class="evaluation_[%panel.evaluation %]_title">
                 [% IF panel.evaluation == "good" %]
-                    <span style="color:green">
-                        [% display_icon("check") %]
-                    </span>
+                    [% display_icon("check") %]
                 [% ELSIF panel.evaluation == "bad" %]
-                    <span style="color:red">
-                        [% display_icon("cancel") %]
-                    </span>
+                    [% display_icon("cancel") %]
                 [% ELSIF panel.evaluation == "average" %]
-                    <span style="color:darkorange">
-                        [% display_icon("check") %]
-                    </span>                    
+                    [% display_icon("check") %]
                 [% ELSIF panel.evaluation == "neutral" %]
-                    <span style="color:grey">
-                        [% display_icon("check") %]
-                    </span>
+                    [% display_icon("check") %]
                 [% ELSIF panel.evaluation == "unknown" %]
-                    <span style="color:grey">
-                        [% display_icon("help") %]
-                    </span>
+                    [% display_icon("help") %]
                 [% END %]
+                </span>
             [% END %]
             [% panel.title_element.title %]
         </h3>
@@ -69,6 +70,7 @@
         [% END %]
         <hr class="floatclear">
     </a>
+    [% END %]
 
     [% IF panel.elements.defined %]
     <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF (panel.type == 'card') OR (panel.type == 'inline') %]_[% panel.type %][% END %][% IF panel.expanded %] active[% END %]">
@@ -104,7 +106,7 @@
                         [% ELSIF text_element.evaluation == "bad" %]
                             class="filter-red"
                         [% ELSIF text_element.evaluation == "average" %]
-                            class="filter-darkorange"                 
+                            class="filter-orange"                 
                         [% ELSIF text_element.evaluation == "neutral" %]
                             class="filter-grey"
                         [% ELSIF text_element.evaluation == "unknown" %]
@@ -120,6 +122,8 @@
                 
                 [% IF text_element.type == "h1" %]
                     <h4 class="panel_title">
+                [% ELSIF text_element.type == "quote" %]
+                    <blockquote class="panel_text panel_text_quote">
                 [% ELSIF text_element.type == "note" %]
                     <div class="panel_text panel_text_note">→ 
                 [% ELSIF text_element.type == "warning" %]
@@ -127,11 +131,27 @@
                 [% ELSE %]
                     <div class="panel_text">
                 [% END %]
+                    [% IF text_element.lc.defined && text_element.lc != lc %]
+                        <!-- text is in a different language than the interface -->
+                        <strong>[% text_element.language %][% sep %]: </strong>
+                    [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
                     </h4>
+                [% ELSIF text_element.type == "quote" %]
+                    </blockquote>
                 [% ELSE %]
                     </div>
+                [% END %]
+                [% IF text_element.source_url.defined %]
+                    <em>[% lang("source") %][% sep %]:
+                        <a href="[% text_element.source_url %]">[% text_element.source_text %]
+                            [% IF text_element.source_lc.defined && text_element.source_lc != lc %]
+                            <!-- source is in a different language than the interface -->
+                            ([% text_element.source_language %])
+                            [% END %]
+                        </a>
+                    </em>
                 [% END %]
                 </div>
 
@@ -144,6 +164,17 @@
                 [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
                     <img src="[% image_element.url %]" alt="[% image_element.alt %]">
                 [% IF image_element.link_url.defined %]</a>[% END %]
+
+                [% IF image_element.source_url.defined %]
+                <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
+                    <a href="[% image_element.source_url %]">[% image_element.source_text %]
+                        [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
+                        <!-- source is in a different language than the interface -->
+                        ([% image_element.source_language %])
+                        [% END %]
+                    </a>
+                </div>
+            [% END %]                
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]

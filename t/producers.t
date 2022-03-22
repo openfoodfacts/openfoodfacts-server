@@ -1,8 +1,7 @@
 #!/usr/bin/perl -w
 
-use utf8;
-
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Test::Number::Delta;
@@ -19,7 +18,9 @@ init_fields_columns_names_for_lang("es");
 my @tests = (
 ["fr", "glucides", { field=>"carbohydrates_100g_value_unit"}],
 ["fr", "nom-produit", { field=>"product_name", lc=>"fr"}],
+["fr", "Nom du produit", {field => 'product_name', lc => 'fr'}],
 ["fr", "marque", { field=>"brands"}],
+["fr", "Liste des ingrédients", {field => 'ingredients_text', lc => 'fr'}],
 ["fr", "liste-ingredients", { field=>"ingredients_text", lc =>"fr"}],
 ["fr", "bio", { field=>"labels_specific", tag=>"Bio"}],
 
@@ -33,6 +34,10 @@ my @tests = (
 ["fr", "glucides-prepare-par-portion", { field=>"carbohydrates_prepared_serving_value_unit"}],
 ["fr", "fer-mg-par-portion", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
 ["fr", "Fer (portion) mg", { field=>"iron_serving_value_unit", value_unit=>'value_in_mg'}],
+
+# Did not work following change to the nutrients taxonomy
+["fr", "Matières grasses / Lipides pour 100 g / 100 ml", {}],
+
 ["en", "energy-kj_prepared", { field=>"energy-kj_prepared_100g_value_unit", value_unit=>'value_in_kj'}],
 ["en", "energy-kcal_prepared", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value_in_kcal'}],
 ["en", "energy-kcal_prepared_value", { field=>"energy-kcal_prepared_100g_value_unit", value_unit=>'value'}],

@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       - name: Install Perl requirements
         run: |
@@ -27,7 +27,7 @@ jobs:
           perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
 
       - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.7
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"

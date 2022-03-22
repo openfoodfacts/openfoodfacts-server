@@ -14,6 +14,8 @@ export CPU_COUNT=$(shell nproc || 1)
 
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+# we run tests in a specific project name to be separated from dev instances
+DOCKER_COMPOSE_TEST=COMPOSE_PROJECT_NAME=po_test PO_COMMON_PREFIX=test_ docker-compose --env-file=${ENV_FILE}
 
 .DEFAULT_GOAL := dev
 
@@ -39,8 +41,8 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello build init_backend _up import_sample_data refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://productopener.localhost"
+dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
+	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
 edit_etc_hosts:
@@ -114,8 +116,12 @@ tail:
 #----------#
 build_lang:
 	@echo "🥫 Rebuild language"
-	# Run build_lang.pl
+# Run build_lang.pl
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+
+build_lang_test:
+# Run build_lang.pl in test env
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -125,9 +131,15 @@ reset_owner:
 
 init_backend: build_lang
 
+create_mongodb_indexes:
+	@echo "🥫 Creating MongoDB indexes …"
+	docker cp conf/mongodb/create_indexes.js $(shell docker-compose ps -q mongodb):/data/db
+	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/create_indexes.js"
+
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-	docker cp scripts/refresh_products_tags.js po_mongodb_1:/data/db
+# get id for mongodb container
+	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
 import_sample_data:
@@ -141,10 +153,12 @@ import_more_sample_data:
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
+	@echo "🥫 Removing old archive in case you have one"
+	( rm -f openfoodfacts-mongodbdump.tar.gz || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
-	wget https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
+	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz
 	@echo "🥫 Copying the dump to MongoDB container …"
-	docker cp openfoodfacts-mongodbdump.tar.gz po_mongodb_1:/data/db
+	docker cp openfoodfacts-mongodbdump.tar.gz $(shell docker-compose ps -q mongodb):/data/db
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "cd /data/db && tar -xzvf openfoodfacts-mongodbdump.tar.gz && mongorestore --batchSize=1 && rm openfoodfacts-mongodbdump.tar.gz"
 	rm openfoodfacts-mongodbdump.tar.gz
@@ -156,11 +170,15 @@ import_prod_data:
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
 
-checks: front_lint
+checks: front_lint check_perl_fast
 
-tests:
+
+tests: build_lang_test
 	@echo "🥫 Runing tests …"
-	docker-compose run --rm backend prove -l
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm backend prove -l
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 test success"
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
@@ -185,19 +203,22 @@ build_taxonomies:
 	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
 	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
 
+rebuild_taxonomies:
+	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"
+	${DOCKER_COMPOSE} run --rm backend make -C taxonomies all_taxonomies -j ${CPU_COUNT}
 
 #------------#
 # Production #
 #------------#
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
-	# zfs replications
+# zfs replications
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/data html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/users users
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/products products
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/product_images product_images
 	docker volume create --driver=local -o type=none -o o=bind -o device=${MOUNT_POINT}/orgs orgs
-	# local data
+# local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata podata
 
 #---------#

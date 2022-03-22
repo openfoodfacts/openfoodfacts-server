@@ -15,14 +15,14 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Qualité nutritionnelle inconnue",
+               "description_short" : "Données manquantes pour calculer le Nutri-Score",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/nutriscore-unknown.svg",
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
                "status" : "unknown",
-               "title" : "Nutri-Score non calculé"
+               "title" : "Nutri-Score inconnu"
             },
             {
                "grade" : "unknown",
@@ -570,6 +570,7 @@
          "packagings" : 1
       },
       "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
       "status" : "unknown"
    },
    "ecoscore_grade" : "unknown",
@@ -598,6 +599,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil",
       "en:vegan",

@@ -3,13 +3,16 @@
     "topics": [
         "health"
     ],
-    "elements": [   
+    "type": "inline",
+    "expanded": true,
+    "elements": [
+        [% FOREACH additive IN product.additives_tags %]
         {
-            "element_type": "text",
-            "text_element": {
-                "html": `[ shown only to moderators] -- New knowledge panel coming soon
-                `,
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "additive_[% additive %]",
             }
-        },
+        },            
+        [% END %]
     ]
 }

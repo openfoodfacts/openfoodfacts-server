@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
-
 use utf8;
 
 use Test::More;
@@ -362,10 +361,10 @@ my @tags = ();
 
 is_deeply (\@tags, [
 	'en:added-sugar',
-	'en:disaccharide',
 	'en:fruit',
-	'en:sugar',
 	'en:citrus-fruit', 
+	'en:disaccharide',
+	'en:sugar',
 	'en:fruit-juice', 
 	'en:salt', 
 	'en:orange', 
@@ -745,5 +744,16 @@ is( canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base
 
 # check that properties are taxonomized if their name match a previously loaded taxonomy
 is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+
+# test list_taxonomy_tags_in_language
+
+is(list_taxonomy_tags_in_language("en", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"fr:un label français inconnu, Organic, A New English label, Missing language prefix, Fair trade, One-percent-for-the-planet");
+
+is(list_taxonomy_tags_in_language("fr", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"Un label français inconnu, Bio, en:A New English label, Missing language prefix, Commerce équitable, en:one-percent-for-the-planet");
+
+is(list_taxonomy_tags_in_language("es", "labels", ["fr:un label français inconnu","en:organic","en:A New English label","missing language prefix","en:Fair Trade", "en:one-percent-for-the-planet"]),
+	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet");
 
 done_testing();

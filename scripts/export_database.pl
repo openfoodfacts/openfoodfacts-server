@@ -46,13 +46,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
 use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
@@ -94,7 +94,7 @@ sub sanitize_field_content {
 }
 
 
-my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
+my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1, food_groups=>1);
 
 
 my %langs = ();
@@ -146,7 +146,7 @@ foreach my $l ("en", "fr") {
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp");
+	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp") or die("Cannot write $csv_filename.temp: $!\n");
 	open (my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
 	open (my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
@@ -283,16 +283,30 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			my $field_value = ($product_ref->{$field} // "");
+			my $field_value;
+
+			# _tags field contain an array of values
+			if ($field =~ /_tags/) {
+				if (defined $product_ref->{$field}) {
+					$field_value = join(',', @{$product_ref->{$field}});
+				}
+				else {
+					$field_value = "";
+				}
+			}
+			# other fields
+			else {
+				$field_value = ($product_ref->{$field} // "");
+			}
 
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
 			
-			# Eco-Score
+			# Eco-Score data is stored in ecoscore_data.(grades|scores).(language code)
 			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
-				$field_value = $product_ref->{ecoscore_data}{$1 . "_" . $2};
+				$field_value = ($product_ref->{ecoscore_data}{$1 . "s"}{$2} // "");
 			}
 
 			if ($field_value ne '') {

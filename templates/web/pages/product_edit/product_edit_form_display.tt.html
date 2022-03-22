@@ -96,12 +96,16 @@
 
         <!--nutrient fieldset-->
         <div class="fieldset" id="nutrition"><legend>[% lang('nutrition_data') %]</legend>
+            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+            <input type="hidden" name="no_nutrition_data_displayed" value="1" />
             <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
             <label for="no_nutrition_data" class="checkbox_label">[% lang('no_nutrition_data') %]</label><br/>
             [% display_tab_nutrition_image %]
             [% display_field_serving_size %]
 
             [% FOREACH nutrient IN nutrition_products %]
+                <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                <input type="hidden" name="[% nutrient.nutrition_data %]_displayed" value="1" />
                 <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
                 <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
                 <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
@@ -116,7 +120,7 @@
 
             <div style="position:relative">
 
-                <table id="nutrition_data_table" class="data_table" style = "[% tablestyle %]" aria-label="nutrition table">
+                <table id="nutrition_data_table" class="data_table" style="[% tablestyle %]" aria-label="nutrition table">
                     <thead class="nutriment_header">
                         <th id="col_1">
                             [% lang('nutrition_data_table') %]

@@ -22,7 +22,7 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:bell-pepper",
+               "id" : "en:spice-or-bell-pepper",
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -66,6 +66,7 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -73,10 +74,12 @@
    ],
    "ingredients_hierarchy" : [
       "en:spice",
+      "en:condiment",
       "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:vegetable",
+      "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
       "en:coriander",
@@ -93,7 +96,7 @@
       "en:spice",
       "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:garlic",
       "en:coriander",
       "en:mustard-seed"
@@ -101,10 +104,12 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:spice",
+      "en:condiment",
       "en:turmeric",
       "en:ginger",
-      "en:bell-pepper",
+      "en:spice-or-bell-pepper",
       "en:vegetable",
+      "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
       "en:coriander",
@@ -117,7 +122,7 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 11,
+   "known_ingredients_n" : 13,
    "lc" : "fi",
    "nutriments" : {
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,

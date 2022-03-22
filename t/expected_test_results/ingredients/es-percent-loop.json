@@ -11,20 +11,20 @@
       },
       {
          "id" : "en:bell-pepper",
-         "percent" : "12",
-         "percent_estimate" : "12",
-         "percent_max" : "12",
-         "percent_min" : "12",
+         "percent" : 12,
+         "percent_estimate" : 12,
+         "percent_max" : 12,
+         "percent_min" : 12,
          "text" : "pimiento",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:tuna",
-         "percent" : "10",
-         "percent_estimate" : "10",
-         "percent_max" : "10",
-         "percent_min" : "10",
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
          "text" : "atún",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -32,30 +32,30 @@
       {
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
-         "percent" : "4",
-         "percent_estimate" : "4",
-         "percent_max" : "4",
-         "percent_min" : "4",
+         "percent" : 4,
+         "percent_estimate" : 4,
+         "percent_max" : 4,
+         "percent_min" : 4,
          "text" : "aceite de oliva virgen extra",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:egg",
-         "percent" : "3",
-         "percent_estimate" : "3",
-         "percent_max" : "3",
-         "percent_min" : "3",
+         "percent" : 3,
+         "percent_estimate" : 3,
+         "percent_max" : 3,
+         "percent_min" : 3,
          "text" : "huevo",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:onion",
-         "percent" : "3",
-         "percent_estimate" : "3",
-         "percent_max" : "3",
-         "percent_min" : "3",
+         "percent" : 3,
+         "percent_estimate" : 3,
+         "percent_max" : 3,
+         "percent_min" : 3,
          "text" : "cebolla",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -63,7 +63,7 @@
       {
          "id" : "en:sugar",
          "percent_estimate" : 1.5,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
          "text" : "azúcar",
          "vegan" : "yes",
@@ -72,7 +72,7 @@
       {
          "id" : "en:corn-starch",
          "percent_estimate" : 1.5,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
          "text" : "almidón de maíz",
          "vegan" : "yes",
@@ -81,7 +81,7 @@
       {
          "id" : "en:salt",
          "percent_estimate" : 1.4375,
-         "percent_max" : "3",
+         "percent_max" : 3,
          "percent_min" : 0,
          "text" : "sal",
          "vegan" : "yes",
@@ -106,6 +106,15 @@
          "text" : "acidulante"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:tuna",
+         "en:egg"
+      ],
+      "en:non-vegetarian" : [
+         "en:tuna"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",

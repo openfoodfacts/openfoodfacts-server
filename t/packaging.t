@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -29,6 +28,14 @@ The directory will be created if it does not already exist.
 
 TXT
 ;
+
+init_packaging_taxonomies_regexps();
+
+# Tests for guess_language_of_packaging_text
+
+is(guess_language_of_packaging_text("boîte", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("surgelé", [qw(de es it fr)]), "fr");
+is(guess_language_of_packaging_text("something unknown", [qw(de es it fr)]), undef);
 
 my $resultsdir;
 
@@ -156,6 +163,14 @@ my @tests = (
 		{
 			lc => "nl",
 			packaging_text => "plastic fles"	
+		}
+	],
+	
+	[
+		'packaging_text_nl_metalen_blikje',
+		{
+			lc => "nl",
+			packaging_text => "metalen blikje"	
 		}
 	],
 	
@@ -460,11 +475,44 @@ my @tests = (
 			packaging => "1 PET plastic bottle",
 		}
 	],
+
+	# recycling code should apply to all languages
+	[
+		'en-aa-84-c-pap',
+		{
+			lc => "aa",
+			packaging => "84-C/PAP",
+		}
+	],
+
+	# Robotoff sends fields prefixed with the language code even though packagings is not taxonomized yet
+	[
+		'fr-robotoff-packagings',
+		{
+			lc => "fr",
+			packaging => "fr:Boite carton,fr:Triman,fr:Boite à recycler,fr:Point vert,Boite carton",
+		}
+	],
 	
+	# check the results if we taxonomize the packaging fields without having a complete taxonomy in place
+	# with a mix of entries that are not all in the language of the product
+	[
+		'en-fr-taxonomized-packagings',
+		{
+			lc => "fr",
+			packaging => "en:cardboard-box, en:plastic, en:glass-jar, fr:Couvercle en métal, fr:attache-plastique, fr:etui",
+		}
+	],
+
+	[
+		'en-fr-taxonomized-packagings-other-language',
+		{
+			lc => "en",
+			packaging => "fr:Couvercle en métal",
+		}
+	],	
 
 );
-
-init_packaging_taxonomies_regexps();
 
 my $json = JSON->new->allow_nonref->canonical;
 

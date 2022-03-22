@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -365,6 +363,51 @@ my @tests = (
 		}
 	],
 
+	# Specific ingredients mentions
+	[
+		"fr-specific-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.
+Préparée avec 50 grammes de fruits pour 100gr de produit fini.
+Préparé avec 32,5 % de légumes -
+Préparés avec 25,2g de tomates.
+PREPARE AVEC 30% DE TRUC INCONNU.
+Teneur totale en sucres : 60 g pour 100 g de produit fini.
+Teneur en lait: minimum 40%.
+Teneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.
+Présence exceptionnelle possible de noyaux ou de morceaux de noyaux.
+Origine des abricots: Provence.
+Teneur en citron de 5,5%",
+		}
+	],
+
+	[
+		"en-specific-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Sugar content: 3 %. Total milk content: 75.2g",
+		},
+	],
+
+	[
+		"en-specific-ingredients-multiple-strings-of-one-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Total milk content: 88%. Origin of milk: UK",
+		},
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	]
+
 );
 
 
@@ -377,6 +420,10 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
 	
 	extract_ingredients_from_text($product_ref);
 	

@@ -6,7 +6,7 @@
             {
                "id" : "en:chopped-tomatoes",
                "percent_estimate" : 46.6666666666667,
-               "percent_max" : "70",
+               "percent_max" : 70,
                "percent_min" : 23.3333333333333,
                "text" : "tomates concassées",
                "vegan" : "yes",
@@ -30,10 +30,10 @@
                "text" : "feuilles de basilic"
             }
          ],
-         "percent" : "70",
-         "percent_estimate" : "70",
-         "percent_max" : "70",
-         "percent_min" : "70",
+         "percent" : 70,
+         "percent_estimate" : 70,
+         "percent_max" : 70,
+         "percent_min" : 70,
          "text" : "Garniture",
          "vegan" : "ignore",
          "vegetarian" : "ignore"
@@ -44,7 +44,7 @@
             {
                "id" : "en:wheat-flour",
                "percent_estimate" : 20,
-               "percent_max" : "30",
+               "percent_max" : 30,
                "percent_min" : 10,
                "text" : "farine de blé",
                "vegan" : "yes",
@@ -69,13 +69,25 @@
                "vegetarian" : "yes"
             }
          ],
-         "percent" : "30",
+         "percent" : 30,
          "percent_estimate" : 30,
-         "percent_max" : "30",
-         "percent_min" : "30",
+         "percent_max" : 30,
+         "percent_min" : 30,
          "text" : "Pâte à pizza"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:cheese"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:feuilles de basilic"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:feuilles de basilic",
+         "en:pizza-dough"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:non-vegan",

@@ -11,7 +11,7 @@ jobs:
     name: "Perl::Critic"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: "Run Perl::Critic" 
       uses: Difegue/action-perlcritic@2.0.0

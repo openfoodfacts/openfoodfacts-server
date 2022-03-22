@@ -1343,7 +1343,8 @@ sub is_water_for_nutrition_score($) {
 
 	my $product_ref = shift;
 
-	return ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")));
+	return ((has_tag($product_ref, "categories", "en:spring-waters"))
+		and not (has_tag($product_ref, "categories", "en:flavored-waters") or has_tag($product_ref, "categories", "en:flavoured-waters")));
 }
 
 
@@ -1578,7 +1579,8 @@ sub compute_nutrition_score($) {
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
 
-	if (not ((has_tag($product_ref, "categories", "en:spring-waters")) and not (has_tag($product_ref, "categories", "en:flavored-waters")))) {
+	if (not ((has_tag($product_ref, "categories", "en:spring-waters"))
+		and not (has_tag($product_ref, "categories", "en:flavored-waters") or has_tag($product_ref, "categories", "en:flavoured-waters")))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
@@ -2203,22 +2205,6 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group_debug} = "";
 
-	# If we don't have ingredients, only compute score for water
-	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
-
-		# Exclude flavored waters
-		if (has_tag($product_ref, 'categories', 'en:waters')
-		    and (not has_tag($product_ref, 'categories', 'en:flavored-waters'))) {
-			$product_ref->{nova_group} = 1;
-			return;
-
-		} else {
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
-			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
-			return;
-		}
-	}
-
 	# do not compute a score when it is not food
 	if (has_tag($product_ref,"categories","en:non-food-products")) {
 			$product_ref->{nova_group_tags} = [ "not-applicable" ];
@@ -2412,9 +2398,22 @@ sub compute_nova_group($) {
 	# of the resulting alcohol, such as whisky, gin, rum, vodka, are classified in group 4.
 
 
-	# Unless we found a marker for NOVA 4, do not compute a score if there are too many unknown ingredients:
+	# If we don't have ingredients, only compute score for water, or when we have a group 2 category (e.g. sugars, vinegars, honeys)
+	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
 
-	if ($product_ref->{nova_group} != 4) {
+		# Exclude flavored waters
+		if (has_tag($product_ref, 'categories', 'en:waters')
+		    and (not (has_tag($product_ref, 'categories', 'en:flavored-waters') or has_tag($product_ref, 'categories', 'en:flavoured-waters') ))) {
+			$product_ref->{nova_group} = 1;
+		} elsif ($product_ref->{nova_group} != 2) {
+			delete $product_ref->{nova_group};
+			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
+			return;
+		}
+	}
+	# Unless we found a marker for NOVA 4, do not compute a score if there are too many unknown ingredients:
+	elsif ($product_ref->{nova_group} != 4) {
 
 		# do not compute a score if we have too many unknown ingredients
 		if ( has_tag($product_ref,"quality","en:ingredients-100-percent-unknown") or
@@ -2444,7 +2443,7 @@ sub compute_nova_group($) {
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
 				return;
 		}
-	}
+	}	
 
 	# Make sure that nova_group is stored as a number
 
@@ -2576,22 +2575,27 @@ sub assign_nutriments_values_from_request_parameters($$) {
 
 	$log->debug("Nutrition data") if $log->is_debug();
 
-	if (defined param("no_nutrition_data")) {
-		$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
-	}
+	# Note: browsers do not send any value for checkboxes that are unchecked,
+	# so the web form also has a field (suffixed with _displayed) to allow us to uncheck the box.
 
-	my $no_nutrition_data = 0;
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-		$no_nutrition_data = 1;
-	}
+	# API:
+	# - check: no_nutrition_data is passed "on" or 1
+	# - uncheck: no_nutrition_data is passed an empty value ""
+	# - no action: the no_nutrition_data field is not sent, and no_nutrition_data_displayed is not sent
+	#
+	# Web:
+	# - check: no_nutrition_data is passed "on"
+	# - uncheck: no_nutrition_data is not sent but no_nutrition_data_displayed is sent
 
-	if (defined param("nutrition_data")) {
-		$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));
-	}
+	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
-	if (defined param("nutrition_data_prepared")) {
-		$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));
-	}
+		if (defined param($checkbox)) {
+			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8=>param($checkbox));
+		}
+		elsif (defined param($checkbox . "_displayed")) {
+			$product_ref->{$checkbox} = "";
+		}
+	}	
 
 	# Assign all the nutrient values
 
@@ -2724,7 +2728,8 @@ sub assign_nutriments_values_from_request_parameters($$) {
 		}
 	}
 
-	if ($no_nutrition_data) {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+
 		# Delete all non-carbon-footprint nids.
 		foreach my $key (keys %{$product_ref->{nutriments}}) {
 			next if $key =~ /_/;

@@ -57,6 +57,17 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "fr:viande-de-poulet-traitee-en-salaison"
+      ],
+      "en:non-vegetarian" : [
+         "fr:viande-de-poulet-traitee-en-salaison"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:kangourou"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:non-vegan",

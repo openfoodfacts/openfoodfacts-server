@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-07 09:06\n"
+"PO-Revision-Date: 2022-02-22 17:16\n"
 "Language-Team: French\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -280,6 +280,10 @@ msgstr "Chiffres du code-barres :"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "Vous pouvez aussi nous aider à financer le projet Open Food Facts"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr "Manuel d'administration des producteurs"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -1379,7 +1383,7 @@ msgstr "S'inscrire à la lettre d'information (2 e-mails par mois maximum)"
 
 msgctxt "next"
 msgid "Next"
-msgstr "Suivante"
+msgstr "Suivant"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -4440,11 +4444,11 @@ msgid "Missing information: fair trade product?"
 msgstr "Information manquante : produit de commerce équitable ?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
-msgid "Helps producers in developping countries."
+msgid "Helps producers in developing countries."
 msgstr "Aide les producteurs des pays en développement."
 
 msgctxt "attribute_labels_fair_trade_description_short"
-msgid "Fair trade products help producers in developping countries."
+msgid "Fair trade products help producers in developing countries."
 msgstr "Les produits du commerce équitable aident les producteurs des pays en voie de développement."
 
 msgctxt "attribute_labels_fair_trade_description"
@@ -4473,12 +4477,20 @@ msgid "Nutri-Score %s"
 msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "Nutri-Score non calculé"
+msgid "Nutri-Score unknown"
+msgstr "Nutri-Score inconnu"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "Qualité nutritionnelle inconnue"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "Données manquantes pour calculer le Nutri-Score"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "Nutri-Score non applicable"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "Catégorie exemptée"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5747,4 +5759,126 @@ msgstr "Les données nutritionnelles du produit doivent être spécifiées afin 
 msgctxt "health"
 msgid "Health"
 msgstr "Santé"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "Comparé à"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "Marche"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "Nage"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "Vélo"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "Course"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "{kj} kJ pour 100g"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "Correspond à {minutes} minutes de marche ou {steps} pas"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "Dépenses énergétiques pour une personne pesant {kg} kg / {lb} lb"
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr "Non applicable à ce produit"
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr "Catégorie manquante"
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "Données nutritionnelles manquantes"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "Réduire ou arrêter de boire de l'alcool"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "Moins c'est mieux"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "Ce n’est peut-être pas la réponse que vous souhaitez entendre, mais il n’existe pas de consommation d’alcool sans risque. Bien sûr, il est possible de boire à moindre risque, mais l’OMS n’impose pas de limites spécifiques car il est démontré que la solution idéale pour rester en bonne santé est de ne pas boire du tout. L’alcool est étroitement impliqué dans environ 60 diagnostics différents et, dans la quasi-majorité des cas, on observe une étroite relation dose-effet. En d’autres termes, plus vous buvez, plus vous risquez d’être malade. Moins l’on boit, mieux c’est."
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
+msgstr "Source"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "Un utilisateur de l'application {app_name}"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "groupes d'aliments"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "groupe d'aliments"
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr ""
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr ""
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr ""
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr ""
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr ""
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr ""
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr ""
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr ""
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
+msgstr ""
 
