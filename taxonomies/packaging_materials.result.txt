@@ -16,6 +16,7 @@ synonyms:fr:transparent, transparente
 synonyms:xx:Recycling Code, RC
 
 en:Alkaline battery
+bg:Алкална батерия
 de:Alkalibatterie
 fr:Pile alcaline, batterie alcaline, accumulateur alcaline
 hu:Alkáli elem, 19 Alkáli
@@ -39,6 +40,7 @@ nl:Dun aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
 
 en:Cardboard, fiberboard, fibreboard
+bg:Картон
 da:Pap
 de:Pappe, Wellpappe
 fr:Carton, carton standard, cartonné, cartonnée
@@ -50,6 +52,7 @@ sv:Kartong
 
 < en:Cardboard
 en:Corrugated cardboard
+bg:Вълнообразен картон
 fr:Carton ondulé
 xx:20 C PAP, 20 C PCB
 
@@ -62,6 +65,7 @@ pt:Cartão FSC
 
 < en:Cardboard
 en:Non-corrugated cardboard
+bg:Друг картон
 fr:Carton non ondulé
 xx:21 PAP
 
@@ -86,6 +90,7 @@ nl:Recycled karton
 pt:Cartão reciclado, cartão ondulado reciclado, cartonado reciclado, cartonada reciclada, papelão reciclado, cartolina reciclada, papel grosso reciclado
 
 en:Ceramic
+bg:Керамика
 da:Keramik
 de:Keramik
 fr:Céramique
@@ -96,6 +101,7 @@ non_recyclable_and_non_biodegradable:en: yes
 wikidata:en: Q45621
 
 en:Cork
+bg:Корк
 da:Kork
 de:Kork
 fr:Liège
@@ -107,6 +113,7 @@ xx:51 FOR
 wikidata:en: Q49444
 
 en:Cotton
+bg:Памук
 da:Bomuld
 de:Baumwolle
 fr:Coton
@@ -122,6 +129,7 @@ en:fabric, fabrics
 fr:tissu, tissus
 
 en:Glass
+bg:Стъкло
 da:Glas
 de:Glas
 es:Vidrio, cristal
@@ -134,11 +142,13 @@ wikidata:en: Q11469
 
 < en:Glass
 en:Brown Glass
+bg:Кафяво стъкло
 fr:Verre brun
 xx:72 GL, 72 GLS, 72GL, GL72
 
 < en:Glass
 en:Clear Glass
+bg:Безцветно стъкло
 da:Klar Glas
 de:Klarglas
 fr:Verre transparent
@@ -165,6 +175,7 @@ xx:79 GL, 79 GLS
 
 < en:Glass
 en:Green Glass
+bg:Зелено стъкло
 da:Grønt Glas
 de:Grünglas
 fr:Verre vert
@@ -204,6 +215,7 @@ hu:Biobázisú HDPE
 pt:Bioplástico PEHD
 
 en:Jute
+bg:Юта
 de:Jute
 hu:Juta
 nl:Jute
@@ -221,6 +233,7 @@ xx:08 Lead, 8 Lead
 wikidata:en: Q337724
 
 en:Lithium battery
+bg:Литиева батерия
 de:Litiumbatterie
 fr:Accumulateur lithium, batterie lithium, batterie au lithium, accumulateur au lithium
 hu:Lítium akkumulátor
@@ -230,6 +243,7 @@ xx:12 Li
 wikidata:en: Q899079
 
 en:Metal, Metals
+bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
 fr:Métal, Métaux, métallique, métalliques
@@ -241,6 +255,7 @@ ru:Металл
 
 < en:Metal
 en:Recyclable Metals
+bg:Рециклируеми метали
 de:Wiederverwertbare Metalle, Wiederverwertbares Metall
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
@@ -249,6 +264,7 @@ pt:Metais recicláveis
 
 < en:Metal
 en:Steel, iron
+bg:Стомана, желязо
 da:Stål
 de:Stahl
 fr:Acier, fer
@@ -268,6 +284,7 @@ pt:Compósito de várias camadas, compósito multi-camada
 non_recyclable_and_non_biodegradable:en: yes
 
 en:Nickel–cadmium battery
+bg:Никел-кадмиева батерия
 de:Nickel–Cadmium-Batterie
 fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
 hu:Nikkel-kadmium akkumulátor
@@ -297,6 +314,7 @@ xx:PLA
 wikidata:en: Q413769
 
 en:Other Textiles
+bg:Друг текстил
 de:Andere Textilien
 fr:Autres textiles, autre textile
 hu:Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
@@ -305,6 +323,7 @@ pt:Outros têxteis
 xx:62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
 
 en:Paper
+bg:Хартия
 da:Papir
 de:Papier
 fr:Papier, papier standard
@@ -326,6 +345,7 @@ pt:Papel FSC
 
 < en:Paper
 en:Kraft paper, kraft
+bg:Крафт хартия
 de:Kraftpapier
 fr:Papier kraft, kraft
 nl:Kraft-papier
@@ -341,6 +361,7 @@ pt:Outro papel, outros papéis
 
 < en:Paper
 en:Recycled paper, 100% recycled paper
+bg:Рециклирана хартия
 da:Genbrugspapir
 de:Recyclingpapier, Recyceltes Papier
 fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
@@ -349,10 +370,12 @@ nl:Recycled papier
 pt:Papel reciclado, 100% papel reciclado, papel 100% reciclado
 
 en:Paper and cardboard / Plastic / Aluminium
+bg:Хартия и картон / Пластмаси / Алуминий
 hu:Papír és karton / Műanyag / Alumínium
 xx:84 C/PAP, PapAl
 
 en:Paper and plastic, Paper + Plastic
+bg:Хартия и картон / пластмаси
 fr:Papier et plastique
 hu:Papír és műanyag
 nl:Papier en plastic
@@ -391,6 +414,7 @@ nl:PET transparant, Transparant PET
 pt:PET transparente
 
 en:Plastic
+bg:Пластмаса
 da:Plast
 de:Kunststoff, Kunstoff, plastik
 es:Plástico
@@ -407,6 +431,7 @@ wikidata:en: Q11474
 
 < en:Plastic
 en:Acrylonitrile butadiene styrene
+bg:Акрилонитрил-бутадиен-стирен
 de:ABS
 fr:Acrylonitrile butadiène styrène
 hu:ABS-műanyag, Akrilnitril-butadién-sztirol
@@ -416,6 +441,7 @@ xx:ABS, 09 ABS, 9 ABS
 
 < en:Plastic
 en:Biodegradable plastic, Card-stock Laminate
+bg:Биоразградима пластмаса
 hu:Lebomló műanyag, Laminált kartonpapír
 nl:Bioloisch afbreekbaar plastic
 pt:Plástico biodegradável
@@ -423,6 +449,7 @@ xx:87 CSL
 
 < en:Plastic
 en:HDPE - High-density polyethylene, High-density polyethylene
+bg:HDPE - Полиетилен висока плътност
 de:Polyethylen hoher Dichte
 fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité
 hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
@@ -435,6 +462,7 @@ wikidata:en: Q2641430
 
 < en:Plastic
 en:LDPE - Low-density polyethylene, Low-density polyethylene
+bg:LDPE - Полиетилен ниска плътност
 de:Polyethylen niedriger Dichte
 fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
 hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
@@ -447,6 +475,7 @@ wikidata:en: Q2033818
 
 < en:Plastic
 en:Other plastics, All other plastics, other plastic
+bg:Други пластмаси
 da:Anden plast
 de:Andere Kunststoffe
 fr:Autres plastiques, autre plastique
@@ -460,6 +489,7 @@ non_recyclable_and_non_biodegradable:en: yes
 
 < en:Plastic
 en:PET - Polyethylene terephthalate, Polyethylene terephthalate
+bg:PET - Полиетилентерефталат, Полиетилен терефталат
 de:PET - Polyethylenterephtalat, Polyethylenterephtalat
 fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
 hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
@@ -474,6 +504,7 @@ wikidata:en: Q145863
 
 < en:Plastic
 en:PP - Polypropylene, Polypropylene
+bg:PP - Полипропилен
 de:PP - Polypropylen, Polypropylen
 fr:PP - Polypropylène, Polypropylène, polypropène
 hu:PP - Polipropilén, Polipropilén
@@ -487,6 +518,7 @@ wikidata:en: Q146174
 
 < en:Plastic
 en:PS - Polystyrene, Polystyrene
+bg:PS - Полистирен
 de:PS - Polystyrol, Polystyrol
 fr:PS - Polystyrène, Polystyrène
 hu:PS - Polisztirol, Polisztirol
@@ -499,6 +531,7 @@ wikidata:en: Q146243
 
 < en:Plastic
 en:PVC - Polyvinyl chloride, Polyvinyl chloride
+bg:PVC - Поливинил хлорид
 de:Polyvinylchlorid
 fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
 hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
@@ -510,6 +543,7 @@ xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7, ♵
 wikidata:en: Q146368
 
 en:Recyclable material
+bg:Рециклируем материал
 de:wiederverwertbares Material
 fr:Matériau recyclable
 hu:Újrahasznosítható anyag
@@ -521,6 +555,7 @@ wikidata:en: Q57305800
 < en:Plastic
 < en:Recyclable material
 en:Recyclable plastic
+bg:Рециклируема пластмаса
 de:wiederverwertbarer Kunststoff
 fr:Plastique recyclable
 hu:Újrahasznosítható műanyag
@@ -531,6 +566,7 @@ pt:Plástico reciclável
 
 < en:Recyclable Metals
 en:Aluminium
+bg:Алуминий
 da:Aluminium
 de:Aluminium
 fr:Aluminium
@@ -544,6 +580,7 @@ xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en: Q663
 
 en:Recycled material
+bg:Рециклиран материал
 da:Genbrugsmateriale
 de:wiederverwertetes Material
 fr:Matériau recyclé
@@ -556,6 +593,7 @@ wikidata:en: Q37328535
 < en:Plastic
 < en:Recycled material
 en:Recycled plastic
+bg:Рециклирана пластмаса
 da:Genbrugsplast
 de:wiederverwerteter Kunststoff
 fr:Plastique recyclé
@@ -609,12 +647,14 @@ de:Biobasiertes Tetra Pak
 fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
 en:Unknown
+bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
 non_recyclable_and_non_biodegradable:en: maybe
 
 en:Wax
+bg:Восък
 da:Voks
 de:Wachs
 fr:Cire
@@ -624,6 +664,7 @@ pt:Papel cera, papel de cera
 wikidata:en: Q124695
 
 en:Wood
+bg:Дърво
 da:Træ
 de:Holz
 fr:Bois
