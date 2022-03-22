@@ -1,0 +1,24 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% lang('contains_palm_oil') %]",
+        "subtitle": "[% lang('contains_palm_oil_subtitle') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/palm-oil.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                    <p>[% lang('contains_palm_oil_description') %]</p> 
+                    `
+            }
+        },
+    ]
+}

@@ -1,0 +1,72 @@
+{
+   "ingredients" : {
+      "en:fruit" : {
+         "max" : 50,
+         "mean" : 31.6666666666667,
+         "min" : 20,
+         "n" : 3,
+         "sum" : 95,
+         "values" : [
+            25,
+            20,
+            50
+         ]
+      },
+      "en:sugar" : {
+         "max" : 30,
+         "mean" : 15,
+         "min" : 5,
+         "n" : 3,
+         "sum" : 45,
+         "values" : [
+            10,
+            5,
+            30
+         ]
+      },
+      "en:water" : {
+         "max" : 75,
+         "mean" : 54,
+         "min" : 25,
+         "n" : 3,
+         "sum" : 162,
+         "values" : [
+            62,
+            75,
+            25
+         ]
+      },
+      "other" : {
+         "max" : 2,
+         "mean" : 0.666666666666667,
+         "min" : 0,
+         "n" : 1,
+         "sum" : 2,
+         "values" : [
+            2,
+            0,
+            0
+         ]
+      },
+      "unknown" : {
+         "max" : 1,
+         "mean" : 0.333333333333333,
+         "min" : 0,
+         "n" : 1,
+         "sum" : 1,
+         "values" : [
+            1,
+            0,
+            0
+         ]
+      }
+   },
+   "n" : 3,
+   "parent_ingredients" : [
+      "en:water",
+      "en:sugar",
+      "en:fruit",
+      "other",
+      "unknown"
+   ]
+}

@@ -33,6 +33,21 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:egg"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:d'élevage au sol",
+         "fr:Suisse",
+         "fr:France"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:d'élevage au sol",
+         "fr:Suisse",
+         "fr:France"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:non-vegan",
@@ -63,10 +78,15 @@
       "fr:france"
    ],
    "ingredients_text" : "oeufs (d'élevage au sol, Suisse, France)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 3
 }

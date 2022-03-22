@@ -37,8 +37,6 @@ BEGIN
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-		$facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
@@ -68,9 +66,6 @@ $mongodb_host = "mongodb://localhost";
 $mongodb_timeout_ms = 50000; # config option max_time_ms/maxTimeMS
 
 $memd_servers = [ "127.0.0.1:11211" ];
-
-$facebook_app_id = "";
-$facebook_app_secret = "";
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';

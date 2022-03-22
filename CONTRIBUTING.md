@@ -7,6 +7,9 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue, or the official [slack channel](https://openfoodfacts.slack.com/).
 
+
+Get started running server in development mode, see [Dev environment quick start guide](./docs/introduction/dev-environment-quick-start-guide.md)
+
 ## Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
@@ -15,6 +18,12 @@ When contributing to this repository, please first discuss the change you wish t
 4. Wait for the maintainers to review your pull request and do the changes if requested.
 
 ## Contributions Best Practices
+
+### Check before commiting
+
+You can save you sometime by running some checks locally before committing.
+
+`make checks` should work.
 
 ### Commits
 

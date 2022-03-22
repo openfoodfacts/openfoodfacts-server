@@ -20,6 +20,11 @@
       "en:dairies",
       "en:dairy-drinks"
    ],
+   "food_groups" : "en:sweetened-beverages",
+   "food_groups_tags" : [
+      "en:beverages",
+      "en:sweetened-beverages"
+   ],
    "ingredients" : [
       {
          "id" : "en:water",
@@ -40,6 +45,7 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -47,7 +53,9 @@
    ],
    "ingredients_hierarchy" : [
       "en:water",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -61,10 +69,16 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:water",
-      "en:sugar"
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
    ],
    "ingredients_text" : "Water, sugar",
-   "known_ingredients_n" : 2,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -76,6 +90,7 @@
       "fat_100g" : 10,
       "fiber_100g" : 2,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nutrition-score-fr" : 19,
       "nutrition-score-fr_100g" : 19,
       "proteins_100g" : 5,

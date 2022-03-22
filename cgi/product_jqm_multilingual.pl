@@ -42,6 +42,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -212,8 +213,12 @@ else {
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if (($User_id eq 'stephane') or ($User_id eq 'teolemon')) {
+	if ($admin) {
 		push @app_fields, "creator";
+	}
+
+	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
+		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -279,7 +284,7 @@ else {
 	# when the corresponding organization has the protect_data checkbox checked
 	my $protected_data = product_data_is_protected($product_ref);
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'packaging_text', 'lang') {
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang') {
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
 		if ((defined $User_id) and ($User_id eq 'kiliweb')
@@ -322,6 +327,12 @@ else {
 						$product_ref->{lc} = $value;
 					}				
 					
+				}
+				elsif ($field eq "ecoscore_extended_data") {
+					# we expect a JSON value
+					if (defined param($field)) {
+						$product_ref->{$field} = decode_json(param($field));
+					}
 				}
 				else {
 					$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -395,144 +406,7 @@ else {
 		print STDERR "product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
 	}
 	else {
-
-		if (defined param("no_nutrition_data")) {
-			$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));
-		}
-
-		my $no_nutrition_data = 0;
-		if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-			$no_nutrition_data = 1;
-		}
-
-		defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-		my @unknown_nutriments = ();
-		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-			next if $nid =~ /_/;
-			if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
-				push @unknown_nutriments, $nid;
-				$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
-			}
-		}
-
-		my @new_nutriments = ();
-		my $new_max = remove_tags_and_quote(param('new_max'));
-		for (my $i = 1; $i <= $new_max; $i++) {
-			push @new_nutriments, "new_$i";
-		}
-
-		# fix_salt_equivalent always prefers the 'salt' value of the product by default
-		# the 'sodium' value should be preferred, though, if the 'salt' parameter is not
-		# present. Therefore, delete the 'salt' value and let it be fixed by
-		# fix_salt_equivalent afterwards.
-		foreach my $product_type ("", "_prepared") {
-			my $saltnid = "salt${product_type}";
-			my $sodiumnid = "sodium${product_type}";
-
-			my $salt = param("nutriment_${saltnid}");
-			my $sodium = param("nutriment_${sodiumnid}");
-
-			if (((not defined $salt) or ($salt eq ''))
-				and (defined $sodium) and ($sodium ne ''))
-			{
-				delete $product_ref->{nutriments}{$saltnid};
-				delete $product_ref->{nutriments}{$saltnid . "_unit"};
-				delete $product_ref->{nutriments}{$saltnid . "_value"};
-				delete $product_ref->{nutriments}{$saltnid . "_modifier"};
-				delete $product_ref->{nutriments}{$saltnid . "_label"};
-				delete $product_ref->{nutriments}{$saltnid . "_100g"};
-				delete $product_ref->{nutriments}{$saltnid . "_serving"};
-			}
-		}
-
-		foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-			next if $nutriment =~ /^\#/;
-
-			my $nid = $nutriment;
-			$nid =~ s/^(-|!)+//g;
-			$nid =~ s/-$//g;
-
-			next if $nid =~ /^nutrition-score/;
-
-			my $enid = encodeURIComponent($nid);
-
-			# do not delete values if the nutriment is not provided
-			next if not defined param("nutriment_${enid}");
-
-			my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
-			my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
-			my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
-
-			my $modifier = undef;
-
-			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
-			# 1. if energy-kcal or energy-kj is set, delete existing energy data
-			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
-				delete $product_ref->{nutriments}{"energy"};
-				delete $product_ref->{nutriments}{"energy_unit"};
-				delete $product_ref->{nutriments}{"energy_label"};
-				delete $product_ref->{nutriments}{"energy_value"};
-				delete $product_ref->{nutriments}{"energy_modifier"};
-				delete $product_ref->{nutriments}{"energy_100g"};
-			}
-			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-				$nid = $nid . "-" . lc($unit);
-				$log->debug("energy without unit, set nid with unit instead", { nid => $nid, unit => $unit }) if $log->is_debug();
-			}
-
-			(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
-
-			# New label?
-			my $new_nid = undef;
-			if ((defined $label) and ($label ne '')) {
-				$new_nid = canonicalize_nutriment($lc,$label);
-				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
-
-				if ($new_nid ne $nid) {
-					delete $product_ref->{nutriments}{$nid};
-					delete $product_ref->{nutriments}{$nid . "_unit"};
-					delete $product_ref->{nutriments}{$nid . "_value"};
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-					delete $product_ref->{nutriments}{$nid . "_label"};
-					delete $product_ref->{nutriments}{$nid . "_100g"};
-					delete $product_ref->{nutriments}{$nid . "_serving"};
-					$log->debug("unknown nutrient, but known canonical new id", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
-					$nid = $new_nid;
-				}
-				$product_ref->{nutriments}{$nid . "_label"} = $label;
-			}
-
-			if (($nid eq '') or (not defined $value) or ($value eq '')) {
-					delete $product_ref->{nutriments}{$nid};
-					delete $product_ref->{nutriments}{$nid . "_unit"};
-					delete $product_ref->{nutriments}{$nid . "_value"};
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-					delete $product_ref->{nutriments}{$nid . "_label"};
-					delete $product_ref->{nutriments}{$nid . "_100g"};
-					delete $product_ref->{nutriments}{$nid . "_serving"};
-			}
-			else {
-				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
-			}
-		}
-
-		if ($no_nutrition_data) {
-			# Delete all non-carbon-footprint nids.
-			foreach my $key (keys %{$product_ref->{nutriments}}) {
-				next if $key =~ /_/;
-				next if $key eq 'carbon-footprint';
-
-				delete $product_ref->{nutriments}{$key};
-				delete $product_ref->{nutriments}{$key . "_unit"};
-				delete $product_ref->{nutriments}{$key . "_value"};
-				delete $product_ref->{nutriments}{$key . "_modifier"};
-				delete $product_ref->{nutriments}{$key . "_label"};
-				delete $product_ref->{nutriments}{$key . "_100g"};
-				delete $product_ref->{nutriments}{$key . "_serving"};
-			}
-		}
+		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
 	}
 
 

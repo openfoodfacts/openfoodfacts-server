@@ -17,6 +17,20 @@
          "text" : "Something"
       }
    ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:Something",
+         "en:U"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:Something",
+         "en:U"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:Something",
+         "en:U"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:vegan-status-unknown",
@@ -41,10 +55,15 @@
       "en:u"
    ],
    "ingredients_text" : "Something (U)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 2
 }

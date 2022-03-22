@@ -57,6 +57,17 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "fr:viande-de-poulet-traitee-en-salaison"
+      ],
+      "en:non-vegetarian" : [
+         "fr:viande-de-poulet-traitee-en-salaison"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:kangourou"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-content-unknown",
       "en:non-vegan",
@@ -66,7 +77,6 @@
       "fr:viande-de-poulet-traitee-en-salaison",
       "en:poultry",
       "en:chicken",
-      "en:poultry-meat",
       "en:chicken-meat",
       "fr:poulet-traite-en-salaison",
       "fr:kangourou",
@@ -89,7 +99,6 @@
       "fr:viande-de-poulet-traitee-en-salaison",
       "en:poultry",
       "en:chicken",
-      "en:poultry-meat",
       "en:chicken-meat",
       "fr:poulet-traite-en-salaison",
       "fr:kangourou",
@@ -97,14 +106,19 @@
       "en:brine"
    ],
    "ingredients_text" : "viande de poulet traitée en salaison [kangourou, eau, saumure]",
-   "known_ingredients_n" : 8,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 7,
    "lc" : "fr",
    "misc_tags" : [
       "en:forest-footprint-computed",
       "en:forest-footprint-e"
    ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 1
 }

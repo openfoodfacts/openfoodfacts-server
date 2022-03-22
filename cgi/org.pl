@@ -33,6 +33,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -115,6 +117,12 @@ if ($action eq 'process') {
 					"gs1_product_name_is_abbreviated",
 					"gs1_nutrients_are_unprepared",
 				));
+
+				if (defined $options{import_sources}) {
+					foreach my $source_id (sort keys %{$options{import_sources}}) {
+						push (@admin_fields, "import_source_" . $source_id);
+					}
+				}				
 				
 				foreach my $field (@admin_fields) {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));

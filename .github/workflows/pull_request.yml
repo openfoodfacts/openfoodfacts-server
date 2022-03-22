@@ -1,50 +1,57 @@
-name: Pull Request
+name: Pull Requests
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   gulp:
+    name: Gulp
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.1.5
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
     - run: npm install
     - run: npm run build
 
   lint:
+    name: NPM lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.1.5
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
     - run: npm install
     - run: npm run lint
 
   test:
+    name: Perl unit tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 50
     
-    - uses: actions/setup-node@v2.1.5
+    - uses: actions/setup-node@v3
       with:
         node-version: '12.x'
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.7.0
+      with:
+        mongodb-version: 4.4
     
     - run: npm install
     
     - name: find changed perl files
-      uses: futuratrepadeira/changed-files@v3.3.0
+      uses: umani/changed-files@v3.3.0
       id: changed-perl
       with:
         repo-token: ${{ github.token }}
@@ -57,6 +64,7 @@ jobs:
         sudo apt-get install -y --no-install-recommends cpanminus tesseract-ocr
         # apt packages from cpanfile
         sudo apt-get install -y --no-install-recommends graphviz \
+        gnumeric \
         libtie-ixhash-perl \
         libwww-perl \
         libimage-magick-perl \
@@ -150,7 +158,7 @@ jobs:
         
         # Prepare config
         export BUILD_DIR=`pwd`
-        ln -s $BUILD_DIR/lib/ProductOpener/Config_off.pm $BUILD_DIR/lib/ProductOpener/Config.pm
+        ln -sf $BUILD_DIR/lib/ProductOpener/Config_off.pm $BUILD_DIR/lib/ProductOpener/Config.pm
         cp $BUILD_DIR/lib/ProductOpener/Config2_sample.pm $BUILD_DIR/lib/ProductOpener/Config2.pm
         ln -s $BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $BUILD_DIR/lib/ProductOpener/SiteLang.pm
         sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $BUILD_DIR/lib/ProductOpener/Config2.pm
@@ -168,3 +176,24 @@ jobs:
         
         # Run unit tests
         prove -l --jobs 2
+
+  dev:
+    name: Run developer workflow
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 1
+    # - uses: satackey/action-docker-layer-caching@v0.0.11
+    #   continue-on-error: true
+    - run: |
+        make dev
+        make status
+      env:
+        DOCKER_BUILDKIT: 1
+    # - run: |
+    #     make tests
+    - run: |
+        make livecheck
+    - run: |
+        make hdown

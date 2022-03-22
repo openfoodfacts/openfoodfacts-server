@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -10,17 +8,19 @@ use Log::Any::Adapter 'TAP';
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "ingredients";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -137,6 +137,15 @@ my @tests = (
 			ingredients_text => "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
 		}
 	],		
+
+	# from vegetal origin
+	[
+		"en-vegetal-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Gelatin (vegetal), Charcoal (not from animals), ferments (from plants), non-animal rennet, flavours (derived from plants)",
+		}
+	],	
 
 	# FR labels
 	[
@@ -327,6 +336,78 @@ my @tests = (
 		},
 	],
 
+	# Spanish label with "e" meaning "y"
+	[
+		"es-procedente-e-agricultura-biologica",
+		{
+			lc => "es",
+			ingredients_text => "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+		},
+	],
+
+	# Irradiated spices
+	[
+		"fr-epices-irradiees",
+		{
+			lc => "fr",
+			ingredients_text => "Epices irradiées, sésame (irradié), thym (non-irradié)",
+		}
+	],
+
+	# E471 (niet dierlijk)
+	[
+		"nl-e471-niet-dierlijk",
+		{
+			lc => "nl",
+			ingredients_text => "E471 (niet dierlijk)",
+		}
+	],
+
+	# Specific ingredients mentions
+	[
+		"fr-specific-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.
+Préparée avec 50 grammes de fruits pour 100gr de produit fini.
+Préparé avec 32,5 % de légumes -
+Préparés avec 25,2g de tomates.
+PREPARE AVEC 30% DE TRUC INCONNU.
+Teneur totale en sucres : 60 g pour 100 g de produit fini.
+Teneur en lait: minimum 40%.
+Teneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.
+Présence exceptionnelle possible de noyaux ou de morceaux de noyaux.
+Origine des abricots: Provence.
+Teneur en citron de 5,5%",
+		}
+	],
+
+	[
+		"en-specific-ingredients",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Sugar content: 3 %. Total milk content: 75.2g",
+		},
+	],
+
+	[
+		"en-specific-ingredients-multiple-strings-of-one-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "Milk, cream, sugar. Total milk content: 88%. Origin of milk: UK",
+		},
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	]
+
 );
 
 
@@ -339,6 +420,10 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
 	
 	extract_ingredients_from_text($product_ref);
 	
@@ -352,7 +437,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

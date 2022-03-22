@@ -19,8 +19,8 @@
             },
             {
                "id" : "en:orange-pulp",
-               "percent" : "4.5",
-               "percent_estimate" : "4.5",
+               "percent" : 4.5,
+               "percent_estimate" : 4.5,
                "text" : "pulpe d'orange",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -28,19 +28,19 @@
             {
                "id" : "en:concentrated-orange-juice",
                "ingredients" : [],
-               "percent" : "1.4",
-               "percent_estimate" : "1.4",
+               "percent" : 1.4,
+               "percent_estimate" : 1.4,
                "text" : "jus d'orange concentré",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:orange-pulp",
+               "id" : "en:orange",
                "ingredients" : [],
-               "percent" : "0.6",
-               "percent_estimate" : "0.6",
-               "processing" : "en:concentrated",
-               "text" : "pulpe d'orange",
+               "percent" : 0.6,
+               "percent_estimate" : 0.6,
+               "processing" : "en:pulp, en:concentrated",
+               "text" : "orange",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
@@ -113,8 +113,8 @@
                "text" : "épaississant"
             }
          ],
-         "percent" : "41",
-         "percent_estimate" : "41",
+         "percent" : 41,
+         "percent_estimate" : 41,
          "text" : "Marmelade d'oranges"
       },
       {
@@ -210,8 +210,8 @@
                "vegetarian" : "yes"
             }
          ],
-         "percent" : "24.9",
-         "percent_estimate" : "24.9",
+         "percent" : 24.9,
+         "percent_estimate" : 24.9,
          "text" : "chocolat",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -302,6 +302,19 @@
          "text" : "émulsifiant"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:lactose-and-milk-proteins",
+         "en:egg"
+      ],
+      "en:palm-oil" : [
+         "en:palm-fat"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:Marmelade d'oranges",
+         "en:sodium-citrate"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil",
       "en:non-vegan",
@@ -316,10 +329,13 @@
       "en:wheat",
       "en:cereal-flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:egg",
       "en:glucose-fructose-syrup",
-      "en:glucose",
+      "en:monosaccharide",
       "en:fructose",
+      "en:glucose",
       "en:colza-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
@@ -394,7 +410,7 @@
       "en:sugar",
       "en:orange-pulp",
       "en:concentrated-orange-juice",
-      "en:orange-pulp",
+      "en:orange",
       "en:gelling-agent",
       "en:acid",
       "en:acidity-regulator",
@@ -432,10 +448,13 @@
       "en:wheat",
       "en:cereal-flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:egg",
       "en:glucose-fructose-syrup",
-      "en:glucose",
+      "en:monosaccharide",
       "en:fructose",
+      "en:glucose",
       "en:colza-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
@@ -491,10 +510,15 @@
       "en:e415"
    ],
    "ingredients_text" : "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja).",
-   "known_ingredients_n" : 64,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 4.5,
+   "ingredients_with_unspecified_percent_n" : 29,
+   "ingredients_with_unspecified_percent_sum" : 93.5,
+   "known_ingredients_n" : 67,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.5
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.5
    },
    "unknown_ingredients_n" : 1
 }

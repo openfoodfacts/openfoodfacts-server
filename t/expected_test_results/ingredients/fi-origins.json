@@ -61,6 +61,7 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -71,7 +72,6 @@
       "en:fruit",
       "en:berries",
       "en:blackcurrant",
-      "fr:fruits-des-bois",
       "en:raspberry",
       "en:orange",
       "en:citrus-fruit",
@@ -97,7 +97,6 @@
       "en:fruit",
       "en:berries",
       "en:blackcurrant",
-      "fr:fruits-des-bois",
       "en:raspberry",
       "en:orange",
       "en:citrus-fruit",
@@ -105,10 +104,15 @@
       "en:cocoa-butter"
    ],
    "ingredients_text" : "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
-   "known_ingredients_n" : 10,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 9,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
    },
    "unknown_ingredients_n" : 0
 }

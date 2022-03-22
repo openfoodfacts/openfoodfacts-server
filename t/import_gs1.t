@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -12,16 +11,19 @@ use Log::Any qw($log);
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::GS1 qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "import_gs1";
 
 my $usage = <<TXT
 
-The input test files and the expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The input test files and the expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -35,7 +37,7 @@ TXT
 
 foreach my $gs1_nutrient (sort keys %{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}}) {
 		
-	if (not exists $Nutriments{$ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient}}) {
+	if (not exists_taxonomy_tag("nutrients", "zz:" . $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient})) {
 		$log->warn("mapping for GS1 nutrient does not exist in OFF", 
 			{ gs1_nutrient => $gs1_nutrient, mapping => $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient} }) if $log->is_warn();
 	}
@@ -55,7 +57,7 @@ my $json = JSON->new->allow_nonref->canonical;
 
 my $dh;
 
-opendir ($dh, "$data_root/t/expected_test_results/$testdir") or die("Could not open the $data_root/t/expected_test_results/$testdir directory: $!\n");
+opendir ($dh, "$expected_dir/$testdir") or die("Could not open the $expected_dir/$testdir directory: $!\n");
 
 foreach my $file (sort(readdir($dh))) {
 	
@@ -69,7 +71,7 @@ foreach my $file (sort(readdir($dh))) {
 	init_csv_fields();
 	
 	my $products_ref = [];
-	my $product_ref = read_gs1_json_file("$data_root/t/expected_test_results/$testdir/$file", $products_ref);
+	my $product_ref = read_gs1_json_file("$expected_dir/$testdir/$file", $products_ref);
 	
 	# Save the result
 	
@@ -81,7 +83,7 @@ foreach my $file (sort(readdir($dh))) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.off.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.off.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

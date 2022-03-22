@@ -11,6 +11,14 @@
          "vegetarian" : "maybe"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:emmental"
+      ],
+      "en:non-vegan" : [
+         "en:emmental"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -36,10 +44,15 @@
       "en:cheese"
    ],
    "ingredients_text" : "emmental (Allemagne, France, Pays-Bas, contient lait)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

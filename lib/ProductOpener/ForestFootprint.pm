@@ -119,9 +119,9 @@ sub load_forest_footprint_data() {
 				
 				my %type = (
 					name => $rows[0][$i],
-					soy_feed_factor => $rows[5][$i],
-					soy_yield => $rows[6][$i],
-					deforestation_risk => $rows[7][$i],
+					soy_feed_factor => $rows[5][$i] + 0,
+					soy_yield => $rows[6][$i] + 0,
+					deforestation_risk => $rows[7][$i] + 0,
 					conditions => [],
 				);
 				
@@ -182,7 +182,7 @@ sub load_forest_footprint_data() {
 				if ($rows[$j][0] =~ /(\S+)_([a-z][a-z])(?::|=)(.+)/) {
 					my ($tagtype, $language, $values) = ($1, $2, $3);
 					
-					my $processing_factor = $rows[$j][1];
+					my $processing_factor = $rows[$j][1] + 0;	# Add 0 to convert string to number
 				
 					foreach my $value (split(/,/, $values)) {
 						
