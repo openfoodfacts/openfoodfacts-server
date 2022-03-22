@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -12,6 +10,7 @@ use Getopt::Long;
 
 
 use JSON::PP;
+use File::Basename "dirname";
 
 my $json = JSON::PP->new->allow_nonref->canonical;
 
@@ -34,11 +33,12 @@ init_packaging_taxonomies_regexps();
 
 load_forest_footprint_data();
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "attributes";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -118,6 +118,53 @@ my @tests = (
 			packaging_text => "Cardboard box, film wrap",
 		}
 	],
+
+	# Nutri-Score attribute, with a match score computed from the nutriscore score
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/5636
+	[
+		'en-nutriscore',
+		{
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			nutrition_data_per => "100g",
+			ingredients_text => "100% fruits",
+			nutriments => {
+				"energy_100g" => 2591,
+				"fat_100g" => 50,
+				"saturated-fat_100g" => 9.7,
+				"sugars_100g" => 5.1,
+				"salt_100g" => 0,
+				"sodium_100g" => 0,
+				"proteins_100g" => 29,
+				"fiber_100g" => 5.5,
+			},
+		}
+	],
+
+	# Maybe vegan: attribute score should be 50
+	[
+		'en-maybe-vegan',
+		{
+			lc => "en",
+			categories => "Non-dairy cheeses",
+			categories_tags => ["en:non-dairy-cheeses"],
+			ingredients_text => "tapioca starch, palm oil, enzyme",
+		}
+	],
+
+	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
+	[
+		'en-ecoscore-score-at-20-threshold',
+		{
+			lc => "en",
+			categories => "Cocoa and hazelnuts spreads",
+			categories_tags => ["en:cocoa-and-hazelnuts-spreads"],
+			ingredients_text => "",
+		}
+	],		
+
+	# 
 );
 
 foreach my $test_ref (@tests) {
@@ -144,11 +191,12 @@ foreach my $test_ref (@tests) {
 			
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
-	# Travis has a different $server_domain, so we need to change the resulting URLs
+	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
 	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
 	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
 	
 	# code below from https://www.perlmonks.org/?node_id=1031287
+
 	
 	use Scalar::Util qw/reftype/;
 
@@ -171,7 +219,7 @@ foreach my $test_ref (@tests) {
 	  }
 	}
 	
-	walk $product_ref, sub { $_[0] =~ s/https:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
+	walk $product_ref, sub { $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//; };	
 	
 	# Save the result
 	
@@ -183,7 +231,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

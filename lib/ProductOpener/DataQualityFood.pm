@@ -54,6 +54,9 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Ecoscore qw(:all);
+
+use Data::DeepAccess qw(deep_exists);
 
 use Log::Any qw($log);
 
@@ -1074,7 +1077,42 @@ sub check_ingredients_percent_analysis($) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:ingredients-percent-analysis-ok';
 		}
 
-		delete $product_ref->{ingredients_percent_analysis};
+	}
+
+	return;
+}
+
+
+=head2 check_ingredients_with_specified_percent( PRODUCT_REF )
+
+Check if all or almost all the ingredients have a specified percentage in the ingredients list.
+
+=cut
+
+sub check_ingredients_with_specified_percent($) {
+	my $product_ref = shift;
+
+	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_unspecified_percent_n} == 0)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+		}
+		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} >= 90) and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+		}
+
+		# Flag products where the sum of % is higher than 100
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 100)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+		}
+
+		if (($product_ref->{ingredients_with_specified_percent_n} > 0) and ($product_ref->{ingredients_with_specified_percent_sum} > 200)) {
+			push @{$product_ref->{data_quality_warning_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+		}				
 	}
 
 	return;
@@ -1102,6 +1140,46 @@ sub check_ecoscore_data($) {
 		}
 	}
 
+	# Extended Eco-Score data from impact estimator
+	if (defined $product_ref->{ecoscore_extended_data}) {
+
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+
+		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+		}
+	}
+	else {
+		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
+	}
+
+	return;
+}
+
+
+=head2 check_food_groups( PRODUCT_REF )
+
+Add info tags about food groups.
+
+=cut
+
+sub check_food_groups($) {
+
+	my $product_ref = shift;
+
+	for (my $level = 1; $level <= 3; $level++) {
+
+		if (deep_exists($product_ref, "food_groups_tags", $level - 1)) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-known';
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:food-groups-' . $level . '-unknown';
+		}
+	}
+
 	return;
 }
 
@@ -1118,6 +1196,7 @@ sub check_quality_food($) {
 
 	check_ingredients($product_ref);
 	check_ingredients_percent_analysis($product_ref);
+	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
 	check_nutrition_grades($product_ref);
@@ -1127,6 +1206,7 @@ sub check_quality_food($) {
 	check_categories($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
+	check_food_groups($product_ref);
 
 	return;
 }

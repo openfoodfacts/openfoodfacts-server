@@ -1,3 +1,4 @@
+
 var selected_columns = 0;
 var columns = [% columns_json %];
 var columns_fields = [% columns_fields_json %];
@@ -57,6 +58,37 @@ function init_select_field_option(col) {
 		
 			}
 		[% END %]
+
+		// Language specific fields: display a language picker
+		if (field.match(/^([% FOREACH language_field IN language_fields %][% language_field %]|[% END %])\$/)) {
+			var select = '<select class="select_language" id="select_field_option_lc_' + col + '" name="select_field_option_lc_' + col + '" style="width:150px">'
+			[% FOREACH language IN lang_options %]
+                select += '<option value="[% language.value %]">[% language.label %]</option>';
+            [% END %]
+			select += '</select>';
+			\$("#select_field_option_" + col).html(select);
+
+			// set selected value from default language, or field language
+			var selected_lc = '[% lc %]';
+			if (columns_fields[column]["lc"]) {
+				selected_lc = columns_fields[column]["lc"];
+			}
+			else {
+				columns_fields[column]["lc"] = selected_lc;
+			}
+			\$('#select_field_option_lc_' + col).val(selected_lc);
+
+			// setup a select2 widget
+			\$('#select_field_option_lc_' + col).select2({
+				placeholder: "[% lang('specify') %]"
+			}).on("select2:select", function(e) {
+				var id = e.params.data.id;
+				var col = this.id.replace(/select_field_option_lc_/, '');
+				var column = columns[col];
+				columns_fields[column]["lc"] = \$(this).val();
+			}).on("select2:unselect", function(e) {
+			});
+		}
 
 		if (field.match(/_value_unit/)) {
 

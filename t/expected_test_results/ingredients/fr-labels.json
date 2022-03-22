@@ -21,6 +21,14 @@
          "vegetarian" : "no"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:salmon"
+      ],
+      "en:non-vegetarian" : [
+         "en:salmon"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -57,6 +65,10 @@
       "en:oily-fish"
    ],
    "ingredients_text" : "jus d'orange (sans conservateur), saumon (msc), sans gluten",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 8,
    "labels" : "en:no-gluten",
    "labels_hierarchy" : [
@@ -68,7 +80,8 @@
    ],
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
    },
    "unknown_ingredients_n" : 0
 }

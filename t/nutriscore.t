@@ -1,10 +1,11 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
+use utf8;
 
 use JSON;
 use Getopt::Long;
+use File::Basename "dirname";
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;
@@ -16,11 +17,12 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "nutriscore";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -69,6 +71,24 @@ my @tests = (
 ["mushrooms", { lc=>"fr", categories=>"meals", nutriments=>{energy_100g=>667, fat_100g=>8.4, "saturated-fat_100g"=>1.2, sugars_100g=>1.1, sodium_100g=>0.4, fiber_100g=>10.9, proteins_100g=>2.4},
 	ingredients_text=>"Pleurotes* 69% (Origine UE), chapelure de mais"}],
 
+# fruit content indicated at the end of the ingredients list
+[
+	"fr-gaspacho",
+	{
+			lc => "fr",
+			categories => "gaspachos",
+			ingredients_text => "Tomate,concombre,poivron,oignon,eau,huile d'olive vierge extra (1,1%),vinaigre de vin,pain de riz,sel,ail,jus de citron,teneur en légumes: 89%",
+			nutriments=>{energy_100g=>148, fat_100g=>10, "saturated-fat_100g"=>0.2, sugars_100g=>3, sodium_100g=>0.2, fiber_100g=>1.1, proteins_100g=>0.9},	
+	}
+
+],
+
+# spring waters
+["spring-water-no-nutrition", { lc=>"en", categories=>"spring water", nutriments=>{}}],
+["flavored-spring-water-no-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{}}],
+["flavored-spring-with-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{energy_100g=>378, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>3, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}],
+
+
 );
 
 
@@ -94,7 +114,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

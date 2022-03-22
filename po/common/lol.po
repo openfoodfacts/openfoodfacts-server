@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-06-25 17:46\n"
+"PO-Revision-Date: 2022-02-22 17:19\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -264,6 +264,10 @@ msgstr "crwdns164972:0crwdne164972:0"
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
 msgstr "crwdns164974:0crwdne164974:0"
+
+msgctxt "producers_administration_manual"
+msgid "Producers Admin manual"
+msgstr "crwdns192001:0crwdne192001:0"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -1517,10 +1521,6 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 "by typing the first letters of their name in the last row of the table."
 msgstr "crwdns165588:0crwdne165588:0"
 
-msgctxt "nutrition_data_table_sub"
-msgid "-"
-msgstr "crwdns165590:0crwdne165590:0"
-
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "crwdns165592:0crwdne165592:0"
@@ -2582,12 +2582,16 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr "crwdns166110:0crwdne166110:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "crwdns166112:0%dcrwdne166112:0"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgstr "crwdns191525:0%dcrwdne191525:0"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "crwdns166114:0%scrwdnd166114:0%dcrwdne166114:0"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "crwdns191527:0%dcrwdne191527:0"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2992,8 +2996,16 @@ msgid "Recipe idea"
 msgstr "crwdns166314:0crwdne166314:0"
 
 msgctxt "origin"
-msgid "Origin"
-msgstr "crwdns166316:0crwdne166316:0"
+msgid "Origin of the product and/or its ingredients"
+msgstr "crwdns190833:0crwdne190833:0"
+
+msgctxt "origin_note"
+msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
+msgstr "crwdns190835:0crwdne190835:0"
+
+msgctxt "origin_example"
+msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
+msgstr "crwdns190837:0crwdne190837:0"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -4136,10 +4148,10 @@ msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
 msgstr "crwdns166870:0crwdne166870:0"
 
-# keep the 2 %s : they will be replaced by language names.
-msgctxt "move_data_and_photos_to_main_language"
-msgid "Move all data and selected photos in %s to the main language of the product: %s"
-msgstr "crwdns166872:0%scrwdnd166872:0%scrwdne166872:0"
+# variable names between { } must not be translated
+msgctxt "f_move_data_and_photos_to_main_language"
+msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
+msgstr "crwdns191195:0{language}crwdnd191195:0{main_language}crwdne191195:0"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4396,12 +4408,12 @@ msgid "Missing information: fair trade product?"
 msgstr "crwdns166996:0crwdne166996:0"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
-msgid "Helps producers in developping countries."
-msgstr "crwdns166998:0crwdne166998:0"
+msgid "Helps producers in developing countries."
+msgstr "crwdns192269:0crwdne192269:0"
 
 msgctxt "attribute_labels_fair_trade_description_short"
-msgid "Fair trade products help producers in developping countries."
-msgstr "crwdns167000:0crwdne167000:0"
+msgid "Fair trade products help producers in developing countries."
+msgstr "crwdns192271:0crwdne192271:0"
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4429,12 +4441,20 @@ msgid "Nutri-Score %s"
 msgstr "crwdns167012:0%scrwdne167012:0"
 
 msgctxt "attribute_nutriscore_unknown_title"
-msgid "Nutri-Score not computed"
-msgstr "crwdns167014:0crwdne167014:0"
+msgid "Nutri-Score unknown"
+msgstr "crwdns192011:0crwdne192011:0"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
-msgid "Unknown nutritional quality"
-msgstr "crwdns167016:0crwdne167016:0"
+msgid "Missing data to compute the Nutri-Score"
+msgstr "crwdns192013:0crwdne192013:0"
+
+msgctxt "attribute_nutriscore_not_applicable_title"
+msgid "Nutri-Score not-applicable"
+msgstr "crwdns192015:0crwdne192015:0"
+
+msgctxt "attribute_nutriscore_not_applicable_description_short"
+msgid "Exempted category"
+msgstr "crwdns192017:0crwdne192017:0"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5320,6 +5340,7 @@ msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "crwdns180760:0crwdne180760:0"
 
+# stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
 msgstr "crwdns180762:0crwdne180762:0"
@@ -5368,9 +5389,9 @@ msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "crwdns180784:0crwdne180784:0"
 
-msgctxt "ecoscore_production_mode"
+msgctxt "ecoscore_production_system"
 msgid "Production mode"
-msgstr "crwdns180786:0crwdne180786:0"
+msgstr "crwdns190639:0crwdne190639:0"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
@@ -5380,9 +5401,9 @@ msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "crwdns180792:0crwdne180792:0"
 
-msgctxt "ecoscore_origin_of_ingredients"
-msgid "Origin of ingredients"
-msgstr "crwdns180794:0crwdne180794:0"
+msgctxt "ecoscore_origins_of_ingredients"
+msgid "Origins of ingredients"
+msgstr "crwdns190641:0crwdne190641:0"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
@@ -5396,21 +5417,17 @@ msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
 msgstr "crwdns180854:0crwdne180854:0"
 
-msgctxt "ecoscore_transportation"
-msgid "Transportation"
-msgstr "crwdns180856:0crwdne180856:0"
-
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
 msgstr "crwdns180804:0crwdne180804:0"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
-msgid "Ingredients whose cultivation threatens species"
-msgstr "crwdns180858:0crwdne180858:0"
+msgid "Ingredients that threatens species"
+msgstr "crwdns191277:0crwdne191277:0"
 
 msgctxt "ecoscore_no_species_threatening_ingredients"
-msgid "No ingredient which cultivation threatens species has been detected."
-msgstr "crwdns180810:0crwdne180810:0"
+msgid "No ingredients that threaten species"
+msgstr "crwdns191279:0crwdne191279:0"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -5419,10 +5436,6 @@ msgstr "crwdns180812:0crwdne180812:0"
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "crwdns180814:0crwdne180814:0"
-
-msgctxt "ecoscore_packaging"
-msgid "Packaging"
-msgstr "crwdns180816:0crwdne180816:0"
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5512,4 +5525,324 @@ msgstr "crwdns187460:0crwdne187460:0"
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "crwdns187462:0crwdne187462:0"
+
+msgctxt "ecoscore_packaging_impact_high"
+msgid "Packaging with a high impact"
+msgstr "crwdns191241:0crwdne191241:0"
+
+msgctxt "ecoscore_packaging_impact_medium"
+msgid "Packaging with a medium impact"
+msgstr "crwdns191243:0crwdne191243:0"
+
+msgctxt "ecoscore_packaging_impact_low"
+msgid "Packaging with a low impact"
+msgstr "crwdns191245:0crwdne191245:0"
+
+msgctxt "ecoscore_packaging_missing_information"
+msgid "Missing packaging information for this product"
+msgstr "crwdns191247:0crwdne191247:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgid "Origins of ingredients with a high impact"
+msgstr "crwdns191249:0crwdne191249:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgid "Origins of ingredients with a medium impact"
+msgstr "crwdns191251:0crwdne191251:0"
+
+msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgid "Origins of ingredients with a low impact"
+msgstr "crwdns191253:0crwdne191253:0"
+
+msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgid "Missing origins of ingredients information"
+msgstr "crwdns191255:0crwdne191255:0"
+
+msgctxt "percent_of_ingredients"
+msgid "% of ingredients"
+msgstr "crwdns190777:0crwdne190777:0"
+
+# medium as in "medium impact"
+msgctxt "medium"
+msgid "medium"
+msgstr "crwdns190651:0crwdne190651:0"
+
+msgctxt "nutrition_grade_fr_tea_bags_note"
+msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
+msgstr "crwdns190655:0crwdne190655:0"
+
+msgctxt "g_per_100g"
+msgid "%s g / 100 g"
+msgstr "crwdns190669:0%scrwdne190669:0"
+
+msgctxt "donation_title"
+msgid "Important: we need your support!"
+msgstr "crwdns190813:0crwdne190813:0"
+
+# variable names between { } must not be translated, {number_of_employees} will be a number
+msgctxt "donation_body_employees"
+msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgstr "crwdns191623:0{number_of_employees}crwdne191623:0"
+
+# variable names between { } must not be translated, {year} will be the upcoming year
+msgctxt "donation_why_year"
+msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgstr "crwdns191625:0{year}crwdne191625:0"
+
+msgctxt "donation_cta"
+msgid "Donate"
+msgstr "crwdns190819:0crwdne190819:0"
+
+msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgid "No labels with environmental benefits"
+msgstr "crwdns191197:0crwdne191197:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgid "Labels with environmental benefits"
+msgstr "crwdns191199:0crwdne191199:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgid "Labels with high environmental benefits"
+msgstr "crwdns191201:0crwdne191201:0"
+
+msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgid "Labels with very high environmental benefits"
+msgstr "crwdns191203:0crwdne191203:0"
+
+msgctxt "other"
+msgid "Other"
+msgstr "crwdns190993:0crwdne190993:0"
+
+# statistical mean
+msgctxt "mean"
+msgid "Mean"
+msgstr "crwdns190995:0crwdne190995:0"
+
+msgctxt "recipes_ingredients_statistics"
+msgid "Ingredients statistics for all products"
+msgstr "crwdns190997:0crwdne190997:0"
+
+msgctxt "recipes_ingredients_for_each_product"
+msgid "Ingredients for each product"
+msgstr "crwdns190999:0crwdne190999:0"
+
+msgctxt "product_deleted"
+msgid "Product deleted."
+msgstr "crwdns191205:0crwdne191205:0"
+
+msgctxt "carbon_footprint"
+msgid "Carbon footprint"
+msgstr "crwdns191207:0crwdne191207:0"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_100g_of_product"
+msgid "{grams} g CO² per 100g of product"
+msgstr "crwdns191209:0{grams}crwdne191209:0"
+
+# variable names between { } must not be translated
+msgctxt "f_equal_to_driving_km_in_a_petrol_car"
+msgid "Equal to driving {kilometers} km in a petrol car"
+msgstr "crwdns191211:0{kilometers}crwdne191211:0"
+
+msgctxt "source_ademe_agribalyse"
+msgid "Source: ADEME Agribalyse Database"
+msgstr "crwdns191213:0crwdne191213:0"
+
+msgctxt "environment_card_title"
+msgid "Environment"
+msgstr "crwdns191215:0crwdne191215:0"
+
+msgctxt "health_card_title"
+msgid "Nutrition and health"
+msgstr "crwdns191217:0crwdne191217:0"
+
+msgctxt "contains_palm_oil"
+msgid "Contains palm oil"
+msgstr "crwdns191219:0crwdne191219:0"
+
+msgctxt "contains_palm_oil_subtitle"
+msgid "Drives deforestation and threatens species such as the orangutan"
+msgstr "crwdns191221:0crwdne191221:0"
+
+msgctxt "contains_palm_oil_description"
+msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
+msgstr "crwdns191223:0crwdne191223:0"
+
+msgctxt "bonus"
+msgid "Bonus"
+msgstr "crwdns191257:0crwdne191257:0"
+
+msgctxt "malus"
+msgid "Malus"
+msgstr "crwdns191259:0crwdne191259:0"
+
+msgctxt "life_cycle_analysis"
+msgid "Life cycle analysis"
+msgstr "crwdns191261:0crwdne191261:0"
+
+msgctxt "ecoscore_bonuses_and_maluses"
+msgid "Bonuses and maluses"
+msgstr "crwdns191263:0crwdne191263:0"
+
+msgctxt "ecoscore_for_this_product"
+msgid "Eco-Score for this product"
+msgstr "crwdns191265:0crwdne191265:0"
+
+msgctxt "average_impact_of_the_category"
+msgid "Average impact of products of the same category"
+msgstr "crwdns191267:0crwdne191267:0"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgid "Sum of bonuses and maluses"
+msgstr "crwdns191269:0crwdne191269:0"
+
+msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgid "The sum of bonuses and maluses is capped at +25."
+msgstr "crwdns191271:0crwdne191271:0"
+
+msgctxt "ecoscore_lca_score"
+msgid "Life cycle analysis score"
+msgstr "crwdns191273:0crwdne191273:0"
+
+msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
+msgstr "crwdns191275:0crwdne191275:0"
+
+msgctxt "nutriscore_not_applicable"
+msgid "Nutri-Score not applicable for this product category."
+msgstr "crwdns191529:0crwdne191529:0"
+
+msgctxt "nutriscore_missing_category"
+msgid "The category of the product must be specified in order to compute the Nutri-Score."
+msgstr "crwdns191531:0crwdne191531:0"
+
+msgctxt "nutriscore_missing_nutrition_data"
+msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "crwdns191533:0crwdne191533:0"
+
+msgctxt "health"
+msgid "Health"
+msgstr "crwdns191535:0crwdne191535:0"
+
+# will be followed by : and a value. e.g. "Compared to: bananas"
+msgctxt "compared_to"
+msgid "Compared to"
+msgstr "crwdns191705:0crwdne191705:0"
+
+# name of an activity / a sport
+msgctxt "activity_walking"
+msgid "Walking"
+msgstr "crwdns191707:0crwdne191707:0"
+
+# name of an activity / a sport
+msgctxt "activity_swimming"
+msgid "Swimming"
+msgstr "crwdns191709:0crwdne191709:0"
+
+# name of an activity / a sport
+msgctxt "activity_bicycling"
+msgid "Bicycling"
+msgstr "crwdns191711:0crwdne191711:0"
+
+# name of an activity / a sport
+msgctxt "activity_running"
+msgid "Running"
+msgstr "crwdns191713:0crwdne191713:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_energy_per_100g"
+msgid "{kj} kJ per 100g"
+msgstr "crwdns191715:0{kj}crwdne191715:0"
+
+# Don't translate {kj}, it will be replaced by a number
+msgctxt "f_equal_to_walking_minutes_or_steps"
+msgid "Equal to walking {minutes} minutes or {steps} steps"
+msgstr "crwdns191717:0{minutes}crwdnd191717:0{steps}crwdne191717:0"
+
+# Don't translate {kg} and {lb}, it will be replaced by a number
+msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
+msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
+msgstr "crwdns191719:0{kg}crwdnd191719:0{lb}crwdne191719:0"
+
+msgctxt "nutriscore_not_applicable_short"
+msgid "Not applicable for this product"
+msgstr "crwdns192003:0crwdne192003:0"
+
+msgctxt "nutriscore_missing_category_short"
+msgid "Missing category"
+msgstr "crwdns192005:0crwdne192005:0"
+
+msgctxt "nutriscore_missing_nutrition_data_short"
+msgid "Missing nutrition facts"
+msgstr "crwdns192007:0crwdne192007:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
+msgid "Reduce or stop drinking alcohol"
+msgstr "crwdns192019:0crwdne192019:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
+msgid "Less is better"
+msgstr "crwdns192021:0crwdne192021:0"
+
+msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
+msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
+msgstr "crwdns192023:0crwdne192023:0"
+
+# "source" as in "source of the information"
+msgctxt "source"
+msgid "Source"
+msgstr "crwdns192009:0crwdne192009:0"
+
+# variable names between { } must not be translated
+msgctxt "f_app_user"
+msgid "A user of the {app_name} app"
+msgstr "crwdns192273:0{app_name}crwdne192273:0"
+
+msgctxt "food_groups_p"
+msgid "food groups"
+msgstr "crwdns192307:0crwdne192307:0"
+
+msgctxt "food_groups_s"
+msgid "food group"
+msgstr "crwdns192309:0crwdne192309:0"
+
+msgctxt "non_vegan_ingredients"
+msgid "Non-vegan ingredients"
+msgstr "crwdns192352:0crwdne192352:0"
+
+msgctxt "vegan_ingredients"
+msgid "No non-vegan ingredients detected"
+msgstr "crwdns192354:0crwdne192354:0"
+
+msgctxt "maybe_vegan_ingredients"
+msgid "Ingredients that may not be vegan"
+msgstr "crwdns192356:0crwdne192356:0"
+
+msgctxt "non_vegetarian_ingredients"
+msgid "Non-vegetarian ingredients"
+msgstr "crwdns192358:0crwdne192358:0"
+
+msgctxt "vegetarian_ingredients"
+msgid "No non-vegetarian ingredients detected"
+msgstr "crwdns192360:0crwdne192360:0"
+
+msgctxt "maybe_vegetarian_ingredients"
+msgid "Ingredients that may not be vegetarian"
+msgstr "crwdns192362:0crwdne192362:0"
+
+msgctxt "palm_oil_ingredients"
+msgid "Ingredients that contain palm oil"
+msgstr "crwdns192364:0crwdne192364:0"
+
+msgctxt "may_contain_palm_oil_ingredients"
+msgid "Ingredients that may contain palm oil"
+msgstr "crwdns192366:0crwdne192366:0"
+
+msgctxt "palm_oil_free_ingredients"
+msgid "No ingredients containing palm oil detected"
+msgstr "crwdns192368:0crwdne192368:0"
+
+msgctxt "unrecognized_ingredients"
+msgid "Unrecognized ingredients"
+msgstr "crwdns192370:0crwdne192370:0"
 

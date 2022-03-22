@@ -15,7 +15,7 @@
          ],
          "percent_estimate" : 33.5,
          "percent_max" : 34,
-         "percent_min" : "33",
+         "percent_min" : 33,
          "text" : "emulgointiaine"
       },
       {
@@ -23,7 +23,7 @@
          "origins" : "en:european-union",
          "percent_estimate" : 33.25,
          "percent_max" : 33.5,
-         "percent_min" : "33",
+         "percent_min" : 33,
          "text" : "aromi",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -31,10 +31,10 @@
       {
          "id" : "en:wheat-flour",
          "origins" : "en:france",
-         "percent" : "33",
-         "percent_estimate" : "33",
-         "percent_max" : "33",
-         "percent_min" : "33",
+         "percent" : 33,
+         "percent_estimate" : 33,
+         "percent_max" : 33,
+         "percent_min" : 33,
          "text" : "vehnäjauho",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -49,6 +49,14 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:flavouring"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:flavouring"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:maybe-vegan",
@@ -63,6 +71,8 @@
       "en:wheat",
       "en:cereal-flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sunflower-lecithin",
       "en:e322",
       "en:e322i"
@@ -89,15 +99,22 @@
       "en:wheat",
       "en:cereal-flour",
       "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:sunflower-lecithin",
       "en:e322",
       "en:e322i"
    ],
    "ingredients_text" : "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
-   "known_ingredients_n" : 11,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 33,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 67,
+   "known_ingredients_n" : 13,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "unknown_ingredients_n" : 0
 }

@@ -22,6 +22,11 @@
       "en:dairies",
       "en:milks"
    ],
+   "food_groups" : "en:milk-and-yogurt",
+   "food_groups_tags" : [
+      "en:milk-and-dairy-products",
+      "en:milk-and-yogurt"
+   ],
    "ingredients" : [
       {
          "id" : "en:milk",
@@ -33,6 +38,11 @@
          "vegetarian" : "yes"
       }
    ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
@@ -56,6 +66,10 @@
       "en:dairy"
    ],
    "ingredients_text" : "Milk",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
@@ -68,6 +82,7 @@
       "fat_100g" : 10,
       "fiber_100g" : 2,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nutrition-score-fr" : 14,
       "nutrition-score-fr_100g" : 14,
       "proteins_100g" : 5,

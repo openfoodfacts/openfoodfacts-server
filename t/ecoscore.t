@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -9,6 +8,7 @@ use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
+use File::Basename "dirname";
 use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
@@ -35,6 +35,7 @@ labels => [
 	
 	"fr:ab-agriculture-biologique",
 	"en:eu-organic",
+	#"en:sustainable-fishing-method",
 	
 	"fr:haute-valeur-environnementale",
 	"en:utz-certified",
@@ -63,11 +64,12 @@ foreach my $tagtype (keys %tags) {
 	}
 }
 
+my $expected_dir = dirname(__FILE__) . "/expected_test_results";
 my $testdir = "ecoscore";
 
 my $usage = <<TXT
 
-The expected results of the tests are saved in $data_root/t/expected_test_results/$testdir
+The expected results of the tests are saved in $expected_dir/$testdir
 
 To verify differences and update the expected test results, actual test results
 can be saved to a directory by passing --results [path of results directory]
@@ -114,6 +116,31 @@ my @tests = (
 			lc => "en",
 			categories_tags=>["en:butters"],
 			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],
+	# Labels can have cumulative points, except some labels that can't be cumulated (e.g. MSC + ASC, or AB Bio + EU Organic)
+	[
+		'label-ab-hve',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["fr:ab-agriculture-biologique", "fr:haute-valeur-environnementale"],
+		}
+	],
+	[
+		'label-msc-asc',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["en:sustainable-seafood-msc", "en:responsible-aquaculture-asc"],
+		}
+	],	
+	[
+		'label-ab-hve-msc-asc',
+		{
+			lc => "en",
+			categories_tags=>["en:butters"],
+			labels_tags=>["fr:ab-agriculture-biologique", "fr:haute-valeur-environnementale", "en:sustainable-seafood-msc", "en:responsible-aquaculture-asc"],
 		}
 	],
 	[
@@ -261,6 +288,15 @@ my @tests = (
 			packaging_text=>"1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans"
 		}
 	],
+
+	[
+		'packaging-en-multiple-over-maximum-malus',
+		{
+			lc => "en",
+			categories_tags=>["en:biscuits"],
+			packaging_text=>"1 plastic box, 1 plastic film wrap, 12 individual plastic bags"
+		}
+	],	
 	
 	[
 		'packaging-en-unspecified-material-bottle',
@@ -279,6 +315,34 @@ my @tests = (
 			packaging_text=>"can"
 		}
 	],
+
+	[
+		'packaging-unspecified',
+		{
+			lc => "en",
+			categories_tags=>["en:milks"],
+		}
+	],
+
+	[
+		'packaging-unspecified-no-a-eco-score',
+		{
+			lc => "en",
+			categories_tags=>["en:baguettes"],
+			ingredients_text=>"Wheat (France)",
+			labels_tags=>["fr:ab-agriculture-biologique"],
+		}
+	],
+
+	[
+		'packaging-fr-new-shapes',
+		{
+			lc => "fr",
+			categories_tags=>["en:baguettes"],
+			ingredients_text=>"Blé (France)",
+			packaging_text=>"1 caisse en carton, 1 paille, 2 couverts en métal, 1 gobelet en plastique, 1 enveloppe papier",
+		}
+	],		
 	
 	# Sodas: no Eco-Score
 	
@@ -374,8 +438,7 @@ my @tests = (
 			categories_tags=>["en:milks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
 			labels_tags => ["en:eu-organic"],
-			origins_tags => ["en:france"],
-			ingredients_text => "Lait",
+			ingredients_text => "Lait (origine : Bretagne)",
 		},
 	],
 	
@@ -387,8 +450,95 @@ my @tests = (
 			lc => "fr",
 			categories_tags=>["en:energy-drinks"],
 			packaging_text => "1 bouteille en plastique PET, 1 bouchon PEHD",
-			ingredients_text => "Water",
+			ingredients_text => "Eau, caféine",
 		},
+	],
+
+	# Fresh fruits and vegetables should not have an Eco-Score (at least until we handle seasonality)
+
+	[
+		'fresh-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:fresh-vegetables", "en:fresh-tomatoes", "en:tomatoes"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Tomatoes",
+		},
+	],
+
+	[
+		'frozen-vegetable',
+		{
+			lc => "en",
+			categories_tags=>["en:frozen-vegetables", "en:frozen-carrots", "en:carrots"],
+			packaging_text => "1 plastic film",
+			ingredients_text => "Carrots",
+		},
+	],
+
+	# Foie gras should not use the "Duck, liver, raw" Agribalyse category which has a very small impact (modeled after chicken liver)
+	[
+		'foie-gras',
+		{
+			lc => "fr",
+			categories_tags=>["en:foies-gras"],
+			packaging_text => "1 pot en verre, 1 couvercle en acier",
+			ingredients_text => "Foie gras de canard",
+		},
+	],
+
+	# UK product
+	[
+		'uk-milk',
+		{
+			lc => "en",
+			categories_tags=>["en:milks"],
+			packaging_text => "1 PET plastic bottle, 1 PEHD bottle cap",
+			ingredients_text => "Milk (England)",
+		},
+	],
+
+	# Agribalyse score is 0 (which is valid)
+	[
+		'lamb-leg',
+		{
+			lc => "en",
+			categories_tags=>["en:lamb-leg"],
+			ingredients_text => "Fresh lamb leg (Great Britain)",
+		},
+	],
+
+	# FR: verseur en plastique
+	[
+		'fr-verseur-en-plastique',
+		{
+			lc => "fr",
+			categories_tags=>["en:olive-oils"],
+			ingredients_text => "Huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques.",
+			packaging_text => "1 bouteille verre de 6g, verseur plastique de 3g, capsule métal de 1g"
+		},
+	],
+
+	# Labels that indicate the origin of some ingredients
+	[
+		"fr-viande-porcine-francaise",
+		{
+			lc => "fr",
+			categories => "endives au jambon",
+			ingredients_text => "endives 40%, jambon cuit, jaunes d'oeufs, sel",
+			labels => "viande porcine française, oeufs de France",
+		}
+	],
+
+	# Label that indicates the origin of an ingredient, but no ingredient list
+	# (common for products with only 1 ingredient like eggs)
+	[
+		"fr-oeufs-de-france",
+		{
+			lc => "fr",
+			categories => "oeufs",
+			labels => "oeufs de France",
+		}
 	],	
 
 );
@@ -402,6 +552,14 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 	
 	# Run the test
+
+	if (defined $product_ref->{labels}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	}
+
+	if (defined $product_ref->{categories}) {
+		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+	}		
 	
 	# Parse the ingredients (and extract the origins), and compute the ingredients percent
 	extract_ingredients_from_text($product_ref);
@@ -419,7 +577,7 @@ foreach my $test_ref (@tests) {
 	
 	# Compare the result with the expected result
 	
-	if (open (my $expected_result, "<:encoding(UTF-8)", "$data_root/t/expected_test_results/$testdir/$testid.json")) {
+	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.json")) {
 
 		local $/; #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);

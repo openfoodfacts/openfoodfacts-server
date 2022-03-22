@@ -18,6 +18,70 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Images - adds, processes, manages and displays product photos
+
+=head1 DESCRIPTION
+
+C<ProductOpener::Images> is used to:
+- upload product images
+- select and crop product images
+- run OCR on images
+- display product images
+
+=head1 Product images on disk
+
+Product images are stored in html/images/products/[product barcode splitted with slashes]/
+
+For each product, this directory contains:
+
+=over
+
+=item [image number].[extension].orig (e.g. 1.jpg.orig, 2.jpg.orig etc.)
+
+Original images uploaded by users or imported
+
+=item [image number].jpg
+
+Same image saved as JPEG with specific settings, and after some minimal processing (autoorientation, removing EXIF data, flattening PNG images to remove transparency).
+
+Those images are not displayed on the web site (except on the product edit form), but can be selected and cropped.
+
+=item [image number].[100|400].jpg
+
+Same image saved with a maximum width and height of 100 and 400 pixels. Those thumbnails are used in the product edit form to show the available images.
+
+=item [image number].json
+
+OCR output from Google Cloud Vision.
+
+When a new image is uploaded, a symbolic link to it is created in /new_images. This triggers a script to generate and save the OCR:
+
+incrontab -l -u off
+/srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
+
+=item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
+
+Cropped and selected image for the front of the product, the ingredients list, the nutrition facts table, and the packaging information / recycling instructions,
+in 4 different sizes (full size, 100 / 200 / 400 pixels maximum width or height).
+
+The product revision is a number that is incremented for each change to the product (each image upload and each image selection are also individual changes that
+create a new revision).
+
+The selected images are shown on the website, in the app etc.
+
+When a new image is selected for a given field (e.g. ingredients) and language (e.g. French), the existing selected images are kept.
+(e.g. we can have ingredients_fr.21.100.jpg and a new ingredients_fr.28.100.jpg).
+
+Previously selected images are shown only when people access old product revisions.
+
+Cropping coordinates for all revisions are stored in the "images" field of the product, so we could regenerate old selected and cropped images on demand.
+
+=back
+
+=cut
+
 package ProductOpener::Images;
 
 use utf8;
@@ -76,6 +140,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 use Log::Any qw($log);
 use Encode;
@@ -83,7 +148,18 @@ use JSON::PP;
 use MIME::Base64;
 use LWP::UserAgent;
 
+=head1 SUPPORTED IMAGE TYPES
+
+gif, jpeg, jpf, png, heic
+
+=cut
+
 my $extensions = "gif|jpeg|jpg|png|heic";
+
+
+=head1 FUNCTIONS
+
+=cut
 
 
 sub display_select_manage($) {
@@ -102,10 +178,11 @@ HTML
 
 
 
-sub display_select_crop($$) {
+sub display_select_crop($$$) {
 
 	my $object_ref = shift;
 	my $id_lc = shift;    #  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
+	my $language = shift;
 	my $id    = $id_lc;
 
 	my $imagetype = $id_lc;
@@ -124,7 +201,7 @@ sub display_select_crop($$) {
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
 	my $html = <<HTML
-<label for="$id">$label</label>
+<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
@@ -286,14 +363,9 @@ sub display_search_image_form($) {
 	$html .= <<HTML
 <div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
-    right:0;
-    bottom:0;
-    top:0;
-    cursor:pointer;
-    opacity:0;
-    font-size:40px;"/>
+<a class="button small expand" id="imgsearchbutton_$id">@{[ display_icon('photo_camera') ]} $product_image_with_barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id"
+	style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
 </a>
 </div>
 
@@ -314,14 +386,19 @@ sub display_search_image_form($) {
 HTML
 ;
 
+	# Do not load jquery file upload twice, if it was loaded by another form
 
-	$scripts .= <<JS
+	if ($scripts !~ /jquery.fileupload.js/) {
+
+		$scripts .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
 JS
 ;
+
+	}
 
 	$initjs .= <<JS
 
@@ -1664,6 +1741,34 @@ sub compute_orientation_from_cloud_vision_annotations($) {
 	return;
 }
 
+=head2 extract_text_from_image( $product_ref, $id, $field, $ocr_engine, $results_ref )
+
+Perform OCR for a specific image (either a source image, or a selected image) and return the results.
+
+OCR can be performed with a locally installed Tesseract, or through Google Cloud Vision.
+
+In the case of Google Cloud Vision, we also store the results of the OCR as a JSON file (requested through HTTP by Robotoff).
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 id of the image $id
+
+Either a number like 1, 2 etc. to perform the OCR on a source image (1.jpg, 2.jpg) or a field name
+in the form of [front|ingredients|nutrition|packaging]_[2 letter language code].
+
+If $id is a field name, the last selected image for that field is used.
+
+=head4 OCR engine $ocr_engine
+
+Either "tesseract" or "google_cloud_vision"
+
+=head4 Results reference $results_ref
+
+A hash reference to store the results.
+
+=cut
 
 sub extract_text_from_image($$$$$) {
 
@@ -1733,8 +1838,7 @@ sub extract_text_from_image($$$$$) {
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
-		# alpha-vision.googleapis.com/
+		my $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 
 		my $ua = LWP::UserAgent->new();
 
@@ -1764,6 +1868,7 @@ sub extract_text_from_image($$$$$) {
 		$request->content( $json );
 
 		my $res = $ua->request($request);
+		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
 
 		if ($res->is_success) {
 
