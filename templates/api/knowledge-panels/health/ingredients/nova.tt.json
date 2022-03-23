@@ -1,0 +1,36 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        [% IF product.nova_group > 0 %]
+            [% SET nova_group = product.nova_group %]
+            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-[% product.nova_group %].svg",
+            "title": "[% lang('attribute_nova_' _ nova_group _ '_description_short') %]",
+        [% ELSE %]
+            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-unknown.svg",
+            "title": "[% lang('attribute_nova_unknown_description_short') %]",       
+        [% END %]
+    },
+    "elements": [
+          
+        {
+            "element_type": "text",
+            "text_element": {
+                [% IF ! product.nova_group.defined %]
+                    [% IF product.nova_group_error.defined %]
+                        error: [% product.nova_group_error %]
+                    [% END %]
+                [% ELSE %]
+                    [% IF nova_group == 1 %]
+                    [% ELSIF nova_group >= 2 %]
+                        [% IF product.nova_groups_markers.$nova_group.defined %]
+                            <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
+                        [% END %]
+                    [% END %]
+                [% END %]
+            }
+        },
+    ]
+}

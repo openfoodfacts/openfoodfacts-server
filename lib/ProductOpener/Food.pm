@@ -2202,13 +2202,15 @@ sub compute_nova_group($) {
 	delete $product_ref->{nova_group};
 	delete $product_ref->{nova_groups};
 	delete $product_ref->{nova_groups_tags};
+	delete $product_ref->{nova_group_tags};	# wrongly named field that was added to some products
 	delete $product_ref->{nova_groups_markers};
+	delete $product_ref->{nova_group_error};
 
 	$product_ref->{nova_group_debug} = "";
 
 	# do not compute a score when it is not food
 	if (has_tag($product_ref,"categories","en:non-food-products")) {
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_groups_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group for non food products";
 			return;
 	}
@@ -2419,7 +2421,7 @@ sub compute_nova_group($) {
 			$product_ref->{nova_group} = 1;
 		} elsif ($product_ref->{nova_group} != 2) {
 			delete $product_ref->{nova_group};
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_groups_tags} = [ "unknown" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			$product_ref->{nova_group_error} = "missing_ingredients";
 			return;
@@ -2436,7 +2438,7 @@ sub compute_nova_group($) {
 			has_tag($product_ref,"quality","en:ingredients-60-percent-unknown") or
 			has_tag($product_ref,"quality","en:ingredients-50-percent-unknown") )  {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
 				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
 				return;
@@ -2444,7 +2446,7 @@ sub compute_nova_group($) {
 
 		if ($product_ref->{unknown_ingredients_n} > ($product_ref->{ingredients_n} / 2)) {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
 					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
 				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
@@ -2454,7 +2456,7 @@ sub compute_nova_group($) {
 		# do not compute a score when we don't have a category
 		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
 				$product_ref->{nova_group_error} = "missing_category";
 				return;
