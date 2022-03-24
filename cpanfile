@@ -90,4 +90,5 @@ on 'develop' => sub {
   requires 'Devel::REPL';
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
+  requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
 }
