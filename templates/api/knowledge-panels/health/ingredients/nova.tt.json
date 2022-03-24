@@ -18,18 +18,25 @@
         {
             "element_type": "text",
             "text_element": {
-                [% IF ! product.nova_group.defined %]
-                    [% IF product.nova_group_error.defined %]
-                        error: [% product.nova_group_error %]
-                    [% END %]
-                [% ELSE %]
-                    [% IF nova_group == 1 %]
-                    [% ELSIF nova_group >= 2 %]
-                        [% IF product.nova_groups_markers.$nova_group.defined %]
-                            <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
-                        [% END %]
-                    [% END %]
-                [% END %]
+                "html": `
+[% IF ! product.nova_group.defined %]
+    [% IF product.nova_group_error.defined %]
+        error: [% product.nova_group_error %]
+    [% END %]
+[% ELSE %]
+    [% IF nova_group == 1 %]
+    [% ELSIF nova_group >= 2 %]
+        [% IF product.nova_groups_markers.$nova_group.defined %]
+            <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
+            <ul>
+            [% FOREACH marker IN product.nova_groups_markers.$nova_group %]
+                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag(marker.0, marker.1) %]</li>
+            [% END %]
+            </ul>
+        [% END %]
+    [% END %]
+[% END %]
+                `
             }
         },
     ]

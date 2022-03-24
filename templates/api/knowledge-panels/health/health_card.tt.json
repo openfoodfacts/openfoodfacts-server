@@ -41,7 +41,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('additives_p').ucfirst %]",
+                "title": "[% lang('attribute_group_processing_name').ucfirst %]",
                 "panel_ids": ["nova"],
             },
         }, 
