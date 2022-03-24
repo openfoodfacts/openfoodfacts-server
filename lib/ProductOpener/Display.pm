@@ -4217,6 +4217,11 @@ sub display_search_results($) {
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
+
+		my $contributor_prefs_json = decode_utf8(encode_json({
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
+		}));
 		
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 		
@@ -4224,6 +4229,7 @@ sub display_search_results($) {
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
+var contributor_prefs = $contributor_prefs_json;
 var products = [];
 </script>
 JS
@@ -4238,7 +4244,9 @@ JS
 
 
 		$initjs .= <<JS
-display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
+	rank_and_display_products("#search_results", products, contributor_prefs);
+});
 search_products("#search_results", products, "$search_api_url");
 JS
 ;
@@ -5324,10 +5332,17 @@ sub search_and_display_products($$$$$) {
 			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
 		}
 
+		my $contributor_prefs_json = decode_utf8(encode_json({
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
+		}));
+		
+
 		$scripts .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
+var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
 </script>
 JS
@@ -5340,8 +5355,10 @@ JS
 ;
 
 		$initjs .= <<JS
-display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { rank_and_display_products("#search_results", products); });
-rank_and_display_products("#search_results", products);
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
+	rank_and_display_products("#search_results", products, contributor_prefs);
+});
+rank_and_display_products("#search_results", products, contributor_prefs);
 JS
 ;
 
