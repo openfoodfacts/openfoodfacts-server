@@ -2224,15 +2224,15 @@ sub compute_nova_group($) {
 
 	# Record the "markers" (e.g. categories or ingredients) that indicate a specific NOVA group
 	my %nova_groups_markers = ();
-	my %seen_markers = ();
 
-	# $options{nova_groups_tags} = {
-	#
-	# # start by assigning group 1
-	#
-	# # 1st try to identify group 2 processed culinary ingredients
-	#
-	# "categories/en:fats" => 2,
+	# We currently have 2 sources for tags that can trigger a given NOVA group:
+	# 1. tags specified in the %options of Config.pm 
+	# 2. tags in the categories, ingredients and additives taxonomy that have a nova:en property
+
+	# We first generate a list of matching tags, from the two sources
+	# Note that elements must stay in order, as we need t check first for categories that trigger group 2 (culinary ingredients)
+
+	my @matching_tags = ();
 
 	if (defined $options{nova_groups_tags}) {
 
@@ -2244,30 +2244,17 @@ sub compute_nova_group($) {
 				my $tagid = $';
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
-
-					my $nova_group = $options{nova_groups_tags}{$tag};
-					if ($nova_group > $product_ref->{nova_group}) {
-
-						# only move group 1 product to group 3. group 2 products like fats should stay in group 2 (unless they are group 4)
-						if (not (($product_ref->{nova_group} == 2) and ($nova_group == 3))
-							and ($product_ref->{nova_group} <= $nova_group)) {
-							$product_ref->{nova_group} = $nova_group;
-							defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
-							push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
-							$seen_markers{$tagtype . ':' . $tagid} = 1;
-						}
-					}
+					push @matching_tags, [$tagtype, $tagid, $options{nova_groups_tags}{$tag}];
 				}
 			}
 		}
 	}
 
-	# Also loop through categories and ingredients to see if the taxonomy has associated minimum NOVA grades
-	# Categories need to be first, so that we can identify group 2 foods such as salt, sugar, fats etc.
+
 	# Group 2 foods should then not be moved to group 3
 	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
 	
-	foreach my $tagtype ("categories", "ingredients") {
+	foreach my $tagtype ("categories", "ingredients", "additives") {
 
 		if ((defined $product_ref->{$tagtype . "_tags"}) and (defined $properties{$tagtype})) {
 
@@ -2275,19 +2262,31 @@ sub compute_nova_group($) {
 
 				my $nova_group = get_property($tagtype, $tagid, "nova:en");
 
-				if ( (defined $nova_group)
-					and ($nova_group >= $product_ref->{nova_group})
-					# don't move group 2 to group 3
-					and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
-					) {
-					$product_ref->{nova_group} = $nova_group;
-					defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
-					# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
-					if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
-						push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
-						$seen_markers{$tagtype . ':' . $tagid} = 1;
-					}
+				if (defined $nova_group) {
+					push @matching_tags, [$tagtype, $tagid, $nova_group];
 				}
+			}
+		}
+	}
+
+	# Assign the NOVA group based on matching tags
+	# Group 2 foods should then not be moved to group 3
+	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+
+	my %seen_markers = ();
+
+	foreach my $matching_tag_ref (@matching_tags) {
+		my ($tagtype, $tagid, $nova_group) = @$matching_tag_ref;
+		if (($nova_group >= $product_ref->{nova_group})
+			# don't move group 2 to group 3
+			and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
+			) {
+			$product_ref->{nova_group} = $nova_group;
+			defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
+			# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
+			if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+				push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
+				$seen_markers{$tagtype . ':' . $tagid} = 1;
 			}
 		}
 	}
