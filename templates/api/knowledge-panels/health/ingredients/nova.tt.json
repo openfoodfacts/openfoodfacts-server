@@ -14,14 +14,13 @@
         [% END %]
     },
     "elements": [
-          
         {
             "element_type": "text",
             "text_element": {
                 "html": `
 [% IF ! product.nova_group.defined %]
     [% IF product.nova_group_error.defined %]
-        error: [% product.nova_group_error %]
+       [% lang("nova_group_" _ product.nova_group_error) %]
     [% END %]
 [% ELSE %]
     [% IF nova_group == 1 %]
@@ -36,8 +35,25 @@
         [% END %]
     [% END %]
 [% END %]
-                `
+`
             }
         },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>[% lang("nova_classification_description") %]</p>
+<ol>
+<li>[% lang('attribute_nova_1_description_short') %]</li>
+<li>[% lang('attribute_nova_2_description_short') %]</li>
+<li>[% lang('attribute_nova_3_description_short') %]</li>
+<li>[% lang('attribute_nova_4_description_short') %]</li>
+</ol>
+<br>
+<p>[% lang("nova_classification_how") %]</p>
+<p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
+`
+            },        
+        },        
     ]
 }
