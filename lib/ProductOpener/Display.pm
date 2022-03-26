@@ -8111,6 +8111,16 @@ HTML
 ;
 	}
 
+	#unless (defined $product_ref->{brand}) {
+	#	$product_ref->{brand} = "";
+	#}
+	#unless (defined $product_ref->{category}) {
+	#	$product_ref->{category} = "";
+	#}
+
+	$product_ref->{brand} //= "";
+	$product_ref->{category} //= "";
+
 	$header .= <<HTML
 <meta name="twitter:card" content="product">
 <meta name="twitter:site" content="@<twitter_account>">
