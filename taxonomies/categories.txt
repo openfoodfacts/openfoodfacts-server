@@ -1915,7 +1915,7 @@ fi:Inkivääriolut
 fr:Bière de gingembre, ginger beer
 hu:Ginger beer
 it:Birre ginger
-nl:Gemberbieren, Gemberbier
+nl:Gemberbieren, Gemberbier, gunger ale
 ro:Bere de ghimbir
 zh:姜啤
 wikidata:en:Q1448819
@@ -38911,7 +38911,7 @@ es:Quesos sin lactosa
 fi:Laktoosittomat juustot
 fr:Fromages sans lactose
 it:Formaggi senza lattosio
-nl:Lactose-vrije kaas, Lactose-vrije kazen, Kaas zonder lactose
+nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 
 <en:Cheeses
 en:Sliced cheeses
@@ -62483,7 +62483,7 @@ wikidata:en:Q178359
 who_id:en:17
 
 <en:Sauces
-en:Peanut sauces, Satay sauces
+en:Peanut sauces
 de:Erdnusssauce
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 nl:Pindasauzen
@@ -62491,6 +62491,7 @@ wikidata:en:Q107310187
 
 #peanut suaces with added spices
 <en:Peanut sauces
+en:Satay sauces
 nl:Satésauzen
 
 <en:Sauces
@@ -62582,6 +62583,7 @@ ciqual_food_name:fr:Meloukhia, sauce, artisanale
 en:Kebab sauces
 es:Salsa kebab
 fr:Sauces kebab
+nl:Kebabsauzen
 agribalyse_food_code:en:11203
 ciqual_food_code:en:11203
 ciqual_food_name:en:Kebab sauce, prepacked
@@ -62610,16 +62612,19 @@ fr:Sauces au miel
 <fr:Sauces au miel
 en:Honey dill sauces
 fr:Sauce à l'aneth au miel
+nl:Dillesauzen
 wikidata:en:Q17098070
 
 <en:Sauces
 fr:Sauces au vin
+nl:Wijnsauzen
 agribalyse_proxy_food_code:en:11164
 agribalyse_proxy_food_name:en:Red wine sauce
 agribalyse_proxy_food_name:fr:Sauce au vin rouge
 
 <fr:Sauces au vin
 fr:Sauces au vin blanc, Sauce au vin blanc
+nl:Witte wijnsauzen
 
 <fr:Sauces au vin blanc
 en:muscat wine sauce
@@ -62628,6 +62633,7 @@ wikidata:en:Q3474123
 <fr:Sauces au vin
 en:Red wine sauces
 fr:Sauces au vin rouge, Sauce au vin rouge
+nl:Rode wijnsauzen
 agribalyse_food_code:en:11164
 ciqual_food_code:en:11164
 ciqual_food_name:en:Red wine sauce
@@ -62637,6 +62643,7 @@ wikidata:en:Q3474125
 <en:Sauces
 en:Yogurt sauce, Yogurt dressing sauces, Yogurt dressing
 fr:Sauces au yaourt, Sauce au yaourt, Sauces dressing au yaourt
+nl:Yoghurtsauzen
 agribalyse_food_code:en:11166
 ciqual_food_code:en:11166
 ciqual_food_name:en:Yogurt sauce
@@ -62644,6 +62651,7 @@ ciqual_food_name:fr:Sauce au yaourt
 
 <en:Yogurt sauce
 en:Blue cheese yogurt dressings
+nl:Blauwe kaassauzen
 
 <en:Sauces
 en:Grand veneur sauce, Reduction of red wine with garlic shallots and red currant jelly
@@ -62676,6 +62684,7 @@ ciqual_food_name:fr:Sauce à la crème aux herbes
 <en:Sauces
 en:Cream sauces with mushrooms
 fr:Sauces aux champignons et à la crème
+nl:Champignonsauzen
 agribalyse_food_code:en:11192
 ciqual_food_code:en:11192
 ciqual_food_name:en:Cream sauce with mushrooms, prepacked
@@ -65403,7 +65412,7 @@ es:Tomate natural triturado
 fi:Tomaattisoseet, tomaattipyreet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate, Purée de tomates en conserve, Purée de tomates appertisée
 it:Puree di pomodoro
-nl:Tomatenpuree
+nl:Tomatenpurees
 agribalyse_food_code:en:20170
 ciqual_food_code:en:20170
 ciqual_food_name:en:Tomato puree, canned
@@ -70112,12 +70121,20 @@ de:Fleischkäse
 en:Meat balls
 fi:Lihapullat, Lihapyörykät
 fr:Boulettes de viande
-nl:Soepballetjes
+nl:Gehaktballen, Soepballetjes
 pt:Almôndegas
 
 <en:Meat balls
+<en:Chicken
 en:Chicken meat balls
 fr:Boulettes au poulet
+nl:Kippegehaktballen
+
+<en:Meat balls
+<en:Chicken
+<en:Pork
+en:Pork meat balls
+nl:Varkensgehaktballen
 
 <en:Meat balls
 <en:Beef
@@ -75206,7 +75223,8 @@ fr:Mousses de canard au porto
 
 <en:Savory mousses
 fr:Mousses de foies, mousses de foie, mousse de foies, mousse de foie
-nl:Leverpasteien, Levermoussen
+nl:Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
+
 
 <fr:Mousses de foies
 fr:Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -75347,6 +75365,7 @@ ciqual_food_code:en:30352
 ciqual_food_name:en:Salami, pork and beef
 
 <en:Salami
+<en:Pork
 en:Pork salami
 fi:Sianlihasalami
 fr:Salami de porc
