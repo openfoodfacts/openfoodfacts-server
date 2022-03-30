@@ -49047,7 +49047,7 @@ protected_name_type:en: pgi
 <fr:Miels d’Alsace
 en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
-nl:Acaciahoningen ui tde Alsace
+nl:Acaciahoningen uit de Alsace
 # Disabled for safety: origins:en: en:France, fr:Alsace
 
 <en:Honeys from France
@@ -53227,6 +53227,7 @@ ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (n
 en:Mueslis with nuts, Walnut muesli
 fr:Mueslis aux fruits à coque, Mueslis aux noix
 it:Muesli con nocciole
+nl:Mueslis met noten
 
 <en:Mueslis
 en:Bircher-style mueslis, Muesli flakes, Bircher-style muesli flakes
@@ -58656,6 +58657,12 @@ fr:Matooke, matoke
 wikidata:en:Q101418717
 
 <en:Bananas
+<en:Flours
+en:Banana flours
+fr:Farines de banane
+nl:Bananenmelen
+
+<en:Bananas
 en:Red banana
 ar:الموز الأحمر
 fr:Bananes rouges
@@ -59440,6 +59447,10 @@ fr:Canneberges séchées, Cranberries séchées
 it:Ossicocchi secchi
 nl:Gedrooge cranberries
 pl:żurawina suszona
+
+<en:Dried fruits
+en:Dried mulberries
+fr:Mûres blanches séchées
 
 <en:Dried fruits
 en:Dried coconut
@@ -74476,6 +74487,7 @@ ciqual_food_name:fr:Merguez, porc et bœuf, crue
 en:Cervelat, Saveloy
 de:Zervelatwurst
 fr:Cervelas
+nl:Cervelaten, Cervelaat
 wikidata:en:Q673154
 agribalyse_food_code:en:30730
 ciqual_food_code:en:30730
@@ -74903,6 +74915,10 @@ fr:Charcuteries à cuire, charcuterie à cuire
 
 <en:Prepared meats
 fr:Charcuteries cuites, Charcuterie cuite
+
+# Belgian processed meat made with pork and beef also sometimes
+<fr:Charcuteries cuites
+fr:Saucissons de jambon
 
 <fr:Charcuteries cuites
 en:Pâté in crust
@@ -80798,6 +80814,7 @@ origins:en: en:Italy
 <en:Fishes
 en:Fatty fishes, blue fishes, fatty fish, blue fish, fat fishes, fat fish
 fr:Poissons gras, poissons bleus, poisson gras, poisson bleu
+nl:Vette vissen, Vette vis
 food_groups:en: en:Fatty fish
 
 <en:Fishes
@@ -84346,7 +84363,9 @@ en:Hoisin sauces
 fr:Sauces hoisin
 wikidata:en:Q404114
 
-en:Spreads, spreadable preparations, spreadable products
+
+# "vegan bread spreads" added as a synonym to spreads as some producers send it, but we don't have a specific category for them (which would be too broad)
+en:Spreads, spreadable preparations, spreadable products, bread spreads, vegan bread spreads
 bg:Крем за мазане
 ca:Productes per untar
 da:Smørbare produkter
@@ -95540,13 +95559,17 @@ ru:Мясозаменители
 wikidata:en:Q1343997
 
 <en:Meat analogues
-en:Vegetarian nuggets
+en:Vegetarian nuggets, veggie nuggets
 de:Vegetarische Nuggets
 es:Nuggets vegetarianos
 fi:Kavisnugetit
-fr:Nuggets végétaux
+fr:Nuggets végétariens
 it:Nugget vegetarianeìi
 nl:Vegetarische balletjes
+
+<en:Vegetarian nuggets
+en:vegan nuggets, plant based nuggets
+fr:Nuggets végétaux, nuggets végans
 
 <en:Meat analogues
 en:Veggie grounds
@@ -95555,16 +95578,26 @@ fr:Hachés végétaux
 
 #Patties are a very generic term for anything flat baked in a pan 
 <en:Meat analogues
-en:Veggie patties, veggie burger patties
+en:Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
 de:Gemüsebratling, Vegetarische Burger
 es:Filetes vegetales para hamburguesas
 fi:kasvishampurilaispihvit
-fr:Steaks végétaux, steaks végétaux pour hamburgers
+fr:Steaks végétariens, steaks végétariens pour hamburgers
 it:Polpettes vegetali
 nl:Plantaardige steaks voor hamburgers
+ciqual_food_code:en:20914
+ciqual_food_name:en:Soy burger or vegetable escalope
+ciqual_food_name:fr:Escalope végétale ou steak à base de soja
 
 <en:Veggie patties
-en:Soy steak, Soy burger, Vegetable escalope
+en:Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
+fr:Steaks végétaux, steaks végétaux pour hamburgers
+ciqual_food_code:en:20914
+ciqual_food_name:en:Soy burger or vegetable escalope
+ciqual_food_name:fr:Escalope végétale ou steak à base de soja
+
+<en:Veggie patties
+en:Soy steak, Soy burger
 fi:Soijapihvi
 fr:Galettes de soja, steaks de soja, Escalope végétale, Steak à base de soja
 nl:Sojasteaks
@@ -96940,8 +96973,7 @@ es:Ayudas culinarias, Otras ayudas culinarias
 fi:kokkausavut
 fr:Aides culinaires, Aides à la cuisine, Autres aides culinaires
 he:מסייעי אפייה, תומכי אפייה, עוזרי אפייה, עזרי אפייה, חומרי אפייה
-ml:Voedselhulpmiddelen
-nl:Bakproducten
+nl:Voedselhulpmiddelen
 ru:Кулинарные добавки
 
 <en:Cooking helpers
@@ -96962,7 +96994,11 @@ nl:Zoete kookhulpmiddelen
 fr:Pâtes à sucre
 wikidata:en:Q635219
 
-#Things you put on slices of bread buring meals that consist mainly of bread
+<en:Cooking helpers
+en:Xanthan gum
+nl:Xanthaangom
+
+#Things you put on slices of bread during meals that consist mainly of bread
 en:Bread coverings
 nl:Broodbeleggen, Broodbeleg
 

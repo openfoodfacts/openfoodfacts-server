@@ -19,6 +19,7 @@
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
+               "panel_id" : "nutriscore",
                "status" : "unknown",
                "title" : "Nutri-Score unknown"
             },
@@ -202,6 +203,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegan-status-unknown.svg",
                "id" : "vegan",
                "name" : "Vegan",
+               "panel_id" : "ingredients_analysis_en-vegan",
                "status" : "unknown",
                "title" : "Vegan status unknown"
             },
@@ -210,6 +212,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegetarian-status-unknown.svg",
                "id" : "vegetarian",
                "name" : "Vegetarian",
+               "panel_id" : "ingredients_analysis_en-vegetarian",
                "status" : "unknown",
                "title" : "Vegetarian status unknown"
             },
@@ -218,6 +221,7 @@
                "icon_url" : "https://server_domain/images/attributes/palm-oil-content-unknown.svg",
                "id" : "palm_oil_free",
                "name" : "Palm oil free",
+               "panel_id" : "ingredients_analysis_en-palm-oil-free",
                "status" : "unknown",
                "title" : "Palm oil content unknown"
             }
@@ -235,6 +239,7 @@
                "id" : "nova",
                "match" : 0,
                "name" : "NOVA group",
+               "panel_id" : "nova",
                "status" : "unknown",
                "title" : "NOVA not computed"
             },
@@ -247,6 +252,7 @@
                "match" : 0,
                "missing" : "Missing ingredients list",
                "name" : "Additives",
+               "panel_id" : "additives",
                "status" : "unknown",
                "title" : "Additives not computed"
             }
@@ -264,6 +270,7 @@
                "id" : "ecoscore",
                "match" : 21,
                "name" : "Eco-Score",
+               "panel_id" : "ecoscore",
                "status" : "known",
                "title" : "Eco-Score D"
             },

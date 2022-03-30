@@ -263,11 +263,10 @@ A reference to the created attribute object.
 
 =head3 Initialized fields
 
-- Name - e.g. "Nutri-Score"
-- Setting name - e.g. "Good nutritional quality (Nutri-Score)"
-- Warning
-- Short description
-- Description
+- name: e.g. "Nutri-Score"
+- setting_name: e.g. "Good nutritional quality (Nutri-Score)"
+- icon_url
+- panel_id:	Linked knowledge panel (optional)
 
 =cut
 
@@ -282,19 +281,23 @@ sub initialize_attribute($$) {
 	
 	if ($attribute_id eq "nutriscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-a.svg";
+		$attribute_ref->{panel_id} = "nutriscore";
 	}
 	elsif ($attribute_id eq "ecoscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-a.svg";
+		$attribute_ref->{panel_id} = "ecoscore";
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/forest-footprint-a.svg";
-	}	
+	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nova-group-1.svg";
+		$attribute_ref->{panel_id} = "nova";
 	}
 	elsif ($attribute_id eq "additives") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/0-additives.svg";
-	}	
+		$attribute_ref->{panel_id} = "additives";
+	}
 	elsif ($attribute_id =~ /^allergens_no_(.*)$/) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
@@ -309,6 +312,7 @@ sub initialize_attribute($$) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
+		$attribute_ref->{panel_id} = "ingredients_analysis_en-" . $analysis_tag;
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
