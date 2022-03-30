@@ -2229,10 +2229,11 @@ sub compute_nova_group($) {
 	# 1. tags specified in the %options of Config.pm 
 	# 2. tags in the categories, ingredients and additives taxonomy that have a nova:en property
 
-	# We first generate a list of matching tags, from the two sources
-	# Note that elements must stay in order, as we need t check first for categories that trigger group 2 (culinary ingredients)
+	# We first generate lists of matching tags for each NOVA group, from the two sources
 
-	my @matching_tags = ();
+	my %matching_tags_for_groups = (2 => [], 3 => [], 4 => []);
+
+	# Matching tags from options
 
 	if (defined $options{nova_groups_tags}) {
 
@@ -2244,15 +2245,14 @@ sub compute_nova_group($) {
 				my $tagid = $';
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
-					push @matching_tags, [$tagtype, $tagid, $options{nova_groups_tags}{$tag}];
+					push @{$matching_tags_for_groups{$options{nova_groups_tags}{$tag} + 0}}, [$tagtype, $tagid];
 				}
 			}
 		}
 	}
 
 
-	# Group 2 foods should then not be moved to group 3
-	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+	# Matching tags from taxonomies
 	
 	foreach my $tagtype ("categories", "ingredients", "additives") {
 
@@ -2263,30 +2263,33 @@ sub compute_nova_group($) {
 				my $nova_group = get_property($tagtype, $tagid, "nova:en");
 
 				if (defined $nova_group) {
-					push @matching_tags, [$tagtype, $tagid, $nova_group];
+					push @{$matching_tags_for_groups{$nova_group + 0}}, [$tagtype, $tagid];
 				}
 			}
 		}
 	}
 
-	# Assign the NOVA group based on matching tags
-	# Group 2 foods should then not be moved to group 3
+	# Assign the NOVA group based on matching tags (options in Config.pm and then taxonomies)
+	# First identify group 2 foods, then group 3 and 4
+	# Group 2 foods should not be moved to group 3
 	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
 
 	my %seen_markers = ();
 
-	foreach my $matching_tag_ref (@matching_tags) {
-		my ($tagtype, $tagid, $nova_group) = @$matching_tag_ref;
-		if (($nova_group >= $product_ref->{nova_group})
-			# don't move group 2 to group 3
-			and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
-			) {
-			$product_ref->{nova_group} = $nova_group;
-			defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
-			# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
-			if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
-				push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
-				$seen_markers{$tagtype . ':' . $tagid} = 1;
+	foreach my $nova_group (2, 3, 4) {
+		foreach my $matching_tag_ref (@{$matching_tags_for_groups{$nova_group}}) {
+			my ($tagtype, $tagid) = @$matching_tag_ref;
+			if (($nova_group >= $product_ref->{nova_group})
+				# don't move group 2 to group 3
+				and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
+				) {
+				$product_ref->{nova_group} = $nova_group;
+				defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
+				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
+				if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+					push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
+					$seen_markers{$tagtype . ':' . $tagid} = 1;
+				}
 			}
 		}
 	}
