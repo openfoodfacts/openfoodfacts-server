@@ -2332,16 +2332,54 @@ sub compute_ingredients_percent_values($$$) {
 	return $changed_total;
 }
 
+
+=head2 init_percent_values($total_min, $total_max, $ingredients_ref)
+
+Initialize the percent, percent_min and percent_max value of a list of ingredients.
+
+When a percent is specifically set, use this value for percent_min and percent_max.
+
+Warning: percent listed for sub-ingredients can be absolute (e.g. "Sugar, fruits 40% (pear 30%, apple 10%)")
+or they can be relative to the parent ingredient (e.g. "Sugar, fruits 40% (pear 75%, apple 25%)".
+
+Otherwise use 0 for percent_min and total_max for percent_max.
+
+=cut
+
 sub init_percent_values($$$) {
 
 	my $total_min = shift;
 	my $total_max = shift;
 	my $ingredients_ref = shift;
 
+	# Determine if percent listed are absolute (default) or relative to a parent ingredient
+
+	my $percent_mode = "absolute";
+
+	# Assume that percent listed can be relative only if there is a specified percent for the parent ingredient
+	# in which case $total_min is equal to $total_max and less than 100.
+
+	if (($total_min == $total_max) and ($total_max < 100)) {
+
+		# Check if the sum of listed % is greater than $total_max
+		my $percent_sum = 0;
+		foreach my $ingredient_ref (@{$ingredients_ref}) {
+			if (defined $ingredient_ref->{percent}) {
+				$percent_sum += $ingredient_ref->{percent};
+			}
+		}
+
+		if ($percent_sum > $total_max) {
+			$percent_mode = "relative";
+		}
+	}
+
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
-			$ingredient_ref->{percent_min} = $ingredient_ref->{percent};
-			$ingredient_ref->{percent_max} = $ingredient_ref->{percent};
+			my $percent = ($percent_mode eq "absolute") ? $ingredient_ref->{percent} : $ingredient_ref->{percent} * $total_max / 100;
+			$ingredient_ref->{percent} = $percent;
+			$ingredient_ref->{percent_min} = $percent;
+			$ingredient_ref->{percent_max} = $percent;
 		}
 		else {
 			if (not defined $ingredient_ref->{percent_min}) {
