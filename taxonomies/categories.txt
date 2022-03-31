@@ -5140,6 +5140,7 @@ ciqual_food_name:fr:Boisson au jus de fruit et au lait
 <en:Fruit-based beverages
 en:Fruit and plant-milk beverages
 fr:Boissons aux fruits et au lait végetal
+nl:Plantaardige fruitdranken
 
 <en:Fruit and plant-milk beverages
 en:Fruit and oat beverages
@@ -33389,7 +33390,7 @@ nl:Pancake mixes
 <en:Dessert mixes
 de:Pfannkuchenmischung
 fr:Préparations pour crêpes
-nl:Pannekoekenmixes
+nl:Pannenkoekenmixes
 
 <en:Cakes
 en:Filled cakes
@@ -36666,7 +36667,7 @@ fr:Crêpes au jambon
 <en:Crepe filled with cheese
 en:Crepe filled with cheese and bechamel sauce, buckwheat crepe filled with cheese and bechamel sauce
 fr:Crêpe fourrée béchamel fromage, Galette fourrée béchamel fromage
-nl:Boekweitpannekoeken gevuld met kaas en bechamel
+nl:Boekweitpannenkoeken gevuld met kaas en bechamel
 agribalyse_food_code:en:25549
 ciqual_food_code:en:25549
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese and bechamel sauce
@@ -36683,7 +36684,7 @@ nl:Galettes
 <en:Crêpes and galettes
 en:Ham and mushroom pancake in cheese sauce
 fr:Ficelle picarde
-nl:Ham-kaas pannekoeken in kaassaus
+nl:Ham-kaas pannenkoeken in kaassaus
 agribalyse_food_code:en:26256
 ciqual_food_code:en:26256
 ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
@@ -36692,17 +36693,17 @@ ciqual_food_name:en:Ham and mushroom pancake in cheese sauce
 <en:Meals
 en:Filled buckwheat crepes
 fr:Galettes fourrées, Galettes de blé noir fourrées
-nl:Gevulde boekweitpannekoeken
+nl:Gevulde boekweitpannenkoeken
 
 <en:Filled buckwheat crepes
 en:Sugary filled buckwheat crepes
 fr:Galettes fourrées sucrées, Galettes de blé noir fourrées sucrées
-nl:Zoete gevulde boekweitpannekoeken
+nl:Zoete gevulde boekweitpannenkoeken
 
 <en:Filled buckwheat crepes
 en:Salty filled buckwheat crepes
 fr:Galettes fourrées salées, Galettes de blé noir fourrées salées
-nl:hartige gevulde boekweitpannekoeken
+nl:hartige gevulde boekweitpannenkoeken
 
 <en:Salty filled buckwheat crepes
 en:Crepe filled with ham
@@ -36714,7 +36715,7 @@ ciqual_food_name:en:Crepe, filled with ham
 <en:Salty filled buckwheat crepes
 en:buckwheat crepe with cheese and ham, buckwheat crepe with ham and cheese, Crepe filled with cheese ham and bechamel sauce, buckwheat crepe filled with cheese ham and bechamel sauce
 fr:Galettes jambon fromage, Galette fourrée béchamel jambon fromage
-nl:Boekweitpannekoeken gevuld met ham en kaas
+nl:Boekweitpannenkoeken gevuld met ham en kaas
 agribalyse_food_code:en:25410
 ciqual_food_code:en:25410
 ciqual_food_name:en:Crepe or buckwheat crepe, filled with cheese, ham and bechamel sauce
@@ -36724,7 +36725,7 @@ fr:Galettes de blé noir champignons lardons emmental
 
 <en:Salty filled buckwheat crepes
 fr:Galettes au chèvre et aux lardons
-nl:Boekweitpannekoeken met geitenkaas en spekjes
+nl:Boekweitpannenkoeken met geitenkaas en spekjes
 
 <en:Meals
 <en:Salty filled buckwheat crepes
@@ -68031,7 +68032,7 @@ nl:Vloeibare bouillons
 en:Bouillon pots, Stock pots
 es:Caldos en cacitos, Cacitos de caldo
 fr:Marmites de bouillon
-nl:Bouillons in pot
+nl:Bouillons
 
 <en:Broths
 <en:Plant-based foods
@@ -68176,7 +68177,7 @@ de:Rinderbrühe
 fi:lihaliemi
 fr:Bouillons de bœuf
 it:Brodo di manzo
-nl:Rundvleesbouillon
+nl:Rundvleesbouillons
 wikidata:en:Q96362190
 
 <en:Broths
@@ -70982,7 +70983,7 @@ nl:Reevlezen
 <en:Fresh meats
 en:Wild boar fresh meat
 fr:Viande fraîche de sanglier, viande de sanglier fraîche
-nl:Verse everzijnvlezen
+nl:Verse everzwijnvlezen
 
 <en:Fresh meats
 en:Moufflon fresh meat
@@ -77460,6 +77461,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 <en:Cereals and their products
 en:Cereal pastas
 fr:Pâtes alimentaires de céréales
+nl:Graanpastas
 
 <en:Pastas
 en:Conchiglie
@@ -82483,6 +82485,7 @@ origins:en: en:United Kingdom, en:Scotland
 <en:Salmons
 en:Wild salmons
 fr:Saumons sauvages, saumon sauvage
+en:Wilde zalmen
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 
@@ -86035,6 +86038,11 @@ fr:Sucres mi-blancs, sucre mi-blanc
 <en:Sugars
 fr:sucres perlés, sucre perlé
 wikidata:en:Q914538
+
+<en:Sugars
+en:Dextrose
+xx:Dextrose
+nl:Dextrose, Druivensuiker
 
 <en:Sugars
 en:Vanilla sugars, Vanilla flavoured sugars
@@ -95106,7 +95114,7 @@ es:Crêpes y galettes
 fi:letut
 fr:Crêpes et galettes
 it:Crêpe e galette
-nl:Pannekoeken en galettes
+nl:Pannenkoeken en galettes
 ru:Блины
 
 <en:Crêpes and galettes
@@ -95156,7 +95164,7 @@ ko:크레프
 la:Crispa
 lb:Paangech
 nb:crêpe
-nl:crêpe, pannenkoek, pannekoeken
+nl:Pannenkoeken, crêpe, pannenkoek, pannekoeken
 nn:pannekake
 nv:Abeʼ neesmaasí
 oc:Pescajon
@@ -95249,17 +95257,17 @@ de:Gefüllte Crêpes, Crêpes mit Füllung
 fi:täytetyt letut
 fr:Crêpes fourrées
 it:Crepes ripiene
-nl:Gevulde pannekoeken
+nl:Gevulde pannenknoeken
 
 <en:Filled crêpes
 en:Sweet filled crêpes, Sugary filled crêpes
 fr:Crêpes fourrées sucrées
-nl:Zoete gevulde pannekoeken
+nl:Zoete gevulde pannenkoeken
 
 <en:Filled crêpes
 en:Savoury filled crêpes, Salty filled crêpes
 fr:Crêpes fourrées salées
-nl:Hartige gevulde pannekoeken
+nl:Hartige gevulde pannenkoeken
 
 <en:Savoury filled crêpes
 en:Crepe filled with cheese
@@ -96686,7 +96694,7 @@ en:Boar terrines
 fi:villisikaterriinit
 fr:Terrines de sanglier
 it:Terrine di cinghiale
-nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
+nl:Everzwijnterrines, Everzwijnterrine, Everzwijnvleespotten
 #wikidata:en:
 
 <en:Terrines
