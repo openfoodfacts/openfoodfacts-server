@@ -2335,7 +2335,11 @@ sub compute_ingredients_percent_values($$$) {
 
 =head2 init_percent_values($total_min, $total_max, $ingredients_ref)
 
-Initialize the percent, percent_min and percent_max value of a list of ingredients.
+Initialize the percent, percent_min and percent_max value for each ingredient in list.
+
+$ingredients_ref is the list of ingredients (as hash), where parsed percent are already set.
+
+$total_min and $total_max might be set if we have a parent ingredient and are parsing a sub list.
 
 When a percent is specifically set, use this value for percent_min and percent_max.
 
