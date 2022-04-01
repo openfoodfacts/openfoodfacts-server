@@ -201,12 +201,12 @@ check_perl:
 	${DOCKER_COMPOSE_TEST} stop
 
 #-------------#
-# Compilation #
+# Compilation #
 #-------------#
 
 build_taxonomies:
 	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --rm backend --no-deps make -C taxonomies -j ${CPU_COUNT}
+	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
 
 rebuild_taxonomies:
 	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"
