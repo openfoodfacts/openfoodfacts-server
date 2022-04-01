@@ -1,0 +1,1913 @@
+{
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
+         "sh:DocumentIdentification" : {
+            "sh:InstanceIdentifier" : {
+               "$t" : "3034012285008_0000140d44686d8a8e46eab7ccac9e8ca4ddd40d1aac6d8e594222a569f5"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            },
+            "sh:CreationDateAndTime" : {
+               "$t" : "2022-03-24T16:52:33.00816+01:00"
+            }
+         },
+         "sh:Sender" : {
+            "sh:Identifier" : {
+               "$t" : "3034012285008",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "$t" : "3027000006006",
+               "Authority" : "GS1"
+            }
+         }
+      },
+      "transaction" : {
+         "transactionIdentification" : {
+            "entityIdentification" : {
+               "$t" : "3034012285008_0000140d44686d8a8e46eab7ccac9e8ca4ddd40d1aac6d8e594222a569f5"
+            },
+            "contentOwner" : {
+               "gln" : {
+                  "$t" : "3010453200107"
+               }
+            }
+         },
+         "documentCommand" : {
+            "documentCommandHeader" : {
+               "documentCommandIdentification" : {
+                  "entityIdentification" : {
+                     "$t" : "3034012285008_0000140d44686d8a8e46eab7ccac9e8ca4ddd40d1aac6d8e594222a569f503"
+                  },
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3010453200107"
+                     }
+                  }
+               },
+               "type" : "CORRECT"
+            },
+            "catalogue_item_notification:catalogueItemNotification" : {
+               "catalogueItemNotificationIdentification" : {
+                  "entityIdentification" : {
+                     "$t" : "3034012285008_0000140d44686d8a8e46eab7ccac9e8ca4ddd40d1aac6d8e594222a569f5"
+                  },
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3010453200107"
+                     }
+                  }
+               },
+               "isReload" : {
+                  "$t" : "false"
+               },
+               "creationDateTime" : {
+                  "$t" : "2022-03-24T16:52:33.00816+01:00"
+               },
+               "catalogueItem" : {
+                  "tradeItem" : {
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "false"
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "PALLET"
+                     },
+                     "additionalTradeItemIdentification" : {
+                        "$t" : "501103130010",
+                        "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                     },
+                     "gtin" : {
+                        "$t" : "03608580102755"
+                     },
+                     "brandOwner" : {
+                        "partyName" : {
+                           "$t" : "ANDROS"
+                        },
+                        "gln" : {
+                           "$t" : "3010453200107"
+                        }
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "true"
+                     },
+                     "preliminaryItemStatusCode" : {
+                        "$t" : "FINAL"
+                     },
+                     "displayUnitInformation" : {
+                        "isTradeItemADisplayUnit" : {
+                           "$t" : "FALSE"
+                        }
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "false"
+                     },
+                     "tradeItemInformation" : {
+                        "extension" : {
+                           "promotional_item_information:promotionalItemInformationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd",
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
+                              "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3"
+                           },
+                           "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd",
+                              "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                           },
+                           "trade_item_measurements:tradeItemMeasurementsModule" : {
+                              "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd",
+                              "tradeItemMeasurements" : {
+                                 "width" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "800"
+                                 },
+                                 "height" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "1142"
+                                 },
+                                 "depth" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "1200"
+                                 },
+                                 "tradeItemWeight" : {
+                                    "netWeight" : {
+                                       "$t" : "345.6",
+                                       "measurementUnitCode" : "KGM"
+                                    },
+                                    "grossWeight" : {
+                                       "$t" : "618.836",
+                                       "measurementUnitCode" : "KGM"
+                                    }
+                                 }
+                              }
+                           },
+                           "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                              "dutyFeeTaxInformation" : {
+                                 "dutyFeeTaxAgencyCode" : {
+                                    "$t" : "65"
+                                 },
+                                 "dutyFeeTax" : {
+                                    "dutyFeeTaxRate" : {
+                                       "$t" : "5.5"
+                                    }
+                                 },
+                                 "dutyFeeTaxTypeCode" : {
+                                    "$t" : "2G"
+                                 },
+                                 "dutyFeeTaxTypeDescription" : {
+                                    "$t" : "TVA taux réduit",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd",
+                              "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3"
+                           },
+                           "packaging_marking:packagingMarkingModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                              "packagingMarking" : {
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
+                                 },
+                                 "packagingMarkedLanguageCode" : {
+                                    "$t" : "fr"
+                                 }
+                              },
+                              "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3"
+                           },
+                           "trade_item_description:tradeItemDescriptionModule" : {
+                              "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                              "tradeItemDescriptionInformation" : {
+                                 "functionalName" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "PAT NOIS CACAO 360G"
+                                 },
+                                 "descriptionShort" : {
+                                    "$t" : "BONNE MAMAN PAT NOI PALETTE 1/4 BOX",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemDescription" : [
+                                    {
+                                       "$t" : "BONNE MAMAN PAT NOIS CACAO 360G",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "languageCode" : "es",
+                                       "$t" : "BONNE MAMAN "
+                                    },
+                                    {
+                                       "languageCode" : "en",
+                                       "$t" : "BONNE MAMAN "
+                                    },
+                                    {
+                                       "languageCode" : "de",
+                                       "$t" : "BONNE MAMAN "
+                                    },
+                                    {
+                                       "$t" : "BONNE MAMAN ",
+                                       "languageCode" : "nl"
+                                    },
+                                    {
+                                       "languageCode" : "pt",
+                                       "$t" : "BONNE MAMAN "
+                                    },
+                                    {
+                                       "$t" : "BONNE MAMAN ",
+                                       "languageCode" : "it"
+                                    }
+                                 ],
+                                 "invoiceName" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "PAT NOIS CACAO 360G"
+                                 },
+                                 "brandNameInformation" : {
+                                    "brandName" : {
+                                       "$t" : "BONNE MAMAN"
+                                    }
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                           },
+                           "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                              "deliveryPurchasingInformation" : {
+                                 "orderQuantityMultiple" : {
+                                    "$t" : "1"
+                                 },
+                                 "orderQuantityMinimum" : {
+                                    "$t" : "1"
+                                 },
+                                 "firstShipDateTime" : {
+                                    "$t" : "2022-08-01T00:00:00+02:00"
+                                 },
+                                 "firstOrderDateTime" : {
+                                    "$t" : "2022-08-01T00:00:00+02:00"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2022-08-01T00:00:00+02:00"
+                                 }
+                              },
+                              "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                           },
+                           "variable_trade_item_information:variableTradeItemInformationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                              "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                              "variableTradeItemInformation" : {
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
+                              }
+                           },
+                           "packaging_information:packagingInformationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                              "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                              "packaging" : {
+                                 "platformTermsAndConditionsCode" : {
+                                    "$t" : "2"
+                                 },
+                                 "platformTypeCode" : {
+                                    "$t" : "11"
+                                 },
+                                 "packagingTypeDescription" : {
+                                    "$t" : "Palette",
+                                    "languageCode" : "fr"
+                                 },
+                                 "packagingTypeCode" : {
+                                    "$t" : "PX"
+                                 }
+                              }
+                           },
+                           "trade_item_handling:tradeItemHandlingModule" : {
+                              "tradeItemHandlingInformation" : {
+                                 "tradeItemStacking" : {
+                                    "stackingFactorTypeCode" : {
+                                       "$t" : "TRANSPORT_UNSPECIFIED"
+                                    },
+                                    "stackingFactor" : {
+                                       "$t" : "1"
+                                    }
+                                 }
+                              },
+                              "xmlns:trade_item_handling" : "urn:gs1:gdsn:trade_item_handling:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd"
+                           },
+                           "trade_item_hierarchy:tradeItemHierarchyModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHierarchyModule.xsd",
+                              "tradeItemHierarchy" : {
+                                 "quantityOfCompleteLayersContainedInATradeItem" : {
+                                    "$t" : "1"
+                                 },
+                                 "quantityOfTradeItemsContainedInACompleteLayer" : {
+                                    "$t" : "4"
+                                 }
+                              },
+                              "xmlns:trade_item_hierarchy" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3"
+                           }
+                        }
+                     },
+                     "informationProviderOfTradeItem" : {
+                        "partyName" : {
+                           "$t" : "ANDROS"
+                        },
+                        "gln" : {
+                           "$t" : "3010453200107"
+                        }
+                     },
+                     "targetMarket" : {
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
+                     },
+                     "gdsnTradeItemClassification" : {
+                        "gpcCategoryCode" : {
+                           "$t" : "10000187"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Pâtes à Tartiner Sucrées (Longue Conservation)"
+                        }
+                     },
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "nextLowerLevelTradeItemInformation" : {
+                        "childTradeItem" : {
+                           "quantityOfNextLowerLevelTradeItem" : {
+                              "$t" : "4"
+                           },
+                           "gtin" : {
+                              "$t" : "03608580102748"
+                           }
+                        },
+                        "quantityOfChildren" : {
+                           "$t" : "1"
+                        },
+                        "totalQuantityOfNextLowerLevelTradeItem" : {
+                           "$t" : "4"
+                        }
+                     },
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
+                     "tradeItemSynchronisationDates" : {
+                        "effectiveDateTime" : {
+                           "$t" : "2022-03-16T00:00:00+01:00"
+                        },
+                        "publicationDateTime" : {
+                           "$t" : "2022-03-23T12:09:19.00710+01:00"
+                        },
+                        "lastChangeDateTime" : {
+                           "$t" : "2022-03-24T16:52:33.00816+01:00"
+                        }
+                     }
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3027000006006"
+                  },
+                  "dataRecipient" : {
+                     "$t" : "3021081314302"
+                  },
+                  "catalogueItemState" : {
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
+                  },
+                  "catalogueItemChildItemLink" : {
+                     "quantity" : {
+                        "$t" : "4"
+                     },
+                     "catalogueItem" : {
+                        "sourceDataPool" : {
+                           "$t" : "3027000006006"
+                        },
+                        "dataRecipient" : {
+                           "$t" : "3021081314302"
+                        },
+                        "tradeItem" : {
+                           "tradeItemSynchronisationDates" : {
+                              "lastChangeDateTime" : {
+                                 "$t" : "2022-03-24T16:52:33.00816+01:00"
+                              },
+                              "publicationDateTime" : {
+                                 "$t" : "2022-03-23T12:09:19.00710+01:00"
+                              },
+                              "effectiveDateTime" : {
+                                 "$t" : "2022-03-16T00:00:00+01:00"
+                              }
+                           },
+                           "nextLowerLevelTradeItemInformation" : {
+                              "quantityOfChildren" : {
+                                 "$t" : "1"
+                              },
+                              "totalQuantityOfNextLowerLevelTradeItem" : {
+                                 "$t" : "240"
+                              },
+                              "childTradeItem" : {
+                                 "quantityOfNextLowerLevelTradeItem" : {
+                                    "$t" : "240"
+                                 },
+                                 "gtin" : {
+                                    "$t" : "03608580065340"
+                                 }
+                              }
+                           },
+                           "isTradeItemAService" : {
+                              "$t" : "false"
+                           },
+                           "isTradeItemABaseUnit" : {
+                              "$t" : "false"
+                           },
+                           "gdsnTradeItemClassification" : {
+                              "gpcCategoryCode" : {
+                                 "$t" : "10000187"
+                              },
+                              "gpcCategoryName" : {
+                                 "$t" : "Pâtes à Tartiner Sucrées (Longue Conservation)"
+                              }
+                           },
+                           "targetMarket" : {
+                              "targetMarketCountryCode" : {
+                                 "$t" : "250"
+                              }
+                           },
+                           "informationProviderOfTradeItem" : {
+                              "gln" : {
+                                 "$t" : "3010453200107"
+                              },
+                              "partyName" : {
+                                 "$t" : "ANDROS"
+                              }
+                           },
+                           "isTradeItemAnOrderableUnit" : {
+                              "$t" : "true"
+                           },
+                           "brandOwner" : {
+                              "gln" : {
+                                 "$t" : "3010453200107"
+                              },
+                              "partyName" : {
+                                 "$t" : "ANDROS"
+                              }
+                           },
+                           "isTradeItemADespatchUnit" : {
+                              "$t" : "true"
+                           },
+                           "isTradeItemAnInvoiceUnit" : {
+                              "$t" : "false"
+                           },
+                           "tradeItemInformation" : {
+                              "extension" : {
+                                 "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd",
+                                    "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3",
+                                    "dutyFeeTaxInformation" : {
+                                       "dutyFeeTaxAgencyCode" : {
+                                          "$t" : "65"
+                                       },
+                                       "dutyFeeTax" : {
+                                          "dutyFeeTaxRate" : {
+                                             "$t" : "5.5"
+                                          }
+                                       },
+                                       "dutyFeeTaxTypeCode" : {
+                                          "$t" : "2G"
+                                       },
+                                       "dutyFeeTaxTypeDescription" : {
+                                          "$t" : "TVA taux réduit",
+                                          "languageCode" : "fr"
+                                       }
+                                    }
+                                 },
+                                 "packaging_marking:packagingMarkingModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                                    "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                                    "packagingMarking" : {
+                                       "packagingMarkedLanguageCode" : {
+                                          "$t" : "fr"
+                                       },
+                                       "isPackagingMarkedReturnable" : {
+                                          "$t" : "false"
+                                       }
+                                    }
+                                 },
+                                 "promotional_item_information:promotionalItemInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd",
+                                    "isTradeItemAPromotionalUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3"
+                                 },
+                                 "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd",
+                                    "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                                 },
+                                 "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                    "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                                    "tradeItemMeasurements" : {
+                                       "width" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "379"
+                                       },
+                                       "height" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "997"
+                                       },
+                                       "depth" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "585"
+                                       },
+                                       "tradeItemWeight" : {
+                                          "netWeight" : {
+                                             "measurementUnitCode" : "KGM",
+                                             "$t" : "86.4"
+                                          },
+                                          "grossWeight" : {
+                                             "$t" : "148.859",
+                                             "measurementUnitCode" : "KGM"
+                                          }
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                                 },
+                                 "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                    "variableTradeItemInformation" : {
+                                       "isTradeItemAVariableUnit" : {
+                                          "$t" : "false"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                    "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                 },
+                                 "packaging_information:packagingInformationModule" : {
+                                    "packaging" : {
+                                       "packagingTypeDescription" : {
+                                          "$t" : "Carton",
+                                          "languageCode" : "fr"
+                                       },
+                                       "packagingTypeCode" : {
+                                          "$t" : "CT"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                                    "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3"
+                                 },
+                                 "trade_item_description:tradeItemDescriptionModule" : {
+                                    "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                                    "tradeItemDescriptionInformation" : {
+                                       "invoiceName" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "PAT NOIS CACAO 360G"
+                                       },
+                                       "brandNameInformation" : {
+                                          "brandName" : {
+                                             "$t" : "BONNE MAMAN"
+                                          }
+                                       },
+                                       "functionalName" : {
+                                          "$t" : "PAT NOIS CACAO 360G",
+                                          "languageCode" : "fr"
+                                       },
+                                       "descriptionShort" : {
+                                          "$t" : "BONNE MAMAN PAT NOI 1/4 BOX 240 POT",
+                                          "languageCode" : "fr"
+                                       },
+                                       "tradeItemDescription" : [
+                                          {
+                                             "languageCode" : "fr",
+                                             "$t" : "BONNE MAMAN PAT NOIS CACAO 360G"
+                                          },
+                                          {
+                                             "languageCode" : "es",
+                                             "$t" : "BONNE MAMAN "
+                                          },
+                                          {
+                                             "languageCode" : "en",
+                                             "$t" : "BONNE MAMAN "
+                                          },
+                                          {
+                                             "languageCode" : "de",
+                                             "$t" : "BONNE MAMAN "
+                                          },
+                                          {
+                                             "$t" : "BONNE MAMAN ",
+                                             "languageCode" : "nl"
+                                          },
+                                          {
+                                             "languageCode" : "pt",
+                                             "$t" : "BONNE MAMAN "
+                                          },
+                                          {
+                                             "languageCode" : "it",
+                                             "$t" : "BONNE MAMAN "
+                                          }
+                                       ]
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                                 },
+                                 "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                    "deliveryPurchasingInformation" : {
+                                       "startAvailabilityDateTime" : {
+                                          "$t" : "2022-08-01T00:00:00+02:00"
+                                       },
+                                       "firstOrderDateTime" : {
+                                          "$t" : "2022-08-01T00:00:00+02:00"
+                                       },
+                                       "orderQuantityMultiple" : {
+                                          "$t" : "1"
+                                       },
+                                       "firstShipDateTime" : {
+                                          "$t" : "2022-08-01T00:00:00+02:00"
+                                       },
+                                       "orderQuantityMinimum" : {
+                                          "$t" : "1"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                                    "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                 }
+                              }
+                           },
+                           "displayUnitInformation" : {
+                              "isTradeItemADisplayUnit" : {
+                                 "$t" : "FALSE"
+                              },
+                              "hasDisplayReadyPackaging" : {
+                                 "$t" : "FALSE"
+                              }
+                           },
+                           "preliminaryItemStatusCode" : {
+                              "$t" : "FINAL"
+                           },
+                           "isTradeItemAConsumerUnit" : {
+                              "$t" : "false"
+                           },
+                           "gtin" : {
+                              "$t" : "03608580102748"
+                           },
+                           "additionalTradeItemIdentification" : {
+                              "$t" : "501103130009",
+                              "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                           },
+                           "tradeItemUnitDescriptorCode" : {
+                              "$t" : "CASE"
+                           }
+                        },
+                        "catalogueItemChildItemLink" : {
+                           "quantity" : {
+                              "$t" : "240"
+                           },
+                           "catalogueItem" : {
+                              "tradeItem" : {
+                                 "isTradeItemAnOrderableUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "tradeItemContactInformation" : [
+                                    {
+                                       "contactAddress" : {
+                                          "$t" : "ZI"
+                                       },
+                                       "contactName" : {
+                                          "$t" : "BONNE MAMAN"
+                                       },
+                                       "structuredAddress" : {
+                                          "countryCode" : {
+                                             "$t" : "250"
+                                          },
+                                          "streetAddress" : {
+                                             "$t" : "ZI"
+                                          },
+                                          "postalCode" : {
+                                             "$t" : "46130"
+                                          },
+                                          "city" : {
+                                             "$t" : "BIARS SUR CERE"
+                                          }
+                                       },
+                                       "contactTypeCode" : {
+                                          "$t" : "BZL"
+                                       }
+                                    },
+                                    {
+                                       "targetMarketCommunicationChannel" : [
+                                          {
+                                             "communicationChannel" : {
+                                                "communicationValue" : {
+                                                   "$t" : "www.bonne-maman.com"
+                                                },
+                                                "communicationChannelCode" : {
+                                                   "$t" : "WEBSITE"
+                                                }
+                                             },
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             },
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "TELEPHONE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "05.65.10.66.11"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             },
+                                             "communicationChannel" : {
+                                                "communicationValue" : {
+                                                   "$t" : "service.consommateur@bonne-maman.com"
+                                                },
+                                                "communicationChannelCode" : {
+                                                   "$t" : "EMAIL"
+                                                }
+                                             }
+                                          }
+                                       ],
+                                       "contactTypeCode" : {
+                                          "$t" : "CXC"
+                                       },
+                                       "contactName" : {
+                                          "$t" : "RELATION SERVICE CONSOMMATEUR BONNE MAMAN"
+                                       },
+                                       "contactAddress" : {
+                                          "$t" : "ZI"
+                                       },
+                                       "structuredAddress" : {
+                                          "countryCode" : {
+                                             "$t" : "250"
+                                          },
+                                          "postalCode" : {
+                                             "$t" : "46130"
+                                          },
+                                          "city" : {
+                                             "$t" : "BIARS SUR CERE"
+                                          }
+                                       }
+                                    }
+                                 ],
+                                 "avpList" : {
+                                    "stringAVP" : {
+                                       "attributeName" : "isCitesCertificateRequired",
+                                       "$t" : "false"
+                                    }
+                                 },
+                                 "isTradeItemAService" : {
+                                    "$t" : "false"
+                                 },
+                                 "isTradeItemABaseUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "gdsnTradeItemClassification" : {
+                                    "additionalTradeItemClassification" : [
+                                       {
+                                          "additionalTradeItemClassificationValue" : {
+                                             "additionalTradeItemClassificationCodeValue" : {
+                                                "$t" : "CARREFOUR"
+                                             },
+                                             "additionalTradeItemClassificationProperty" : {
+                                                "propertyCode" : {
+                                                   "$t" : "D"
+                                                },
+                                                "additionalTradeItemClassificationPropertyCode" : {
+                                                   "$t" : "nutriscore"
+                                                }
+                                             }
+                                          }
+                                       },
+                                       {
+                                          "additionalTradeItemClassificationValue" : {
+                                             "additionalTradeItemClassificationCodeValue" : {
+                                                "$t" : "CARREFOUR"
+                                             },
+                                             "additionalTradeItemClassificationProperty" : {
+                                                "propertyCode" : {
+                                                   "$t" : "NO_VEGETARIAN"
+                                                },
+                                                "additionalTradeItemClassificationPropertyDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "Produit non végétarien"
+                                                },
+                                                "additionalTradeItemClassificationPropertyCode" : {
+                                                   "$t" : "additionalDietTypeCode"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    ],
+                                    "gpcCategoryCode" : {
+                                       "$t" : "10000187"
+                                    },
+                                    "gpcCategoryName" : {
+                                       "$t" : "Pâtes à Tartiner Sucrées (Longue Conservation)"
+                                    }
+                                 },
+                                 "targetMarket" : {
+                                    "targetMarketCountryCode" : {
+                                       "$t" : "250"
+                                    }
+                                 },
+                                 "informationProviderOfTradeItem" : {
+                                    "gln" : {
+                                       "$t" : "3010453200107"
+                                    },
+                                    "partyName" : {
+                                       "$t" : "ANDROS"
+                                    }
+                                 },
+                                 "tradeItemSynchronisationDates" : {
+                                    "publicationDateTime" : {
+                                       "$t" : "2022-03-23T12:09:19.00710+01:00"
+                                    },
+                                    "lastChangeDateTime" : {
+                                       "$t" : "2022-03-24T16:52:33.00816+01:00"
+                                    },
+                                    "effectiveDateTime" : {
+                                       "$t" : "2021-09-13T00:00:00+02:00"
+                                    }
+                                 },
+                                 "gtin" : {
+                                    "$t" : "03608580065340"
+                                 },
+                                 "additionalTradeItemIdentification" : {
+                                    "$t" : "5011031300",
+                                    "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                                 },
+                                 "tradeItemUnitDescriptorCode" : {
+                                    "$t" : "BASE_UNIT_OR_EACH"
+                                 },
+                                 "isTradeItemAConsumerUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "isTradeItemAnInvoiceUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "tradeItemInformation" : {
+                                    "productionVariantEffectiveDateTime" : {
+                                       "$t" : "2021-08-02T00:00:00+02:00"
+                                    },
+                                    "tradeItemComponents" : {
+                                       "numberOfPiecesInSet" : {
+                                          "$t" : "1"
+                                       },
+                                       "nonMarkedTradeItemComponents" : {
+                                          "$t" : "1x360g",
+                                          "languageCode" : "fr"
+                                       }
+                                    },
+                                    "productionVariantDescription" : [
+                                       {
+                                          "languageCode" : "es",
+                                          "$t" : "PRIMERA VERSION"
+                                       },
+                                       {
+                                          "languageCode" : "en",
+                                          "$t" : "PRIMARY VERSION"
+                                       },
+                                       {
+                                          "$t" : "PREMIERE VERSION",
+                                          "languageCode" : "fr"
+                                       }
+                                    ],
+                                    "extension" : {
+                                       "trade_item_description:tradeItemDescriptionModule" : {
+                                          "tradeItemDescriptionInformation" : {
+                                             "labelDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PAT NOIS CACAO 360G"
+                                             },
+                                             "functionalName" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PAT NOIS CACAO 360G"
+                                             },
+                                             "additionalTradeItemDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PAT NOIS CACAO 360G"
+                                             },
+                                             "tradeItemDescription" : [
+                                                {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "BONNE MAMAN PAT NOIS CACAO 360G"
+                                                },
+                                                {
+                                                   "$t" : "BONNE MAMAN ",
+                                                   "languageCode" : "es"
+                                                },
+                                                {
+                                                   "$t" : "BONNE MAMAN ",
+                                                   "languageCode" : "en"
+                                                },
+                                                {
+                                                   "languageCode" : "de",
+                                                   "$t" : "BONNE MAMAN "
+                                                },
+                                                {
+                                                   "languageCode" : "nl",
+                                                   "$t" : "BONNE MAMAN "
+                                                },
+                                                {
+                                                   "$t" : "BONNE MAMAN ",
+                                                   "languageCode" : "pt"
+                                                },
+                                                {
+                                                   "languageCode" : "it",
+                                                   "$t" : "BONNE MAMAN "
+                                                }
+                                             ],
+                                             "brandNameInformation" : {
+                                                "brandName" : {
+                                                   "$t" : "BONNE MAMAN"
+                                                }
+                                             },
+                                             "invoiceName" : {
+                                                "$t" : "PAT NOIS CACAO 360G",
+                                                "languageCode" : "fr"
+                                             },
+                                             "productRange" : {
+                                                "$t" : "CONFITURE/MARMELADE/GELEE/AUTRE"
+                                             },
+                                             "descriptionShort" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "BONNE MAMAN PAT NOI"
+                                             },
+                                             "regulatedProductName" : {
+                                                "$t" : "Pâte à tartiner aux noisettes et au cacao.",
+                                                "languageCode" : "fr"
+                                             }
+                                          },
+                                          "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                                       },
+                                       "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                                          "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd",
+                                          "dataCarrier" : {
+                                             "dataCarrierTypeCode" : {
+                                                "$t" : "EAN_13"
+                                             },
+                                             "dataCarrierFamilyTypeCode" : {
+                                                "$t" : "EAN_UPC"
+                                             }
+                                          }
+                                       },
+                                       "alcohol_information:alcoholInformationModule" : {
+                                          "xmlns:alcohol_information" : "urn:gs1:gdsn:alcohol_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd",
+                                          "alcoholInformation" : {
+                                             "isTradeItemAQualityVintageAlcoholProduct" : {
+                                                "$t" : "false"
+                                             }
+                                          }
+                                       },
+                                       "promotional_item_information:promotionalItemInformationModule" : {
+                                          "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                                          "isTradeItemAPromotionalUnit" : {
+                                             "$t" : "false"
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                                       },
+                                       "sales_information:salesInformationModule" : {
+                                          "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
+                                          "salesInformation" : {
+                                             "priceComparisonContentTypeCode" : {
+                                                "$t" : "PER_KILOGRAM"
+                                             },
+                                             "priceComparisonMeasurement" : {
+                                                "measurementUnitCode" : "KGM",
+                                                "$t" : "0.36"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd"
+                                       },
+                                       "place_of_item_activity:placeOfItemActivityModule" : {
+                                          "placeOfProductActivity" : {
+                                             "countryOfOrigin" : {
+                                                "countryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          },
+                                          "importClassification" : {
+                                             "importClassificationValue" : {
+                                                "$t" : "1806906010"
+                                             },
+                                             "importClassificationTypeCode" : {
+                                                "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                             }
+                                          },
+                                          "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd"
+                                       },
+                                       "health_related_information:healthRelatedInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:health_related_information:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd",
+                                          "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3",
+                                          "healthRelatedInformation" : {
+                                             "nutritionalProgram" : {
+                                                "nutritionalScore" : {
+                                                   "$t" : "D"
+                                                },
+                                                "nutritionalProgramCode" : {
+                                                   "$t" : "8"
+                                                }
+                                             }
+                                          }
+                                       },
+                                       "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
+                                          "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                                          "tradeItemTemperatureConditionTypeCode" : {
+                                             "$t" : "AMBIENT"
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
+                                       },
+                                       "trade_item_lifespan:tradeItemLifespanModule" : {
+                                          "tradeItemLifespan" : {
+                                             "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                                "$t" : "304"
+                                             },
+                                             "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                                "$t" : "152"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd",
+                                          "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3"
+                                       },
+                                       "farming_and_processing_information:farmingAndProcessingInformationModule" : {
+                                          "tradeItemFarmingAndProcessing" : {
+                                             "geneticallyModifiedDeclarationCode" : {
+                                                "$t" : "FREE_FROM"
+                                             },
+                                             "irradiatedCode" : {
+                                                "$t" : "FALSE"
+                                             },
+                                             "preservationTechniqueCode" : {
+                                                "$t" : "CONSERVE"
+                                             }
+                                          },
+                                          "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
+                                          "tradeItemOrganicInformation" : {
+                                             "organicClaim" : {
+                                                "organicTradeItemCode" : {
+                                                   "$t" : "5"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd",
+                                          "rawMaterialIrradiatedCode" : {
+                                             "$t" : "FALSE"
+                                          }
+                                       },
+                                       "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                                          "dutyFeeTaxInformation" : {
+                                             "dutyFeeTaxTypeDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "TVA taux réduit"
+                                             },
+                                             "dutyFeeTaxTypeCode" : {
+                                                "$t" : "2G"
+                                             },
+                                             "dutyFeeTax" : {
+                                                "dutyFeeTaxRate" : {
+                                                   "$t" : "5.5"
+                                                }
+                                             },
+                                             "dutyFeeTaxAgencyCode" : {
+                                                "$t" : "65"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd",
+                                          "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3"
+                                       },
+                                       "trade_item_size:tradeItemSizeModule" : {
+                                          "xmlns:trade_item_size" : "urn:gs1:gdsn:trade_item_size:xsd:3",
+                                          "size" : {
+                                             "descriptiveSize" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "360g e"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_size:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemSizeModule.xsd"
+                                       },
+                                       "allergen_information:allergenInformationModule" : {
+                                          "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd",
+                                          "allergenRelatedInformation" : {
+                                             "allergenSpecificationAgency" : {
+                                                "$t" : "UE"
+                                             },
+                                             "allergenSpecificationName" : {
+                                                "$t" : "1169/2011"
+                                             },
+                                             "isAllergenRelevantDataProvided" : {
+                                                "$t" : "true"
+                                             },
+                                             "allergen" : [
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SP"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SM"
+                                                   }
+                                                },
+                                                {
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SH"
+                                                   },
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "CONTAINS"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SC"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SW"
+                                                   }
+                                                },
+                                                {
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "ST"
+                                                   },
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SR"
+                                                   }
+                                                },
+                                                {
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SQ"
+                                                   },
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "MAY_CONTAIN"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "SA"
+                                                   }
+                                                },
+                                                {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "CONTAINS"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "AN"
+                                                   }
+                                                },
+                                                {
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "AM"
+                                                   },
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "CONTAINS"
+                                                   }
+                                                }
+                                             ],
+                                             "allergenStatement" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "NOISETTES, LAIT."
+                                             }
+                                          }
+                                       },
+                                       "packaging_information:packagingInformationModule" : {
+                                          "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                                          "packaging" : {
+                                             "packagingTypeDescription" : {
+                                                "$t" : "Pot",
+                                                "languageCode" : "fr"
+                                             },
+                                             "packagingTypeCode" : {
+                                                "$t" : "JR"
+                                             }
+                                          }
+                                       },
+                                       "packaging_marking:packagingMarkingModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                                          "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                                          "packagingMarking" : {
+                                             "packagingMarkedLanguageCode" : {
+                                                "$t" : "fr"
+                                             },
+                                             "isTradeItemMarkedAsRecyclable" : {
+                                                "$t" : "false"
+                                             },
+                                             "hasBatchNumber" : {
+                                                "$t" : "true"
+                                             },
+                                             "packagingDate" : {
+                                                "tradeItemDateOnPackagingTypeCode" : {
+                                                   "$t" : "BEST_BEFORE_DATE"
+                                                }
+                                             },
+                                             "packagingMarkedLabelAccreditationCode" : {
+                                                "$t" : "TRIMAN"
+                                             },
+                                             "isPackagingMarkedReturnable" : {
+                                                "$t" : "false"
+                                             }
+                                          }
+                                       },
+                                       "nutritional_information:nutritionalInformationModule" : {
+                                          "nutritionalClaimDetail" : {
+                                             "nutritionalClaimTypeCode" : {
+                                                "$t" : "FREE_FROM"
+                                             },
+                                             "nutritionalClaimNutrientElementCode" : {
+                                                "$t" : "PALM_OIL"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd",
+                                          "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3",
+                                          "isNutrientRelevantDataProvided" : {
+                                             "$t" : "true"
+                                          },
+                                          "nutrientHeader" : {
+                                             "nutrientDetail" : [
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "ENER-"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "quantityContained" : [
+                                                      {
+                                                         "$t" : "2299",
+                                                         "measurementUnitCode" : "KJO"
+                                                      },
+                                                      {
+                                                         "measurementUnitCode" : "E14",
+                                                         "$t" : "551"
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "34",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "FAT"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "FASAT"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "5.2"
+                                                   }
+                                                },
+                                                {
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "53"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "CHOAVL"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "SUGAR-"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "51"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "FIBTG"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "3.3",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                },
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "6.7"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "PRO-"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "SALTEQ"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "0.1",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                }
+                                             ],
+                                             "nutrientBasisQuantity" : {
+                                                "$t" : "100",
+                                                "measurementUnitCode" : "GRM"
+                                             },
+                                             "nutrientBasisQuantityTypeCode" : {
+                                                "$t" : "BY_MEASURE"
+                                             },
+                                             "servingSize" : {
+                                                "$t" : "100",
+                                                "measurementUnitCode" : "GRM"
+                                             },
+                                             "preparationStateCode" : {
+                                                "$t" : "UNPREPARED"
+                                             }
+                                          }
+                                       },
+                                       "marketing_information:marketingInformationModule" : {
+                                          "xmlns:marketing_information" : "urn:gs1:gdsn:marketing_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd",
+                                          "marketingInformation" : {
+                                             "targetConsumer" : {
+                                                "targetConsumerAge" : {
+                                                   "$t" : "Non Identifié",
+                                                   "languageCode" : "fr"
+                                                }
+                                             },
+                                             "brandMarketingDescription" : [
+                                                {
+                                                   "$t" : "Bonne Maman naît à Biars-sur-Cère en France, un petit village au coeur du Lot, dans une belle région fruitière, au confluent des rivières de Cère et de Dordogne.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tC’est Jean Gervoson, le fondateur, qui trouve son nom : « Bonne Maman », le nom affectueux par lequel on appelle les grand-mères de la famille. Ce joli nom correspond parfaitement à l'idée de cette confiture aussi bonne que si elle avait été faite avec amour, à la maison, comme le ferait une maman pour ses enfants. Une confiture de grande qualité dans un pot en verre traditionnel avec une étiquette blanche sur laquelle figurent tout simplement en lettres manuscrites, la marque et le parfum, avec bien sûr, ce couvercle si familier, en vichy rouge, qui recouvrait les pots de confitures de nos grand-mères.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDès ses débuts, la qualité et l'authenticité constituent les fondements de cette marque familiale. Une histoire simple, régionale, devenue une marque à renommée mondiale !",
+                                                   "languageCode" : "fr"
+                                                },
+                                                {
+                                                   "$t" : "The story of Bonne Maman begins in the small village of Biars-sur-Cère, nestled in a beautiful fruit-growing region in the heart of south-western France, where the Cère and Dordogne rivers meet.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tOur founder, Jean Gervoson, gave Bonne Maman her name… an affectionate local term for “grandma”. A name that perfectly embodied the values of our preserves – which taste as though they were home-made, and made with love, by a mother for her children. Premium quality preserves in a traditional jar, with a simple white label with a handwritten font bearing the brand and flavour, and topped of course by the familiar red gingham lid which grandmothers used to cover their home-made preserves.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tFrom the beginning, quality and authenticity are the cornerstones of this family brand. A simple and local story, now a world famous brand.",
+                                                   "languageCode" : "en"
+                                                }
+                                             ],
+                                             "tradeItemMarketingMessage" : [
+                                                {
+                                                   "$t" : "Grâce à son inimitable savoir-faire et à la qualité de ses ingrédients, Bonne Maman vous offre le meilleur, pour votre plus grand plaisir, tout simplement.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBonne Maman a préparé avec amour une délicieuse pâte à tartiner, onctueuse et généreuse en noisettes.",
+                                                   "sequenceNumber" : "1",
+                                                   "languageCode" : "fr"
+                                                },
+                                                {
+                                                   "languageCode" : "en",
+                                                   "sequenceNumber" : "1",
+                                                   "$t" : "Thanks to world-class expertise and the highest quality ingredients, Bonne Maman offers you the best, with honest and delicious recipes, to satisfy every taste.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tBonne Maman made with love a delicious spread, creamy and rich in hazelnuts."
+                                                }
+                                             ],
+                                             "tradeItemKeyWords" : [
+                                                {
+                                                   "$t" : "Bonne Maman ; Chocolate spread ; Hazelnuts ; Cocoa ; Chocolate ; No palm oil ; Creamy ; Toast ; Breakfast ; Snack ; Children ; Family",
+                                                   "languageCode" : "en"
+                                                },
+                                                {
+                                                   "$t" : "Bonne Maman ; Pâte à tartiner ; Noisettes ; Cacao ; Chocolat ; Sans huile de palme ; Onctueux ; Tartine ; Petit déjeuner ; Goûter ; Enfants ; Famille",
+                                                   "languageCode" : "fr"
+                                                }
+                                             ],
+                                             "tradeItemFeatureBenefit" : [
+                                                {
+                                                   "languageCode" : "en",
+                                                   "sequenceNumber" : "1",
+                                                   "$t" : "A generous product in hazelnuts (20%), without palm oil and made in France."
+                                                },
+                                                {
+                                                   "languageCode" : "fr",
+                                                   "sequenceNumber" : "1",
+                                                   "$t" : "Un produit généreux en noisettes (20%), sans huile de palme et fabriqué en France."
+                                                }
+                                             ],
+                                             "season" : {
+                                                "isTradeItemSeasonal" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             }
+                                          }
+                                       },
+                                       "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+                                          "isIngredientRelevantDataProvided" : {
+                                             "$t" : "TRUE"
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd",
+                                          "ingredientStatement" : {
+                                             "languageCode" : "fr",
+                                             "$t" : "Ingrédients : Ingrédients : Sucre, NOISETTES 20%, huiles végétales (tournesol, colza), LAIT écrémé en poudre, cacao maigre en poudre 5,5%, beurre de cacao, émulsifiant: lécithine de tournesol, extrait de vanille. Peut contenir d'autres FRUITS A COQUE."
+                                          },
+                                          "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3"
+                                       },
+                                       "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+                                          "referencedFileHeader" : [
+                                             {
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "PRODUCT_IMAGE"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_A1N1_s01_01.png"
+                                                },
+                                                "isPrimaryFile" : {
+                                                   "$t" : "FALSE"
+                                                },
+                                                "contentDescription" : [
+                                                   {
+                                                      "languageCode" : "en",
+                                                      "$t" : "produitVariantDescription : PRIMARY VERSION"
+                                                   },
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "produitVariantDescription : 01"
+                                                   }
+                                                ],
+                                                "referencedFileDetail" : {
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   },
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "PARALLEL"
+                                                      }
+                                                   }
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_A1N1_s01_01.png"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                }
+                                             },
+                                             {
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_A3N1_s01_01.png"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "isPrimaryFile" : {
+                                                   "$t" : "FALSE"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "PRODUCT_IMAGE"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_A3N1_s01_01.png"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "contentDescription" : {
+                                                   "$t" : "produitVariantDescription : 01",
+                                                   "languageCode" : "fr"
+                                                },
+                                                "referencedFileDetail" : {
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "PARALLEL"
+                                                      }
+                                                   },
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   }
+                                                }
+                                             },
+                                             {
+                                                "contentDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "produitVariantDescription : 01"
+                                                },
+                                                "referencedFileDetail" : {
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   },
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "HIGH_ANGLE"
+                                                      }
+                                                   }
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_A1C1_s01_01.png"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "PRODUCT_IMAGE"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_A1C1_s01_01.png"
+                                                },
+                                                "isPrimaryFile" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             },
+                                             {
+                                                "isPrimaryFile" : {
+                                                   "$t" : "FALSE"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_A7N1_s01_01.png"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "PRODUCT_IMAGE"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_A7N1_s01_01.png"
+                                                },
+                                                "referencedFileDetail" : {
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   },
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "PARALLEL"
+                                                      }
+                                                   }
+                                                },
+                                                "contentDescription" : {
+                                                   "$t" : "produitVariantDescription : 01",
+                                                   "languageCode" : "fr"
+                                                }
+                                             },
+                                             {
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_B1LG_s01_01.png"
+                                                },
+                                                "isPrimaryFile" : {
+                                                   "$t" : "FALSE"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "OUT_OF_PACKAGE_IMAGE"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_B1LG_s01_01.png"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "contentDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "produitVariantDescription : 01"
+                                                },
+                                                "referencedFileDetail" : {
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   },
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "HIGH_ANGLE"
+                                                      }
+                                                   }
+                                                }
+                                             },
+                                             {
+                                                "contentDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "produitVariantDescription : 01"
+                                                },
+                                                "referencedFileDetail" : {
+                                                   "fileContentInformation" : {
+                                                      "verticalCameraAngleCode" : {
+                                                         "$t" : "PARALLEL"
+                                                      }
+                                                   },
+                                                   "isFileBackgroundTransparent" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "fileUsageInformation" : {
+                                                      "canFilesBeEdited" : {
+                                                         "$t" : "TRUE"
+                                                      }
+                                                   }
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_H1N1_s01_01.png"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "MOBILE_READY_HERO_IMAGE"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_H1N1_s01_01.png"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                },
+                                                "isPrimaryFile" : {
+                                                   "$t" : "TRUE"
+                                                }
+                                             },
+                                             {
+                                                "contentDescription" : {
+                                                   "$t" : "FT RHD_PAT NOIS CACAO 360G BM",
+                                                   "languageCode" : "fr"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2021-08-02T00:00:00+02:00"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://dam.groupeandros.com/03608580065340_L5_fr-FR_s01_01.pdf"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "TECHNICAL_DATA_SHEET"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PDF"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03608580065340_L5_fr-FR_s01_01.pdf"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2029-12-31T00:00:00+01:00"
+                                                }
+                                             }
+                                          ],
+                                          "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd"
+                                       },
+                                       "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                          "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                                          "deliveryPurchasingInformation" : {
+                                             "firstShipDateTime" : {
+                                                "$t" : "2021-08-02T00:00:00+02:00"
+                                             },
+                                             "startAvailabilityDateTime" : {
+                                                "$t" : "2021-08-02T00:00:00+02:00"
+                                             },
+                                             "firstOrderDateTime" : {
+                                                "$t" : "2021-08-02T00:00:00+02:00"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
+                                       },
+                                       "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                          "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                          "variableTradeItemInformation" : {
+                                             "isTradeItemAVariableUnit" : {
+                                                "$t" : "false"
+                                             }
+                                          }
+                                       },
+                                       "consumer_instructions:consumerInstructionsModule" : {
+                                          "consumerInstructions" : {
+                                             "consumerUsageInstructions" : {
+                                                "$t" : "Non concerné",
+                                                "languageCode" : "fr"
+                                             },
+                                             "consumerStorageInstructions" : {
+                                                "$t" : "A conserver à l'abri de la chaleur et de la lumière. Ne pas mettre au réfrigérateur.",
+                                                "languageCode" : "fr"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd",
+                                          "xmlns:consumer_instructions" : "urn:gs1:gdsn:consumer_instructions:xsd:3"
+                                       },
+                                       "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd",
+                                          "preparationServing" : {
+                                             "preparationInstructions" : [
+                                                {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "A conserver à l'abri de la chaleur et de la lumière. Ne pas mettre au réfrigérateur"
+                                                },
+                                                {
+                                                   "$t" : "Keep away from heat and light. Don't put in the fridge.",
+                                                   "languageCode" : "en"
+                                                }
+                                             ],
+                                             "preparationTypeCode" : {
+                                                "$t" : "READY_TO_EAT"
+                                             }
+                                          },
+                                          "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                                       },
+                                       "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                          "tradeItemMeasurements" : {
+                                             "depth" : {
+                                                "measurementUnitCode" : "MMT",
+                                                "$t" : "74"
+                                             },
+                                             "tradeItemWeight" : {
+                                                "netWeight" : {
+                                                   "measurementUnitCode" : "KGM",
+                                                   "$t" : "0.36"
+                                                },
+                                                "grossWeight" : {
+                                                   "measurementUnitCode" : "KGM",
+                                                   "$t" : "0.578"
+                                                }
+                                             },
+                                             "netContent" : {
+                                                "measurementUnitCode" : "GRM",
+                                                "$t" : "360"
+                                             },
+                                             "width" : {
+                                                "$t" : "74",
+                                                "measurementUnitCode" : "MMT"
+                                             },
+                                             "netContentStatement" : {
+                                                "$t" : "360g e",
+                                                "languageCode" : "fr"
+                                             },
+                                             "height" : {
+                                                "$t" : "110",
+                                                "measurementUnitCode" : "MMT"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd",
+                                          "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                       }
+                                    }
+                                 },
+                                 "displayUnitInformation" : {
+                                    "hasDisplayReadyPackaging" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "isTradeItemADisplayUnit" : {
+                                       "$t" : "FALSE"
+                                    }
+                                 },
+                                 "preliminaryItemStatusCode" : {
+                                    "$t" : "FINAL"
+                                 },
+                                 "isTradeItemADespatchUnit" : {
+                                    "$t" : "false"
+                                 },
+                                 "brandOwner" : {
+                                    "partyName" : {
+                                       "$t" : "ANDROS"
+                                    },
+                                    "gln" : {
+                                       "$t" : "3010453200107"
+                                    }
+                                 }
+                              },
+                              "dataRecipient" : {
+                                 "$t" : "3021081314302"
+                              },
+                              "sourceDataPool" : {
+                                 "$t" : "3027000006006"
+                              },
+                              "catalogueItemState" : {
+                                 "catalogueItemStateCode" : {
+                                    "$t" : "REGISTERED"
+                                 }
+                              }
+                           }
+                        },
+                        "catalogueItemState" : {
+                           "catalogueItemStateCode" : {
+                              "$t" : "REGISTERED"
+                           }
+                        }
+                     }
+                  }
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               }
+            }
+         }
+      },
+      "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+      "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
+   },
+   "version" : "1.0",
+   "encoding" : "UTF-8"
+}
