@@ -6033,3 +6033,40 @@ msgstr "No ingredients containing palm oil detected"
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr "Unrecognized ingredients"
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr "The product contains only unprocessed or minimally processed ingredients."
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr "The product contains only unprocessed or minimally processed ingredients."
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr "Elements that indicate the product is in the {nova_group} group"
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr "Food products are classified into 4 groups according to their degree of processing:"
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr "The determination of the group is based on the category of the product and on the ingredients it contains."
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr "Learn more about the NOVA classification"
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr "The category of the product must be specified in order to determine the NOVA group."
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr "The ingredients of the product must be specified in order to determine the NOVA group."
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr "We could not recognize some of the ingredients and determine the NOVA group."
