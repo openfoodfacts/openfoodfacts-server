@@ -37,6 +37,15 @@
             },
         },
         [% END %]
+        [% IF panels.nova.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('attribute_group_processing_name').ucfirst %]",
+                "panel_ids": ["nova"],
+            },
+        }, 
+        [% END %]        
         [% IF panels.additives.defined %]
         {
             "element_type": "panel_group",
