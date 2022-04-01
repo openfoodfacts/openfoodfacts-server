@@ -8111,16 +8111,6 @@ HTML
 ;
 	}
 
-	#unless (defined $product_ref->{brand}) {
-	#	$product_ref->{brand} = "";
-	#}
-	#unless (defined $product_ref->{category}) {
-	#	$product_ref->{category} = "";
-	#}
-
-	$product_ref->{brand} //= "";
-	$product_ref->{category} //= "";
-
 	$header .= <<HTML
 <meta name="twitter:card" content="product">
 <meta name="twitter:site" content="@<twitter_account>">
@@ -8128,9 +8118,25 @@ HTML
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$description">
 <meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
-<meta name="twitter:data1" content="$product_ref->{brand}">
 <meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
+HTML
+;
+
+	if (defined $product_ref->{brand}) {
+		$header .= <<HTML
+<meta name="twitter:data1" content="$product_ref->{brand}">
+HTML
+;
+	}
+
+	if (defined $product_ref->{category}) {
+		$header .= <<HTML
 <meta name="twitter:data2" content="$product_ref->{category}">
+HTML
+;
+	}
+
+	$header .= <<HTML
 $meta_product_image_url
 
 HTML
