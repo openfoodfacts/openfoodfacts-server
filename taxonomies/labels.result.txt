@@ -65,7 +65,6 @@ synonyms:fi:säilöntäaineita
 synonyms:ru:консерванты, консервантов
 
 synonyms:en:Rich in, High in
-synonyms:bg:Богато на
 synonyms:es:Rico en, Alto contenido de, Alto contenido en
 synonyms:fi:runsaasti, paljon
 synonyms:it:Ricco in, Alto contenuto di, Ricchi in
@@ -78,7 +77,6 @@ synonyms:fi:merenantimet, merenelävät
 synonyms:ru:дары моря, морепродукты
 
 synonyms:en:without, 0%, free
-synonyms:bg:Без, 0%
 synonyms:de:ohne, 0%
 synonyms:es:sin, 0%, libre de
 synonyms:fi:ilman, 0%, vapaa
@@ -1008,6 +1006,7 @@ en:Ethical Tea Partnership, ETP
 label_categories:en: en:Faitrade
 
 en:EU Agriculture, European Union agriculture
+bg:Земеделие от ЕС
 ca:Agricultura UE
 cs:Zemědělství EU
 de:EU-Landwirtschaft
@@ -1023,6 +1022,7 @@ ru:EU агрокультура, агрокультура Европейског�
 < en:EU Agriculture
 < en:Non-EU Agriculture
 en:EU/non-EU Agriculture, EU and non EU Agriculture
+bg:Земеделие от/извън ЕС
 ca:Procedent d'agricultura UE/no UE, Agricultura UE/no UE
 cs:Zemědělství EU a mimo EU
 de:EU-/Nicht-EU-Landwirtschaft
@@ -13681,6 +13681,7 @@ auth_url:en: https://www.fairforlife.org/
 
 < en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
+bg:Fairtrade International, Fairtrade
 ca:Fairtrade Internacional, FLO International
 de:Fairtrade International, Fairtrade, FLO international, FLO
 es:Fairtrade International, Fairtrade, FLO international, FLO
@@ -13759,7 +13760,7 @@ xx:For Life
 auth_url:en: https://www.fairforlife.org/
 
 en:Free from E number
-bg:Без E номера
+bg:Без E-номера
 fi:E-kooditon, ei E-koodeja
 hu:E-szám mentes
 
@@ -13851,6 +13852,7 @@ ingredients:en: en:egg
 origins:en: en:france
 
 en:French meat
+bg:Френско месо
 ca:Carn francesa
 de:Fleisch aus Frankreich
 es:Carne francesa
@@ -13970,6 +13972,7 @@ wikidata:en: Q748367
 
 < en:FSC
 en:FSC Mix
+bg:FSC Mix, FSC Смес
 ca:Mix FSC
 cs:FSC Mix
 de:FSC Mix
@@ -14473,6 +14476,7 @@ nl:Bestraald, Bestraalde voeding
 pt:Alimentos Irradiados, Irradiados
 
 en:ISO 22000
+bg:ISO 22000
 it:ISO 22000
 pl:ISO 22000
 ru:ИСО 22000, ISO 22000
@@ -14485,6 +14489,7 @@ ru:ГОСТ Р ИСО 22000-2007
 
 < en:ISO 22000
 en:ISO 22000:2005
+bg:ISO 22000:2005
 de:ISO 22000:2005
 xx:ISO 22000:2005
 
@@ -14900,6 +14905,7 @@ pt:Açúcar reduzido, menos açúcar
 th:น้ำตาลน้อย
 
 en:Lowers cholesterol
+bg:Намалява холестерола
 de:Cholesterinsenkend
 es:Reduce el colesterol
 fi:kolesterolia alentava, laskee kolesterolia
@@ -14925,6 +14931,12 @@ it:Fatto in Belgio
 nl:Geproduceerd in België
 pl:Wyprodukowano w Belgii
 country:en: Belgium
+label_categories:en: en:Geographic label
+
+en:Made in Bulgaria
+bg:Произведено в България
+fr:Fabriqué en Bulgarie
+country:en: Bulgaria
 label_categories:en: en:Geographic label
 
 en:Made in Denmark
@@ -15125,7 +15137,7 @@ fr:Certifiée NAPSI, Certifié NAPSI
 nl:NAPSI certificatie
 
 en:National standard for Bulgarian yoghurt
-bg:БДС, Национален стандарт за българско кисело мляко
+bg:БДС 12:2010, Национален стандарт за българско кисело мляко
 image:en: National-standard-for-Bulgarian-yoghurt.97.90.png
 
 en:Natura-Beef, NaturaBeef
@@ -15161,6 +15173,7 @@ pl:aromat naturalny
 pt:Sabores naturais
 
 en:Natural product
+bg:Натурален продукт
 ca:Producte natural
 de:Naturprodukt, Natürliches Produkt
 es:Producto natural
@@ -15169,6 +15182,7 @@ fr:Produit naturel
 < en:Natural product
 < en:Without vegetable oils
 en:Natural product without vegetable oils, Natural product without vegetable fats
+bg:Натурален продукт без растителни масла, Натурален продукт без растителни мазнини
 ca:Producte natural sense olis vegetals
 es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
 fi:kasviöljytön luontaistuote, luontaistuote ilman kasviöljyjä, luonnontuote ilman kasviöljyjä
@@ -15349,6 +15363,7 @@ fr:Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, s
 
 < en:No antibiotics
 en:Without antibiotics since birth, no antibiotics ever
+bg:Без антибиотици от раждането
 de:Ohne Antibiotika seit der Geburt, keine Antibiotika jemals
 es:Sin antibióticos desde el nacimiento
 fi:Ei antibiootteja syntymän jälkeen
@@ -15376,6 +15391,7 @@ label_categories:en: en:Health, en:Additives
 < en:No artificial colors
 < en:No artificial flavors
 en:No artificial colours or flavours, No artificial colours and flavours, No artificial colours and flavourings
+bg:Без изкуствени оцветители или аромати
 ca:Sense colorants ni aromes artificials
 da:Ingen kunstige smags- eller farvestoffer
 de:Keine künstlichen Farbstoffe oder Aromen
@@ -15677,6 +15693,7 @@ pt:Non GMO project, Projeto não OGM
 wikidata:en: Q7754286
 
 en:No hydrogenated fats
+bg:Без хидрогенирани мазнини
 ca:Sense greixos hidrogenats
 de:Keine gehärtete Fette, Ohne gehärtete Fette
 es:Sin grasas hidrogenadas
@@ -15758,6 +15775,7 @@ nl:Zonder noten
 en:No palm oil, Palm oil free, Without palm oil
 
 en:No peanuts, without peanuts, Peanut Free
+bg:Без фъстъци
 ca:Lliure de cacauet
 de:Ohne Erdnüsse
 es:Sin cacahuetes
@@ -15850,10 +15868,12 @@ th:ไม่มีไขมันทรานส์
 label_categories:en: en:Health
 
 en:No wheat, without wheat, Wheat-free
+bg:Без пшеница
 de:Ohne Weizen
 nl:Zonder graan
 
 en:non-EU Agriculture
+bg:Земеделие извън ЕС
 ca:Agricultura No-UE
 cs:Zemědělství mimo EU
 da:ikke-EU jordbruk
@@ -15917,6 +15937,7 @@ label_categories:en: en:Specific diets
 
 < en:Not advised for specific people
 en:Not advised for children and pregnant women
+bg:Не се препоръчва за деца и бременни жени
 de:Für Schwangere und Kinder nicht empfohlen
 es:No recomendado para niños o mujeres embarazadas
 fi:Ei suositella lapsille tai raskauden aikana
@@ -16140,7 +16161,7 @@ wikidata:en: Q191756
 
 < en:Omega-3
 en:High in Omega 3, Rich in Omega 3
-bg:Богат на Омега-3
+bg:Богато на Омега-3
 ca:Alt en Omega 3, Ric en Omega 3
 de:Hoher Omega-3-Gehalt
 es:Rico en Omega 3, Alto en Omega 3
@@ -16592,6 +16613,7 @@ en:PDO Vinagre de Jerez, Vinagre de Jerez
 es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
 
 en:PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
+bg:PEFC, Programme for the Endorsement of Forest Certification
 ca:PEFC
 de:PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
 es:PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
@@ -16701,6 +16723,7 @@ es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
 wikidata:en: Q3995785
 
 en:Phosphore source
+bg:Източник на фосфор
 ca:Font de fòsfor
 de:Phosphorquelle
 es:Fuente de fósforo
@@ -16838,6 +16861,7 @@ hu:Kiváló Magyar Termék
 image:en: Quality-food-from-hungary.90x90.jpg
 
 en:Rainforest Alliance
+bg:Rainforest Alliance
 ca:Aliança Tropical
 da:Rainforest Alliance
 de:Rainforest Alliance
@@ -16879,6 +16903,7 @@ country:en: United States
 
 < en:Reduced fat
 en:10% less fat
+bg:10% по-малко мазнини
 de:10% weniger Fett
 es:10% menos de grasa
 fi:10% vähemmän rasvaa
@@ -16891,6 +16916,7 @@ pt:10% menos de gordura
 
 < en:Reduced fat
 en:15% less fat
+bg:15% по-малко мазнини
 de:15% weniger Fett
 es:15% menos de grasa
 fi:15% vähemmän rasvaa
@@ -16903,6 +16929,7 @@ pt:15% menos de gordura
 
 < en:Reduced fat
 en:20% less fat
+bg:20% по-малко мазнини
 ca:20% menys greix
 de:20% weniger Fett
 es:20% menos de grasa
@@ -16915,6 +16942,7 @@ pt:20% menos de gordura
 
 < en:Reduced fat
 en:25% less fat
+bg:25% по-малко мазнини
 de:25% weniger Fett
 es:25% menos de grasa
 fi:25% vähemmän rasvaa
@@ -16926,6 +16954,7 @@ pt:25% menos de gordura
 
 < en:Reduced fat
 en:30% less fat
+bg:30% по-малко мазнини
 ca:Amb el 30% menys de greix
 de:30% weniger Fett
 es:30% menos de grasa
@@ -16938,6 +16967,7 @@ pt:30% menos de gordura
 
 < en:Reduced fat
 en:35% less fat
+bg:35% по-малко мазнини
 de:35% weniger Fett
 es:35% menos de grasa
 fi:35% vähemmän rasvaa
@@ -16950,6 +16980,7 @@ pt:35% menos de gordura
 
 < en:Reduced fat
 en:40% less fat
+bg:40% по-малко мазнини
 de:40% weniger Fett
 es:40% menos de grasa
 fi:40% vähemmän rasvaa
@@ -16962,6 +16993,7 @@ pt:40% menos de gordura
 
 < en:Reduced fat
 en:45% less fat
+bg:45% по-малко мазнини
 de:45% weniger Fett
 es:45% menos de grasa
 fi:45% vähemmän rasvaa
@@ -16973,6 +17005,7 @@ pt:45% menos de gordura
 
 < en:Reduced fat
 en:50% less fat
+bg:50% по-малко мазнини
 de:50% weniger Fet
 es:50% menos de grasa
 fi:50% vähemmän rasvaa
@@ -16985,6 +17018,7 @@ pt:50% menos de gordura
 
 < en:Reduced fat
 en:55% less fat
+bg:55% по-малко мазнини
 de:55% weniger Fet
 es:55% menos de grasa
 fi:55% vähemmän rasvaa
@@ -16997,6 +17031,7 @@ pt:55% menos de gordura
 
 < en:Reduced fat
 en:60% less fat
+bg:60% по-малко мазнини
 de:60% weniger Fett
 es:60% menos de grasa
 fi:60% vähemmän rasvaa
@@ -17009,6 +17044,7 @@ pt:60% menos de gordura
 
 < en:Reduced fat
 en:65% less fat
+bg:65% по-малко мазнини
 de:65% weniger Fet
 es:65% menos de grasa
 fi:65% vähemmän rasvaa
@@ -17709,6 +17745,7 @@ auth_url:en: https://utz.org
 wikidata:en: Q2305872
 
 en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
+bg:Устойчив риболов
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
 de:Nachhaltige Fischerei
 es:Pesca sostenible
@@ -17727,6 +17764,7 @@ fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durab
 
 < en:Sustainable fishing
 en:Sustainable Seafood MSC, sustainable food msc
+bg:Устойчива морска храна MSC
 ca:Marisc sostenible MSC, MSC, Consell per la Protecció Marina
 de:Zertifizierte nachhaltige Fischerei MSC, MSC zertifiziert
 es:Certificado MSC de pesca sostenible, Pesca sostenible MSC
@@ -17766,6 +17804,7 @@ label_categories:en: en:Fishing method
 wikidata:en: Q2941001
 
 en:Sustainable Palm Oil
+bg:Устойчиво палмово масло
 ca:Oli de Palma Sostenible
 de:Nachhaltiges Palmöl
 es:Aceite de Palma Sostenible
@@ -17779,6 +17818,7 @@ wikidata:en: Q686421
 
 < en:Sustainable Palm Oil
 en:Roundtable on Sustainable Palm Oil, RSPO
+bg:Кръгла маса на тема устойчиво палмово масло, RSPO
 ca:Taula rodona per l'Oli de Palma Sostenible
 de:Runder Tisch für nachhaltiges Palmöl, RSPO
 fi:Roundtable on Sustainable Palm Oil, RSPO
@@ -18373,6 +18413,7 @@ fr:Sans antibiotique ni hormone, sans antibiotiques ni hormones
 it:Senza antibiotici né ormoni, senza ormoni né antibiotici
 
 en:Without modified starches, without modified starch
+bg:Без модифицирани нишестета, без модифицирано нишесте
 fi:ilman muunneltuja tärkkelyksiä, ilman muunneltua tärkkelystä
 fr:Sans amidons modifiés, sans amidon modifié, sans amidons transformés, sans amidon transformé
 hu:Módosított keményítők nélkül
@@ -18384,6 +18425,7 @@ fr:sans nano-particules
 hu:Nanorészecskementes, nanorészecskét nem tartalmaz, nanorészecskék nélkül
 
 en:Without sodium nitrite
+bg:Без натриев нитрит
 ca:Sense nitrit de sodi
 de:Ohne Natriumnitrit
 es:Sin nitrato de sodio
@@ -18426,6 +18468,7 @@ pt:Sem adoçantes
 sv:Utan sötningsmedel
 
 en:Without vegetable oils, without vegetable fats
+bg:Без хидрогенирани масла
 de:Ohne pfalnzliche Öle
 es:Sin aceites vegetales
 fi:kasviöljytön, ei kasviöljyjä, ilman kasviöljyjä
@@ -18718,7 +18761,7 @@ fr:fermenté en barrique
 
 fr:fermenté en fût de chêne
 
-fr:Fruits et Légumes de France
+fr:Fruits et Légumes de France, Fruits & Légumes de France
 origins:en: en:france
 
 < fr:Fruits et Légumes de France
