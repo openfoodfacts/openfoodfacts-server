@@ -1200,6 +1200,23 @@ sub gs1_to_off ($$$) {
 				
 				# The source structure may be a hash or an array of hashes
 				# e.g. Equadis: allergenRelatedInformation is a hash, CodeOnline: it is an array
+
+				# CodeOnline:
+
+				# allergenRelatedInformation: [
+				# 	{
+				# 		allergen: [
+				# 			{
+				# 				allergenTypeCode: "AC",
+				# 				levelOfContainmentCode: "FREE_FROM"
+				# 			},
+				# 			{
+				# 				allergenTypeCode: "AE",
+				# 				levelOfContainmentCode: "CONTAINS"
+				# 			},				
+
+				$log->debug("gs1_to_off - source_target is a hash",
+					{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref }) if $log->is_debug();
 				
 				if (ref($json_ref->{$source_field}) eq "HASH") {
 				
@@ -1208,7 +1225,19 @@ sub gs1_to_off ($$$) {
 				elsif (ref($json_ref->{$source_field}) eq "ARRAY") {
 					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
 
-						gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
+						# We should have an array of hashes, but in some CodeOnline files we have an array with an empty hash..
+
+						# allergenRelatedInformation: [
+						# 	[ ]
+						# ]
+						
+						if (ref($json_array_entry_ref) eq "HASH") {
+							gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
+						}
+						else {
+							$log->debug("gs1_to_off - expected a hash but got an array",
+								{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref, json_array_entry_ref => $json_array_entry_ref }) if $log->is_debug();
+						}
 					}
 				}
 			}
@@ -1242,6 +1271,14 @@ sub convert_gs1_json_to_off_csv($) {
 	my $json = shift;
 	
 	my $json_ref = decode_json($json);
+
+	# Depending on how the original XML was converted to JSON,
+	# text values of XML tags can be assigned directly as the value of the corresponding key
+	# or they can be stored inside a hash with the $t key
+	# e.g.
+	# levelOfContainmentCode: {
+	#	$t: "MAY_CONTAIN"
+	# },
 	
 	# The JSON can contain only the product information "tradeItem" level
 	# or the tradeItem can be encapsulated in a message
