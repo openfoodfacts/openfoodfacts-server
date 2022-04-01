@@ -656,6 +656,105 @@ my @tests = (
 		]
 	],	
 
+	# Relative percent with no indicated percent on the parent ingredient, but with a percent min = percent max on the parent ingredient
+	[ { lc => "en", ingredients_text => "water (60%), fruit concentrate (apple 40%, mango 30%, citrus)"},
+		[
+			{
+				'id' => 'en:water',
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'percent_max' => 60,
+				'percent_min' => 60,
+				'text' => 'water'
+			},
+			{
+				'id' => 'en:fruit-concentrates',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent' => 16,
+					'percent_estimate' => 16,
+					'percent_max' => 16,
+					'percent_min' => 16,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:mango',
+					'percent' => 12,
+					'percent_estimate' => 12,
+					'percent_max' => 12,
+					'percent_min' => 12,
+					'text' => 'mango'
+				},
+				{
+					'id' => 'en:citrus-fruit',
+					'percent_estimate' => 12,
+					'percent_max' => 12,
+					'percent_min' => 12,
+					'text' => 'citrus'
+				}
+				],
+				'percent_estimate' => 40,
+				'percent_max' => 40,
+				'percent_min' => 40,
+				'text' => 'fruit concentrate'
+			}
+		]
+	],
+
+
+	# Relative percent with a different percent min and percent max on the parent ingredient
+	[ { lc => "en", ingredients_text => "water (60%), fruit concentrate (apple 40%, mango 30%, citrus), sugar"},
+		[
+			{
+				'id' => 'en:water',
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'percent_max' => 60,
+				'percent_min' => 60,
+				'text' => 'water'
+			},
+			{
+				'id' => 'en:fruit-concentrates',
+				'ingredients' => [
+				{
+					'id' => 'en:apple',
+					'percent_estimate' => 12,
+					'percent_max' => 16,
+					'percent_min' => 8,
+					'text' => 'apple'
+				},
+				{
+					'id' => 'en:mango',
+					'percent_estimate' => 9,
+					'percent_max' => 12,
+					'percent_min' => 6,
+					'text' => 'mango'
+				},
+				{
+					'id' => 'en:citrus-fruit',
+					'percent_estimate' => 9,
+					'percent_max' => 12,
+					'percent_min' => 0,
+					'text' => 'citrus'
+				}
+				],
+				'percent_estimate' => 30,
+				'percent_max' => 40,
+				'percent_min' => 20,
+				'text' => 'fruit concentrate'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent_estimate' => 10,
+				'percent_max' => 20,
+				'percent_min' => 0,
+				'text' => 'sugar'
+			}
+		]
+
+	],
+
 );
 
 foreach my $test_ref (@tests) {

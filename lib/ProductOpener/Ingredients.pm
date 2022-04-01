@@ -2361,34 +2361,51 @@ sub init_percent_values($$$) {
 
 	my $percent_mode = "absolute";
 
-	# Assume that percent listed can be relative only if there is a specified percent for the parent ingredient
-	# in which case $total_min is equal to $total_max and less than 100.
+	# Assume that percent listed is relative to the parent ingredient
+	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
 
-	if (($total_min == $total_max) and ($total_max < 100)) {
-
-		# Check if the sum of listed % is greater than $total_max
-		my $percent_sum = 0;
-		foreach my $ingredient_ref (@{$ingredients_ref}) {
-			if (defined $ingredient_ref->{percent}) {
-				$percent_sum += $ingredient_ref->{percent};
-			}
-		}
-
-		if ($percent_sum > $total_max) {
-			$percent_mode = "relative";
+	my $percent_sum = 0;
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{percent}) {
+			$percent_sum += $ingredient_ref->{percent};
 		}
 	}
 
+	if ($percent_sum > $total_max) {
+		$percent_mode = "relative";
+	}
+
+	$log->debug("init_percent_values - percent mode", { percent_mode => $percent_mode, ingredients_ref => $ingredients_ref,
+		total_min => $total_min, total_max => $total_max, percent_sum => $percent_sum }) if $log->is_debug();
+
+	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
+
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
-			# percent was found in text, take it (with eventual re-scaling)
-			my $percent = ($percent_mode eq "absolute") ? 
-			    $ingredient_ref->{percent} : 
-			    $ingredient_ref->{percent} * $total_max / 100
-			;
-			$ingredient_ref->{percent} = $percent;
-			$ingredient_ref->{percent_min} = $percent;
-			$ingredient_ref->{percent_max} = $percent;
+			# There is a specified percent for the ingredient.
+			
+			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
+				# We can assign an absolute percent to the ingredient because
+				# 1. the percent mode is absolute
+				# or 2. we have a specific percent for the parent ingredient
+				# so we can rescale the relative percent of the ingredient to make it absolute
+				my $percent = ($percent_mode eq "absolute") ? 
+					$ingredient_ref->{percent} : 
+					$ingredient_ref->{percent} * $total_max / 100
+				;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
+			else {
+				# The percent mode is relative and we do not have a specific percent for the parent ingredient
+				# We cannot compute an absolute percent for the ingredient, but we can apply the relative percent
+				# to percent_min and percent_max
+				$ingredient_ref->{percent_min} = $ingredient_ref->{percent} * $total_min / 100;
+				$ingredient_ref->{percent_max} = $ingredient_ref->{percent} * $total_max / 100;
+				# The absolute percent is unknown, delete it
+				delete $ingredient_ref->{percent};
+			}
 		}
 		else {
 			if (not defined $ingredient_ref->{percent_min}) {
@@ -2400,8 +2417,11 @@ sub init_percent_values($$$) {
 		}
 	}
 
+	$log->debug("init_percent_values - result", { ingredients_ref => $ingredients_ref }) if $log->is_debug();
+
 	return;
 }
+
 
 sub set_percent_max_values($$$) {
 
