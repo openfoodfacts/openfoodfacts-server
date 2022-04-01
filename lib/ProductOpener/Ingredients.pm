@@ -2345,6 +2345,7 @@ When a percent is specifically set, use this value for percent_min and percent_m
 
 Warning: percent listed for sub-ingredients can be absolute (e.g. "Sugar, fruits 40% (pear 30%, apple 10%)")
 or they can be relative to the parent ingredient (e.g. "Sugar, fruits 40% (pear 75%, apple 25%)".
+We try to detect those cases and rescale the percent accordingly.
 
 Otherwise use 0 for percent_min and total_max for percent_max.
 
