@@ -2381,7 +2381,11 @@ sub init_percent_values($$$) {
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
-			my $percent = ($percent_mode eq "absolute") ? $ingredient_ref->{percent} : $ingredient_ref->{percent} * $total_max / 100;
+			# percent was found in text, take it (with eventual re-scaling)
+			my $percent = ($percent_mode eq "absolute") ? 
+			    $ingredient_ref->{percent} : 
+			    $ingredient_ref->{percent} * $total_max / 100
+			;
 			$ingredient_ref->{percent} = $percent;
 			$ingredient_ref->{percent_min} = $percent;
 			$ingredient_ref->{percent_max} = $percent;
