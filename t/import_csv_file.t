@@ -2,46 +2,48 @@
 
 use Modern::Perl '2017';
 
+use Getopt::Long qw/GetOptions/;
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
-use IO::Capture::Stdout::Extended;
-use IO::Capture::Stderr::Extended;
-use JSON "decode_json";
-use Test::Deep qw/cmp_deeply supersetof/;
 use Test::MockModule;
 use Test::More;
-use Test::Number::Delta;
 
-use List::MoreUtils "each_array";
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use File::Basename "dirname";
 use File::Path qw/make_path remove_tree/;
-use Path::Tiny qw/path/;
 
 use ProductOpener::Config '$data_root';
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
+use ProductOpener::Test qw/:all/;
 
-my $inputs_dir = dirname(__FILE__) . "/inputs/import_csv_file/";
-my $expected_dir = dirname(__FILE__) . "/expected_test_results/import_csv_file/";
-my $outputs_dir = dirname(__FILE__) . "/outputs/import_csv_file";
+
+my $test_id = "import_csv_file";
+my $test_dir = dirname(__FILE__);
+my $inputs_dir = "$test_dir/inputs/$test_id/";
+my $expected_dir = "$test_dir/expected_test_results/$test_id/";
+my $outputs_dir = "$test_dir/outputs/$test_id";
 make_path($outputs_dir);
 
-# capturing out / err with Stdout/Stderr::Extended
-# while following Capture::Tiny style
-sub capture ($) {
-    my $meth = shift;
-    my $out = IO::Capture::Stdout::Extended->new();
-    my $err = IO::Capture::Stderr::Extended->new();
-    $out->start();
-    $err->start();
-    # call in array context
-    my @result = $meth -> ();
-    $out ->stop();
-    $err ->stop();
-    return ($out, $err, @result);
-}
+my $usage = <<TXT
+
+The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
+
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
+
+The directory will be created if it does not already exist.
+
+TXT
+;
+
+
+my $update_expected_results;
+
+GetOptions ("update-expected-results"   => \$update_expected_results)
+  or die("Error in command line arguments.\n\n" . $usage);
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {
@@ -61,73 +63,62 @@ sub fake_download_image ($) {
     return $response;
 }
 
-# create a sto columns file from a json structure
-sub create_sto_from_json ($$) {
-    my $json_path = shift;
-    my $sto_path = shift;
-    my $data = decode_json(path($json_path)->slurp_raw());
-    store($sto_path, $data);
-}
 
-sub remove_all_products () {
-    # check we are not on a prod database, by checking there are not more than 100 products
-    my $products_count = execute_query(sub {
-		return get_products_collection()->count_documents({});
-	});
-    unless ((0 <= $products_count) && ($products_count < 100)) {
-        die("Refusing to run destructive test on a DB of more than 100 items");
-    }
-    # clean database
-    execute_query(sub {
-		return get_products_collection()->delete_many({});
-	});
-    # clean files
-    remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
-    if (@$err) {
-        die("not able to remove some products directories: ". join(":", @$err));
-    }
-}
+# fields we don't want to check for they vary from test to test
+my @fields_ignore_content = qw(last_modified_t created_t owner_fields sources.0.import_t);
+# fields that are array and need to sort to have predictable results
+my @fields_sort = qw(_keywords);
 
-# deeply copy item1 but only keeping keys of item2
-# this prepare a match with cmp_deeply whith an intentionally incomplete object
-# this does not support extracting key on deep objects in a bag or set (from Test::Deep)
-sub deep_extract_keys_from($$) {
-    my ($item1, $item2) = @_;
-    my $result = $item1;  # default is no transformation
-    if ((ref $item1 eq ref {}) && (ref $item2 eq ref {})) {
-        # only keeps keys in item2
-        $result = {};
-        for my $key (keys %$item2) {
-            $result->{$key} = deep_extract_keys_from($item1->{$key}, $item2->{$key});
+
+# clean products fields that we can't check because they change over runs
+# we may still add some test on those fields here
+sub clean_products_fields($) {
+    my $array_ref = shift;
+
+    my @missing_fields = ();
+
+    for my $product (@$array_ref) {
+        my $code = $product->{code};
+        my @key;
+        for my $field_ic (@fields_ignore_content) {
+            @key = split(/\./, $field_ic);
+            if (!deep_exists($product, @key)) {
+                push(@missing_fields, ($code, $field_ic));
+            } else {
+                deep_set($product, @key, "--ignore--");
+            }
+        }
+        for my $field_s (@fields_sort) {
+            @key = split(/\./, $field_s);
+            if (!deep_exists($product, @key)) {
+                push(@missing_fields, ($code, $field_s));
+            } else {
+                my @sorted = sort @{deep_get($product, @key)};
+                deep_set($product, @key, \@sorted);
+            }
         }
     }
-    if ((ref $item1 eq ref []) && (ref $item2 eq ref []) && (scalar @$item1 == scalar @$item2)) {
-        # note that the case where $item2 is a bag/set is not (yet?) supported
-        $result = [];
-        my $iterator = each_array(@$item1, @$item2);
-        while ( my ($value1, $value2) = $iterator->() ) {
-            push @$result, deep_extract_keys_from($value1, $value2);
-        }
+    if (@missing_fields) {
+        fail(
+            "Some fields are missing on objects:\n" .
+            join("\n- ", map {join(" - ", @$_)} @missing_fields)
+        );
     }
-    # Note: if $item1 and $item2 does not have same type, 
-    # leave item1 as is, deep comparison will fail
-    return $result
 }
 
 
 # Testing import of a csv file
 {
-    my $import_module = new Test::MockModule('ProductOpener::Import');
+    my $import_module = Test::MockModule->new('ProductOpener::Import');
     # mock download image to fetch image in inputs_dir
     $import_module->mock('download_image', \&fake_download_image);
     # inputs
     my $my_excel = $inputs_dir . "test.xlsx";
     my $columns_fields_json = $inputs_dir . "test.columns_fields.json";
-    my $expected_products_path = $expected_dir . "test_products.perl";
     # clean data
     remove_all_products();
     # step1: parse xls
-    my ($out, $err, $csv_result) = capture (sub {
+    my ($out, $err, $csv_result) = capture_ouputs (sub {
         return scalar load_csv_or_excel_file($my_excel);
     });
     ok( !$csv_result->{error} );
@@ -139,7 +130,7 @@ sub deep_extract_keys_from($$) {
     # step3 convert file
     my $converted_file = $outputs_dir . "test.converted.csv";
     my $conv_result;
-    ($out, $err, $conv_result) = capture (sub {
+    ($out, $err, $conv_result) = capture_ouputs (sub {
         return scalar convert_file(
             $default_values_ref, $my_excel, $columns_fields_file, $converted_file
         );
@@ -155,42 +146,31 @@ sub deep_extract_keys_from($$) {
         "exported_t" => $datestring,
     };
     # run
-    ($out, $err) = capture (sub {
+    ($out, $err) = capture_ouputs (sub {
         ProductOpener::Import::import_csv_file($args);
     });
     # get all products in db, sorted by code for perdictability
     my $cursor = execute_query(sub {
-		return get_products_collection()->query({})->sort({code =>1});
+		return get_products_collection()->query({})->sort({code => 1});
 	});
     my @products = ();
     while ( my $doc = $cursor->next ) {
         push(@products, $doc);
     }
-    # expected values
-    ## no critic (ProhibitStringyEval)
-    my $expected_products = eval(path($expected_products_path)->slurp_raw());
-    ## use critic
-    # same number of products
-    is(scalar @products, scalar @$expected_products, , "As much expected produts as in db");
-    my $items_iter = each_array(@products, @$expected_products);
-    while ( my ($product, $expected_product) = $items_iter->() )
-    {
-        # load from sto
-        my $product_obj = retrieve_product($product->{code});
-        # values are those expected
-        my $cmp_product = deep_extract_keys_from($product, $expected_product);
-        cmp_deeply(
-            $cmp_product,
-            $expected_product,
-            "Product " . $product->{code} . " from mongo equals expected",
-        );
-        my $cmp_product_obj = deep_extract_keys_from($product_obj, $expected_product);
-        cmp_deeply(
-            $cmp_product_obj,
-            $expected_product,
-            "Product " . $product->{code} . " from sto equals expected",
-        );
+    # clean
+    clean_products_fields(\@products);
+    # verify result
+    compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
+    # also verify sto
+    if (! $update_expected_results) {
+        my @sto_products = ();
+        foreach my $product (@products) {
+            push(@sto_products, retrieve_product($product->{code}));
+        }
+        clean_products_fields(\@sto_products);
+        compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
     }
+
     # TODO check outputs ? for
     # import done
     # 1 products
