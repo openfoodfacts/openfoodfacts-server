@@ -71,6 +71,7 @@ use ProductOpener::Tags qw/:all/;
 
 use JSON::PP;
 use boolean;
+use Data::DeepAccess qw(deep_get);
 
 
 =head1 GS1 MAPS
@@ -1246,32 +1247,34 @@ sub gs1_to_off ($$$) {
 }
 
 
-=head2 convert_gs1_json_to_off_csv_fields ($json)
+=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
 
-Thus function converts the data for one product in the GS1 format converted to JSON.
+Thus function converts the data for one or more products in the GS1 format converted to JSON.
 GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
 In some cases, the conversion to JSON has already be done by a third party (e.g. the CodeOnline database from GS1 France).
+
+One GS1 message can include 1 or more products, typically products that contain other products
+(e.g. a pallet of cartons of products).
 
 =head3 Arguments
 
 =head4 json text
 
-=head3 Return value
+=head4 Reference to an array of product data
 
-=head4 Reference to a hash of fields
+Each product data will be added as one element (a hash ref) of the product data array.
 
-The function returns a reference to a hash.
-
-Each key is the name of the OFF csv field, and it is associated with the corresponding value for the product.
+For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
 
 =cut
 
-sub convert_gs1_json_to_off_csv($) {
+sub convert_gs1_json_message_to_off_products_csv($$) {
 
 	my $json = shift;
+	my $products_ref = shift;
 	
 	my $json_ref = decode_json($json);
-
+	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
 	# or they can be stored inside a hash with the $t key
@@ -1302,6 +1305,13 @@ sub convert_gs1_json_to_off_csv($) {
 			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", { field => $field }) if $log->is_debug();
 		}
 	}
+
+	# A product can contain a child product
+	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItemChildItem tradeItem));
+	if (defined $child_product_json_ref) {
+		$log->debug("convert_gs1_json_to_off_csv - found a child item", { child_item_gtin => $child_product_json_ref->{gtin} }) if $log->is_debug();
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+	}
 	
 	if (not defined $json_ref->{gtin}) {
 		
@@ -1328,14 +1338,14 @@ sub convert_gs1_json_to_off_csv($) {
 		delete $results_ref->{languages};
 	}
 	
-	return $results_ref;
+	push @$products_ref, $results_ref;
 }
 
 
 =head2 read_gs1_json_file ($json_file, $products_ref)
 
-Read a GS1 file on json format, convert it to the OFF format, return the
-result, and store the result in the $products_ref array (if not undef)
+Read a GS1 message file in json format, convert the included products in the OFF format,
+and store the resulting products in the $products_ref array
 
 =head3 Arguments
 
@@ -1356,13 +1366,7 @@ sub read_gs1_json_file($$) {
 	my $json = join (q{}, (<$in>));
 	close($in);
 		
-	my $results_ref = convert_gs1_json_to_off_csv($json);
-	
-	if ((defined $products_ref) and (defined $results_ref->{code})) {
-		push @$products_ref, $results_ref;
-	}
-	
-	return $results_ref;
+	convert_gs1_json_message_to_off_products_csv($json, $products_ref);
 }
 
 
