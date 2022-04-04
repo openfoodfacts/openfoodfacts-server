@@ -13,31 +13,28 @@
          "ingredients" : [
             {
                "id" : "en:cocoa-butter",
-               "percent" : 15,
-               "percent_estimate" : 15,
+               "percent_estimate" : 22,
                "text" : "kaakaovoi",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:sugar",
-               "percent" : 10,
-               "percent_estimate" : 10,
+               "percent_estimate" : 11,
                "text" : "sokeri",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:milk-proteins",
-               "percent_estimate" : 9.5,
+               "percent_estimate" : 5.5,
                "text" : "maitoproteiini",
                "vegan" : "no",
                "vegetarian" : "yes"
             },
             {
                "id" : "en:chicken-egg",
-               "percent" : 1,
-               "percent_estimate" : 9.5,
+               "percent_estimate" : 5.5,
                "text" : "kananmuna",
                "vegan" : "no",
                "vegetarian" : "yes"
@@ -246,10 +243,10 @@
       "en:e338"
    ],
    "ingredients_text" : "jauho (12%), suklaa (kaakaovoi (15%), sokeri [10%], maitoproteiini, kananmuna 1%) - emulgointiaineet : E463, E432 ja E472 - happamuudensäätöaineet : E322/E333 E474-E475, happo (sitruunahappo, fosforihappo) - suola",
-   "ingredients_with_specified_percent_n" : 4,
-   "ingredients_with_specified_percent_sum" : 38,
-   "ingredients_with_unspecified_percent_n" : 11,
-   "ingredients_with_unspecified_percent_sum" : 53.5,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 12,
+   "ingredients_with_unspecified_percent_n" : 14,
+   "ingredients_with_unspecified_percent_sum" : 88,
    "known_ingredients_n" : 25,
    "lc" : "fi",
    "nutriments" : {

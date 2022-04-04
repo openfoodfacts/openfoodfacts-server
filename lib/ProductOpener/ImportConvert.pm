@@ -915,7 +915,7 @@ sub clean_fields($) {
 		
 		# Remove "unspecified" values
 		my @unspecified_lcs = ("en");
-		if (($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
+		if ((defined $product_ref->{lc}) and ($product_ref->{lc} ne 'en') and (defined $unspecified{$product_ref->{lc}})) {
 			push @unspecified_lcs, $product_ref->{lc};
 		}
 		

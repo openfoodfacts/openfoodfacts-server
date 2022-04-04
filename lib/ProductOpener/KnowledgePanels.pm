@@ -746,7 +746,9 @@ sub create_health_card_panel($$$) {
 
     create_additives_panel($product_ref, $target_lc, $target_cc);
 
-    create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);    
+    create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc);
+
+    create_nova_panel($product_ref, $target_lc, $target_cc);
 
     create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
         $panel_data_ref, $product_ref, $target_lc, $target_cc);    
@@ -1226,7 +1228,51 @@ sub create_recommendation_panels($$$) {
 
             create_panel_from_json_template("recommendation_health", "api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json",
                 {}, $product_ref, $target_lc, $target_cc);
-        }       
+        }
+    }
+}
+
+
+=head2 create_nova_panel ( $product_ref, $target_lc, $target_cc )
+
+Creates knowledge panels to describe the NOVA groups / processing / ultra-processing
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_nova_panel($$$) {
+
+	my $product_ref = shift;
+	my $target_lc = shift;
+	my $target_cc = shift;
+
+	$log->debug("create nova panel", { code => $product_ref->{code} }) if $log->is_debug();
+	
+    my $panel_data_ref = {};
+
+    # Do not display the Nutri-Score panel if it is not applicable
+    if ((defined $options{product_type}) and ($options{product_type} eq "food")
+        and (exists $product_ref->{nova_groups_tags})
+        and (not $product_ref->{nova_groups_tags}[0] eq "not-applicable")) {
+
+        $panel_data_ref->{nova_group_tag} = $product_ref->{nova_groups_tags}[0];
+        $panel_data_ref->{nova_group_name} = display_taxonomy_tag($target_lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+
+        # Nutri-Score panel: score + details
+        create_panel_from_json_template("nova", "api/knowledge-panels/health/ingredients/nova.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc);
 
     }
 }
