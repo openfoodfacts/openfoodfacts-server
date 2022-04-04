@@ -21,6 +21,7 @@
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
+               "panel_id" : "nutriscore",
                "status" : "unknown",
                "title" : "Nutri-Score inconnu"
             },
@@ -219,6 +220,7 @@
                "id" : "vegan",
                "match" : 100,
                "name" : "Végétalien",
+               "panel_id" : "ingredients_analysis_en-vegan",
                "status" : "known",
                "title" : "Végétalien"
             },
@@ -228,6 +230,7 @@
                "id" : "vegetarian",
                "match" : 100,
                "name" : "Végétarien",
+               "panel_id" : "ingredients_analysis_en-vegetarian",
                "status" : "known",
                "title" : "Végétarien"
             },
@@ -237,6 +240,7 @@
                "id" : "palm_oil_free",
                "match" : 50,
                "name" : "Sans huile de palme",
+               "panel_id" : "ingredients_analysis_en-palm-oil-free",
                "status" : "known",
                "title" : "Pourrait contenir de l'huile de palme"
             }
@@ -254,6 +258,7 @@
                "id" : "nova",
                "match" : 0,
                "name" : "Groupe NOVA",
+               "panel_id" : "nova",
                "status" : "unknown",
                "title" : "NOVA non calculé"
             },
@@ -263,6 +268,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additifs",
+               "panel_id" : "additives",
                "status" : "known",
                "title" : "Sans additives"
             }
@@ -280,6 +286,7 @@
                "id" : "ecoscore",
                "match" : 0,
                "name" : "Éco-Score",
+               "panel_id" : "ecoscore",
                "status" : "unknown",
                "title" : "Eco-Score non calculé"
             },
@@ -567,6 +574,7 @@
          "packagings" : 1
       },
       "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
       "status" : "unknown"
    },
    "ecoscore_grade" : "unknown",
@@ -673,8 +681,9 @@
       "en:ecoscore-not-computed"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
-   "nova_group_tags" : [
-      "not-applicable"
+   "nova_group_error" : "missing_category",
+   "nova_groups_tags" : [
+      "unknown"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {},

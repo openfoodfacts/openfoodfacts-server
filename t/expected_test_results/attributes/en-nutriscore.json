@@ -21,6 +21,7 @@
                "id" : "nutriscore",
                "match" : 61,
                "name" : "Nutri-Score",
+               "panel_id" : "nutriscore",
                "status" : "known",
                "title" : "Nutri-Score B"
             },
@@ -223,6 +224,7 @@
                "id" : "vegan",
                "match" : 100,
                "name" : "Vegan",
+               "panel_id" : "ingredients_analysis_en-vegan",
                "status" : "known",
                "title" : "Vegan"
             },
@@ -232,6 +234,7 @@
                "id" : "vegetarian",
                "match" : 100,
                "name" : "Vegetarian",
+               "panel_id" : "ingredients_analysis_en-vegetarian",
                "status" : "known",
                "title" : "Vegetarian"
             },
@@ -241,6 +244,7 @@
                "id" : "palm_oil_free",
                "match" : 100,
                "name" : "Palm oil free",
+               "panel_id" : "ingredients_analysis_en-palm-oil-free",
                "status" : "known",
                "title" : "Palm oil free"
             }
@@ -258,6 +262,7 @@
                "id" : "nova",
                "match" : 100,
                "name" : "NOVA group",
+               "panel_id" : "nova",
                "status" : "known",
                "title" : "NOVA 1"
             },
@@ -267,6 +272,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additives",
+               "panel_id" : "additives",
                "status" : "known",
                "title" : "Without additives"
             }
@@ -284,6 +290,7 @@
                "id" : "ecoscore",
                "match" : 39,
                "name" : "Eco-Score",
+               "panel_id" : "ecoscore",
                "status" : "known",
                "title" : "Eco-Score D"
             },
@@ -664,6 +671,7 @@
          "packagings" : 1
       },
       "missing_data_warning" : 1,
+      "missing_key_data" : 1,
       "score" : 38,
       "scores" : {
          "ad" : 38,
@@ -805,6 +813,7 @@
    "nova_group" : 1,
    "nova_group_debug" : "",
    "nova_groups" : "1",
+   "nova_groups_markers" : {},
    "nova_groups_tags" : [
       "en:1-unprocessed-or-minimally-processed-foods"
    ],

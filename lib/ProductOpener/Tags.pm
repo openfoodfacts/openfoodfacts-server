@@ -2124,9 +2124,9 @@ foreach my $country (keys %{$properties{countries}}) {
 	$country_codes_reverse{$country} = $cc;
 
 	$country_languages{$cc} = ['en'];
-	if (defined $properties{countries}{$country}{"languages:en"}) {
+	if (defined $properties{countries}{$country}{"language_codes:en"}) {
 		$country_languages{$cc} = [];
-		foreach my $language (split(",", $properties{countries}{$country}{"languages:en"})) {
+		foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
 			$language = get_string_id_for_lang("no_language", $language);
 			$language =~ s/-/_/;
 			push @{$country_languages{$cc}}, $language;

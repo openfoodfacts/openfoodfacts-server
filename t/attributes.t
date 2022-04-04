@@ -162,7 +162,18 @@ my @tests = (
 			categories_tags => ["en:cocoa-and-hazelnuts-spreads"],
 			ingredients_text => "",
 		}
-	],		
+	],
+
+	# NOVA
+	[
+		'en-nova-groups-markers',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "Cow milk, salt, microbial culture, garlic flavouring, guar gum, sugar, high fructose corn syrup",
+		}
+	]
 
 	# 
 );

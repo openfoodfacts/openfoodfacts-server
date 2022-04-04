@@ -635,7 +635,7 @@ sub init_product($$$$) {
 		require ProductOpener::GeoIP;
 		$country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 	}
-	else {
+	elsif (defined $countryid) {
 		$country = $countryid;
 		$country =~ s/^en://;
 	}

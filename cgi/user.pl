@@ -166,7 +166,7 @@ if ($action eq 'display') {
 
 	$template_data_ref->{sections} = [];
 
-		if ($user_ref) {
+	if ($user_ref) {
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
@@ -236,11 +236,34 @@ if ($action eq 'display') {
 				push @{$team_section_ref->{fields}}, {
 					field => "team_". $i,
 					label => sprintf(lang("team_s"), $i),
-				 };
+				};
 			};
 
 			push @{$template_data_ref->{sections}}, {%$team_section_ref};
 		}
+
+		# Contributor section
+		my $contributor_section_ref = {
+			id => "contributor_settings",
+			name => lang("contributor_settings") . " (" . lang("optional") . ")",
+			description => "contributor_settings_description",
+			fields => [
+				{
+					field => "display_barcode",
+					type => "checkbox",
+					label => display_icon("barcode") . lang("display_barcode_in_search"),
+					value => $user_ref->{display_barcode} && "on",
+				},
+				{
+					field => "edit_link",
+					type => "checkbox",
+					label => display_icon("edit") . lang("edit_link_in_search"),
+					value => $user_ref->{edit_link} && "on",
+				},
+			]
+		};
+
+		push @{$template_data_ref->{sections}}, {%$contributor_section_ref};
 
 		# Admin section
 		if ($admin) {

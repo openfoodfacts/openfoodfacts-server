@@ -61,7 +61,10 @@ my $is_localhost = index($po_domain, 'localhost') != -1;
 
 $server_domain = $is_localhost && $po_port != '80' ? "$po_domain:$po_port" : $po_domain;
 @ssl_subdomains = $is_localhost ? qw() : qw(*);
-$producers_platform = $ENV{PRODUCERS_PLATFORM} || "0";
+$producers_platform = $ENV{PRODUCERS_PLATFORM} || undef;
+if (defined $producers_platform && $producers_platform && $producers_platform != "0") {
+	$producers_platform = undef;
+}
 
 # server paths
 $data_root = "/mnt/podata";

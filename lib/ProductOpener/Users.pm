@@ -58,7 +58,6 @@ BEGIN
 
 		$cookie
 
-		&display_user_form
 		&check_user_form
 		&process_user_form
 		&check_edit_owner
@@ -212,213 +211,6 @@ sub is_admin_user($) {
 }
 
 
-sub display_user_form($$$) {
-
-	my $type = shift;
-	my $user_ref = shift;
-	my $scripts_ref = shift;
-
-	my $html = '';
-
-	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"
-	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{email}{$lang}</td><td>"
-	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
-	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"normalize_string_value(this)", -autocomplete=>'username'))) . "</td></tr>"
-	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>$user_ref->{password}, -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-	;
-
-	# Professional account
-
-	$html .= "\n<tr><td>" . lang("pro_account") . "</td><td>";
-
-	$html .= "<p>" . lang("if_you_work_for_a_producer") . "</p>"
-	. "<p>" . lang("producers_platform_description_long") . "</p>";
-
-	my $teams_display = '';
-
-	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
-
-		# Existing user with an accepted organization
-
-		$html .= "<p>"
-			. sprintf(
-			lang("this_is_a_pro_account_for_org"),
-			"<b>" . $user_ref->{org} . "</b>"
-			) . "</p>";
-	}
-
-	# Pro platform is only for food right now
-
-	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		# New user or existing user without an accepted organization
-
-		my $pro_checked = '';
-		my $pro_org_display = 'style="display:none"';
-
-		# Check the "pro account" checkbox for register screen on the producers platform
-
-		if (((defined $user_ref->{pro}) and ($user_ref->{pro}))
-			or ((defined $server_options{producers_platform}) and ($type eq "add"))) {
-			$pro_checked = "checked";
-			$pro_org_display = "";
-			$teams_display = 'style="display:none"';
-		}
-
-		$html .= "<input type=\"checkbox\" id=\"pro\" name=\"pro\" $pro_checked>"
-		. "<label for=\"pro\">"
-		. "<input type=\"hidden\" name=\"pro_checkbox\" value=\"1\"> "
-		. lang("this_is_a_pro_account") . "</label>"
-		. "<div id=\"pro_org\" $pro_org_display>"
-		. "<p id=\"org-field\">" . lang("producer_or_brand") . separator_before_colon($lc) . ": "
-		. textfield(-id=>'requested_org', -name=>'requested_org', -value=>$user_ref->{requested_org}, -override=>1)
-		. "</p>";
-
-		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-
-		if ( defined $requested_org_ref ) {
-
-			$html .= "<div id=\"existing_org_warning\">"
-			. "<p>" . sprintf(lang("add_user_existing_org"), org_name($requested_org_ref)) . "</p>"
-			. "<p>" . lang("add_user_existing_org_pending") . "</p>"
-			. "<p>" .lang("please_email_producers") . "</p>"
-			. "</div>";
-		}
-		else {
-			$html .= "<p>" . lang("enter_name_of_org") . "</p>";
-		}
-
-		$html .= "</div>";
-
-		$html .= "</td></tr>";
-
-		$initjs .= <<JAVASCRIPT
-\$('#pro').change(function() {
-	if (\$(this).prop('checked')) {
-		\$('#pro_org').show();
-		\$('#tr_teams').hide();
-	} else {
-		\$('#pro_org').hide();
-		\$('#tr_teams').show();
-	}
-	\$(document).foundation('equalizer', 'reflow');
-});
-JAVASCRIPT
-;
-
-	}
-
-	# On the public web site, but not on the producers platform, offer to be part of a team
-
-	if (not ((defined $server_options{private_products}) and ($server_options{private_products}))) {
-		$html .= "\n<tr id=\"tr_teams\" $teams_display><td>" . lang("teams") . " (" . lang("optional") . ")</td><td><p>"
-		. lang("teams_description") . "</p><p>" . lang("teams_names_warning") . "</p>"
-		. '<div class="row">';
-
-		for (my $i = 1; $i <= 3; $i++) {
-			$html .= "\n<div class=\"small-3 large-2 xlarge-1 columns\">" . sprintf(lang("team_s"), $i) . lang("sep") . ":</div><div class=\"small-9 large-10 xlarge-11 columns\">"
-			. textfield(-name=>"team_" . $i, -value=>$user_ref->{"team_" . $i}, -style=>"max-width:20rem", -override=>1, -onkeyup=>"normalize_string_value(this)") . "</div>";
-		}
-
-		$html .= "</div></td></tr>";
-	}
-
-
-	${$scripts_ref} .= <<SCRIPT
-<script type="text/javascript">
-
-function normalize_string_value(inputfield) {
-
-	var value = inputfield.value.toLowerCase();
-
-	value = value.replace(new RegExp(" ", 'g'),"-");
-	value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
-	value = value.replace(new RegExp("æ", 'g'),"ae");
-	value = value.replace(new RegExp("ç", 'g'),"c");
-	value = value.replace(new RegExp("[èéêë]", 'g'),"e");
-	value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
-	value = value.replace(new RegExp("ñ", 'g'),"n");
-	value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
-	value = value.replace(new RegExp("œ", 'g'),"oe");
-	value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
-	value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
-	value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-	value = value.replace(new RegExp("-+", 'g'),"-");
-	value = value.replace(new RegExp("^-"),"");
-
-	inputfield.value = value;
-}
-
-</script>
-SCRIPT
-;
-
-	return $html;
-}
-
-
-sub display_user_form_optional($$) {
-
-	my $type = shift;
-	my $user_ref = shift;
-
-	my $html = '';
-
-	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
-	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
-
-	if ($type eq 'add') {
-
-		$html .=
-		"\n<tr><td colspan=\"2\">" . checkbox(-name=>'newsletter', -label=>lang("newsletter_description"), -checked=>'on') . "<br />
-		$Lang{unsubscribe_info}{$lang}</td></tr>";
-	}
-
-	return $html;
-}
-
-
-sub display_user_form_admin_only($$) {
-
-	my $type = shift;
-	my $user_ref = shift;
-
-	my $html = '';
-
-	if (not $admin) {
-		return '';
-	}
-
-	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
-	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
-
-	if (($type eq 'add') or ($type eq 'edit')) {
-
-		$html .= "\n<tr><td colspan=\"2\" style=\"background-color:#ffcccc\">Administrator fields</td></tr>";
-
-		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
-		. textfield(-id=>'org', -name=>'org', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'org', -override=>1) . "</td></tr>";
-
-		$html .= "\n<tr><td colspan=\"2\">" . lang("user_groups") . lang("sep") . ":<ul>";
-
-		foreach my $group (@user_groups) {
-			$html .= "<li>"
-			. checkbox(-name=>"user_group_$group", -label=>" " . lang("user_group_$group") . separator_before_colon($lc) . " " . lang("user_group_${group}_description")
-				, -checked=>$user_ref->{$group}, -override=>1)  . "</li>";
-		}
-
-		$html .= "</td></tr>";
-	}
-
-	return $html;
-}
-
-
 sub check_user_form($$$) {
 
 	my $type = shift;
@@ -537,6 +329,10 @@ sub check_user_form($$$) {
 			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
 		}
 	}
+
+	# contributor settings
+	$user_ref->{display_barcode} = !! remove_tags_and_quote(param("display_barcode"));
+	$user_ref->{edit_link} = !! remove_tags_and_quote(param("edit_link"));
 
 	# Check input parameters, redisplay if necessary
 

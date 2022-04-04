@@ -21,7 +21,7 @@ Get started running server in development mode, see [Dev environment quick start
 
 ### Check before commiting
 
-You can save you sometime by running some checks localy before commiting.
+You can save you sometime by running some checks locally before committing.
 
 `make checks` should work.
 
