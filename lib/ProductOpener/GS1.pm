@@ -863,6 +863,13 @@ sub gs1_to_off ($$$) {
 			if ($source_field eq "nutrientHeader") {
 				
 				$log->debug("gs1_to_off - special handling for nutrientHeader array") if $log->is_debug();
+
+				# If there is only one nutrition facts table, nutrientHeader might not be an array
+				# depending on how the XML was converted to JSON
+				# In that case, create an array
+				if (ref($json_ref->{$source_field}) eq 'HASH') {
+					$json_ref->{$source_field} = [$json_ref->{$source_field}];
+				}
 				
 				# Some products like ice cream may have nutrients per 100g + nutrients per 100ml
 				# in that case, the last values (e.g. for 100g) will override previous values (e.g. for 100ml)
@@ -1247,18 +1254,63 @@ sub gs1_to_off ($$$) {
 }
 
 
+    # Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
+    # e.g. <gtin>03449862093657</gtin>
+    #
+    # becomes:
+    #
+    # gtin: {
+    #    $t: "03449865355608"
+    # },
+
+
+sub convert_single_text_property_to_direct_value($) {
+    
+	my $json_ref = shift;
+
+    my $type = ref $json_ref or return;
+
+    if ($type eq 'HASH') {
+		foreach my $key (keys %$json_ref) {
+			if (ref $json_ref->{$key}) {
+				# Hash with a single $t value?
+				if ((ref $json_ref->{$key} eq 'HASH') and ((scalar keys %{$json_ref->{$key}}) == 1) and (defined $json_ref->{$key}{'$t'})) {
+					$json_ref->{$key} = $json_ref->{$key}{'$t'};
+				}
+				else {
+					convert_single_text_property_to_direct_value($json_ref->{$key});
+				}
+			}
+		}
+    }
+    elsif ($type eq 'ARRAY') {
+    
+        foreach my $elem (@$json_ref) {
+            if (ref $elem) {
+                convert_single_text_property_to_direct_value($elem);
+            }
+            else {
+                $elem = enhance_value ($elem);
+            }
+        }
+    }
+}
+
+
 =head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
 
 Thus function converts the data for one or more products in the GS1 format converted to JSON.
 GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
 In some cases, the conversion to JSON has already be done by a third party (e.g. the CodeOnline database from GS1 France).
 
+Note: This function is recursive if there are child products.
+
 One GS1 message can include 1 or more products, typically products that contain other products
 (e.g. a pallet of cartons of products).
 
 =head3 Arguments
 
-=head4 json text
+=head4 $json_ref Reference to a decoded JSON structure
 
 =head4 Reference to an array of product data
 
@@ -1270,10 +1322,8 @@ For each product, the key of the hash is the name of the OFF csv field, and it i
 
 sub convert_gs1_json_message_to_off_products_csv($$) {
 
-	my $json = shift;
+	my $json_ref = shift;
 	my $products_ref = shift;
-	
-	my $json_ref = decode_json($json);
 	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
@@ -1299,7 +1349,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 		documentCommand
 		catalogue_item_notification:catalogueItemNotification
 		catalogueItem
-		tradeItem)) {
+		)) {
 		if (defined $json_ref->{$field}) {
 			$json_ref = $json_ref->{$field};
 			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", { field => $field }) if $log->is_debug();
@@ -1307,14 +1357,17 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	}
 
 	# A product can contain a child product
-	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItemChildItem tradeItem));
+	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
 	if (defined $child_product_json_ref) {
-		$log->debug("convert_gs1_json_to_off_csv - found a child item", { child_item_gtin => $child_product_json_ref->{gtin} }) if $log->is_debug();
+		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
 		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+	}
+
+	if (defined $json_ref->{tradeItem}) {
+		$json_ref = $json_ref->{tradeItem};
 	}
 	
 	if (not defined $json_ref->{gtin}) {
-		
 		$log->debug("convert_gs1_json_to_off_csv - no gtin - skipping", { json_ref => $json_ref }) if $log->is_debug();
 		return {};
 	}
@@ -1365,8 +1418,12 @@ sub read_gs1_json_file($$) {
 	open (my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join (q{}, (<$in>));
 	close($in);
+
+	my $json_ref = decode_json($json);
+
+	convert_single_text_property_to_direct_value($json_ref);
 		
-	convert_gs1_json_message_to_off_products_csv($json, $products_ref);
+	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref);
 }
 
 

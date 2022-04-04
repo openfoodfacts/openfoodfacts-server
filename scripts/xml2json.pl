@@ -52,6 +52,15 @@ foreach my $file (sort(readdir($dh))) {
     # it is unwanted, turn it back to : so that we can match the expected input of ProductOpener::GS1
     $json =~ s/([a-z])\$([a-z])/$1:$2/ig;
 
+    # Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
+    # e.g. <gtin>03449862093657</gtin>
+    #
+    # becomes:
+    #
+    # gtin: {
+    #    $t: "03449865355608"
+    # },
+
     $file =~ s/\.xml$/.json/;
 
     open (my $out, ">:encoding(UTF-8)", "$dir/$file") or die("Could not read $dir/$file: $!");
