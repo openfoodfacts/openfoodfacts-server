@@ -31466,6 +31466,10 @@ agribalyse_food_code:en:25546
 ciqual_food_code:en:25546
 ciqual_food_name:en:Cheese and ham, breaded
 
+<en:Breaded products
+<en:Meat alternatives
+fr:Galettes de légumes panées
+
 <en:Cereals and potatoes
 en:Breads
 bg:Хляб
@@ -54835,7 +54839,7 @@ fr:Purées de sésame demi-complet, Purées de sésame semi-complet
 nl:Half-volkoren sesampastas
 
 <en:Cereals and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:Seitan
 de:Seitan
 es:Seitanes, Seitán
@@ -55174,6 +55178,10 @@ nl:Gekoelde producten
 pt:Alimentos refrigerados, refrigerados
 ru:охлажденные продукты
 th:อาหารแช่เย็น
+
+<en:Plant-based foods
+<en:Refrigerated foods
+en:Refrigerated plant-based foods
 
 en:Freeze-dried foods, Lyophilized foods
 de:Gefriergetrocknete Lebensmittel, Lyophilisierte Lebensmittel
@@ -58715,7 +58723,6 @@ ciqual_food_name:fr:Banane plantain, cuite
 fr:Matooke, matoke
 wikidata:en:Q101418717
 
-<en:Bananas
 <en:Flours
 en:Banana flours
 fr:Farines de banane
@@ -68484,8 +68491,10 @@ fr:Samoussas aux légumes, samossas aux légumes
 nl:Groentesamosa
 #wikidata:en:
 
+# Patties that often replace meat in vegeterian meals
+<en:Meat alternatives
 <en:Prepared vegetables
-en:Vegetable cakes, vegetable patties
+en:Vegetable patties
 de:Gemüsefrikadellen
 fi:kasvispihvit
 fr:Galettes de légumes
@@ -68493,7 +68502,7 @@ it:Torte vegetali
 nl:Groentencakes
 #wikidata:en:
 
-<en:Prepared vegetables
+<en:Meat alternatives
 <en:Frozen foods
 en:Frozen vegetable rosti, Frozen pre-fried vegetable rosti
 fr:Palets de légumes préfrits surgelés, Galettes de légumes préfrites surgelées
@@ -68502,7 +68511,8 @@ ciqual_food_code:en:25199
 ciqual_food_name:en:Vegetable rosti, pre-fried, frozen
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé
 
-<en:Frozen vegetable rosti
+<en:Cereals and potatoes
+<en:Frozen foods
 en:Frozen Rostis, Frozen Potatoes cakes, Frozen Potato cakes
 fr:Rostis surgelés, Galette de pomme de terre surgelée, Galette de pommes de terre surgelées
 
@@ -68826,7 +68836,7 @@ ciqual_food_code:en:25219
 ciqual_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
 ciqual_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
-<en:Meals
+<en:Plant-based foods
 en:Prepared vegetables
 ca:Verdures preparades
 de:Vorbereitetes Gemüse, Gemüsezubereitung
@@ -68920,6 +68930,7 @@ es:Frijoles refritos
 fr:Haricots refrits
 
 <en:Prepared vegetables
+<en:Meals
 en:Ratatouille
 de:Ratatouille
 fr:Ratatouilles, ratatouille, Ratatouille cuisinée
@@ -68944,6 +68955,7 @@ nl:Kant-en-klaar linzen
 #wikidata:en:
 
 <en:Meals with meat
+<en:Lentil dishes
 en:Salt-cured pork belly with lentils
 fr:Petits salés aux lentilles, petit salé aux lentilles, petit salé
 agribalyse_food_code:en:25010
@@ -70176,7 +70188,7 @@ wikidata:en:Q3807565
 <en:Meat preparations
 de:Fleischkäse
 
-<en:Plant-based foods
+<en:Meat alternatives
 en:Vegetarian balls
 fr:Boulettes végétariennes
 
@@ -70195,7 +70207,7 @@ ciqual_food_name:en:Falafel
 ciqual_food_name:fr:Falafel ou Boulette de pois-chiche et/ou fève, frite
 
 <en:Falafel
-<en:Refrigerated meals
+<en:Refrigerated plant-based foods
 en:Refrigerated falafel
 es:Falafel refrigerado
 fr:Falafels réfrigérés, Falafel réfrigérés, Falafel réfrigéré
@@ -70203,7 +70215,7 @@ it:Falafel congelato
 nl:Gekoelde falafel
 
 <en:Falafel
-<en:Frozen ready-made meals
+<en:Frozen plant-based foods
 en:Frozen falafel
 es:Falafel congelado
 fr:Falafels surgelés, Falafel surgelé
@@ -92072,7 +92084,7 @@ nl:Sojaboonpastas
 # description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 
 <en:Legumes and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:tofu, Tofus, bean curds
 an:Tofu
 ar:توفو
@@ -92179,7 +92191,7 @@ en:Smoked tofu
 fr:Tofu fumé
 
 <en:Legumes and their products
-<en:Meat analogues
+<en:Meat alternatives
 en:Tempeh
 de:Tempeh
 es:Tempeh
@@ -95634,7 +95646,13 @@ nl:Foie gras moussen
 en:Foies gras pâtés
 fr:Pâtés de foie gras
 
+# All products that usually replace meat in vegetarian meals. E.g. falafels, tofu...
 <en:Plant-based foods
+en:Meat alternatives
+fr:Alternatives à la viande
+
+# Meat alternatives that are created to look replace meat and often look like it. E.g. vegetarian sausages, nuggets...
+<en:Meat alternatives
 en:Meat analogues, Meat substitutes, Mock meats
 ca:Substitutius de carn
 de:Fleisch-Ersatzprodukte
