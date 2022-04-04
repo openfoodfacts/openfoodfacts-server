@@ -1,14 +1,16 @@
-name: Link Check Deploy
+name: Link rot
 on:
-  push:
-    branches: '*'
+  - push
 
 jobs:
-  build:
+  check:
+    name: Link rot check
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Get file names
+
+      - name: Get files that need to be checked
         id: get_files
         run: |
           html_files=$(find html/donate -type f -name '*.html' -exec basename {} \;)
@@ -16,22 +18,11 @@ jobs:
           file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
           echo "::set-output name=all_files::$file_list"
           echo $file_list
-    #  - name: Get modified file names
-   #     id: files
-    #    uses: jitterbit/get-changed-files@v1
-      #  with:
-      #    format: 'csv'
-     # - run: |
-   # mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
-  #  for added_modified_file in "${added_modified_files[@]}"; do
-    #  echo "Do something with this ${added_modified_file}."
- #   done
+
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
           files: "${{ steps.get_files.outputs.all_files }}"
-          #files: "${{steps.files.outputs.added_modified }}"
-          #blacklist: "${{ steps.get_files.outputs.all_files }},01-intro.md,about.md,doi2bib.org"
 
       - uses: LouisBrunner/checks-action@v0.1.0
         with:
