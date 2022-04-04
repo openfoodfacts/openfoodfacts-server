@@ -693,8 +693,20 @@
       "en:ecoscore-not-computed"
    ],
    "nova_group" : 3,
-   "nova_group_debug" : " -- ingredients/en:starch : 3",
+   "nova_group_debug" : "",
    "nova_groups" : "3",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:starch"
+         ],
+         [
+            "ingredients",
+            "en:enzyme"
+         ]
+      ]
+   },
    "nova_groups_tags" : [
       "en:3-processed-foods"
    ],
