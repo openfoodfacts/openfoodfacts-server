@@ -2200,9 +2200,9 @@ sub update_export_status_for_csv_file($) {
 
 	my $args_ref = shift;
 
-	my $User_id = $args_ref->{user_id};
-	my $Org_id = $args_ref->{org_id};
-	my $Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
+	$User_id = $args_ref->{user_id};
+	$Org_id = $args_ref->{org_id};
+	$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 
 	$log->debug("starting update_export_status_for_csv_file", { User_id => $User_id, Org_id => $Org_id, Owner_id => $Owner_id }) if $log->is_debug();
 
