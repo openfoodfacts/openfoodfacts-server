@@ -54,6 +54,7 @@ requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1
 requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
 requires 'Text::CSV', '>= 2.01, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.
+requires 'Text::CSV_XS';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl

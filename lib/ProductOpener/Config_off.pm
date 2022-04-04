@@ -639,6 +639,7 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
 	allergens
 	traces
 	serving_size
@@ -646,10 +647,6 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	no_nutriments
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
 	nutriscore_score
 	nutriscore_grade
 	nova_group
@@ -658,11 +655,12 @@ $options{categories_exempted_from_nutrient_levels} = [qw(
 	food_groups
 	states
 	brand_owner
-	ecoscore_score_fr
-	ecoscore_grade_fr
+	ecoscore_score
+	ecoscore_grade
 );
 
-
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
 	[   "identification",
 		[   "code",                      "producer_product_id",
@@ -706,6 +704,28 @@ $options{import_export_fields_groups} = [
 	],
 	[   "images",
 		[   "image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url", "image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[   "off",
+		[
+			"food_groups",
+			"nova_groups",
+			"nutriscore_grade",
+			"nutriscore_score",
+			"ecoscore_grade",
+			"ecoscore_score",
+			"ecoscore_data.missing_key_data",
+			"ecoscore_data.agribalyse.code",
+			"ecoscore_data.adjustments.origins_of_ingredients.value",
+			"ecoscore_data.adjustments.packaging.value",
+			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"ecoscore_data.adjustments.production_system.value",
+			"ecoscore_data.adjustments.threatened_species.value",
 		]
 	],
 ];

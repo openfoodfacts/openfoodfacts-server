@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       - name: Install Perl requirements
         run: |

@@ -1,6 +1,7 @@
 # Containers
 
 en:Unknown
+bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:overig
@@ -20,10 +21,12 @@ fr:récipient
 
 # undefined packaging shape: (e.g. "plastic packaging")
 en:packaging
+bg:опаковка
 fr:emballage
 
 # e.g. flour packet, paquet de biscuits, pack d'eau, beer pack
 en:pack, packet, packs, packets, package
+bg:пакет, пакети
 de:Packung
 es:paquete, paquetes
 fr:paquet, pack, paquets, packs, packet, packets
@@ -40,6 +43,7 @@ nl:Tray
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 
 en:Jar, jars
+bg:Буркан, буркани
 de:Krug
 el:Βάζο
 es:Tarro
@@ -52,6 +56,7 @@ ro:Borcan
 #suggest:packaging_materials:nl: en:glass
 
 en:Box, boxes
+bg:Кутия, кутии
 de:Kasten, Schachtel, Schachteln
 el:Κουτί
 es:caja, cajas
@@ -82,6 +87,7 @@ fr:Bidon, bidons
 pt:garrafão
 
 en:Bottle, bottles
+bg:Бутилка, бутилки
 da:Flaske, flasker
 de:Flasche, Flaschen
 el:Μπουκάλι
@@ -105,6 +111,7 @@ fr:briquette, briquettes
 
 # Can (drink or food) made with metal
 en:Can, cans
+bg:Консерва или кен
 da:Dåse, dåser
 de:Dose, Dosen
 es:Lata
@@ -118,6 +125,7 @@ packaging_materials:en: en:metal
 # Can for drink, not canned food
 <en:can
 en:Drink can, beverage can, drink cans, beverage cans
+bg:Кен, кенче
 de:Getränkedose
 es:Lata de bebida
 fr:Canette, cannette, canettes, cannettes
@@ -129,6 +137,7 @@ pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata
 # Note: "canned", "conserve" : already used in the preservation taxonomy
 <en:can
 en:Food can, tin, tin can
+bg:Консерва
 de:Konservendose
 es:Lata de comida
 fr:Boîte de conserve, boîtes de conserves
@@ -172,6 +181,7 @@ fr:Lien, noeud
 weight:en:light
 
 en:Bag, bags
+bg:Торба, торби
 da:Taske, tasker
 de:Tüte, Sack, beutel
 el:Σακούλα
@@ -190,6 +200,7 @@ pt:Caixote, caixotes
 
 <en:Bag
 en:Individual bag, individual bags
+bg:Индивидуална торбичка, индивидуални торбички
 de:Einzeltüten, einzelne Tüten
 fr:Sachet individuel, Sachets individuels
 hu:Külön zacskó, egyenkénti zacskó, külön tasak, egyenként zacskózott
@@ -220,6 +231,7 @@ nl:Deksel
 pt:Tampa, tampas
 
 en:Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
+bg:Капачка за бутилка, капачка, капачки
 fr:Bouchon de bouteille, bouchon,  bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
 nl:Dop, Doppe
@@ -228,11 +240,13 @@ pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garraf
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
 <en:Bottle cap
 en:Wine cork, wine bottle cork, wine corks, wine bottle corks
+bg:Коркова тапа за вино, Корк за вино
 fr:bouchon de bouteille de vin, bouchons de bouteille
 nl:Wijn kurk
 
 <en:Bottle cap
 en:Capsule, capsules
+bg:Капсула, капсули
 fr:Capsule, capsules
 hu:Kapszula, kapszulák
 nl:Capsule, Kroonkurk, Kroonkurken
@@ -253,6 +267,7 @@ nl:Theezakje
 
 # keep the plural as the main name
 en:Eating utensils, utensils, eating utensil, utensil
+bg:Прибори за хранене
 de:Essensutensilien, Utensilien, Essensutensil, Utensil
 fr:Couverts, couvert
 hu:evőeszközök, evőeszköz
@@ -261,6 +276,7 @@ pt:Talheres, talher
 # keep the plural
 <en:Eating utensils
 en:Chopsticks
+bg:Пръчици за хранене
 da:Spisepinde
 de:Essstäbchen
 fr:Baguettes
@@ -270,6 +286,7 @@ pt:Pauzinhos chineses, palitinhos, hashi
 
 <en:Eating utensils
 en:Knife, knives
+bg:Нож, ножове
 da:Kniv, knive
 de:Messer
 fr:Couteau, couteaux
@@ -278,6 +295,7 @@ pt:Faca, facas
 
 <en:Eating utensils
 en:Fork, forks
+bg:Вилица, вилици
 da:Gaffel, gafler
 de:Gabel, Gabeln
 fr:Fourchette, fourchettes
@@ -286,6 +304,7 @@ pt:Garfo, garfos
 
 <en:Eating utensils
 en:Spoon, spoons
+bg:Лъжица, лъжици
 da:Ske, skeer
 de:Löffel
 fr:Cuillère, cuiller, cuillères, cuillers
@@ -293,6 +312,7 @@ hu:kanál, kanalak
 pt:Colher, colheres
 
 en:sheet, sheets
+bg:лист, листа
 fr:feuille, feuilles
 hu:fólia, fóliák, lap, lapok
 pt:Folha, folhas
@@ -313,6 +333,7 @@ hu:tartó, tábla, állvány
 pt:suporte, placa, suportes, placas
 
 en:Net, nets
+bg:Мрежа, мрежи
 de:Netz
 fr:Filet, filets
 hu:Háló, hálók
@@ -352,6 +373,7 @@ pt:Tampo, tampos
 # weight:en:light
 
 en:bulk, without packaging
+bg:насипно, наливно, без амбалаж
 da:uden emballage
 de:ohne Verpackung
 fr:vrac, sans emballage
@@ -359,6 +381,7 @@ hu:ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
 pt:Granel, a granel, sem embalagem, sem embalagens
 
 en:Bowl, bows
+bg:Купа, купи
 de:Schüssel
 el:Μπολ
 fr:Bol, bols
@@ -367,6 +390,7 @@ nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes
 pt:Tigela, taça, tigelas, taças
 
 en:Plate, plates
+bg:Чиния, чинии
 fr:Assiette, assiettes
 hu:tányér, tányérok
 nl:Bord, Borden, Bordje
@@ -383,6 +407,7 @@ fr:Stick cosmétique
 # different - do not merge
 
 en:label, labels
+bg:етикет, етикети
 de:Etikett, Etiketten
 fr:étiquette, étiquettes
 hu:címke, címkék
@@ -403,11 +428,13 @@ fr:Bandelette
 #suggest:packaging_materials:en: en:plastic, en:metal, en:cardboard, en:other
 
 en:Ampoule, ampul, ampule
+bg:Крушка
 fr:Ampoule
 nl:Ampulle
 #suggest:packaging_materials:en: en:glass
 
 en:Blister, Blister pack
+bg:Блистер
 fr:Blister
 nl:Blister
 
@@ -431,6 +458,7 @@ fr:Muselet, Muselet et plaque
 # related_categories:en: en:Champagnes
 
 en:hanger
+bg:закачалка
 fr:Cintre
 # related_categories:en: en:Clothes
 
@@ -453,6 +481,7 @@ pt:invólucro
 #suggest:packaging_materials:en: en:metal, en:paper, en:other
 
 en:envelope
+bg:плик
 es:sobre
 fr:enveloppe
 it:busta
@@ -485,9 +514,11 @@ fr:Flacon à bille, Roll
 #suggest:packaging_materials:en: en:plastic, en:glass
 
 en:Basket, baskets
+bg:Кошница, кошници
 fr:Panier, paniers
 
-en:Syringe, syringes,
+en:Syringe, syringes
+bg:Спринцовка, спринцовки
 fr:Seringue, seringues
 
 en:Wings, Hygiene wings
@@ -495,6 +526,7 @@ fr:Ailettes
 #suggest:packaging_materials:en: en:plastic, en:paper
 
 en:Bucket, buckets
+bg:Кофа, кофи
 fr:Seau, seaux
 #suggest:packaging_materials:en: en:plastic, en:metal
 
@@ -522,6 +554,7 @@ nl:Cartridge, cartridges
 #fr:Bidon
 
 en:Straw, straws
+bg:Сламка, сламки
 fr:Paille, pailles
 
 en:Filling
