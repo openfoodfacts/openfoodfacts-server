@@ -7504,6 +7504,7 @@ ciqual_food_code:en:18020
 ciqual_food_name:en:Tea, brewed, without sugar
 ciqual_food_name:fr:Thé infusé, non sucré
 
+# Note: en:instant-beverages is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Beverages
 en:Instant beverages, Instant hot beverages
 ca:Begudes instantànies
@@ -8710,6 +8711,7 @@ de:Mischgetränk, Mix-Getränk
 nl:Gemengde dranken
 wikidata:en:Q3246609
 
+# Note: en:flavoured-syrups is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Beverages
 <en:Syrups
 en:Flavoured syrups
@@ -30436,6 +30438,7 @@ pt:Produtos secos, produtos desidratados, Alimentos secos, Alimentos desidratado
 ru:Обезвоженные продукты
 th:อาหารแห้ง
 
+# Note: en:dried-products-to-be-rehydrated is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Dried products
 en:Dried products to be rehydrated
 ca:Productes assecats per a ser rehidratats
@@ -33142,6 +33145,7 @@ nl:Rauwe cacaobonen
 fr:Grué de cacao
 wikidata:en:Q3118262
 
+# Note: en:cocoa-and-chocolate-powders is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Cocoa and its products
 en:Cocoa and chocolate powders, chocolate and cocoa powders
 ca:Pols de coco i xocolata
@@ -33333,6 +33337,7 @@ ciqual_food_name:fr:Gâteau (aliment moyen)
 # category/cakes has 6408 products @2019-05-20
 # ingredient/fr:gâteau has 59 products in french @2019-02-06
 
+# Note: en:dessert-mixes is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Cooking helpers
 en:Dessert mixes, Dessert mix
 de:Nachtischmischungen, Nachtischmischung
