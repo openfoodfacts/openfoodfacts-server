@@ -8117,10 +8117,30 @@ HTML
 <meta name="twitter:creator" content="@<twitter_account>">
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$description">
+HTML
+;
+
+	if (defined $product_ref->{brands}) {
+		# print only first brand if multiple exist.
+		my @brands = split(',', $product_ref->{brands});
+		$header .= <<HTML
 <meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
-<meta name="twitter:data1" content="$product_ref->{brand}">
+<meta name="twitter:data1" content="$brands[0]">
+HTML
+;
+	}
+
+	# get most specific category (the last one)
+	my $data2 = display_taxonomy_tag($lc, "categories", $product_ref->{categories_tags}[-1]);
+	if ($data2) {
+		$header .= <<HTML
 <meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
-<meta name="twitter:data2" content="$product_ref->{category}">
+<meta name="twitter:data2" content="$data2">
+HTML
+;
+	}
+
+	$header .= <<HTML
 $meta_product_image_url
 
 HTML
