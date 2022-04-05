@@ -1245,7 +1245,8 @@ agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
 
 <en:Beers
-en:India Pale Ale, IPA beers
+en:India Pale Ale (IPA), IPA beers
+xx:India Pale Ale (IPA)
 wikidata:en:Q1543214
 
 <en:Beers
@@ -1922,7 +1923,7 @@ fi:Inkivääriolut
 fr:Bière de gingembre, ginger beer
 hu:Ginger beer
 it:Birre ginger
-nl:Gemberbieren, Gemberbier
+nl:Gemberbieren, Gemberbier, gunger ale
 ro:Bere de ghimbir
 zh:姜啤
 wikidata:en:Q1448819
@@ -3866,7 +3867,7 @@ de:Weinbasierte Getränke, Getränke auf Weinbasis
 es:Bebidas a base de vino
 fi:Viinipohjaiset juomat
 fr:Boissons à base de vin
-nl:Draken op basis van wijn
+nl:Dranken op basis van wijn
 agribalyse_food_code:en:1007
 ciqual_food_code:en:1007
 ciqual_food_name:en:Wine-based aperitif
@@ -22811,6 +22812,7 @@ wikidata:en:Q3634897
 
 <en:Wines from Italy
 it:Bardolino
+xx:Bardolino
 protected_name_file_number:en: PDO-IT-A0436
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -34850,7 +34852,7 @@ es:Chocolates negro con avellanas
 fi:Tummat suklaat hasselpähkinöillä
 fr:Chocolats noirs aux noisettes
 it:Cioccolato fondente alle nocciole
-nl:Pure chcola met hazelnoot
+nl:Pure chocola met hazelnoot
 agribalyse_proxy_food_code:en:31070
 agribalyse_proxy_food_name:en:Dark chocolate bar, with dried fruits (nuts, almonds, raisin, praline)
 agribalyse_proxy_food_name:fr:Chocolat noir aux fruits secs (noisettes, amandes, raisins, praline), tablett
@@ -37684,7 +37686,7 @@ en:Glutinous rices, Sticky rices
 de:Klebreis
 es:Arroces glutinosos
 fr:Riz gluant, riz glutineux, riz collant, riz doux
-nl:Plakrijst
+nl:Plakrijst, Dessertrijsten, Dessrt rijsten
 wikidata:en:Q115443
 
 <en:Rices
@@ -38948,7 +38950,7 @@ es:Quesos sin lactosa
 fi:Laktoosittomat juustot
 fr:Fromages sans lactose
 it:Formaggi senza lattosio
-nl:Lactose-vrije kaas, Lactose-vrije kazen, Kaas zonder lactose
+nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 
 <en:Cheeses
 en:Sliced cheeses
@@ -50439,7 +50441,7 @@ es:Aceites de aguacate
 fi:Avokadoöljyt
 fr:Huiles d'avocat, Huile d'avocat
 it:Olio di avocado
-nl:Avocado-olie, Avocado-oliën
+nl:Avocado-oliën, Avocado-olie
 zh:鳄梨油
 wikidata:en:Q2918735
 ciqual_food_code:en:17100
@@ -56525,6 +56527,7 @@ origins:en: en:Austria
 #wikidata:en:
 
 <en:British fruit
+<en:Apples
 en:Armagh Bramley Apples
 protected_name_file_number:en: PGI-GB-0792
 protected_name_type:en: pgi
@@ -57296,6 +57299,10 @@ agribalyse_food_code:en:13085
 ciqual_food_code:en:13085
 ciqual_food_name:en:Apple, Canada, pulp, raw
 ciqual_food_name:fr:Pomme Canada, pulpe, crue
+
+<en:Apples
+en:Kanzi apples
+nl:Kanzi-appels
 
 <en:Apples
 en:Boiled apples without skin, Apples without skin cooked in water
@@ -62375,6 +62382,10 @@ ciqual_food_name:en:Chili pepper, raw
 ciqual_food_name:fr:Piment, cru
 
 <en:Chili peppers
+en:Chili powders
+nl:Chilipoeders, Chillipoeders
+
+<en:Chili peppers
 it:Peperone di Pontecorvo
 protected_name_file_number:en: PDO-IT-0675
 protected_name_type:en: pdo
@@ -62552,7 +62563,7 @@ wikidata:en:Q178359
 who_id:en:17
 
 <en:Sauces
-en:Peanut sauces, Satay sauces
+en:Peanut sauces
 de:Erdnusssauce
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 nl:Pindasauzen
@@ -62560,6 +62571,7 @@ wikidata:en:Q107310187
 
 #peanut suaces with added spices
 <en:Peanut sauces
+en:Satay sauces
 nl:Satésauzen
 
 <en:Sauces
@@ -62651,6 +62663,7 @@ ciqual_food_name:fr:Meloukhia, sauce, artisanale
 en:Kebab sauces
 es:Salsa kebab
 fr:Sauces kebab
+nl:Kebabsauzen
 agribalyse_food_code:en:11203
 ciqual_food_code:en:11203
 ciqual_food_name:en:Kebab sauce, prepacked
@@ -62676,27 +62689,34 @@ fr:Sauces au lait de coco, Sauces thaï
 en:Honey sauces, Sauces with honey, Honey dressings
 fr:Sauces au miel
 
-<fr:Sauces au miel
+<en:Honey sauces
 en:Honey dill sauces
 fr:Sauce à l'aneth au miel
+nl:Dillesauzen
 wikidata:en:Q17098070
 
 <en:Sauces
+en:Wine sauces
 fr:Sauces au vin
+nl:Wijnsauzen
 agribalyse_proxy_food_code:en:11164
 agribalyse_proxy_food_name:en:Red wine sauce
 agribalyse_proxy_food_name:fr:Sauce au vin rouge
 
-<fr:Sauces au vin
+<en:Wine sauces
+en:White wine sauces
 fr:Sauces au vin blanc, Sauce au vin blanc
+nl:Witte wijnsauzen
 
-<fr:Sauces au vin blanc
+<en:White wine sauces
 en:muscat wine sauce
+nl:Muskaatwijnsauzen
 wikidata:en:Q3474123
 
-<fr:Sauces au vin
+<en:Wine sauces
 en:Red wine sauces
 fr:Sauces au vin rouge, Sauce au vin rouge
+nl:Rode wijnsauzen
 agribalyse_food_code:en:11164
 ciqual_food_code:en:11164
 ciqual_food_name:en:Red wine sauce
@@ -62704,15 +62724,17 @@ ciqual_food_name:fr:Sauce au vin rouge
 wikidata:en:Q3474125
 
 <en:Sauces
-en:Yogurt sauce, Yogurt dressing sauces, Yogurt dressing
+en:Yogurt sauces, Yogurt dressing sauces, Yogurt dressing
 fr:Sauces au yaourt, Sauce au yaourt, Sauces dressing au yaourt
+nl:Yoghurtsauzen
 agribalyse_food_code:en:11166
 ciqual_food_code:en:11166
 ciqual_food_name:en:Yogurt sauce
 ciqual_food_name:fr:Sauce au yaourt
 
-<en:Yogurt sauce
+<en:Yogurt sauces
 en:Blue cheese yogurt dressings
+nl:Blauwe kaassauzen
 
 <en:Sauces
 en:Grand veneur sauce, Reduction of red wine with garlic shallots and red currant jelly
@@ -62745,6 +62767,7 @@ ciqual_food_name:fr:Sauce à la crème aux herbes
 <en:Sauces
 en:Cream sauces with mushrooms
 fr:Sauces aux champignons et à la crème
+nl:Champignonsauzen
 agribalyse_food_code:en:11192
 ciqual_food_code:en:11192
 ciqual_food_name:en:Cream sauce with mushrooms, prepacked
@@ -63174,7 +63197,7 @@ es:Aliolis, Salsas alioli, Alioli, Salsa alioli
 fi:Aiolit, Aiolikastikkeet
 fr:Aïolis, Aiolis, sauces Aïoli, sauces Aïolis, sauce Aïoli
 it:Salsa aioli
-nl:Aiolisauzen, Knoflooksauzen
+nl:KnoflooksauzenAiolisauzen
 wikidata:en:Q283231
 agribalyse_food_code:en:11168
 ciqual_food_code:en:11168
@@ -65473,7 +65496,7 @@ es:Tomate natural triturado
 fi:Tomaattisoseet, tomaattipyreet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate, Purée de tomates en conserve, Purée de tomates appertisée
 it:Puree di pomodoro
-nl:Tomatenpuree
+nl:Tomatenpurees
 agribalyse_food_code:en:20170
 ciqual_food_code:en:20170
 ciqual_food_name:en:Tomato puree, canned
@@ -68089,6 +68112,10 @@ fr:Bouillons liquides
 it:Brodo liquido
 nl:Vloeibare bouillons
 
+<en:Liquid broths
+en:Liquid chicken broths
+nl:Vloeibare kippebouillons
+
 <en:Broths
 en:Bouillon pots, Stock pots
 es:Caldos en cacitos, Cacitos de caldo
@@ -70226,12 +70253,19 @@ nl:Diepvriesfalafel
 en:Meat balls
 fi:Lihapullat, Lihapyörykät
 fr:Boulettes de viande
-nl:Soepballetjes
+nl:Gehaktballen, Soepballetjes
 pt:Almôndegas
 
 <en:Meat balls
+<en:Chicken
 en:Chicken meat balls
 fr:Boulettes au poulet
+nl:Kippegehaktballen
+
+<en:Meat balls
+<en:Pork
+en:Pork meat balls
+nl:Varkensgehaktballen
 
 <en:Meat balls
 <en:Beef
@@ -75330,7 +75364,8 @@ fr:Mousses de canard au porto
 
 <en:Savory mousses
 fr:Mousses de foies, mousses de foie, mousse de foies, mousse de foie
-nl:Leverpasteien, Levermoussen
+nl:Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
+
 
 <fr:Mousses de foies
 fr:Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -75471,6 +75506,7 @@ ciqual_food_code:en:30352
 ciqual_food_name:en:Salami, pork and beef
 
 <en:Salami
+<en:Pork
 en:Pork salami
 fi:Sianlihasalami
 fr:Salami de porc
@@ -84808,6 +84844,10 @@ fr:Confitures de fruits rouges mélanges
 hu:Vegyes piros bogyós lekvárok
 it:Confettura ai frutti di bosco
 nl:Jams van gemengde vruchten
+
+<en:Mixed berry jams
+en:Forest berry jams
+nl:Bosvruchtenjams
 
 <en:Berry jams
 en:Redcurrants jams
@@ -95757,7 +95797,7 @@ es:Quesos vegetales
 fi:vegaanijuustot
 fr:Substituts du fromage, fromages végétaux
 it:Formaggi vegani
-nl:Vegetarische kazen
+nl:Veganistische kazen
 
 <en:Legumes and their products
 en:Puffed lentil cakes

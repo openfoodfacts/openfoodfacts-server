@@ -435,7 +435,7 @@ de:Weinbasierte Getränke, Getränke auf Weinbasis
 es:Bebidas a base de vino
 fi:Viinipohjaiset juomat
 fr:Boissons à base de vin
-nl:Draken op basis van wijn
+nl:Dranken op basis van wijn
 agribalyse_food_code:en: 1007
 ciqual_food_code:en: 1007
 ciqual_food_name:en: Wine-based aperitif
@@ -1082,6 +1082,10 @@ agribalyse_food_code:en: 13176
 ciqual_food_code:en: 13176
 ciqual_food_name:en: Apples, raw, without skin, cooked, boiled/cooked in water
 ciqual_food_name:fr: Pomme, pulpe, bouillie/cuite à l'eau
+
+< en:Apples
+en:Kanzi apples
+nl:Kanzi-appels
 
 < en:Apples
 en:Red Delicious apples, Red Delicious
@@ -1847,6 +1851,14 @@ nl:Ambachtelijke kazen
 < en:Artisan products
 < en:Cured sausages
 fr:Saucissons artisanaux, Saucisson artisanal
+
+< en:Artisan products
+< en:Jams
+en:Artisan jams
+es:Mermeladas y confituras artesanales, Mermeladas artesanales, Confituras artesanales
+fr:Confitures artisanales
+hu:Kézműves lekvárok
+nl:Ambachtelijke jams
 
 < en:Artisan products
 < en:Rillettes
@@ -3827,7 +3839,8 @@ ru:Французское пиво
 wikidata:en: Q4880001
 
 < en:Beers
-en:India Pale Ale, IPA beers
+en:India Pale Ale (IPA), IPA beers
+xx:India Pale Ale (IPA)
 wikidata:en: Q1543214
 
 < en:Beers
@@ -4582,17 +4595,6 @@ ciqual_food_code:en: 31024
 ciqual_food_name:en: Jam, strawberry
 ciqual_food_name:fr: Confiture de fraise -extra ou classique-
 wikidata:en: Q1348968
-
-< en:Berry jams
-< en:Mixed fruit jams
-en:Mixed berry jams
-de:Gemischte Beerenmarmeladen
-es:Mermeladas y confituras de frutas del bosque variadas, Mermeladas de frutas del bosque variadas, Confituras de frutas del bosque variadas
-fi:marjahillosekoitukset
-fr:Confitures de fruits rouges mélanges
-hu:Vegyes piros bogyós lekvárok
-it:Confettura ai frutti di bosco
-nl:Jams van gemengde vruchten
 
 en:Beverages, Drinks
 bg:Напитки
@@ -7063,25 +7065,6 @@ sv:Frukostmat, Frukost, Frukostar
 th:อาหารเช้า
 zh:早餐
 
-< en:Breakfasts
-< en:Spreads
-en:Sweet spreads
-ca:Productes dolços per untar
-de:Süße Brotaufstriche, Süßer Brotaufstrich
-es:Untables dulces
-fi:makeat levitteet
-fr:Produits à tartiner sucrés
-he:ממרחים מתוקים
-hu:Édes kenhető élelmiszer
-it:Spalmabili dolci
-nl:Zoete smeerpastas
-pl:Słodkie produkty do smarowania
-pt:Doces para barrar
-ru:Сладкие намазки
-sv:Söta pålägg
-food_groups:en: en:sweets
-pnns_group_2:en: Sweets
-
 < en:Breams
 en:Freshwater bream
 fr:Brème d'eau douce
@@ -7255,6 +7238,7 @@ protected_name_type:en: pgi
 fr:Couronnes des rois, Couronne des rois, Brioches des rois, Brioche des rois, Galettes des rois briochées, Galette des rois briochée
 wikidata:en: Q168263
 
+< en:Apples
 < en:British fruit
 en:Armagh Bramley Apples
 origins:en: en:united-kingdom
@@ -11112,6 +11096,17 @@ ciqual_food_code:en: 53502
 ciqual_food_name:en: Yam or Indian potato, peeled, raw
 ciqual_food_name:fr: Igname, épluchée, crue
 
+< en:Canned plant-based foods
+< en:Cereals and their products
+en:Canned cereals
+de:Getreide in Dosen, Getreidekonserve
+es:Cereales en conserva
+fi:purkitetut viljat
+fr:Céréales en conserve
+hu:Gabonakonzervek
+it:Cereali in scatola
+nl:Conservengranen, Graan in blik
+
 < en:Breakfasts
 < en:Cereals and their products
 en:Breakfast cereals
@@ -11141,17 +11136,6 @@ ciqual_proxy_food_name:en: Breakfast cereals, mix of puffed or extruded cereals,
 food_groups:en: en:breakfast-cereals
 pnns_group_2:en: Breakfast cereals
 who_id:en: 6
-
-< en:Canned plant-based foods
-< en:Cereals and their products
-en:Canned cereals
-de:Getreide in Dosen, Getreidekonserve
-es:Cereales en conserva
-fi:purkitetut viljat
-fr:Céréales en conserve
-hu:Gabonakonzervek
-it:Cereali in scatola
-nl:Conservengranen, Graan in blik
 
 < en:Cereals and their products
 en:Cereal germs
@@ -12283,7 +12267,7 @@ es:Quesos sin lactosa
 fi:Laktoosittomat juustot
 fr:Fromages sans lactose
 it:Formaggi senza lattosio
-nl:Lactose-vrije kaas, Lactose-vrije kazen, Kaas zonder lactose
+nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 
 < en:Cheeses
 en:Lithuanian cheeses, cheeses from Lithuania
@@ -14619,7 +14603,7 @@ es:Chocolates negro con avellanas
 fi:Tummat suklaat hasselpähkinöillä
 fr:Chocolats noirs aux noisettes
 it:Cioccolato fondente alle nocciole
-nl:Pure chcola met hazelnoot
+nl:Pure chocola met hazelnoot
 agribalyse_proxy_food_code:en: 31070
 agribalyse_proxy_food_name:en: Dark chocolate bar, with dried fruits -nuts, almonds, raisin, praline-
 agribalyse_proxy_food_name:fr: Chocolat noir aux fruits secs -noisettes, amandes, raisins, praline-, tablett
@@ -20340,6 +20324,22 @@ nl:Gemalen gedroogde dille
 
 < en:Dips
 < en:Plant-based spreads
+en:Guacamoles
+bg:Гуакамоле
+de:Guacamoles
+es:Guacamoles
+fi:guacamolet
+fr:Guacamoles
+it:Guacamole
+nl:Guacamoles
+agribalyse_food_code:en: 25620
+ciqual_food_code:en: 25620
+ciqual_food_name:en: Guacamole, prepacked
+ciqual_food_name:fr: Guacamole, préemballé
+wikidata:en: Q207968
+
+< en:Dips
+< en:Plant-based spreads
 < en:Salted spreads
 en:Hummus, Houmous
 ar:حمص بطحينة
@@ -20384,22 +20384,6 @@ ciqual_food_code:en: 25621
 ciqual_food_name:en: Hummus
 ciqual_food_name:fr: Houmous
 wikidata:en: Q241987
-
-< en:Dips
-< en:Plant-based spreads
-en:Guacamoles
-bg:Гуакамоле
-de:Guacamoles
-es:Guacamoles
-fi:guacamolet
-fr:Guacamoles
-it:Guacamole
-nl:Guacamoles
-agribalyse_food_code:en: 25620
-ciqual_food_code:en: 25620
-ciqual_food_name:en: Guacamole, prepacked
-ciqual_food_name:fr: Guacamole, préemballé
-wikidata:en: Q207968
 
 < en:Dips
 < en:Salted spreads
@@ -28900,7 +28884,7 @@ es:Aceites de aguacate
 fi:Avokadoöljyt
 fr:Huiles d'avocat, Huile d'avocat
 it:Olio di avocado
-nl:Avocado-olie, Avocado-oliën
+nl:Avocado-oliën, Avocado-olie
 zh:鳄梨油
 ciqual_food_code:en: 17100
 ciqual_food_name:en: Avocado oil
@@ -34406,6 +34390,7 @@ nl:Pijnboomhoningen
 < en:Honey sauces
 en:Honey dill sauces
 fr:Sauce à l'aneth au miel
+nl:Dillesauzen
 wikidata:en: Q17098070
 
 < en:Honeys
@@ -36852,14 +36837,6 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0965
 protected_name_type:en: pgi
 
-< en:Artisan products
-< en:Jams
-en:Artisan jams
-es:Mermeladas y confituras artesanales, Mermeladas artesanales, Confituras artesanales
-fr:Confitures artisanales
-hu:Kézműves lekvárok
-nl:Ambachtelijke jams
-
 < en:Jams
 en:Apple jams
 bg:Конфитюр от ябълки
@@ -37146,15 +37123,6 @@ fr:Confitures de tomates
 hu:Paradicsom lekvár
 nl:Tomatenjams
 wikidata:en: Q25041585
-
-< en:Jams
-< en:Onions and their products
-en:Onion jams
-es:Mermeladas y confituras de cebolla, Mermeladas de cebolla, Confituras de cebolla
-fr:Confitures d'oignon
-hu:Hagyma lekvárok
-nl:Uienjams
-wikidata:en: Q43668938
 
 < en:Japanese green teas
 en:Bancha teas, Bancha
@@ -39250,6 +39218,10 @@ it:Genepì delle Alpi
 origins:en: en:france,en:italy
 protected_name_file_number:en: PGI-FR+IT-01909
 protected_name_type:en: gi
+
+< en:Liquid broths
+en:Liquid chicken broths
+nl:Vloeibare kippebouillons
 
 < en:Liquid broths
 < en:Vegetable broths
@@ -41801,6 +41773,18 @@ ciqual_food_code:en: 20914
 ciqual_food_name:en: Soy burger or vegetable escalope
 ciqual_food_name:fr: Escalope végétale ou steak à base de soja
 
+< en:Chickens
+< en:Meat balls
+en:Chicken meat balls
+fr:Boulettes au poulet
+nl:Kippegehaktballen
+
+< en:Chickens
+< en:Meat balls
+< en:Pork
+en:Pork meat balls
+nl:Varkensgehaktballen
+
 < en:Beef
 < en:Meat balls
 en:Beef meat balls
@@ -41822,10 +41806,6 @@ fr:Boulettes au porc et au bœuf à la suédoise
 ciqual_food_code:en: 25186
 ciqual_food_name:en: Meat balls, pork and beef, -Swedish-style-
 ciqual_food_name:fr: Boulettes au porc et au bœuf -à la suédoise-, crues
-
-< en:Meat balls
-en:Chicken meat balls
-fr:Boulettes au poulet
 
 < en:Meat-based pasta sauces
 en:Barese bolognaise
@@ -42040,7 +42020,7 @@ nl:Gemalen vleesproducten
 en:Meat balls
 fi:Lihapullat, Lihapyörykät
 fr:Boulettes de viande
-nl:Soepballetjes
+nl:Gehaktballen, Soepballetjes
 pt:Almôndegas
 
 < en:Meat preparations
@@ -43261,10 +43241,25 @@ es:Mezclas de pimientos multicolores congelados
 fr:Mélanges de poivrons multicolores surgelés
 nl:Diepvries paprikamengsels
 
+< en:Mixed berry jams
+en:Forest berry jams
+nl:Bosvruchtenjams
+
 < en:Alcoholic beverages
 < en:Mixed drinks
 de:Biermischgetränk, Biermixgetränk
 wikidata:en: Q13527031
+
+< en:Berry jams
+< en:Mixed fruit jams
+en:Mixed berry jams
+de:Gemischte Beerenmarmeladen
+es:Mermeladas y confituras de frutas del bosque variadas, Mermeladas de frutas del bosque variadas, Confituras de frutas del bosque variadas
+fi:marjahillosekoitukset
+fr:Confitures de fruits rouges mélanges
+hu:Vegyes piros bogyós lekvárok
+it:Confettura ai frutti di bosco
+nl:Jams van gemengde vruchten
 
 < en:Mixed fruit soy yogurts
 en:Berries soy yogurts
@@ -44478,7 +44473,7 @@ fi:Inkivääriolut
 fr:Bière de gingembre, ginger beer
 hu:Ginger beer
 it:Birre ginger
-nl:Gemberbieren, Gemberbier
+nl:Gemberbieren, Gemberbier, gunger ale
 ro:Bere de ghimbir
 zh:姜啤
 wikidata:en: Q1448819
@@ -47015,14 +47010,14 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0369
 protected_name_type:en: pgi
 
+< en:Jams
 < en:Onions and their products
-< en:Plant-based spreads
-en:Onion chutneys
-de:Zwiebelchutneys
-es:Cebolla caramelizada, Cebolla confitada
-fr:Confits d'oignons, Chutneys d'oignons
-it:Chutney di cipolle
-nl:Uienchutney
+en:Onion jams
+es:Mermeladas y confituras de cebolla, Mermeladas de cebolla, Confituras de cebolla
+fr:Confitures d'oignon
+hu:Hagyma lekvárok
+nl:Uienjams
+wikidata:en: Q43668938
 
 < en:Culinary plants
 < en:Onions and their products
@@ -47084,6 +47079,15 @@ agribalyse_proxy_food_code:en: 20180
 agribalyse_proxy_food_name:en: Onion, dried
 agribalyse_proxy_food_name:fr: Oignon, séché
 wikidata:en: Q2202864
+
+< en:Onions and their products
+< en:Plant-based spreads
+en:Onion chutneys
+de:Zwiebelchutneys
+es:Cebolla caramelizada, Cebolla confitada
+fr:Confits d'oignons, Chutneys d'oignons
+it:Chutney di cipolle
+nl:Uienchutney
 
 < en:Open Beauty Facts
 en:Medicine
@@ -48571,6 +48575,7 @@ en:Pure peanut butters
 nl:Pure pindakazen
 
 < en:Peanut sauces
+en:Satay sauces
 nl:Satésauzen
 
 < en:Peanuts
@@ -50193,7 +50198,7 @@ es:Quesos vegetales
 fi:vegaanijuustot
 fr:Substituts du fromage, fromages végétaux
 it:Formaggi vegani
-nl:Vegetarische kazen
+nl:Veganistische kazen
 
 < en:Plant-based foods
 en:Nutmeg tree products
@@ -50660,31 +50665,6 @@ ciqual_food_name:fr: Crème de marrons
 wikidata:en: Q1363560
 
 < en:Plant-based spreads
-< en:Salted spreads
-en:Baba ghanoush
-de:Baba Ghanoush
-es:Baba ganush, Baba ghanush, Baba ganuch
-fr:Baba ganousch, Baba Ghanouge
-nl:Baba ghanoush, Baba ganush
-wikidata:en: Q1072192
-
-< en:Plant-based spreads
-< en:Salted spreads
-en:Bean spreads, bean dips
-fr:Tartinades de haricots, Houmous de haricots
-nl:Bonenspreads
-
-< en:Plant-based spreads
-< en:Salted spreads
-en:Lentil spreads, Lentil dips
-de:Linsen-Aufstriche, Linsen-Aufstrich
-fr:Tartinades de lentilles, houmous de lentilles
-
-< en:Plant-based spreads
-< en:Spreadable fats
-de:Streichfette, Streichfett
-
-< en:Plant-based spreads
 en:Eggplant caviar, eggplant paste, aubergine caviar, aubergine paste
 de:Auberginen-Kaviar, Auberginenkaviar
 fi:munakoisotahna
@@ -50724,28 +50704,6 @@ wikidata:en: Q21856516
 < en:Plant-based spreads
 en:Sweet pepper chutneys
 fr:Confits de poivrons
-
-< en:Plant-based spreads
-< en:Spreadable fats
-< en:Vegetable fats
-en:Margarines
-bg:Маргарин
-ca:Margarina
-de:Margarinen, Margarine
-es:Margarinas, Margarinas vegetales, Margarinas de origen vegetal
-fi:margariinit
-fr:Margarines, Margarine végétale
-he:מרגרינות
-hu:Margarinok
-it:Margarina
-nl:Margarines
-pl:Margaryny, margaryna
-sv:Margarin
-agribalyse_proxy_food_code:en: 16737
-ciqual_proxy_food_code:en: 16737
-ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
-ciqual_proxy_food_name:fr: Matière grasse végétale -type margarine- à 50-63% MG, allégée, doux, riche en oméga 3
-wikidata:en: Q4287
 
 < en:Plant milks
 en:Coconut milks, Coconut drinks, Coconut creams
@@ -56474,7 +56432,7 @@ en:Glutinous rices, Sticky rices
 de:Klebreis
 es:Arroces glutinosos
 fr:Riz gluant, riz glutineux, riz collant, riz doux
-nl:Plakrijst
+nl:Plakrijst, Dessertrijsten, Dessrt rijsten
 wikidata:en: Q115443
 
 < en:Rices
@@ -57808,15 +57766,6 @@ en:Beef salami
 fr:Salami de bœuf, Salamis de bœuf
 
 < en:Salami
-en:Pork salami
-fi:Sianlihasalami
-fr:Salami de porc
-nl:Varkensvleessalami
-agribalyse_food_code:en: 30351
-ciqual_food_code:en: 30351
-ciqual_food_name:en: Salami, pure pork
-
-< en:Salami
 en:Salami Danish-style
 fr:Salami type danois
 agribalyse_food_code:en: 30366
@@ -57828,6 +57777,16 @@ en:Turkey salami
 fi:Kalkkunasalami
 fr:Salami de dinde, Salamis de dinde
 nl:Kalkoensalamis
+
+< en:Pork
+< en:Salami
+en:Pork salami
+fi:Sianlihasalami
+fr:Salami de porc
+nl:Varkensvleessalami
+agribalyse_food_code:en: 30351
+ciqual_food_code:en: 30351
+ciqual_food_name:en: Salami, pure pork
 
 < en:Salmon lasagne
 en:Salmon and spinach lasagna
@@ -58238,6 +58197,27 @@ fr:Cake salé aux légumes
 agribalyse_food_code:en: 7814
 ciqual_food_code:en: 7814
 ciqual_food_name:en: Savoury cake -with cheese, vegetables, meat, fish, poultry,etc.-
+
+< en:Plant-based spreads
+< en:Salted spreads
+en:Baba ghanoush
+de:Baba Ghanoush
+es:Baba ganush, Baba ghanush, Baba ganuch
+fr:Baba ganousch, Baba Ghanouge
+nl:Baba ghanoush, Baba ganush
+wikidata:en: Q1072192
+
+< en:Plant-based spreads
+< en:Salted spreads
+en:Bean spreads, bean dips
+fr:Tartinades de haricots, Houmous de haricots
+nl:Bonenspreads
+
+< en:Plant-based spreads
+< en:Salted spreads
+en:Lentil spreads, Lentil dips
+de:Linsen-Aufstriche, Linsen-Aufstrich
+fr:Tartinades de lentilles, houmous de lentilles
 
 < en:Prepared meats
 < en:Salted spreads
@@ -59158,7 +59138,7 @@ es:Aliolis, Salsas alioli, Alioli, Salsa alioli
 fi:Aiolit, Aiolikastikkeet
 fr:Aïolis, Aiolis, sauces Aïoli, sauces Aïolis, sauce Aïoli
 it:Salsa aioli
-nl:Aiolisauzen, Knoflooksauzen
+nl:KnoflooksauzenAiolisauzen
 agribalyse_food_code:en: 11168
 ciqual_food_code:en: 11168
 ciqual_food_name:en: Aioli sauce -garlic and olive oil mayonnaise-, prepacked
@@ -59361,6 +59341,7 @@ ciqual_food_name:fr: Sauce à la crème aux herbes
 < en:Sauces
 en:Cream sauces with mushrooms
 fr:Sauces aux champignons et à la crème
+nl:Champignonsauzen
 agribalyse_food_code:en: 11192
 ciqual_food_code:en: 11192
 ciqual_food_name:en: Cream sauce with mushrooms, prepacked
@@ -59502,6 +59483,7 @@ nl:Indiaase sauzen
 en:Kebab sauces
 es:Salsa kebab
 fr:Sauces kebab
+nl:Kebabsauzen
 agribalyse_food_code:en: 11203
 ciqual_food_code:en: 11203
 ciqual_food_name:en: Kebab sauce, prepacked
@@ -59606,7 +59588,7 @@ it:Sughi per pasta
 nl:Pastasauzen
 
 < en:Sauces
-en:Peanut sauces, Satay sauces
+en:Peanut sauces
 de:Erdnusssauce
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 nl:Pindasauzen
@@ -59828,6 +59810,14 @@ nl:Wasabipastas
 wikidata:en: Q68437707
 
 < en:Sauces
+en:Wine sauces
+fr:Sauces au vin
+nl:Wijnsauzen
+agribalyse_proxy_food_code:en: 11164
+agribalyse_proxy_food_name:en: Red wine sauce
+agribalyse_proxy_food_name:fr: Sauce au vin rouge
+
+< en:Sauces
 en:Worcestershire sauces
 de:Worcestershiresaucen, Worcestersaucen
 fi:Worcester-kastikkeet
@@ -59842,8 +59832,9 @@ fr:Sauces Yakitori
 nl:Yakitorisauzen
 
 < en:Sauces
-en:Yogurt sauce, Yogurt dressing sauces, Yogurt dressing
+en:Yogurt sauces, Yogurt dressing sauces, Yogurt dressing
 fr:Sauces au yaourt, Sauce au yaourt, Sauces dressing au yaourt
+nl:Yoghurtsauzen
 agribalyse_food_code:en: 11166
 ciqual_food_code:en: 11166
 ciqual_food_name:en: Yogurt sauce
@@ -59881,12 +59872,6 @@ wikidata:en: Q2829733
 
 < en:Sauces
 fr:Sauces au lait de coco, Sauces thaï
-
-< en:Sauces
-fr:Sauces au vin
-agribalyse_proxy_food_code:en: 11164
-agribalyse_proxy_food_name:en: Red wine sauce
-agribalyse_proxy_food_name:fr: Sauce au vin rouge
 
 < en:Sauces
 fr:Sauces blanches
@@ -60227,7 +60212,7 @@ ciqual_food_name:en: Duck mousse
 
 < en:Savory mousses
 fr:Mousses de foies, mousses de foie, mousse de foies, mousse de foie
-nl:Leverpasteien, Levermoussen
+nl:Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
 
 < en:Savory semolina dishes
 en:Prepared couscous
@@ -65030,6 +65015,10 @@ ciqual_food_code:en: 23940
 ciqual_food_name:en: Sponge cake filled and covered with chocolate
 ciqual_food_name:fr: Génoise fourrée et nappée au chocolat
 
+< en:Plant-based spreads
+< en:Spreadable fats
+de:Streichfette, Streichfett
+
 < en:Spreadable fats
 de:Mischfette
 
@@ -65073,6 +65062,25 @@ zh:塗抺食品
 en:Beer jams, Beer jellies
 fr:Confits de bière, gelées de bière
 wikidata:en: Q21901286
+
+< en:Breakfasts
+< en:Spreads
+en:Sweet spreads
+ca:Productes dolços per untar
+de:Süße Brotaufstriche, Süßer Brotaufstrich
+es:Untables dulces
+fi:makeat levitteet
+fr:Produits à tartiner sucrés
+he:ממרחים מתוקים
+hu:Édes kenhető élelmiszer
+it:Spalmabili dolci
+nl:Zoete smeerpastas
+pl:Słodkie produkty do smarowania
+pt:Doces para barrar
+ru:Сладкие намазки
+sv:Söta pålägg
+food_groups:en: en:sweets
+pnns_group_2:en: Sweets
 
 < en:Plant-based foods
 < en:Spreads
@@ -66702,6 +66710,22 @@ ciqual_food_name:fr: Viennoiserie -aliment moyen-
 food_groups:en: en:pastries
 pnns_group_2:en: Pastries
 
+< en:Plant-based spreads
+< en:Sweet spreads
+en:Fruit and vegetable preserves, fruit preserves
+ca:Conserves de fruita
+de:Konfitüren und Marmeladen
+es:Preparaciones a base de frutas y verduras
+fi:hedelmäsäilykkeet
+fr:Confitures et marmelades
+he:שימורי פרות וירקות, שימורי פירות וירקות
+hu:Gyümölcskonzervek
+it:Confetture e marmellate
+nl:Confituren en marmelades
+pl:Przetwory owocowe
+pt:Conservas de fruta
+th:ผลไม้แปรรูป
+
 < en:Sweet spreads
 en:Flower preserves, flower jams
 es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
@@ -66745,22 +66769,6 @@ it:Crema da spalmare, crema spalmabile
 nl:Smeerpastas
 wikidata:en: Q1472481
 
-< en:Plant-based spreads
-< en:Sweet spreads
-en:Fruit and vegetable preserves, fruit preserves
-ca:Conserves de fruita
-de:Konfitüren und Marmeladen
-es:Preparaciones a base de frutas y verduras
-fi:hedelmäsäilykkeet
-fr:Confitures et marmelades
-he:שימורי פרות וירקות, שימורי פירות וירקות
-hu:Gyümölcskonzervek
-it:Confetture e marmellate
-nl:Confituren en marmelades
-pl:Przetwory owocowe
-pt:Conservas de fruta
-th:ผลไม้แปรรูป
-
 en:Sweet wines, natural sweet wines
 de:Süßweine
 es:Vinos dulces
@@ -66798,32 +66806,6 @@ sv:Sötningsmedel
 th:ใช้น้ำตาลเทียม
 zh:糖精
 wikidata:en: Q4368298
-
-< en:Sweeteners
-en:Sugars
-bg:Захар
-ca:Sucre
-cs:Cukr
-da:Sukker
-de:Zucker
-es:Azúcar
-fi:sokerit
-fr:Sucres, sucre
-hu:Cukrok
-it:Zucchero
-nl:Suiker
-pt:Açucar
-ru:Сахар, сахара
-sv:Socker
-zh:糖类
-agribalyse_proxy_food_code:en: 31016
-ciqual_proxy_food_code:en: 31016
-ciqual_proxy_food_name:en: Sugar, white
-ciqual_proxy_food_name:fr: Sucre blanc
-food_groups:en: en:sweets
-nova:en: 2
-pnns_group_2:en: Sweets
-wikidata:en: Q11002
 
 < en:Bee products
 < en:Sweet spreads
@@ -66864,6 +66846,32 @@ ciqual_food_code:en: 31008
 ciqual_food_name:en: Honey
 ciqual_food_name:fr: Miel
 nova:en: 2
+
+< en:Sweeteners
+en:Sugars
+bg:Захар
+ca:Sucre
+cs:Cukr
+da:Sukker
+de:Zucker
+es:Azúcar
+fi:sokerit
+fr:Sucres, sucre
+hu:Cukrok
+it:Zucchero
+nl:Suiker
+pt:Açucar
+ru:Сахар, сахара
+sv:Socker
+zh:糖类
+agribalyse_proxy_food_code:en: 31016
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
+food_groups:en: en:sweets
+nova:en: 2
+pnns_group_2:en: Sweets
+wikidata:en: Q11002
 
 < en:Swiss Eaux-de-vie
 en:Damassine
@@ -67884,7 +67892,7 @@ es:Tomate natural triturado
 fi:Tomaattisoseet, tomaattipyreet
 fr:Purées de tomates, purées de tomate, purée de tomates, purée de tomate, Purée de tomates en conserve, Purée de tomates appertisée
 it:Puree di pomodoro
-nl:Tomatenpuree
+nl:Tomatenpurees
 agribalyse_food_code:en: 20170
 ciqual_food_code:en: 20170
 ciqual_food_name:en: Tomato puree, canned
@@ -67956,12 +67964,6 @@ wikidata:en: Q7259857
 
 < en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
-
-< en:Plant-based spreads
-< en:Tomatoes and their products
-en:Tomato chutneys
-fr:Confits de tomates
-wikidata:en: Q48724049
 
 < en:Tomatoes and their products
 en:Boiled tomato pulp and peel, Tomato pulp and peel cooked in water
@@ -68041,6 +68043,12 @@ agribalyse_food_code:en: 20047_3
 ciqual_food_code:en: 20047
 ciqual_food_name:en: Tomato, raw
 ciqual_food_name:fr: Tomate, crue
+
+< en:Plant-based spreads
+< en:Tomatoes and their products
+en:Tomato chutneys
+fr:Confits de tomates
+wikidata:en: Q48724049
 
 < en:French cheeses
 < en:Tomme cheese from cow's milk
@@ -70015,6 +70023,28 @@ ciqual_food_code:en: 17001
 ciqual_food_name:en: Vegetable oil -average-
 ciqual_food_name:fr: Huile végétale -aliment moyen-
 wikidata:en: Q4739805
+
+< en:Plant-based spreads
+< en:Spreadable fats
+< en:Vegetable fats
+en:Margarines
+bg:Маргарин
+ca:Margarina
+de:Margarinen, Margarine
+es:Margarinas, Margarinas vegetales, Margarinas de origen vegetal
+fi:margariinit
+fr:Margarines, Margarine végétale
+he:מרגרינות
+hu:Margarinok
+it:Margarina
+nl:Margarines
+pl:Margaryny, margaryna
+sv:Margarin
+agribalyse_proxy_food_code:en: 16737
+ciqual_proxy_food_code:en: 16737
+ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
+ciqual_proxy_food_name:fr: Matière grasse végétale -type margarine- à 50-63% MG, allégée, doux, riche en oméga 3
+wikidata:en: Q4287
 
 < en:Vegetable gratins
 en:Cauliflower gratins, Cauliflower au gratin, Oven grilled cauliflower
@@ -73076,6 +73106,11 @@ ciqual_food_code:en: 9436
 ciqual_food_name:en: Wheat flour, type 55 -for bread-
 ciqual_food_name:fr: Farine de blé tendre ou froment T55 -pour pains-
 
+< en:White wine sauces
+en:muscat wine sauce
+nl:Muskaatwijnsauzen
+wikidata:en: Q3474123
+
 < en:Vinegars
 < en:White wine vinegars
 en:Xeres vinegars
@@ -73720,6 +73755,21 @@ fr:Apéritif anisé sans alcool
 ciqual_food_code:en: 1011
 ciqual_food_name:en: Pastis -anise-flavoured spirit-
 ciqual_food_name:fr: Apéritif anisé sans alcool
+
+< en:Wine sauces
+en:Red wine sauces
+fr:Sauces au vin rouge, Sauce au vin rouge
+nl:Rode wijnsauzen
+agribalyse_food_code:en: 11164
+ciqual_food_code:en: 11164
+ciqual_food_name:en: Red wine sauce
+ciqual_food_name:fr: Sauce au vin rouge
+wikidata:en: Q3474125
+
+< en:Wine sauces
+en:White wine sauces
+fr:Sauces au vin blanc, Sauce au vin blanc
+nl:Witte wijnsauzen
 
 < en:Wine vinegars
 en:Red wine vinegars
@@ -77906,6 +77956,7 @@ wikidata:en: Q3634897
 
 < en:Wines from Italy
 it:Bardolino
+xx:Bardolino
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-A0436
 protected_name_type:en: pdo
@@ -82445,8 +82496,9 @@ agribalyse_food_code:en: 26181
 ciqual_food_code:en: 26181
 ciqual_food_name:en: Yellowfin tuna, canned in brine, drained
 
-< en:Yogurt sauce
+< en:Yogurt sauces
 en:Blue cheese yogurt dressings
+nl:Blauwe kaassauzen
 
 < en:Fermented milk drinks
 < en:Yogurts
@@ -90058,22 +90110,6 @@ fr:Santenay rouge ou Santenay Côte de Beaune (Q42863352
 < fr:Santenay premier cru
 fr:Santenay premier cru rouge
 wikidata:en: Q42863350
-
-< fr:Sauces au vin
-en:Red wine sauces
-fr:Sauces au vin rouge, Sauce au vin rouge
-agribalyse_food_code:en: 11164
-ciqual_food_code:en: 11164
-ciqual_food_name:en: Red wine sauce
-ciqual_food_name:fr: Sauce au vin rouge
-wikidata:en: Q3474125
-
-< fr:Sauces au vin
-fr:Sauces au vin blanc, Sauce au vin blanc
-
-< fr:Sauces au vin blanc
-en:muscat wine sauce
-wikidata:en: Q3474123
 
 < fr:Saucisses sèches
 fr:Saucisses sèches de jambon
