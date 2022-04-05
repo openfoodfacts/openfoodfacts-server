@@ -88,6 +88,8 @@ my @tests = (
 ["flavored-spring-water-no-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{}}],
 ["flavored-spring-with-nutrition", { lc=>"en", categories=>"flavoured spring water", nutriments=>{energy_100g=>378, fat_100g=>0, "saturated-fat_100g"=>0, sugars_100g=>3, sodium_100g=>0, fiber_100g=>0, proteins_100g=>0}}],
 
+# Cocoa and chocolate powders
+["cocoa-and-chocolate-powders", { lc => "en", "categories" => "cocoa and chocolate powders", nutriments=>{energy_prepared_100g=>287, fat_prepared_100g=>0, "saturated-fat_prepared_100g"=>1.1, sugars_prepared_100g=>6.3, sodium_prepared_100g=>0.045, fiber_prepared_100g=>1.9, proteins_prepared_100g=>3.8}}],
 
 );
 
