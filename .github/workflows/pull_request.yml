@@ -6,8 +6,22 @@ on:
 
 jobs:
 
-  js_checks:
-    name: JS lint & build
+  # those are just until we de-activate their mandatory
+  gulp:
+    name: Gulp
+    runs-on: ubuntu-latest
+    steps:
+    - name: just finish
+      run: exit 0
+  dev:
+    name: Dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: just finish
+      run: exit 0
+
+  lint:
+    name: NPM lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -22,7 +36,7 @@ jobs:
       run: make front_lint
 
   test:
-    name: Perl unit tests and checks
+    name: Perl unit tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
