@@ -1256,15 +1256,6 @@ sub gs1_to_off ($$$) {
 }
 
 
-    # Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
-    # e.g. <gtin>03449862093657</gtin>
-    #
-    # becomes:
-    #
-    # gtin: {
-    #    $t: "03449865355608"
-    # },
-
 =head2 convert_single_text_property_to_direct_value ($json )
 
 There are different ways to convert a XML document to a JSON data structure.
