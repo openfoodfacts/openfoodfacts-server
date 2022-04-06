@@ -60,6 +60,8 @@ foreach my $file (sort(readdir($dh))) {
     # gtin: {
     #    $t: "03449865355608"
     # },
+    #
+    # This is taken care of later by the ProductOpener::GS1::convert_single_text_property_to_direct_value() function
 
     $file =~ s/\.xml$/.json/;
 
