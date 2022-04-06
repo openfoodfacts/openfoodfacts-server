@@ -27,6 +27,16 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 Choose your prefered way to clone, either:
 
+**on Windows:**
+
+If you are running Docker on Windows, please use the following git clone option:
+
+```console
+git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+```
+
+**on other systems:**
+
 ```console
 git clone git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
@@ -35,12 +45,6 @@ or
 
 ```console
 git clone https://github.com/openfoodfacts/openfoodfacts-server.git
-```
-
-If you are running Docker on Windows, please use the following git clone option:
-
-```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
 ```
 
 Go to the cloned directory:
@@ -132,3 +136,35 @@ To have all site page on your dev instance, see [Using pages from openfoodfacts-
 This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
 
 To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the repository from GitHub](#2-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
+
+## Troubleshooting
+
+### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+
+When running "make dev":
+
+```console
+<h1>Software error:</h1>
+<pre>Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
+BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
+</pre>
+<p>
+For help, please send mail to this site's webmaster, giving this error message
+and the time and date of the error.
+</p>
+[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+[Tue Apr  5 19:36:40 2022] build_lang.pl: Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
+[Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
+make: *** [build_lang] Error 2
+```
+
+Solution:
+
+traces.result.sto is a symlink to allergens.result.sto
+
+On Windows systems, the git repository needs to be cloned with symlinks enabled.
+
+```console
+git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+```
