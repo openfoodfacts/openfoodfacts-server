@@ -249,6 +249,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"EN" => "Enveloppe",
 		"JR" => "Bocal",
 		"PO" => "Poche",
+		"PUG" => "Sac de transport",
 		"TU" => "Tube",
 		"WRP" => "Film",
 	},		
@@ -268,6 +269,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"EN" => "en:envelope",
 		"JR" => "en:jar",
 		"PO" => "en:bag",
+		"PUG" => "en:carrying-bag",
 		"TU" => "en:tube",
 		"WRP" => "en:film",
 	},	
@@ -1288,9 +1290,6 @@ sub convert_single_text_property_to_direct_value($) {
         foreach my $elem (@$json_ref) {
             if (ref $elem) {
                 convert_single_text_property_to_direct_value($elem);
-            }
-            else {
-                $elem = enhance_value ($elem);
             }
         }
     }
