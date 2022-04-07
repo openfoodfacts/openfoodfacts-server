@@ -23,11 +23,12 @@ fs.readdir(directoryPath, function(err, files) {
 
      if (filter.test(file)) {
 
+       /* eslint-disable no-sync */
        const content = fs.readFileSync(directoryPath+file, 'utf8');
        const json = xml2json.toJson(content, options);
        fs.writeFileSync(directoryPath+file.replace('.xml','.json'), json);
      }
 
-    })
+    };)
   }
-})
+};)
