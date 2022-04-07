@@ -1235,7 +1235,7 @@ sub gs1_to_off ($$$) {
 				elsif (ref($json_ref->{$source_field}) eq "ARRAY") {
 					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
 
-						# We should have an array of hashes, but in some CodeOnline files we have an array with an empty hash..
+						# We should have an array of hashes, but in some CodeOnline files we have an array with an empty array..
 
 						# allergenRelatedInformation: [
 						# 	[ ]
