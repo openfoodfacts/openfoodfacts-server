@@ -178,6 +178,7 @@ traces.result.sto is a symlink to allergens.result.sto
 
 On Windows systems, the git repository needs to be cloned with symlinks enabled.
 
+You need to remove current directory where you clone the project, and clone the project again, using right options:
+
 ```console
 git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
-```
