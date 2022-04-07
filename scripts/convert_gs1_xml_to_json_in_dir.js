@@ -1,7 +1,7 @@
 // This script is used to convert GDSN data from Equadis in XML format
 // to a corresponding JSON structure
 
-const process = require('process')
+const process = require('process');
 const xml2json = require('xml2json');
 const fs = require("fs");
 
