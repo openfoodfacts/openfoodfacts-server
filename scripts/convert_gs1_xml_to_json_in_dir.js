@@ -29,6 +29,6 @@ fs.readdir(directoryPath, function(err, files) {
        fs.writeFileSync(directoryPath+file.replace('.xml','.json'), json);
      }
 
-    };)
+    });
   }
-};)
+});
