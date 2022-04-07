@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Perl script to convert XML received from GS1 to JSON files, more easily processed
+
 # This file is part of Product Opener.
 # 
 # Product Opener
