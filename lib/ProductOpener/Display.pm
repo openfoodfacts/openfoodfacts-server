@@ -7210,7 +7210,7 @@ HTML
 			my $unselect_image = lang('unselect_image');
 
 			my $html = <<HTML
-<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc tiny button" type="button">"$unselect_image"</button></div>
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc tiny button" type="button">$unselect_image</button></div>
 HTML
 ;
 
