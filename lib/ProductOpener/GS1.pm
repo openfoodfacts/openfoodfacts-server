@@ -1337,7 +1337,7 @@ One GS1 message can include 1 or more products, typically products that contain 
 
 =head4 $json_ref Reference to a decoded JSON structure
 
-=head4 Reference to an array of product data
+=head4 $product_ref - Reference to an array of product data
 
 Each product data will be added as one element (a hash ref) of the product data array.
 
