@@ -8,7 +8,6 @@ use Mock::Quick qw/qobj qmeth/;
 use Test::MockModule;
 use Test::More;
 
-use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use File::Basename "dirname";
 use File::Path qw/make_path remove_tree/;
 
@@ -64,49 +63,6 @@ sub fake_download_image ($) {
 }
 
 
-# fields we don't want to check for they vary from test to test
-my @fields_ignore_content = qw(last_modified_t created_t owner_fields sources.0.import_t);
-# fields that are array and need to sort to have predictable results
-my @fields_sort = qw(_keywords);
-
-
-# clean products fields that we can't check because they change over runs
-# we may still add some test on those fields here
-sub clean_products_fields($) {
-    my $array_ref = shift;
-
-    my @missing_fields = ();
-
-    for my $product (@$array_ref) {
-        my $code = $product->{code};
-        my @key;
-        for my $field_ic (@fields_ignore_content) {
-            @key = split(/\./, $field_ic);
-            if (!deep_exists($product, @key)) {
-                push(@missing_fields, ($code, $field_ic));
-            } else {
-                deep_set($product, @key, "--ignore--");
-            }
-        }
-        for my $field_s (@fields_sort) {
-            @key = split(/\./, $field_s);
-            if (!deep_exists($product, @key)) {
-                push(@missing_fields, ($code, $field_s));
-            } else {
-                my @sorted = sort @{deep_get($product, @key)};
-                deep_set($product, @key, \@sorted);
-            }
-        }
-    }
-    if (@missing_fields) {
-        fail(
-            "Some fields are missing on objects:\n" .
-            join("\n- ", map {join(" - ", @$_)} @missing_fields)
-        );
-    }
-}
-
-
 # Testing import of a csv file
 {
     my $import_module = Test::MockModule->new('ProductOpener::Import');
@@ -149,7 +105,7 @@ sub clean_products_fields($) {
     ($out, $err) = capture_ouputs (sub {
         ProductOpener::Import::import_csv_file($args);
     });
-    # get all products in db, sorted by code for perdictability
+    # get all products in db, sorted by code for predictability
     my $cursor = execute_query(sub {
 		return get_products_collection()->query({})->sort({code => 1});
 	});
@@ -158,7 +114,7 @@ sub clean_products_fields($) {
         push(@products, $doc);
     }
     # clean
-    clean_products_fields(\@products);
+    normalize_products_for_test_comparison(\@products);
     # verify result
     compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
     # also verify sto
@@ -167,7 +123,7 @@ sub clean_products_fields($) {
         foreach my $product (@products) {
             push(@sto_products, retrieve_product($product->{code}));
         }
-        clean_products_fields(\@sto_products);
+        normalize_products_for_test_comparison(\@sto_products);
         compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
     }
 

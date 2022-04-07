@@ -41,6 +41,8 @@ BEGIN
         &compare_array_to_expected_results
         &compare_csv_file_to_expected_results
         &create_sto_from_json
+        &normalize_product_for_test_comparison
+        &normalize_products_for_test_comparison
         &remove_all_products
 		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -54,6 +56,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Test::More;
 use JSON "decode_json";
 use File::Path qw/make_path remove_tree/;
@@ -314,6 +317,107 @@ sub create_sto_from_json ($$) {
     my $sto_path = shift;
     my $data = decode_json(path($json_path)->slurp_raw());
     store($sto_path, $data);
+}
+
+sub _sub_items($$);  # declare for recursivity
+
+sub _sub_items($$) {
+    my $item_ref = shift;
+    my $subfields_ref = shift;
+    if (scalar @$subfields_ref == 0) {
+        return $item_ref;
+    } else {
+        # get first level
+        my @result = ();
+        my @key = split(/\./, shift(@$subfields_ref));
+        if (deep_exists($item_ref, @key)) {
+            # only support array for now
+            my @sub_items = deep_get($item_ref, @key);
+            for my $sub_item (@sub_items) {
+                # recurse
+                push @result, @{_sub_items($sub_item, $subfields_ref)};
+            }
+        }
+        return @result;
+    }
+}
+
+=head2 normalize_product_for_test_comparison(product_ref)
+
+Normalize a product to be able to compare them accross tests runs.
+
+We remove time dependant fields and sort some lists.
+
+=head3 Arguments
+
+=head4 product_ref - Hash ref containing product information
+
+=cut
+
+sub normalize_product_for_test_comparison($) {
+    my $product = shift;
+    # fields we don't want to check for they vary from test to test
+    # stars means there is a table of elements and we want to run through all (hash not supported yet)
+    my @fields_ignore_content = qw(
+        last_modified_t created_t owner_fields
+        entry_dates_tags last_edit_dates_tags
+        sources.*.import_t
+    );
+    # fields that are array and need to sort to have predictable results
+    my @fields_sort = qw(_keywords);
+
+    my $code = $product->{code};
+    my @key;
+    for my $field_ic (@fields_ignore_content) {
+        # stars permits to loop subitems
+        my @subfield = split(/\.\*\./, $field_ic);
+        my $final_field = pop @subfield;
+        for my $item  (_sub_items($product, \@subfield)) {
+            @key = split(/\./, $final_field);
+            if (deep_exists($item, @key)) {
+                deep_set($item, @key, "--ignore--");
+            }
+        }
+    }
+    for my $field_s (@fields_sort) {
+        @key = split(/\./, $field_s);
+        if (deep_exists($product, @key)) {
+            my @sorted = sort @{deep_get($product, @key)};
+            deep_set($product, @key, \@sorted);
+        }
+    }
+}
+
+
+=head2 normalize_products_for_test_comparison(array_ref)
+
+Like normalize_product_for_test_comparison for a list of products
+
+=head3 Arguments
+
+=head4 array_ref
+
+Array of products
+
+=cut
+
+# clean products fields that we can't check because they change over runs
+# we may still add some test on those fields here
+sub normalize_products_for_test_comparison($) {
+    my $array_ref = shift;
+
+    # fields we don't want to check for they vary from test to test
+    my @fields_ignore_content = qw(
+        last_modified_t created_t owner_fields sources.0.import_t entry_dates_tags last_edit_dates_tags
+    );
+    # fields that are array and need to sort to have predictable results
+    my @fields_sort = qw(_keywords);
+
+    my @missing_fields = ();
+
+    for my $product_ref (@$array_ref) {
+        normalize_product_for_test_comparison($product_ref);
+    }
 }
 
 1;
