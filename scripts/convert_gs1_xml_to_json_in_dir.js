@@ -1,12 +1,17 @@
 // This script is used to convert GDSN data from Equadis in XML format
 // to a corresponding JSON structure
 
-const xml2json = require('xml2json')
-const fs = require("fs")
+import process from 'process';
+import fs from 'fs';
+import xml2json from 'xml2json';
 
-const directoryPath = "/srv2/off-pro/equadis-data-tmp/"
+const xml2json = require('xml2json');
+const fs = require("fs");
 
-const filter = /\.xml$/
+const myArgs = process.argv.slice(2);
+const directoryPath = myArgs[0];
+
+const filter = /\.xml$/;
 
 // force arrays for some fields even if there is only one value supplied
 const options = {
@@ -15,18 +20,17 @@ const options = {
 
 fs.readdir(directoryPath, function(err, files) {
   if (err) {
-    console.log("Error getting directory information.")
+    console.log("Error getting directory information.");
   } else {
     files.forEach(function(file) {
 
      if (filter.test(file)) {
 
-       let content = fs.readFileSync(directoryPath+file, 'utf8');
-       let json = xml2json.toJson(content, options);
+       const content = fs.readFileSync(directoryPath+file, 'utf8');
+       const json = xml2json.toJson(content, options);
        fs.writeFileSync(directoryPath+file.replace('.xml','.json'), json);
      }
 
     })
   }
 })
-
