@@ -4,8 +4,7 @@
 const xml2json = require('xml2json')
 const fs = require("fs")
 
-const myArgs = process.argv.slice(2);
-const directoryPath = myArgs[0];
+const directoryPath = "/srv2/off-pro/equadis-data-tmp/"
 
 const filter = /\.xml$/
 
