@@ -1289,6 +1289,9 @@ gtin: "03449865355608"
 
 =cut
 
+# pre-declare the function as it is recursive
+sub convert_single_text_property_to_direct_value($);
+
 sub convert_single_text_property_to_direct_value($) {
     
 	my $json_ref = shift;
@@ -1341,6 +1344,9 @@ Each product data will be added as one element (a hash ref) of the product data 
 For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
 
 =cut
+
+# pre-declare the function as it is recursive
+sub convert_gs1_json_message_to_off_products_csv($$);
 
 sub convert_gs1_json_message_to_off_products_csv($$) {
 
