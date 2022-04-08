@@ -1530,7 +1530,7 @@ sub compute_nutrition_score($) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
 
 		if (has_tag($product_ref, "categories", $category_tag)) {
 
