@@ -62,6 +62,8 @@ requires 'Devel::Size'; # deps: libdevel-size-perl
 requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
+requires 'XML::XML2JSON';
+
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
