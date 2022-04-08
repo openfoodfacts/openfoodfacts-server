@@ -7613,21 +7613,21 @@ CSS
 
 		if (defined $product_ref->{data_sources_tags}) {
 			foreach my $data_source_tagid (@{$product_ref->{data_sources_tags}}) {
-				if ($data_source_tagid =~ /^database/) {
-					$data_source_tagid =~ s/-/_/g;
+				if ($data_source_tagid =~ /^database-/) {
+					my $database_id = $';
+					my $database_name = deep_get(\%options, "import_sources", $database_id);
 
-					if ($data_source_tagid eq "database_equadis") {
-						$template_data_ref->{"data_source_database_equadis"}
-							= sprintf(lang("data_source_database_equadis"),
-							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
-							'<a href="/data-source/database-equadis">Equadis</a>');
+					# Data sources like Agena3000, CodeOnline, Equadis
+					if (defined $database_name) {
+						$template_data_ref->{"data_source_database_provider"} =
+							f_lang("f_data_source_database_provider", {
+								manufacturer => '<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
+								provider => '<a href="/data-source/database-' . $data_source_tagid . '">' . $database_name . '</a>',
+							});
 					}
-					elsif ($data_source_tagid eq "database_codeonline") {
-						$template_data_ref->{"data_source_database_codeonline"}
-							= sprintf(lang("data_source_database"),
-							'<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
-							'<a href="/data-source/database-codeonline">CodeOnline Food</a>');
-
+					
+					# For CodeOnline, display an extra note about the producers platform
+					if ($database_id eq "codeonline") {
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} = lang("data_source_database_note_about_the_producers_platform");
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"} =~ s/<producers_platform_url>/$producers_platform_url/g;
 					}
