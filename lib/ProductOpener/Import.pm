@@ -584,10 +584,10 @@ sub import_csv_file($) {
 						next;
 					}
 					
-					# If it is a GS1 import (Equadis, CodeOnline), check if the org is associated with known issues
+					# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
 					
 					# Abbreviated product name
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
 							
 						if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
@@ -597,7 +597,7 @@ sub import_csv_file($) {
 					}
 					
 					# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
 						
 						foreach my $field (sort keys %$imported_product_ref) {
