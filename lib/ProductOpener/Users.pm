@@ -348,6 +348,9 @@ sub check_user_form($$$) {
 	if (not $address) {
 		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
 	}
+	
+	# If all checks passed, reinitialize with modified email
+	$user_ref->{email} = Email::Valid->address($user_ref->{email});
 
 	if ($type eq 'add') {
 
