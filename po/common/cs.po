@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-02-22 17:15\n"
+"PO-Revision-Date: 2022-04-09 17:19\n"
 "Language-Team: Czech\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -787,8 +787,8 @@ msgstr "Často kladené otázky"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "/faq"
-msgstr "/faq"
+msgid "https://support.openfoodfacts.org/help/en-gb"
+msgstr "https://support.openfoodfacts.org/help/cs"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1542,7 +1542,7 @@ msgstr "Nutriční hodnoty"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Výživová hodnota"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1815,7 +1815,7 @@ msgstr "Otočit doprava"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Ověřit a/nebo změnit velikost obrázku"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1859,7 +1859,7 @@ msgstr "Přidat obrázek"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ S Chrome, Firefoxem a Safari můžete vybrat více obrázků (produky, ingredience, výživová fakta atd.) kliknutím na ně a podržením klávesy Ctrl přidáte všechny zároveň."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1875,7 +1875,7 @@ msgstr "Jméno výrobku"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Fidorka Hořká s lískooříškovou náplní"
 
 msgctxt "products"
 msgid "products"
@@ -1887,7 +1887,7 @@ msgstr ""
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Produkty s úplnými informacemi"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
@@ -1895,7 +1895,7 @@ msgstr "Produkty"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "s výživovými údaji"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1907,11 +1907,11 @@ msgstr "Město, stát a země nákupu"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Uveďte, kde jste produkt koupili nebo viděli (alespoň zemi)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "místa nákupu"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1935,7 +1935,7 @@ msgstr "Množství"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr ""
+msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 libra"
 
 msgctxt "remember_me"
 msgid "Remember me"
@@ -1943,7 +1943,7 @@ msgstr "Zapamatuj si mě"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Zapamatuj si místo nákupu a obchod pro přidání dalšího produktu"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -1959,7 +1959,15 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Dobrý den <NAME>,\n\n"
+"Požádali jste o obnovení hesla na https://openfoodfacts.org\n\n"
+"pro uživatelské jméno: <USERID>\n\n"
+"Chcete-li pokračovat v obnovování hesla, klikněte na odkaz níže.\n"
+"Pokud jste nežádali o obnovení hesla, můžete tuto zprávu ignorovat.\n\n"
+"<RESET_URL>\n\n"
+"Nashle,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -1979,7 +1987,7 @@ msgstr "Na e-mailovou adresu spojenou s vaším účtem byl zaslán e-mail s odk
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Pokud jste zapomněli své heslo, vyplňte své uživatelské jméno nebo e-mailovou adresu, abyste mohli obdržet pokyny pro jeho obnovení."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2055,27 +2063,27 @@ msgstr "Výsledky ke stažení"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Výsledky stahování ve formátu XLSX nebo CSV. Vezměte prosím na vědomí, že z výkonnostních důvodů si můžete stáhnout nejvýše 10 000 výsledků."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Formát XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel nebo LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Formát CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Kódování znaků: Unicode (UTF-8) - oddělovač: tabulátor (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Změnit vyhledávací kritéria"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2091,11 +2099,11 @@ msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Bodový diagram"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ zjistěte více o <<site_name>> grafech: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks (en)</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2104,23 +2112,24 @@ msgstr "Výsledky na grafu"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Vyberte, co chcete vykreslit na vodorovné ose, abyste získali histogram, nebo vyberte dvě osy pro\n"
+"produktový mrak (bodový graf)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tento graf, který lze sdílet e-mailem a na sociálních sítích"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Graf zobrazuje pouze produkty, pro které jsou zobrazené hodnoty známé."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Zobrazit výsledky v grafu"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Poznámka: Toto je graf vytvořený uživatelem. Název, znázorněné produkty a osy byly zvoleny autorem grafu."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2132,7 +2141,7 @@ msgstr "Složení"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tyto výsledky, které lze sdílet e-mailem a na sociálních sítích"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2148,19 +2157,19 @@ msgstr "Výsledky na mapě"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tuto mapu, který lze sdílet e-mailem a na sociálních sítích"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Mapa zobrazí pouze produkty, pro které je známo místo výroby."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Zobrazit výsledky na mapě"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "vyberte živinu..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2172,19 +2181,19 @@ msgstr "nebo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Výsledků na stránku"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Vyhledávání produktů"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Výsledky vyhledávání"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Použít jinou barvu pro následující produkty:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2200,7 +2209,7 @@ msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Použít barvy výživových tříd"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2216,7 +2225,7 @@ msgstr "Se sladidly"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "zvolte kritérium..."
 
 msgctxt "search_tags"
 msgid "Criteria"
@@ -2224,15 +2233,15 @@ msgstr "Kritéria"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Hledané výrazy"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Hledejte slova přítomná v názvu produktu, obecném názvu, značkách, kategoriích, místech původu a štítcích"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Vyhledejte produkt, značku, přísadu, živinu atd."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2288,15 +2297,15 @@ msgstr "Velikost porce"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Velikost připravené porce"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Pokud výživová tabulka obsahuje hodnoty pro připravený produkt, uveďte celkovou servírovací velikost připraveného výrobku (včetně přidané vody nebo mléka)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2312,11 +2321,11 @@ msgstr "Zobrazit podrobné statistiky"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "směrodatná odchylka, minimum, maximum, 10. a 90. percentil"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "Pokud již máte účet na <SITE>, před vyplněním tohoto formuláře se přihlaste."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2384,7 +2393,7 @@ msgstr "prodejny"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "Produkty prodávané v %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2396,7 +2405,7 @@ msgstr "přidat obchod"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "Produkty, které nebyly zakoupeny v %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
@@ -2536,7 +2545,7 @@ msgstr "Zobrazit výsledky z celého světa"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"/faq#pictures_and_data_from_other_sites\">Why it matters</a>"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
 msgstr ""
 
 msgctxt "website"
@@ -4214,6 +4223,22 @@ msgctxt "team_s"
 msgid "Team %s"
 msgstr ""
 
+msgctxt "contributor_settings"
+msgid "Contributor"
+msgstr "Přispěvatel"
+
+msgctxt "contributor_settings_description"
+msgid "Those settings allow you to personalize some aspect of the website"
+msgstr ""
+
+msgctxt "display_barcode_in_search"
+msgid "Display barcode in search results"
+msgstr ""
+
+msgctxt "edit_link_in_search"
+msgid "Add an edit link in search results"
+msgstr ""
+
 # leave the %d, it will be replaced by a number
 msgctxt "n_products_will_be_exported"
 msgid "%d products will be exported."
@@ -5186,6 +5211,10 @@ msgctxt "attribute_ecoscore_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
 
+msgctxt "ecoscore_unknown_call_to_help"
+msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+msgstr ""
+
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
 msgstr ""
@@ -5860,5 +5889,46 @@ msgstr ""
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
+msgstr ""
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr ""
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr ""
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr ""
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr ""
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr ""
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr ""
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr ""
+
+msgctxt "unselect_image"
+msgid "Unselect Image"
 msgstr ""
 
