@@ -33461,9 +33461,9 @@ ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
 
 # TODO : Pims framboise
-<en:Sponge cake
-en:Dried sponge cake filled with fruits and covered with chocolate
-fr:Génoise sèche fourrée aux fruits et nappée de chocolat
+<en:Biscuits and cakes
+en:Jaffa cakes, Dried sponge cake filled with fruits and covered with chocolate
+fr:Génoises fourrées aux fruits et nappées de chocolat, Génoise sèche fourrée aux fruits et nappée de chocolat
 agribalyse_food_code:en:24686
 ciqual_food_code:en:24686
 ciqual_food_name:en:Dried sponge cake filled with fruits and covered with chocolate
@@ -79222,13 +79222,6 @@ ciqual_food_name:en:Biscuit (cookie), with milk
 ciqual_food_name:fr:Biscuit sec au lait
 
 <en:Biscuits and cakes
-en:Biscuit snack with chocolate filling, Cookie with chocolate filling
-fr:Biscuit chocolat
-agribalyse_food_code:en:24231
-ciqual_food_code:en:24231
-ciqual_food_name:en:Biscuit (cookie), snack w chocolate filling
-
-<en:Biscuits and cakes
 en:Coated chocolate bar without biscuit
 fr:Barre au chocolat sans biscuit
 agribalyse_food_code:en:31001
@@ -92687,7 +92680,7 @@ agribalyse_food_code:en:23854
 ciqual_food_code:en:23854
 ciqual_food_name:en:Wafer biscuit, crunchy (thin or dry), with chocolate, prepacked
 
-<en:Biscuits and cakes
+<en:Wafers
 en:Plain wafers, Wafer biscuit without filling
 fr:Gaufrettes natures, Gaufrette sans fourrage, Eventail sans fourrage
 agribalyse_food_code:en:24300
@@ -92753,9 +92746,11 @@ ciqual_food_code:en:24312
 ciqual_food_name:en:Wafer biscuit, filled with nuts (hazelnut, almond, praline, etc.), with chocolate or not, prepacked
 ciqual_food_name:fr:Gaufrette fourrée fruits à coque (noisette, amande, praline, etc.), chocolatée ou non, préemballée
 
-<en:Biscuits and cakes
-en:Fruits stuffed wafers
-fr:Gaufrette fourrée aux fruits
+<en:Stuffed wafers
+en:Fruits stuffed wafers, Stuffed fruits wafers
+fr:Gaufrettes fourrées aux fruits, Gaufrette fourrée aux fruits
+hu:Töltött gyümölcs ostyák
+nl:Vruchtenwafeltjes
 agribalyse_food_code:en:24320
 ciqual_food_code:en:24320
 ciqual_food_name:en:Wafer biscuit, with fruits
@@ -92768,7 +92763,6 @@ fr:Grillardises
 nl:Pop tarts
 ro:Produse de patiserie, Produs de patiserie
 wikidata:en:Q7811427
-
 
 en:Plant-based foods and beverages
 ca:Aliments i begudes amb base vegetal
@@ -97812,12 +97806,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 <en:Confectioneries
 fr:Bonbons dragéifiés
 #wikidata:en:
-
-<en:Stuffed wafers
-en:Stuffed fruits wafers
-fr:Gaufrettes fourrées aux fruits
-hu:Töltött gyümölcs ostyák
-nl:Vruchtenwafeltjes
 
 <fr:Fromages blancs
 fr:Fromages blancs aromatisés
