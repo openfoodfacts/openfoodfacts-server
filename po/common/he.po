@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-09 17:21\n"
+"PO-Revision-Date: 2022-04-11 09:26\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5900,42 +5900,38 @@ msgstr "רכיבים בלתי מזוהים"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
-
-msgctxt "nova_1_unprocessed_ingredients"
-msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "המוצר מכיל רק רכיבים שעובדו קלות או לא עובדו כלל."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "רכיבים שמעידים שהמוצר הוא בקבוצה {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "מוצרי מזון מסווגים ל־4 קבוצות לפי מידת העיבוד שלהם:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "איתור הקבוצה מבוסס הקטגוריה והרכיבים של המוצר."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "מידע נוסף על סיווג NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "יש לציין את קטגוריית המוצר כדי לאתר את קבוצת ה־NOVA."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "יש לציין את רכיבי המוצר לפי הסדר כדי לאתר את קבוצת ה־NOVA."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "לא הצלחנו לזהות חלק מהרכיבים ולאתר את קבוצת ה־NOVA."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "ביטול בחירת התמונה"
 
