@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-04-09 17:21\n"
+"PO-Revision-Date: 2022-04-11 09:25\n"
 "Language-Team: German\n"
 "Last-Translator: \n"
 "POT-Creation-Date: \n"
@@ -5900,42 +5900,38 @@ msgstr "Unbekannte Zutaten"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
-
-msgctxt "nova_1_unprocessed_ingredients"
-msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "Das Produkt enthält ausschließlich unverarbeitete oder geringfügig verarbeitete Zutaten."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "Elemente, die anzeigen, dass das Produkt der Gruppe {nova_group} zugeordnet ist"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Lebensmittel werden je nach deren Verarbeitungsgrad in 4 Gruppen eingeteilt:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "Die Bestimmung der Gruppe basiert auf der Kategorie des Produkts und den darin enthaltenen Zutaten."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Erfahren Sie mehr über die NOVA-Klassifizierung"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Die Kategorie des Produkts muss angegeben werden, um die NOVA-Gruppe bestimmen zu können."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Die Zutaten des Produkts müssen angegeben werden, um die NOVA-Gruppe bestimmen zu können."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Einige der Zutaten konnten nicht erkannt und die NOVA-Gruppe nicht bestimmt werden."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "Foto abwählen"
 
