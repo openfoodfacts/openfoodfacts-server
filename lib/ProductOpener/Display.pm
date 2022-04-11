@@ -7622,7 +7622,7 @@ CSS
 						$template_data_ref->{"data_source_database_provider"} =
 							f_lang("f_data_source_database_provider", {
 								manufacturer => '<a href="/editor/' . $product_ref->{owner} . '">' . $org_ref->{name} . '</a>',
-								provider => '<a href="/data-source/database-' . $data_source_tagid . '">' . $database_name . '</a>',
+								provider => '<a href="/data-source/' . $data_source_tagid . '">' . $database_name . '</a>',
 							});
 					}
 					
