@@ -3012,6 +3012,11 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+opposite:en: en:contains-lactose
+
+en:Contains lactose
+nl:Bevat melkeiwit, Bevat lactose
+opposite:en: en:no-lactose
 
 en:No lecithine, lecithine-free
 bg:Без лецитин
@@ -3335,7 +3340,7 @@ he:אורגני
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
-nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
+nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pt:Orgânico
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
@@ -16257,7 +16262,6 @@ it:Classe II
 ru:высший сорт, сорт высший
 
 en:No palm oil, Palm oil free, Without palm oil
-
 bg:Без палмово масло
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
@@ -16268,7 +16272,7 @@ fr:Sans huile de palme
 he:ללא שמן דקלים, נקי משמן דקלים
 hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
 it:Senza olio di palma
-nl:Zonder palmolie, Palmolie-vrij
+nl:Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl:Wolne od oleju palmowego, bez oleju palmowego
 pt:Sem óleo de palma
 ru:Без пальмового масла
@@ -16280,6 +16284,7 @@ opposite:en: en:contains-palm-oil
 en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
+nl:Bevat palmolie
 opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
@@ -16910,6 +16915,7 @@ origins:en: en:france
 <en:Sustainable fishing
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+nl:Duurzame vismethoden
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -17159,6 +17165,7 @@ fi:UTZ-sertifioitua kahvia
 hu:UTZ Certified Coffee, UTZ tanúsított kávé
 fr:Café certifié UTZ
 it:Caffè certificato UTZ, Caffe certificato UTZ
+nl:UTZ Certified Coffee
 pl:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
@@ -17772,6 +17779,9 @@ nl:Dierenwelzijn
 <en:Animal welfare
 en:Chicken welfare
 nl:Kippenwelzijn
+
+<en:Animal welfare
+nl:Weidemelk
 
 en:Dutch meat
 nl:Nederlands vlees
