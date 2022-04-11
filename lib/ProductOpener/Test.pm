@@ -319,8 +319,14 @@ sub create_sto_from_json ($$) {
     store($sto_path, $data);
 }
 
+
 sub _sub_items($$);  # declare for recursivity
 
+# this method is an helper method for normalize_product_for_test_comparison
+# $item_ref is a product hash ref, or subpart there of
+# $subfields_ref is an array of arrays of keys.
+# Each array of key leads to a sub array of $item_ref, but the last which is target element.
+# _sub_items will reach every targeted elements, running through all sub-arrays
 sub _sub_items($$) {
     my $item_ref = shift;
     my $subfields_ref = shift;
@@ -400,20 +406,8 @@ Like normalize_product_for_test_comparison for a list of products
 Array of products
 
 =cut
-
-# clean products fields that we can't check because they change over runs
-# we may still add some test on those fields here
 sub normalize_products_for_test_comparison($) {
     my $array_ref = shift;
-
-    # fields we don't want to check for they vary from test to test
-    my @fields_ignore_content = qw(
-        last_modified_t created_t owner_fields sources.0.import_t entry_dates_tags last_edit_dates_tags
-    );
-    # fields that are array and need to sort to have predictable results
-    my @fields_sort = qw(_keywords);
-
-    my @missing_fields = ();
 
     for my $product_ref (@$array_ref) {
         normalize_product_for_test_comparison($product_ref);
