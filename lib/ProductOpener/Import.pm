@@ -1859,18 +1859,23 @@ sub import_csv_file($) {
 
 							my $file = $images_download_dir . "/" . $filename;
 
+							# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+							# but multi-pages product sheets, certificates etc.
+							if ($file =~ /\.pdf$/) {
+								$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+							}
 							# Check if the image exists
-							if (-e $file) {
+							elsif (-e $file) {
 
 								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
 
 								# Is the image readable?
 								my $magick = Image::Magick->new();
-								my $x = $magick->Read($file);
+								my $imagemagick_error = $magick->Read($file);
 								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-								if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
+								if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+									$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 									unlink($file);
 								}
 								# If the product has an images field, assume that the image has already been uploaded
@@ -1894,9 +1899,8 @@ sub import_csv_file($) {
 									$images_ref->{$code}{$new_imagefield} = $file;
 								}
 							}
-
-							# Download the image
-							if (! -e $file) {
+							else {
+								# Download the image
 
 								# We can try to transform some URLs to get the full size image instead of preview thumbs
 								
@@ -1946,11 +1950,11 @@ sub import_csv_file($) {
 										
 										# Is the image readable?
 										my $magick = Image::Magick->new();
-										my $x = $magick->Read($file);
+										my $imagemagick_error = $magick->Read($file);
 										# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 										# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-										if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-											$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+										if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+											$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 											unlink($file);
 										}
 										else {
@@ -2032,7 +2036,12 @@ sub import_csv_file($) {
 					# upload the image
 					my $file = $images_ref->{$imagefield};
 
-					if (-e "$file") {
+					# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+					# but multi-pages product sheets, certificates etc.
+					if ($file =~ /\.pdf$/) {
+						$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+					}
+					elsif (-e "$file") {
 						$log->debug("found image file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
 
 						# upload a photo
