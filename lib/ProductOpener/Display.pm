@@ -871,7 +871,15 @@ sub analyze_request($)
 			param("json", 1);
 		}
 
-		$log->debug("got API request", { api => $request_ref->{api}, api_version => param("api_version"), api_method => param("api_method"), code => $request_ref->{code}, jqm => param("jqm"), json => param("json"), xml => param("xml") } ) if $log->is_debug();
+		$log->debug("got API request", {
+			api => $request_ref->{api},
+			api_version => scalar(param("api_version")),
+			api_method => scalar(param("api_method")),
+			code => $request_ref->{code},
+			jqm => scalar(param("jqm")),
+			json => scalar(param("json")),
+			xml => scalar(param("xml")) }
+		) if $log->is_debug();
 	}
 
 	# /search search endpoint, parameters will be parser by CGI.pm param()
