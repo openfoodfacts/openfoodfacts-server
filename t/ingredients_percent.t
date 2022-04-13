@@ -755,6 +755,36 @@ my @tests = (
 
 	],
 
+	# Missing % that is not the first or the last
+	[ { lc => "fr", ingredients_text => "Jus de pomme (57,3%), jus de carotte, jus de gingembre (2,5%)."},
+		[
+			{
+				'id' => 'en:apple-juice',
+				'percent' => '57.3',
+				'percent_estimate' => '57.3',
+				'percent_max' => '57.3',
+				'percent_min' => '57.3',
+				'text' => 'Jus de pomme'
+			},
+			{
+				'id' => 'en:carrot-juice',
+				'percent_estimate' => '32.025',
+				'percent_max' => '42.7',
+				'percent_min' => '21.35',
+				'text' => 'jus de carotte'
+			},
+			{
+				'id' => 'en:ginger',
+				'percent' => '2.5',
+				'percent_estimate' => '10.675',
+				'percent_max' => '2.5',
+				'percent_min' => '2.5',
+				'processing' => 'en:juice',
+				'text' => 'gingembre'
+			}
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
