@@ -768,15 +768,15 @@ my @tests = (
 			},
 			{
 				'id' => 'en:carrot-juice',
-				'percent_estimate' => '32.025',
-				'percent_max' => '42.7',
-				'percent_min' => '21.35',
+				'percent_estimate' => '40.2',
+				'percent_max' => '40.2',
+				'percent_min' => '40.2',
 				'text' => 'jus de carotte'
 			},
 			{
 				'id' => 'en:ginger',
 				'percent' => '2.5',
-				'percent_estimate' => '10.675',
+				'percent_estimate' => '2.5',
 				'percent_max' => '2.5',
 				'percent_min' => '2.5',
 				'processing' => 'en:juice',
