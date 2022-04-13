@@ -2462,7 +2462,7 @@ sub set_percent_max_values($$$) {
 		}
 		my $max_percent_max = $total_max - $sum_of_mins_before - $sum_of_mins_after;
 
-		if ($ingredient_ref->{percent_max} > $max_percent_max) {
+		if (($max_percent_max >= 0) and ($ingredient_ref->{percent_max} > $max_percent_max)) {
 			$ingredient_ref->{percent_max} = $max_percent_max;
 			$changed++;
 		}
@@ -2576,7 +2576,7 @@ sub set_percent_min_values($$$) {
 		}
 		my $min_percent_min = $total_min - $sum_of_maxs_before - $sum_of_maxs_after;
 
-		if ($ingredient_ref->{percent_min} < $min_percent_min - 0.1) {
+		if (($min_percent_min > 0) and ($ingredient_ref->{percent_min} < $min_percent_min - 0.1)) {
 
 			# Bail out if the values are not possible
 			if (($min_percent_min > $total_min) or ($min_percent_min > $ingredient_ref->{percent_max})) {
