@@ -130,7 +130,8 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 3 first lines
+		# Skip 4 first lines
+		$csv->getline ($io);
 		$csv->getline ($io);
 		$csv->getline ($io);
 		$csv->getline ($io);
