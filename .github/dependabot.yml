@@ -12,7 +12,7 @@ updates:
     commit_message:
       prefix: "chore"
       include_scope: true
-
+    open-pull-requests-limit: 300
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -20,7 +20,7 @@ updates:
     commit_message:
       prefix: "chore"
       include_scope: true
-
+    open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
@@ -28,7 +28,7 @@ updates:
     commit_message:
       prefix: "chore"
       include_scope: true
-
+    open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/docker/frontend"
     schedule:
@@ -36,3 +36,4 @@ updates:
     commit_message:
       prefix: "chore"
       include_scope: true
+    open-pull-requests-limit: 300
