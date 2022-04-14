@@ -154,7 +154,7 @@ gif, jpeg, jpf, png, heic
 
 =cut
 
-my $extensions = "gif|jpeg|jpg|png|heic";
+my $supported_extensions = "gif|jpeg|jpg|png|heic";
 
 
 =head1 FUNCTIONS
@@ -475,7 +475,7 @@ sub process_search_image_form($) {
 	my $file = undef;
 	my $code = undef;
 	if ($file = param($imgid)) {
-		if ($file =~ /\.($extensions)$/i) {
+		if ($file =~ /\.($supported_extensions)$/i) {
 
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
@@ -577,8 +577,8 @@ sub get_code_and_imagefield_from_file_name($$) {
 	}
 	# If the photo file name is just the barcode + some stopwords, assume it is the front image
 	# but [code]_2.jpg etc. should not be considered the front image
-	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($extensions)$/i)
-		and not ($filename =~ /^\d{8}\d*(-|_|\.| )+\d{1,2}\.($extensions)$/i)) {    # [code] + number between 0 and 99
+	elsif (($filename =~ /^\d{8}\d*(-|_|\.| )*(photo|visuel|image)?(-|_|\.| )*\d*\.($supported_extensions)$/i)
+		and not ($filename =~ /^\d{8}\d*(-|_|\.| )+\d{1,2}\.($supported_extensions)$/i)) {    # [code] + number between 0 and 99
 		$imagefield = "front";
 	}
 	elsif (defined $file_names_to_imagefield_regexps{$l}) {
@@ -717,7 +717,7 @@ sub process_image_upload($$$$$$$) {
 
 		if ($tmp_filename) {
 			open ($file, q{<}, "$tmp_filename") or $log->error("Could not read file", { path => $tmp_filename, error => $! });
-			if ($tmp_filename =~ /\.($extensions)$/i) {
+			if ($tmp_filename =~ /\.($supported_extensions)$/i) {
 				$extension = lc($1);
 			}
 		}
@@ -762,7 +762,7 @@ sub process_image_upload($$$$$$$) {
 		# We may have a "blob" without file name and extension
 		# extension was initialized to jpg and we will let ImageMagick read it anyway if it's something else.
 
-		if ($file =~ /\.($extensions)$/i) {
+		if ($file =~ /\.($supported_extensions)$/i) {
 			$extension = lc($1);
 			$extension eq 'jpeg' and $extension = 'jpg';
 		}
