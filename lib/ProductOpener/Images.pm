@@ -760,8 +760,7 @@ sub process_image_upload($$$$$$$) {
 		$log->debug("processing uploaded file", { file => $file}) if $log->is_debug();
 
 		# We may have a "blob" without file name and extension
-		# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
-		# $file .= ".jpg";
+		# extension was initialized to jpg and we will let ImageMagick read it anyway if it's something else.
 
 		if ($file =~ /\.($extensions)$/i) {
 			$extension = lc($1);
