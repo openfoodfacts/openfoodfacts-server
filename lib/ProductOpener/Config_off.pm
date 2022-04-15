@@ -1393,6 +1393,7 @@ $options{nova_groups_tags} = {
 # Otherwise the org will be created and the source authorized for that org.
 
 $options{import_sources} = {
+	'agena3000' => "Agena3000",
 	'codeonline' => "CodeOnline Food",
 	'equadis' => "Equadis",
 	'database-usda' => "USDA Global Branded Food Products Database",
