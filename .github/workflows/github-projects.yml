@@ -15,5 +15,5 @@ jobs:
       - uses: actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/12
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           label-operator: AND
