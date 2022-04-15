@@ -87,7 +87,7 @@ We have [[templatized](https://github.com/openfoodfacts/openfoodfacts-server/tre
 ## Contributors
 
 This project exists thanks to all the people who contribute.
-<a href="https://github.com/openfoodfacts/openfoodfacts-server/graphs/contributors"><img src="https://opencollective.com/openfoodfacts-server/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/openfoodfacts/openfoodfacts-server/graphs/contributors"><img src="https://contrib.rocks/image?repo=openfoodfacts/openfoodfacts-server&columns=16" /></a>
 
 
 ## Backers
