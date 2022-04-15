@@ -960,42 +960,49 @@ sub gs1_to_off ($$$) {
 								my $nutrient_value;
 								my $nutrient_unit;
 								
-								# quantityContained may be an array with a single hash
-								if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) eq "ARRAY")) {
-									$nutrient_detail_ref->{quantityContained} = $nutrient_detail_ref->{quantityContained}[0];
+								# quantityContained may be a single hash, or an array of hashes
+								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be given in different ways:
+								# - Equadis has 2 ENER- nutrientDetail, each with a single quantityContained hash
+								# - Agena3000 has 1 ENER- nutrientDetail with an array of 2 quantityContained
+								# --> convert a single hash to an array with a hash
+								if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) ne "ARRAY")) {
+									$nutrient_detail_ref->{quantityContained} = [$nutrient_detail_ref->{quantityContained}];
 								}
+
+								foreach my $quantity_contained_ref (@{$nutrient_detail_ref->{quantityContained}}) {
 								
-								if (defined $nutrient_detail_ref->{quantityContained}{'#'}) {
-									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'#'};
-									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{'@'}{measurementUnitCode}};
-								}
-								elsif (defined $nutrient_detail_ref->{quantityContained}{'$t'}) {
-									$nutrient_value = $nutrient_detail_ref->{quantityContained}{'$t'};
-									$nutrient_unit = $gs1_maps{measurementUnitCode}{$nutrient_detail_ref->{quantityContained}{measurementUnitCode}};
-								}
-								else {
-									$log->error("gs1_to_off - unrecognized quantity contained",
-												{ quantityContained => $nutrient_detail_ref->{quantityContained} }) if $log->is_error();
-								}
-								
-								# less than < modifier
-								if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
-									and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
-									$nutrient_value = "< " . $nutrient_value;
-								}
-								
-								# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
-								if ($nid eq "energy") {
-									if ($nutrient_unit eq "kcal") {
-										$nutrient_field = "energy-kcal" . $type . "_" . $per;
+									if (defined $quantity_contained_ref->{'#'}) {
+										$nutrient_value = $quantity_contained_ref->{'#'};
+										$nutrient_unit = $gs1_maps{measurementUnitCode}{$quantity_contained_ref->{'@'}{measurementUnitCode}};
+									}
+									elsif (defined $quantity_contained_ref->{'$t'}) {
+										$nutrient_value = $quantity_contained_ref->{'$t'};
+										$nutrient_unit = $gs1_maps{measurementUnitCode}{$quantity_contained_ref->{measurementUnitCode}};
 									}
 									else {
-										$nutrient_field = "energy-kj" . $type . "_" . $per;
+										$log->error("gs1_to_off - unrecognized quantity contained",
+													{ quantityContained => $quantity_contained_ref }) if $log->is_error();
 									}
+									
+									# less than < modifier
+									if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
+										and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
+										$nutrient_value = "< " . $nutrient_value;
+									}
+									
+									# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
+									if ($nid eq "energy") {
+										if ($nutrient_unit eq "kcal") {
+											$nutrient_field = "energy-kcal" . $type . "_" . $per;
+										}
+										else {
+											$nutrient_field = "energy-kj" . $type . "_" . $per;
+										}
+									}
+									
+									assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
+									assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
 								}
-								
-								assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
-								assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
