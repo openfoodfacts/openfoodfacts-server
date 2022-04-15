@@ -51,7 +51,7 @@ jobs:
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
         make build_taxonomies
     - name: test
-      run: make test
+      run: make tests
     - name: test make dev
       run: |
         make dev

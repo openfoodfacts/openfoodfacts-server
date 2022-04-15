@@ -10,7 +10,7 @@ synonyms:en:pasteurised, pasteurized
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
-stopwords:bg:съдържа, от, с, със, произведено с, с добавенo, включително
+stopwords:bg:съдържа, от, с, със, и, или, и/или, минимум, произведено с, с добавенo, включително
 stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen
@@ -920,7 +920,7 @@ vegetarian:en:maybe
 
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
-bg:Млечни ферментации, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, симбиотична закваска
+bg:Млечни ферментации, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, симбиотична закваска, млечнокисели култури
 ca:Ferments làctics
 da:yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
 de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
@@ -3859,7 +3859,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomaltulose
 en:lactose, milk sugar, milk lactose
 ar:لاكتوز
 be:Лактоза
-bg:Лактоза
+bg:Лактоза, млечна захар
 bn:ল্যাকটোজ
 bs:Laktoza
 ca:Lactosa
@@ -5718,6 +5718,7 @@ nl:poeder van gesmolten kazen
 
 <en:cheese
 en:low fat cheese
+bg:нискомаслено сирене
 ca:formatge magre
 de:fettarmer Käse
 es:queso magro
@@ -6097,7 +6098,7 @@ ciqual_food_name:fr:Chaource
 en:cheddar, cheddar cheese, Cheddar cheese from cow's milk
 af:Cheddarkaas
 ar:جبنة تشيدر
-bg:чедyр
+bg:чедър
 cs:čedar
 cv:Чеддер
 cy:Caws Cheddar
@@ -7027,7 +7028,7 @@ af:Mascarpone
 ar:ماسكربوني
 az:Maskarpone
 be:Маскарпонэ
-bg:Маскарпоне
+bg:маскарпоне
 bn:ম্যাসকারপোন
 ca:mascarpone
 cs:mascarpone
@@ -7473,6 +7474,7 @@ origins:en: en:Italy
 # <en:sheep's milk
 en:Pecorino, Pecorino cheese
 af:Pecorino
+bg:Пекорино
 ca:Pecorino
 cs:Pecorino
 cv:Пекорино
@@ -7751,7 +7753,7 @@ fr:ricotta de brebis
 en:roquefort, roquefort cheese, Roquefort cheese from ewe's milk
 ar:روكفور
 az:Rokfor pendiri
-bg:Рокфор
+bg:рокфор
 bo:རོ་ཀ་ཧྥོར།
 ca:rocafort
 cv:Рокфор
@@ -14386,6 +14388,7 @@ description:en:the solid state of the vegetable oil, obtained from the fruit of 
 #processing:en en:non-hydrogenated
 #<en:palm fat
 #en:non-hydrogenated palm fat
+#bg:нехидрогенирана палмова мазнина
 #da:ikke-hydrogeneret palmefedt
 #de:unhydriertes Palmfett, Palmfett ungehärtet
 #es:aceite de palma no hidrogenado, grasa vegetal de palma no hidrogenada
@@ -14398,6 +14401,7 @@ description:en:the solid state of the vegetable oil, obtained from the fruit of 
 
 <en:palm fat
 en:hydrogenated palm fat
+bg:хидрогенирана палмова мазнина
 da:hydrogeneret palmefedt
 es:grasa de palma hidrogenada
 fi:kovetettu palmurasva
@@ -14408,6 +14412,7 @@ sv:hydrerad palmfett
 
 <en:palm fat
 en:totally hydrogenated palm fat
+bg:напълно хидрогенирана палмова мазнина
 da:helt hærdet palmefedt, helt hærdet palmefedtstof
 de:vollständig gehärtetes Palmfett
 es:grasa de palma totalmente hidrogenada
@@ -14553,6 +14558,7 @@ nl:palmolie of palmkernolie
 
 <en:vegetable oil
 en:pumpkin seed oil
+bg:олио от тиквени семки
 da:græskarkerneolie
 de:Kürbiskern-Öl
 fi:kurpitsansiemenöljy
@@ -14974,6 +14980,7 @@ en:british rapeseed oil
 # Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 <en:rapeseed oil
 en:canola oil
+bg:олио от канола
 ca:Oli de canola
 de:Ölrübsenöl
 es:aceite de canola
@@ -15107,6 +15114,7 @@ fi:rapsi- ja auringonkukkaöljy
 <en:vegetable oil
 # producedFrom:en:walnut
 en:walnut oil
+bg:орехово олио
 ca:Oli de nou de noguer
 de:Walnussöl, Baumnussöl
 es:aceite de nuez
@@ -15375,7 +15383,7 @@ fr:huile vierge de sésame, huile de sésame vierge
 en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
 be:Соевы алей
-bg:Соево олио
+bg:соево олио
 ca:oli de soia
 cs:sójový olej
 da:Sojaolie
@@ -16129,6 +16137,7 @@ sv:limeolja
 en:eucalyptus oil
 az:eucalyptus oil
 be:эўкаліптавы алей
+bg:евкалиптово масло
 de:eukalyptusöl
 es:aceite de eucalipto
 et:eukalüptiõli
@@ -16152,6 +16161,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eucalyptus_oil
 
 <en:essential oil
 en:thyme oil
+bg:масло от мащерка
 de:Thymianöl
 #10 @2021-09-16
 
@@ -19645,6 +19655,7 @@ it:Aroma di menta
 
 <en:flavouring
 en:peppermint flavouring
+bg:ароматизант ментол
 de:Pfefferminzgeschmack
 fi:piparminttuaromi
 fr:arôme de menthe poivrée
@@ -19654,6 +19665,7 @@ sv:pepparmintsarom
 <en:natural flavouring
 <en:peppermint flavouring
 en:natural peppermint flavouring
+bg:естествен ароматизант ментол
 de:Natürliches Pfeffeeminzaroma
 fi:luontainen piparminttuaromi
 fr:arôme naturel de menthe poivrée
@@ -29293,7 +29305,7 @@ fr:beurre de cacao émulsifiant
 
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
-bg:какаова маса
+bg:какаова маса, какао маса
 ca:pasta de cacau
 cs:kakaová hmota
 da:kakaomasse
@@ -31407,7 +31419,7 @@ it:naturale-fermento, lievito naturale
 <en:yeast
 en:Baker's yeast
 ar:فطريات الخميرة
-bg:Мая
+bg:мая, хлебна мая
 ca:Llevat de forner
 de:Backhefe
 el:Μαγιά αρτοποιίας
@@ -31492,7 +31504,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Torula
 
 <en:yeast
 en:yeast extract
-bg:дрождев екстракт
+bg:екстракт от мая
 bs:ekstrakt kvasca
 ca:Extracte de llevat
 cs:Výtažek z kvasnic, kvasnicový extrakt
@@ -40194,6 +40206,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
 en:persimmon,sharon fruit,khaki
+bg:райска ябълка
 de:Kaki, Sharonfrucht
 es:caqui
 fr:kaki
@@ -40850,18 +40863,12 @@ wikidata:Q68192318
 
 <en:fruit
 en:tamarillo
-bg:тамарило
+bg:тамарило, дървесен картоф
 de:Tamarillo, Baumtomate
 fr:tamarillo
 wikidata:en:Q379747
 wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
-<en:fruit
-en:tamarillo
-de:Tamarillo, Baumtomate
-fr:tamarillo
-wikidata:en:Q379747
-wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 
 ###################################################################################################
 #
@@ -43751,6 +43758,7 @@ ciqual_food_name:fr:Ail séché, poudre
 <fr:ail déshydraté
 <en:garlic
 en:rehydrated garlic
+bg:рехидратиран чесън
 de:Rehydrierter Knoblauch
 fi:rekombinoitu valkosipuli
 fr:ail réhydraté
@@ -43763,6 +43771,7 @@ fr:ail semoule
 # fr:ail-semoule has 31 products in 1 language @2018-10-22
 
 <en:garlic
+bg:пресен чесън
 fr:ail frais
 # fr:ail-frais has 31 products in 1 language @2018-10-22
 
@@ -43916,7 +43925,7 @@ am:ባዚንጀን
 ar:باذنجان
 az:Badımcan
 be:Баклажан
-bg:Патладжан
+bg:патладжан
 bi:Obesin
 bn:বেগুন
 bo:རྡོ་ལུ་མ།
@@ -47475,7 +47484,7 @@ en:salsify, black salsify
 ar:سلسفي هسباني
 az:İspan təkəsaqqalı
 be:Скарцанера
-bg:испански кокеш
+bg:испански кокеш, черен корен, козелец
 ca:Escurçonera de nap
 cs:hadí mord španělský
 da:Skorzonerrod
@@ -47792,7 +47801,7 @@ ar:بطاطا حلوة
 ay:Apichu
 az:Qramafonçiçək batat
 be:Батат
-bg:сладък картоф
+bg:сладък картоф, сладки картофи
 bn:মিষ্টি আলু
 bo:ཞོག་མངར།
 br:patatez dous
@@ -50153,7 +50162,7 @@ en:Courgette, zucchini
 ar:كوسى
 ba:ҡабаҡ
 be:кабачок
-bg:тиквичка
+bg:тиквичка, тиквички
 ca:carbassó
 co:zucchetta
 cs:cuketa
@@ -57259,6 +57268,7 @@ ciqual_food_name:fr:Romarin, séché
 en:lemongrass, lemon grass
 am:ጠጅ ሳር
 ar:إذخر ليموني
+bg:лимонена трева
 bn:গন্ধবেণা
 ca:Canya llimona
 da:citrongræs
@@ -57610,6 +57620,7 @@ fr:feuilles de menthe poivrée, feuilles de menthe poivrée entières
 <en:peppermint
 en:peppermint oil
 ar:زيت النعناع
+bg:масло от дива мента
 da:pebermynteolie, pebermynte olie
 de:Pfefferminzöl
 el:αιθέριο έλαιο μέντας
@@ -64858,6 +64869,7 @@ fr:jus de poisson
 <en:fish
 <en:broth
 en:fish stock
+bg:рибен бульон
 de:fischbrühe
 es:caldo de pescado
 fi:kalaliemi
@@ -66564,6 +66576,7 @@ description:nl:De Pacifische pijltandheilbot (Atheresthes stomias) is een straal
 <en:oily fish
 en:herring
 ak:Adwene
+bg:херинга
 br:Harink
 ca:areng
 co:aringa
@@ -68098,6 +68111,7 @@ nl:Spaanse makreelfilets
 
 <en:mackerel
 en:horse mackerel
+bg:сафрид
 nl:horsmakrel
 description:en:Horse mackerel is a vague vernacular term for a range of species of fish throughout the English-speaking world.
 
@@ -70089,7 +70103,7 @@ an:Caragol
 ar:حلزون
 ay:Ch'uru
 az:İlbiz
-bg:охлюв
+bg:охлюв, охлюви
 bn:শামুক
 br:Melc'hwed-krogennek
 ca:Cargol de terra
@@ -72943,6 +72957,7 @@ nl:koffie van biologische oorsprong
 
 <en:coffee
 en:decaffeinated coffee
+bg:кафе без кофеин 
 de:entkoffeinierter Kaffee
 es:cafe descafeinado
 fi:kofeiiniton kahvi
@@ -74552,6 +74567,7 @@ fr:foie gras d'oie
 
 <en:game animal
 en:partridge
+bg:яребица
 de:Rebhuhn
 es:perdiz
 fr:perdrix, perdreaux
@@ -74579,7 +74595,7 @@ ar:بيض,بيضة
 az:yumurta
 ba:Йомортҡа
 be:яйка
-bg:Яйце,яйца
+bg:яйце, яйца
 bm:Syɛfan
 bn:ডিম
 br:Vi
@@ -74720,6 +74736,7 @@ nl:vrije-uitloopei, vrije uitloop ei
 
 <en:eggs
 en:category A eggs
+bg:яйца категория А
 de:Eier Güteklasse A, Güteklasse A Eier, Eier Klasse A
 es:Huevos clase A, huevos categoría A
 fr:oeufs de categorie A
@@ -74729,6 +74746,7 @@ nl:categorie A eieren
 
 <en:category A eggs
 en:fresh category A eggs
+bg:пресни яйца категория А
 de:frische Eier Klasse A
 fr:oeufs frais de catégorie A
 it:uova fresche di categoria A
@@ -74749,6 +74767,7 @@ nl:eieren uit Zwitserland, zwitserse eieren
 <en:egg
 en:boiled egg
 ar:بيض مسلوق
+bg:варени яйца
 ca:ou bullit
 de:gekochte Eier, Gekochte Hühnereier, gekochtes Ei
 eo:boligita ovo
@@ -74785,6 +74804,7 @@ nl:gekookt ei kwarten
 
 <en:boiled egg
 en:soft-boiled egg
+bg:рохки яйца
 fr:oeuf à la coque, œuf à la coque
 it:uovo alla coque
 ciqual_food_code:en:22014
@@ -74794,6 +74814,7 @@ description:fr:Un œuf à la coque est un œuf entier cuit dans sa coquille, de 
 
 <en:boiled egg
 en:hard-boiled egg
+bg:твърдо сварени яйца
 fr:œuf dur, œufs durs, oeuf dur, oeufs durs
 gl:Ovo duro
 ciqual_food_code:en:22010
@@ -74812,6 +74833,7 @@ fr:quartiers d'œufs durs
 
 <en:egg
 en:poached egg
+bg:поширано яйце
 fr:Oeuf poché
 ciqual_food_code:en:22011
 ciqual_food_name:en:Egg, poached
@@ -74819,6 +74841,7 @@ ciqual_food_name:fr:Oeuf, poché
 
 <en:egg
 en:chicken egg
+bg:кокоши яйца
 de:Hühnerei, Hühnereier, Hühnervollei
 es:Huevo de gallina
 fi:kananmuna, kananmunaa, kanamunaa
@@ -77477,6 +77500,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rusk
 # <en:compound
 <en:special bread
 en:rye bread
+bg:ръжен хляб
 de:Roggenbrot
 fi:ruisleipä
 fr:Pain de seigle
@@ -77493,6 +77517,7 @@ fi:ruisleipäraaste
 
 <en:rye bread
 en:wholemeal rye bread
+bg:пълнозърнест ръжен хляб
 de:Roggenvollkornbrot, Roggen-Vollkornbrot, Roggen Vollkornbrot
 fi:täysjyväruisleipä
 sv:fullkornsrågbröd

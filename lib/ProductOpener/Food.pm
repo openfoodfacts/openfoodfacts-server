@@ -1639,8 +1639,16 @@ sub compute_nutrition_score($) {
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
 	}
-	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	# Use the estimate from the ingredients list if we have one
+	elsif ((not defined $fruits)
+		and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+	}
 	else {
+		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
 		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
 
 			if (has_tag($product_ref, "categories", $category_id)) {
@@ -1655,21 +1663,12 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		# Use the estimate from the ingredients list if we have one
-		if ((not defined $fruits)
-			and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
-			$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
-			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
-		}
-
+		# If we do not have a fruits estimate, use 0 and add a warning		
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
 		}
-
 	}
 
 	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
