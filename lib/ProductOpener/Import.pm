@@ -230,6 +230,20 @@ sub import_images_from_dir($$) {
 	return $images_ref;
 }
 
+# download image at given url parameter
+sub download_image($) {
+	my $image_url = shift;
+
+	require LWP::UserAgent;
+
+	my $ua = LWP::UserAgent->new(timeout => 10);
+
+	# Some platforms such as CloudFlare block the default LWP user agent.
+	$ua->agent(lang('site_name') . " (https://$server_domain)");
+
+	return $ua->get($image_url);
+}
+
 
 # deduplicate column names
 # We may have duplicate columns (e.g. image_other_url),
@@ -470,7 +484,7 @@ sub import_csv_file($) {
 
 	# first line contains headers
 	my $columns_ref = $csv->getline ($io);
-	$csv->column_names (@{deduped_colnames($columns_ref)});
+	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
 	my $j = 0;
@@ -584,10 +598,10 @@ sub import_csv_file($) {
 						next;
 					}
 					
-					# If it is a GS1 import (Equadis, CodeOnline), check if the org is associated with known issues
+					# If it is a GS1 import (Equadis, CodeOnline, Agena3000), check if the org is associated with known issues
 					
 					# Abbreviated product name
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_product_name_is_abbreviated}) and ($org_ref->{gs1_product_name_is_abbreviated})) {
 							
 						if ((defined $imported_product_ref->{product_name_fr}) and ($imported_product_ref->{product_name_fr} ne "")) {
@@ -597,7 +611,7 @@ sub import_csv_file($) {
 					}
 					
 					# Nutrition facts marked as "prepared" are in fact for unprepared / as sold product
-					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis"))
+					if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} eq "codeonline") or ($args_ref->{source_id} eq "equadis") or ($args_ref->{source_id} eq "agena3000"))
 						and (defined $org_ref->{gs1_nutrients_are_unprepared}) and ($org_ref->{gs1_nutrients_are_unprepared})) {
 						
 						foreach my $field (sort keys %$imported_product_ref) {
@@ -1859,18 +1873,23 @@ sub import_csv_file($) {
 
 							my $file = $images_download_dir . "/" . $filename;
 
+							# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+							# but multi-pages product sheets, certificates etc.
+							if ($file =~ /\.pdf$/) {
+								$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+							}
 							# Check if the image exists
-							if (-e $file) {
+							elsif (-e $file) {
 
 								$log->debug("we already have downloaded image file", { file => $file }) if $log->is_debug();
 
 								# Is the image readable?
 								my $magick = Image::Magick->new();
-								my $x = $magick->Read($file);
+								my $imagemagick_error = $magick->Read($file);
 								# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 								# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-								if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-									$log->warn("cannot read existing image file", { error => $x, file => $file }) if $log->is_warn();
+								if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+									$log->warn("cannot read existing image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 									unlink($file);
 								}
 								# If the product has an images field, assume that the image has already been uploaded
@@ -1894,9 +1913,8 @@ sub import_csv_file($) {
 									$images_ref->{$code}{$new_imagefield} = $file;
 								}
 							}
-
-							# Download the image
-							if (! -e $file) {
+							else {
+								# Download the image
 
 								# We can try to transform some URLs to get the full size image instead of preview thumbs
 								
@@ -1929,14 +1947,7 @@ sub import_csv_file($) {
 
 									$log->debug("download image file", { file => $file, image_url => $image_url }) if $log->is_debug();
 
-									require LWP::UserAgent;
-
-									my $ua = LWP::UserAgent->new(timeout => 10);
-									
-									# Some platforms such as CloudFlare block the default LWP user agent.
-									$ua->agent(lang('site_name') . " (https://$server_domain)");
-
-									my $response = $ua->get($image_url);
+									my $response = download_image($image_url);
 
 									if ($response->is_success) {
 										$log->debug("downloaded image file", { file => $file }) if $log->is_debug();
@@ -1946,11 +1957,11 @@ sub import_csv_file($) {
 										
 										# Is the image readable?
 										my $magick = Image::Magick->new();
-										my $x = $magick->Read($file);
+										my $imagemagick_error = $magick->Read($file);
 										# we can get a warning that we can ignore: "Exception 365: CorruptImageProfile `xmp' "
 										# see https://github.com/openfoodfacts/openfoodfacts-server/pull/4221
-										if (("$x") and ($x =~ /(\d+)/) and ($1 >= 400)) {
-											$log->warn("cannot read downloaded image file", { error => $x, file => $file }) if $log->is_warn();
+										if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+											$log->warn("cannot read downloaded image file", { error => $imagemagick_error, file => $file }) if $log->is_warn();
 											unlink($file);
 										}
 										else {
@@ -2032,7 +2043,12 @@ sub import_csv_file($) {
 					# upload the image
 					my $file = $images_ref->{$imagefield};
 
-					if (-e "$file") {
+					# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+					# but multi-pages product sheets, certificates etc.
+					if ($file =~ /\.pdf$/) {
+						$log->debug("skipping PDF file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
+					}
+					elsif (-e "$file") {
 						$log->debug("found image file", { file => $file, imagefield => $imagefield, code => $code }) if $log->is_debug();
 
 						# upload a photo

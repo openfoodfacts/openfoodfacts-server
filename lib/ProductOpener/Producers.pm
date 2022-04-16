@@ -653,6 +653,18 @@ my %in = (
 	"fr" => "en",
 );
 
+=head2 init_fields_columns_names_for_lang ( $l )
+
+Populates global $fields_columns_names_for_lang
+for the specified language.
+
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=cut
 
 sub init_fields_columns_names_for_lang($) {
 
@@ -1148,6 +1160,7 @@ sub init_columns_fields_match($$) {
 	init_fields_columns_names_for_lang($lc);
 
 	if ($lc ne "en") {
+		# we also add english names
 		init_fields_columns_names_for_lang("en");
 	}
 
