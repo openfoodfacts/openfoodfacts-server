@@ -5178,7 +5178,7 @@ sub search_and_display_products($$$$$) {
 	$template_data_ref->{sort_by} = $sort_by;
 
 	# Query from search form: display a link back to the search form
-	if ($request_ref->{current_link_query} =~ /action=process/) {
+	if (defined($request_ref->{current_link_query}) && $request_ref->{current_link_query} =~ /action=process/) {
 		$template_data_ref->{current_link_query_edit} = $request_ref->{current_link_query};
 		$template_data_ref->{current_link_query_edit} =~ s/action=process/action=display/;
 	}
