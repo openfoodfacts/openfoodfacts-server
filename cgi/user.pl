@@ -195,8 +195,7 @@ if ($action eq 'display') {
 		};
 
 		# Professional account
-		if (defined $user_ref->{org}) {
-			push @{$template_data_ref->{sections}}, {
+		push @{$template_data_ref->{sections}}, {
 				id          => "professional",
 				name        => lang("pro_account"),
 				description => "if_you_work_for_a_producer",
@@ -206,7 +205,6 @@ if ($action eq 'display') {
 						field   => "pro",
 						type    => "checkbox",
 						label   => lang("this_is_a_pro_account"),
-						warning => sprintf(lang("this_is_a_pro_account_for_org"), "<b>" . $user_ref->{org} . "</b>"),
 						value   => "off",
 					},
 					{
@@ -220,7 +218,6 @@ if ($action eq 'display') {
 					}
 				]
 			};
-		}
 
 		# Teams section
 		# Do not display teams if it is a professional account

@@ -82,8 +82,8 @@
                     <label for="[% field.field %]">	[% field.label %]</label>
                     <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
                 [% ELSIF field.type == 'checkbox' %]
-                    [% IF accepted_organization && section.id == "professional" %]
-                        <p>[% field.warning %]</p>
+                    [% IF accepted_organization && section.id == "professional" && user_org.defined %]
+                        <p>[% f_lang('this_is_a_pro_account_for_org', {'org' => user_org} ) %]</p>
                     [% ELSE %]
                         <label for="[% field.field %]">
                             <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
