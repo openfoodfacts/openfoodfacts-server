@@ -173,9 +173,11 @@ make: *** [build_lang] Error 2
 ```
 
 Solution:
-
+Project needs Symlinks to be enabled.
 traces.result.sto is a symlink to allergens.result.sto
 
+On Windows, You have to enable the 'Developer Mode' in order to use the symlinks.
+To enable Developer Mode: Go under Settings > Update & Security > 'For developers', and turn on the toggle for Developer Mode.
 On Windows systems, the git repository needs to be cloned with symlinks enabled.
 
 You need to remove current directory where you clone the project, and clone the project again, using right options:
