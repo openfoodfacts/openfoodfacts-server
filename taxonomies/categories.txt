@@ -8061,6 +8061,11 @@ ciqual_food_name:en:Mix of chicory and coffee, instant, without sugar, ready-to-
 
 <en:Instant beverages
 <en:Plant-based beverages
+en:Cereals-based beverages
+fr:Cafés de céréales
+nl:Granenkoffies, Meergranenkoffies
+
+<en:Cereals-based beverages
 fr:Orge soluble
 it:Orzo solubile
 pt:Cevada solúvel
@@ -8345,6 +8350,11 @@ en:Mountain waters, Mountain water
 de:Bergwasser, Bergwässer
 fr:Eaux de montagne, eau de montagne
 nl:Bergwaters, Bergwater
+
+#waters with added vitamins and minerals
+<en:Waters
+en:Vitamin waters
+nl:Vitaminewaters
 
 <fr:Eaux-de-vie
 fr:Marc
@@ -35872,12 +35882,15 @@ zh:黑牛扎糖
 <en:Confectioneries
 <en:Candies
 en:Marshmallows, Marshmallow, Marshmallow candies, Marshmallow candy
-de:Marshmallows, Mäusespeck
+da:Marshmallows
+de:Marshmallows, Mäusespeck, Speck
 es:Malvavisco
-fi:vaahtokarkit
+fi:vaahtokarkit, Vaahtokarkkeja
 fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve, Marshmallows, Marshmallow
 it:Marshmallow
 nl:Marshmallows, Zoete Spekjes, Marshmellows
+nn:Marshmallows
+sv:Skum
 wikidata:en:Q272198
 agribalyse_food_code:en:31050
 ciqual_food_code:en:31050
@@ -67457,7 +67470,7 @@ fi:kuivatut keitot
 fr:Soupes déshydratées, soupes lyophilisées, soupe déshydratée, soupe lyophilisée, soupes concentrées, soupes instantanées, soupe concentrée, soupe instantanée
 he:מרקים מיובשים, מרקים יבשים, מרקי אינסטנט, מרק אינסטנט, מנה חמה
 it:Zuppe disidratate
-nl:Instantsoepen, Instant soepen
+nl:Instantsoepen, Instant soepen, Gedroogde soepen
 pt:Sopa Instantânea
 ro:Supă instant
 
