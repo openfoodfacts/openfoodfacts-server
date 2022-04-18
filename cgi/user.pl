@@ -196,28 +196,28 @@ if ($action eq 'display') {
 
 		# Professional account
 		push @{$template_data_ref->{sections}}, {
-				id          => "professional",
-				name        => lang("pro_account"),
-				description => "if_you_work_for_a_producer",
-				note        => "producers_platform_description_long",
-				fields      => [
-					{
-						field   => "pro",
-						type    => "checkbox",
-						label   => lang("this_is_a_pro_account"),
-						value   => "off",
-					},
-					{
-						field => "pro_checkbox",
-						type  => "hidden",
-						value => 1,
-					},
-					{
-						field => "requested_org",
-						label => lang("producer_or_brand") . ":",
-					}
-				]
-			};
+			id => "professional",
+			name => lang("pro_account"),
+			description => "if_you_work_for_a_producer",
+			note => "producers_platform_description_long",
+			fields => [
+				{
+					field => "pro",
+					type => "checkbox",
+					label => lang("this_is_a_pro_account"),
+					value => "off",
+				},
+				{
+					field => "pro_checkbox",
+					type => "hidden",
+					value => 1,
+				},
+				{
+					field => "requested_org",
+					label => lang("producer_or_brand") . ":",
+				}
+			]
+		};
 
 		# Teams section
 		# Do not display teams if it is a professional account
