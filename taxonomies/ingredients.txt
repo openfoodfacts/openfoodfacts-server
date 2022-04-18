@@ -28000,6 +28000,11 @@ fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
 
+<en:sugar syrup
+en:brown sugar syrup
+de:brauner Zuckersirup
+fr:sirop de sucre mélassé
+nl:bruine suikerstroop
 
 <en:disaccharide
 en:wheat syrup
@@ -28030,9 +28035,6 @@ fr:sirop de sucre partiellement inverti
 it:sciroppo di zucchero parzialmente invertito
 sv:delvis inverterad sockersirap
 # ingredient/en:partially-inverted-sugar-syrup has 101 products in 2 languages @2020-06-08
-
-<en:disaccharide
-fr:sirop de sucre mélassé
 
 en:maltitol syrup
 fi:maltitolisiirappi
@@ -34935,11 +34937,6 @@ es:Manzana Pink Lady
 fr:pomme Pink Lady
 it:Mela Pink Lady
 
-<en:apple
-en:Granny apple
-es:manzana Granny
-fr:pomme Granny
-it:mela Granny
 
 <en:apple
 en:cinnamon apple
@@ -35275,6 +35272,13 @@ fr:pomme Gala, pommes Gala
 nl:Gala appel
 wikidata:en:Q494259
 wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
+
+<en:green apple
+en:Granny apple
+es:manzana Granny
+fr:pomme Granny
+it:mela Granny
+nl:Granny Smith, Granny Smith appel, Granny Smith appels
 
 #US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 <en:apple
