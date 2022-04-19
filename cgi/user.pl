@@ -205,7 +205,6 @@ if ($action eq 'display') {
 					field => "pro",
 					type => "checkbox",
 					label => lang("this_is_a_pro_account"),
-					warning => sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>"),
 					value => "off",
 				},
 				{
@@ -291,7 +290,6 @@ if ($action eq 'display') {
 	if ( ( defined $user_ref->{org} ) and ( $user_ref->{org} ne "" ) ) {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
-		$template_data_ref->{pro_account_org} = sprintf(lang("this_is_a_pro_account_for_org"),"<b>" . $user_ref->{org} . "</b>");
 	}
 	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
