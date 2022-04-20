@@ -2545,6 +2545,19 @@ sub process_product_edit_rules($) {
 	# return value to indicate if the edit should proceed
 	my $proceed_with_edit = 1;
 
+	foreach my $key (keys %{$product_ref}) {
+
+		if (defined $product_ref->{$key}) {
+			my $current = $product_ref->{$key};
+
+			my $emailRegex = /^[a-z0-9.]+\@[a-z0-9.-]+$/;
+
+			if ($current =~ $emailRegex) {
+				return 0;
+			}
+		}
+	}
+
 	foreach my $rule_ref (@edit_rules) {
 
 		local $log->context->{rule} = $rule_ref->{name};
