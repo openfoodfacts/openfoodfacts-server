@@ -4952,7 +4952,7 @@ sub search_and_display_products($$$$$) {
 	push @{$template_data_ref->{sort_options}}, { value => "last_modified_t", link => $request_ref->{current_link} . "?sort_by=last_modified_t", name => lang("sort_by_last_modified_t") };
 
 	my $count;
-	my $page_count;
+	my $page_count = 0;
 
 	my $fields_ref;
 
