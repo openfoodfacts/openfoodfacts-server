@@ -1434,7 +1434,7 @@ sub display_text($)
 	$html =~ s/\[(http\S*?) ([^\]]+)\]/<a href="$1">$2<\/a>/g;
 
 	# Remove the title from the content to put it in the title field
-	if ($html =~ /<h1>(.*)<\/h1>/) {
+	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
 		$html = $` . $';
 	}
