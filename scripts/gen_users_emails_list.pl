@@ -29,6 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 my @userids;
+my $arg = $ARGV[0] || "";
 
 if (scalar $#userids < 0) {
 	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
@@ -50,7 +51,7 @@ foreach my $userid (@userids)
 
 	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
 
-	if ($user_ref->{newsletter}) {
+	if ($arg eq "--all" || $user_ref->{newsletter}) {
 		require ProductOpener::GeoIP;
 		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});
 		defined $country or $country = "";
