@@ -48483,6 +48483,11 @@ ciqual_food_code:en:15046
 ciqual_food_name:en:Pecan nut, salted
 ciqual_food_name:fr:Noix de pécan, salées
 
+#for nuts that have not been salted nor roasted
+<en:Pecan nuts
+en:Plain pecan nuts
+nl:Pecannoten (onbehandeld)
+
 <en:Nuts
 en:Pistachios
 bg:Шам-фъстък
@@ -79592,7 +79597,7 @@ de:Windbeutel, Profiterole, Profiteroles
 es:Bocadito de nata, Profiterol, Profiteroles
 fr:Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
 it:Profiterole, Profiteroles
-nl:Soesje, Profiterole
+nl:Soesjes, Profiterole
 wikidata:en:Q2513811
 agribalyse_food_code:en:23455
 ciqual_food_code:en:23455
@@ -86574,6 +86579,7 @@ it:Dolcificanti da tavola
 nl:Tafelzoetstoffen
 nl_be:Tafelzoetstoffen
 
+
 #fr:Sirops et Boissons concentrées
 
 #<fr:Sirops et Boissons concentrées
@@ -86588,14 +86594,36 @@ fr:Sirops, sirop
 he:סירופ
 hu:Szirupok
 it:Sciroppi, Sciroppo
-nl:Siropen, Stropen
-nl_be:Siropen, Stroop
+nl:Siropen
 pl:Syrop, syropy
 pt:Xaropes
 ru:Сиропы
 th:น้ำเชื่อม
 zh:糖浆
 wikidata:en:Q6584340
+
+# These syrups have a thickness that require them to be applied with a knife on bread (#nl). In #nl they have a specific word.
+<en:Sweet spreads
+<en:Syrups
+<en:Bread coverings
+en:Thick syrups
+nl:Stropen
+
+<en:Thick syrups
+en:Thick sugar syrup
+nl:Suikerstropen
+
+<en:Thick syrups
+en:Thick fruit syrups
+nl:Fruitstropen
+
+<en:Thick fruit syrups
+en:Thick apple syrups
+nl:Appelstropen
+
+<en:Thick fruit syrups
+en:Thick apple pear syrups
+nl:Appel-perenstropen
 
 <en:Syrups
 en:Concentrate syrup without sugar and with artificial sweeteners
@@ -86728,7 +86756,7 @@ fi:hedelmäsiirapit
 fr:Sirops de fruits, sirop de fruits
 he:סירופים מפירות
 it:Sciroppi alla frutta
-nl:Fruitstropen
+nl:Fruitsiropen
 wikidata:en:Q5506416
 
 <en:Fruit syrups
