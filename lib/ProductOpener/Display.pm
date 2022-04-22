@@ -975,6 +975,26 @@ sub analyze_request($)
 		# Main site
 	}
 
+
+'''
+else {
+
+		$request_ref->{canon_rel_url} = '';
+		my $canon_rel_url_suffix = '';
+
+		#check if last field is number
+		if (($#components >=1) and ($components[-1] =~ /^\d+$/)) {
+			#if first field or third field is tags (plural) then last field is page number
+			if (defined $tag_type_from_plural{$lc}{$components[0]} or defined $tag_type_from_plural{"en"}{$components[0]} or defined $tag_type_from_plural{$lc}{$components[2]} or defined $tag_type_from_plural{"en"}{$components[2]}) {
+			$request_ref->{page} = pop @components;
+			$log->debug("get page number", { $request_ref->{page} }) if $log->is_debug();
+			}
+		}'''
+
+	'''<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li 
+	class="current"><a href="">1</a></li><li><a href="/contributors/users/2">2</a></li>
+	<li><a href="/contributors/users/2" rel="next$nofollow">Next</a></li></ul>
+	'''	
 	# Known tag type?
 	else {
 
@@ -7648,7 +7668,7 @@ CSS
 	my $product_fields = '';
 	foreach my $field (@fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$product_fields .= display_field($product_ref, $field);
+		$product_fields .= display_field($product_ref->{lc}, $field);
 	}
 
 	$template_data_ref->{front_image} = $front_image;
@@ -8018,7 +8038,7 @@ HTML
 	my $other_fields = "";
 	foreach my $field (@ProductOpener::Config::display_other_fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$other_fields .= display_field($product_ref, $field);
+		$other_fields .= display_field($product_ref->{lc}, $field);
 	}
 
 	if ($other_fields ne "") {
@@ -8364,7 +8384,7 @@ HTML
 
 	foreach my $field (@fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html .= display_field($product_ref, $field);
+		$html .= display_field($product_ref->{lc}, $field);
 	}
 
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
