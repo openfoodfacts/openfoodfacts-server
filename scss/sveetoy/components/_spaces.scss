@@ -1,0 +1,73 @@
+@import "../mixins/spaces";
+
+/*
+ *
+ * Spaces
+ *
+ */
+
+$include-sveetoy-spaces: $include-sveetoy-classes !default;
+@if $include-sveetoy-spaces {
+    ///
+    /// Apply dividers
+    ///
+    @each $name,
+    $definitions in $sveetoy-spaces {
+        .v-divider-#{$name} {
+            @include sveetoy-apply-spaces($definitions, $axis: "vertical", $sides: ("end"), $prop: "margin");
+        }
+        .h-divider-#{$name} {
+            @include sveetoy-apply-spaces($definitions, $axis: "horizontal", $sides: ("end"), $prop: "margin");
+        }
+    }
+    ///
+    /// Apply vertical spaces
+    ///
+    @each $name,
+    $definitions in $sveetoy-spaces {
+        .v-space-#{$name} {
+            @include sveetoy-apply-spaces($definitions, $axis: "vertical");
+        }
+    }
+    // 'Top/Bottom only' for vertical spaces
+    [class^="v-space-"],
+    [class*=" v-space-"] {
+        &.top-only {
+            padding-bottom: 0;
+        }
+        &.bottom-only {
+            padding-top: 0;
+        }
+    }
+    ///
+    /// Apply horizontal spaces
+    ///
+    @each $name,
+    $definitions in $sveetoy-spaces {
+        .h-space-#{$name} {
+            @include sveetoy-apply-spaces($definitions, $axis: "horizontal");
+        }
+    }
+    // 'Left/Right only' for horizontal spaces
+    [class^="h-space-"],
+    [class*=" h-space-"] {
+        &.left-only {
+            padding-right: 0;
+        }
+        &.right-only {
+            padding-left: 0;
+        }
+    }
+    ///
+    /// Remove all margin
+    ///
+    .unmarged {
+        margin: 0 !important;
+    }
+    ///
+    /// Remove all padding
+    ///
+    .unpadded {
+        padding: 0 !important;
+    }
+}

@@ -1,0 +1,19 @@
+// List of products with cards (e.g. search results, facets)
+$productsGutter:12px;
+$decalTop:48px;
+
+#prodHead {
+    padding-bottom :0
+}
+#prodNav {
+    padding-top :$productsGutter;
+    padding-bottom :$decalTop;
+    &.sticky {
+        z-index:100;
+    margin-top: 82px;
+    padding-bottom:0;
+    }
+}
+#prodInfos {
+    margin-top :-$decalTop
+}

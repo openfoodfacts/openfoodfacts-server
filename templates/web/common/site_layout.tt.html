@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
-    [% header %]
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
+	[% header %]
     <style media="all">
         [% lang("css") %]
         [% styles %]
@@ -28,62 +32,109 @@
     [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
-<nav class="top-bar" data-topbar id="top-bar">
-	<ul class="title-area">
-		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">[% site_name %]</a></h2>
-		</li>
-		<li class="toggle-topbar menu-icon">
-			<a href="#"><span>Menu</span></a>
-		</li>
-	</ul>
-	<section class="top-bar-section">
-    <label for="select_country" style="display:none">[% lang('select_country') %]</label>
-    <ul class="country_language_selection">
-			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
-					<option></option>
-				</select>
-			</li>
-      [% IF langs.match('<a') %]
-        <li class="has-dropdown">
-            [% selected_lang %]
-            <ul class="dropdown">
-                [% langs %]
-            </ul>
-        </li>
-      [% END %]
-    </ul>
-    <ul class="search_and_links">
-      <li class="show-for-large-up">
-        <form action="/cgi/search.pl">
-          <div class="row collapse">
-            <div class="small-8 columns">
-              <input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
-              <input name="search_simple" value="1" type="hidden">
-              <input name="action" value="process" type="hidden">
-            </div>
-            <div class="small-4 columns">
-              <button type="submit" title="[% lang('search') %]">[% display_icon('search') %]</button>
-            </div>
-          </div>
-        </form>
-      </li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
-      [% IF !(server_options_producers_platform) %]
-        <li class="show-for-large-up divider"></li>
-        <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-        <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-        <li class="show-for-large"><a href="[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
-        <li class="show-for-xlarge-up"><a href="[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
-      [% END %]
-    </ul>
-	</section>
-</nav>
+	<div class="upper-nav contain-to-grid"  id="upNav">
+		<nav class="top-bar " data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+				<h1><a href="#">My Site</a></h1>
+				</li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+			<section class="top-bar-section">
+				<label for="select_country" style="display:none">[% lang('select_country') %]</label>
+				<ul class="country_language_selection">
+						<li class="has-form has-dropdown" id="select_country_li">
+							<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
+								<option></option>
+							</select>
+						</li>
+				[% IF langs.match('<a') %]
+					<li class="has-dropdown">
+						[% selected_lang %]
+						<ul class="dropdown">
+							[% langs %]
+						</ul>
+					</li>
+				[% END %]
+				</ul>
+				<!-- Right Nav Section -->
+				<ul class="right">
+				<li class="active">
+					<a href="#" data-reveal-id="loginmodal" class="radius button">[% lang('Login') %]</a>
+				</li>
+				<li class="has-dropdown">
+					<a href="#">Right Button Dropdown</a>
+					<ul class="dropdown">
+					<li><a href="#">First link in dropdown</a></li>
+					<li class="active">
+						[% blocks %]
+						<a href="#">Active link in dropdown</a></li>
+					</ul>
+				</li>
+				</ul>
+			
+				<!-- Left Nav Section -->
+				<ul class="left">
+				<li><a href="#">Left Nav Button</a></li>
+				</ul>
+			</section>
+			</nav>
+	</div>
+<div class="main-container" >
+	
+	<div class="topbarsticky">
+		<div class="contain-to-grid " id="offNav" >
+			<nav class="top-bar" data-topbar role="navigation" >
 
+				<ul class="title-area">
+					<li class="name">
+						<h2><a href="/" style="font-size:1rem;"><img id="logo" src="/images/misc/openfoodfacts-logo-png-130x124.png"   alt="[% lang('logo_site_name') %]" ><span class="text-bold h-space-short text-white">[% site_name %]</span></a></h2>
+					</li>
+					<li class="toggle-topbar menu-icon">
+						<a href="#"><span>Menu</span></a>
+					</li>
+				</ul>
+				<section class="top-bar-section">
+				
+					<ul class="left small-4">
+						<li class="search-li">
+						
+							<form action="/cgi/search.pl">
+							<div class="row"><div class="small-12">
+							<div class="row collapse postfix-radius">
+								<div class=" columns">
+								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
+								<input name="search_simple" value="1" type="hidden">
+								<input name="action" value="process" type="hidden">
+								</div>
+								<div class=" columns">
+								<button type="submit" title="[% lang('search') %]" class="button white postfix">[% display_icon('search') %]</button>
+								</div>
+							</div>
+							</div></div>
+							</form>
+						</li>
+					</ul>
+				<ul class="search_and_links">
+				
+				<!--
+				<li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
+				<li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</span></a></li>
+				<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
+				<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</span></a></li>
+				-->
+				[% IF !(server_options_producers_platform) %]
+					<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+					<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+					<li class="show-for-large getapp"><a href="[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="buttonbar  oceanblue">[% display_icon('phone_android') %]</a></li>
+					<li class="show-for-xlarge-up getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar  oceanblue">[% display_icon('phone_android') %] <span class="small">[% lang('get_the_app') %]</span></a></li>
+				[% END %]
+				</ul>
+				</section>
+			</nav>
+		</div>
+	</div>
 [% offcanvasposition = 'left' %]
 [% IF lang('text_direction') == 'rtl' %]
 [% offcanvasposition = 'right' %]
@@ -115,11 +166,7 @@
 
 <div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
-		<aside class="[% offcanvasposition %]-off-canvas-menu">
-			<div id="aside_column">
-				[% aside_blocks %]
-			</div>
-		</aside>
+	
 		<a class="exit-off-canvas"></a>
 		
 		<!-- full width banner on mobile -->
@@ -145,34 +192,9 @@
 		[% END %]
 		
 		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-				<div class="sidebar">
-					<div style="text-align:center">
-						<a href="/"><img id="logo" src="/images/misc/[% lang('logo') %]" srcset="/images/misc/[% lang('logo2x') %] 2x" width="178" height="150" alt="[% lang('logo_site_name') %]" style="margin-bottom:0.5rem"></a>
-					</div>
-					[% tagline %]
-					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="row collapse">
-							<div class="small-9 columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
-								<input name="search_simple" value="1" type="hidden">
-								<input name="action" value="process" type="hidden">
-							</div>
-							<div class="small-2 columns">
-								<button type="submit" class="button postfix">[% display_icon('search') %]</button>
-							</div>
-							<div class="small-1 columns">
-								<label class="right inline">
-									<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a>
-								</label>
-							</div>
-						</div>
-					</form>
-					[% blocks %]
-				</div>
-			</div>
-			<div id="main_column" class="xxlarge-10 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+		<div class="main bg-lightskyblue" >
+			
+			<div id="main_column"  >
 				
 				<!-- main column content - comment used to remove left column and center content on some pages -->
 				
@@ -181,17 +203,69 @@
 				[% h1_title %]
 
 				[% content_ref %]
+			
 				
 			</div>
         </div>
 	</div>
 </div>
 
-<footer>
-	<div class="small-12 medium-6 large-3 columns off">
-		<h3 class="title">[% lang('site_name') %]</h3>
+</div>
+<footer >
+<div class="bg-white">
+	<div class="row">
+		<div class="small-12 flex-grid v-space-short v-align-center direction-row">
+			<div class="cell small-100 medium-33 large-25 v-align-center">
+			<h2 class="title-1 text-black text-upper text-strong">[% lang('footer_install_the_app') %]</h3>
+			</div>
+			<div class="cell small-100 medium-66 large-75 flex-grid v-align-center direction-row">
+				<a class="cell small-50 large-25 h-space-short v-align-center" href="[% lang('ios_app_link') %]"><img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]"  loading="lazy" class="full-width"></a>
+				<a class="cell small-50 large-25 h-space-short v-align-center" href="[% lang('android_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]" loading="lazy" class="full-width"></a>
+				<a class="cell small-50 large-25 h-space-short v-align-center" href="[% lang('windows_phone_app_link') %]"><img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]"  loading="lazy" class="full-width"></a>
+				<a class="cell small-50 large-25 h-space-short v-align-center" href="[% lang('android_apk_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_apk_app_icon_url') %]" alt="[% lang('android_apk_app_icon_alt_text') %]" loading="lazy" class="full-width"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bg-skyblue">
+	<div class="row">
+		<div class="small-12 large-6 columns v-space-normal">
+			<h3 class="title-2 text-strong text-oceanblue v-space-tiny text-upper">[% lang('footer_join_the_community') %]</h3>
+			<p>
+				<a href="[% lang('footer_code_of_conduct_link') %]" class="title-4">[% lang('footer_code_of_conduct') %]</a>
+				<ul>
+					<li class="text-dark">
+					[% join_us_on_slack %]
+					[% lang('footer_and_the_facebook_group') %]
+					</li>
+					<li class="text-dark">
+					[% lang('footer_follow_us') %]
+					</li>
+				</ul>
+			</p>
+		</div>
+		<div class="small-12 large-6 columns project v-space-normal">
+			<h3 class="title-2 text-strong text-oceanblue v-space-tiny text-upper">[% lang('footer_discover_the_project') %]</h3>
+			<ul class="inline-list navbadge v-space-tiny h-space-tiny" >
+				<li><a class="button small white radius" href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_vision_link') %]">[% lang('footer_vision') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_faq_link') %]">[% lang('footer_faq') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_blog_link') %]">[% lang('footer_blog') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_press_link') %]">[% lang('footer_press') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_wiki_link') %]">[% lang('footer_wiki') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_translators_link') %]">[% lang('footer_translators') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_partners_link') %]">[% lang('footer_partners') %]</a></li>
+				<li><a class="button small white radius" href="[% lang('footer_obf_link') %]">[% lang('footer_obf') %]</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="bg-white off" id="siteEnd">
+	<div class="small-12 text-center v-space-short">
+		<h3 class="title-5 text-black text-uppercase text-strong ">[% lang('site_name') %]</h3>
 		<p>[% lang('footer_tagline') %]</p>
-		<ul>
+		
+		<ul class="inline-list text-center text-small">
 			<li><a href="[% lang('footer_legal_link') %]">[% lang('footer_legal') %]</a></li>
 			<li><a href="[% lang('footer_terms_link') %]">[% lang('footer_terms') %]</a></li>
 			<li><a href="[% lang('footer_data_link') %]">[% lang('footer_data') %]</a></li>
@@ -199,44 +273,18 @@
 			<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns app">
-		<h3 class="title">[% lang('footer_install_the_app') %]</h3>
-		<a href="[% lang('ios_app_link') %]"><img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]" width="120" height="40" loading="lazy"></a>
-		<a href="[% lang('android_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]" width="102" height="40" loading="lazy"></a>
-		<a href="[% lang('windows_phone_app_link') %]"><img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]" width="109" height="40" loading="lazy"></a>
-		<a href="[% lang('android_apk_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_apk_app_icon_url') %]" alt="[% lang('android_apk_app_icon_alt_text') %]" loading="lazy"></a>
-	</div>
-	<div class="small-12 medium-6 large-3 columns project">
-		<h3 class="title">[% lang('footer_discover_the_project') %]</h3>
-		<ul>
-			<li><a href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
-			<li><a href="[% lang('footer_vision_link') %]">[% lang('footer_vision') %]</a></li>
-			<li><a href="[% lang('footer_faq_link') %]">[% lang('footer_faq') %]</a></li>
-			<li><a href="[% lang('footer_blog_link') %]">[% lang('footer_blog') %]</a></li>
-			<li><a href="[% lang('footer_press_link') %]">[% lang('footer_press') %]</a></li>
-			<li><a href="[% lang('footer_wiki_link') %]">[% lang('footer_wiki') %]</a></li>
-			<li><a href="[% lang('footer_translators_link') %]">[% lang('footer_translators') %]</a></li>
-			<li><a href="[% lang('footer_partners_link') %]">[% lang('footer_partners') %]</a></li>
-			<li><a href="[% lang('footer_obf_link') %]">[% lang('footer_obf') %]</a></li>
-		</ul>
-	</div>
-	<div class="small-12 medium-6 large-3 columns community">
-		<h3 class="title">[% lang('footer_join_the_community') %]</h3>
-		<p>
-			<a href="[% lang('footer_code_of_conduct_link') %]">[% lang('footer_code_of_conduct') %]</a>
-			<br><br>
-			[% join_us_on_slack %]
-			<br>
-			[% lang('footer_and_the_facebook_group') %]
-			[% lang('footer_follow_us') %]
-		</p>
-	</div>
+</div>
+
+	
 </footer>
 
 <script src="[% static_subdomain %]/js/dist/modernizr.js"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.js"></script>
 <script src="[% static_subdomain %]/js/dist/jquery-ui.js"></script>
+<script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
+<script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
+<script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
 
 <script>
 \$(function() {

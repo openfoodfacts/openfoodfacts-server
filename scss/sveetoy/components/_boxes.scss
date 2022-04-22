@@ -1,0 +1,68 @@
+@import "../mixins/colors";
+@import "../mixins/spaces";
+
+/*
+ *
+ * Boxes
+ *
+ */
+
+$include-sveetoy-boxes: $include-sveetoy-classes !default;
+
+$sveetoy-boxes-thickness: () !default;
+
+@if $include-sveetoy-boxes {
+    .box{
+        @include sveetoy-apply-spaces(map-get($sveetoy-spaces, "normal"), $axis: "horizontal");
+        @include sveetoy-apply-spaces(map-get($sveetoy-spaces, "normal"), $axis: "vertical");
+
+        & > *{
+            &:first-child{
+                margin-top: 0;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+        @each $name, $definitions in $sveetoy-spaces{
+            &.#{$name}{
+                @include sveetoy-apply-spaces($definitions, $axis: "horizontal");
+                @include sveetoy-apply-spaces($definitions, $axis: "vertical");
+            }
+        }
+
+        ///
+        /// Unpadded section or inner element
+        ///
+        &.unpadded{
+            padding: 0;
+        }
+
+        ///
+        /// Default colors
+        ///
+        @if $sveetoy-colors-scheme-default != null {
+            @include sveetoy-scheme-colors($sveetoy-colors-scheme-default, $apply-border: true);
+        }
+
+        ///
+        /// Color variants
+        ///
+        @each $name, $scheme in $sveetoy-colors-schemes {
+            &.#{$name}{
+                @include sveetoy-scheme-colors($scheme, $apply-border: true);
+            }
+        }
+
+        ///
+        /// Border thickness
+        ///
+        @each $name, $definitions in $sveetoy-boxes-thickness {
+            &.border-#{$name}{
+                border-style: map-get($definitions, 'style');
+                border-width: map-get($definitions, 'size');
+            }
+        }
+    }
+}

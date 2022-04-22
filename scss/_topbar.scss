@@ -1,0 +1,149 @@
+
+////////////////
+//// topbar
+// 
+.upper-nav {
+    background-color: $dark;
+    nav {
+        background-color: $dark;
+    }
+}
+
+.topbarsticky {
+    background: $dark;
+    z-index: 10;
+    #offNav {
+        border-radius: 24px 24px 0 0;
+        background-color: $offblue;
+        height: 82px;
+        display: flex;
+        align-items: center;
+        transition:all 0.3s;
+        .top-bar {
+            height: 62px;
+            width: 100%;
+            a {
+                line-height: 62px;
+            }
+            .name {
+                height: 62px;
+                h2 a {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 65px;
+                    }
+                }
+            }
+        }
+        .search-li {
+            height: 64px;
+            display: flex;
+            width: 400px;
+            align-items: center;
+            .postfix-radius {
+                display: flex;
+            }
+            form {
+                width: 100%;
+                input {
+                    height: 2.35rem;
+                    &[type=text] {
+                        width: 360px;
+                        border-color:$white;
+                        box-shadow:none;
+                    }
+                }
+            }
+        }
+        button,
+        input,
+        select {
+            top: 0;
+        }
+        button[type=submit] {
+          height:2.35rem;
+          background-color:$pastelblue;
+          fill:$primary-color;
+        }
+    }
+    .top-bar {
+        background-color: $offblue;
+    }
+    &.sticky {
+      #offNav {
+          border-radius: 0 0 0 0;}
+
+    }
+}
+
+.top-bar-section .has-dropdown>a:after {
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
+}
+
+.top-bar-section ul li>a:hover {
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .top-bar-section .has-dropdown>a:after {
+        border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
+    }
+    .top-bar-section ul li {
+        background: inherit;
+    }
+    #select_country_li {
+        padding-left: 0;
+    }
+}
+
+// 
+//// end topbar gen
+////////////////
+
+@media #{$topbar-media-query} {
+    #offNav {
+        .top-bar {
+            display:flex;
+        }
+        .title-area {
+            width:380px;
+            display:flex;
+            span {
+                white-space:nowrap;
+            }
+        }
+        .top-bar-section {
+            width: 100%;
+            display: flex;
+        }
+        .search-li {
+            width:400px;
+        }
+        .search_and_links {
+            width: 100%;
+            display: flex;
+            a {
+                font-size:16px;
+            }
+            .getapp {
+                margin-left: auto;
+                align-items: center;
+                a {
+                    height:36px;
+                    line-height:16px;
+                    display: flex;
+                    align-items: center;
+                    border-radius:$global-radius;
+                    fill:$white;
+                    span {
+                        font-weight:bold;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        padding-left:0.25rem;
+                    }
+                }
+            }
+        }
+    }
+}

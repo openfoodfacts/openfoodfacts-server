@@ -1,0 +1,54 @@
+/*
+ *
+ * For top-bar elements
+ *
+ */
+$include-sveetoy-topbar: $include-sveetoy-classes !default;
+
+@if $include-sveetoy-topbar {
+    // Topbar adjustment does not have any sense with Foundation6
+    @if $sveetoy_foundation_support == 5{
+        ///
+        /// Reproduce link behavior for non link item
+        ///
+        .top-bar-section ul li > .item-box{
+            color: $topbar-link-color;
+            display: block;
+            font-family: $topbar-link-font-family;
+            font-size: $topbar-link-font-size;
+            font-weight: $topbar-link-weight;
+            padding-#{$default-float}: $topbar-link-padding;
+            padding: 12px 0 12px $topbar-link-padding;
+            text-transform: $topbar-link-text-transform;
+            width: 100%;
+            @media #{$topbar-media-query} {
+                background: $topbar-link-bg;
+                line-height: $topbar-height;
+                padding: 0 $topbar-link-padding;
+            }
+        }
+
+        .top-bar{
+            .name{
+                ///
+                /// Reproduce '<h1>' behavior for paragraph in '.name'
+                ///
+                p{
+                    line-height: $topbar-height;
+                    font-size: $topbar-title-font-size;
+                    margin: 0;
+                    a {
+                        font-weight: $topbar-title-weight;
+                        color: $topbar-link-color;
+                        width: 75%;
+                        display: block;
+                        padding: 0 $topbar-link-padding;
+                        @media #{$topbar-media-query} {
+                            width: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
