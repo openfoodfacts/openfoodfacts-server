@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogue_item_confirmation:catalogueItemConfirmationMessage xmlns:catalogue_item_confirmation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/CatalogueItemConfirmation.xsd" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+	<sh:StandardBusinessDocumentHeader>
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender>
+			<sh:Identifier Authority="GS1">[% Sender.Identifier %]</sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver>
+			<sh:Identifier Authority="GS1">[% Receiver.Identifier %]</sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification>
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier>3779000002525_0c96e017d216a49648a09da2dcbc68746</sh:InstanceIdentifier>
+			<sh:Type>catalogueItemConfirmation</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime>2022-02-23T12:15:04+01:00</sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification>[% transactionIdentification.entityIdentification %]</entityIdentification>
+			<contentOwner>
+				<gln>[% transactionIdentification.contentOwner %]</gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand>
+			<documentCommandHeader type="ADD">
+				<documentCommandIdentification>
+					<entityIdentification>[% documentCommandIdentification.entityIdentification %]</entityIdentification>
+					<contentOwner>
+						<gln>[% documentCommandIdentification.contentOwner %]</gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_confirmation:catalogueItemConfirmation>
+				<creationDateTime>2022-02-23T12:15:04+01:00</creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<catalogueItemConfirmationIdentification>
+					<entityIdentification>[% catalogueItemConfirmationIdentification.entityIdentification %]</entityIdentification>
+					<contentOwner>
+						<gln>[% catalogueItemConfirmationIdentification.contentOwner %]</gln>
+					</contentOwner>
+				</catalogueItemConfirmationIdentification>
+				<catalogueItemConfirmationState>
+					<catalogueItemConfirmationStateCode>REVIEW</catalogueItemConfirmationStateCode>
+					<recipientGLN>3020879082287</recipientGLN>
+					<recipientDataPool>3027000006006</recipientDataPool>
+				</catalogueItemConfirmationState>
+				<catalogueItemReference>
+					<dataSource>3013953200103</dataSource>
+					<gtin>28414933570206</gtin>
+					<targetMarketCountryCode>250</targetMarketCountryCode>
+				</catalogueItemReference>
+				<catalogueItemConfirmationStatusDetail>
+					<confirmationStatusCatalogueItem>
+						<dataSource>3013953200103</dataSource>
+						<gtin>08414933570202</gtin>
+						<targetMarketCountryCode>250</targetMarketCountryCode>
+					</confirmationStatusCatalogueItem>
+					<catalogueItemConfirmationStatus>
+						<confirmationStatusCode>CIC999</confirmationStatusCode>
+						<confirmationStatusCodeDescription languageCode="fr">ELIOR_017 : L'indication matière premières irradiée est obligatoire.</confirmationStatusCodeDescription>
+					</catalogueItemConfirmationStatus>
+					<catalogueItemConfirmationStatus>
+						<confirmationStatusCode>CIC999</confirmationStatusCode>
+						<confirmationStatusCodeDescription languageCode="fr">ELIOR_021 : Le propriétaire de la marque est obligatoire.</confirmationStatusCodeDescription>
+					</catalogueItemConfirmationStatus>
+
+				</catalogueItemConfirmationStatusDetail>
+			</catalogue_item_confirmation:catalogueItemConfirmation>
+		</documentCommand>
+	</transaction>
+</catalogue_item_confirmation:catalogueItemConfirmationMessage>
