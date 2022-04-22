@@ -365,13 +365,56 @@ foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) 
 }
 
 
-=head2 %gs1_to_off
+=head2 %gs1_message_to_off
 
-Defines the structure of the GS1 data and how it maps to the OFF data.
+Defines the structure of the GS1 message data and how to extract the fields useful to create a message confirmation.
 
 =cut
 
-my %gs1_to_off = (
+my %gs1_message_to_off = (
+
+	fields => [
+
+		["catalogue_item_notification:catalogueItemNotificationMessage", {
+				fields => [
+					["sh:StandardBusinessDocumentHeader", {
+							fields => [
+
+							],
+						}
+					],
+
+					["transaction", {
+							fields => [
+								["transactionIdentification", {
+										fields => [
+											["entityIdentification" => "transactionIdentification.entityIdentification"],
+											["contentOwner", {
+													fields => [
+														["gln", "transactionIdentification.contentOwner.gln"],
+													]
+												}
+											]
+										],
+									},
+								],
+							],
+						}
+					],
+				],
+			}
+		],
+	],
+);
+
+
+=head2 %gs1_product_to_off
+
+Defines the structure of the GS1 product data and how it maps to the OFF data.
+
+=cut
+
+my %gs1_product_to_off = (
 
 	match => [
 		["isTradeItemAConsumerUnit", "true"],
@@ -961,7 +1004,7 @@ sub gs1_to_off ($$$) {
 								my $nutrient_unit;
 								
 								# quantityContained may be a single hash, or an array of hashes
-								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be given in different ways:
+								# e.g. for the energy ENER- field, there are values in kJ and kcal that can be specified in different ways:
 								# - Equadis has 2 ENER- nutrientDetail, each with a single quantityContained hash
 								# - Agena3000 has 1 ENER- nutrientDetail with an array of 2 quantityContained
 								# --> convert a single hash to an array with a hash
@@ -1377,6 +1420,15 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	# --- catalogue_item_notification:catalogueItemNotification
 	# ---- catalogueItem
 	# ----- tradeItem
+
+	# If there is an encapsulating message, extract the relevant fields
+	# that we will need to create a confirmation message
+	if (defined $json_ref->{"catalogue_item_notification:catalogueItemNotificationMessage"}) {
+		my $message_results_ref = {};
+		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_results_ref);
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_debug();
+		$log->error("convert_gs1_json_to_off_csv - GS1 message fields", { message_results_ref => $message_results_ref }) if $log->is_error();
+	}
 	
 	foreach my $field (qw(
 		catalogue_item_notification:catalogueItemNotificationMessage
@@ -1415,7 +1467,7 @@ sub convert_gs1_json_message_to_off_products_csv($$) {
 	
 	my $results_ref = {};
 	
-	gs1_to_off(\%gs1_to_off, $json_ref, $results_ref);
+	gs1_to_off(\%gs1_product_to_off, $json_ref, $results_ref);
 	
 	# assign the lang and lc fields
 	if (defined $results_ref->{languages}) {
