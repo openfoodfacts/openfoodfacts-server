@@ -1530,7 +1530,7 @@ sub compute_nutrition_score($) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
 
 		if (has_tag($product_ref, "categories", $category_tag)) {
 
@@ -1639,8 +1639,16 @@ sub compute_nutrition_score($) {
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
 	}
-	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	# Use the estimate from the ingredients list if we have one
+	elsif ((not defined $fruits)
+		and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+	}
 	else {
+		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
 		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
 
 			if (has_tag($product_ref, "categories", $category_id)) {
@@ -1655,21 +1663,12 @@ sub compute_nutrition_score($) {
 			}
 		}
 
-		# Use the estimate from the ingredients list if we have one
-		if ((not defined $fruits)
-			and (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})) {
-			$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
-			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
-		}
-
+		# If we do not have a fruits estimate, use 0 and add a warning		
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
 			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
 		}
-
 	}
 
 	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
@@ -2202,12 +2201,15 @@ sub compute_nova_group($) {
 	delete $product_ref->{nova_group};
 	delete $product_ref->{nova_groups};
 	delete $product_ref->{nova_groups_tags};
+	delete $product_ref->{nova_group_tags};	# wrongly named field that was added to some products
+	delete $product_ref->{nova_groups_markers};
+	delete $product_ref->{nova_group_error};
 
 	$product_ref->{nova_group_debug} = "";
 
 	# do not compute a score when it is not food
 	if (has_tag($product_ref,"categories","en:non-food-products")) {
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_groups_tags} = [ "not-applicable" ];
 			$product_ref->{nova_group_debug} = "no nova group for non food products";
 			return;
 	}
@@ -2219,15 +2221,18 @@ sub compute_nova_group($) {
 
 	$product_ref->{nova_group} = 1;
 
+	# Record the "markers" (e.g. categories or ingredients) that indicate a specific NOVA group
+	my %nova_groups_markers = ();
 
-	# $options{nova_groups_tags} = {
-	#
-	# # start by assigning group 1
-	#
-	# # 1st try to identify group 2 processed culinary ingredients
-	#
-	# "categories/en:fats" => 2,
+	# We currently have 2 sources for tags that can trigger a given NOVA group:
+	# 1. tags specified in the %options of Config.pm 
+	# 2. tags in the categories, ingredients and additives taxonomy that have a nova:en property
 
+	# We first generate lists of matching tags for each NOVA group, from the two sources
+
+	my %matching_tags_for_groups = (2 => [], 3 => [], 4 => []);
+
+	# Matching tags from options
 
 	if (defined $options{nova_groups_tags}) {
 
@@ -2239,40 +2244,50 @@ sub compute_nova_group($) {
 				my $tagid = $';
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
-
-					if ($options{nova_groups_tags}{$tag} > $product_ref->{nova_group}) {
-
-						# only move group 1 product to group 3, not group 2
-						if (not (($product_ref->{nova_group} == 2) and ($options{nova_groups_tags}{$tag} == 3))) {
-							$product_ref->{nova_group_debug} .= " -- $tag : " . $options{nova_groups_tags}{$tag} ;
-							$product_ref->{nova_group} = $options{nova_groups_tags}{$tag};
-						}
-					}
+					push @{$matching_tags_for_groups{$options{nova_groups_tags}{$tag} + 0}}, [$tagtype, $tagid];
 				}
-
 			}
 		}
 	}
 
-	# Also loop through categories and ingredients to see if the taxonomy has associated minimum NOVA grades
-	# Categories need to be first, so that we can identify group 2 foods such as salt, sugar, fats etc.
-	# Group 2 foods should then not be moved to group 3
-	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+
+	# Matching tags from taxonomies
 	
-	foreach my $tag_type ("categories", "ingredients") {
+	foreach my $tagtype ("categories", "ingredients", "additives") {
 
-		if ((defined $product_ref->{$tag_type . "_tags"}) and (defined $properties{$tag_type})) {
+		if ((defined $product_ref->{$tagtype . "_tags"}) and (defined $properties{$tagtype})) {
 
-			foreach my $tag (@{$product_ref->{$tag_type . "_tags"}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 
-				if ( (defined $properties{$tag_type}{$tag})
-					and (defined $properties{$tag_type}{$tag}{"nova:en"})
-					and ($properties{$tag_type}{$tag}{"nova:en"} > $product_ref->{nova_group})
-					# don't move group 2 to group 3
-					and not (($properties{$tag_type}{$tag}{"nova:en"} == 3) and ($product_ref->{nova_group} == 2))
-					) {
-					$product_ref->{nova_group_debug} .= " --- $tag_type : $tag : " . $properties{$tag_type}{$tag}{"nova:en"} ;
-					$product_ref->{nova_group} = $properties{$tag_type}{$tag}{"nova:en"};
+				my $nova_group = get_property($tagtype, $tagid, "nova:en");
+
+				if (defined $nova_group) {
+					push @{$matching_tags_for_groups{$nova_group + 0}}, [$tagtype, $tagid];
+				}
+			}
+		}
+	}
+
+	# Assign the NOVA group based on matching tags (options in Config.pm and then taxonomies)
+	# First identify group 2 foods, then group 3 and 4
+	# Group 2 foods should not be moved to group 3
+	# (e.g. sugar contains the ingredient sugar, but it should stay group 2)
+
+	my %seen_markers = ();
+
+	foreach my $nova_group (2, 3, 4) {
+		foreach my $matching_tag_ref (@{$matching_tags_for_groups{$nova_group}}) {
+			my ($tagtype, $tagid) = @$matching_tag_ref;
+			if (($nova_group >= $product_ref->{nova_group})
+				# don't move group 2 to group 3
+				and not (($nova_group == 3) and ($product_ref->{nova_group} == 2))
+				) {
+				$product_ref->{nova_group} = $nova_group;
+				defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
+				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
+				if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+					push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
+					$seen_markers{$tagtype . ':' . $tagid} = 1;
 				}
 			}
 		}
@@ -2407,8 +2422,9 @@ sub compute_nova_group($) {
 			$product_ref->{nova_group} = 1;
 		} elsif ($product_ref->{nova_group} != 2) {
 			delete $product_ref->{nova_group};
-			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_groups_tags} = [ "unknown" ];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
+			$product_ref->{nova_group_error} = "missing_ingredients";
 			return;
 		}
 	}
@@ -2423,27 +2439,30 @@ sub compute_nova_group($) {
 			has_tag($product_ref,"quality","en:ingredients-60-percent-unknown") or
 			has_tag($product_ref,"quality","en:ingredients-50-percent-unknown") )  {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
+				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
 				return;
 		}
 
 		if ($product_ref->{unknown_ingredients_n} > ($product_ref->{ingredients_n} / 2)) {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown: "
 					. $product_ref->{unknown_ingredients_n} . " out of " . $product_ref->{ingredients_n};
+				$product_ref->{nova_group_error} = "too_many_unknown_ingredients";
 				return;
 		}
 
 		# do not compute a score when we don't have a category
 		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 				delete $product_ref->{nova_group};
-				$product_ref->{nova_group_tags} = [ "not-applicable" ];
+				$product_ref->{nova_groups_tags} = [ "unknown" ];
 				$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
+				$product_ref->{nova_group_error} = "missing_category";
 				return;
 		}
-	}	
+	}
 
 	# Make sure that nova_group is stored as a number
 
@@ -2458,6 +2477,9 @@ sub compute_nova_group($) {
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
 	$product_ref->{nova_groups} .= "";
 	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_groups}) ];
+
+	# Keep the ingredients / categories markers for the resulting nova group
+	$product_ref->{nova_groups_markers} = \%nova_groups_markers;
 
 	return;
 }

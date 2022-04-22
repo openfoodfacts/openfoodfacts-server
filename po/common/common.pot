@@ -117,9 +117,9 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Please enter the name of your organization (company name or brand)."
 
-msgctxt "this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
-msgstr "This account is a professional account associated with the producer or brand %s. You have access to the Platform for Producers."
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 
 msgctxt "add_user_email_body"
 msgid ""
@@ -5457,10 +5457,10 @@ msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 msgstr "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
 
-msgctxt "data_source_database_equadis"
-msgid "The manufacturer %s uses %s to automatically transmit data and photos for its products."
-msgstr "The manufacturer %s uses %s to automatically transmit data and photos for its products."
-
+# variable names between { } must not be translated
+msgctxt "f_data_source_database_provider"
+msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
+msgstr "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5482,7 +5482,7 @@ msgstr "The Eco-Score can only be calculated if the product has a sufficiently p
 msgctxt "ecoscore_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "You can modify the product page to add a more precise category."
-      
+
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
@@ -5490,7 +5490,7 @@ msgstr "If you are the manufacturer of this product, you can send us the informa
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
 msgstr "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-      
+
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "You can edit the product to add the missing information."
@@ -5765,21 +5765,21 @@ msgstr "%s g / 100 g"
 
 msgctxt "donation_title"
 msgid "Important: we need your support!"
-msgstr "" 
+msgstr ""
 
 # variable names between { } must not be translated, {number_of_employees} will be a number
 msgctxt "donation_body_employees"
 msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "" 
+msgstr ""
 
 # variable names between { } must not be translated, {year} will be the upcoming year
 msgctxt "donation_why_year"
 msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "" 
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "" 
+msgstr ""
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -6033,3 +6033,40 @@ msgstr "No ingredients containing palm oil detected"
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr "Unrecognized ingredients"
+
+msgctxt "nova_1_unprocessed_ingredients"
+msgid "The product contains only unprocessed or minimally processed ingredients."
+msgstr "The product contains only unprocessed or minimally processed ingredients."
+
+# variable names between { } must not be translated
+msgctxt "f_nova_markers_for_nova_group"
+msgid "Elements that indicate the product is in the {nova_group} group"
+msgstr "Elements that indicate the product is in the {nova_group} group"
+
+msgctxt "nova_classification_description"
+msgid "Food products are classified into 4 groups according to their degree of processing:"
+msgstr "Food products are classified into 4 groups according to their degree of processing:"
+
+msgctxt "nova_classification_how"
+msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
+msgstr "The determination of the group is based on the category of the product and on the ingredients it contains."
+
+msgctxt "nova_classification_learn_more"
+msgid "Learn more about the NOVA classification"
+msgstr "Learn more about the NOVA classification"
+
+msgctxt "nova_group_missing_category"
+msgid "The category of the product must be specified in order to determine the NOVA group."
+msgstr "The category of the product must be specified in order to determine the NOVA group."
+
+msgctxt "nova_group_missing_ingredients"
+msgid "The ingredients of the product must be specified in order to determine the NOVA group."
+msgstr "The ingredients of the product must be specified in order to determine the NOVA group."
+
+msgctxt "nova_group_too_many_unknown_ingredient"
+msgid "We could not recognize some of the ingredients and determine the NOVA group."
+msgstr "We could not recognize some of the ingredients and determine the NOVA group."
+
+msgctxt "unselect_image"
+msgid "Unselect Image"
+msgstr ""

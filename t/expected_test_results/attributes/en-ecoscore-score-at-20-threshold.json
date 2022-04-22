@@ -757,8 +757,9 @@
       "en:ecoscore-computed"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
-   "nova_group_tags" : [
-      "not-applicable"
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {},

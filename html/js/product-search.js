@@ -168,7 +168,7 @@ function display_products(target, product_groups, user_prefs ) {
 			if (user_prefs.use_ranking) {
 				css_classes += ' list_product_a_match_' + product.match_status;
 			}
-			product_html += `<li><a href=${product.url}" class="${css_classes}">`;
+			product_html += `<li><a href="${product.url}" class="${css_classes}">`;
 			product_html += '<div class="list_product_img_div">';
 
 			const img_src =

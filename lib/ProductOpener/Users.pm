@@ -334,6 +334,20 @@ sub check_user_form($$$) {
 	$user_ref->{display_barcode} = !! remove_tags_and_quote(param("display_barcode"));
 	$user_ref->{edit_link} = !! remove_tags_and_quote(param("edit_link"));
 
+	# Check for spam
+	# e.g. name with "Lydia want to meet you! Click here:" + an url
+
+	foreach my $bad_string ('click here', 'wants to meet you', '://') {
+		if ($user_ref->{name} =~ /$bad_string/i) {
+			# log the ip
+			open(my $log, ">>", "$data_root/logs/user_spam.log");
+			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
+			close($log);
+			# bail out, return 200 status code
+			display_error("", 200);
+		}
+	}
+
 	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
@@ -347,6 +361,10 @@ sub check_user_form($$$) {
 	$address = 0 if $@;
 	if (not $address) {
 		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
+	}
+	else {
+		# If all checks have passed, reinitialize with modified email
+		$user_ref->{email} = $address;
 	}
 
 	if ($type eq 'add') {

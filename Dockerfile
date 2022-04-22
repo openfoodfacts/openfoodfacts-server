@@ -2,7 +2,7 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
-
+ARG CPANMOPTS=
 
 ######################
 # Base modperl image stage
@@ -135,7 +135,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libtest-number-delta-perl \
         libdevel-size-perl \
         gnumeric \
-        incron
+        incron \
+        # for dev
+        # gnu readline
+        libreadline-dev \
+        # IO::AIO needed by Perl::LanguageServer
+        libperl-dev
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID
@@ -148,14 +153,14 @@ RUN usermod --uid $USER_UID www-data && \
 # Stage for installing/compiling cpanfile dependencies
 ######################
 FROM modperl AS builder
-
+ARG CPANMOPTS
 WORKDIR /tmp
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile /tmp/cpanfile
 
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
+RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
 
 
 ######################

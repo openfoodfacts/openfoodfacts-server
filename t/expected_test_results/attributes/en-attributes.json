@@ -297,15 +297,15 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Low environmental impact",
-               "grade" : "b",
-               "icon_url" : "https://server_domain/images/attributes/ecoscore-b.svg",
+               "description_short" : "Moderate environmental impact",
+               "grade" : "c",
+               "icon_url" : "https://server_domain/images/attributes/ecoscore-c.svg",
                "id" : "ecoscore",
-               "match" : 63,
+               "match" : 57,
                "name" : "Eco-Score",
                "panel_id" : "ecoscore",
                "status" : "known",
-               "title" : "Eco-Score B"
+               "title" : "Eco-Score C"
             },
             {
                "description" : "",
@@ -1050,8 +1050,42 @@
       "en:forest-footprint-a"
    ],
    "nova_group" : 4,
-   "nova_group_debug" : " -- ingredients/en:salt : 3 -- additives/en:e102 : 4",
+   "nova_group_debug" : "",
    "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:salt"
+         ],
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e102"
+         ],
+         [
+            "additives",
+            "en:e120"
+         ],
+         [
+            "ingredients",
+            "en:glucose"
+         ],
+         [
+            "ingredients",
+            "en:high-fructose-corn-syrup"
+         ],
+         [
+            "ingredients",
+            "en:milk-proteins"
+         ]
+      ]
+   },
    "nova_groups_tags" : [
       "en:4-ultra-processed-food-and-drink-products"
    ],

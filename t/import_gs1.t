@@ -71,13 +71,13 @@ foreach my $file (sort(readdir($dh))) {
 	init_csv_fields();
 	
 	my $products_ref = [];
-	my $product_ref = read_gs1_json_file("$expected_dir/$testdir/$file", $products_ref);
+	read_gs1_json_file("$expected_dir/$testdir/$file", $products_ref);
 	
 	# Save the result
 	
 	if (defined $resultsdir) {
 		open (my $result, ">:encoding(UTF-8)", "$resultsdir/$testid.off.json") or die("Could not create $resultsdir/$testid.off.json: $!\n");
-		print $result $json->pretty->encode($product_ref);
+		print $result $json->pretty->encode($products_ref);
 		close ($result);		
 	}
 	
@@ -86,12 +86,12 @@ foreach my $file (sort(readdir($dh))) {
 	if (open (my $expected_result, "<:encoding(UTF-8)", "$expected_dir/$testdir/$testid.off.json")) {
 
 		local $/; #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply ($product_ref, $expected_product_ref) or diag explain $product_ref;
+		my $expected_products_ref = $json->decode(<$expected_result>);
+		is_deeply ($products_ref, $expected_products_ref) or diag explain $products_ref;
 	}
 	else {
 		fail("could not load expected_test_results/$testdir/$testid.off.json");
-		diag explain $product_ref;
+		diag explain $products_ref;
 	}
 }
 

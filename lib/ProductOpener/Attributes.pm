@@ -625,9 +625,9 @@ sub compute_attribute_ecoscore($$$) {
 		my $score = $product_ref->{ecoscore_score} // 0;
 		my $grade = $product_ref->{ecoscore_grade};
 		
-		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$cc})) {
-			$score = $product_ref->{ecoscore_data}{"scores"}{$cc} // 0;
-			$grade = $product_ref->{ecoscore_data}{"grades"}{$cc};
+		if ((defined $product_ref->{ecoscore_data}{"scores"}) and (defined $product_ref->{ecoscore_data}{"scores"}{$target_cc})) {
+			$score = $product_ref->{ecoscore_data}{"scores"}{$target_cc} // 0;
+			$grade = $product_ref->{ecoscore_data}{"grades"}{$target_cc};
 		}
 		
 		$log->debug("compute ecoscore attribute - known", { code => $product_ref->{code}, score => $score, grade => $grade }) if $log->is_debug();

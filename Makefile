@@ -10,7 +10,7 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 
-export CPU_COUNT=$(shell nproc || 1)
+export CPU_COUNT=$(shell nproc || echo 1)
 
 
 DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
@@ -138,7 +138,7 @@ create_mongodb_indexes:
 
 refresh_product_tags:
 	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-# get id for mongodb container
+# get id for mongodb container
 	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb /bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 
@@ -170,13 +170,16 @@ import_prod_data:
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
 
-checks: front_lint check_perl_fast
+front_build:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
+
+checks: front_build front_lint check_perl_fast
 
 
 tests: build_lang_test
 	@echo "🥫 Runing tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend prove -l
+	${DOCKER_COMPOSE_TEST} run --rm backend prove -l --jobs ${CPU_COUNT}
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 test success"
 
@@ -193,15 +196,17 @@ check_perl_fast:
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
 	@echo "🥫checking all perl files"
-	${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+	${DOCKER_COMPOSE_TEST} stop
 
 #-------------#
-# Compilation #
+# Compilation #
 #-------------#
 
 build_taxonomies:
 	@echo "🥫 build taxonomies on ${CPU_COUNT} procs"
-	${DOCKER_COMPOSE} run --rm backend make -C taxonomies -j ${CPU_COUNT}
+	${DOCKER_COMPOSE} run --no-deps --rm backend make -C taxonomies -j ${CPU_COUNT}
 
 rebuild_taxonomies:
 	@echo "🥫 re-build taxonomies on ${CPU_COUNT} procs"

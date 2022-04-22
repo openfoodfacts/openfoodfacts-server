@@ -71,6 +71,7 @@ use ProductOpener::Tags qw/:all/;
 
 use JSON::PP;
 use boolean;
+use Data::DeepAccess qw(deep_get);
 
 
 =head1 GS1 MAPS
@@ -248,6 +249,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"EN" => "Enveloppe",
 		"JR" => "Bocal",
 		"PO" => "Poche",
+		"PUG" => "Sac de transport",
 		"TU" => "Tube",
 		"WRP" => "Film",
 	},		
@@ -267,6 +269,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"EN" => "en:envelope",
 		"JR" => "en:jar",
 		"PO" => "en:bag",
+		"PUG" => "en:carrying-bag",
 		"TU" => "en:tube",
 		"WRP" => "en:film",
 	},	
@@ -862,6 +865,13 @@ sub gs1_to_off ($$$) {
 			if ($source_field eq "nutrientHeader") {
 				
 				$log->debug("gs1_to_off - special handling for nutrientHeader array") if $log->is_debug();
+
+				# If there is only one nutrition facts table, nutrientHeader might not be an array
+				# depending on how the XML was converted to JSON
+				# In that case, create an array
+				if (ref($json_ref->{$source_field}) eq 'HASH') {
+					$json_ref->{$source_field} = [$json_ref->{$source_field}];
+				}
 				
 				# Some products like ice cream may have nutrients per 100g + nutrients per 100ml
 				# in that case, the last values (e.g. for 100g) will override previous values (e.g. for 100ml)
@@ -1200,6 +1210,23 @@ sub gs1_to_off ($$$) {
 				
 				# The source structure may be a hash or an array of hashes
 				# e.g. Equadis: allergenRelatedInformation is a hash, CodeOnline: it is an array
+
+				# CodeOnline:
+
+				# allergenRelatedInformation: [
+				# 	{
+				# 		allergen: [
+				# 			{
+				# 				allergenTypeCode: "AC",
+				# 				levelOfContainmentCode: "FREE_FROM"
+				# 			},
+				# 			{
+				# 				allergenTypeCode: "AE",
+				# 				levelOfContainmentCode: "CONTAINS"
+				# 			},				
+
+				$log->debug("gs1_to_off - source_target is a hash",
+					{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref }) if $log->is_debug();
 				
 				if (ref($json_ref->{$source_field}) eq "HASH") {
 				
@@ -1208,7 +1235,19 @@ sub gs1_to_off ($$$) {
 				elsif (ref($json_ref->{$source_field}) eq "ARRAY") {
 					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
 
-						gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
+						# We should have an array of hashes, but in some CodeOnline files we have an array with an empty array..
+
+						# allergenRelatedInformation: [
+						# 	[ ]
+						# ]
+						
+						if (ref($json_array_entry_ref) eq "HASH") {
+							gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
+						}
+						else {
+							$log->debug("gs1_to_off - expected a hash but got an array",
+								{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref, json_array_entry_ref => $json_array_entry_ref }) if $log->is_debug();
+						}
 					}
 				}
 			}
@@ -1217,31 +1256,110 @@ sub gs1_to_off ($$$) {
 }
 
 
-=head2 convert_gs1_json_to_off_csv_fields ($json)
+=head2 convert_single_text_property_to_direct_value ($json )
 
-Thus function converts the data for one product in the GS1 format converted to JSON.
-GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
-In some cases, the conversion to JSON has already be done by a third party (e.g. the CodeOnline database from GS1 France).
+There are different ways to convert a XML document to a JSON data structure.
+
+Historically, we used nodejs xml2json module to convert the GS1 XML to JSON.
+
+Then we added support for CodeOnline JSON exports which used slightly different conversions.
+
+In order to remove the dependency on nodejs, we are now supporting Perl's XML:XML2JSON module that results in different structures.
+
+This function is a recursive function to make the output of Perl XML::XML2JSON similar to nodejs xml2json, as the GS1 module expects this format.
+
+Difference:
+
+XML2JSON creates a hash for simple text values. Text values of tags are converted to $t properties.
+e.g. <gtin>03449862093657</gtin>
+
+becomes:
+
+gtin: {
+	 $t: "03449865355608"
+},
+
+This function converts those hashes with one single $t scalar values to a direct value.
+
+gtin: "03449865355608"
 
 =head3 Arguments
 
-=head4 json text
-
-=head3 Return value
-
-=head4 Reference to a hash of fields
-
-The function returns a reference to a hash.
-
-Each key is the name of the OFF csv field, and it is associated with the corresponding value for the product.
+=head4 $json_ref Reference to a decoded JSON structure
 
 =cut
 
-sub convert_gs1_json_to_off_csv($) {
+# pre-declare the function as it is recursive
+sub convert_single_text_property_to_direct_value($);
 
-	my $json = shift;
+sub convert_single_text_property_to_direct_value($) {
+    
+	my $json_ref = shift;
+
+    my $type = ref $json_ref or return;
+
+    if ($type eq 'HASH') {
+		foreach my $key (keys %$json_ref) {
+			if (ref $json_ref->{$key}) {
+				# Hash with a single $t value?
+				if ((ref $json_ref->{$key} eq 'HASH') and ((scalar keys %{$json_ref->{$key}}) == 1) and (defined $json_ref->{$key}{'$t'})) {
+					$json_ref->{$key} = $json_ref->{$key}{'$t'};
+				}
+				else {
+					convert_single_text_property_to_direct_value($json_ref->{$key});
+				}
+			}
+		}
+    }
+    elsif ($type eq 'ARRAY') {
+    
+        foreach my $elem (@$json_ref) {
+            if (ref $elem) {
+                convert_single_text_property_to_direct_value($elem);
+            }
+        }
+    }
+}
+
+
+=head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref)
+
+Thus function converts the data for one or more products in the GS1 format converted to JSON.
+GS1 format is in XML, it needs to be transformed to JSON with xml2json first.
+In some cases, the conversion to JSON has already be done by a third party (e.g. the CodeOnline database from GS1 France).
+
+Note: This function is recursive if there are child products.
+
+One GS1 message can include 1 or more products, typically products that contain other products
+(e.g. a pallet of cartons of products).
+
+=head3 Arguments
+
+=head4 $json_ref Reference to a decoded JSON structure
+
+=head4 $product_ref - Reference to an array of product data
+
+Each product data will be added as one element (a hash ref) of the product data array.
+
+For each product, the key of the hash is the name of the OFF csv field, and it is associated with the corresponding value for the product.
+
+=cut
+
+# pre-declare the function as it is recursive
+sub convert_gs1_json_message_to_off_products_csv($$);
+
+sub convert_gs1_json_message_to_off_products_csv($$) {
+
+	my $json_ref = shift;
+	my $products_ref = shift;
 	
-	my $json_ref = decode_json($json);
+	# Depending on how the original XML was converted to JSON,
+	# text values of XML tags can be assigned directly as the value of the corresponding key
+	# or they can be stored inside a hash with the $t key
+	# e.g.
+	# levelOfContainmentCode: {
+	#	$t: "MAY_CONTAIN"
+	# },
 	
 	# The JSON can contain only the product information "tradeItem" level
 	# or the tradeItem can be encapsulated in a message
@@ -1259,15 +1377,25 @@ sub convert_gs1_json_to_off_csv($) {
 		documentCommand
 		catalogue_item_notification:catalogueItemNotification
 		catalogueItem
-		tradeItem)) {
+		)) {
 		if (defined $json_ref->{$field}) {
 			$json_ref = $json_ref->{$field};
 			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", { field => $field }) if $log->is_debug();
 		}
 	}
+
+	# A product can contain a child product
+	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
+	if (defined $child_product_json_ref) {
+		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref)
+	}
+
+	if (defined $json_ref->{tradeItem}) {
+		$json_ref = $json_ref->{tradeItem};
+	}
 	
 	if (not defined $json_ref->{gtin}) {
-		
 		$log->debug("convert_gs1_json_to_off_csv - no gtin - skipping", { json_ref => $json_ref }) if $log->is_debug();
 		return {};
 	}
@@ -1291,14 +1419,14 @@ sub convert_gs1_json_to_off_csv($) {
 		delete $results_ref->{languages};
 	}
 	
-	return $results_ref;
+	push @$products_ref, $results_ref;
 }
 
 
 =head2 read_gs1_json_file ($json_file, $products_ref)
 
-Read a GS1 file on json format, convert it to the OFF format, return the
-result, and store the result in the $products_ref array (if not undef)
+Read a GS1 message file in json format, convert the included products in the OFF format,
+and store the resulting products in the $products_ref array
 
 =head3 Arguments
 
@@ -1318,14 +1446,15 @@ sub read_gs1_json_file($$) {
 	open (my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join (q{}, (<$in>));
 	close($in);
+
+	my $json_ref = decode_json($json);
+
+	# Convert JSON structures created from the XML::XML2JSON module
+	# to the format generated by the nodejs xml2json module
+	# which is the expected format of the ProductOpener::GS1 module
+	convert_single_text_property_to_direct_value($json_ref);
 		
-	my $results_ref = convert_gs1_json_to_off_csv($json);
-	
-	if ((defined $products_ref) and (defined $results_ref->{code})) {
-		push @$products_ref, $results_ref;
-	}
-	
-	return $results_ref;
+	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref);
 }
 
 

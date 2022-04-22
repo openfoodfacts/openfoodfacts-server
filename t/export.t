@@ -34,8 +34,8 @@ my $usage = <<TXT
 
 The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
 
-To verify differences and update the expected test results, actual test results
-can be saved to a directory by passing --results [path of results directory]
+To verify differences and update the expected test results,
+actual test results can be saved by passing --update-expected-results
 
 The directory will be created if it does not already exist.
 

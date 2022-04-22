@@ -684,8 +684,9 @@
       "en:ecoscore-not-computed"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
-   "nova_group_tags" : [
-      "not-applicable"
+   "nova_group_error" : "missing_category",
+   "nova_groups_tags" : [
+      "unknown"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {},

@@ -1,13 +1,45 @@
-name: Validate translation files
+name: Translations check
+
 on:
-  push:
-    branches: [l10n_main]
+  pull_request:
+    paths: ["**.po", "**.pot"]
+
 jobs:
   validate:
+    name: Validate translation files
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: Validate .po files
-        uses: Tar-Minyatur/gettext-validation@master
-        with:
-          folder: po/
+
+      # taken from Tar-Minyatur/gettext-validation, (MIT License)
+      # but adding an exception for lol.po (crowdin ids tracking)
+      - name: Validate translation files
+        run: |
+        apt install -y gettext
+
+        echo "Checking .po files in po/..."
+        ERRORS=0
+        for filename in $(find po/ -type f -name \*.po)
+        do
+          if [ $filename = "lol.po"]
+            continue
+          fi
+          echo -n "→ $filename..."
+          msgfmt "$filename"
+          returnValue=$?
+          if [ $returnValue -ne 0 ]; then
+            ERRORS=`expr $ERRORS + 1`
+            echo "contains errors!"
+          else
+            echo "ok"
+          fi
+        done
+        echo ""
+        if [ $ERRORS -gt 0 ]; then
+          echo "FOUND $ERRORS ERROR(S) IN THE TRANSLATION FILES. SEE ABOVE FOR DETAILS."
+          exit 1
+        else
+          echo "No errors found."
+          exit 0
+        fi

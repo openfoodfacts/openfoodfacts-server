@@ -9,6 +9,7 @@ x-backend-conf: &backend-conf
     args:
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
+      CPANMOPTS: "--with-develop"
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume

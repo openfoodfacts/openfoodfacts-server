@@ -72,7 +72,7 @@ foreach my $file (sort(readdir($dh))) {
 	
 	next if $file !~ /\.json$/;
 	
-	my $product_ref = read_gs1_json_file("$input_dir/$file", $products_ref);
+	read_gs1_json_file("$input_dir/$file", $products_ref);
 }
 
 write_off_csv_file($output, $products_ref);

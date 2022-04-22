@@ -2631,7 +2631,7 @@ fr:Sans colorants artificiels
 he:ללא צבעי מאכל מלאכותיים
 hu:Mesterséges színezék nélkül, Mesterséges színezéket nem tartalmaz, mesterséges színezék mentes
 it:Senza coloranti artificiali
-nl:Vrij van kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
 pt:Sem cores artificiais, sem cor artificial
 ru:без искусственных красителей
 th:ไม่เติมสีสังเคราะห์
@@ -2708,7 +2708,7 @@ he:ללא צבעי מאכל או חומרים משמרים מלאכותיים
 hu:Mesterséges színezék és ízesítők nélkül
 it:Senza coloranti o aromi artificiali
 nb:Ingen kunstige smakstilsetninger eller farger
-nl:Zonder kunstmatige kleurstoffen
+nl:Zonder kunstmatige kleurstoffen of smaakstoffen
 pt:Sem corantes nem aromas artificiais
 sv:Inga artificiella aromämnen eller färger
 th:ไม่ใช้กลิ่นและสีสังเคราะห์
@@ -3012,6 +3012,11 @@ ru:Без лактозы
 sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
+opposite:en: en:contains-lactose
+
+en:Contains lactose
+nl:Bevat melkeiwit, Bevat lactose
+opposite:en: en:no-lactose
 
 en:No lecithine, lecithine-free
 bg:Без лецитин
@@ -3335,7 +3340,7 @@ he:אורגני
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
-nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode
+nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pt:Orgânico
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
@@ -3712,6 +3717,42 @@ ca:BG-BIO-16
 de:BG-BIO-16
 es:BG-BIO-16
 xx:BG-BIO-16
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-17
+bg:BG-BIO-17
+xx:BG-BIO-17
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-18
+bg:BG-BIO-18
+xx:BG-BIO-18
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-19
+bg:BG-BIO-19
+xx:BG-BIO-19
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-20
+bg:BG-BIO-20
+xx:BG-BIO-20
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-21
+bg:BG-BIO-21
+xx:BG-BIO-21
+country:en:Bulgaria
+
+<en:EU Organic
+en:BG-BIO-22
+bg:BG-BIO-22
+xx:BG-BIO-22
 country:en:Bulgaria
 
 <en:non-EU Agriculture
@@ -16236,6 +16277,10 @@ country:en:Argentina
 wikidata:en:Q101928227
 auth_url:en:https://organicoargentina.magyp.gob.ar
 
+en:ActForPlanet
+fr:ActforPlanet, ActPlanet
+auth_url:en:https://www.actforplanet.org
+
 en:Class I, class 1
 ca:Classe I
 de:Klasse I
@@ -16257,7 +16302,6 @@ it:Classe II
 ru:высший сорт, сорт высший
 
 en:No palm oil, Palm oil free, Without palm oil
-
 bg:Без палмово масло
 ca:Lliure d'oli de palma, Sense oli de palma
 cs:Bez palmového oleje
@@ -16268,7 +16312,7 @@ fr:Sans huile de palme
 he:ללא שמן דקלים, נקי משמן דקלים
 hu:Pálmaolajmentes, Pálmaolaj nélkül, pálmaolajat nem tartalmaz
 it:Senza olio di palma
-nl:Zonder palmolie, Palmolie-vrij
+nl:Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl:Wolne od oleju palmowego, bez oleju palmowego
 pt:Sem óleo de palma
 ru:Без пальмового масла
@@ -16280,6 +16324,7 @@ opposite:en: en:contains-palm-oil
 en:Contains palm oil
 bg:Съдържа палмово масло
 fr:Contient de l'huile de palme
+nl:Bevat palmolie
 opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
@@ -16447,6 +16492,11 @@ it:Alleanza della Foresta Pluviale
 nl:Rainforest Alliance
 wikidata:en:Q2034373
 auth_url:en:https://www.rainforest-alliance.org
+
+<en:Rainforest Alliance
+en:Rainforest Alliance Black Tea
+de:Rainforest Alliance Schwarzer Tee
+
 
 en:Reinheitsgebot
 de:Reinheitsgebot
@@ -16910,6 +16960,7 @@ origins:en: en:france
 <en:Sustainable fishing
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
+nl:Duurzame vismethoden
 
 en:Trawl fishing
 ca:Pesca d'arrossegament
@@ -16932,7 +16983,7 @@ wikidata:en:Q600580
 label_categories:en: en:Fishing method
 
 <en:Sustainable fishing method
-en:Angled fish
+en:Angled fish, Pole&line
 ca:Pescat amb canya
 de:Geangelter Fisch
 fi:koukulla pyydystettyä kalaa
@@ -17030,6 +17081,9 @@ zh:鸬鹚捕鱼
 wikidata:en:Q1784476
 label_categories:en: en:Fishing method
 
+en:Sustainable
+
+<en:Sustainable
 en:Sustainable fishing, Sustainable Seafood, Sustainable fishery
 bg:Устойчив риболов
 ca:Piscifactoria sostenible, Pesca sostenible, Marisc sostenible
@@ -17159,6 +17213,7 @@ fi:UTZ-sertifioitua kahvia
 hu:UTZ Certified Coffee, UTZ tanúsított kávé
 fr:Café certifié UTZ
 it:Caffè certificato UTZ, Caffe certificato UTZ
+nl:UTZ Certified Coffee
 pl:UTZ Certified Coffee
 
 en:Vegetarian, Suitable for vegetarians
@@ -17772,6 +17827,9 @@ nl:Dierenwelzijn
 <en:Animal welfare
 en:Chicken welfare
 nl:Kippenwelzijn
+
+<en:Animal welfare
+nl:Weidemelk
 
 en:Dutch meat
 nl:Nederlands vlees
@@ -18908,7 +18966,7 @@ zh:中国地理标志
 wikidata:en:Q3150362
 origins:en: en:China
 
-fr:Fruits et Légumes de France
+fr:Fruits et Légumes de France, Fruits & Légumes de France
 origins:en: en:france
 
 <fr:Fruits et Légumes de France
