@@ -1,4 +1,4 @@
-<html><head><title>generate_perl_html_doc_from_pod</title>
+<html><head><title>gen_users_emails_list.pl</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="blkbluw" type="text/css" href="_blkbluw.css" media="all" >
 <link rel="alternate stylesheet" title="blkmagw" type="text/css" href="_blkmagw.css" media="all" >
@@ -38,7 +38,9 @@
 <div class='indexgroup'>
 <ul   class='indexList indexList1'>
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
-  <li class='indexItem indexItem1'><a href='#SYNOPSYS'>SYNOPSYS</a>
+  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
+  <li class='indexItem indexItem1'><a href='#OPTIONS'>OPTIONS</a>
+  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
 </ul>
 </div>
 
@@ -46,16 +48,53 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>generate_perl_html_doc_from_pod.pl scans the Perl source code of Product Opener for documentation in POD format to generate documentation in HTML files.</p>
+<p>gen_users_emails_list.pl - lists Open Food Facts users</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
-name="SYNOPSYS"
->SYNOPSYS</a></h1>
+name="SYNOPSIS"
+>SYNOPSIS</a></h1>
 
-<p>The script needs to be run from the root of the Product Opener installation (e.g.
-/srv/off/)</p>
+<p>./gen_users_emails_list.pl [--all] Option: --all allows to export all the users</p>
 
-<pre>    ./scripts/generate_perl_html_doc_from_pod.pl</pre>
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="OPTIONS"
+>OPTIONS</a></h1>
+
+<dl>
+<dt><a name="--all"
+><b>--all</b></a></dt>
+
+<dd>
+<p>Export all the users,
+not just the ones registred to Open Food Facts newsletter.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="DESCRIPTION"
+>DESCRIPTION</a></h1>
+
+<p><b>This script</b> creates a list of Open Food Facts users.</p>
+
+<p>It contains: * the user&#39;s email * the user&#39;s locale (eg.
+&#34;en&#34;,
+&#34;fr&#34;,
+&#34;de&#34;,
+etc.) * the country website where the user has registered (eg.
+&#34;world&#34;,
+&#34;fr&#34;,
+&#34;at&#34;,
+&#34;us&#34;,
+&#34;uk&#34;,
+etc.) * the timestamp of the user&#39;s account creation,
+Unix style (eg.
+&#34;1449487961&#34;) * the country,
+computed based on IP geolocation * the user id</p>
+
+<p>Each field is separated by a tab (TSV).</p>
+
+<p>By default,
+the list is restricted to users registred to Open Food Facts newsletter.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
