@@ -307,7 +307,7 @@ use vars qw();
 
 $static_subdomain = format_subdomain('static');
 $images_subdomain = format_subdomain('images');
-$world_subdomain = format_subdomain('world');
+$world_subdomain = format_subdomain("world-" . $lc);
 
 my $user_preferences;	# enables using user preferences to show a product summary and to rank and filter results
 
@@ -2959,7 +2959,7 @@ sub display_points($) {
 			}
 			$newtagidpath = canonicalize_taxonomy_tag_link($lc,$tagtype, $newtagid);
 			$request_ref->{current_link} = $newtagidpath;
-			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link('en',$tagtype, $canon_tagid);
+			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link($lc,$tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
@@ -3134,7 +3134,7 @@ sub display_tag($) {
 			}
 			$newtagidpath = canonicalize_taxonomy_tag_link($lc,$tagtype, $newtagid);
 			$request_ref->{current_link} = $newtagidpath;
-			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link('en',$tagtype, $canon_tagid);
+			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link($lc,$tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag  = canonicalize_tag2($tagtype, $tagid);
@@ -3183,7 +3183,7 @@ sub display_tag($) {
 			}
 			$newtagid2path = canonicalize_taxonomy_tag_link($lc,$tagtype2, $newtagid2);
 			$request_ref->{current_link} .= $newtagid2path;
-			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link('en',$tagtype2, $canon_tagid2);
+			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link($lc,$tagtype2, $canon_tagid2);
 		}
 		else {
 			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
@@ -3217,7 +3217,7 @@ sub display_tag($) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
+		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 	}
 
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
