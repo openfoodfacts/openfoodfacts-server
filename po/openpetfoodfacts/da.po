@@ -5,14 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 21:32\n"
+"PO-Revision-Date: 2022-04-19 02:43\n"
 "Language-Team: Danish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: da\n"
-"X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
+"X-Crowdin-File: openpetfoodfacts.pot\n"
+"X-Crowdin-File-ID: 1816\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -37,7 +38,7 @@ msgstr "Open Pet Food Facts indsamler oplysninger og data om dyrefoderprodukter 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=da"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
@@ -74,7 +75,7 @@ msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/da-dk/p/openfoodfacts/9nblggh0dkqr"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -97,22 +98,6 @@ msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
 msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Jura</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Vilkår for Afbenyttelse</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Hvem vi er</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">Ofte stillede spørgsmål</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Idé Forum</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Presse og Blogs</a>\n"
-
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
 msgstr "EMB 53062"
@@ -130,8 +115,8 @@ msgid "A collaborative, free and open database of pet food products from around 
 msgstr "En kollaborativ, gratis og åben database med kæledyrsfødevareprodukter fra hele verden."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
@@ -152,6 +137,6 @@ msgstr "Open Pet Food Facts-produktsøgning"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
-msgstr "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
 

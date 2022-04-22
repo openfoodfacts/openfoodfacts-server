@@ -50,6 +50,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -75,6 +76,8 @@ if (! -e $target_dir) {
 }
 
 my $query_ref = {entry_dates_tags => "2018-03-02"};
+
+my $products_collection = get_products_collection();
 
 my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
 $cursor->immortal(1);
@@ -106,16 +109,18 @@ while (my $product_ref = $cursor->next) {
 			
 			if ($file =~ /^(\d+)\.jpg$/) {
 				my $imageid = $1;
-				
+
 				print STDERR "$file - id: $imageid\n";
 
-				use File::Copy;
-				copy("$dir/$file","$target_dir/$code" . '_' . $imageid . ".jpg") or die("could not copy: $!\n");
-				
+				require File::Copy;
+				File::Copy::copy( "$dir/$file",
+					"$target_dir/$code" . '_' . $imageid . ".jpg" )
+					or die("could not copy: $!\n");
+
 				$images_copied++;
 			}
 		}
-		closedir DH;			
+		closedir DH;
 		#($images_deleted > 10) and last;
 	}
 }

@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
-
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -20,6 +18,29 @@ my @tests = (
 [ { lc => "fr", categories_tags => ["en:salts"], ingredients_text_fr => "sel marin" }, 2 ],
 [ { lc => "fr", ingredients_text_fr => "lait, sucre en poudre" }, 3 ],
 [ { lc => "fr", ingredients_text_fr => "lait, édulcorant : aspartame"}, 4 ],
+[ { lc => "fr", ingredients_text_fr => "sauce"}, 3 ],
+
+[ { lc => "en", ingredients_text_en => "tomatoes", categories_tags => ["en:sandwiches"]}, 3],
+[ { lc => "en", ingredients_text_en => "sugar", categories_tags => ["en:sugars"]}, 2],
+
+# emulsifiers
+[ { lc => "es", ingredients_text_es => "Puré de castañas, lecitina de girasol y conservador: sorbato potásico (E202).", categories_tags => ["en:sweet-spreads"]}, 4],
+
+# cakes
+[ { lc => "en", ingredients_text_en => "sugar, flour, eggs", categories_tags => ["en:cakes"]}, 3],
+
+
+# starches should be group 2
+[ { lc => "en", ingredients_text_en => "starches, salt", categories_tags => ["en:starches"]}, 2],
+[ { lc => "en", ingredients_text_en => "starches", categories_tags => ["en:starches"]}, 2],
+
+# group 2 categories should be group 2 even if we don't have ingredients for them
+[ { lc => "en", categories_tags => ["en:starches"]}, 2],
+[ { lc => "en", categories_tags => ["en:honeys"]}, 2],
+
+# products without ingredients: return only 1 for waters that are not flavoured waters
+[ { lc => "en", categories_tags => ["en:waters"]}, 1],
+[ { lc => "en", categories_tags => ["en:flavoured-waters"]}, undef],
 
 );
 

@@ -79,6 +79,8 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 
@@ -108,18 +110,18 @@ my $count = $#products;
 				
 			$lc = $product_ref->{lc};
 			$lang = $lc;
-			
+
 			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
-			}		
-			
+			}
+
 			compute_product_history_and_completeness($product_ref, $changes_ref);
 
 
-			store("$data_root/products/$path/product.sto", $product_ref);		
+			store( "$data_root/products/$path/product.sto", $product_ref );
 			$products_collection->save($product_ref);
-			store("$data_root/products/$path/changes.sto", $changes_ref);
+			store( "$data_root/products/$path/changes.sto", $changes_ref );
 		}
 	}
 

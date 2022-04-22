@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,11 +28,10 @@
 # TODO: factorize code with search_and_export_products() function
 # from ./lib/ProductOpener/Display.pm
 
-
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -47,20 +46,20 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
 use URI::Escape::XS;
 
-
-
 use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
-use DateTime qw/:all/;
+#use DateTime qw/:all/;
+use POSIX qw(strftime);
 
+init_emb_codes();
 
 sub xml_escape_NFC($) {
 	my $s = shift;
@@ -95,7 +94,7 @@ sub sanitize_field_content {
 }
 
 
-my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
+my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1, food_groups=>1);
 
 
 my %langs = ();
@@ -114,6 +113,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
+$fields_ref->{ecoscore_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
@@ -127,19 +127,28 @@ foreach my $l ("en", "fr") {
 	$lc = $l;
 	$lang = $l;
 
-	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");
-
-
-	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	# 300 000 ms timeout so that we can export the whole database
+	# 5mins is not enough, 50k docs were exported
+	my $cursor = get_products_collection(3 * 60 * 60 * 1000)
+		->query({'code' => { "\$ne" => "" },
+				'empty' => { "\$ne" => 1 }})
+		->fields($fields_ref)
+		->sort({code=>1});
+		
+	$cursor->immortal(1);
 
 	$langs{$l} = 0;
 
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
-	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
+	my $csv_filename = "$www_root/data/$lang.$server_domain.products.csv";
+	my $rdf_filename = "$www_root/data/$lang.$server_domain.products.rdf";
+	my $log_filename = "$www_root/data/$lang.$server_domain.products.bad-chars.log";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
-	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
-	open (my $BAD, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.bad-chars.log");
+	print STDERR "Write file: $csv_filename.temp\n";
+	print STDERR "Write file: $rdf_filename.temp\n";
+
+	open (my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp") or die("Cannot write $csv_filename.temp: $!\n");
+	open (my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
+	open (my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
 
 	# Headers
@@ -222,7 +231,9 @@ XML
 	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
 	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
 
+	# Construct the list of nutrients to export
 
+	my @nutrients_to_export = ();
 
 	foreach my $nid (@{$nutriments_tables{"europe"}}) {
 
@@ -232,14 +243,26 @@ XML
 		$nid =~ s/^-//g;
 		$nid =~ s/-$//g;
 
+		push @nutrients_to_export, $nid;
+
+		if ($nid eq "fruits-vegetables-nuts-estimate") {
+
+			# Add the fruits-vegetables-nuts-estimate-from-ingredients nutrient
+			# which is computed from the ingredients list, and is not in the list
+			# of nutrients we display and allow users to edit
+
+			push @nutrients_to_export, "fruits-vegetables-nuts-estimate-from-ingredients";
+		}
+	}
+	
+	# Output the headers for the nutrients
+
+	foreach my $nid (@nutrients_to_export) {
 		$csv .= "${nid}_100g" . "\t";
 	}
 
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
-
-
-
 
 	# Products
 
@@ -260,14 +283,35 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			my $field_value = ($product_ref->{$field} // "");
-			
+			my $field_value;
+
+			# _tags field contain an array of values
+			if ($field =~ /_tags/) {
+				if (defined $product_ref->{$field}) {
+					$field_value = join(',', @{$product_ref->{$field}});
+				}
+				else {
+					$field_value = "";
+				}
+			}
+			# other fields
+			else {
+				$field_value = ($product_ref->{$field} // "");
+			}
+
 			# Language specific field?
 			if ((defined $language_fields{$field}) and (defined $product_ref->{$field . "_" . $l}) and ($product_ref->{$field . "_" . $l} ne '')) {
 				$field_value = $product_ref->{$field . "_" . $l};
 			}
 			
-			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			# Eco-Score data is stored in ecoscore_data.(grades|scores).(language code)
+			if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
+				$field_value = ($product_ref->{ecoscore_data}{$1 . "s"}{$2} // "");
+			}
+
+			if ($field_value ne '') {
+				$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+			}
 
 			# Add field value to CSV file
 			$csv .= $field_value . "\t";
@@ -284,8 +328,11 @@ XML
 			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
-					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
-					$csv .= $dt->datetime() . 'Z' . "\t";
+					# surprisingly slow, approx 10% of script time is here.
+					#my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
+					#$csv .= $dt->datetime() . 'Z' . "\t";
+					my $dt = strftime("%FT%TZ", gmtime($product_ref->{$field}));
+					$csv .= $dt . "\t";
 				}
 				else {
 					$csv .= "\t";
@@ -320,7 +367,9 @@ XML
 					}
 				}
 				# sanitize_field_content($field_value, $log_file, $log_msg);
-				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				if ($geo ne '') {
+					$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+				}
 
 				$csv .= $geo . "\t";
 			}
@@ -328,48 +377,15 @@ XML
 
 		}
 
-
-
-		# Try to get the "main" category: smallest category with at least 10 products with nutrition data
-
-		my @comparisons = ();
-		my %comparisons = ();
+		# "main" category: lowest level category
 
 		my $main_cid = '';
 		my $main_cid_lc = '';
 
 		if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
-			$main_cid = $product_ref->{categories_tags}[0];
+			$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
-
-
-			foreach my $cid (@{$product_ref->{categories_tags}}) {
-				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
-					push @comparisons, {
-						id => $cid,
-						name => canonicalize_tag2('categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-						count => $categories_nutriments_ref->{$cid}{count},
-						n => $categories_nutriments_ref->{$cid}{n},
-					};
-				}
-			}
-
-			# print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
-
-
-			if ($#comparisons > -1) {
-				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
-				$comparisons[0]{show} = 1;
-				$main_cid = $comparisons[0]{id};
-				# print STDERR "main_cid: $main_cid\n";
-			}
-
-		}
-
-		if ($main_cid ne '') {
 			$main_cid = canonicalize_tag2("categories",$main_cid);
 			$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
 		}
@@ -386,26 +402,27 @@ XML
 		$csv .= ($product_ref->{image_nutrition_url} // "") . "\t" . ($product_ref->{image_nutrition_small_url} // "") . "\t";
 
 
-		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-
-			$nid =~/^#/ and next;
-
-			$nid =~ s/!//g;
-			$nid =~ s/^-//g;
-			$nid =~ s/-$//g;
+		foreach my $nid (@nutrients_to_export) {
 
 			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-			$csv .= $product_ref->{nutriments}{$nid . "_100g"} . "\t";
+				my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				if ($value =~ /e/) {
+					# 7e-05 1.71e-06
+					$value = sprintf("%.10f", $value);
+					# Remove trailing 0s
+					$value =~ s/\.([0-9]+?)0*$/\.$1/g;
+				}
+				$csv .= $value . "\t";
 			}
 			else {
 				$csv .= "\t";
 			}
 		}
 
-		$csv =~ s/\t$/\n/;
-
-
-
+		#$csv =~ s/\t$/\n/;
+		if (substr($csv, -1, 1) eq "\t") {
+			substr $csv, -1, 1, "\n";
+		}
 
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
@@ -441,24 +458,24 @@ XML
 			}
 		}
 
-		foreach my $nid (keys %Nutriments) {
+		foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+
+			my $nid = $nutrient_tagid;
+			$nid =~ s/^zz://g;
 
 			if ((defined $product_ref->{nutriments}{$nid . '_100g'}) and ($product_ref->{nutriments}{$nid . '_100g'} ne '')) {
 				my $property = $nid;
-				next if ($nid =~ /^#/); #   #vitamins and #minerals sometimes filled
 				$property =~ s/-([a-z])/ucfirst($1)/eg;
 				$property .= "Per100g";
 
 				$rdf .= "\t<food:$property>" . $product_ref->{nutriments}{$nid . '_100g'} . "</food:$property>\n";
 			}
-
 		}
 
 		$rdf .= "</rdf:Description>\n\n";
 
 		print $OUT $csv;
 		print $RDF $rdf;
-
 	}
 
 	$langs{$l} = $ct;
@@ -466,6 +483,18 @@ XML
 
 	close $OUT;
 	close $BAD;
+
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $csv_size_old = (-s $csv_filename) // 0;
+	my $csv_size_new = (-s "$csv_filename.temp") // 0;
+	if ($csv_size_new >= $csv_size_old * 0.99) {
+		unlink $csv_filename;
+		rename "$csv_filename.temp", $csv_filename;
+	} else {
+		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
+		unlink "$csv_filename.temp";
+	}
+
 
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
@@ -512,20 +541,17 @@ XML
 
 	close $RDF;
 
-}
-
-
-my $html = "<p>$total products:</p>\n";
-foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
-
-	if ($langs{$l} > 0) {
-		$lang = $l;
-		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>\n";
+	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+	my $rdf_size_old = (-s $rdf_filename) // 0;
+	my $rdf_size_new = (-s "$rdf_filename.temp") // 0;
+	if ($rdf_size_new >= $rdf_size_old * 0.99) {
+		unlink $rdf_filename;
+		rename "$rdf_filename.temp", $rdf_filename;
+	} else {
+		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
+		unlink "$rdf_filename.temp";
 	}
 
 }
-open (my $OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-print $OUT $html;
-close $OUT;
 
 exit(0);

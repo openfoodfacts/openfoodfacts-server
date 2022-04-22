@@ -1,4 +1,4 @@
-;Approval Number;Associated Activities;COUNTRY;Category;Comments;District;Local Authority;Name;REGION;Remarks;SECTION;Species
+Number;Approval Number;Associated Activities;COUNTRY;Category;Comments;District;Local Authority;Name;REGION;Remarks;SECTION;Species
 3;1014;CP, MM;UK;CS;;;LB of Haringey;Trendy Foods Ltd;England;;approvedcoldstoreseng.xls;
 4;1036;CP, MMMMP, PP;UK;RW;;;Durham CC;Haswells Homer Hill Farm Shop Ltd;England;mp;approvedcoldstoreseng.xls;
 5;1037;;UK;RW, CS;;;Chichester;Andrew M Parker and Carol N Parker (Premier Meats);England;;approvedcoldstoreseng.xls;
@@ -655,9 +655,7 @@
 33;ZV 009;;UK;CS;;;Castlewellan, Co Down;TS Foods Ltd;NIreland;;coldstoresni.xls;
 34;9105;;UK;CS;;;Portadown, Co Armagh;Universal Meat Co;NIreland;;coldstoresni.xls;
 5;1002;MM, MP, PP;UK;CP;;;Ealing/Greater London;Imagefarm Ltd t/a Wilson's of Sloan Street;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-6;1003;MP;UK;CP;;;"Greenwich/Greater London
-
-";Kinda Food Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
+6;1003;MP;UK;CP;;;Greenwich/Greater London;Kinda Food Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 7;1004;MP, PP, CS;UK;CP;;;Newby Wiske,/Northallerton;Newby Foods Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 8;1005;MM, MP, PP, RW;UK;CP;;;Bromsgrove/Worcestershire;Banner Foods (Bromsgrove) Limited;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 9;1006;MM, MP, PP;UK;CP;;;Coventry/West Midlands;Aubrey Allen Ltd;England;Also Poultry & Wild Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
@@ -734,12 +732,12 @@
 80;2058;MM, MP, PP, CS;UK;CP;;;Preston/ Lancashire;Honeywell Meats Ltd;England;Also Poultry CP, WGCP;s-i-meat-domestic-ungulates-eng.xls;
 81;2059;MM, CS;UK;CP;;;Keighley/West Yorkshire;Aire Valley Frozen Foods Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 82;2060;MM, MP, PP;UK;SH, CP;;;Malton/ North Yorkshire;Karro Food Limited T/A Malton Bacon Factory;England;mp, st;s-i-meat-domestic-ungulates-eng.xls;P
-83;2066;;UK;SH, CP;;;Bishop Auckland/ Durham;Thompson (Wholesale Meat) Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+83;2066;;UK;SH, CP;;;Bishop Auckland/ Durham;Thompson (Wholesale Meat) Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 84;2077;;UK;SH;;;Melton Mowbray/ Leicestershire;Foyle Food Group Limited (T/A Foyle Melton Mowbray);England;;s-i-meat-domestic-ungulates-eng.xls;B
 85;2078;MM, MP, PP, CS;UK;CP;;;Peterborough/ Cambridgeshire;R & P Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-86;2079;CS,PP;UK;SH, CP;;;Stockton on Tees/ Cleveland;Cleveland Meat Co. Ltd;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+86;2079;CS,PP;UK;SH, CP;;;Stockton on Tees/ Cleveland;Cleveland Meat Co. Ltd;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O P
 87;2084;MM, MP, CS;UK;CP;;;Gateshead/ Tyne and Wear;N H Whittle Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-88;2085;MM, MP, RW;UK;SH, CP;;;Scarborough/ North Yorkshire;BW & DJ Glaves & Sons Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+88;2085;MM, MP, RW;UK;SH, CP;;;Scarborough/ North Yorkshire;BW & DJ Glaves & Sons Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;B C O P
 89;2088;;UK;SH, CP;;;Whitby/ North Yorkshire;Richard John Lyth T/A Egton Butchers;England;;s-i-meat-domestic-ungulates-eng.xls;B O C P
 90;2089;;UK;SH;;;Thirsk/ North Yorkshire;Harry Lee, Simon Lee, Jiles Lee & June Lee (T/A Harry Lee & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B O P
 91;2091;;UK;SH, CP;;;Liversedge/ West Yorkshire;Spenborough Abattoir Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
@@ -747,10 +745,10 @@
 93;2095;;UK;SH, CP;;;Ashton-under-Lyne/ Greater Manchester;Hartshead Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B, O, C
 94;2097;MM, MP, PP;UK;CP;;;South Shields/ Tyne and Wear;M I Dickson Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 95;2100;;UK;SH, CP;;;Bridlington/ East Yorkshire;Dawn Meats UK Ltd (T/A Dawn Carnaby) ;England;;s-i-meat-domestic-ungulates-eng.xls;B O
-96;2102;CS;UK;SH, CP;;;Sheffield/ South Yorkshire;N Bramall & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+96;2102;CS;UK;SH, CP;;;Sheffield/ South Yorkshire;N Bramall & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 97;2103;MM, MP, RW, CS;UK;CP;;;York/ North Yorkshire;T S Hartley and Sons Ltd;England;Also Poultry and Small wild game and farmed game CP;s-i-meat-domestic-ungulates-eng.xls;
 98;2105;MM;UK;CP;;;Skipton/ North Yorkshire;Wilson Son & Daughters Limited  (T/A O'Brien Wholesale Butcher);England;;s-i-meat-domestic-ungulates-eng.xls;
-99;2108;MM, MP;UK;SH, CP;;;Wigton/ Cumbria;Blackbrow Abattoir Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+99;2108;MM, MP;UK;SH, CP;;;Wigton/ Cumbria;Blackbrow Abattoir Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 100;2111;MM, MP, PP, RW, CS;UK;CP;;;Tibshelf/Derbyshire;Price & Fretwell Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 101;2113;MM, MP, CS, PP ;UK;CP;;;Ramsgate/Kent;JC Rooks & Sons Limited;England;mp, Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 102;2117;GHE, MM, MP, CS, RW ;UK;SH, CP;;;Barnsley/ South Yorkshire;Round Green Farm Venison Ltd ;England;Also farmed game and large wild game cutting;s-i-meat-domestic-ungulates-eng.xls;
@@ -763,28 +761,28 @@
 109;2127;PP;UK;SH;;;Blackburn/ Lancashire;Anglo Beef Processors T/A ABP Blackburn;England;st;s-i-meat-domestic-ungulates-eng.xls;
 110;2132;CS;UK;CP;;;Co Durham/ Durham;Woolley Bros.(North East) Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 111;2138;PP CS;UK;SH, CP;;;Carlisle/ Cumbria;West Scottish Lamb Ltd;England;mp, st;s-i-meat-domestic-ungulates-eng.xls;B O
-112;2139;MP;UK;SH, CP;;;Grange over Sands/ Cumbria;H C Airey & Sons Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+112;2139;MP;UK;SH, CP;;;Grange over Sands/ Cumbria;H C Airey & Sons Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 113;2141;CS;UK;SH, CP;;;Murton/ North Yorkshire;Anglo Beef Processors UK T/A ABP York;England;;s-i-meat-domestic-ungulates-eng.xls;B
 114;2143;MM, MP, PP, CS;UK;CP;;;Shanklin/Isle of Wight;William Tuffrey (T/A W A Foods);England;mp, Also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 115;2144;MM, MP, PP, CS;UK;CP;;;Ryde, Isle of Wight;Island Foods Limited;England;mp, Also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-116;2147;;UK;SH;;;Selby/ North Yorkshire;J A  Mounfield & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+116;2147;;UK;SH;;;Selby/ North Yorkshire;J A  Mounfield & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 117;2150;MM, MP, PP, CS, RW;UK;CP;;;St Columb/Cornwall;Vealls of Newquay Ltd;England;Also poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 118;2151;MP, RW ;UK;CP;;;Foston/Derbyshire;Ana Processing Ltd;England;Also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 119;2153;MM, MP, PP;UK;CP;;;Manchester City Council;Lechaim Meats Ltd;England;Also poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 120;2154;MM, MP, PP;UK;CP;;;Northampton/ Northamptonshire;Farmhouse Meats Limited;England;Also poultry CP, mp ;s-i-meat-domestic-ungulates-eng.xls;
 121;2155;MM, MP;UK;CP;;;Cambridge;Michael Hadjioannou (T/A Andrews of Cambridge);England;Also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 122;2158;;UK;SH, CP;;;Wakefield/ West Yorkshire;Kepak (UK) Ltd.;England;;s-i-meat-domestic-ungulates-eng.xls;B O P
-123;2161;MM, CS, RW;UK;SH, CP;;;Spennymoor/ Durham;J A Jewitt (Meat) Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+123;2161;MM, CS, RW;UK;SH, CP;;;Spennymoor/ Durham;J A Jewitt (Meat) Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 124;2163;GHE, CS;UK;SH, CP;;;Todmorden/West Yorkshire;Peter Boddy (T/A Peter Boddy Licensed Slaughterers and Game Dealers);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P S wl fg wA, wL
 125;2165;;UK;CP;;;Nantwich/ Cheshire;Red Lion Meat Packers Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 126;2166;MM, CS;UK;CP;;;Swanley/Kent;Block and Cleaver Limited;England;Also Poultry, Wild Game & Farmed Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 127;2167;MM, MP;UK;CP;;;Mansfield/ Nottinghamshire;Rother Valley Meats Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
-128;2168;MM, MP, PP;UK;SH, CP, ;;;Kendal/ Cumbria;Andrew G Denney (T/A G A Denney);England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-129;2169;;UK;SH;;;Kilburn/ North Yorkshire;Charles Horner (T/A C R Horner);England;;s-i-meat-domestic-ungulates-eng.xls;B O P 
-130;2171;;UK;SH, CP;;;Escrick/ North Yorkshire;A Traves & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-131;2172;MP, CS;UK;SH, CP;;;Cinderford/ Gloucestershire;Foyle Food Group Limited T/A Foyle Gloucestershire ;England;;s-i-meat-domestic-ungulates-eng.xls;B 
+128;2168;MM, MP, PP;UK;SH, CP, ;;;Kendal/ Cumbria;Andrew G Denney (T/A G A Denney);England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P
+129;2169;;UK;SH;;;Kilburn/ North Yorkshire;Charles Horner (T/A C R Horner);England;;s-i-meat-domestic-ungulates-eng.xls;B O P
+130;2171;;UK;SH, CP;;;Escrick/ North Yorkshire;A Traves & Son Ltd;England;fG=farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+131;2172;MP, CS;UK;SH, CP;;;Cinderford/ Gloucestershire;Foyle Food Group Limited T/A Foyle Gloucestershire ;England;;s-i-meat-domestic-ungulates-eng.xls;B
 132;2174;MM, CS;UK;CP;;;Birmingham/ West Midlands;Rapyal Halal Meat and Poultry Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-133;2175;;UK;SH, CP;;;Goole/ Humberside;Richard of Howden Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+133;2175;;UK;SH, CP;;;Goole/ Humberside;Richard of Howden Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 134;2176;MP, PP, CS;UK;CP;;;Grimsby/ North East Lincolnshire;Crawshaw Butchers Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 135;2178;MM, CS;UK;CP;;;Doncaster/ South Yorkshire;T H Motson & Sons Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 136;2179;CS;UK;CP;;;Sheffield/ South Yorkshire;LSA Meats Limited (T/A H. Gowers);England;;s-i-meat-domestic-ungulates-eng.xls;
@@ -795,7 +793,7 @@
 141;2189;MM, MP, CS;UK;CP;;;Windlesham/Surrey;The Quality Meat Company Limited;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 142;2194;MP, CS, RW;UK;CP;;;Bristol/Avon;Ritter-Courivaud Limited T/A  Ritter Fresh;England;Also wild and farmed game CP;s-i-meat-domestic-ungulates-eng.xls;
 143;2198;;UK;SH;;;Driffield/ East Yorkshire;James White Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
-144;2199;;UK;SH;;;Doncaster/ South Yorkshire;Roger Slack, Rodney Slack & Steven Slack (T/A E V Slack & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+144;2199;;UK;SH;;;Doncaster/ South Yorkshire;Roger Slack, Rodney Slack & Steven Slack (T/A E V Slack & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 145;2201;MM, RW;UK;CP;;;Bradford/ West Yorkshire;A R Halal Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 146;2202;MM, CS;UK;CP;;;Westminster/London;Allens Butchers of Mount Street Ltd (T/A Allens of Mayfair);England;Also Poultry, Wild Game & Farmed Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 147;2207;MMMP;UK;CP;;;Daventry/Northamptonshire;Faraday Fine Foods Limited;England;Also Large wild Game CP ;s-i-meat-domestic-ungulates-eng.xls;
@@ -809,7 +807,7 @@
 155;2241;;UK;SH, CP;;;Sheffield/ South Yorkshire;Woolley Bros (Wholesale Meats) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B
 156;2245;;UK;CP;;;West Bromwich/West Midlands;K G Kebabs Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 157;2246;MM, MP, CS;UK;CP;;;South Ockendon/Essex;William White Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-158;2247;;UK;SH;;;York/ North Yorkshire;Richard Kirk (T/A G A Kirk & Son);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+158;2247;;UK;SH;;;York/ North Yorkshire;Richard Kirk (T/A G A Kirk & Son);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 159;2248;;UK;SH;;;Melton Mowbray/ Leicestershire;Melton Meat Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;O C
 160;2252;CS;UK;CP;;;Hull/ East Yorkshire;R & S (Wholesale Butchers) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 161;2253;MM, CS;UK;CP;;;Wembley/London;Zabihah Ltd T/A Zabihah Halal Group;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
@@ -831,24 +829,24 @@
 177;2283;;UK;SH CP;;;York/ North Yorkshire;C H Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 178;2282;MM, MP, PP, RW, CS;UK;CP;;;Preston/ Lancashire;M & T Butchers Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 179;2284;MM, MP, RW;UK;CP;;;Devizes/Wiltshire;Stephen Robert Cook and Lizabeth Ann Cook T/A Walter Rose & Son;England;Also poultry, small & large wild game CP;s-i-meat-domestic-ungulates-eng.xls;
-180;2285;PP, CS;UK;SH, CP;;;Leeds/ West Yorkshire;John Penny & David Penny (T/A John Penny & Sons);England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+180;2285;PP, CS;UK;SH, CP;;;Leeds/ West Yorkshire;John Penny & David Penny (T/A John Penny & Sons);England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P
 181;2286;;UK;CP;;;Sheffield/ South Yorkshire;John W Foulstone (T/A Gleadhall & Thorpe);England;;s-i-meat-domestic-ungulates-eng.xls;
 182;2288;;UK;SH;;;Sheffield/ South Yorkshire;Anthony Wasteney (T/A C Wasteney & Sons);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 183;2289;MM;UK;CP;;;Blackburn/ Lancashire;Lancashire Direct Halal Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 184;2298;MM, MP, GHE;UK;CP;;;Petworth/West Sussex;South Downs Venison and Game Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-185;2291;;UK;SH, CP;;;Huddersfield/ West Yorkshire;Raymond Wood & Ralph Wood (T/A L Wood & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+185;2291;;UK;SH, CP;;;Huddersfield/ West Yorkshire;Raymond Wood & Ralph Wood (T/A L Wood & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 186;2295;;UK;SH;;;Thirsk/ North Yorkshire;Bowood Farms Ltd (T/A Bowood Yorkshire Lamb);England;;s-i-meat-domestic-ungulates-eng.xls;B O C
 187;2298;MM, MP;UK;CP;;;Petworth/West Sussex;South Downs Venison and Game Ltd;England;Also white, small & large wild game CP;s-i-meat-domestic-ungulates-eng.xls;
 188;2302;MM, CS;UK;CP;;;Sheffield/ South Yorkshire;Hadfield Catering Butchers Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 189;2303;;UK;CP;;;Keighley/West Yorkshire;John Hawkes T/A J E Hawkes;England;;s-i-meat-domestic-ungulates-eng.xls;
 190;2304;MM MP;UK;SH CP;;;Saltburn by the Sea/North Yorkshire;Banaras Halal Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;O C
-191;2306;;UK;SH;;;Appleby in Westmoreland/ Cumbria;Thomas M Ewbank & Trevor W Ewbank (T/A T M Ewbank);England;;s-i-meat-domestic-ungulates-eng.xls;B O 
+191;2306;;UK;SH;;;Appleby in Westmoreland/ Cumbria;Thomas M Ewbank & Trevor W Ewbank (T/A T M Ewbank);England;;s-i-meat-domestic-ungulates-eng.xls;B O
 192;2307;MM MP, CS;UK;CP;;;Bromsgrove/Worcestershire;Taylors Catering Foods Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 193;2312;;UK;CP;;;Leeds/ West Yorkshire;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 194;2315;MM, MP, CS;UK;CP;;;Aylesford/Kent;Harris & Son Wholesale Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 195;2336;MM, MP, PP, CS;UK;CP;;;Dursley/Gloucestershire;Cam Catering Butchers Limited;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 196;2340;MM, MP, RW;UK;CP;;;Pontefract/ West Yorkshire;GA International Food Services Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-197;2343;;UK;SH, CP;;;Halifax/ West Yorkshire;J & E Medcalf Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+197;2343;;UK;SH, CP;;;Halifax/ West Yorkshire;J & E Medcalf Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 198;2351;MM, MP, CS;UK;CP;;;Manchester;Kurpas Meats Plc;England;;s-i-meat-domestic-ungulates-eng.xls;
 199;2358;MM, MP, CS;UK;CP;;;South Milford/ West Yorkshire;Milford Farm Ltd;England;Also Poultry SH and CP;s-i-meat-domestic-ungulates-eng.xls;
 200;2364;MM, MP, PP, ;UK;CP;;;Richmond/ North Yorkshire;Holmesterne Farm Co Ltd;England;Also Poultry CP, GWGCP;s-i-meat-domestic-ungulates-eng.xls;
@@ -861,7 +859,7 @@
 207;2397;;UK;SH;;;Ilkley/ West Yorkshire;Rowland Agar (Slaughtering Contractors) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B O P
 208;2400;MP, PP;UK;CP;;;Penrith/ Cumbria;Cranston's Quality Butchers Ltd;England;mp, Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 209;2401;MM, MP, PP;UK;CP;;;Fakenham/Norfolk;J & D Papworth Ltd;England;mp, Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-210;2406;;UK;SH;;;Sedgefield/ Co Durham;G Bolam (Foods) & Sons Ltd;England;fG=farmed boar  ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+210;2406;;UK;SH;;;Sedgefield/ Co Durham;G Bolam (Foods) & Sons Ltd;England;fG=farmed boar  ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 211;2410;MM, MP, MSM, RW;UK;CP;;;Consett/ Co. Durham;Ravendale Foods Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 212;2413;;UK;SH, CP;;;Leeds/ West Yorkshire;Fulton Holdings Leeds Limited (T/A M & C Meats);England;;s-i-meat-domestic-ungulates-eng.xls;C O P
 213;2414;MP, CS;UK;CP;;;Mexborough/ South Yorkshire;Towers Thompson Limited;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
@@ -872,7 +870,7 @@
 218;2429;PP, RW, CS;UK;CP;;;Rotherham/ South Yorkshire;Crawshaw Butchers Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 219;2430;;UK;SH;;;Ossett/ West Yorkshire;Ossett Abattoir Services Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;C O
 220;2436;MM;UK;SH, CP;;;Bishop Auckland/ Durham;John Malcom Nattrass & James Nattrass t/a R Nattrass & Sons;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-221;2438;GHE, MM, MP, PP, CS;UK;SH, CP;;;Leyburn/ North Yorkshire;McIntyre Meats Ltd;England;fG=farmed bison, farmed deer, farmed boar  wU=wild deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P wU 
+221;2438;GHE, MM, MP, PP, CS;UK;SH, CP;;;Leyburn/ North Yorkshire;McIntyre Meats Ltd;England;fG=farmed bison, farmed deer, farmed boar  wU=wild deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P wU
 222;2443;;UK;CP;;;West Auckland/ Co Durham;HDV Foods Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 223;2446;MM, MP, PP, CS;UK;CP;;;Halifax/ West Yorkshire;Fresh Fields Foods Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 224;2448;CS;UK;CP;;;Liversedge/ West Yorkshire;Timothy Chadwick (T/A Chris Adamson Wholesale Butchers);England;;s-i-meat-domestic-ungulates-eng.xls;
@@ -895,7 +893,7 @@
 241;2474;MM, MP, PP, CS, RW;UK;CP;;;Gateshead/ Tyne and Wear;PFD (Carlisle) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 242;2475;MM, MP, CS;UK;CP;;;Gateshead/ Tyne and Wear;J FREEMAN & SONS LIMITED (T/A Freeman Catering Butchers) ;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 243;2476;;UK;CP;;;Wakefield/ West Yorkshire;Blacker Hall Farm Shop Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-244;2477;MM, MP, PP, CS;UK;SH, CP;;;Northallerton/ North Yorkshire;Paul Langthorne & Kate Langthorne (T/A Langthorne's Buffalo Produce);England;fG= farmed deer, bison, farmed boar, alpacas,  guanacos and Dressing of ratites, Also cuts ratite meat,  mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+244;2477;MM, MP, PP, CS;UK;SH, CP;;;Northallerton/ North Yorkshire;Paul Langthorne & Kate Langthorne (T/A Langthorne's Buffalo Produce);England;fG= farmed deer, bison, farmed boar, alpacas,  guanacos and Dressing of ratites, Also cuts ratite meat,  mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 245;2478;MM, MP, PP, CS;UK;CP;;;Leeds/ West Yorkshire;Robert Gillam, Ian Gillam, Richard Gillam (T/A Gillam's Butchers);England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 246;2481;MM, MP, ;UK;CP;;;Boroughbridge/ North Yorkshire;Russell Hume Ltd;England;mp, Also Poultry CP, small & large game CP;s-i-meat-domestic-ungulates-eng.xls;fG
 247;2483;CS;UK;CP;;;Bradford/ West Yorkshire;R P J Meat Wholesale Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
@@ -970,8 +968,8 @@
 316;4085;MP, PP;UK;SH, CP;;;Dukinfield/ Cheshire;Tulip Ltd (T/A Tulip Fresh Meats (Ashton)) ;England;mp, st, g;s-i-meat-domestic-ungulates-eng.xls;P
 317;4090;MP, MSM, PP;UK;SH, CP;;;Wolverhampton/ West Midlands;F A Gill Limited;England;mp;s-i-meat-domestic-ungulates-eng.xls;P
 318;4091;;UK;SH;;;Nr Leek/ Staffordshire;Anthony J Bagshaw, Andrew W Bagshaw & G Bagshaw t/a S Bagshaw and Sons;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-319;4102;CS;UK;SH, CP ;;;Craven Arms/ Shropshire;A H Griffiths Limited T/A A H Griffiths;England;fG= Farmed wild boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-320;4104;;UK;SH;;;Melton Mowbray/ Leicestershire;Edward Pears and Michael Pears (t/a A E Pears & Son);England;;s-i-meat-domestic-ungulates-eng.xls;B O  
+319;4102;CS;UK;SH, CP ;;;Craven Arms/ Shropshire;A H Griffiths Limited T/A A H Griffiths;England;fG= Farmed wild boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+320;4104;;UK;SH;;;Melton Mowbray/ Leicestershire;Edward Pears and Michael Pears (t/a A E Pears & Son);England;;s-i-meat-domestic-ungulates-eng.xls;B O
 321;4108;MM, MP, PP;UK;CP;;;Warrington/ Cheshire;F Houghton & Family (Wholesale Butchers) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 322;4109;MM, MP;UK;SH, CP;;;Shrewsbury/ Shropshire;Anglo Beef Processors UK T/A ABP Shrewsbury;England;;s-i-meat-domestic-ungulates-eng.xls;B
 323;4112;;UK;SH, CP;;;Wigan/ Greater Manchester;James Blacklidge, George Blacklidge, Corrine Blacklidge and Yolanta Blacklidge (t/a Blacklidge Bros);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
@@ -979,20 +977,20 @@
 325;4126;;UK;CP, CS;;;Market Harborough/ Leicestershire;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 326;4132;;UK;CP;;;Coventry/ Warwickshire;David Allison (t/a Allisons Butchers);England;;s-i-meat-domestic-ungulates-eng.xls;
 327;4133;;UK;SH, CP;;;Kenilworth/ Warwickshire;Farmers Fresh Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;C O
-328;4137;;UK;SH;;;Walsall/ West Midlands;C Robinson and Sons (Butchers) Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-329;4138;;UK;SH;;;Bromsgrove/ Worcestershire;Partridge C E & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+328;4137;;UK;SH;;;Walsall/ West Midlands;C Robinson and Sons (Butchers) Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+329;4138;;UK;SH;;;Bromsgrove/ Worcestershire;Partridge C E & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 330;4140;MM, MP;UK;SH, CP;;;Chester/ Cheshire;Hewitt, G and G B, Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;B C O P S
-331;4152;;UK;SH, CP;;;Crewe/ Cheshire;Beesons Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B 
+331;4152;;UK;SH, CP;;;Crewe/ Cheshire;Beesons Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B
 332;4153;CS;UK;CP;;;Worcester/ Worcestershire;Worcester Wholesale Meat Co Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-333;4156;;UK;SH;;;Coventry/ Warwickshire;C H Rowley Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+333;4156;;UK;SH;;;Coventry/ Warwickshire;C H Rowley Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 334;4161;MM, CS, RW;UK;CP;;;Tipton/ West Midlands;MIPA Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 335;4163;MM, MP, PP;UK;CP;;;Liverpool/ Merseyside;Arthur J Granby & Sons (Liverpool) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-336;4168;;UK;SH, CP;;;Chesterfield/ Derbyshire;R B Elliott & Son Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+336;4168;;UK;SH, CP;;;Chesterfield/ Derbyshire;R B Elliott & Son Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 337;4171;PP, CS;UK;CP;;;Walsall/ West Midlands;A E Poxon & Sons Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 338;4175;MM, MP;UK;CP;;;Tipton/ West Midlands;Tulip Ltd (T/A Tulip Fresh Meats (Tipton));England;;s-i-meat-domestic-ungulates-eng.xls;
-339;4182;MM, PP;UK;SH, CP;;;Kingswinford/ West Midlands;Janan Meat Limited;England;st;s-i-meat-domestic-ungulates-eng.xls;C O 
+339;4182;MM, PP;UK;SH, CP;;;Kingswinford/ West Midlands;Janan Meat Limited;England;st;s-i-meat-domestic-ungulates-eng.xls;C O
 340;4183;MM, MP, CS;UK;CP;;;Macclesfield/ Cheshire;Ladymoor Foods Limited t/a TTS Meats;England;;s-i-meat-domestic-ungulates-eng.xls;
-341;4189;;UK;SH;;;Melton Mowbray/ Leicestershire;F Bailey and Son (Family Butchers) Ltd;England;fG= Dressing of farmed bison;s-i-meat-domestic-ungulates-eng.xls;B fG O 
+341;4189;;UK;SH;;;Melton Mowbray/ Leicestershire;F Bailey and Son (Family Butchers) Ltd;England;fG= Dressing of farmed bison;s-i-meat-domestic-ungulates-eng.xls;B fG O
 342;4195;MM, CS;UK;CP;;;Southport/ Merseyside;W Barton & Sons Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 343;4197;;UK;SH;;;Newcastle-under-Lyme/ Staffordshire;Neville Baskeyfield, Timothy Baskeyfield & Elizabeth Baskeyfield (T/A N. TM & EM Baskeyfield);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 344;4199;;UK;SH, CP;;;Birmingham/ West Midlands;Leansale Ltd t/a Bates Wholesale Butchers;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
@@ -1001,22 +999,22 @@
 347;4207-0028;MM, MP;UK;CP;;;Birmingham Wholesale Meat Market;Jaswant Singh & Joginder Kaur (T/A KMC Food Group);England;also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 348;4207-0031;MM, MP, CS;UK;CP;;;Birmingham Wholesale Meat Market;Heart of England Caterinmg Butchers (2000) Ltd;England;also poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 349;4225;;UK;SH;;;Nottingham/ Nottinghamshire;C Brumpton Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B O
-350;4227;;UK;SH, CP;;;Stockport/ Cheshire;Cheshire Halal UK Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O 
-351;4236;MM, MP, PP;UK;SH, CP;;;Shipston on Stour/ Warwickshire;Long Compton Abattoir Ltd;England;Also farmed wild boar, mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+350;4227;;UK;SH, CP;;;Stockport/ Cheshire;Cheshire Halal UK Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
+351;4236;MM, MP, PP;UK;SH, CP;;;Shipston on Stour/ Warwickshire;Long Compton Abattoir Ltd;England;Also farmed wild boar, mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 352;4238;MM, MP, PP;UK;CP;;;Bridgnorth/ Shropshire;Richard Davis (t/a Chelmarsh Meat Packers);England;Also Poultry CP and Large Wild Game CP;s-i-meat-domestic-ungulates-eng.xls;
 353;4241;MM, MP, CS;UK;CP;;;Derby/ Derbyshire;Cleaver Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 354;4242;;UK;SH;;;Burton-on-Trent/ Staffordshire;Peter Coates Alrewas Ltd;England;fG=dressing of  deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 355;4246;MM, MP, PP, CS, RW;UK;CP;;;Hereford/ Herefordshire;Country Tastes Ltd (T/A Neil Powell Catering) ;England;Also Poultry CP, WGCP, FGCP, mp;s-i-meat-domestic-ungulates-eng.xls;
-356;4256;;UK;SH, CP;;;Burntwood/ Staffordshire;H P Westwood Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+356;4256;;UK;SH, CP;;;Burntwood/ Staffordshire;H P Westwood Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 357;4260;;UK;CP;;;Bridgnorth/ Shropshire;Eardington Wholesale Meats Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-358;4261;;UK;SH, CP;;;Wirral/ Merseyside  ; Callum Edge t/a Edge & Son;England;;s-i-meat-domestic-ungulates-eng.xls;B O 
+358;4261;;UK;SH, CP;;;Wirral/ Merseyside  ; Callum Edge t/a Edge & Son;England;;s-i-meat-domestic-ungulates-eng.xls;B O
 359;4265;MM, MP, RW;UK;CP;;;Derby/ Derbyshire;Fairfax Meadow Farm Ltd ;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 360;4267;;UK;CP;;;Dudley/ West Midlands;Frank Garbett, Martin Peake & Barbara Peake (T/A Garbetts Meat Wholesalers);England;;s-i-meat-domestic-ungulates-eng.xls;
 361;4269;;UK;SH, CP;;;Oldham/ Greater Manchester;J & B Fitton Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-362;4276;;UK;SH, CP;;;Stoke-on-Trent/ Staffordshire;John Green (T/A A J Green & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+362;4276;;UK;SH, CP;;;Stoke-on-Trent/ Staffordshire;John Green (T/A A J Green & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 363;4286;;UK;SH;;;Cheadle/ Staffordshire;John Heath & Howard Heath (T/A J H Heath);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-364;4294;MP;UK;SH, CP;;;Knutsford/ Cheshire;Terence Jackson, Andrew K Jackson, James A Jackson & David J Jackson (T/A E & T Jackson & Sons);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-365;4295;GHE;UK;SH;;;Stoke-on-Trent/ Staffordshire;"William T James; Annette James; Adam James and William K James ( T/A W James)";England;;s-i-meat-domestic-ungulates-eng.xls;B C O  
+364;4294;MP;UK;SH, CP;;;Knutsford/ Cheshire;Terence Jackson, Andrew K Jackson, James A Jackson & David J Jackson (T/A E & T Jackson & Sons);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+365;4295;GHE;UK;SH;;;Stoke-on-Trent/ Staffordshire;"William T James; Annette James; Adam James and William K James ( T/A W James)";England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 366;4298;;UK;SH;;;Yoxall/ Staffordshire;A Johnson & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 367;4302;;UK;CP;;;Lancaster/ Lancashire;Lancaster Meat Company Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 368;4303;;UK;SH, CP;;;Stacksteads/ Lancashire;James Law Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;O P
@@ -1026,36 +1024,36 @@
 372;4313;MM, MP, CS, RW;UK;CP;;;Alfreton/ Derbyshire;Mainstream International Foods Limited;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 373;4319;;UK;SH;;;Matlock/ Derbyshire;Robin Maycock, Glynis Maycock & Jonathon Maycock t/a Robin Maycock (Butchers);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 374;4321;CS;UK;CP;;;Birkenhead/ Merseyside;Doug Haig (T/A Merseyside Wholesale Meats);England;;s-i-meat-domestic-ungulates-eng.xls;
-375;4322;GHE;UK;SH;;;Glossop/ Derbyshire;J W Mettrick & Son Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+375;4322;GHE;UK;SH;;;Glossop/ Derbyshire;J W Mettrick & Son Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C O P
 376;4326;;UK;SH, CP;;;Widnes/ Cheshire ;C S Morphet and Sons Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;O P
-377;4327;;UK;SH;;;Lutterworth/ Leicestershire;Joseph Morris Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-378;4330;;UK;SH;;;Crewe/ Cheshire;Thomas Newton & William Newton (T/A Newtons Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-379;4331;;UK;SH, CP;;;Stockport/ Cheshire;W Nixon & Sons Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+377;4327;;UK;SH;;;Lutterworth/ Leicestershire;Joseph Morris Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+378;4330;;UK;SH;;;Crewe/ Cheshire;Thomas Newton & William Newton (T/A Newtons Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+379;4331;;UK;SH, CP;;;Stockport/ Cheshire;W Nixon & Sons Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 380;4333;MM;UK;SH, CP;;;Loughborough/ Leicestershire;University of Nottingham;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
-381;4349;;UK;SH;;;Eccleshall/ Staffordshire;WM Perry Ltd (T/A William Perry);England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+381;4349;;UK;SH;;;Eccleshall/ Staffordshire;WM Perry Ltd (T/A William Perry);England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 382;4353;MP;UK;CP;;;Preston/ Lancashire;Barry Pugh, Gillian Pugh & Richard Pugh t/a Pugh's Piglets;England;;s-i-meat-domestic-ungulates-eng.xls;
 383;4356;;UK;CP;;;Nottingham/ Nottinghamshire;R. AND J. WHOLESALE MEAT COMPANY LIMITED;England;;s-i-meat-domestic-ungulates-eng.xls;
 384;4357;MM, MP, CS, RW;UK;SH, CP;;;Buxton/ Derbyshire;F Redfern & Sons Ltd;England;fG=farmed boar and farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C O P
 385;4359;MM, MP;UK;CP;;;Crewe/ Cheshire;Dunbia (Crewe);England;;s-i-meat-domestic-ungulates-eng.xls;
 386;4360;PP;UK;SH, CP;;;Burnley/ Lancashire;Geoffrey Riley, Michael Riley, Stephen Riley and Kevin Riley (t/a B Riley and Sons);England;st;s-i-meat-domestic-ungulates-eng.xls;B C O
-387;4367;;UK;SH;;;Uttoxeter/ Staffordshire;Thomas J Sargeant, Raymond G Sargeant, John W Sargeant, Helen L Lowe, Andrew J Sargeant, Joanne Sargeant, Jane M Sargeant and Paul W Sargeant (T/A TG Sargeant & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-388;4373;CS;UK;SH, CP;;;Stoke-on-Trent/ Staffordshire;Staffordshire Meat Packers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+387;4367;;UK;SH;;;Uttoxeter/ Staffordshire;Thomas J Sargeant, Raymond G Sargeant, John W Sargeant, Helen L Lowe, Andrew J Sargeant, Joanne Sargeant, Jane M Sargeant and Paul W Sargeant (T/A TG Sargeant & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+388;4373;CS;UK;SH, CP;;;Stoke-on-Trent/ Staffordshire;Staffordshire Meat Packers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 389;4379;;UK;SH, CP;;;Oldham/ Greater Manchester;Higginshaw Abattoir Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 390;4380;;UK;SH;;;Bottesford/ Leicestershire;Robert E Taylor (T/A A E Taylor & Son);England;;s-i-meat-domestic-ungulates-eng.xls;B O
-391;4381;;UK;SH, CP;;;Preston/ Lancashire;William Taylor & Son (Pig Salesmen) Ltd (T/A William Taylor & Son);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+391;4381;;UK;SH, CP;;;Preston/ Lancashire;William Taylor & Son (Pig Salesmen) Ltd (T/A William Taylor & Son);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 392;4382;MM, CS;UK;CP;;;Pendlebury/ Greater Manchester;Tenderoak Meats Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 393;4390;MM, MP, PP, CS;UK;CP;;;Galgate/ Lancashire;Westgate Frozen Foods Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
-394;4392;;UK;SH, CP;;;Birmingham/ West Midlands;Robert G Tuckey;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O 
+394;4392;;UK;SH, CP;;;Birmingham/ West Midlands;Robert G Tuckey;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O
 395;4394;MP;UK;CP;;;Wolverhampton/ West Midlands;Weddel Swift Distribution Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 396;4396;CS;UK;CP;;;Chester/ Cheshire;Weddel Swift Distribution Limited;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 397;4398;CS;UK;CP;;;Rochdale/ Greater Manchester;Weddel Swift Distribution Limited;England;;s-i-meat-domestic-ungulates-eng.xls;
 398;4406;;UK;SH;;;Sudbury/ Derbyshire;Wild's Butchers Limited (T/A A J Wild);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-399;4414;;UK;SH, CP;;;Mansfield/ Nottinghamshire;Dunbia (Mansfield) Limited;England;fg=Farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-400;4420;MM, MP;UK;SH, CP;;;Walsall/ West Midlands;W & G Yates (Yieldfields) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+399;4414;;UK;SH, CP;;;Mansfield/ Nottinghamshire;Dunbia (Mansfield) Limited;England;fg=Farmed Boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+400;4420;MM, MP;UK;SH, CP;;;Walsall/ West Midlands;W & G Yates (Yieldfields) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 401;4451;;UK;SH, CP, PP;;;Craven Arms/ Shropshire;Euro Quality Lambs Limited;England;st;s-i-meat-domestic-ungulates-eng.xls;C O
 402;4464;;UK;SH, CP;;;Stoke-on-Trent/ Staffordshire;Bickerton Bros Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 403;4465;MM, MP, PP,CS;UK;CP;;;Alfreton/ Derbyshire;Owen Taylor and Sons Ltd;England;Also Poultry and Wild game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-404;4471;PP;UK;SH, CP;;;Colne/ Lancashire;Neerock Ltd t/a Woodhead Bros Meat Company;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+404;4471;PP;UK;SH, CP;;;Colne/ Lancashire;Neerock Ltd t/a Woodhead Bros Meat Company;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O P
 405;4484;;UK;SH;;;Lutterworth/ Leicestershire;Marcus Stevens;England;;s-i-meat-domestic-ungulates-eng.xls;B O
 406;4486;;UK;SH, CP;;;Clitheroe/ Lancashire;Dunbia (England) t/a Dunbia (Sawley);England;;s-i-meat-domestic-ungulates-eng.xls;B
 407;4496;CS;UK;SH, CP;;;Birmingham/ West Midlands;Birmingham Halal Abattoir Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;C O B
@@ -1092,7 +1090,7 @@
 438;4794;MM, MP, RW, CS;UK;CP;;;Lindal-in-Furness/ Cumbria;Lake District Farmers Ltd;England;Also Poultry and Large wild game CP;s-i-meat-domestic-ungulates-eng.xls;
 439;4795;MM, MP, PP, RW, CS;UK;CP;;;Penrith/ Cumbria;Highgate Turkeys Ltd;England;Also Poultry SH, CP and large wild game, mp;s-i-meat-domestic-ungulates-eng.xls;
 440;4804;MM, MP, CS, RW;UK;CP;;;Birmingham/ West Midlands;Sandwell Foods Ltd T/A Halal World;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-441;4812;MM, MP, PP;UK;SH, CP;;;Penrith/ Cumbria;Peter Stoeken & Jane Emerson (T/A Deer N' Dexter);England;fG=farmed deer, mp;s-i-meat-domestic-ungulates-eng.xls;fG 
+441;4812;MM, MP, PP;UK;SH, CP;;;Penrith/ Cumbria;Peter Stoeken & Jane Emerson (T/A Deer N' Dexter);England;fG=farmed deer, mp;s-i-meat-domestic-ungulates-eng.xls;fG
 442;4816;MM, MP, CS;UK;CP;;;Rochdale/ Greater Manchester;Amjid Hussain (T/A Ali Halal Meats);England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 443;4820;MM, MP, PP, Cs, RW;UK;CP;;;Blackpool/ Lancashire;Clifton Quality Meats Ltd;England;mp, Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;fG
 444;4822;MM, MP, PP, CS, RW;UK;CP;;;Kendal/ Cumbria;Lakes Speciality Foods Ltd;England;Also Poultry & Wild Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
@@ -1132,7 +1130,7 @@
 478;5023;MM, MP, PP;UK;CP;;;Ampthill/ Bedfordshire;Leonard Ames (Ampthill) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 479;5077;MM, MP, PP;UK;CP;;;Linton/ Cambridgeshire;Dalehead Foods (Linton) Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 480;5088;;UK;SH, CP;;;Chelmsford/ Essex;A & G Barber Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;O P
-481;5090;MP;UK;SH, CP;;;Brentwood/ Essex;Elmkirk Limited;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;P fG 
+481;5090;MP;UK;SH, CP;;;Brentwood/ Essex;Elmkirk Limited;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;P fG
 482;5091;;UK;SH, CP;;;Spalding/ Lincolnshire;Tulip Ltd (T/A Dalehead Foods (a division of Tulip Ltd)) ;England;;s-i-meat-domestic-ungulates-eng.xls;P
 483;5094;;UK;SH;;;Boston/ Lincolnshire;Peter J Stephens (T/A P J Stevens Family Butcher);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 484;5102-0002;MM, CS, RW;UK;CP;;;London Central Markets;PJ Martinelli Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
@@ -1162,39 +1160,39 @@
 508;5115;MM, MP, PP;UK;CP;;;Stamford/ Lincolnshire;Nelsons (Butchers) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 509;5116;PP;UK;SH, CP;;;Skellingthorpe/ Lincolnshire;Dovecote Park (Skellingthorpe) Ltd;England;st;s-i-meat-domestic-ungulates-eng.xls;B
 510;5120;CP;UK;SH;;;Wisbech/ Cambridgeshire;Kevin Gagen & Wendy Cole (T/A N V Gagen & Son) ;England;fG=Dressing of farmed deer, farmed boar ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
-511;5130;;UK;SH;;;Bedford/ Bedfordshire;Peter S. Evans, Christopher P.E. Evans, Ann H. Evans & Andrew S. Evans (T/A Evans and Sons) ;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+511;5130;;UK;SH;;;Bedford/ Bedfordshire;Peter S. Evans, Christopher P.E. Evans, Ann H. Evans & Andrew S. Evans (T/A Evans and Sons) ;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 512;5144;;UK;SH;;;Royston/ Hertfordshire;Simon Leech and David Leech (T/A C A Leech  and Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B O P
-513;5154;;UK;SH;;;Kimbolton/ Cambridgeshire;Matthew Hellett & Debra Hellett (T/A H J Hellett and Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B O P 
+513;5154;;UK;SH;;;Kimbolton/ Cambridgeshire;Matthew Hellett & Debra Hellett (T/A H J Hellett and Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B O P
 514;5176;MM, MP, PP, RW;UK;CP;;;Lincoln/ Lincolnshire;A. W. Curtis Bakers and Butchers Ltd T/A Curtis of Lincoln;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-515;5177;;UK;SH, CP;;;Grantham/ Lincolnshire;Lincolnshire Meat Company Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-516;5195;;UK;SH, CP;;;Skegness/ Lincolnshire;Lincolnshire Prime Meat Company Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B O P 
+515;5177;;UK;SH, CP;;;Grantham/ Lincolnshire;Lincolnshire Meat Company Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+516;5195;;UK;SH, CP;;;Skegness/ Lincolnshire;Lincolnshire Prime Meat Company Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B O P
 517;5203;;UK;SH;;;Boston/ Lincolnshire;Phil Dawson (T/A H Dawson & Sons);England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
-518;5204;;UK;SH;;;Lincoln/ Lincolnshire;L Brown & Sons Wholesale Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-519;5207;GHE;UK;SH, CP;;;Norwich/ Norfolk;H G Blake (Costessey) Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+518;5204;;UK;SH;;;Lincoln/ Lincolnshire;L Brown & Sons Wholesale Butchers Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+519;5207;GHE;UK;SH, CP;;;Norwich/ Norfolk;H G Blake (Costessey) Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 520;5213;MM, MP, MSM;UK;SH, CP;;;Thetford/ Norfolk;Cranswick Country Food PLC;England;;s-i-meat-domestic-ungulates-eng.xls;P
-521;5215;MM, MP;UK;SH, CP;;;King's Lynn/ Norfolk;Julian E Howard & Clare M Howard (T/A J E Howard Butchers and Howard's Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-522;5217;;UK;SH;;;King's Lynn/ Norfolk;Jeff W Sargeant, Norma Sargeant, Philip Driver & Sean Armstrong (T/A J W Sargeant,);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
-523;5218;;UK;SH, CP;;;Wells Next The Sea/ Norfolk;Arthur Howell Snr & Arthur Howell Jnr (T/A Arthur Howell Butchers);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+521;5215;MM, MP;UK;SH, CP;;;King's Lynn/ Norfolk;Julian E Howard & Clare M Howard (T/A J E Howard Butchers and Howard's Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+522;5217;;UK;SH;;;King's Lynn/ Norfolk;Jeff W Sargeant, Norma Sargeant, Philip Driver & Sean Armstrong (T/A J W Sargeant,);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
+523;5218;;UK;SH, CP;;;Wells Next The Sea/ Norfolk;Arthur Howell Snr & Arthur Howell Jnr (T/A Arthur Howell Butchers);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 524;5222;;UK;CP;;;Norwich/ Norfolk;Peter O'Sullivan Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 525;5224;CS;UK;CP;;;Norwich/ Norfolk;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 526;5226;MM, MP, PP;UK;CP;;;North Walsham/ Norfolk;P&P Professional Farmers Ltd T/A Papworth Farms;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 527;5238;MM, MP, PP;UK;CP;;;Norwich/ Norfolk;F L Edge & Son Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-528;5241;GHE;UK;SH;;;Sudbury/ Suffolk;Ruse & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+528;5241;GHE;UK;SH;;;Sudbury/ Suffolk;Ruse & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 529;5242;MM, MP, PP;UK;CP;;;Bury St Edmunds/ Suffolk;Dalehead Foods Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 530;5243;;UK;CP;;;Elmswell/ Suffolk;Suffolk Meat Traders Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 531;5251;;UK;SH;;;Bury St.Edmunds/ Suffolk;Kerstin Cecilia Gliksten T/A Denham Estate;England;fG= Farmed deer;s-i-meat-domestic-ungulates-eng.xls;fG O
 532;5260;MM, MP, PP, CS;UK;CP;;;Halesworth/ Suffolk;Richard Thickett & Michael Thickett (T/A Bramfield Meats);England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-533;5264;;UK;SH;;;Great Dunmow/ Essex;Sweetland Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B O 
+533;5264;;UK;SH;;;Great Dunmow/ Essex;Sweetland Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B O
 534;5268;MP, MM;UK;CP;;;Harlow/ Essex;Narland Ltd T/A Ideal Meat;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 535;5269;CS;UK;SH, CP;;;Chelmsford/ Essex;Andrew, Sarah, Philip, Paul, Robert, Gerald, Geoffrey, and Peter Humphreys (t/a C Humphreys & Sons);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C O P fG
-536;5280;;UK;SH, CP;;;Burnham On Crouch/ Essex;Fowler Bros (Latchingdon) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+536;5280;;UK;SH, CP;;;Burnham On Crouch/ Essex;Fowler Bros (Latchingdon) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 537;5284;CS;UK;CP;;;Basildon/ Essex;John Scott Meats Paisley Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 538;5300;PP, CS;UK;CP;;;London/ Greater London;William McLaven (T/A David F Smith);England;mp;s-i-meat-domestic-ungulates-eng.xls;
 539;5312;;UK;CP;;;Abbots Langley/ Hertfordshire;Bradmill Meat Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 540;5317;;UK;CP;;;Colchester/ Essex;J Coleman Wholesale Butchers Ltd (T/A John Coleman Wholesale Butchers Ltd);England;;s-i-meat-domestic-ungulates-eng.xls;
 541;5319;MM;UK;SH, CP,;;;Upminster/ Essex;Romford Halal Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 542;5359;MM, MP, PP, CS, RW;UK;CP;;;Lowestoft/ Suffolk;Hundred River Foods Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-543;5392;MM, MP;UK;SH, CP;;;Little Clacton/ Essex;Colin Byford T/A C J Byford & Son;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+543;5392;MM, MP;UK;SH, CP;;;Little Clacton/ Essex;Colin Byford T/A C J Byford & Son;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 544;5393;MM, MP, CS, RW, PP;UK;CP;;;Northampton/ Northamptonshire;Midland Food Services Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 545;5416;MM, MP;UK;CP;;;Huntingdon/ Cambridgeshire;Hilton Meats Retail Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 546;5430;MM, MP, CS, GHE;UK;CP;;;Maldon/ Essex;Ben Rigby Game Ltd;England;Also Poultry CP, WGC & FGC;s-i-meat-domestic-ungulates-eng.xls;
@@ -1227,38 +1225,38 @@
 573;5530;MM, MP, CS, RW;UK;CP;;;London/ Greater London;Frank Godfrey Ltd;England;Also Poultry & Wild Game CP;s-i-meat-domestic-ungulates-eng.xls;
 574;6055;MP, RW, MM;UK;CP;;;Eastleigh/ Hampshire;Tendercut Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 575;6057;MM, MP, RW;UK;CP;;;Andover/ Hampshire;Randall Parker Foods Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-576;6060;;UK;SH, CP;;;Farnborough/ Hampshire;William M Newman and Robert C Newman T/A R W and M Newman;England;fG=farmed wild boar ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-577;6062;MM, MP, PP, CS;UK;SH, CP;;;Charing/ Kent;Anglo Dutch Meats (Charing) Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+576;6060;;UK;SH, CP;;;Farnborough/ Hampshire;William M Newman and Robert C Newman T/A R W and M Newman;England;fG=farmed wild boar ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+577;6062;MM, MP, PP, CS;UK;SH, CP;;;Charing/ Kent;Anglo Dutch Meats (Charing) Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P
 578;6067;MM, MP, PP, CS;UK;SH, CP;;;Heathfield/ East Sussex;Tottingworth Farms Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;B C O P
 579;6089;CS;UK;CP;;;Bexhill on Sea/ East Sussex;Gerald M Matthews & Christine Matthews (T/A G M Matthews (Butchers));England;;s-i-meat-domestic-ungulates-eng.xls;
 580;6107;;UK;SH;;;Edenbridge/ Kent;T. Allman Butchers Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
-581;6116;CS, RW ;UK;SH, CP;;;Southborough/ Kent;Forge Farm Meats Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+581;6116;CS, RW ;UK;SH, CP;;;Southborough/ Kent;Forge Farm Meats Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 582;6118;MM, MP, CS, RW;UK;CP;;;Brighton/ East Sussex;Kevin Blake (T/A Blakes Wholesale & Catering Butchers);England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 583;6119;MM, MP, PP, CS, RW;UK;CP;;;Robertsbridge/ East Sussex;Natural Farms Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 584;6120;;UK;CP;;;Brighton/ East Sussex;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 585;6128;;UK;SH;;;Tonbridge/ Kent;Ken Ballard Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B O P
-586;6130;;UK;SH;;;Nr Sittingbourne/ Kent;Stuart Doughty and Alison Church (T/A S W Doughty);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+586;6130;;UK;SH;;;Nr Sittingbourne/ Kent;Stuart Doughty and Alison Church (T/A S W Doughty);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 587;6141;;UK;CP;;;Canterbury/ Kent;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 588;6151;;UK;SH;;;Newbury/ Berkshire;Institute for Animal Health;England;;s-i-meat-domestic-ungulates-eng.xls;B O P
 589;6156;MM, MP, CS;UK;CP;;;Reading/ Berkshire;Berkshire Meat Traders Limited (t/a Berkshire Meats);England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 590;6164;PP, MM, MP, CS;UK;CP;;;Carterton/ Oxfordshire;Natural Farms (Oxon) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 591;6206;MM, MP, PP;UK;CP;;;Milton Keynes/ Buckinghamshire;Gilberts Kosher Foods Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
-592;6207;PP, MM, CS;UK;SH, CP;;;Witney/ Oxfordshire;Mutchmeats Ltd;England;fG=farmed deer and farmed boar, st, mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+592;6207;PP, MM, CS;UK;SH, CP;;;Witney/ Oxfordshire;Mutchmeats Ltd;England;fG=farmed deer and farmed boar, st, mp;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 593;6212;CS, MM, MP;UK;CP;;;Southampton/ Hampshire;R OwtonWholesale Butchers Ltd;England;Also Poultry & Wild Game CP;s-i-meat-domestic-ungulates-eng.xls;
 594;6213;CS;UK;CP;;;Portsmouth/ Hampshire;Arun Meat & Livestock Company Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 595;6214;MM, MP;UK;CP;;;Gosport/ Hampshire;Pinnacle Foods Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 596;6219;MM, MP, CS;UK;CP;;;Portsmouth/ Hampshire;Concept Foods Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 597;6222;CS;UK;CP;;;Portsmouth/ Hampshire;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 598;6223;CS;UK;CP;;;Portsmouth/ Hampshire;Towers Thompson Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-599;6238;PP, MM;UK;SH, CP;;;Guildford/ Surrey;Anglo Beef Processors UK (T/A ABP Guildford);England;st;s-i-meat-domestic-ungulates-eng.xls;B 
+599;6238;PP, MM;UK;SH, CP;;;Guildford/ Surrey;Anglo Beef Processors UK (T/A ABP Guildford);England;st;s-i-meat-domestic-ungulates-eng.xls;B
 600;6239;CS;UK;CP;;;Banbury/ Oxfordshire;Tadmarton Products Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 601;6240;PP, MM, MP, CS;UK;CP;;;Croydon/ Surrey;Cherryfield (Croydon) Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
 602;6262;CS;UK;CP;;;Merton/London;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 603;6304;;UK;CP;;;Brighton/ East Sussex;R P Meats Wholesale Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 604;6319;GHE, MP, CS;UK;CP;;;Erith/ Kent; Eden Valley Group ;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-605;6326;MM, MP, PP;UK;SH, CP;;;Canterbury/ Kent;J R Farm Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+605;6326;MM, MP, PP;UK;SH, CP;;;Canterbury/ Kent;J R Farm Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 606;6336;CS;UK;CP;;;Silvertown/London;Bantuway Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
-607;6342;MM, MP, PP;UK;SH, CP;;;Henfield/ West Sussex;Southern Traditional Meats Ltd;England;mp                        fG=farmed boar                                         ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+607;6342;MM, MP, PP;UK;SH, CP;;;Henfield/ West Sussex;Southern Traditional Meats Ltd;England;mp                        fG=farmed boar                                         ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 608;6343;CS;UK;CP;;;Reading/ Berkshire;Hellaby Meats UK Ltd;England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 609;6344;GHE, MP, PP, CS;UK;CP;;;Newbury/ Berkshire;Vicars Game Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 610;6347;CS, MM, MP, RW;UK;CP;;;Portsmouth/ Hampshire;Solent Butchers Ltd;England;Also Poultry & Wild Game CP;s-i-meat-domestic-ungulates-eng.xls;
@@ -1295,23 +1293,23 @@
 641;6406;MM, MP, PP, RW, CS;UK;CP;;;Chesham/ Buckinghamshire;Marilyn W Godden (T/A Godden Butchers);England;Also Poultry, Wild Game and Farmed Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 642;8004;GHE, MM, MP, CS;UK;CP;;;Crediton/ Devon;M C Kelly Ltd;England;Also Poultry and Game CP;s-i-meat-domestic-ungulates-eng.xls;
 643;8025;;UK;SH;;;Bristol/ Avon;JULIAN RIDGE & ELIZABETH RIDGE (T/A MANOR FARM DEER);England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;fG
-644;8029;;UK;SH;;;Crediton/ Devon;J Bullock & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+644;8029;;UK;SH;;;Crediton/ Devon;J Bullock & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 645;8032;;UK;CP;;;Bristol/ Avon;Rodney Phillips T/A R J Phillips Wholesale Butchers;England;;s-i-meat-domestic-ungulates-eng.xls;
 646;8037;MM, MP, PP;UK;SH, CP;;;Bristol/ Avon;University of Bristol;England;mp;s-i-meat-domestic-ungulates-eng.xls;B O P C
 647;8038;CS, RW;UK;CP;;;Fowey/ Cornwall;Dean Myatt t/a M & W Wholesale Meats;England;;s-i-meat-domestic-ungulates-eng.xls;
 648;8046;PP;UK;SH, CP;;;Launceston/ Cornwall;Dawn Meats (U.K.) (T/A Dawn Treburley);England;st;s-i-meat-domestic-ungulates-eng.xls;B
 649;8059;RW;UK;CP;;;Newton Abbot/ Devon;Andrew Hawkings Quality Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 650;8061;MM, MP, PP;UK;SH, CP;;;Bristol/ Avon;Tulip Limited (T/A Tulip Fresh Meats (Westerleigh));England;mp;s-i-meat-domestic-ungulates-eng.xls;P
-651;8068;MP, MM  ;UK;SH, CP;;;Ilfracombe/ Devon;Susan H Kneen (T/A Combe Martin Meats);England;fG=farmed boar and dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+651;8068;MP, MM  ;UK;SH, CP;;;Ilfracombe/ Devon;Susan H Kneen (T/A Combe Martin Meats);England;fG=farmed boar and dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 652;8070;;UK;SH, CP;;;Ottery St Mary/ Devon;Philip Hayman (T/A P J Hayman & Sons);England;fG=dressing of farmed deer ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P S
-653;8071;PP;UK;SH;;;Okehampton/ Devon;Dawn Meats (UK)  T/A Dawn West Devon;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O 
+653;8071;PP;UK;SH;;;Okehampton/ Devon;Dawn Meats (UK)  T/A Dawn West Devon;England;st;s-i-meat-domestic-ungulates-eng.xls;B C O
 654;8072;CS;UK;SH;;;Gloucester/ Gloucestershire;John J King & Valerie C King t/a P J King & Son;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 655;8073;MP;UK;SH, CP;;;Bodmin/ Cornwall;2 Sisters Red Meat Limited T/A St Merryn Foods Bodmin;England;;s-i-meat-domestic-ungulates-eng.xls;B
 656;8088;CS, MM, MP, PP , RW;UK;CP;;;Sherborne/ Dorset;Hunt's Foodservice Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 657;8101;MM, MP, PP, GHE;UK;SH, CP;;;Ottery St Mary/ Devon;John Coles, Richard Coles & Cynthia Coles (T/A East Hill Pride);England;fG = dressing of farmed deer, also farmed game CP, mp;s-i-meat-domestic-ungulates-eng.xls;B C O P fG
 658;8113;;UK;SH;;;Launceston/ Cornwall;H R Jasper and Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;C O
-659;8115;MM, MP, PP, CS, RW;UK;SH, CP;;;Penryn/ Cornwall;Robert J Trevarthen & Johanna G Trevarthen  (T/A RJ Trevarthen Wholesale Butchers);England;fG=farmed boar and dressing of farmed deer. mp, Also Poultry CP, st ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-660;8117;;UK;SH;;;Penzance/ Cornwall;Vivian Olds Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+659;8115;MM, MP, PP, CS, RW;UK;SH, CP;;;Penryn/ Cornwall;Robert J Trevarthen & Johanna G Trevarthen  (T/A RJ Trevarthen Wholesale Butchers);England;fG=farmed boar and dressing of farmed deer. mp, Also Poultry CP, st ;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+660;8117;;UK;SH;;;Penzance/ Cornwall;Vivian Olds Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 661;8118;MM, MP, PP;UK;CP;;;Newquay/ Cornwall;Mr Meats (Newquay) Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 662;8119;MM;UK;SH, CP;;;Bristol/ Avon;Alec Jarrett Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B
 663;8122;;UK;SH, CP;;;Truro/ Cornwall;Clifford George & Vivian George (T/A Nanteague Abattoir);England;fG=Dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O
@@ -1320,43 +1318,43 @@
 666;8145;;UK;SH, CP;;;Stonehouse/ Gloucestershire;J Broomhall Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P wU fg
 667;8149;MM MP PP CS;UK;SH, CP;;;Bristol/ Avon;Bakers of Nailsea Limited;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;B C O P fG
 668;8160;CS;UK;CP;;;Cheltenham/ Gloucestershire;Collicutt Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-669;8165;CS;UK;SH, CP;;;Gloucester/ Gloucestershire;Universal Traders Gloucester Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O 
+669;8165;CS;UK;SH, CP;;;Gloucester/ Gloucestershire;Universal Traders Gloucester Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 670;8181;;UK;CP;;;Taunton/ Somerset;M & J Meats Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 671;8184;;UK;SH;;;Taunton/ Somerset;A C Hopkins (Taunton) Ltd;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 672;8185;CS;UK;CP;;;Glastonbury/ Somerset;Kesbury Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-673;8188;;UK;SH;;;Taunton/ Somerset;Chris Trott & Family Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O  
-674;8189;;UK;SH;;;Frome/ Somerset;Judy Heritage & Mary Heritage (T/A J T Heritage);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+673;8188;;UK;SH;;;Taunton/ Somerset;Chris Trott & Family Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
+674;8189;;UK;SH;;;Frome/ Somerset;Judy Heritage & Mary Heritage (T/A J T Heritage);England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 675;8191;MM, MP;UK;SH, CP;;;Chard/ Somerset;Trevor T Symes & Geoffrey C T Symes (T/A C Snell Wholesale);England;fG=farmed boar, alpacas, Llamas and dressing of farmed deer, Alpacas;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 676;8193;;UK;SH;;;Wincanton/ Somerset;Norman Crofts (T/A Strap Orchard Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 677;8201;;UK;SH, CP;;;Swindon/ Wiltshire;F Drury & Son Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 678;8203;MP;UK;CP;;;Bodmin/ Cornwall;Robinsons's Cornish Meat Company Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
-679;8207;;UK;SH;;;Sturminster Newton/ Dorset ;Anglo Beef Processors UK (t/a ABP Sturminster);England;;s-i-meat-domestic-ungulates-eng.xls;C  
+679;8207;;UK;SH;;;Sturminster Newton/ Dorset ;Anglo Beef Processors UK (t/a ABP Sturminster);England;;s-i-meat-domestic-ungulates-eng.xls;C
 680;8216;MM, PP, CS;UK;SH, CP;;;Sherborne/ Dorset;Anglo Beef Processors UK T/A ABP Yetminster;England;st;s-i-meat-domestic-ungulates-eng.xls;O C
-681;8217;;UK;SH, CP;;;Bridport/ Dorset;Anthony Norman & John Norman t/a S J Norman & Sons;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+681;8217;;UK;SH, CP;;;Bridport/ Dorset;Anthony Norman & John Norman t/a S J Norman & Sons;England;fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 682;8220;;UK;CP;;;Poole/ Dorset;Weddel Swift Distribution Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 683;8229;;UK;SH;;;Salisbury/ Dorset;John Clarke (T/A W S Clarke & Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 684;8231;;UK;SH;;;Taunton/ Somerset;Stillmans (Somerset) Ltd;England;fG= farmed boar & farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C O P S fG
-685;8241;MM, MP, PP;UK;SH, CP;;;Bodmin/ Cornwall;T & H Lobb Limited;England;Also Poultry CP, mp     fG=farmed deer, and farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
-686;8249;CS;UK;SH, CP;;;Chippenham/ Wiltshire;H F Stiles & Son Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+685;8241;MM, MP, PP;UK;SH, CP;;;Bodmin/ Cornwall;T & H Lobb Limited;England;Also Poultry CP, mp     fG=farmed deer, and farmed boar;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
+686;8249;CS;UK;SH, CP;;;Chippenham/ Wiltshire;H F Stiles & Son Ltd;England;fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 687;8250;;UK;SH;;;Bristol/ Avon;John Pearce, Alan Pearce, Clifford Pearce, Aileen Pearce (T/A W J Pearce and Sons);England;;s-i-meat-domestic-ungulates-eng.xls;B C O
 688;8285;PP, CS;UK;SH, CP;;;Langport/ Somerset;Anglo Beef Processors UK (ABP Langport);England;mp, st ;s-i-meat-domestic-ungulates-eng.xls;B
 689;8290;CS;UK;CP;;;Cheltenham/ Gloucestershire;Cheltenham & District Wholesale Meat Co. Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;
 690;8299;MM, MP, RW;UK;CP;;;Roche/ Cornwall;2 Sisters Red Meat Limited (T/A St Merryn Foods Victoria);England;CP farmed game;s-i-meat-domestic-ungulates-eng.xls;
 691;8301;MM, MP, PP, RW;UK;SH, CP;;;Ashburton/ Devon;Gages Farm Ltd;England;mp                     fG=dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P  wG
-692;8308;CS, RW;UK;SH, CP;;;Truro/ Cornwall;J V Richards (Rietfontein) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+692;8308;CS, RW;UK;SH, CP;;;Truro/ Cornwall;J V Richards (Rietfontein) Ltd;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 693;8323;MP, MM, RW;UK;CP;;;Truro/ Cornwall;2 Sisters Red Meat Limited (T/A Tregagles);England;Also Poultry CP;s-i-meat-domestic-ungulates-eng.xls;
 694;8339;RW, CS;UK;CP;;;Bristol/ Avon;Osgrow Limited;England;CP farmed game;s-i-meat-domestic-ungulates-eng.xls;
 695;8342;MP, PP;UK;SH, CP;;;Holsworthy/ Devon;Justin Uglow, Mervyn Uglow & Ann Uglow (T/A The Cornish Farmhouse Bacon Company);England;mp                          fG=farmed boar;s-i-meat-domestic-ungulates-eng.xls;P fG
 696;8343;MM, MP, PP;UK;CP;;;St Austell/ Cornwall;James Kittow & Daniel Kittow (T/A Kittows Butchers);England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 697;8347;MM, MP;UK;CP;;;Near Liskeard/ Cornwall;Jason Greenway (T/A Bosuen Manor Meats);England;;s-i-meat-domestic-ungulates-eng.xls;
 698;8349;MM, MP, PP;UK;CP;;;Taunton/ Somerset;Stillmans (Somerset) Ltd;England;mp;s-i-meat-domestic-ungulates-eng.xls;
-699;8354;MM, MP, PP, GHE;UK;SH, CP;;;Sherborne/ Dorset;C and S Meats Ltd ;England;mp, fG=farmed bison, farmed boar, Alpacas and dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P 
+699;8354;MM, MP, PP, GHE;UK;SH, CP;;;Sherborne/ Dorset;C and S Meats Ltd ;England;mp, fG=farmed bison, farmed boar, Alpacas and dressing of farmed deer;s-i-meat-domestic-ungulates-eng.xls;B C fG O P
 700;8355;MM, MP, PP, CS;UK;CP;;;Bristol/ Avon;John Sheppard Butchers Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
-701;8357;;UK;SH;;;Holsworthy/ Devon;Walter W Johns, Jill Johns & Philip W Johns (T/A  J & J Farmers Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+701;8357;;UK;SH;;;Holsworthy/ Devon;Walter W Johns, Jill Johns & Philip W Johns (T/A  J & J Farmers Abattoir);England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 702;8364;MM, MP, PP;UK;CP;;;Axminster/ Devon;Complete Meats Limited (T/A Complete Meats);England;Also Poultry,Wild Game & Farmed Game CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 703;8367;MM, MP, PP, RW;UK;CP;;;Okehampton/ Devon;Eversfield Organic Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 704;8368;MM, MP, CS;UK;CP;;;Wells/ Somerset;Ashton Exotic Meats Ltd;England;Also Game CP;s-i-meat-domestic-ungulates-eng.xls;
-705;8369;;UK;SH;;;Saltash/ Cornwall;Tideford Abattoir Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P 
+705;8369;;UK;SH;;;Saltash/ Cornwall;Tideford Abattoir Limited;England;;s-i-meat-domestic-ungulates-eng.xls;B C O P
 706;8373;MM, MP, CS, RW;UK;CP;;;Buckfastleigh/ Devon;Riverford Organic Farms Ltd (T/A Riverford Butchery);England;Also Poultry & Wild Game & Farmed Game CP;s-i-meat-domestic-ungulates-eng.xls;
 707;8374;MM, PP;UK;CP;;;Staverton/ Gloucestershire;Creed  Catering Supplies Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
 708;8375;MM, MP, PP, CS;UK;CP;;;Helston/ Cornwall;Scorse Foods Ltd;England;Also Poultry CP, mp;s-i-meat-domestic-ungulates-eng.xls;
@@ -1389,10 +1387,10 @@
 17;9013;MM MP CS RW;UK;CP;;;Ballymoney, Co Antrim;Etherson Meats;NIreland;Avian RW;s-i-meat-domestic-ungulates-ni.xls;B  P
 18;9115; MP RW;UK;CP;;;Lurgan, Co Armagh;Eurostock  Foods (NI) Ltd;NIreland;RW-Fishery Prods;s-i-meat-domestic-ungulates-ni.xls;B O P A
 19;9044;MP PP;UK;CP;;;Ballyclare, Co Antrim;F C Robinson Ltd;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;B P
-20;9133;MMMP;UK;CP;;;Cullybackey, Co Antrim;Ferguson Meats Ltd;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;BOP 
+20;9133;MMMP;UK;CP;;;Cullybackey, Co Antrim;Ferguson Meats Ltd;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;BOP
 21;9102;MP;UK;CP SH;;;Downpatrick, Co Down;Lynn's Country Foods Lts T/A Finnebrogue ;NIreland;;s-i-meat-domestic-ungulates-ni.xls;Fg P O B Wu
-22;9016;MM MP;UK;CP SH;;;Londonderry, Co Londonderry;Foyle Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B 
-23;9058;CS  MP;UK;CP;;;Ballymena, Co Antrim;Galgorm Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;P 
+22;9016;MM MP;UK;CP SH;;;Londonderry, Co Londonderry;Foyle Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B
+23;9058;CS  MP;UK;CP;;;Ballymena, Co Antrim;Galgorm Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;P
 24;9061;MM MP CS RW;UK;CP;;;Moira, Co Armagh;Hannan Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O P
 25;9024;CS MM RW MP;UK;CP;;;Loughgall, Co Armagh                                                                                                                                                                                                                             ;Hewitt Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B
 26;9026;RW;UK;CP;;;Carrickfergus, Co Antrim;Hilton Meat Products Ltd;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O P
@@ -1408,15 +1406,15 @@
 36;9126;MM MP CS PP;UK;CP;;;Craigavon, Co Armagh;Moyallon;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;BOP
 37;9083;CS RW MM MP;UK;CP;;;Campsie, Londonderry, Co Londonderry;North West Pork Products;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O P
 38;9080;;UK;SH;;;Craigavon, Co Armagh;Oakdale Meats (NI) Limited;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O C
-39;9095;CS MM RW;UK;CP;;;Dungannon, Co Tyrone;Oakdale Meats (NI) Ltd. ;NIreland;Also Pork RW;s-i-meat-domestic-ungulates-ni.xls;B O 
+39;9095;CS MM RW;UK;CP;;;Dungannon, Co Tyrone;Oakdale Meats (NI) Ltd. ;NIreland;Also Pork RW;s-i-meat-domestic-ungulates-ni.xls;B O
 40;9042;MP, MM;UK;CP SH;;;Omagh, Co Tyrone;Omagh Meats Ltd;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B
 41;9097;CS MP PP;UK;CP;;;Milford, Co Armagh;Pinkertons Ltd.;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;P
 42;ZL 011;MM PP;UK;CP;;;Armagh, Co Armagh;Pol Meats;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;P
 43;9123;MM MP CS;UK;CP;;;Belfast, Co. Antrim;Rodgers Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;BO
-44;9047;CS MM;UK;CP;;;Larne, Co Antrim;Topping Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O  
+44;9047;CS MM;UK;CP;;;Larne, Co Antrim;Topping Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O
 45;9125;MM CS;UK;CP;;;Belfast, Co. Antrim;Townhill Food Services;NIreland;;s-i-meat-domestic-ungulates-ni.xls;BP
 46;9075; MP MM;UK;CP;;;Dungannon, Co Tyrone;Traynor Quality Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O P A
-47;9114;CS MP RW;UK;CP;;;Ballymena, Co Antrim;W Allen Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;P 
+47;9114;CS MP RW;UK;CP;;;Ballymena, Co Antrim;W Allen Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;P
 48;9056;MM MP;UK;CP SH;;;Coleraine, Co Londonderry;W D Meats;NIreland;;s-i-meat-domestic-ungulates-ni.xls;B O
 49;9021;PP CS;UK;CP SH;;;Londonderry, Co Londonderry;Wm Grant & Co Ltd;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;P
 50;9073;MM MP PP CS;UK;CP;;;Craigavon, Co Armagh;Wm Sprott (Portadown) Ltd;NIreland;mp;s-i-meat-domestic-ungulates-ni.xls;P
@@ -1513,7 +1511,7 @@
 38;1200;MM MP;UK;CP;;;Perth / Perth & Kinross;Seriously Good Butchery Limited;Scotland;Also Large Wild and Farmed Game CP;s-i-meat-domestic-ungulates-scot.xls;
 39;1505;PP;UK;CP SH ;;;Annan / Dumfries & Galloway;Vivers Scotlamb Ltd.;Scotland;st;s-i-meat-domestic-ungulates-scot.xls;O
 40;1508;MM MP PP;UK;CP;;;Edinburgh / City of Edinburgh;Michael Malone of Edinburgh;Scotland;mp;s-i-meat-domestic-ungulates-scot.xls;
-41;1511;;UK;SH;;;Dunblane / Stirling;DS (Slaughterhouse) Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;B O C P 
+41;1511;;UK;SH;;;Dunblane / Stirling;DS (Slaughterhouse) Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;B O C P
 42;1515;MM MP PP CS;UK;CP;;;East Kilbride / South Lanarkshire;Scotbeef Ltd T/A East Kilbride;Scotland;mp;s-i-meat-domestic-ungulates-scot.xls;
 43;1516;;UK;SH CP;;;Shotts / North Lanarkshire;James Chapman (Butchers) Ltd T/A  Shotts Abattoir;Scotland;;s-i-meat-domestic-ungulates-scot.xls;B O P C
 44;1517;;UK;SH CP;;;Wishaw / North Lanarkshire;Wishaw Abattoir Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;B O C P fG
@@ -1534,7 +1532,7 @@
 59;1621;MM MP PP CS;UK;CP;;;Bonnyrigg / Midlothian;Campbell Brothers Ltd;Scotland;Also Poultry CP,    mp;s-i-meat-domestic-ungulates-scot.xls;
 60;1626;MM MP;UK;CP;;;Broxburn / West Lothian;AK Stoddart Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;
 61;1633;CS;UK;CP;;;Wishaw / North Lanarkshire;P R DUFF LTD ;Scotland;;s-i-meat-domestic-ungulates-scot.xls;
-62;1641;MM MP PP;UK;CP SH ;;;Biggar / South Lanarkshire;Richard Carmichael (T/A Carmichael Estate Farm Meats);Scotland;fG = Dressing of farmed deer, mp;s-i-meat-domestic-ungulates-scot.xls;O fG 
+62;1641;MM MP PP;UK;CP SH ;;;Biggar / South Lanarkshire;Richard Carmichael (T/A Carmichael Estate Farm Meats);Scotland;fG = Dressing of farmed deer, mp;s-i-meat-domestic-ungulates-scot.xls;O fG
 63;1647;GHE MM MP PP ;UK;CP SH ;;;Duns / Scottish Borders;Kezie Ltd;Scotland;Also Poultry CP, mp;s-i-meat-domestic-ungulates-scot.xls;R
 64;1648;MM MP PP CS RW;UK;CP;;;By Linlithgow / West Lothian;Campbells Prime Meat Ltd.;Scotland;Also Poultry and game CP, mp;s-i-meat-domestic-ungulates-scot.xls;
 65;1661;;UK;CP;;;Wishaw / North Lanarkshire;Barclay & Newton Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;
@@ -1574,12 +1572,9 @@
 99;1756;MM, MP, PP;UK;SH, CP;;;Shetland;SMLG Trading Ltd;Scotland;;s-i-meat-domestic-ungulates-scot.xls;B P O C
 100;1757;CP PP;UK;CP;;;Lockerbie / Dumfries & Galloway;W Taylor (Lockerbie) Ltd t/a Border Meats;Scotland;mp;s-i-meat-domestic-ungulates-scot.xls;
 101;1758;MP;UK;CP;;;Glasgow;Kismet (Scotland) Ltd;Scotland;Also Poultry CP;s-i-meat-domestic-ungulates-scot.xls;
-5;1000;;UK;CP;;;"Smethwick/West Midlands
-";Zaheer Ahmed (T/A Ahmed Brothers Halal Poultry Products);England;;s-ii-meat-poultry-lagomorphs-eng.xls;
+5;1000;;UK;CP;;;Smethwick/West Midlands;Zaheer Ahmed (T/A Ahmed Brothers Halal Poultry Products);England;;s-ii-meat-poultry-lagomorphs-eng.xls;
 6;1002;MM, MP, PP;UK;CP;;;Ealing/Greater London;Imagefarm Ltd (T/A Wilson's of Sloan Street);England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
-7;1003;MP;UK;CP;;;"Greenwich/Greater London
-
-";Kinda Food Ltd;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
+7;1003;MP;UK;CP;;;Greenwich/Greater London;Kinda Food Ltd;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 8;1004;MP, PP, CS;UK;CP;;;Newby Wiske,/Northallerton;Newby Foods Ltd;England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 9;1005;MM, MP, PP, RW;UK;CP;;;Bromsgrove/Worcestershire;Banner Foods  (Bromsgrove) Limited;England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 10;1006;MM, MP, PP;UK;CP;;;Coventry/West Midlands;Aubrey Allen Ltd;England;Also Red & Wild Game CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
@@ -1594,8 +1589,7 @@
 19;1023;MM, MP, PP;UK;CP;;;Martock/Somerset;Kevin McAdam (T/A Kevin McAdam Catering Butchers);England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 20;1024;MM, MP, PP, CS, RW;UK;CP;;;Martock/Somerset;Jon Thorner's Ltd;England;Also Red, farmed and Wild Game CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 21;1025;MM, MP, PP, CS;UK;CP;;;Cheltenham/ Gloucestershire;Gilders Transport Ltd (T/A Martins Meats);England;Also Red & Wild Game CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
-22;1026;MM, MP;UK;CP;;;"Ferryhill/County Durham
-";Simon D Hall, Anne M Hall & John D Hall (T/A Halls Poultry);England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
+22;1026;MM, MP;UK;CP;;;Ferryhill/County Durham;Simon D Hall, Anne M Hall & John D Hall (T/A Halls Poultry);England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 23;1027;MM, CS;UK;CP;;;Lambeth/London;West End Meats Ltd;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 24;1028;MM,CS, RW;UK;CP;;;London;Swandean Fresh Meats Ltd;England;Also Red CP and Large Wild Game CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 25;1030;MM, MP, PP;UK;CP;;;Saffron Walden/Essex;Castle Hill Meats Ltd (T/A Burtons Catering Butchers);England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
@@ -1839,7 +1833,7 @@
 263;4083;MM, MP, PP;UK;CP;;;St Helens/ Merseyside;Cook & Johnson (Butchers) Ltd;England;Also Red Meat CP & SH and Farmed Game  CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 264;4108;MM, MP, PP;UK;CP;;;Warrington/ Cheshire;F Houghton & Family (Wholesale Butchers) Ltd;England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 265;4109;MM, MP;UK;CP;;;Shrewsbury/ Shropshire;Anglo Beef Processors UK T/A ABP Shrewsbury;England;Also Red SH;s-ii-meat-poultry-lagomorphs-eng.xls;
-266;4128;GHE;UK;SH, CP;;;Nr Ormskirk/ Lancashire;Fayre Game Ltd;England;;s-ii-meat-poultry-lagomorphs-eng.xls;A 
+266;4128;GHE;UK;SH, CP;;;Nr Ormskirk/ Lancashire;Fayre Game Ltd;England;;s-ii-meat-poultry-lagomorphs-eng.xls;A
 267;4140;MM, MP;UK;CP;;;Chester/ Cheshire;G & G B Hewitt Ltd;England;Also Red SH, CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 268;4161;MM, CS, RW;UK;CP;;;Tipton/ West Midlands;MIPA Meats Ltd;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 269;4163;MM, MP, PP;UK;CP;;;Liverpool/ Merseyside;Arthur J Granby & Sons (Liverpool) Ltd;England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
@@ -1993,8 +1987,7 @@
 417;5430;MM, MP, CS, GHE;UK;CP;;;Maldon/ Essex;Ben Rigby Game Ltd;England;Also includes Red CP, WGC & FGC;s-ii-meat-poultry-lagomorphs-eng.xls;
 418;5435;MP;UK;CP;;;Wellingborough/ Northamptonshire; Musgrave Retail Partners GB Limited ;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
 419;5438;MP, PP;UK;CP;;;Attleborough/ Norfolk;Kerry Foods Ltd;England;Also Red CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
-420;5443;MM, MP, PP, CS;UK;CP;;;Colchester/ Essex;"Direct Meats (Knights Farm) Ltd
-(t/a Kone Vale for poultry cutting only)";England;Also Red & Wild Game CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
+420;5443;MM, MP, PP, CS;UK;CP;;;Colchester/ Essex;Direct Meats (Knights Farm) Ltd (t/a Kone Vale for poultry cutting only);England;Also Red & Wild Game CP, mp;s-ii-meat-poultry-lagomorphs-eng.xls;
 421;5450;MP;UK;SH, CP;;;Attleborough/ Norfolk;Traditional Norfolk Poultry Ltd;England;;s-ii-meat-poultry-lagomorphs-eng.xls;A
 422;5464;MP, MSM, CS;UK;SH, CP;;;Attleborough/ Norfolk;Banham Poultry Ltd;England;;s-ii-meat-poultry-lagomorphs-eng.xls;A
 423;5478;MM, MP, CS;UK;CP;;;London/ Greater London;Vatan Catering Ltd;England;Also Red CP;s-ii-meat-poultry-lagomorphs-eng.xls;
@@ -2103,19 +2096,18 @@
 526;8391;GHE, CS, RW;UK;CP;;;St Ives/ Cornwall;Celtic Fish & Game Ltd;England;Also includes cutting RCP and wild game;s-ii-meat-poultry-lagomorphs-eng.xls;
 5;9508;MP PP;UK;CP SH;;;Ballymena, Co Atnrim;Dickeys Poultry;NIreland;mp;s-ii-meat-poultry-lagomorphs-ni.xls;A
 6;9049;MP ;UK;CP;;;Craigavon, Co Armagh                                                                                                          ;Drumgold Quality Foods;NIreland;;s-ii-meat-poultry-lagomorphs-ni.xls;A
-7;9115;MP ;UK;CP;;;Lurgan, Co Armagh;Eurostock Foods (NI) Ltd;NIreland;Also BOP CP;s-ii-meat-poultry-lagomorphs-ni.xls;A 
+7;9115;MP ;UK;CP;;;Lurgan, Co Armagh;Eurostock Foods (NI) Ltd;NIreland;Also BOP CP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 8;9520;MP ;UK;CP;;;Crossgar, Co Down;GB Poultry;NIreland;;s-ii-meat-poultry-lagomorphs-ni.xls;A
 9;ZS005;MM, MP;UK;CP;;;Coleraine, Co Derry;JTM Meats;NIreland;Also P CP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 10;9135;MM MP CS;UK;CP;;;Ballymena, Co Atnrim;K & G McAtamney Wholesale Meats;NIreland;Also BPO CP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 11;9552;;UK;CP SH;;;Ballymena, Co Atnrim;Kearns Poultry ;NIreland;;s-ii-meat-poultry-lagomorphs-ni.xls;A
-12;9108;MP PP MM RW;UK;CP;;;Lisnaskea, Co Fermanagh;Kettyle Irish Foods Ltd;NIreland;"mp
-Also RM CP";s-ii-meat-poultry-lagomorphs-ni.xls;A
+12;9108;MP PP MM RW;UK;CP;;;Lisnaskea, Co Fermanagh;Kettyle Irish Foods Ltd;NIreland;mp Also RM CP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 13;9023;;UK;CP;;;Dungannon, Co Tyrone;Linden Foods Ltd;NIreland;Also RM SH CP MM MP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 14;9518;MP PP ;UK;CP SH;;;Rasharkin, Ballymena, Co Antrim                                                                   ;McKeown Fine Foods;NIreland;mp;s-ii-meat-poultry-lagomorphs-ni.xls;A
 15;9509;MP MSM MM;UK;CP SH;;;Ballymena, Co Atnrim;Moy Park Ballymena;NIreland;;s-ii-meat-poultry-lagomorphs-ni.xls;A
 16;9502;MP MSM PP;UK;CP SH;;;Dungannon, Co Tyrone;Moy Park Ltd;NIreland;mp;s-ii-meat-poultry-lagomorphs-ni.xls;A
 17;9554;MP ;UK;CP SH;;;Richill, Co Armagh;Rockvale Poultry;NIreland;;s-ii-meat-poultry-lagomorphs-ni.xls;A
-18;9075;MP;UK;CP;;;Ballygawley, Co Tyrone;Traynor Quality Meats;NIreland;Also RM CP;s-ii-meat-poultry-lagomorphs-ni.xls;A 
+18;9075;MP;UK;CP;;;Ballygawley, Co Tyrone;Traynor Quality Meats;NIreland;Also RM CP;s-ii-meat-poultry-lagomorphs-ni.xls;A
 5;7002;;UK;SH, CP;;;Llangefni, Isle of Anglesey;2 Sisters Poultry Limited T/A 2 Sisters Llangefini;Wales;;s-ii-meat-poultry-lagomorphs-wales.xls;A
 6;7003;;UK;CP;;;Newport;Jawaid Ishaq (T/A De Bone Halal Poultry);Wales;;s-ii-meat-poultry-lagomorphs-wales.xls;
 7;7005;MM, MP, RW, PP;UK;CP;;;Denbigh, Denbighshire, ;Clwyd Lloyd Dowell (T/A CLD Meats);Wales;Also Red CP;s-ii-meat-poultry-lagomorphs-wales.xls;
@@ -2212,12 +2204,12 @@ Also RM CP";s-ii-meat-poultry-lagomorphs-ni.xls;A
 12;2163;GHE, CS;UK;SH, CP;;;Todmorden/West Yorkshire;Peter Boddy (T/A Peter Boddy Licensed Slaughterers and Game Dealers);England;Also Red Meat CP;s-iii-meat-farmed-game-eng.xls;B C O P S wl fg R
 13;2194;CS, RW, MP;UK;CP;;;Bristol/ Avon;Ritter Courivaud Limited (T/A Chef Direct);England;Also Wild Game and Red Meat Cutting;s-iii-meat-farmed-game-eng.xls;
 14;2230;MM, MP, PP, CS;UK;CP;;;Orpington, Kent;Manor Farm Sausage Co Ltd (T/A Norsted Manor Farm Meats);England;Also Wild Game, Poultry and Red Meat CP, mp;s-iii-meat-farmed-game-eng.xls;
-15;2254;MM, MP;UK;SH, CP;;;Retford/Nottinghamshire;James Anthony Farr T/A Gamston Wood Ostriches;England;Also Red, Poultry & large wild game  CP;s-iii-meat-farmed-game-eng.xls;R, fG 
+15;2254;MM, MP;UK;SH, CP;;;Retford/Nottinghamshire;James Anthony Farr T/A Gamston Wood Ostriches;England;Also Red, Poultry & large wild game  CP;s-iii-meat-farmed-game-eng.xls;R, fG
 16;2271;MM, MP, PP;UK;CP;;;Skelmersdale/Lancashire;H Greaves & Son (Meat Products) Ltd;England;Also Red and Poultry CP, mp, raf;s-iii-meat-farmed-game-eng.xls;fG
 17;2279;MP, PP;UK;CP;;;Blaydon-on-Tyne/Tyne and Wear;PEK.NC. LLP;England;Also Red Meat CP, mp;s-iii-meat-farmed-game-eng.xls;fG
 18;2368;CS;UK;CP;;;Uttoxeter/ Staffordshire;J S Quality Meats Limited;England;Also Red CP;s-iii-meat-farmed-game-eng.xls;
 19;2466;MM, MP, PP;UK;CP;;;Halifax/West Yorkshire;Michael I Holdsworth Ltd T/A Holdsworth;England;Also Wild Game, Poultry and Red Meat CP, mp;s-iii-meat-farmed-game-eng.xls;fG
-20;2477;MM, MP, PP;UK;SH OFSF, CP;;;Northallerton/ North Yorkshire;Paul & Kate Langthorne (T/A Langthorne's Buffalo Produce);England;Alpacas, Farmed Bison, Farmed Deer, Farmed Ratites, Farmed Wild Boar, Guanacos;s-iii-meat-farmed-game-eng.xls;fG  
+20;2477;MM, MP, PP;UK;SH OFSF, CP;;;Northallerton/ North Yorkshire;Paul & Kate Langthorne (T/A Langthorne's Buffalo Produce);England;Alpacas, Farmed Bison, Farmed Deer, Farmed Ratites, Farmed Wild Boar, Guanacos;s-iii-meat-farmed-game-eng.xls;fG
 21;2509;;UK;SH OFSF;;;Ightham/Kent;Nick Connell T/A Orchard Hill Farm;England;fG Farmed wild boar;s-iii-meat-farmed-game-eng.xls;fG
 22;2527;MM, MP, PP, CS;UK;CP;;;Debenham/Suffolk;Shaun Palfrey and Deaglan Hall T/A Palfrey and Hall;England;Also Wild Game, Poultry and Red Meat CP, mp;s-iii-meat-farmed-game-eng.xls;
 23;2544;CS, MM, MP, PP;UK;CP;;;Skipton/West Yorkshire;Swaledale Foods Ltd;England;Also poultry, red and large wild game CP, mp;s-iii-meat-farmed-game-eng.xls;
@@ -2225,14 +2217,14 @@ Also RM CP";s-ii-meat-poultry-lagomorphs-ni.xls;A
 25;2564;MM, MP;UK;CP;;;Ross-on-Wye / Herefordshire;Richard H Vaughan T/A Huntsham Court Farm;England;Also Red meat CP;s-iii-meat-farmed-game-eng.xls;
 26;3001;MM, MP, CS ;UK;CP;;;Newbury/Berkshire;Thatcham Butchers Ltd;England;Also Wild Game, Poultry and Red Meat CP;s-iii-meat-farmed-game-eng.xls;
 27;4083;MM, MP, PP;UK;CP;;;St Helens/ Merseyside;Cook & Johnson (Butchers) Ltd;England;;s-iii-meat-farmed-game-eng.xls;fG
-28;4102;;UK;GHE, SH, CP, CS ;;;Craven Arms/ Shropshire;A H Griffiths Limited;England;fG= Farmed wild boar ;s-iii-meat-farmed-game-eng.xls;B C fG O P 
-29;4137;;UK;SH;;;Walsall, Staffordshire;C Robinson & Sons (Butchers) Ltd;England;;s-iii-meat-farmed-game-eng.xls;B C fG O P 
-30;4168;;UK;SH, CP;;;Chesterfield, Derbyshire;R B Elliott & Son Ltd;England;fG= Farmed wild boar ;s-iii-meat-farmed-game-eng.xls;B C fG O P 
+28;4102;;UK;GHE, SH, CP, CS ;;;Craven Arms/ Shropshire;A H Griffiths Limited;England;fG= Farmed wild boar ;s-iii-meat-farmed-game-eng.xls;B C fG O P
+29;4137;;UK;SH;;;Walsall, Staffordshire;C Robinson & Sons (Butchers) Ltd;England;;s-iii-meat-farmed-game-eng.xls;B C fG O P
+30;4168;;UK;SH, CP;;;Chesterfield, Derbyshire;R B Elliott & Son Ltd;England;fG= Farmed wild boar ;s-iii-meat-farmed-game-eng.xls;B C fG O P
 31;4189;;UK;SH;;;Melton Mowbray, Leicestershire;F Bailey and Son (Family Butchers) Ltd;England;fG = Dressing of Farmed Bison;s-iii-meat-farmed-game-eng.xls;B fG O
-32;4236;MMMP;UK;SH, CP, MM, MP;;;Shipston-on-stour, Warwickshire;Long Compton Abattoir Ltd;England;Dressing of Farmed Wild Boar;s-iii-meat-farmed-game-eng.xls;B C fG O P 
+32;4236;MMMP;UK;SH, CP, MM, MP;;;Shipston-on-stour, Warwickshire;Long Compton Abattoir Ltd;England;Dressing of Farmed Wild Boar;s-iii-meat-farmed-game-eng.xls;B C fG O P
 33;4242;;UK;SH;;;Burton-on-Trent, Staffordshire;Peter Coates (Alrewas) Ltd ;England;Farmed Deer;s-iii-meat-farmed-game-eng.xls;B fG P O
 34;4246;MM, MP, CS, PP, RW;UK;CP;;;Hereford/Herefordshire;Country Tastes Ltd T/A Neil Powell Catering;England;Also red CP, white CP, wild game CP;s-iii-meat-farmed-game-eng.xls;
-35;4294;MP;UK;SH, CP, MP;;;Nutsford, Cheshire;Terence Jackson, Andrew K Jackson, James A Jackson & David J Jackson (T/A E & T Jackson & Sons);England;Farmed wild boar;s-iii-meat-farmed-game-eng.xls;B C fG O P 
+35;4294;MP;UK;SH, CP, MP;;;Nutsford, Cheshire;Terence Jackson, Andrew K Jackson, James A Jackson & David J Jackson (T/A E & T Jackson & Sons);England;Farmed wild boar;s-iii-meat-farmed-game-eng.xls;B C fG O P
 36;4578;MM, MP, PP;UK;CP;;;Morecambe/ Lancashire;Mrs J C Altham & Sons (Morecambe) Ltd;England;Also Poultry and Red CP, mp;s-iii-meat-farmed-game-eng.xls;
 37;4638;;UK;SH OFSF, SH, CP, MP;;;Lichfield/ Staffordshire;Home Farm - Maple Hayes;England;Farmed Deer;s-iii-meat-farmed-game-eng.xls;fG
 38;4707;CS;UK;SH, OSFS, CP;;;Oakamoor/Staffordshire;JCB Farms Ltd ;England;Farmed Deer. Also Red CP, large Wild Game CP.;s-iii-meat-farmed-game-eng.xls;fG
@@ -2269,26 +2261,22 @@ Also RM CP";s-ii-meat-poultry-lagomorphs-ni.xls;A
 69;8373;;UK;CP;;;Buckfastleigh, Devon;Riverford Organic Vegetables Ltd (T/A Riverford Butchery);England;Also Red Meat, Poultry and Wild Game CP;s-iii-meat-farmed-game-eng.xls;fG
 70;8377;;UK;SH OFSF;;;Street/ Somerset;Roger Saul and Monty Saul (T/A Sharpham Park);England;Farmed Deer;s-iii-meat-farmed-game-eng.xls;fG
 5;7006;MM, MP, PP;UK;CP;;;Anglesey County Council;The Food Technology Centre;Wales;;s-iii-meat-farmed-game-wales.xls;
-6;7036;CP, PP;UK;SH;;;Maesteg, Mid Glamorgan;M K (Wales) Ltd (T/A Maddock Kembery Meats);Wales;"mp
-fG = farmed wild boar";s-iii-meat-farmed-game-wales.xls;fG, B, P, O, C
+6;7036;CP, PP;UK;SH;;;Maesteg, Mid Glamorgan;M K (Wales) Ltd (T/A Maddock Kembery Meats);Wales;mp fG = farmed wild boar;s-iii-meat-farmed-game-wales.xls;fG, B, P, O, C
 7;7046;CP;UK;SH;;;Raglan, Monmouthshire;William Arthur James (T/A W A James Butchers);Wales;;s-iii-meat-farmed-game-wales.xls;fG, B, P, O, C
 8;7072;;UK;SH OFSF;;;Brecon, Powys;W J George (Butchers) Ltd;Wales;fG = Slaughter of Farmed Deer.  Also Red SH;s-iii-meat-farmed-game-wales.xls;fG, B, P, O, C
 9;7075;;UK;SH OFSF;;;Brecon, Powys;Andrew Morgan & Anne-Marie Morgan (T/A Welsh Venison Centre);Wales;fG = Slaughter of Farmed Deer;s-iii-meat-farmed-game-wales.xls;fG
-10;7105;;UK;SH, CP;;;Wrexham, Clwyd;Cyril Jones and Stephen Jones T/A Jones Brothers;Wales;"fG = Slaughter of Farmed Deer
-Also red meat cutting";s-iii-meat-farmed-game-wales.xls;fG
-11;7110;GHE;UK;SH, CP;;;Denbigh, Denbighshire;William E Edwards & Glyn Davies (T/A J Williams & Co);Wales;"fG = Slaughter of Farmed Deer
-Also red meat cutting";s-iii-meat-farmed-game-wales.xls;fG
+10;7105;;UK;SH, CP;;;Wrexham, Clwyd;Cyril Jones and Stephen Jones T/A Jones Brothers;Wales;fG = Slaughter of Farmed Deer Also red meat cutting;s-iii-meat-farmed-game-wales.xls;fG
+11;7110;GHE;UK;SH, CP;;;Denbigh, Denbighshire;William E Edwards & Glyn Davies (T/A J Williams & Co);Wales;fG = Slaughter of Farmed Deer Also red meat cutting;s-iii-meat-farmed-game-wales.xls;fG
 12;7124;CS, MP, MM, PP;UK;CP;;;Newport/Gwent;Welsh Bros Foods Ltd;Wales;Also Red, Poultry & Wild game CP, mp;s-iii-meat-farmed-game-wales.xls;
 13;7195;CS, MP, MM, PP;UK;CP;;;Llanelli/Carmarthenshire;Dawn Meats (UK) Ltd (T/A Dawn Crosshands - a division of Dawn Meats (UK));Wales;mp. Also Red, Poultry & Wild game CP;s-iii-meat-farmed-game-wales.xls;
 14;7207;MM, MP, CS;UK;CP;;;Brecon, Powys;Welsh Venison Centre Ltd;Wales;Also Red and Poultry CP;s-iii-meat-farmed-game-wales.xls;
-15;7211;MM, MP, PP, SH (OFSF);UK;CP;;;Corwen, Denbs;Lord Robert Newborough t/a Rhug Organic;Wales;"mp
-Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;fG
+15;7211;MM, MP, PP, SH (OFSF);UK;CP;;;Corwen, Denbs;Lord Robert Newborough t/a Rhug Organic;Wales;mp Also red meat, white meat, wild game cutting;s-iii-meat-farmed-game-wales.xls;fG
 5;1120;MM, MP, PP, RW;UK;CP;;;Glasgow;Kevin Brolly (T/A Mamore Boucherie);Scotland;Also cutting of Red and White meat, mp;s-iii-meat-farmed-game-scot.xls;
 6;1125;CP GHE MM MP PP;UK;SH OFSF;;;Dingwall / Highland;John M Munro Ltd;Scotland;fG = farmed deer;s-iii-meat-farmed-game-scot.xls;fG
 7;1134;;UK;SH OFSF;;;Auchtermuchty / Fife;Dr Timothy J Fletcher and Nicola R Fletcher (T/A Reediehill Deer Farm) ;Scotland;fG = farmed deer;s-iii-meat-farmed-game-scot.xls;fG
 8;1149;MM, MP, PP;UK;CP;;;Abernethy/Perthshire;Seriously Good Venison;Scotland;Also cutting of Red meat and large wild game;s-iii-meat-farmed-game-scot.xls;
 9;1163; MM, MP, CS;UK;CP;;;Carnwath/Lanarkshire;Premier Cuts (13) Ltd;Scotland;Also Poultry, red and wild and farmed game CP;s-iii-meat-farmed-game-scot.xls;
-10;1164;;UK;OFSF;;;Aberdeenshire;Caledonian Bison Ltd;Scotland;;s-iii-meat-farmed-game-scot.xls;B  
+10;1164;;UK;OFSF;;;Aberdeenshire;Caledonian Bison Ltd;Scotland;;s-iii-meat-farmed-game-scot.xls;B
 11;1165;MM,MP;UK;CP;;;Bathgate / West Lothian;Wilma Gilmour T/A S & W Gilmour;Scotland;Also Poultry, Red and Wild game CP;s-iii-meat-farmed-game-scot.xls;
 12;1169;MM, MP;UK;CP;;;Ayr/South Ayrshire;West Coast Fisheries & Butcher Ltd;Scotland;Also Poultry, red & wild game CP;s-iii-meat-farmed-game-scot.xls;
 13;1200;MM MP;UK;CP;;;Perth / Perth & Kinross;Seriously Good Venison Ltd T/A Seriously Good Butchery;Scotland;Also red and Large wild game cutting;s-iii-meat-farmed-game-scot.xls;
@@ -2338,11 +2326,11 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 35;2296;;UK;GHE;;;Penrith/Cumbria;Mark Atkinson T/A Eden Valley Venison;England;;s-iv-wild-game-meat-eng.xls;wU, wL, wA
 36;2298;CP,MM, MP;UK;GHE;;;Petworth/West Sussex;South Downs Venison and Game Ltd;England;Also Red CP;s-iv-wild-game-meat-eng.xls;fG,wL,wA
 37;2384;MM, MP;UK;GHE;;;Southampton/Hampshire;Lee W C Dart (T/A Newhouse Game);England;;s-iv-wild-game-meat-eng.xls;wU, wA, wL
-38;2438;CP,  MM, MP, PP, SH, CS;UK;GHE ;;;Leyburn/ North Yorkshire;McIntyre Meats Ltd;England;mp;s-iv-wild-game-meat-eng.xls;wU 
+38;2438;CP,  MM, MP, PP, SH, CS;UK;GHE ;;;Leyburn/ North Yorkshire;McIntyre Meats Ltd;England;mp;s-iv-wild-game-meat-eng.xls;wU
 39;2440;;UK;GHE, CP;;;Leyburn/ North Yorkshire;L & A Dent;England;;s-iv-wild-game-meat-eng.xls;wA wL wU
 40;2449;CP, MM, MP, PP;UK;GHE;;;Richmond/ North Yorkshire;Yorkshire Game Ltd;England;mp;s-iv-wild-game-meat-eng.xls;wA wL wU
 41;2466;MM, MP, PP, CS;UK;CP;;;Halifax/West Yorkshire;Michael I Holdsworth Ltd T/A Holdsworth;England;Also Red, Poultry and Farmed Game CP, mp;s-iv-wild-game-meat-eng.xls;wA wL wU
-42;2470;PP, RW, MP;UK;GHE;;;Wetherby/ West Yorkshire;John N C Lister (T/A Ox Close Traditional Fine Foods);England;mp;s-iv-wild-game-meat-eng.xls;wA wL 
+42;2470;PP, RW, MP;UK;GHE;;;Wetherby/ West Yorkshire;John N C Lister (T/A Ox Close Traditional Fine Foods);England;mp;s-iv-wild-game-meat-eng.xls;wA wL
 43;2471;MP, MM, PP, RW, CS;UK;CP;;;Ripon/ North Yorkshire;R & J Yorkshire's Finest Farmers & Butchers Ltd T/A R & J Yorkshire's Finest;England;Also Red and white CP, mp;s-iv-wild-game-meat-eng.xls;wA wL wU
 44;2472;MM, MP, RW, PP, CS;UK;CP;;;Thirsk/ North Yorkshire;Taste Tradition Ltd;England;Also Red CP, mp ;s-iv-wild-game-meat-eng.xls;
 45;2484;MM, MP, RW, CS;UK;CP;;;Newcastle-upon-Tyne/ Tyne and Wear;Warren Butterworth Catering Butchers Ltd.;England;Also Red & Poultry CP;s-iv-wild-game-meat-eng.xls;
@@ -2378,7 +2366,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 75;4854;MM, CS;UK;CP;;;Stoke-on-Trent/ Staffordshire;Moorland Meats Ltd;England;Also poultry and Red CP;s-iv-wild-game-meat-eng.xls;
 76;4864;MM, MP, PP, RW, CS;UK;CP;;;Carnforth/ Lancashire;Cornvale Foods Ltd;England;Also Red & poultry CP, mp;s-iv-wild-game-meat-eng.xls;
 77;5004;MM, MP, SH, CS, RW;UK;CP;;;Diss/ Norfolk;Green Label Foods Ltd (T/A Gressingham Foods) ;England;Cutting of small wild game meat only;s-iv-wild-game-meat-eng.xls;
-78;5207;SH, CP;UK;GHE;;;Norwich/ Norfolk;H G Blake (Costessey) Ltd;England;Also includes cutting of wild game meat, mp;s-iv-wild-game-meat-eng.xls;wU 
+78;5207;SH, CP;UK;GHE;;;Norwich/ Norfolk;H G Blake (Costessey) Ltd;England;Also includes cutting of wild game meat, mp;s-iv-wild-game-meat-eng.xls;wU
 79;5241;SH;UK;GHE;;;Sudbury/ Suffolk;Ruse & Son Ltd;England;;s-iv-wild-game-meat-eng.xls;wU
 80;5430;CP, MM, MP, CS;UK;GHE;;;Maldon/ Essex;Ben Rigby Game Ltd;England;;s-iv-wild-game-meat-eng.xls;wA wL wU
 81;5443;MM, MP, PP, CS;UK;CP;;;Colchester/Essex;Direct Meats (Knights Farm) Ltd;England;mp;s-iv-wild-game-meat-eng.xls;wA wL wU
@@ -2387,15 +2375,15 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 84;5497;;UK;GHE;;;Louth/ Lincolnshire;William Walker (T/A Walker's Game);England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU
 85;5500;CP, MM, MP;UK;Ghe;;;Bourne/ Lincolnshire;Peterborough Game Co Ltd;England;;s-iv-wild-game-meat-eng.xls;
 86;5508;CP, MM, MP;UK;GHE;;;Woodbridge/ Suffolk;Wild Meat Company Ltd;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU
-87;5511;;UK;GHE;;;D'Arcy/ Essex;Robert Ashcroft t/a Robert Ashcroft Game;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL 
+87;5511;;UK;GHE;;;D'Arcy/ Essex;Robert Ashcroft t/a Robert Ashcroft Game;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL
 88;5512;;UK;GHE;;;Melton Constable/ Norfolk;James Sharpe & Samantha Sharpe (T/A J Sharpe Game);England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL
 89;5519;SH, CP, MM, MP, PP, RW;UK;GHE;;;Eye/ Suffolk;C & K Meats Ltd T/A Lamberts The Abattoir;England;Also Poultry CP, mp;s-iv-wild-game-meat-eng.xls;wU
 90;5529;MM, MP, CS, RW;UK;CP;;;Wembley/London;Middlesex Meat Company Limited;England;Also Red CP, Poultry CP, Farmed Game CP;s-iv-wild-game-meat-eng.xls;
 91;5530;MM, MP, CS, RW;UK;CP;;;London/ Greater London;Frank Godfrey Ltd;England;Also Poultry & Red CP;s-iv-wild-game-meat-eng.xls;
-92;6204;;UK;GHE;;;Winchester/ Hampshire;D H Game Ltd;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU 
+92;6204;;UK;GHE;;;Winchester/ Hampshire;D H Game Ltd;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU
 93;6319;CP, MP, CS;UK;GHE;;;Erith/ Kent;Eden Valley Group;England;;s-iv-wild-game-meat-eng.xls;wU
 94;6344;CP, MP, PP, CS;UK;GHE;;;Newbury/ Berkshire;Vicars Game Ltd;England;mp;s-iv-wild-game-meat-eng.xls;wA wL wU
-95;6360;MM, MP;UK;GHE;;;Alresford/ Hampshire;Blackmoor Game Ltd;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU 
+95;6360;MM, MP;UK;GHE;;;Alresford/ Hampshire;Blackmoor Game Ltd;England;Also includes cutting of wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU
 96;6368;MP, CS;UK;GHE;;;Washington/ West Sussex;Anthony Skeet (T/A Chanctonbury Game);England;Also includes cutting wild game meat, PCP, RCP;s-iv-wild-game-meat-eng.xls;wA wL wU
 97;6369;;UK;GHE;;;Wallingford/ Oxfordshire;Roy Brown and Mark Brown (T/A Ewe Farm Game);England;Also includes cutting wild game meat;s-iv-wild-game-meat-eng.xls;wA wL wU
 98;6370;MM, MP, CS;UK;CP;;;Oxford/ Oxfordshire;RR Alden Oxford Ltd;England;Also Poultry & Red CP;s-iv-wild-game-meat-eng.xls;
@@ -2408,7 +2396,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 105;6405;MM, MP, CS;UK;CP;;;London/ Greater London;Nigel Fredericks Limited;England;Also Red  and poultry CP, Farmed game CP;s-iv-wild-game-meat-eng.xls;
 106;6406;MM, MP, PP, RW, CS;UK;CP;;;Chesham/Buckinghamshire;Marilyn W Godden (T/A Godden Butchers);England;Also Red, Poultry and Farmed Game CP, mp;s-iv-wild-game-meat-eng.xls;
 107;8004;CP, MM, MP, CS;UK;GHE;;;Crediton/ Devon;M C Kelly Ltd;England;Also Red  and poultry CP, WGCP;s-iv-wild-game-meat-eng.xls;wA wL wU
-108;8101;SH, CP, MM, MP, PP ;UK;GHE;;;Ottery St Mary/ Devon;John Coles, Richard Coles & Cynthia Coles (T/A East Hill Pride);England;mp;s-iv-wild-game-meat-eng.xls;wU, wL 
+108;8101;SH, CP, MM, MP, PP ;UK;GHE;;;Ottery St Mary/ Devon;John Coles, Richard Coles & Cynthia Coles (T/A East Hill Pride);England;mp;s-iv-wild-game-meat-eng.xls;wU, wL
 109;8241;SH, MM, MP, PP;UK;CP;;;Bodmin/ Cornwall;T & H Lobb Limited;England;Also Red  and Poultry CP, WGCP;s-iv-wild-game-meat-eng.xls;wU
 110;8297;MM, MP;UK;GHE;;;Andover/ Hampshire;Hampshire Game Ltd;England;Also includes cutting meat from large wild game ;s-iv-wild-game-meat-eng.xls;wA wL wU
 111;8354;SH,CP, MM, MP, PP;UK;GHE;;;Sherborne/ Dorset;C and S Meats Ltd ;England;Also red CP;s-iv-wild-game-meat-eng.xls;wU
@@ -2447,7 +2435,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 20;1200;MM MP;UK;CP;;;Perth / Perth & Kinross;Seriously Good Butchery Limited;Scotland;Also Red and Farmed game CP;s-iv-wild-game-meat-scot.xls;
 21;1585;SH CP MM MP PP;UK;GHE;;;Isle of Mull / Argyll & Bute;Mull Slaughterhouse Ltd;Scotland;mp;s-iv-wild-game-meat-scot.xls;wU
 22;1621;MM MP PP CS;UK;CP;;;Bonnyrigg / Midlothian;Campbell Brothers Ltd;Scotland;mp;s-iv-wild-game-meat-scot.xls;
-23;1641;MM MP PP SH;UK;GHE;;;Biggar / South Lanarkshire;Richard Carmichael (T/A Carmichael Estate Farm Meats);Scotland;;s-iv-wild-game-meat-scot.xls;wU 
+23;1641;MM MP PP SH;UK;GHE;;;Biggar / South Lanarkshire;Richard Carmichael (T/A Carmichael Estate Farm Meats);Scotland;;s-iv-wild-game-meat-scot.xls;wU
 24;1647;MM MP CS PP;UK;GHE;;;Duns / Scottish Borders;Kezie Ltd;Scotland;mp;s-iv-wild-game-meat-scot.xls;wA w L wU
 25;1648;MM MP PP S RW;UK;CP;;;By Linlithgow / West Lothian;Campbells Prime Meat Ltd.;Scotland;mp;s-iv-wild-game-meat-scot.xls;wA wL wU
 26;1680;MM MP PP CS ;UK;CP;;;Dunning / Perth & Kinross;Simon Howie Foods;Scotland;Also Red and Poultry CP, mp;s-iv-wild-game-meat-scot.xls;
@@ -2463,7 +2451,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 36;1731;MP;UK;GHE;;;Fort William / Highland;Lochaber Game Services;Scotland;;s-iv-wild-game-meat-scot.xls;wU
 37;1732;MM MP CS RW;UK;CP;;;Clydebank / West Dunbartonshire;Christie Meats Ltd.;Scotland;;s-iv-wild-game-meat-scot.xls;
 38;1735;SH;UK;GHE;;;Isle of Islay / Argyll & Bute;Avonvogie Enterprises Ltd;Scotland;Also Red CP;s-iv-wild-game-meat-scot.xls;wL
-39;1738;CP MM MP;UK;GHE;;;Kilmarnock / East Ayrshire;Braehead Foods Limited;Scotland;;s-iv-wild-game-meat-scot.xls;wA wL   
+39;1738;CP MM MP;UK;GHE;;;Kilmarnock / East Ayrshire;Braehead Foods Limited;Scotland;;s-iv-wild-game-meat-scot.xls;wA wL
 40;1740;MM MP PP CS RW;UK;CP;;;Glenrothes / Fife;John Henderson (Meat Specialists) Ltd.;Scotland;Also Red, Poultry and wild game CP, mp;s-iv-wild-game-meat-scot.xls;
 41;1742;;UK;GHE;;;Peterhead / Aberdeenshire;David Killoh Meat Co. Ltd;Scotland;;s-iv-wild-game-meat-scot.xls;wU
 42;1744;MM MP PP;UK;CP;;;Girvan / South Ayrshire;We hae meat Ltd.;Scotland;mp;s-iv-wild-game-meat-scot.xls;
@@ -3377,7 +3365,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 6;ZP621;CS ;UK;MP;;;Belfast, Co Antrim;Belfast Meats;NIreland;;mmmpmsmni.xls;B P
 7;9118;CS CP;UK;MP;;;Portadown, Co Armagh;C Mallon;NIreland;;mmmpmsmni.xls;BO
 8;9136;CP, CS, RW;UK;MM MP;;;Dromara, Co;Carnbrooke Meats & Poultry;NIreland;;mmmpmsmni.xls;fG, B, O, P, A
-9;9112;CP;UK;MM MP;;;Coleraine, Co Londonderry;Causeway Prime;NIreland;;mmmpmsmni.xls;B 
+9;9112;CP;UK;MM MP;;;Coleraine, Co Londonderry;Causeway Prime;NIreland;;mmmpmsmni.xls;B
 10;ZT 020;;UK;MP;;;Cookstown, Co Tyrone;Cooked Meats Solutions;NIreland;;mmmpmsmni.xls;P
 11;ZW 010;;UK;MP;;;Aughnacloy, Co Tyrone;Country Fresh Poultry;NIreland;mp;mmmpmsmni.xls;A
 12;9104;CP CS RW PP;UK;MM MP;;;Downpatrick, Co Down;Crossgar Foodservice Ltd. (T/A Crossgar Meats) ;NIreland;mp;mmmpmsmni.xls;B O P
@@ -3392,9 +3380,9 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 21;9013;CP CS RW;UK;MM MP;;;Ballymoney, Co Antrim;Etherson Meats;NIreland;Avian RW;mmmpmsmni.xls;B P
 22;9115;CP ;UK;MP;;;Lurgan, Co Armagh;Eurostock Foods (NI) Ltd;NIreland;;mmmpmsmni.xls;A B O P
 23;9044;CP PP;UK;MP;;;Ballyclare, Co Antrim;F C Robinson Ltd;NIreland;mp;mmmpmsmni.xls;B P
-24;9133;MMMP;UK;CP;;;Cullybackey, Co Antrim;Ferguson Meats Ltd;NIreland;;mmmpmsmni.xls;BOP 
+24;9133;MMMP;UK;CP;;;Cullybackey, Co Antrim;Ferguson Meats Ltd;NIreland;;mmmpmsmni.xls;BOP
 25;9102;CP SH;UK;MP;;;Downpatrick, Co Down;Lynn's Country Foods Ltd T/A Finnebrogue;NIreland;;mmmpmsmni.xls;Fg P B O
-26;9016;CP SH ;UK;MM MP;;;Derry, Co Londonderry;Foyle Meats;NIreland;;mmmpmsmni.xls;B 
+26;9016;CP SH ;UK;MM MP;;;Derry, Co Londonderry;Foyle Meats;NIreland;;mmmpmsmni.xls;B
 27;ZV025;;UK;MP;;;Saintfield, Co Down;G & W Moore;NIreland;;mmmpmsmni.xls;P
 28;9058;CP CS;UK;MP;;;Ballymena, Co Antrim;Galgorm Meats;NIreland;;mmmpmsmni.xls;P
 29;9520;CP ;UK;MP;;;Crossgar, Co Down;GB Poultry;NIreland;;mmmpmsmni.xls;A
@@ -3423,7 +3411,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 52;ZL008;PP CS;UK;MP;;;Armagh, Co Armagh;MR Foods;NIreland;mp;mmmpmsmni.xls;A B O
 53;JF039;PP;UK;MP ;;;Newry, Co Down                                                                                                                                                                                                                                                 ;Need of Meats;NIreland;mp;mmmpmsmni.xls;A B P O
 54;9083;CP CS RW;UK;MM MP;;;Campsie, Derry, Co Londonderry                                                                               ;North West Pork Products;NIreland;;mmmpmsmni.xls;B O P
-55;9095;CP CS RW;UK;MM;;;Dungannon, Co Tyrone;Oakdale Meats, Dungannon;NIreland;Also Pork RW;mmmpmsmni.xls;B 
+55;9095;CP CS RW;UK;MM;;;Dungannon, Co Tyrone;Oakdale Meats, Dungannon;NIreland;Also Pork RW;mmmpmsmni.xls;B
 56;9042;CP SH;UK;MP MM;;;Omagh, Co Tyrone;Omagh Meats;NIreland;;mmmpmsmni.xls;B
 57;9097;CP CS PP;UK;MP;;;Milford, Co Armagh;Pinkertons Ltd. ;NIreland;mp;mmmpmsmni.xls;P
 58;ZL011;CP PP;UK;MM ;;;Co. Armagh;Pol Meats;NIreland;mp;mmmpmsmni.xls;P
@@ -3432,7 +3420,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 61;9554;CP SH;UK;MP;;;Richill, Armagh, Co Armagh;Rockvale Poultry;NIreland;;mmmpmsmni.xls;A
 62;9123;CP CS;UK;MM MP;;;Belfast, Co Antrim;Rodgers Meats;NIreland;;mmmpmsmni.xls;BO
 63;ZS003;PP;UK;MP;;;Unit 9 - Kilrea, Co Derry;Sloans;NIreland;mp;mmmpmsmni.xls;P
-64;9047;CP CS;UK;MM;;;Larne, Co Antrim;Topping Meats;NIreland;;mmmpmsmni.xls;B O  
+64;9047;CP CS;UK;MM;;;Larne, Co Antrim;Topping Meats;NIreland;;mmmpmsmni.xls;B O
 65;9125;CP CS;UK;MM;;;Belfast, Co Antrim;Townhill Food Services;NIreland;;mmmpmsmni.xls;BP
 66;9075;CP;UK;MM MP;;;Dungannon, Co Tyrone;Traynor Quality Meats;NIreland;;mmmpmsmni.xls;B P
 67;ZV009;PP CS;UK;MM MP;;;Castlewellan, Co Down;TS Foods Ltd;NIreland;mp;mmmpmsmni.xls;ABOP
@@ -5181,7 +5169,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 1423;YX 005;;UK;PP;;;Crawley Borough Council;The Real Pie Company;England;mp;meatproductapprovaleng.xls;
 1424;YX 007;;UK;PP;;;Crawley Borough Council;Jeanie Marshal Foods UK Ltd;England;mp;meatproductapprovaleng.xls;
 3;ZS009;;UK;PP;;;Co Derry;Annie's Traditional Food Ltd.;NIreland;ABOP;meatproductsni.xls;mp
-4;9205;MP MM CP;UK;PP;;;Castlereagh, Co Down;Armstrong Meats;NIreland;A B O P;meatproductsni.xls;mp 
+4;9205;MP MM CP;UK;PP;;;Castlereagh, Co Down;Armstrong Meats;NIreland;A B O P;meatproductsni.xls;mp
 5;ZM 010;;UK;PP;;;Ballymena, Co Antrim;Barr's Country Kitchen;NIreland;A B;meatproductsni.xls;mp
 6;ZJ 006;;UK;PP;;;Antrim, Co Antrim;Bumbles Delicatessen;NIreland;B P A;meatproductsni.xls;mp
 7;ZT018;;UK;PP;;;Co Tyrone;Cloughbane Farm Foods;NIreland;A B P;meatproductsni.xls;mp fishery products
@@ -6385,7 +6373,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 1228;TH 017.003 EC;;UK;FP;;LB of Tower Hamlets;London ;Simmo's (Billingsgate) Ltd;England;;approvedfishbmeng.xls;
 1229;TH 017.004 EC;PP;UK;FP;;LB of Tower Hamlets;London ;CT Holmes & Co .Ltd;England;;approvedfishbmeng.xls;
 1230;TH 017.005 EC;;UK;FP;;LB of Tower Hamlets;;R A O Fish Merchants Ltd;England;;approvedfishbmeng.xls;
-1231;TH 017.006 EC;RW;UK;FP;;LB of Tower Hamlets;London ;Lawrence  Brothers (Billingsgate) Ltd;England;;approvedfishbmeng.xls; 
+1231;TH 017.006 EC;RW;UK;FP;;LB of Tower Hamlets;London ;Lawrence  Brothers (Billingsgate) Ltd;England;;approvedfishbmeng.xls;
 1232;TH 017.007 EC;;UK;FP;;LB of Tower Hamlets;London ;The Upper Scale;England;;approvedfishbmeng.xls;
 1233;TH 017.008 EC;;UK;FP;;LB of Tower Hamlets;London ;West & Sun Foods Ltd;England;;approvedfishbmeng.xls;
 1234;TH 017.010 EC;FFPP;UK;FP;;LB of Tower Hamlets;London ;Bard Shellfish;England;;approvedfishbmeng.xls;
@@ -7090,8 +7078,8 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 14;YM028;;UK;FFPP;;;Anglesey ;CEMAES Lobster and Crab ;Wales;;fishlbmw.xls;
 15;YM029;;UK;FFPP;;;Anglesey ;South Quay Shellfish;Wales;;fishlbmw.xls;
 16;GW001;MP/PP;UK;FFPP;;;Blaenau Gwent County Borough Council  ;Tillery Valley Foods ;Wales;;fishlbmw.xls;B/P/O/A and Fish
-17;IN002;PP;UK;FFPP;;;Caerphilly CBC;Bar and Restaurant Foods;Wales;mp;fishlbmw.xls; B, P, O,A 
-18;IN003;PP;UK;FFPP;;;Caerphilly CBC;R.F.Brookes;Wales;mp;fishlbmw.xls; A, B, P, O 
+17;IN002;PP;UK;FFPP;;;Caerphilly CBC;Bar and Restaurant Foods;Wales;mp;fishlbmw.xls; B, P, O,A
+18;IN003;PP;UK;FFPP;;;Caerphilly CBC;R.F.Brookes;Wales;mp;fishlbmw.xls; A, B, P, O
 19;IN010;PP;UK;FFPP;;;Caerphilly CBC;Capital Cuisine ;Wales;mp;fishlbmw.xls;A,B,P
 20;CJ001;LBM;UK;FFPP;;;Cardiff Council;Snowdon & Co (Cardiff) Ltd ;Wales;;fishlbmw.xls;
 21;PI033;;UK;FFPP;;;Pembrokeshire Council ;Newport Fish ;Wales;;fishlbmw.xls;
@@ -7113,8 +7101,8 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 37;SJ035;;UK;FFPP;;;City and Council of Swansea ;Selwyns's Penclawedd Seafoods Ltd;Wales;;fishlbmw.xls;
 38;SJ043;;UK;LBM ;;;City and Council of Swansea ;The Seafood Compnay Wales ;Wales;;fishlbmw.xls;
 39;SJ046;;UK;FFPP;;;City and Council of Swansea ;Tuckers Fresh Fish ;Wales;;fishlbmw.xls;
-40;MO607;PP;UK;FFPP;;;Powys ;Black Mountain Smokery ;Wales;mp;fishlbmw.xls;P/A 
-41;TJ005;MP/MM;UK;FFPP;;;Torfaen ;Torfaen Primary Schools Catering ;Wales;mp;fishlbmw.xls;B/P/O/A 
+40;MO607;PP;UK;FFPP;;;Powys ;Black Mountain Smokery ;Wales;mp;fishlbmw.xls;P/A
+41;TJ005;MP/MM;UK;FFPP;;;Torfaen ;Torfaen Primary Schools Catering ;Wales;mp;fishlbmw.xls;B/P/O/A
 42;TJ006;CS/RW/PP;UK;FFPP;;;Torfaen ;Vin Sullivan Foods ;Wales;;fishlbmw.xls;
 43;WX008 ;PP/FFPP/RW;UK;MP ;;;Wrexham ;Country Style Chicken ;Wales;;fishlbmw.xls;A
 44;WX010;FFPP/MM;UK;MP;;;Wrexham ;Rowan Foods (A Division of Oscar Mayer Ltd) ;Wales;;fishlbmw.xls;A/B/O/P
@@ -8121,7 +8109,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 39;PI050;CC;UK;PP;;;Pembrokeshire Council ;Mark Hunter Dairy ;Wales;;walesdairies.xls;B
 40;SJ024;;UK;PP;;;City and Council of Swansea ;Lewis' Pies Ltd ;Wales;mp;walesdairies.xls;A/B/O/P
 41;MO603;;UK;PP;;;Powys ;RJ & ARJ Meredith ;Wales;;walesdairies.xls;O
-42;MO607;FFPP;UK;PP;;;Powys ;Black Mountain Smokery ;Wales;mp;walesdairies.xls;P/A 
+42;MO607;FFPP;UK;PP;;;Powys ;Black Mountain Smokery ;Wales;mp;walesdairies.xls;P/A
 43;TJ004;;UK;PP;;;Torfaen ;Abergavenny Fine Foods ;Wales;;walesdairies.xls;B/C
 44;TJ006;CS/RW/FFPP;UK;PP;;;Torfaen ;Vin Sullivan Foods ;Wales;;walesdairies.xls;
 45;TJ008;;UK;RW ;;;Torfaen ;Ultrapharm Ltd ;Wales;;walesdairies.xls;C/B
@@ -8152,8 +8140,8 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 70;CW012;;UK;PP;;;Conwy ;Conwy Goat Products;Wales;;walesdairies.xls;C
 71;AL007;;UK;PP;;;Flintshire ;Bellis Bros ;Wales;;walesdairies.xls;B
 72;DZ012 ;;UK;PP;;;Flintshire ;G.C.Hahn &Co. Ltd ;Wales;;walesdairies.xls;B
-73;DZ020;;UK;PP;;;Flintshire ;Drink Pack Limited ;Wales;;walesdairies.xls;B 
-74;GZ001;MP;UK;PP;;;Denbighshire;Arla Food Limited;Wales;;walesdairies.xls;B 
+73;DZ020;;UK;PP;;;Flintshire ;Drink Pack Limited ;Wales;;walesdairies.xls;B
+74;GZ001;MP;UK;PP;;;Denbighshire;Arla Food Limited;Wales;;walesdairies.xls;B
 75;GZ110;CS;UK;PP;;;Denbighshire;Snowdonia Cheese Co Ltd ;Wales;;walesdairies.xls;
 76;RX003;;UK;PP;;;Rhondda Cynon Taff CBC ;Capper & Co Ltd T/A Golden Choice ;Wales;;walesdairies.xls;B
 77;RX024;FFPP;UK;PP;;;Rhondda Cynon Taf CBC;Cwm Taf Local Health Board (Central Production Unit);Wales;mp;walesdairies.xls;B, O , P, A
@@ -8170,7 +8158,7 @@ Also red meat, white meat, wild game cutting";s-iii-meat-farmed-game-wales.xls;f
 88;VD064 ;;UK;PP;;;Ceredigion;Teifi Farmhouse Cheese ;Wales;;walesdairies.xls;B
 89;VD100;FFPP;UK;PP;;;Ceredigion;Cyngor Sir Cererdigion County Council Trading as Food Center Wales;Wales;mp;walesdairies.xls;
 90;IN011;MP/PP;UK;CS;;;Caerphilly CBC;Celtic Foods ;Wales;mp;walesdairies.xls;B/P/A/O
-91;YR002;;UK;PP;;;Caerphilly CBC;Castle Dairies;Wales;;walesdairies.xls;  B, P, O 
+91;YR002;;UK;PP;;;Caerphilly CBC;Castle Dairies;Wales;;walesdairies.xls;  B, P, O
 92;NX017;MM/PP;UK;MP;;;Newport ;Creative Foods ;Wales;mp;walesdairies.xls;
 93;CJ042;;UK;PP;;;Cardiff ;Vydex Corporation Limited ;Wales;;walesdairies.xls;
 2;UKZK024;PP;UK;Processing Plant;;;Ards;Glastry Farm Ice Cream;NIreland;B;nidairies.xls;

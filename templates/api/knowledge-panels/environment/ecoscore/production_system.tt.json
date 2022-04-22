@@ -1,0 +1,40 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    [% IF product.ecoscore_data.adjustments.production_system.value == 0 %]
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% lang('ecoscore_production_system_no_labels_with_environmental_benefits') %]",
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
+        "icon_size": "small",
+    },    
+    [% ELSE %]
+    "evaluation": "good",
+    "title_element": {
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
+        "icon_size": "small",
+        "subtitle": "[% lang('bonus') %][% sep %]: +[% product.ecoscore_data.adjustments.production_system.value %]",
+        [% IF product.ecoscore_data.adjustments.production_system.value >= 20 %]
+            "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_very_high') %]",
+        [% ELSIF product.ecoscore_data.adjustments.production_system.value >= 15 %]
+            "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits_high') %]",
+        [% ELSE %]
+            "title": "[% lang('ecoscore_production_system_labels_with_environmental_benefits') %]",
+        [% END %]
+        },
+        "elements": [
+            [% FOREACH label IN product.ecoscore_data.adjustments.production_system.labels %]
+            {
+                "element_type": "panel",
+                "panel_element": {
+                    "panel_id": "environment_label_[% label %]",
+                }
+            },            
+            [% END %]
+        ]
+    [% END %]
+}

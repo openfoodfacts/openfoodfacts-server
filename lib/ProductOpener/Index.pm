@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,21 +26,20 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					&normalize
-					&decode_html
-					&decode_html_utf8
-					&decode_html_entities
+		&normalize
+		&decode_html
+		&decode_html_utf8
+		&decode_html_entities
 
+		&normalize
 
-					&normalize
+		$memd
+		$lang_dir
+		%texts
 
-					$memd
-					%texts
-
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -48,8 +47,6 @@ use vars @EXPORT_OK ;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
@@ -57,10 +54,9 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-#use Text::Unaccent::PurePerl "unac_string";
-use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
+use Log::Log4perl;
 use Log::Any qw($log);
 
 use Encode qw/from_to decode encode/;
@@ -75,40 +71,63 @@ use HTML::Entities qw(decode_entities);
 
 # Initialize exported variables
 
-$memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
-	'utf8' => 1,
-};
+$memd = Cache::Memcached::Fast->new(
+	{   'servers' => ["127.0.0.1:11211"],
+		'utf8'    => 1,
+	}
+);
+
+# Load the texts from the /lang directory
+
+# The /lang directory is not present in the openfoodfacts-server repository,
+# it needs to be copied from the openfoodfacts-web repository.
+
+# If the /lang directory does not exist, a minimal number of texts needed to run Product Opener
+# are loaded from /lang_default directory
 
 %texts = ();
 
+$lang_dir = "$data_root/lang";
 
-opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
-foreach my $langid (readdir(DH2)) {
-	next if $langid eq '.';
-	next if $langid eq '..';
-	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
-	next if ((length($langid) ne 2) and not ($langid eq 'other'));
-
-	if (-e "$data_root/lang/$langid/texts") {
-		opendir DH, "$data_root/lang/$langid/texts" or die "Couldn't open the current directory: $!";
-		foreach my $textid (readdir(DH)) {
-			next if $textid eq '.';
-			next if $textid eq '..';
-			my $file = $textid;
-			$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-			defined $texts{$textid} or $texts{$textid} = {};
-			# prefer the .foundation version
-			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-				$texts{$textid}{$langid} = $file;
-			}
-
-			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
-		}
-		closedir(DH);
-	}
+if (not -e $lang_dir) {
+	$lang_dir = "$data_root/lang-default";
+	$log->warn("The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir") if $log->is_warn();
 }
-closedir(DH2);
+
+if (opendir DH2, $lang_dir) {
+
+	$log->info("Reading texts from $lang_dir") if $log->is_info();
+
+	foreach my $langid (readdir(DH2)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
+		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+		next if ((length($langid) ne 2) and not ($langid eq 'other'));
+
+		if (-e "$lang_dir/$langid/texts") {
+			opendir DH, "$lang_dir/$langid/texts" or die "Couldn't open $lang_dir/$langid/texts: $!";
+			foreach my $textid (readdir(DH)) {
+				next if $textid eq '.';
+				next if $textid eq '..';
+				my $file = $textid;
+				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
+				defined $texts{$textid} or $texts{$textid} = {};
+				# prefer the .foundation version
+				if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+					$texts{$textid}{$langid} = $file;
+				}
+
+				#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+			}
+			closedir(DH);
+		}
+	}
+	closedir(DH2);
+}
+else {
+	$log->error("Texts could not be loaded.") if $log->is_error();
+	die("Texts could not be loaded from $data_root/lang or $data_root/lang-default");
+}
 
 # Initialize internal variables
 # - using my $variable; is causing problems with mod_perl, it looks
@@ -116,9 +135,6 @@ closedir(DH2);
 # called with. (but no "$variable will not stay shared" warning).
 # Converting them to global variables.
 # - better solution: create a class?
-
-use vars qw(
-);
 
 sub normalize($) {
 

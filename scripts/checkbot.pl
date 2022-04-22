@@ -21,7 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# See: https://en.wiki.openfoodfacts.org/Verification/Bots#Checkbot
+# See: https://wiki.openfoodfacts.org/Verification/Bots#Checkbot
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -86,12 +86,12 @@ my $product_order = '';
 
 
 # Beginning
-GetOptions (
+GetOptions(
 	'max_sendings:i' => \$max_sendings,
-	'country:s' => \$country,
-	'order:s' => \$product_order,
-	'channel=s' => \$channel 				# channel is mandatory
-	) or die ("Error in command line arguments:\n\n$usage");
+	'country:s'      => \$country,
+	'order:s'        => \$product_order,
+	'channel=s'      => \$channel          # channel is mandatory
+) or die("Error in command line arguments:\n\n$usage");
 
 if (not defined $channel) {
 	die ("--channel parameter is mandatory.\n\n$usage");
@@ -135,6 +135,7 @@ sub send_msg($) {
 		print "HTTP POST error message: " . $resp->message . "\n";
 	}
 
+	return;
 }
 
 

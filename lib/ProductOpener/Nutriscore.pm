@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -47,7 +47,7 @@ of a food product.
 		is_fat => 0,
 	}
 
-	my ($nutriscore_score, $nutriscore_grade) ) compute_nutriscore_score_and_grade(
+	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
 		$nutriscore_data_ref
 	);
 
@@ -73,15 +73,18 @@ use Log::Any qw($log);
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		%points_thresholds
+
 		&compute_nutriscore_score_and_grade
+		&compute_nutriscore_grade
+
 		&get_value_with_one_less_negative_point
 		&get_value_with_one_more_positive_point
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -127,6 +130,8 @@ Returned values:
 - [nutrient]_points -> points for each nutrient
 - negative_points -> sum of unfavorable nutrients points
 - positive_points -> sum of favorable nutrients points
+- score -> nutrition score
+- grade -> Nutri-Score grade (A ti E
 
 The nutrients that are counted for the negative and positive points depend on the product type
 (if it is a beverage, cheese or fat) and on the values for some of the nutrients.
@@ -160,25 +165,24 @@ sub compute_nutriscore_score_and_grade($) {
 	return ($nutrition_score, $nutrition_grade);
 }
 
-
-my %points_thresholds = (
+%points_thresholds = (
 
 	# negative points
 
-	energy => [335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350],	# kJ / 100g
-	energy_beverages => [0, 30, 60, 90, 120, 150, 180, 210, 240, 270],	# kJ /100g or 100ml
-	sugars => [4.5, 9, 13.5, 18, 22.5, 27, 31, 36, 40, 45],	# g / 100g
-	sugars_beverages => [0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5],	# g / 100g or 100ml
-	saturated_fat => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],	# g / 100g
-	saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],	# %
-	sodium => [90, 180, 270, 360, 450, 540, 630, 720, 810, 900],	# mg / 100g
+	energy => [ 335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350 ], # kJ / 100g
+	energy_beverages => [ 0, 30, 60, 90, 120, 150, 180, 210, 240, 270 ],    # kJ /100g or 100ml
+	sugars => [ 4.5, 9, 13.5, 18, 22.5, 27, 31, 36, 40, 45 ],               # g / 100g
+	sugars_beverages => [ 0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5 ],      # g / 100g or 100ml
+	saturated_fat    => [ 1, 2,   3, 4,   5, 6,   7, 8,    9,  10 ],        # g / 100g
+	saturated_fat_ratio => [ 10, 16, 22, 28, 34, 40, 46, 52, 58, 64 ],      # %
+	sodium => [ 90, 180, 270, 360, 450, 540, 630, 720, 810, 900 ],          # mg / 100g
 
 	# positive points
 
-	fruits_vegetables_nuts_colza_walnut_olive_oils => [40, 60, 80, 80, 80],	# %
+	fruits_vegetables_nuts_colza_walnut_olive_oils => [40, 60, 80, 80, 80], # %
 	fruits_vegetables_nuts_colza_walnut_olive_oils_beverages => [40, 40, 60, 60, 80, 80, 80, 80, 80, 80],
-	fiber => [0.9, 1.9, 2.8, 3.7, 4.7],	# g / 100g - AOAC method
-	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]	# g / 100g
+	fiber => [0.9, 1.9, 2.8, 3.7, 4.7],                                     # g / 100g - AOAC method
+	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]                                   # g / 100g
 );
 
 =head2 get_value_with_one_less_negative_point( NUTRISCORE_DATA_REF, NUTRIENT )
@@ -361,9 +365,9 @@ sub compute_nutriscore_score($) {
 		$nutriscore_data_ref->{positive_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
 
-	my $nutrition_score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};
+	my $score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};
 
-	return $nutrition_score;
+	return $score;
 }
 
 

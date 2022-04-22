@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,21 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Lang - load and return translations
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Lang> loads translations from .po files and return translated strings
+through the lang() and lang_sprintf() functions.
+
+=head1 DESCRIPTION
+
+
+
+=cut
+
 package ProductOpener::Lang;
 
 use utf8;
@@ -26,29 +41,32 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();	# symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					$lang
-					$lc
+		$lang
+		$lc
+		$text_direction
 
-					%tag_type_singular
-					%tag_type_from_singular
-					%tag_type_plural
-					%tag_type_from_plural
-					%Lang
-					%CanonicalLang
-					%Langs
-					@Langs
+		%tag_type_singular
+		%tag_type_from_singular
+		%tag_type_plural
+		%tag_type_from_plural
+		%Lang
+		%CanonicalLang
+		%Langs
+		@Langs
 
-					&lang
-					%lang_lc
+		&lang
+		&lang_sprintf
+		&f_lang
+		&lang_in_other_lc
+		%lang_lc
 
-					&init_languages
+		&init_languages
 
-					&separator_before_colon
+		&separator_before_colon
 
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -59,9 +77,25 @@ use ProductOpener::Config qw/:all/;
 
 use DateTime;
 use DateTime::Locale;
+use Encode;
 use JSON::PP;
 
 use Log::Any qw($log);
+
+=head1 FUNCTIONS
+
+=head2 separator_before_colon( $l )
+
+=head3 Arguments
+
+=head4 language code $l
+
+In some languages like French, colons have a space before them.
+e.g. "Valeur : 500" in French, "Value: 500" in English
+
+This function returns a non-breaking space character for those languages.
+
+=cut
 
 sub separator_before_colon($) {
 
@@ -76,32 +110,166 @@ sub separator_before_colon($) {
 }
 
 
-# same logic can be implemented by creating the missing values for all keys
+=head2 lang( $stringid )
+
+Returns a translation for a specific string id in the language defined in the $lang global variable.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
 sub lang($) {
 
-	my $s = shift;
+	my $stringid = shift;
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
+		$short_l = $`;  # pt_pt
 	}
 
-	if (defined $Lang{$s}{$lang}) {
-		return $Lang{$s}{$lang};
+	# English values have been copied to languages that do not have defined values
+
+	if (not defined $Lang{$stringid}) {
+		return '';
 	}
-	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-		return $Lang{$s}{$short_l};
+	elsif (defined $Lang{$stringid}{$lang}) {
+		return $Lang{$stringid}{$lang};
 	}
-	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-		return $Lang{$s}{en};
-	}
-	elsif (defined $Lang{$s}{fr}) {
-		return $Lang{$s}{fr};
+	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
+		return $Lang{$stringid}{$short_l};
 	}
 	else {
 		return '';
 	}
 }
+
+
+=head2 lang_sprintf( $stringid, [other arguments] )
+
+Returns a translation for a specific string id with specific arguments
+in the language defined in the $lang global variable.
+
+The translation is stored using the sprintf format (e.g. with %s) and
+lang_sprintf() calls sprintf() to process it.
+
+Warning: if multiple variables need to be interpolated,
+they will be in the same order for all languages.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=head4 other arguments
+
+Arguments to be interpolated.
+
+=cut
+
+sub lang_sprintf() {
+
+	my $stringid = shift;
+
+	my $translation = lang($stringid);
+	if (defined $translation) {
+		return sprintf($translation, @_);
+	}
+	else {
+		return '';
+	}
+}
+
+
+=head2 f_lang( $stringid, $variables_ref )
+
+Returns a translation for a specific string id with specific arguments
+in the language defined in the $lang global variable.
+
+The translation is stored using Python's f-string format with
+named parameters between { }.
+
+e.g. "This is a string with {a_variable} and {another_variable}."
+
+Variables between { } are interpolated with the corresponding entry
+in the $variables_ref hash reference.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
+sub f_lang($$) {
+
+	my $stringid = shift;
+	my $variables_ref = shift;
+
+	my $translation = lang($stringid);
+	if (defined $translation) {
+		# look for string keys between { } and replace them with the corresponding
+		# value in $variables_ref hash reference
+		$translation =~ s/\{([^\{\}]+)\}/$variables_ref->{$1}/eg;
+		return $translation;
+	}
+	else {
+		return '';
+	}
+}
+
+
+=head2 lang_in_other_lc( $target_lc, $stringid )
+
+Returns a translation for a specific string id in a specific language.
+
+If a translation is not available, the function returns English.
+
+=head3 Arguments
+
+=head4 target language code $target_lc
+
+=head4 string id $stringid
+
+In the .po translation files, we use the msgctxt field for the string id.
+
+=cut
+
+sub lang_in_other_lc($$) {
+
+	my $target_lc = shift;
+	my $stringid = shift;	
+
+	my $short_l = undef;
+	if ($target_lc =~ /_/) {
+		$short_l = $`;  # pt_pt
+	}
+
+	if (not defined $Lang{$stringid}) {
+		return '';
+	}
+	elsif (defined $Lang{$stringid}{$target_lc}) {
+		return $Lang{$stringid}{$target_lc};
+	}
+	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
+		return $Lang{$stringid}{$short_l};
+	}
+	else {
+		return '';
+	}
+}
+
 
 $log->info("initialize", { data_root => $data_root }) if $log->is_info();
 
@@ -212,6 +380,7 @@ PO
 	}
 
 
+	return;
 }
 
 #generate_po_files("common", \%Lang);
@@ -219,28 +388,28 @@ PO
 
 # Load stored %Lang from Lang.sto
 
-my $path = "$data_root/Lang.${server_domain}.sto";
+my $path = "$data_root/data/Lang.${server_domain}.sto";
 if (-e $path) {
 
 	$log->info("Loading \%Lang", { path => $path }) if $log->is_info();
-	my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
+	my $lang_ref = retrieve($path);
 	%Lang = %{$lang_ref};
 	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
 
 	# Initialize @Langs and $lang_lc
-	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
-	%Langs = ();
+	@Langs = sort keys %{ $Lang{site_name} }; # any existing key can be used, as %Lang should contain values for all languages for all keys
+	%Langs   = ();
 	%lang_lc = ();
 	foreach my $l (@Langs) {
 		$lang_lc{$l} = $l;
-		$Langs{$l} = $Lang{"language_" . $l}{$l};	# Name of the language in the language itself
+		$Langs{$l}   = $Lang{ "language_" . $l }{$l};    # Name of the language in the language itself
 	}
 
-	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();
-	sleep(1);
+	$log->info("Loaded languages", { langs => (scalar @Langs) }) if $log->is_info();
+	sleep(1) if $log->is_info();
 }
 else {
-	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
+	$log->warn("Language translation file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
 }
 
 
@@ -252,8 +421,8 @@ else {
 my ($tag_type_singular_ref, $tag_type_plural_ref)
     = ProductOpener::I18N::split_tags(
         ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
-%tag_type_singular = %$tag_type_singular_ref;
-%tag_type_plural   = %$tag_type_plural_ref;
+%tag_type_singular = %{$tag_type_singular_ref};
+%tag_type_plural   = %{$tag_type_plural_ref};
 
 my @debug_taxonomies = ("categories", "labels", "additives");
 
@@ -341,7 +510,7 @@ sub build_lang($) {
 
 	# Initialize %Langs and @Langs and add language names to %Lang
 
-	%Langs = %$Languages_ref;
+	%Langs = %{$Languages_ref};
 	@Langs = sort keys %{$Languages_ref};
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
@@ -411,7 +580,7 @@ sub build_lang($) {
 
 				my $short_l = undef;
 				if ($l =~ /_/) {
-					$short_l = $`,  # pt_pt
+					$short_l = $`;  # pt_pt
 				}
 
 				if (not defined $Lang{$key}{$l}) {
@@ -454,7 +623,7 @@ sub build_lang($) {
 	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
 		my $locale;
-		if ( grep $_ eq $l, @locale_codes ) {
+		if ( grep { $_ eq $l } @locale_codes ) {
 			$locale = DateTime::Locale->load($l);
 		}
 		else {
@@ -475,7 +644,58 @@ sub build_lang($) {
 
 		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
+
+	return;
 } # build_lang
 
+sub build_json {
+	$log->info("Building I18N JSON") if $log->is_info();
+
+	my $i18n_root = "$www_root/data/i18n";
+	if (! -e $i18n_root) {
+		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
+	}
+
+	foreach my $l (@Langs) {
+		my $target_dir = "$i18n_root/$l";
+		if (! -e $target_dir) {
+			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
+		}
+
+		my $short_l = undef;
+		if ($l =~ /_/) {
+			$short_l = $`;  # pt_pt
+		}
+
+		my %result = ();
+		foreach my $s (keys %Lang) {
+			my $value;
+
+			if (defined $Lang{$s}{$l}) {
+				$value = $Lang{$s}{$l};
+			}
+			elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+				$value = $Lang{$s}{$short_l};
+			}
+			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
+				$value = $Lang{$s}{en};
+			}
+			elsif (defined $Lang{$s}{fr}) {
+				$value = $Lang{$s}{fr};
+			}
+
+			$result{$s} = $value if $value;
+		}
+
+		my $target_file = "$target_dir/lang.json";
+		open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
+		print $out decode("utf8", encode_json(\%result));
+		close($out);
+	}
+
+	$log->info("I18N JSON completed") if $log->is_info();
+
+	return;
+}
 
 1;

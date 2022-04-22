@@ -10,3 +10,7 @@ equivalent_modules = Modern::Perl
 equivalent_modules = Modern::Perl
 
 [-Modules::RequireFilenameMatchesPackage]
+
+# Allow `$`', `$&', `$'', because since Perl 5.20.0
+# there are no performance implications any more.
+[-Variables::ProhibitMatchVars]

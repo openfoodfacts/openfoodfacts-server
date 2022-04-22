@@ -5,14 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-10-22 19:22\n"
+"PO-Revision-Date: 2022-04-11 09:24\n"
 "Language-Team: Finnish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fi\n"
-"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
+"X-Crowdin-File: openfoodfacts.pot\n"
+"X-Crowdin-File-ID: 1812\n"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -30,7 +31,7 @@ msgstr "Open Food Facts kerää tietoja ja dataa elintarvikkeista ympäri maailm
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-food-facts-mobile-app"
+msgid "/open-food-facts-mobile-app"
 msgstr ""
 
 msgctxt "tagline_2019_nutriscore"
@@ -39,11 +40,11 @@ msgstr "Tutustu Nutri-Scoreen"
 
 msgctxt "tagline_2019_nutriscore_petition"
 msgid "1 million signatures for a vote to make the Nutri-Score compulsory in Europe"
-msgstr "Miljoona allekirjoitusta saanut vetoomus, jossa vaaditaan äänestystä Nutri-Scoren pakollisuudesta Euroopassa"
+msgstr "Miljoonaa allekirjoitusta äänestykselle, jossa vaaditaan äänestystä Nutri-Scoren pakollisuudesta Euroopassa"
 
 msgctxt "tagline_2019_nova"
 msgid "Discover the Nova groups on food processing"
-msgstr "Tutustu elintarvikkeiden käsittelyn Nova-ryhmiin"
+msgstr "Tutustu elintarvikkeiden jalostuksen Nova-ryhmiin"
 
 msgctxt "tagline_2019_translation"
 msgid "Help bring Open Food Facts to English speakers around the world"

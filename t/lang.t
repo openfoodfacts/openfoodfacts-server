@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
@@ -12,15 +11,16 @@ use ProductOpener::Config qw/:all/;
 
 sub test_links {
 
-    my $regex = shift;
-    my @links = shift;
+	my $regex = shift;
+	my @links = shift;
 
-    foreach my $key (@links) {
-	foreach my $lang (keys %{$Lang{$key}}) {
-            like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
-        }
-    }
+	foreach my $key (@links) {
+		foreach my $lang (keys %{$Lang{$key}}) {
+			like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
+		}
+	}
 
+	return;
 }
 
 # https://stackoverflow.com/a/190405/11963
@@ -50,8 +50,10 @@ foreach my $link (@links) {
 
 		if ($textid ne $en_links{$link} ) {
 
-			ok ( -e "$data_root/lang/$lang/texts/$textid.html",
-				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
+			# Skip the following test, as the /lang directory now is in a separate openfoodfacts-web repository
+			# We will need to handle local text URLs differently, see https://github.com/openfoodfacts/openfoodfacts-server/issues/1818
+			# ok ( -e "$data_root/lang/$lang/texts/$textid.html",
+			#		"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
 
 		}
 
@@ -70,6 +72,8 @@ sub test_logo_exists {
 		my $path = "$www_root/images/misc/$Lang{$logo}{$lang}";
 		ok( -e $path, "file '$path' exists");
 	}
+
+	return;
 }
 
 test_logo_exists('logo');

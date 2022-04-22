@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use Modern::Perl '2017';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -33,7 +33,7 @@ use XML::FeedPP;
 
 use POSIX qw(locale_h);
 use locale;
-setlocale(LC_CTYPE, "fr_FR");	# May need to be changed depending on system
+setlocale( LC_CTYPE, "fr_FR" );    # May need to be changed depending on system
 
 my $rss;
 
@@ -53,9 +53,9 @@ my $feed = XML::FeedPP->new($rss);
 
 my $html = '';
 my $html2 = '';
-		
-my $i = 5;		
-		
+
+my $i = 5;
+
 foreach my $entry ($feed->get_item()) {
 		
 	$html .= "&rarr; <a href=\"" . $entry->link . "\">" . decode_html_entities($entry->title) . "</a><br />";

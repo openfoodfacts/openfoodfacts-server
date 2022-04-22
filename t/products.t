@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+use utf8;
 
 use Test::More;
 use Test::Number::Delta;
@@ -32,6 +33,8 @@ sub compute_and_test_completeness($$$) {
 	compute_completeness_and_missing_tags($product_ref, $product_ref, $previous_ref);
 	my $message = sprintf('%s is %g%% complete', $with, $percent);
 	delta_ok( $product_ref->{completeness}, $fraction, $message );
+
+	return;
 }
 
 my $step = 1.0/10.0; # Currently, we check for 10 properties.
@@ -45,14 +48,15 @@ compute_and_test_completeness($product_ref, $step * 0.5, 'product with at least 
 $product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
 $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
-compute_and_test_completeness($product_ref, $step * 0.5 + $step * 0.5 * 0.33333333333, 'product with at least one uploaded_images and front');
+compute_and_test_completeness($product_ref, $step * 0.5 + $step * 0.5 * 0.25, 'product with at least one uploaded_images and front');
 
 $product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
 $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
 $product_ref->{selected_images}->{ingredients_de} = 'bar';
 $product_ref->{selected_images}->{nutrition_de} = 'bar';
-compute_and_test_completeness($product_ref, $step, 'product with at least one uploaded_images and front/ingredients/nutrition selected');
+$product_ref->{selected_images}->{packaging_de} = 'bar';
+compute_and_test_completeness($product_ref, $step, 'product with at least one uploaded_images and front/ingredients/nutrition/packaging selected');
 
 my @string_fields = qw(product_name quantity packaging brands categories emb_codes expiration_date ingredients_text);
 foreach my $field (@string_fields) {
@@ -80,10 +84,90 @@ $product_ref->{uploaded_images}->{foo} = 'bar';
 $product_ref->{selected_images}->{front_de} = 'bar';
 $product_ref->{selected_images}->{ingredients_de} = 'bar';
 $product_ref->{selected_images}->{nutrition_de} = 'bar';
+$product_ref->{selected_images}->{packaging_de} = 'bar';
+$product_ref->{last_modified_t} = time();
 foreach my $field (@string_fields) {
 	$product_ref->{$field} = 'foo';
 }
 
 compute_and_test_completeness($product_ref, 1.0, 'product all fields');
+
+# Test the function that recognizes the app and app uuid from changes and sets the app and userid
+
+my @get_change_userid_or_uuid_tests = (
+
+	{
+		userid => undef,
+		comment => "some random comment",
+		expected_app => undef,
+		expected_userid => "openfoodfacts-contributors",
+	},
+	{
+		userid => "real-user",
+		comment => "some random comment",
+		expected_app => undef,
+		expected_userid => "real-user",
+	},	
+	{
+		userid => "stephane",
+		comment => "Updated via Power User Script",
+		expected_app => undef,
+		expected_userid => "stephane",
+	},
+	{
+		userid => "stephane",
+		comment => "Official Open Food Facts Android app 3.6.6 (Added by a99a030f-c836-4551-9ec7-3d387f293e73)",
+		expected_app => "off",
+		expected_userid => "stephane",
+	},
+	{
+		userid => undef,
+		comment => "Official Open Food Facts Android app 3.6.6 (Added by a99a030f-c836-4551-9ec7-3d387f293e73)",
+		expected_app => "off",
+		expected_userid => "off.a99a030f-c836-4551-9ec7-3d387f293e73",
+	},	
+	{
+		userid => "kiliweb",
+		comment => "User : WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ",
+		expected_app => "yuka",
+		expected_userid => "yuka.WjR3OExvb3M5dWNobU1Za29EUHJvdmtwN0p1SVh6MjNDZGdySVE9PQ",
+	},
+	{
+		userid => "prepperapp",
+		comment => "Edited by a user of https://speisekammer-app.de",
+		expected_app => "speisekammer",
+		expected_userid => "prepperapp",
+	},
+	{
+		userid => "scanfood",
+		comment => "96ce87ae-2f2b-4fd6-90d2-7bfc4388d173-ScanFood",
+		expected_app => "scanfood",
+		expected_userid => "scanfood.96ce87ae-2f2b-4fd6-90d2-7bfc4388d173",
+	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		expected_app => "some-app",
+		expected_userid => "someuser",
+	},
+	{
+		userid => "someuser",
+		comment => "some comment",
+		app_name => "Some App",
+		app_uuid => "423T42fFST423",
+		expected_app => "some-app",
+		expected_userid => "some-app.423T42fFST423",
+	},	
+);
+
+foreach my $change_ref (@get_change_userid_or_uuid_tests) {
+
+	$change_ref->{resulting_userid} = get_change_userid_or_uuid($change_ref);
+
+	is ($change_ref->{app}, $change_ref->{expected_app}) or diag explain $change_ref;
+	is ($change_ref->{resulting_userid}, $change_ref->{expected_userid}) or diag explain $change_ref;
+
+}
 
 done_testing();

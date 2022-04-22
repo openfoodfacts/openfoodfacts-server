@@ -1,0 +1,29 @@
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 300
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+        interval: "daily"
+    open-pull-requests-limit: 300
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+        interval: "daily"
+    open-pull-requests-limit: 300
+  - package-ecosystem: "docker"
+    directory: "/docker/frontend"
+    schedule:
+        interval: "daily"
+    open-pull-requests-limit: 300
+  - package-ecosystem: "pip"
+    directory: "/scripts/packager-codes/non-eu/"
+    schedule:
+        interval: "daily"
+    open-pull-requests-limit: 300

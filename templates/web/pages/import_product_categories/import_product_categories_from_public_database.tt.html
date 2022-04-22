@@ -1,0 +1,11 @@
+<!-- start templates/[% template.name %] -->
+<p>[% lang("import_products_categories_from_public_database_description") %]</p>
+
+<form id = "import_products_categories_form"  method="POST" enctype="multipart/form-data" action="/cgi/import_products_categories_from_public_database.pl">
+  
+    <input type="submit" class="button small" value="[% lang('import_products_categories') %]">
+    <input type="hidden" name="action" value="process">
+
+</form>
+
+<!-- end templates/[% template.name %] -->

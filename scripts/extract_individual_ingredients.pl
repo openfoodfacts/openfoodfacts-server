@@ -46,7 +46,6 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::SiteQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -77,6 +76,8 @@ use JSON::PP;
  
 my $query_ref = {};
 
+my $products_collection = get_products_collection();
+
 my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });
 
 my $n = 0;
@@ -104,7 +105,7 @@ while (<STDIN>) {
 		foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 			print $code . "\t" . $complete . "\t" . $creator . "\t" . $lc . "\t" . $ingredient_ref->{id} . "\t" . $ingredient_ref->{text} . "\n";
 			$i++;
-		}	
+		}
 	}
 	
 	$n++;

@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2020 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,28 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=head1 NAME
+
+ProductOpener::Users - manage user profiles and sessions
+
+=head1 SYNOPSIS
+
+C<ProductOpener::Users> contains functions to create and edit user profiles
+and to manage user sessions.
+
+    use ProductOpener::Users qw/:all/;
+
+	[..]
+
+	init_user();
+
+
+=head1 DESCRIPTION
+
+[..]
+
+=cut
+
 package ProductOpener::Users;
 
 use utf8;
@@ -26,38 +48,34 @@ use Exporter    qw< import >;
 
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();            # symbols to export by default
+	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-					%User
-					$User_id
-					%Visitor
-					$Visitor_id
-					$Facebook_id
-					%Org
-					$Org_id
+		%User
+		$User_id
+		%Org
+		$Org_id
+		$Owner_id
 
-					$cookie
+		$cookie
 
-					&display_user_form
-					&check_user_form
-					&process_user_form
+		&check_user_form
+		&process_user_form
+		&check_edit_owner
 
-					&display_login_form
+		&init_user
+		&save_user
 
-					&init_user
-					&save_user
+		&userpath
+		&create_user
+		&is_admin_user
+		&create_password_hash
+		&check_password_hash
 
-					&userpath
-					&create_user
-					&create_password_hash
-					&check_password_hash
+		&check_session
 
-					&check_session
+		&generate_token
 
-					&generate_token
-
-					);	# symbols to export on request
+		);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -69,6 +87,10 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Text qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -79,17 +101,18 @@ use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
 
+my @user_groups = qw(producer database app bot moderator pro_moderator);
+
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
-	join '',map {$chars[irand @chars]} 1..$name_length;
+	return join '',map {$chars[irand @chars]} 1..$name_length;
 }
 
 sub create_password_hash($) {
 
 	my $password = shift;
-	scrypt_hash($password);
-
+	return scrypt_hash($password);
 }
 
 sub check_password_hash($$) {
@@ -106,7 +129,7 @@ sub check_password_hash($$) {
 		}
 	}
 	else {
-		scrypt_hash_verify($password, $hash);
+		return scrypt_hash_verify($password, $hash);
 	}
 }
 
@@ -141,139 +164,78 @@ sub create_user($) {
 		$log->info("creating new user file", { userid => $name_id2 }) if $log->is_info();
 		store("$data_root/users/$name_id2.sto", $user_ref);
 	}
+
+	return;
 }
 
 
-sub display_user_form($$) {
-
+sub delete_user($) {
+	
 	my $user_ref = shift;
-	my $scripts_ref = shift;
+	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
+	my $new_userid = "openfoodfacts-contributors";
+	
+	$log->info("delete_user", { userid => $userid, new_userid => $new_userid }) if $log->is_info();
+	
+	# Remove the user file
+	unlink("$data_root/users/$userid.sto");
+	
+	# Remove the e-mail
 
-	my $type = param('type');
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	my $email = $user_ref->{email};
 
-	my $html = '';
-
-	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"
-	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
-#	. "\n<tr><td>$Lang{sex}{$lang}</td><td>"
-#	. radio_group(-name=>'sex', -values=>['f','m'], -labels=>{'f'=>$Lang{female}{$lang},'m'=>$Lang{male}{$lang}}, -default=>$user_ref->{sex}, -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{email}{$lang}</td><td>"
-	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"
-	. (($type eq 'edit') ? $user_ref->{userid} :
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
-			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
-	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
-
-
-	;
-
-	$$scripts_ref .= <<SCRIPT
-<script type="text/javascript">
-function update_userid(value) {
-
-var userid = value.toLowerCase();
-userid = userid.replace(new RegExp(" ", 'g'),"-");
-userid = userid.replace(new RegExp("[àáâãäå]", 'g'),"a");
-userid = userid.replace(new RegExp("æ", 'g'),"ae");
-userid = userid.replace(new RegExp("ç", 'g'),"c");
-userid = userid.replace(new RegExp("[èéêë]", 'g'),"e");
-userid = userid.replace(new RegExp("[ìíîï]", 'g'),"i");
-userid = userid.replace(new RegExp("ñ", 'g'),"n");
-userid = userid.replace(new RegExp("[òóôõö]", 'g'),"o");
-userid = userid.replace(new RegExp("œ", 'g'),"oe");
-userid = userid.replace(new RegExp("[ùúûü]", 'g'),"u");
-userid = userid.replace(new RegExp("[ýÿ]", 'g'),"y");
-userid = userid.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-userid = userid.replace(new RegExp("-+", 'g'),"-");
-userid = userid.replace(new RegExp("^-"),"");
-\$('#userid').val(userid);
-
-\$.get("/cgi/check_id.pl", { id: userid, type: 'user' },
-   function(data){
-	 \$('#useridok').html(data);
-   });
-
-}
-</script>
-SCRIPT
-;
-
-	return $html;
-}
-
-
-sub display_user_form_optional($) {
-
-	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
-
-	my $html = '';
-
-	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
-	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
-
-	if (($type eq 'add') or ($type eq 'suggest')) {
-
-		$html .=
-		"\n<tr><td colspan=\"2\">" . checkbox(-name=>'newsletter', -label=>lang("newsletter_description"), -checked=>'on') . "<br />
-		$Lang{unsubscribe_info}{$lang}</td></tr>";
+	if ((defined $email) and ($email =~/\@/)) {
+		
+		if (defined $emails_ref->{$email}) {
+			delete $emails_ref->{$email};
+			store("$data_root/users/users_emails.sto", $emails_ref);
+		}
 	}
+	
+	#  re-assign product edits to openfoodfacts-contributors-[random number]
+	find_and_replace_user_id_in_products($userid, $new_userid);
+}
 
-	return $html;
+=head2 is_admin_user($user_id)
+
+Simply tells if a user is an admin of the platform
+
+=cut
+sub is_admin_user($) {
+	my $user_id = shift;
+
+	# %admin is defined in Config.pm
+	# admins can change permissions for all users
+	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
 
-sub display_user_form_admin_only($) {
+sub check_user_form($$$) {
 
-	my $user_ref = shift;
-
-	my $type = param('type') || 'add';
-
-	my $html = '';
-
-	if (not $admin) {
-		return '';
-	}
-
-	# $html .= "\n<tr><td>$Lang{twitter}{$lang}</td><td>"
-	# . textfield(-id=>'twitter', -name=>'twitter', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>";
-
-	if (($type eq 'add') or ($type eq 'edit')) {
-
-		$html .= "\n<tr><td>$Lang{organization}{$lang}</td><td>"
-		. textfield(-id=>'organization', -name=>'organization', -value=>$user_ref->{org}, -size=>80, -autocomplete=>'organization', -override=>1) . "</td></tr>";
-	}
-
-	return $html;
-}
-
-
-sub check_user_form($$) {
-
+	my $type = shift;
 	my $user_ref = shift;
 	my $errors_ref = shift;
 
-	my $type = param('type');
-
 	$user_ref->{userid} = remove_tags_and_quote(param('userid'));
 	$user_ref->{name} = remove_tags_and_quote(decode utf8=>param('name'));
-#	$user_ref->{sex} = param('sex');
 
-	if ($user_ref->{email} ne decode utf8=>param('email')) {
+	my $email = remove_tags_and_quote(decode utf8=>param('email'));
+
+	$log->debug("check_user_form", { type => $type, user_ref => $user_ref, email => $email }) if $log->is_debug();
+
+	if ($user_ref->{email} ne $email) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$data_root/users_emails.sto");
-		if (defined $emails_ref->{decode utf8=>param('email')}) {
-			push @$errors_ref, $Lang{error_email_already_in_use}{$lang};
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+			$log->debug("check_user_form - email already in use", { type => $type, email => $email, existing_userid => $emails_ref->{$email} }) if $log->is_debug();
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
 
-		$user_ref->{email} = remove_tags_and_quote(decode utf8=>param('email'));
-
+		# Keep old email until the user is saved
+		$user_ref->{old_email} = $user_ref->{email};
+		$user_ref->{email} = $email;
 	}
 
 	if (defined param('twitter')) {
@@ -282,34 +244,114 @@ sub check_user_form($$) {
 		$user_ref->{twitter} =~ s/^\@//;
 	}
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	# Is there a checkbox to make a professional account
+	if (defined param("pro_checkbox")) {
+
+		if (param("pro")) {
+			$user_ref->{pro} = 1;
+
+			if (defined param("requested_org")) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8=>param("requested_org"));
+
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+				}
+				else {
+					push @{$errors_ref}, "error_missing_org";
+				}
+			}
+			else {
+				delete $user_ref->{requested_org_id}
+			}
+		}
+		else {
+			delete $user_ref->{pro};
+			delete $user_ref->{requested_org_id}
+		}
+	}
+
+
+	if ($type eq 'add') {
 		$user_ref->{newsletter} = remove_tags_and_quote(param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
-
 	}
 
 	if ($admin) {
-		$user_ref->{org} = remove_tags_and_quote(param('organization'));
+
+		# Org
+
+		my $previous_org = $user_ref->{org};
+		$user_ref->{org} = remove_tags_and_quote(decode utf8=>param('org'));
 		if ($user_ref->{org} ne "") {
 			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+			# Admin field for org overrides the requested org field
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id};
+
+			my $org_ref = retrieve_or_create_org($User_id, $user_ref->{org});
+
+			add_user_to_org( $org_ref, $user_ref->{userid},
+				[ "admins", "members" ] );
 		}
 		else {
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
 		}
+
+		if ((defined $previous_org) and ($previous_org ne "") and ($previous_org ne $user_ref->{org})) {
+			my $org_ref = retrieve_org($previous_org);
+			if (defined $org_ref) {
+				remove_user_from_org( $org_ref, $user_ref->{userid},
+					[ "admins", "members" ] );
+			}
+		}
+
+		# Permission groups
+
+		foreach my $group (@user_groups) {
+			$user_ref->{$group} = remove_tags_and_quote(param("user_group_$group"));
+		}
 	}
 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 
+	for (my $i = 1; $i <= 3; $i++) {
+		if (defined param('team_' . $i)) {
+			$user_ref->{'team_' . $i} = remove_tags_and_quote(decode utf8=>param('team_' . $i));
+			$user_ref->{'team_' . $i} =~ s/\&lt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&gt;/ /g;
+			$user_ref->{'team_' . $i} =~ s/\&quot;/"/g;
+		}
+	}
+
+	# contributor settings
+	$user_ref->{display_barcode} = !! remove_tags_and_quote(param("display_barcode"));
+	$user_ref->{edit_link} = !! remove_tags_and_quote(param("edit_link"));
+
+	# Check for spam
+	# e.g. name with "Lydia want to meet you! Click here:" + an url
+
+	foreach my $bad_string ('click here', 'wants to meet you', '://') {
+		if ($user_ref->{name} =~ /$bad_string/i) {
+			# log the ip
+			open(my $log, ">>", "$data_root/logs/user_spam.log");
+			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
+			close($log);
+			# bail out, return 200 status code
+			display_error("", 200);
+		}
+	}
+
 	# Check input parameters, redisplay if necessary
 
-
 	if (length($user_ref->{name}) < 2) {
-		push @$errors_ref, $Lang{error_no_name}{$lang};
+		push @{$errors_ref}, $Lang{error_no_name}{$lang};
 	}
 
 	my $address;
@@ -318,59 +360,152 @@ sub check_user_form($$) {
 	};
 	$address = 0 if $@;
 	if (not $address) {
-		push @$errors_ref, $Lang{error_invalid_email}{$lang};
+		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
+	}
+	else {
+		# If all checks have passed, reinitialize with modified email
+		$user_ref->{email} = $address;
 	}
 
-	if (($type eq 'add') or ($type eq 'suggest')) {
+	if ($type eq 'add') {
 
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
 		if (length($user_ref->{userid}) < 2) {
-			push @$errors_ref, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lang};
 		}
 		elsif (-e "$data_root/users/$userid.sto") {
-			push @$errors_ref, $Lang{error_username_not_available}{$lang};
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @$errors_ref, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
 		}
 
 		if (length(decode utf8=>param('password')) < 6) {
-			push @$errors_ref, $Lang{error_invalid_password}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
 		}
 	}
 
 	if (param('password') ne param('confirm_password')) {
-		push @$errors_ref, $Lang{error_different_passwords}{$lang};
+		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
 
+	return;
 }
 
 
 
 
-sub process_user_form($) {
+sub process_user_form($$) {
 
+	my $type = shift;
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
     my $error = 0;
 
+	$log->debug("process_user_form", { type => $type, user_ref => $user_ref }) if $log->is_debug();
+	
+	my $template_data_ref = {
+		userid => $user_ref->{userid},
+		user => $user_ref,
+		$user_ref->{requested_org_id},
+	};
+
+	
+    # Professional account with a requested org (existing or new)
+
+    if (defined $user_ref->{requested_org_id}) {
+
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+		
+		$template_data_ref->{requested_org} = $user_ref->{requested_org_id};
+				
+		my $mail = '';
+		process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			$template_data_ref->{mail_subject_new_pro_account} = URI::Escape::XS::encodeURIComponent($subject);
+			$template_data_ref->{mail_body_new_pro_account} = URI::Escape::XS::encodeURIComponent($body);
+		}
+		else {
+			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account.tt.txt", "Missing Subject line:\n\n" . $mail);
+		}
+
+		if (defined $requested_org_ref) {
+			# The requested org already exists
+			
+			$mail = '';
+			process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+			if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+				my $subject = $1;
+				my $body = $';
+				$body =~ s/^\n+//;
+				$template_data_ref->{mail_subject_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($subject);
+				$template_data_ref->{mail_body_new_pro_account_org_request_validated} = URI::Escape::XS::encodeURIComponent($body);
+			}
+			else {
+				send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_org_request_validated.tt.txt", "Missing Subject line:\n\n" . $mail);
+			}
+		}
+		else {
+			# The requested org does not exist, create it
+
+			my $org_ref = create_org($userid, $user_ref->{requested_org});
+			add_user_to_org($org_ref, $userid, ["admins", "members"]);
+
+			$user_ref->{org} = $user_ref->{requested_org_id};
+			$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
+
+			delete $user_ref->{requested_org};
+			delete $user_ref->{requested_org_id}
+		}
+		
+		# Send an e-mail notification to admins, with links to the organization
+		
+		$mail = '';
+		process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
+			my $subject = $1;
+			my $body = $';
+			$body =~ s/^\n+//;
+			
+			send_email_to_producers_admin($subject, $body);
+		}
+		else {
+			send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_admin_notification.tt.html", "Missing Subject line:\n\n" . $mail);
+		}
+	}
+
 	store("$data_root/users/$userid.sto", $user_ref);
 
 	# Update email
-	my $emails_ref = retrieve("$data_root/users_emails.sto");
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~/\@/)) {
 		$emails_ref->{$email} = [$userid];
 	}
-	store("$data_root/users_emails.sto", $emails_ref);
+	if (defined $user_ref->{old_email}) {
+		delete $emails_ref->{$user_ref->{old_email}};
+		delete $user_ref->{old_email};
+	}
+	store("$data_root/users/users_emails.sto", $emails_ref);
 
 
-	if ((param('type') eq 'add') or (param('type') eq 'suggest')) {
+	if ($type eq 'add') {
+
+		# Initialize the session to send a session cookie back
+		# so that newly created users do not have to login right after
+
+		param("user_id", $userid);
+		init_user();
+
+
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
@@ -397,7 +532,62 @@ EMAIL
     return $error;
 }
 
-sub display_login_form() {
+
+sub check_edit_owner($$) {
+
+	my $user_ref = shift;
+	my $errors_ref = shift;
+
+	$user_ref->{pro_moderator_owner} = get_string_id_for_lang("no_language", remove_tags_and_quote(param('pro_moderator_owner')));
+	
+	# If the owner id looks like a GLN, see if we have a corresponding org
+	
+	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+		not defined $glns_ref and $glns_ref = {};
+		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
+			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		}
+	}
+
+	$log->debug("check_edit_owner", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+
+	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
+		delete $user_ref->{pro_moderator_owner};
+		# Also edit the current user object so that we can display the current status directly on the form result page
+		delete $User{pro_moderator_owner};
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
+		my $userid = $';
+		# Add check that organization exists when we add org profiles
+
+		if (! -e "$data_root/users/$userid.sto") {
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+		}
+		else {
+			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$log->debug("set pro_moderator_owner (user)", { userid => $userid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+		}
+	}
+	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+		# Admin mode to see all products from all owners
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (all) see products from all owners", { pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
+		my $orgid = $';
+		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+	else {
+		# if there is no user- or org- prefix, assume it is an org
+		my $orgid = $user_ref->{pro_moderator_owner};
+		$User{pro_moderator_owner} = "org-" . $orgid;
+		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
+		$log->debug("set pro_moderator_owner (org)", { orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner} }) if $log->is_debug();
+	}
+
+	return;
 }
 
 
@@ -407,16 +597,14 @@ sub init_user()
 	my $user_ref = undef;
 	my $org_ref = undef;
 
-	my $cookie_name = 'session';
-	my $cookie_domain = "." . $server_domain;	# e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-	if (defined $server_options{cookie_domain}) {
-		$cookie_domain = "." . $server_options{cookie_domain};	# e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	my $cookie_name   = 'session';
+	my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	if ( defined $server_options{cookie_domain} ) {
+		$cookie_domain = "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 	}
 
 	$cookie = undef;
 
-	$Visitor_id = undef;
-	$Facebook_id = undef;
 	$User_id = undef;
 	$Org_id = undef;
 	%User = ();
@@ -441,10 +629,17 @@ sub init_user()
 		$user_id = remove_tags_and_quote($param_user_id) ;
 
 		if ($user_id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users_emails.sto");
 			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
+			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+			if (not defined $emails_ref->{$user_id}) {
+				# not found, try with lower case email
+				$user_id = lc $user_id;
+			}
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
+				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
+				# Trigger an error
+				return ($Lang{error_bad_login_password}{$lang}) ;
 			}
 			else {
 				my @userids = @{$emails_ref->{$user_id}};
@@ -608,8 +803,7 @@ sub init_user()
 			if ((not defined $user_ref->{'user_sessions'})
 				or (not defined $user_session)
 				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
+				or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 		    {
 				$log->debug("no matching session for user") if $log->is_debug();
 				$user_id = undef;
@@ -651,31 +845,86 @@ sub init_user()
 
 	$User_id = $user_id;
 	if (defined $user_ref) {
-		%User = %$user_ref;
+		%User = %{$user_ref};
 	}
 	else {
 		%User = ();
 	}
 
-	# The org and org_id fields are currently properties of the user object (created by administrators through user.pl)
-	# Populate $Org_id and %org_ref from the user profile.
-	# TODO: create org profiles with customer service info etc.
+	# Load the user org profile
 
 	if (defined $user_ref->{org_id}) {
 		$Org_id = $user_ref->{org_id};
-		$org_ref = { org => $user_ref->{org}, org_id => $user_ref->{org_id} };
+		$org_ref = retrieve_or_create_org($User_id, $Org_id);
 	}
 
 	if (defined $Org_id) {
-		%Org = %$org_ref;
+		%Org = %{$org_ref};
 	}
 	else {
 		%Org = ();
 	}
 
+	# if products are private, select the owner used to restrict the product set with the owners_tags field
+	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+
+		# Producers platform moderators can set the owner to any user or organization
+		if (($User{pro_moderator}) and (defined $User{pro_moderator_owner})) {
+			$Owner_id = $User{pro_moderator_owner};
+			
+			if ($Owner_id =~ /^org-/) {
+				$Org_id = $';
+				%Org = ( org => $Org_id, org_id => $Org_id );
+			}
+			elsif ($Owner_id =~ /^user-/) {
+				$Org_id = undef;
+				%Org = ();
+			}
+			elsif ($Owner_id eq 'all') {
+				$Org_id = undef;
+				%Org = ();
+			}
+			else {
+				$Owner_id = undef;
+			}
+		}
+		elsif (defined $Org_id) {
+			$Owner_id = "org-" . $Org_id;
+		}
+		elsif (defined $User_id) {
+			$Owner_id = "user-" . $User_id;
+		}
+		else {
+			$Owner_id = undef;
+		}
+	}
+	else {
+		$Owner_id = undef;
+	}
+
 	return 0;
 }
 
+sub is_ip_known_or_whitelisted {
+	my ($user_ref, $user_session, $ip, $shorten_ip) = @_;
+
+	my $short_ip = $shorten_ip->($ip);
+
+	if ((defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+	    and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip)) {
+			return 1;
+	}
+
+	if (defined $server_options{ip_whitelist_session_cookie}) {
+		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
+			if ($_ eq $ip) {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
 
 sub check_session($$) {
 
@@ -739,15 +988,11 @@ sub check_session($$) {
 
 sub save_user() {
 
-	if (defined $Facebook_id) {
-		store("$data_root/facebook_users/" . get_string_id_for_lang("no_language", $Facebook_id) . ".sto", \%User);
-	}
-	elsif (defined $User_id) {
+	if (defined $User_id) {
 		store("$data_root/users/$User_id.sto", \%User);
 	}
-	elsif (defined $Visitor_id) {
-		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
-	}
+
+	return;
 }
 
 1;

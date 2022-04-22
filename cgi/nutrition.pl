@@ -62,7 +62,7 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_id = product_id_for_user($User_id, $Org_id, $code);
+my $product_id = product_id_for_owner($Owner_id, $code);
 my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
