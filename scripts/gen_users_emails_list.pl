@@ -52,6 +52,8 @@ It contains:
 * the timestamp of the user's account creation, Unix style  (eg. "1449487961")
 * the country, computed based on IP geolocation
 * the user id
+* the newsletter field: tells if the user has registered to the Open Food Facts newsletter
+* the moderator field: tells if the user is moderator
 
 Each field is separated by a tab (TSV).
 
@@ -100,8 +102,10 @@ foreach my $userid (@userids)
 		my $cc = $user_ref->{initial_cc} || "";
 		my $t = $user_ref->{registered_t} || "";
 		my $userid = $user_ref->{userid} || "";
+		my $newsletter = $user_ref->{newsletter} || "";
+		my $moderator = $user_ref->{moderator} || "";
 		print lc($user_ref->{email}) . "\t" . $lc . "\t" .  $cc . "\t" . $t . "\t"
-			. $country . "\t" . $userid . "\n";
+			. $country . "\t" . $userid . "\t" . $newsletter . "\t" . $moderator . "\n";
 	}
 
 }
